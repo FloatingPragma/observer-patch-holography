@@ -11,11 +11,11 @@
     "c11_carrier_reproduction": true,
     "d11_exact_readout": true,
     "j10_rigidity_identity": true,
-    "literal_ivp_algebraic_consistency": false,
+    "literal_ivp_algebraic_consistency": true,
     "nonzero_law_has_positive_J10": true,
     "two_law_evaluator_agreement": true
   },
-  "checks_pass": false,
+  "checks_pass": true,
   "claim_boundary": "Both branch points are tree/chart coordinates on the strict source-audit branch. They are conditional on the discrete repair law choice, the witness-level P root, the declared D11 surface, and the open clock, RG, carrier, and BRST pole packets.",
   "d11_exact_readout": {
     "checks_pass": true,
@@ -51,22 +51,22 @@
   },
   "literal_source_ivp": {
     "algebraic_consistency": {
-      "mH_tree_equals_sqrt_2lambda_v_residual": 3.5410677723390904e-09,
-      "mt_ms_equals_yt_v_over_sqrt2_residual": 3.5410683274506027e-09
+      "mH_tree_equals_sqrt_2lambda_v_residual": 0.0,
+      "mt_ms_equals_yt_v_over_sqrt2_residual": 0.0
     },
-    "checks_pass": false,
+    "checks_pass": true,
     "display_GeV_using_unclosed_clock": {
-      "mH_tree": 115.10128055804651,
-      "mt_MSbar": 154.779273546571,
-      "mt_QCD_converted": 164.13059302729587
+      "mH_tree": 115.10128015046507,
+      "mt_MSbar": 154.77927299848702,
+      "mt_QCD_converted": 164.13059244609826
     },
     "pinned_endpoints": {
       "alpha_s_mt": 0.11067971218235456,
       "lambda_U": 0.0,
       "lambda_mt": 0.1089320070972017,
-      "mH_tree_over_E": 9.427652646867541e-18,
-      "mt_ms_over_E": 1.2677575964897074e-17,
-      "mt_qcd_converted_over_E": 1.3443518719197706e-17,
+      "mH_tree_over_E": 9.427652613483584e-18,
+      "mt_ms_over_E": 1.2677575920004912e-17,
+      "mt_qcd_converted_over_E": 1.344351867159329e-17,
       "step_doubling_absolute_difference": {
         "mH_tree_over_E": 6.965241199673102e-28,
         "mt_ms_over_E": 5.591359814545023e-28
@@ -77,7 +77,7 @@
     "provenance": {
       "bundle_sha256": "6f4a5471eb4d8ad8a5ba373b8b9ea3fb4e15620be2c8c62fbb932ffd0c56e0c9",
       "ivp_reproduced_in_repo": false,
-      "role": "hash_pinned_research_coordinate",
+      "role": "hash_pinned_ivp_couplings_recomputed_on_current_source_scale",
       "synchronization_switch_present": false
     }
   },

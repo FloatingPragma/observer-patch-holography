@@ -1,6 +1,6 @@
 # Particle Pipeline Status
 
-Generated: `2026-08-25T19:00:17Z`
+Generated: `2026-08-26T13:17:54Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `no_promotable_numerical_particle_predictions__conditional_candidates_classical_carriers_and_empirical_hadrons_separated`
@@ -91,13 +91,15 @@ Target-anchored empirical-closure diagnostics; the compare-only witness triple l
 - Independent unselected coordinates: `['sigma_u', 'sigma_d']`
 - Missing gates: `['QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM', 'QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT', 'NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD']`
 
-## Quark Axiom-Level Non-Definability
+## Quark Current-Registered-Signature Non-Identifiability
 
 - Artifact: `oph_quark_axiom_level_yukawa_moduli_nonidentifiability`
-- Status: `closed_axiom_level_nondefinability_theorem`
+- Status: `conditional_current_registered_signature_nonidentifiability_argument`
+- Machine proof supplied by emitter: `False`
+- Registry completeness verified by emitter: `False`
 - Additional axioms used: `False`
 - Counterfamily: `(lambda_u,lambda_d) in (R_{>0})^2`
-- A1-A3 structural data remain fixed: `True`
+- Conditional current-registry audit says A1-A3 structural data remain fixed: `True`
 - A3 receives no Yukawa-output map: `False`
 - Public numeric quark rows allowed: `False`
 

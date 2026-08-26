@@ -91,7 +91,7 @@ indices on one worldline (`unit_not_selected`).
 
 (5) Scope.  On the resting worldline with `u = τ` the clocked chain and
 the index chain coincide at every index, and on every moving uniform
-worldline at every timelike unit `c(n) < n` for every `n ≥ 1`
+worldline, again at `u = τ`, `c(n) < n` for every `n ≥ 1`
 (`clocked_vs_index_scope`).
 
 PRIOR WORK.  `Geometry/SourceClockRateAlongWorldlines.lean` proves the
@@ -700,9 +700,9 @@ theorem unit_not_selected (τ : ℝ) (hτ : 0 < τ) (p : Fin 12) :
 /-! ## (5) Scope -/
 
 /-- **Scope.**  On the resting worldline with `u = τ` the clocked chain and
-the index chain coincide at every index; on every uniform worldline at
-every timelike unit the clocked index is strictly below the index at
-every `n ≥ 1`. -/
+the index chain coincide at every index; on every uniform worldline, again
+at `u = τ`, the clocked index is strictly below the index at every
+`n ≥ 1`. No analogous strict comparison is asserted for arbitrary `u`. -/
 theorem clocked_vs_index_scope (τ : ℝ) (hτ : 2 < τ) (p : Fin 12) (e : Fin 30) (k : ℕ) :
     (∀ n, clockedIndex τ τ (restWorldline p) n = n) ∧
       ∀ n, 1 ≤ n → clockedIndex τ τ (uniformWorldline e k) n < n := by

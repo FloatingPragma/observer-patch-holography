@@ -48,8 +48,9 @@ number, so the ratio carries no tick.
 
 (c) Boundaries.  (i) The return process is recurrent with a non-degenerate
 return-time law: return times `1` and `2` both have positive probability
-(`returnMass_one_pos`, `returnMass_two_pos`), no single period exists
-(`no_single_period`), and no return time has probability one
+(`returnMass_one_pos`, `returnMass_two_pos`), the law is not concentrated
+at any one deterministic return interval (`no_single_period`), and no
+return time has probability one
 (`returnMass_lt_one`).  (ii) One chain step stays a declared tick: two
 ticks give two laboratory durations for the same mean return
 (`returnDuration_not_forced`, `return_tick_declaration_not_forced`).
@@ -395,8 +396,11 @@ theorem returnMass_two_pos (i : Fin 2) : 0 < returnMass i 2 := by
   exact mul_pos (chainP_pos _ _) (chainP_pos _ _)
 
 /-- (i) **Recurrent with a non-degenerate return-time law.**  No return
-time carries the whole law: for every candidate period `d` some other return time has positive
-probability, so no single period exists. -/
+time carries the whole law: for every candidate deterministic interval
+`d`, some other return time has positive probability.  The historical
+name `no_single_period` means only "not concentrated at one return
+interval".  In standard Markov-chain terminology the positive one-step
+return makes this chain aperiodic (period one), not "without a period". -/
 theorem no_single_period (i : Fin 2) :
     ¬ ∃ d : ℕ, ∀ n : ℕ, n ≠ d → returnMass i n = 0 := by
   rintro ⟨d, hd⟩

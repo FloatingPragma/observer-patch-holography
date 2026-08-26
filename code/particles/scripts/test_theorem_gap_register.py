@@ -51,10 +51,33 @@ def test_open_register_names_the_faithfulness_gate_and_the_test():
     ids = {e["id"] for e in register["open_register"]}
     assert "CARRIER_MODEL_FAITHFULNESS" in ids
     assert "CRITICALITY_BOUNDARY_SCALE_SELECTION" in ids
+    assert "ENTROPIC_W5_QUARTIC_GLOBAL_ORBIT_CLASSIFICATION" not in ids
     closed_ids = {e["id"] for e in register["closed_this_program"]}
+    assert "ENTROPIC_CONDITIONED_BRANCH_NO_GO" not in closed_ids
+    assert "ENTROPIC_CUBIC_C5_GLOBAL_EXTREMUM" in closed_ids
+    assert "ENTROPIC_QUARTIC_W5_GLOBAL_MINIMIZER_CLASSIFICATION" in closed_ids
     assert "AR_PREMISE_REDUCTION" in closed_ids
     assert "CF1_CF2_MODEL_LEVEL_CENSUS" in closed_ids
     assert register["promotion_allowed"] is False
+
+
+def test_entropic_w5_cubic_and_quartic_minimizer_theorems_are_closed():
+    register = lane.build()
+    cubic_row = next(
+        entry
+        for entry in register["closed_this_program"]
+        if entry["id"] == "ENTROPIC_CUBIC_C5_GLOBAL_EXTREMUM"
+    )
+    quartic_row = next(
+        entry
+        for entry in register["closed_this_program"]
+        if entry["id"] == "ENTROPIC_QUARTIC_W5_GLOBAL_MINIMIZER_CLASSIFICATION"
+    )
+    assert cubic_row["class"] == "closed"
+    assert "closing only the leading cubic" in cubic_row["statement"]
+    assert quartic_row["class"] == "closed"
+    assert "support-two boundary branch" in quartic_row["statement"]
+    assert "not the physical attachment" in quartic_row["statement"]
 
 
 def test_markdown_renders_both_sections():

@@ -233,9 +233,11 @@ def build_artifact(
             and base_fiber.get("fiber") == "(R_{>0})^2"
             and base.get("public_promotion_allowed") is False
         ),
-        "axiom_level_theorem_intact": (
+        "current_signature_argument_intact": (
             axiom.get("artifact") == "oph_quark_axiom_level_yukawa_moduli_nonidentifiability"
-            and axiom.get("proof_status") == "closed_axiom_level_nondefinability_theorem"
+            and axiom.get("proof_status")
+            == "conditional_current_registered_signature_nonidentifiability_argument"
+            and axiom.get("machine_proof") is False
             and axiom.get("source_only_numeric_quark_spectrum_emitted") is False
         ),
         "matter_documents_coefficient_blind": all(

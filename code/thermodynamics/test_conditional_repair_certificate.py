@@ -230,16 +230,67 @@ def test_realization_probe_exhausts_committed_field_subset_projections():
 
     committed = json.loads(probe.PROBE_PATH.read_text())
     audit = committed["raw_coarsening_audit"]
-    assert audit["quotient_count"] == 15
     assert len(audit["rows"]) == 15
-    assert audit["nontrivial_irreducible_syntactic_quotient_count"] == 4
-    assert audit["nontrivial_irreducible_reversible_count"] == 0
+    assert {
+        tuple(row["packet_fields"]) for row in audit["rows"]
+    } == {
+        ("record_family",),
+        ("checkpoint_class",),
+        ("s3_sector_class",),
+        ("repair_load_bucket",),
+        ("record_family", "checkpoint_class"),
+        ("record_family", "s3_sector_class"),
+        ("record_family", "repair_load_bucket"),
+        ("checkpoint_class", "s3_sector_class"),
+        ("checkpoint_class", "repair_load_bucket"),
+        ("s3_sector_class", "repair_load_bucket"),
+        ("record_family", "checkpoint_class", "s3_sector_class"),
+        ("record_family", "checkpoint_class", "repair_load_bucket"),
+        ("record_family", "s3_sector_class", "repair_load_bucket"),
+        ("checkpoint_class", "s3_sector_class", "repair_load_bucket"),
+        (
+            "record_family",
+            "checkpoint_class",
+            "s3_sector_class",
+            "repair_load_bucket",
+        ),
+    }
+    assert audit["syntactic_coordinate_map_count"] == 15
+    assert audit["distinct_induced_partition_count"] == 4
+    assert len(
+        {
+            tuple(
+                tuple(block)
+                for block in row["induced_fine_partition_blocks"]
+            )
+            for row in audit["rows"]
+        }
+    ) == 4
+    assert audit["nontrivial_irreducible_syntactic_map_count"] == 4
+    assert audit["nontrivial_irreducible_reversible_syntactic_map_count"] == 0
+
+    scope = audit["enumeration_scope"]
+    assert scope["exhaustive_within_declared_coordinate_grammar"] is True
+    assert scope["syntactic_maps_may_induce_duplicate_partitions"] is True
+    assert scope["arbitrary_set_partitions_enumerated"] is False
+    assert scope["nonlinear_maps_enumerated"] is False
+    assert scope["statistical_or_learned_maps_enumerated"] is False
+    assert scope["stochastic_maps_enumerated"] is False
+    assert scope["history_dependent_maps_enumerated"] is False
+    assert scope["weak_lumpability_tested"] is False
+    assert (
+        scope["arbitrary_strongly_lumpable_partition_search_performed"]
+        is False
+    )
+    assert scope["exact_lumpability_proof_emitted"] is False
 
     selected = audit["selected_raw_equilibrium_probe"]
     assert selected["packet_fields"] == ["repair_load_bucket"]
     assert selected["state_count"] == 8
     assert selected["irreducible"] is True
     assert selected["aperiodic"] is True
+    assert selected["fine_chain_strongly_lumpable_at_tolerance"] is False
+    assert selected["fine_chain_strong_lumpability_max_err"] > 0.9
     assert selected["stationary_min"] > 0.0
     assert selected["detailed_balance_max_err"] > probe.DB_TOL
     assert selected["microscopic_reversibility_claimed"] is False
@@ -248,6 +299,24 @@ def test_realization_probe_exhausts_committed_field_subset_projections():
         selected["common_reference_with_state_optimizer_identified"]
         is False
     )
+
+
+def test_realization_probe_status_keeps_other_quotient_maps_open():
+    import collar_matrix_realization_probe as probe
+
+    committed = json.loads(probe.PROBE_PATH.read_text())
+    assert "OTHER_QUOTIENT_MAPS_OPEN" in committed["status"]
+    assert "ONLY_RECURRENT_RESTRICTION" not in committed["status"]
+    verdict = committed["verdict"]["receipt_state"]
+    for route in (
+        "nonlinear",
+        "statistical",
+        "stochastic",
+        "history-dependent",
+        "weakly lumpable",
+        "partition-based",
+    ):
+        assert route in verdict
 
 
 def test_realization_probe_recurrent_route_is_singleton_freezeout():

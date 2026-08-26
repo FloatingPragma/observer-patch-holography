@@ -396,6 +396,11 @@ def build_payload(
         "axiom_level_yukawa_moduli_nonidentifiability": {
             "artifact": axiom_level_yukawa_obstruction["artifact"],
             "proof_status": axiom_level_yukawa_obstruction["proof_status"],
+            "scope_kind": axiom_level_yukawa_obstruction["scope_kind"],
+            "machine_proof": axiom_level_yukawa_obstruction["machine_proof"],
+            "registered_signature_completeness_verified_by_emitter": axiom_level_yukawa_obstruction[
+                "registered_signature_completeness_verified_by_emitter"
+            ],
             "theorem_statement": axiom_level_yukawa_obstruction["theorem_statement"],
             "additional_axioms_used": axiom_level_yukawa_obstruction["additional_axioms_used"],
             "counterfamily": axiom_level_yukawa_obstruction["counterfamily"],

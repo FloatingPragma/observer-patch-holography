@@ -116,7 +116,9 @@ p_{\rm eff}=p+\frac{\sigma_{ab}\pi^{ab}}{\Theta};
 then \(\dot\rho+\Theta(\rho+p_{\rm eff})=0\).
 
 \textbf{Theorem (exact total-curvature evolution).}\label{thm:oph-total-curvature-evolution}
-Let
+Work on an open flow domain on which
+\(\Theta\ne0\), \(\dot\rho\ne0\), and
+\(\rho+p_{\rm eff}\ne0\), so every quotient below is defined. Let
 \[
 \dot\alpha=\Theta/3,\qquad
 \zeta_a=\nabla_a\alpha-\frac{\dot\alpha}{\dot\rho}\nabla_a\rho,
@@ -183,14 +185,18 @@ Let
 be the scalar source map on the source moduli space.  A branch is rank-one
 single-clock when \(\operatorname{rank}d\mathcal F=1\), \(d\rho\ne0\), every
 level set of \(\rho\) is connected, all sector velocities agree with \(u^a\),
-and orthogonal momentum transfer vanishes or is interval-bounded.  At finite
-cutoff this requires a quotient-visible clock \(\chi_r\) and a factorization
+and orthogonal momentum transfer vanishes. An approximate single-clock branch
+may instead carry an explicit interval bound on that transfer, but the bound
+must then be propagated into the transfer and curvature-evolution residuals.
+At finite cutoff this requires a quotient-visible clock \(\chi_r\) and a factorization
 \[
 \mathcal F_r=\widehat{\mathcal F}_r\circ\chi_r .
 \]
 
 \textbf{Theorem (single-clock adiabaticity).}\label{thm:oph-single-clock-adiabaticity}
-On a rank-one single-clock branch,
+On an exact rank-one single-clock branch, and for the dynamically
+nondegenerate sectors \(I,J\) under discussion with
+\(\dot\rho_I\ne0\) and \(\dot\rho_J\ne0\),
 \[
 p_{\rm eff}=p_{\rm eff}(\rho),\qquad
 S_a^{IJ}=3(\zeta_a^I-\zeta_a^J)=0,
@@ -199,7 +205,8 @@ and the intrinsic nonadiabatic pressure and transfer covectors obey
 \[
 \Gamma_a^I=0,\qquad \Xi_a^I=0 .
 \]
-Therefore \(\mathcal L_u\zeta_a=0\).  The proof is the chain rule through the
+On the nonvanishing domain of the total-curvature theorem, therefore
+\(\mathcal L_u\zeta_a=0\). The proof is the chain rule through the
 single clock: every source scalar is a function of the same \(\chi\), and
 connected \(\rho\)-fibers remove residual branch labels.
 
@@ -214,6 +221,10 @@ that
 \[
 \|P_\perp L_rP_\perp\|_{H_r}\le e^{-\gamma_r}<1,
 \]
+and the projected sector is not sourced by the complementary block,
+\[
+P_\perp L_r=P_\perp L_rP_\perp,
+\]
 then
 \[
 \|P_\perp\delta Y_n\|_{H_r}
@@ -223,19 +234,23 @@ e^{-n\gamma_r}\|P_\perp\delta Y_0\|_{H_r}
 \sum_{j=0}^{n-1}e^{-(n-1-j)\gamma_r}\|P_\perp\eta_j\|_{H_r}.
 \]
 In the unforced case the orthogonal entropy, decaying, and repair scalar
-modes vanish.  Eigenvalues alone do not certify this theorem for nonnormal
+modes decay exponentially and converge to zero; they need not vanish after a
+finite number of steps. If the block-invariance identity is absent, the term
+\(P_\perp L_r(1-P_\perp)\delta Y_n\) must instead be included in the forcing
+bound. Eigenvalues alone do not certify this theorem for nonnormal
 repair matrices; a norm bound or a discrete Lyapunov inequality
 \[
 L_\perp^{\mathsf T}H L_\perp\preceq e^{-2\gamma}H
 \]
 is required.
 
-\textbf{Theorem (growing-mode coherence).}\label{thm:oph-growing-mode-coherence}
+\textbf{Theorem (exact and approximate growing-mode coherence).}\label{thm:oph-growing-mode-coherence}
 Let \(X(k)\) collect the scalar initial-condition variables for curvature,
 radiation, baryons, CDM/anomaly, neutrinos, and repair-sector scalars, and let
-\(v_+(k)\) be the normalized adiabatic growing vector.  If the single-clock
-and repair-gap theorems hold through readout and no independent stochastic
-source acts afterward, then
+\(v_+(k)\) be the normalized adiabatic growing vector. Assume the single-clock
+and repair-gap theorems hold through readout and the growing/orthogonal
+splitting is invariant. If the initial orthogonal component is zero and no
+forcing or independent stochastic source has an orthogonal component, then
 \[
 X(k)=v_+(k)\zeta(k),
 \qquad
@@ -243,6 +258,13 @@ X(k)=v_+(k)\zeta(k),
 \]
 Thus \(\operatorname{rank}\mathcal P_X(k)=1\), source-side isocurvature
 fractions vanish, and all species share a deterministic growing-mode phase.
+Without those exact zero-component hypotheses, the repair-gap estimate gives
+only
+\[
+X_n(k)=v_+(k)\zeta_n(k)+\varepsilon_{\perp,n}(k),
+\]
+with \(\varepsilon_{\perp,n}\) bounded by the preceding geometric-series
+inequality; strict contraction alone does not make it zero at finite readout.
 Finite runs must report \(\lambda_2/\lambda_1\), \(\beta_{\rm iso}(k)\),
 decaying-mode fraction, and phase-convention defects as source diagnostics.
 
@@ -358,9 +380,12 @@ r_\ell=C_\ell^q-\widehat C_\ell .
 A finite prior, regularizer, positivity constraint, or square discretization
 selects one representative from a nonunique shell equivalence class. Its typed
 output is \textsc{ConditionalRadialContinuation}. A source-derived primordial
-packet requires the common source, scale, mode, null-space, positivity,
-ancestry, and non-fitting forward-residual receipts together with one exact
-uniqueness branch from the radial theorem packet below. If the geometry packet
+packet using either radial route certified below requires the common source,
+scale, mode, null-space, positivity, ancestry, and non-fitting forward-residual
+receipts together with that route's exact uniqueness certificate. Another
+source-restricted injective construction may be used if it supplies its own
+orbit-separation theorem and the same physical and no-target-leak interfaces.
+If the geometry packet
 is imported, the result is
 \emph{conditional physical}; a \emph{source-native physical} result requires the
 native \(\mathsf{CosmoGeomRead}_r\) theorem.

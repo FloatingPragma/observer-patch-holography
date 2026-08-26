@@ -85,7 +85,7 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
     PipelineStep(
         "quark_axiom_level_yukawa_moduli_nonidentifiability",
         "particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
-        "Refresh the A1-A3 Yukawa-output non-definability theorem.",
+        "Refresh the conditional current-signature Yukawa counterfamily argument.",
     ),
     PipelineStep(
         "quark_sigma_source_boundary",
@@ -362,9 +362,20 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         ),
     ),
     PipelineStep(
+        "entropy_w5_shape_certificate",
+        "particles/flavor/entropy_w5_shape_certificate.py",
+        (
+            "Refresh the exact strict-domain and closed-simplex global "
+            "quartic W5 minimizer classification."
+        ),
+    ),
+    PipelineStep(
         "charged_entropic_branch_no_go",
         "particles/leptons/derive_charged_entropic_branch_no_go.py",
-        "Refresh the entropic conditioned-branch no-go certificate.",
+        (
+            "Refresh the exact cubic extremum and consume the exact quartic "
+            "global-minimizer certificate with its boundary-route scope."
+        ),
     ),
     PipelineStep(
         "up_type_register_exponent_scan",

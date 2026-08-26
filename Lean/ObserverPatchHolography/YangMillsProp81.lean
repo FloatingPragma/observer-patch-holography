@@ -11,7 +11,7 @@ Yang–Mills Mass Gap with Observer-Patch Repair Dynamics* (r1515):
 > paper's case is finite-dimensional — formalized in the natural generality,
 > only completeness is consumed), and let `P₀ = ∏ₐ Eₐ` be their
 > (non-commutative) product — the
-> orthogonal projection onto the joint fixed space `⋂ₐ Ran Eₐ` (the "constants").
+> orthogonal projection onto the joint fixed space `⋂ₐ Ran Eₐ`.
 > Then for any constant rate `c_* > 0`,
 > `      c_* · (I − P₀)  ≤  ∑ₐ c_* · (I − Eₐ),`
 > a strictly positive finite-stage spectral gap `Δ ≥ c_*`.
@@ -24,10 +24,12 @@ proved by induction on the finite index set with the two-projection step
 
 ## Honest scope (read this first)
 
-This is an **implication**, nothing more. "The colors mutually commute and their
-joint range is the constants" is a **hypothesis** here (`hE`, `hc`, `hprod`), the
-paper's *physical modelling* claim about Yang–Mills' actual relaxation — it is
-discharged **nowhere** in Lean. And this gap is `Δ_rep`, the finite-stage
+This is an **implication**, nothing more.  The star-projection, commutation, and
+product-identification clauses are hypotheses here (`hE`, `hc`, `hprod`).  A
+further physical identification of their joint range with a constants sector is
+not encoded in the signature and is discharged nowhere in Lean.  These are the
+paper's modelling obligations for Yang–Mills' actual relaxation.  This gap is
+`Δ_rep`, the finite-stage
 **representation** gap: it says **nothing** about `Δ_YM`. The continuum
 certificate that would bridge them (Müller's **Assumption 9.2**: Schwinger
 convergence, reflection positivity, Osterwalder–Schrader, non-triviality) is the
@@ -39,18 +41,23 @@ projections. That fact is the real residue; the "mass gap" is rhetoric around it
 
 ## Integration
 
-The sibling `ObserverPatchHolography.YangMillsGap` assembly module states
-`prop_8_1` (and `thm_7_3_finite_gap`) with the **identical** signature carried
-here; its `prop_8_1` obligation is discharged by direct import of
+The sibling `ObserverPatchHolography.YangMillsGap` assembly module re-exports
+`prop_8_1` with the identical signature carried here; that obligation is
+discharged by direct import of
 `ObserverPatchHolography.YangMillsProp81.prop_8_1` below:
 ```
 exact ObserverPatchHolography.YangMillsProp81.prop_8_1 s Ec P0 hE hc hprod hcpos
 ```
 
-SCOPE, verbatim: Machine-checked: the finite representation gap Δ_rep ≥ c_* > 0
-(Lemma 7.2 / Lemma 7.4 / Prop 8.1 / Thm 7.3 assembly) and the conditional
-reduction "Assumption 9.2 + finite gap ⇒ Δ_YM ≥ c_*". Assumption 9.2 itself is
-stated as an explicit hypothesis and is not touched.
+`thm_7_3_finite_gap` then combines this inequality with a uniform floor on
+directly assumed positive collar rates.  It does not consume Lemma 7.2; no Lean
+theorem currently bridges that uniform-fiber matrix coefficient to the collar
+rate argument.
+
+SCOPE: machine-checked here is the commuting-projection inequality and its
+constant-rate finite representation-gap form.  The variable-rate assembly is
+conditional on supplied positive rates, and the continuum reduction remains
+conditional on Assumption 9.2, which is not touched here.
 -/
 
 namespace ObserverPatchHolography.YangMillsProp81
@@ -180,8 +187,9 @@ theorem one_sub_noncommProd_le_sum {ι : Type*} (p : ι → E →L[ℝ] E) :
 /-! ## Proposition 8.1 and corollaries -/
 
 /-- **The joint projector is a projection.** `P₀ = ∏ₐ Eₐ` is a star projection,
-so `I − P₀` is a genuine complementary orthogonal projection — this is what makes
-the "spectral gap on the orthogonal complement of the constants" reading honest. -/
+so `I − P₀` is a genuine complementary orthogonal projection.  Formally this is
+the complement of the joint fixed range; identifying that range with a physical
+constants sector is a separate premise not represented here. -/
 theorem prod_isStarProjection {ι : Type*} (s : Finset ι) (Ec : ι → (E →L[ℝ] E))
     (P0 : E →L[ℝ] E) (hE : ∀ a ∈ s, IsStarProjection (Ec a))
     (hc : (↑s : Set ι).Pairwise (Function.onFun Commute Ec))
@@ -196,7 +204,7 @@ joint projector `P₀`, and any constant rate `c_* > 0`,
 `      c_* · (I − P₀)  ≤  ∑ₐ c_* · (I − Eₐ).`
 
 Signature-compatible with `ObserverPatchHolography.YangMillsGap.prop_8_1`; this
-theorem discharges that module's named `sorry`. -/
+theorem is re-exported there by direct import. -/
 theorem prop_8_1 {ι : Type*} (s : Finset ι) (Ec : ι → (E →L[ℝ] E)) (P0 : E →L[ℝ] E)
     (hE : ∀ a ∈ s, IsStarProjection (Ec a))
     (hc : (↑s : Set ι).Pairwise (Function.onFun Commute Ec))
@@ -207,8 +215,9 @@ theorem prop_8_1 {ι : Type*} (s : Finset ι) (Ec : ι → (E →L[ℝ] E)) (P0 
   exact smul_le_smul_clm (one_sub_noncommProd_le_sum Ec s hE hc) hcpos.le
 
 /-- **Rayleigh form of Proposition 8.1 (the "gap ≥ c_*" as usually quoted).**
-On the orthogonal complement of the constants (`P₀ x = 0`), the constant-rate
-generator `L̃ = ∑ₐ c_* · (I − Eₐ)` satisfies `⟪L̃ x, x⟫ ≥ c_* · ‖x‖²`. -/
+On the complement of the joint fixed range (`P₀ x = 0`), the constant-rate
+generator `L̃ = ∑ₐ c_* · (I − Eₐ)` satisfies `⟪L̃ x, x⟫ ≥ c_* · ‖x‖²`.
+No physical constants-space identification is encoded. -/
 theorem prop_8_1_gap {ι : Type*} (s : Finset ι) (Ec : ι → (E →L[ℝ] E)) (P0 : E →L[ℝ] E)
     (hE : ∀ a ∈ s, IsStarProjection (Ec a))
     (hc : (↑s : Set ι).Pairwise (Function.onFun Commute Ec))

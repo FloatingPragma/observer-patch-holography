@@ -115,7 +115,14 @@ def test_final_end_to_end_predictions_preserve_scientific_boundaries_and_values(
     assert charged_boundary["current_closed_chain"]["P_to_A_ch"] is False
     axiom_boundary = payload["quark_axiom_level_nondefinability"]
     assert axiom_boundary["artifact"] == "oph_quark_axiom_level_yukawa_moduli_nonidentifiability"
-    assert axiom_boundary["proof_status"] == "closed_axiom_level_nondefinability_theorem"
+    assert axiom_boundary["proof_status"] == (
+        "conditional_current_registered_signature_nonidentifiability_argument"
+    )
+    assert axiom_boundary["scope_kind"] == (
+        "current_registered_signature_not_all_future_OPH_completions"
+    )
+    assert axiom_boundary["machine_proof"] is False
+    assert axiom_boundary["registered_signature_completeness_verified_by_emitter"] is False
     assert axiom_boundary["additional_axioms_used"] is False
     assert axiom_boundary["counterfamily"]["parameter_space"] == (
         "(lambda_u,lambda_d) in (R_{>0})^2"

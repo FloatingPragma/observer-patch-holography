@@ -38,9 +38,10 @@ magnitude in both coordinates, plus the operating point itself.
 Corollary (content of K1). The persistence certificates are a filter, not
 a generator: deriving a kernel that merely passes them cannot emit
 rho_ord, x2, or the spans. The load-bearing content of the issue-377
-program is a selection principle for the transport operator itself, which
-on the current corpus is exactly the statement of the axiom-level
-nonidentifiability theorem transported to the operator side.
+program is a selection principle for the transport operator itself. This exact
+kernel-family freedom is the operator-side analogue of the positive-rescaling
+counterfamily; its application to all currently registered OPH source data
+retains the separate registry-completeness premise.
 
 No quark reference value, fitted spread, or flavor template enters any
 step; the construction is target-free by inspection and the witness grid
@@ -279,10 +280,11 @@ def build() -> dict:
             "theorem."
         ),
         "relation_to_nonidentifiability": (
-            "This is the operator-side transport of the axiom-level "
-            "nonidentifiability theorem: the free (R_>0)^2 spread fiber "
-            "reappears as the free (r, s) invariant space of "
-            "certificate-passing kernels."
+            "This exact kernel-family freedom is the operator-side analogue of the "
+            "positive-rescaling counterfamily: the free (R_>0)^2 spread fiber "
+            "reappears as the free (r, s) invariant space of certificate-passing "
+            "kernels. Its current-OPH interpretation remains conditional on the "
+            "registered source signature containing no orbit-separating datum."
         ),
     }
 

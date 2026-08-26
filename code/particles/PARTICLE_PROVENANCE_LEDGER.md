@@ -1,6 +1,6 @@
 # Particle Provenance Ledger
 
-Generated: `2026-08-14T05:35:45Z`
+Generated: `2026-08-26T13:17:22Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 

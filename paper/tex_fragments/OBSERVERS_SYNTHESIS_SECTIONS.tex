@@ -43,8 +43,9 @@ overlap-invariant quotient, and the induced terminal state on the declared physi
 algebras is unique there even when microscopic representatives differ by gauge or sector
 relabelings inside one quotient-local glued state.
 \item \textbf{Record algebra and stability.} On the declared fixed-cutoff observer-accessible
-operator surface, a separately declared algebra-state representation makes the central record
-projectors carry the Born/L\"uders rules, while
+operator surface, a separately declared algebra-state representation and
+L\"uders instrument make the central record projectors carry the corresponding
+Born/L\"uders rules. The projectors alone do not select that instrument, while
 approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability
 bounds on that same event surface. This is a theorem about the stated algebraic record interface,
 not a requirement that OPH first rebuild every mathematical ingredient from operational records alone.
@@ -1054,20 +1055,23 @@ evidence enters only through a public, hash-stable evidence bundle.
 The OPH-FPE simulator provides finite-run receipts and replayable experiment
 bundles~\cite{ophfpe}.
 
-\paragraph{Imported theorem from Ref.~\cite{ophmicrophysics} (Fixed-cutoff record algebra and Born-L\"uders package).}
+\paragraph{Imported conditional theorem from Ref.~\cite{ophmicrophysics} (Fixed-cutoff record algebra and declared Born--L\"uders package).}
 For each completed compare/write/verify slice of the regulated microphysics, the declared pointer
 and overlap-sector projectors generate a finite commutative central record algebra
 \[
 \mathcal Z_{\mathrm{rec}}.
 \]
-Every observer-accessible event \(E\) in that algebra has probability
+Given the supplied density-state valuation and declared L\"uders instrument,
+every observer-accessible event \(E\) in that algebra has probability
 \[
 \mathbb P(E)=\operatorname{Tr}(\rho P_E),
 \]
-and conditioning on \(E\) gives the operational post-measurement state
+and the selected conditioning on \(E\) gives the operational post-measurement state
 \[
 \rho\!\mid_E = \frac{P_E \rho P_E}{\operatorname{Tr}(\rho P_E)}.
 \]
+The effect projectors do not determine this instrument; same-effect
+non-L\"uders instruments remain possible.
 If a practical readout instead uses projectors \(Q_a\) with commuting central reference
 projectors \(\widehat Q_a\) on the same declared slots and
 \[
@@ -1302,7 +1306,8 @@ Quantity & Value & Derivation chain & Caveat \\
 \par}
 
 \paragraph{Conditional electroweak comparison coordinates.}
-The strictest target-free \(W/Z\) branch is the source-side zero-selector law,
+The evaluated strictest target-free \(W/Z\) branch is a declared,
+not source-selected zero-selector map,
 \((80.330,91.119)~\mathrm{GeV}\), with no target input and a single discrete
 two-law choice. This is a running/chart coordinate, not a physical pole-mass
 prediction. The source does not close the renormalized-vev, tadpole,

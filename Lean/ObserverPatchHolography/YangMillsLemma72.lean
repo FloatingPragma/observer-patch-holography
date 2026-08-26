@@ -29,18 +29,22 @@ problem and is **untouched, unassumed, unclaimed**.
 ## Integration
 
 Extracted verbatim from the retired single-file artifact `RepairGap.lean`
-(Part I; now consolidated into these modules — see git history) so the assembly
-module `ObserverPatchHolography.YangMillsGap` can discharge its `lemma_7_2`
-obligation by direct import:
+(Part I; now consolidated into these modules — see git history).  The assembly
+module `ObserverPatchHolography.YangMillsGap` re-exports this theorem by direct
+import:
 ```
 exact ObserverPatchHolography.YangMillsLemma72.lemma_7_2 hF D hPSD hComm hKer
 ```
 (the two `EF` definitions are token-identical, hence definitionally equal).
+That re-export is not a composition into `thm_7_3_finite_gap`: the latter takes
+positive collar rates directly and no theorem currently bridges this matrix
+relaxation and its coefficient to those Hilbert-space collar data.
 
-SCOPE, verbatim: Machine-checked: the finite representation gap Δ_rep ≥ c_* > 0
-(Lemma 7.2 / Lemma 7.4 / Prop 8.1 / Thm 7.3 assembly) and the conditional
-reduction "Assumption 9.2 + finite gap ⇒ Δ_YM ≥ c_*". Assumption 9.2 itself is
-stated as an explicit hypothesis and is not touched.
+SCOPE: machine-checked here is the conditional uniform-fiber statement
+`D = c_F (I - E_F)` with `c_F > 0`.  The separate commuting-projection assembly
+proves a finite representation gap from directly assumed positive collar rates;
+no Lean theorem connects this `c_F` to those rates.  The continuum reduction
+also remains conditional on Assumption 9.2, which is not touched here.
 -/
 
 open scoped Matrix

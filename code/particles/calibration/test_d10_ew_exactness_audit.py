@@ -60,6 +60,7 @@ def test_d10_exactness_audit_records_mass_ratio_identity_obstruction() -> None:
     assert payload["exact_closure_beyond_current_carrier"]["status"] == "closed"
     assert payload["fiberwise_population_tree_law_beneath_single_tree_identity"]["status"] == "closed_smaller_primitive"
     assert payload["tau2_current_carrier_obstruction"]["status"] == "closed_smaller_primitive"
+    assert payload["current_carrier_closure_summary"]["current_carrier_obstruction_certified"] is True
     assert payload["exact_mass_pair_chart_current_carrier"]["status"] == "closed_smaller_primitive"
     current_pair = payload["current_carrier_closure_summary"]["current_carrier_exact_mass_pair"]
     assert abs(current_pair["MW_pole"] - 80.38629169244275) < 1.0e-12

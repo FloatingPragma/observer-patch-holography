@@ -261,8 +261,12 @@ and use the matching hyperspherical kernels.
 \end{theorem}
 
 \begin{theorem}[screen-to-spatial mode association]\label{thm:screen-to-spatial-mode-association}
-There is no physical theorem of the form \(\ell_{\rm src}\mapsto k\).  The spatial geometry defines
-the physical \(k\)-basis, and the source embedding plus radial window define a forward projection
+The angular label \(\ell_{\rm src}\) alone does not determine a physical
+spatial wavenumber \(k\). A source-restricted mode family, special geometry,
+radial eigenmode selection, or another typed embedding may establish such an
+association and is not excluded. In the forward-projection construction used
+here, the spatial geometry defines the physical \(k\)-basis, and the source
+embedding plus radial window define a projection
 from that basis to the screen:
 \[
 \Psi_{\ell j}^{(K)}=
@@ -417,7 +421,9 @@ boundary approximation.  Physical scale-bridge receipts require Cauchy or conver
 \[
 \left|\int f(k)\,d\nu_s(k)-\int f(k)\,d\nu_r(k)\right|\to0
 \]
-for every bounded test function \(f\),
+for every bounded Lipschitz \(f\) in a specified convergence-determining
+class, with convergent total masses and uniform tightness of the finite
+spectral measures,
 \[
 |a_s-a_r|_\infty+|H_s-H_r|_\infty+|\eta_s-\eta_r|_\infty\to0,
 \]

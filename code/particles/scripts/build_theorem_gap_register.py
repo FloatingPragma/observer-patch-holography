@@ -101,24 +101,36 @@ def closed_entries() -> list[dict[str, Any]]:
             ),
         },
         {
-            "id": "ENTROPIC_CONDITIONED_BRANCH_NO_GO",
+            "id": "ENTROPIC_CUBIC_C5_GLOBAL_EXTREMUM",
             "family": "charged leptons",
             "class": "closed",
             "statement": (
-                "at leading cubic order in the band amplitude the "
-                "parameter-free entropic conditioned branch selects the "
-                "C5-axis orbit, whose spectrum is exactly degenerate (two "
-                "equal charged masses) in both orientations; at quartic "
-                "order the same packet emits a simple-spectrum golden-ratio "
-                "branch above the exact crossing amplitude, excluded by "
-                "comparison with the measured charged-lepton shape at 16.7 "
-                "percent only; the second of the three candidate mechanisms "
-                "is closed at cubic order, excluded by comparison at quartic "
-                "order, and open beyond quartic truncation; the surviving "
-                "route is a source-emitted charged interaction off the "
-                "entropic ray, inside the simple-spectrum region"
+                "the W5 unit sphere reduces exactly to six antipodal-pair "
+                "values with zero sum; the Lagrange equation for S3 makes "
+                "every stationary coordinate a root of one quadratic, and "
+                "enumerating multiplicities 1 through 5 proves the global "
+                "maximum 2/sqrt(15) is the C5-axis orbit. Its exact "
+                "quadrupole spectrum has a double eigenvalue, closing only "
+                "the leading cubic entropy truncation"
             ),
             "artifact": "runs/leptons/charged_entropic_branch_no_go.json",
+        },
+        {
+            "id": "ENTROPIC_QUARTIC_W5_GLOBAL_MINIMIZER_CLASSIFICATION",
+            "family": "charged leptons",
+            "class": "closed",
+            "statement": (
+                "the six-pair reduction, exact three-root saddle factors, "
+                "five two-value multiplicity formulas, and closed-simplex "
+                "face factorizations classify every global minimizer of the "
+                "quartic-truncated entropy packet. Strict full support selects "
+                "m=1 below r_c, ties m=1/m=2 at r_c, selects m=2 up to "
+                "sqrt(24), and has only an unattained boundary infimum above; "
+                "the closed simplex instead selects a support-two boundary "
+                "branch. This closes the minimizer theorem, not the physical "
+                "attachment or the full entropy mechanism"
+            ),
+            "artifact": "runs/flavor/entropy_w5_shape_certificate.json",
         },
         {
             "id": "KOIDE_CIRCULANT_IDENTITY",
@@ -324,11 +336,12 @@ def open_entries() -> list[dict[str, Any]]:
             "family": "charged leptons",
             "class": "research_open",
             "statement": (
-                "derive a screen-selected A5-invariant potential and prove "
-                "that its global orbit selection emits the charged-family "
-                "shape. Stabilizer symmetry alone cannot do this: C3/C5 "
-                "force degeneracy and the C2 fixed locus retains exactly two "
-                "projective shape parameters"
+                "derive the source amplitude and physical W5-to-log-mass "
+                "attachment, control regularization and the entropy remainder "
+                "near zero weights, and extend the exact quartic minimizer "
+                "classification to the operative higher-order/full-entropy "
+                "selector. The support-two boundary branch keeps this route "
+                "viable; stabilizer symmetry alone remains insufficient"
             ),
         },
         {

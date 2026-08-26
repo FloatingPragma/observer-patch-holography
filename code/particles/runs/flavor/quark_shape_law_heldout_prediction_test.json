@@ -22,20 +22,20 @@
     ],
     "x2": -0.5175863354681689
   },
-  "generated_utc": "2026-07-12T04:57:38Z",
+  "generated_utc": "2026-08-26T13:19:32Z",
   "github_issues": [
     377,
     379,
     380
   ],
   "guards": {
+    "conditional_current_signature_argument_unaffected": true,
     "measured_values_in_solve_paths": "only the predeclared calibration inputs listed per version",
-    "nonidentifiability_theorem_unaffected": true,
     "public_promotion_allowed": false,
     "source_only_prediction": false
   },
   "notes": [
-    "This artifact is the intermediate scientific test between the closed nonidentifiability theorem and a future source-only derivation: it measures how much of the quark spectrum the frozen candidate structure carries once the two free moduli are supplied by predeclared calibration or by the edge ansatz.",
+    "This artifact is an intermediate scientific test between the conditional current-signature nonidentifiability argument and a future source-only derivation: it measures how much of the quark spectrum the frozen candidate structure carries once the two free moduli are supplied by predeclared calibration or by the edge ansatz.",
     "No version emits a source-only quark mass and none is a public prediction row; the display class is a conditional candidate audit.",
     "The template dependence of rho_ord is quantified in the companion sensitivity audit; the issue-377 closure program (OPH-derived kernel with a normalized spectral scale) is the declared route to removing every conditional layer at once."
   ],

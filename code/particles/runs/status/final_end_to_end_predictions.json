@@ -340,7 +340,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-08-25T19:00:17Z",
+  "generated_utc": "2026-08-26T13:17:54Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -413,6 +413,7 @@
         "primitive_carrier_not_selected_here": true,
         "readback_uses_same_n_crc_ew": true,
         "resonance_certificate_is_exact_conditional": true,
+        "screen_and_product_adjoint_counts_are_independently_sourced": true,
         "screen_sieve_supplies_twelve_ports_and_x_over_twelve": true,
         "si_lambda_not_promoted_here": true
       },
@@ -440,14 +441,18 @@
         "conditional_hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
         "conditional_tick_form": "v/E_cell = |g_*'|^(4*P_star)",
         "conditional_transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",
+        "equal_cardinality_status": "arithmetic_alignment_without_physical_identification",
         "gamma_screen_algebra": "Gamma_screen=(P_star/12)*log(N_CRC^EW/pi)",
         "identification_premise": "HIERARCHY-SCREEN-READOUT",
         "identification_status": "work_in_progress",
-        "repair_register_slots": 24,
-        "repair_register_source": "certificates/R_m_rep_24_certificate.json",
+        "product_adjoint_dimension": 12,
+        "product_adjoint_rounds_m_rep": 24,
+        "product_adjoint_source": "certificates/R_m_rep_24_certificate.json",
         "screen_load_split": "X/12",
+        "screen_oriented_slots": 24,
         "screen_port_source": "certificates/R_screen_sieve_icosahedral_certificate.json",
-        "screen_ports": 12
+        "screen_ports": 12,
+        "screen_register_source": "paper/screen_microphysics_and_observer_synchronization.tex#def:oriented-24-slot-register"
       },
       "source_pair": {
         "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
@@ -523,8 +528,11 @@
       "quark_spreads_changed": true,
       "simple_spectrum_preserved": true
     },
-    "proof_status": "closed_axiom_level_nondefinability_theorem",
+    "machine_proof": false,
+    "proof_status": "conditional_current_registered_signature_nonidentifiability_argument",
     "public_numeric_quark_rows_allowed": false,
+    "registered_signature_completeness_verified_by_emitter": false,
+    "scope_kind": "current_registered_signature_not_all_future_OPH_completions",
     "three_axiom_audit": {
       "Axiom_1_screen_net": "unchanged by Yukawa-eigenvalue rescaling",
       "Axiom_2_observer_agreement": "the declared accepted-data meaning diagrams are unchanged by Yukawa-eigenvalue rescaling",
@@ -537,6 +545,7 @@
         "optimizer_to_Yukawa_output_map_supplied": false
       },
       "all_registered_axiom_data_preserved": true,
+      "classification": "conditional_registry_audit_assertions_not_machine_verified_by_this_emitter",
       "declared_structural_packet": {
         "Yukawa_completability_preserved": true,
         "Yukawa_eigenvalues_are_declared_structural_coordinates": false,
@@ -767,10 +776,37 @@
     ],
     "obstruction_artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
     "reopen_requirements": {
-      "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "acceptable_form": "A theorem-grade source map into the six-scalar interface (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), or, inside a source-derived ordered shape law and mean law, two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "generic_physical_interface": {
+        "note": "The granted ordered shape law is candidate-only and template-descended, and the affine mean law ties the sector means to the spans only inside that subfamily. A source theory must emit the shape law, the sector means, and the two spans, or a typed map fixing all six.",
+        "scalars": [
+          "mu_u",
+          "sigma_u",
+          "rho_u",
+          "mu_d",
+          "sigma_d",
+          "rho_d"
+        ],
+        "unemitted": {
+          "sector_means": [
+            "mu_u",
+            "mu_d"
+          ],
+          "shape_law": [
+            "rho_u",
+            "rho_d"
+          ],
+          "spans": [
+            "sigma_u",
+            "sigma_d"
+          ]
+        },
+        "unemitted_scalar_count": 6
+      },
       "must_break_free_action": true,
       "must_replace_template_ancestry": true,
-      "required_independent_scalar_count": 2
+      "required_independent_scalar_count": 2,
+      "required_independent_scalar_count_scope": "the endpoint spans (sigma_u, sigma_d) inside the granted reciprocal-ray, affine-mean subfamily"
     },
     "required_identity": "P -> f_P -> Sigma_ud_phys -> (sigma_u,sigma_d,sigma_seed_ud,eta_ud)",
     "source_only_sigma_emitted": false,

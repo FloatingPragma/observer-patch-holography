@@ -59,7 +59,7 @@ WHAT IS PROVED.
    `-(κ / h) (12 - 4φ)` times the forward step difference of the unit
    hopping load of the transported path (`transport_load_endpoints`); at a
    rest step both vanish (`transport_load_rest`).  At the charge-fixed
-   normalization `κ = -(q h) / (12 - 4φ)` the endpoint loads equal the
+   normalization `κ = -(q h) / (12 - 4φ)` and `h ≠ 0` the endpoint loads equal the
    hopping step differences of charge `q` at every step
    (`transport_load_charge_fixed`).  The agreement is endpoint-local, as
    exhibited in `PortChargeMinimalCoupling.bridge_off_endpoint_exhibit`;
@@ -79,7 +79,7 @@ WHAT IS PROVED.
    hopping current is `-(q / h)` times the projection of the worldline seam
    current onto the stepped seam divided by that norm
    (`hoppingCurrent_eq_projection`).
-4. Joint action.  The declared transported action is the monopole coupled
+4. Joint action.  At `h ≠ 0`, the declared transported action is the monopole coupled
    action of the transported hopping path plus the committed clock action
    of the generated path (`transportedAction`).  Its field-sector
    stationarity is the committed scaled Ampere update and Gauss constraint
@@ -90,7 +90,7 @@ WHAT IS PROVED.
    `M (τ² - 4)` (`clockAction_generated_no_rest`).  A seam step is timelike
    exactly when `4 < τ²` (`seam_step_timelike_iff`); the threshold is the
    exact `ℤ[φ]` number `(4, 0)` for the unit squared, the unit `2` itself.
-5. Non-forcing.  Two distinct declared units give two distinct generated
+5. Non-forcing.  At `h ≠ 0`, two distinct declared units give two distinct generated
    paths with one hopping path and one family of induced sources
    (`two_units_two_paths`, `induced_sources_forget_unit`); the field-sector
    equations of the transported action are one and the same at every unit
@@ -444,7 +444,7 @@ theorem transport_load_rest (κ h τ : ℝ) (w : SeamStepWorldline) (n : ℕ)
   apply inducedLoad_rest
   rw [generatedPath_snd, generatedPath_snd, spatialAt_succ, hs, stepVector_rest, add_zero]
 
-/-- **Charge-fixed transport.**  At the charge-fixed normalization
+/-- **Charge-fixed transport.**  At nonzero `h` and the charge-fixed normalization
 `κ = -(q h) / (12 - 4φ)` the E-paired endpoint loads equal the hopping step
 differences of charge `q` at every crossing step. -/
 theorem transport_load_charge_fixed (q h τ : ℝ) (hh : h ≠ 0) (w : SeamStepWorldline)
@@ -619,7 +619,7 @@ def transportedAction (q h τ : ℝ) (N : ℕ) (A : ℕ → Fin 30 → ℝ) (φ 
   monopoleCoupledAction q h N A φ ρ J (hoppingPath w) +
     clockAction (N + 1) (generatedPath τ w)
 
-/-- **Field-sector stationarity of the transported action** is the committed
+/-- **Field-sector stationarity of the transported action** at `h ≠ 0` is the committed
 scaled Ampere update at the augmented current and the committed Gauss
 constraint at the augmented load, with the hopping sources of the
 transported path; the clock term does not enter. -/
@@ -776,7 +776,7 @@ theorem induced_sources_forget_unit (κ h τ₁ τ₂ : ℝ) (w : SeamStepWorldl
     unfold inducedCurrent
     rw [hw]
 
-/-- **The unit is unconstrained by the field sector.**  At every declared
+/-- **The unit is unconstrained by the field sector.**  At `h ≠ 0`, at every declared
 unit the field-sector stationarity of the transported action is the same
 pair of committed equations at the transported hopping sources, which do
 not contain the unit. -/

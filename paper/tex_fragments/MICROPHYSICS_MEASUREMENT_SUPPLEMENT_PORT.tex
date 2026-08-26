@@ -2,9 +2,10 @@
 \label{app:microphysics-measurement-ledger}
 
 This appendix gives the formal measurement-theory details for the
-fixed-cutoff record interface. The main text proves the central-record and
-Born--L\"uders result. The calculations below supply supporting definitions
-and comparisons.
+fixed-cutoff record interface. The main text proves the central-record result
+and the Born--L\"uders identities under a supplied valuation and declared
+L\"uders instrument. The effect projectors do not select that instrument. The
+calculations below supply supporting definitions and comparisons.
 
 \subsection{Records as Central Variables}
 
@@ -204,7 +205,7 @@ finite commuting record algebra alone does not select \(\rho\), and distinct den
 have the same restriction to that algebra. The algebra-state pair is therefore declared data for
 this measurement surface rather than an output of the repair law.
 
-\paragraph{\textbf{Proposition 3.6 (Luders update).}}
+\paragraph{\textbf{Proposition 3.6 (Declared L\"uders update).}}
 For record projectors \(\{\Pi_r\}\) and state \(\omega\),
 \[
 p_r=\omega(\Pi_r),
@@ -215,6 +216,8 @@ Then for all \(X\) commuting with the record algebra \(\mathcal R\),
 \[
 \omega(X)=\sum_r p_r\,\omega_r(X).
 \]
+This proves the identities of the declared instrument; it does not show that
+the effect table selects L\"uders update over a same-effect alternative.
 So collapse on the observer-facing fixed-cutoff surface is simply classical conditioning on the
 commuting record algebra.
 

@@ -49,16 +49,18 @@ def test_claims_registered_with_gates() -> None:
 
 def test_claims_keep_declared_scope() -> None:
     chain = _claim(CHAIN_CLAIM)["statement"]
-    for token in ("increments in {0, 1}", "exactly d at u = tau",
+    for token in ("increments in {0, 1}", "exactly d and below one",
                   "declared enrichment of the join", "nothing selects u from the source",
                   "discharges none"):
         assert token in chain, token
     irr = _claim(IRR_CLAIM)["statement"]
     for token in ("dimension nine", "irreducible real representations",
-                  "an inference outside the theorems", "discharges neither"):
+                  "scalar-extension argument that would give complex irreducibility",
+                  "not formalized in Lean", "external inference", "discharges neither"):
         assert token in irr, token
     block = _claim(BLOCK_CLAIM)["statement"]
     for token in ("shifted later ports", "zero clock difference",
+                  "Along the respective scaled Ampere evolutions",
                   "h times the field-energy transfer", "the unit drops out",
                   "discharges none"):
         assert token in block, token

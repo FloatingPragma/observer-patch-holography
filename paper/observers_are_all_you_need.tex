@@ -253,7 +253,10 @@ integer-module completion; finite-step
 kernels retain full rank on the signed sector. The construction is canonical
 up to port-label-preserving isometry and chooses no Cartesian axes. Cumulative
 record addition acts simply transitively on the exact record carrier and by
-isometries on its completion. Under explicit A2-natural feasibility and
+isometries on its completion. Thirteen finite covariance/isometry table
+identities in that proper-action packet use Lean's \texttt{native\_decide}, so
+those subreceipts trust the native compiler and runtime in addition to the
+kernel and are not kernel-only proofs. Under explicit A2-natural feasibility and
 objective premises plus an A3 unique-minimizer premise, the internal seam
 weights are forced to \(1/60\). This gives an exact internal Markov average
 and the translation-invariant Dirichlet generator \(L=I-P\). Plane waves
@@ -1917,11 +1920,14 @@ mutual noncontainment, and the corner-character retractions are checked
 in Lean~\cite{ophrepo}.
 \end{proof}
 
-Noncommutative regional coexistence on this interface therefore passes
-exactly through character-block structure. The declared overlap algebra is
-a proper subalgebra of the set intersection of the two block algebras, and
-genuine coverage semantics or regional-factor receipts for a
-source-produced net are supplied.
+The declared finite \(C^*\)-algebra/retraction interface is therefore
+compatible with noncommutative regional coexistence through the displayed
+character-block witness. The obstruction excludes the full-matrix and
+anticommuting presentations stated in the theorem; it does not classify every
+possible coexistence presentation. The declared overlap algebra is a proper
+subalgebra of the set intersection of the two block algebras, and genuine
+coverage semantics or regional-factor receipts for a source-produced net are
+not supplied.
 
 Dynamics on the private block carries a matching rigidity statement.
 
@@ -2107,8 +2113,9 @@ electric field through the embedded seam directions: it is gauge invariant
 at every relative normalization, its zero value recovers the decoupled
 direct sum as the regression limit, and an explicit pulse configuration
 separates normalizations, so the coupling constant is declared rather than
-forced (\path{Lean/Geometry/CarrierDynamicsCompatibility.lean}). Varying
-the coupled action in both sectors shows what the candidate couples: the
+forced (\path{Lean/Geometry/CarrierDynamicsCompatibility.lean}). At a
+declared nonzero step \(h\), varying the coupled action in both sectors
+shows what the candidate couples: the
 field equations are the committed Ampère and Gauss clauses at augmented
 sources, and the induced sources are polarization-type, a step difference
 of the worldline seam current and a neutral bound load, so the candidate
@@ -2140,8 +2147,8 @@ non-identifiability, and nothing derives the identity
 The monopole route named there is built as a declared point charge
 hopping along the ports of the thirty-seam complex, minimally coupled to
 the seam and port potentials with the source weights of the committed
-window action. Its induced load has total \(q\) at every step and its
-induced current is \(-(q/h)\) on the hopped seam, oriented so that the
+window action. At a declared nonzero step \(h\), its induced load has total
+\(q\) at every step and its induced current is \(-(q/h)\) on the hopped seam, oriented so that the
 committed continuity equation holds identically; the coupled action equals
 the window action at the augmented sources with no endpoint term, so the
 field equations are the committed scaled Amp\`ere update and Gauss
@@ -2158,8 +2165,8 @@ hopping load, and equals the hopping step difference exactly at
 \(\kappa=-qh/(12-4\varphi)\); at the exhibited seam a port away from the
 endpoints carries a nonzero E-paired load while the hopping difference
 vanishes, so the polarization is the step difference of the monopole at
-the seam endpoints only. The charge is unconstrained by the field sector,
-and the path, charge, step, and coupling shape are declared
+the seam endpoints only. At nonzero \(h\) the charge is unconstrained by the field sector,
+and the path, charge, nonzero step, and coupling shape are declared
 (\path{Lean/Geometry/PortChargeMinimalCoupling.lean}).
 
 The monopole route joins the clock action through a declared class of
@@ -2171,7 +2178,8 @@ cumulative sum of the signed seam vectors, and a hopping port path. The
 seam vector is the ray difference of its endpoints in
 \(\mathbb Z[\varphi]^3\), and at every step the ray of the occupied port
 minus the ray of the start equals the spatial coordinate exactly, so the
-injective ray map reads the port off the path. At every crossing step the
+injective ray map reads the port off the path. At every crossing step and a
+declared nonzero field step \(h\), the
 E-paired induced load at the two endpoints of the stepped seam equals
 \(-(\kappa/h)(12-4\varphi)\) times the step difference of the unit hopping
 load, and equals the hopping step difference of charge \(q\) at
@@ -2180,13 +2188,13 @@ load, and equals the hopping step difference of charge \(q\) at
 \(\pm4\) at the stepped seam and at its antipodal seam (the two carry one
 vector) and nonzero at a neighbouring seam, and the hopping current is
 \(-(q/h)\) times its projection onto the stepped seam
-divided by four. The transported action, the monopole coupled action plus
+divided by four. At nonzero \(h\), the transported action, the monopole coupled action plus
 the clock action of the generated path, has field-sector stationarity
 equal to the committed Amp\`ere and Gauss equations at the transported
 sources; the clock action is \(\sum(\tau^2-4)\) over crossings plus
 \(\sum\tau^2\) over rests, timelike exactly when \(\tau^2>4\). Distinct
 units give distinct paths with one hopping path and one source family, and
-the unit is unconstrained by the field sector
+at nonzero \(h\) the unit is unconstrained by the field sector
 (\path{Lean/Geometry/WorldlineHopTransport.lean}).
 
 The transported charge has a discrete balance. Varying the transported
@@ -2198,9 +2206,10 @@ interaction part is \(q\) times the potential pairing
 \(h\varphi_n(u)-\langle\mathbf 1_{u\to v},A_{n+1}\rangle\) summed along the
 alternative route minus the original one, and the window action cancels.
 Exchanging a forward crossing of seam \(e\) with an adjacent rest moves the
-action by \(q\,h\,E_{j+1}(e)\) at zero clock cost, so the exchange is
-stationary exactly when the scaled electric seam field vanishes at the
-delayed step; replacing two rests by a round trip across \(e\) moves it by
+action by \(q\,h\,E_{j+1}(e)\) at zero clock cost, so, for \(q\ne0\) and
+\(h\ne0\), the exchange is stationary exactly when the scaled electric seam
+field vanishes at the delayed step; replacing two rests by a round trip across
+\(e\) moves it by
 \(-8-q\,h\,E_{j+1}(e)\), so at zero field rest is neither stationary nor a
 local minimum in this class, the port form of stationarity without
 minimality. For static potentials the interaction difference is \(q\) times
@@ -2217,30 +2226,37 @@ ports, reducing to the one-step term under declared shift invariance and
 to the closed two-step difference when the route rejoins at the second
 step. Within a block of \(k\) rests and one crossing, moving the crossing
 by one position changes the action by \(q\,h\,E(e)\) at the delayed index
-(minus that at the crossing index for an advance) with zero clock cost, so
-the crossing position is stationary exactly when the seam field vanishes
-at the reachable indices, and under a static nonzero field it is never
-stationary and drifts with the sign of \(qhE\). The block momentum
+(minus that at the crossing index for an advance) with zero clock cost, so,
+for \(q\ne0\) and \(h\ne0\), the crossing position is stationary exactly
+when the seam field vanishes at the reachable indices, and under a static
+nonzero field it is never stationary and drifts with the sign of \(qhE\). The
+block momentum
 \(2m((k+1)\tau,s_e)\) is unchanged by every in-block move, which swaps the
-per-step momenta, and with the field static across the crossing step the
-delay difference equals \(h\) times the hop's field-energy transfer
+per-step momenta. Along the respective scaled Amp\`ere evolutions sourced by
+the original and delayed hopping currents, and with the original field static
+across the crossing step, the delay difference equals \(h\) times the hop's field-energy transfer
 \((q/2)(E_j+E_{j+1})(e)\) (\path{Lean/Geometry/TimelikeClassForceLaw.lean}).
 
-The same class meets the field sector's stability window. The committed
-evolution has the sharp two-sided threshold \(h^2(3+\sqrt5)<4\), and a
+The same class meets the field sector's stability window. For nonzero \(h\),
+uniform boundedness of the electric seam energy for every zero-current datum
+holds exactly when \(h^2(3+\sqrt5)<4\); inside that strict window the magnetic
+face energy is also uniformly bounded, while equality and larger steps admit
+an explicit zero-current solution with unbounded electric seam energy. No
+bound on the gauge potential \(A\) follows. A
 crossing step is timelike exactly when the unit satisfies \(\tau^2>4\).
 Under the declared identification of the worldline unit with the field step
-(\(\tau=h\)) no step lies in both, so inside a bounded evolution every
+(\(\tau=h\)) no step lies in both, so inside the strict energy window every
 per-step crossing is spacelike and a timelike per-step crossing sits above
-the threshold with an unbounded solution; the two thresholds differ by the
+the threshold with an unbounded electric-energy solution; the two thresholds differ by the
 factor \(2\varphi^2=3+\sqrt5\). A block of \(k\) rests and one crossing is
 timelike exactly when \(2<(k+1)\tau\), which inside the window forces
 \(\sqrt2\,\varphi<k+1\), at least two rests per crossing, with the two-rest
 block timelike exactly for \(2/3<h\); the block speed \(2/((k+1)\tau)\) is
 below one exactly on timelike blocks and its supremum over the window is one,
 approached and never attained. Without the identification the thresholds are
-independent (\(\tau=3\), \(h=1/2\) gives timelike crossings inside a bounded
-evolution), and the corpus joined witnesses are not identified. The
+independent (\(\tau=3\), \(h=1/2\) gives timelike crossings with uniformly
+bounded electric seam and magnetic face energies), and the corpus joined
+witnesses are not identified. The
 identification is declared and nothing selects it
 (\path{Lean/Geometry/SeamStepSpeedLimit.lean}).
 
@@ -2248,13 +2264,14 @@ Which rule the hosted internal process follows along such a worldline is
 compared exactly. Index accrual, one internal step per shared step index at
 the declared unit, is the per-step member of the internal-action family;
 proper-length accrual is the declared proper-time principle. Over a window
-with \(c\) crossings the two differ by exactly \(E\,c\,(\tau-\sqrt{\tau^2-4})\),
-nonzero on every window with a crossing at every timelike unit and zero
-exactly on resting windows; the midpoint refinement of a worldline with a
-crossing is the generated path of no seam-step worldline, index accrual
-fails refinement invariance for every nonzero unit and proper-length accrual
-passes, so the source chain advancing per shared index is the rule that
-refinement invariance excludes on every moving worldline. The uniform
+with \(c\) crossings the two differ by exactly \(E\,c\,(\tau-\sqrt{\tau^2-4})\).
+For \(E\ne0\) this difference is nonzero on every window with a crossing at
+every timelike unit and is zero exactly on resting windows; the midpoint
+refinement of a worldline with a crossing is the generated path of no seam-step
+worldline. For \(E\ne0\), index accrual fails refinement invariance for every
+nonzero unit while proper-length accrual passes, so the source chain advancing
+per shared index is the rule that refinement invariance excludes on every
+moving worldline with nonzero ledger. The uniform
 worldline with one crossing per \(k+1\) steps has proper length
 \((k\tau+\sqrt{\tau^2-4})/((k+1)\tau)\) times that of a resting worldline over
 the same index count, below one for \(\tau>2\), tending to one in \(k\),
@@ -2266,7 +2283,7 @@ the uniform one. Neither rule is selected by the source or the join
 
 The length rule has a construction. Clock the hosted process by the
 accumulated proper length in units of a declared internal unit \(u\): the
-clocked index \(c(n)\) is monotone with unit increments for \(\tau\le u\),
+clocked index \(c(n)\) is monotone with each increment in \(\{0,1\}\) for \(\tau\le u\),
 equals the shared index on the resting worldline at \(u=\tau\), and on the
 uniform worldline with \(k\) rests per crossing obeys
 \(n\,d\tau/u-1<c(n)\le n\,d\tau/u\) on full periods with \(d\) the
@@ -2275,7 +2292,9 @@ clocked return count of the recurrence chain equals the chain's return
 count at \(c(n)\), every per-chain-step quantity converts with the same
 bound, and the clocked index is invariant under midpoint refinement by
 construction. No constant step duration of the joined architecture
-reproduces the accumulated proper length on a moving uniform worldline,
+reproduces the accumulated proper length on a moving uniform worldline with
+at least one rest between crossings; the all-crossing case is matched by the
+constant duration \(\sqrt{\tau^2-4}\),
 so the clocked chain is a declared enrichment of the join, two internal
 units give two clocked indices, and nothing selects the unit from the
 source (\path{Lean/Geometry/ProperLengthClockedChain.lean}).
@@ -2300,14 +2319,15 @@ declared midpoint refinement of a worldline leaves the proper length
 invariant, doubles the step count, and halves the quadratic clock action;
 in the internal-action family \(E(aL+bM)\) with \(L\) the proper length
 and \(M\) the step count, refinement invariance on timelike windows holds
-exactly when \(b=0\), which excludes the per-step additive ledger of the
-second composite shape. The proper-time principle, declared, sets the
+exactly when \(b=0\) for \(E\ne0\), which excludes the per-step additive
+ledger of the second composite shape at nonzero ledger. The proper-time
+principle, declared, sets the
 internal action to \(E\) per unit proper length; the rest phase of the
 declared internal clock advances by the mass parameter per unit proper
 time and its window increment equals that internal action, so the declared
 internal clock is the proper-length form, and within the family
 \(E\lambda L\) agreement with the principle holds exactly when
-\(\lambda=1\). For the length action \((m+E)L\) plus a declared potential
+\(\lambda=1\) for \(E\ne0\). For the length action \((m+E)L\) plus a declared potential
 pairing, the derivative along every variation exists on timelike windows,
 and stationarity under endpoint-fixed variations is equivalent to
 \((m+E)\) times the unit-tangent difference equal to the impulse at every
@@ -2625,7 +2645,9 @@ process: the first-return law of each state is written in closed form from
 the kernel, sums to one, and satisfies Kac's identity with the exact mean
 return times \(61511/7155\) and \(61511/54356\) steps, whose ratio
 \(54356/7155\) is the same number under every declared tick. The return
-law is non-degenerate, so no single period exists, and a return count along
+law assigns positive probability to both one- and two-step returns. Its
+standard Markov-chain period is therefore one, while no deterministic return
+interval exists because no return time has probability one. A return count along
 a trajectory counts distinct visit events, the property the overlapping
 incidence statistic lacks. One chain step stays a declared tick and no
 physical duration is identified; the abstract rate non-identifiability
@@ -2635,7 +2657,8 @@ and it forbids nothing here
 
 The field sector, by contrast, hosts periodic processes. Every eigenvector
 \(v\) of the local operator \(C^{\mathsf T}C\) with eigenvalue \(\lambda\)
-carries, at a declared step \(h\) with \(h^2\lambda\le 4\), the histories
+carries, at a declared nonzero step \(h\) with
+\(0\le h^2\lambda\le 4\), the histories
 \(A_n=\cos(n\theta)\,v\) and \(A_n=\sin(n\theta)\,v\) with
 \(\theta=\arccos(1-h^2\lambda/2)\); they solve the zero-current scaled
 evolution in the temporal gauge, conserve the staggered form, and are
@@ -2668,9 +2691,12 @@ staggered energy, equal to \((\lVert v\rVert^2\sin^2\theta/2)\) times the
 pulled-back Euclidean form. On the kernel of the local operator, exactly the
 gradient space, the evolution is the \(h\)-step of the shear flow. For any
 finite family of pairwise orthogonal admissible eigenvectors the
-componentwise flow is a linear continuous one-parameter group whose
+componentwise coefficient-state flow is a linear continuous one-parameter group whose
 \(h\)-step is the committed step, instantiated on the eigenvalue-two,
-three, five, and golden modes and a gradient. Reading \(t\) as physical time
+three, five, and golden modes and a gradient. The assembled theorem permits
+zero listed vectors, so a faithful flow on the actual field span additionally
+requires nonzero linear independence or quotienting redundant coefficient
+directions. Reading \(t\) as physical time
 is declared, no Hilbert inner product is declared, and the extension to the
 whole curl sector is the selection of nineteen orthogonal seam eigenvectors
 from the six committed face projectors through the codifferential
@@ -2715,9 +2741,13 @@ order five, twelve each; the minus character is its Galois conjugate on
 every element, the two agree exactly off order five, squaring an order-five
 element exchanges them, both are class functions commuting with every
 automorphism, and each has norm \(60\). Read with the orthogonality
-relations, an inference outside the theorems, the golden sector is the sum
-of the two Galois-conjugate three-dimensional representations, with the
-eigenvalue conjugated along with the character
+relations, these data have the usual two-character interpretation, but this
+character module does not itself prove irreducibility. The separate span
+certificate below proves that the two real projector images are
+three-dimensional and irreducible for the listed incidence action. Scalar
+extension to complex irreducibility, identification with the abstract
+icosahedral or \(A_5\) character table, and a physical-oscillation reading
+remain outside the checked statements
 (\path{Lean/Screen/GoldenSectorCharacters.lean}).
 
 Irreducibility of the two golden pieces is a theorem. Each image
@@ -2728,9 +2758,11 @@ dimension nine and maps onto all \(3\times3\) real matrices in the basis
 \(A\) (nine listed elements with an explicit two-sided inverse certificate
 over \(\mathbb Z[\varphi]\), the minus certificates the Galois conjugates of
 the plus ones), so every invariant subspace of \(W_\pm\) is zero or all of
-it: both pieces are irreducible real representations of the listed group.
-That the span persists over the complex numbers, and the identification
-with the abstract icosahedral table, stay inferences
+it: both pieces are irreducible real representations of the listed
+incidence-automorphism action. The scalar-extension corollary over
+\(\mathbb C\) is not formalized, and identification with the abstract
+icosahedral or \(A_5\) table, with physical rotations, or with physical
+oscillations stays open
 (\path{Lean/Screen/GoldenSectorIrreducibility.lean}).
 
 The two attained faces of mechanics are joined by a finite Legendre bridge,
@@ -3168,11 +3200,17 @@ holds, so the entanglement first law
 \(\delta S=\delta\langle K\rangle\) is this identity with the
 quadratic-order deficit dropped; through the central split
 \(K=2\pi B+Z\) it reads
-\(\Delta S=2\pi\Delta\langle B\rangle+\Delta\langle Z\rangle-D\), and
+\[
+\Delta S
+=2\pi\Delta\langle B\rangle+\Delta\langle Z\rangle
+-\Delta D(\,\cdot\,\Vert\tau),
+\]
+where \(\Delta D=D(p'\Vert\tau)-D(p\Vert\tau)\). For the
+reference-preserving repair step, data processing gives \(\Delta D\le0\), and
 one repair step with a central charge measurable through the repaired
 visible datum obeys the cap Clausius inequality
-\(2\pi\Delta\langle B\rangle\le\Delta S\) with no further hypothesis,
-since the kernel conserves every fibre-measurable charge. The finite
+\(2\pi\Delta\langle B\rangle\le\Delta S\), since the kernel also conserves
+every fibre-measurable charge and hence \(\Delta\langle Z\rangle=0\). The finite
 first-law premise package of the Einstein branch is discharged on this
 model: on the tangent space of the probability simplex the entropy
 differential at the reference equals the modular pairing as a theorem,
@@ -3210,12 +3248,18 @@ detailed balance, yet satisfies this second law; the Lean module
 relations and Onsager reciprocity therefore remain additional receipts rather
 than consequences of entropy descent.
 
-The pinned source-counted collar table has also been exhausted at its committed
-resolution. All \(2^4-1=15\) nonempty field-subset projections of its four
-committed packet fields were audited on \(1028\) observers and \(31744\) counted
-transitions, without an additional observer-patch run. The repair-load
-quotient is an eight-state raw chain that is irreducible and aperiodic and has
-a full-support stationary law. On the committed floating-point table its detailed-balance
+The pinned source-counted collar table has also been exhausted within its
+declared coordinate-projection grammar. All \(2^4-1=15\) syntactic maps obtained
+by retaining a nonempty subset of its four committed packet fields were audited
+on \(1028\) observers and \(31744\) counted transitions, without an additional
+observer-patch run. Because the record-family and \(S_3\)-sector fields are
+constant on this run, those maps induce only four distinct partitions. The
+repair-load count aggregation is an eight-state
+stochastic kernel that is irreducible and aperiodic and has a full-support
+stationary law. It is not a certified Markov quotient of the fine chain: its
+strong-lumpability defect---the largest outgoing target-block mass difference
+between two fine states in one repair-load block---is \(0.911587983\) on the
+pinned floating-point table. On that table its detailed-balance
 defect is \(2.009924089\times10^{-4}\); from the uniform initial law the sampled
 relative entropy falls from \(5.00947\) to \(1.84009\) over sixteen steps. This
 is a nonreversible finite H-theorem probe, not a microscopic-reversibility
@@ -3224,10 +3268,12 @@ value makes protected-charge preservation vacuous, and the stationary law is
 not identified with the state optimizer's source reference. On the fine
 twenty-state quotient the only closed communicating class is the singleton
 freezeout state, so the alternative recurrent-class restriction is a trivial
-equilibrium rather than a nontrivial relaxation model. This exhaustive no-go
-removes further quotient hunting on the same artifact from the critical path;
-a nontrivial realization requires changed source dynamics or a bounded
-run with a nonconstant protected record.
+equilibrium rather than a nontrivial relaxation model. These results exhaust
+only the declared coordinate maps and the fine-chain recurrent restriction.
+They do not enumerate arbitrary partitions or nonlinear, statistical,
+stochastic, weakly lumpable, or history-dependent quotient maps of the retained
+artifact. The audit excludes none of those routes, nor changed source dynamics
+or a bounded run with a nonconstant protected record.
 
 The state table/reference was locally pre-specified and hash-pinned; the
 recurrent transition chain was extracted post hoc from retained run data.
@@ -3415,13 +3461,13 @@ Recovered result & OPH role & Famous display & Support boundary \\
 \bottomrule
 \endfoot
 Three-dimensional observer-frame chart, Lorentz kinematics, and invariant light cone & core theorem & \(q(\Omega)=(1,\Omega)\), \(n_C=(\cot\alpha,\csc\alpha\,\mathbf c)\), \(n_{gC}=\Lambda_gn_C\), \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\) & scaling-limit geometric subnet; chart population and neutral bulk are separate premises \\
-Record-conditioned \(H^3\) frame estimate & conditional theorem & \(R_i(C,t,O)\to F(X_i)+e\), \(\alpha\bar d\le |F(X)-F(Y)|_W\), \(S_i(t)=B_H(\widehat X_i,r_i)\) & frame-local calibrated cap responses, compact frame domain, bounded error, quantitative cap frame, and positive gap for unique finite output; no event position is inferred \\
+Record-conditioned \(H^3\) frame estimate & conditional theorem & \(R_i(C,t,O)\to F(X_i)+e\), \(\alpha\bar d\le |F(X)-F(Y)|_W\), \(S_i(t)\subseteq B_H(\widehat X_i,r_i)\) & frame-local calibrated cap responses, compact frame domain, bounded error, conservative frame enclosure, and positive gap for unique finite output; no event position is inferred \\
 Einstein equation & conditional composition theorem & \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) & one source-derived common-domain tower with uniform asymptotics, universal coupling, a vacuum reference, and independent scale readouts; the tower and its certification are consumed as premises \\
 Newton-Poisson gravity & inherited weak-field limit & \(\nabla^2\Phi=4\pi G\rho\), \(\ddot{\mathbf x}=-\nabla\Phi\) & absolute Einstein-branch premises, weak field, and slow motion \\
 Maxwell equations & electromagnetic corollary & \(dF_Q=0,\quad d{*}F_Q=g_Q^2{*}J_Q\) & ordinary \(\mathrm U(1)_Q\) branch plus explicit Maxwell action/current hypothesis \\
-Discrete Maxwell evolution on the screen carrier & exact conditional finite theorem & \(B_{n+1}-B_n=-hCE_n\), \(E_{n+1}-E_n=h(C^{\mathsf T}B_{n+1}-J_n)\), \(\rho_{n+1}-\rho_n+h\,\partial J_n=0\), \(h^2(3+\sqrt5)<4\) & the step-scaled update and the Gauss constraint are the Euler--Lagrange equations of a declared discrete action, the committed local face action plus a declared kinetic term; below the sharp committed-carrier threshold the staggered form is nonnegative and, for zero current, conserved and a bound on both field energies; above the threshold explicit unbounded modes exist and the unit step is unstable. Physical time and sources, covariance, continuum control, and readout are not supplied \\
+Discrete Maxwell evolution on the screen carrier & exact conditional finite theorem & \(B_{n+1}-B_n=-hCE_n\), \(E_{n+1}-E_n=h(C^{\mathsf T}B_{n+1}-J_n)\), \(\rho_{n+1}-\rho_n+h\,\partial J_n=0\), \(h^2(3+\sqrt5)<4\) & the step-scaled update and the Gauss constraint are the Euler--Lagrange equations of a declared discrete action, the committed local face action plus a declared kinetic term; for nonzero \(h\), every zero-current datum has uniformly bounded electric seam energy exactly in the strict window, where the magnetic face energy is also bounded; equality and larger steps admit explicit unbounded electric-energy modes, and the unit step is unstable. No gauge-potential bound follows. Physical time and sources, covariance, continuum control, and readout are not supplied \\
 Yang--Mills equations & compact-gauge corollary & \(DF=0,\quad D{*}F=g^2{*}J\) & compact-gauge connection branch plus explicit Yang--Mills action/current hypothesis \\
-Born rule and L\"uders update & fixed-cutoff theorem & \(\mathbb P(E)=\operatorname{Tr}(\rho P_E)\), \(\rho|_E=P_E\rho P_E/\operatorname{Tr}(\rho P_E)\) & declared finite algebra-state embedding of the central record algebra \\
+Born rule and selected L\"uders update & conditional fixed-cutoff theorem & \(\mathbb P(E)=\operatorname{Tr}(\rho P_E)\), \(\rho|_E=P_E\rho P_E/\operatorname{Tr}(\rho P_E)\) & declared finite algebra-state embedding and declared L\"uders instrument; the effect table does not select the instrument \\
 Tsirelson bound & fixed-cutoff theorem & \(|S_{\mathrm{CHSH}}|\le2\sqrt2\) & declared commuting wing algebras, binary settings and readouts, and joint source state; this is an upper bound and supplies no source-derived violation. Reachable states on the committed pair carriers are separable across the declared slot split and obey the classical bound 2 against every slot-local unit-interval readout, jointly diagonal or not, a diagonality-preserving map cannot reach the declared Bell-state witness, and a product-diagonal state paired with cross-commuting settings outside both slots reaches \(2\sqrt2\), so slot membership relative to the split carries the classical bound and readouts outside the split lie outside it \\
 Charge quantization & core theorem & \(Q=T_3+Y\), color singlets have \(Q\in\mathbb Z\) & quarks are confined fractional-charge fields \\
 Gyromagnetic ratio two & exact algebra theorem & \((\sigma\!\cdot\!X)^2=X\!\cdot\!X-q\,(\sigma\!\cdot\!B)\), \(X\!\cdot\!X:=\sum_iX_iX_i\), for \([X_i,X_j]=i\,q\,\epsilon_{ijk}B_k\) & the sum is ordered algebraic multiplication, not an adjoint norm. The commutation data, coupling, and carrier are declared; the physical Hamiltonian and \(g=2\) reading additionally require a Hermitian kinetic-momentum realization and gauge attachment \\
@@ -3441,8 +3487,9 @@ with screen-capacity closure as its boundary.
 The particle paper treats the closure matrix explicitly. The non-hadron
 bundle has the following support levels:
 
-The source chain emits the electroweak chart coordinates
-\((80.330,\,91.119)~\mathrm{GeV}\). A separate strict one-loop consumer and
+The target-free but declared and incomplete running/map packet evaluates to
+the electroweak chart coordinates \((80.330,\,91.119)~\mathrm{GeV}\); the
+source does not select this map. A separate strict one-loop consumer and
 interval stack act on an external Standard Model fixture. They exclude scalar
 zeros on declared principal-sheet boxes and isolate, for each of \(W\) and
 \(Z\), one simple scalar zero with derivative and scalar-residue balls in its
@@ -3465,7 +3512,7 @@ of the comparison, branch rigidity, and propagated uncertainty.
 Domain & Output & Mathematical role & Physical boundary \\
 \midrule
 Carrier modes & two transverse Maxwell modes; \(2\dim G\) perturbative Yang--Mills modes; two Einstein TT modes & symmetry-protected massless classical kernels on the stated action branches & no quantum zero-mass particle row without the physical Hilbert-space, pole-residue, and phase receipts \\
-\(W/Z\) & source-only chart coordinates \((80.330,\,91.119)\)~GeV; no source-only physical mass emitted & strict source-defined zero-selector branch; exact selected-carrier chart; separate strict scalar consumer with principal-sheet zero exclusion and one simple channel-specific lower-half algebraic-chart zero for each of \(W\) and \(Z\) & the external fixture is not composed with the OPH chart. Neither declared chart is identified with the physical resonance sheet; unique continuation, sign bridge, full-matrix Laurent residue, current amplitude, independent replay, and W/Z mass comparison are absent \\
+\(W/Z\) & target-free declared-map chart coordinates \((80.330,\,91.119)\)~GeV; no source-only physical mass emitted & declared zero-selector map; exact selected-carrier chart; separate strict scalar consumer with principal-sheet zero exclusion and one simple channel-specific lower-half algebraic-chart zero for each of \(W\) and \(Z\) & the source does not select the map and the external fixture is not composed with the OPH chart. Neither declared chart is identified with the physical resonance sheet; unique continuation, sign bridge, full-matrix Laurent residue, current amplitude, independent replay, and W/Z mass comparison are absent \\
 Fine structure & four distinct coordinates & source witness, mixed diagnostic, empirical closure, and measurement & the empirical interval misses the measured endpoint. A physical source-only statement requires the source-derived hadronic spectral backend, target-independent map selection, and the typed same-quantity bridge \\
 Higgs/top & no nonzero source-only physical mass emitted & double-criticality family from the gauge sector; boundary-scale candidate fixed before comparison; declared-surface calibration fit kept separate & a physical statement requires the boundary-scale selection theorem together with the source root, physical scale, running, matching, rigidity, provenance, uncertainty, and complex-pole construction \\
 Charged leptons & no nonzero source-only physical mass emitted & exact positive-chamber \(C_3\) circulant identity; conditional finite tracial-GNS balance; target-informed response diagnostic; conditional nature/pole transport & the exact identity gives \(Q=1/3+(2/3)(|b|/a)^2\), and the finite packet gives \(|b|/a=1/\sqrt2\) under its declared event-block hypotheses. Physical family attachment, phase, mass ratios, source selection, interacting kernel, infrared completion, and cofinal refinement are separate premises \\
@@ -3500,7 +3547,7 @@ screen-derived invariant potential must select the orbit. Ref.~\cite{ophparticle
 gives the proofs and scope.
 
 \paragraph{Conditional comparison coordinates.}
-The source-defined zero-selector law outputs the running/chart coordinates
+The declared, not source-selected zero-selector map outputs the running/chart coordinates
 \((80.330,91.119)~\mathrm{GeV}\). The separate strict one-loop fixture has
 principal-sheet scalar zero-exclusion receipts and one simple scalar zero for
 each of \(W\) and \(Z\) in channel-specific lower-half pole boxes and

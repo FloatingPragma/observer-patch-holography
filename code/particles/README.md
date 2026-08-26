@@ -175,7 +175,7 @@ source-only prediction.
 | `m_t` (criticality, adopted branch) | `172.629 GeV` | `172.60 +- 0.27 GeV` | double-criticality boundary at the log-midpoint anchor `E_star exp(-pi) P^(-1/6)`, two loops; boundary-scale selection is a theorem modulo two carrier facts CF1/CF2 |
 | `m_H` (criticality, adopted branch) | `125.771 GeV` | `125.13 +- 0.11 GeV` | same branch and gates; tree readout inside the declared matching band |
 | `m_H` at measured `m_t` (relation test) | `125.72 GeV` | `125.13 +- 0.11 GeV` | fit-free curve of the criticality family; tests the m_t to m_H relation independently of the boundary-scale selection |
-| `M_W`, `M_Z` (strict source-audit branch) | `80.3301, 91.1191 GeV` | stale Breit--Wigner coordinates `80.3692, 91.1880 GeV` | zero-selector chart on the source branch; the renormalized-vev, tadpole, threshold, running, finite-order, uncertainty, and complex-pole maps are open, so this row is not a physical mass comparison |
+| `M_W`, `M_Z` (target-free declared-map audit branch) | `80.3301, 91.1191 GeV` | stale Breit--Wigner coordinates `80.3692, 91.1880 GeV` | zero-selector coordinate on a declared map that the source does not select; the renormalized-vev, tadpole, threshold, running, finite-order, uncertainty, and complex-pole maps are open, so this row is not a physical mass comparison |
 | positive-chamber `C3` Koide identity | `Q = 1/3 + (2/3)(abs(b)/a)^2`; `Q = 2/3` iff `abs(b)/a = 1/sqrt(2)` | PDG 2026 central masses give `Q = 0.6666644634026367` | exact circulant identity; the finite tracial-GNS packet conditionally gives the balanced modulus; physical family attachment, phase, and ratios are open |
 | `m_e, m_mu, m_tau` (MCPR conditional) | `0.510956, 105.649, 1776.78 MeV`; `Q = 0.6666644634090389` | `0.51100, 105.658, 1776.93 MeV`; `Q = 0.6666644634026367` | historically target-informed declared architecture; runtime-reference-free evaluation and the 84 ppm mass offset are retrospective diagnostics, neither blind nor source-only |
 | `m_b, m_s, m_d` (Clebsch lane) | `6.03 GeV, 140 MeV, 6.1 MeV` | `4.18 GeV, 93.5 MeV, 4.7 MeV` | rejected conditional register-Clebsch route; the adopted `(b/tau, s/mu, d/e) = (1, 1/3, 3)` assignment is uniquely least-discrepant among six permutations without being source-derived; the absolute values are `44.2%`, `50.3%`, and `30.1%` high |
@@ -407,13 +407,15 @@ independence only after a spread datum is attached; it does not select the
 datum. The edge-statistics candidate also leaves two unfixed correction
 coefficients and begins from a hand-written family-kernel template.
 
-The stronger no-extra-axiom result is emitted in
+The legacy-named current-signature counterfamily artifact is emitted in
 [`quark_axiom_level_yukawa_moduli_nonidentifiability.json`](runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json).
-Axioms 1--3 and the declared structural packet contain no typed
-optimizer-to-Yukawa map. Independent positive rescalings of the two centered
-quark profiles therefore preserve the registered source data while remaining
-physically distinct. A numerical theorem must derive a complete flavor grammar
-and an optimizer-to-output map before A3 can constrain these moduli.
+Independent positive rescalings of the two centered quark profiles are an exact
+algebraic counterfamily. Their OPH non-identifiability reading is conditional on
+the current registered A1--A3 signature and declared structural packet containing
+no typed orbit-separating constraint, dynamics, action, or output map. The emitter
+serializes that registry audit; it does not prove registry completeness. A
+numerical theorem can instead derive any well-typed mechanism that separates or
+excludes the orbit; an optimizer-to-output map is one route, not the only one.
 
 The same-family and common-refinement artifacts reproduce their chosen target
 coordinates after target inversion. They are audit surfaces, not source-only

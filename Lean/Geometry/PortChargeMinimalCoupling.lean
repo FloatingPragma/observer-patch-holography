@@ -38,10 +38,10 @@ WHAT IS PROVED.
    oriented indicator of the seam hopped (`hoppingCurrent`), zero at a
    resting step (`hoppingCurrent_rest`); its induced port load is `q`
    times the indicator of the occupied port (`hoppingLoad`).  The sources
-   satisfy the committed scaled continuity equation
+   for `h ≠ 0` satisfy the committed scaled continuity equation
    `ρ (n+1) - ρ n + h • ∂ (J n) = 0` identically (`hopping_continuity`),
    and the total load is `q` at every step (`hoppingLoad_total`).
-2. Minimal coupling.  The interaction is the window sum of the seam pairing
+2. Minimal coupling.  At `h ≠ 0`, the interaction is the window sum of the seam pairing
    of the forward seam potential against the hopping current plus the port
    pairing of the port potential against the hopping load, with the weight
    `h` of the committed window action (`interactionA`).  The coupled
@@ -51,7 +51,7 @@ WHAT IS PROVED.
    committed Gauss constraint at the augmented sources
    (`monopole_stationary_A_iff_ampere`, `monopole_stationary_phi_iff_gauss`,
    `monopole_field_equations`).
-3. Gauge change and conservation.  For a general seam current and port
+3. Gauge change and conservation.  At `h ≠ 0`, for a general seam current and port
    load, the source pairing moves under the committed scaled gauge
    transformation by the window sum of the gauge function at the forward
    step paired against the continuity residual, plus the endpoint
@@ -64,7 +64,7 @@ WHAT IS PROVED.
    occupied ports at the two window endpoints (`interactionA_gauge`), and
    vanishes for endpoint-vanishing gauge functions
    (`interactionA_gauge_invariant`).
-4. Field energy balance at a hop.  Along the scaled Ampere evolution
+4. Field energy balance at a hop.  At `h ≠ 0`, along the scaled Ampere evolution
    driven by the hopping current the scaled staggered energy moves per
    step by
    `(q / 2)` times the pairing of `E n + E (n+1)` against the oriented
@@ -79,7 +79,7 @@ WHAT IS PROVED.
    seam `e` and the crossing path of `e`, the E-paired induced load at the
    two endpoints of `e` equals `-(κ / h) (12 - 4φ)` times the forward step
    difference of the unit hopping load (`bridge_endpoints`).  At the
-   charge-fixed normalization `κ = -(q h) / (12 - 4φ)` the E-paired load
+   nonzero step and charge-fixed normalization `κ = -(q h) / (12 - 4φ)` the E-paired load
    equals the step difference of the hopping load of charge `q` at both
    endpoints (`bridge_endpoints_charge_fixed`), and endpoint agreement at
    the larger endpoint holds exactly at that normalization
@@ -89,7 +89,7 @@ WHAT IS PROVED.
    (`bridge_off_endpoint_exhibit`).  So at the exhibited seam the
    polarization load is the step difference of the monopole load at the
    seam endpoints and differs from it away from them.
-6. Non-forcing.  Every charge value satisfies the continuity equation and
+6. Non-forcing.  At `h ≠ 0`, every charge value satisfies the continuity equation and
    the endpoint-vanishing gauge invariance
    (`charge_unconstrained_by_field_sector`); two distinct charges give two
    distinct hopping loads and two distinct total loads
@@ -317,8 +317,8 @@ theorem realBoundary_hoppingCurrent (q h : ℝ) (γ : HoppingPath) (n : ℕ) :
   rw [realBoundary_hopIndicator _ _ (γ.hop n) p]
   rfl
 
-/-- **Continuity.**  The hopping sources satisfy the committed scaled
-continuity equation `ρ (n+1) - ρ n + h • ∂ (J n) = 0` identically. -/
+/-- **Continuity.**  For `h ≠ 0`, the hopping sources satisfy the committed
+scaled continuity equation `ρ (n+1) - ρ n + h • ∂ (J n) = 0` identically. -/
 theorem hopping_continuity (q h : ℝ) (hh : h ≠ 0) (γ : HoppingPath) (n : ℕ) :
     hoppingLoad q γ (n + 1) - hoppingLoad q γ n +
       h • realBoundary (hoppingCurrent q h γ n) = 0 := by
@@ -446,7 +446,7 @@ theorem sourceStep_gauge (h : ℝ) (hh : h ≠ 0) (A : ℕ → Fin 30 → ℝ)
   have hinv : h * h⁻¹ = 1 := mul_inv_cancel₀ hh
   linear_combination (realPortInner (χ n) (ρ n) - realPortInner (χ (n + 1)) (ρ n)) * hinv
 
-/-- **Gauge change of the source pairing.**  Under the committed scaled
+/-- **Gauge change of the source pairing.**  For `h ≠ 0`, under the committed scaled
 gauge transformation the source pairing moves by the window sum of the
 gauge function at the forward step paired against the continuity
 residual, plus the endpoint difference of the gauge function paired
@@ -464,7 +464,7 @@ theorem sourcePairing_gauge (h : ℝ) (hh : h ≠ 0) (N : ℕ) (A : ℕ → Fin 
 
 /-- **Gauge invariance under endpoint-vanishing gauge functions is the
 continuity equation on the interior steps.**  For a general seam current
-and port load, the source pairing is invariant under every gauge function
+and port load at `h ≠ 0`, the source pairing is invariant under every gauge function
 vanishing at both window endpoints exactly when the continuity residual
 vanishes at every step `n < N`. -/
 theorem sourcePairing_gauge_invariant_iff (h : ℝ) (hh : h ≠ 0) (N : ℕ)
@@ -551,7 +551,7 @@ theorem seamInner_single (x : Fin 30 → ℝ) (e₀ : Fin 30) (c : ℝ) :
   simp only [mul_ite, mul_zero, Finset.sum_ite_eq', Finset.mem_univ, if_true]
   ring
 
-/-- **Field energy balance at a hop.**  Along the scaled Ampere evolution
+/-- **Field energy balance at a hop.**  At `h ≠ 0`, along the scaled Ampere evolution
 driven by the hopping current, the scaled staggered energy moves per step by
 `(q / 2)` times the pairing of `E n + E (n+1)` against the oriented hop
 indicator.  No energy of the charge is defined here; the statement is the

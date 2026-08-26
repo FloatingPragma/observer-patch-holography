@@ -6,8 +6,10 @@ lane. The restricted source-spread non-identifiability theorem
 (`paper/deriving_the_particle_zoo_from_observer_consistency.tex`, paragraph "Restricted
 source-spread non-identifiability theorem") proves that the light-quark source equations
 fix two ordered Yukawa profile rays while leaving their two endpoint spans free; the
-three-axiom non-definability theorem in the same paper proves that Axioms 1-3 plus fixed P admit a
-free `(R_>0)^2` family of equal-score quark spectra. This file states what a candidate
+current-signature counterfamily argument in the same paper shows, conditional on
+the registered A1--A3 signature containing no orbit-separating typed datum, that
+the exact positive-rescaling family remains indistinguishable on that signature.
+This file states what a candidate
 selector must be and what it must pass. It constructs nothing and selects nothing.
 
 **Status: specification plus a frozen preregistered menu. No candidate is promoted.

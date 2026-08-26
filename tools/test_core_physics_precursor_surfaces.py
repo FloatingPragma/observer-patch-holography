@@ -54,7 +54,8 @@ def test_every_claim_names_rows_and_discharges_none() -> None:
 def test_clock_claim_is_a_precursor_with_exact_rationals() -> None:
     statement = _claim(CLK_CLAIM)["statement"]
     for token in ("no cycle", "61511/7155", "61511/54356", "54356/7155",
-                  "carries no tick", "no single period exists",
+                  "carries no tick", "standard Markov-chain period is one",
+                  "no deterministic return interval exists",
                   "No physical duration is identified",
                   "forbids nothing here"):
         assert token in statement, token
@@ -66,7 +67,7 @@ def test_charge_claim_states_polarization_and_conditionality() -> None:
     for token in ("kappa = -(q h)/(12 - 4 phi)", "polarization-type",
                   "no monopole identification",
                   "resting worldline induces no load",
-                  "identification and the worldline shape are declared",
+                  "nonzero step, identification, and worldline shape are declared",
                   "2m times the forward second difference"):
         assert token in statement, token
 

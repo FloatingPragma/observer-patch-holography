@@ -261,10 +261,10 @@
             "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM"
           ],
           "explanation": "Along the fit-free criticality curve, the Higgs coordinate at the measured top mass tests the relation independently of the boundary-scale selection.",
-          "implied_boundary_scale_GeV": 4.750331123992614e+17,
+          "implied_boundary_scale_GeV": 4.750333702733633e+17,
           "lane": "m_t to m_H criticality relation (fit-free curve, compare-only test)",
-          "mH_on_curve_at_measured_mt_GeV": 125.72052400335069,
-          "mh_relative_residual": 0.004711705651312181,
+          "mH_on_curve_at_measured_mt_GeV": 125.72052472166195,
+          "mh_relative_residual": 0.004711711391788942,
           "tier": "relation verified within the declared matching band"
         },
         {
@@ -275,8 +275,8 @@
           ],
           "explanation": "The 115.1 GeV Higgs coordinate is the archived branch of the same family: criticality imposed at the gauge unification scale with one-loop running. Its deficit against measurement is the boundary-scale choice plus truncation, quantified by the scan.",
           "lane": "archived literal one-loop core at the mu_U boundary",
-          "mH_tree_GeV_display": 115.10128055804651,
-          "mt_QCD_converted_GeV_display": 164.13059302729587,
+          "mH_tree_GeV_display": 115.10128015046507,
+          "mt_QCD_converted_GeV_display": 164.13059244609826,
           "tier": "T2 (target-free tree coordinates; low edge of the family)"
         },
         {
@@ -504,7 +504,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-29T16:29:39Z",
+  "generated_utc": "2026-08-26T13:17:22Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [

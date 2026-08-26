@@ -1,6 +1,6 @@
 # Non-Hadron Mass Candidate Audit
 
-Generated: `2026-07-29T17:21:23Z`
+Generated: `2026-08-26T13:17:12Z`
 
 This bundle records numeric non-hadron candidates that are not target-anchored witness rows.
 A row is a prediction only when its explicit promotion gate passes. No displayed row has that status on the current corpus.

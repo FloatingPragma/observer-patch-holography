@@ -142,7 +142,9 @@ def build_artifact() -> dict[str, object]:
         ],
         "current_internalized_scope": (
             "Axiom 3 with its exact local reference and constraint package gives the fixed-stage "
-            "local Gibbs form, quasi-local propagation, and endpoint-Lipschitz interval control. "
+            "local Gibbs form and quasi-local propagation on the faithful/interior branch. "
+            "Reduced-modular endpoint-Lipschitz control additionally requires the exact-Markov/central-interface "
+            "split, a specified endpoint-to-cell map, and a uniform local norm/site-density bound. "
             "The separate optimizer-pushforward interface supplies refinement-stable branch "
             "persistence. The current corpus also packages the reference cap-local test system, "
             "the projectively compatible transported cap marginal family, and the asymptotic transport-equivalence certificate."

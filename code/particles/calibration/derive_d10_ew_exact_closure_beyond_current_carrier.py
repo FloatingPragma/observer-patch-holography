@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
-"""Emit the split exact-closure law on the selected D10 carrier point.
+"""Emit a split algebraic readout on the declared D10 carrier point.
 
-Chain role: close the exact D10 electroweak readout beyond carrier selection by
-keeping the transported selected point for the mass pair and restoring the
-neutral readout through a derived source-normalized hypercharge leg.
+Chain role: audit a split D10 readout beyond carrier selection by keeping the
+declared transported point for the tree/chart pair and algebraically restoring
+the neutral input through a compensating hypercharge leg.
 
 Mathematics: selected-carrier transport, source-normalized hypercharge
 compensation, and split mass/neutral readout bookkeeping.
 
-OPH-derived inputs: the selected D10 carrier point, the source electroweak
-slots, and the selected-point transport couplings already emitted on the live
-carrier.
+Inputs: the declared-map D10 carrier point, electroweak chart slots, and the
+selected-point transport couplings.  This artifact does not prove that the
+source selects the map or that any displayed tree/chart coordinate is a pole.
 
-Output: the exact D10 closure object on the selected carrier together with the
-remaining stronger residual object that would unify the split readout into one
-post-transport tree identity.
+Output: an exact algebraic closure of this split declared-map bookkeeping,
+together with the stronger residual object that would unify the split readout
+into one post-transport tree identity.  Exactness here is not physical or
+predictive closure.
 """
 
 from __future__ import annotations
@@ -72,6 +73,11 @@ def build_artifact(source_pair: dict, readout: dict, population: dict) -> dict:
         "object_id": "EWTransportExactClosureBeyondCurrentCarrier_D10",
         "status": "closed",
         "proof_status": "closed_on_existing_selected_carrier_via_source_normalized_hypercharge_readout",
+        "epistemic_status": "exact_algebraic_identity_on_declared_map_only",
+        "diagnostic_only": True,
+        "source_selected": False,
+        "physical_pole_claim": False,
+        "predictive_promotion_allowed": False,
         "exactness_surface_kind": "split_mass_neutral_readout",
         "extra_invariant_required": False,
         "minimal_carrier_enlargement_required": False,
@@ -126,9 +132,9 @@ def build_artifact(source_pair: dict, readout: dict, population: dict) -> dict:
         },
         "stronger_residual_object": "EWSinglePostTransportTreeIdentity_D10",
         "notes": [
-            "The selected carrier point remains the transported mass source for W and Z.",
-            "The neutral readout closes by restoring the source-normalized hypercharge leg through a derived compensator rather than a new free invariant.",
-            "This closes split exactness on the existing carrier without enlarging the carrier or fitting reference observables.",
+            "The declared carrier point supplies tree/chart W and Z coordinates; the source does not select this map and no physical pole is constructed.",
+            "The neutral bookkeeping identity restores the original hypercharge input through a compensator defined as its exact algebraic inverse; this is not an independent source derivation.",
+            "This closes split algebraic exactness on the declared carrier without enlarging it or fitting reference observables; it carries no prediction or physical-pole status.",
         ],
     }
 

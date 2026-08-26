@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Emit the three-axiom quark-Yukawa non-definability theorem.
+"""Emit the current-signature quark-Yukawa non-identifiability argument.
 
-This artifact answers the strongest possible source-only question.  It does
-not merely audit the present builders: it records an explicit counterfamily
-of physically inequivalent one-Higgs, three-generation Yukawa packages that
-share the same three-axiom source data and declared structural packet.
+This artifact records an explicit algebraic counterfamily of physically
+inequivalent one-Higgs, three-generation Yukawa packages.  Its application to
+OPH is conditional on the current registered A1--A3 source signature and
+declared structural packet containing no typed constraint, dynamics, or
+output map that separates or excludes that family.  The emitter serializes
+the argument and its registry-audit assertions; it is not a machine proof of
+the completeness of the registered source signature.
 
 No quark reference value, fitted spread, selected-family target, or numerical
 flavor template is loaded.  The result uses no additional axiom.
@@ -37,20 +40,27 @@ def build_artifact() -> dict[str, Any]:
     return {
         "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",
         "generated_utc": _timestamp(),
-        "proof_status": "closed_axiom_level_nondefinability_theorem",
-        "claim_tier": "three_axiom_source_only_obstruction",
-        "scope": "OPH_Axioms_1_3_plus_declared_structural_SM_branch_and_fixed_P",
+        "proof_status": "conditional_current_registered_signature_nonidentifiability_argument",
+        "claim_tier": "conditional_current_registered_source_signature_obstruction",
+        "scope": "current_registered_A1_A3_signature_plus_declared_structural_SM_branch_and_fixed_P",
+        "scope_kind": "current_registered_signature_not_all_future_OPH_completions",
+        "machine_proof": False,
+        "receipt_role": "serialization_and_regression_guard_for_a_conditional_paper_argument",
+        "registered_signature_completeness_verified_by_emitter": False,
         "additional_axioms_used": False,
+        "conditional_scope_premises_used": True,
         "theorem_grade_obstruction": True,
         "source_only_numeric_quark_spectrum_emitted": False,
         "public_numeric_quark_rows_allowed": False,
         "theorem_statement": (
-            "OPH Axioms 1--3, a fixed pixel closure P, and a declared structural Standard-Model "
-            "package do not define the quark Yukawa eigenvalues. For every generic admissible one-Higgs "
+            "Conditional on the current registered A1--A3 source signature, a fixed pixel closure P, "
+            "and a declared structural Standard-Model package containing no orbit-separating output "
+            "map or constraint, the registered antecedents do not define the quark Yukawa eigenvalues. "
+            "For every generic admissible one-Higgs "
             "three-generation package there is a continuous positive-rescaling family with the same screen, "
             "agreement, reference and aggregation, gauge, anomaly, hypercharge, Higgs, generation, CKM, "
             "CP-capability, and weak-UV data but different Yukawa singular values and quark masses. Hence a unique "
-            "quark mass spectrum does not factor through the stated axioms and source signature."
+            "quark mass spectrum does not factor through that current registered source signature."
         ),
         "counterfamily": {
             "baseline": (
@@ -79,6 +89,7 @@ def build_artifact() -> dict[str, Any]:
             "quark_mass_singular_values_changed": True,
         },
         "axiom_invariance_audit": {
+            "classification": "conditional_registry_audit_assertions_not_machine_verified_by_this_emitter",
             "all_registered_axiom_data_preserved": True,
             "Axiom_1_screen_net": "unchanged by Yukawa-eigenvalue rescaling",
             "Axiom_2_observer_agreement": "the declared accepted-data meaning diagrams are unchanged by Yukawa-eigenvalue rescaling",
@@ -108,16 +119,16 @@ def build_artifact() -> dict[str, Any]:
             "infimum": "lambda_u=lambda_d=0",
             "zero_limit_effect": "massless or degenerate quarks rather than the observed spectrum",
             "adding_a_norm_entropy_cost_description_length_or_RG_functional": (
-                "would add a new output-selection premise unless derived from the A1 grammar and A3 optimizer"
+                "would add a new output-selection premise unless derived within a valid completion"
             ),
         },
         "proof_steps": [
             "Fix any generic admissible one-Higgs three-generation Yukawa package with simple spectra.",
             "Apply independent positive rescalings to the two centered log-spectrum profiles while fixing their frames.",
             "Gauge representations, anomaly cancellation, hypercharges, Higgs content, CKM data, and CP capability are unchanged.",
-            "The complete registered A1--A3 data and declared structural checks are unchanged because no typed optimizer-to-Yukawa map is present.",
+            "Conditional on the current registry audit, the registered A1--A3 data and declared structural checks are unchanged because no typed orbit-separating constraint or output map is present.",
             "The packages are physically inequivalent because their Yukawa singular values differ and physical equivalence preserves Yukawa invariants.",
-            "Therefore the same OPH axioms, declared structural packet, and fixed P admit multiple quark spectra, contradicting uniqueness of any registered source-only mass map.",
+            "Therefore the current registered signature, declared structural packet, and fixed P admit multiple quark spectra, contradicting uniqueness of a mass map on that registered signature.",
         ],
         "corollaries": {
             "unique_source_map_P_to_sigma_u_sigma_d_exists": False,
@@ -139,20 +150,21 @@ def build_artifact() -> dict[str, Any]:
         },
         "public_policy": {
             "numeric_prediction_status": "not_defined_by_current_axioms",
-            "allowed_public_result": "axiom_level_nondefinability_theorem",
+            "allowed_public_result": "conditional_current_registered_signature_nonidentifiability_argument",
             "target_reconstruction_tables": "audit_only_not_predictions",
         },
         "notes": [
-            "This is a non-definability theorem under the stated axioms, not a claim that every conceivable future theory must leave Yukawa values free.",
+            "The positive-rescaling algebra is exact; its OPH application is conditional on the current registered source signature and is not a theorem about every future completion.",
+            "This emitter serializes assertions and regression fields; it does not machine-verify registry completeness or the paper argument.",
             "No additional axiom or numerical normalization principle is introduced.",
-            "A positive numerical theorem would have to refute this counterfamily using an A1-generated flavor grammar and a typed A3 optimizer-to-Yukawa map; neither is present.",
+            "A completion retaining this family must separate or exclude its orbit. A derived constraint, dynamics or action, source functional, stronger carrier or representation, or independently justified premise can do so; the current registry contains none with that role.",
         ],
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Build the OPH three-axiom quark-Yukawa non-definability theorem."
+        description="Build the conditional current-signature quark-Yukawa non-identifiability artifact."
     )
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()

@@ -10,6 +10,7 @@
     "primitive_carrier_not_selected_here": true,
     "readback_uses_same_n_crc_ew": true,
     "resonance_certificate_is_exact_conditional": true,
+    "screen_and_product_adjoint_counts_are_independently_sourced": true,
     "screen_sieve_supplies_twelve_ports_and_x_over_twelve": true,
     "si_lambda_not_promoted_here": true
   },
@@ -28,6 +29,7 @@
     "finite_readback_resolution": "certificates/R_readback_resolution_certificate.json",
     "joint_product_fixed_point": "certificates/R_PN_joint_fixed_point_certificate_report.json",
     "local_global_resonance": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+    "product_adjoint_round_count": "certificates/R_m_rep_24_certificate.json",
     "screen_sieve": "certificates/R_screen_sieve_icosahedral_certificate.json"
   },
   "dimensionless_de_sitter_coordinate": {
@@ -49,19 +51,23 @@
     "reconstruction_formula": "K_cell*(P_star/4) = N_CRC^EW",
     "relative_reconstruction_error": "0"
   },
-  "purpose": "Expose the pixel-screen tile identity, 12/24-port arithmetic alignment, and dimensionless de Sitter capacity coordinate as one machine-readable summary sourced from existing hierarchy certificates.",
+  "purpose": "Expose the pixel-screen tile identity, independent screen and product-adjoint counts, and dimensionless de Sitter capacity coordinate as one machine-readable summary sourced from existing hierarchy certificates.",
   "shared_12_24_port_alignment": {
     "conditional_hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
     "conditional_tick_form": "v/E_cell = |g_*'|^(4*P_star)",
     "conditional_transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",
+    "equal_cardinality_status": "arithmetic_alignment_without_physical_identification",
     "gamma_screen_algebra": "Gamma_screen=(P_star/12)*log(N_CRC^EW/pi)",
     "identification_premise": "HIERARCHY-SCREEN-READOUT",
     "identification_status": "work_in_progress",
-    "repair_register_slots": 24,
-    "repair_register_source": "certificates/R_m_rep_24_certificate.json",
+    "product_adjoint_dimension": 12,
+    "product_adjoint_rounds_m_rep": 24,
+    "product_adjoint_source": "certificates/R_m_rep_24_certificate.json",
     "screen_load_split": "X/12",
+    "screen_oriented_slots": 24,
     "screen_port_source": "certificates/R_screen_sieve_icosahedral_certificate.json",
-    "screen_ports": 12
+    "screen_ports": 12,
+    "screen_register_source": "paper/screen_microphysics_and_observer_synchronization.tex#def:oriented-24-slot-register"
   },
   "source_pair": {
     "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",

@@ -56,7 +56,7 @@ WHAT IS PROVED.
 4. Assembled flow.  `modeFlow h lam t` is the shear flow for `lam = 0` and
    the rotation conjugate otherwise; for a finite family of pairwise
    orthogonal eigenvectors `v i` with `lam i = 0 ∨ 0 < h² lam i < 4`, the
-   componentwise flow `assembledFlow` on states `ι → Fin 2 → ℝ` is a
+   componentwise coefficient flow `assembledFlow` on states `ι → Fin 2 → ℝ` is a
    one-parameter group, linear and continuous in `t`, whose `n h` values
    generate the history `A n = ∑ i, (Φ (n h) x) i 0 • v i` solving the
    committed evolution with electric field `-∑ i, (Φ (n h) x) i 1 • v i`
@@ -67,7 +67,7 @@ WHAT IS PROVED.
    `twoMode, threeMode, fiveMode, goldenMode` together with any gradient
    seam field `d χ` instantiate the family (`carrier_flow_five_modes`).
 5. Stone reading at scope (`carrier_flow_stone_reading`): on the stated
-   subspace there is a one-parameter group of linear maps, continuous in
+   coefficient state space there is a one-parameter group of linear maps, continuous in
    `t`, preserving the committed energy, whose `h`-step is the committed
    evolution.  Not claimed: unitarity on a Hilbert space (no inner product
    on the state space is declared here beyond the committed seam pairing);
@@ -78,6 +78,10 @@ WHAT IS PROVED.
    star-automorphism flow on the private algebra, and this module supplies
    a flow on the field sector's stated subspace, with the identification
    of `t` with physical time left to the source clock and duration row.
+   The theorem does not assume the listed vectors are nonzero, so the
+   coefficient-to-field map need not be injective; a faithful flow on the
+   actual field span requires nonzero linear independence or quotienting the
+   redundant coefficient directions.
    Extension to the whole curl sector: the six face projectors
    `projTwoR, projThreeR, projFiveR` (`ScaledMaxwellStability`) and
    `goldenPlusR, goldenMinusR` (`GoldenSectorCharacters`, with
@@ -112,7 +116,7 @@ states `(1, (cos θ - 1) / h)` and `(0, sin θ / h)`; the flow here
 interpolates them to real `t`.
 
 ROWS TOUCHED (none discharged).  Quantum dynamics row: the flow is
-constructed on the stated subspace; its physical time identification is
+constructed on the stated coefficient state space; its physical time identification is
 declared, not proved.  Light-signal row: no propagation speed is attached.
 Source clock and duration row: `h` and `t` are declared parameters with no
 unit.  Physical spacetime attachment row: the carrier is the committed
@@ -954,7 +958,7 @@ theorem carrier_flow_five_modes (χ : Fin 12 → ℝ) (h : ℝ) (hh : h ≠ 0)
 
 /-- **(5) Stone reading at scope.**  For every finite family of pairwise
 orthogonal admissible eigenvectors of `CᵀC` there is a map
-`Φ : ℝ → State → State` on the state space `ι → Fin 2 → ℝ` of the span such
+`Φ : ℝ → State → State` on the coefficient state space `ι → Fin 2 → ℝ` such
 that: every `Φ t` is linear; `Φ 0` is the identity; `Φ s ∘ Φ t = Φ (s + t)`;
 every orbit `t ↦ Φ t x` is continuous; the assembled energy is constant along
 every orbit; the `h`-value is the committed step on every component; and the
@@ -975,9 +979,12 @@ to any such family).  The corpus Stone representation of
 `Dynamics/StoneConverse.lean`, `EventAlgebra/SchroedingerFrameFlow.lean` and
 `EventAlgebra/QuantumAdequacySurface.lean` (`unique_continuous_flow`, the
 OL-C2 row surface) consumes a supplied continuous star-automorphism flow on
-the private algebra; this theorem supplies a continuous linear flow on the
-field sector's stated subspace, and the two constructions are joined by no
-theorem here. -/
+the private algebra; this theorem supplies a continuous linear coefficient
+flow that generates field histories. Because no nonzero hypothesis is imposed
+on `v`, the coefficient-to-field map need not be injective; identifying this
+with a faithful flow on the actual field span needs nonzero linear independence
+or a quotient of redundant coefficient directions. The two constructions are
+joined by no theorem here. -/
 theorem carrier_flow_stone_reading {ι : Type} [Fintype ι] (h : ℝ) (lam : ι → ℝ)
     (v : ι → Fin 30 → ℝ) (hh : h ≠ 0) (hadm : ∀ i, Admissible h (lam i))
     (hv : ∀ i, localMaxwellOperator (v i) = lam i • v i)

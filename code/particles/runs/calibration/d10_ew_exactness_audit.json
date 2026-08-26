@@ -107,7 +107,7 @@
     "coordinate_symbol": "tau2_tree_exact",
     "depends_on_object": "EWFiberwisePopulationTreeLaw_D10",
     "next_residual_object_if_open": "delta_n_tree_exact",
-    "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+    "proof_status": "exact_interval_excludes_single_tau2_central_WZ_pair_on_current_carrier",
     "status": "open_current_carrier_insufficient"
   },
   "exactness_precondition": {
@@ -222,7 +222,7 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
     "target_free_predictive_emission_closed": false
   },
-  "generated_utc": "2026-07-23T02:51:15Z",
+  "generated_utc": "2026-08-26T12:11:57Z",
   "notes": [
     "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
     "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
@@ -439,7 +439,7 @@
   "tau2_current_carrier_obstruction": {
     "artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
     "next_single_residual_object": "delta_n_tree_exact",
-    "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+    "proof_status": "exact_interval_excludes_single_tau2_central_WZ_pair_on_current_carrier",
     "status": "closed_smaller_primitive",
     "strictly_smaller_than": "tau2_tree_exact"
   },

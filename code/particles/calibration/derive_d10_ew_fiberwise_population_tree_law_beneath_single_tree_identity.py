@@ -95,7 +95,7 @@ def build_artifact(source_pair: dict, population: dict, exact_wz_coordinate: dic
         "notes": [
             "The fixed-tau2 fibers of J_pop_EW have a unique tauY minimizer.",
             "This removes the placeholder unsplit tree law without inventing tau2_tree_exact.",
-            "Exact W and exact Z become a one-variable forward law on the existing carrier once this primitive is emitted.",
+            "This primitive defines a one-variable W/Z forward map; it does not guarantee attainment of an arbitrary target pair. The exact interval receipt excludes the declared central W/Z pair on these current formulas, while nonlinear repair with an added neutral scalar remains viable.",
         ],
     }
 

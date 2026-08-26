@@ -72,10 +72,15 @@ WHAT IS PROVED.
    `goldenImage_trace`), giving the real traces `1, 5, 4, 4, 6` of the
    rational projectors and trace `18` of `N` on the golden sector
    (`projector_traces`, `golden_sector_normal_trace`).
-5. Tick-free frequency ratios.  For any `ClockCalibration` the ratio of two
-   laboratory frequencies `labFrequency θ₁ / labFrequency θ₂` equals
-   `θ₁ / θ₂` and is the same for every calibration
-   (`labFrequency_ratio`, `labFrequency_ratio_tick_free`).  The mode angle
+5. Tick-free frequency ratios.  For any `ClockCalibration` and nonzero
+   denominator angle `θ₂`, the ratio of two laboratory frequencies
+   `labFrequency θ₁ / labFrequency θ₂` equals `θ₁ / θ₂` and is the same for
+   every calibration (`labFrequency_ratio_of_ne_zero`,
+   `labFrequency_ratio_tick_free_of_ne_zero`).  The compatibility lemmas
+   `labFrequency_ratio` and `labFrequency_ratio_tick_free` retain the
+   corresponding totalized real-division identities for all angles; at
+   `θ₂ = 0` those identities are only Lean's zero-denominator algebra and are
+   not a physical frequency ratio.  The mode angle
    obeys the exact two-sided bound
    `h √lam ≤ modeAngle h lam ≤ h √lam / √(1 - h² lam / 4)`
    (`modeAngle_ge`, `modeAngle_le`), hence the frequency ratio of two modes
@@ -658,8 +663,11 @@ theorem golden_sector_normal_trace :
 
 /-! ## 5. Tick-free frequency ratios and the small-step bound -/
 
-/-- The ratio of two laboratory frequencies is the ratio of the angular
-advances per step, for any declared tick. -/
+/-- **Totalized algebra identity (compatibility lemma).**  Cancelling the
+common nonzero tick factor gives the same real-division expression for all
+angles.  When `θ₂ = 0`, both sides use Lean's totalized division and this is
+not a physically defined frequency ratio.  Use
+`labFrequency_ratio_of_ne_zero` for the citable ratio statement. -/
 theorem labFrequency_ratio (cal : ClockCalibration) (θ₁ θ₂ : ℝ) :
     cal.labFrequency θ₁ / cal.labFrequency θ₂ = θ₁ / θ₂ := by
   simp only [ClockCalibration.labFrequency_def]
@@ -667,11 +675,45 @@ theorem labFrequency_ratio (cal : ClockCalibration) (θ₁ θ₂ : ℝ) :
     have := cal.tau_pos; have := Real.pi_pos; positivity
   exact div_div_div_cancel_right₀ hc θ₁ θ₂
 
-/-- The frequency ratio carries no tick. -/
+/-- A nonzero angular advance gives a nonzero laboratory frequency under
+every positive declared tick. -/
+theorem labFrequency_ne_zero (cal : ClockCalibration) (θ : ℝ) (hθ : θ ≠ 0) :
+    cal.labFrequency θ ≠ 0 := by
+  simp only [ClockCalibration.labFrequency_def]
+  have hc : 2 * Real.pi * cal.tau ≠ 0 := by
+    have := cal.tau_pos; have := Real.pi_pos; positivity
+  exact div_ne_zero hθ hc
+
+/-- **Citable laboratory-frequency ratio.**  If the denominator angle is
+nonzero, then the denominator laboratory frequency is nonzero and its ratio
+with the numerator frequency is the ratio of angular advances per step. -/
+theorem labFrequency_ratio_of_ne_zero (cal : ClockCalibration) (θ₁ θ₂ : ℝ)
+    (hθ₂ : θ₂ ≠ 0) :
+    cal.labFrequency θ₁ / cal.labFrequency θ₂ = θ₁ / θ₂ := by
+  have hfreq₂ : cal.labFrequency θ₂ ≠ 0 := labFrequency_ne_zero cal θ₂ hθ₂
+  rw [div_eq_iff hfreq₂]
+  simp only [ClockCalibration.labFrequency_def]
+  have hc : 2 * Real.pi * cal.tau ≠ 0 := by
+    have := cal.tau_pos; have := Real.pi_pos; positivity
+  field_simp [hθ₂, hc]
+
+/-- **Totalized tick-cancellation identity (compatibility lemma).**  This is
+valid as real algebra for every `θ₂`, but at `θ₂ = 0` it is not a physical
+frequency ratio.  Use `labFrequency_ratio_tick_free_of_ne_zero` for that
+statement. -/
 theorem labFrequency_ratio_tick_free (cal cal' : ClockCalibration) (θ₁ θ₂ : ℝ) :
     cal.labFrequency θ₁ / cal.labFrequency θ₂ =
       cal'.labFrequency θ₁ / cal'.labFrequency θ₂ := by
   rw [labFrequency_ratio, labFrequency_ratio]
+
+/-- A laboratory-frequency ratio with nonzero denominator carries no declared
+tick. -/
+theorem labFrequency_ratio_tick_free_of_ne_zero
+    (cal cal' : ClockCalibration) (θ₁ θ₂ : ℝ) (hθ₂ : θ₂ ≠ 0) :
+    cal.labFrequency θ₁ / cal.labFrequency θ₂ =
+      cal'.labFrequency θ₁ / cal'.labFrequency θ₂ := by
+  rw [labFrequency_ratio_of_ne_zero cal θ₁ θ₂ hθ₂,
+    labFrequency_ratio_of_ne_zero cal' θ₁ θ₂ hθ₂]
 
 theorem modeAngle_nonneg (h lam : ℝ) : 0 ≤ modeAngle h lam :=
   Real.arccos_nonneg _
@@ -939,7 +981,10 @@ end OPH.CarrierModeOscillators
 #print axioms OPH.CarrierModeOscillators.window_iff_lt_sqrt_two_div_goldenRatio
 #print axioms OPH.CarrierModeOscillators.projector_traces
 #print axioms OPH.CarrierModeOscillators.golden_sector_normal_trace
+#print axioms OPH.CarrierModeOscillators.labFrequency_ne_zero
+#print axioms OPH.CarrierModeOscillators.labFrequency_ratio_of_ne_zero
 #print axioms OPH.CarrierModeOscillators.labFrequency_ratio_tick_free
+#print axioms OPH.CarrierModeOscillators.labFrequency_ratio_tick_free_of_ne_zero
 #print axioms OPH.CarrierModeOscillators.modeAngle_ge
 #print axioms OPH.CarrierModeOscillators.modeAngle_le
 #print axioms OPH.CarrierModeOscillators.modeAngle_ratio_bounds

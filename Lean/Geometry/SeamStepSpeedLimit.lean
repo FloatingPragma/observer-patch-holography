@@ -21,11 +21,12 @@ open OPH.C1Lorentz (Spatial Herm2 spatialNormSq lorentzQ)
 
 STATUS.  Candidate module on the light-signal, coupled-action, source-clock
 and spacetime-attachment rows.  The committed field evolution has a sharp
-stability window in the step `h` (`courant_threshold_sharp`, two-sided:
-below the threshold `h² (3 + √5) < 4`, i.e. `h² < 2/φ²`, every
-zero-current solution is bounded for every datum; above it an unbounded
-zero-current solution exists; the boundary `h² (3 + √5) = 4` is covered
-by neither direction), and the seam-step worldlines of the coupled-action row have a
+stability window in the step `h` (`courant_threshold_sharp` and
+`zeroCurrentElectricEnergyBounded_iff_window`, two-sided: strictly below
+the threshold `h² (3 + √5) < 4`, i.e. `h² < 2/φ²`, every zero-current
+solution has uniformly bounded electric and magnetic energies; at and
+above the boundary an unbounded electric-energy solution exists), and the
+seam-step worldlines of the coupled-action row have a
 sharp timelike threshold in the declared time unit `τ` per step
 (`seam_step_timelike_iff`: a crossing step is timelike iff `τ² > 4`).  The
 Maxwell-clock join reads the field step and the record step at one index
@@ -48,8 +49,9 @@ WHAT IS PROVED.
    window `h² (3 + √5) < 4` gives `h² < 1` (`window_sq_lt_one`); no `h`
    lies in the window with `4 < h²` (`window_timelike_incompatible`); in
    every stable evolution every crossing step of every seam-step worldline
-   at the identified unit is spacelike, and the evolution is bounded for
-   every datum (`stable_evolution_crossing_spacelike`); the ratio of the
+   at the identified unit is spacelike, and the evolution's electric
+   energy is bounded for every datum
+   (`stable_evolution_crossing_spacelike`); the ratio of the
    two thresholds is `4 / (2/φ²) = 2φ² = 3 + √5` (`threshold_gap`).  For a
    joined architecture whose duration equals its field step the same
    conclusion holds with no window hypothesis, because every joined
@@ -77,7 +79,7 @@ WHAT IS PROVED.
    timelike block speeds over the window and is never attained.
 4. Without the identification.  For `0 < τ` a crossing step is timelike
    iff `2 < τ` (`crossing_timelike_iff_pos`); at `τ = 3`, `h = 1/2` the
-   crossing is timelike and the evolution is bounded for every datum
+   crossing is timelike and both field energies are bounded for every datum
    (`thresholds_independent`); for every `h` in the window every `τ` with
    `2 < τ` gives timelike crossings and every `τ` with `τ < 2` gives
    spacelike crossings (`window_does_not_constrain_unit`); the committed
@@ -214,12 +216,12 @@ theorem window_crossing_spacelike (h : ℝ) (hw : StableWindow h)
   rw [lorentzQ_generated_step, stepNormSq_of_ne_rest _ hk]
   linarith [window_sq_lt_one h hw]
 
-/-- **Stable evolution admits no per-step crossing.**  For `h ≠ 0` in the
-window: every zero-current solution is bounded for every datum
+/-- **Stable evolution makes every crossing spacelike.**  For `h ≠ 0` in the
+window: every zero-current solution has bounded electric energy for every datum
 (`courant_threshold_sharp`), and every crossing step of every seam-step
 worldline at the identified unit is spacelike.  Conversely, if some
-crossing step at the identified unit is timelike then the window fails
-and an unbounded zero-current solution exists. -/
+   crossing step at the identified unit is timelike then the window fails
+   and a zero-current solution with unbounded electric energy exists. -/
 theorem stable_evolution_crossing_spacelike (h : ℝ) (hh : h ≠ 0) (hw : StableWindow h) :
     (∀ (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ),
         AmpereEvolutionScaled h A φ (fun _ ↦ 0) → ∀ n,
@@ -231,7 +233,8 @@ theorem stable_evolution_crossing_spacelike (h : ℝ) (hh : h ≠ 0) (hw : Stabl
     fun w k hk ↦ window_crossing_spacelike h hw w k hk⟩
 
 /-- A timelike per-step crossing at the identified unit puts `h` above
-the window, where an unbounded zero-current solution exists. -/
+the window, where a zero-current solution with unbounded electric energy
+exists. -/
 theorem timelike_crossing_unstable (h : ℝ) (hh : h ≠ 0) (w : SeamStepWorldline) (k : ℕ)
     (hk : w.steps k ≠ .rest)
     (ht : 0 < lorentzQ (generatedPath h w (k + 1) - generatedPath h w k)) :
@@ -593,8 +596,8 @@ theorem crossing_timelike_iff_pos (τ : ℝ) (hτ : 0 < τ) (w : SeamStepWorldli
 
 /-- **The two thresholds are independent.**  At `τ = 3` and `h = 1/2` the
 unit is not identified with the step, every crossing step is timelike, the
-step lies in the window, and every zero-current solution is bounded for
-every datum. -/
+step lies in the window, and every zero-current solution has bounded
+electric energy for every datum. -/
 theorem thresholds_independent :
     ¬ UnitIdentifiedWithStep 3 (1 / 2) ∧
     (∀ (w : SeamStepWorldline) (k : ℕ), w.steps k ≠ .rest →

@@ -20,11 +20,16 @@ stationary-profile form, the detailed-balance error of the
 reversibilized chain, and relative-entropy descent to the stationary
 law of the reversibilized chain. The raw chain's reducibility, which
 the simulator's own eligibility gate names as a blocker, is inherited
-and recorded. The probe also exhausts all fifteen nonempty field-subset
-projections of the four committed packet fields. It isolates the eight-state raw
-repair-load quotient as ergodic but nonreversible and checks every
-closed communicating class of the fine chain. This is a bounded audit
-of the pinned 20-state table, without an additional observer-patch simulation.
+and recorded. The probe also exhausts all fifteen coordinate projections
+obtained by retaining a nonempty subset of the four committed packet fields.
+It isolates the eight-state repair-load count aggregation as ergodic but
+nonreversible and checks every closed communicating class of the fine chain.
+These projected count kernels are not automatically Markov quotients of the
+fine chain; the probe records a strong-lumpability diagnostic for each declared
+coordinate map. It does not enumerate arbitrary partitions or nonlinear,
+statistical, stochastic, weakly lumpable, or history-dependent quotient maps.
+This is a bounded audit of the pinned 20-state table, without an additional
+observer-patch simulation.
 
 Run with --write to refresh the committed probe receipt.
 """
@@ -92,6 +97,7 @@ ROW_SUM_TOL = 1e-12
 DB_TOL = 1e-12
 KL_MONOTONE_TOL = 1e-12
 KL_STEPS = 16
+LUMPABILITY_TOL = 1e-12
 
 
 def file_sha256(path: Path) -> str:
@@ -160,11 +166,13 @@ def coarsen_counts(
     labels: list[list[list[Any]]],
     fields: tuple[str, ...],
 ) -> tuple[list[list[list[Any]]], list[list[float]], list[list[float]]]:
-    """Push the pinned count table through a declared packet quotient.
+    """Aggregate the pinned count table through a coordinate map.
 
-    This is a deterministic coarsening of the source-counted table,
-    not a fitted transition law.  Keys are sorted by canonical JSON so the
-    resulting matrix has a stable row order.
+    This is a deterministic aggregation of the source-counted table, not a
+    fitted transition law. Row normalization produces an empirical stochastic
+    kernel but does not by itself prove that the coordinate map is lumpable.
+    Keys are sorted by canonical JSON so the resulting matrix has a stable row
+    order.
     """
     require(bool(fields), "a coarsening needs at least one field")
     encoded_to_key: dict[str, tuple[Any, ...]] = {}
@@ -246,6 +254,47 @@ def pairwise_row_tv_max(matrix: list[list[float]]) -> float:
                 * sum(abs(x - y) for x, y in zip(matrix[i], matrix[j])),
             )
     return out
+
+
+def coordinate_partition_blocks(
+    fine_labels: list[list[list[Any]]], fields: tuple[str, ...]
+) -> list[list[int]]:
+    """Fine-state blocks induced by a coordinate map, canonically ordered."""
+    encoded_blocks: dict[str, list[int]] = {}
+    for i, label in enumerate(fine_labels):
+        key = tuple(label_value(label, field) for field in fields)
+        encoded = json.dumps(key, separators=(",", ":"), sort_keys=True)
+        encoded_blocks.setdefault(encoded, []).append(i)
+    return [encoded_blocks[key] for key in sorted(encoded_blocks)]
+
+
+def strong_lumpability_max_err(
+    fine_matrix: list[list[float]],
+    fine_labels: list[list[list[Any]]],
+    fields: tuple[str, ...],
+) -> float:
+    """Maximum strong-lumpability defect for one coordinate map.
+
+    Strong lumpability requires two fine states in the same source block to
+    have identical total transition probability into every target block. A
+    row-normalized aggregation of counted transitions is a valid stochastic
+    kernel even when this condition fails, but in that case it is not a
+    certified Markov quotient of the fine chain.
+    """
+    blocks = coordinate_partition_blocks(fine_labels, fields)
+    max_err = 0.0
+    for source_block in blocks:
+        for left in source_block:
+            for right in source_block:
+                for target_block in blocks:
+                    left_mass = sum(
+                        fine_matrix[left][j] for j in target_block
+                    )
+                    right_mass = sum(
+                        fine_matrix[right][j] for j in target_block
+                    )
+                    max_err = max(max_err, abs(left_mass - right_mass))
+    return max_err
 
 
 def audit_irreducible_chain(
@@ -470,9 +519,10 @@ def build_probe() -> dict[str, Any]:
     raw_summary = raw_entry.get("summary", raw_entry)
     inherited_blockers = list(report.get("blockers", []))
 
-    # Exhaust every nonempty field-subset projection of the four committed
-    # packet fields. This is only 15 quotients of a 20-state table; it is a bounded audit of
-    # the pinned artifact, not a simulation or a parameter search.
+    # Exhaust every nonempty coordinate projection of the four committed
+    # packet fields. This is only 15 maps of a 20-state table; it is a bounded
+    # audit of the pinned artifact, not an enumeration of arbitrary quotient
+    # maps, a new simulation, or a parameter search.
     available_fields = tuple(str(field) for field in report["packet_fields"])
     coarsening_rows: list[dict[str, Any]] = []
     saved_dps = mp.dps
@@ -488,10 +538,20 @@ def build_probe() -> dict[str, Any]:
                     {
                         "packet_fields": list(fields),
                         "labels": coarse_labels,
+                        "induced_fine_partition_blocks": (
+                            coordinate_partition_blocks(labels, fields)
+                        ),
                         "equal_row_pairwise_tv_max": pairwise_row_tv_max(
                             coarse_matrix
                         ),
+                        "fine_chain_strong_lumpability_max_err": (
+                            strong_lumpability_max_err(raw, labels, fields)
+                        ),
                     }
+                )
+                chain["fine_chain_strongly_lumpable_at_tolerance"] = (
+                    chain["fine_chain_strong_lumpability_max_err"]
+                    <= LUMPABILITY_TOL
                 )
                 coarsening_rows.append(chain)
     finally:
@@ -526,6 +586,14 @@ def build_probe() -> dict[str, Any]:
         not nontrivial_reversible,
         "a nontrivial reversible raw coarsening appeared",
     )
+    distinct_partition_signatures = {
+        tuple(tuple(block) for block in row["induced_fine_partition_blocks"])
+        for row in coarsening_rows
+    }
+    require(
+        len(distinct_partition_signatures) == 4,
+        "constant-field projection deduplication drifted",
+    )
 
     # The alternative recurrent-class route named by issue #688 is also
     # decided on the pinned fine quotient.  Its only closed class is the
@@ -542,12 +610,14 @@ def build_probe() -> dict[str, Any]:
     protected_cardinality = len(set(fibres))
 
     body: dict[str, Any] = {
-        "schema": "oph.collar_matrix_realization_probe.v2",
+        "schema": "oph.collar_matrix_realization_probe.v3",
         "status": (
             "MEASURED_PROBE__SOURCE_PRODUCED_MATRIX_ATTAINED__"
-            "EXHAUSTIVE_15_FIELD_SUBSET_PROJECTION_AUDIT__"
-            "EIGHT_STATE_RAW_ERGODIC_NONREVERSIBLE_SECOND_LAW_PROBE__"
-            "ONLY_RECURRENT_RESTRICTION_IS_SINGLETON_FREEZEOUT__"
+            "DECLARED_15_SYNTACTIC_COORDINATE_PROJECTIONS_AUDITED__"
+            "FOUR_DISTINCT_INDUCED_PARTITIONS__"
+            "OTHER_QUOTIENT_MAPS_OPEN__"
+            "EIGHT_STATE_COUNT_AGGREGATED_NONREVERSIBLE_H_THEOREM_PROBE__"
+            "FINE_20_STATE_CHAIN_ONLY_CLOSED_CLASS_IS_SINGLETON_FREEZEOUT__"
             "REVERSIBILIZED_KL_DESCENT_VERIFIED__"
             "RAW_CHAIN_REDUCIBLE__RECEIPT_OPEN"
         ),
@@ -591,15 +661,54 @@ def build_probe() -> dict[str, Any]:
         },
         "raw_coarsening_audit": {
             "audit_bound": (
-                "all 15 nonempty subsets of the four fields in the pinned "
-                "20-state quotient; 1,028 observers and 31,744 counted "
-                "transitions; no additional observer-patch simulation"
+                "all 15 syntactic coordinate maps that retain a nonempty "
+                "subset of the four fields in the pinned 20-state table, "
+                "inducing four distinct partitions; 1,028 "
+                "observers and 31,744 counted transitions; no additional "
+                "observer-patch simulation"
             ),
-            "quotient_count": len(coarsening_rows),
-            "nontrivial_irreducible_syntactic_quotient_count": len(
+            "enumeration_scope": {
+                "map_class": (
+                    "coordinate maps x -> tuple(field(x) for field in S), "
+                    "for every nonempty subset S of the four committed fields"
+                ),
+                "aggregation_rule": (
+                    "sum the pinned transition counts over each source and "
+                    "target coordinate block, then row-normalize"
+                ),
+                "exhaustive_within_declared_coordinate_grammar": True,
+                "syntactic_maps_may_induce_duplicate_partitions": True,
+                "duplicate_reason": (
+                    "record_family and s3_sector_class are constant on the "
+                    "pinned table, so the 15 syntactic maps induce only four "
+                    "distinct fine-state partitions"
+                ),
+                "arbitrary_set_partitions_enumerated": False,
+                "nonlinear_maps_enumerated": False,
+                "statistical_or_learned_maps_enumerated": False,
+                "stochastic_maps_enumerated": False,
+                "history_dependent_maps_enumerated": False,
+                "weak_lumpability_tested": False,
+                "arbitrary_strongly_lumpable_partition_search_performed": False,
+                "coordinate_strong_lumpability_diagnostic_recorded": True,
+                "exact_lumpability_proof_emitted": False,
+                "interpretation": (
+                    "the row-normalized count aggregations are stochastic "
+                    "kernels. The recorded defect is a numerical diagnostic "
+                    "on the pinned floating-point table, not an exact "
+                    "lumpability proof; a value above tolerance excludes "
+                    "strong lumpability for that pinned numerical matrix"
+                ),
+            },
+            "strong_lumpability_tolerance": LUMPABILITY_TOL,
+            "syntactic_coordinate_map_count": len(coarsening_rows),
+            "distinct_induced_partition_count": len(
+                distinct_partition_signatures
+            ),
+            "nontrivial_irreducible_syntactic_map_count": len(
                 nontrivial_irreducible
             ),
-            "nontrivial_irreducible_reversible_count": len(
+            "nontrivial_irreducible_reversible_syntactic_map_count": len(
                 nontrivial_reversible
             ),
             "constant_fields": ["record_family", "s3_sector_class"],
@@ -612,8 +721,11 @@ def build_probe() -> dict[str, Any]:
                 ),
                 "common_reference_with_state_optimizer_identified": False,
                 "interpretation": (
-                    "the source-counted repair-load quotient is an "
-                    "eight-state irreducible aperiodic raw Markov chain. "
+                    "the source-counted repair-load aggregation is an "
+                    "eight-state irreducible aperiodic stochastic kernel, "
+                    "but its projected process is not a certified Markov "
+                    "quotient because the coordinate map fails the recorded "
+                    "strong-lumpability diagnostic. "
                     "Its computed full-support stationary law and sampled "
                     "relative-entropy descent support a nonreversible "
                     "finite H-theorem branch. It does not identify that law "
@@ -635,10 +747,11 @@ def build_probe() -> dict[str, Any]:
                 len(cls) > 1 for cls in recurrent_classes
             ),
             "verdict": (
-                "the issue-permitted recurrent-class restriction exists "
-                "only as one absorbing freezeout state. It is a trivial "
-                "one-state equilibrium, not a nontrivial thermodynamic "
-                "relaxation realization"
+                "the fine 20-state chain's only closed communicating class "
+                "is one absorbing freezeout state. Its recurrent-class "
+                "restriction is a trivial one-state equilibrium, not a "
+                "nontrivial thermodynamic relaxation realization; this does "
+                "not classify recurrent classes of other quotient maps"
             ),
         },
         "inherited_blockers": inherited_blockers,
@@ -656,14 +769,18 @@ def build_probe() -> dict[str, Any]:
                 "hypothesis to test, never an assumption"
             ),
             "receipt_state": (
-                "open; the exhaustive committed-field audit finds a "
-                "nontrivial raw ergodic repair-load quotient, but it is "
-                "nonreversible, lacks a nontrivial protected charge, and "
-                "has no source identification with the state optimizer's "
-                "reference. The fine chain's only closed recurrent class "
-                "is a singleton freezeout state, so quotient hunting or "
-                "recurrent restriction cannot close the full realization "
-                "receipt on this artifact"
+                "open; the exhaustive declared coordinate-projection audit "
+                "finds a nontrivial ergodic repair-load count kernel, but it "
+                "is nonreversible, fails the fine-chain strong-lumpability "
+                "diagnostic at the declared tolerance, lacks a "
+                "nontrivial protected charge, and has no source "
+                "identification with the state optimizer's reference. The "
+                "fine chain's only closed recurrent class is a singleton "
+                "freezeout state. This rules out closure through the "
+                "declared coordinate grammar and the fine-chain recurrent "
+                "restriction only; nonlinear, statistical, stochastic, "
+                "history-dependent, weakly lumpable, and other "
+                "partition-based quotient maps are not excluded"
             ),
         },
     }

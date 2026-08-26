@@ -354,7 +354,7 @@ def main() -> int:
             },
             "current_carrier_obstruction_certified": (
                 tau2_obstruction.get("proof_status")
-                == "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z"
+                == "exact_interval_excludes_single_tau2_central_WZ_pair_on_current_carrier"
                 if tau2_obstruction is not None
                 else False
             ),
@@ -539,7 +539,7 @@ def main() -> int:
             "the exact two-coordinate current-carrier chart is closed, but its selector has a unique zero at the selected point, so exact W/Z closure needs one nonzero selector on that chart"
             if exact_mass_pair_chart and exact_mass_pair_chart.get("status") == "closed_smaller_primitive"
             else
-            "current closed one-variable carrier moves W and Z with the same sign, so exact mass-pair closure needs one additional neutral-leg scalar beyond tau2_tree_exact"
+            "exact W fixes a unique coordinate on the closed one-variable carrier, and an exact rational interval excludes exact Z there, so mass-pair closure needs one additional neutral-leg scalar beyond tau2_tree_exact"
             if tau2_obstruction and tau2_obstruction.get("status") == "closed_smaller_primitive"
             else
             "the selected D10 carrier point admits a closed split exactness law, and the fiberwise population tree law reduces exact W/Z closure to one remaining charged-leg scalar"

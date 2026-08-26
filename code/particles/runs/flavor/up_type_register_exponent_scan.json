@@ -14,20 +14,20 @@
   "checks_pass": true,
   "claim_boundary": "The scan locates exponents with measured light masses and is compare-only. A negative verdict removes the integer power-law family from the candidate space prospectively; charm and up stay research-open.",
   "cross_register_observations": {
-    "charm_over_muon_at_mu_U": 3.311516138245914,
+    "charm_over_muon_at_mu_U": 3.3115161502038206,
     "classification": "post_exposure_observation_not_certified",
     "nearest_simple_factors": {
       "charm_over_muon": 3.0,
       "up_over_electron": 1.0
     },
     "trials_ledger": "observed after the integer scan failed, among roughly two dozen effective comparisons; a two-percent hit at that trial count carries no evidential weight by itself",
-    "up_over_electron_at_mu_U": 1.2699136870028975
+    "up_over_electron_at_mu_U": 1.2699136915814362
   },
   "frozen_bases": {
-    "alpha_U_times_P": 0.06707250004016141,
+    "alpha_U_times_P": 0.06707250004079965,
     "exp_minus_pi_over_two": 0.20787957635076193,
     "exp_minus_three_halves": 0.22313016014842982,
-    "sqrt_alpha_U": 0.20279114242386148
+    "sqrt_alpha_U": 0.20279114241459534
   },
   "measured_compare_only_inputs": {
     "mc_mc_gev": 1.27,
@@ -36,51 +36,51 @@
   "promotion_allowed": false,
   "register_scale_yukawas": {
     "systematic_note": "light up-type running approximated by the top gauge trajectory; the omitted top self-term shifts exponents by under 0.1, inside the certification residual",
-    "y_c_located": 0.0018796039427300848,
-    "y_t": 0.4054593870481957,
-    "y_u_located": 3.486018344658167e-06
+    "y_c_located": 0.0018796039495607656,
+    "y_t": 0.4054593870480353,
+    "y_u_located": 3.4860183572944017e-06
   },
   "row_class": "compare_only_candidate_scan_never_a_prediction_ancestor",
   "scan_rows": {
     "alpha_U_times_P": {
       "certified": false,
-      "epsilon": 0.06707250004016141,
+      "epsilon": 0.06707250004079965,
       "integer_residuals": [
-        0.011103956627222411,
-        0.31683831824131037
+        0.011103957965343136,
+        0.31683831691481945
       ],
-      "n_charm": 1.9888960433727776,
-      "n_up": 4.31683831824131
+      "n_charm": 1.9888960420346569,
+      "n_up": 4.3168383169148195
     },
     "exp_minus_pi_over_two": {
       "certified": false,
       "epsilon": 0.20787957635076193,
       "integer_residuals": [
-        0.4211689547125559,
-        0.42554307254592594
+        0.42116895239876007,
+        0.4255430702380334
       ],
-      "n_charm": 3.421168954712556,
-      "n_up": 7.425543072545926
+      "n_charm": 3.42116895239876,
+      "n_up": 7.425543070238033
     },
     "exp_minus_three_halves": {
       "certified": false,
       "epsilon": 0.22313016014842982,
       "integer_residuals": [
-        0.4173602483951875,
-        0.22398947812504577
+        0.4173602508181893,
+        0.2239894805418663
       ],
-      "n_charm": 3.5826397516048125,
-      "n_up": 7.776010521874954
+      "n_charm": 3.5826397491818107,
+      "n_up": 7.776010519458134
     },
     "sqrt_alpha_U": {
       "certified": false,
-      "epsilon": 0.20279114242386148,
+      "epsilon": 0.20279114241459534,
       "integer_residuals": [
-        0.36803172364624537,
-        0.3102103300646748
+        0.36803172127193484,
+        0.31021032758328193
       ],
-      "n_charm": 3.3680317236462454,
-      "n_up": 7.310210330064675
+      "n_charm": 3.368031721271935,
+      "n_up": 7.310210327583282
     }
   },
   "schema_version": 1,

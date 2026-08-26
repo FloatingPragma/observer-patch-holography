@@ -7,7 +7,7 @@
     "spectrum_placement": "trace-free target spectrum with gaps (s r/(1+r), s/(1+r)), shifted positive; T = Q diag(sqrt(mu)) Q_dagger so the descendant spectrum is exact under unitary conjugation"
   },
   "corollary_for_issue_377": "Deriving a kernel that passes the persistence certificates cannot close K1: the certificates are a filter with zero selective power over the emitted invariants. The remaining burden of the kernel program is a source selection principle for the transport operator itself, equivalently a derivation of the invariant triple named by the three-scalar interface theorem.",
-  "generated_utc": "2026-07-12T05:48:05Z",
+  "generated_utc": "2026-08-26T13:19:32Z",
   "github_issues": [
     377,
     379,
@@ -30,7 +30,7 @@
   },
   "proof_kind": "explicit_construction_with_executed_certificates",
   "proof_status": "closed_constructive_freedom_theorem",
-  "relation_to_nonidentifiability": "This is the operator-side transport of the axiom-level nonidentifiability theorem: the free (R_>0)^2 spread fiber reappears as the free (r, s) invariant space of certificate-passing kernels.",
+  "relation_to_nonidentifiability": "This exact kernel-family freedom is the operator-side analogue of the positive-rescaling counterfamily: the free (R_>0)^2 spread fiber reappears as the free (r, s) invariant space of certificate-passing kernels. Its current-OPH interpretation remains conditional on the registered source signature containing no orbit-separating datum.",
   "row_class": "theorem_grade_obstruction",
   "theorem_statement": "For every (r, s) in (R_>0)^2 there is a two-level transport kernel passing the full recorded admissibility battery (PSD hermitian descendants, open three-cluster gaps, simple centered spectrum, conjugacy-Riesz margin, persistent projector labeling, overlap-edge amplitudes above the floor) whose centered compressed branch generator has raw gap ratio exactly r and spectral span exactly s. The battery therefore places no constraint on (rho_ord, x2, span): certificate-passing kernels surject onto the full invariant space.",
   "witness_grid": {

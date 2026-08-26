@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Held-out validation of the edge-sector heat-kernel law on finite gauge groups.
+"""Held-out diagnostics of the edge-sector heat-kernel law on finite gauge groups.
 
-This script accompanies the "Numerical validation of the heat-kernel law"
-section of the synthesis paper and implements the validation protocol
+This script accompanies the "Numerical diagnostics of the heat-kernel law"
+section of the synthesis paper and implements the finite comparison protocol
 requested by paper-audit issue #540:
 
   * it separates symmetry-forced checks from overconstrained tests;
@@ -280,10 +280,11 @@ def main():
         "\nSummary: Z2/Z3 rows are implementation checks (single or degenerate "
         "nontrivial eigenvalue).  Z5 and S3 fit t on one spectral sector and "
         "print held-out residuals for a second, distinct, nonzero eigenvalue "
-        "sector.  The residuals converge in the declared regime of each model: "
-        "h -> 0 for the Z5 torus model (weak field; at large h the ratio "
-        "drifts toward the perturbative order-counting value 2), and large h "
-        "for the single-plaquette S3 model."
+        "sector.  Over the displayed samples the residuals decrease in the "
+        "reported direction: toward smaller h for the Z5 torus model and "
+        "toward larger h for the single-plaquette S3 model.  These finite "
+        "trends supply no limit theorem, monotonicity proof, error bound, or "
+        "continuous-group transfer."
     )
 
 

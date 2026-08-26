@@ -226,10 +226,14 @@ no-hidden-free-variable rule above. Let
 \[
 I_U=[0.041123336195630494,\;0.041125336195630496].
 \]
-If outward-rounded interval arithmetic verifies
+If outward-rounded interval arithmetic verifies the directed endpoint signs
 \[
-0\in \Phi_U(P_C,I_U),
+\Phi_U(P_C,0.041123336195630494)>0,
 \qquad
+\Phi_U(P_C,0.041125336195630496)<0,
+\]
+and verifies
+\[
 0\notin \partial_a\Phi_U(P_C,I_U),
 \]
 then there is a unique \(\alpha_U(P_C)\in I_U\) satisfying
@@ -313,17 +317,25 @@ It does not imply that OPH derives a supersymmetric ultraviolet spectrum.
 \subsection{Heat-Kernel Sector Law}
 
 Read this subsection as the compact-group merge boundary above the fixed-cutoff microphysics
-theorem. MaxEnt plus the bi-invariant compact-group package yield the familiar
-\(d_R e^{-tC_2(R)}\) law once the Peter--Weyl lift is supplied; they are not a second,
+theorem. MaxEnt yields the familiar \(d_R e^{-tC_2(R)}\) law only after the
+quadratic-Casimir generator and one-sided edge algebra below are declared;
+the Peter--Weyl lift alone does not select either input. This is not a second,
 independent proof of the finite-cutoff same-overlap Casimir branch.
 
 \begin{theorem}[Heat-kernel edge-sector weights]
-Under MaxEnt with bi-invariant constraints on a compact Lie group \(G\), the sector probabilities
-take heat-kernel form:
+Let the MaxEnt edge generator be the factorwise group Laplacian
+\(H_{\rm edge}=\sum_i c_i\Delta_{G_i}\), with eigenvalue
+\(C_2(R)\) in the one-factor notation, and let the probability space be the
+one-sided electric-center algebra \(\bigoplus_R B(V_R)\), where the sector
+projector has trace \(d_R\). Then the sector probabilities take heat-kernel
+form:
 \[
 p_R(t)\propto d_R\,e^{-tC_2(R)},
 \]
 where \(d_R=\dim R\) and \(C_2(R)\) is the quadratic Casimir.
+Bi-invariance by itself permits other central energies, such as
+\(C_2(R)^2\). A Gibbs trace on the two-sided Peter--Weyl space \(L^2(G)\)
+instead gives the multiplicity \(d_R^2\).
 \end{theorem}
 
 \begin{lemma}[Bi-invariant operators]
@@ -448,7 +460,11 @@ The allowed terminal outcomes are
 \]
 \(\text{H3 stitch certified}\) is emitted only when every block above passes and the stable
 assignment gap is positive. Equal-cost matchings, preserved nontrivial permutations of the visible
-data, or coarse/fine gaps below margin force \(\text{H3 stitch ambiguous}\). Missing fields
+data, or coarse/fine gaps below margin make the fail-closed protocol emit
+\(\text{H3 stitch ambiguous}\), meaning that it has certified no unique
+stitch. This verdict is not by itself a theorem of mathematical nonuniqueness;
+a symmetry obstruction requires a proved action that is fixed-point-free on
+the admissible stitch set. Missing fields
 force \(\text{H3 certificate incomplete}\). Failed atlas, interface, metric, or transport gates
 force rejection or atlas invalidity. In particular, Euclidean distances on
 the stored coordinate triples are not certificate distances; the certificate distance is

@@ -639,14 +639,26 @@ an analytic free-limit control~\cite{ophz2}.
 \paragraph{Noncommuting collars.}
 The formalization contains the commuting-projection special case of
 Theorem~\ref{prop:finite-gap}, in which pairwise commuting collar projections
-give \(L^{\Rep}_r\ge c_*(I-P_0)\), together with a three-state rational
-countermodel: two proper symmetric idempotent Markov projections that fail to
-commute, whose unit-rate generator has eigenvalues \(1/2\) and \(3/2\) in
-place of the commuting subset sums \(0\), \(1\), and \(2\). Spectral
-accounting by subset sums does not transfer to the noncommuting collars of
+give \(L^{\Rep}_r\ge c_*(I-P_0)\).  In that legacy Lean theorem,
+\texttt{thm\_7\_3\_finite\_gap}, the strictly positive collar rates are direct
+hypotheses.  The separately machine-checked legacy Lemma~7.2 proves a positive
+scalar for its own uniform-fiber matrix datum, but no Lean
+theorem bridges that matrix and scalar to the collar projections and rates of
+the commuting theorem.  The module's minimal zero-projection witness has joint
+fixed space \(\{0\}\); on its one-point coordinate type the constant functions
+are the whole space.  It therefore witnesses only the stripped finite operator
+premises and supplies neither a compact-gauge realization nor a continuum or
+physical mass gap.
+
+The same formalization also contains a three-state rational countermodel: two
+proper symmetric idempotent Markov projections that fail to commute, whose
+unit-rate generator has eigenvalues \(1/2\) and \(3/2\) in place of the
+commuting subset sums \(0\), \(1\), and \(2\). Spectral accounting by subset
+sums does not transfer to the noncommuting collars of
 Definition~\ref{def:admissible-collar-tower}. The Dobrushin route in
 Theorem~\ref{prop:finite-gap} is the route that applies, and commutation is
-used nowhere in it.
+used nowhere in it.  This provenance boundary does not rule out that route,
+the fiber-dependent-rate route below, or another receipt-complete tower.
 
 \paragraph{Uniform gap and carrier growth.}
 A second machine-checked theorem states that a refinement interface carrying
@@ -1352,8 +1364,9 @@ PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/
 \bibitem{ophlean}
 B.~M\"uller et al.,
 \emph{Observer-Patch Holography: machine-checked Lean formalization},
-modules \texttt{YangMillsGap}, \texttt{YangMillsGapWitness}, and
-\texttt{CofinalSpectralTailFamily},
+separate modules for the uniform-fiber lemma, commuting-projection inequality,
+finite-gap assembly and stripped witness, conditional continuum chain, and
+cofinal spectral-tail boundary,
 2026.\\
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean}.
 

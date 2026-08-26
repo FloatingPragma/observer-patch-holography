@@ -1027,6 +1027,19 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "tools/test_fourth_wave_surfaces.py",
         ],
     ),
+    (
+        "Execute the post-r2029 no-go scope and nonlinear-obstruction gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/particles/calibration/test_d10_ew_tau2_current_carrier_obstruction.py",
+            "code/particles/leptons/test_charged_entropic_branch_no_go.py",
+            "code/particles/flavor/test_entropy_w5_shape_certificate.py",
+            "tools/test_post_r2029_audit_surfaces.py",
+        ],
+    ),
 ]
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [

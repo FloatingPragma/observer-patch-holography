@@ -75,7 +75,10 @@ Conversely, for an eigenvector `CᵀC v = λ v`, `v ≠ 0`, with `h² λ > 4`, t
 history `A n = r ^ n • v` with `r` the real root of
 `r² - (2 - h² λ) r + 1 = 0` below `-1` solves the zero-current evolution
 in the gauge `φ = 0`, with `‖E n‖² = (r²)^n ‖E 0‖²`, `‖E 0‖² > 0`, and
-`‖E n‖²` unbounded in `n` (`unstable_mode`).
+`‖E n‖²` unbounded in `n` (`unstable_mode`).  At the boundary
+`h² λ = 4`, the characteristic root `-1` is double: the generalized
+history `A n = (-1)^n n v` also solves the zero-current evolution and has
+electric energy proportional to `(2n+1)²` (`critical_mode`).
 
 (D) Committed-carrier spectral facts.  Three seams per face and two faces
 per seam give the elementary Courant constant
@@ -87,7 +90,8 @@ eigenvector with entries in `ℤ + ℤ √5` and eigenvalue `3 + √5`
 tables; with (C) they give instability of the declared unit step
 (`unit_step_instability`) and the necessary conditions `h² ≤ 4/5`
 (`instability_above_five`) and `h² ≤ 4/(3 + √5)`
-(`instability_above_golden`) for boundedness of every initial datum.  The
+(`instability_above_golden`) for bounded electric energy for every initial
+datum.  The
 sharp constant is reached: the five spectral projectors of the face normal
 matrix `N = C Cᵀ` (eigenvalues `0, 2, 3, 5` and the sector
 `N² - 6N + 4 = 0`) are explicit rational matrices whose idempotence,
@@ -96,9 +100,13 @@ symmetry, eigen-relations and resolution of the identity are kernel
 `‖(N - 3) u‖² = 5 ‖u‖²`, so `⟨w, N w⟩ ≤ (3 + √5) ‖w‖²`
 (`faceNormal_quadratic_bound`) and, by Cauchy-Schwarz through `Cᵀ`,
 `‖C v‖² ≤ (3 + √5) ‖v‖²` (`faceEnergy_curvature_le_golden`).  The
-threshold `h² (3 + √5) = 4` is therefore sharp on the committed carrier:
-below it every zero-current solution is bounded, above it an unbounded
-zero-current solution exists (`courant_threshold_sharp`).
+threshold is therefore exact on the committed carrier: strictly below
+`h² (3 + √5) = 4`, every zero-current solution has uniformly bounded
+electric and magnetic energies; at and above the boundary an unbounded
+electric-energy solution exists (`courant_threshold_sharp`,
+`instability_at_golden_boundary`,
+`zeroCurrentElectricEnergyBounded_iff_window`).  No bound on the gauge
+potential `A` itself is asserted.
 
 (E) One composed receipt `scaledMaxwellStability_receipt` carries the
 scaled identities, the action equivalences, conservation, positivity and
@@ -126,8 +134,11 @@ source-produced currents.  No photon, propagation speed, Lorentz
 covariance, continuum limit, or laboratory readout is claimed.  The
 kinetic term is declared, not derived from the three OPH axioms or from
 repair dynamics.  At the threshold `h² (3 + √5) = 4` itself the staggered
-form is nonnegative and conserved; a uniform bound at exact equality is not
-stated.
+form is nonnegative and conserved, but it is not coercive: the generalized
+double-root mode has unbounded electric energy.  Thus uniform electric-energy
+boundedness fails at exact equality (`instability_at_golden_boundary`,
+`not_zeroCurrentElectricEnergyBounded_of_boundary_le`, and
+`zeroCurrentElectricEnergyBounded_iff_window`).
 
 Axiom audit.  Every proof composes the committed receipts with exact real
 linear algebra and kernel `decide` checks on the committed integer
@@ -915,6 +926,109 @@ theorem unstable_mode (h : ℝ) (hh : h ≠ 0) (v : Fin 30 → ℝ) (hv : v ≠ 
     modeHistory_energy_zero_pos h hh _ (growthRoot_lt_neg_one _ hμ) v hv,
     modeHistory_unbounded h hh _ (growthRoot_lt_neg_one _ hμ) v hv⟩
 
+/-! ### The double-root mode at the Courant boundary -/
+
+/-- Scalar profile at the double characteristic root `-1`:
+`c_n = (-1)^n n`. -/
+def criticalScalar (n : ℕ) : ℝ := (-1 : ℝ) ^ n * n
+
+/-- The double-root profile obeys `c_{n+2} + 2c_{n+1} + c_n = 0`. -/
+theorem criticalScalar_recurrence (n : ℕ) :
+    criticalScalar (n + 2) + 2 * criticalScalar (n + 1) + criticalScalar n = 0 := by
+  unfold criticalScalar
+  rw [pow_add, pow_add]
+  norm_num
+  ring
+
+/-- The generalized eigenmode history at the Courant boundary. -/
+def criticalHistory (v : Fin 30 → ℝ) : ℕ → Fin 30 → ℝ :=
+  fun n ↦ criticalScalar n • v
+
+theorem criticalHistory_electricField (h : ℝ) (v : Fin 30 → ℝ) (n : ℕ) :
+    electricFieldScaled h (criticalHistory v) (fun _ ↦ 0) n =
+      (-(h⁻¹ * (criticalScalar (n + 1) - criticalScalar n))) • v := by
+  unfold electricFieldScaled criticalHistory
+  rw [map_zero, sub_zero]
+  funext e
+  simp only [Pi.neg_apply, Pi.smul_apply, Pi.sub_apply, smul_eq_mul]
+  ring
+
+/-- At `h² λ = 4`, the generalized eigenmode solves the zero-current
+scaled Ampere evolution in temporal gauge. -/
+theorem criticalHistory_ampere (h : ℝ) (hh : h ≠ 0) (v : Fin 30 → ℝ) (lam : ℝ)
+    (hv : localMaxwellOperator v = lam • v) (hcrit : h ^ 2 * lam = 4) :
+    AmpereEvolutionScaled h (criticalHistory v) (fun _ ↦ 0) (fun _ ↦ 0) := by
+  intro n
+  have hinv : h * h⁻¹ = 1 := mul_inv_cancel₀ hh
+  have hlm : faceCodifferential (magneticField (criticalHistory v) (n + 1)) =
+      criticalScalar (n + 1) • (lam • v) := by
+    show localMaxwellOperator (criticalScalar (n + 1) • v) = _
+    rw [map_smul, hv]
+  rw [hlm, criticalHistory_electricField, criticalHistory_electricField]
+  funext e
+  simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, sub_zero]
+  have hr := criticalScalar_recurrence n
+  have hr' : criticalScalar (n + 2) - 2 * criticalScalar (n + 1) + criticalScalar n +
+      h ^ 2 * lam * criticalScalar (n + 1) = 0 := by
+    rw [hcrit]
+    linarith
+  linear_combination (-(h⁻¹ * v e)) * hr' +
+    (h * lam * criticalScalar (n + 1) * v e) * hinv
+
+/-- The squared increment of the double-root profile is `(2n+1)²`. -/
+theorem criticalScalar_difference_sq (n : ℕ) :
+    (criticalScalar (n + 1) - criticalScalar n) ^ 2 = (2 * (n : ℝ) + 1) ^ 2 := by
+  unfold criticalScalar
+  have hs : ((-1 : ℝ) ^ n) ^ 2 = 1 := by
+    rw [← pow_mul]
+    have he : Even (n * 2) := ⟨n, by omega⟩
+    exact Even.neg_one_pow he
+  calc
+    ((-1 : ℝ) ^ (n + 1) * (n + 1 : ℕ) - (-1 : ℝ) ^ n * n) ^ 2 =
+        ((-1 : ℝ) ^ n) ^ 2 * (2 * (n : ℝ) + 1) ^ 2 := by
+          rw [pow_succ]
+          push_cast
+          ring
+    _ = (2 * (n : ℝ) + 1) ^ 2 := by rw [hs, one_mul]
+
+/-- Exact electric-energy growth of the double-root history. -/
+theorem criticalHistory_electric_energy (h : ℝ) (v : Fin 30 → ℝ) (n : ℕ) :
+    realSeamEnergy (electricFieldScaled h (criticalHistory v) (fun _ ↦ 0) n) =
+      (h⁻¹) ^ 2 * (2 * (n : ℝ) + 1) ^ 2 * realSeamEnergy v := by
+  rw [criticalHistory_electricField, seamEnergy_smul, neg_sq]
+  rw [mul_pow, criticalScalar_difference_sq]
+
+/-- For a nonzero mode and a nonzero step, the boundary history has
+unbounded electric seam energy. -/
+theorem criticalHistory_unbounded (h : ℝ) (hh : h ≠ 0) (v : Fin 30 → ℝ) (hv : v ≠ 0)
+    (M : ℝ) : ∃ n : ℕ,
+      M < realSeamEnergy (electricFieldScaled h (criticalHistory v) (fun _ ↦ 0) n) := by
+  have hC : 0 < (h⁻¹) ^ 2 * realSeamEnergy v :=
+    mul_pos (sq_pos_of_ne_zero (inv_ne_zero hh)) (seamEnergy_pos_of_ne_zero v hv)
+  obtain ⟨n, hn⟩ := exists_nat_gt (M / ((h⁻¹) ^ 2 * realSeamEnergy v))
+  refine ⟨n, ?_⟩
+  rw [criticalHistory_electric_energy]
+  have hn0 : (0 : ℝ) ≤ n := by positivity
+  have hsq : (n : ℝ) ≤ (2 * (n : ℝ) + 1) ^ 2 := by nlinarith
+  have hmul := mul_le_mul_of_nonneg_right hsq hC.le
+  rw [div_lt_iff₀ hC] at hn
+  nlinarith
+
+/-- **The critical mode.**  An eigenvector at the exact Courant boundary
+`h² λ = 4` supports a zero-current solution whose electric energy grows
+quadratically and is unbounded. -/
+theorem critical_mode (h : ℝ) (hh : h ≠ 0) (v : Fin 30 → ℝ) (hv : v ≠ 0) (lam : ℝ)
+    (hev : localMaxwellOperator v = lam • v) (hcrit : h ^ 2 * lam = 4) :
+    AmpereEvolutionScaled h (criticalHistory v) (fun _ ↦ 0) (fun _ ↦ 0) ∧
+      (∀ n, realSeamEnergy
+        (electricFieldScaled h (criticalHistory v) (fun _ ↦ 0) n) =
+          (h⁻¹) ^ 2 * (2 * (n : ℝ) + 1) ^ 2 * realSeamEnergy v) ∧
+      ∀ M : ℝ, ∃ n : ℕ,
+        M < realSeamEnergy (electricFieldScaled h (criticalHistory v) (fun _ ↦ 0) n) :=
+  ⟨criticalHistory_ampere h hh v lam hev hcrit,
+    criticalHistory_electric_energy h v,
+    criticalHistory_unbounded h hh v hv⟩
+
 /-! ## (D) Committed-carrier spectral facts -/
 
 theorem faceIncidenceR_cases (f : Fin 20) (e : Fin 30) :
@@ -1185,6 +1299,18 @@ theorem instability_above_golden (h : ℝ) (hh : h ≠ 0)
   ⟨_, (unstable_mode h hh goldenMode goldenMode_ne_zero _ goldenMode_eigen hc).1,
     (unstable_mode h hh goldenMode goldenMode_ne_zero _ goldenMode_eigen hc).2.2.2.2⟩
 
+/-- **Instability at the exact golden boundary.**  When
+`h² (3 + √5) = 4`, the generalized golden eigenmode
+`A n = (-1)^n n goldenMode` is a zero-current, zero-potential solution
+whose electric seam energy is unbounded. -/
+theorem instability_at_golden_boundary (h : ℝ) (hh : h ≠ 0)
+    (hc : h ^ 2 * (3 + Real.sqrt 5) = 4) :
+    ∃ A : ℕ → Fin 30 → ℝ, AmpereEvolutionScaled h A (fun _ ↦ 0) (fun _ ↦ 0) ∧
+      ∀ M : ℝ, ∃ n : ℕ, M < realSeamEnergy (electricFieldScaled h A (fun _ ↦ 0) n) :=
+  ⟨criticalHistory goldenMode,
+    (critical_mode h hh goldenMode goldenMode_ne_zero _ goldenMode_eigen hc).1,
+    (critical_mode h hh goldenMode goldenMode_ne_zero _ goldenMode_eigen hc).2.2⟩
+
 /-- **Instability of the declared unit step.**  The committed
 `AmpereEvolution` of `TemporalMaxwellEvolution` admits a zero-current,
 zero-potential solution whose electric seam energy is unbounded. -/
@@ -1197,8 +1323,8 @@ theorem unit_step_instability :
   exact ⟨n, by rwa [electricFieldScaled_one] at hn⟩
 
 /-- **Sufficient condition on the committed carrier.**  For `h² < 2/3`
-and zero current every solution is bounded by the explicit multiples of
-the initial staggered form. -/
+and zero current, every solution's electric and magnetic energies are
+bounded by explicit multiples of the initial staggered form. -/
 theorem committed_carrier_stability (h : ℝ) (hh : h ≠ 0) (hc : h ^ 2 * 6 < 4)
     (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ)
     (hAmp : AmpereEvolutionScaled h A φ (fun _ ↦ 0)) (n : ℕ) :
@@ -1813,10 +1939,12 @@ constant `Λ = 3 + √5`. -/
 theorem committed_courant_sharp : CourantBound (3 + Real.sqrt 5) :=
   faceEnergy_curvature_le_golden
 
-/-- **Sharp threshold on the committed carrier.**  Below
-`h² (3 + √5) = 4` every zero-current solution is bounded by explicit
-multiples of the initial staggered form; above it an unbounded zero-current
-solution exists. -/
+/-- **Strict-window threshold on the committed carrier.**  Strictly below
+`h² (3 + √5) = 4`, every zero-current solution has bounded electric and
+magnetic energies with explicit bounds from the initial staggered form;
+strictly above it an unbounded electric-energy solution exists.  The
+boundary is supplied separately by `instability_at_golden_boundary`, and
+`zeroCurrentElectricEnergyBounded_iff_window` packages the exact iff. -/
 theorem courant_threshold_sharp (h : ℝ) (hh : h ≠ 0) :
     (h ^ 2 * (3 + Real.sqrt 5) < 4 →
       ∀ (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ),
@@ -1833,6 +1961,48 @@ theorem courant_threshold_sharp (h : ℝ) (hh : h ≠ 0) :
   have hΛ0 : 0 ≤ 3 + Real.sqrt 5 := by positivity
   exact ⟨fieldEnergyScaled_nonneg h hh _ committed_courant_sharp hc.le A φ n,
     stability_certificate h hh _ hΛ0 committed_courant_sharp hc A φ hAmp n⟩
+
+/-- Every zero-current solution at step `h` has uniformly bounded electric
+seam energy.  This deliberately says nothing about the gauge potential `A`
+itself, which can carry growing gradient-sector gauge representatives. -/
+def ZeroCurrentElectricEnergyBounded (h : ℝ) : Prop :=
+  ∀ (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ),
+    AmpereEvolutionScaled h A φ (fun _ ↦ 0) →
+      ∃ M : ℝ, ∀ n : ℕ, realSeamEnergy (electricFieldScaled h A φ n) ≤ M
+
+theorem zeroCurrentElectricEnergyBounded_of_window (h : ℝ) (hh : h ≠ 0)
+    (hc : h ^ 2 * (3 + Real.sqrt 5) < 4) : ZeroCurrentElectricEnergyBounded h := by
+  intro A φ hAmp
+  refine ⟨8 * fieldEnergyScaled h A φ 0 /
+    (4 - h ^ 2 * (3 + Real.sqrt 5)), fun n ↦ ?_⟩
+  exact ((courant_threshold_sharp h hh).1 hc A φ hAmp n).2.1
+
+/-- At or above the golden Courant boundary, uniform electric-energy
+boundedness of every zero-current solution fails. -/
+theorem not_zeroCurrentElectricEnergyBounded_of_boundary_le (h : ℝ) (hh : h ≠ 0)
+    (hc : 4 ≤ h ^ 2 * (3 + Real.sqrt 5)) : ¬ ZeroCurrentElectricEnergyBounded h := by
+  intro hbounded
+  obtain heq | hlt := hc.eq_or_lt
+  · obtain ⟨A, hAmp, hunbounded⟩ := instability_at_golden_boundary h hh heq.symm
+    obtain ⟨M, hM⟩ := hbounded A (fun _ ↦ 0) hAmp
+    obtain ⟨n, hn⟩ := hunbounded M
+    exact (not_lt_of_ge (hM n)) hn
+  · obtain ⟨A, hAmp, hunbounded⟩ := instability_above_golden h hh hlt
+    obtain ⟨M, hM⟩ := hbounded A (fun _ ↦ 0) hAmp
+    obtain ⟨n, hn⟩ := hunbounded M
+    exact (not_lt_of_ge (hM n)) hn
+
+/-- **Exact electric-energy stability threshold.**  For a nonzero step,
+all zero-current solutions have uniformly bounded electric seam energy iff
+the step lies strictly inside the golden Courant window.  Equality belongs
+to the unstable side because of the double-root generalized eigenmode. -/
+theorem zeroCurrentElectricEnergyBounded_iff_window (h : ℝ) (hh : h ≠ 0) :
+    ZeroCurrentElectricEnergyBounded h ↔ h ^ 2 * (3 + Real.sqrt 5) < 4 := by
+  constructor
+  · intro hbounded
+    by_contra hn
+    exact not_zeroCurrentElectricEnergyBounded_of_boundary_le h hh (le_of_not_gt hn) hbounded
+  · exact zeroCurrentElectricEnergyBounded_of_window h hh
 
 /-! ## (E) The one citable composed receipt -/
 
@@ -2051,11 +2221,13 @@ decision procedure is used. -/
 #print axioms OPH.ScaledMaxwellStability.fieldEnergyScaled_lower_bound_temporal_gauge
 #print axioms OPH.ScaledMaxwellStability.stability_certificate
 #print axioms OPH.ScaledMaxwellStability.unstable_mode
+#print axioms OPH.ScaledMaxwellStability.critical_mode
 #print axioms OPH.ScaledMaxwellStability.faceEnergy_curvature_le_six
 #print axioms OPH.ScaledMaxwellStability.fiveMode_eigen
 #print axioms OPH.ScaledMaxwellStability.goldenMode_eigen
 #print axioms OPH.ScaledMaxwellStability.instability_above_five
 #print axioms OPH.ScaledMaxwellStability.instability_above_golden
+#print axioms OPH.ScaledMaxwellStability.instability_at_golden_boundary
 #print axioms OPH.ScaledMaxwellStability.unit_step_instability
 #print axioms OPH.ScaledMaxwellStability.committed_carrier_stability
 #print axioms OPH.ScaledMaxwellStability.faceNormal_eq_incidence
@@ -2066,6 +2238,7 @@ decision procedure is used. -/
 #print axioms OPH.ScaledMaxwellStability.faceEnergy_curvature_le_golden
 #print axioms OPH.ScaledMaxwellStability.committed_courant_sharp
 #print axioms OPH.ScaledMaxwellStability.courant_threshold_sharp
+#print axioms OPH.ScaledMaxwellStability.zeroCurrentElectricEnergyBounded_iff_window
 #print axioms OPH.ScaledMaxwellStability.scaledMaxwellStability_receipt
 #print axioms OPH.ScaledMaxwellStability.demoScaled_ampere
 #print axioms OPH.ScaledMaxwellStability.demoScaledBundle_nonvacuous

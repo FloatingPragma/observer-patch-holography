@@ -110,17 +110,17 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
 - Lane: m_t to m_H criticality relation (fit-free curve, compare-only test)
   - Tier: relation verified within the declared matching band
   - explanation: Along the fit-free criticality curve, the Higgs coordinate at the measured top mass tests the relation independently of the boundary-scale selection.
-  - mH_on_curve_at_measured_mt_GeV: 125.72052400335069
-  - mh_relative_residual: 0.004711705651312181
-  - implied_boundary_scale_GeV: 4.750331123992614e+17
+  - mH_on_curve_at_measured_mt_GeV: 125.72052472166195
+  - mh_relative_residual: 0.004711711391788942
+  - implied_boundary_scale_GeV: 4.750333702733633e+17
   - Artifact: `runs/calibration/d11_criticality_comparison.json`
   - Blocking objects: CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM
 
 - Lane: archived literal one-loop core at the mu_U boundary
   - Tier: T2 (target-free tree coordinates; low edge of the family)
   - explanation: The 115.1 GeV Higgs coordinate is the archived branch of the same family: criticality imposed at the gauge unification scale with one-loop running. Its deficit against measurement is the boundary-scale choice plus truncation, quantified by the scan.
-  - mH_tree_GeV_display: 115.10128055804651
-  - mt_QCD_converted_GeV_display: 164.13059302729587
+  - mH_tree_GeV_display: 115.10128015046507
+  - mt_QCD_converted_GeV_display: 164.13059244609826
   - Artifact: `runs/calibration/wzh_residual_elimination_boundary.json`
   - Blocking objects: CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM, prospective three-loop RG and matching packet
 

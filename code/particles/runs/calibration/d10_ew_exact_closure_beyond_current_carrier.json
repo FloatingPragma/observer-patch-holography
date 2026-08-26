@@ -11,6 +11,8 @@
     "symbol": "chi_Y_EW",
     "value": 1.0463468910153835
   },
+  "diagnostic_only": true,
+  "epistemic_status": "exact_algebraic_identity_on_declared_map_only",
   "exact_forward_map": {
     "MW_pole": "v_inherited * sqrt(pi * alpha2_star_selected)",
     "MZ_pole": "v_inherited * sqrt(pi * (alphaY_star_selected + alpha2_star_selected))",
@@ -30,7 +32,7 @@
   },
   "exactness_surface_kind": "split_mass_neutral_readout",
   "extra_invariant_required": false,
-  "generated_utc": "2026-07-23T02:51:16Z",
+  "generated_utc": "2026-08-26T13:02:29Z",
   "minimal_carrier_enlargement_required": false,
   "minimality_certificate": {
     "one_derived_hypercharge_compensator_suffices": true,
@@ -42,12 +44,14 @@
     "selected_carrier_already_closed": true
   },
   "notes": [
-    "The selected carrier point remains the transported mass source for W and Z.",
-    "The neutral readout closes by restoring the source-normalized hypercharge leg through a derived compensator rather than a new free invariant.",
-    "This closes split exactness on the existing carrier without enlarging the carrier or fitting reference observables."
+    "The declared carrier point supplies tree/chart W and Z coordinates; the source does not select this map and no physical pole is constructed.",
+    "The neutral bookkeeping identity restores the original hypercharge input through a compensator defined as its exact algebraic inverse; this is not an independent source derivation.",
+    "This closes split algebraic exactness on the declared carrier without enlarging it or fitting reference observables; it carries no prediction or physical-pole status."
   ],
   "object_id": "EWTransportExactClosureBeyondCurrentCarrier_D10",
+  "physical_pole_claim": false,
   "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
+  "predictive_promotion_allowed": false,
   "proof_status": "closed_on_existing_selected_carrier_via_source_normalized_hypercharge_readout",
   "selected_population_point": {
     "eta_EW": 0.02214700087196129,
@@ -55,6 +59,7 @@
     "tau_2": 0.0,
     "tau_Y": -0.04429400174392258
   },
+  "source_selected": false,
   "source_slots": {
     "alpha2_mz": 0.03377843630219015,
     "alphaY_mz": 0.010131601067241624,

@@ -502,6 +502,13 @@ def build_payload() -> dict[str, Any]:
         "quark_axiom_level_nondefinability": {
             "artifact": quark_axiom_level_obstruction.get("artifact"),
             "proof_status": quark_axiom_level_obstruction.get("proof_status"),
+            "scope_kind": quark_axiom_level_obstruction.get("scope_kind"),
+            "machine_proof": quark_axiom_level_obstruction.get("machine_proof"),
+            "registered_signature_completeness_verified_by_emitter": (
+                quark_axiom_level_obstruction.get(
+                    "registered_signature_completeness_verified_by_emitter"
+                )
+            ),
             "additional_axioms_used": quark_axiom_level_obstruction.get(
                 "additional_axioms_used"
             ),
@@ -705,13 +712,16 @@ def render_markdown(payload: dict[str, Any]) -> str:
         lines.extend(
             [
                 "",
-                "## Quark Axiom-Level Non-Definability",
+                "## Quark Current-Registered-Signature Non-Identifiability",
                 "",
                 f"- Artifact: `{axiom_boundary['artifact']}`",
                 f"- Status: `{axiom_boundary.get('proof_status')}`",
+                f"- Machine proof supplied by emitter: `{axiom_boundary.get('machine_proof')}`",
+                f"- Registry completeness verified by emitter: "
+                f"`{axiom_boundary.get('registered_signature_completeness_verified_by_emitter')}`",
                 f"- Additional axioms used: `{axiom_boundary.get('additional_axioms_used')}`",
                 f"- Counterfamily: `{counterfamily.get('parameter_space')}`",
-                f"- A1-A3 structural data remain fixed: "
+                f"- Conditional current-registry audit says A1-A3 structural data remain fixed: "
                 f"`{axiom_audit.get('all_registered_axiom_data_preserved')}`",
                 f"- A3 receives no Yukawa-output map: "
                 f"`{axiom_audit.get('Axiom_3_information_projection', {}).get('Yukawa_output_map_supplied')}`",

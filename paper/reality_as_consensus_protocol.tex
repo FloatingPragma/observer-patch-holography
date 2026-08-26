@@ -37,7 +37,7 @@ The Fixed-Point Computation That Implements Physics}
 \end{center}
 
 \begin{abstract}
-The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that form.
+The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation selects a public normal form, while its updates supply an internal record ordering. Identifying that ordering with cosmic history or a physical clock requires additional bridge data.
 
 The paper proves the finite mechanics used by the companion results:
 validated repair, exact descent, schedule-independent normal forms under the
@@ -173,7 +173,7 @@ residual ledger, controls, and frozen validation target changes that type.
 \item \textbf{Gauge quotient, selected fibers, and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, \(\operatorname{Rep}_\lambda\circ q\) is invariant under gauge/implementation hiding, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form; the layered functional carrier proves \(H_B\wedge H_{\mathrm{fib}}\) on a finite multi-edge, multi-step carrier, while the functional selected-fiber branch proves a nontrivial rooted case where multiple same-boundary interiors exist, inconsistent candidates are eliminated, and surviving candidates share one quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:layered-carrier-HB-Hfib}, \ref{thm:functional-selected-fiber}, Corollaries~\ref{cor:repair-respects-gauge}, \ref{cor:layered-carrier-reconstruction}, \ref{cor:branch-elimination}, and Theorem~\ref{thm:obsconfluence}).
 \item \textbf{Refinement-limit consensus classes.} On a separated cofinal refinement system whose restriction maps commute with the finite-stage normal-form and holonomy maps, the quotient normal forms and holonomy obstructions assemble into unique inverse-limit classes with finite-stage visibility (Theorem~\ref{thm:refinement-consensus}).
 \item \textbf{Coarse-graining compatibility.} On any refinement system whose coarse-graining maps shadow finite-stage normal forms and holonomy maps with declared errors, reconciling first and then coarse-graining gives the same macroscopic law data as coarse-graining first and then reconciling, up to those errors; in the exact natural case the error is zero (Theorem~\ref{thm:coarse-grain-consensus}).
-\item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
+\item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, a supplied density-state valuation and a declared L\"uders instrument give Born/L\"uders formulas on the central record projectors; the projectors alone do not select the instrument. Approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
 \item \textbf{OPH simulation firewall.} On a selected boundary/sector fiber,
 ``simulation'' requires recovery-derived endogenous update, nontrivial quotient-readable
 records, strict overlap-repair descent with a schedule-independent normal form, collapse of a
@@ -1088,38 +1088,62 @@ quotient peak.
 
 \begin{theorem}[Asynchronous confluence / fixed-point law]\label{thm:confluence}
 For the accepted repair law of Definitions~\ref{def:repair}--\ref{def:transactional-repair},
-under Proposition~\ref{prop:local-confluence} and Assumption~\ref{ass:complete}, each fixed initial state $s\in\Sigma$ has a unique normal form
+assume that the induced physical relation on \(Q=\Sigma/\Gamma\) is the
+OPH-admissible finite quotient presentation of
+Definition~\ref{def:finite-quotient-repair-presentation}; in particular use
+Proposition~\ref{prop:local-confluence} and Assumption~\ref{ass:complete} on
+that quotient. Each fixed initial state \(s\in\Sigma\) then has a unique
+\emph{quotient} normal form
 \[
-\operatorname{nf}_\lambda(s)\in C,
+\overline{\operatorname{nf}}_\lambda(q(s))
+=\operatorname{Rep}_\lambda(q(s))\in q(C),
 \]
-and every maximal asynchronous repair execution from $s$ terminates at that same state. The terminal state is independent of update order because descent, local confluence on the physical quotient, and repair completeness all hold; termination alone is not enough.
+and every maximal asynchronous repair execution from \(s\) terminates at a
+representative \(t\in C\) with
+\(q(t)=\overline{\operatorname{nf}}_\lambda(q(s))\). Microscopic terminal
+representatives need not be equal. When one such representative must be
+named below, write \(\operatorname{nf}_\lambda(s)\) for a choice; only its
+quotient is canonical. The quotient endpoint is independent of update order
+because descent, local confluence on the physical quotient, and repair
+completeness all hold; termination alone is not enough.
 \end{theorem}
 
 \begin{proof}
-By Proposition~\ref{prop:lyapunov-termination}, the repair relation \(\to\) is terminating.
-By Proposition~\ref{prop:local-confluence}, it is locally confluent. Newman's
-lemma~\cite{newman42} therefore makes it confluent. A terminating confluent repair relation has a
-unique normal form reachable from each fixed initial state. By Assumption~\ref{ass:complete}, the
-normal forms are exactly \(C\). Every maximal execution terminates and reaches
-\(\operatorname{nf}_\lambda(s)\), and that terminal state is independent of update order.
+Proposition~\ref{prop:lyapunov-termination} gives termination, while
+Proposition~\ref{prop:local-confluence} gives local confluence on \(Q\).
+Newman's lemma~\cite{newman42} therefore makes the quotient relation
+confluent. By Assumption~\ref{ass:complete}, its normal forms are exactly
+\(q(C)\). Theorem~\ref{thm:quotient-repair-normal-form} identifies the unique
+quotient endpoint with \(\operatorname{Rep}_\lambda(q(s))\). A lifted maximal
+execution terminates at some microscopic representative of that orbit; no
+representative equality follows from quotient confluence.
 \end{proof}
 
 \begin{corollary}[Objective law is schedule-independent]\label{cor:objective}
-Let $M:\Sigma\to Y$ be any observable. Under the hypotheses of Theorem~\ref{thm:confluence}, $M(\operatorname{nf}_\lambda(s))$ is independent of the asynchronous update schedule. If physical law is identified with the map $s\mapsto M(\operatorname{nf}_\lambda(s))$, then physical law is objective.
+Let \(\overline M:Q\to Y\) be a quotient observable, equivalently let
+\(M:\Sigma\to Y\) factor as \(M=\overline M\circ q\). Under the hypotheses of
+Theorem~\ref{thm:confluence},
+\(\overline M(\overline{\operatorname{nf}}_\lambda(q(s)))\) is independent of
+the asynchronous update schedule. If physical law is identified with this
+quotient-observable map, then physical law is objective.
 \end{corollary}
 
 \begin{proof}
-All schedules from the same initial $s$ terminate at $\operatorname{nf}_\lambda(s)$, so all yield the same $M$-value.
+All schedules from the same initial \(s\) terminate in the same quotient
+normal form, so a quotient observable has the same value on every terminal
+representative.
 \end{proof}
 
-Here objectivity is identified with schedule-independent convergence of the repair
-dynamics; Theorem~\ref{thm:obsconfluence} sharpens this to schedule-independent convergence of the
-physical observable algebra even when microscopic representatives are not unique.
+Here objectivity is identified with schedule-independent convergence on the
+physical quotient; Theorem~\ref{thm:obsconfluence} lifts this to the physical
+observable algebra while explicitly allowing distinct microscopic terminal
+representatives.
 
 \begin{remark}[Quantifier on normal-form uniqueness]\label{rem:normal-form-quantifier}
-Theorem~\ref{thm:confluence} proves uniqueness from a fixed initial state, and
-Theorem~\ref{thm:gauge} below turns that into uniqueness from a fixed physical quotient state. It
-does not say that all possible initial data settle to one universal state. Different boundary
+Theorem~\ref{thm:confluence} proves quotient-normal-form uniqueness from a
+fixed initial state; Theorem~\ref{thm:gauge} below records representative-lift
+independence for a fixed physical quotient state. It does not say that all
+possible initial data settle to one universal quotient state. Different boundary
 conditions, conserved charges, root packets, holonomy sectors, or external records can
 legitimately determine different normal forms.
 \end{remark}
@@ -1372,11 +1396,13 @@ q\bigl(\operatorname{nf}_\lambda(s)\bigr)
 \qquad
 \forall\, \gamma\in\Gamma,\ \forall\, s\in\Sigma.
 \]
-Hence the normal-form map descends to the quotient:
+Equivalently, the canonical normal-form map is the quotient operator
+constructed above:
 \[
 \overline{\operatorname{nf}}_\lambda:\Sigma/\Gamma \to \Sigma/\Gamma,
 \qquad
-[s]\mapsto [\operatorname{nf}_\lambda(s)].
+[s]\mapsto \operatorname{Rep}_\lambda([s])
+=q(\operatorname{nf}_\lambda(s)).
 \]
 \end{theorem}
 
@@ -1394,11 +1420,12 @@ q(t')
 q(t).
 \]
 Thus gauge-equivalent inputs induce the same repaired orbit, and by induction the orbit reached
-after any repair sequence depends only on the initial orbit. Every maximal repair sequence from
-$s$ ends at $\operatorname{nf}_\lambda(s)$ by Theorem~\ref{thm:confluence}, so the terminal orbit
-$q(\operatorname{nf}_\lambda(s))$ depends only on $q(s)=[s]$. This makes
+after any repair sequence depends only on the initial orbit. Theorem~\ref{thm:confluence} says that
+every maximal repair sequence from \(s\) ends at some terminal representative whose orbit is
+\(\operatorname{Rep}_\lambda(q(s))\). Hence
+\(q(\operatorname{nf}_\lambda(s))\) depends only on \(q(s)=[s]\). This makes
 \[
-[s]\longmapsto [\operatorname{nf}_\lambda(s)]
+[s]\longmapsto \operatorname{Rep}_\lambda([s])
 \]
 well-defined on $\Sigma/\Gamma$.
 \end{proof}
@@ -1874,7 +1901,7 @@ algebra. Therefore \(\omega_R^t(X)=\omega_R^u(X)\) for every
 
 \begin{remark}[Inputs and boundary for observable-level confluence]\label{rem:obsconfluence}
 Theorem~\ref{thm:obsconfluence} does not add a new repair hypothesis beyond the confluence and
-fixed-cutoff gluing package. Its inputs are exactly the representative-level confluence theorem,
+fixed-cutoff gluing package. Its inputs are exactly the quotient-level confluence theorem,
 quotient descent of the repair law, Definition~\ref{def:physobs}, and
 Corollary~\ref{cor:obsglue} from the fixed-cutoff union-collar gluing package. The boundary item
 is extension of the same statement to broader refinement-stable branches where the declared
@@ -2245,9 +2272,11 @@ Then, for every fine state \(x\in Q_s\), the product readout distance between
 Thus reconciling at the fine stage and then coarse-graining gives the same macroscopic law data
 as coarse-graining first and reconciling at the coarse stage, up to the declared control errors.
 If the exact naturality clauses of Definition~\ref{def:refinement-consensus} hold, then
-\(\varepsilon^n_{sr}=\varepsilon^h_{sr}=0\). If the errors are cofinally vanishing, the two
-procedures determine the same cylinder values in the inverse-limit topology at every fixed
-macroscopic stage.
+\(\varepsilon^n_{sr}=\varepsilon^h_{sr}=0\). If the errors are cofinally vanishing, then at every
+fixed macroscopic stage the supremum product-pseudometric distance between the two readouts tends
+to zero along the refinement tail. Equality of inverse-limit cylinder values additionally requires
+a compatible limiting family and a separated quotient or other completeness/separation hypotheses;
+it does not follow from vanishing pseudometric defects alone.
 \end{theorem}
 
 \begin{proof}
@@ -2260,9 +2289,10 @@ special case
 \qquad
 \chi_{sr}\circ h_s=h_r\circ\rho_{sr},
 \]
-so both errors vanish there. Cofinal vanishing means that, for any fixed coarse cylinder and any
-desired readout tolerance, all sufficiently fine presentations give the same cylinder value
-within that tolerance, which is convergence in the inverse-limit topology.
+so both errors vanish there. Cofinal vanishing means that, for any fixed coarse stage and any
+desired readout tolerance, all sufficiently fine presentations put the two readouts within that
+tolerance uniformly over the fine state. This proves asymptotic zero distance and nothing stronger
+without the additional limit compatibility and separation clauses stated in the theorem.
 \end{proof}
 
 \begin{remark}[Scope of the coarse-graining theorem]\label{rem:coarse-grain-scope}
@@ -2307,8 +2337,11 @@ presentation \(\{\widehat P_a(t)\}_a\) such that
 is finite.
 \end{definition}
 
-\begin{theorem}[Record algebra, Born-L\"uders update, and quantitative stability]\label{thm:crdt}
-Fix one completed observer-accessible slice at cycle \(t\).
+\begin{theorem}[Record algebra, declared Born--L\"uders instrument, and quantitative stability]\label{thm:crdt}
+Fix one completed observer-accessible slice at cycle \(t\), supply a density
+state \(\rho_t\), use its trace valuation for event probabilities, and declare
+the selective outcome instrument to be the L\"uders map for the displayed
+record projectors.
 \begin{enumerate}
 \item The exact record projectors generate a finite commutative central algebra
 \(\mathcal Z_{\mathrm{rec}}(t)\subset Z(\mathcal A_t^{\mathrm{acc}})\).
@@ -2321,8 +2354,11 @@ Fix one completed observer-accessible slice at cycle \(t\).
 \frac{\widehat P_E(t)\rho_t \widehat P_E(t)}
 {\operatorname{Tr}(\rho_t \widehat P_E(t))}.
 \]
-\item If no accepted repair between \(t\) and \(t+1\) touches the support of \(\widehat P_E(t)\),
-then the next read of \(E\) has probability \(1\).
+\item Conditional on observing \(E\) with nonzero weight and applying the
+declared L\"uders instrument, an immediate reread with the same projector has
+probability \(1\). The same conclusion after an intervening accepted operation
+requires the explicit persistence hypothesis that the resulting state remains
+supported in \(\widehat P_E(t)\).
 \item If \(\{P_a(t)\}_a\) is an approximate record presentation with modulus
 \(\delta_{\mathrm{rec}}(t)\), then
 \[
@@ -2348,8 +2384,10 @@ one has
 
 \begin{proof}
 Because the exact record projectors lie in the center of \(\mathcal A_t^{\mathrm{acc}}\), they
-generate a finite commutative central algebra. Finite-dimensional projective measurement on that
-commuting algebra gives the Born trace and the L\"uders conditioned state, proving (1) and (2).
+generate a finite commutative central algebra. The supplied trace valuation and
+declared L\"uders instrument give the two formulas in (2); the projector algebra
+does not by itself select that instrument. This proves (1) and (2) under the
+displayed premises.
 The finite-matrix steps behind (1) and (2) are machine-checked in the companion Lean~4
 event-algebra development \cite{eventalgebraLean}: the commutative span of a projective
 partition and its containment in the center of the partition commutant, the trace-preserving
@@ -2357,10 +2395,12 @@ expectation onto that span, preservation of the partition Born statistics, the L
 fixed-point law, and the collapse of conditioning on a partition member to its normalized
 projector are theorem-level exports with declaration-level axiom audits.
 
-If no accepted repair touches the support of \(\widehat P_E(t)\), then the next completed read is
-performed on the same central projector surface. After conditioning on \(E\), the state lies in
-the range of \(\widehat P_E(t)\), so the next read of the same event has probability \(1\). This
-gives (3).
+After the declared conditioning on a nonzero-weight event \(E\), the state lies
+in the range of \(\widehat P_E(t)\), so an immediate reread of the same
+projector has probability \(1\). More generally, the same calculation applies
+after an intervening operation when its output state is explicitly assumed to
+remain in that range. This gives (3); absence of a touched-support marker by
+itself is not used as a mathematical substitute for support preservation.
 
 For (4), write
 \[
@@ -2400,7 +2440,8 @@ error is at most \(\varepsilon+\delta_{\mathrm{rec}}(t)\).
 
 \paragraph{Fixed-cutoff observation boundary.}
 The theorem supplies a fixed-cutoff operator-algebraic observation surface: a central record
-algebra on the exact readout slice, Born/L\"uders measurement on its event projectors, exact
+algebra on the exact readout slice, a supplied Born valuation and declared
+L\"uders instrument on its event projectors, exact
 repeated-read stability under the untouched-support hypothesis, and explicit
 \((\varepsilon,\delta_{\mathrm{rec}})\) control when practical readout projectors are only close
 to that central surface. It does not show that richer branches keep physically
@@ -4405,11 +4446,26 @@ by the compact real-analytic Lojasiewicz inequality applied to
 \(I(A:D\mid B)\). The constants depend on the fixed collar model and floor;
 they are not a dimension-free stability theorem for arbitrary tripartite
 systems.
-Hence if \(I(A:D\mid B)_\omega\le \varepsilon\) and \(\widetilde\omega_\varepsilon\in\mathfrak M_{A:B:D}\) is chosen so that
+Let \(\mathfrak M^{\mathrm{EC}}_{A:B:D}\subset\mathfrak M_{A:B:D}\) be the
+states that also satisfy the Markov-split alignment hypothesis on the
+preselected edge factors. For a declared controlled family \(\mathcal F\), define
+\[
+\delta^{\mathrm{M,EC}}_{\mathcal F;A:B:D}(\varepsilon)
+:=
+\sup\left\{
+\inf_{\tau\in\mathfrak M^{\mathrm{EC}}_{A:B:D}}\|\omega-\tau\|_1:
+\omega\in\mathcal F,\ I(A:D\mid B)_\omega\le\varepsilon
+\right\}.
+\]
+Convergence of the generic exact-Markov modulus does not imply convergence of
+this aligned modulus. Hence, if \(\omega\in\mathcal F\),
+\(I(A:D\mid B)_\omega\le \varepsilon\), and the controlled family separately
+satisfies \(\delta^{\mathrm{M,EC}}_{\mathcal F;A:B:D}(\varepsilon)\to0\), choose
+\(\widetilde\omega_\varepsilon\in\mathfrak M^{\mathrm{EC}}_{A:B:D}\) so that
 \[
 \|\omega-\widetilde\omega_\varepsilon\|_1
 \le
-\delta^{\mathrm M}_{A:B:D}(\varepsilon),
+\delta^{\mathrm{M,EC}}_{\mathcal F;A:B:D}(\varepsilon),
 \]
 the corresponding exact splice \(\widetilde\omega'_\varepsilon\) satisfies
 \[
@@ -4418,7 +4474,7 @@ the corresponding exact splice \(\widetilde\omega'_\varepsilon\) satisfies
 \right|
 \le
 \|X\|_\infty\,
-\delta^{\mathrm M}_{A:B:D}(\varepsilon)
+\delta^{\mathrm{M,EC}}_{\mathcal F;A:B:D}(\varepsilon)
 \]
 for every observable \(X\) supported on \(A\cup b_L\).
 
@@ -4450,7 +4506,7 @@ X\, \rho^{(\alpha)}_{A b_L^\alpha}
 \]
 Each right factor is normalized, so the value agrees with the same computation for \(\rho_{ABD}\).
 
-For the controlled statement, compactness of the fixed finite-dimensional state space and continuity of conditional mutual information imply \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\): otherwise one could find a sequence with \(I(A:D\mid B)\to0\) staying a fixed trace distance away from every exact Markov state, contradicting convergence of a subsequence to an exact Markov limit point. The splice identity additionally requires \(\widetilde\omega_\varepsilon\) to be EC-aligned over the preselected edge factors; small conditional mutual information supplies closeness only to the full exact Markov set, so the existence of EC-aligned replacements is carried as an explicit hypothesis on the controlled family (the spacetime and Einstein paper's Markov-split alignment hypothesis). Once such an EC-aligned \(\widetilde\omega_\varepsilon\) is chosen, the exact splice identity for \(\widetilde\omega_\varepsilon\) gives
+For the controlled statement, compactness of the fixed finite-dimensional state space and continuity of conditional mutual information imply \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\): otherwise one could find a sequence with \(I(A:D\mid B)\to0\) staying a fixed trace distance away from every exact Markov state, contradicting convergence of a subsequence to an exact Markov limit point. This generic fact does not prove the separately assumed aligned-modulus convergence: the splice identity requires \(\widetilde\omega_\varepsilon\) to be EC-aligned over the preselected edge factors, while small conditional mutual information supplies closeness only to the full exact Markov set. Once such an EC-aligned \(\widetilde\omega_\varepsilon\) is chosen with the declared family-specific bound, the exact splice identity gives
 \[
 \left|
 \operatorname{Tr}(X\omega)-\operatorname{Tr}(X\widetilde\omega'_\varepsilon)
@@ -4461,12 +4517,12 @@ For the controlled statement, compactness of the fixed finite-dimensional state 
 \right|
 \le
 \|X\|_\infty\,
-\delta^{\mathrm M}_{A:B:D}(\varepsilon).
+\delta^{\mathrm{M,EC}}_{\mathcal F;A:B:D}(\varepsilon).
 \]
 The final inequality is the standard Fawzi--Renner recovery bound~\cite{fawziRenner15}.
 \end{proof}
 
-This appendix therefore uses exact splice identities in only two regimes: literal EC-aligned exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\) and EC-aligned replacements exist. Fawzi--Renner recovery supplies the constructive recovered comparison state; the fixed-collar modulus supplies the exact-Markov comparison. Small one-shot conditional mutual information is not silently upgraded to an exact normal form.
+This appendix therefore uses exact splice identities in only two regimes: literal EC-aligned exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which the separately declared \(\delta^{\mathrm{M,EC}}_{\mathcal F;A:B:D}(\varepsilon)\to0\). Fawzi--Renner recovery supplies the constructive recovered comparison state; the generic fixed-collar modulus supplies only an exact-Markov comparison on a possibly different split. Small one-shot conditional mutual information is not silently upgraded to an EC-aligned normal form.
 
 For later dark-sector continuations, the exact finite identity is only an
 expectation identity. For a faithful finite state \(\rho_{ABD}\), with

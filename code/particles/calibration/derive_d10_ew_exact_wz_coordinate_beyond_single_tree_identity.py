@@ -87,6 +87,13 @@ def build_artifact(
         "fiberwise_population_tree_law_status": fiberwise_tree_law.get("status"),
         "current_carrier_obstruction_artifact": tau2_obstruction.get("artifact") if tau2_obstruction else None,
         "direct_tau2_emission_blocked": bool(tau2_obstruction and tau2_obstruction.get("status") == "closed_smaller_primitive"),
+        "direct_tau2_emission_blocked_scope": (
+            "only the declared finite-decimal central W/Z pair on the current "
+            "fiberwise formulas; uncertainty regions, modified fiber laws, "
+            "additional neutral coordinates, and other carriers remain open"
+            if tau2_obstruction and tau2_obstruction.get("status") == "closed_smaller_primitive"
+            else None
+        ),
         "minimal_extra_scalar_or_invariant": (
             tau2_obstruction.get("minimal_extra_scalar_or_invariant", {}).get("symbol")
             if tau2_obstruction
@@ -122,7 +129,7 @@ def build_artifact(
             "why_one_scalar_suffices_after_single_tree_identity": (
                 "the one-variable tree law determines tauY from tau2, so one scalar fixes both MW and MZ"
                 if not (tau2_obstruction and tau2_obstruction.get("status") == "closed_smaller_primitive")
-                else "the current one-variable carrier moves W and Z with the same local sign, so one extra neutral scalar is required beyond tau2_tree_exact"
+                else "exact W fixes a unique tau2 on the current one-variable carrier, and the exact interval certificate excludes the target Z there; one extra neutral scalar can move Z independently"
             ),
         },
         "next_residual_object_if_open": next_residual,

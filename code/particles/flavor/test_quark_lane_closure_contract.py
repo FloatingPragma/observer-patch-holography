@@ -141,7 +141,11 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
     assert axiom_obstruction["artifact"] == (
         "oph_quark_axiom_level_yukawa_moduli_nonidentifiability"
     )
-    assert axiom_obstruction["proof_status"] == "closed_axiom_level_nondefinability_theorem"
+    assert axiom_obstruction["proof_status"] == (
+        "conditional_current_registered_signature_nonidentifiability_argument"
+    )
+    assert axiom_obstruction["machine_proof"] is False
+    assert axiom_obstruction["registered_signature_completeness_verified_by_emitter"] is False
     assert axiom_obstruction["additional_axioms_used"] is False
     assert axiom_obstruction["counterfamily"]["parameter_space"] == (
         "(lambda_u,lambda_d) in (R_{>0})^2"

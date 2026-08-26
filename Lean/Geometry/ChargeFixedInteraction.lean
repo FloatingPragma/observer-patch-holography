@@ -43,7 +43,7 @@ WHAT IS PROVED.
   `ray_dot_seamVector_left`).  The seam-crossing constant `12 - 4φ` is
   twice the boundary constant and is positive (`seamCrossingConst_pos`).
 
-* (a) Field sector.  The coupled action equals the committed window action
+* (a) Field sector.  At `h ≠ 0`, the coupled action equals the committed window action
   at augmented sources plus an endpoint term depending on the seam
   potential only through its two window endpoint values
   (`coupledAction_reduction`).  The augmented sources are the declared seam
@@ -157,7 +157,7 @@ result whose bridge to the repair layer fails (`RateBridgeObstruction`),
 so nothing here cites it for or against a repair-layer clock.  The
 declared charge is a free datum (`declared_charge_unconstrained`).
 
-FALSIFIER.  The module fails if a port row of the boundary table
+FALSIFIER.  At nonzero `h`, the module fails if a port row of the boundary table
 disagrees with the constant `6 - 2φ`, if an endpoint pairing differs from
 `±2`, if the reduction identity misses a term, if the induced sources
 violate continuity, if the fixed value of `κ` differs from

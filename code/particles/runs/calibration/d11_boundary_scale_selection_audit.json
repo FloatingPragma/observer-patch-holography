@@ -11,13 +11,13 @@
       "closed_form": "E_star * P^(-1/2)",
       "motivation": "single-anchor coherence: the same anchor that carries the electroweak transmutation",
       "one_loop": {
-        "mh_tree_gev": 127.83227913851435,
-        "mt_pole_gev": 170.4488982480913
+        "mh_tree_gev": 127.83227871460655,
+        "mt_pole_gev": 170.44889767995056
       },
-      "scale_gev": 9.559899287322919e+18,
+      "scale_gev": 9.559899286840613e+18,
       "two_loop": {
-        "mh_tree_gev": 131.80938770636138,
-        "mt_pole_gev": 175.66412625804122
+        "mh_tree_gev": 131.80938727093422,
+        "mt_pole_gev": 175.66412567505776
       }
     },
     "E_star": {
@@ -25,13 +25,13 @@
       "closed_form": "E_star",
       "motivation": "the ultraviolet edge of the source theory",
       "one_loop": {
-        "mh_tree_gev": 128.3279539668733,
-        "mt_pole_gev": 170.69172766866546
+        "mh_tree_gev": 128.327953541279,
+        "mt_pole_gev": 170.69172709971423
       },
       "scale_gev": 1.2208901289579268e+19,
       "two_loop": {
-        "mh_tree_gev": 132.29093098946436,
-        "mt_pole_gev": 175.90473696839024
+        "mh_tree_gev": 132.29093055239247,
+        "mt_pole_gev": 175.9047363846019
       }
     },
     "log_midpoint_half_turn": {
@@ -39,13 +39,13 @@
       "closed_form": "sqrt(mu_U * E_cell) = E_star * exp(-pi) * P^(-1/6)",
       "motivation": "log-midpoint of the model's two pre-existing anchors; the unique scale treating the transmutation anchor and the unification anchor symmetrically",
       "one_loop": {
-        "mh_tree_gev": 121.6343204058547,
-        "mt_pole_gev": 167.39421549217778
+        "mh_tree_gev": 121.63432000427385,
+        "mt_pole_gev": 167.394214934821
       },
-      "scale_gev": 4.862867915188205e+17,
+      "scale_gev": 4.862867915106425e+17,
       "two_loop": {
-        "mh_tree_gev": 125.77115268001006,
-        "mt_pole_gev": 172.62935949498873
+        "mh_tree_gev": 125.77115226639518,
+        "mt_pole_gev": 172.62935892273643
       }
     },
     "mu_U_gauge_unification": {
@@ -53,13 +53,13 @@
       "closed_form": "E_star * exp(-2 pi) * P^(1/6)",
       "motivation": "the archived branch: criticality at the gauge-unification scale of the pixel-residual solve",
       "one_loop": {
-        "mh_tree_gev": 115.10128097301045,
-        "mt_pole_gev": 164.13059337895652
+        "mh_tree_gev": 115.10128059486941,
+        "mt_pole_gev": 164.13059283309306
       },
-      "scale_gev": 2.4736122891927384e+16,
+      "scale_gev": 2.473612289234337e+16,
       "two_loop": {
-        "mh_tree_gev": 119.37075245526148,
-        "mt_pole_gev": 169.37032322941494
+        "mh_tree_gev": 119.37075206466659,
+        "mt_pole_gev": 169.37032266864955
       }
     }
   },

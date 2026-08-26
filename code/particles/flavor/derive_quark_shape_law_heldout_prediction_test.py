@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Held-out quark mass tests of the frozen shape law (#377, #379, #380).
 
-The axiom-level nonidentifiability theorem stands: Axioms 1-3 plus fixed P
-do not define the quark spread moduli, and this artifact does not claim
-otherwise. It runs the strongest intermediate test available on the current
-corpus: freeze the candidate structure (profile rays from rho_ord, the
+The exact positive-rescaling counterfamily remains available. Its OPH
+non-identifiability reading is conditional on the current registered source
+signature containing no orbit-separating typed datum; this artifact neither
+verifies that registry-completeness premise nor closes the route. It runs the
+strongest intermediate test available on the current corpus: freeze the
+candidate structure (profile rays from rho_ord, the
 two-scalar affine mean law, the shared absolute scale g_ch), calibrate at
 most two quark observables, and score every remaining mass as a held-out
 check against the compare-only references.
@@ -40,8 +42,8 @@ Four tests, in decreasing strictness of input economy:
 Status. Everything here is conditional on the template transport kernel
 (see the rho_ord sensitivity audit), the edge-coefficient ansatz (version C
 spreads), and the current-family shared-scale writeback (g_ch). No version
-is source-only, promotion stays blocked, and the nonidentifiability theorem
-is unaffected: versions A and B calibrate the free moduli from predeclared
+is source-only, promotion stays blocked, and the conditional current-signature
+argument is unaffected: versions A and B calibrate the free moduli from predeclared
 data, version C fills them from a candidate ansatz. Reference values are
 consumed only as the predeclared calibration inputs and as compare-only
 held-out scores. Reference conventions are the mixed schemes recorded in
@@ -274,7 +276,7 @@ def build() -> dict:
         "guards": {
             "source_only_prediction": False,
             "public_promotion_allowed": False,
-            "nonidentifiability_theorem_unaffected": True,
+            "conditional_current_signature_argument_unaffected": True,
             "measured_values_in_solve_paths": "only the predeclared "
                                               "calibration inputs listed per "
                                               "version",
@@ -309,8 +311,8 @@ def build() -> dict:
         "version_b_two_in_four_out": version_b,
         "version_c_zero_quark_inputs": version_c,
         "notes": [
-            "This artifact is the intermediate scientific test between the "
-            "closed nonidentifiability theorem and a future source-only "
+            "This artifact is an intermediate scientific test between the "
+            "conditional current-signature nonidentifiability argument and a future source-only "
             "derivation: it measures how much of the quark spectrum the "
             "frozen candidate structure carries once the two free moduli "
             "are supplied by predeclared calibration or by the edge ansatz.",

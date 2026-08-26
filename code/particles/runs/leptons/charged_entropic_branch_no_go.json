@@ -1,39 +1,305 @@
 {
-  "antipodal_spectrum": [
-    -1.0327955589886446,
-    0.5163977794942883,
-    0.5163977794943561
-  ],
-  "antipodal_value_s3": -0.5163977794943226,
   "artifact": "oph_charged_entropic_branch_no_go",
   "checks": {
-    "antipodal_spectrum_degenerate": true,
-    "antipodal_value_is_negated": true,
-    "extremal_spectrum_degenerate": true,
-    "extremum_found": true,
-    "no_go_certified": true
+    "exact_certificate_checks_pass": true,
+    "full_mechanism_no_go_not_claimed": true,
+    "numerical_replay_checks_pass": true,
+    "quartic_boundary_and_regularization_routes_kept_open": true,
+    "quartic_global_minimizer_receipt_consumed": true
   },
   "checks_pass": true,
-  "consequence": "two equal charged masses on the entropic branch at leading cubic order; the observed family requires a source-emitted charged interaction off the entropic ray, inside the simple-spectrum region",
-  "extremal_spectrum": [
-    -0.5163977794943561,
-    -0.5163977794942883,
-    1.0327955589886446
+  "consequence": "the exact global maximizer of the leading cubic entropy truncation is C5-axis and has a double quadrupole eigenvalue; two equal physical charged masses follow only conditional on the quadrupole-to-physical-log-mass attachment. The exact quartic theorem gives only a strict-full-support conditional no-go because its closed-simplex boundary branch remains viable; no higher-order or full-mechanism no-go follows",
+  "cubic_truncation_theorem_established": true,
+  "epistemic_gates": {
+    "cubic_global_extremum_proved": true,
+    "cubic_no_go_certified": true,
+    "finite_seed_search_can_close_route": false,
+    "full_entropic_mechanism_no_go_certified": false,
+    "quadrupole_to_physical_log_mass_attachment_established": false,
+    "quartic_global_optimality_proved": true,
+    "quartic_packet_globally_excluded": false,
+    "strict_full_support_quartic_no_go_conditional": true
+  },
+  "exact_cubic_certificate": {
+    "checks": {
+      "all_pair_constraints_and_stationary_formulas_verified": true,
+      "all_stationary_multiplicities_enumerated": true,
+      "every_other_positive_stationary_value_is_smaller": true,
+      "global_maximum_is_multiplicity_one": true,
+      "icosahedral_axis_frame_identity_exact": true,
+      "m1_value_squared_is_4_over_15": true,
+      "quadrupole_double_eigenvalue_exact": true
+    },
+    "completeness_argument": {
+      "compactness": "the constrained W5 unit sphere is compact",
+      "lagrange_equation": "6*a_i^2 = lambda + 4*mu*a_i",
+      "multiplicities_exhausted": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "regularity": "the gradients of sum_i a_i and sum_i a_i^2 are independent on the nonzero zero-sum sphere",
+      "root_bound": "all six a_i are roots of one quadratic, hence every stationary point has at most two distinct values"
+    },
+    "global_maximum": {
+      "a_high_squared": {
+        "denominator": 12,
+        "numerator": 5
+      },
+      "a_low_squared": {
+        "denominator": 60,
+        "numerator": 1
+      },
+      "multiplicity": 1,
+      "orbit": "one icosahedral antipodal vertex pair versus the other five; C5 axis",
+      "root_relation": "a_high=-5*a_low with a_high>0",
+      "unique_up_to_pair_permutation": true,
+      "value_exact": "2/sqrt(15)",
+      "value_squared_exact": {
+        "denominator": 15,
+        "numerator": 4
+      }
+    },
+    "global_minimum": {
+      "multiplicity": 5,
+      "relation": "antipode of the global maximum",
+      "value_exact": "-2/sqrt(15)"
+    },
+    "proof_kind": "exact_closed_form_global_extremum_certificate",
+    "quadrupole_degeneracy": {
+      "axis_frame_check": {
+        "all_six_norms_equal": true,
+        "axis_representatives": "(0,1,+/-phi),(1,+/-phi,0),(phi,0,+/-1), normalized by sqrt(1+phi^2)",
+        "common_unnormalized_norm_squared": "1+phi^2",
+        "field": "Q(sqrt(5)) exact arithmetic",
+        "normalized_outer_product_sum": [
+          [
+            "2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "2"
+          ]
+        ],
+        "sum_over_six_axes_pipt_equals_2I": true
+      },
+      "derivation": "for pair values A and B with A+5B=0, Q has eigenvalues 4B,4B,-8B",
+      "double_eigenvalue_exact": true,
+      "m1_pair_coefficients_in_units_of_1_over_sqrt60": {
+        "a_high": 5,
+        "a_low": -1,
+        "unit_norm": true,
+        "zero_sum": true
+      },
+      "maximum_spectrum_exact": [
+        "-2/sqrt(15)",
+        "-2/sqrt(15)",
+        "4/sqrt(15)"
+      ],
+      "spectrum_coefficients_in_units_of_1_over_sqrt60": [
+        -4,
+        -4,
+        8
+      ],
+      "spectrum_squared_checks": {
+        "axial_equals_16_over_15": true,
+        "signs_and_trace_match": true,
+        "transverse_equals_4_over_15": true
+      }
+    },
+    "stationary_enumeration": [
+      {
+        "exact_checks": {
+          "stationary_formula_sign_matches": true,
+          "stationary_formula_squared_matches": true,
+          "unit_norm_constraint": true,
+          "zero_sum_constraint": true
+        },
+        "objective_approximation": 0.5163977794943222,
+        "objective_exact": "2/sqrt(15)",
+        "objective_sign": "positive",
+        "objective_squared": {
+          "denominator": 15,
+          "numerator": 4
+        },
+        "other_root_multiplicity": 5,
+        "other_root_over_positive_root": {
+          "denominator": 5,
+          "numerator": -1
+        },
+        "positive_root_multiplicity": 1,
+        "positive_root_squared": {
+          "denominator": 12,
+          "numerator": 5
+        }
+      },
+      {
+        "exact_checks": {
+          "stationary_formula_sign_matches": true,
+          "stationary_formula_squared_matches": true,
+          "unit_norm_constraint": true,
+          "zero_sum_constraint": true
+        },
+        "objective_approximation": 0.20412414523193154,
+        "objective_exact": "1/sqrt(24)",
+        "objective_sign": "positive",
+        "objective_squared": {
+          "denominator": 24,
+          "numerator": 1
+        },
+        "other_root_multiplicity": 4,
+        "other_root_over_positive_root": {
+          "denominator": 2,
+          "numerator": -1
+        },
+        "positive_root_multiplicity": 2,
+        "positive_root_squared": {
+          "denominator": 6,
+          "numerator": 1
+        }
+      },
+      {
+        "exact_checks": {
+          "stationary_formula_sign_matches": true,
+          "stationary_formula_squared_matches": true,
+          "unit_norm_constraint": true,
+          "zero_sum_constraint": true
+        },
+        "objective_approximation": 0.0,
+        "objective_exact": "0",
+        "objective_sign": "zero",
+        "objective_squared": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "other_root_multiplicity": 3,
+        "other_root_over_positive_root": {
+          "denominator": 1,
+          "numerator": -1
+        },
+        "positive_root_multiplicity": 3,
+        "positive_root_squared": {
+          "denominator": 12,
+          "numerator": 1
+        }
+      },
+      {
+        "exact_checks": {
+          "stationary_formula_sign_matches": true,
+          "stationary_formula_squared_matches": true,
+          "unit_norm_constraint": true,
+          "zero_sum_constraint": true
+        },
+        "objective_approximation": -0.20412414523193154,
+        "objective_exact": "-1/sqrt(24)",
+        "objective_sign": "negative",
+        "objective_squared": {
+          "denominator": 24,
+          "numerator": 1
+        },
+        "other_root_multiplicity": 2,
+        "other_root_over_positive_root": {
+          "denominator": 1,
+          "numerator": -2
+        },
+        "positive_root_multiplicity": 4,
+        "positive_root_squared": {
+          "denominator": 24,
+          "numerator": 1
+        }
+      },
+      {
+        "exact_checks": {
+          "stationary_formula_sign_matches": true,
+          "stationary_formula_squared_matches": true,
+          "unit_norm_constraint": true,
+          "zero_sum_constraint": true
+        },
+        "objective_approximation": -0.5163977794943222,
+        "objective_exact": "-2/sqrt(15)",
+        "objective_sign": "negative",
+        "objective_squared": {
+          "denominator": 15,
+          "numerator": 4
+        },
+        "other_root_multiplicity": 1,
+        "other_root_over_positive_root": {
+          "denominator": 1,
+          "numerator": -5
+        },
+        "positive_root_multiplicity": 5,
+        "positive_root_squared": {
+          "denominator": 60,
+          "numerator": 1
+        }
+      }
+    ],
+    "stationary_value_formula": "S3_m=(3-m)/sqrt(3*m*(6-m))",
+    "w5_pair_reduction": {
+      "coordinates": "w=(a1,a1,...,a6,a6) after ordering antipodal pairs",
+      "justification": "range(P5) is the antipodal-even subspace with its constant line removed",
+      "linear_constraint": "sum_i a_i = 0",
+      "objective": "S3(w)=2*sum_i a_i^3",
+      "unit_sphere_constraint": "2*sum_i a_i^2 = 1"
+    }
+  },
+  "global_maximum_spectrum_exact": [
+    "-2/sqrt(15)",
+    "-2/sqrt(15)",
+    "4/sqrt(15)"
   ],
-  "extremal_value_s3": 0.5163977794943226,
-  "minimum_gap": 6.772360450213455e-14,
-  "oddness": "S3(-w) = -S3(w), so the minimizer of S3 on the sphere is the antipode of the maximizer: the same C5-axis orbit type with the sign of the quadrupole flipped, degenerate in both orientations",
+  "global_maximum_value_s3_exact": "2/sqrt(15)",
+  "legacy_filename_note": "the filename predates the exact certificates; the cubic no-go is exact, while the quartic no-go is conditional on strict full support and the physical mass attachment",
+  "numerical_replay": {
+    "antipodal_spectrum": [
+      -1.0327955589886446,
+      0.5163977794942883,
+      0.5163977794943561
+    ],
+    "antipodal_value_s3": -0.5163977794943226,
+    "checks": {
+      "antipodal_spectrum_degenerate": true,
+      "antipodal_value_is_negated": true,
+      "c5_candidate_reproduced": true,
+      "extremal_spectrum_degenerate": true,
+      "extremum_found": true
+    },
+    "minimum_gap": 6.772360450213455e-14,
+    "projected_ascent_iterations_per_seed": 4000,
+    "role": "redundant_diagnostic_only_not_used_in_proof",
+    "seeds": 40,
+    "spectrum": [
+      -0.5163977794943561,
+      -0.5163977794942883,
+      1.0327955589886446
+    ],
+    "value_s3": 0.5163977794943226
+  },
+  "oddness": "S3(-w) = -S3(w); after the exhaustive stationary-point enumeration proves the global maximum, oddness proves that its antipode is the global minimum",
   "promotion_allowed": false,
-  "row_class": "parameter_free_no_go_certificate",
-  "schema_version": 1,
+  "quartic_global_minimizer_theorem_established": true,
+  "quartic_packet_globally_excluded": false,
+  "row_class": "exact_cubic_extremum_and_quartic_global_minimizer_theorems",
+  "schema_version": 3,
   "scope": {
     "beyond_quartic": "open",
-    "mechanism_status": "second of three candidate mechanisms: closed at cubic order, excluded by comparison at quartic order, open beyond",
+    "mechanism_status": "exact cubic and quartic minimizer theorems; quartic strict-support no-go remains conditional, the packet is not globally excluded, and boundary regularization, higher orders, source amplitude, physical attachment, and full entropy remain open",
+    "physical_mass_attachment": "open: the exact statement is eigenvalue degeneracy on the W5 quadrupole; identification with physical charged log-masses is a separate conditional attachment",
     "quartic_certificate": "runs/flavor/entropy_w5_shape_certificate.json",
-    "quartic_order": "the same parameter-free packet truncated at quartic order selects a simple-spectrum golden-ratio branch above the exact crossing amplitude r_c = 2.776 and below that branch's positivity bound r < 2 sqrt(6); the golden branch is excluded by comparison with the measured charged-lepton shape at 16.7 percent only",
+    "quartic_order": "the exact companion certificate classifies global minima on the strict and closed probability domains. The strict branch is conditionally excluded after the separate mass attachment, but a zero-weight closed-simplex boundary branch with a continuous simple spectrum remains viable",
     "truncation_order": "leading cubic term at small band amplitude",
     "universal_impossibility_claimed": false
   },
-  "selection_functional": "universal entropy cubic S3 on the W5 unit sphere, the leading term in the band amplitude; no chosen coefficient",
-  "status": "ENTROPIC_CONDITIONED_BRANCH_NO_GO"
+  "selection_functional": "maximize the universal entropy cubic S3 on the W5 unit sphere, the leading shape-dependent term in the band amplitude; no chosen coefficient",
+  "status": "ENTROPIC_CUBIC_AND_QUARTIC_EXACT_GLOBAL_CLASSIFICATION"
 }

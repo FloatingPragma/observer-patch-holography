@@ -34,6 +34,10 @@ def test_d10_exact_wz_coordinate_shell_is_emitted() -> None:
     assert payload["tau2_tree_exact"] is None
     assert payload["next_residual_object_if_open"] == "delta_n_tree_exact"
     assert payload["direct_tau2_emission_blocked"] is True
+    assert "central W/Z pair" in payload["direct_tau2_emission_blocked_scope"]
+    assert "additional neutral coordinates" in payload["direct_tau2_emission_blocked_scope"]
+    assert payload["proof_status"] == "exact_interval_excludes_single_tau2_central_WZ_pair_on_current_carrier"
+    assert "exact interval certificate" in payload["minimality_certificate"]["why_one_scalar_suffices_after_single_tree_identity"]
     assert payload["tauY_from_single_tree_identity_formula"] == "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)"
     beta = payload["carrier_basis_scalar"]["beta_EW"]
     alpha_y = payload["carrier_basis_scalar"]["alphaY_mz"]

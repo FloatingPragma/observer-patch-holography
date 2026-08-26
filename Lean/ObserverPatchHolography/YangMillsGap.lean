@@ -21,7 +21,8 @@ This module proves an **implication**, nothing more:
 > form assumed here — each collar acts by an orthogonal projection `E_C`, the
 > collars **mutually commute**, their joint fixed space is represented by
 > `P₀`, and there are **finitely many** active collar types each with a
-> **strictly positive** relaxation rate `c_C` (from Lemma 7.2) — THEN the
+> **strictly positive** relaxation rate `c_C` (supplied directly to the
+> theorem below) — THEN the
 > finite generator `L_r^rep = ∑_C c_C · (I − E_C)` dominates `c_* · (I − P₀)`
 > with `c_* = min_C c_C > 0` (Proposition 8.1): a strictly positive
 > finite-stage spectral gap.
@@ -47,24 +48,32 @@ One thing is deliberately **NOT** proved and **NOT** claimed:
   problem and is **untouched**. The deliverable here is `Δ_rep`, the
   finite-stage *representation* gap — **not** the physical Yang–Mills mass gap.
 
-The two keystone lemmas this legacy branch *assembles* are proved in sibling modules and
-**imported** here (no `sorry`s remain):
+Two historical ingredients are proved in sibling modules and **imported**
+here (no `sorry`s remain), but they have different status in this API:
 
-* `lemma_7_2` — scalar relaxation on a uniform hidden fiber (each `c_C > 0`);
+* `lemma_7_2` — scalar relaxation on one uniform hidden fiber;
   proved in `ObserverPatchHolography.YangMillsLemma72` (extracted verbatim from
   the retired single-file artifact `RepairGap.lean`, Part I — that file is now
-  consolidated into these modules; see git history for the original);
+  consolidated into these modules; see git history for the original).  It is
+  re-exported here as a separate conditional theorem, but no theorem in this
+  module bridges its matrix `D` and coefficient `c_F` to the Hilbert-space
+  collar projections and `rate` argument of `thm_7_3_finite_gap`;
 * `prop_8_1`  — commuting-color finite-stage gap (`commuting ⇒ gap`);
   proved in `ObserverPatchHolography.YangMillsProp81`.
 
-This file is the historical **setup + Theorem 7.3 / Lemma 7.4 assembly**; with the
-keystone imports wired, `thm_7_3_finite_gap` carries zero `sorry`s and no
-project-level axioms. The conditional continuum chain lives in the sibling
+This file is the historical **setup + Theorem 7.3 / Lemma 7.4 assembly**.
+`thm_7_3_finite_gap` assembles the directly assumed positive rates with the
+uniform floor and `prop_8_1`; it carries zero `sorry`s and no project-level
+axioms.  It does **not** consume `lemma_7_2`.  A source theorem connecting the
+uniform-fiber relaxation data to the collar-rate argument remains a separate
+bridge obligation.  The conditional continuum chain lives in the sibling
 `ObserverPatchHolography.RepairGapChain`.
 
 SCOPE: machine-checked only on the special pairwise-commuting branch: the
-finite representation-gap implication `Δ_rep ≥ c_* > 0` (Lemma 7.2 / Lemma
-7.4 / Prop 8.1 / Thm 7.3 assembly).  This is neither the current paper's
+finite representation-gap implication `Δ_rep ≥ c_* > 0` from directly
+assumed positive collar rates (Lemma 7.4 / Prop 8.1 / Thm 7.3 assembly), plus
+the separate conditional Lemma 7.2.  No composition from Lemma 7.2 into the
+rate premise is formalized.  This is neither the current paper's
 noncommuting finite-stage theorem nor a proof of any continuum-certificate
 premise.
 -/
@@ -134,8 +143,9 @@ noncomputable def repairGenerator {ι : Type*} (s : Finset ι)
 
 /-- **Proposition 8.1 (imported).** For a finite family of **mutually commuting**
     orthogonal (star) projections `Ec` whose non-commutative product equals the
-    projection `P₀` onto the joint fixed (constants) space, the constant-rate
-    generator `∑ c_* · (I − E_C)` dominates `c_* · (I − P₀)`.
+    joint projection `P₀`, the constant-rate generator
+    `∑ c_* · (I − E_C)` dominates `c_* · (I − P₀)`.  The signature does not
+    identify the joint fixed range with a physical constants sector.
 
     Proved in the sibling gap module `YangMillsProp81` via `1 − ∏ Eₐ ≤ ∑ (1 − Eₐ)`
     for a commuting family of star projections; discharged here by direct
@@ -161,10 +171,15 @@ theorem uniform_floor {ι : Type*} (s : Finset ι) (hne : s.Nonempty) (rate : ι
 
 /-! ## §7.3 legacy assembly — the special commuting finite-gap deliverable -/
 
-/-- **Legacy Theorem 7.3 / 7.4 (commuting finite representation gap).** Combine Lemma 7.2 (each
-    collar rate `rate a > 0`), Proposition 8.1 (commuting colors ⇒ constant-rate
-    gap), and the uniform floor (Lemma 7.4): the repair generator dominates
-    `c_* · (I − P₀)` with `c_* > 0`.
+/-- **Legacy Theorem 7.3 / 7.4 (commuting finite representation gap).** Assume
+    each collar rate satisfies `rate a > 0`, then combine Proposition 8.1
+    (commuting colors ⇒ constant-rate gap) with the uniform floor (Lemma 7.4):
+    the repair generator dominates `c_* · (I − P₀)` with `c_* > 0`.
+
+    The positive-rate premise is an explicit theorem argument.  Although the
+    separate `lemma_7_2` can produce a positive scalar for one uniform-fiber
+    matrix relaxation, this theorem contains no bridge from that matrix datum
+    to `Ec` or `rate` and does not consume `lemma_7_2`.
 
     This is `Δ_rep ≥ c_* > 0` only on the special pairwise-commuting branch.
     It is not the current paper's noncommuting Dobrushin theorem and supplies

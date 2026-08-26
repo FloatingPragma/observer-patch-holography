@@ -16,7 +16,8 @@
       "quark_spreads_changed": true,
       "simple_spectrum_preserved": true
     },
-    "proof_status": "closed_axiom_level_nondefinability_theorem",
+    "machine_proof": false,
+    "proof_status": "conditional_current_registered_signature_nonidentifiability_argument",
     "public_numeric_quark_rows_allowed": false,
     "reference_data_policy": {
       "PDG_or_API_rows_consumed": false,
@@ -28,7 +29,9 @@
       "quark_reference_values_consumed": false,
       "selected_class_target_witnesses_consumed": false
     },
-    "theorem_statement": "OPH Axioms 1--3, a fixed pixel closure P, and a declared structural Standard-Model package do not define the quark Yukawa eigenvalues. For every generic admissible one-Higgs three-generation package there is a continuous positive-rescaling family with the same screen, agreement, reference and aggregation, gauge, anomaly, hypercharge, Higgs, generation, CKM, CP-capability, and weak-UV data but different Yukawa singular values and quark masses. Hence a unique quark mass spectrum does not factor through the stated axioms and source signature.",
+    "registered_signature_completeness_verified_by_emitter": false,
+    "scope_kind": "current_registered_signature_not_all_future_OPH_completions",
+    "theorem_statement": "Conditional on the current registered A1--A3 source signature, a fixed pixel closure P, and a declared structural Standard-Model package containing no orbit-separating output map or constraint, the registered antecedents do not define the quark Yukawa eigenvalues. For every generic admissible one-Higgs three-generation package there is a continuous positive-rescaling family with the same screen, agreement, reference and aggregation, gauge, anomaly, hypercharge, Higgs, generation, CKM, CP-capability, and weak-UV data but different Yukawa singular values and quark masses. Hence a unique quark mass spectrum does not factor through that current registered source signature.",
     "three_axiom_audit": {
       "Axiom_1_screen_net": "unchanged by Yukawa-eigenvalue rescaling",
       "Axiom_2_observer_agreement": "the declared accepted-data meaning diagrams are unchanged by Yukawa-eigenvalue rescaling",
@@ -41,6 +44,7 @@
         "optimizer_to_Yukawa_output_map_supplied": false
       },
       "all_registered_axiom_data_preserved": true,
+      "classification": "conditional_registry_audit_assertions_not_machine_verified_by_this_emitter",
       "declared_structural_packet": {
         "Yukawa_completability_preserved": true,
         "Yukawa_eigenvalues_are_declared_structural_coordinates": false,
@@ -430,7 +434,7 @@
     "theorem_scope": "current_family_common_refinement_transport_frame_only",
     "wrapper_theorem": "oph_quark_exact_yukawa_end_to_end_theorem"
   },
-  "generated_utc": "2026-08-25T21:06:26Z",
+  "generated_utc": "2026-08-26T13:17:54Z",
   "internalized_theorems": [
     {
       "classification": "conditional_identity_value_source_open",

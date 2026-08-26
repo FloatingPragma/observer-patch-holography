@@ -26,7 +26,7 @@ abstract theorem with a machine-checked concrete model.
 
 This is a *minimal* witness.
 
-* The two collars use the degenerate collar projection `E_C = 0` (constants space
+* The two collars use the degenerate collar projection `E_C = 0` (fixed space
   `{0}`), so the joint fixed projection is `P₀ = 0` (`wP0_eq_zero`) and the gap operator
   is the full identity `I − P₀ = I` — a genuine **nonzero** positive operator. (Contrast
   the `E_C = 1` choice, which would give the empty gap `I − P₀ = 0`: a vacuous-feeling
@@ -34,8 +34,14 @@ This is a *minimal* witness.
 * The two rates are **distinct** (`1` and `2`), so `c_* = min = 1` and the resulting
   operator bound `1 · (I − P₀) ≤ L_r^rep` is non-reflexive (the generator is `3 · I`).
 
-The first witness does **not** touch the current paper's noncommuting
-Dobrushin branch or any continuum certificate.  The second section gives a
+The first witness also does **not** instantiate `lemma_7_2` or identify its
+zero projection with expectation onto the constants of a hidden fiber.  On
+`Fin 1`, the space of constant functions is all of `W`, not `{0}`.  The
+witness inhabits only the stripped operator premises that actually occur in
+`thm_7_3_finite_gap`; connecting a uniform-fiber relaxation to those collar
+projections and rates is a separate, open bridge.  It does **not** touch the
+current paper's noncommuting Dobrushin branch or any continuum certificate.
+The second section gives a
 separate exact three-state rational countermodel: two proper symmetric
 idempotent Markov projections fail to commute, and their rate-one repair
 generator has explicit eigenvalues `1/2` and `3/2`, rather than the commuting
@@ -57,7 +63,7 @@ abbrev W : Type := EuclideanSpace ℝ (Fin 1)
 /-- Two collars, indexed by `Bool`. -/
 def wS : Finset Bool := {false, true}
 
-/-- Each collar acts by the (degenerate) zero projection — constants space `{0}`. -/
+/-- Each collar acts by the (degenerate) zero projection, whose fixed space is `{0}`. -/
 noncomputable def wEc : Bool → (W →L[ℝ] W) := fun _ => 0
 
 /-- Distinct strictly-positive relaxation rates, so `c_* = min = 1 < 2` and the
@@ -73,7 +79,7 @@ theorem whc : (↑wS : Set Bool).Pairwise (Function.onFun Commute wEc) := by
   intro a _ b _ _
   exact Commute.refl (0 : W →L[ℝ] W)
 
-/-- The joint fixed (constants) projection `P₀` of the collar family. -/
+/-- The joint fixed projection `P₀` of this collar family. -/
 noncomputable def wP0 : W →L[ℝ] W := wS.noncommProd wEc whc
 
 /-- With every collar the zero projection, the joint fixed projection is `0`, so the

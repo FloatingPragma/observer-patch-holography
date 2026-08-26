@@ -27,13 +27,13 @@
   "fiber_population_functional_formula": "J_pop_EW(tauY,tau2) = tau2^2 + (tauY*tau2)^2 + (0.5*(tauY + tau2) + eta_source)^2",
   "fiber_second_derivative_formula": "1/2 + 2*tau2_tree_exact^2",
   "fiber_stationarity_formula": "(1 + 4*tau2_tree_exact^2)*tau_Y + tau2_tree_exact + 2*eta_source = 0",
-  "generated_utc": "2026-08-26T04:16:40Z",
+  "generated_utc": "2026-08-26T12:46:53Z",
   "n_EW_formula": "1 + (alphaY_mz * tau_Y + alpha2_mz * tau2_tree_exact) / (alphaY_mz + alpha2_mz)",
   "next_single_residual_object": "tau2_tree_exact",
   "notes": [
     "The fixed-tau2 fibers of J_pop_EW have a unique tauY minimizer.",
     "This removes the placeholder unsplit tree law without inventing tau2_tree_exact.",
-    "Exact W and exact Z become a one-variable forward law on the existing carrier once this primitive is emitted."
+    "This primitive defines a one-variable W/Z forward map; it does not guarantee attainment of an arbitrary target pair. The exact interval receipt excludes the declared central W/Z pair on these current formulas, while nonlinear repair with an added neutral scalar remains viable."
   ],
   "object_id": "EWFiberwisePopulationTreeLaw_D10",
   "proof_status": "fiberwise_unique_J_pop_minimizer_on_fixed_tau2",

@@ -1,6 +1,60 @@
 {
-  "boundary_extension": "the stabilizer theorem excludes symmetry geometry alone; this certificate excludes the quartic entropy packet; the open lepton-side object is a source mechanism beyond the quartic entropy truncation",
-  "branches": {
+  "boundary_extension": "the exact closed-simplex minimizer has a continuous boundary gap-ratio branch, so the packet is not globally excluded; zero-weight, regularized, higher-order, full-entropy, and source-amplitude routes remain viable",
+  "claim_boundary": "Exact global-minimizer theorem for the quartic-truncated W5 entropy functional on both the strict full-support domain and its closed probability simplex. It does not establish the quadrupole-to-physical-log-mass attachment, emit the amplitude, control the entropy remainder at zero weights, or close the higher-order/full-entropy mechanism. No physical mass, ratio, or prediction is emitted.",
+  "comparison": {
+    "ancestry": "measured PDG charged-lepton masses, compare-only; no lepton value enters any derivation above",
+    "boundary_reentry_compare": {
+      "domain_check": "sqrt(24)<r<sqrt(60)",
+      "nonclaim": "r is inferred from the measured shape, not source-emitted; this is not a prediction or validation",
+      "observed_R": "1.8890091445",
+      "orientation": "larger-over-smaller sorted quadrupole gap",
+      "target_attached_inferred_r": "5.0613260829",
+      "theory_map": "R=2*d/(3-d), d=sqrt((r^2-15)/5), r^2=15+45*R^2/(R+2)^2",
+      "verdict": "BOUNDARY_BRANCH_CAN_MATCH_CENTRAL_SHAPE_COMPARE_ONLY"
+    },
+    "global_packet_verdict": "EXACTLY_CLASSIFIED_NOT_GLOBALLY_EXCLUDED",
+    "golden_branch_compare": {
+      "closest_pairing_mismatch": "0.167472",
+      "packet_output": "phi = 1.6180339887 (m=2 full-support branch); the m=1 branch is degenerate",
+      "relative_mismatch_direct": "0.672826",
+      "relative_mismatch_flipped": "0.167472",
+      "verdict": "GOLDEN_BRANCH_EXCLUDED_COMPARE_ONLY"
+    },
+    "observed_flipped": "1.8890091445",
+    "observed_sorted_gap_ratio": "0.5293780620",
+    "verdict": "STRICT_FULL_SUPPORT_CONDITIONAL_NO_GO_BOUNDARY_REENTRY_VIABLE",
+    "verdict_statement": "the exact strict full-support minima are either quadrupole-degenerate, the golden branch excluded by the compare-only shape check, or absent at high amplitude. The exact closed-simplex boundary branch continuously re-enters the observed shape at a target-attached amplitude, so the quartic packet is not globally excluded"
+  },
+  "controls": {
+    "boundary_coordinate_mixup": {
+      "code": "BOUNDARY_COORDINATE_MIXUP",
+      "expected_failure": true,
+      "failed": true
+    },
+    "frame_band_cubic": {
+      "code": "FRAME_CUBIC",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the cubic response vanishes on any antipode-odd profile, which pins the shape functional to the quintet band"
+    },
+    "mutated_quartic_crossing": {
+      "code": "QUARTIC_CROSSING",
+      "expected_failure": true,
+      "failed": true
+    },
+    "profile_mutation": {
+      "code": "GOLDEN_RATIO",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the golden identity consumes the exact extremal profile; a mutation is refused"
+    },
+    "prolate_simple_spectrum": {
+      "code": "PROLATE_DEGENERATE",
+      "expected_failure": true,
+      "failed": true
+    }
+  },
+  "exact_candidate_geometry": {
     "golden": {
       "S2": "24 + 0*sqrt5",
       "S3": "24 + 0*sqrt5",
@@ -36,63 +90,551 @@
         "ring": "-2/15 + 0*sqrt5",
         "ring_count": 10
       }
-    }
-  },
-  "claim_boundary": "Exact structure theorem for the entropy-derived W5 shape packet and its compare-only exclusion. The packet is derived from the A3 expansion with no free coefficient; its only simple-spectrum orbit has sorted-gap ratio exactly phi; the observed lepton shape excludes it at 16.7 percent in the closest orientation. No mass, ratio, or prediction is emitted, and the source-only charged no-go is unchanged.",
-  "comparison": {
-    "ancestry": "measured PDG charged-lepton masses, compare-only; no lepton value enters any derivation above",
-    "closest_pairing_mismatch": "0.167472",
-    "observed_flipped": "1.8890091445",
-    "observed_sorted_gap_ratio": "0.5293780620",
-    "packet_output": "phi = 1.6180339887 (golden branch); prolate branch degenerate",
-    "relative_mismatch_direct": "0.672826",
-    "relative_mismatch_flipped": "0.167472",
-    "verdict": "EXCLUDED",
-    "verdict_statement": "the quartic-truncated entropy packet's only simple-spectrum orbit has sorted-gap ratio exactly phi; the observed centered log-mass gap ratio differs from it by 16.7 percent in the closest orientation, far outside every stated width, and the prolate branch is excluded by the simple-spectrum gate"
-  },
-  "controls": {
-    "frame_band_cubic": {
-      "code": "FRAME_CUBIC",
-      "expected_failure": true,
-      "failed": true,
-      "meaning": "the cubic response vanishes on any antipode-odd profile, which pins the shape functional to the quintet band"
     },
-    "profile_mutation": {
-      "code": "GOLDEN_RATIO",
-      "expected_failure": true,
-      "failed": true,
-      "meaning": "the golden identity consumes the exact extremal profile; a mutation is refused"
-    },
-    "prolate_simple_spectrum": {
-      "code": "PROLATE_DEGENERATE",
-      "expected_failure": true,
-      "failed": true
-    }
+    "role": "redundant exact Q(sqrt(5)) identification of the m=1 C5 and m=2 golden quadrupole orbits; not the global proof"
   },
-  "crossing": {
-    "display_only_note": "r_c_display and r_bound_display are float renderings of the recorded exact quantities",
-    "equation": "2*(sqrt(s3n2_prolate) - sqrt(s3n2_golden)) = r_c * (s4n_prolate - s4n_golden)",
-    "other_critical_orbits": "the C3-axis orbit is critical by symmetric criticality with S3 = 0 exactly (two-value antipodal profile), S4/S2^2 = 1/12, positivity bound r^2 < 12, and shape energy r^4/144; it undercuts the golden branch only for r^2 > 96, outside every positivity bound, so it never enters the selection",
-    "positivity_domain": {
-      "branches": {
-        "golden": {
-          "r_bound_display": "4.898979485566",
-          "r_squared_bound": "24 + 0*sqrt5"
+  "exact_global_quartic_certificate": {
+    "all_exact_checks_pass": true,
+    "checks": {
+      "G1_G2_crossing_identity": true,
+      "G1_G3_identity": true,
+      "G2_G3_identity": true,
+      "antipodal_m4_is_strictly_above_m2": true,
+      "antipodal_m5_is_strictly_above_m1": true,
+      "crossing_below_sqrt24": true,
+      "crossing_positive": true,
+      "m1_beats_m3_through_first_crossing": true,
+      "m3_cannot_overtake_before_sqrt24": true,
+      "three_root_points_are_saddles": true,
+      "two_value_table": true
+    },
+    "closed_probability_simplex": {
+      "boundary_minimizer": {
+        "G_boundary": "(r**4 - 480)/(8*r**3)",
+        "G_boundary_minus_G_m1_factor": "-(r - 2*sqrt(15))**2*(3*r**2 + 4*sqrt(15)*r + 60)/(60*r**3)",
+        "b_values": {
+          "b_minus": "3-sqrt(r^2-24)/2",
+          "b_plus": "3+sqrt(r^2-24)/2",
+          "four_values": "0"
         },
-        "prolate": {
-          "r_bound_display": "7.745966692415",
-          "r_squared_bound": "60 + 0*sqrt5"
+        "definition_guard": "b_i=1+x_i=1+r*a_i=12*q_port_i; the b and x values must not be interchanged",
+        "domain": "sqrt(24) <= r < sqrt(60)",
+        "original_energy_E_boundary": "(r**4 - 480)/48",
+        "strict_sign": "negative for sqrt(24)<=r<sqrt(60); it vanishes only at the excluded upper endpoint r=2*sqrt(15)=sqrt(60)",
+        "x_values": {
+          "four_values": "-1",
+          "x_minus": "2-sqrt(r^2-24)/2",
+          "x_plus": "2+sqrt(r^2-24)/2"
         }
       },
-      "condition": "r < 1/|min_i w_i| for the unit-S2 profile w, i.e. r^2 < S2/(min port value)^2"
+      "boundary_quadrupole": {
+        "d": "sqrt((r^2-15)/5)",
+        "derivation": "the two selected icosahedral axes have squared inner product 1/5; the exact rank-two discriminant is 4*d^2",
+        "domain_order": "sqrt(24)<=r<sqrt(60) gives 0<d<3",
+        "exact_checks": {
+          "boundary_start_ratio_is_phi": true,
+          "d_upper_domain_identity": true,
+          "rank_two_discriminant_is_4d_squared": true,
+          "ratio_inverse_identity": true,
+          "ratio_solves_for_d": true,
+          "spectrum_trace_zero": true
+        },
+        "inverse_r_squared": "15+45*R^2/(R+2)^2",
+        "sorted_gap_ratio_R": "2*d/(3-d)",
+        "spectrum_up_to_positive_scale": [
+          "-2",
+          "1-d",
+          "1+d"
+        ]
+      },
+      "checks": {
+        "H_elementary_symmetric_identity": true,
+        "J_nonnegative_sum_identity": true,
+        "boundary_G_identity": true,
+        "boundary_b_sum": true,
+        "boundary_b_sum_squares": true,
+        "boundary_beats_m1_factor_identity": true,
+        "coordinate_objective_transform_identity": true,
+        "energy_scaling_identity": true,
+        "face_factor_identities": true,
+        "face_three_root_points_excluded": true,
+        "low_amplitude_boundary_kkt_sets_empty": true,
+        "quadrupole_spectrum_and_ratio_identities": true,
+        "uniform_face_points_are_not_global": true
+      },
+      "closed_domain_classification": [
+        {
+          "domain": "0<r<r_c",
+          "global_minimizer": "m=1 full-support orbit"
+        },
+        {
+          "domain": "r=r_c",
+          "global_minimizers": [
+            "m=1",
+            "m=2"
+          ]
+        },
+        {
+          "domain": "r_c<r<sqrt(24)",
+          "global_minimizer": "m=2 full-support golden orbit"
+        },
+        {
+          "domain": "sqrt(24)<=r<sqrt(60)",
+          "global_minimizer": "support-two boundary orbit with four zero weights"
+        },
+        {
+          "domain": "r=sqrt(60)",
+          "global_minimizer": "one pair has b=6 and the other five have b=0"
+        }
+      ],
+      "coordinate_dictionary": {
+        "K": "sum b_i^2 = 6+r^2/2",
+        "a_i": "six normalized W5 antipodal-pair values, repeated twice; sum a_i=0 and 2*sum a_i^2=1",
+        "b_i": "1+x_i=1+r*a_i=12*q_port_i",
+        "p_i": "b_i/6=2*q_port_i, the probability of antipodal pair i",
+        "x_i": "r*a_i, so q_port_i=(1+x_i)/12"
+      },
+      "domain": "b_i >= 0, sum b_i=6, sum b_i^2=K",
+      "face_minimum_structure": {
+        "conclusion": "a face minimum has at most two positive values",
+        "exact_sign_checks": {
+          "checks": {
+            "group_tangent_negative_for_support_4_to_6": true,
+            "middle_split_negative": true,
+            "support_three_vieta_contradiction": true
+          },
+          "group_tangent_cases": [
+            {
+              "M": 1,
+              "P": 2,
+              "bracket": "-A_face",
+              "strictly_negative": true,
+              "support_size": 4
+            },
+            {
+              "M": 2,
+              "P": 1,
+              "bracket": "-B_face",
+              "strictly_negative": true,
+              "support_size": 4
+            },
+            {
+              "M": 1,
+              "P": 3,
+              "bracket": "-2*A_face",
+              "strictly_negative": true,
+              "support_size": 5
+            },
+            {
+              "M": 2,
+              "P": 2,
+              "bracket": "-2*(A_face + B_face)",
+              "strictly_negative": true,
+              "support_size": 5
+            },
+            {
+              "M": 3,
+              "P": 1,
+              "bracket": "-2*B_face",
+              "strictly_negative": true,
+              "support_size": 5
+            },
+            {
+              "M": 1,
+              "P": 4,
+              "bracket": "-3*A_face",
+              "strictly_negative": true,
+              "support_size": 6
+            },
+            {
+              "M": 2,
+              "P": 3,
+              "bracket": "-4*A_face - 3*B_face",
+              "strictly_negative": true,
+              "support_size": 6
+            },
+            {
+              "M": 3,
+              "P": 2,
+              "bracket": "-3*A_face - 4*B_face",
+              "strictly_negative": true,
+              "support_size": 6
+            },
+            {
+              "M": 4,
+              "P": 1,
+              "bracket": "-3*B_face",
+              "strictly_negative": true,
+              "support_size": 6
+            }
+          ]
+        },
+        "stationarity": "on each relative face, every positive b_i is a root of 4*z^3-18*z^2-2*mu*z-lambda=0",
+        "three_root_exclusion": "the same exact split/group-tangent saddle factor excludes three roots for support at least four; at support three, Vieta gives root sum 9/2 while the face sum is 6"
+      },
+      "full_global_minimizer_classification_proved": true,
+      "high_amplitude_face_comparison": {
+        "H_2": "K*(K - 36)/2",
+        "domain": "18 < K < 36",
+        "factor_table": [
+          {
+            "H_k_minus_H_2_factor": "4*(t_3 - 6)**2*(t_3 + 3)/9",
+            "domain": "18 < K < 36 implies 0 < t_k < 6",
+            "exact_checks": {
+              "H_excess_factor_identity": true,
+              "factor_strictly_positive_for_0_t_less_than_6": true,
+              "sum_is_six": true,
+              "sum_squares_is_K": true
+            },
+            "high_value_x_k": "2*(t_3 + 3)/3",
+            "low_value_y_k": "-(t_3 - 6)/3",
+            "support_size": 3,
+            "t_definition": "sqrt((3*K-36)/(3-1))"
+          },
+          {
+            "H_k_minus_H_2_factor": "3*(t_4 - 6)**2*(t_4 + 6)**2/64",
+            "domain": "18 < K < 36 implies 0 < t_k < 6",
+            "exact_checks": {
+              "H_excess_factor_identity": true,
+              "factor_strictly_positive_for_0_t_less_than_6": true,
+              "sum_is_six": true,
+              "sum_squares_is_K": true
+            },
+            "high_value_x_k": "3*(t_4 + 2)/4",
+            "low_value_y_k": "-(t_4 - 6)/4",
+            "support_size": 4,
+            "t_definition": "sqrt((4*K-36)/(4-1))"
+          },
+          {
+            "H_k_minus_H_2_factor": "12*(t_5 - 6)**2*(t_5**2 + 6*t_5 + 18)/125",
+            "domain": "18 < K < 36 implies 0 < t_k < 6",
+            "exact_checks": {
+              "H_excess_factor_identity": true,
+              "factor_strictly_positive_for_0_t_less_than_6": true,
+              "sum_is_six": true,
+              "sum_squares_is_K": true
+            },
+            "high_value_x_k": "2*(2*t_5 + 3)/5",
+            "low_value_y_k": "-(t_5 - 6)/5",
+            "support_size": 5,
+            "t_definition": "sqrt((5*K-36)/(5-1))"
+          },
+          {
+            "H_k_minus_H_2_factor": "5*(t_6 - 6)**2*(t_6**2 + 4*t_6 + 12)/36",
+            "domain": "18 < K < 36 implies 0 < t_k < 6",
+            "exact_checks": {
+              "H_excess_factor_identity": true,
+              "factor_strictly_positive_for_0_t_less_than_6": true,
+              "sum_is_six": true,
+              "sum_squares_is_K": true
+            },
+            "high_value_x_k": "(5*t_6 + 6)/6",
+            "low_value_y_k": "-(t_6 - 6)/6",
+            "support_size": 6,
+            "t_definition": "sqrt((6*K-36)/(6-1))"
+          }
+        ],
+        "feasibility_reduction": "a two-value positive face with q high roots requires q*K<36; K>18 therefore forces q=1"
+      },
+      "independent_nonnegative_global_certificate": {
+        "definition": "J=e3(p)-4*e4(p)",
+        "equality_condition": "support(p) has at most two indices",
+        "exact_identity": "J=sum_{i<j<k} p_i*p_j*p_k*(p_i+p_j+p_k)",
+        "nonnegative": true,
+        "objective_relation": "H=1296*(-e2+2*e2^2+J), with e2 fixed by K",
+        "scope": "for K>=18 a support-two point is feasible and saturates the exact global lower bound"
+      },
+      "low_amplitude_boundary_exclusion": {
+        "cases": [
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 1,
+            "low_multiplicity": 1,
+            "support_size": 2
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 2,
+            "low_multiplicity": 1,
+            "support_size": 3
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 1,
+            "low_multiplicity": 2,
+            "support_size": 3
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 3,
+            "low_multiplicity": 1,
+            "support_size": 4
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 2,
+            "low_multiplicity": 2,
+            "support_size": 4
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 1,
+            "low_multiplicity": 3,
+            "support_size": 4
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 4,
+            "low_multiplicity": 1,
+            "support_size": 5
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 3,
+            "low_multiplicity": 2,
+            "support_size": 5
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 2,
+            "low_multiplicity": 3,
+            "support_size": 5
+          },
+          {
+            "exact_semialgebraic_result": "empty",
+            "high_multiplicity": 1,
+            "low_multiplicity": 4,
+            "support_size": 5
+          }
+        ],
+        "domain": "6 < K < 18",
+        "isolated_uniform_face_checks": [
+          {
+            "G_uniform_minus_interior_global": "-(-2*sqrt(6) + sqrt(3))/24",
+            "r_squared": "12",
+            "strictly_positive": true,
+            "support_size": 3
+          },
+          {
+            "G_uniform_minus_interior_global": "(-7*sqrt(6) + 32*sqrt(15))/240",
+            "r_squared": "6",
+            "strictly_positive": true,
+            "support_size": 4
+          },
+          {
+            "G_uniform_minus_interior_global": "4*sqrt(15)/15",
+            "r_squared": "12/5",
+            "strictly_positive": true,
+            "support_size": 5
+          }
+        ],
+        "method": "exact SymPy reduction of every proper-face two-root KKT case, including split and zero-activation necessary conditions"
+      },
+      "objective_transform": {
+        "H": "sum_i (b_i^4-6*b_i^3)",
+        "relation_to_original_energy": "E=r^3*G/6",
+        "relation_to_reduced_G": "r^3*G = H+12*K-42"
+      }
     },
-    "r_c_display": "2.775765637888",
-    "s3n2_golden": "1/24 + 0*sqrt5",
-    "s3n2_prolate": "4/15 + 0*sqrt5",
-    "s4n_golden": "1/8 + 0*sqrt5",
-    "s4n_prolate": "7/20 + 0*sqrt5",
-    "selection": "on the compared strata and inside each branch's positivity domain: below r_c the prolate branch has the lower shape energy; between r_c and the golden positivity bound the golden branch does; above that bound the golden record leaves the probability simplex and the packet emits no admissible simple-spectrum branch"
+    "crossing": {
+      "comparisons": {
+        "G1_minus_G2": "(27*r - 32*sqrt(15) + 20*sqrt(6))/240",
+        "G1_minus_G2_expected": "9*(r-r_c)/80",
+        "G1_minus_G3": "2*(r - sqrt(15))/15",
+        "G2_minus_G3": "(r - 4*sqrt(6))/48"
+      },
+      "r_c_display": "2.7757656378879",
+      "r_c_exact": "(32*sqrt(15)-20*sqrt(6))/27"
+    },
+    "proof_kind": "exact_sympy_global_minimizer_classification",
+    "six_pair_reduction": {
+      "coordinates": "w=(a1,a1,...,a6,a6) after ordering antipodal pairs",
+      "linear_constraint": "sum_i a_i=0",
+      "original_energy_relation": "E=(r^3/6)*G_r",
+      "reduced_objective": "G_r=-S3+(r/2)*S4, S_k=2*sum_i a_i^k",
+      "unit_sphere_constraint": "2*sum_i a_i^2=1"
+    },
+    "stationarity_and_saddles": {
+      "checks": {
+        "all_outer_multiplicity_brackets_strictly_negative": true,
+        "group_constant_factor_identity": true,
+        "middle_split_factor_identity": true,
+        "middle_split_strictly_negative": true
+      },
+      "conclusion": "every three-root stationary point on the strict six-pair sphere is a saddle, so an attained global minimum has at most two coordinate values",
+      "middle_multiplicity_at_least_two": {
+        "second_variation_factor": "-8*A*B*r",
+        "sign": "strictly_negative for r,A,B>0",
+        "tangent": "split two beta coordinates by +epsilon and -epsilon"
+      },
+      "middle_multiplicity_one": {
+        "group_constant_tangent": "(P*B, -M*P*(A+B), M*A)",
+        "notation": "M and P are outer-root multiplicities, M+P=5; A=beta-alpha>0 and B=gamma-beta>0",
+        "outer_multiplicity_sign_checks": [
+          {
+            "M": 1,
+            "P": 4,
+            "bracket": "-3*A",
+            "strictly_negative_for_A_B_positive": true
+          },
+          {
+            "M": 2,
+            "P": 3,
+            "bracket": "-4*A - 3*B",
+            "strictly_negative_for_A_B_positive": true
+          },
+          {
+            "M": 3,
+            "P": 2,
+            "bracket": "-3*A - 4*B",
+            "strictly_negative_for_A_B_positive": true
+          },
+          {
+            "M": 4,
+            "P": 1,
+            "bracket": "-3*B",
+            "strictly_negative_for_A_B_positive": true
+          }
+        ],
+        "second_variation_factor": "4*r*M*P*A*B*(A+B)*(M*(1-P)*A+P*(1-M)*B)",
+        "sign": "strictly_negative for every M=1,2,3,4 and P=5-M"
+      },
+      "ordered_roots": "alpha < beta < gamma",
+      "stationarity_cubic": "4*r*z^3 - 6*z^2 - 2*mu*z - lambda = 0; its roots are the coordinate values of a constrained stationary point"
+    },
+    "strict_full_support_classification": {
+      "domain": "0<r<sqrt(60) and 1+r*a_i>0 for every i",
+      "full_global_minimizer_classification_proved": true,
+      "intervals": [
+        {
+          "domain": "0<r<r_c",
+          "global_minimizer": "m=1 C5 orbit"
+        },
+        {
+          "domain": "r=r_c",
+          "global_minimizers": [
+            "m=1 C5",
+            "m=2 golden"
+          ]
+        },
+        {
+          "domain": "r_c<r<sqrt(24)",
+          "global_minimizer": "m=2 golden orbit"
+        },
+        {
+          "attained": false,
+          "domain": "sqrt(24)<=r<sqrt(60)",
+          "global_minimizer": null,
+          "infimum": "support-two closed-simplex boundary branch"
+        }
+      ]
+    },
+    "two_value_stationary_table": [
+      {
+        "G_r": "(21*r - 16*sqrt(15))/120",
+        "S3": "2*sqrt(15)/15",
+        "S4": "7/20",
+        "exact_checks": {
+          "s3_formula": true,
+          "s4_formula": true,
+          "unit_s2": true,
+          "zero_sum": true
+        },
+        "negative_root": "-sqrt(15)/30",
+        "negative_root_multiplicity": 5,
+        "positive_root": "sqrt(15)/6",
+        "positive_root_multiplicity": 1,
+        "strict_positivity_bound_r_squared": "60"
+      },
+      {
+        "G_r": "(3*r - 4*sqrt(6))/48",
+        "S3": "sqrt(6)/12",
+        "S4": "1/8",
+        "exact_checks": {
+          "s3_formula": true,
+          "s4_formula": true,
+          "unit_s2": true,
+          "zero_sum": true
+        },
+        "negative_root": "-sqrt(6)/12",
+        "negative_root_multiplicity": 4,
+        "positive_root": "sqrt(6)/6",
+        "positive_root_multiplicity": 2,
+        "strict_positivity_bound_r_squared": "24"
+      },
+      {
+        "G_r": "r/24",
+        "S3": "0",
+        "S4": "1/12",
+        "exact_checks": {
+          "s3_formula": true,
+          "s4_formula": true,
+          "unit_s2": true,
+          "zero_sum": true
+        },
+        "negative_root": "-sqrt(3)/6",
+        "negative_root_multiplicity": 3,
+        "positive_root": "sqrt(3)/6",
+        "positive_root_multiplicity": 3,
+        "strict_positivity_bound_r_squared": "12"
+      },
+      {
+        "G_r": "(3*r + 4*sqrt(6))/48",
+        "S3": "-sqrt(6)/12",
+        "S4": "1/8",
+        "exact_checks": {
+          "s3_formula": true,
+          "s4_formula": true,
+          "unit_s2": true,
+          "zero_sum": true
+        },
+        "negative_root": "-sqrt(6)/6",
+        "negative_root_multiplicity": 2,
+        "positive_root": "sqrt(6)/12",
+        "positive_root_multiplicity": 4,
+        "strict_positivity_bound_r_squared": "6"
+      },
+      {
+        "G_r": "(21*r + 16*sqrt(15))/120",
+        "S3": "-2*sqrt(15)/15",
+        "S4": "7/20",
+        "exact_checks": {
+          "s3_formula": true,
+          "s4_formula": true,
+          "unit_s2": true,
+          "zero_sum": true
+        },
+        "negative_root": "-sqrt(15)/6",
+        "negative_root_multiplicity": 1,
+        "positive_root": "sqrt(15)/30",
+        "positive_root_multiplicity": 5,
+        "strict_positivity_bound_r_squared": "12/5"
+      }
+    ]
   },
+  "exhaustiveness_boundary": {
+    "full_critical_orbit_classification_proved": false,
+    "global_minimizer_classification_proved": true,
+    "minimizer_domains_classified": [
+      "strict full-support probability domain for 0<r<sqrt(60)",
+      "closed probability simplex for 0<r<=sqrt(60)"
+    ],
+    "quartic_packet_globally_excluded": false,
+    "remainder_warning": "the Taylor expansion about the uniform record is least controlled at boundary points with q_i=0",
+    "strict_physical_no_go_conditional_on": [
+      "strict full support q_i>0",
+      "the quadrupole-to-physical-log-mass attachment",
+      "the quartic truncation being the operative selector"
+    ],
+    "viable_routes_not_excluded": [
+      "zero-weight closed-simplex boundary states",
+      "strictly positive regularizations approaching the boundary",
+      "higher entropy orders and the full entropy functional",
+      "a source-derived amplitude law",
+      "a different source-derived W5 effective action"
+    ]
+  },
+  "finite_seed_or_numerical_optimization_used_as_proof": false,
   "issue_context": [
     546,
     591
@@ -100,7 +642,11 @@
   "packet_derivation": {
     "band_selection": "S3 vanishes identically on the antipode-odd frame band, so the quintet band is the only nontrivial band with a cubic entropy response",
     "expansion": "D(u(1+x)||u) = u(S2/2 - S3/6 + S4/12) + O(x^5), u = 1/12",
-    "premise": "the shape functional is the quartic-truncated expansion restricted to the quintet band at fixed band amplitude; the amplitude is a declared parameter of the premise, ranging over the positivity domain of the record, and the branch selection depends on it only through the recorded exact crossing and positivity bounds"
+    "premise": "the shape functional is the quartic-truncated expansion restricted to the quintet band at fixed band amplitude; the amplitude is a declared parameter of the premise, ranging over the probability domain; no source-derived amplitude emitter is supplied"
   },
-  "schema": "oph.entropy_w5_shape_certificate.v1"
+  "physical_claim": false,
+  "promotion_allowed": false,
+  "row_class": "exact_symbolic_global_minimizer_theorem_with_compare_only_physical_attachment",
+  "schema": "oph.entropy_w5_shape_certificate.v3",
+  "status": "EXACT_GLOBAL_QUARTIC_MINIMIZER_CLASSIFICATION"
 }
