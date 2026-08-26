@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 313,
+  "surface_count": 315,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -880,6 +880,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/GoldenSectorComplexIrreducibility.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/GoldenSectorIrreducibility.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -1066,6 +1071,11 @@
     },
     {
       "path": "Lean/Screen/ScaledMaxwellStability.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamChargeContinuity.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },

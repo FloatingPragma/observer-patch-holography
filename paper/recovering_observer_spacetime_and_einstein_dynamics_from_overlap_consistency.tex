@@ -122,6 +122,35 @@ against the energy scale. The identification of the collar weights with
 the record reference of the cap first law stays declared
 (\path{Lean/Thermodynamics/CollarTemperatureReading.lean}).
 
+The sourced field equations on the committed complex are consistent in the
+following exact sense. The hopping load and hopping current of a declared
+port path satisfy the committed continuity equation at every port and every
+step, and a finite family of hopping charges satisfies it with total load
+equal to the sum of the charges. Along the scaled Amp\`ere evolution with any
+current, the Gauss constraint propagates from one step to the next exactly
+when the sources satisfy the continuity equation, so a field history that
+solves the Amp\`ere evolution with a family of hopping charges and starts from
+Gauss-consistent data stays Gauss-consistent at every step. The complete
+criterion is an equivalence: for declared sources, a field history solving
+the Amp\`ere evolution and the Gauss constraint at every step exists if and
+only if the initial load is neutral and the sources are conserved; the
+existence direction is an explicit second-order recursion in the temporal
+gauge started from the canonical Coulomb field of the initial load. Because
+the port boundary conserves total load on the closed carrier, one hopping
+charge alone has a Gauss-consistent history only when its charge is zero; a
+join of a worldline to the field sector therefore carries a neutral partner
+or a neutralising background. A neutral pair of crossing charges, with
+integer Green potential checked against the committed Green and incidence
+tables by a kernel check, inhabits the scaled Maxwell bundle with a nonzero
+current, and the unit crossing of every seam satisfies the continuity
+equation by a kernel check that fixes the sign convention between the
+crossing current and the incidence operator
+(\path{Lean/Screen/SeamChargeContinuity.lean}). The step, the charges, the
+paths, and the kinetic term are declared; the sign of the committed load
+relative to a physical charge, an equation of motion for the path,
+boundedness of the sourced history, and any continuum limit are outside this
+statement.
+
 A second three-dimensional construction is local and Euclidean. For the
 declared twelve-port repair mean, the centered equal-port response kernel has
 an exact spectral decomposition. Dividing by its slow response before taking

@@ -8412,6 +8412,128 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-INSTRUMENT-SELECTION-BY-CERTAIN-STATES",
+      "statement": "On finite-dimensional complex matrices, a linear map with a finite Kraus form whose induced effect is an event P (Hermitian idempotent) annihilates the complement 1 - P, so every Kraus operator K satisfies K = K P. If in addition the map fixes every state certain of P (the committed certainty set certainStates P of Born weight one), then every Kraus operator is a scalar multiple of P with unit total squared modulus when P is nonzero and the map is the Lueders outcome map X -> P X P; conversely the Lueders map has Kraus form with induced effect P and fixes the certain states, so Kraus form with induced effect P together with certain-state invariance is equivalent to being the Lueders map. For a family of events and outcome maps in Kraus form with those induced effects, each fixing its certain states, every outcome map is the Lueders map of its event and the normalized post-measurement state is the committed luedersUpdate. Scope: the swap-conjugation map on Fin 2 has Kraus form with induced effect 1, is not the Lueders map, and fails certain-state invariance, so the induced effect alone does not select while certain-state invariance does; the committed repeatability clause (the normalized output is certain of the effect) is strictly weaker than certain-state invariance and does not select the Lueders map. On the committed eight-context phase effect table a PhaseInstrument whose outcome maps have Kraus form with the committed effects and fix their certain states is the declared luedersPhaseInstrument and conversely, and the committed swap-twisted instrument fails the invariance in the diagonal context. The classical specialization holds: a nonnegative finite kernel whose row sums are the indicator of a set S and which fixes every law of mass one on S is the restriction kernel of S. Certain-state invariance is a declared operational hypothesis; the events, the preparation, the readback, and producer identity are not source-selected, the finite Kraus form is the definition of an outcome operation used, and the statement discharges none of PR-02, PR-03, PR-04, PR-64.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "kernel_checked_selection_of_the_lueders_instrument_by_certain_state_invariance",
+      "assumptions": [
+        "declared_finite_kraus_form_outcome_operations",
+        "declared_certain_state_invariance_of_outcome_operations",
+        "committed_diagonal_record_algebra_and_web_contexts"
+      ],
+      "imported_results": [
+        "kraus_representation_of_completely_positive_maps",
+        "uniqueness_of_the_identity_channel_kraus_family_up_to_scalars"
+      ],
+      "oph_specific_delta": "Replaces the declared Lueders selection recorded by the 2026-08-26 audit (effects do not select an instrument) with a selection theorem: among Kraus-form outcome maps with projective induced effects, certain-state invariance is equivalent to the Lueders map, in both directions, instantiated on the committed phase instrument objects with the swap-twisted alternative as the failing witness, with the committed repeatability clause shown strictly weaker, and with the classical restriction-kernel specialization.",
+      "novelty_type": "machine_checked_two_sided_selection_of_the_lueders_instrument_by_certain_state_invariance",
+      "evidence": [
+        "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean",
+        "Lean/EventAlgebra/Lueders.lean",
+        "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
+        "Lean/Dynamics/ChoiCPTP.lean"
+      ],
+      "falsifier": "A Kraus-form map with projective induced effect fixing the certain states differs from the Lueders map; the Lueders map fails either hypothesis; the swap witness satisfies certain-state invariance; the committed repeatability clause is shown equivalent to certain-state invariance; the phase-instrument instantiation or the classical specialization fails; or the selection is presented as source selection of the events, the preparation, or the readback.",
+      "scope_if_false": "Only the selection layer falls; the committed Lueders update, the declared phase instrument, and the effect-table nondetermination witness are separately certified.",
+      "status": "certain_state_invariance_selection_attained__events_preparation_readback_and_source_implementation_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-02",
+          "PR-03",
+          "PR-04",
+          "PR-52",
+          "PR-64"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-SOURCED-FIELD-CONSISTENCY",
+      "statement": "For a declared nonzero step h on the committed twelve-port, thirty-seam complex, the committed hopping load and hopping current of a declared hopping path satisfy the committed scaled continuity equation pointwise at every port and step, and so does every finite family of hopping charges, whose total load is the sum of the charges. The committed Gauss constraint propagates one step under the committed scaled Ampere evolution with any current whose sources satisfy the continuity equation, hence at every step for a family of hopping charges and for one hopping charge joined to a declared background source pair obeying continuity. Headline: for declared sources a field history solving the scaled Ampere evolution and the Gauss constraint at every step exists if and only if the initial load is neutral and the sources satisfy the continuity equation at every step; the existence direction is an explicit second-order sourced recursion in the gauge phi = 0 started from the committed canonical Coulomb field of the initial load, of which the committed zero-current demonstration history is the zero-current member. On the closed carrier the port boundary conserves total load, so the sourced system with the sources of one hopping charge is solvable exactly when the charge vanishes, and with a family exactly when the total charge vanishes: a worldline-to-field join must carry a neutral partner or a neutralising background. Non-vacuity: the neutral pair of crossing charges with its integer Green potential, checked against the committed Green and incidence tables by kernel decide, inhabits the scaled Maxwell bundle at h = 1/2 with nonzero current, and the unit crossing of every seam satisfies the continuity equation by a kernel check that fixes the sign convention between the crossing current and the incidence operator. The step, the charges, the paths, and the kinetic term are declared; the sign of the committed load relative to a physical charge, an equation of motion for the path, boundedness of the sourced history, and any continuum limit are outside the statement, and it discharges none of PR-15, PR-53, PR-54.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "exact_solvability_criterion_for_sourced_maxwell_on_committed_complex",
+      "assumptions": [
+        "committed_oriented_twenty_face_thirty_seam_complex",
+        "declared_discrete_kinetic_term",
+        "declared_evolution_step_index",
+        "declared_hopping_port_charge_and_minimal_coupling",
+        "declared_port_load_and_seam_current_histories"
+      ],
+      "imported_results": [
+        "discrete_exterior_calculus_charge_conservation",
+        "finite_graph_gauss_neutrality"
+      ],
+      "oph_specific_delta": "Closes the consistency question between the committed hopping sources of the E=mc^2 ladder and the committed scaled field sector with an exact two-sided criterion on the committed carrier: neutrality plus continuity is equivalent to the existence of a Gauss-consistent Ampere history, the existence direction is an explicit Coulomb-started recursion generalising the committed demonstration history, and the closed-carrier obstruction shows that a worldline-to-field join of one charge is inhabited only at zero charge, which fixes the source shape (neutral partner or neutralising background) the join lane must carry.",
+      "novelty_type": "machine_checked_sourced_gauss_ampere_solvability_criterion_with_closed_carrier_obstruction",
+      "evidence": [
+        "Lean/Screen/SeamChargeContinuity.lean",
+        "Lean/Geometry/PortChargeMinimalCoupling.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "Lean/Screen/PositionSpaceMaxwellAction.lean"
+      ],
+      "falsifier": "The pointwise continuity, the one-step Gauss propagation, either direction of the solvability equivalence, the neutrality obstruction, or a table check fails; or the single-charge propagation is presented as inhabited at nonzero charge; or the crossing sign-consistency check is presented as a verification of the committed table entries; or the criterion is presented as a physical charge-conservation law or a continuum statement.",
+      "scope_if_false": "Only the sourced-consistency layer falls; the committed hopping sources, the Gauss step equivalence, and the Coulomb Green identities are separately assessed.",
+      "status": "sourced_consistency_attained__neutral_partner_selection_and_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740,
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY",
+      "statement": "Each of the two golden pieces of the face normal operator on the committed carrier stays irreducible after extension of scalars to the complex numbers: the nine listed automorphisms whose transported tables span the real endomorphism algebra of a piece span the complex one with the same inverse-certificate coefficients read through the real-to-complex embedding, so every complex subspace of a complexified piece invariant under the sixty listed automorphisms is zero or the whole piece, and the complex Burnside span has dimension nine. The two complexified pieces are inequivalent: on the listed row of order five the transported actions have traces 1 - phi and phi, so no invertible complex matrix intertwines them, every complex intertwiner between them is zero, and every complex matrix on the twenty faces carrying the plus piece into the minus piece and commuting with the listed action is zero. The real endomorphism algebra of each piece is the real scalars, so both pieces are of real type. Every statement is kernel-checked from the committed real certificate; the identification of the listed group with the abstract alternating group and of the pieces with its character table, and any reading of a golden mode as a physical oscillation, remain outside the theorems, and the statement discharges neither PR-52 nor PR-53.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kernel_checked_complex_base_change_of_the_real_span_certificate",
+      "assumptions": [
+        "committed_oriented_twenty_face_thirty_seam_complex"
+      ],
+      "imported_results": [
+        "burnside_span_criterion",
+        "schur_trace_argument_for_inequivalence"
+      ],
+      "oph_specific_delta": "Replaces the V3.34 inference that a spanning set stays spanning under extension of scalars by theorems: complex irreducibility of both golden pieces, zero intertwiner space between them in the transported and ambient forms, and real-type commutants, all from the committed real certificate without new tables.",
+      "novelty_type": "machine_checked_complex_irreducibility_inequivalence_and_real_type_commutant",
+      "evidence": [
+        "Lean/Screen/GoldenSectorComplexIrreducibility.lean",
+        "Lean/Screen/GoldenSectorIrreducibility.lean",
+        "Lean/Screen/GoldenSectorCharacters.lean"
+      ],
+      "falsifier": "The listed order-five row fails membership, order five, or the character values; a complex span, irreducibility, intertwiner, or commutant statement fails; or the module is presented as identifying the abstract group, the character table, or a physical oscillation.",
+      "scope_if_false": "Only the complex extension, inequivalence, and commutant row falls; the real irreducibility and character rows are separately certified.",
+      "status": "complex_irreducibility_inequivalence_and_real_type_attained__abstract_table_and_physical_readings_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

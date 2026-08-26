@@ -1103,8 +1103,16 @@ the phase and diagonal values are also obtained by direct matrix computation
 through the outcome maps, with no use of the stored Born-fit equations. A
 swap-twisted instrument meets every channel clause with the same induced effects,
 differs on the record entry, and fails repeatability
-(\texttt{effect\_table\_does\_not\_determine\_instrument}). The L\"uders choice is a
-declared selection, no source implements it, and the instrument representation,
+(\texttt{effect\_table\_does\_not\_determine\_instrument}). Certain-state
+invariance does select it: a Kraus-form outcome map with projective induced
+effect $E$ that leaves every state certain of $E$ unchanged is the L\"uders
+map $X \mapsto EXE$, and conversely, so among Kraus-form instruments with the
+committed effects the L\"uders instrument is exactly the certain-state-invariant
+one; the swap-twisted instrument fails that invariance, and the committed
+repeatability clause (the normalized output is certain of its effect) is
+strictly weaker and does not select
+(\texttt{InstrumentSelectionByCertainStates}). Certain-state invariance is a
+declared operational hypothesis, no source implements it, and the instrument representation,
 the source-produced preparation, and cross-context additivity are not supplied. The module is a companion in the wider library, outside the
 fifteen-module count and scale table.
 

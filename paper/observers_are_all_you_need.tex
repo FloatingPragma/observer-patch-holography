@@ -2759,11 +2759,19 @@ dimension nine and maps onto all \(3\times3\) real matrices in the basis
 over \(\mathbb Z[\varphi]\), the minus certificates the Galois conjugates of
 the plus ones), so every invariant subspace of \(W_\pm\) is zero or all of
 it: both pieces are irreducible real representations of the listed
-incidence-automorphism action. The scalar-extension corollary over
-\(\mathbb C\) is not formalized, and identification with the abstract
-icosahedral or \(A_5\) table, with physical rotations, or with physical
-oscillations stays open
-(\path{Lean/Screen/GoldenSectorIrreducibility.lean}).
+incidence-automorphism action
+(\path{Lean/Screen/GoldenSectorIrreducibility.lean}). The pieces stay
+irreducible after extension of scalars to \(\mathbb C\): the nine listed
+automorphisms whose transported tables span the real endomorphism algebra
+span the complex one with the same inverse-certificate coefficients, so
+every invariant complex subspace is zero or the whole piece. The two
+complexified pieces are inequivalent, since on the listed row of order five
+their traces are \(1-\varphi\) and \(\varphi\), every complex intertwiner
+between them is zero, and the real endomorphism algebra of each piece is the
+real scalars, so both are of real type
+(\path{Lean/Screen/GoldenSectorComplexIrreducibility.lean}). Identification
+with the abstract icosahedral or \(A_5\) table, with physical rotations, or
+with physical oscillations stays open.
 
 The two attained faces of mechanics are joined by a finite Legendre bridge,
 also checked in Lean~\cite{ophrepo}.  For discrete two-point Lagrangians the

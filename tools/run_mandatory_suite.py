@@ -1028,6 +1028,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Execute the fourth-wave clocked-chain, irreducibility, in-block, and flow gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_fifth_wave_surfaces.py",
+        ],
+    ),
+    (
         "Execute the post-r2029 no-go scope and nonlinear-obstruction gates",
         [
             sys.executable,

@@ -196,7 +196,10 @@
   "OPH-GEOMETRY-PROPER-LENGTH-CLOCKED-CHAIN",
   "OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
   "OPH-GEOMETRY-TIMELIKE-CLASS-FORCE-LAW",
-  "OPH-EM-CARRIER-EVOLUTION-FLOW"
+  "OPH-EM-CARRIER-EVOLUTION-FLOW",
+  "OPH-QUANTUM-INSTRUMENT-SELECTION-BY-CERTAIN-STATES",
+  "OPH-EM-SOURCED-FIELD-CONSISTENCY",
+  "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY"
  ],
  "edges": [
   {
@@ -1768,6 +1771,21 @@
    "from": "OPH-EM-CARRIER-MODE-OSCILLATORS",
    "to": "OPH-EM-CARRIER-EVOLUTION-FLOW",
    "role": "supplies the mode angle, the eigenvectors, and the mode histories that the flow reproduces at its h-steps"
+  },
+  {
+   "from": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+   "to": "OPH-QUANTUM-INSTRUMENT-SELECTION-BY-CERTAIN-STATES",
+   "role": "supplies the declared Lueders phase instrument, the swap-twisted alternative, and the effect-table nondetermination witness that the selection theorem resolves"
+  },
+  {
+   "from": "OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+   "to": "OPH-EM-SOURCED-FIELD-CONSISTENCY",
+   "role": "supplies the hopping load and hopping current whose continuity and Gauss consistency are proved"
+  },
+  {
+   "from": "OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
+   "to": "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY",
+   "role": "supplies the real span certificate and the two-sided inverse whose base change gives the complex statements"
   }
  ]
 }
