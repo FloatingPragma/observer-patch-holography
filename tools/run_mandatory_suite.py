@@ -1017,6 +1017,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "tools/test_third_wave_surfaces.py",
         ],
     ),
+    (
+        "Execute the fourth-wave clocked-chain, irreducibility, in-block, and flow gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_fourth_wave_surfaces.py",
+        ],
+    ),
 ]
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [

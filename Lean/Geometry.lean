@@ -33,6 +33,8 @@ import Geometry.WorldlineHopTransport
 import Geometry.TransportedChargeForceLaw
 import Geometry.SeamStepSpeedLimit
 import Geometry.SourceClockRateAlongWorldlines
+import Geometry.ProperLengthClockedChain
+import Geometry.TimelikeClassForceLaw
 
 /-!
 # OPH construction geometry umbrella

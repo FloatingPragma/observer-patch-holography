@@ -8162,6 +8162,163 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-PROPER-LENGTH-CLOCKED-CHAIN",
+      "statement": "The proper-length-clocked source chain along a seam-step worldline, constructed. For a declared unit tau per shared step and a declared internal unit u, the clocked index c(n) is the number of complete units of proper length accumulated by the generated path over n steps; it is monotone with increments in {0, 1} for tau <= u and equals the shared index on the resting worldline at u = tau, so the index rule is the clocked rule at rest. On the uniform worldline with k rests per crossing the clocked index satisfies n d tau / u - 1 < c(n) <= n d tau / u on full periods with d the dilation factor, and c(n)/n tends to d tau / u, exactly d at u = tau, below one on every moving uniform worldline at every timelike unit. For any unit clock the clocked return count of the recurrence chain equals the chain's return count at c(n), returns are block-additive under the clocking, and every per-chain-step quantity converts with the same bound; under the declared reading of the stationary mass 1/(61511/7155) as returns per chain step, the returns per index step tend to (d tau / u)(7155/61511), the reciprocal of (61511/7155) u / (d tau) index steps, which at u = tau is the length-rule reading of the accrual comparison. The clocked index is invariant under midpoint refinement at the doubled index. No constant step duration of the joined architecture reproduces the accumulated proper length on a uniform worldline with a rest between crossings (the resting case does), so the clocked chain is a declared enrichment of the join; two units give two clocked indices on one worldline, and c(n) < n for every n >= 1 on every moving uniform worldline. The unit, the internal unit, and the clocking rule are declared; nothing selects u from the source; the Legendre and rate non-identifiability results are cited at scope. The module touches the source clock and duration row, the coupled-action row, the physical spacetime attachment row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_clocked_chain_construction_under_declared_units",
+      "assumptions": [
+        "declared_seam_step_worldline_class_and_time_unit",
+        "declared_internal_unit_readings_of_the_recurrence_clock",
+        "declared_proper_length_clocking_rule"
+      ],
+      "imported_results": [
+        "floor_function_bounds_and_monotone_composition"
+      ],
+      "oph_specific_delta": "Turns the length-rule reading of the accrual comparison into a construction: the source chain clocked by accumulated proper length has exactly the dilation factor as its rate, its return counts convert exactly, and it is refinement-invariant by construction, while no constant step duration of the join reproduces it on a moving worldline; the selection of the internal unit from the source is the step that stays open.",
+      "novelty_type": "machine_checked_proper_length_clocked_chain_with_exact_rate_bounds",
+      "evidence": [
+        "Lean/Geometry/ProperLengthClockedChain.lean",
+        "Lean/Geometry/SourceClockRateAlongWorldlines.lean",
+        "Lean/QFT/SourceRecurrenceClock.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A monotonicity or increment statement, the rest identity, a uniform bound or the rate limit, the return-count identity, the refinement invariance, the join negative, or the unit non-selection fails; or the module is presented as selecting the internal unit or as a trajectory-measure statement.",
+      "scope_if_false": "Only the clocked construction falls. The accrual comparison and the recurrence clock are separately assessed.",
+      "status": "clocked_chain_constructed__internal_unit_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
+      "statement": "Irreducibility of the golden pieces as a theorem by the Burnside span criterion. On the real face space, the images W_+ and W_- of the two golden spectral projectors are invariant under every listed automorphism and have dimension three (explicit factorization P = A B with B A = 1). The real span of the sixty matrices g P_+/- has dimension nine and maps onto all 3 x 3 real matrices in the basis A of W_+/- (nine listed elements with an explicit two-sided inverse certificate over the golden integers; the minus certificates are the Galois conjugates of the plus certificates), so every submodule of W_+/- invariant under all listed automorphisms is zero or the whole piece: both golden pieces are irreducible real representations of the listed group. Read with the span equal to the full endomorphism algebra, an inference outside the theorems, the pieces stay irreducible over the complex numbers, and with the characters they are the two Galois-conjugate three-dimensional irreducibles of the abstract icosahedral table. The carrier, the face orientation, and the operator are declared; the listed group is an incidence automorphism group of the declared carrier; the identification of a mode with a physical oscillation is the light-signal row. The module touches the light-signal row and the physical spacetime attachment row and discharges neither.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kernel_certified_irreducibility_by_span_rank_over_the_golden_integers",
+      "assumptions": [
+        "declared_courant_step_and_temporal_gauge"
+      ],
+      "imported_results": [
+        "burnside_span_criterion_for_irreducibility"
+      ],
+      "oph_specific_delta": "Replaces the orthogonality inference by a theorem: the two three-dimensional golden pieces of the carrier's field sector are irreducible real representations of the listed icosahedral group, certified by explicit rank-three factorizations and rank-nine span certificates over the golden integers, with the Galois conjugation carried through the certificates.",
+      "novelty_type": "machine_checked_burnside_irreducibility_of_the_golden_pieces",
+      "evidence": [
+        "Lean/Screen/GoldenSectorIrreducibility.lean",
+        "Lean/Screen/GoldenSectorCharacters.lean",
+        "Lean/Screen/CarrierModeEquivariance.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The invariance, a rank-three factorization, a span certificate, the surjectivity onto the endomorphisms, or the irreducibility statement fails; or the module is presented as proving complex irreducibility or the identification with the abstract character table.",
+      "scope_if_false": "Only the irreducibility layer falls. The characters and the projectors are separately assessed.",
+      "status": "real_irreducibility_attained__complex_reading_and_oscillation_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-TIMELIKE-CLASS-FORCE-LAW",
+      "statement": "The force law of the transported charge inside the rest-diluted class and its momentum reading. For a general one-step replacement of a seam-step worldline with shifted later ports the exact action difference is the one-step clock term plus q times the pairing difference at the step plus q times the exact sum of the later pairing differences at the shifted ports; under declared shift invariance of the potentials it reduces to the one-step term (a crossing replaced by a rest gives 4 plus q times the seam potential itself), and when the shifted route rejoins at the second step it is the closed two-step difference. Inside the declared class of blocks with k rests and one crossing, moving a forward crossing by one position is a closed two-step variation with action difference q h E(e) at the delayed index for a delay and minus q h E(e) at the crossing index for an advance, with zero clock difference; the crossing position is stationary inside its block exactly when the scaled seam field on e vanishes at the two reachable indices; under a static nonzero seam field an interior position is never stationary and the lowering move is fixed by the sign of q h E. The block momentum 2m ((k + 1) tau, s_e) is unchanged by every in-block move, which swaps the per-step momenta, and with the field static across the crossing step the delay difference equals h times the field-energy transfer at the hop (q/2)(E_j + E_(j+1))(e). Two charges give two balances and the unit drops out. The class, the variations, the potentials, and the shapes are declared; reading E, tau, and 2m s_e as laboratory quantities is the calibration import, the spacetime attachment row, and the source clock row. The module touches the coupled-action row, the source clock and duration row, the physical spacetime attachment row, the light-signal row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_in_block_variation_theorems_under_a_declared_rest_diluted_class",
+      "assumptions": [
+        "declared_seam_step_worldline_class_and_time_unit",
+        "declared_closed_two_step_variation_class",
+        "declared_unit_step_identification"
+      ],
+      "imported_results": [
+        "finite_window_sums_over_shifted_port_sequences"
+      ],
+      "oph_specific_delta": "Puts the force law inside the timelike class: the position of a crossing within its rest block is stationary exactly at vanishing seam field, drifts with the field otherwise, leaves the block momentum fixed while swapping per-step momenta, and its action difference equals h times the hop's field-energy transfer, so the exchange balance is read as a momentum-timing statement matched by the field side.",
+      "novelty_type": "machine_checked_in_block_force_law_with_momentum_and_energy_transfer_reading",
+      "evidence": [
+        "Lean/Geometry/TimelikeClassForceLaw.lean",
+        "Lean/Geometry/TransportedChargeForceLaw.lean",
+        "Lean/Geometry/SeamStepSpeedLimit.lean",
+        "Lean/Geometry/PortChargeMinimalCoupling.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The shifted-variation difference, the shift-invariant reduction, the rejoin identity, an in-block difference, the stationarity equivalence, the drift statement, the momentum swap, the transfer identity, or a non-forcing statement fails; or the module is presented as deriving the class or as a laboratory force law.",
+      "scope_if_false": "Only the in-block layer falls. The closed-variation force law and the speed limit are separately assessed.",
+      "status": "in_block_force_law_attained__class_and_identifications_declared",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-CARRIER-EVOLUTION-FLOW",
+      "statement": "A continuous one-parameter group whose h-step is the committed carrier evolution, on the stated subspace. For every eigenvector v of the local operator with eigenvalue lam and a declared step h with 0 < h^2 lam < 4, the zero-current temporal-gauge evolution restricted to the amplitude-velocity plane of v is the symplectic map T = [[1, h], [-h lam, 1 - h^2 lam]] with determinant one and trace 2 - h^2 lam, conjugate by an explicit matrix Q to the rotation by the mode angle theta = arccos(1 - h^2 lam / 2). The family Phi_t = Q rot(theta t / h) Q^-1 is a continuous one-parameter group with Phi_h = T and Phi_(n h) = T^n, and it preserves the committed staggered energy, which equals (|v|^2 sin^2 theta / 2) times the pulled-back Euclidean form. On the kernel of the local operator, which is exactly the gradient space, the evolution is the h-step of the shear flow. For any finite family of pairwise orthogonal admissible eigenvectors the componentwise flow is a linear continuous one-parameter group whose h-step is the committed step and whose n h values generate a committed solution with constant committed energy, instantiated on the eigenvalue-2, 3, 5, and golden modes and a gradient. Reading t as physical time is the source clock and duration row, declared; reading the group as Schroedinger dynamics is not claimed (no Hilbert inner product is declared); the extension to the whole curl sector requires the selection of nineteen orthogonal seam eigenvectors from the columns of the six committed face projectors through the codifferential, which is not selected. The committed Stone surfaces concern a supplied continuous flow on the private algebra and are cited at scope. The module touches the quantum dynamics row, the light-signal row, the source clock and duration row, and the physical spacetime attachment row, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_one_parameter_group_embedding_of_the_discrete_step_on_a_stated_subspace",
+      "assumptions": [
+        "declared_courant_step_and_temporal_gauge"
+      ],
+      "imported_results": [
+        "elliptic_symplectic_two_by_two_maps_are_conjugate_to_rotations"
+      ],
+      "oph_specific_delta": "Supplies on the field sector what the quantum dynamics row consumes as a supplied flow: the committed discrete carrier step is the h-map of a continuous energy-preserving one-parameter group on every admissible mode and on the gradient sector, with the conjugating matrix, the group law, and the energy identity exact, and the remaining step to the whole curl sector named as a finite selection.",
+      "novelty_type": "machine_checked_continuous_flow_embedding_of_the_discrete_carrier_evolution",
+      "evidence": [
+        "Lean/Screen/CarrierEvolutionFlow.lean",
+        "Lean/Screen/CarrierModeOscillators.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The step-matrix identity, the determinant or trace, the conjugation, the group law, the h-step identity, the energy identity, the shear-flow step, the orthogonality, or the assembled statement fails; or the module is presented as a Stone representation on a Hilbert space or as covering the whole curl sector.",
+      "scope_if_false": "Only the flow embedding falls. The mode oscillators and the stability window are separately assessed.",
+      "status": "flow_embedding_attained_on_stated_subspace__curl_sector_selection_and_time_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

@@ -190,7 +190,11 @@
   "OPH-GEOMETRY-TRANSPORTED-CHARGE-FORCE-LAW",
   "OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
   "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
-  "OPH-EM-GOLDEN-SECTOR-CHARACTERS"
+  "OPH-EM-GOLDEN-SECTOR-CHARACTERS",
+  "OPH-GEOMETRY-PROPER-LENGTH-CLOCKED-CHAIN",
+  "OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
+  "OPH-GEOMETRY-TIMELIKE-CLASS-FORCE-LAW",
+  "OPH-EM-CARRIER-EVOLUTION-FLOW"
  ],
  "edges": [
   {
@@ -1732,6 +1736,36 @@
    "from": "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
    "to": "OPH-EM-GOLDEN-SECTOR-CHARACTERS",
    "role": "supplies the face actions, orders, and golden-sector characters whose split the Galois-conjugate projectors make exact"
+  },
+  {
+   "from": "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+   "to": "OPH-GEOMETRY-PROPER-LENGTH-CLOCKED-CHAIN",
+   "role": "supplies the accrual rules, the uniform worldline, and the dilation factor that the clocked chain realizes"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+   "to": "OPH-GEOMETRY-PROPER-LENGTH-CLOCKED-CHAIN",
+   "role": "supplies the return counts and mean return time that the clocking converts"
+  },
+  {
+   "from": "OPH-EM-GOLDEN-SECTOR-CHARACTERS",
+   "to": "OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
+   "role": "supplies the golden projectors and their equivariance that the span certificates act on"
+  },
+  {
+   "from": "OPH-GEOMETRY-TRANSPORTED-CHARGE-FORCE-LAW",
+   "to": "OPH-GEOMETRY-TIMELIKE-CLASS-FORCE-LAW",
+   "role": "supplies the closed two-step variation and the exchange difference that the in-block moves specialize"
+  },
+  {
+   "from": "OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
+   "to": "OPH-GEOMETRY-TIMELIKE-CLASS-FORCE-LAW",
+   "role": "supplies the rest-block pattern and the two-rest worldline that define the timelike class"
+  },
+  {
+   "from": "OPH-EM-CARRIER-MODE-OSCILLATORS",
+   "to": "OPH-EM-CARRIER-EVOLUTION-FLOW",
+   "role": "supplies the mode angle, the eigenvectors, and the mode histories that the flow reproduces at its h-steps"
   }
  ]
 }

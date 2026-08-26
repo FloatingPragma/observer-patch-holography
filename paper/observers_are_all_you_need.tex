@@ -2209,6 +2209,23 @@ discrete circulation of \(A\) around the four-leg loop, and a round trip on
 one seam has zero circulation. The class, the potentials, and the shapes are
 declared (\path{Lean/Geometry/TransportedChargeForceLaw.lean}).
 
+Inside the rest-diluted class the law reads as a position law. A general
+one-step replacement with shifted later ports has the exact difference of
+the one-step clock term plus \(q\) times the pairing difference at the step
+plus \(q\) times the sum of the later pairing differences at the shifted
+ports, reducing to the one-step term under declared shift invariance and
+to the closed two-step difference when the route rejoins at the second
+step. Within a block of \(k\) rests and one crossing, moving the crossing
+by one position changes the action by \(q\,h\,E(e)\) at the delayed index
+(minus that at the crossing index for an advance) with zero clock cost, so
+the crossing position is stationary exactly when the seam field vanishes
+at the reachable indices, and under a static nonzero field it is never
+stationary and drifts with the sign of \(qhE\). The block momentum
+\(2m((k+1)\tau,s_e)\) is unchanged by every in-block move, which swaps the
+per-step momenta, and with the field static across the crossing step the
+delay difference equals \(h\) times the hop's field-energy transfer
+\((q/2)(E_j+E_{j+1})(e)\) (\path{Lean/Geometry/TimelikeClassForceLaw.lean}).
+
 The same class meets the field sector's stability window. The committed
 evolution has the sharp two-sided threshold \(h^2(3+\sqrt5)<4\), and a
 crossing step is timelike exactly when the unit satisfies \(\tau^2>4\).
@@ -2246,6 +2263,22 @@ internal unit the recurrence clock's mean return \(61511/7155\) reads as that
 many shared steps on every worldline, or as the inverse factor times it on
 the uniform one. Neither rule is selected by the source or the join
 (\path{Lean/Geometry/SourceClockRateAlongWorldlines.lean}).
+
+The length rule has a construction. Clock the hosted process by the
+accumulated proper length in units of a declared internal unit \(u\): the
+clocked index \(c(n)\) is monotone with unit increments for \(\tau\le u\),
+equals the shared index on the resting worldline at \(u=\tau\), and on the
+uniform worldline with \(k\) rests per crossing obeys
+\(n\,d\tau/u-1<c(n)\le n\,d\tau/u\) on full periods with \(d\) the
+dilation factor, so \(c(n)/n\to d\tau/u\), exactly \(d\) at \(u=\tau\). The
+clocked return count of the recurrence chain equals the chain's return
+count at \(c(n)\), every per-chain-step quantity converts with the same
+bound, and the clocked index is invariant under midpoint refinement by
+construction. No constant step duration of the joined architecture
+reproduces the accumulated proper length on a moving uniform worldline,
+so the clocked chain is a declared enrichment of the join, two internal
+units give two clocked indices, and nothing selects the unit from the
+source (\path{Lean/Geometry/ProperLengthClockedChain.lean}).
 
 The slope with which internal energy enters inertia is then selected by
 two declared principles, each with an exact theorem. On the momentum map,
@@ -2623,6 +2656,26 @@ gauge, and the kinetic term are declared; the repair-layer no-periodic-orbit
 theorems and these field-sector periods have disjoint scope
 (\path{Lean/Screen/CarrierModeOscillators.lean}).
 
+The discrete step embeds in a continuous flow. On the amplitude-velocity
+plane of every eigenvector \(v\) with eigenvalue \(\lambda\) and
+\(0<h^2\lambda<4\), the zero-current temporal-gauge evolution is the
+symplectic map \(T=\bigl(\begin{smallmatrix}1&h\\-h\lambda&1-h^2\lambda\end{smallmatrix}\bigr)\)
+of determinant one and trace \(2-h^2\lambda\), conjugate by an explicit
+matrix \(Q\) to the rotation by the mode angle; the family
+\(\Phi_t=Q\,\mathrm{rot}(\theta t/h)\,Q^{-1}\) is a continuous one-parameter
+group with \(\Phi_h=T\) and \(\Phi_{nh}=T^n\) that preserves the committed
+staggered energy, equal to \((\lVert v\rVert^2\sin^2\theta/2)\) times the
+pulled-back Euclidean form. On the kernel of the local operator, exactly the
+gradient space, the evolution is the \(h\)-step of the shear flow. For any
+finite family of pairwise orthogonal admissible eigenvectors the
+componentwise flow is a linear continuous one-parameter group whose
+\(h\)-step is the committed step, instantiated on the eigenvalue-two,
+three, five, and golden modes and a gradient. Reading \(t\) as physical time
+is declared, no Hilbert inner product is declared, and the extension to the
+whole curl sector is the selection of nineteen orthogonal seam eigenvectors
+from the six committed face projectors through the codifferential
+(\path{Lean/Screen/CarrierEvolutionFlow.lean}).
+
 These modes are sorted by the carrier's own symmetry. The sixty listed
 icosahedral port permutations induce signed permutations of the seams
 and orientation-preserving permutations of the faces, the signed
@@ -2666,6 +2719,19 @@ relations, an inference outside the theorems, the golden sector is the sum
 of the two Galois-conjugate three-dimensional representations, with the
 eigenvalue conjugated along with the character
 (\path{Lean/Screen/GoldenSectorCharacters.lean}).
+
+Irreducibility of the two golden pieces is a theorem. Each image
+\(W_\pm\) of the golden projectors is invariant under every listed
+automorphism and has dimension three (an explicit factorization
+\(P=AB\) with \(BA=1\)); the real span of the sixty matrices \(gP_\pm\) has
+dimension nine and maps onto all \(3\times3\) real matrices in the basis
+\(A\) (nine listed elements with an explicit two-sided inverse certificate
+over \(\mathbb Z[\varphi]\), the minus certificates the Galois conjugates of
+the plus ones), so every invariant subspace of \(W_\pm\) is zero or all of
+it: both pieces are irreducible real representations of the listed group.
+That the span persists over the complex numbers, and the identification
+with the abstract icosahedral table, stay inferences
+(\path{Lean/Screen/GoldenSectorIrreducibility.lean}).
 
 The two attained faces of mechanics are joined by a finite Legendre bridge,
 also checked in Lean~\cite{ophrepo}.  For discrete two-point Lagrangians the
