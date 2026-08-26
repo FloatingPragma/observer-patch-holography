@@ -369,8 +369,8 @@ in every finite dimension, with no continuity axiom & finite theorem &
 \S\ref{sec:quantum}\\
 State update after an outcome & A declared L\"uders instrument has the exact
 channel and conditioning identities; a swap-twisted instrument has the same
-effects, so the effect table does not select L\"uders update &
-finite theorem; nonselection boundary & \S\ref{sec:quantum}\\
+effects, so the effect table does not select the update; invariance on
+the outcome-certain states does & finite theorem & \S\ref{sec:quantum}\\
 The correlation ceiling $2\sqrt2$ & Tsirelson bound on commuting record
 subalgebras, attained exactly on a declared slot-split entangled witness,
 with record-diagonal states confined to $2$ & finite theorem &
@@ -836,8 +836,12 @@ $2/\varphi^2$, each is the entrywise Galois conjugate of the other, their
 characters take the values $3,-1,0$ off the order-five classes and $\varphi$
 or $1-\varphi$ on the twenty-four order-five elements, and a Burnside span
 certificate makes each piece an irreducible real representation of the listed
-automorphism group. Irreducibility over the complex numbers is read from the
-span being the full endomorphism algebra, an inference outside the theorems.
+automorphism group. Irreducibility survives extension of scalars: the nine listed automorphisms
+span the complex endomorphism algebra with the same inverse certificates, the
+two complexified pieces are inequivalent because the traces on the order-five
+row are $1-\varphi$ and $\varphi$, and the real endomorphism algebra of each
+piece is the real scalars, so both are of real type
+(\path{Lean/Screen/GoldenSectorComplexIrreducibility.lean}).
 Second,
 record keeping is integer valued: a write appends $+1$, a
 retraction appends $-1$, and readback sums atomic events per port; a
@@ -1281,6 +1285,14 @@ The first identity is the Born rule on this finite surface
 \cite{born1926}; the second is the declared L\"uders conditioning instrument
 \cite{luders1950}. The projectors alone do not select that instrument: an
 explicit swap-twisted instrument has the same effects and different updates.
+Kraus form with induced effect $P$ together with invariance on the states
+certain of $P$ is equivalent to being the L\"uders map, so certain-state
+invariance is what selects the instrument the effect table leaves open; the
+swap-conjugation map on two dimensions has Kraus form with induced effect the
+identity and fails that invariance, and the committed repeatability clause is
+strictly weaker and does not select
+(\path{Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean}). Events,
+preparation, readback, and a source implementation are unbuilt.
 The third is the Tsirelson bound \cite{tsirelson1980}
 for the Clauser--Horne--Shimony--Holt combination \cite{chsh1969} at fixed
 cutoff.
@@ -2361,7 +2373,14 @@ there; the block momentum is unchanged by every in-block move. Along the
 respective scaled Amp\`ere evolutions sourced by the original and delayed
 hopping currents, and with the original field static across the crossing step, the delay difference
 equals $h$ times the field-energy transfer at the hop. The worldline class and
-the potentials are declared.
+the potentials are declared. The hopping sources are consistent with the
+field sector: the hopping load and current satisfy the discrete continuity
+equation, the Gauss constraint propagates under the sourced Amp\`ere step
+exactly when the sources are conserved, and a Gauss-consistent history exists
+if and only if the initial load is neutral and the sources are conserved, so on
+the closed carrier one hopping charge alone is admissible only at zero charge
+and a join carries a neutral partner or a neutralising background
+(\path{Lean/Screen/SeamChargeContinuity.lean}).
 
 The two registers are joined by no theorem. Physical matter fields, the Dirac
 kinetic operator, the spin lift, family multiplicity, and a source-selected
@@ -2474,11 +2493,24 @@ energy; on the kernel, which is exactly the gradient space, the evolution is
 the $h$-step of the shear flow. The assembled theorem acts on coefficient
 states and generates field histories; because it permits zero listed vectors,
 a faithful flow on the actual field span additionally needs nonzero linear
-independence or a quotient of redundant coefficients. Reading the group parameter as physical time
-is the declared clock and duration premise, no Hilbert inner product is
-declared so no Schr\"odinger reading follows, and extending the embedding to
-the whole curl sector requires an unselected basis of nineteen orthogonal seam
-eigenvectors. These modules identify no physical field, source-produced charge
+independence or a quotient of redundant coefficients. The staggered energy supplies the inner product rather than leaving it
+declared: the per-mode form is positive definite exactly on the window, its
+polarization is an inner product for which the committed step and the
+continuous flow are isometries, and at nonzero step the step-invariant
+symmetric forms are exactly its real multiples, with the committed energy
+fixing the multiple. Each mode is then a complex line carrying the phase
+$\exp(i\theta t/h)$ with the generator exhibited rather than obtained from
+Stone's theorem. The embedding covers the whole curl sector: nineteen listed
+seam vectors over $\mathbb Z[\varphi]$, at eigenvalues two, three, five, and
+the golden pair, are kernel-checked pairwise orthogonal eigenvectors spanning
+the nineteen-dimensional range of $C^{\mathsf T}$, the gradient sector is the
+exact radical, and inside the window every zero-current temporal-gauge
+solution is the assembled history of a coefficient state
+(\path{Lean/Screen/FieldSectorEnergyInnerProduct.lean},
+\path{Lean/Screen/CurlSectorEigenbasis.lean}). Reading the group
+parameter as physical time is the declared clock and duration premise, and no
+orthonormalisation, Hilbert-space unitarity, or identification with the
+private algebra is claimed, so no Schr\"odinger reading follows. These modules identify no physical field, source-produced charge
 or current, clock, photon Hilbert space, or massless physical particle.
 \end{boundary}
 
