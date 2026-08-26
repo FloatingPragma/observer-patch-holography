@@ -59,13 +59,14 @@ def _payload_digest(payload: object) -> str:
 
 
 def _declared_path(path: Path) -> str:
-    """Render an input path relative to the scientific repo when possible."""
+    """Render an input path relative to the scientific repo when possible,
+    always with forward slashes so the artifact is platform independent."""
 
     resolved = path.resolve()
     try:
-        return str(resolved.relative_to(ROOT.resolve()))
+        return resolved.relative_to(ROOT.resolve()).as_posix()
     except ValueError:
-        return str(resolved)
+        return resolved.as_posix()
 
 
 def _point(value: Fraction) -> RationalInterval:
