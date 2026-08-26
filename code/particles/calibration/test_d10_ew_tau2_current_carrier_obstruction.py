@@ -99,7 +99,7 @@ def test_custom_input_paths_do_not_masquerade_as_canonical(tmp_path: pathlib.Pat
         reference_path=custom_references,
     )
     provenance = payload["input_provenance"]
-    assert provenance["source_pair"]["declared_path"] == str(custom_source.resolve())
-    assert provenance["population"]["declared_path"] == str(custom_population.resolve())
-    assert provenance["fiberwise_tree_law"]["declared_path"] == str(custom_fiberwise.resolve())
-    assert provenance["reference_entries"]["declared_path"] == str(custom_references.resolve())
+    assert provenance["source_pair"]["declared_path"] == custom_source.resolve().as_posix()
+    assert provenance["population"]["declared_path"] == custom_population.resolve().as_posix()
+    assert provenance["fiberwise_tree_law"]["declared_path"] == custom_fiberwise.resolve().as_posix()
+    assert provenance["reference_entries"]["declared_path"] == custom_references.resolve().as_posix()
