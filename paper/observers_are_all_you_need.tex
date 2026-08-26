@@ -2702,6 +2702,40 @@ whole curl sector is the selection of nineteen orthogonal seam eigenvectors
 from the six committed face projectors through the codifferential
 (\path{Lean/Screen/CarrierEvolutionFlow.lean}).
 
+Inside the strict Courant window \(0 < h^2\lambda < 4\) the staggered energy
+of a carrier mode is a positive definite quadratic form on the state
+\((a, b)\), and fails to be one exactly at and beyond the boundary: at
+\(h^2\lambda = 4\) the state \((-h/2, 1)\) has zero energy, beyond it negative
+energy, and on the gradient sector the amplitude direction is null. Its
+polarization is an inner product on each curl mode, the committed step and
+the interpolating flow are isometries, and for a nonzero step every
+step-invariant symmetric bilinear form is a real multiple of it, the
+committed energy fixing the multiple. The conjugated quarter turn squares to
+minus one and is orthogonal for this inner product, so each mode carries a
+complex line on which the flow is the phase \(e^{i\theta t/h}\), with orbit
+derivative \(i(\theta/h)\) times the state; the generator is exhibited, not
+obtained from Stone's theorem. On a finite orthogonal family of curl modes
+the direct sum is an inner product whose diagonal is the committed staggered
+energy at every step, the assembled flow is unitary with diagonal generator
+\(\theta_i/h\), and the gradient sector is the exact radical; on an
+equal-eigenvalue block invariance alone does not fix the form and the energy
+does. The step \(h\) is a declared Courant number and \(t\) a declared flow
+parameter (\path{Lean/Screen/FieldSectorEnergyInnerProduct.lean}).
+
+The curl sector of the committed seam operator has an explicit orthogonal
+eigenbasis: nineteen seam vectors with entries in \(\mathbb Z[\varphi]\),
+five at eigenvalue \(2\), four at \(3\), four at \(5\), three at
+\(3+\sqrt5\) and their Galois conjugates at \(3-\sqrt5\), kernel-checked as
+eigenvectors with diagonal Gram matrix. The four committed modes are rows of
+the list. The nineteen span the range of the codifferential, which is the
+kernel of the boundary; eleven coboundaries of listed port loads span the
+gradient sector, and the two sectors are complementary. On this basis the
+coefficient flow extends to the whole seam space: for a declared step with
+\(h^2(3+\sqrt5) < 4\), the two-sided admissibility window of the family,
+every zero-current temporal-gauge solution is the assembled history of its
+initial state. The step and the flow parameter remain declared
+(\path{Lean/Screen/CurlSectorEigenbasis.lean}).
+
 These modes are sorted by the carrier's own symmetry. The sixty listed
 icosahedral port permutations induce signed permutations of the seams
 and orientation-preserving permutations of the faces, the signed

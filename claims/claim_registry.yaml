@@ -8534,6 +8534,80 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
+      "statement": "For a declared Courant number h != 0 and an eigenvalue lam of the committed seam operator C^T C, the per-mode form lam a^2 + h lam ab + b^2, whose |v|^2/2 multiple is the committed staggered energy of the mode history, is positive definite iff 0 < h^2 lam < 4: at the boundary the state (-h/2, 1) is null, beyond it the form is negative somewhere, and for lam <= 0 it is nonpositive somewhere. Its polarization energyInner is an inner product; the committed step and the continuous flow are isometries; for h != 0 the step-invariant symmetric bilinear forms are exactly its real multiples, and the committed staggered energy fixes the multiple to |v|^2/2 by polarization of the diagonal. With J = Q rot(pi/2) Q^-1, J^2 = -1 and J is energyInner-orthogonal, so each mode is a complex line on which the flow is the phase exp(i theta t/h) with orbit derivative i(theta/h) z; the generator is exhibited, Stone's theorem is not invoked. On a finite pairwise orthogonal family of nonzero curl eigenvectors inside the window the direct sum is an inner product whose diagonal is the committed staggered energy at every step, the assembled flow is unitary with diagonal generator theta_i/h, the coefficient state is recovered from the seam potential and electric field, any symmetric form with that diagonal is this one, and the gradient sector is the exact radical. On an equal-eigenvalue block the mode-mixing cross form is invariant exactly when the eigenvalues coincide and is not a multiple of the direct sum, so invariance alone does not fix the inner product there and the staggered energy does. Every statement is machine-checked with standard axioms. The step h and the flow parameter t are declared; physical time, the Born rule, measurement, the whole nineteen-dimensional curl sector beyond a stated finite family, and the join with the private-algebra Stone surface are outside the statement, which cites OL-C2 (partial) and PR-15 and discharges neither.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kernel_checked_energy_derived_inner_product_and_unitary_flow_on_curl_modes",
+      "assumptions": [
+        "committed_oriented_twenty_face_thirty_seam_complex",
+        "declared_courant_step_and_temporal_gauge"
+      ],
+      "imported_results": [
+        "polarization_identity_for_quadratic_forms",
+        "elliptic_normal_form_of_symplectic_two_by_two_maps"
+      ],
+      "oph_specific_delta": "Removes the audit boundary 'no Hilbert inner product is declared' on the field sector by deriving the inner product from the committed staggered energy: positivity exactly on the strict Courant window, uniqueness up to scale among step-invariant forms with the energy fixing the scale, an explicit complex structure making the committed flow a unitary group with generator theta/h, the assembled reading on orthogonal curl families with the gradient sector as radical, and the degenerate-block witness that invariance alone does not select.",
+      "novelty_type": "machine_checked_energy_derived_hilbert_reading_of_the_field_sector",
+      "evidence": [
+        "Lean/Screen/FieldSectorEnergyInnerProduct.lean",
+        "Lean/Screen/CarrierEvolutionFlow.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean"
+      ],
+      "falsifier": "The window characterization, the isometry, the uniqueness up to scale, the scale fixing, the complex structure, the explicit generator, the assembled reading, the radical statement, or the degenerate-block witness fails; or the reading is presented as physical time, a Born rule, a measurement, or a statement on the whole curl sector.",
+      "scope_if_false": "Only the energy inner-product layer falls; the committed flow embedding, the stability window, and the mode oscillators are separately certified.",
+      "status": "energy_inner_product_and_unitary_flow_attained_on_finite_curl_families__physical_time_and_measurement_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-CURL-SECTOR-EIGENBASIS",
+      "statement": "Nineteen listed seam vectors over Z[phi] (five at eigenvalue 2, four at 3, four at 5, three at 3+sqrt5 and their Galois conjugates at 3-sqrt5) are kernel-checked to be carried by the committed face incidence to listed face vectors and back to the eigenvalue times themselves, with diagonal Gram matrix and nonzero norms; their real casts are pairwise orthogonal nonzero eigenvectors of C^T C, linearly independent, each equal to C^T of an explicit face vector, orthogonal to every gradient seam field, and they span the range of C^T, which equals the range of C^T C and the kernel of the committed boundary, of dimension nineteen. Rows 0, 5, 9, 13 are the committed twoMode, threeMode, fiveMode, goldenMode. Eleven listed port loads have coboundaries with diagonal Gram matrix spanning the gradient sector, and the two sectors are complementary in the seam space. On the thirty-vector family, for a declared step h != 0, every eigenvalue is admissible iff h^2 (3+sqrt5) < 4; inside that window the committed assembled coefficient flow holds, every pair of seam fields is the readout of a coefficient state, and every zero-current temporal-gauge solution of the committed evolution is the assembled history of a coefficient state, so the carrier flow of the committed module extends to the whole seam space. Multiplicities are read from dimension identities, not from a characteristic polynomial in Lean; no orthonormalisation, Hilbert-space unitarity, or identification with the private-algebra flow is stated; no physical time, unit, speed, mass, or frequency enters. The step and the flow parameter are declared. The statement cites OL-C2 and PR-15 and discharges neither.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kernel_checked_orthogonal_curl_eigenbasis_and_full_seam_space_flow",
+      "assumptions": [
+        "committed_oriented_twenty_face_thirty_seam_complex",
+        "declared_courant_step_and_temporal_gauge"
+      ],
+      "imported_results": [
+        "spectral_theorem_for_symmetric_operators_on_finite_graphs",
+        "hodge_decomposition_of_finite_cochain_complexes"
+      ],
+      "oph_specific_delta": "Supplies the nineteen-vector selection named open in V3.34: an explicit orthogonal eigenbasis of the whole curl sector with golden-integer entries, the complementary gradient basis, the exact spectrum with multiplicities on the committed carrier, the sharp global admissibility window h^2(3+sqrt5) < 4, and the extension of the committed carrier flow from five families to every zero-current temporal-gauge solution.",
+      "novelty_type": "machine_checked_full_curl_eigenbasis_with_global_flow_extension",
+      "evidence": [
+        "Lean/Screen/CurlSectorEigenbasis.lean",
+        "Lean/Screen/CarrierEvolutionFlow.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean"
+      ],
+      "falsifier": "An eigenvector, orthogonality, membership, span, complement, admissibility-window, or flow-extension statement fails; a listed row differs from the committed mode it is claimed to equal; or the basis is presented as orthonormal, as a Hilbert-space statement, or as carrying physical units.",
+      "scope_if_false": "Only the basis and flow-extension layer falls; the five committed families, the flow embedding, and the stability window are separately certified.",
+      "status": "full_curl_eigenbasis_and_flow_extension_attained__hilbert_identification_and_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

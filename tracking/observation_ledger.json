@@ -213,7 +213,9 @@
         "Lean/Dynamics/StoneConverse.lean",
         "Lean/EventAlgebra/QuantumAdequacySurface.lean",
         "Lean/EventAlgebra/SchroedingerFrameFlow.lean",
-        "Lean/Screen/CarrierEvolutionFlow.lean"
+        "Lean/Screen/CarrierEvolutionFlow.lean",
+        "Lean/Screen/FieldSectorEnergyInnerProduct.lean",
+        "Lean/Screen/CurlSectorEigenbasis.lean"
       ],
       "notes": "The frame-duality theorem (schroedinger_frame_duality) proves the unique Busch-Gleason state of the Heisenberg-shifted registered frame follows the propagator conjugation of the unique self-adjoint generator, consuming the registered representation, effect additivity, and supplied flow through one typed bundle. The flow remains supplied (PR-43), no source-selected Hamiltonian is claimed, and the flow parameter is not physical time while PR-15 stays open. CarrierEvolutionFlow constructs on the field sector a continuous energy-preserving one-parameter group whose h-step is the committed scaled evolution on every admissible mode and on the gradient sector, with the extension to the whole curl sector named as a finite selection; reading t as physical time stays declared and no Hilbert inner product is declared, so the row stays partial.",
       "open_premises": [

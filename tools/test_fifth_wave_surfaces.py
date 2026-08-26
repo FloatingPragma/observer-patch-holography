@@ -19,6 +19,10 @@ CPLX_CLAIM = "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY"
 INSTR_LEAN = "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean"
 GAUSS_LEAN = "Lean/Screen/SeamChargeContinuity.lean"
 CPLX_LEAN = "Lean/Screen/GoldenSectorComplexIrreducibility.lean"
+HILB_CLAIM = "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT"
+HILB_LEAN = "Lean/Screen/FieldSectorEnergyInnerProduct.lean"
+CURL_CLAIM = "OPH-EM-CURL-SECTOR-EIGENBASIS"
+CURL_LEAN = "Lean/Screen/CurlSectorEigenbasis.lean"
 
 
 def _registry() -> list[dict]:
@@ -37,7 +41,8 @@ def _collapsed(relative_path: str) -> str:
 
 
 def test_claims_registered_with_gates() -> None:
-    gates = {INSTR_CLAIM: [730], GAUSS_CLAIM: [740, 733], CPLX_CLAIM: [733, 728]}
+    gates = {INSTR_CLAIM: [730], GAUSS_CLAIM: [740, 733], CPLX_CLAIM: [733, 728],
+             HILB_CLAIM: [730, 733], CURL_CLAIM: [733, 730]}
     for claim_id, expected in gates.items():
         claim = _claim(claim_id)
         assert claim["gates"] == expected, claim_id
@@ -84,6 +89,14 @@ def test_lean_modules_carry_headline_declarations() -> None:
                      "family_obstruction", "crossing_continuity_table"),
         CPLX_LEAN: ("complex_irreducible", "finrank_SC", "no_unit_intertwiner",
                     "chi_differ_iff"),
+        HILB_LEAN: ("modeForm_posDef_iff", "stepMatrix_energy_isometry",
+                    "invariant_inner_product_unique_up_to_positive_scale",
+                    "staggered_energy_fixes_scale", "mode_unitary_group_explicit_generator",
+                    "orthogonal_family_hilbert_reading", "assembledInner_radical",
+                    "degenerate_block_invariant_forms_not_unique"),
+        CURL_LEAN: ("curl_eigen", "curl_orth", "curl_linearIndependent", "curl_span",
+                    "curl_committed_members", "curl_grad_isCompl", "fullLam_admissible_iff",
+                    "carrier_flow_full_curl"),
     }
     for relative_path, tokens in expectations.items():
         text = (ROOT / relative_path).read_text(encoding="utf-8")
@@ -100,6 +113,8 @@ def test_lean_modules_registered() -> None:
     lakefile = (ROOT / "Lean/lakefile.lean").read_text(encoding="utf-8")
     assert "`SeamChargeContinuity" in lakefile
     assert "`GoldenSectorComplexIrreducibility" in lakefile
+    assert "`FieldSectorEnergyInnerProduct" in lakefile
+    assert "`CurlSectorEigenbasis" in lakefile
 
 
 def test_owner_papers_carry_the_results() -> None:
@@ -108,6 +123,10 @@ def test_owner_papers_carry_the_results() -> None:
     assert "SeamChargeContinuity" in _collapsed(
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex")
     assert "GoldenSectorComplexIrreducibility" in _collapsed(
+        "paper/observers_are_all_you_need.tex")
+    assert "FieldSectorEnergyInnerProduct" in _collapsed(
+        "paper/observers_are_all_you_need.tex")
+    assert "CurlSectorEigenbasis" in _collapsed(
         "paper/observers_are_all_you_need.tex")
 
 
@@ -118,6 +137,9 @@ def test_ledger_and_premise_rows_cite_without_promotion() -> None:
     assert INSTR_LEAN in rows["OL-C1"]["evidence"]
     assert GAUSS_LEAN in rows["OL-N1"]["evidence"]
     assert CPLX_LEAN in rows["OL-F2"]["evidence"]
+    assert HILB_LEAN in rows["OL-C2"]["evidence"]
+    assert CURL_LEAN in rows["OL-C2"]["evidence"]
+    assert rows["OL-C2"]["status"] == "partial"
     assert rows["OL-N1"]["status"] == "owed"
     register = json.loads((ROOT / "tracking/premise_register.json").read_text(
         encoding="utf-8"))
@@ -125,4 +147,6 @@ def test_ledger_and_premise_rows_cite_without_promotion() -> None:
     assert INSTR_LEAN in prows["PR-64"]["evidence"]
     assert GAUSS_LEAN in prows["PR-54"]["evidence"]
     assert CPLX_LEAN in prows["PR-53"]["evidence"]
+    assert HILB_LEAN in prows["PR-15"]["evidence"]
+    assert CURL_LEAN in prows["PR-15"]["evidence"]
     assert prows["PR-64"]["disposition"] != "discharged"

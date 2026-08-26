@@ -199,7 +199,9 @@
   "OPH-EM-CARRIER-EVOLUTION-FLOW",
   "OPH-QUANTUM-INSTRUMENT-SELECTION-BY-CERTAIN-STATES",
   "OPH-EM-SOURCED-FIELD-CONSISTENCY",
-  "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY"
+  "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY",
+  "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
+  "OPH-EM-CURL-SECTOR-EIGENBASIS"
  ],
  "edges": [
   {
@@ -1786,6 +1788,21 @@
    "from": "OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
    "to": "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY",
    "role": "supplies the real span certificate and the two-sided inverse whose base change gives the complex statements"
+  },
+  {
+   "from": "OPH-EM-CARRIER-EVOLUTION-FLOW",
+   "to": "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
+   "role": "supplies the step matrix, conjugator, mode angle, flow, and admissible families on which the energy inner product is built"
+  },
+  {
+   "from": "OPH-EM-CARRIER-EVOLUTION-FLOW",
+   "to": "OPH-EM-CURL-SECTOR-EIGENBASIS",
+   "role": "supplies the admissible predicate, the assembled flow, and the five committed families that the full basis extends"
+  },
+  {
+   "from": "OPH-EM-CURL-SECTOR-EIGENBASIS",
+   "to": "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
+   "role": "supplies the orthogonal curl families on which the energy inner product is assembled"
   }
  ]
 }
