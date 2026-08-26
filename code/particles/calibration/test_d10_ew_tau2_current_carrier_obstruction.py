@@ -5,7 +5,10 @@ from __future__ import annotations
 
 import json
 import pathlib
+from copy import deepcopy
 from fractions import Fraction
+
+import pytest
 
 import derive_d10_ew_tau2_current_carrier_obstruction as lane
 
@@ -103,3 +106,148 @@ def test_custom_input_paths_do_not_masquerade_as_canonical(tmp_path: pathlib.Pat
     assert provenance["population"]["declared_path"] == custom_population.resolve().as_posix()
     assert provenance["fiberwise_tree_law"]["declared_path"] == custom_fiberwise.resolve().as_posix()
     assert provenance["reference_entries"]["declared_path"] == custom_references.resolve().as_posix()
+
+
+@pytest.mark.parametrize(
+    ("field", "bad_value"),
+    [
+        ("artifact", "wrong_fiber_artifact"),
+        ("status", "retracted"),
+        ("proof_status", "unproved"),
+        ("coordinate_symbol", "wrong_coordinate"),
+        ("fiber_population_functional_formula", "0"),
+        ("tauY_formula", "0"),
+        ("n_EW_formula", "1"),
+        ("MW_formula", "0"),
+        ("MZ_formula", "0"),
+    ],
+)
+def test_corrupt_fiber_contract_is_rejected(field: str, bad_value: object) -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    corrupted = deepcopy(fiberwise)
+    corrupted[field] = bad_value
+    with pytest.raises(ValueError, match=f"fiberwise_tree_law.{field}"):
+        lane.build_artifact(source_pair, population, corrupted, references)
+
+
+def test_corrupt_fiber_scalars_and_anchor_are_rejected() -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    corrupted_scalar = deepcopy(fiberwise)
+    corrupted_scalar["carrier_basis_scalar"]["alpha2_mz"] = 999
+    with pytest.raises(ValueError, match="carrier_basis_scalar.alpha2_mz"):
+        lane.build_artifact(source_pair, population, corrupted_scalar, references)
+
+    corrupted_anchor = deepcopy(fiberwise)
+    corrupted_anchor["anchor_point"]["tau2_tree_exact"] = 0.75
+    with pytest.raises(ValueError, match="anchor_point.tau2_tree_exact"):
+        lane.build_artifact(source_pair, population, corrupted_anchor, references)
+
+
+@pytest.mark.parametrize(
+    ("field", "bad_value"),
+    [
+        ("eta_EW", 0.75),
+        ("sigma_EW", 0.75),
+        ("tau_2", 0.75),
+        ("tau_Y", 0.75),
+    ],
+)
+def test_incompatible_selected_population_point_is_rejected(
+    field: str,
+    bad_value: object,
+) -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    corrupted = deepcopy(population)
+    corrupted["selected_population_point"][field] = bad_value
+    with pytest.raises(ValueError, match=f"selected_population_point.{field}"):
+        lane.build_artifact(source_pair, corrupted, fiberwise, references)
+
+
+def test_wrong_population_and_source_receipts_are_rejected() -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    corrupted_population = deepcopy(population)
+    corrupted_population["artifact"] = "wrong_population_artifact"
+    with pytest.raises(ValueError, match="population.artifact"):
+        lane.build_artifact(source_pair, corrupted_population, fiberwise, references)
+
+    corrupted_population_status = deepcopy(population)
+    corrupted_population_status["status"] = "open"
+    with pytest.raises(ValueError, match="population.status"):
+        lane.build_artifact(
+            source_pair,
+            corrupted_population_status,
+            fiberwise,
+            references,
+        )
+
+    corrupted_source = deepcopy(source_pair)
+    corrupted_source["artifact"] = "wrong_source_artifact"
+    with pytest.raises(ValueError, match="source_pair.artifact"):
+        lane.build_artifact(corrupted_source, population, fiberwise, references)
+
+    corrupted_source_status = deepcopy(source_pair)
+    corrupted_source_status["status"] = "open"
+    with pytest.raises(ValueError, match="source_pair.status"):
+        lane.build_artifact(
+            corrupted_source_status,
+            population,
+            fiberwise,
+            references,
+        )
+
+
+def test_incompatible_source_and_population_scalars_are_rejected() -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    corrupted_source = deepcopy(source_pair)
+    corrupted_source["source_slots"]["alpha2_mz"] = 999
+    with pytest.raises(ValueError, match="source_pair.source_slots.alpha2_mz"):
+        lane.build_artifact(corrupted_source, population, fiberwise, references)
+
+    corrupted_basis = deepcopy(population)
+    corrupted_basis["selected_population_basis_point"]["n_EW"] = 0.5
+    with pytest.raises(ValueError, match="selected_population_basis_point.n_EW"):
+        lane.build_artifact(source_pair, corrupted_basis, fiberwise, references)
+
+
+def test_corrupt_selector_and_mass_map_formulas_are_rejected() -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    corrupted_source_formula = deepcopy(source_pair)
+    corrupted_source_formula["population_basis"]["n_EW_formula"] = "1"
+    with pytest.raises(ValueError, match="source_pair.population_basis.n_EW_formula"):
+        lane.build_artifact(
+            corrupted_source_formula,
+            population,
+            fiberwise,
+            references,
+        )
+
+    corrupted_selector = deepcopy(population)
+    corrupted_selector["population_functional_status"] = "open"
+    with pytest.raises(ValueError, match="population.population_functional_status"):
+        lane.build_artifact(source_pair, corrupted_selector, fiberwise, references)
+
+    corrupted_mass_map = deepcopy(population)
+    corrupted_mass_map["population_atomic_quartet"]["mZ_formula"] = "0"
+    with pytest.raises(ValueError, match="population_atomic_quartet.mZ_formula"):
+        lane.build_artifact(source_pair, corrupted_mass_map, fiberwise, references)
+
+
+def test_canonical_receipts_record_fail_closed_input_binding() -> None:
+    source_pair, population, fiberwise, references = _inputs()
+    payload = lane.build_artifact(source_pair, population, fiberwise, references)
+    validation = payload["input_contract_validation"]
+    assert validation["status"] == "PASS"
+    assert validation["binding"] == "fail_closed_formula_scalar_anchor_validation"
+    assert validation["canonical_eta_source"] == "fiberwise_tree_law.eta_source"
+    assert set(validation["validated_formula_fields"]) == set(
+        lane.EXPECTED_FIBERWISE_FORMULAS
+    )
+    contracts = validation["validated_formula_contracts"]
+    assert set(contracts["source_pair"]) == set(lane.EXPECTED_SOURCE_PAIR_FIELDS)
+    assert set(contracts["population"]) == set(lane.EXPECTED_POPULATION_FIELDS)
+    assert set(contracts["population_basis"]) == set(
+        lane.EXPECTED_POPULATION_BASIS_FORMULAS
+    )
+    assert set(contracts["population_mass_map"]) == set(
+        lane.EXPECTED_POPULATION_MASS_FORMULAS
+    )

@@ -95,12 +95,14 @@ WHAT IS PROVED.
    `exp (i θ_i t / h)` (`assembledCoordinate_flow`) with derivative
    `i (θ_i / h)` (`assembledCoordinate_hasDerivAt`), and the coefficient
    state is recovered from the seam potential and electric field
-   (`coefficients_of_fields`).  The gradient sector is the exact radical:
-   for `lam i = 0` the amplitude direction is a nonzero null vector
+   (`coefficients_of_fields`).  The static gradient-amplitude subspace is
+   the exact radical: for `lam i = 0` the amplitude direction is a nonzero null vector
    (`gradient_direction_null`), the diagonal of `assembledInner` vanishes
    precisely on the states supported on gradient amplitudes
-   (`assembledInner_radical`), and the form on a gradient mode is not
-   definite (`gradient_sector_not_definite`).  The Hilbert reading lives
+   (`assembledInner_radical`), these are exactly the states orthogonal to
+   every coefficient state (`assembledInner_bilinear_radical`), while a
+   gradient velocity/electric direction remains non-null, and the form on a
+   gradient mode is not definite (`gradient_sector_not_definite`).  The Hilbert reading lives
    on the stated finite orthogonal family of curl modes, not on the whole
    curl sector (`orthogonal_family_hilbert_reading`); any symmetric
    bilinear form on the assembled state space whose diagonal is the
@@ -925,7 +927,7 @@ theorem mode_unitary_group_explicit_generator (h lam : ℝ) (hh : h ≠ 0) (h0 :
     modeHermitian_rotFlow h lam hh h0 h4, modeCoordinate_flow_hasDerivAt h lam hh h0 h4⟩
 
 
-/-! ## 5. The assembled sector: inner product on the curl sector, radical on the gradient sector -/
+/-! ## 5. The assembled sector: inner product on the curl sector, static gradient-amplitude radical -/
 
 theorem modeForm_zero_lam (h : ℝ) (x : Fin 2 → ℝ) : modeForm h 0 x = x 1 ^ 2 := by
   unfold modeForm
@@ -1140,6 +1142,29 @@ theorem assembledInner_radical (h : ℝ) (lam : ι → ℝ) (v : ι → Fin 30 �
         simp at h0
       rw [(hz i).2 hne]
       unfold modeForm
+      simp
+
+/-- **(5) Bilinear radical.**  For admissible data with nonzero family
+vectors, a state is orthogonal to every coefficient state exactly when it is
+supported on gradient amplitudes with zero velocity/electric component. -/
+theorem assembledInner_bilinear_radical (h : ℝ) (lam : ι → ℝ) (v : ι → Fin 30 → ℝ)
+    (hadm : ∀ i, Admissible h (lam i)) (hv : ∀ i, v i ≠ 0) (x : ι → Fin 2 → ℝ) :
+    (∀ y, assembledInner h lam v x y = 0) ↔
+      ∀ i, (lam i = 0 → x i 1 = 0) ∧ (lam i ≠ 0 → x i = 0) := by
+  constructor
+  · intro hxy
+    exact (assembledInner_radical h lam v hadm hv x).mp (hxy x)
+  · intro hx y
+    unfold assembledInner
+    apply Finset.sum_eq_zero
+    intro i _
+    by_cases hi : lam i = 0
+    · rw [hi]
+      unfold energyInner
+      rw [(hx i).1 hi]
+      ring
+    · rw [(hx i).2 hi]
+      unfold energyInner
       simp
 
 /-- Componentwise complex coordinates. -/
@@ -1514,6 +1539,7 @@ end OPH.FieldSectorEnergyInnerProduct
 #print axioms OPH.FieldSectorEnergyInnerProduct.assembledInnerCore
 #print axioms OPH.FieldSectorEnergyInnerProduct.gradient_direction_null
 #print axioms OPH.FieldSectorEnergyInnerProduct.assembledInner_radical
+#print axioms OPH.FieldSectorEnergyInnerProduct.assembledInner_bilinear_radical
 #print axioms OPH.FieldSectorEnergyInnerProduct.gradient_sector_not_definite
 #print axioms OPH.FieldSectorEnergyInnerProduct.assembledCoordinate_flow
 #print axioms OPH.FieldSectorEnergyInnerProduct.assembledCoordinate_hasDerivAt

@@ -2500,17 +2500,26 @@ continuous flow are isometries, and at nonzero step the step-invariant
 symmetric forms are exactly its real multiples, with the committed energy
 fixing the multiple. Each mode is then a complex line carrying the phase
 $\exp(i\theta t/h)$ with the generator exhibited rather than obtained from
-Stone's theorem. The embedding covers the whole curl sector: nineteen listed
+Stone's theorem. The energy-derived reading covers the whole curl sector:
+nineteen listed
 seam vectors over $\mathbb Z[\varphi]$, at eigenvalues two, three, five, and
 the golden pair, are kernel-checked pairwise orthogonal eigenvectors spanning
-the nineteen-dimensional range of $C^{\mathsf T}$, the gradient sector is the
-exact radical, and inside the window every zero-current temporal-gauge
-solution is the assembled history of a coefficient state
+the nineteen-dimensional range of $C^{\mathsf T}$. Inside the window their
+weighted direct sum is a positive definite real inner product with a
+preserved Hermitian form, explicit phase generator, energy diagonal, and
+coefficient recovery. On the complementary gradient modes, precisely the
+static gradient-amplitude directions with zero electric component form the
+radical; gradient velocity/electric directions are non-null. Every
+zero-current temporal-gauge solution is the assembled history of a
+coefficient state
 (\path{Lean/Screen/FieldSectorEnergyInnerProduct.lean},
 \path{Lean/Screen/CurlSectorEigenbasis.lean}). Reading the group
-parameter as physical time is the declared clock and duration premise, and no
-orthonormalisation, Hilbert-space unitarity, or identification with the
-private algebra is claimed, so no Schr\"odinger reading follows. These modules identify no physical field, source-produced charge
+parameter as physical time is the declared clock and duration premise. The
+listed rows are orthogonal rather than normalised, but normalisation is not a
+premise of the weighted energy form. The proved finite coefficient-space
+Hermitian isometry is not identified with a physical photon Hilbert space or
+with the private-algebra Stone flow, so no Schr\"odinger reading follows.
+These modules identify no physical field, source-produced charge
 or current, clock, photon Hilbert space, or massless physical particle.
 \end{boundary}
 

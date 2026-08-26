@@ -11,12 +11,14 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_fixed_eta_post_transport_affine_germ.py"
-OUTPUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_fixed_eta_post_transport_affine_germ.json"
-
-
-def test_d10_fixed_eta_affine_germ_is_emitted() -> None:
-    subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
-    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+def test_d10_fixed_eta_affine_germ_is_emitted(tmp_path: pathlib.Path) -> None:
+    output = tmp_path / "fixed_eta.json"
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(output)],
+        check=True,
+        cwd=ROOT,
+    )
+    payload = json.loads(output.read_text(encoding="utf-8"))
 
     assert payload["artifact"] == "oph_d10_ew_fixed_eta_post_transport_affine_germ"
     assert payload["object_id"] == "EWFixedEtaPostTransportAffineGerm_D10"

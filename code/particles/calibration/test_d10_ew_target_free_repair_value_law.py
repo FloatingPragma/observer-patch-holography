@@ -10,16 +10,20 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SOURCE_PAIR_SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_pair.py"
 SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_target_free_repair_value_law.py"
-OUTPUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_free_repair_value_law.json"
 
 
-def test_d10_target_free_repair_value_law_records_candidate_only_source_only_quintet() -> None:
-    subprocess.run([sys.executable, str(SOURCE_PAIR_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
+def test_d10_target_free_repair_value_law_records_candidate_only_source_only_quintet(
+    tmp_path: pathlib.Path,
+) -> None:
+    output = tmp_path / "target_free.json"
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(output)],
+        check=True,
+        cwd=ROOT,
+    )
 
-    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_d10_ew_target_free_repair_value_law"
     assert payload["status"] == "candidate_only"
     assert payload["object_id"] == "EWTargetFreeRepairValueLaw_D10"

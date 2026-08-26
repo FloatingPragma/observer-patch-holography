@@ -10,16 +10,20 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SOURCE_PAIR_SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_pair.py"
 SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_target_emitter_candidate.py"
-OUTPUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_emitter_candidate.json"
 
 
-def test_d10_target_emitter_candidate_records_near_exact_source_only_surface() -> None:
-    subprocess.run([sys.executable, str(SOURCE_PAIR_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
+def test_d10_target_emitter_candidate_records_near_exact_source_only_surface(
+    tmp_path: pathlib.Path,
+) -> None:
+    output = tmp_path / "target_emitter.json"
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(output)],
+        check=True,
+        cwd=ROOT,
+    )
 
-    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_d10_ew_target_emitter_candidate"
     assert payload["status"] == "strongest_current_source_only_candidate"
     assert payload["object_id"] == "EWTargetEmitter_D10"

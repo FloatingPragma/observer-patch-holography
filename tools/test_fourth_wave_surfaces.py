@@ -55,8 +55,10 @@ def test_claims_keep_declared_scope() -> None:
         assert token in chain, token
     irr = _claim(IRR_CLAIM)["statement"]
     for token in ("dimension nine", "irreducible real representations",
-                  "scalar-extension argument that would give complex irreducibility",
-                  "not formalized in Lean", "external inference", "discharges neither"):
+                  "This module proves real irreducibility only",
+                  "The later dedicated GoldenSectorComplexIrreducibility module transports the span certificates",
+                  "proves complex irreducibility, inequivalence, and real-type commutants",
+                  "external inference", "discharges neither"):
         assert token in irr, token
     block = _claim(BLOCK_CLAIM)["statement"]
     for token in ("shifted later ports", "zero clock difference",
@@ -66,8 +68,11 @@ def test_claims_keep_declared_scope() -> None:
         assert token in block, token
     flow = _claim(FLOW_CLAIM)["statement"]
     for token in ("determinant one and trace 2 - h^2 lam", "Phi_h = T",
-                  "exactly the gradient space", "is not claimed",
-                  "which is not selected", "discharges none"):
+                  "exactly the gradient space",
+                  "This module does not itself package the energy as a positive Hilbert form",
+                  "the later CurlSectorEigenbasis module supplies the nineteen nonzero curl modes",
+                  "Reading t as physical time is declared",
+                  "no identification with that flow is claimed", "discharges none"):
         assert token in flow, token
 
 

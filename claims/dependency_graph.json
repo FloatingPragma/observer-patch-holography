@@ -1800,9 +1800,9 @@
    "role": "supplies the admissible predicate, the assembled flow, and the five committed families that the full basis extends"
   },
   {
-   "from": "OPH-EM-CURL-SECTOR-EIGENBASIS",
-   "to": "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
-   "role": "supplies the orthogonal curl families on which the energy inner product is assembled"
+   "from": "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
+   "to": "OPH-EM-CURL-SECTOR-EIGENBASIS",
+   "role": "supplies the general energy-derived real and Hermitian forms, phase flow, generator, and coefficient-recovery theorem that the nineteen-mode curl packet instantiates"
   }
  ]
 }

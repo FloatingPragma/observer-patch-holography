@@ -18,13 +18,90 @@ SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_exact_wz_coordinate
 OUTPUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_exact_wz_coordinate_beyond_single_tree_identity.json"
 
 
-def test_d10_exact_wz_coordinate_shell_is_emitted() -> None:
-    subprocess.run([sys.executable, str(SOURCE_PAIR_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(POPULATION_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(FIBERWISE_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(OBSTRUCTION_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
-    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+def test_d10_exact_wz_coordinate_shell_is_emitted(tmp_path: pathlib.Path) -> None:
+    canonical_inputs = (
+        SOURCE_PAIR_SCRIPT.parent.parent / "runs/calibration/d10_ew_source_transport_pair.json",
+        SOURCE_PAIR_SCRIPT.parent.parent / "runs/calibration/d10_ew_population_evaluator.json",
+        SOURCE_PAIR_SCRIPT.parent.parent
+        / "runs/calibration/d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity.json",
+        SOURCE_PAIR_SCRIPT.parent.parent
+        / "runs/calibration/d10_ew_tau2_current_carrier_obstruction.json",
+        OUTPUT,
+    )
+    canonical_bytes = {path: path.read_bytes() for path in canonical_inputs}
+
+    source_pair = tmp_path / "source_pair.json"
+    population = tmp_path / "population.json"
+    fiberwise = tmp_path / "fiberwise.json"
+    obstruction = tmp_path / "obstruction.json"
+    output = tmp_path / "exact_wz.json"
+    subprocess.run(
+        [sys.executable, str(SOURCE_PAIR_SCRIPT), "--output", str(source_pair)],
+        check=True,
+        cwd=ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(POPULATION_SCRIPT),
+            "--source-pair",
+            str(source_pair),
+            "--output",
+            str(population),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(FIBERWISE_SCRIPT),
+            "--source-pair",
+            str(source_pair),
+            "--population",
+            str(population),
+            "--output",
+            str(fiberwise),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(OBSTRUCTION_SCRIPT),
+            "--source-pair",
+            str(source_pair),
+            "--population",
+            str(population),
+            "--fiberwise-tree-law",
+            str(fiberwise),
+            "--output",
+            str(obstruction),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--source-pair",
+            str(source_pair),
+            "--population",
+            str(population),
+            "--fiberwise-tree-law",
+            str(fiberwise),
+            "--tau2-obstruction",
+            str(obstruction),
+            "--output",
+            str(output),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert all(path.read_bytes() == before for path, before in canonical_bytes.items())
 
     assert payload["artifact"] == "oph_d10_ew_exact_wz_coordinate_beyond_single_tree_identity"
     assert payload["status"] == "open_current_carrier_insufficient"

@@ -33,6 +33,7 @@ OBSERVATION_EVIDENCE = [
     "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "Lean/Screen/ScaledMaxwellStability.lean",
+    "Lean/Screen/SeamChargeContinuity.lean",
 ]
 
 POSTDICTION_ARTIFACTS = [
@@ -117,6 +118,8 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     assert "TemporalMaxwellEvolution supplies the unit-step identities conditional on the declared update" in notes
     assert "ScaledMaxwellStability relocates that declaration" in notes
     assert "Euler-Lagrange equations of one declared discrete action" in notes
+    assert "SeamChargeContinuity proves the exact declared-source consistency criterion" in notes
+    assert "neutral-partner or neutralising-background requirement" in notes
     assert "declared unit step is unstable" in notes
     assert "PR-15, PR-53, and PR-54 stay open" in notes
     assert "does not close issue" not in notes

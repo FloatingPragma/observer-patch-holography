@@ -10,16 +10,20 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SOURCE_PAIR_SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_pair.py"
 SCRIPT = ROOT / "particles" / "calibration" / "derive_d10_ew_minimal_conditional_promotion.py"
-OUTPUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_minimal_conditional_theorem.json"
 
 
-def test_d10_minimal_conditional_promotion_records_underdetermination_and_smallest_route() -> None:
-    subprocess.run([sys.executable, str(SOURCE_PAIR_SCRIPT)], check=True, cwd=ROOT)
-    subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
+def test_d10_minimal_conditional_promotion_records_underdetermination_and_smallest_route(
+    tmp_path: pathlib.Path,
+) -> None:
+    output = tmp_path / "minimal_conditional.json"
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(output)],
+        check=True,
+        cwd=ROOT,
+    )
 
-    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_d10_ew_minimal_conditional_promotion"
     assert payload["status"] == "open_split_beneath_target_free_candidate"
     assert payload["candidate_object_id"] == "EWTargetFreeRepairValueLaw_D10"

@@ -137,7 +137,9 @@ def test_native_decision_and_coefficient_flow_trust_boundaries_are_public() -> N
     flow = _claims()["OPH-EM-CARRIER-EVOLUTION-FLOW"]
     assert "coefficient-state group" in flow["statement"]
     assert "coefficient-to-field map need not be injective" in flow["statement"]
-    assert "faithful on the actual field span" in flow["falsifier"]
+    assert "presented as faithful without nonzero independence or a quotient" in flow[
+        "falsifier"
+    ]
 
     for relative_path in (
         "flagship/from_observer_consensus_to_standard_physics.tex",

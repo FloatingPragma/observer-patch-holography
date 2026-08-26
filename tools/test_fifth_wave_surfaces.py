@@ -55,7 +55,7 @@ def test_claims_keep_declared_scope() -> None:
     for token in ("K = K P", "Lueders outcome map X -> P X P", "conversely",
                   "strictly weaker than certain-state invariance",
                   "declared operational hypothesis", "not source-selected",
-                  "discharges none of PR-02, PR-03, PR-04, PR-64"):
+                  "discharges none of PR-02, PR-03, PR-04, PR-52, PR-64, or PR-65"):
         assert token in instr, token
     gauss = _claim(GAUSS_CLAIM)["statement"]
     for token in ("if and only if the initial load is neutral",
@@ -70,6 +70,17 @@ def test_claims_keep_declared_scope() -> None:
                   "traces 1 - phi and phi", "real type",
                   "discharges neither PR-52 nor PR-53"):
         assert token in cplx, token
+    hilb = _claim(HILB_CLAIM)["statement"]
+    for token in ("static gradient-amplitude subspace",
+                  "gradient velocity direction remains non-null",
+                  "does not itself supply the carrier's nineteen-vector basis",
+                  "private-algebra Stone surface"):
+        assert token in hilb, token
+    curl = _claim(CURL_CLAIM)["statement"]
+    for token in ("nineteen nonzero curl modes", "positive definite",
+                  "coefficient state is recovered",
+                  "not identified with a physical photon Hilbert space"):
+        assert token in curl, token
 
 
 def test_lean_modules_carry_headline_declarations() -> None:
@@ -93,10 +104,11 @@ def test_lean_modules_carry_headline_declarations() -> None:
                     "invariant_inner_product_unique_up_to_positive_scale",
                     "staggered_energy_fixes_scale", "mode_unitary_group_explicit_generator",
                     "orthogonal_family_hilbert_reading", "assembledInner_radical",
+                    "assembledInner_bilinear_radical",
                     "degenerate_block_invariant_forms_not_unique"),
         CURL_LEAN: ("curl_eigen", "curl_orth", "curl_linearIndependent", "curl_span",
                     "curl_committed_members", "curl_grad_isCompl", "fullLam_admissible_iff",
-                    "carrier_flow_full_curl"),
+                    "curl_sector_energy_hilbert_packet", "carrier_flow_full_curl"),
     }
     for relative_path, tokens in expectations.items():
         text = (ROOT / relative_path).read_text(encoding="utf-8")

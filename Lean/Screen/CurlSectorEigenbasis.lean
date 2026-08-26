@@ -1,4 +1,5 @@
 import CarrierEvolutionFlow
+import FieldSectorEnergyInnerProduct
 import GoldenSectorCharacters
 
 set_option autoImplicit false
@@ -14,6 +15,7 @@ open OPH.TemporalMaxwellEvolution
 open OPH.ScaledMaxwellStability
 open OPH.CarrierModeOscillators
 open OPH.CarrierEvolutionFlow
+open OPH.FieldSectorEnergyInnerProduct
 open OPH.GoldenSectorCharacters
 open OPH.ScreenCarrierMapCandidate
 open OPH.SeamCurrentCarrierQuotient
@@ -97,7 +99,12 @@ WHAT IS PROVED.
    through the two-step form of the evolution `ampere_step_eq` and its
    uniqueness `ampere_unique`).  So the `h`-step of the assembled flow is
    the committed scaled Ampere step on every zero-current history, not
-   only on the five listed families of `carrier_flow_five_modes`.
+   only on the five listed families of `carrier_flow_five_modes`.  On the
+   nineteen nonzero curl modes, the energy-derived positive definite real
+   form and Hermitian form of `FieldSectorEnergyInnerProduct` are preserved,
+   the complex coordinates have the displayed phase and generator, the
+   field energy is their diagonal, and the coefficients are recovered from
+   the potential and electric readouts (`curl_sector_energy_hilbert_packet`).
 
 WHAT IS NOT PROVED.  No physical attachment: the step `h` and the flow
 parameter `t` are declared, the seam vectors are not identified with
@@ -111,7 +118,9 @@ identities of subspaces, not from a characteristic polynomial computed in
 Lean.  The family `Fin 19 ⊕ Fin 11` is an orthogonal basis, not
 orthonormal; the flow is stated on coefficient states and transported to
 field histories through `potentialOf`/`electricOf` as in the imported
-file, and no Hilbert-space unitarity is claimed.
+files.  Its finite coefficient-space Hermitian isometry is proved, but it is
+not identified with a physical photon Hilbert space or with the
+private-algebra Stone flow.
 
 PRIOR WORK.  `ScaledMaxwellStability` (`fiveMode`, `goldenMode`, the face
 projectors, `localMaxwellOperator_cast`); `CarrierModeOscillators`
@@ -353,7 +362,7 @@ theorem evalPhi_curlLam (i : Fin 19) : evalPhi (curlLamZ i) = curlLamR i := by
     ring
 
 theorem curlLamR_pos (i : Fin 19) : 0 < curlLamR i := by
-  have h3 := sqrt5_lt_three
+  have h3 := OPH.CarrierModeOscillators.sqrt5_lt_three
   have h0 := sqrt5_pos
   fin_cases i <;> simp [curlLamR] <;> linarith
 
@@ -644,6 +653,45 @@ theorem fullLam_admissible_iff (h : ℝ) (hh : h ≠ 0) :
   · have := sqrt5_pos; linarith
   · exact h4
 
+/-- Every one of the nineteen nonzero curl eigenvalues lies in the strict
+energy window whenever the largest eigenvalue does. -/
+theorem curlLamR_window (h : ℝ) (hh : h ≠ 0)
+    (h4 : h ^ 2 * (3 + Real.sqrt 5) < 4) (i : Fin 19) :
+    0 < h ^ 2 * curlLamR i ∧ h ^ 2 * curlLamR i < 4 := by
+  have hp : 0 < h ^ 2 := by positivity
+  exact ⟨mul_pos hp (curlLamR_pos i),
+    lt_of_le_of_lt (mul_le_mul_of_nonneg_left (curlLamR_le_golden i) hp.le) h4⟩
+
+/-- **Energy/Hermitian bridge for the full curl sector.**  Inside the exact
+global window, the nineteen listed nonzero curl modes instantiate the
+energy-derived Hilbert reading.  This is a theorem about the finite
+coefficient space and its field readouts; it makes no physical-time,
+private-algebra, or photon-Hilbert-space identification. -/
+theorem curl_sector_energy_hilbert_packet (h : ℝ) (hh : h ≠ 0)
+    (h4 : h ^ 2 * (3 + Real.sqrt 5) < 4) :
+    (∀ x, x ≠ 0 → 0 < assembledInner h curlLamR curlR x x) ∧
+    (∀ t x y, assembledInner h curlLamR curlR (assembledFlow h curlLamR t x)
+      (assembledFlow h curlLamR t y) = assembledInner h curlLamR curlR x y) ∧
+    (∀ x n, fieldEnergyScaled h (assembledHistory h curlLamR curlR x) (fun _ ↦ 0) n =
+      assembledInner h curlLamR curlR x x) ∧
+    (∀ t x i, assembledCoordinate h curlLamR (assembledFlow h curlLamR t x) i =
+      Complex.exp ((modeAngle h (curlLamR i) * t / h : ℝ) * Complex.I) *
+        assembledCoordinate h curlLamR x i) ∧
+    (∀ x i t, HasDerivAt
+      (fun s : ℝ ↦ assembledCoordinate h curlLamR (assembledFlow h curlLamR s x) i)
+      (Complex.I * (modeAngle h (curlLamR i) / h : ℝ) *
+        assembledCoordinate h curlLamR (assembledFlow h curlLamR t x) i) t) ∧
+    (∀ t x y, assembledHermitian h curlLamR curlR (assembledFlow h curlLamR t x)
+      (assembledFlow h curlLamR t y) = assembledHermitian h curlLamR curlR x y) ∧
+    (∀ x, assembledHermitian h curlLamR curlR x x =
+      (assembledInner h curlLamR curlR x x : ℂ)) ∧
+    (∀ x y, potentialOf curlR x = potentialOf curlR y →
+      electricOf curlR x = electricOf curlR y → x = y) := by
+  obtain ⟨hpos, _, _, _, hflow, henergy, hphase, hderiv, hherm, hself, hrecover⟩ :=
+    orthogonal_family_hilbert_reading h curlLamR curlR hh (curlLamR_window h hh h4)
+      curl_eigen curl_ne_zero curl_orth
+  exact ⟨hpos, hflow, henergy, hphase, hderiv, hherm, hself, hrecover⟩
+
 /-- **Two-step form of the zero-current temporal-gauge evolution:**
 `A (n+2) = 2 A (n+1) - A n - h² CᵀC A (n+1)`. -/
 theorem ampere_step_eq (h : ℝ) (hh : h ≠ 0) (A : ℕ → Fin 30 → ℝ)
@@ -790,6 +838,8 @@ end OPH.CurlSectorEigenbasis
 #print axioms OPH.CurlSectorEigenbasis.exists_state_of_fields
 #print axioms OPH.CurlSectorEigenbasis.fullLam_admissible
 #print axioms OPH.CurlSectorEigenbasis.fullLam_admissible_iff
+#print axioms OPH.CurlSectorEigenbasis.curlLamR_window
+#print axioms OPH.CurlSectorEigenbasis.curl_sector_energy_hilbert_packet
 #print axioms OPH.CurlSectorEigenbasis.ampere_step_eq
 #print axioms OPH.CurlSectorEigenbasis.ampere_unique
 #print axioms OPH.CurlSectorEigenbasis.ampere_history_eq_assembled

@@ -76,12 +76,13 @@ def test_clock_claim_keeps_rules_declared() -> None:
         assert token in statement, token
 
 
-def test_golden_claim_separates_character_and_real_irreducibility_theorems() -> None:
+def test_golden_claim_separates_character_and_later_irreducibility_theorems() -> None:
     statement = _claim(GOLD_CLAIM)["statement"]
     for token in ("(1/20) Z[phi]", "entrywise Galois conjugate", "phi or 1 - phi",
                   "twelve each", "This character module proves the projector and character identities, not irreducibility",
-                  "The separate GoldenSectorIrreducibility theorem proves",
-                  "Scalar extension to complex irreducibility"):
+                  "The later dedicated GoldenSectorIrreducibility module proves",
+                  "The subsequent dedicated GoldenSectorComplexIrreducibility module proves complex scalar-extension irreducibility",
+                  "Identification with the abstract A5 or icosahedral character table remains an inference outside Lean"):
         assert token in statement, token
 
 

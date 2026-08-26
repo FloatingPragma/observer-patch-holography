@@ -40,6 +40,75 @@ DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_tau2_current
 
 RationalInterval: TypeAlias = tuple[Fraction, Fraction]
 PI_MACHIN_TERMS = 40
+INPUT_COMPATIBILITY_ABS_TOLERANCE = Fraction(1, 10**16)
+
+EXPECTED_SOURCE_PAIR_ARTIFACT = "oph_d10_ew_source_transport_pair"
+EXPECTED_POPULATION_ARTIFACT = "oph_d10_ew_population_evaluator"
+EXPECTED_FIBERWISE_ARTIFACT = (
+    "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity"
+)
+EXPECTED_FIBERWISE_FORMULAS = {
+    "coordinate_symbol": "tau2_tree_exact",
+    "eta_source_formula": "alpha_u_from_seed * beta_EW",
+    "fiber_population_functional_formula": (
+        "J_pop_EW(tauY,tau2) = tau2^2 + (tauY*tau2)^2 + "
+        "(0.5*(tauY + tau2) + eta_source)^2"
+    ),
+    "fiber_stationarity_formula": (
+        "(1 + 4*tau2_tree_exact^2)*tau_Y + tau2_tree_exact + 2*eta_source = 0"
+    ),
+    "fiber_second_derivative_formula": "1/2 + 2*tau2_tree_exact^2",
+    "tauY_formula": (
+        "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)"
+    ),
+    "n_EW_formula": (
+        "1 + (alphaY_mz * tau_Y + alpha2_mz * tau2_tree_exact) / "
+        "(alphaY_mz + alpha2_mz)"
+    ),
+    "u_EW_formula": "1 + tau2_tree_exact",
+    "MW_formula": "v_inherited * sqrt(pi * alpha2_mz * (1 + tau2_tree_exact))",
+    "MZ_formula": (
+        "v_inherited * sqrt(pi * (alphaY_mz * (1 + tau_Y) + "
+        "alpha2_mz * (1 + tau2_tree_exact)))"
+    ),
+}
+EXPECTED_SOURCE_PAIR_FIELDS = {
+    "source_pair_symbol": "Tau_EW_D10 = (tau_Y, tau_2)",
+    "two_scalar_population_status": "closed_current_carrier",
+    "population_selector_status": "closed",
+    "population_selector_formula": (
+        "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)"
+    ),
+    "eta_source_formula": "alpha_u_from_seed * beta_EW",
+    "predictive_population_closed": True,
+}
+EXPECTED_POPULATION_FIELDS = {
+    "object_id": "EWGaugeSourceTransportPairPopulationEvaluator_D10",
+    "population_functional_status": "closed",
+    "selector_formula": (
+        "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)"
+    ),
+    "population_selector_rule": (
+        "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)"
+    ),
+    "eta_source_formula": "alpha_u_from_seed * beta_EW",
+    "population_functional_formula_sigma_eta": (
+        "J_pop_EW(sigma_EW,eta_EW) = (sigma_EW + eta_EW)^2 + "
+        "(sigma_EW^2 - eta_EW^2)^2 + (sigma_EW + eta_source)^2"
+    ),
+    "predictive_promotion_allowed": False,
+}
+EXPECTED_POPULATION_BASIS_FORMULAS = {
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "u_EW_formula": "1 + sigma_EW + eta_EW",
+    "n_EW_formula": "1 + sigma_EW + beta_EW * eta_EW",
+}
+EXPECTED_POPULATION_MASS_FORMULAS = {
+    "mW_formula": "v_inherited * sqrt(pi * alpha2_mz * u_EW)",
+    "mZ_formula": (
+        "v_inherited * sqrt(pi * (alphaY_mz + alpha2_mz) * n_EW)"
+    ),
+}
 
 
 def _q(value: object) -> Fraction:
@@ -56,6 +125,265 @@ def _payload_digest(payload: object) -> str:
         ensure_ascii=False,
     ).encode("utf-8")
     return hashlib.sha256(canonical).hexdigest()
+
+
+def _require_literal(actual: object, expected: object, label: str) -> None:
+    if actual != expected:
+        raise ValueError(f"{label} must be {expected!r}, got {actual!r}")
+
+
+def _require_expected_fields(
+    payload: dict,
+    expected_fields: dict[str, object],
+    prefix: str,
+) -> None:
+    for field, expected in expected_fields.items():
+        _require_literal(payload.get(field), expected, f"{prefix}.{field}")
+
+
+def _require_decimal_close(
+    actual: object,
+    expected: object,
+    label: str,
+    *,
+    tolerance: Fraction = INPUT_COMPATIBILITY_ABS_TOLERANCE,
+) -> None:
+    actual_q = _q(actual)
+    expected_q = _q(expected)
+    if abs(actual_q - expected_q) > tolerance:
+        raise ValueError(
+            f"{label} differs by {abs(actual_q - expected_q)}; "
+            f"maximum allowed serialization drift is {tolerance}"
+        )
+
+
+def _validate_input_contracts(
+    source_pair: dict,
+    population: dict,
+    fiberwise_tree_law: dict,
+) -> dict[str, object]:
+    """Fail closed unless the three receipts describe one current carrier.
+
+    The obstruction code evaluates a machine-readable specialization of the
+    formula strings emitted by the fiber-law producer. Consequently every
+    formula, scalar, and anchor used by that specialization is checked here
+    before the hard-coded arithmetic implementation is allowed to run. Tiny
+    decimal differences created by upstream JSON float serialization are
+    accepted only within the declared absolute tolerance; the exact interval
+    proof itself uses the fiber law's serialized ``eta_source``.
+    """
+
+    _require_literal(
+        source_pair.get("artifact"),
+        EXPECTED_SOURCE_PAIR_ARTIFACT,
+        "source_pair.artifact",
+    )
+    _require_literal(
+        source_pair.get("status"),
+        "selected_two_scalar_family",
+        "source_pair.status",
+    )
+    _require_expected_fields(
+        source_pair,
+        EXPECTED_SOURCE_PAIR_FIELDS,
+        "source_pair",
+    )
+    _require_literal(
+        population.get("artifact"),
+        EXPECTED_POPULATION_ARTIFACT,
+        "population.artifact",
+    )
+    _require_literal(
+        population.get("status"),
+        "closed_current_carrier",
+        "population.status",
+    )
+    _require_literal(
+        population.get("proof_status"),
+        "population_functional_closed_on_current_carrier",
+        "population.proof_status",
+    )
+    _require_literal(
+        population.get("source_transport_pair_artifact"),
+        EXPECTED_SOURCE_PAIR_ARTIFACT,
+        "population.source_transport_pair_artifact",
+    )
+    _require_expected_fields(
+        population,
+        EXPECTED_POPULATION_FIELDS,
+        "population",
+    )
+    _require_literal(
+        fiberwise_tree_law.get("artifact"),
+        EXPECTED_FIBERWISE_ARTIFACT,
+        "fiberwise_tree_law.artifact",
+    )
+    _require_literal(
+        fiberwise_tree_law.get("status"),
+        "closed_smaller_primitive",
+        "fiberwise_tree_law.status",
+    )
+    _require_literal(
+        fiberwise_tree_law.get("proof_status"),
+        "fiberwise_unique_J_pop_minimizer_on_fixed_tau2",
+        "fiberwise_tree_law.proof_status",
+    )
+    _require_expected_fields(
+        fiberwise_tree_law,
+        EXPECTED_FIBERWISE_FORMULAS,
+        "fiberwise_tree_law",
+    )
+
+    source_basis = dict(source_pair["population_basis"])
+    population_basis = dict(population["population_basis"])
+    source_mass_formulas = dict(source_pair["population_atomic_quartet"])
+    population_mass_formulas = dict(population["population_atomic_quartet"])
+    for prefix, payload, expected in (
+        (
+            "source_pair.population_basis",
+            source_basis,
+            EXPECTED_POPULATION_BASIS_FORMULAS,
+        ),
+        (
+            "population.population_basis",
+            population_basis,
+            EXPECTED_POPULATION_BASIS_FORMULAS,
+        ),
+        (
+            "source_pair.population_atomic_quartet",
+            source_mass_formulas,
+            EXPECTED_POPULATION_MASS_FORMULAS,
+        ),
+        (
+            "population.population_atomic_quartet",
+            population_mass_formulas,
+            EXPECTED_POPULATION_MASS_FORMULAS,
+        ),
+    ):
+        _require_expected_fields(payload, expected, prefix)
+
+    source_slots = dict(source_pair["source_pair"])
+    duplicate_source_slots = dict(source_pair["source_slots"])
+    fiber_slots = dict(fiberwise_tree_law["carrier_basis_scalar"])
+    for field in ("alphaY_mz", "alpha2_mz", "v_inherited"):
+        if _q(source_slots[field]) <= 0:
+            raise ValueError(f"source_pair.source_pair.{field} must be positive")
+        _require_decimal_close(
+            duplicate_source_slots[field],
+            source_slots[field],
+            f"source_pair.source_slots.{field}",
+        )
+        _require_decimal_close(
+            fiber_slots[field],
+            source_slots[field],
+            f"fiberwise_tree_law.carrier_basis_scalar.{field}",
+        )
+
+    alpha_y = _q(source_slots["alphaY_mz"])
+    alpha2 = _q(source_slots["alpha2_mz"])
+    beta_ew = (alpha2 - alpha_y) / (alpha2 + alpha_y)
+    _require_decimal_close(
+        source_basis["beta_EW"],
+        beta_ew,
+        "source_pair.population_basis.beta_EW",
+    )
+    _require_decimal_close(
+        population_basis["beta_EW"],
+        beta_ew,
+        "population.population_basis.beta_EW",
+    )
+    _require_decimal_close(
+        fiber_slots["beta_EW"],
+        beta_ew,
+        "fiberwise_tree_law.carrier_basis_scalar.beta_EW",
+    )
+
+    eta_fiber = _q(fiberwise_tree_law["eta_source"])
+    anchor = dict(fiberwise_tree_law["anchor_point"])
+    _require_decimal_close(
+        anchor["eta_EW"],
+        eta_fiber,
+        "fiberwise_tree_law.anchor_point.eta_EW",
+    )
+    _require_literal(
+        _q(anchor["tau2_tree_exact"]),
+        Fraction(0),
+        "fiberwise_tree_law.anchor_point.tau2_tree_exact",
+    )
+    _require_decimal_close(
+        anchor["sigma_EW"],
+        -eta_fiber,
+        "fiberwise_tree_law.anchor_point.sigma_EW",
+    )
+    _require_decimal_close(
+        anchor["tau_Y"],
+        -2 * eta_fiber,
+        "fiberwise_tree_law.anchor_point.tau_Y",
+    )
+
+    selected_point = dict(population["selected_population_point"])
+    _require_decimal_close(
+        population["eta_source"],
+        eta_fiber,
+        "population.eta_source",
+    )
+    _require_decimal_close(
+        source_pair["eta_source"],
+        eta_fiber,
+        "source_pair.eta_source",
+    )
+    for field, expected in (
+        ("eta_EW", eta_fiber),
+        ("sigma_EW", -eta_fiber),
+        ("tau_2", Fraction(0)),
+        ("tau_Y", -2 * eta_fiber),
+    ):
+        _require_decimal_close(
+            selected_point[field],
+            expected,
+            f"population.selected_population_point.{field}",
+        )
+
+    selected_basis = dict(population["selected_population_basis_point"])
+    expected_n = Fraction(1) - (Fraction(1) - beta_ew) * eta_fiber
+    _require_decimal_close(
+        selected_basis["u_EW"],
+        Fraction(1),
+        "population.selected_population_basis_point.u_EW",
+    )
+    _require_decimal_close(
+        selected_basis["n_EW"],
+        expected_n,
+        "population.selected_population_basis_point.n_EW",
+    )
+
+    derived_from = fiberwise_tree_law.get("derived_from_artifacts", [])
+    if EXPECTED_POPULATION_ARTIFACT not in derived_from:
+        raise ValueError(
+            "fiberwise_tree_law.derived_from_artifacts must include the "
+            "population evaluator"
+        )
+
+    return {
+        "status": "PASS",
+        "binding": "fail_closed_formula_scalar_anchor_validation",
+        "canonical_eta_source": "fiberwise_tree_law.eta_source",
+        "serialization_compatibility_absolute_tolerance": _decimal(
+            INPUT_COMPATIBILITY_ABS_TOLERANCE
+        ),
+        "validated_artifacts": [
+            EXPECTED_SOURCE_PAIR_ARTIFACT,
+            EXPECTED_POPULATION_ARTIFACT,
+            EXPECTED_FIBERWISE_ARTIFACT,
+        ],
+        "validated_formula_fields": sorted(EXPECTED_FIBERWISE_FORMULAS),
+        "validated_formula_contracts": {
+            "source_pair": sorted(EXPECTED_SOURCE_PAIR_FIELDS),
+            "population": sorted(EXPECTED_POPULATION_FIELDS),
+            "population_basis": sorted(EXPECTED_POPULATION_BASIS_FORMULAS),
+            "population_mass_map": sorted(EXPECTED_POPULATION_MASS_FORMULAS),
+        },
+    }
 
 
 def _declared_path(path: Path) -> str:
@@ -285,6 +613,11 @@ def build_artifact(
     fiberwise_tree_law_path: Path = DEFAULT_FIBERWISE_TREE_LAW,
     reference_path: Path = REFERENCE_JSON,
 ) -> dict:
+    input_contract_validation = _validate_input_contracts(
+        source_pair,
+        population,
+        fiberwise_tree_law,
+    )
     selected_point = dict(population.get("selected_population_point", {}))
     if not selected_point:
         raise ValueError("selected population point is required")
@@ -292,7 +625,7 @@ def build_artifact(
     alpha_y = float(source_slots["alphaY_mz"])
     alpha2 = float(source_slots["alpha2_mz"])
     v_value = float(source_slots["v_inherited"])
-    eta_source = float(selected_point["eta_EW"])
+    eta_source = float(fiberwise_tree_law["eta_source"])
     beta_ew = (alpha2 - alpha_y) / (alpha2 + alpha_y)
     n0 = 1.0 - (1.0 - beta_ew) * eta_source
 
@@ -348,7 +681,7 @@ def build_artifact(
         alpha_y=_q(source_slots["alphaY_mz"]),
         alpha2=_q(source_slots["alpha2_mz"]),
         v_value=_q(source_slots["v_inherited"]),
-        eta_source=_q(selected_point["eta_EW"]),
+        eta_source=_q(fiberwise_tree_law["eta_source"]),
         mw_target=_q(references["w_boson"]["value_gev"]),
         mz_target=_q(references["z_boson"]["value_gev"]),
         pi_bounds=selected_pi_bounds,
@@ -376,6 +709,7 @@ def build_artifact(
         "proof_status": proof_status,
         "strictly_smaller_than": "tau2_tree_exact",
         "diagnostic_only": True,
+        "input_contract_validation": input_contract_validation,
         "input_provenance": {
             "digest_scope": (
                 "sha256 of canonical sorted compact JSON for the exact "
