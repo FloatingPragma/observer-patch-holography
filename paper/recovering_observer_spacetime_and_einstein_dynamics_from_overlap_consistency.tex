@@ -145,11 +145,33 @@ tables by a kernel check, inhabits the scaled Maxwell bundle with a nonzero
 current, and the unit crossing of every seam satisfies the continuity
 equation by a kernel check that fixes the sign convention between the
 crossing current and the incidence operator
-(\path{Lean/Screen/SeamChargeContinuity.lean}). The step, the charges, the
-paths, and the kinetic term are declared; the sign of the committed load
-relative to a physical charge, an equation of motion for the path,
-boundedness of the sourced history, and any continuum limit are outside this
-statement.
+(\path{Lean/Screen/SeamChargeContinuity.lean}).  The neutral-partner route is
+also realized in one finite action rather than by appending an independently
+prescribed background after variation.  For $h\ne0$, the source-free
+Maxwell window plus the two opposite minimal couplings and two clock actions
+is invariant under endpoint-vanishing gauge functions.  With the
+seam-potential endpoints fixed, its field variations are equivalent to the
+interior sourced Amp\`ere equations at $m<N$ and Gauss equations at
+$n<N+1$.  Replacing either path over a closed two-step interval while
+fixing the fields and other path gives an exact off-shell action difference,
+not by itself a path equation of motion.  At $q=1$, $h=1/2$, the explicit
+Coulomb-started packet is stationary in the field slots, but for every
+$N\ge1$ delaying either its positive seam-$0$ crossing or its negative
+seam-$29$ crossing, while fixing the fields and the other path, changes the
+same action by $5/12$ for every pair of clock-unit values within the fixed
+quadratic clock-action form.  The charge-conjugate results therefore fail the
+declared closed-two-step exchange-stationarity condition in both path slots;
+applying both canonical exchanges simultaneously changes the action by
+$5/6$.  These are only the displayed discrete exchanges, not continuum
+first-variation claims or a no-go for other paths, fields, or action shapes.
+Its timelike initial crossings
+use a separately declared carrier unit $\tau=3$; identifying $\tau=h$
+would instead make a crossing spacelike
+(\path{Lean/Screen/NeutralPairCoupledAction.lean}).  The step, charges, paths,
+clock unit, and action shapes are declared; the sign of the committed load
+relative to a physical charge, source selection, a jointly stationary path,
+boundedness of the sourced history, laboratory calibration, and any continuum
+limit are outside this statement.
 
 A second three-dimensional construction is local and Euclidean. For the
 declared twelve-port repair mean, the centered equal-port response kernel has

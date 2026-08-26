@@ -2218,6 +2218,40 @@ discrete circulation of \(A\) around the four-leg loop, and a round trip on
 one seam has zero circulation. The class, the potentials, and the shapes are
 declared (\path{Lean/Geometry/TransportedChargeForceLaw.lean}).
 
+The closed carrier also fixes the neutrality condition rather than hiding it
+in the field solver.  A hopping load and current obey the discrete continuity
+equation identically; the sourced scaled Amp\`ere and Gauss equations admit a
+history exactly when the initial load is neutral and continuity holds, so one
+isolated hopping charge is compatible only at zero charge.  The viable
+neutral branch is explicit.  Put charges $q$ and $-q$ on two declared
+seam-step worldlines and form one action from the source-free Maxwell window,
+both minimal couplings, and both clock actions.  Its field variations are
+equivalent, for $h\ne0$ and endpoint-fixed seam-potential variations, to the
+interior Amp\`ere equations at $m<N$ and Gauss equations at $n<N+1$ for the
+pair's own sources.  The action is invariant under gauge functions vanishing
+at the window endpoints.  Replacing either path over the same closed two-step
+class, with both fields and the other path fixed, gives an exact off-shell
+clock-plus-interaction action difference, not by itself an equation of motion.
+At $q=1$ and $h=1/2$, crossings of seams $0$ and $29$ recover an explicit
+nonzero-current, Coulomb-started field-stationary inhabitant.  It fails the
+declared closed-two-step exchange-stationarity condition in both path slots:
+for every $N\ge1$, delaying either the positive seam-$0$ crossing or the
+negative seam-$29$ crossing while fixing the fields and the other path changes
+the same action by $5/12$ for every pair of clock-unit values within the fixed
+quadratic clock-action form.  The two results are charge conjugates; applying
+both canonical exchanges simultaneously changes the action by $5/6$.  These
+are only the displayed discrete exchanges, not continuum first-variation
+claims or a no-go for other paths, fields, or action shapes.
+At the separately declared clock unit $\tau=3$, both initial increments are
+timelike in the carrier's Lorentz-module metric; $\tau$ is independent of
+$h$, and the identification $\tau=h=1/2$ would instead make the crossing
+spacelike.  The charge,
+paths, step, clock units, coupling shape, and variation class remain declared;
+no joint path stationarity, laboratory-time calibration, or continuum limit
+is claimed
+(\path{Lean/Screen/SeamChargeContinuity.lean},
+\path{Lean/Screen/NeutralPairCoupledAction.lean}).
+
 Inside the rest-diluted class the law reads as a position law. A general
 one-step replacement with shifted later ports has the exact difference of
 the one-step clock term plus \(q\) times the pairing difference at the step
@@ -2739,10 +2773,39 @@ initial state. On all nineteen nonzero curl modes, the weighted energy form
 is positive definite, its real and Hermitian forms are flow-invariant, its
 complex coordinates have the explicit phase generator, its diagonal is the
 field energy, and the coefficient state is recoverable from potential and
-electric readouts. This is a finite coefficient-space result, not an
-identification with physical time, a photon Hilbert space, or the
-private-algebra Stone flow. The step and the flow parameter remain declared
-(\path{Lean/Screen/CurlSectorEigenbasis.lean}).
+electric readouts.  After conjugating the coefficient orientation, the packet
+has an exact finite Stone representation for the selected principal-angle
+interpolation on a separately constructed
+$M_{19}(\mathbb C)$ block: the self-adjoint diagonal Hamiltonian has
+$H_{ii}=\theta_i/h$, its propagator is $e^{-iH t}$, and conjugation of
+the coefficient outer product is exactly the outer product of the evolved
+coefficient state.  The vector intertwiner retains absolute phase; the
+rank-one outer product loses global phase and retains relative phases only.
+The energy-weighted outer product has trace equal to the assembled
+field-energy Hermitian norm.  A selected mode is driven by the joined scalar
+clock at discrete steps under the sufficient calibrations $\delta=h$ and
+$m=\theta_i/h$.  The $19$-index block is not a
+relabelling of the committed $M_2(\mathbb C)$ private carrier, the committed
+witness fails the duration calibration, and the eigenvalue-two and
+eigenvalue-three principal-branch frequencies are unequal throughout the
+strict positive window.  Thus no one identical scalar rate equals every
+selected principal-branch mode frequency.  That statement does not exclude a
+shared time parameter, phase aliases, harmonics, finite-horizon decoding,
+mode-resolved rates, or operator-valued readout.  There are five distinct
+frequencies among the nineteen coordinates; the logarithm branch is selected
+rather than uniquely derived from the discrete step, and the two displayed
+calibrations are sufficient rather than necessary modulo $2\pi$ aliases.  The
+coefficient input is arbitrary and is not proved to be the joined record's
+actual Maxwell history.  The rank-one projective image is neither onto
+$M_{19}(\mathbb C)$ nor an algebra homomorphism, and it is not an equivalence
+with the committed private algebra.  A physical bridge therefore
+requires a specified compression/channel, a selected lower-dimensional
+sector, or an enlarged private carrier.  This is not a source-selected public
+representation or Hamiltonian, physical time calibration, photon
+Hilbert-space identification, or laboratory Schr\"odinger law.  The step and
+flow parameter remain declared
+(\path{Lean/Screen/CurlSectorEigenbasis.lean},
+\path{Lean/Screen/CurlStoneClockBridge.lean}).
 
 These modes are sorted by the carrier's own symmetry. The sixty listed
 icosahedral port permutations induce signed permutations of the seams

@@ -2382,7 +2382,42 @@ the closed carrier one hopping charge alone is admissible only at zero charge
 and a join carries a neutral partner or a neutralising background
 (\path{Lean/Screen/SeamChargeContinuity.lean}).
 
-The two registers are joined by no theorem. Physical matter fields, the Dirac
+The neutral-partner branch is realized by one finite action on this carrier,
+not by adding independently prescribed background sources after variation.
+Two declared seam-step worldlines carry charges $q$ and $-q$, and the action
+is the source-free Maxwell window functional plus both minimal-coupling terms
+and both clock terms.  For $h\ne0$ it is invariant under gauge functions that
+vanish at the two window endpoints.  Its load is neutral at every step and its
+summed load and current obey the continuity equation identically.  Variation
+of this same action in the two field slots, with the seam-potential endpoints
+fixed, is equivalent to the sourced scaled Amp\`ere equations at $m<N$ and
+Gauss equations at $n<N+1$ for those two worldlines.  A closed two-step
+replacement of either path, with the other path and the fields fixed, gives an
+exact off-shell clock-plus-interaction action difference; this identity is not
+by itself a path equation of motion.  At $q=1$, $h=1/2$, the opposite crossings
+of seams $0$ and $29$ recover the explicit nonzero-current Coulomb-started
+history and make its field-sector stationarity non-vacuous.  The same packet
+fails the declared closed-two-step exchange-stationarity condition in both
+path slots: for every $N\ge1$, delaying either the positive seam-$0$ crossing
+or the negative seam-$29$ crossing while fixing the fields and the other path
+changes the action by $5/12$ for every pair of clock-unit values within the
+fixed quadratic clock-action form.  The two results are charge conjugates, and
+applying both canonical exchanges simultaneously changes the action by
+$5/6$.  These are only the displayed discrete exchanges, not continuum
+first-variation claims or a no-go for other paths, fields, or action shapes.
+At the separately
+declared clock unit $\tau=3$, both initial carrier
+increments are timelike in the existing Lorentz-module metric
+(\path{Lean/Screen/NeutralPairCoupledAction.lean}).  This closes the narrow
+same-action composition gap for a declared neutral pair.  It does not select
+the pair, the charge, the step, the coupling or clock terms, or a jointly
+stationary path.  In particular $\tau=3$ is independent of $h=1/2$; setting
+$\tau=h$ would make a crossing spacelike.  The timelike statement is
+carrier-internal and supplies no laboratory-time calibration or continuum
+limit.
+
+The exterior-algebra gauge register and the transported port-load register
+are joined by no theorem. Physical matter fields, the Dirac
 kinetic operator, the spin lift, family multiplicity, and a source-selected
 matter action are unsupplied.
 
@@ -2513,14 +2548,43 @@ radical; gradient velocity/electric directions are non-null. Every
 zero-current temporal-gauge solution is the assembled history of a
 coefficient state
 (\path{Lean/Screen/FieldSectorEnergyInnerProduct.lean},
-\path{Lean/Screen/CurlSectorEigenbasis.lean}). Reading the group
-parameter as physical time is the declared clock and duration premise. The
-listed rows are orthogonal rather than normalised, but normalisation is not a
-premise of the weighted energy form. The proved finite coefficient-space
-Hermitian isometry is not identified with a physical photon Hilbert space or
-with the private-algebra Stone flow, so no Schr\"odinger reading follows.
-These modules identify no physical field, source-produced charge
-or current, clock, photon Hilbert space, or massless physical particle.
+\path{Lean/Screen/CurlSectorEigenbasis.lean}).  Complex-conjugating the
+coefficient orientation puts this entire packet in exact Schr\"odinger-sign
+form for the selected principal-angle interpolation, on a separately constructed
+$M_{19}(\mathbb C)$ block: the diagonal
+self-adjoint Hamiltonian has entries
+$\omega_i=\theta_i/h$, its Stone propagator is the diagonal phase
+$e^{-i\omega_i t}$, and conjugation of the coefficient outer product is
+exactly the outer product of the evolved coefficient state.  The vector
+intertwiner retains absolute phase; the rank-one outer product loses global
+phase and retains relative phases only.  With the energy weights, its trace is
+the assembled field-energy Hermitian norm.  For any one selected mode, the
+joined scalar clock drives the same phase at the discrete steps under the
+sufficient calibrations $\delta=h$ and $m=\omega_i$
+(\path{Lean/Screen/CurlStoneClockBridge.lean}).  The bridge also proves its
+own limits: the new nineteen-dimensional index is not a relabelling of the
+committed two-dimensional private carrier, the committed joined witness fails
+the duration calibration, and the eigenvalue-two and eigenvalue-three
+principal-branch frequencies differ throughout the positive strict window.
+Thus no one identical scalar rate equals every selected principal-branch
+frequency.  This narrow result excludes neither a shared time parameter nor
+phase aliases, harmonics, nonlinear finite-horizon decoding, mode-resolved
+rates, or operator-valued readout.  There are five distinct frequencies among
+the nineteen coordinates.  The logarithm branch is selected rather than
+uniquely recovered from the discrete step, and the displayed calibration is
+sufficient rather than necessary modulo $2\pi$ phase aliases.  Moreover the
+coefficient input is arbitrary: no theorem identifies it with the actual
+history in the joined Maxwell record.  The rank-one projective image is not an
+algebra homomorphism or an equivalence with the committed $M_2(\mathbb C)$
+record algebra; a viable bridge needs a specified compression/channel, a
+selected lower-dimensional sector, or an enlarged private carrier.  Reading
+the group parameter as physical time remains the declared clock and duration
+premise.  The listed rows are orthogonal rather than normalised, but
+normalisation is not a premise of the weighted energy form.  These modules
+therefore identify no source-selected public representation or Hamiltonian,
+physical photon Hilbert space, laboratory Schr\"odinger evolution, physical
+field, source-produced charge or current, calibrated clock, or massless
+physical particle.
 \end{boundary}
 
 \subsection{How far the Lagrangian is carried}
