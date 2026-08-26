@@ -801,7 +801,17 @@ P_{12}\;\cong_{A_5}\;\mathbf 1\oplus\mathbf 3\oplus\mathbf 3'\oplus\mathbf 5,
 \label{eq:bands}
 \end{equation}
 an exact multiplicity-free decomposition obtained by standard finite-group
-character theory \cite{serre1977} and checked by certified projectors. Second,
+character theory \cite{serre1977} and checked by certified projectors. The two
+triplet bands are machine-checked at the level of the projectors themselves.
+On the six-dimensional golden sector the spectral projectors have entries in
+$\tfrac1{20}\mathbb Z[\varphi]$ with eigenvalues $2\varphi^2$ and
+$2/\varphi^2$, each is the entrywise Galois conjugate of the other, their
+characters take the values $3,-1,0$ off the order-five classes and $\varphi$
+or $1-\varphi$ on the twenty-four order-five elements, and a Burnside span
+certificate makes each piece an irreducible real representation of the listed
+automorphism group. Irreducibility over the complex numbers is read from the
+span being the full endomorphism algebra, an inference outside the theorems.
+Second,
 record keeping is integer valued: a write appends $+1$, a
 retraction appends $-1$, and readback sums atomic events per port; a
 conservative repair transfers one unit across a seam whenever the oriented
@@ -1425,15 +1435,14 @@ $V_\alpha\otimes H_{L,\alpha}\subset\widetilde H_L$.
 \end{theorem}
 
 \begin{proof}
-The tensor product of the two representation decompositions contains
-$V_\alpha\otimes V_\beta^*$. Schur's lemma gives a one-dimensional invariant
-space when $\alpha=\beta$ and zero otherwise, yielding the invariant direct
+Schur's lemma on $V_\alpha\otimes V_\beta^*$ gives a one-dimensional invariant
+space at $\alpha=\beta$ and zero otherwise, which yields the invariant direct
 sum and the center of its sector-preserving algebra. The partial trace of
 $|\Omega_\alpha\rangle\langle\Omega_\alpha|$ over $V_\alpha^*$ is
-$I_{V_\alpha}/d_\alpha$. The displayed expression for $\rho_L$ follows.
-Entropy of a block-diagonal state is the Shannon entropy of the block weights
-plus the mean block entropy. Tensor-product additivity contributes
-$\log d_\alpha$ from each maximally mixed representation factor, and
+$I_{V_\alpha}/d_\alpha$, giving the displayed $\rho_L$. Entropy of a
+block-diagonal state is the Shannon entropy of the block weights plus the mean
+block entropy, tensor-product additivity contributes $\log d_\alpha$ from each
+maximally mixed factor, and
 $\operatorname{Tr}(\rho_LZ_L)=\sum_\alpha p_\alpha\log d_\alpha$.
 \end{proof}
 
@@ -2353,19 +2362,18 @@ are the same object up to normalization. The $U(1)$-valued seam connections
 modulo port gauge transformations are classified exactly by their nineteen
 chord holonomies, the first cohomology of the thirty-seam graph with circle
 coefficients being $U(1)^{19}$, matching the source-free Gauss cycle rank. The
-twenty oriented faces give a genuinely local curvature $CA$ with $C$ of rank
-nineteen and kernel exactly the port gradients, and $C^{\mathsf T}C$ carrying
-five nonzero entries per seam row. The local quadratic action is gauge
+twenty oriented faces give a genuinely local curvature $CA$, with $C$ of rank
+nineteen, kernel exactly the port gradients, and five nonzero entries per seam
+row in $C^{\mathsf T}C$. The local quadratic action is gauge
 invariant exactly for conserved seam currents, its stationary points exist
 exactly for those currents, and they are global minima unique modulo gauge.
 
 A transverse oscillator completion connects this static sector to the
-dispersion branch. At every nonzero momentum the momentum-orthogonal fiber has
-real dimension two, the scalar symbol acts equally on that fiber, and an
-explicit boundary map carries the supplied mode dynamics onto the
-opposite-sign curl pairing at the identified frequency, exactly, with both
-modal divergence constraints preserved and the same-sign mutation failing the
-wave law.
+dispersion branch: at every nonzero momentum the momentum-orthogonal fiber has
+real dimension two, the scalar symbol acts equally on it, and an explicit
+boundary map carries the supplied mode dynamics onto the opposite-sign curl
+pairing at the identified frequency, with both modal divergence constraints
+preserved and the same-sign mutation failing the wave law.
 
 \begin{boundary}
 The intertwining is a factorization rather than an equivalence, and the modal
@@ -2373,10 +2381,21 @@ wave statement depends on choosing the spatial symbol as the oscillator
 stiffness. A finite packet adds a typed continuity equivalence conditional on
 the declared unit-step Amp\`ere recurrence, whose Faraday identity, gauge
 invariance, static Coulomb join, and staggered quadratic-form balance are
-exact while the form is unproved positive and the committed spectrum has
-unit-step growing modes. These modules identify no physical field, physical
-time, source-produced charge or current, clock, photon Hilbert space, or
-massless physical particle.
+exact. The staggered form is nonnegative and every zero-current solution
+bounded inside the sharp window $h^2(3+\sqrt5)<4$, while the committed unit
+step lies above that window and admits growing modes. Inside it, for every
+eigenvector of the local operator with eigenvalue $\lambda$ and a step $h$
+with $0<h^2\lambda<4$, the zero-current temporal-gauge evolution on the
+amplitude-velocity plane is a determinant-one symplectic map conjugate to the
+rotation by $\arccos(1-h^2\lambda/2)$, it embeds in a continuous one-parameter
+group whose $h$-step it is, and that group preserves the committed staggered
+energy; on the kernel, which is exactly the gradient space, the evolution is
+the $h$-step of the shear flow. Reading the group parameter as physical time
+is the declared clock and duration premise, no Hilbert inner product is
+declared so no Schr\"odinger reading follows, and extending the embedding to
+the whole curl sector requires an unselected basis of nineteen orthogonal seam
+eigenvectors. These modules identify no physical field, source-produced charge
+or current, clock, photon Hilbert space, or massless physical particle.
 \end{boundary}
 
 \subsection{How far the Lagrangian is carried}
@@ -2577,60 +2596,48 @@ Q=\frac23
 \end{theorem}
 
 \begin{proof}
-The three cosines at angles separated by $2\pi/3$ sum to zero, and their
-squares sum to $3/2$. Hence
-$\sum_k\lambda_k=3a$ and
-$\sum_k\lambda_k^2=3a^2+6\rho^2$. With
-$m_k=s\lambda_k^2$ and $\sqrt{m_k}=\sqrt s\,\lambda_k$, the ratio is
-\[
-Q=\frac{s(3a^2+6\rho^2)}{s(3a)^2}
-=\frac13+\frac23\left(\frac\rho a\right)^2 .
-\]
-The equivalence follows by solving $Q=2/3$ for $\rho/a$ on $a>0$,
-$\rho\ge0$.
+The three cosines at angles separated by $2\pi/3$ sum to zero and their squares
+sum to $3/2$, so $\sum_k\lambda_k=3a$ and
+$\sum_k\lambda_k^2=3a^2+6\rho^2$. With $m_k=s\lambda_k^2$ the ratio is
+$Q=(3a^2+6\rho^2)/(3a)^2=\tfrac13+\tfrac23(\rho/a)^2$, and solving $Q=2/3$ on
+$a>0$, $\rho\ge0$ gives the equivalence.
 \end{proof}
 
-The phase $\delta$ cancels from $Q$ and jointly controls the two mass
-ratios, so the identity constrains one combination of the spectrum exactly
-while leaving two ratios free. Equal rank-two event blocks in the finite
-tracial Gelfand--Naimark--Segal packet supply the balance $\rho/a=1/\sqrt2$
-exactly under the declared tracial premises; the Lean development checks
-the circulant identity and the equivalence \cite{ophkoide}.
+The phase $\delta$ cancels from $Q$ while jointly controlling the two mass
+ratios, so the identity constrains one combination of the spectrum exactly and
+leaves two ratios free. Equal rank-two event blocks in the finite tracial
+Gelfand--Naimark--Segal packet supply the balance $\rho/a=1/\sqrt2$ exactly
+under the declared tracial premises, and the Lean development checks both the
+circulant identity and the equivalence \cite{ophkoide}.
 
-Under the balance and mass-ordering premises, the measured electron and
-muon masses \cite{pdg2026} determine the tau mass through one quadratic,
-and the comparison is governed by a prospectively fixed conditional test whose
-target definition, precision floor of $0.045$~MeV, and decision rule were
-fixed before comparison with any post-registration measurement
-\cite{ophregister}. The
-outward-rounded enclosure is
-$[1776.968991,\allowbreak\,1776.969063]$~MeV, a $72$-eV window whose
-center sits $0.43\sigma$ from the measured $1776.93\pm0.09$~MeV
-\cite{pdg2026}. The premise ancestry is declared: the balance premise was
-first abstracted from the measured triple, so this is a target-informed
-conditional postdiction whose evidential weight lies in the kill
-direction. A world-average or dedicated-measurement central value more
-than three standard uncertainties from $1776.969027$~MeV refutes the
+Under the balance and mass-ordering premises the measured electron and muon
+masses \cite{pdg2026} determine the tau mass through one quadratic, governed by
+a prospectively fixed conditional test whose target definition, precision floor
+of $0.045$~MeV, and decision rule were fixed before comparison with any
+post-registration measurement \cite{ophregister}. The outward-rounded enclosure
+is $[1776.968991,\allowbreak\,1776.969063]$~MeV, a $72$-eV window whose center
+sits $0.43\sigma$ from the measured $1776.93\pm0.09$~MeV. The premise ancestry
+is declared, the balance having been abstracted from the measured triple, so
+this is a target-informed conditional postdiction whose evidential weight lies
+in the kill direction: a world-average or dedicated central value more than
+three standard uncertainties from $1776.969027$~MeV refutes the
 balanced-circulant premise, and with it the equal-rank-two-block tracial
-reading of the face-circulant sector, the only exact family-sector
-mechanism this framework offers. The surface supplies no physical family
-attachment or phase selection, so it is logically
-independent of the diagnostic below.
+reading of the face-circulant sector, the only exact family-sector mechanism
+this framework offers. The surface supplies no physical family attachment or
+phase selection.
 
 \subsection{The charged-lepton interval diagnostic}
 
-A finite eight-path carrier combined with an empirical electromagnetic
-transport packet yields outward-rounded enclosures for the three charged
-leptons with logarithmic half-width $1.732\%$, one-sided multiplicative
-widths $-1.72\%$ and $+1.75\%$, under the declared payload-coherent
-anchor-gap premise; the premise-free independent-gap enclosures have
-half-width $6.554\%$. The measured triple lies inside all three coherent
-enclosures \cite{ophzoo}. Measured mass ratios and transport anchors enter
-this branch, so the result is a diagnostic of internal closure: it gives a
-sharp surface that a source-emitted transport bridge must hit, without
-claiming a source-only mass prediction. A physical charged determinant
-line, an absolute clock, and a source-emitted transport bridge are the maps
-an endpoint prediction requires.
+A finite eight-path carrier with an empirical electromagnetic transport packet
+yields outward-rounded enclosures for the three charged leptons of logarithmic
+half-width $1.732\%$, one-sided widths $-1.72\%$ and $+1.75\%$, under the
+declared payload-coherent anchor-gap premise, against $6.554\%$ for the
+premise-free independent-gap enclosures; the measured triple lies inside all
+three coherent enclosures \cite{ophzoo}. Measured mass ratios and transport
+anchors enter the branch, so this is a diagnostic of internal closure giving a
+sharp surface that a source-emitted transport bridge must hit, and a physical
+charged determinant line, an absolute clock, and that bridge are the maps an
+endpoint prediction requires.
 
 \subsection{The electroweak chart and strict pole-consumer checks}
 \label{sec:wz-pole-stack}
@@ -2680,11 +2687,10 @@ concave, so the zero-transfer point is a one-sided boundary maximum.
 \end{proposition}
 
 \begin{proof}
-Expanding $D(p\Vert d/M)=\sum_ip_i\log p_i-\sum_ip_i\log d_i+\log M$ gives
-the identity, and nonnegativity of relative entropy with equality at
-$p=d/M$ gives the maximum. Uniform depletion replaces $M$ by $(1-f)M$, so
-the maximum changes by $\log(1-f)$. Monotonicity and concavity of
-$f\mapsto\log(1-f)$ are elementary.
+Expanding $D(p\Vert d/M)$ gives the identity, and nonnegativity of relative
+entropy with equality at $p=d/M$ gives the maximum. Uniform depletion replaces
+$M$ by $(1-f)M$, so the maximum changes by $\log(1-f)$, whose monotonicity and
+concavity are elementary.
 \end{proof}
 
 Identifying capacity with horizon area, the transfer coordinate with
@@ -3084,13 +3090,12 @@ supplies \(a_{\min}>0\) and a preregistered power and remainder contract makes
 the entire admitted manifold excludable.
 
 \paragraph{Exposed source-seam diagnostics.}
-Published time-of-flight and air-shower dispersion bounds translate, under the
-external subluminal quadratic convention \(a=\sqrt{20}/E_{\mathrm{QG},2}\) and
-a list of premises including Lorentz-invariant leptons, additive conservation
-in a preferred frame, and photon-only Lorentz violation, into carrier-scale
-limits reaching \(a<0.546\,\ell_P\)
-\cite{xishu2025,lhaaso2024,auger2022}. These are conditional diagnostics with
-no derived scale, and they carry no verdict or evidence weight.
+Under the external subluminal quadratic convention
+\(a=\sqrt{20}/E_{\mathrm{QG},2}\), and premises including
+Lorentz-invariant leptons and photon-only Lorentz violation, published
+time-of-flight and air-shower bounds translate into carrier-scale limits
+reaching \(a<0.546\,\ell_P\) \cite{xishu2025,lhaaso2024,auger2022}. These
+conditional diagnostics derive no scale and carry no evidence weight.
 
 \paragraph{Primitive-port prediction and decision rule.}
 Proposition~\ref{prop:spin-six-prediction} is a frozen prospective conditional
@@ -3429,14 +3434,13 @@ named receipts, thermodynamics is recovered rather than imported.
 
 \subsection{What fails together}
 
-Record germs say when two finite histories describe the same event and how
-nearby events are distinguished, and a spacetime appears when those local
-descriptions cover the completed event set, agree on overlaps, and carry one
-compatible causal cone. Theorem~\ref{thm:event-manifold} packages that into a
-sufficient criterion; it selects neither four dimensions nor Lorentz signature
-from weaker data, and no certified cofinal limit is supplied. On the other
-branch the carrier exposes twelve response channels, icosahedral symmetry
-groups them into four inequivalent bands, complete reversible response closes
+Record germs say when two finite histories describe the same event, and a
+spacetime appears when those local descriptions cover the completed event set,
+agree on overlaps, and carry one compatible causal cone;
+Theorem~\ref{thm:event-manifold} packages that into a sufficient criterion
+which selects neither four dimensions nor Lorentz signature from weaker data.
+On the other branch the carrier exposes twelve response channels grouped by
+icosahedral symmetry into four bands, complete reversible response closes
 their public tangent under commutators, and observer agreement requires
 rechartings to act inside that same response, so compactness and the single
 fixed line leave the Standard Model gauge Lie type. A separate matter module
@@ -3610,24 +3614,21 @@ input. Those reconstructions derive the quantum state space itself from
 operational axioms, while OPH takes the finite algebra-state representation as
 an explicit input and contributes the completed-record surface on which the
 identities operate together with the consensus theorem that defines
-completion. Three neighbors calibrate the record story. Quantum Darwinism
-locates classical objectivity in redundant environmental records accessible to
-many observers \cite{zurek2003}, and the completed-consensus record plays the
-same public role with redundancy replaced by protected overlap agreement and
-an explicit repair dynamics. The cellular-automaton program reconstructs
-quantum mechanics from a deterministic finite substrate \cite{thooft2016};
-OPH shares the finite substrate and locates the quantum identities on the
-completed record surface rather than in an underlying ontological basis.
-Wigner's-friend extensions constrain theories whose agents reason about one
-another's unfinished measurements \cite{fr2018}, and the public records here
-are post-consensus objects by construction, so those no-go premises concern
-pre-consensus perspectives the completed surface does not represent.
-Relational quantum mechanics treats physical facts as relational
-\cite{rovelli1996} and the thermal-time program reads time from modular
-structure \cite{connesrovelli1994}; OPH combines both themes by attaching
-public facts to protected overlap records and consuming normalized modular
-flow only on a typed common tower, and its local-diamond proof has a direct
-neighbor in asynchronous agreement \cite{lamport1982,flp1985}.
+completion. Four neighbors calibrate the record story. Quantum Darwinism locates classical
+objectivity in redundant environmental records \cite{zurek2003}, and the
+completed-consensus record plays the same public role with redundancy replaced
+by protected overlap agreement and an explicit repair dynamics. The
+cellular-automaton program shares the finite substrate \cite{thooft2016},
+while OPH locates the quantum identities on the completed record surface
+rather than in an underlying ontological basis. Wigner's-friend extensions
+constrain agents reasoning about one another's unfinished measurements
+\cite{fr2018}, whose premises concern pre-consensus perspectives that the
+completed surface does not represent. Relational quantum mechanics treats
+physical facts as relational \cite{rovelli1996} and the thermal-time program
+reads time from modular structure \cite{connesrovelli1994}; OPH attaches
+public facts to protected overlap records and consumes normalized modular flow
+only on a typed common tower, with its local-diamond proof neighboring
+asynchronous agreement \cite{lamport1982,flp1985}.
 
 The gravitational branch belongs to the family of thermodynamic and
 entanglement-based routes to geometry
