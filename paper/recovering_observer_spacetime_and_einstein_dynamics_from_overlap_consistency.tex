@@ -104,6 +104,23 @@ expectations with unequal ledgers, so the affine reading is specific to
 that clause. Nothing derives that the record reference is Gibbs and nothing
 selects \(\beta\); the identification stays conditional on the declared
 row (\path{Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean}).
+The collar modular surface does not supply that inverse temperature. Its
+one thermal object, the reference on the realized branch of the declared
+maximum-entropy constraint, with modular Hamiltonian \(K=\lambda\cdot S\)
+on the four joint sectors, has spectral
+weights equal to the Gibbs state of \(K\) at \(\beta=1\) in modular units,
+and for every nonzero \(\beta\) they equal the Gibbs state of \(K/\beta\)
+at \(\beta\), so every temperature declaration inhabits the calibration row
+for the collar reference and two declarations with different \(\beta\)
+both do; a declared energy with two distinct levels pins \(\beta\), a
+declared \(\beta\) pins the energy up to a constant, and the collar
+reference is Gibbs for an energy \(H\) at \(\beta\) exactly when
+\(K=\beta H+\mathrm{const}\). The collar functional is KMS at parameter one
+for the inner flow of \(K\) and at parameter \(\beta\) for the flow of
+\(K/\beta\), so the KMS parameter and the inverse temperature trade
+against the energy scale. The identification of the collar weights with
+the record reference of the cap first law stays declared
+(\path{Lean/Thermodynamics/CollarTemperatureReading.lean}).
 
 A second three-dimensional construction is local and Euclidean. For the
 declared twelve-port repair mean, the centered equal-port response kernel has

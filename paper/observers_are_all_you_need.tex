@@ -2162,6 +2162,33 @@ the seam endpoints only. The charge is unconstrained by the field sector,
 and the path, charge, step, and coupling shape are declared
 (\path{Lean/Geometry/PortChargeMinimalCoupling.lean}).
 
+The monopole route joins the clock action through a declared class of
+worldlines. A seam-step worldline is a declared start port and a declared
+step sequence, each step a rest or a signed seam of the carrier map
+candidate; it generates a Lorentz-module path with time coordinate
+\(\tau n\) for a declared unit \(\tau\) and spatial coordinate the
+cumulative sum of the signed seam vectors, and a hopping port path. The
+seam vector is the ray difference of its endpoints in
+\(\mathbb Z[\varphi]^3\), and at every step the ray of the occupied port
+minus the ray of the start equals the spatial coordinate exactly, so the
+injective ray map reads the port off the path. At every crossing step the
+E-paired induced load at the two endpoints of the stepped seam equals
+\(-(\kappa/h)(12-4\varphi)\) times the step difference of the unit hopping
+load, and equals the hopping step difference of charge \(q\) at
+\(\kappa=-qh/(12-4\varphi)\); the worldline seam current is the
+\(\mathbb Z[\varphi]\) pairing of each seam vector with the stepped vector,
+\(\pm4\) at the stepped seam and at its antipodal seam (the two carry one
+vector) and nonzero at a neighbouring seam, and the hopping current is
+\(-(q/h)\) times its projection onto the stepped seam
+divided by four. The transported action, the monopole coupled action plus
+the clock action of the generated path, has field-sector stationarity
+equal to the committed Amp\`ere and Gauss equations at the transported
+sources; the clock action is \(\sum(\tau^2-4)\) over crossings plus
+\(\sum\tau^2\) over rests, timelike exactly when \(\tau^2>4\). Distinct
+units give distinct paths with one hopping path and one source family, and
+the unit is unconstrained by the field sector
+(\path{Lean/Geometry/WorldlineHopTransport.lean}).
+
 The slope with which internal energy enters inertia is then selected by
 two declared principles, each with an exact theorem. On the momentum map,
 let the composite four-momentum range over the declared family
@@ -2537,6 +2564,33 @@ index, with ratio \(7155p/61511\) under every declared tick. The step, the
 gauge, and the kinetic term are declared; the repair-layer no-periodic-orbit
 theorems and these field-sector periods have disjoint scope
 (\path{Lean/Screen/CarrierModeOscillators.lean}).
+
+These modes are sorted by the carrier's own symmetry. The sixty listed
+icosahedral port permutations induce signed permutations of the seams
+and orientation-preserving permutations of the faces, the signed
+face--seam incidence is invariant under the simultaneous action on all
+\(60\times20\times30\) triples, and so the curvature, the codifferential,
+the local operator, the five spectral projectors, the mode histories, the
+scaled Amp\`ere evolution for every step, potentials, and current, and the
+staggered energy commute with the action, all by kernel checks on the
+committed tables (the intertwining of the operators, fields, evolution,
+and energy under the same sixty rows was proved with the carrier dynamics
+compatibility; new here are the explicit signed actions with their
+composition laws, the projector and eigenspace invariance, the mode
+transport, and the characters). The constant face vector spans the fixed
+eigenvalue-zero
+line, the element orders are \(1,2,3,5\) with class sizes \(1,15,20,24\),
+and the traces of the action on the projector images by element order are
+\(1\); \(5,1,-1,0\); \(4,0,1,-1\); \(4,0,1,-1\); \(6,-2,0,1\), with
+character norms \(60,60,60,120\). Read with the orthogonality relations,
+an inference outside the checked statements, the face space decomposes as \(1\oplus5\oplus4\oplus4\oplus(3\oplus3')\),
+the two four-dimensional eigenspaces carrying one irreducible
+representation and the golden sector the two three-dimensional ones; the
+checked characters do not separate the two order-five classes, so the
+split of the golden sector by eigenvalue is an observation. The field
+modes are thus sorted by the same group that sorts the matter sectors,
+with the identification of a mode with a physical oscillation open
+(\path{Lean/Screen/CarrierModeEquivariance.lean}).
 
 The two attained faces of mechanics are joined by a finite Legendre bridge,
 also checked in Lean~\cite{ophrepo}.  For discrete two-point Lagrangians the

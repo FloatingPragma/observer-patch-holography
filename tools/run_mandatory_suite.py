@@ -997,6 +997,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "tools/test_mass_energy_selection_surfaces.py",
         ],
     ),
+    (
+        "Execute the second-wave transport and collar cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_second_wave_surfaces.py",
+        ],
+    ),
 ]
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [

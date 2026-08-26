@@ -7881,6 +7881,128 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+      "statement": "Seam-step worldlines of the declared carrier map candidate transport to hopping port paths. A seam-step worldline is a declared start port and a declared step sequence, each step a rest or a signed seam; it generates a Lorentz-module path with time coordinate tau n for a declared unit tau and spatial coordinate the cumulative sum of the signed seam vectors, and a hopping port path whose adjacency is kernel-checked. The seam vector is the ray difference of its endpoints in Z[phi]^3, and at every step the ray of the occupied port minus the ray of the start equals the spatial coordinate exactly; the ray map is injective, so the port is read off the path. At every crossing step the E-paired induced load of the generated path at the two endpoints of the stepped seam equals -(kappa/h)(12 - 4 phi) times the forward step difference of the unit hopping load, both vanish at a rest step, and at kappa = -(q h)/(12 - 4 phi) the endpoint loads equal the hopping step differences of charge q; the agreement is endpoint-local, with the off-endpoint spread exhibited in the hopping-charge module. The worldline seam current of a step is the Z[phi] pairing of each seam vector with the stepped vector, +/- 4 at the stepped seam and at its antipodal seam, which carries the same vector, and nonzero at a neighbouring seam (value 2 exhibited), and the hopping current is -(q/h) times its projection onto the stepped seam divided by 4. The transported action, the monopole coupled action plus the committed clock action of the generated path, has field-sector stationarity equal to the committed scaled Ampere and Gauss equations at the augmented hopping sources; the clock action is the sum of tau^2 - 4 over crossings and tau^2 over rests, and a crossing step is timelike exactly when tau^2 > 4. Distinct units give distinct generated paths with one hopping path and one induced-source family; the unit is unconstrained by the field sector. The step class, the transport, the unit, and the coupling shapes are declared; every shape is a declared enrichment by the realized-history Legendre non-identifiability, cited at its scope. The module touches the coupled-action row, the physical spacetime attachment row, the source clock and duration row, the light-signal row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_transport_theorems_under_a_declared_step_class_and_time_unit",
+      "assumptions": [
+        "declared_hopping_port_charge_and_minimal_coupling",
+        "declared_seam_step_worldline_class_and_time_unit",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "kernel_checked_ray_and_seam_tables_over_the_golden_integers"
+      ],
+      "oph_specific_delta": "Joins the monopole route to the clock action: a worldline moving along the seams of the declared carrier map determines its hopping charge exactly through the ray map, the committed polarization load is the endpoint step difference of that charge at every crossing at the committed charge fixing, the two currents are related by an explicit projection, and the joint action has the committed field equations at the transported sources with the timelike threshold of the seam step computed exactly.",
+      "novelty_type": "machine_checked_worldline_to_port_charge_transport_with_endpoint_bridge_and_timelike_threshold",
+      "evidence": [
+        "Lean/Geometry/WorldlineHopTransport.lean",
+        "Lean/Geometry/PortChargeMinimalCoupling.lean",
+        "Lean/Geometry/ChargeFixedInteraction.lean",
+        "Lean/Geometry/ScreenCarrierMapCandidate.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The seam-vector relation, the ray identity, the injectivity, an endpoint transport value, the rest case, the projection identity, the seam-current values, the transported field equations, the clock-action formula, the timelike threshold, or the non-forcing statements fail; or the module is presented as deriving the step class or the unit from the source.",
+      "scope_if_false": "Only the transport falls. The hopping-charge coupling, the charge-fixed interaction, and the carrier map candidate are separately assessed.",
+      "status": "transport_attained__step_selection_unit_and_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-THERMO-COLLAR-TEMPERATURE-READING",
+      "statement": "The collar modular surface pins no inverse temperature for the Gibbs ledger reading. Its one thermal object, the reference on the realized branch of the declared maximum-entropy constraint, with modular Hamiltonian K = lambda . S on the four joint sectors, has spectral weights equal to the corpus Gibbs state of K at beta one in modular units; for every nonzero beta those weights equal the Gibbs state of K / beta at beta, so every temperature declaration inhabits the calibration row for the collar reference with energy K / beta, and two declarations with different beta both do (the negative, exact). A declared energy with two distinct levels pins beta, a declared nonzero beta pins the energy up to an additive constant, and the collar reference is the Gibbs state of an energy H at beta exactly when K = beta H + constant. Against its own weights the ledger of a faithful state is its Shannon entropy; the collar affine law and the Clausius form hold at beta one. The collar density is the Gibbs density of K at one, its functional is KMS at parameter one for the inner flow of K, and it is KMS at parameter beta for the flow of K / beta for every nonzero beta, so the KMS parameter and the inverse temperature trade against the energy scale. The laboratory conversion through the declared tick gives two readings for two ticks and two readings for two declarations. The identification of the collar weights with the record reference of the cap first law and the split K = beta H are declared. The module touches the gravitation-route energy identification and the calibration import and discharges neither.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "exact_negative_with_dictionary_under_declared_collar_reference_identification",
+      "assumptions": [
+        "declared_gibbs_calibration_row_and_temperature",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "finite_gibbs_state_rescaling_identity",
+        "finite_kms_identity_for_inner_flows"
+      ],
+      "oph_specific_delta": "Answers the question whether the collar modular surface supplies the temperature of the Gibbs ledger reading: it does not, because a modular Hamiltonian alone leaves the inverse temperature free against the energy scale, and the exact dictionary between the modular normalization, a declared energy, and beta is proved in both directions, with the collar KMS parameter shown to trade against the scale in the same way.",
+      "novelty_type": "machine_checked_negative_collar_temperature_with_modular_scale_dictionary",
+      "evidence": [
+        "Lean/Thermodynamics/CollarTemperatureReading.lean",
+        "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+        "Lean/ObserverPatchHolography/CollarStates.lean",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
+      ],
+      "falsifier": "The collar weights differ from the Gibbs state of K at one, the rescaling identity fails, the two-declaration inhabitant fails, a dictionary direction fails, the entropy identity fails, a KMS identity fails, or the module is presented as deriving a temperature or as identifying the collar weights with the record reference.",
+      "scope_if_false": "Only the collar reading falls. The Gibbs ledger reading and the collar states are separately assessed.",
+      "status": "collar_pins_no_temperature__dictionary_attained__reference_identification_declared",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729,
+        736
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
+      "statement": "Icosahedral equivariance of the committed carrier's field sector, kernel-checked on the committed tables. The sixty listed port permutations induce signed permutations of the thirty seams and permutations of the twenty oriented faces, and every listed rotation preserves the committed face orientation. The signed face-seam incidence is invariant under the simultaneous action on all 36000 triples, so the curvature, the codifferential, the local operator, the face normal operator, and the port coboundary commute with the pullback actions (the intertwining of the coboundary, curvature, codifferential, fields, Ampere evolution, Gauss constraint, and energy under the same sixty rows is prior work of the carrier dynamics compatibility module; new here are the explicit total signed seam and face actions, the signed-table incidence equivariance, the composition and inverse laws, the projector and eigenspace invariance, the mode-history transport, the element orders, and the characters); eigenvectors map to eigenvectors of the same eigenvalue, the five spectral projectors and their images are invariant, the mode histories map to mode histories of the same eigenvalue, the scaled Ampere evolution is equivariant for every step, potentials, and current, and the staggered energy is invariant. The induced maps satisfy the composition and identity laws, so they are actions of the listed group. The constant face vector spans the fixed eigenvalue-zero line. The element orders are 1, 2, 3, 5 with class sizes 1, 15, 20, 24, and the traces of the action on the projector images by element order are 1; 5, 1, -1, 0; 4, 0, 1, -1; 4, 0, 1, -1; 6, -2, 0, 1, with character norms 60, 60, 60, 120. Read with the orthogonality relations, an inference outside the theorems, the face space decomposes as 1 + 5 + 4 + 4 + (3 + 3'), the two four-dimensional eigenspaces carry one irreducible representation and the golden sector the two three-dimensional ones; the two order-five classes are not separated by the checked characters, so the split of the golden sector by eigenvalue into 3 and 3' is an observation. The carrier, the orientations, the step, and the kinetic term are declared; the identification of a mode with a physical oscillation is the light-signal row, the listed group is an incidence automorphism group of the declared carrier (physical spacetime attachment row), and the step is the source clock and duration row; none discharged.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kernel_checked_equivariance_and_character_theorems_on_the_committed_carrier",
+      "assumptions": [
+        "declared_courant_step_and_temporal_gauge"
+      ],
+      "imported_results": [
+        "finite_group_actions_on_incidence_complexes",
+        "character_orthogonality_for_the_irrep_reading"
+      ],
+      "oph_specific_delta": "Turns the observed match between the carrier mode multiplicities and the A5 irreducible dimensions into kernel-checked structure on top of the prior intertwining theorems of the carrier dynamics compatibility module: explicit total signed seam and face actions with composition and inverse laws, the signed incidence equivariance, invariance of the five spectral projectors and eigenspaces, transport of the mode histories, the element orders and class sizes, and the exact projector characters and norms, so the field modes are sorted by symmetry type by the same group that sorts the matter sectors.",
+      "novelty_type": "machine_checked_icosahedral_equivariance_of_the_carrier_field_sector_with_projector_characters",
+      "evidence": [
+        "Lean/Screen/CarrierModeEquivariance.lean",
+        "Lean/Geometry/CarrierDynamicsCompatibility.lean",
+        "Lean/Screen/CarrierModeOscillators.lean",
+        "Lean/Screen/A5PortAction.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A listed permutation fails to induce a seam or face bijection, a face sign differs from one, an incidence triple breaks equivariance, an operator fails to commute, a projector image is not invariant, the evolution or energy is not equivariant, a composition law fails, an order count or character value differs, or the module is presented as proving irreducibility or as identifying a mode with a physical oscillation.",
+      "scope_if_false": "Only the equivariance layer falls. The mode oscillators, the projector decomposition, and the port action are separately assessed.",
+      "status": "equivariance_attained__irreducibility_reading_and_oscillation_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        736,
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

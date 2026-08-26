@@ -29,6 +29,7 @@ import Geometry.InternalEnergyInertia
 import Geometry.CompositeMomentumCovariance
 import Geometry.PortChargeMinimalCoupling
 import Geometry.ProperTimeInternalAction
+import Geometry.WorldlineHopTransport
 
 /-!
 # OPH construction geometry umbrella

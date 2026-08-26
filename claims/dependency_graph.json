@@ -183,7 +183,10 @@
   "OPH-GEOMETRY-PROPER-TIME-INTERNAL-ACTION",
   "OPH-EM-CARRIER-MODE-OSCILLATORS",
   "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
-  "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY"
+  "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
+  "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+  "OPH-THERMO-COLLAR-TEMPERATURE-READING",
+  "OPH-EM-CARRIER-MODE-EQUIVARIANCE"
  ],
  "edges": [
   {
@@ -1665,6 +1668,31 @@
    "from": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
    "to": "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
    "role": "supplies the ledger and the declared composite shape whose inertial coefficient the summed ledger plus defect enters"
+  },
+  {
+   "from": "OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+   "to": "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+   "role": "supplies the hopping path, sources, coupled action, and endpoint bridge that the transport generalizes to every seam-step worldline"
+  },
+  {
+   "from": "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+   "to": "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+   "role": "supplies the worldline seam current, induced load, and seam-crossing worldline that the generated paths instantiate"
+  },
+  {
+   "from": "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+   "to": "OPH-THERMO-COLLAR-TEMPERATURE-READING",
+   "role": "supplies the Gibbs ledger reading, the temperature declaration, and the calibration inhabitant pattern that the collar objects are read through"
+  },
+  {
+   "from": "OPH-EM-CARRIER-MODE-OSCILLATORS",
+   "to": "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
+   "role": "supplies the mode histories, projector traces, and eigenvectors that the equivariance sorts by symmetry type"
+  },
+  {
+   "from": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+   "to": "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
+   "role": "supplies the intertwining of the coboundary, curvature, fields, evolution, and energy under the sixty listed permutations that the signed actions, projector invariance, and characters build on"
   }
  ]
 }

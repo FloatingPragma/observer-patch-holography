@@ -39,6 +39,7 @@ lean_lib «OPHThermodynamics» where
   srcDir := "Thermodynamics"
   roots := #[`FiniteConditionalRepair, `FirstLawIdentity,
     `GibbsReferenceEnergyIdentification, `ModularEnergyAdditivity,
+    `CollarTemperatureReading,
     `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink,
     `GreenKubo, `GraphDiffusion, `StationaryRealization,
     `PoissonizedRepair, `PoissonizedRepairOperatorExp,
@@ -86,7 +87,7 @@ lean_lib «OPHScreen» where
     `LocalFaceMaxwellAction, `TemporalMaxwellEvolution,
     `ScaledMaxwellStability, `CertifiedScaledStepInstrument,
     `DispersionArmingInterface, `KogutSusskindFiberRateComparison,
-    `GaugeOrbitQuotientGap, `LocalEnergyBalance, `CarrierModeOscillators,
+    `GaugeOrbitQuotientGap, `LocalEnergyBalance, `CarrierModeOscillators, `CarrierModeEquivariance,
     `SMStructureAdequacySurface, `SMStructureComposition,
     `MatterGrammarIndexBridge, `ElectroweakBreakingComposition,
     `AssembledActionComposition, `GlobalFormCharacterDescent,
