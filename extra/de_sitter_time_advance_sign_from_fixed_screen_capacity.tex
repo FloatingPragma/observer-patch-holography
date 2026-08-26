@@ -503,6 +503,32 @@ extra gate. Conversely, compatibility with \((-1,0)\) does not validate
 fixed capacity or OPH because that point is also the standard
 \(\Lambda\)CDM null. No comparison is frozen or armed by this paper.
 
+For a seen-data diagnostic, a script checked the official SHA-256 values for
+four DESI DR2 chains in each of four \(w_0w_a\)CDM combinations. It then
+applied the exact CPL endpoint condition
+\(w_0\ge-1\) and \(w_0+(2/3)w_a\ge-1\) on \(0\le z\le2\). The posterior-weight
+fractions in that conditional monotone subset are \(0.00705\%\),
+\(0.1125\%\), \(0.01206\%\), and \(0.02054\%\) for BAO+CMB and its Pantheon+,
+Union3, and DESY5 combinations, respectively~\cite{desidr2}. Two
+combinations have at least one chain with no raw sample in the rare subset.
+These seen-data fractions depend on the collaboration's model, likelihood,
+and priors; they are not model evidences, frequentist exclusions, direct
+capacity measurements, or a prediction score.
+
+A second conditional diagnostic composes the capacity law with the local
+electroweak-closure tangent. It requires three extra premises: the closure
+capacity is the same \(N\), the closure holds at each epoch, the local clock
+reads the same homogeneous cosmological \(\alpha\) and cosmic-time drift, and
+physical evolution follows that one-dimensional solver-root tangent while the
+other inputs and unit definitions stay fixed. At the present root the numerical
+tangent is \(\mathrm d\ln\alpha/\mathrm d\ln N=-4.76\). Only under all three
+premises does the optical-clock drift limit imply the local bound
+\(\lvert1+w_0\rvert\lesssim7\times10^{-10}\)~\cite{filzinger2023}. The
+static closure solver does not derive the cosmic tangent, and its local
+Jacobian cannot be extrapolated over the order-one changes suggested by some
+CPL histories. The diagnostic restricts but does not empty the monotone
+branch.
+
 \section{Claim boundary}
 
 \begin{center}
@@ -523,7 +549,7 @@ exact order on admissible finite transfers and exact analytic interpolation;
 gravitational reading conditional \\
 Port/edge low-spectrum equality &
 exact regular line-graph theorem \\
-Normalized icosahedral shock spectrum &
+Icosahedral shock spectrum &
 conditional on exact discrete gauge transport and the scaled
 nearest-neighbour Laplacian identification \\
 Shock coefficient and physical screen attachment &
@@ -591,6 +617,19 @@ Y.~Chen, D.~Stanford, H.~Tang, and Z.~Yang,
 \emph{Negative shocks versus static patch holography},
 arXiv:2607.14042 [hep-th], 2026.
 \url{https://arxiv.org/abs/2607.14042}
+
+\bibitem{desidr2}
+DESI Collaboration,
+\emph{DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and
+Cosmological Constraints}, arXiv:2503.14738, 2025.
+\url{https://arxiv.org/abs/2503.14738}
+
+\bibitem{filzinger2023}
+M.~Filzinger et al.,
+\emph{Improved Limits on the Coupling of Ultralight Bosonic Dark Matter to
+Photons from Optical Atomic Clock Comparisons},
+Phys. Rev. Lett. \textbf{130}, 253001 (2023).
+\url{https://doi.org/10.1103/PhysRevLett.130.253001}
 
 \end{thebibliography}
 

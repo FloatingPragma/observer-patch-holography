@@ -811,8 +811,13 @@ Mapping between Lean 4 theorems in this project and statements in
   FZ-12 photon-only branch gives `-a^2/20`, while an additionally assumed
   universal photon/lepton principal symbol gives `-3a^2/80`. The leading
   collinear residual on the Lorentz-invariant-lepton branch has its
-  unique global maximum at equal sharing. General independent-lepton share
-  optimization and full anisotropic minimization remain open. The exact full
+  unique global maximum at equal sharing. On the common negative-coefficient
+  branch, the file additionally proves `0 < u <= 1/4` for `u=x(1-x)`, factors
+  the residual through `m^2/(4 E u) + (3 d E^3/4)u`, proves the exact
+  reciprocal-linear envelope and equality witness, identifies the
+  equal-share transition `3 d E^4 <= 16 m^2`, and excludes a leading solution
+  below the envelope. General independent-coefficient share optimization and
+  full anisotropic minimization remain open. The exact full
   cosine symbol is bounded by the Euclidean momentum quadratic form. On that
   separate symbol attachment and Lorentz-invariant charged-lepton premises,
   photon decay into an electron-positron pair is impossible. At fixed incoming momenta the
@@ -821,8 +826,8 @@ Mapping between Lean 4 theorems in this project and statements in
   Those two consequences use no
   effective-field-theory truncation or rank-six direction restriction. This
   proves no electron or positron action, physical
-  conservation law, interaction vertex, cross section, source population,
-  shower response, or photon attachment.
+  conservation law, interaction vertex, cross section, opacity, source
+  population, shower response, or photon attachment.
 - Conditional primitive-hop selection
   (`Screen/PrimitiveHopSelection.lean`): sorry-free exact composition. A
   complete quotient-deduplicated move type is explicitly identified with the

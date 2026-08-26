@@ -1,0 +1,655 @@
+{
+  "base_lcdm_capacity_display": {
+    "chains": [
+      {
+        "H0_OmegaLambda_weighted_correlation": 0.9759541508027108,
+        "H0_km_s_Mpc": {
+          "weighted_mean": 68.16734152137046,
+          "weighted_std": 0.2874961356174667
+        },
+        "Lambda_lP2": {
+          "fractional_std_about_weighted_mean": 0.013654482761656778,
+          "weighted_mean": 2.967116642772117e-122,
+          "weighted_std": 4.051444305055681e-124,
+          "weighted_step_cdf_quantiles": {
+            "0.025": 2.8868173118375055e-122,
+            "0.160": 2.9277654184641905e-122,
+            "0.500": 2.967134428568285e-122,
+            "0.840": 3.007733651350793e-122,
+            "0.975": 3.047268453646657e-122
+          }
+        },
+        "OmegaLambda": {
+          "weighted_mean": 0.6971989020164157,
+          "weighted_std": 0.0036994361941048394
+        },
+        "bytes": 13305968,
+        "chain": 1,
+        "expanded_posterior_weight": 42511.0,
+        "file": "lcdm_chain.1.txt",
+        "raw_rows": 15051,
+        "sha256": "00f3766f7a7b6370d21323886cd72869087b2b1346a04d729c8f3bc9e65ef698",
+        "weight_concentration_ess_not_autocorrelation_corrected": 9084.573496071464
+      },
+      {
+        "H0_OmegaLambda_weighted_correlation": 0.974882659976398,
+        "H0_km_s_Mpc": {
+          "weighted_mean": 68.17332310394808,
+          "weighted_std": 0.281380512475899
+        },
+        "Lambda_lP2": {
+          "fractional_std_about_weighted_mean": 0.013363442610703985,
+          "weighted_mean": 2.967960336792451e-122,
+          "weighted_std": 3.966216763157159e-124,
+          "weighted_step_cdf_quantiles": {
+            "0.025": 2.8906292391951646e-122,
+            "0.160": 2.929075110989628e-122,
+            "0.500": 2.9671460863597437e-122,
+            "0.840": 3.0074982159118995e-122,
+            "0.975": 3.0461307072405945e-122
+          }
+        },
+        "OmegaLambda": {
+          "weighted_mean": 0.6972766275105743,
+          "weighted_std": 0.0036186110488392767
+        },
+        "bytes": 13413816,
+        "chain": 2,
+        "expanded_posterior_weight": 42781.0,
+        "file": "lcdm_chain.2.txt",
+        "raw_rows": 15173,
+        "sha256": "33b154eebdf4e9dca3b8f02ed2680120879d35c10b32fef42261a490104e1dc1",
+        "weight_concentration_ess_not_autocorrelation_corrected": 9222.219226331144
+      },
+      {
+        "H0_OmegaLambda_weighted_correlation": 0.9746549785068889,
+        "H0_km_s_Mpc": {
+          "weighted_mean": 68.17297540807822,
+          "weighted_std": 0.27783144890435013
+        },
+        "Lambda_lP2": {
+          "fractional_std_about_weighted_mean": 0.013229122957307604,
+          "weighted_mean": 2.967842623693679e-122,
+          "weighted_std": 3.9261954986782085e-124,
+          "weighted_step_cdf_quantiles": {
+            "0.025": 2.8914152862863294e-122,
+            "0.160": 2.9284367154627996e-122,
+            "0.500": 2.9680602435252953e-122,
+            "0.840": 3.0078148527110723e-122,
+            "0.975": 3.042425846183199e-122
+          }
+        },
+        "OmegaLambda": {
+          "weighted_mean": 0.6972569127129727,
+          "weighted_std": 0.0035991202916260128
+        },
+        "bytes": 13154804,
+        "chain": 3,
+        "expanded_posterior_weight": 41965.0,
+        "file": "lcdm_chain.3.txt",
+        "raw_rows": 14880,
+        "sha256": "d4717e7e5a13de851c86f24c87213faccef2b5f8747900274ab509d9dfa40aa2",
+        "weight_concentration_ess_not_autocorrelation_corrected": 8968.579107654856
+      },
+      {
+        "H0_OmegaLambda_weighted_correlation": 0.9750473224496374,
+        "H0_km_s_Mpc": {
+          "weighted_mean": 68.17396858401928,
+          "weighted_std": 0.28126008329080265
+        },
+        "Lambda_lP2": {
+          "fractional_std_about_weighted_mean": 0.013357777401583499,
+          "weighted_mean": 2.9678964304088306e-122,
+          "weighted_std": 3.964449986835541e-124,
+          "weighted_step_cdf_quantiles": {
+            "0.025": 2.8910586140407385e-122,
+            "0.160": 2.929039334999714e-122,
+            "0.500": 2.968109363303324e-122,
+            "0.840": 3.0072613191981315e-122,
+            "0.975": 3.0460607567443434e-122
+          }
+        },
+        "OmegaLambda": {
+          "weighted_mean": 0.6972484304626982,
+          "weighted_std": 0.0036185552770388128
+        },
+        "bytes": 13072592,
+        "chain": 4,
+        "expanded_posterior_weight": 42187.0,
+        "file": "lcdm_chain.4.txt",
+        "raw_rows": 14787,
+        "sha256": "c827cd767a4864ca28aa15c902bda32004e803050d4be330e25aefddd78b5c36",
+        "weight_concentration_ess_not_autocorrelation_corrected": 8920.167848676067
+      }
+    ],
+    "classification": "sample-level retrospective display posterior; not an OPH prediction, model evidence, or model-independent measurement",
+    "combined": {
+      "H0_OmegaLambda_weighted_correlation": 0.9751365188848481,
+      "H0_km_s_Mpc": {
+        "weighted_mean": 68.17189700891744,
+        "weighted_std": 0.28203990220963215
+      },
+      "Lambda_lP2": {
+        "fractional_std_about_weighted_mean": 0.013403152576781608,
+        "weighted_mean": 2.9677036022648535e-122,
+        "weighted_std": 3.977658418382023e-124,
+        "weighted_step_cdf_quantiles": {
+          "0.025": 2.8899743161519555e-122,
+          "0.160": 2.92852199182499e-122,
+          "0.500": 2.9676226734509464e-122,
+          "0.840": 3.007628784196439e-122,
+          "0.975": 3.0453023296649846e-122
+        }
+      },
+      "OmegaLambda": {
+        "weighted_mean": 0.6972452243990904,
+        "weighted_std": 0.0036343668398069544
+      },
+      "expanded_posterior_weight": 169444.0,
+      "raw_rows": 59891,
+      "weight_concentration_ess_not_autocorrelation_corrected": 36193.838540511104
+    },
+    "constants": {
+      "Mpc_in_m": 3.085677581491367e+22,
+      "Planck_length_m_CODATA_2022_central": 1.616255e-35,
+      "Planck_length_source": "https://physics.nist.gov/cgi-bin/cuu/Value?plkl",
+      "Planck_length_standard_uncertainty_m": 1.8e-40,
+      "constants_uncertainty_propagated": false,
+      "speed_of_light_m_s_exact": 299792458.0
+    },
+    "model_scope": "flat base-LambdaCDM posterior under the official DESI DR2 BAO+CMB model, priors, and likelihoods",
+    "sample_level_formula": "Lambda*l_P^2 = 3*omegal*(H0*1000/Mpc_in_m/c)^2*l_P^2",
+    "source_directory": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base/desi-bao-all_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/"
+  },
+  "datasets": {
+    "DESI_DR2_BAO+CMB": {
+      "chain_range_for_monotone_subset_mass": [
+        0.0,
+        0.00016833316500016834
+      ],
+      "chains": [
+        {
+          "bytes": 19346836,
+          "chain": 1,
+          "expanded_posterior_weight": 59406.0,
+          "file": "cmb_chain.1.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9998316668349998,
+          "posterior_mass_w0_gt_minus_one": 0.9986196680469986,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.00016833316500016834,
+          "posterior_mass_wa_nonnegative": 0.0005554994445005555,
+          "raw_rows": 21120,
+          "raw_rows_in_monotone_subset": 4,
+          "sha256": "c228de7bbaec19ddb22eec25c3dd7c40ef218976c020a7b55dd1c78dc3a638c5",
+          "w0_mean": -0.42588282278348694,
+          "w0_std": 0.20375995699822483,
+          "w0_wa_correlation": -0.9771543789022509,
+          "w0_wa_covariance": -0.11488137892718242,
+          "wa_mean": -1.7266262744605354,
+          "wa_std": 0.576989110661252,
+          "weight_concentration_ess_not_autocorrelation_corrected": 12727.102636969505
+        },
+        {
+          "bytes": 19727892,
+          "chain": 2,
+          "expanded_posterior_weight": 60392.0,
+          "file": "cmb_chain.2.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 1.0,
+          "posterior_mass_w0_gt_minus_one": 0.9970857067161213,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0,
+          "posterior_mass_wa_nonnegative": 0.0012253278579944364,
+          "raw_rows": 21536,
+          "raw_rows_in_monotone_subset": 0,
+          "sha256": "01bb30f43b3207d8575cc16354159fceff2ad4deffacc87964b0aef7f8e8ee44",
+          "w0_mean": -0.41783768851743247,
+          "w0_std": 0.20418838046124624,
+          "w0_wa_correlation": -0.9770616936170379,
+          "w0_wa_covariance": -0.11487172457135464,
+          "wa_mean": -1.7519428090212354,
+          "wa_std": 0.5757847125264485,
+          "weight_concentration_ess_not_autocorrelation_corrected": 13153.373331121385
+        },
+        {
+          "bytes": 20007272,
+          "chain": 3,
+          "expanded_posterior_weight": 60912.0,
+          "file": "cmb_chain.3.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 1.0,
+          "posterior_mass_w0_gt_minus_one": 0.9985881271342264,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0,
+          "posterior_mass_wa_nonnegative": 0.0006238508011557657,
+          "raw_rows": 21841,
+          "raw_rows_in_monotone_subset": 0,
+          "sha256": "db12623c8c69c03ad219b28bbc517416fc941cbb1e717054344f30b4e43a4adc",
+          "w0_mean": -0.41697745921205587,
+          "w0_std": 0.20554942725985528,
+          "w0_wa_correlation": -0.9786344860067254,
+          "w0_wa_covariance": -0.1166674672882676,
+          "wa_mean": -1.7494726768159388,
+          "wa_std": 0.5799799540066601,
+          "weight_concentration_ess_not_autocorrelation_corrected": 13325.30668946049
+        },
+        {
+          "bytes": 19485152,
+          "chain": 4,
+          "expanded_posterior_weight": 60471.0,
+          "file": "cmb_chain.4.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9998842420333713,
+          "posterior_mass_w0_gt_minus_one": 0.9972714193580394,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.00011575796662863191,
+          "posterior_mass_wa_nonnegative": 0.0010087479949066494,
+          "raw_rows": 21271,
+          "raw_rows_in_monotone_subset": 2,
+          "sha256": "339312d9b7d3027147c38433fb4335cb9a12585776c4dfffc592c7c43af9a5ff",
+          "w0_mean": -0.41611477000217206,
+          "w0_std": 0.20743229098412572,
+          "w0_wa_correlation": -0.9784038833044739,
+          "w0_wa_covariance": -0.1188560977298283,
+          "wa_mean": -1.7574915865537764,
+          "wa_std": 0.5856348808943642,
+          "weight_concentration_ess_not_autocorrelation_corrected": 12848.209805664574
+        }
+      ],
+      "combined": {
+        "expanded_posterior_weight": 241181.0,
+        "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9999295135188925,
+        "posterior_mass_w0_gt_minus_one": 0.9978895518303681,
+        "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 7.048648110754993e-05,
+        "posterior_mass_wa_nonnegative": 0.0008541303004797227,
+        "raw_rows": 85768,
+        "raw_rows_in_monotone_subset": 6,
+        "w0_mean": -0.4191700669105224,
+        "w0_std": 0.20528169946464805,
+        "w0_wa_correlation": -0.9778258727827162,
+        "w0_wa_covariance": -0.11637136917907054,
+        "wa_mean": -1.7464744072033822,
+        "wa_std": 0.5797414939866636,
+        "weight_concentration_ess_not_autocorrelation_corrected": 52046.605114086284
+      },
+      "fixed_capacity_point_gaussian_diagnostic": {
+        "chi2_2dof_survival": 0.009170738876598417,
+        "classification": "Gaussian moment summary; not official delta-chi2 or evidence",
+        "mahalanobis_squared": 9.383474841080227,
+        "two_sided_normal_sigma_equivalent": 2.6056228166045248
+      },
+      "rare_tail_resolution": {
+        "classification": "at_least_one_chain_has_no_raw_tail_row",
+        "combined_raw_tail_rows": 6,
+        "warning": "The weighted chain fraction is an empirical posterior mass under the DESI model, priors, and likelihoods. It is not a frequentist exclusion, a direct capacity measurement, or an OPH prediction score."
+      },
+      "source_directory": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/"
+    },
+    "DESI_DR2_BAO+CMB+DESY5": {
+      "chain_range_for_monotone_subset_mass": [
+        0.0,
+        0.0006364772164729733
+      ],
+      "chains": [
+        {
+          "bytes": 14457000,
+          "chain": 1,
+          "expanded_posterior_weight": 42421.0,
+          "file": "desy5_chain.1.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.999363522783527,
+          "posterior_mass_w0_gt_minus_one": 1.0,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0006364772164729733,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 15249,
+          "raw_rows_in_monotone_subset": 9,
+          "sha256": "8c783ebf283a205b7f569ce36a6694a32646ced5e28fd3b4683742733f6165e0",
+          "w0_mean": -0.7539967634287257,
+          "w0_std": 0.05685180624842169,
+          "w0_wa_correlation": -0.9055482102499257,
+          "w0_wa_covariance": -0.011476839014053386,
+          "wa_mean": -0.8571448778997176,
+          "wa_std": 0.22292893741523648,
+          "weight_concentration_ess_not_autocorrelation_corrected": 9273.452309420622
+        },
+        {
+          "bytes": 14562228,
+          "chain": 2,
+          "expanded_posterior_weight": 42598.0,
+          "file": "desy5_chain.2.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9999765247194704,
+          "posterior_mass_w0_gt_minus_one": 1.0,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 2.347528052960233e-05,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 15360,
+          "raw_rows_in_monotone_subset": 1,
+          "sha256": "cd4f2ff3a66aa92aceecd47c8452520c2de09d887f231fc0df033cd68597a886",
+          "w0_mean": -0.7519689225930763,
+          "w0_std": 0.057396692291668404,
+          "w0_wa_correlation": -0.9045273700993649,
+          "w0_wa_covariance": -0.011459512594396704,
+          "wa_mean": -0.8631897460711496,
+          "wa_std": 0.2207280712210102,
+          "weight_concentration_ess_not_autocorrelation_corrected": 9318.394531972146
+        },
+        {
+          "bytes": 14544216,
+          "chain": 3,
+          "expanded_posterior_weight": 42707.0,
+          "file": "desy5_chain.3.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 1.0,
+          "posterior_mass_w0_gt_minus_one": 1.0,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 15341,
+          "raw_rows_in_monotone_subset": 0,
+          "sha256": "f7f8dbf28ff23d371e0b987b938d321adb920f1a09e97f746b3c0bb2d6247a01",
+          "w0_mean": -0.7520578406151204,
+          "w0_std": 0.058098522094625134,
+          "w0_wa_correlation": -0.9086659760438464,
+          "w0_wa_covariance": -0.01177751311629538,
+          "wa_mean": -0.8609189973493799,
+          "wa_std": 0.22309212738128187,
+          "weight_concentration_ess_not_autocorrelation_corrected": 9316.911177405102
+        },
+        {
+          "bytes": 14427612,
+          "chain": 4,
+          "expanded_posterior_weight": 42655.0,
+          "file": "desy5_chain.4.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9998358926268902,
+          "posterior_mass_w0_gt_minus_one": 1.0,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.00016410737310983473,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 15218,
+          "raw_rows_in_monotone_subset": 1,
+          "sha256": "4a3607867d34890832f431c4d61947e5572a72ff1a407141f4b8cb8d3d7ec769",
+          "w0_mean": -0.7513774379526403,
+          "w0_std": 0.056715565351970164,
+          "w0_wa_correlation": -0.910134859256891,
+          "w0_wa_covariance": -0.01145204005803957,
+          "wa_mean": -0.8638271148896927,
+          "wa_std": 0.22185787259830636,
+          "weight_concentration_ess_not_autocorrelation_corrected": 9256.03236013817
+        }
+      ],
+      "combined": {
+        "expanded_posterior_weight": 170381.0,
+        "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9997945780339357,
+        "posterior_mass_w0_gt_minus_one": 1.0,
+        "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0002054219660642912,
+        "posterior_mass_wa_nonnegative": 0.0,
+        "raw_rows": 61168,
+        "raw_rows_in_monotone_subset": 11,
+        "w0_mean": -0.7523480181537241,
+        "w0_std": 0.05727747989328247,
+        "w0_wa_correlation": -0.907181894034366,
+        "w0_wa_covariance": -0.011544135554738433,
+        "wa_mean": -0.8612751003570971,
+        "wa_std": 0.22216883741219565,
+        "weight_concentration_ess_not_autocorrelation_corrected": 37164.419017686254
+      },
+      "fixed_capacity_point_gaussian_diagnostic": {
+        "chi2_2dof_survival": 8.668757332547376e-05,
+        "classification": "Gaussian moment summary; not official delta-chi2 or evidence",
+        "mahalanobis_squared": 18.70640002805951,
+        "two_sided_normal_sigma_equivalent": 3.9251170569001888
+      },
+      "rare_tail_resolution": {
+        "classification": "at_least_one_chain_has_no_raw_tail_row",
+        "combined_raw_tail_rows": 11,
+        "warning": "The weighted chain fraction is an empirical posterior mass under the DESI model, priors, and likelihoods. It is not a frequentist exclusion, a direct capacity measurement, or an OPH prediction score."
+      },
+      "source_directory": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_desy5sn_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/"
+    },
+    "DESI_DR2_BAO+CMB+PantheonPlus": {
+      "chain_range_for_monotone_subset_mass": [
+        0.0007124198527665638,
+        0.0012814013743381774
+      ],
+      "chains": [
+        {
+          "bytes": 24049386,
+          "chain": 1,
+          "expanded_posterior_weight": 71016.0,
+          "file": "pantheon_chain.1.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9987185986256618,
+          "posterior_mass_w0_gt_minus_one": 0.9994789906499943,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0012814013743381774,
+          "posterior_mass_wa_nonnegative": 0.0004506026810859525,
+          "raw_rows": 25208,
+          "raw_rows_in_monotone_subset": 36,
+          "sha256": "db81d299d59051ae5e1e8f67952320e08a1644a4a1f8d19267705aee32798877",
+          "w0_mean": -0.8382484804921482,
+          "w0_std": 0.05347817961967687,
+          "w0_wa_correlation": -0.8874043914164443,
+          "w0_wa_covariance": -0.009635418360495307,
+          "wa_mean": -0.6179656974445098,
+          "wa_std": 0.20303569055023815,
+          "weight_concentration_ess_not_autocorrelation_corrected": 15212.573166023167
+        },
+        {
+          "bytes": 24118074,
+          "chain": 2,
+          "expanded_posterior_weight": 71587.0,
+          "file": "pantheon_chain.2.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9992875801472334,
+          "posterior_mass_w0_gt_minus_one": 0.9980024306089095,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0007124198527665638,
+          "posterior_mass_wa_nonnegative": 0.000963862153742998,
+          "raw_rows": 25280,
+          "raw_rows_in_monotone_subset": 23,
+          "sha256": "442390266f6a3bfe88e9c7cd8e29d1e7cff47fc8582f3a3af80a6b40b9f83939",
+          "w0_mean": -0.8376327004074771,
+          "w0_std": 0.055671423688002264,
+          "w0_wa_correlation": -0.8924259666061857,
+          "w0_wa_covariance": -0.010367174987831462,
+          "wa_mean": -0.618353940181536,
+          "wa_std": 0.20866802380583088,
+          "weight_concentration_ess_not_autocorrelation_corrected": 15401.464108721197
+        },
+        {
+          "bytes": 23704992,
+          "chain": 3,
+          "expanded_posterior_weight": 69992.0,
+          "file": "pantheon_chain.3.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9987284261058407,
+          "posterior_mass_w0_gt_minus_one": 0.9984998285518345,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0012715738941593325,
+          "posterior_mass_wa_nonnegative": 0.0005714938850154304,
+          "raw_rows": 24847,
+          "raw_rows_in_monotone_subset": 31,
+          "sha256": "1c92edf523df34784633f6852f7564f3d953203ae939d5d2e8cd4c3fd6f580ae",
+          "w0_mean": -0.8383193114035891,
+          "w0_std": 0.05504268806909101,
+          "w0_wa_correlation": -0.893995465105898,
+          "w0_wa_covariance": -0.010212261314976545,
+          "wa_mean": -0.6155393995717559,
+          "wa_std": 0.207532906482961,
+          "weight_concentration_ess_not_autocorrelation_corrected": 15211.267804357007
+        },
+        {
+          "bytes": 24407136,
+          "chain": 4,
+          "expanded_posterior_weight": 71820.0,
+          "file": "pantheon_chain.4.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9987607908660541,
+          "posterior_mass_w0_gt_minus_one": 0.9992341966026177,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.001239209133945976,
+          "posterior_mass_wa_nonnegative": 0.0005291005291005291,
+          "raw_rows": 25583,
+          "raw_rows_in_monotone_subset": 36,
+          "sha256": "b17dc02689c3a30dd34a96d91ac35180006f17d10b82331396ef55ce999594af",
+          "w0_mean": -0.8376436851400826,
+          "w0_std": 0.05533741403164642,
+          "w0_wa_correlation": -0.8969845685204239,
+          "w0_wa_covariance": -0.010320266630014285,
+          "wa_mean": -0.6188448367666696,
+          "wa_std": 0.20791560473943327,
+          "weight_concentration_ess_not_autocorrelation_corrected": 15411.151478936361
+        }
+      ],
+      "combined": {
+        "expanded_posterior_weight": 284415.0,
+        "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9988748835328657,
+        "posterior_mass_w0_gt_minus_one": 0.9988045637536698,
+        "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0011251164671342933,
+        "posterior_mass_wa_nonnegative": 0.0006293620238032452,
+        "raw_rows": 100918,
+        "raw_rows_in_monotone_subset": 126,
+        "w0_mean": -0.8379581981443356,
+        "w0_std": 0.054892120223643405,
+        "w0_wa_correlation": -0.8927674700987966,
+        "w0_wa_covariance": -0.01013481074882805,
+        "wa_mean": -0.6176883262728882,
+        "wa_std": 0.20680797400938541,
+        "weight_concentration_ess_not_autocorrelation_corrected": 61234.558090471204
+      },
+      "fixed_capacity_point_gaussian_diagnostic": {
+        "chi2_2dof_survival": 0.009454936469971732,
+        "classification": "Gaussian moment summary; not official delta-chi2 or evidence",
+        "mahalanobis_squared": 9.322436592186945,
+        "two_sided_normal_sigma_equivalent": 2.5951510205053454
+      },
+      "rare_tail_resolution": {
+        "classification": "resolved_in_all_four_chains",
+        "combined_raw_tail_rows": 126,
+        "warning": "The weighted chain fraction is an empirical posterior mass under the DESI model, priors, and likelihoods. It is not a frequentist exclusion, a direct capacity measurement, or an OPH prediction score."
+      },
+      "source_directory": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_pantheonplus_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/"
+    },
+    "DESI_DR2_BAO+CMB+Union3": {
+      "chain_range_for_monotone_subset_mass": [
+        5.177390336400937e-05,
+        0.0002486618068552134
+      ],
+      "chains": [
+        {
+          "bytes": 25731564,
+          "chain": 1,
+          "expanded_posterior_weight": 76409.0,
+          "file": "union3_chain.1.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9997513381931448,
+          "posterior_mass_w0_gt_minus_one": 0.9998953002918505,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.0002486618068552134,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 27142,
+          "raw_rows_in_monotone_subset": 8,
+          "sha256": "f95d091203f615e1654ea9f4fea332db08fa66c59a5fe188b4915e67e1d73b11",
+          "w0_mean": -0.6639672761907601,
+          "w0_std": 0.09138346892556777,
+          "w0_wa_correlation": -0.9339499519366389,
+          "w0_wa_covariance": -0.025522626953304983,
+          "wa_mean": -1.0965252679043391,
+          "wa_std": 0.2990433359233712,
+          "weight_concentration_ess_not_autocorrelation_corrected": 16489.165396205844
+        },
+        {
+          "bytes": 26142996,
+          "chain": 2,
+          "expanded_posterior_weight": 77574.0,
+          "file": "union3_chain.2.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9998710908294016,
+          "posterior_mass_w0_gt_minus_one": 0.9999871090829402,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.00012890917059839638,
+          "posterior_mass_wa_nonnegative": 1.2890917059839637e-05,
+          "raw_rows": 27576,
+          "raw_rows_in_monotone_subset": 5,
+          "sha256": "23aac58326257d207b8ee3699d21ed908e46238e42041d8c2ccf12fd85c8b839",
+          "w0_mean": -0.6659796628911718,
+          "w0_std": 0.08819716249179173,
+          "w0_wa_correlation": -0.9355997192149074,
+          "w0_wa_covariance": -0.024237325849812197,
+          "wa_mean": -1.0866219904327101,
+          "wa_std": 0.2937243867324626,
+          "weight_concentration_ess_not_autocorrelation_corrected": 16746.606211387545
+        },
+        {
+          "bytes": 25179828,
+          "chain": 3,
+          "expanded_posterior_weight": 75648.0,
+          "file": "union3_chain.3.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9999471235194586,
+          "posterior_mass_w0_gt_minus_one": 1.0,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 5.287648054145516e-05,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 26560,
+          "raw_rows_in_monotone_subset": 1,
+          "sha256": "9e0998c5685e7552b94fd45e985dd137604f34692bebbc6fb922a1588669ab6a",
+          "w0_mean": -0.6649846069257676,
+          "w0_std": 0.08754233956142699,
+          "w0_wa_correlation": -0.9329789605401314,
+          "w0_wa_covariance": -0.023694697375653107,
+          "wa_mean": -1.091415693865217,
+          "wa_std": 0.2901089767689344,
+          "weight_concentration_ess_not_autocorrelation_corrected": 15950.131009916886
+        },
+        {
+          "bytes": 26019756,
+          "chain": 4,
+          "expanded_posterior_weight": 77259.0,
+          "file": "union3_chain.4.txt",
+          "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.999948226096636,
+          "posterior_mass_w0_gt_minus_one": 0.999909395669113,
+          "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 5.177390336400937e-05,
+          "posterior_mass_wa_nonnegative": 0.0,
+          "raw_rows": 27446,
+          "raw_rows_in_monotone_subset": 1,
+          "sha256": "7710ababc2ab0c7fb5f3f67c8b790409703bce18707a2f99a1cd3fea531b4c20",
+          "w0_mean": -0.6676854150601201,
+          "w0_std": 0.08751986424786656,
+          "w0_wa_correlation": -0.9317874664972767,
+          "w0_wa_covariance": -0.023985258067086845,
+          "wa_mean": -1.0823307283968244,
+          "wa_std": 0.29411752029556903,
+          "weight_concentration_ess_not_autocorrelation_corrected": 16585.35476099841
+        }
+      ],
+      "combined": {
+        "expanded_posterior_weight": 306890.0,
+        "posterior_mass_capacity_loss_somewhere_for_0_le_z_le_2": 0.9998794356284011,
+        "posterior_mass_w0_gt_minus_one": 0.9999478640555248,
+        "posterior_mass_w_ge_minus_one_for_0_le_z_le_2": 0.00012056437159894425,
+        "posterior_mass_wa_nonnegative": 3.2584965297011957e-06,
+        "raw_rows": 108724,
+        "raw_rows_in_monotone_subset": 15,
+        "w0_mean": -0.6656627619095762,
+        "w0_std": 0.08868348877696094,
+        "w0_wa_correlation": -0.9335612030026802,
+        "w0_wa_covariance": -0.024367290304013856,
+        "wa_mean": -1.0891890176801327,
+        "wa_std": 0.2943212861406751,
+        "weight_concentration_ess_not_autocorrelation_corrected": 65765.23483924849
+      },
+      "fixed_capacity_point_gaussian_diagnostic": {
+        "chi2_2dof_survival": 0.0007214897409731294,
+        "classification": "Gaussian moment summary; not official delta-chi2 or evidence",
+        "mahalanobis_squared": 14.468384797753803,
+        "two_sided_normal_sigma_equivalent": 3.3812800297337047
+      },
+      "rare_tail_resolution": {
+        "classification": "resolved_in_all_four_chains",
+        "combined_raw_tail_rows": 15,
+        "warning": "The weighted chain fraction is an empirical posterior mass under the DESI model, priors, and likelihoods. It is not a frequentist exclusion, a direct capacity measurement, or an OPH prediction score."
+      },
+      "source_directory": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_union3_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/"
+    }
+  },
+  "epistemic_status": {
+    "conditional_model_test_only": true,
+    "direct_capacity_measurement": false,
+    "frozen_prediction_score": false,
+    "notes": "The CPL inequalities test only the conditional FZ-13 map after its density, closed-sector, and capacity-history premises. Agreement with (-1,0) is shared with LambdaCDM and earns no OPH-specific support.",
+    "oph_confirmation": false,
+    "retrospective_seen_data": true
+  },
+  "producer": {
+    "script_path": "code/cosmology/fixed_capacity_wlaw/official_desi_dr2_chain_audit.py",
+    "script_sha256": "17047bd64474e82e8df1290744af5fde76cf4f81bbcb82c9ccb68beb74f7fedb"
+  },
+  "schema": "oph.official_desi_dr2_fz13_retrospective.v2",
+  "source": {
+    "documentation": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/README.html",
+    "official_sha256_manifest": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/dr2_vac_dr2_bao-cosmo-params_v1.0.sha256sum",
+    "official_sha256_manifest_sha256": "df78872aa8b2d3473a9e8de78f498180efd7cbcbeb18211ce4787fac52067ee5",
+    "publisher": "DESI Collaboration / DESI Data",
+    "release_class": "official collaboration posterior chains"
+  },
+  "subset_definition": {
+    "cpl": "w(a)=w0+wa(1-a)",
+    "monotone_capacity_condition": "w(a)>=-1 on the full interval; because CPL is affine, this is exactly w0>=-1 and w0+(2/3)wa>=-1",
+    "redshift_range": "0 <= z <= 2, equivalently 1/3 <= a <= 1"
+  }
+}

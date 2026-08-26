@@ -3285,11 +3285,36 @@ the entire admitted manifold excludable.
 
 \paragraph{Exposed source-seam diagnostics.}
 Under the external subluminal quadratic convention
-\(a=\sqrt{20}/E_{\mathrm{QG},2}\), and premises including
-Lorentz-invariant leptons and photon-only Lorentz violation, published
-time-of-flight and air-shower bounds translate into carrier-scale limits
-reaching \(a<0.546\,\ell_P\) \cite{xishu2025,lhaaso2024,auger2022}. These
-conditional diagnostics derive no scale and carry no evidence weight.
+\(a=\sqrt{20}/E_{\mathrm{QG},2}\), published time-of-flight bounds give
+conditional photon/clock-sector translations. Separately, the Auger
+air-shower translation reaches \(a<0.546\,\ell_P\) only with photon-only
+Lorentz violation, Lorentz-invariant leptons, and the paper's alternative
+UHECR scenario containing a subdominant proton component above
+\(10^{19}\,\mathrm{eV}\) \cite{xishu2025,lhaaso2024,auger2022}. These
+diagnostics derive no scale and carry no evidence weight.
+
+The Lorentz-invariant-lepton premise in the air-shower translation is
+load-bearing. If instead the hard photon, electron, and positron are assigned
+the same leading coefficient \(\delta=-d=-a^2/20\), additive head-on collinear
+kinematics gives, at \(u=x(1-x)\in(0,1/4]\),
+\[
+ \epsilon_{\rm req}(k,u)=\frac{m_e^2}{4ku}+\frac{3dk^3}{4}u .
+\]
+The reciprocal-linear envelope and endpoint transition are machine-checked.
+At and above the transition, Lean also proves that the equality witness is
+realized by an open physical share, so it is the constrained share minimum
+rather than merely a lower bound. The unconstrained minimizer is
+\(u_*=m_e/(\sqrt{3d}\,k^2)\); it enters the physical interval above
+\(k_t=2\sqrt{m_e}(3d)^{-1/4}\), where the envelope becomes
+\(\epsilon_{\rm env}=(\sqrt3/2)m_e k\sqrt d\). At \(a=\ell_P\), representative
+single-energy CMB targets give finite leading kinematic windows ending at
+\(7.82\times10^{19}\,\mathrm{eV}\) for \(\epsilon=6.34\times10^{-4}\,\mathrm{eV}\)
+and \(3.70\times10^{20}\,\mathrm{eV}\) for
+\(\epsilon=3.0\times10^{-3}\,\mathrm{eV}\). These are roots of a conditional
+leading equation, not optical depths or fluxes. They neither transfer the
+published photon-only Auger exclusion to the common-coefficient branch nor
+supply an interaction vertex, radiation spectrum, source population,
+cascade, shower, or detector response \cite{ophrepo}.
 
 \paragraph{Primitive-port prediction and decision rule.}
 Proposition~\ref{prop:spin-six-prediction} is a frozen prospective conditional
@@ -3533,6 +3558,32 @@ a post-freeze dataset combination, a scored range, a statistic, complete
 thresholds, fallbacks, and a direction-neutral nuisance policy fixed in
 advance \cite{ophregister}. Existing survey posteriors and the display-bias
 mock are seen diagnostics.
+
+A hash-checked retrospective postprocessing of the four official DESI DR2
+Cobaya chains for each default CMB combination finds posterior-weight
+fractions in the full CPL monotone-capacity subset on \(0\le z\le2\) of
+\(0.00705\%\) for BAO+CMB, \(0.1125\%\) with Pantheon+, \(0.01206\%\) with
+Union3, and \(0.02054\%\) with DESY5 \cite{desidr2,ophrepo}. The respective
+raw tail counts are only 6, 126, 15, and 11, and at least one of the four
+chains has no tail row in two combinations. The fractions are therefore
+prior- and likelihood-dependent retrospective diagnostics, with explicit
+rare-tail resolution warnings; they are not branch probabilities, a
+frequentist exclusion, or a frozen score. Gaussian moment distances of the
+fixed point are likewise recorded only as diagnostics, not as official
+profile-likelihood or evidence results.
+
+There is also a conditional local clock bridge, but it needs more than the
+two displayed capacity formulas. If the capacity in the electroweak closure
+is the same \(N\), the closure holds epoch by epoch, the local clock reads the
+same homogeneous cosmological \(\alpha\) and cosmic-time drift, and physical
+evolution follows the one-dimensional closure-root tangent with its other
+inputs and units fixed, the present root gives
+\(\mathrm d\ln\alpha/\mathrm d\ln N=-4.76\). Under all three extra premises,
+the optical-clock drift result of Filzinger et al. gives the local diagnostic
+\(\lvert1+w_0\rvert\lesssim7\times10^{-10}\)
+\cite{filzinger2023}. This does not derive that cosmic tangent, does not
+justify extrapolating it over order-one changes, and does not empty the
+monotone branch: arbitrarily small positive capacity drift remains viable.
 
 \subsection{A common source, and measurement as a completed record}
 
@@ -4389,6 +4440,17 @@ LHAASO Collaboration (2024). ``Stringent tests of Lorentz invariance
 violation from LHAASO observations of GRB 221009A.''
 \emph{Physical Review Letters} \textbf{133}, 071501.
 \url{https://doi.org/10.1103/PhysRevLett.133.071501}
+
+\bibitem{desidr2}
+DESI Collaboration (2025). ``DESI DR2 Results II: Measurements of Baryon
+Acoustic Oscillations and Cosmological Constraints.'' arXiv:2503.14738.
+\url{https://arxiv.org/abs/2503.14738}
+
+\bibitem{filzinger2023}
+Filzinger, M., et al.\ (2023). ``Improved Limits on the Coupling of Ultralight
+Bosonic Dark Matter to Photons from Optical Atomic Clock Comparisons.''
+\emph{Physical Review Letters} \textbf{130}, 253001.
+\url{https://doi.org/10.1103/PhysRevLett.130.253001}
 
 \bibitem{codata2022}
 Mohr, P.\,J., Newell, D.\,B., Taylor, B.\,N., and Tiesinga, E. (2025).

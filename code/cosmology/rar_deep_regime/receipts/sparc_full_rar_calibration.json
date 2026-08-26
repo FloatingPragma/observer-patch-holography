@@ -1,0 +1,201 @@
+{
+  "analysis_contract": {
+    "bootstrap_replicates": 200,
+    "bootstrap_seed": 1,
+    "bootstrap_unit": "galaxy",
+    "bulge_mass_to_light": 0.7,
+    "disk_mass_to_light_values": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "display_acceleration_unit_m_per_s2": 1e-10,
+    "galaxy_selection": {
+      "inclination_deg": "i >= 30",
+      "quality_flag": "Q != 3"
+    },
+    "objective": "unweighted_sum_squared_log10_gobs_residuals",
+    "point_selection": {
+      "baryonic_acceleration": "g_bar > 0",
+      "radius_kpc": "R > 0",
+      "relative_velocity_error": "dV/V < 0.1",
+      "velocity": "V > 0"
+    },
+    "rar_function": "g_obs = g_bar / (1 - exp(-sqrt(g_bar/a0)))",
+    "standard_deviation_ddof": 0
+  },
+  "fits": {
+    "disk_mass_to_light_0.4": {
+      "a0_in_1e_minus_10_m_per_s2": 1.4486385253770346,
+      "a0_si_m_per_s2": 1.4486385253770346e-10,
+      "galaxy_bootstrap_std_in_1e_minus_10_m_per_s2": 0.1005903548758809,
+      "galaxy_bootstrap_std_si_m_per_s2": 1.0059035487588091e-11,
+      "n_galaxies": 147,
+      "n_points": 2696,
+      "scatter_dex": 0.13681963368910263
+    },
+    "disk_mass_to_light_0.5": {
+      "a0_in_1e_minus_10_m_per_s2": 1.1612569877336687,
+      "a0_si_m_per_s2": 1.1612569877336688e-10,
+      "galaxy_bootstrap_std_in_1e_minus_10_m_per_s2": 0.08020947274163046,
+      "galaxy_bootstrap_std_si_m_per_s2": 8.020947274163045e-12,
+      "n_galaxies": 147,
+      "n_points": 2696,
+      "scatter_dex": 0.13266062785937574
+    },
+    "disk_mass_to_light_0.6": {
+      "a0_in_1e_minus_10_m_per_s2": 0.9539767334340257,
+      "a0_si_m_per_s2": 9.539767334340257e-11,
+      "galaxy_bootstrap_std_in_1e_minus_10_m_per_s2": 0.06664220533778288,
+      "galaxy_bootstrap_std_si_m_per_s2": 6.664220533778289e-12,
+      "n_galaxies": 147,
+      "n_points": 2696,
+      "scatter_dex": 0.13177413099362192
+    }
+  },
+  "interpretation": {
+    "classification": "retrospective_same_data_calibration_diagnostic",
+    "independent_held_out_data": false,
+    "oph_candidate_values_consumed_by_fit": false,
+    "oph_specific_empirical_evidence": false,
+    "registered_before_data_exposure": false,
+    "source_derived_a0": false,
+    "verdict": "NOT_ELIGIBLE_AS_OPH_EVIDENCE",
+    "warnings": [
+      "The empirical interpolation and the SPARC acceleration scale were known before this calibration.",
+      "The fit is an unweighted point-level log-residual diagnostic, not a complete measurement likelihood.",
+      "Distance, inclination, gas, and stellar mass-to-light nuisance uncertainties are not marginalized.",
+      "The galaxy bootstrap is conditional cluster-resampling dispersion, not total statistical or systematic uncertainty.",
+      "The disk mass-to-light scan with a fixed bulge value is a sensitivity scan, not propagated systematic uncertainty."
+    ]
+  },
+  "producer": {
+    "script_path": "code/cosmology/rar_deep_regime/sparc_full_rar_calibration.py",
+    "script_sha256": "fcfc5ecda87549b234559370068927ac41e92dcc1878f14cbcc132c0d4ba2316"
+  },
+  "receipts": {
+    "canonical_public_source_binding_receipt": true,
+    "deterministic_calibration_reproduction_receipt": true,
+    "independent_held_out_test_receipt": false,
+    "oph_specific_empirical_evidence_receipt": false,
+    "oph_validation_or_falsification_receipt": false,
+    "public_data_attached": true
+  },
+  "reference_literature": {
+    "census_reconciliation_status": "THREE_POINT_DIFFERENCE_OPEN__153_GALAXY_SELECTION_REPRODUCED",
+    "citation": "McGaugh, Lelli and Schombert (2016), arXiv:1609.05917",
+    "reported_a0_si_m_per_s2": 1.2e-10,
+    "reported_galaxies": 153,
+    "reported_points": 2693,
+    "reported_random_uncertainty_si_m_per_s2": 2e-12,
+    "reported_scatter_dex": 0.13,
+    "reported_systematic_uncertainty_si_m_per_s2": 2.4e-11,
+    "warning": "The Q != 3 and i >= 30 selection reproduces the published 153-galaxy parent sample. After the strict point cut, 147 galaxies contribute 2696 points, three more than the published 2693; only that point-level difference remains to reconcile."
+  },
+  "sample_census": {
+    "catalogue_galaxies": 175,
+    "catalogue_galaxies_at_inclination_eq_30": 5,
+    "contributing_galaxies_at_inclination_eq_30": 3,
+    "galaxies_excluded_by_both_catalogue_cuts": 2,
+    "galaxies_excluded_inclination_lt_30": 12,
+    "galaxies_excluded_quality_q_equals_3": 12,
+    "galaxies_lost_at_strict_relative_error_eq_0_1": 2,
+    "galaxies_passing_catalogue_cuts": 153,
+    "galaxies_passing_catalogue_cuts_with_zero_retained_points": 6,
+    "galaxies_with_retained_points": 147,
+    "points_after_catalogue_galaxy_cuts": 3168,
+    "points_rejected_at_strict_relative_error_eq_0_1": 4,
+    "retained_points": 2696,
+    "retained_points_at_inclination_eq_30": 15,
+    "rotation_curve_points": 3391,
+    "selected_galaxies_at_inclination_eq_30": 4
+  },
+  "schema": "oph.cosmology.sparc_full_rar_calibration.v1",
+  "scope": "retrospective_same_data_empirical_full_rar_calibration",
+  "source_binding": {
+    "canonical_source_binding_receipt": true,
+    "catalogue": "SPARC, CDS J/AJ/152/157",
+    "file_receipts_sha256": "9a3b202a4f9cdf022bf090383c3d919362ec3c6aeac7c4041c93d766c040c374",
+    "files": [
+      {
+        "bytes": 418,
+        "code_pin_match": true,
+        "path": "code/cosmology/rar_deep_regime/data/PROVENANCE.md",
+        "sha256": "8805147aa9879f51ccc5280b87f71392908aa310cac0d54b021e6f70900adbbb"
+      },
+      {
+        "bytes": 11501,
+        "code_pin_match": true,
+        "path": "code/cosmology/rar_deep_regime/data/ReadMe",
+        "sha256": "cbc3830f34c0379135f494719e254af0a76f75fee9ebbfe78d2e655caaaf92d5"
+      },
+      {
+        "bytes": 21877,
+        "code_pin_match": true,
+        "path": "code/cosmology/rar_deep_regime/data/table1.dat",
+        "sha256": "86771a7f9f7af768ba7932dc57c6a9d81de16a287d98f4cd49bd2b4fb2a42c5c"
+      },
+      {
+        "bytes": 261107,
+        "code_pin_match": true,
+        "path": "code/cosmology/rar_deep_regime/data/table2.dat",
+        "sha256": "7d027e515441c6b4ebbf6aadee0327e6ad81156c4e8b151af2f6d62cb44c3962"
+      }
+    ],
+    "official_snapshot_url": "https://cdsarc.cds.unistra.fr/ftp/J/AJ/152/157/",
+    "retrieved_utc_date": "2026-08-21"
+  },
+  "weighting_sensitivity": {
+    "rows": {
+      "disk_mass_to_light_0.4": {
+        "equal_parent_galaxy_total_weight": {
+          "a0_in_1e_minus_10_m_per_s2": 1.2856939370788874,
+          "a0_si_m_per_s2": 1.2856939370788874e-10,
+          "eligible_as_inference_or_oph_evidence": false,
+          "relative_to_primary_point_weighted_percent": -11.248119212882173,
+          "warning": "Each contributing galaxy receives equal total weight; this is an estimator sensitivity, not a calibrated likelihood."
+        },
+        "inverse_velocity_fractional_variance_only": {
+          "a0_in_1e_minus_10_m_per_s2": 1.6945822131860862,
+          "a0_si_m_per_s2": 1.6945822131860862e-10,
+          "eligible_as_inference_or_oph_evidence": false,
+          "relative_to_primary_point_weighted_percent": 16.977574702083825,
+          "warning": "Uses only dV/V in the gobs channel and omits gbar, distance, inclination, stellar-population, intrinsic-scatter, and correlation uncertainties; it is not a recommended likelihood."
+        }
+      },
+      "disk_mass_to_light_0.5": {
+        "equal_parent_galaxy_total_weight": {
+          "a0_in_1e_minus_10_m_per_s2": 1.0499728048631902,
+          "a0_si_m_per_s2": 1.0499728048631903e-10,
+          "eligible_as_inference_or_oph_evidence": false,
+          "relative_to_primary_point_weighted_percent": -9.583079718440517,
+          "warning": "Each contributing galaxy receives equal total weight; this is an estimator sensitivity, not a calibrated likelihood."
+        },
+        "inverse_velocity_fractional_variance_only": {
+          "a0_in_1e_minus_10_m_per_s2": 1.3411457666219575,
+          "a0_si_m_per_s2": 1.3411457666219576e-10,
+          "eligible_as_inference_or_oph_evidence": false,
+          "relative_to_primary_point_weighted_percent": 15.490867291947426,
+          "warning": "Uses only dV/V in the gobs channel and omits gbar, distance, inclination, stellar-population, intrinsic-scatter, and correlation uncertainties; it is not a recommended likelihood."
+        }
+      },
+      "disk_mass_to_light_0.6": {
+        "equal_parent_galaxy_total_weight": {
+          "a0_in_1e_minus_10_m_per_s2": 0.8779836910151719,
+          "a0_si_m_per_s2": 8.779836910151719e-11,
+          "eligible_as_inference_or_oph_evidence": false,
+          "relative_to_primary_point_weighted_percent": -7.965921993223244,
+          "warning": "Each contributing galaxy receives equal total weight; this is an estimator sensitivity, not a calibrated likelihood."
+        },
+        "inverse_velocity_fractional_variance_only": {
+          "a0_in_1e_minus_10_m_per_s2": 1.0855837733832008,
+          "a0_si_m_per_s2": 1.0855837733832009e-10,
+          "eligible_as_inference_or_oph_evidence": false,
+          "relative_to_primary_point_weighted_percent": 13.795623660068726,
+          "warning": "Uses only dV/V in the gobs channel and omits gbar, distance, inclination, stellar-population, intrinsic-scatter, and correlation uncertainties; it is not a recommended likelihood."
+        }
+      }
+    },
+    "status": "DETERMINISTIC_ESTIMATOR_SENSITIVITY__NOT_INFERENCE"
+  }
+}

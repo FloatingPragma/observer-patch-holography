@@ -1,0 +1,292 @@
+{
+  "analytic_result": {
+    "group_velocity_low_ak": "v_g=1-(3/2)d p^2+O(d^2 p^4)=1-3a^2p^2/40+...",
+    "interior_minimizer": "u*=m/(sqrt(3d) k^2)",
+    "physical_constrained_minimum": "equal-share value below 3 d k^4=16 m^2; AM-GM value at and above that transition",
+    "quartic_notation_bridge": "p^4 in the carrier dispersion may be replaced by E^4 only at the retained leading ultrarelativistic/first-d order",
+    "threshold_at_u": "m^2/(4 k u) + (3 d k^3/4) u",
+    "u_domain": "0 < u=x(1-x) <= 1/4",
+    "unconstrained_am_gm_lower_bound": "epsilon=(sqrt(3)/2) m k sqrt(d)"
+  },
+  "assumptions": [
+    "preferred frame and rotationally isotropic leading dispersion",
+    "ordinary additive energy-momentum conservation",
+    "soft-photon LIV neglected",
+    "common delta=-a^2/20 for hard photon, electron, and positron",
+    "ultrarelativistic leading-order expansion"
+  ],
+  "conditional_external_bounds": {
+    "Auger_photon_only_translation_not_universal": {
+      "a_max_m": 8.824730839383371e-36,
+      "a_max_over_lP": 0.545998672201068,
+      "input_delta_gamma_2_lower_bound_ev_minus2": -1e-58,
+      "scope": "numeric translation of delta_gamma,2>-1e-58 eV^-2 in the paper's alternative UHECR scenario with a subdominant proton component and photon-only LIV; not transferable to a common photon/electron coefficient without recomputing propagation",
+      "source": "https://arxiv.org/abs/2112.06773"
+    },
+    "Crab_quadratic_electron_synchrotron": {
+      "a_max_m": 4.412365419691686e-32,
+      "a_max_over_lP": 2729.99336100534,
+      "input_MLV_lower_bound_ev": 2e+25,
+      "scope": "95% M_LV>2e16 GeV result for the paper's quartic electron dispersion, conditional on its CPT/parity, Hamiltonian, and Crab synchrotron model assumptions",
+      "source": "https://arxiv.org/abs/1207.0670"
+    },
+    "Fermi_four_GRB_quadratic_photon_TOF": {
+      "a_max_m": 6.788254491833364e-27,
+      "a_max_over_lP": 419998978.6162062,
+      "input_sub_luminal_EQG2_lower_bound_ev": 1.3e+20,
+      "scope": "subluminal 95% result under the no-source-intrinsic-dispersion scenario",
+      "source": "https://arxiv.org/abs/1305.3463"
+    },
+    "LHAASO_GRB221009A_quadratic_photon_TOF": {
+      "a_max_m": 1.2789464984613584e-27,
+      "a_max_over_lP": 79130242.34798089,
+      "input_sub_luminal_EQG2_lower_bound_ev": 6.9e+20,
+      "scope": "95% subluminal 6.9e11 GeV result; leading isotropic photon/clock attachment; source timing and the paper's afterglow/EBL model remain analysis assumptions",
+      "source": "https://doi.org/10.1103/PhysRevLett.133.071501"
+    }
+  },
+  "epistemic_status": {
+    "auger_exclusion_recomputed_for_universal_sector": false,
+    "conditional_kinematic_theorem": true,
+    "frozen_prediction_score": false,
+    "interaction_vertex_or_cross_section_derived": false,
+    "opacity_or_flux_prediction": false,
+    "photon_and_lepton_identification_derived": false,
+    "physical_scale_selected_by_oph": false,
+    "preferred_frame_and_additive_conservation_derived": false,
+    "retrospective": true
+  },
+  "nonclaims": [
+    "A representative photon energy is not a radiation spectrum.",
+    "A kinematic window is not an optical depth or flux.",
+    "No Auger bound on the universal branch follows without cross sections, backgrounds, cascades, sources, composition, and detector response.",
+    "The low-ak coefficient map is not the complete reciprocal-cosine dispersion at arbitrary momentum."
+  ],
+  "photon_only_lorentz_invariant_lepton_comparison_at_a=1_lP": {
+    "CMB_mean_6.34e-4_eV": {
+      "epsilon_min_ev": 1.939716551743659e-06,
+      "k_at_epsilon_min_ev": 1.794900925921738e+17,
+      "lower_root_ev": 411861084556296.1,
+      "status": "finite_leading_kinematic_window",
+      "upper_root_ev": 1.9625184879915814e+18
+    },
+    "representative_radio_4e-8_eV": {
+      "epsilon_min_ev": 1.939716551743659e-06,
+      "k_at_epsilon_min_ev": 1.794900925921738e+17,
+      "lower_root_ev": null,
+      "status": "no_leading_kinematic_window",
+      "upper_root_ev": null
+    },
+    "selected_CMB_Wien_tail_3e-3_eV": {
+      "epsilon_min_ev": 1.939716551743659e-06,
+      "k_at_epsilon_min_ev": 1.794900925921738e+17,
+      "lower_root_ev": 87039975868762.3,
+      "status": "finite_leading_kinematic_window",
+      "upper_root_ev": 3.294966338795689e+18
+    }
+  },
+  "representative_target_windows": {
+    "a=10000_lP": {
+      "CMB_mean_6.34e-4_eV": {
+        "a_times_upper_root_dimensionless": 6.406983649522538e-09,
+        "epsilon_at_transition_ev": 0.00020573800909765922,
+        "epsilon_min_ev": 0.00018051096483334185,
+        "k_at_epsilon_min_ev": 1928746565597734.0,
+        "lower_root_ev": 412147330142508.06,
+        "smaller_outgoing_energy_ev": 211657683228501.56,
+        "smaller_outgoing_share_at_upper_root": 0.02705850723156461,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 2538373232554547.5,
+        "u_at_upper_root": 0.026326344417963967,
+        "upper_root_ev": 7822223207553598.0
+      },
+      "a_evinv": 8.190745111102912e-25,
+      "a_over_planck_length": 10000.0,
+      "delta_abs_ev_minus2": 3.3544152737528126e-50,
+      "representative_radio_4e-8_eV": {
+        "epsilon_min_ev": 0.00018051096483334185,
+        "k_at_epsilon_min_ev": 1928746565597734.0,
+        "lower_root_ev": null,
+        "status": "no_leading_kinematic_window",
+        "upper_root_ev": null
+      },
+      "selected_CMB_Wien_tail_3e-3_eV": {
+        "a_times_upper_root_dimensionless": 3.031695733212557e-08,
+        "epsilon_at_transition_ev": 0.00020573800909765922,
+        "epsilon_min_ev": 0.00018051096483334185,
+        "k_at_epsilon_min_ev": 1928746565597734.0,
+        "lower_root_ev": 87040096198864.48,
+        "smaller_outgoing_energy_ev": 43571278608600.1,
+        "smaller_outgoing_share_at_upper_root": 0.0011771670663985878,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 2538373232554547.5,
+        "u_at_upper_root": 0.0011757813440963474,
+        "upper_root_ev": 3.7013674483692104e+16
+      },
+      "transition_energy_ev": 2538373232554547.5
+    },
+    "a=1000_lP": {
+      "CMB_mean_6.34e-4_eV": {
+        "a_times_upper_root_dimensionless": 6.406983649522536e-09,
+        "epsilon_at_transition_ev": 6.506007100170466e-05,
+        "epsilon_min_ev": 5.708257915079168e-05,
+        "k_at_epsilon_min_ev": 6099232176516200.0,
+        "lower_root_ev": 411863939143649.6,
+        "smaller_outgoing_energy_ev": 206475555553287.2,
+        "smaller_outgoing_share_at_upper_root": 0.0026396019401990767,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 8027040966476640.0,
+        "u_at_upper_root": 0.002632634441796398,
+        "upper_root_ev": 7.822223207553597e+16
+      },
+      "a_evinv": 8.190745111102912e-26,
+      "a_over_planck_length": 1000.0,
+      "delta_abs_ev_minus2": 3.3544152737528126e-52,
+      "representative_radio_4e-8_eV": {
+        "epsilon_min_ev": 5.708257915079168e-05,
+        "k_at_epsilon_min_ev": 6099232176516200.0,
+        "lower_root_ev": null,
+        "status": "no_leading_kinematic_window",
+        "upper_root_ev": null
+      },
+      "selected_CMB_Wien_tail_3e-3_eV": {
+        "a_times_upper_root_dimensionless": 3.0316957332125565e-08,
+        "epsilon_at_transition_ev": 6.506007100170466e-05,
+        "epsilon_min_ev": 5.708257915079168e-05,
+        "k_at_epsilon_min_ev": 6099232176516200.0,
+        "lower_root_ev": 87039977072054.44,
+        "smaller_outgoing_energy_ev": 43525106137019.734,
+        "smaller_outgoing_share_at_upper_root": 0.00011759196227922875,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 8027040966476640.0,
+        "u_at_upper_root": 0.00011757813440963475,
+        "upper_root_ev": 3.70136744836921e+17
+      },
+      "transition_energy_ev": 8027040966476640.0
+    },
+    "a=100_lP": {
+      "CMB_mean_6.34e-4_eV": {
+        "a_times_upper_root_dimensionless": 6.406983649522537e-09,
+        "epsilon_at_transition_ev": 2.0573800909765918e-05,
+        "epsilon_min_ev": 1.8051096483334187e-05,
+        "k_at_epsilon_min_ev": 1.928746565597734e+16,
+        "lower_root_ev": 411861113097620.2,
+        "smaller_outgoing_energy_ev": 205984784824000.72,
+        "smaller_outgoing_share_at_upper_root": 0.0002633327883370673,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 2.538373232554547e+16,
+        "u_at_upper_root": 0.00026326344417963975,
+        "upper_root_ev": 7.822223207553597e+17
+      },
+      "a_evinv": 8.190745111102912e-27,
+      "a_over_planck_length": 100.0,
+      "delta_abs_ev_minus2": 3.3544152737528127e-54,
+      "representative_radio_4e-8_eV": {
+        "epsilon_min_ev": 1.8051096483334187e-05,
+        "k_at_epsilon_min_ev": 1.928746565597734e+16,
+        "lower_root_ev": null,
+        "status": "no_leading_kinematic_window",
+        "upper_root_ev": null
+      },
+      "selected_CMB_Wien_tail_3e-3_eV": {
+        "a_times_upper_root_dimensionless": 3.031695733212557e-08,
+        "epsilon_at_transition_ev": 2.0573800909765918e-05,
+        "epsilon_min_ev": 1.8051096483334187e-05,
+        "k_at_epsilon_min_ev": 1.928746565597734e+16,
+        "lower_root_ev": 87039975880792.97,
+        "smaller_outgoing_energy_ev": 43520499646323.14,
+        "smaller_outgoing_share_at_upper_root": 1.1757951690394286e-05,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 2.538373232554547e+16,
+        "u_at_upper_root": 1.1757813440963474e-05,
+        "upper_root_ev": 3.7013674483692104e+18
+      },
+      "transition_energy_ev": 2.538373232554547e+16
+    },
+    "a=10_lP": {
+      "CMB_mean_6.34e-4_eV": {
+        "a_times_upper_root_dimensionless": 6.406983649522537e-09,
+        "epsilon_at_transition_ev": 6.506007100170465e-06,
+        "epsilon_min_ev": 5.708257915079168e-06,
+        "k_at_epsilon_min_ev": 6.0992321765162e+16,
+        "lower_root_ev": 411861084837947.56,
+        "smaller_outgoing_energy_ev": 205935963960027.38,
+        "smaller_outgoing_share_at_upper_root": 2.6327037530859965e-05,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 8.02704096647664e+16,
+        "u_at_upper_root": 2.6326344417963975e-05,
+        "upper_root_ev": 7.822223207553597e+18
+      },
+      "a_evinv": 8.190745111102912e-28,
+      "a_over_planck_length": 10.0,
+      "delta_abs_ev_minus2": 3.3544152737528127e-56,
+      "representative_radio_4e-8_eV": {
+        "epsilon_min_ev": 5.708257915079168e-06,
+        "k_at_epsilon_min_ev": 6.0992321765162e+16,
+        "lower_root_ev": null,
+        "status": "no_leading_kinematic_window",
+        "upper_root_ev": null
+      },
+      "selected_CMB_Wien_tail_3e-3_eV": {
+        "a_times_upper_root_dimensionless": 3.0316957332125565e-08,
+        "epsilon_at_transition_ev": 6.506007100170465e-06,
+        "epsilon_min_ev": 5.708257915079168e-06,
+        "k_at_epsilon_min_ev": 6.0992321765162e+16,
+        "lower_root_ev": 87039975868880.44,
+        "smaller_outgoing_energy_ev": 43520039104815.55,
+        "smaller_outgoing_share_at_upper_root": 1.1757827265701515e-06,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 8.02704096647664e+16,
+        "u_at_upper_root": 1.1757813440963476e-06,
+        "upper_root_ev": 3.70136744836921e+19
+      },
+      "transition_energy_ev": 8.02704096647664e+16
+    },
+    "a=1_lP": {
+      "CMB_mean_6.34e-4_eV": {
+        "a_times_upper_root_dimensionless": 6.406983649522539e-09,
+        "epsilon_at_transition_ev": 2.057380090976592e-06,
+        "epsilon_min_ev": 1.8051096483334186e-06,
+        "k_at_epsilon_min_ev": 1.928746565597734e+17,
+        "lower_root_ev": 411861084555348.7,
+        "smaller_outgoing_energy_ev": 205931084421059.16,
+        "smaller_outgoing_share_at_upper_root": 2.6326413726240894e-06,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 2.5383732325545475e+17,
+        "u_at_upper_root": 2.632634441796396e-06,
+        "upper_root_ev": 7.822223207553599e+19
+      },
+      "a_evinv": 8.190745111102912e-29,
+      "a_over_planck_length": 1.0,
+      "delta_abs_ev_minus2": 3.3544152737528126e-58,
+      "representative_radio_4e-8_eV": {
+        "epsilon_min_ev": 1.8051096483334186e-06,
+        "k_at_epsilon_min_ev": 1.928746565597734e+17,
+        "lower_root_ev": null,
+        "status": "no_leading_kinematic_window",
+        "upper_root_ev": null
+      },
+      "selected_CMB_Wien_tail_3e-3_eV": {
+        "a_times_upper_root_dimensionless": 3.031695733212557e-08,
+        "epsilon_at_transition_ev": 2.057380090976592e-06,
+        "epsilon_min_ev": 1.8051096483334186e-06,
+        "k_at_epsilon_min_ev": 1.928746565597734e+17,
+        "lower_root_ev": 87039975868762.25,
+        "smaller_outgoing_energy_ev": 43519993065787.17,
+        "smaller_outgoing_share_at_upper_root": 1.1757814827317858e-07,
+        "status": "finite_leading_kinematic_window",
+        "transition_energy_ev": 2.5383732325545475e+17,
+        "u_at_upper_root": 1.1757813440963473e-07,
+        "upper_root_ev": 3.70136744836921e+20
+      },
+      "transition_energy_ev": 2.5383732325545475e+17
+    }
+  },
+  "schema": "oph.universal_pair_threshold_leading.v1",
+  "source_binding": {
+    "lean_source_path": "Lean/Screen/SeamCurrentPhotonLeptonThreshold.lean",
+    "lean_source_sha256": "1ee4fce48013d9281bf24d395b1b85d275ea744f969cfb0d83d965a323e71ccc",
+    "producer_path": "code/particles/uhe/universal_pair_threshold.py",
+    "producer_sha256": "35bdd02592db3ede6811d67bb01557dfd881909586bfcf633726c1a2afdf396a"
+  }
+}

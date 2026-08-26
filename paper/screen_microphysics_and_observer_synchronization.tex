@@ -3789,6 +3789,22 @@ Lorentz-invariant charged-lepton branch,
 \]
 Hence equal sharing is the unique global maximizer of the leading head-on,
 collinear threshold residual on this branch.
+
+On the separate universal negative-coefficient branch
+\(\delta_{\gamma,2}=\delta_{+,2}=\delta_{-,2}=-d\), \(d>0\), put
+\(u=x(1-x)\). The same residual vanishes exactly when
+\[
+ \epsilon=\frac{m_e^2}{4Eu}+\frac{3dE^3}{4}u,
+ \qquad 0<u\leq\frac14.
+\]
+Every such value is bounded below by the reciprocal-linear envelope. Equal
+sharing minimizes in the endpoint regime \(3dE^4\le16m_e^2\); above the
+transition \(E_t=2\sqrt{m_e}(3d)^{-1/4}\), the interior balance
+\(u_*=m_e/(\sqrt{3d}\,E^2)\) gives
+\(\epsilon_{\rm env}=(\sqrt3/2)m_eE\sqrt d\). A soft energy below this
+envelope cannot solve the declared leading residual at any open share. At and
+above the transition the balanced equality witness is itself realized by an
+open share, so the envelope is the constrained physical-share minimum there.
 \end{proposition}
 
 \begin{proof}
@@ -3804,18 +3820,29 @@ the dimension-six coefficients and enforcing the declared head-on momentum
 balance gives the displayed threshold equation. Its equal-share row is
 \((1,-1/8,-1/8)\), which has rank one and a two-dimensional kernel. The
 displayed square identity proves the Lorentz-invariant-lepton optimizer. The
-complete identities and the metric typing are checked in Lean, with an
-independent exact receipt for the coefficient algebra~\cite{ophrepo}.
+common-coefficient cubic identity reduces the coefficient to
+\(-3d x(1-x)\). The bound \(0<u\le1/4\), an exact square-factor AM--GM
+identity, its balanced witness, the endpoint comparison, transition, and
+no-solution statement prove the universal-branch envelope; a separate
+existence theorem closes physical-share attainment above the transition. The
+use of \(E_i^4\) in this threshold equation is the retained first-order,
+ultrarelativistic rewrite of the carrier's \(p_i^4\) correction, not an exact
+identity of the finite dispersion. The complete
+identities and metric typing are checked in Lean, with deterministic receipt
+calculations for the coefficient algebra and representative roots
+\cite{ophrepo}.
 \end{proof}
 
 The conditional kinematic theorem supplies no interaction, rate, or detector
 content for physical photons or charged leptons. The fixed-share leading
 expansion retains independent charged-lepton
 coefficients. The Lorentz-invariant-lepton specialization has an exact global
-share optimizer. The calculation supplies neither the general share
-optimization nor the full anisotropic minimization over outgoing
-three-momentum. It does not identify the three dispersion coefficients
-separately.
+share optimizer, and the common negative-coefficient specialization has an
+exact share envelope. The calculation supplies neither the general
+independent-coefficient share optimization nor the full anisotropic
+minimization over outgoing three-momentum. It does not identify the three
+dispersion coefficients separately and supplies no vertex, rate, opacity,
+source, shower, detector response, or empirical exclusion.
 
 \begin{theorem}[Icosahedral face-corner bundle]
 \label{thm:icosahedral-face-corner-bundle}

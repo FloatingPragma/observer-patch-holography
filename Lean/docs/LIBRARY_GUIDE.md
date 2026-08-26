@@ -307,9 +307,12 @@ surface for the OPH consensus layer. Contents:
   premises, photon decay into an electron-positron pair is kinematically excluded and the FZ incoming-energy
   domain is contained in the Lorentz-invariant photon domain. On the
   Lorentz-invariant charged-lepton branch, equal sharing uniquely maximizes
-  the leading head-on, collinear residual. General independent-lepton and
-  full anisotropic optimization are open. No interaction,
-  opacity, source, shower, or detector statement follows.
+  the leading head-on, collinear residual. On the separately assumed common
+  negative photon/electron/positron coefficient, the packet proves the share
+  product bounds, residual factorization, reciprocal-linear envelope,
+  equal-share transition, and no leading solution below the envelope.
+  General independent-coefficient and full anisotropic optimization are open.
+  No interaction, opacity, flux, source, shower, or detector statement follows.
 - A sorry-free **finite event-algebra journal-neutral core** (eleven modules
   under `EventAlgebra/`, compiled by lake target `EventAlgebra`, 152 audited
   declarations, standard axioms

@@ -1,0 +1,133 @@
+{
+  "classification": {
+    "epistemic_status": "retrospective conditional diagnostic; no OPH evidence, validation, confirmation, falsification, or prediction score",
+    "local_tangent_only": true,
+    "measured_target_ancestry": "P_C is built from the CODATA 2022 comparison value of alpha; it is not the independently source-forward P coordinate",
+    "physical_attachment": "requires every one of B1, B2, and B3"
+  },
+  "comparison_coordinate": {
+    "P_C": "1.63096820940395932487927984778264894",
+    "alpha": "0.00729735256433142503024579526469168322806602131336536049577988",
+    "alpha_U_at_P_C": "0.0411243361955857835710048675537109375",
+    "alpha_inverse_CODATA_2022": "137.035999177",
+    "d_alpha_U_d_P": "-0.02283674315549433231353759766"
+  },
+  "extrapolation_guard": {
+    "corresponding_linearized_max_abs_delta_ln_n": "0.00210183110135410431292996122975193052698857871644069506256912",
+    "integrated_DESI_CPL_extrapolation": "forbidden",
+    "max_abs_delta_ln_alpha_for_emitted_local_report": "0.01",
+    "reason": "The committed calculation certifies a local tangent only. Large CPL-integrated capacity changes require an exact epoch-dependent branch solve, branch/attachment premises, and a truncation-error receipt."
+  },
+  "local_jacobian": {
+    "dln_alpha_dln_n": "-4.75775622197116684587999721161146158479639911297714664679934",
+    "dln_alpha_u_dln_p": "-0.905692481352018459118561894994651586736196277987457778819264",
+    "dln_n_dln_alpha": "-0.210183110135410431292996122975193052698857871644069506256912",
+    "dln_n_dln_p": "-26.5034886873360022901353415940236676883527988155444958065128",
+    "dln_p_alpha_u_dln_p": "0.094307518647981540881438105005348413263803722012542221180736",
+    "dln_p_dln_alpha": "0.00793039409320633792364419559678190125022651876607415809995231",
+    "log_n_over_pi": "281.032616140232368809089628251269346115087383543156802685924"
+  },
+  "nonclaims": [
+    "The receipt does not derive B1, B2, or B3.",
+    "The receipt does not identify P_C with the source-forward P value.",
+    "The receipt does not close or retire the monotone-capacity branch.",
+    "The receipt does not turn retrospective alpha data into OPH evidence.",
+    "The receipt does not propagate DESI CPL fits through a large local-linear extrapolation."
+  ],
+  "observational_diagnostics": {
+    "ESPRESSO_HE0515_4414": {
+      "average_scope": "Bound on the absolute signed log-average. It is a bound on the average absolute value only under a no-cancellation condition, such as the monotone w>=-1 branch.",
+      "central_fractional_change": "0.0000013",
+      "conservative_95_percent_abs_fractional_envelope": "0.000003965888219712146895625867725",
+      "conservative_abs_delta_ln_alpha_envelope": "0.00000396589608386762476933361128275524321350566242385616958851904",
+      "data_status": "retrospective_public_before_calculation",
+      "linearization_status": "first_order_local_diagnostic_without_a_global_truncation_error_bound",
+      "linearized_abs_delta_ln_n_envelope": "8.33564373381141901511290440598041401484571771140105241019114E-7",
+      "linearized_abs_signed_log_average_1_plus_w_envelope": "3.62986889626102282731481537882530860547133937994581175807558E-7",
+      "name": "ESPRESSO HE 0515-4414",
+      "one_sigma_fractional_change": "0.00000136014705087354433450299373720573881529937554603177653324413",
+      "source": "Murphy et al., Astron. Astrophys. 658, A123 (2022): 1.3 +/- 1.3(stat) +/- 0.4(sys) ppm"
+    },
+    "Filzinger_2023_clock": {
+      "central_dln_alpha_dt_per_year": "1.8E-19",
+      "conditional_abs_1_plus_w0_envelope": "6.80985780646806366223364138653238351957475557170907051546802E-10",
+      "conservative_95_percent_abs_rate_envelope_per_year": "6.700E-19",
+      "data_status": "retrospective_public_before_calculation",
+      "mapping_status": "local_differential_and_conditional_on_B1_B2_B3",
+      "one_sigma_per_year": "2.5E-19",
+      "source": "Filzinger et al., Phys. Rev. Lett. 130, 253001 (2023)"
+    },
+    "H0_conversion": {
+      "H0_km_s_Mpc": "67.4",
+      "H0_per_Julian_year": "6.89307999240798382539969865026208603529633464076062046213926E-11",
+      "Julian_year_seconds": "31557600",
+      "Mpc_in_km": "3.0856775814913673E+19"
+    },
+    "Hart_Chluba_Planck_2018": {
+      "average_scope": "Bound on the absolute signed log-average. It is a bound on the average absolute value only under a no-cancellation condition, such as the monotone w>=-1 branch.",
+      "central_fractional_change": "0.0005",
+      "conservative_95_percent_abs_fractional_envelope": "0.005204",
+      "conservative_abs_delta_ln_alpha_envelope": "0.00521758796969669834545080595879225513671277716366496271327861",
+      "data_status": "retrospective_public_before_calculation",
+      "linearization_status": "first_order_local_diagnostic_without_a_global_truncation_error_bound",
+      "linearized_abs_delta_ln_n_envelope": "0.00109664886687595365226448265706311022403945587366240270648112",
+      "linearized_abs_signed_log_average_1_plus_w_envelope": "0.0000521917435953059640801192592879885821877421881282313317875398",
+      "name": "Planck 2018 recombination alpha, Hart-Chluba",
+      "one_sigma_fractional_change": "0.0024",
+      "source": "Hart and Chluba, Mon. Not. R. Astron. Soc. 493, 3255 (2020): alpha/alpha0 = 1.0005 +/- 0.0024 (CMB only)"
+    }
+  },
+  "premises": {
+    "B1_same_capacity": {
+      "statement": "The conditional electroweak bridge coordinate N_EW is the same physical capacity N that appears in the fixed-capacity w-law.",
+      "status": "undischarged_physical_identification"
+    },
+    "B2_epochwise_bridge": {
+      "statement": "The bridge N = pi exp(6 pi/(P alpha_U(P))) holds differentiably at each epoch in a neighborhood of the comparison endpoint.",
+      "status": "undischarged_epochwise_law"
+    },
+    "B3_physical_solver_tangent": {
+      "statement": "The dimensionless alpha read by local optical clocks is the same homogeneous cosmological alpha, its present proper-time drift equals the background cosmic-time drift, and physical epoch evolution follows the same committed PaperMathContext root branch and co-variation convention used when differentiating alpha_U(P), with the remaining solver inputs and conventions held as declared.",
+      "status": "undischarged_dynamical_tangent_attachment"
+    }
+  },
+  "schema": "oph.capacity_alpha_local_conditional_retrospective.v1",
+  "solver": {
+    "decimal_precision": 24,
+    "h_sweep": [
+      {
+        "alpha_u_minus": "0.0411471833106479607522487640380859375",
+        "alpha_u_plus": "0.0411015098187490366399288177490234375",
+        "centered_d_alpha_u_d_p": "-0.02283674594946205615997314453",
+        "h": "0.001"
+      },
+      {
+        "alpha_u_minus": "0.0411357571596163325011730194091796875",
+        "alpha_u_plus": "0.0411129204161115922033786773681640625",
+        "centered_d_alpha_u_d_p": "-0.02283674350474029779434204102",
+        "h": "0.0005"
+      },
+      {
+        "alpha_u_minus": "0.0411266199736273847520351409912109375",
+        "alpha_u_plus": "0.0411220526249962858855724334716796875",
+        "centered_d_alpha_u_d_p": "-0.02283674315549433231353759766",
+        "h": "0.0001"
+      },
+      {
+        "alpha_u_minus": "0.0411254780587623827159404754638671875",
+        "alpha_u_plus": "0.0411231943844468332827091217041015625",
+        "centered_d_alpha_u_d_p": "-0.02283674315549433231353759766",
+        "h": "0.00005"
+      }
+    ],
+    "h_sweep_passed": true,
+    "implementation": "PaperMathContext.solve_alpha_u_from_p",
+    "paper_math_path": "code/P_derivation/paper_math.py",
+    "paper_math_sha256": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
+    "receipt_script_sha256": "eaba78fa67526e6a75c20eab9acac2d1444de99eaee8848d4994b379ff3639c5",
+    "reference_h": "0.0001",
+    "relative_derivative_spread": "1.223452794832624775742736543E-7",
+    "relative_derivative_spread_limit": "0.000002",
+    "root_selection_scope": "the first sign-changing bracket on the committed [0.02,0.08] scan; no global root uniqueness is claimed by this receipt"
+  }
+}
