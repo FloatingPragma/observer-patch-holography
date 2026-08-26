@@ -1111,6 +1111,25 @@ relabeling), idempotence of the completed dynamics, and refinement
 compatibility where proved. The public object is the protected quotient
 record, not an arbitrary intermediate configuration.
 
+The largest run of the simulator exercises this class on the federated
+echosahedral carrier: $65{,}536$ patches with twelve ports each,
+$390{,}924$ seams, $2{,}048$ observer samples of neighborhood $96$, and
+$128$ repair cycles. Of the seams, $326{,}047$ start in gauge-covariant
+mismatch; the count falls to $178{,}280$ by cycle $50$ and to zero at cycle
+$96$, after which every patch commits a record ($28{,}888$ at cycle $100$,
+$65{,}536$ at cycle $110$). The replay verifier reports strict descent with
+no violation over the $326{,}047$ accepted moves, no violation on the $512$
+local diamonds and $256$ disjoint commutations it checks, and no
+gauge-covariance violation under frame relabeling. It also reports the
+boundary: an exact endpoint-branch check finds one structural nonconfluence
+witness (repairing opposite endpoints of a seam with non-identity
+discrepancy leaves two distinct local-frame quotient orbits), so the run
+certifies descent and the checked diamonds and does not certify order
+independence of the terminal quotient; the state model carries no shared
+patch-local repair variable, so the run is replay evidence for the
+gauge-coupled port-link quotient and no certificate of the patch algebra
+\cite{ophsim}.
+
 The architecture sits close to distributed agreement in the tradition of
 Lamport, Shostak, and Pease \cite{lamport1982}: patches play the role of
 protocol nodes, overlap repair of a quorum vote, and the completed fixed
@@ -1510,7 +1529,7 @@ refinement limit is available, and no continuum attachment is supplied.
 \subsection{A finite source satisfying part of the local-domain contract}
 
 One deterministic capture at $16{,}384$ carriers inhabits part of the contract
-of Theorem~\ref{thm:event-manifold}. It supplies a finite causal complex of
+of Theorem~\ref{thm:event-manifold}: a finite causal complex of
 $2{,}304$ events with exact acyclicity and a strict time function; six closed
 observer-visibility neighborhoods with exact induced affine transitions,
 cocycles, orientation, and time orientation; an observer-visible seam complex
@@ -1519,20 +1538,32 @@ frustrated under the declared orientation-reversing transport, with
 lift-ambiguity rank $3{,}117$ over $\mathbb F_2$; typed scalar, chiral, and
 gauge sections passing exact integer adjoint, kinetic, covariance, gluing,
 refinement, and boundary checks; and a signed-graph rank theorem giving a zero
-twisted kernel and hence an exactly positive dimensionless spectral gap for
-the declared local operator. Its rank and positivity statements are finite
+twisted kernel and an exactly positive dimensionless spectral gap for the
+declared local operator. The rank and positivity statements are finite
 theorems, one provenance graph binds the construction, and an isolated rerun
 reproduces the canonical receipt byte for byte \cite{ophsim}.
 
 The signature result of that capture is reported at its proved strength. The
 declared chart carries one ancestry-depth coordinate and three spectral
-embedding columns, and the certificate checks that the four columns are
-nondegenerate without selecting the number of dimensions. Alongside the
-held-out global inertia $(1,3)$, one local neighborhood has inertia $(0,4)$
-and every measured cone margin is negative, so the capture supplies no
-signature measurement for the event base. The verifier rejects any receipt
-promoting this finite domain to a continuum spacetime, a physical clock, or a
-physical mass scale.
+embedding columns, checked nondegenerate without selecting the number of
+dimensions; the held-out global inertia is $(1,3)$, one local neighborhood
+has inertia $(0,4)$, and every measured cone margin is negative, so the
+capture supplies no signature measurement for the event base. Two further
+measurements fix that reading. Standardizing the chart coordinates before
+the fit removes a conditioning defect in which the depth coordinate
+dominated the spectral ones; the inertia stays $(1,3)$, yet an
+ancestry-permutation null reproduces it in four of five permutations, so the
+fitted inertia does not test attribution to the ancestry structure. On the
+frozen Einstein-cone ladder the support-adjusted path (support width
+$96$ at $16{,}384$ and $65{,}536$ carriers, support width $384$ at
+$262{,}144$)
+has held-out inertia $(1,3)$ at every rung with cone margins $-5.62$,
+$-3.22$, and $-1.41$, while the $262{,}144$ control at support $96$ has
+inertia $(2,2)$ and margin $-2.49$; the path holds neither observer density,
+support width, nor cross-edge density fixed, the margins stay negative, and
+no rung supplies a signature. The verifier rejects any receipt promoting this
+finite domain to a continuum spacetime, a physical clock, or a physical mass
+scale.
 
 %=====================================================================
 \section{Einstein reconstruction}
@@ -3803,6 +3834,8 @@ Signature-ladder revision:
 \url{https://github.com/muellerberndt/oph-physics-sim/tree/4f0169c0e319468112d076afe6ce5aa14fbfe0d5}.
 Finite local-domain revision:
 \url{https://github.com/muellerberndt/oph-physics-sim/tree/d99ca548a4853e83f819a3a2c9d813f7a3429bdb}.
+Federated echosahedral run revision (run \texttt{e6\_64k\_dense\_20260820}):
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/b52196b296435d704b14d005d1f69caaaa662f97}.
 
 \bibitem{ophregister}
 FloatingPragma (2026). Precommitted comparison certificates, custody
