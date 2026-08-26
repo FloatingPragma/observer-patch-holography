@@ -186,7 +186,11 @@
   "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
   "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
   "OPH-THERMO-COLLAR-TEMPERATURE-READING",
-  "OPH-EM-CARRIER-MODE-EQUIVARIANCE"
+  "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
+  "OPH-GEOMETRY-TRANSPORTED-CHARGE-FORCE-LAW",
+  "OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
+  "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+  "OPH-EM-GOLDEN-SECTOR-CHARACTERS"
  ],
  "edges": [
   {
@@ -1693,6 +1697,41 @@
    "from": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
    "to": "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
    "role": "supplies the intertwining of the coboundary, curvature, fields, evolution, and energy under the sixty listed permutations that the signed actions, projector invariance, and characters build on"
+  },
+  {
+   "from": "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+   "to": "OPH-GEOMETRY-TRANSPORTED-CHARGE-FORCE-LAW",
+   "role": "supplies the seam-step class, the transported action, and the generated path whose closed two-step variations the force law computes"
+  },
+  {
+   "from": "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+   "to": "OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
+   "role": "supplies the seam-step class, the crossing Lorentz square, and the timelike threshold that the window is compared against"
+  },
+  {
+   "from": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "to": "OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
+   "role": "supplies the sharp Courant threshold and the unbounded-solution construction that the incompatibility rests on"
+  },
+  {
+   "from": "OPH-GEOMETRY-PROPER-TIME-INTERNAL-ACTION",
+   "to": "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+   "role": "supplies the internal-action family, the refinement, and the invariance equivalence that the two accrual rules are judged by"
+  },
+  {
+   "from": "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+   "to": "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+   "role": "supplies the seam-step class and generated paths whose proper lengths the accrual rules are compared on"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+   "to": "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+   "role": "supplies the mean return time that the two declared readings convert"
+  },
+  {
+   "from": "OPH-EM-CARRIER-MODE-EQUIVARIANCE",
+   "to": "OPH-EM-GOLDEN-SECTOR-CHARACTERS",
+   "role": "supplies the face actions, orders, and golden-sector characters whose split the Galois-conjugate projectors make exact"
   }
  ]
 }

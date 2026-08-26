@@ -1007,6 +1007,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "tools/test_second_wave_surfaces.py",
         ],
     ),
+    (
+        "Execute the third-wave force-law, speed-limit, clock-rate, and golden-split gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_third_wave_surfaces.py",
+        ],
+    ),
 ]
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [

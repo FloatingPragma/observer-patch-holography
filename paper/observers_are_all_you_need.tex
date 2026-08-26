@@ -2189,6 +2189,64 @@ units give distinct paths with one hopping path and one source family, and
 the unit is unconstrained by the field sector
 (\path{Lean/Geometry/WorldlineHopTransport.lean}).
 
+The transported charge has a discrete balance. Varying the transported
+action over the declared class of closed two-step variations, the
+replacement of one step pair by an admissible pair with the same endpoint,
+gives an exact action difference: the clock part is the original step norms
+minus the varied ones (rest \(0\), crossing \(4\), the unit cancels), the
+interaction part is \(q\) times the potential pairing
+\(h\varphi_n(u)-\langle\mathbf 1_{u\to v},A_{n+1}\rangle\) summed along the
+alternative route minus the original one, and the window action cancels.
+Exchanging a forward crossing of seam \(e\) with an adjacent rest moves the
+action by \(q\,h\,E_{j+1}(e)\) at zero clock cost, so the exchange is
+stationary exactly when the scaled electric seam field vanishes at the
+delayed step; replacing two rests by a round trip across \(e\) moves it by
+\(-8-q\,h\,E_{j+1}(e)\), so at zero field rest is neither stationary nor a
+local minimum in this class, the port form of stationarity without
+minimality. For static potentials the interaction difference is \(q\) times
+the port-potential difference at the intermediate port plus \(q\) times the
+discrete circulation of \(A\) around the four-leg loop, and a round trip on
+one seam has zero circulation. The class, the potentials, and the shapes are
+declared (\path{Lean/Geometry/TransportedChargeForceLaw.lean}).
+
+The same class meets the field sector's stability window. The committed
+evolution has the sharp two-sided threshold \(h^2(3+\sqrt5)<4\), and a
+crossing step is timelike exactly when the unit satisfies \(\tau^2>4\).
+Under the declared identification of the worldline unit with the field step
+(\(\tau=h\)) no step lies in both, so inside a bounded evolution every
+per-step crossing is spacelike and a timelike per-step crossing sits above
+the threshold with an unbounded solution; the two thresholds differ by the
+factor \(2\varphi^2=3+\sqrt5\). A block of \(k\) rests and one crossing is
+timelike exactly when \(2<(k+1)\tau\), which inside the window forces
+\(\sqrt2\,\varphi<k+1\), at least two rests per crossing, with the two-rest
+block timelike exactly for \(2/3<h\); the block speed \(2/((k+1)\tau)\) is
+below one exactly on timelike blocks and its supremum over the window is one,
+approached and never attained. Without the identification the thresholds are
+independent (\(\tau=3\), \(h=1/2\) gives timelike crossings inside a bounded
+evolution), and the corpus joined witnesses are not identified. The
+identification is declared and nothing selects it
+(\path{Lean/Geometry/SeamStepSpeedLimit.lean}).
+
+Which rule the hosted internal process follows along such a worldline is
+compared exactly. Index accrual, one internal step per shared step index at
+the declared unit, is the per-step member of the internal-action family;
+proper-length accrual is the declared proper-time principle. Over a window
+with \(c\) crossings the two differ by exactly \(E\,c\,(\tau-\sqrt{\tau^2-4})\),
+nonzero on every window with a crossing at every timelike unit and zero
+exactly on resting windows; the midpoint refinement of a worldline with a
+crossing is the generated path of no seam-step worldline, index accrual
+fails refinement invariance for every nonzero unit and proper-length accrual
+passes, so the source chain advancing per shared index is the rule that
+refinement invariance excludes on every moving worldline. The uniform
+worldline with one crossing per \(k+1\) steps has proper length
+\((k\tau+\sqrt{\tau^2-4})/((k+1)\tau)\) times that of a resting worldline over
+the same index count, below one for \(\tau>2\), tending to one in \(k\),
+\(\sqrt5/3\) at \(\tau=3\), \(k=0\); under the two declared readings of one
+internal unit the recurrence clock's mean return \(61511/7155\) reads as that
+many shared steps on every worldline, or as the inverse factor times it on
+the uniform one. Neither rule is selected by the source or the join
+(\path{Lean/Geometry/SourceClockRateAlongWorldlines.lean}).
+
 The slope with which internal energy enters inertia is then selected by
 two declared principles, each with an exact theorem. On the momentum map,
 let the composite four-momentum range over the declared family
@@ -2591,6 +2649,23 @@ split of the golden sector by eigenvalue is an observation. The field
 modes are thus sorted by the same group that sorts the matter sectors,
 with the identification of a mode with a physical oscillation open
 (\path{Lean/Screen/CarrierModeEquivariance.lean}).
+
+The golden split is exact. On the six-dimensional golden sector, where
+\(N^2-6N+4=0\), the two spectral projectors with eigenvalues
+\(3\pm\sqrt5=2\varphi^{\pm2}\) have entries in \(\tfrac1{20}\mathbb Z[\varphi]\),
+are symmetric orthogonal idempotents summing to the golden projector, each
+of trace \(3\), and the minus projector is the entrywise Galois conjugate
+(\(\varphi\mapsto1-\varphi\)) of the plus one. On the sixty listed
+automorphisms the plus character takes the values \(3,-1,0\) on the orders
+\(1,2,3\) and \(\varphi\) or \(1-\varphi\) on the twenty-four elements of
+order five, twelve each; the minus character is its Galois conjugate on
+every element, the two agree exactly off order five, squaring an order-five
+element exchanges them, both are class functions commuting with every
+automorphism, and each has norm \(60\). Read with the orthogonality
+relations, an inference outside the theorems, the golden sector is the sum
+of the two Galois-conjugate three-dimensional representations, with the
+eigenvalue conjugated along with the character
+(\path{Lean/Screen/GoldenSectorCharacters.lean}).
 
 The two attained faces of mechanics are joined by a finite Legendre bridge,
 also checked in Lean~\cite{ophrepo}.  For discrete two-point Lagrangians the

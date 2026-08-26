@@ -30,6 +30,9 @@ import Geometry.CompositeMomentumCovariance
 import Geometry.PortChargeMinimalCoupling
 import Geometry.ProperTimeInternalAction
 import Geometry.WorldlineHopTransport
+import Geometry.TransportedChargeForceLaw
+import Geometry.SeamStepSpeedLimit
+import Geometry.SourceClockRateAlongWorldlines
 
 /-!
 # OPH construction geometry umbrella

@@ -8003,6 +8003,165 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-TRANSPORTED-CHARGE-FORCE-LAW",
+      "statement": "A discrete balance for the transported charge, exact on the thirty-seam complex. For a declared seam-step worldline, a declared charge q, a step h, a unit tau, and potentials A and phi held fixed, the transported action (the monopole coupled action of the hopping path plus the committed clock action of the generated path) moves under every closed two-step variation, the replacement of a step pair by an admissible pair with the same endpoint, by an exact difference: the clock part is the original step norms minus the varied ones (rest 0, crossing 4, the unit cancels), the interaction part is q times the potential pairing h phi_n(u) - <1_(u to v), A_(n+1)> summed along the alternative route minus the original route, and the committed window action cancels identically. Exchanging a forward crossing of seam e with an adjacent rest moves the action by q h E_(j+1)(e) with zero clock cost, so the exchange is stationary exactly when the scaled electric seam field on e vanishes at the delayed step; a backward crossing delayed by a rest moves it by the negative. Replacing two rests by a round trip across e moves the action by -8 - q h E_(j+1)(e), so the round trip lowers the action exactly when -8 < q h E_(j+1)(e), and at zero field rest is neither stationary nor a local minimum in this class, the port form of the committed stationarity-without-minimality. For static potentials the interaction difference is q times the port-potential difference at the intermediate port plus q times the discrete circulation of A around the closed four-leg loop; a round trip on one seam has zero circulation, and on an equipotential seam the interaction difference vanishes while the total drops by exactly 8. Two charges give two balances and every difference forgets the unit. The variation class, the charge, the step, the unit, the potentials, and the action shape are declared; every shape is a declared enrichment by the realized-history Legendre non-identifiability, cited at its scope. The module touches the coupled-action row, the source clock and duration row, the physical spacetime attachment row, the light-signal row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_discrete_variation_theorems_under_a_declared_closed_two_step_class",
+      "assumptions": [
+        "declared_seam_step_worldline_class_and_time_unit",
+        "declared_hopping_port_charge_and_minimal_coupling",
+        "declared_closed_two_step_variation_class"
+      ],
+      "imported_results": [
+        "finite_window_sums_and_two_site_differences"
+      ],
+      "oph_specific_delta": "Gives the hopping charge its first force law: the exact action difference of the transported action under closed two-step variations, with the exchange balance q h E on the crossed seam (stationary exactly at vanishing scaled electric field), the round-trip criterion with the exact clock cost 8, the static circulation form, and the port form of stationarity without minimality.",
+      "novelty_type": "machine_checked_discrete_force_balance_for_a_transported_port_charge",
+      "evidence": [
+        "Lean/Geometry/TransportedChargeForceLaw.lean",
+        "Lean/Geometry/WorldlineHopTransport.lean",
+        "Lean/Geometry/PortChargeMinimalCoupling.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The varied worldline fails admissibility, the interaction sum formula, the two-site difference, the clock or interaction difference, the exchange or round-trip value, the static circulation form, or a non-forcing statement fails; or the module is presented as deriving the variation class or a continuum force law.",
+      "scope_if_false": "Only the force-law layer falls. The transport, the hopping-charge coupling, and the clock action are separately assessed.",
+      "status": "discrete_force_balance_attained__variation_class_and_potentials_declared",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
+      "statement": "The seam-step speed limit from the field stability window. The committed field evolution has the two-sided sharp threshold h^2 (3 + sqrt 5) < 4: below it every zero-current solution is bounded for every datum, above it an unbounded zero-current solution exists, and the boundary is covered by neither side. Under the declared identification of the seam-step worldline unit with the scaled Maxwell step (tau = h), a crossing step is timelike exactly when 4 < h^2, no h lies in the window and above 4, so in the window every crossing of a per-step worldline is spacelike and a timelike per-step crossing sits above the threshold with an unbounded solution; the ratio of the two thresholds is 2 phi^2 = 3 + sqrt 5. Every joined architecture whose step duration equals its field step has spacelike crossings without a window hypothesis. A rest block of k rests and one crossing has time (k + 1) tau, one seam displacement, and Lorentz square ((k + 1) tau)^2 - 4, timelike exactly when 2 < (k + 1) tau; in the window at tau = h this forces sqrt 2 phi < k + 1, so at least two rests per crossing, and the two-rest block is timelike exactly when 2/3 < h, an interval inside the window; an explicit two-rest worldline has every block timelike for 2/3 < h. The block speed 2/((k + 1) tau) is below one exactly when the block is timelike, is never one on a timelike block, and its supremum over the window is one, approached and never attained. Without the identification the thresholds are independent: at tau = 3 and h = 1/2 every crossing is timelike and every zero-current datum is bounded, and the window constrains the unit in no way; the corpus joined witnesses are not identified (step duration 1 or 2 against h = 1/2), and the double-step witness has null crossings at its duration. The identification is declared and nothing selects it. The module touches the source clock and duration row, the light-signal row, the coupled-action row, and the physical spacetime attachment row, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_kinematic_incompatibility_and_dilution_bounds_under_a_declared_identification",
+      "assumptions": [
+        "declared_seam_step_worldline_class_and_time_unit",
+        "declared_unit_step_identification"
+      ],
+      "imported_results": [
+        "sharp_courant_threshold_of_the_scaled_evolution"
+      ],
+      "oph_specific_delta": "Ties the transported charge's kinematics to the field sector's sharp stability window: under one declared identification of the worldline unit with the field step, a charge cannot cross a seam per step on a timelike worldline inside any bounded evolution, at least two rests per crossing are forced, the invariant speed is the unattained supremum of block speeds, and the thresholds are shown independent without the identification.",
+      "novelty_type": "machine_checked_speed_limit_from_the_stability_window_under_a_declared_unit_identification",
+      "evidence": [
+        "Lean/Geometry/SeamStepSpeedLimit.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "Lean/Geometry/WorldlineHopTransport.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A window inequality, the incompatibility, a block identity, the rest bound, the two-rest interval, a speed statement, the supremum witness, or an independence exhibit fails; or the identification is presented as derived or the speed limit as a physical signal speed.",
+      "scope_if_false": "Only the speed-limit layer falls. The stability window and the transport are separately assessed.",
+      "status": "speed_limit_attained_under_declared_identification__identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        740,
+        736
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+      "statement": "Two declared accrual rules for an internal process hosted on a seam-step worldline at a declared unit tau are compared exactly. Index accrual assigns E tau per shared step index (the member of the internal-action family with a = 0 and b = tau; declared as the reading of the abstract chain step index as the shared step index, since the join's own clock advances per index at a declared, unforced step duration and contains no source chain); proper-length accrual assigns E per unit proper length (the declared proper-time principle). Over a window with c crossings and r rests the proper length of the generated path is c sqrt(tau^2 - 4) + r tau, so the two rules differ by exactly E c (tau - sqrt(tau^2 - 4)): rests agree, crossings differ, the difference is nonzero on every window with a crossing at every timelike unit and zero exactly on resting windows. The midpoint refinement of a worldline with a crossing is the generated path of no seam-step worldline (half seams are not seams); index accrual fails refinement invariance for every nonzero unit and proper-length accrual passes, both through the committed refinement-invariance equivalence, so the non-invariant rule takes the invariant rule's value exactly on resting windows. The uniform worldline with one crossing per k + 1 steps has proper length (k tau + sqrt(tau^2 - 4)) / ((k + 1) tau) times that of a resting worldline over the same index count, a factor strictly below one for tau > 2 that tends to one in k and equals sqrt 5 / 3 at tau = 3, k = 0. Under the declared reading of one internal unit as one shared step, the recurrence clock's mean return 61511/7155 reads as that many shared steps on every worldline; under the declared reading of one internal unit as one rest step of proper length, it reads as (61511/7155)(k + 1) tau / (k tau + sqrt(tau^2 - 4)) shared steps on the uniform worldline, a real number; no theorem links the return count to a worldline, and both readings are declared. Neither rule is selected by the source or the join (scope statement, proved nowhere). The unit, the rules, the readings, and the step pattern are declared; every shape is a declared enrichment by the realized-history Legendre non-identifiability, and the rate non-identifiability forbids nothing here, both cited at scope. The module touches the source clock and duration row, the coupled-action row, and the physical spacetime attachment row, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_comparison_of_two_declared_accrual_rules_with_refinement_verdicts",
+      "assumptions": [
+        "declared_seam_step_worldline_class_and_time_unit",
+        "declared_midpoint_refinement_and_proper_time_principle",
+        "declared_internal_unit_readings_of_the_recurrence_clock"
+      ],
+      "imported_results": [
+        "finite_window_sums_over_step_sequences"
+      ],
+      "oph_specific_delta": "Settles what it would take for the source chain to be the internal clock: advancing one chain step per shared index is the additive per-step accrual that refinement invariance excludes on every moving worldline, and it agrees with the proper-length rule exactly at rest; the proper-length rule's dilation factor on uniform worldlines is computed exactly, so the ladder step that would derive the proper-time principle is isolated as a source-selected accrual rule and no such selection is claimed.",
+      "novelty_type": "machine_checked_accrual_rule_comparison_with_exact_dilation_factor",
+      "evidence": [
+        "Lean/Geometry/SourceClockRateAlongWorldlines.lean",
+        "Lean/Geometry/ProperTimeInternalAction.lean",
+        "Lean/Geometry/WorldlineHopTransport.lean",
+        "Lean/QFT/SourceRecurrenceClock.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The proper-length count formula, the accrual difference, a refinement statement, the uniform-worldline proper length, the dilation bounds or limit, or a reading identity fails; or the module is presented as selecting an accrual rule from the source or as linking the return count to a worldline.",
+      "scope_if_false": "Only the accrual comparison falls. The proper-time module, the transport, and the recurrence clock are separately assessed.",
+      "status": "accrual_comparison_attained__rule_selection_and_readings_declared",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-GOLDEN-SECTOR-CHARACTERS",
+      "statement": "The golden sector of the face normal operator on the committed carrier splits exactly into two Galois-conjugate three-dimensional pieces, machine-checked over the golden integers. On the six-dimensional golden sector, where N^2 - 6 N + 4 = 0, the two spectral projectors P_+ and P_- with eigenvalues 3 + sqrt 5 = 2 phi^2 and 3 - sqrt 5 = 2 / phi^2 have entries in (1/20) Z[phi]; they are symmetric orthogonal idempotents summing to the golden projector, N P_+/- = lambda_+/- P_+/-, P_- is the entrywise Galois conjugate of P_+ (phi to 1 - phi), and each has trace 3 (dimension three, read with rank equal to trace, an inference outside the theorems). On the sixty listed incidence automorphisms the character of P_+ takes the values 3, -1, 0 on the elements of order 1, 2, 3 and phi or 1 - phi on the twenty-four elements of order five, twelve each; the character of P_- is its Galois conjugate on every element, the two agree exactly off order five, and squaring an order-five element exchanges them; both are class functions, both commute with every listed automorphism, and each has character norm 60. Read with the orthogonality relations, an inference outside the theorems, each piece is irreducible and the golden sector is the sum of the two Galois-conjugate three-dimensional representations of the listed group, with the eigenvalue conjugated along with the character. The tables and the scale 20 are declared inputs; the listed group is an incidence automorphism group of the declared carrier, and the identification of a mode with a physical oscillation is the light-signal row. The module touches the light-signal row and the physical spacetime attachment row and discharges neither.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kernel_checked_spectral_split_and_characters_over_the_golden_integers",
+      "assumptions": [
+        "declared_courant_step_and_temporal_gauge"
+      ],
+      "imported_results": [
+        "galois_conjugation_on_the_golden_integers",
+        "character_orthogonality_for_the_irrep_reading"
+      ],
+      "oph_specific_delta": "Makes the 3 plus 3-prime split of the carrier's golden sector a theorem: the two spectral projectors are exhibited exactly in the golden integers as Galois conjugates, their characters separate the two order-five classes with the values phi and 1 - phi, and the eigenvalue pair 2 phi^2 and 2 / phi^2 is conjugated along with the character, so the field sector's two three-dimensional symmetry types are tied to the golden ratio in the spectrum itself.",
+      "novelty_type": "machine_checked_galois_conjugate_spectral_projectors_with_class_separating_characters",
+      "evidence": [
+        "Lean/Screen/GoldenSectorCharacters.lean",
+        "Lean/Screen/CarrierModeEquivariance.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A projector identity, the conjugation relation, a trace, a character value, the class split, the class-function property, a norm, or an equivariance statement fails; or the module is presented as proving irreducibility or as identifying a mode with a physical oscillation.",
+      "scope_if_false": "Only the golden split falls. The equivariance layer and the projector decomposition are separately assessed.",
+      "status": "golden_split_attained__irreducibility_reading_and_oscillation_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     }
   ]
 }
