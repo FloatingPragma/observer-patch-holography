@@ -7643,6 +7643,244 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+      "statement": "A declared point charge hopping along the ports of the committed thirty-seam complex, minimally coupled to the seam and port potentials with the source weights of the committed scaled window action, induces a port load of total q at every step and a seam current of -(q/h) on the hopped seam, and the pair satisfies the committed scaled continuity equation identically. The coupled action equals the committed window action at the augmented sources with no endpoint term, so its field equations are the committed scaled Ampere update and Gauss constraint at the augmented sources. For a general seam current and port load the source pairing moves under the committed scaled gauge transformation by the gauge function paired against the continuity residual plus an endpoint term, and invariance under endpoint-vanishing gauge functions is equivalent to the continuity equation on the interior steps. Along the Ampere evolution the scaled staggered energy moves by (q/2)(E n e + E (n+1) e) on a forward hop across seam e and is unchanged at rest; no energy of the charge and no equation of motion for the path are defined. At the two endpoints of a crossed seam the E-paired induced load of the seam-crossing worldline equals -(kappa/h)(12 - 4 phi) times the step difference of the unit hopping load, and equals the hopping step difference exactly at kappa = -(q h)/(12 - 4 phi); at the exhibited seam a non-endpoint port carries a nonzero E-paired load while the hopping step difference vanishes, so the polarization is the step difference of the monopole at the endpoints only. The charge q is unconstrained by the field sector and two charges give two sources. The hopping path, the charge, the step, and the coupling shape are declared; the path is not derived from the Lorentz-module worldline. The module touches the coupled-action row, the physical spacetime attachment row, the source clock and duration row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_finite_theorems_under_a_declared_hopping_charge_and_coupling_shape",
+      "assumptions": [
+        "declared_hopping_port_charge_and_minimal_coupling",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "finite_calculus_of_variations_on_a_window",
+        "discrete_gauge_invariance_iff_current_conservation"
+      ],
+      "oph_specific_delta": "Supplies the monopole route named open by the charge-fixed interaction: on the committed carrier a hopping port charge is the first source with conserved total charge, its coupling is gauge invariant exactly when continuity holds on the interior steps, and the bridge theorem shows the committed polarization-type load is the step difference of this monopole load at the seam endpoints at exactly the committed charge fixing, with the off-endpoint spread exhibited.",
+      "novelty_type": "machine_checked_minimal_coupling_of_a_port_charge_with_gauge_conservation_equivalence_and_polarization_bridge",
+      "evidence": [
+        "Lean/Geometry/PortChargeMinimalCoupling.lean",
+        "Lean/Geometry/ChargeFixedInteraction.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The hop indicator boundary identity, the continuity equation, the total-load identity, the augmented-source reduction, a stationarity equivalence, the gauge-change identity or its invariance equivalence, the energy-balance specialization, an endpoint bridge value, the off-endpoint exhibit, or the non-forcing statements fail; or the module is presented as deriving the hopping path from the worldline, as a Lorentz force on the charge, or as a physical charge.",
+      "scope_if_false": "Only the hopping-charge coupling falls. The charge-fixed interaction, the window action, and the committed Maxwell equivalences are separately assessed.",
+      "status": "hopping_charge_coupling_attained__path_selection_attachment_and_calibration_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-COMPOSITE-MOMENTUM-COVARIANCE",
+      "statement": "A kinematic selection on the declared Hermitian Lorentz module. In the declared slope family of composite momentum maps, the declared-mass momentum at parameter m + lambda E plus (1 - lambda) E on the rest direction, every member has scalar coordinate m + E at the standard frame. The family transports under an oriented Lorentz map up to (1 - lambda) E times the displacement of the rest direction, and frame covariance under every oriented Lorentz map holds exactly when lambda = 1 or E = 0; the converse is witnessed by an explicit boost with parameters 5/4 and 3/4, the first explicit boost on the module. The Lorentz square of a member is (m + E)^2 plus 2 (1 - lambda) E (m + lambda E) (u0 - 1), so the shell identity at the rest energy holds at every frame exactly when (1 - lambda) E (m + lambda E) = 0, which under positive m and m + E and a slope in [0, 1] is lambda = 1 or E = 0. At fixed slope and frame the map is linear in (m, E); at slope one the sum of two composites is the shape-A momentum at the summed rest energy, and for a nonzero (1 - lambda) E a moving member is no declared-mass momentum of any parameter. The slope-one member is the composite momentum of the internal-energy inertia precursor with no factor, and the discrete momentum of the quadratic worldline action is twice it at zero ledger. The selection consumes the declared family and the covariance requirement, is a statement about the momentum map and not about dynamics, and does not derive the mass-energy identity. Every shape in the family is a declared enrichment by the realized-history Legendre non-identifiability, cited at its scope. The module touches the coupled-action row, the physical spacetime attachment row, the source clock and duration row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "kinematic_selection_theorem_under_a_declared_momentum_family_and_covariance_requirement",
+      "assumptions": [
+        "declared_momentum_slope_family_and_frame_covariance_requirement",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "lorentz_covariance_of_the_declared_mass_momentum"
+      ],
+      "oph_specific_delta": "Turns the open slope selection of the inertia precursor into a theorem on the momentum map: a frame-independent internal energy ledger can enter a covariant four-momentum only through the rest energy along the frame, so among the declared slope family covariance and the mass shell at the rest energy both select slope one, with the exact defect formula and an explicit boost witnessing the converse.",
+      "novelty_type": "machine_checked_covariance_selection_of_the_internal_energy_slope_with_exact_shell_defect",
+      "evidence": [
+        "Lean/Geometry/CompositeMomentumCovariance.lean",
+        "Lean/Geometry/InternalEnergyInertia.lean",
+        "Lean/Geometry/MassShellKinematics.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The transport identity misses a term, the standard boost fixes the rest direction, the exact Lorentz square differs from the displayed formula, the shape-A join carries a hidden factor, a member with slope different from one and nonzero ledger is frame covariant, or the module is presented as deriving the mass-energy identity.",
+      "scope_if_false": "Only the covariance selection falls. The kinematic shell, the inertia precursor, and the Legendre non-identifiability are separately assessed.",
+      "status": "covariance_selection_attained__ledger_identification_and_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-PROPER-TIME-INTERNAL-ACTION",
+      "statement": "The proper-length form of the composite worldline action and the selection of the internal-energy slope by two declared principles. The declared midpoint refinement of a path leaves the proper-length functional (the sum of the square roots of the Lorentz squares of the increments) invariant for every path, doubles the step count, and halves the committed quadratic clock action. In the internal-action family E (a L + b M) with L the proper length and M the step count, refinement invariance on every timelike window holds exactly when b = 0 for a nonzero ledger, so the per-step additive term of the additive composite shape is excluded and the proper-length term passes. The proper-time principle, declared, sets the internal action to E per unit proper length; the rest phase of the declared internal clock advances by the mass parameter per unit proper time, and on a sampled frame worldline the phase increment over a window equals the proper-time internal action of that window, so the declared internal clock is the proper-length form. Within the family E lambda L, agreement with the proper-time principle on timelike windows holds exactly when lambda = 1; this is the uniqueness of the declared member, and every other slope is an internal action that is not E per unit proper length. For the length action (m + E) L plus a declared potential pairing, the derivative along every variation exists on timelike windows and equals an explicit first variation; stationarity under endpoint-fixed variations is equivalent to (m + E) times the unit-tangent difference equal to the impulse at every interior node, so the inertial coefficient of the refinement-invariant form is exactly m + E. On unit-increment windows the length first variation is half the composite first variation and the two equations of motion coincide. The refinement, the proper-time principle, the potential pairing, and the mass parameter are declared; every shape is a declared enrichment by the realized-history Legendre non-identifiability, cited at its scope. The module touches the coupled-action row, the source clock and duration row, the physical spacetime attachment row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_selection_theorems_under_declared_refinement_and_proper_time_principles",
+      "assumptions": [
+        "declared_midpoint_refinement_and_proper_time_principle",
+        "declared_composite_action_shape_selection",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "finite_calculus_of_variations_on_a_window",
+        "derivative_of_the_square_root_along_a_line"
+      ],
+      "oph_specific_delta": "Locates the dynamical content of the mass-energy identity in two declared principles with exact theorems: refinement invariance excludes the per-step additive ledger of the alternative composite shape, and the proper-time principle, which the declared internal clock satisfies, is the slope-one member; the proper-length composite then has inertial coefficient m + E through an exact first-variation theorem, the first length-form worldline dynamics in the corpus.",
+      "novelty_type": "machine_checked_refinement_invariance_and_proper_time_selection_with_length_form_inertia",
+      "evidence": [
+        "Lean/Geometry/ProperTimeInternalAction.lean",
+        "Lean/Geometry/InternalEnergyInertia.lean",
+        "Lean/Geometry/InternalClockRestFrequency.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The refinement identity for the proper length or the clock action fails, the refinement-invariance equivalence fails, the phase-increment identity fails, the derivative theorem or the stationarity equivalence fails, the unit-window relations fail, or the module is presented as deriving the proper-time principle or the mass-energy identity.",
+      "scope_if_false": "Only the length-form selection falls. The quadratic inertia precursor, the internal clock, and the Legendre non-identifiability are separately assessed.",
+      "status": "length_form_selection_attained__proper_time_principle_declared_and_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS",
+      "statement": "Periodic processes hosted by the committed carrier's field sector, machine-checked. For an eigenvector v of the local operator C^T C with eigenvalue lam and a declared step h with h^2 lam <= 4, the histories cos(n theta) v and sin(n theta) v with theta = arccos(1 - h^2 lam / 2) solve the zero-current scaled Ampere evolution in the temporal gauge, conserve the scaled staggered form, and are bounded. Kernel-checked integer eigenvectors with eigenvalues 2 and 3 join the committed eigenvectors with eigenvalues 5 and 3 + sqrt 5. At h^2 = 1/2 the eigenvalue-2 mode returns after six steps, at h^2 = 2/3 the eigenvalue-3 mode after four, at h^2 = 1/3 after six, each step inside the sharp window h^2 < 2 / phi^2, since 3 +/- sqrt 5 = 2 phi^(+/-2); a period is a distinct-event return count of the field configuration in the shared step index, and minimality of these periods is not stated. The projector traces are 1, 5, 4, 4, 6 and the trace of the face normal operator on the golden sector is 18; read with rank equal to trace, the eigenvalue multiplicities are 1, 5, 4, 4 and 3 + 3, an inference outside the theorems. Frequency ratios carry no tick: the mode angle obeys h sqrt lam <= theta <= h sqrt lam / sqrt(1 - h^2 lam / 4), theta / h tends to sqrt lam as the step tends to zero, and the small-step ratio of the golden mode to the slowest mode is phi^2 exactly. A period p and the mean return time 61511/7155 of the source recurrence clock are counted in one shared step index, with the tick-free ratio 7155 p / 61511 (28620/61511 at p = 4, 42930/61511 at p = 6). The step h, the temporal gauge, and the kinetic term are declared; the field-sector periodic histories and the repair-layer no-periodic-orbit theorems have disjoint scope. The module touches the source clock and duration row, the physical spacetime attachment row, the light-signal row, the coupled-action row, and the calibration import, and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_periodic_solutions_and_tick_free_ratios_under_a_declared_step",
+      "assumptions": [
+        "declared_courant_step_and_temporal_gauge",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "three_term_trigonometric_recurrence",
+        "kernel_checked_eigenvectors_of_the_face_incidence_operator"
+      ],
+      "oph_specific_delta": "Gives the time row its first periodic processes with exact integer periods on the committed carrier, ties the sharp stability window and the spectrum to the golden ratio (3 +/- sqrt 5 = 2 phi^(+/-2), window h^2 < 2 / phi^2), proves tick-free frequency ratios with the small-step golden limit phi^2, and makes a field-sector period commensurable with the source recurrence clock in one shared step index.",
+      "novelty_type": "machine_checked_carrier_mode_oscillators_with_golden_window_and_recurrence_commensurability",
+      "evidence": [
+        "Lean/Screen/CarrierModeOscillators.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "Lean/QFT/SourceRecurrenceClock.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A mode history fails the zero-current evolution, an integer eigenvector fails its kernel check, a period or window inequality fails, a projector trace differs, a frequency bound or the small-step limit fails, the golden identities fail, the commensurability ratio differs, or the module is presented as selecting a step or identifying a physical duration.",
+      "scope_if_false": "Only the mode-oscillator layer falls. The stability window, the projector decomposition, and the recurrence clock are separately assessed.",
+      "status": "mode_oscillators_attained__step_selection_and_physical_oscillation_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+      "statement": "The modular energy ledger the Einstein composition consumes is read against the declared clock-and-energy calibration row of the four-law surface, and that row is inhabited by the screen field energy. For a finite nonempty state space, an energy function H, and a declared positive beta, the corpus Gibbs state is positive and normalized, its modular Hamiltonian is beta H + log Z pointwise, and the ledger of any state is exactly beta times its energy expectation plus its mass times log Z, the constant-offset instance of the committed modular-energy split; for normalized states the cap first law takes the Clausius form, entropy difference equal to beta times the energy-expectation difference minus the relative entropy, with the offset cancelled. The slope is unique, a faithful reference is determined by its ledger on all states, and the energy is free exactly up to an additive constant (a constant shift leaves the Gibbs state unchanged, and two energies with one Gibbs state at nonzero beta differ by a constant). On a declared seam-seed family the screen field energy is (1/2) h^-2 (e + 1)^2, one declared beta supplies a calibration datum whose reference is the Gibbs state at that energy, the affine and Clausius forms hold for it, and beta is determined by the reference once the family and the nonzero step are declared. A two-point constant-energy reference outside the Gibbs form has equal energy expectations with unequal ledgers, so the affine reading is specific to the declared pair (H, beta); every normalized faithful reference is the Gibbs state of its own modular Hamiltonian at beta one. The laboratory inverse temperature is beta divided by the declared tick's energy quantum, an exact conversion, and two ticks give two readings. Nothing derives that the record reference is Gibbs and nothing selects beta; the row and beta are declared. The module touches the gravitation-route energy identification and the calibration import and discharges neither.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "conditional_identification_theorems_under_a_declared_calibration_row_and_temperature",
+      "assumptions": [
+        "declared_gibbs_calibration_row_and_temperature",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "finite_gibbs_state_positivity_and_normalization",
+        "modular_energy_split_over_a_pointwise_affine_hamiltonian"
+      ],
+      "oph_specific_delta": "Turns the open same-source identification between the screen field energy and the modular energy the Einstein composition consumes into one declared clause with exact consequences: an inhabitant of the corpus calibration row built from the screen field energy, the ledger affine in the field energy with slope beta and a cancelling offset, the Clausius form of the cap first law, uniqueness of the slope and of the energy up to a constant, and a boundary example fixing the scope of the affine reading.",
+      "novelty_type": "machine_checked_gibbs_reference_reading_of_the_modular_ledger_against_the_screen_field_energy",
+      "evidence": [
+        "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+        "Lean/Thermodynamics/CapFirstLaw.lean",
+        "Lean/Thermodynamics/FourLawAdequacySurface.lean",
+        "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
+      ],
+      "falsifier": "The affine law, the Clausius form, a uniqueness statement, the additive-freedom equivalence, the screen instance computation, the boundary example, or the tick conversion fails; or the module is presented as deriving that the record reference is Gibbs or as selecting the temperature.",
+      "scope_if_false": "Only the Gibbs reading falls. The cap first law, the four-law calibration row, and the screen field energy are separately assessed.",
+      "status": "gibbs_reading_attained__record_reference_and_temperature_declared",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729,
+        736
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
+      "statement": "The modular energy ledger of the cap first law is exactly additive over product references: for finite systems and any joint state, correlated or not, the ledger against a positive product reference is the sum of the marginal ledgers. The binding defect, the joint ledger minus the marginal ledgers against a general joint reference, equals the expectation of log(tau_1 tau_2 / tau_12) and vanishes for the product reference. Against the Gibbs reference of a declared total energy H_1 + H_2 + V with part references at H_1 and H_2 and one inverse temperature beta, the defect equals beta times the expectation of V plus the mass times log(Z_12 / (Z_1 Z_2)); the constant vanishes at V = 0 and the defect vanishes for every state when V is constant. For a declared attractive V <= 0, nonnegative normalized states, and beta >= 0, the state part beta <V> is nonpositive (strictly in a two-point example) while the constant is nonnegative, so the defect is bounded above by the constant and its sign is not fixed; the two-point uniform state has the exact positive defect -1/4 + log((3 + e)/4). Every normalized faithful joint reference is the Gibbs state of its own modular Hamiltonian at beta one, so the defect is always the expectation of a state-independent effective interaction. Under the declared composite shape of the inertia precursor the inertial coefficient of a composite is m_1 + m_2 + E_1 + E_2 plus the defect, a definitional composition. The shape, the joint reference, and the identification of V with a physical interaction are declared; every shape is a declared enrichment by the realized-history Legendre non-identifiability, cited at its scope. The module touches the calibration import, the gravitation-route energy identification, and the coupled-action row and discharges none.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_ledger_additivity_and_defect_theorems_under_declared_references",
+      "assumptions": [
+        "declared_gibbs_calibration_row_and_temperature",
+        "declared_composite_action_shape_selection",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "fubini_on_finite_products_and_the_logarithm_of_a_product"
+      ],
+      "oph_specific_delta": "Gives the mass-defect face of the mass-energy ledger its exact finite form: the committed modular ledger is additive over product references for every joint state, the binding defect is beta times the interaction expectation plus a partition-function constant against interacting Gibbs references, its sign is shown unfixed by an exact positive example, and the composite inertial coefficient under the declared shape is the summed ledger plus the defect.",
+      "novelty_type": "machine_checked_modular_ledger_additivity_with_binding_defect_and_sign_boundary",
+      "evidence": [
+        "Lean/Thermodynamics/ModularEnergyAdditivity.lean",
+        "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+        "Lean/Geometry/InternalEnergyInertia.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The product additivity, the log-ratio form, the Gibbs defect formula, the constant identities, the sign bounds, the two-point values, the composite identity, or the faithful-reference statement fails; or the module is presented as deriving a physical mass defect or a sign of binding energy.",
+      "scope_if_false": "Only the additivity layer falls. The Gibbs reading, the cap first law, and the inertia precursor are separately assessed.",
+      "status": "ledger_additivity_attained__interaction_identification_and_shape_declared",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 308,
+  "surface_count": 309,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -761,6 +761,11 @@
     },
     {
       "path": "Lean/Screen/CarrierFrequencySpeed.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/CarrierModeOscillators.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },

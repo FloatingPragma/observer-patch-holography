@@ -26,6 +26,9 @@ import Geometry.ScreenCarrierMapCandidate
 import Geometry.CarrierDynamicsCompatibility
 import Geometry.ChargeFixedInteraction
 import Geometry.InternalEnergyInertia
+import Geometry.CompositeMomentumCovariance
+import Geometry.PortChargeMinimalCoupling
+import Geometry.ProperTimeInternalAction
 
 /-!
 # OPH construction geometry umbrella

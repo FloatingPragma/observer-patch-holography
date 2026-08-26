@@ -977,6 +977,26 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/thermodynamics/conditional_repair_certificate.py",
         ],
     ),
+    (
+        "Execute the core-physics precursor cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_core_physics_precursor_surfaces.py",
+        ],
+    ),
+    (
+        "Execute the mass-energy selection cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_mass_energy_selection_surfaces.py",
+        ],
+    ),
 ]
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [

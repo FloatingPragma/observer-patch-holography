@@ -89,7 +89,21 @@ conserved current in the source-free case
 (\path{Lean/Screen/LocalEnergyBalance.lean}). It supplies no momentum or
 stress components, covariance, or continuum limit, and the identification
 of the screen field energy with the modular energy the composition consumes
-stays a named open join.
+is read against one declared clause: the clock-and-energy calibration row
+of the four-law surface, whose reference is the Gibbs state of a declared
+energy at one declared inverse temperature \(\beta\). That row is inhabited
+by the screen field energy, and against it the modular energy ledger of any
+state is exactly \(\beta\) times its field-energy expectation plus
+\(\log Z\), the cap first law takes the Clausius form
+\(S(p)-S(\tau)=\beta(\langle H\rangle_p-\langle H\rangle_\tau)-D(p\Vert\tau)\)
+with the offset cancelled, the slope and the reference are determined by
+the ledger, the energy is free exactly up to an additive constant, and
+\(\beta\) is determined by the reference once the family and the step are
+declared; a two-point reference outside the Gibbs form has equal energy
+expectations with unequal ledgers, so the affine reading is specific to
+that clause. Nothing derives that the record reference is Gibbs and nothing
+selects \(\beta\); the identification stays conditional on the declared
+row (\path{Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean}).
 
 A second three-dimensional construction is local and Euclidean. For the
 declared twelve-port repair mean, the centered equal-port response kernel has

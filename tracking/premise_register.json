@@ -382,7 +382,10 @@
     "Lean/QFT/SourceClockCandidate.lean",
     "Lean/Geometry/CommonWorldJointAction.lean",
     "Lean/QFT/SourceRecurrenceClock.lean",
-    "Lean/Geometry/InternalEnergyInertia.lean"
+    "Lean/Geometry/InternalEnergyInertia.lean",
+    "Lean/Geometry/ProperTimeInternalAction.lean",
+    "Lean/Screen/CarrierModeOscillators.lean",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
@@ -398,9 +401,12 @@
     "Lean/QFT/SourceClockCandidate.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement",
     "Lean/QFT/SourceRecurrenceClock.lean": "statement",
-    "Lean/Geometry/InternalEnergyInertia.lean": "statement"
+    "Lean/Geometry/InternalEnergyInertia.lean": "statement",
+    "Lean/Geometry/ProperTimeInternalAction.lean": "statement",
+    "Lean/Screen/CarrierModeOscillators.lean": "statement",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "statement"
    },
-   "notes": "Laboratory-unit attachment is calibration against measured standards, so PR-15 stays an import. PhysicalCalibrationImport records exact SI definitions and conditional conversions around one declared positive tick duration; it derives no tick identification. The source-history Hamiltonians, finite record-conditioning maps, certified Maxwell step, formal same-index product, and formal direct-sum action remain dimensionless and do not select a clock or relative physical normalization. SourceClockCandidate supplies only overlapping-window action-incidence statistics 94/1754, 103/1754, and their multiplicity sum 197/1754. These are neither distinct event counts nor a periodic clock, and the calibration dictionary does not consume them. Consequently the candidate does not reduce this import. A viable source clock still needs a source-selected periodic or otherwise operational time process plus a physical identification and uncertainty/custody contract. The recurrence precursor proves accepted repair hosts no periodic clock and exhibits on the committed source chain an exact recurrent process with a tick-free mean-return ratio; the composite-inertia module converts its ledger through the declared tick. Neither identifies a physical duration, so this premise stays an import."
+   "notes": "Laboratory-unit attachment is calibration against measured standards, so PR-15 stays an import. PhysicalCalibrationImport records exact SI definitions and conditional conversions around one declared positive tick duration; it derives no tick identification. The source-history Hamiltonians, finite record-conditioning maps, certified Maxwell step, formal same-index product, and formal direct-sum action remain dimensionless and do not select a clock or relative physical normalization. SourceClockCandidate supplies only overlapping-window action-incidence statistics 94/1754, 103/1754, and their multiplicity sum 197/1754. These are neither distinct event counts nor a periodic clock, and the calibration dictionary does not consume them. Consequently the candidate does not reduce this import. A viable source clock still needs a source-selected periodic or otherwise operational time process plus a physical identification and uncertainty/custody contract. The recurrence precursor proves accepted repair hosts no periodic clock and exhibits on the committed source chain an exact recurrent process with a tick-free mean-return ratio; the composite-inertia module converts its ledger through the declared tick. Neither identifies a physical duration, so this premise stays an import. The proper-time internal action identifies the declared internal clock with the proper-length internal action and the carrier mode oscillators supply exact integer periods and tick-free ratios in the shared step index; both leave the step a declared count and identify no physical duration, so this premise stays an import. The Gibbs reference identification converts the ledger inverse temperature to a laboratory reading through the declared tick and proves two ticks give two readings; beta and the calibration row are declared, so this premise stays an import."
   },
   {
    "id": "PR-16",
@@ -1227,7 +1233,8 @@
     "Lean/QFT/SourceHistoryGNSDynamics.lean",
     "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
     "Lean/QFT/SourceHistoryExpectationNet.lean",
-    "Lean/Screen/LocalEnergyBalance.lean"
+    "Lean/Screen/LocalEnergyBalance.lean",
+    "Lean/Geometry/CompositeMomentumCovariance.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/CanonicalLorentzModule.lean": "statement",
@@ -1241,9 +1248,10 @@
     "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
     "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
     "Lean/QFT/SourceHistoryExpectationNet.lean": "statement",
-    "Lean/Screen/LocalEnergyBalance.lean": "statement"
+    "Lean/Screen/LocalEnergyBalance.lean": "statement",
+    "Lean/Geometry/CompositeMomentumCovariance.lean": "statement"
    },
-   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open. SourceHistoryGNSDynamics attaches counted history data to a finite GNS Hamiltonian carrier without a regional or Lorentzian map, so it does not discharge this row. SourceHistoryThreeSlotLocalGNS supplies a finite tensor-factor net over ordered history coordinates, not a map to observer-produced spacetime, rods, clocks, causal reachability, or continuum soldering; it does not discharge this row. SourceHistoryExpectationNet supplies slot-regional conditional expectations of the record law and the exact matrix-level obstruction, not physical regions, spacetime, causality, or clocks; it does not discharge this row. The face-local energy balance names what a discrete-to-continuum face-balance limit must preserve on the committed carrier without attaching any metric, cone, or continuum object; this premise stays open and unconsumed."
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open. SourceHistoryGNSDynamics attaches counted history data to a finite GNS Hamiltonian carrier without a regional or Lorentzian map, so it does not discharge this row. SourceHistoryThreeSlotLocalGNS supplies a finite tensor-factor net over ordered history coordinates, not a map to observer-produced spacetime, rods, clocks, causal reachability, or continuum soldering; it does not discharge this row. SourceHistoryExpectationNet supplies slot-regional conditional expectations of the record law and the exact matrix-level obstruction, not physical regions, spacetime, causality, or clocks; it does not discharge this row. The face-local energy balance names what a discrete-to-continuum face-balance limit must preserve on the committed carrier without attaching any metric, cone, or continuum object; this premise stays open and unconsumed. The covariance selection exhibits the first explicit boost on the declared Lorentz module and selects the slope on the momentum map; the module and its frames stay declared and attach to no physical spacetime, so this premise stays open and unconsumed."
   },
   {
    "id": "PR-53",
@@ -1268,7 +1276,8 @@
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
     "Lean/Geometry/CommonWorldJointAction.lean",
     "Lean/Geometry/ScreenCarrierMapCandidate.lean",
-    "Lean/Geometry/CarrierDynamicsCompatibility.lean"
+    "Lean/Geometry/CarrierDynamicsCompatibility.lean",
+    "Lean/Screen/CarrierModeOscillators.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
@@ -1282,9 +1291,10 @@
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement",
     "Lean/Geometry/ScreenCarrierMapCandidate.lean": "statement",
-    "Lean/Geometry/CarrierDynamicsCompatibility.lean": "statement"
+    "Lean/Geometry/CarrierDynamicsCompatibility.lean": "statement",
+    "Lean/Screen/CarrierModeOscillators.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open. The screen carrier-map candidate embeds the twelve-port complex into the spatial slice with proved Gram, incidence, equivariance, refinement, and spacelike fidelity, and proves the selection non-forced; it attaches no physical field sector, frame law, calibration, continuum domain, or readout, so this premise stays open and unconsumed. The dynamics-compatibility module extends the candidate with exact evolution transport under the committed sixty-element action, barycentric refinement compatibility, and a declared gauge-invariant interaction candidate whose normalization is proved non-forced; it attaches no field-sector identification, frame law, calibration, or readout, so this premise stays open and unconsumed."
+   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open. The screen carrier-map candidate embeds the twelve-port complex into the spatial slice with proved Gram, incidence, equivariance, refinement, and spacelike fidelity, and proves the selection non-forced; it attaches no physical field sector, frame law, calibration, continuum domain, or readout, so this premise stays open and unconsumed. The dynamics-compatibility module extends the candidate with exact evolution transport under the committed sixty-element action, barycentric refinement compatibility, and a declared gauge-invariant interaction candidate whose normalization is proved non-forced; it attaches no field-sector identification, frame law, calibration, or readout, so this premise stays open and unconsumed. The carrier mode oscillators are exact periodic solutions of the committed scaled evolution at declared steps inside the sharp window; the identification of a mode with a physical oscillation or photon sector, a frame law, or a calibrated scale is not supplied, so this premise stays open and unconsumed."
   },
   {
    "id": "PR-54",
@@ -1315,7 +1325,11 @@
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
     "Lean/Geometry/CommonWorldJointAction.lean",
     "Lean/Geometry/ChargeFixedInteraction.lean",
-    "Lean/Geometry/InternalEnergyInertia.lean"
+    "Lean/Geometry/InternalEnergyInertia.lean",
+    "Lean/Geometry/PortChargeMinimalCoupling.lean",
+    "Lean/Geometry/CompositeMomentumCovariance.lean",
+    "Lean/Geometry/ProperTimeInternalAction.lean",
+    "Lean/Thermodynamics/ModularEnergyAdditivity.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
@@ -1331,9 +1345,13 @@
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement",
     "Lean/Geometry/ChargeFixedInteraction.lean": "statement",
-    "Lean/Geometry/InternalEnergyInertia.lean": "statement"
+    "Lean/Geometry/InternalEnergyInertia.lean": "statement",
+    "Lean/Geometry/PortChargeMinimalCoupling.lean": "statement",
+    "Lean/Geometry/CompositeMomentumCovariance.lean": "statement",
+    "Lean/Geometry/ProperTimeInternalAction.lean": "statement",
+    "Lean/Thermodynamics/ModularEnergyAdditivity.lean": "statement"
    },
-   "notes": "Removal needs one observer-native gauge and matter action on the same physical spacetime carrier, with source-produced connection/current/field strength, covariant matter, calibration, and readout. The finite Maxwell, source-history, and certified-step modules do not supply that package. CommonWorldMaxwellClockJoin transports independent projection facts only. CommonWorldJointAction does not attain a common-action premise: it is a formal zero-coupling direct sum whose clock functional and relative sector coefficient are declared. It is a regression target any future coupled action should reduce to. A viable next route is a gauge-invariant discrete A.J or worldline interaction on a derived carrier map whose A-variation yields current and x-variation yields a Lorentz-force-shaped clause. PR-54 stays open. The coupled-action variation fixes the candidate normalization only under a declared identification of the induced polarization-type load with a port value, and the composite-inertia precursor rests on a declared action shape; no source-derived current, coupling, or shape exists, so this premise stays open and unconsumed."
+   "notes": "Removal needs one observer-native gauge and matter action on the same physical spacetime carrier, with source-produced connection/current/field strength, covariant matter, calibration, and readout. The finite Maxwell, source-history, and certified-step modules do not supply that package. CommonWorldMaxwellClockJoin transports independent projection facts only. CommonWorldJointAction does not attain a common-action premise: it is a formal zero-coupling direct sum whose clock functional and relative sector coefficient are declared. It is a regression target any future coupled action should reduce to. A viable next route is a gauge-invariant discrete A.J or worldline interaction on a derived carrier map whose A-variation yields current and x-variation yields a Lorentz-force-shaped clause. PR-54 stays open. The coupled-action variation fixes the candidate normalization only under a declared identification of the induced polarization-type load with a port value, and the composite-inertia precursor rests on a declared action shape; no source-derived current, coupling, or shape exists, so this premise stays open and unconsumed. The hopping port charge supplies a declared conserved monopole source with gauge invariance equivalent to continuity and the committed field equations at augmented sources; the covariance and proper-time modules select the internal-energy slope under declared principles. None constructs a source-produced field/action package, so this premise stays open and unconsumed. The modular-energy additivity module composes the ledger of two bodies with an exact binding defect under declared references and the declared composite shape; the interaction and the reference stay declared, so this premise stays open and unconsumed."
   },
   {
    "id": "PR-55",

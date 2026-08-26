@@ -177,7 +177,13 @@
   "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
   "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
   "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
-  "OPH-EM-LOCAL-ENERGY-BALANCE"
+  "OPH-EM-LOCAL-ENERGY-BALANCE",
+  "OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+  "OPH-GEOMETRY-COMPOSITE-MOMENTUM-COVARIANCE",
+  "OPH-GEOMETRY-PROPER-TIME-INTERNAL-ACTION",
+  "OPH-EM-CARRIER-MODE-OSCILLATORS",
+  "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+  "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY"
  ],
  "edges": [
   {
@@ -1614,6 +1620,51 @@
    "from": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
    "to": "OPH-EM-LOCAL-ENERGY-BALANCE",
    "role": "supplies the scaled staggered packet, evolution, and global energy balance that the face-local law refines exactly"
+  },
+  {
+   "from": "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+   "to": "OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+   "role": "supplies the seam-crossing worldline, the induced load, the charge fixing, and the polarization diagnosis that the hopping-charge bridge compares against"
+  },
+  {
+   "from": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+   "to": "OPH-GEOMETRY-COMPOSITE-MOMENTUM-COVARIANCE",
+   "role": "supplies the composite momentum, the ledger, and the open slope family that the covariance selection resolves on the momentum map"
+  },
+  {
+   "from": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+   "to": "OPH-GEOMETRY-PROPER-TIME-INTERNAL-ACTION",
+   "role": "supplies the composite shapes, the impulse and force term, and the slope family that the refinement and proper-time selections act on"
+  },
+  {
+   "from": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "to": "OPH-EM-CARRIER-MODE-OSCILLATORS",
+   "role": "supplies the scaled evolution, the sharp window, the projector decomposition, and the committed eigenvectors that the mode histories and traces build on"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+   "to": "OPH-EM-CARRIER-MODE-OSCILLATORS",
+   "role": "supplies the mean return time in the shared step index that the field-sector periods are made commensurable with"
+  },
+  {
+   "from": "OPH-EM-LOCAL-ENERGY-BALANCE",
+   "to": "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+   "role": "supplies the screen field energy whose declared Gibbs reference the ledger is read against"
+  },
+  {
+   "from": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+   "to": "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+   "role": "supplies the modular energy ledger definition that the Gibbs reading evaluates"
+  },
+  {
+   "from": "OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+   "to": "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
+   "role": "supplies the corpus Gibbs state, its affine ledger law, and the additive freedom that the binding defect is computed with"
+  },
+  {
+   "from": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+   "to": "OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
+   "role": "supplies the ledger and the declared composite shape whose inertial coefficient the summed ledger plus defect enters"
   }
  ]
 }
