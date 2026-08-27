@@ -225,10 +225,13 @@ def test_flagship_simulation_language_matches_actual_custody() -> None:
     flagship = _text(
         "flagship/from_observer_consensus_to_standard_physics.tex"
     )
-    assert "No repaired Tier-A campaign was run" in flagship
-    assert "no public custody or replay artifact" in flagship
-    assert "no validation or promotion weight" in flagship
-    assert "b52196" not in flagship
+    assert "$65{,}536$ finite patch rows" in flagship
+    assert "$2{,}048$ patch-observer neighborhoods" in flagship
+    assert "finite-consensus theorem receipt nevertheless fails" in flagship
+    assert "source-to-observer contract is also false" in flagship
+    assert "b52196b296435d704b14d005d1f69caaaa662f97" in flagship
+    assert "evidence/e6_64k_dense_20260820" in flagship
+    assert "An unpublished local simulator bundle" not in flagship
 
 
 def test_mandatory_suite_executes_the_affected_receipt_gates() -> None:

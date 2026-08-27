@@ -1,0 +1,539 @@
+{
+  "artifact": "oph_poft_transport_emission_targeted_assay_v1",
+  "claim_boundary": "The assay tests the current carrier's natural direct S3 permutation transport. It cannot exclude a future source-derived complex lift, but prescribing the POFT phase/path map merely to recover T0/T1 would be circular.",
+  "claim_class": "direct_s3_edge_transport_falsification_assay",
+  "comparison_uses_quark_masses": false,
+  "observable_frozen_before_state_comparison": "mean of the three-label permutation matrices carried by saved oriented S3 edges",
+  "poft_targets": {
+    "T0": {
+      "matrix": [
+        [
+          {
+            "imag": 0.0,
+            "real": 1.0
+          },
+          {
+            "imag": 0.2,
+            "real": 0.1
+          },
+          {
+            "imag": 0.1,
+            "real": 0.0
+          }
+        ],
+        [
+          {
+            "imag": -0.2,
+            "real": 0.1
+          },
+          {
+            "imag": 0.0,
+            "real": 0.7
+          },
+          {
+            "imag": 0.0,
+            "real": 0.2
+          }
+        ],
+        [
+          {
+            "imag": -0.1,
+            "real": -0.0
+          },
+          {
+            "imag": 0.0,
+            "real": 0.2
+          },
+          {
+            "imag": 0.0,
+            "real": 0.4
+          }
+        ]
+      ],
+      "singular_value_ratios": [
+        1.0,
+        0.5514794934167613,
+        0.2551670624227598
+      ]
+    },
+    "T1": {
+      "matrix": [
+        [
+          {
+            "imag": 0.0,
+            "real": 1.02
+          },
+          {
+            "imag": 0.19,
+            "real": 0.11
+          },
+          {
+            "imag": 0.09,
+            "real": 0.01
+          }
+        ],
+        [
+          {
+            "imag": -0.19,
+            "real": 0.11
+          },
+          {
+            "imag": 0.0,
+            "real": 0.69
+          },
+          {
+            "imag": 0.01,
+            "real": 0.18
+          }
+        ],
+        [
+          {
+            "imag": -0.09,
+            "real": 0.01
+          },
+          {
+            "imag": -0.01,
+            "real": 0.18
+          },
+          {
+            "imag": 0.0,
+            "real": 0.41
+          }
+        ]
+      ],
+      "singular_value_ratios": [
+        1.0,
+        0.5462471610796769,
+        0.2745092990367808
+      ]
+    }
+  },
+  "receipts": {
+    "coarse_to_fine_edge_intertwiner_exported": false,
+    "complex_oriented_family_amplitude_exported": false,
+    "direct_T0_necessary_spectral_shape_seen": false,
+    "direct_T1_necessary_spectral_shape_seen": false,
+    "poft_T0_T1_physical_emission_receipt": false,
+    "poft_T0_direct_emission_receipt": false,
+    "poft_T1_refined_emission_receipt": false
+  },
+  "refinement_map": {
+    "path": null,
+    "sha256": null
+  },
+  "states": [
+    {
+      "complex_oriented_amplitude_exported": false,
+      "complex_transport_fields": [],
+      "edge_count": 24109,
+      "exported_fields": [
+        "gauge",
+        "left",
+        "points",
+        "right"
+      ],
+      "haar_rank_one_compatible": true,
+      "haar_rank_one_distance": 0.005223793943596382,
+      "label": "fresh_bw_4k",
+      "max_abs_singular_ratio_distance": {
+        "T0": 0.5462556994731649,
+        "T1": 0.5410233671360805
+      },
+      "natural_direct_transport_operator": [
+        [
+          {
+            "imag": 0.0,
+            "real": 0.33199220208221
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33535194325770457
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33265585466008546
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.3315774192210378
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3342320295325397
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3341905512464225
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.33643037869675224
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3304160272097557
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33315359409349204
+          }
+        ]
+      ],
+      "node_count_seen": 4096,
+      "poft_T0_necessary_spectral_match": false,
+      "poft_T1_necessary_spectral_match": false,
+      "s3_class_counts": {
+        "identity": 4025,
+        "threecycle": 8065,
+        "transposition": 12019
+      },
+      "s3_element_counts": [
+        4025,
+        3979,
+        4007,
+        3987,
+        4078,
+        4033
+      ],
+      "singular_value_ratios": [
+        1.0,
+        0.005223793943596382,
+        0.0013434121563711456
+      ],
+      "source_node_block_bootstrap": {
+        "p05": [
+          1.0,
+          0.003947148820873126,
+          0.00022850989899769132
+        ],
+        "p50": [
+          1.0,
+          0.00894872201437127,
+          0.00199467300412289
+        ],
+        "p95": [
+          1.0,
+          0.015399766323113767,
+          0.005874528164744976
+        ]
+      },
+      "source_path": "runs/poft_transport_targeted_fresh_20260712/e1_s3_bw_screen_4k_1783852528/s3_gauge_state.npz",
+      "source_sha256": "8d9a7d813d177cd77d9add985a637bb32419ca3ab813fecd1499961b0276d4a7"
+    },
+    {
+      "complex_oriented_amplitude_exported": false,
+      "complex_transport_fields": [],
+      "edge_count": 24109,
+      "exported_fields": [
+        "gauge",
+        "left",
+        "points",
+        "right"
+      ],
+      "haar_rank_one_compatible": true,
+      "haar_rank_one_distance": 0.005518559121833349,
+      "label": "fusion_4k",
+      "max_abs_singular_ratio_distance": {
+        "T0": 0.545960934294928,
+        "T1": 0.5407286019578436
+      },
+      "natural_direct_transport_operator": [
+        [
+          {
+            "imag": 0.0,
+            "real": 0.33659629184122114
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33170185407938946
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33170185407938946
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.33070637521257623
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33667924841345553
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33261437637396823
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.3326973329462027
+          },
+          {
+            "imag": 0.0,
+            "real": 0.331618897507155
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3356837695466423
+          }
+        ]
+      ],
+      "node_count_seen": 4096,
+      "poft_T0_necessary_spectral_match": false,
+      "poft_T1_necessary_spectral_match": false,
+      "s3_class_counts": {
+        "identity": 4112,
+        "threecycle": 8008,
+        "transposition": 11989
+      },
+      "s3_element_counts": [
+        4112,
+        4003,
+        3981,
+        3992,
+        4016,
+        4005
+      ],
+      "singular_value_ratios": [
+        1.0,
+        0.005518559121833349,
+        0.0036051553979674785
+      ],
+      "source_node_block_bootstrap": {
+        "p05": [
+          1.0,
+          0.004229716926045647,
+          0.00011573600406014892
+        ],
+        "p50": [
+          1.0,
+          0.009174299241073477,
+          0.002730811745262386
+        ],
+        "p95": [
+          1.0,
+          0.015948752705520597,
+          0.007346446984499915
+        ]
+      },
+      "source_path": "runs/k1_fusion_universe_4k_20260712/s3_gauge_state.npz",
+      "source_sha256": "ae87319b93795a9b8c9278a2efa221a652d8571491456023f0eeb91b3374f571"
+    },
+    {
+      "complex_oriented_amplitude_exported": false,
+      "complex_transport_fields": [],
+      "edge_count": 390924,
+      "exported_fields": [
+        "gauge",
+        "left",
+        "points",
+        "right"
+      ],
+      "haar_rank_one_compatible": true,
+      "haar_rank_one_distance": 0.0017917729331932732,
+      "label": "population_dense_64k",
+      "max_abs_singular_ratio_distance": {
+        "T0": 0.549687720483568,
+        "T1": 0.5444553881464835
+      },
+      "natural_direct_transport_operator": [
+        [
+          {
+            "imag": 0.0,
+            "real": 0.3322308172432493
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3339498214486703
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3338193613080803
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.3334919319356192
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3332335696964116
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33327449836796924
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.33427725082113147
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3328166088549181
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33290614032395044
+          }
+        ]
+      ],
+      "node_count_seen": 65536,
+      "poft_T0_necessary_spectral_match": false,
+      "poft_T1_necessary_spectral_match": false,
+      "s3_class_counts": {
+        "identity": 64937,
+        "threecycle": 130511,
+        "transposition": 195476
+      },
+      "s3_element_counts": [
+        64937,
+        64940,
+        65204,
+        65166,
+        65345,
+        65332
+      ],
+      "singular_value_ratios": [
+        1.0,
+        0.0017917729331932732,
+        2.045492696130556e-05
+      ],
+      "source_node_block_bootstrap": {
+        "p05": [
+          1.0,
+          0.0010785255827970935,
+          8.911461964545401e-05
+        ],
+        "p50": [
+          1.0,
+          0.0025618210443604386,
+          0.0006375065608009478
+        ],
+        "p95": [
+          1.0,
+          0.004172717269665192,
+          0.0017941006166252776
+        ]
+      },
+      "source_path": "runs/k1_population_transfer_64k_dense_seed20260753_20260712/s3_gauge_state.npz",
+      "source_sha256": "3385f6eb7feedbaf1152f18a8c4f51d9007a00522e59c41358bd74fb65aee1ca"
+    },
+    {
+      "complex_oriented_amplitude_exported": false,
+      "complex_transport_fields": [],
+      "edge_count": 390924,
+      "exported_fields": [
+        "gauge",
+        "left",
+        "points",
+        "right"
+      ],
+      "haar_rank_one_compatible": true,
+      "haar_rank_one_distance": 0.0007102365096198144,
+      "label": "bw_64k",
+      "max_abs_singular_ratio_distance": {
+        "T0": 0.5507692569071415,
+        "T1": 0.5455369245700571
+      },
+      "natural_direct_transport_operator": [
+        [
+          {
+            "imag": 0.0,
+            "real": 0.3335507669009833
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33353797669112156
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33291125640789515
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.3332924046617757
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33299311375101043
+          },
+          {
+            "imag": 0.0,
+            "real": 0.3337144815872139
+          }
+        ],
+        [
+          {
+            "imag": 0.0,
+            "real": 0.333156828437241
+          },
+          {
+            "imag": 0.0,
+            "real": 0.333468909557868
+          },
+          {
+            "imag": 0.0,
+            "real": 0.33337426200489095
+          }
+        ]
+      ],
+      "node_count_seen": 65536,
+      "poft_T0_necessary_spectral_match": false,
+      "poft_T1_necessary_spectral_match": false,
+      "s3_class_counts": {
+        "identity": 65088,
+        "threecycle": 130208,
+        "transposition": 195628
+      },
+      "s3_element_counts": [
+        65088,
+        65305,
+        65236,
+        65056,
+        65152,
+        65087
+      ],
+      "singular_value_ratios": [
+        1.0,
+        0.0007102365096198144,
+        0.00027708816388477764
+      ],
+      "source_node_block_bootstrap": {
+        "p05": [
+          1.0,
+          0.0010704056526335739,
+          7.436571372245585e-05
+        ],
+        "p50": [
+          1.0,
+          0.0021078551885119895,
+          0.0005623547004426658
+        ],
+        "p95": [
+          1.0,
+          0.0032745175776548586,
+          0.0016296312765728257
+        ]
+      },
+      "source_path": "runs/e1_s3_bw_screen_64k_1783837538/s3_gauge_state.npz",
+      "source_sha256": "6464cf2e98bf217737c990aead187390273f4b7f64eaafcc8e111f7f6de79022"
+    }
+  ],
+  "thresholds": {
+    "haar_rank_one_max_nontrivial_ratio": 0.02,
+    "poft_singular_ratio_max_abs": 0.05
+  },
+  "verdict": "CURRENT_S3_EDGE_CARRIER_HAAR_EQUILIBRATED_NOT_POFT"
+}

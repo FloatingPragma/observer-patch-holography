@@ -455,6 +455,23 @@ operator is not a physical current, and a deterministic transport claim requires
 second-moment receipt.
 \end{definition}
 
+The public large-run archive makes part of this ledger concrete
+\cite{ophfpe}. OPH-FPE instantiates \(65{,}536\) finite patch rows with
+declared twelve-port local interfaces, routes \(390{,}924\) gauge-labelled
+seams, applies endpoint and sector-link repair rules, commits records, and
+materializes \(2{,}048\) patch-observer neighborhoods. The archive contains
+the resolved configuration and seeds, full mismatch trace, primitive
+gauge/replay arrays, all observer rows in losslessly compressed form, and the
+resulting receipts. Its global support is the legacy Fibonacci/KNN control,
+and its exact endpoint-branch check is nonconfluent. The finite-consensus
+theorem receipt is therefore false. This run exercises the source, repair,
+record, and observer data path, but its dedicated source-to-observer contract
+finds no record readback that causes a later bounded port write. The archive
+documents a historical aggregate that incorrectly promoted observer-row
+presence under the same receipt name. The run supplies neither the normalizer
+\(n_r\), a physical quotient, nor a laboratory readout required by the
+definition above.
+
 \begin{definition}[Sphere fold]\label{def:sphere-fold}
 Fix a regulator \(r\). Let \(\Sigma_r\) be the finite presentation space of a patch
 federation, let \(\Gamma_r\) be the presentation-redundancy groupoid, and let
@@ -4549,7 +4566,13 @@ B.\ M\"uller,
 \emph{OPH-FPE: finite simulator and receipt engine for Observer-Patch
 Holography physics experiments},
 2026.
-Available at \url{https://github.com/muellerberndt/oph-physics-sim}.
+Source available at \url{https://github.com/muellerberndt/oph-physics-sim}.
+Large-run source revision:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/b52196b296435d704b14d005d1f69caaaa662f97}.
+Curated run-data archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/e6_64k_dense_20260820}.
+Evidence index:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence}.
 
 \bibitem{ophrepo}
 FloatingPragma (2026). Observer Patch Holography: Lean library, exact code

@@ -562,7 +562,16 @@ is an import and never a derivation. In OPH,
 ``simulation'' means this certified observer-facing self-consistency
 structure, not a bare fixed point and not a frame renderer. The executable OPH-FPE simulator
 and its finite-run receipt bundles are a separate public evidence surface for finite OPH
-experiments~\cite{ophfpe}; they do not replace the theorem-level definition above.
+experiments~\cite{ophfpe}; they do not replace the theorem-level definition above. One public
+large-run archive records a \(65{,}536\)-patch, \(390{,}924\)-seam finite-state
+diagnostic with \(2{,}048\) materialized patch-observer neighborhoods. The engine routes
+gauge-labelled port pairs, applies declared repair moves, commits local records, samples
+observer readouts, and emits source arrays, traces, and fail-closed receipts. This diagnostic
+does not satisfy the theorem-level simulation criterion: its exact endpoint-branch check is
+nonconfluent, the archived finite-consensus receipt is false, and the dedicated
+source-to-observer contract finds no record readback that causes a later bounded port write.
+The archive also identifies a historical aggregate that mislabeled observer-row presence as a
+positive self-reading receipt; the dedicated fail-closed contract controls that disagreement.
 
 The effective bulk is reconstructed
 from compatible screen data. Locality comes from the way collars control recovery across patch
@@ -4118,7 +4127,10 @@ Alexander Osika, \href{mailto:alex@snrgystudios.com}{\texttt{alex@snrgystudios.c
 
 \noindent\textbf{Data Availability declaration:} Source manuscripts, public
 PDFs, simulation code, and implementation notes are available through the OPH
-repository and its linked public artifacts. Some hardware and prototype evidence requires a
+repository and its linked public artifacts. The curated large-run evidence
+archive publishes its resolved configuration, seeds, mismatch trace, primitive
+gauge/replay arrays, receipts, and all observer rows in losslessly compressed
+form~\cite{ophfpe}. Some hardware and prototype evidence requires a
 sanitized ancillary audit bundle before public disclosure because raw logs may include device
 configuration, operational metadata, or private infrastructure details. The intended audit bundle
 contains source hashes, simulator configs, finite-receipt JSON, verifier code, hardware acceptance
@@ -4127,7 +4139,9 @@ claims.
 
 \noindent\textbf{Code Availability declaration:} The OPH simulator, finite-consensus harnesses,
 visualization payload schemas, and public paper build sources are maintained in the OPH project
-repositories. Submission artifacts include a standalone source file and a source bundle so that the
+repositories. The archived large run pins the simulator revision that produced
+it and supplies a byte-hash verifier for the curated evidence subset. Submission artifacts include
+a standalone source file and a source bundle so that the
 manuscript can be rebuilt without relying on private local paths.
 
 \noindent\textbf{Ethics declaration:} not applicable.

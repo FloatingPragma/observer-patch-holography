@@ -10,11 +10,9 @@
       "lane_issue": 728,
       "premises": [],
       "evidence": [
-        "evidence/einstein_convergence/README.md",
-        "evidence/einstein_convergence/manifest.json",
         "claims/emergent_instrument_register.json"
       ],
-      "notes": "The retained three-rung (1,3) measurement stands as a recorded artifact, and the preregistered fresh-seed replication returned FAILED. The 65536-carrier rung reproduced the threshold (1,3) form and its preregistered robust reference on five of five replicates. The 16384-carrier rung reproduced the threshold form on two of five and its robust reference on one of five, so it is seed-sensitive; this does not prove carrier count is the cause. The margin-ratio trend missed its declared band on all five, and the ancestry-permutation null did not discriminate, so the estimator does not attribute the signature to ancestry structure. The emergent rung is demoted per the frozen rule; INS-01 supplies the controlling scientific verdict. INS-02 records a deferred carrier-count-by-absolute-support-size design with the 16384 rung, fixed observer count, and stronger quantitative ancestry controls; it is not frozen or authorized to run and changes no scientific classification.",
+      "notes": "The preregistered fresh-seed replication returned FAILED. The 65536-carrier rung reproduced the threshold (1,3) form and its preregistered robust reference on five of five replicates. The 16384-carrier rung reproduced the threshold form on two of five and its robust reference on one of five, so it is seed-sensitive; this does not prove carrier count is the cause. The margin-ratio trend missed its declared band on all five, and the ancestry-permutation null did not discriminate, so the estimator does not attribute the signature to ancestry structure. The emergent rung is demoted per the frozen rule; INS-01 supplies the controlling scientific verdict. INS-02 records a deferred carrier-count-by-absolute-support-size design with the 16384 rung, fixed observer count, and stronger quantitative ancestry controls; it is not frozen or authorized to run and changes no scientific classification.",
       "open_premises": []
     },
     {
@@ -89,7 +87,6 @@
         "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
         "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
         "docs/GRAVITY_PREMISE_LADDER.md",
-        "evidence/einstein_convergence/manifest.json",
         "Lean/Geometry/EinsteinBranchInhabitant.lean",
         "Lean/Screen/LocalEnergyBalance.lean",
         "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",

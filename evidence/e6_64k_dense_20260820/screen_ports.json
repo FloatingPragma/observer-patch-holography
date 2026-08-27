@@ -1,0 +1,2228 @@
+{
+  "mode": "explicit_named_echosahedral_ports",
+  "architecture_level": "two_level_local_carriers_plus_intercarrier_seams",
+  "routing_mode": "icosahedral_directional_assignment",
+  "ports_per_patch": 12,
+  "port_names": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8",
+    "P9",
+    "P10",
+    "P11"
+  ],
+  "edge_count": 390924,
+  "overflow_count": 0,
+  "overflow_fraction": 0.0,
+  "degree_min": 10,
+  "degree_mean": 11.9300537109375,
+  "degree_max": 12,
+  "unused_port_slots": 4584,
+  "directional_alignment": {
+    "sample_count": 781848,
+    "minimum": -0.03649282082915306,
+    "mean": 0.7437262170035968,
+    "maximum": 0.9999784231185913
+  },
+  "local_frame_hash": "63505aef9cf11acb85f0ed0d50e3c0a63dc4d1bbb2fc2c1bc8c9cd5e4e059e2e",
+  "local_patch_architecture": {
+    "schema": "oph.echosahedral_local_patch.v1",
+    "patch_object_role": "bounded_local_observer_carrier",
+    "port_names": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P10",
+      "P11"
+    ],
+    "port_count": 12,
+    "port_template": "regular_icosahedron_vertices",
+    "port_direction_template": [
+      [
+        -0.5257311121191336,
+        0.85065080835204,
+        0.0
+      ],
+      [
+        0.5257311121191336,
+        0.85065080835204,
+        0.0
+      ],
+      [
+        -0.5257311121191336,
+        -0.85065080835204,
+        0.0
+      ],
+      [
+        0.5257311121191336,
+        -0.85065080835204,
+        0.0
+      ],
+      [
+        0.0,
+        -0.5257311121191336,
+        0.85065080835204
+      ],
+      [
+        0.0,
+        0.5257311121191336,
+        0.85065080835204
+      ],
+      [
+        0.0,
+        -0.5257311121191336,
+        -0.85065080835204
+      ],
+      [
+        0.0,
+        0.5257311121191336,
+        -0.85065080835204
+      ],
+      [
+        0.85065080835204,
+        0.0,
+        -0.5257311121191336
+      ],
+      [
+        0.85065080835204,
+        0.0,
+        0.5257311121191336
+      ],
+      [
+        -0.85065080835204,
+        0.0,
+        -0.5257311121191336
+      ],
+      [
+        -0.85065080835204,
+        0.0,
+        0.5257311121191336
+      ]
+    ],
+    "hidden_presentation_coordinates": true,
+    "hidden_coordinates_eligible_for_promoted_geometry": false,
+    "local_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "local_faces": [
+      [
+        0,
+        11,
+        5
+      ],
+      [
+        0,
+        5,
+        1
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        7,
+        10
+      ],
+      [
+        0,
+        10,
+        11
+      ],
+      [
+        1,
+        5,
+        9
+      ],
+      [
+        5,
+        11,
+        4
+      ],
+      [
+        11,
+        10,
+        2
+      ],
+      [
+        10,
+        7,
+        6
+      ],
+      [
+        7,
+        1,
+        8
+      ],
+      [
+        3,
+        9,
+        4
+      ],
+      [
+        3,
+        4,
+        2
+      ],
+      [
+        3,
+        2,
+        6
+      ],
+      [
+        3,
+        6,
+        8
+      ],
+      [
+        3,
+        8,
+        9
+      ],
+      [
+        4,
+        9,
+        5
+      ],
+      [
+        2,
+        4,
+        11
+      ],
+      [
+        6,
+        2,
+        10
+      ],
+      [
+        8,
+        6,
+        7
+      ],
+      [
+        9,
+        8,
+        1
+      ]
+    ],
+    "local_edge_count": 30,
+    "local_face_count": 20,
+    "inverse_port_involution": [
+      3,
+      2,
+      1,
+      0,
+      7,
+      6,
+      5,
+      4,
+      11,
+      10,
+      9,
+      8
+    ],
+    "antipodal_pairs": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ]
+    ],
+    "maximum_antipodal_residual": 0.0,
+    "proper_rotation_group_order": 60,
+    "incidence_audit": {
+      "vertex_count": 12,
+      "edge_count": 30,
+      "face_count": 20,
+      "vertex_degree_profile": {
+        "5": 12
+      },
+      "antipode_fixed_point_count": 0,
+      "antipode_involution": true,
+      "a5_action_count": 60,
+      "all_a5_actions_preserve_edges": true,
+      "all_a5_actions_preserve_oriented_faces": true,
+      "all_a5_actions_commute_with_antipode": true,
+      "adjacency_spectrum": [
+        {
+          "eigenvalue": -2.2360679774997902,
+          "multiplicity": 3
+        },
+        {
+          "eigenvalue": -1.0000000000000007,
+          "multiplicity": 5
+        },
+        {
+          "eigenvalue": 2.2360679774997876,
+          "multiplicity": 3
+        },
+        {
+          "eigenvalue": 4.999999999999998,
+          "multiplicity": 1
+        }
+      ],
+      "adjacency_irrep_multiplicities": [
+        1,
+        3,
+        3,
+        5
+      ],
+      "incidence_receipt": true
+    },
+    "template_hash": "c4fb89908882e10edbc549b06beae0adc093a04ab789d6e4080a6a62758034f4",
+    "shared_template_instantiated_per_cell": true,
+    "ECHOSAHEDRAL_LOCAL_PATCH_ARCHITECTURE_RECEIPT": true,
+    "ECHOSAHEDRAL_CARRIER_CONFORMANCE_RECEIPT": true,
+    "LOCAL_ICOSAHEDRAL_INCIDENCE_RECEIPT": true,
+    "GLOBAL_TWELVE_UNIT_SCREEN_SIEVE_RECEIPT": false,
+    "LOCAL_TO_GLOBAL_A5_INTERTWINER_RECEIPT": false,
+    "claim_boundary": "The twelve local P0..P11 ports belong to every bounded observer cell. Their 12 vertices, 30 edges, 20 outward-oriented faces, antipode, and order-60 A5 action are hidden carrier-presentation data. They may shape local coupling but are forbidden as promoted S2, H3, cap-normal, clock, or event coordinates. The separate screen-sieve theorem derives twelve global unit-defect ports on a connected cut. Identifying the two twelve-dimensional objects requires a quotient-visible, refinement-natural A5 intertwiner."
+  },
+  "federation_sewing": {
+    "carrier_count": 65536,
+    "seam_count": 390924,
+    "current_seam_bundle_mode": "singleton_port_pair",
+    "general_bundle_schema_implemented": false,
+    "orientation_reversal": "swap_endpoints_and_port_restrictions",
+    "valid_distinct_local_slots": true,
+    "interface_algebra_hashes_bound": false
+  },
+  "reference_diagonal_a5_intertwiner": {
+    "schema": "oph.reference_diagonal_a5_intertwiner.v1",
+    "object_type": "REFERENCE_diagonal_local_to_global_A5_intertwiner",
+    "local_carrier_type": {
+      "cell_factor_dimension": 65536,
+      "port_factor_dimension": 12,
+      "formal_dimension": 786432,
+      "representation": "identity_on_cells_tensor_port_permutation"
+    },
+    "global_reference_carrier_type": {
+      "dimension": 12,
+      "representation": "base_icosahedron_port_permutation"
+    },
+    "embedding_type": "unital_diagonal_replication",
+    "projection_type": "faithful_cell_weighted_average",
+    "conditional_expectation_type": "embedding_after_projection",
+    "verification_method": "factorized_integer_coefficient_identity_without_dense_12N_matrix",
+    "action_convention": "old_port_i_maps_to_new_port_permutation_i",
+    "group_element_count": 60,
+    "unique_action_count": 60,
+    "element_order_profile": {
+      "1": 1,
+      "2": 15,
+      "3": 20,
+      "5": 24
+    },
+    "integer_permutation_group_closed": true,
+    "integer_permutation_inverses_present": true,
+    "base_port_orbit_size": 12,
+    "base_port_stabilizer_size": 5,
+    "cell_weights": {
+      "count": 65536,
+      "sum": 1.0,
+      "minimum": 1.52587890625e-05,
+      "maximum": 1.52587890625e-05,
+      "strictly_positive": true,
+      "normalization_residual": 0.0,
+      "uniform": true,
+      "sha256": "sha256:7c5a6d3972ca4cfce317be9efc3c7383d0940680b6e9832e05f8cca7c632557e"
+    },
+    "map_identities": {
+      "projection_after_embedding_is_identity": true,
+      "embedding_projection_is_idempotent": true,
+      "projection_is_weighted_adjoint_of_embedding": true,
+      "all_60_embedding_intertwining_checks": true,
+      "all_60_projection_intertwining_checks": true
+    },
+    "action_rows": [
+      {
+        "element_index": 0,
+        "element_order": 1,
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "permutation_sha256": "sha256:700a4498438a801b5781533040bce85a20ae4bfe08866f7552ff33e172923b0a",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 1,
+        "element_order": 3,
+        "permutation": [
+          11,
+          10,
+          9,
+          8,
+          1,
+          0,
+          3,
+          2,
+          6,
+          7,
+          4,
+          5
+        ],
+        "permutation_sha256": "sha256:4100dcef7ef14cbd02e3e375612d81090602956552fb048dea8a418f85b1f58b",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 2,
+        "element_order": 3,
+        "permutation": [
+          5,
+          4,
+          7,
+          6,
+          10,
+          11,
+          8,
+          9,
+          3,
+          2,
+          1,
+          0
+        ],
+        "permutation_sha256": "sha256:eee45231be2a180e191202e6063d7d17d7889296942083ff9d04f4aaf7252183",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 3,
+        "element_order": 5,
+        "permutation": [
+          0,
+          7,
+          4,
+          3,
+          9,
+          1,
+          2,
+          10,
+          6,
+          8,
+          11,
+          5
+        ],
+        "permutation_sha256": "sha256:2c9ec370224204d25b47762627cc0fe0bb526682a38145676b4a1235d34ddcd7",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 4,
+        "element_order": 2,
+        "permutation": [
+          5,
+          11,
+          8,
+          6,
+          7,
+          0,
+          3,
+          4,
+          2,
+          10,
+          9,
+          1
+        ],
+        "permutation_sha256": "sha256:f53d97231eaf92c6a53a96d9e67601866799f0c99040e09f8be60ff461e6aef5",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 5,
+        "element_order": 5,
+        "permutation": [
+          1,
+          9,
+          10,
+          2,
+          11,
+          5,
+          6,
+          8,
+          3,
+          4,
+          7,
+          0
+        ],
+        "permutation_sha256": "sha256:52042da1659b6c51aa010d660f13ede8209b8fb73aca6ad51b7f06e2c32da44a",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 6,
+        "element_order": 5,
+        "permutation": [
+          0,
+          10,
+          9,
+          3,
+          8,
+          7,
+          4,
+          11,
+          2,
+          6,
+          5,
+          1
+        ],
+        "permutation_sha256": "sha256:6d2b73f2d04ce3d5cac48a7ded430b8d2a1e6e612316e47fb834fabdc5110a55",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 7,
+        "element_order": 3,
+        "permutation": [
+          1,
+          5,
+          6,
+          2,
+          10,
+          0,
+          3,
+          9,
+          4,
+          11,
+          8,
+          7
+        ],
+        "permutation_sha256": "sha256:74a2a1e7205a7d802691f0204391f28d1c0aa28e15601682c6da8c253a7e8afe",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 8,
+        "element_order": 5,
+        "permutation": [
+          7,
+          8,
+          11,
+          4,
+          5,
+          1,
+          2,
+          6,
+          3,
+          9,
+          10,
+          0
+        ],
+        "permutation_sha256": "sha256:d01c457537eac0caa25a878dbe7d08353bc63df7589890e1f23b193d8e9b3359",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 9,
+        "element_order": 5,
+        "permutation": [
+          0,
+          11,
+          8,
+          3,
+          6,
+          10,
+          9,
+          5,
+          4,
+          2,
+          1,
+          7
+        ],
+        "permutation_sha256": "sha256:22899c529d729f90d358db30110511d95b29a9778f6c5da5baeac1e6736dc9c9",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 10,
+        "element_order": 5,
+        "permutation": [
+          7,
+          1,
+          2,
+          4,
+          11,
+          0,
+          3,
+          8,
+          9,
+          5,
+          6,
+          10
+        ],
+        "permutation_sha256": "sha256:1079a3bffd38ef4a9096325003aa8c83ecb530b5dc8666c0c5c42ace7a24ec67",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 11,
+        "element_order": 3,
+        "permutation": [
+          10,
+          6,
+          5,
+          9,
+          1,
+          7,
+          4,
+          2,
+          3,
+          8,
+          11,
+          0
+        ],
+        "permutation_sha256": "sha256:a4f651be7ede2c5852c90b6cc8a9e4441b3c5a204d40f7e25128aa1fc2b94834",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 12,
+        "element_order": 5,
+        "permutation": [
+          0,
+          5,
+          6,
+          3,
+          2,
+          11,
+          8,
+          1,
+          9,
+          4,
+          7,
+          10
+        ],
+        "permutation_sha256": "sha256:203c31d638c8b7153e42301db8bc6c4fa8b40a63686fcbbdef8c24909e3e083d",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 13,
+        "element_order": 5,
+        "permutation": [
+          10,
+          7,
+          4,
+          9,
+          5,
+          0,
+          3,
+          6,
+          8,
+          1,
+          2,
+          11
+        ],
+        "permutation_sha256": "sha256:7b64314e3dff794e05634887fffc604abe67ff2a74636bea6cfd22f34f37f2d5",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 14,
+        "element_order": 2,
+        "permutation": [
+          11,
+          2,
+          1,
+          8,
+          7,
+          10,
+          9,
+          4,
+          3,
+          6,
+          5,
+          0
+        ],
+        "permutation_sha256": "sha256:524465231338cfae89de55d7879c2599f6704c5e272e19c7533b7125cbca3826",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 15,
+        "element_order": 5,
+        "permutation": [
+          1,
+          8,
+          11,
+          2,
+          4,
+          9,
+          10,
+          7,
+          6,
+          3,
+          0,
+          5
+        ],
+        "permutation_sha256": "sha256:d76f455b00e2802feb340762b8361943d88b072f8ed05be07e25318bdad5b46a",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 16,
+        "element_order": 3,
+        "permutation": [
+          5,
+          0,
+          3,
+          6,
+          8,
+          1,
+          2,
+          11,
+          10,
+          7,
+          4,
+          9
+        ],
+        "permutation_sha256": "sha256:fca5fa2635be9429394f3dbe04aee25605fdd97b86de5adaf64245a5f779e80f",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 17,
+        "element_order": 5,
+        "permutation": [
+          9,
+          4,
+          7,
+          10,
+          0,
+          5,
+          6,
+          3,
+          2,
+          11,
+          8,
+          1
+        ],
+        "permutation_sha256": "sha256:468996add27cd424daf25db4339e1a6f30d29fe41a20587afd1218217fe84ea0",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 18,
+        "element_order": 5,
+        "permutation": [
+          5,
+          9,
+          10,
+          6,
+          2,
+          4,
+          7,
+          1,
+          8,
+          3,
+          0,
+          11
+        ],
+        "permutation_sha256": "sha256:cdb8fcca47a00b3bc9966dfbb0a04015dc82a4c46359cc46d4a007ef799d58d8",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 19,
+        "element_order": 5,
+        "permutation": [
+          11,
+          0,
+          3,
+          8,
+          9,
+          5,
+          6,
+          10,
+          7,
+          1,
+          2,
+          4
+        ],
+        "permutation_sha256": "sha256:b4cbbf425093fe238ee367b7a2c84dec5240422b6fe2f92ced3cd2d64db5aa29",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 20,
+        "element_order": 2,
+        "permutation": [
+          4,
+          2,
+          1,
+          7,
+          0,
+          11,
+          8,
+          3,
+          6,
+          10,
+          9,
+          5
+        ],
+        "permutation_sha256": "sha256:8517219af5b98638246ea506b9f993631e0246977c1d3a138fbad06de34bdf6a",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 21,
+        "element_order": 3,
+        "permutation": [
+          11,
+          4,
+          7,
+          8,
+          6,
+          2,
+          1,
+          5,
+          9,
+          3,
+          0,
+          10
+        ],
+        "permutation_sha256": "sha256:07ebd8099c6230ad351a04edf89399d861055343226c89f8648fc4c1f0582965",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 22,
+        "element_order": 5,
+        "permutation": [
+          10,
+          0,
+          3,
+          9,
+          4,
+          11,
+          8,
+          7,
+          1,
+          5,
+          6,
+          2
+        ],
+        "permutation_sha256": "sha256:46bb8a9c1002646a113410fce19e1b0ef1be5db960a992efe41b4792646907b3",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 23,
+        "element_order": 5,
+        "permutation": [
+          2,
+          6,
+          5,
+          1,
+          0,
+          10,
+          9,
+          3,
+          8,
+          7,
+          4,
+          11
+        ],
+        "permutation_sha256": "sha256:b79f063dbf0c6a31790582be3241cd6db8b5c4d461b4f3d5849696fdebe2c801",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 24,
+        "element_order": 2,
+        "permutation": [
+          10,
+          2,
+          1,
+          9,
+          8,
+          6,
+          5,
+          11,
+          4,
+          3,
+          0,
+          7
+        ],
+        "permutation_sha256": "sha256:b524bed814e0198a645a405246e1418fda76b0204928ce07d5a33b1b65d243f5",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 25,
+        "element_order": 3,
+        "permutation": [
+          7,
+          0,
+          3,
+          4,
+          2,
+          10,
+          9,
+          1,
+          5,
+          11,
+          8,
+          6
+        ],
+        "permutation_sha256": "sha256:106610e4b7b41e5c055ecb62e95de0d21b9c5f43b2399210c25232f1a40d8898",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 26,
+        "element_order": 3,
+        "permutation": [
+          6,
+          8,
+          11,
+          5,
+          0,
+          7,
+          4,
+          3,
+          9,
+          1,
+          2,
+          10
+        ],
+        "permutation_sha256": "sha256:54a8fdb0c8114b23e42efa4ee81957a5a5fd0fa7692001f8d9b07ca2777cc434",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 27,
+        "element_order": 3,
+        "permutation": [
+          7,
+          6,
+          5,
+          4,
+          9,
+          8,
+          11,
+          10,
+          2,
+          3,
+          0,
+          1
+        ],
+        "permutation_sha256": "sha256:adac599525281c1cb719845413b8abf3d78013fb3c3797ce602d77d1212041cb",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 28,
+        "element_order": 2,
+        "permutation": [
+          1,
+          0,
+          3,
+          2,
+          6,
+          7,
+          4,
+          5,
+          11,
+          10,
+          9,
+          8
+        ],
+        "permutation_sha256": "sha256:1a4900e05572e18147b133c32c54e5b6279f8a55033a4cd86e6755cbb362905d",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 29,
+        "element_order": 3,
+        "permutation": [
+          8,
+          9,
+          10,
+          11,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "permutation_sha256": "sha256:e5b435eb76ddbb3e218c80e7dab436302e1215afdf827c42250ae0a022f5e54d",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 30,
+        "element_order": 2,
+        "permutation": [
+          3,
+          2,
+          1,
+          0,
+          5,
+          4,
+          7,
+          6,
+          10,
+          11,
+          8,
+          9
+        ],
+        "permutation_sha256": "sha256:f5d5dd05c98e238ddb1e1de87f83e6686117ce23e45e59505939a8231f70f577",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 31,
+        "element_order": 3,
+        "permutation": [
+          9,
+          8,
+          11,
+          10,
+          2,
+          3,
+          0,
+          1,
+          7,
+          6,
+          5,
+          4
+        ],
+        "permutation_sha256": "sha256:22a75ce520a749777c96256ad146c067d13b96b48266c8e1d13b537bb33c3137",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 32,
+        "element_order": 3,
+        "permutation": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          0,
+          1,
+          2,
+          3
+        ],
+        "permutation_sha256": "sha256:82e6a236882ae25642e8c6b05b5d40c43bf2fb594b2452bcfe832bda55ae2984",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 33,
+        "element_order": 2,
+        "permutation": [
+          3,
+          6,
+          5,
+          0,
+          11,
+          2,
+          1,
+          8,
+          7,
+          10,
+          9,
+          4
+        ],
+        "permutation_sha256": "sha256:682b3a132e956372c7ebd38e75868925a83748ff008f9fe0e10b448c4320ee5d",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 34,
+        "element_order": 3,
+        "permutation": [
+          4,
+          9,
+          10,
+          7,
+          6,
+          3,
+          0,
+          5,
+          1,
+          8,
+          11,
+          2
+        ],
+        "permutation_sha256": "sha256:06d9b2da70b48e9aa8f4dcce5ab9bf7696180bc2638869df336fd032f9f2b6ce",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 35,
+        "element_order": 3,
+        "permutation": [
+          2,
+          11,
+          8,
+          1,
+          9,
+          4,
+          7,
+          10,
+          0,
+          5,
+          6,
+          3
+        ],
+        "permutation_sha256": "sha256:300afc54dbfce9f87e3e697274105884ba115c2f2fe37d6300fd1939efcd935f",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 36,
+        "element_order": 2,
+        "permutation": [
+          3,
+          8,
+          11,
+          0,
+          10,
+          6,
+          5,
+          9,
+          1,
+          7,
+          4,
+          2
+        ],
+        "permutation_sha256": "sha256:94663ebcb1c3d8cd64ea785a046b97d30029e559aa180a3e66e13c1af3e53328",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 37,
+        "element_order": 5,
+        "permutation": [
+          2,
+          4,
+          7,
+          1,
+          8,
+          3,
+          0,
+          11,
+          5,
+          9,
+          10,
+          6
+        ],
+        "permutation_sha256": "sha256:3fec0a57b4ebb18af2291616c554e4a40e4856a0a7b1518769ccacc5fbdd4ab9",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 38,
+        "element_order": 5,
+        "permutation": [
+          6,
+          10,
+          9,
+          5,
+          4,
+          2,
+          1,
+          7,
+          0,
+          11,
+          8,
+          3
+        ],
+        "permutation_sha256": "sha256:e1ca33b92ed2d1db2ae890d51aef930540fcc35b1df4ae86cc930870f77de65b",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 39,
+        "element_order": 2,
+        "permutation": [
+          3,
+          9,
+          10,
+          0,
+          7,
+          8,
+          11,
+          4,
+          5,
+          1,
+          2,
+          6
+        ],
+        "permutation_sha256": "sha256:ac504a080540d05455d556d21902e3c91e24f095beb65296d21c3cb4b9143eb9",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 40,
+        "element_order": 2,
+        "permutation": [
+          6,
+          2,
+          1,
+          5,
+          9,
+          3,
+          0,
+          10,
+          11,
+          4,
+          7,
+          8
+        ],
+        "permutation_sha256": "sha256:0a14219dc5c08f48b716a3aa70c6c2887a75a8c01616c693d4c8e168d0f7d99d",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 41,
+        "element_order": 2,
+        "permutation": [
+          8,
+          7,
+          4,
+          11,
+          2,
+          6,
+          5,
+          1,
+          0,
+          10,
+          9,
+          3
+        ],
+        "permutation_sha256": "sha256:0c0a7fbbf890b75cb69497c5250cb5443fe1666c8cc5d5ab2588e2eed046a8d6",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 42,
+        "element_order": 2,
+        "permutation": [
+          3,
+          4,
+          7,
+          0,
+          1,
+          9,
+          10,
+          2,
+          11,
+          5,
+          6,
+          8
+        ],
+        "permutation_sha256": "sha256:f7207638f0cd8e42d0b9ed8a6c29d8a21e515f3930939b250f8081504c73cbe8",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 43,
+        "element_order": 5,
+        "permutation": [
+          8,
+          6,
+          5,
+          11,
+          4,
+          3,
+          0,
+          7,
+          10,
+          2,
+          1,
+          9
+        ],
+        "permutation_sha256": "sha256:244f3c0092b0d59d27808b3d7785b8c2ceab1bf8ad278378c5e9456a9b7f38b4",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 44,
+        "element_order": 5,
+        "permutation": [
+          9,
+          1,
+          2,
+          10,
+          6,
+          8,
+          11,
+          5,
+          0,
+          7,
+          4,
+          3
+        ],
+        "permutation_sha256": "sha256:3a9e544f3e18570e7e1d12191db39412639d1cb032ba82360c13658c5977ccd1",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 45,
+        "element_order": 5,
+        "permutation": [
+          4,
+          11,
+          8,
+          7,
+          1,
+          5,
+          6,
+          2,
+          10,
+          0,
+          3,
+          9
+        ],
+        "permutation_sha256": "sha256:2982f84deadcb9f4543140f5dfe5194cbd25874959f584c1aebb879472c0270f",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 46,
+        "element_order": 3,
+        "permutation": [
+          9,
+          3,
+          0,
+          10,
+          11,
+          4,
+          7,
+          8,
+          6,
+          2,
+          1,
+          5
+        ],
+        "permutation_sha256": "sha256:8bbbb033fa14a27901c80e00d4ef898edcc2ed0123b4a2ae051dd9ae185ce419",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 47,
+        "element_order": 5,
+        "permutation": [
+          5,
+          1,
+          2,
+          6,
+          3,
+          9,
+          10,
+          0,
+          7,
+          8,
+          11,
+          4
+        ],
+        "permutation_sha256": "sha256:cb87ab07ec7bc5b21e347e03e83fc07bec0de60b288d7d22483817da1b0bee02",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 48,
+        "element_order": 3,
+        "permutation": [
+          2,
+          10,
+          9,
+          1,
+          5,
+          11,
+          8,
+          6,
+          7,
+          0,
+          3,
+          4
+        ],
+        "permutation_sha256": "sha256:cf11587c21b338871f173ec22ff355f0f7777129fdcf6bd5f782a1f282a73222",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 49,
+        "element_order": 5,
+        "permutation": [
+          4,
+          3,
+          0,
+          7,
+          10,
+          2,
+          1,
+          9,
+          8,
+          6,
+          5,
+          11
+        ],
+        "permutation_sha256": "sha256:c890d756d77b61ff9fe976a5497db0635c1c41011f37683553352095ceccc63e",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 50,
+        "element_order": 5,
+        "permutation": [
+          11,
+          5,
+          6,
+          8,
+          3,
+          4,
+          7,
+          0,
+          1,
+          9,
+          10,
+          2
+        ],
+        "permutation_sha256": "sha256:34c5a5095f15a5c862ed1860fc4703c2bb49960b8edb161dcc0c7de729f46fb2",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 51,
+        "element_order": 3,
+        "permutation": [
+          6,
+          7,
+          4,
+          5,
+          11,
+          10,
+          9,
+          8,
+          1,
+          0,
+          3,
+          2
+        ],
+        "permutation_sha256": "sha256:398f36c89c7be391d3b2938a1d2310857e9af534ac5dc6119e0396dbcc179e58",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 52,
+        "element_order": 2,
+        "permutation": [
+          2,
+          3,
+          0,
+          1,
+          7,
+          6,
+          5,
+          4,
+          9,
+          8,
+          11,
+          10
+        ],
+        "permutation_sha256": "sha256:e9e040cb73d671ee20de099ac317f687fea2d31f2e09db110f5c250e2feb25d9",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 53,
+        "element_order": 3,
+        "permutation": [
+          10,
+          11,
+          8,
+          9,
+          3,
+          2,
+          1,
+          0,
+          5,
+          4,
+          7,
+          6
+        ],
+        "permutation_sha256": "sha256:9a1f5d38ec9e1e9e2811a46d8f027ea4f256b6d8596b530b2177fc08f22bebfc",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 54,
+        "element_order": 5,
+        "permutation": [
+          8,
+          1,
+          2,
+          11,
+          10,
+          7,
+          4,
+          9,
+          5,
+          0,
+          3,
+          6
+        ],
+        "permutation_sha256": "sha256:18f81ec6c6465109d2bb7fb35cd8ae2b578bd162842d569ec4db41bd3d02e400",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 55,
+        "element_order": 5,
+        "permutation": [
+          6,
+          3,
+          0,
+          5,
+          1,
+          8,
+          11,
+          2,
+          4,
+          9,
+          10,
+          7
+        ],
+        "permutation_sha256": "sha256:aa73126119fbfffc0773f4705f73c17369975f17cf333de0f44d94c133433fae",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 56,
+        "element_order": 2,
+        "permutation": [
+          7,
+          10,
+          9,
+          4,
+          3,
+          6,
+          5,
+          0,
+          11,
+          2,
+          1,
+          8
+        ],
+        "permutation_sha256": "sha256:48d3e729391310d247eac4e30981454f43a0e22582797d763aff56472ac58f4e",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 57,
+        "element_order": 2,
+        "permutation": [
+          9,
+          5,
+          6,
+          10,
+          7,
+          1,
+          2,
+          4,
+          11,
+          0,
+          3,
+          8
+        ],
+        "permutation_sha256": "sha256:96d3c003a1f1a4eaf3e22eef0d5088abe25a3c5eb2629f4df70496ffa9fba91c",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 58,
+        "element_order": 3,
+        "permutation": [
+          8,
+          3,
+          0,
+          11,
+          5,
+          9,
+          10,
+          6,
+          2,
+          4,
+          7,
+          1
+        ],
+        "permutation_sha256": "sha256:3a4ff12f250313dd23b20fca42debd67296c6f012673f2c6700fde1f5f733f47",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      },
+      {
+        "element_index": 59,
+        "element_order": 3,
+        "permutation": [
+          1,
+          7,
+          4,
+          2,
+          3,
+          8,
+          11,
+          0,
+          10,
+          6,
+          5,
+          9
+        ],
+        "permutation_sha256": "sha256:d86537e2daa6e54781af3074ab37d146e7ca7607c21354d4325aef03007e500d",
+        "embedding_intertwining_exact": true,
+        "weighted_projection_intertwining_exact": true,
+        "embedding_intertwining_residual": 0,
+        "weighted_projection_intertwining_residual": 0
+      }
+    ],
+    "port_action_sha256": "sha256:c6adb063d1ec55fbf09f228a2679f0001a00db1267ba77e389ee44122306070e",
+    "contract_sha256": "sha256:39338fef98e1d998431f7a4267d7c45db5cc5d62251789859c264e85a31c132d",
+    "reference_assumptions": [
+      "one common ordered P0..P11 template is declared for every cell",
+      "the A5 action fixes cell identifiers and acts diagonally on port copies",
+      "the supplied faithful normalized cell weights define the reference state"
+    ],
+    "source_derived_common_trivialization": false,
+    "physical_receipt_eligible": false,
+    "REFERENCE_DIAGONAL_A5_INTERTWINER_RECEIPT": true,
+    "REFERENCE_LOCAL_TO_GLOBAL_A5_INTERTWINER_RECEIPT": true,
+    "LOCAL_TO_GLOBAL_A5_INTERTWINER_RECEIPT": false,
+    "A5_EQUIVARIANT_CURRENT_CARRIER_INTERTWINER_RECEIPT": false,
+    "GLOBAL_TWELVE_UNIT_SCREEN_SIEVE_RECEIPT": false,
+    "PHYSICAL_GLOBAL_SCREEN_SIEVE_RECEIPT": false,
+    "physical_promotion_blockers": [
+      "common_local_port_frame_is_declared_not_source_derived",
+      "coherent_overlap_transport_between_local_port_frames_missing",
+      "refinement_natural_transport_intertwiner_missing",
+      "quotient_visible_collective_twelve_channel_identification_missing",
+      "physical_global_atomic_defect_ports_not_bound_to_local_port_copies",
+      "reciprocal_current_carrier_intertwiner_missing"
+    ],
+    "claim_boundary": "Exact finite reference identity for a declared trivial bundle of local twelve-port copies: the same A5 permutation acts in every cell, the global reference vector embeds diagonally, and faithful cell averaging intertwines all 60 permutations. The simulator has not derived a common local-frame trivialization, coherent overlap/refinement transport, or a quotient-visible identification with the twelve physical global defect ports. Therefore LOCAL_TO_GLOBAL_A5_INTERTWINER_RECEIPT remains false."
+  },
+  "ECHOSAHEDRAL_LOCAL_PATCH_ARCHITECTURE_RECEIPT": true,
+  "ECHOSAHEDRAL_CARRIER_CONFORMANCE_RECEIPT": true,
+  "REFERENCE_SINGLETON_FEDERATION_SEWING_RECEIPT": true,
+  "FEDERATION_SEWING_RECEIPT": false,
+  "REFERENCE_DIAGONAL_A5_INTERTWINER_RECEIPT": true,
+  "LOCAL_TO_GLOBAL_A5_INTERTWINER_RECEIPT": false,
+  "GLOBAL_TWELVE_UNIT_SCREEN_SIEVE_RECEIPT": false,
+  "PHYSICAL_GLOBAL_SCREEN_SIEVE_RECEIPT": false,
+  "GEOMETRIC_LOCAL_PORT_ROUTING_RECEIPT": true,
+  "sample_edge_ports": [
+    {
+      "edge_index": 0,
+      "left_port": "P9",
+      "right_port": "P11"
+    },
+    {
+      "edge_index": 1,
+      "left_port": "P4",
+      "right_port": "P0"
+    },
+    {
+      "edge_index": 2,
+      "left_port": "P5",
+      "right_port": "P4"
+    },
+    {
+      "edge_index": 3,
+      "left_port": "P8",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 4,
+      "left_port": "P2",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 5,
+      "left_port": "P1",
+      "right_port": "P2"
+    },
+    {
+      "edge_index": 6,
+      "left_port": "P3",
+      "right_port": "P5"
+    },
+    {
+      "edge_index": 7,
+      "left_port": "P11",
+      "right_port": "P8"
+    },
+    {
+      "edge_index": 8,
+      "left_port": "P6",
+      "right_port": "P7"
+    },
+    {
+      "edge_index": 9,
+      "left_port": "P7",
+      "right_port": "P6"
+    },
+    {
+      "edge_index": 10,
+      "left_port": "P10",
+      "right_port": "P8"
+    },
+    {
+      "edge_index": 11,
+      "left_port": "P0",
+      "right_port": "P3"
+    },
+    {
+      "edge_index": 12,
+      "left_port": "P2",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 13,
+      "left_port": "P10",
+      "right_port": "P8"
+    },
+    {
+      "edge_index": 14,
+      "left_port": "P3",
+      "right_port": "P11"
+    },
+    {
+      "edge_index": 15,
+      "left_port": "P5",
+      "right_port": "P4"
+    },
+    {
+      "edge_index": 16,
+      "left_port": "P4",
+      "right_port": "P7"
+    },
+    {
+      "edge_index": 17,
+      "left_port": "P9",
+      "right_port": "P11"
+    },
+    {
+      "edge_index": 18,
+      "left_port": "P0",
+      "right_port": "P3"
+    },
+    {
+      "edge_index": 19,
+      "left_port": "P6",
+      "right_port": "P0"
+    },
+    {
+      "edge_index": 20,
+      "left_port": "P7",
+      "right_port": "P2"
+    },
+    {
+      "edge_index": 21,
+      "left_port": "P8",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 22,
+      "left_port": "P1",
+      "right_port": "P2"
+    },
+    {
+      "edge_index": 23,
+      "left_port": "P7",
+      "right_port": "P3"
+    },
+    {
+      "edge_index": 24,
+      "left_port": "P9",
+      "right_port": "P2"
+    },
+    {
+      "edge_index": 25,
+      "left_port": "P11",
+      "right_port": "P9"
+    },
+    {
+      "edge_index": 26,
+      "left_port": "P3",
+      "right_port": "P0"
+    },
+    {
+      "edge_index": 27,
+      "left_port": "P2",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 28,
+      "left_port": "P8",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 29,
+      "left_port": "P4",
+      "right_port": "P0"
+    },
+    {
+      "edge_index": 30,
+      "left_port": "P10",
+      "right_port": "P8"
+    },
+    {
+      "edge_index": 31,
+      "left_port": "P6",
+      "right_port": "P7"
+    },
+    {
+      "edge_index": 32,
+      "left_port": "P6",
+      "right_port": "P7"
+    },
+    {
+      "edge_index": 33,
+      "left_port": "P9",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 34,
+      "left_port": "P11",
+      "right_port": "P9"
+    },
+    {
+      "edge_index": 35,
+      "left_port": "P5",
+      "right_port": "P4"
+    },
+    {
+      "edge_index": 36,
+      "left_port": "P2",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 37,
+      "left_port": "P0",
+      "right_port": "P8"
+    },
+    {
+      "edge_index": 38,
+      "left_port": "P1",
+      "right_port": "P6"
+    },
+    {
+      "edge_index": 39,
+      "left_port": "P10",
+      "right_port": "P8"
+    },
+    {
+      "edge_index": 40,
+      "left_port": "P7",
+      "right_port": "P4"
+    },
+    {
+      "edge_index": 41,
+      "left_port": "P0",
+      "right_port": "P6"
+    },
+    {
+      "edge_index": 42,
+      "left_port": "P4",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 43,
+      "left_port": "P5",
+      "right_port": "P2"
+    },
+    {
+      "edge_index": 44,
+      "left_port": "P3",
+      "right_port": "P5"
+    },
+    {
+      "edge_index": 45,
+      "left_port": "P7",
+      "right_port": "P6"
+    },
+    {
+      "edge_index": 46,
+      "left_port": "P9",
+      "right_port": "P2"
+    },
+    {
+      "edge_index": 47,
+      "left_port": "P6",
+      "right_port": "P0"
+    },
+    {
+      "edge_index": 48,
+      "left_port": "P1",
+      "right_port": "P6"
+    },
+    {
+      "edge_index": 49,
+      "left_port": "P8",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 50,
+      "left_port": "P8",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 51,
+      "left_port": "P5",
+      "right_port": "P3"
+    },
+    {
+      "edge_index": 52,
+      "left_port": "P3",
+      "right_port": "P5"
+    },
+    {
+      "edge_index": 53,
+      "left_port": "P11",
+      "right_port": "P9"
+    },
+    {
+      "edge_index": 54,
+      "left_port": "P2",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 55,
+      "left_port": "P0",
+      "right_port": "P3"
+    },
+    {
+      "edge_index": 56,
+      "left_port": "P6",
+      "right_port": "P0"
+    },
+    {
+      "edge_index": 57,
+      "left_port": "P10",
+      "right_port": "P1"
+    },
+    {
+      "edge_index": 58,
+      "left_port": "P3",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 59,
+      "left_port": "P11",
+      "right_port": "P9"
+    },
+    {
+      "edge_index": 60,
+      "left_port": "P9",
+      "right_port": "P11"
+    },
+    {
+      "edge_index": 61,
+      "left_port": "P5",
+      "right_port": "P4"
+    },
+    {
+      "edge_index": 62,
+      "left_port": "P8",
+      "right_port": "P10"
+    },
+    {
+      "edge_index": 63,
+      "left_port": "P0",
+      "right_port": "P8"
+    }
+  ],
+  "claim_boundary": "Every observer cell instantiates one local P0..P11 echosahedral interface. Routed overlap edges occupy distinct local slots; unused slots remain exposed or reserved patch ports. The present engine realizes singleton port-pair seams; typed port-bundle/collar seams with interface-algebra hashes are still required before FEDERATION_SEWING_RECEIPT can pass. This configured reference architecture is distinct from the global twelve-unit screen-sieve producer. The nested diagonal A5 intertwiner is exact only after declaring one common port-frame trivialization; it does not derive coherent physical transport or A5-to-SM emergence."
+}

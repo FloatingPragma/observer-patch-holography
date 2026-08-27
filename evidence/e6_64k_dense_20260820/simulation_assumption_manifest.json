@@ -1,0 +1,227 @@
+{
+  "schema": "oph_simulation_assumption_manifest_v1",
+  "profile": "known_observer_universe_v1",
+  "scope": "visualization_only",
+  "scope_valid": true,
+  "policy_id": "oph-visual-bridges-v1",
+  "enabled": true,
+  "assumed_bridges": [
+    "BW3_FINITE_CAP_CERTIFICATE",
+    "CAP_NORMAL_H3_CHART",
+    "CMB_SCREEN_TO_TEMPERATURE_TRANSFER_VISUALIZATION",
+    "CMB_TT_REFERENCE_SHAPE_VISUALIZATION",
+    "DS4_OPEN_SLICING_BACKGROUND",
+    "MODULAR_RESPONSE_H3_LOCALIZATION",
+    "OBSERVER_MODULAR_TIME_INTERPRETATION",
+    "REFINEMENT_NATURALITY_VISUALIZATION",
+    "SCREEN_OBSERVER_TO_H3_CAMERA_EMBEDDING",
+    "TOPOLOGICAL_DEFECT_MATTER_RENDERING"
+  ],
+  "assumptions": {
+    "screen_s2": {
+      "label": "finite observer screen is S2",
+      "applies_to": [
+        "screen",
+        "visualizationViews.fluctuatingQuantumVacuum"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "bw_2pi_geometric_branch": {
+      "label": "BW 2*pi branch supplies the geometric observer clock",
+      "applies_to": [
+        "observerModularTime",
+        "consensusBulk"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "observer_modular_time_interpretation": {
+      "label": "finite modular-depth readout is rendered as observer-experienced time",
+      "applies_to": [
+        "observerModularTime",
+        "subjectiveObserverCameras[*].timeFrames"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "h3_observer_chart": {
+      "label": "observer-facing spatial chart is H3",
+      "applies_to": [
+        "consensusBulk",
+        "coordinateSystems.h3_hyperboloid_spatial_components_v1"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "screen_observer_to_h3_camera_embedding": {
+      "label": "an S2 observer axis determines an inward-looking H3 camera frame",
+      "applies_to": [
+        "subjectiveObserverCameras",
+        "assumedDs4Spacetime.observerReferenceFrames"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "record_population_on_h3": {
+      "label": "persistent consensus records populate the observer-facing H3 chart",
+      "applies_to": [
+        "consensusBulk.objects",
+        "emergentCurvedSpacetime.continuousBulkField"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "refinement_naturality_visualization": {
+      "label": "the visual chart/population handoff is treated as refinement-natural",
+      "applies_to": [
+        "consensusBulk",
+        "visualizationRenderData.sceneGraph.bulk"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "ds4_open_slicing_background": {
+      "label": "the H3 chart is placed in an open-slicing de Sitter background",
+      "applies_to": [
+        "assumedDs4Spacetime"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "positive_cosmological_constant": {
+      "label": "the renderer uses positive Lambda=3H^2",
+      "applies_to": [
+        "assumedDs4Spacetime.geometry.cosmologicalConstant"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "observer_tetrad_visualization": {
+      "label": "observer cameras carry comoving reference frames/tetrads",
+      "applies_to": [
+        "assumedDs4Spacetime.observerReferenceFrames"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "topological_defects_render_as_matter": {
+      "label": "topological defect worldlines receive matter-like visual styling",
+      "applies_to": [
+        "assumedDs4Spacetime.defectMatterRendering"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "cmb_screen_to_temperature_transfer_visualization": {
+      "label": "screen readout is handed to a CMB-temperature transfer renderer",
+      "applies_to": [
+        "cmbComparison.assumedVisualization",
+        "visualizationRenderData.plotSeries"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    },
+    "cmb_tt_reference_shape_visualization": {
+      "label": "a pinned measured/reference TT shape completes the explanatory CMB view",
+      "applies_to": [
+        "cmbComparison.assumedVisualization.referenceRows"
+      ],
+      "status": "assumed_for_visualization",
+      "assumed": true,
+      "provenance": "explicit_simulation_assumption",
+      "proof_receipt": false,
+      "physical_measurement_receipt": false
+    }
+  },
+  "missing_assumptions": [],
+  "parameter_sets_valid": true,
+  "SIMULATION_ASSUMPTIONS_COMPLETE_RECEIPT": true,
+  "simulation_assumptions_complete_receipt": true,
+  "SIMULATION_ASSUMED_VISUAL_UNIVERSE_RECEIPT": true,
+  "simulation_assumed_visual_universe_receipt": true,
+  "ds4_visualization_parameters": {
+    "coordinate_chart": "open_h3_slicing",
+    "metric": "ds^2=-d_tau^2+H^-2*sinh(H*tau)^2*dH3^2",
+    "curvature_radius": 1.0,
+    "hubble_parameter": 1.0,
+    "declared_curvature_radius": 1.0,
+    "declared_hubble_parameter": 1.0,
+    "parameter_inputs_valid": true,
+    "de_sitter_radius_relation_valid": true,
+    "proper_time_min_over_h": 0.05,
+    "proper_time_max_over_h": 3.0,
+    "proper_time_range_valid": true,
+    "normalization_policy": "H=1/curvature_radius; radius wins when both are declared",
+    "time_sample_count": 96,
+    "time_sample_count_valid": true,
+    "units": "simulation_units",
+    "units_valid": true,
+    "provenance": "explicit_simulation_assumption"
+  },
+  "observer_camera_visualization_parameters": {
+    "coordinate_system": "h3_hyperboloid_spatial_components_v1",
+    "h3_radial_coordinate": 1.18,
+    "look_at": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "orientation": "inward_radial",
+    "fov_degrees": 72.0,
+    "parameter_inputs_valid": true,
+    "provenance": "explicit_simulation_assumption"
+  },
+  "cmb_visualization_parameters": {
+    "reference_label": "Planck2018_TT_binned",
+    "reference_path": "data/measurements/planck2018/COM_PowerSpect_CMB-TT-binned_R3.01.txt",
+    "reference_source_url": "https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/COM_PowerSpect_CMB-TT-binned_R3.01.txt",
+    "reference_sha256": "sha256:ed2b8b51b033e668e661f6cf4eb7705f15bcaf358189dfc4a4481cc7020130cd",
+    "transfer_model": "pinned_tt_reference_best_fit_visualization",
+    "sky_realization_seed": 20260751,
+    "parameter_inputs_valid": true,
+    "provenance": "explicit_simulation_assumption",
+    "claim_boundary": "Pinned observed/reference TT rows and their published best-fit column are visual references, not an OPH prediction or fitted simulator output."
+  },
+  "computed_theorem_receipts_unchanged": true,
+  "proof_receipt": false,
+  "physical_measurement_receipt": false,
+  "claim_boundary": "Renderer-completion ledger only. True rows are assumptions authorized for the visual OPH universe simulation; they do not prove OPH, discharge Lean obligations, establish neutral bulk, identify defects as measured particles, or turn Einstein/CMB receipts true.",
+  "manifest_integrity_valid": true
+}

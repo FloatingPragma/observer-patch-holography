@@ -1,0 +1,272 @@
+{
+  "mode": "observer_modular_3p1d_experience_report_v0",
+  "observer_modular_time_receipt": true,
+  "OBSERVER_FACING_3P1D_H3_EXPERIENCE_RECEIPT": false,
+  "observer_facing_3p1d_h3_experience_receipt": false,
+  "OBSERVER_H3_FRAME_FIBER_EXPERIENCE_RECEIPT": false,
+  "observer_h3_frame_fiber_experience_receipt": false,
+  "H3_FRAME_FIBER_CHART_RECEIPT": true,
+  "EVENT_MANIFOLD_3P1D_RECEIPT": false,
+  "observer_facing_populated_h3_experience_receipt": false,
+  "observer_h3_object_population_receipt": false,
+  "declared_bw_kms_branch_replay_receipt": true,
+  "finite_lorentz_modular_clock_receipt": false,
+  "observer_count": 2048,
+  "observer_relative_time_count": 4,
+  "observer_relative_time_grid": [
+    0.0625,
+    0.125,
+    0.25,
+    0.5
+  ],
+  "modular_depth_mean": 0.4777385985586944,
+  "modular_depth_std": 0.233073401326,
+  "observer_modular_depth_mean_median": 0.47797814117334475,
+  "observer_modular_depth_mean_std": 0.029208078629331,
+  "component_gates": {
+    "observer_modular_time_receipt": true,
+    "finite_lorentz_modular_clock_receipt": false,
+    "h3_frame_fiber_chart_receipt": true,
+    "h3_modular_response_receipt": false,
+    "event_manifold_3p1d_receipt": false
+  },
+  "populated_h3_component_gates": {
+    "observer_h3_frame_fiber_experience_receipt": false,
+    "observer_h3_object_population_receipt": false
+  },
+  "blockers": [
+    "finite_lorentz_modular_clock_receipt",
+    "h3_modular_response_receipt",
+    "event_manifold_3p1d_receipt"
+  ],
+  "populated_h3_experience_blockers": [
+    "observer_h3_frame_fiber_experience_receipt",
+    "observer_h3_object_population_receipt"
+  ],
+  "sample_observer_rows": [
+    {
+      "observer_id": 16,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.473602297871405,
+      "modular_depth_std": 0.20656384148230628,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 70,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4974983225412721,
+      "modular_depth_std": 0.22168407869360063,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 96,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4789220602455727,
+      "modular_depth_std": 0.23136240953337975,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 108,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4812812917784094,
+      "modular_depth_std": 0.23406571931171571,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 177,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4759589440148543,
+      "modular_depth_std": 0.22577473810836632,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 191,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.49739724705617266,
+      "modular_depth_std": 0.20234374606457384,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 205,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4748560727142125,
+      "modular_depth_std": 0.23377843091853795,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 221,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.44809786285549574,
+      "modular_depth_std": 0.2273924920866421,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 232,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4874455181041849,
+      "modular_depth_std": 0.21601566724519242,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 274,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.5138355359519445,
+      "modular_depth_std": 0.236613442722237,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 331,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4590155701497323,
+      "modular_depth_std": 0.22750956454653506,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 336,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4723248128326746,
+      "modular_depth_std": 0.2350231607318723,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 359,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4893280410166128,
+      "modular_depth_std": 0.225865233372623,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 406,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4775159217909122,
+      "modular_depth_std": 0.2116593605721566,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 423,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4873707386511447,
+      "modular_depth_std": 0.23395170703962553,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    {
+      "observer_id": 424,
+      "support_patch_count": 96,
+      "committed_fraction": 1.0,
+      "modular_depth_mean": 0.4706112834786923,
+      "modular_depth_std": 0.2305894705130386,
+      "observer_relative_times": [
+        0.0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1.0
+      ]
+    }
+  ],
+  "claim_boundary": "Observer-facing modular-time and H3 frame-fiber diagnostic. Declared BW/KMS branch replay is reported but cannot satisfy the clock gate. The H3 frame-fiber experience requires the strict finite L2/L3 modular clock, the H3 future-timelike frame fiber, and strict H3 response evidence. The legacy 3+1D receipt additionally requires an independently constructed semantic event/translation manifold; H3 plus time is not an event position. Non-boundary observer object population is reported separately as observer_facing_populated_h3_experience_receipt; it is not part of the paper-side D3 observer-facing chart claim and is not chart-blind strict neutral bulk. Postprocessed after canonical H3 refit/object-chart selection; this only updates downstream receipt wiring from selected audited reports and does not relax thresholds. H3 is retained as an observer-frame fiber. The 3+1D receipt cannot be raised without a separate semantic event/translation manifold, and populated-H3 object diagnostics remain a separate lane.",
+  "receipt_schema_version": "2026-07-20a",
+  "claim_level": "demo",
+  "receipt_name": "OBSERVER_FACING_3P1D_H3_EXPERIENCE_RECEIPT",
+  "observable_id": "observer_local_modular_time_and_h3_chart",
+  "fit_objective": "observer_modular_time_plus_h3_experience_gates",
+  "physical_claim": false,
+  "observer_population": {
+    "materialized_observer_count": 2048,
+    "analyzed_observer_count": 2048,
+    "analysis_max_observers": null,
+    "analysis_sampling_policy": "all_materialized_observers",
+    "analysis_subset_hash": "sha256:1ded4a7984a8b33de39c944e0cf17baf278d6efd0cb00861f3ff44d4630663bd",
+    "full_population_analyzed": true
+  },
+  "postprocessed_by_oph_universe_pipeline": true
+}

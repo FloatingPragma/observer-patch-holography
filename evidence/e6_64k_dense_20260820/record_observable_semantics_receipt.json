@@ -1,0 +1,29 @@
+{
+  "schema": "oph_record_observable_semantics_v1",
+  "removed_exports": {
+    "record_entropy": "Shannon entropy over SplitMix64 record-hash values; saturated at ln(committed patch count) by construction because the hash keys include per-node incidence slots",
+    "record_signature": "per-node SplitMix64 hash previously exported as a screen/harmonic/freezeout scalar field"
+  },
+  "replacement_exports": {
+    "record_packet_entropy": "trace scalar: Shannon entropy (nats) over the multiset of committed physical record packets",
+    "record_port_entropy": "per-patch scalar field: Shannon entropy (nats) of the canonical record port multiset",
+    "record_packet_id": "per-patch dense content id over physical record packets; observer/record-family bookkeeping token, not a harmonic-analysis field"
+  },
+  "packet": {
+    "schema": "oph_physical_record_packet_v2",
+    "packet_definition": "per-patch physical record packet: the canonical echosahedral record port row (group-element indices after the node-frame gauge quotient), the exact content whose cross-cycle stability defines a commit",
+    "port_value_encoding": "exact group-element indices; the packet is integer-valued, no float binning",
+    "modular_depth_status": "not part of the packet: the array commit machinery binds port/gauge state only, and modular depth is exported separately as its own field",
+    "entropy_units": "nats",
+    "entropy_definition": "Shannon entropy over the multiset of packets on committed patches; 0.0 when no patch is committed",
+    "mirrors": "the E0 approach (entropy over committed record content, oph_fpe.core.patch_state.PatchState.observer_packet); E0's committed record additionally carries that engine's scalar/modular bins because they are part of E0's record content"
+  },
+  "hash_token_status": "SplitMix64 node signatures remain internal record-change/commit bookkeeping and the patch-state binding token; they are not exported as observables",
+  "content_diversity_note": "record_packet_entropy measures exact committed-record content diversity: equal content collapses to one outcome. Under the current iid-random initialization of unrouted patch ports the record population is near-maximally diverse, so values near ln(committed count) report state content, not a hash artifact; the value is reproducible from the patch-state artifact's canonical_record_port_state and committed arrays",
+  "removed_state_feedback_modes": [
+    "committed_record_feedback",
+    "observer_record_readback",
+    "record_feedback_refresh"
+  ],
+  "removed_state_feedback_reason": "hash feedback into physical state"
+}

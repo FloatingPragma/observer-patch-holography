@@ -3929,7 +3929,9 @@ together with a quark--Higgs carrier. The calibration simulator contains no quar
 Yukawa coupling and its enumerated observables have zero Fisher information for these coordinates.
 Its \(64\mathrm{k}\) runs are at the calibration null: the two fusion-tower readings
 are \(1.495245\) and \(1.484301\), while the dense first/full readings are \(1.498275\) and
-\(1.497823\). Those values are not quark-mass evidence.
+\(1.497823\). Those values are not quark-mass evidence. The public receipt
+binds the four principal run inputs by hash; their upstream arrays are not
+mirrored in that compact receipt archive \cite{ophparticlesimdata}.
 
 \paragraph{Restricted source-spread non-identifiability theorem.}
 Remove every running-mass target, exact-witness, fitted-spread, and compare-only ancestor. Grant
@@ -4378,7 +4380,10 @@ integer $S_3$ labels, and geometry: it exports no complex oriented family amplit
 coarse/fine edge intertwiner. Hence all direct $T_0$, refined $T_1$, and joint physical-emission
 receipts are false. The conclusion is scoped to the natural direct carrier. A source-derived
 complex lift could define a different carrier. Choosing its phases or paths to reconstruct the
-proposed matrices would make the simulator test circular.
+proposed matrices would make the simulator test circular. The archived
+machine-readable report binds the four source-state arrays by hash but does
+not include those arrays, so it provides report custody rather than an
+independent raw-state replay \cite{ophparticlesimdata}.
 
 \paragraph{Maximal source-derived quark package.}
 Let \(\mathcal P_q\) denote the three axioms together with the declared
@@ -7163,7 +7168,16 @@ B.\ M\"uller,
 \emph{OPH-FPE: finite simulator and receipt engine for Observer-Patch
 Holography physics experiments},
 2026.
-\url{https://github.com/muellerberndt/oph-physics-sim}
+Source:
+\url{https://github.com/muellerberndt/oph-physics-sim}.
+Canonical evidence archives:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence}.
+
+\bibitem{ophparticlesimdata}
+FloatingPragma,
+\emph{Particle-simulation receipt archive},
+2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/particle_simulation_receipts}.
 
 \bibitem{ophEinstein}
 B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, M.\ A.\ Visser, and D.\ Matscheko,

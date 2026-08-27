@@ -1,0 +1,10 @@
+{
+  "schema": "left_equals_g_ij_times_right_v1",
+  "consistency_equation": "port_left = g_ij * port_right",
+  "link_orientation": "g_ij maps the right endpoint frame j into the left endpoint frame i",
+  "local_frame_action": {
+    "port_i": "h_i * port_i",
+    "link_ij": "h_i * g_ij * inverse(h_j)"
+  },
+  "quotient_canonicalizer": "node_reference_port_frame_v1"
+}

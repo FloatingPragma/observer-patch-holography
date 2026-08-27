@@ -1143,27 +1143,44 @@ relabeling), idempotence of the completed dynamics, and refinement
 compatibility where proved. The public object is the protected quotient
 record, not an arbitrary intermediate configuration.
 
-An unpublished local simulator bundle exercises this class on the federated
-echosahedral carrier: $65{,}536$ patches with twelve ports each,
-$390{,}924$ seams, $2{,}048$ observer samples of neighborhood $96$, and
-$128$ repair cycles. Of the seams, $326{,}047$ start in gauge-covariant
-mismatch; the count falls to $178{,}280$ by cycle $50$ and to zero at cycle
-$96$, after which every patch commits a record ($28{,}888$ at cycle $100$,
-$65{,}536$ at cycle $110$). The replay verifier reports strict descent with
-no violation over the $326{,}047$ accepted moves, no violation on the $512$
-local diamonds and $256$ disjoint commutations it checks, and no
-gauge-covariance violation under frame relabeling. The bundle is not present
-in any publicly cited simulator revision and has no public custody or replay
-artifact, so these values are a local diagnostic and carry no validation or
-promotion weight. It also reports the
-boundary: an exact endpoint-branch check finds one structural nonconfluence
-witness (repairing opposite endpoints of a seam with non-identity
-discrepancy leaves two distinct local-frame quotient orbits), so the run
-certifies descent and the checked diamonds and does not certify order
-independence of the terminal quotient; the state model carries no shared
-patch-local repair variable, so the run is replay evidence for the
-gauge-coupled port-link quotient and no certificate of the patch algebra
+The public OPH-FPE diagnostic instantiates $65{,}536$ finite patch rows, each
+with a declared twelve-port echosahedral interface, and routes $390{,}924$
+gauge-labelled seams over a legacy Fibonacci/KNN support control. It applies
+the declared endpoint-repair and sector-link rules, commits quotient-visible
+records, materializes $2{,}048$ patch-observer neighborhoods of size $96$
+together with four auxiliary cap views, and emits configuration, seed, trace,
+observer, source-state, replay, and negative-control artifacts. The simulator
+source revision and the claim-supporting data, including the losslessly
+compressed observer rows, are pinned in the public run archive
 \cite{ophsim}.
+
+The separate theorem-replay source state contains $326{,}047$ gauge-covariant
+seam mismatches. In the driven $128$-cycle trace the cycle-zero update starts
+from $326{,}053$, leaves $324{,}739$, reaches $178{,}280$ at zero-indexed
+cycle $50$, and reaches zero at cycle $96$. There are $28{,}888$
+committed patch records at cycle $100$; all $65{,}536$ are committed first at
+cycle $107$ and remain committed at cycle $110$. The driven trajectory has
+$69$ cross-cycle mismatch injections, so its global Lyapunov-descent receipt
+is false. A separate theorem-phase replay accepts $326{,}047$ individual
+moves with no strict-descent or accepted-$\Phi$-increase violation. It finds
+no violation in $512$ checked edge-slot diamond pairs, $256$ disjoint
+commutations, or four frame-relabeling checks. Its finite-consensus theorem
+receipt nevertheless fails: the exact endpoint-branch argument exhibits one
+structural nonconfluence witness and certifies a lower bound of two terminal
+quotient orbits. Its exact-check hash list is empty; only one sampled terminal
+hash is materialized before fail-closed replay stops after one of the sixteen
+requested schedules.
+Repairing opposite endpoints of a seam with non-identity discrepancy can
+therefore leave distinct local-frame quotient orbits. The archived primitive
+gauge state supports replay of this finite port-link diagnostic. The dedicated
+source-to-observer contract is also false: the materialized observer records
+do not cause later bounded port writes. A historical aggregate labels the
+mere presence of observer rows with the same receipt name and reports true;
+the archive documents this false-positive naming collision and applies the
+stricter contract. The compact run did not retain a complete patch-state
+artifact, and its state model has no shared patch-local repair variable. The
+result establishes neither a schedule-independent terminal normal form nor
+the patch algebra, continuum physics, or a laboratory realization.
 
 The architecture sits close to distributed agreement in the tradition of
 Lamport, Shostak, and Pease \cite{lamport1982}: patches play the role of
@@ -1599,18 +1616,20 @@ coordinates before the fit and thereby removes a conditioning defect in which
 the depth coordinate dominated the spectral ones. On that diagnostic the
 inertia stays $(1,3)$, yet an ancestry-permutation null reproduces it in four
 of five permutations, so the fitted inertia does not test attribution to the
-ancestry structure. No repaired Tier-A campaign was run; the diagnostic is
-not a replacement validation result. On the
-frozen Einstein-cone ladder the support-adjusted path (support width
-$96$ at $16{,}384$ and $65{,}536$ carriers, support width $384$ at
-$262{,}144$)
-has held-out inertia $(1,3)$ at every rung with cone margins $-5.62$,
-$-3.22$, and $-1.41$, while the $262{,}144$ control at support $96$ has
-inertia $(2,2)$ and margin $-2.49$; the path holds neither observer density,
-support width, nor cross-edge density fixed, the margins stay negative, and
-no rung supplies a signature. The verifier rejects any receipt promoting this
-finite domain to a continuum spacetime, a physical clock, or a physical mass
-scale.
+ancestry structure. The diagnostic was not used as a replacement validation
+result. A subsequent preregistered fresh-seed campaign reproduced the $(1,3)$
+form at the declared absolute threshold of $10^{-12}$ on all five
+$65{,}536$-carrier replicates. At the preregistered relative threshold of
+$10^{-3}$, all five replicates instead had one positive, two negative, and one
+degenerate direction, matching the robust reference inertia $(1,2,1)$. The
+campaign returned \textsc{failed} under its frozen rule. The
+$16{,}384$-carrier result was seed-sensitive, the
+margin-ratio trend missed its declared band on every replicate, and an
+ancestry-permutation null reproduced the threshold verdict in fourteen of
+fifteen cells. The estimator therefore does not attribute the fitted
+signature to ancestry structure, and the instrument record demotes the
+emergent interpretation. No result in this campaign supplies a continuum
+spacetime, physical clock, or physical mass scale.
 
 %=====================================================================
 \section{Einstein reconstruction}
@@ -3861,6 +3880,10 @@ record\\
 Repair gap and the conditional Yang--Mills identification & The Yang--Mills
 gap, witness, and repair-gap-chain modules; the collar gap certificate and the
 finite transfer receipt with its test\\
+Large finite repair diagnostic & The pinned OPH-FPE source, resolved
+configuration and seeds, full mismatch trace, raw gauge/replay arrays,
+losslessly compressed observer rows, fail-closed theorem receipt, and public
+curated archive\\
 Electroweak chart, event manifold, and the finite local domain & Certified
 contour and second-sheet outputs with fail-closed producer checks; the
 analytic theorem of this manuscript; the staged local-domain receipts and
@@ -4046,10 +4069,10 @@ negative controls accompany the artifacts. Machine-readable claim and
 prediction provenance is available with the artifacts \cite{ophregister}.
 
 The Lean source tree, pinned toolchain, exact verifiers, manifests, receipts,
-negative controls, tests, finite signature ladder, and local-domain evidence
-are identified in Table~\ref{tab:artifact-map}. The complete simulation
-source is maintained in the public simulator repository at the
-evidence-producing revisions \cite{ophsim}.
+negative controls, tests, the curated $65{,}536$-patch repair archive, and
+local-domain evidence are identified in Table~\ref{tab:artifact-map}. The
+complete simulation source is maintained in the public simulator repository
+at the evidence-producing revisions \cite{ophsim}.
 
 This manuscript synthesizes and strengthens
 results whose longer proofs also appear in public component preprints on
@@ -4109,8 +4132,8 @@ The finite witnesses, simulation configurations, receipts, scientific claim regi
 release manifests supporting this study are available in the public OPH and
 simulation repositories \cite{ophrepo,ophsim}. Individual receipts and their
 bundle documentation provide the source and output provenance for
-computational claims. The artifact map identifies the finite signature-ladder
-and local-domain evidence cited in the manuscript.
+computational claims. The artifact map identifies the curated large-run and
+local-domain evidence cited in the manuscript.
 
 \noindent\textbf{Code availability.}
 The Lean sources, exact-arithmetic verifiers, finite scans, simulation code,
@@ -4144,13 +4167,21 @@ receipts, finite certificates, and scientific claim registries.
 \bibitem{ophsim}
 Mueller, B. (2026). OPH physics simulator and reproduction source.
 \url{https://github.com/muellerberndt/oph-physics-sim}.
-Signature-ladder revision:
-\url{https://github.com/muellerberndt/oph-physics-sim/tree/4f0169c0e319468112d076afe6ce5aa14fbfe0d5}.
+Large finite-repair diagnostic revision:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/b52196b296435d704b14d005d1f69caaaa662f97}.
+Curated run-data archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/e6_64k_dense_20260820}.
+Preregistered signature-replication revision, including its campaign data:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/42aa96607f40dae94c5a8b65e9dd8e71e5b6434e}.
+Active refinement-readout revision:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/036b12b608a9ca4c19d69f5e951b3b83a7a51cd8}.
 Conditioning-diagnostic revision (local $2{,}048$-carrier diagnostic; no
 repaired Tier-A rerun):
 \url{https://github.com/muellerberndt/oph-physics-sim/tree/017ec2a363e3cbd87db9f418763c06b02213d008}.
 Finite local-domain revision:
 \url{https://github.com/muellerberndt/oph-physics-sim/tree/d99ca548a4853e83f819a3a2c9d813f7a3429bdb}.
+Finite local-domain data:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain}.
 
 \bibitem{ophregister}
 FloatingPragma (2026). Precommitted comparison certificates, custody

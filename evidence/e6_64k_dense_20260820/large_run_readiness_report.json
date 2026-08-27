@@ -1,0 +1,118 @@
+{
+  "mode": "post_theorem_large_run_readiness_v0",
+  "recommended_large_run_lane": "assumption_completed_observer_universe_visualization_large_run",
+  "cloud_run_safe_for_visualization_data": true,
+  "simulation_assumptions_complete_receipt": true,
+  "visual_universe_render_data_complete_receipt": true,
+  "visual_universe_render_ready_receipt": true,
+  "visual_universe_render_data_blockers": [],
+  "visualization_completion_basis": "explicit_visualization_assumptions",
+  "cloud_run_safe_for_physical_cmb_prediction": false,
+  "cloud_run_safe_for_strict_neutral_bulk_claim": false,
+  "lanes": {
+    "assumption_completed_visual_universe": {
+      "status": "render_ready",
+      "scale_candidate": true,
+      "render_data_complete": true,
+      "render_ready": true,
+      "proof_receipt": false,
+      "physical_measurement_receipt": false,
+      "source_receipt": "SIMULATION_ASSUMED_VISUAL_UNIVERSE_RECEIPT"
+    },
+    "observer_facing_3p1d_h3_bulk_visualization": {
+      "status": "blocked",
+      "scale_candidate": false,
+      "details": {
+        "readout_receipt": false,
+        "paper_geometric_branch_receipt": false,
+        "paper_faithful_receipt": false
+      }
+    },
+    "strict_neutral_third_person_bulk": {
+      "status": "blocked",
+      "scale_candidate": false,
+      "blockers": [
+        "L7_refinement_naturality",
+        "B4_strict_neutral_bulk_audit"
+      ]
+    },
+    "screen_cmb_proxy": {
+      "status": "scale_candidate",
+      "scale_candidate": true,
+      "physical_prediction": false
+    },
+    "physical_cmb_prediction": {
+      "status": "blocked",
+      "scale_candidate": false,
+      "blockers": [
+        "physical_scale_bridge_receipt_missing",
+        "physical_spatial_k_receipt_missing",
+        "screen_to_physical_k_association_receipt_missing",
+        "source_angular_sector_receipt_missing",
+        "calibrated_a_evolution_receipt_missing",
+        "physical_mode_freezeout_map_receipt_missing",
+        "physical_freezeout_surface_receipt_missing",
+        "common_primordial_anomaly_mode_basis_receipt_missing",
+        "cross_receipt_consistency_receipt_missing",
+        "no_posthoc_calibration_receipt_missing",
+        "source_provenance_receipt_missing",
+        "pooled_source_reducer_receipt_missing",
+        "source_provenance_contradiction_check_failed",
+        "N_CRC_consensus_invariant_receipt_missing",
+        "N_CRC_not_direct_public_record_capacity",
+        "global_likelihood_reduction_receipt_missing"
+      ]
+    },
+    "reference_vacuum": {
+      "status": "diagnostic_ready",
+      "scale_candidate": true,
+      "oph_native_vacuum": false
+    },
+    "two_defect_gravity": {
+      "status": "diagnostic_ready",
+      "scale_candidate": true,
+      "controlled_stress_contraction": true,
+      "free_two_defect_dynamics": true,
+      "free_contact_outcome": "scatter",
+      "einstein_branch_entry_contract": false,
+      "raw_production_gravity_requested": false,
+      "production_gravity": false,
+      "production_gravity_blockers": [
+        "E0_einstein_branch_entry_umbrella",
+        "E1_null_generator_stress_charge",
+        "E2_fixed_cap_entropy_stationarity",
+        "E3_small_ball_area_bridge",
+        "E4_all_timelike_tensor_upgrade",
+        "E5_lambda_constancy_conservation"
+      ]
+    }
+  },
+  "blockers": [
+    "B4_strict_neutral_bulk_audit",
+    "C0_finite_consensus_theorem",
+    "L4_support_visible_bw_covariance",
+    "L5_ordered_cut_pair_rigidity",
+    "L6_lorentz_algebra_closure",
+    "L7_refinement_naturality",
+    "N_CRC_consensus_invariant_receipt_missing",
+    "N_CRC_not_direct_public_record_capacity",
+    "T308_finite_cap_bw_certificate",
+    "calibrated_a_evolution_receipt_missing",
+    "common_primordial_anomaly_mode_basis_receipt_missing",
+    "cross_receipt_consistency_receipt_missing",
+    "global_likelihood_reduction_receipt_missing",
+    "no_posthoc_calibration_receipt_missing",
+    "oph_native_vacuum_promotion_receipt_false",
+    "physical_freezeout_surface_receipt_missing",
+    "physical_mode_freezeout_map_receipt_missing",
+    "physical_scale_bridge_receipt_missing",
+    "physical_spatial_k_receipt_missing",
+    "pooled_source_reducer_receipt_missing",
+    "production_gravity_receipt_false",
+    "screen_to_physical_k_association_receipt_missing",
+    "source_angular_sector_receipt_missing",
+    "source_provenance_contradiction_check_failed",
+    "source_provenance_receipt_missing"
+  ],
+  "claim_boundary": "Post-theorem routing after H3/object refinement, finite theorem contract audit, proof certificate, and observer readout. Visualization data may be scale-safe either from the computed observer-facing lane or from the separately labeled explicit-assumption lane. The latter is never a proof or measurement receipt; physical CMB, strict-neutral bulk, OPH-native vacuum, and production-gravity lanes remain independently gated."
+}

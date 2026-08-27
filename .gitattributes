@@ -8,3 +8,7 @@
 # Canonical book diagram renderings are byte-hashed build inputs.
 assets/book_pdf_renderings/*.pdf -text -eol
 assets/book_pdf_renderings/**/*.pdf -text -eol
+
+# Preserve the source-run CSV byte-for-byte; its archive manifest binds the
+# producer's original CRLF serialization.
+evidence/e6_64k_dense_20260820/mismatch_trace.csv -text -eol -diff

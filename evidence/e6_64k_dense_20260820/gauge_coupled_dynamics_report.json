@@ -1,0 +1,25 @@
+{
+  "mode": "finite_gauge_covariant_overlap_repair_v1",
+  "schema": "left_equals_g_ij_times_right_v1",
+  "consistency_equation": "port_left = g_ij * port_right",
+  "link_orientation": "g_ij maps the right endpoint frame j into the left endpoint frame i",
+  "local_frame_action": {
+    "port_i": "h_i * port_i",
+    "link_ij": "h_i * g_ij * inverse(h_j)"
+  },
+  "quotient_canonicalizer": "node_reference_port_frame_v1",
+  "group": "S3",
+  "group_order": 6,
+  "edge_count": 390924,
+  "initial_raw_label_mismatch_count": 206910,
+  "initial_covariant_mismatch_count": 326047,
+  "initial_covariant_mismatch_fraction": 0.8340419109596751,
+  "final_raw_label_mismatch_count": 314869,
+  "final_covariant_mismatch_count": 0,
+  "gauge_link_changed_count": 27250,
+  "sector_edges_changed_total": 27306,
+  "record_signature_includes_gauge_invariant_edge_residual": true,
+  "record_signature_includes_full_echosahedral_patch_state": true,
+  "observer_sector_fields_use_gauge_invariant_edge_residual": true,
+  "claim_boundary": "Finite regulator overlap dynamics with group-correct link transport. This establishes that the simulated mismatch and repair state are gauge coupled; it is not a continuum gauge-theory or Standard Model receipt."
+}

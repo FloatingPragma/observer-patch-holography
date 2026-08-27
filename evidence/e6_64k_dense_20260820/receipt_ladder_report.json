@@ -1,0 +1,144 @@
+{
+  "mode": "canonical_receipt_ladder",
+  "receipts": {
+    "R0": {
+      "receipt_name": "REPAIR_CORE_RECEIPT",
+      "passed": true,
+      "claim_level": "recovered_core",
+      "observable_id": "overlap_mismatch_phi",
+      "fit_objective": "final_phi_zero",
+      "canonical_tier": "C0a",
+      "diagnostic_receipt_name": "FINITE_SETTLE_DIAGNOSTIC_RECEIPT",
+      "not_finite_consensus_theorem": true,
+      "final_phi": 0,
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R1": {
+      "receipt_name": "RECORD_COMMIT_RECEIPT",
+      "passed": true,
+      "claim_level": "recovered_core",
+      "observable_id": "observer_record_commit_mask",
+      "fit_objective": "committed_fraction_at_least_0p95",
+      "committed_fraction": 1.0,
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R2": {
+      "receipt_name": "BW_KMS_BRANCH_REPLAY_RECEIPT",
+      "passed": true,
+      "claim_level": "branch_instantiation_sanity",
+      "observable_id": "kms_collar_transport_response",
+      "fit_objective": "declared_two_pi_branch_replay_selected_and_non_degenerate",
+      "canonical_tier": "L0",
+      "legacy_receipt_name": "BW_KMS_BRANCH_INSTANTIATION_RECEIPT",
+      "not_finite_lorentz_theorem_contract": true,
+      "state_selected_2pi": false,
+      "transition_two_pi_selected": true,
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R3": {
+      "receipt_name": "CHART_LORENTZ_H3_RECEIPT",
+      "passed": true,
+      "claim_level": "branch_instantiation_sanity",
+      "observable_id": "cap_normals_conformal_h3_chart",
+      "fit_objective": "chart_instantiated",
+      "legacy_receipt_name": "CONFORMAL_H3_CHART_RECEIPT",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R4": {
+      "receipt_name": "H3_RESPONSE_CANDIDATE_RECEIPT",
+      "passed": true,
+      "claim_level": "demo",
+      "observable_id": "support_visible_modular_response_kernel",
+      "fit_objective": "heldout_h3_response_beats_controls",
+      "intermediate_receipt_name": "H3_RESPONSE_CONTROL_SEPARATION_RECEIPT",
+      "intermediate_passed": true,
+      "claim_boundary": "R4 is strict. The intermediate receipt is a support-visible H3 control-separation precursor only and cannot establish a 3D bulk.",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R5": {
+      "receipt_name": "OBJECT_CHART_RECEIPT",
+      "passed": true,
+      "claim_level": "demo",
+      "observable_id": "observer_transition_history_object_families",
+      "fit_objective": "object_chart_construction",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R6": {
+      "receipt_name": "OBJECT_BULK_POPULATION_RECEIPT",
+      "passed": false,
+      "claim_level": "demo",
+      "observable_id": "h3_populated_object_families",
+      "fit_objective": "active_observer_chart_bulk_population_gate",
+      "population_source": "record_family_support_profile_h3_candidate_only",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R7": {
+      "receipt_name": "SCREEN_PROXY_CMB_RECEIPT",
+      "passed": true,
+      "claim_level": "proxy",
+      "observable_id": "freezeout_screen_cl_proxy",
+      "fit_objective": "screen_proxy_gate_allowed",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R8": {
+      "receipt_name": "STATIC_GALAXY_RAR_BTFR_RECEIPT",
+      "passed": true,
+      "claim_level": "proxy",
+      "observable_id": "oph_static_galaxy_proxy",
+      "fit_objective": "rar_btfr_formula_bookkeeping",
+      "legacy_receipt_name": "STATIC_GALAXY_LAW_RECEIPT",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R9": {
+      "receipt_name": "DYNAMIC_DARK_TRANSPORT_RECEIPT",
+      "passed": false,
+      "claim_level": "proxy",
+      "observable_id": "dynamic_dark_transport",
+      "fit_objective": "not_implemented",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    },
+    "R10": {
+      "receipt_name": "COSMOLOGY_PERTURBATION_RECEIPT",
+      "passed": false,
+      "claim_level": "proxy",
+      "observable_id": "cosmology_perturbation_adapter",
+      "fit_objective": "not_implemented",
+      "receipt_schema_version": "2026-07-20a",
+      "physical_claim": false
+    }
+  },
+  "passed_receipt_names": [
+    "REPAIR_CORE_RECEIPT",
+    "RECORD_COMMIT_RECEIPT",
+    "BW_KMS_BRANCH_REPLAY_RECEIPT",
+    "CHART_LORENTZ_H3_RECEIPT",
+    "H3_RESPONSE_CANDIDATE_RECEIPT",
+    "OBJECT_CHART_RECEIPT",
+    "SCREEN_PROXY_CMB_RECEIPT",
+    "STATIC_GALAXY_RAR_BTFR_RECEIPT"
+  ],
+  "bulk_3d_established": false,
+  "FINITE_CONSENSUS_THEOREM_RECEIPT": false,
+  "finite_consensus_theorem_receipt": false,
+  "OPH_LORENTZ_THEOREM_FINITE_CONTRACT_V1": false,
+  "finite_lorentz_theorem_contract_receipt": false,
+  "physical_cmb_prediction": false,
+  "physical_matter_power_prediction": false,
+  "claim_boundary": "canonical lane ladder. R2 is now L0 branch replay: it confirms the declared BW/KMS 2pi route executes and beats implemented controls, but it is not the L1-L7 finite Lorentz theorem contract. R3 is the conformal H3 chart route; R6 is an object-population gate but does not establish chart-blind 3D bulk. R7 is a screen proxy only and R8 is a static-galaxy proxy, not a full cosmology prediction.",
+  "receipt_schema_version": "2026-07-20a",
+  "claim_level": "branch_instantiation_sanity",
+  "receipt_name": "CANONICAL_RECEIPT_LADDER",
+  "observable_id": "finite_screen_receipt_ladder",
+  "fit_objective": "receipt_gate_summary",
+  "physical_claim": false
+}

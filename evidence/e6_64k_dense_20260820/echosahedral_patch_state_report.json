@@ -1,0 +1,37 @@
+{
+  "schema": "oph.echosahedral_patch_federation_state.v1",
+  "patch_count": 65536,
+  "ports_per_patch": 12,
+  "materialized_local_port_state_count": 786432,
+  "routed_port_slot_count": 781848,
+  "unrouted_exposed_or_reserved_port_slot_count": 4584,
+  "routed_edge_endpoint_count": 781848,
+  "routed_state_consistent_with_patch_slots": true,
+  "all_port_coordinate_readout_maps_materialized": true,
+  "patch_port_state_sha256": "804680696b7f38f11841042c04008dedaa4867784b12b1ee8e7bad06e1e072c0",
+  "ECHOSAHEDRAL_PATCH_STATE_INSTANTIATION_RECEIPT": true,
+  "PATCH_ALL_PORT_READBACK_RECEIPT": true,
+  "record_signature_binding": {
+    "algorithm": "routed_record_xor_splitmix_of_a5_invariant_vertex_edge_oriented_face_incidence_multisets",
+    "coordinates_per_patch": 12,
+    "full_patch_state_bound": true,
+    "mode": "node_reference_port_gauge_quotient_a5_incidence_invariants",
+    "local_value_frame_gauge_quotient": true,
+    "local_frame_gauge_quotient": true,
+    "local_a5_port_reorientation_invariant": true,
+    "hidden_xyz_coordinates_used": false,
+    "final_token_recomputation_match": true
+  },
+  "RECORD_SIGNATURE_BINDS_ALL_LOCAL_PORT_STATE_RECEIPT": true,
+  "REFERENCE_LOCAL_A5_RECORD_INVARIANCE_RECEIPT": true,
+  "CARRIER_QUOTIENT_INVARIANCE_RECEIPT": false,
+  "CARRIER_REFINEMENT_NATURALITY_RECEIPT": false,
+  "PHYSICAL_A5_PORT_EMERGENCE_RECEIPT": false,
+  "PHYSICAL_STANDARD_MODEL_EMERGENCE_RECEIPT": false,
+  "claim_boundary": "This is the actual finite local state for every port of every echosahedral cell. Routed slots participate in overlaps and repair; unrouted slots remain local exposed/reserved state. When the record binding receipt is true, all twelve coordinates enter each committed record token. This is a carrier instantiation, not a proof of the full physical quotient: the local A5-invariant record map is now exact, but schedule/worker invariance and cross-rung carrier refinement remain separate false receipts. It is not a proof of the collective A5 screen sieve or Standard Model emergence.",
+  "artifact": {
+    "path": null,
+    "written": false,
+    "reason": "compact_output_profile"
+  }
+}

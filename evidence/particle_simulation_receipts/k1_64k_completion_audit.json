@@ -1,0 +1,113 @@
+{
+  "artifact": "oph_k1_64k_completion_audit",
+  "dense_run": {
+    "constant_suffix_row_count": 93,
+    "constant_suffix_start_cycle": 67,
+    "fixed_sum_range": [
+      8000.0,
+      8000.0
+    ],
+    "fresh_seed": 20260753,
+    "hashes_sha256": {
+      "config.yml": "4f34daff23fa2de44e99ac19921e85b08d33da4f38bfc9c6593e20e6da120454",
+      "defect_timeline_report.json": "7bd5593fd08d59e291659747aa50a6c5b65e1e6f2d7ea6f7d8f1ffde7325c208",
+      "freezeout_fields.npz": "47187e2b2a955e33bc59e4af92acb2ad08566a9df7f8f2121f2cf6d039227f09",
+      "s3_gauge_state.npz": "3385f6eb7feedbaf1152f18a8c4f51d9007a00522e59c41358bd74fb65aee1ca"
+    },
+    "inside_legacy_band": false,
+    "log_centered_singular_values": [
+      0.2658223846503672,
+      0.07272874175983805,
+      0.0004180843379820839
+    ],
+    "log_singular_condition_number": 635.8104346443097,
+    "population_first_half": {
+      "cond_C0": 146552.1778129121,
+      "eigenvalues_centered": [
+        -147.28253502855347,
+        -146.2699868110243,
+        293.55252183957765
+      ],
+      "g21": 1.0125482175291722,
+      "g32": 439.82250865060195,
+      "lag1_r2": 0.9066829920795547,
+      "operator_norm_A": 20.996095949780504,
+      "raw_gap_ratio_r": 0.0023021746218394373,
+      "rho_ord": 1.4982753542514575,
+      "snapshots": 80,
+      "span": 440.8350568681311,
+      "x2": -0.9954062264252633
+    },
+    "population_full_series": {
+      "cond_C0": 402665.17151844746,
+      "eigenvalues_centered": [
+        -117.19690934000887,
+        -116.18096732422426,
+        233.37787666423316
+      ],
+      "g21": 1.015942015784617,
+      "g32": 349.5588439884574,
+      "lag1_r2": 0.9651266603939549,
+      "operator_norm_A": 18.723674701814435,
+      "raw_gap_ratio_r": 0.0029063547761880226,
+      "rho_ord": 1.4978233969082548,
+      "snapshots": 160,
+      "span": 350.574786004242,
+      "x2": -0.9942041352867155
+    },
+    "progress": {
+      "completed_cycles": 160,
+      "cycles": 160,
+      "elapsed_seconds": 237.04059171676636,
+      "phi_after": 0,
+      "stage": "base_repair_loop_complete"
+    },
+    "raw_centered_singular_values": [
+      607.7335834008156,
+      104.83993240417722,
+      1.0805471419833988e-10
+    ],
+    "raw_effective_rank_relative_1e_10": 2,
+    "run_id": "k1_population_transfer_64k_dense_seed20260753_20260712",
+    "timeline_first_cycle": 0,
+    "timeline_last_cycle": 159,
+    "timeline_snapshot_count": 160
+  },
+  "fusion_run": {
+    "hashes_sha256": {
+      "config.yml": "6c9fed16b7e44fd2aebc55dc5e6e014e354af3a214783b05daa9d5fbfb35d82d",
+      "defect_timeline_report.json": "334cc5bf40829893689126fa4c806eb524b18235ba9e8f35d69696dab2b9a632",
+      "freezeout_fields.npz": "bba5d95d321e1e1ad23b32a8baf59be29dcc2d5c0f8f1797cedc960d1cb63805",
+      "s3_gauge_state.npz": "76fc074fbc44b3e42c8875e0d63c05d73fc30c3f0d5af725ca79d8590a99ea18"
+    },
+    "inside_legacy_band": false,
+    "progress": {
+      "completed_cycles": 128,
+      "cycles": 128,
+      "elapsed_seconds": 251.50810408592224,
+      "phi_after": 0,
+      "stage": "base_repair_loop_complete"
+    },
+    "run_id": "k1_fusion_universe_64k_20260712_rerun",
+    "tower_levels": {
+      "level0": {
+        "block_ratio": 64,
+        "rho": 1.4952453909664283
+      },
+      "level1": {
+        "block_ratio": 16,
+        "rho": 1.4843012698415217
+      }
+    }
+  },
+  "generated_utc": "2026-07-12T08:23:41Z",
+  "physical_target_status": "legacy_mixed_convention_band_superseded",
+  "public_quark_prediction_allowed": false,
+  "row_class": "compare_only_calibration_diagnostic",
+  "verdict": {
+    "compute_backlog_closed": true,
+    "dense_result": "outside_legacy_band_rank_two_fixed_sum_and_settled_constant",
+    "physical_reading": "The two runs complete preregistered provenance checks. They do not measure a quark/Higgs operator and cannot validate a Yukawa prediction.",
+    "tower_result": "outside_legacy_band_and_at_calibration_null"
+  }
+}
