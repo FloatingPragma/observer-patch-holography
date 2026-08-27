@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 319,
+  "surface_count": 321,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -925,6 +925,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/LabeledEventReadout.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/LayeredDiscreteGauss.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -966,6 +971,11 @@
     },
     {
       "path": "Lean/Screen/NeutralPairCoupledAction.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/NeutralPairJointStationaryWitness.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
