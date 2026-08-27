@@ -260,7 +260,7 @@ it can enter a claim. A short-expression near hit is not a derivation.
 
 | Input | SHA-256 |
 |---|---|
-| `code/P_derivation/interval_contraction_certificate.py` | `4177208147d18f0c2d36b027ea5acb3a6db15335fa088d610c98163b6bfd7efb` |
+| `code/P_derivation/interval_contraction_certificate.py` | `4c8191fce843fb3ef69e1a12b690682744c94c6669b68239ea3192fbff2a8493` |
 | `code/a5_closure/a5_screen_sm_closure.json` | `b190f9dcb3b79405d809ed9e1f78fb45a382ab9170a1e8c74afe6dc022134e51` |
 | `code/a5_closure/claim_boundary_certificates.py` | `c0ae090aecb638bac1a9c3538a58bd95a8dda32defe7baac8dc73c93d638d53b` |
 | `code/a5_closure/echosahedral_selector_certificate.py` | `e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7` |
