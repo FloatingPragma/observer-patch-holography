@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 317,
+  "surface_count": 319,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -810,6 +810,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/CurlStoneClockBridge.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/DiscreteCoulombGreen.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -956,6 +961,11 @@
     },
     {
       "path": "Lean/Screen/NeutralCurrentDictionary.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/NeutralPairCoupledAction.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
