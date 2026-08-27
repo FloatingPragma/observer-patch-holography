@@ -164,14 +164,21 @@ declared closed-two-step exchange-stationarity condition in both path slots;
 applying both canonical exchanges simultaneously changes the action by
 $5/6$.  These are only the displayed discrete exchanges, not continuum
 first-variation claims or a no-go for other paths, fields, or action shapes.
-Its timelike initial crossings
-use a separately declared carrier unit $\tau=3$; identifying $\tau=h$
-would instead make a crossing spacelike
-(\path{Lean/Screen/NeutralPairCoupledAction.lean}).  The step, charges, paths,
-clock unit, and action shapes are declared; the sign of the committed load
-relative to a physical charge, source selection, a jointly stationary path,
-boundedness of the sourced history, laboratory calibration, and any continuum
-limit are outside this statement.
+The counterexample is specific to that Coulomb start.  On the window $N=1$,
+a second exact rational temporal-gauge history with the same crossings solves
+the sourced equations and leaves the same action unchanged under every
+in-window closed two-step replacement of either path.  The exhaustive route
+check has two zero-difference endpoint routes and two triangular detours whose
+clock difference $-4$ is cancelled by interaction difference $+4$.  The
+sources are nonzero and opposite.  At the separately declared carrier unit
+$\tau=3$, both crossings are timelike; identifying $\tau=h$ would instead make
+a crossing spacelike
+(\path{Lean/Screen/NeutralPairCoupledAction.lean},
+\path{Lean/Screen/NeutralPairJointStationaryWitness.lean}).  The step, charges,
+paths, rational history, clock unit, and action shapes are declared; the sign
+of the committed load relative to a physical charge, source selection,
+boundedness of the sourced history, a minimum or stability theorem, laboratory
+calibration, and any continuum limit are outside this statement.
 
 A second three-dimensional construction is local and Euclidean. For the
 declared twelve-port repair mean, the centered equal-port response kernel has

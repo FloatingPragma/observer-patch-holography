@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Build the local, conditional capacity--alpha tangent receipt.
+"""Build the local, conditional capacity--alpha comparison receipt.
 
-This module does one deliberately narrow calculation.  It differentiates the
-committed ``PaperMathContext.solve_alpha_u_from_p`` root near the CODATA-fed
-comparison coordinate and propagates three already-public alpha-constancy
-measurements through that *local* tangent.
+The tangent is supplied by ``capacity_alpha_interval_certificate.py``.  That
+certificate proves C1 regularity of the selected declared root on a whole
+local box, records sign-definite implicit denominators, encloses
+``d log N/d log alpha``, and computes its reciprocal only after excluding
+zero.  The older centered finite-difference sweep remains available as a
+non-proof regression diagnostic, but it no longer supports the receipt.
 
 The calculation is not a derivation of cosmic evolution.  Its physical use
 requires all three explicit premises in :data:`PREMISES`:
@@ -17,9 +19,8 @@ requires all three explicit premises in :data:`PREMISES`:
 
 All observations used below predate this calculation.  The resulting receipt
 is therefore a retrospective conditional diagnostic, never OPH evidence or a
-prediction verdict.  In particular, this module refuses to extrapolate the
-local tangent across the large integrated capacity changes suggested by CPL
-best fits.
+prediction verdict.  This module emits a finite-change bound only when the
+complete alpha interval lies inside the certified mean-value domain.
 """
 
 from __future__ import annotations
@@ -37,8 +38,10 @@ CODE_ROOT = HERE.parents[1]
 P_DERIVATION = CODE_ROOT / "P_derivation"
 PAPER_MATH = P_DERIVATION / "paper_math.py"
 DEFAULT_OUTPUT = HERE / "runtime" / "capacity_alpha_tangent_retrospective.json"
+INTERVAL_PRODUCER = HERE / "capacity_alpha_interval_certificate.py"
+INTERVAL_RECEIPT = HERE / "runtime" / "capacity_alpha_interval_certificate.json"
 
-SCHEMA = "oph.capacity_alpha_local_conditional_retrospective.v1"
+SCHEMA = "oph.capacity_alpha_local_conditional_retrospective.v2"
 DECIMAL_PRECISION = 24
 WORK_PRECISION = 60
 ALPHA_INVERSE_CODATA_2022 = Decimal("137.035999177")
@@ -47,10 +50,9 @@ MPC_IN_KM = Decimal("3.0856775814913673e19")
 JULIAN_YEAR_SECONDS = Decimal("31557600")
 GAUSSIAN_95_TWO_SIDED = Decimal("1.96")
 
-# This is a reporting guard, not a theorem-level truncation-error bound.  It
-# keeps every emitted finite-difference diagnostic below one percent in
-# |Delta ln alpha|.  The largest measurement propagated here is about 0.52%.
-# Any larger use needs an exact branch solve and an error analysis.
+# Compatibility guard for the legacy point-linear helper below.  The receipt
+# uses the narrower rigorous interval domain recorded by the interval
+# certificate and never promotes this guard to a theorem.
 LOCAL_REPORT_MAX_ABS_DELTA_LN_ALPHA = Decimal("0.01")
 
 H_SWEEP = (
@@ -73,21 +75,23 @@ PREMISES = {
     },
     "B2_epochwise_bridge": {
         "statement": (
-            "The bridge N = pi exp(6 pi/(P alpha_U(P))) holds differentiably "
-            "at each epoch in a neighborhood of the comparison endpoint."
+            "The finite relation N = pi exp(6 pi/(P alpha_U(P))) is a physical "
+            "epoch-by-epoch law on the domain used by the cosmological model."
         ),
-        "status": "undischarged_epochwise_law",
+        "status": "undischarged_physical_epochwise_law",
     },
     "B3_physical_solver_tangent": {
         "statement": (
-            "The dimensionless alpha read by local optical clocks is the same "
-            "homogeneous cosmological alpha, its present proper-time drift "
-            "equals the background cosmic-time drift, and physical epoch "
-            "evolution follows the same committed PaperMathContext root branch "
-            "and co-variation convention used when differentiating alpha_U(P), "
-            "with the remaining solver inputs and conventions held as declared."
+            "Physical evolution selects this committed root branch and "
+            "co-variation convention, while a local optical-clock alpha is the "
+            "same homogeneous cosmological alpha with the required time map."
         ),
-        "status": "undischarged_dynamical_tangent_attachment",
+        "status": "undischarged_physical_branch_selection_and_readout",
+        "mathematical_subresult": (
+            "C1 regularity and a sign-definite tangent of the selected declared "
+            "root branch are interval-certified; this does not select the "
+            "branch physically."
+        ),
     },
 }
 
@@ -98,6 +102,17 @@ def _sha256(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def _build_interval_certificate() -> dict[str, object]:
+    """Build the rigorous local certificate through its canonical producer."""
+
+    sys.path.insert(0, str(HERE))
+    try:
+        import capacity_alpha_interval_certificate as interval_certificate
+    finally:
+        sys.path.pop(0)
+    return interval_certificate.build_certificate()
 
 
 def _decimal_text(value: Decimal) -> str:
@@ -238,22 +253,15 @@ def _integrated_measurement(
     redshift: Decimal,
     central_fraction: Decimal,
     sigma_fraction: Decimal,
-    dln_n_dln_alpha: Decimal,
+    abs_tangent_upper: Decimal,
+    certified_log_radius: Decimal,
     source: str,
 ) -> dict[str, object]:
     envelope = conservative_gaussian_abs_envelope(
         central_fraction, sigma_fraction
     )
     log_envelope = fractional_to_abs_log_envelope(envelope)
-    if log_envelope > LOCAL_REPORT_MAX_ABS_DELTA_LN_ALPHA:
-        raise ValueError(f"{name} lies outside the local reporting guard")
-    with localcontext() as ctx:
-        ctx.prec = WORK_PRECISION
-        linearized_delta_ln_n = abs(dln_n_dln_alpha) * log_envelope
-        signed_log_average_bound = linearized_delta_ln_n / (
-            Decimal(3) * (Decimal(1) + redshift).ln()
-        )
-    return {
+    common: dict[str, object] = {
         "name": name,
         "source": source,
         "data_status": "retrospective_public_before_calculation",
@@ -261,8 +269,32 @@ def _integrated_measurement(
         "one_sigma_fractional_change": _decimal_text(sigma_fraction),
         "conservative_95_percent_abs_fractional_envelope": _decimal_text(envelope),
         "conservative_abs_delta_ln_alpha_envelope": _decimal_text(log_envelope),
-        "linearized_abs_delta_ln_n_envelope": _decimal_text(linearized_delta_ln_n),
-        "linearized_abs_signed_log_average_1_plus_w_envelope": _decimal_text(
+        "guaranteed_symmetric_log_alpha_inner_radius": _decimal_text(
+            certified_log_radius
+        ),
+    }
+    if log_envelope > certified_log_radius:
+        return {
+            **common,
+            "interval_mapping_status": "outside_certified_domain_no_bound_emitted",
+            "reason": (
+                "The public-data envelope is wider than the rigorous local "
+                "mean-value domain.  A partitioned or global branch certificate "
+                "is required before propagating it."
+            ),
+        }
+    with localcontext() as ctx:
+        ctx.prec = WORK_PRECISION
+        delta_ln_n_bound = abs_tangent_upper * log_envelope
+        signed_log_average_bound = delta_ln_n_bound / (
+            Decimal(3) * (Decimal(1) + redshift).ln()
+        )
+    return {
+        **common,
+        "interval_mean_value_abs_delta_ln_n_envelope": _decimal_text(
+            delta_ln_n_bound
+        ),
+        "interval_mean_value_abs_signed_log_average_1_plus_w_envelope": _decimal_text(
             signed_log_average_bound
         ),
         "average_scope": (
@@ -270,16 +302,15 @@ def _integrated_measurement(
             "average absolute value only under a no-cancellation condition, "
             "such as the monotone w>=-1 branch."
         ),
-        "linearization_status": (
-            "first_order_local_diagnostic_without_a_global_truncation_error_bound"
-        ),
+        "interval_mapping_status": "inside_certified_domain_mean_value_bound",
     }
 
 
 def observational_diagnostics(
-    dln_n_dln_alpha: Decimal,
+    abs_tangent_upper: Decimal,
+    certified_log_radius: Decimal,
 ) -> dict[str, object]:
-    """Propagate the corrected public-data envelopes through the tangent."""
+    """Propagate only envelopes covered by the rigorous local domain."""
 
     with localcontext() as ctx:
         ctx.prec = WORK_PRECISION
@@ -291,7 +322,7 @@ def observational_diagnostics(
             filzinger_central, filzinger_sigma
         )
         one_plus_w0 = (
-            abs(dln_n_dln_alpha)
+            abs_tangent_upper
             * filzinger_envelope
             / (Decimal(3) * h0_per_year)
         )
@@ -323,7 +354,8 @@ def observational_diagnostics(
             redshift=Decimal("1.15"),
             central_fraction=Decimal("1.3e-6"),
             sigma_fraction=espresso_sigma,
-            dln_n_dln_alpha=dln_n_dln_alpha,
+            abs_tangent_upper=abs_tangent_upper,
+            certified_log_radius=certified_log_radius,
             source=(
                 "Murphy et al., Astron. Astrophys. 658, A123 (2022): "
                 "1.3 +/- 1.3(stat) +/- 0.4(sys) ppm"
@@ -334,7 +366,8 @@ def observational_diagnostics(
             redshift=Decimal("1100"),
             central_fraction=Decimal("0.0005"),
             sigma_fraction=Decimal("0.0024"),
-            dln_n_dln_alpha=dln_n_dln_alpha,
+            abs_tangent_upper=abs_tangent_upper,
+            certified_log_radius=certified_log_radius,
             source=(
                 "Hart and Chluba, Mon. Not. R. Astron. Soc. 493, 3255 "
                 "(2020): alpha/alpha0 = 1.0005 +/- 0.0024 (CMB only)"
@@ -344,24 +377,25 @@ def observational_diagnostics(
 
 
 def build_receipt() -> dict[str, object]:
-    context, p_c, alpha_u, h_rows, relative_spread = _solver_h_sweep()
-    reference_row = next(row for row in h_rows if row["h"] == str(REFERENCE_H))
-    d_alpha_u_d_p = Decimal(reference_row["centered_d_alpha_u_d_p"])
-    with localcontext() as ctx:
-        ctx.prec = WORK_PRECISION
-        alpha = Decimal(1) / ALPHA_INVERSE_CODATA_2022
-        jacobian = jacobian_from_probe(
-            p=p_c,
-            alpha=alpha,
-            alpha_u=alpha_u,
-            d_alpha_u_d_p=d_alpha_u_d_p,
-            pi=context.pi,
-            sqrt_pi=context.sqrt_pi,
+    interval_certificate = _build_interval_certificate()
+    try:
+        committed_interval = json.loads(INTERVAL_RECEIPT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError("canonical interval certificate is missing or malformed") from exc
+    if committed_interval != interval_certificate:
+        raise RuntimeError(
+            "canonical interval certificate is stale; regenerate and verify it first"
         )
-        max_abs_delta_ln_n = (
-            LOCAL_REPORT_MAX_ABS_DELTA_LN_ALPHA
-            / abs(jacobian["dln_alpha_dln_n"])
-        )
+
+    branch = interval_certificate["branch_certificate"]
+    derivatives = branch["local_derivatives"]
+    mean_value = branch["mean_value_certificate"]
+    certified_log_radius = Decimal(
+        branch["certified_domain"][
+            "guaranteed_symmetric_log_alpha_inner_radius"
+        ]
+    )
+    abs_tangent_upper = Decimal(mean_value["abs_slope_upper"])
 
     return {
         "schema": SCHEMA,
@@ -370,7 +404,9 @@ def build_receipt() -> dict[str, object]:
                 "retrospective conditional diagnostic; no OPH evidence, "
                 "validation, confirmation, falsification, or prediction score"
             ),
-            "local_tangent_only": True,
+            "rigorous_local_interval_tangent": True,
+            "mathematical_branch_differentiability": "attained_on_certified_domain",
+            "physical_epoch_evolution": "undischarged",
             "measured_target_ancestry": (
                 "P_C is built from the CODATA 2022 comparison value of alpha; "
                 "it is not the independently source-forward P coordinate"
@@ -379,51 +415,48 @@ def build_receipt() -> dict[str, object]:
         },
         "premises": PREMISES,
         "solver": {
-            "implementation": "PaperMathContext.solve_alpha_u_from_p",
+            "implementation": (
+                "outward-rounded interval arithmetic with sign-change root "
+                "brackets and implicit-function derivatives"
+            ),
+            "receipt_script_sha256": _sha256(Path(__file__).resolve()),
             "paper_math_path": str(PAPER_MATH.relative_to(HERE.parents[2])),
             "paper_math_sha256": _sha256(PAPER_MATH),
-            "receipt_script_sha256": _sha256(Path(__file__).resolve()),
-            "decimal_precision": DECIMAL_PRECISION,
+            "interval_certificate_path": str(
+                INTERVAL_RECEIPT.relative_to(HERE.parents[2])
+            ),
+            "interval_certificate_sha256": _sha256(INTERVAL_RECEIPT),
+            "interval_producer_path": str(
+                INTERVAL_PRODUCER.relative_to(HERE.parents[2])
+            ),
+            "interval_producer_sha256": _sha256(INTERVAL_PRODUCER),
             "root_selection_scope": (
-                "the first sign-changing bracket on the committed [0.02,0.08] "
-                "scan; no global root uniqueness is claimed by this receipt"
+                branch["implicit_function_certificate"]["selection_scope"]
             ),
-            "reference_h": _decimal_text(REFERENCE_H),
-            "relative_derivative_spread": _decimal_text(relative_spread),
-            "relative_derivative_spread_limit": _decimal_text(
-                DERIVATIVE_RELATIVE_SPREAD_LIMIT
+            "finite_difference_role": (
+                "optional regression diagnostic only; no finite difference "
+                "supports the emitted derivative enclosure"
             ),
-            "h_sweep_passed": True,
-            "h_sweep": h_rows,
         },
-        "comparison_coordinate": {
-            "alpha_inverse_CODATA_2022": _decimal_text(
-                ALPHA_INVERSE_CODATA_2022
-            ),
-            "alpha": _decimal_text(alpha),
-            "P_C": _decimal_text(p_c),
-            "alpha_U_at_P_C": _decimal_text(alpha_u),
-            "d_alpha_U_d_P": _decimal_text(d_alpha_u_d_p),
-        },
-        "local_jacobian": {
-            key: _decimal_text(value) for key, value in jacobian.items()
-        },
+        "comparison_coordinate": branch["comparison_coordinate"],
+        "certified_domain": branch["certified_domain"],
+        "implicit_function_certificate": branch[
+            "implicit_function_certificate"
+        ],
+        "local_jacobian_interval": derivatives,
+        "mean_value_certificate": mean_value,
         "observational_diagnostics": observational_diagnostics(
-            jacobian["dln_n_dln_alpha"]
+            abs_tangent_upper, certified_log_radius
         ),
         "extrapolation_guard": {
-            "max_abs_delta_ln_alpha_for_emitted_local_report": _decimal_text(
-                LOCAL_REPORT_MAX_ABS_DELTA_LN_ALPHA
-            ),
-            "corresponding_linearized_max_abs_delta_ln_n": _decimal_text(
-                max_abs_delta_ln_n
+            "guaranteed_symmetric_log_alpha_inner_radius": _decimal_text(
+                certified_log_radius
             ),
             "integrated_DESI_CPL_extrapolation": "forbidden",
             "reason": (
-                "The committed calculation certifies a local tangent only. "
-                "Large CPL-integrated capacity changes require an exact "
-                "epoch-dependent branch solve, branch/attachment premises, "
-                "and a truncation-error receipt."
+                "Finite-change propagation is emitted only inside the rigorous "
+                "mean-value domain.  Larger changes require a partitioned or "
+                "global interval branch certificate plus the physical premises."
             ),
         },
         "nonclaims": [
@@ -431,7 +464,7 @@ def build_receipt() -> dict[str, object]:
             "The receipt does not identify P_C with the source-forward P value.",
             "The receipt does not close or retire the monotone-capacity branch.",
             "The receipt does not turn retrospective alpha data into OPH evidence.",
-            "The receipt does not propagate DESI CPL fits through a large local-linear extrapolation.",
+            "The receipt does not propagate DESI CPL fits outside the certified interval domain.",
         ],
     }
 

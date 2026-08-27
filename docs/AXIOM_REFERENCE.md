@@ -17,7 +17,7 @@ identification, or a withdrawn claim. The seven-value status vocabulary is
 
 ---
 
-## A1. Oriented twelve-port observer screen
+## A1. Oriented observer-patch federation and spherical support
 
 **Plain language.** There exists an observer patch net on an oriented
 spherical screen. At every finite resolution, each local carrier has twelve

@@ -818,6 +818,7 @@ class IntervalChain:
                 "orientation": orientation,
                 "endpoint_signs_verified": True,
                 "h_m_sign_definite": True,
+                "h_m_enclosure": _iv_pair(h_m),
                 "attempts": attempt + 1,
             }
             return m_box, h_m, checks
@@ -926,7 +927,7 @@ class IntervalChain:
             u_box = ivb.hull(self._to_iv(lo_mp).a, self._to_iv(hi_mp).b)
             mz_c = self.point.solve_mz(u_candidate_mp, p_mid, mu_u_of_p(mpb, p_mid))
             # dR/du over the box (u seeded 1, alpha-independent inputs seeded 0).
-            r_u_dual, _ = self.residual_dual(
+            r_u_dual, r_u_info = self.residual_dual(
                 Dual(u_box, ivb.one),
                 Dual(p_iv, ivb.zero),
                 Dual(mu_u_iv, ivb.zero),
@@ -946,9 +947,12 @@ class IntervalChain:
                 "orientation": orientation,
                 "endpoint_signs_verified": True,
                 "R_u_sign_definite": True,
+                "R_u_enclosure": _iv_pair(r_u),
                 "attempts": attempt + 1,
                 "su2_tail_hi": info["su2_tail_hi"],
                 "su3_tail_hi": info["su3_tail_hi"],
+                "m_z_ift_for_R_u": r_u_info["mz_checks"],
+                "m_z_ift_for_input_seed": info["mz_checks"],
             }
             return Dual(u_box, u_prime), checks
         raise CertificateError("verified alpha_U bracket failed after inflation attempts")

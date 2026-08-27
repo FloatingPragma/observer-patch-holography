@@ -1997,7 +1997,7 @@ different state objects.
 Six receipts of the formal stack share one typed record. A common-world
 architecture record carries one declared positive mass, one state frame,
 one flow frame, one projective partition with state, one declared Maxwell
-evolution bundle on the twelve-port screen carrier, and one declared
+evolution bundle on the twelve-port local carrier, and one declared
 electroweak premise bundle whose base instantiates the Standard-Model
 structure premises. For every inhabitant, the kinematic mass-shell,
 internal-clock, free-evolution, and causal-order receipts hold of the same
@@ -2247,15 +2247,25 @@ quadratic clock-action form.  The two results are charge conjugates; applying
 both canonical exchanges simultaneously changes the action by $5/6$.  These
 are only the displayed discrete exchanges, not continuum first-variation
 claims or a no-go for other paths, fields, or action shapes.
-At the separately declared clock unit $\tau=3$, both initial increments are
-timelike in the carrier's Lorentz-module metric; $\tau$ is independent of
-$h$, and the identification $\tau=h=1/2$ would instead make the crossing
-spacelike.  The charge,
-paths, step, clock units, coupling shape, and variation class remain declared;
-no joint path stationarity, laboratory-time calibration, or continuum limit
-is claimed
+The counterexample is specific to that Coulomb start.  On the window $N=1$,
+a second exact rational temporal-gauge history at the same $q=1$, $h=1/2$,
+and the same crossing pair satisfies the sourced Amp\`ere and Gauss equations.
+The four possible intermediate ports for each closed two-step path replacement
+are exhausted exactly.  Endpoint routes have zero action difference, and the
+two triangular detours have clock difference $-4$ cancelled by interaction
+difference $+4$.  Thus one finite action is stationary in both field slots and
+unchanged under every in-window closed two-step replacement in either path
+slot.  The seam currents are $-2$ and $+2$ on seams $0$ and $29$, and the
+initial loads are $+1$ and $-1$ at the corresponding ports.  At the separately
+declared clock unit $\tau=3$, both crossings are timelike in the carrier's
+Lorentz-module metric.  The charge, paths, step, rational history, clock unit,
+coupling shape, and variation class remain declared; the theorem establishes
+existence without uniqueness or source selection. It proves no minimum,
+stability, or dynamic selection. No laboratory-time
+calibration or continuum limit is claimed
 (\path{Lean/Screen/SeamChargeContinuity.lean},
-\path{Lean/Screen/NeutralPairCoupledAction.lean}).
+\path{Lean/Screen/NeutralPairCoupledAction.lean},
+\path{Lean/Screen/NeutralPairJointStationaryWitness.lean}).
 
 Inside the rest-diluted class the law reads as a position law. A general
 one-step replacement with shifted later ports has the exact difference of
@@ -3795,6 +3805,22 @@ Carrier transitivity fixes equal weights within a selected orbit and does not
 select the vertex orbit. The displayed prediction therefore remains a named
 physical-branch statement.
 
+The first refinement layer does admit an exact active internal readout. The
+twelve inherited values \(Qx\), together with one labeled pair-averaging
+response for each of the thirty midpoint values, form an invertible
+\(42\times42\) rational map. Its decoder is
+\(x_m=2(Q E_{u,m}x)_u-(Qx)_u\). The minimal thirty-event selector is not
+\(A_5\)-invariant. Retaining both endpoint choices gives a sixty-event family
+stable under the proper \(A_5\) action and rank \(42\) once \(Q\) is
+included. This is a different protocol from the passive history
+\((Q,QL_f,\ldots,QL_f^{41})\), whose rank remains \(29\). The active responses
+must share one pre-event state, so a reset, checkpoint, parallel preparation,
+or nondestructive instrument is required. No source-selected event
+instrument, spatial translation, laboratory observable, or sky map follows
+(\path{Lean/Screen/LabeledEventReadout.lean};
+\path{oph-physics-sim/data/repair_closure/angular_refinement_labeled_event_readout_receipt.json};
+\cite{ophsim}).
+
 The coefficient manifold and its decision rule are frozen before a qualifying
 comparison \cite{ophpredictionregister}. The dated cosmic-microwave-background template search and every
 data product examined in it are an excluded exposure class; the linked
@@ -3954,17 +3980,19 @@ of \(0.00705\%\), \(0.1125\%\), \(0.01206\%\), and \(0.02054\%\) for
 BAO+CMB, Pantheon+, Union3, and DESY5, with only 6, 126, 15, and 11 raw tail
 rows \cite{desidr2,ophrepo}. These are seen-data posterior fractions under the
 collaboration likelihoods and priors, not branch probabilities or exclusions.
-The local electroweak-closure replay gives
-\(\mathrm d\ln N/\mathrm d\ln\alpha=-0.2101831101\) and
-\(\mathrm d\ln\alpha/\mathrm d\ln N=-4.757756222\), with relative spread
-\(1.22\times10^{-7}\) across its declared step-size sweep. A cosmological reading
-requires (B1) identity of the two capacities, (B2) differentiable epochwise
-closure, and (B3) the compound attachment of the same homogeneous
-cosmological \(\alpha\) and clock drift to evolution along that solver-root
-tangent with other inputs fixed. With
+The local electroweak-closure replay uses an outward-rounded implicit-function
+certificate in place of finite-difference stability. On
+\(\lvert\Delta\ln\alpha\rvert\le10^{-5}\), it proves the selected declared
+branch continuously differentiable and encloses
+\(\mathrm d\ln N/\mathrm d\ln\alpha\) in
+\([-0.214173865,-0.206176031]\) and its reciprocal in
+\([-4.850224325,-4.669103775]\), after excluding zero. A cosmological reading
+requires (B1) identity of the two capacities, (B2) an epochwise physical
+closure law, and (B3) physical selection of that root branch and co-variation
+convention together with the homogeneous-\(\alpha\) and clock time map. With
 \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\), only B1--B3 together translate
 the optical-clock result into
-\(\lvert1+w_0\rvert\le6.81\times10^{-10}\)
+\(\lvert1+w_0\rvert\le6.94\times10^{-10}\)
 \cite{filzinger2023,ophrepo}; the replay therefore does not
 eliminate the nonconstant monotone branch.
 

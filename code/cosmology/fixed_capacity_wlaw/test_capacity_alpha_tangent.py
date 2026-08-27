@@ -36,7 +36,9 @@ def test_chain_rule_reproduces_independent_direct_probe() -> None:
 
 
 def test_corrected_conservative_public_data_envelopes() -> None:
-    diagnostics = mod.observational_diagnostics(Decimal("-0.21018311013484586"))
+    diagnostics = mod.observational_diagnostics(
+        Decimal("0.21417386465684"), Decimal("0.00001")
+    )
 
     clock = diagnostics["Filzinger_2023_clock"]
     assert Decimal(
@@ -52,6 +54,10 @@ def test_corrected_conservative_public_data_envelopes() -> None:
     )
     # The old 2*sigma-only value (2.72 ppm) omitted the nonzero central value.
     assert espresso_envelope > Decimal("2.8e-6")
+    assert (
+        espresso["interval_mapping_status"]
+        == "inside_certified_domain_mean_value_bound"
+    )
 
     planck = diagnostics["Hart_Chluba_Planck_2018"]
     assert Decimal(planck["central_fractional_change"]) == Decimal("0.0005")
@@ -59,6 +65,11 @@ def test_corrected_conservative_public_data_envelopes() -> None:
     assert Decimal(
         planck["conservative_95_percent_abs_fractional_envelope"]
     ) == Decimal("0.005204")
+    assert (
+        planck["interval_mapping_status"]
+        == "outside_certified_domain_no_bound_emitted"
+    )
+    assert "interval_mean_value_abs_delta_ln_n_envelope" not in planck
 
 
 def test_finite_fractional_change_is_converted_to_log_space() -> None:
@@ -92,7 +103,7 @@ def test_all_three_physical_premises_are_explicit_and_undischarged() -> None:
         for premise in mod.PREMISES.values()
     )
     assert (
-        "local optical clocks"
+        "local optical-clock alpha"
         in mod.PREMISES["B3_physical_solver_tangent"]["statement"]
     )
 
@@ -103,5 +114,12 @@ def test_committed_receipt_binds_current_producer_and_solver() -> None:
     )
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     assert receipt["solver"]["receipt_script_sha256"] == mod._sha256(MODULE_PATH)
+    assert receipt["solver"]["interval_producer_sha256"] == mod._sha256(
+        mod.INTERVAL_PRODUCER
+    )
+    assert receipt["solver"]["interval_certificate_sha256"] == mod._sha256(
+        mod.INTERVAL_RECEIPT
+    )
     assert receipt["solver"]["paper_math_sha256"] == mod._sha256(mod.PAPER_MATH)
-    assert receipt["solver"]["h_sweep_passed"] is True
+    assert receipt["classification"]["rigorous_local_interval_tangent"] is True
+    assert receipt["classification"]["physical_epoch_evolution"] == "undischarged"

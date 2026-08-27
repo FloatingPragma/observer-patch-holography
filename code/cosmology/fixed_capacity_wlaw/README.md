@@ -10,6 +10,37 @@ w(a)=-1+\frac{1}{3}\frac{d\ln N}{d\ln a}
 after the density and continuity definitions are supplied. It does not derive
 those definitions or a capacity history.
 
+`capacity_alpha_interval_certificate.py` upgrades the local declared
+capacity-to-alpha calculation from a centered finite-difference diagnostic to
+an outward-rounded interval certificate. On the committed comparison branch
+and the certified domain
+`|Delta log(alpha)| <= 1e-5`, it verifies the sign-definite implicit
+denominators for the nested `m_Z` and pixel-closure roots, proves that the
+selected mathematical branch is continuously differentiable, and encloses
+
+```text
+d log(N) / d log(alpha) in [-0.2141738647, -0.2061760309]
+d log(alpha) / d log(N) in [-4.850224325, -4.669103775]
+```
+
+The reciprocal is formed only after the first interval excludes zero. An
+independent replay evaluates the same tangent through the factorized chain
+rule and verifies source hashes, denominator signs, and mean-value bounds:
+
+```bash
+python3 code/cosmology/fixed_capacity_wlaw/capacity_alpha_interval_certificate.py
+python3 code/cosmology/fixed_capacity_wlaw/verify_capacity_alpha_interval_certificate.py
+python3 -m pytest -q \
+  code/cosmology/fixed_capacity_wlaw/test_capacity_alpha_interval_certificate.py \
+  code/cosmology/fixed_capacity_wlaw/test_capacity_alpha_tangent.py
+```
+
+This closes only branch differentiability for the declared finite formulas.
+B1, B2, and the physical branch-selection and readout part of B3 remain
+undischarged. The certificate supplies no physical epoch evolution. The
+retrospective wrapper now uses the interval upper bound for measurements inside
+the certified domain and emits no mapped bound for wider measurements.
+
 `official_desi_dr2_chain_audit.py` postprocesses the four official DESI DR2
 Cobaya chains for each default CMB combination and checks every chain against
 the collaboration's SHA-256 manifest. For CPL on `0 <= z <= 2`, the conditional

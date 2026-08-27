@@ -528,22 +528,28 @@ with weighted 2.5--97.5 percent interval
 uncertainty~\cite{desidr2,ophrepo}.
 
 A second conditional diagnostic composes the capacity law with the local
-electroweak-closure tangent. It requires three extra premises: (B1) the closure
-capacity is the same physical \(N\); (B2) the closure holds differentiably at
-each epoch; and (B3) the compound physical-tangent attachment identifies the
-clock \(\alpha\) with the homogeneous cosmological \(\alpha\), identifies its
-proper-time drift with the background cosmic-time drift, and makes physical
-evolution follow the committed one-dimensional solver-root co-variation while
-the other inputs and unit definitions stay fixed. At the present root the numerical
-tangents are \(\mathrm d\ln N/\mathrm d\ln\alpha=-0.2101831101\) and
-\(\mathrm d\ln\alpha/\mathrm d\ln N=-4.757756222\), with relative spread
-\(1.22\times10^{-7}\) across the declared step-size sweep. Only under all three
-premises, and using \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\), does the
-optical-clock drift limit imply the local bound
-\(\lvert1+w_0\rvert\le6.81\times10^{-10}\)~\cite{filzinger2023}. The
-static closure solver does not derive the cosmic tangent, and its local
-Jacobian cannot be extrapolated over the order-one changes suggested by some
-CPL histories. The diagnostic restricts but does not empty the monotone
+electroweak-closure tangent. It requires three extra physical premises: (B1)
+the closure capacity is the same physical \(N\); (B2) the finite closure
+relation is an epochwise physical law; and (B3) physical evolution selects the
+committed root branch and co-variation convention while the local clock reads
+the same homogeneous cosmological \(\alpha\) with the required time map. The
+mathematical derivative is interval-certified independently of those physical
+premises. An outward-rounded implicit-function calculation proves the selected
+declared root branch continuously differentiable for
+\(\lvert\Delta\ln\alpha\rvert\le10^{-5}\), with
+\[
+ \frac{\mathrm d\ln N}{\mathrm d\ln\alpha}
+ \in[-0.214173865,-0.206176031],\qquad
+ \frac{\mathrm d\ln\alpha}{\mathrm d\ln N}
+ \in[-4.850224325,-4.669103775].
+\]
+The reciprocal is formed only after zero is excluded. Using the conservative
+slope bound and \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\), all three
+physical premises together let the optical-clock drift limit imply
+\(\lvert1+w_0\rvert\le6.94\times10^{-10}\)~\cite{filzinger2023}. The static
+closure solver does not select the physical cosmic branch, and its certified
+local domain cannot be extrapolated over the order-one changes suggested by
+some CPL histories. The diagnostic restricts but does not empty the monotone
 branch.
 
 \section{Claim boundary}

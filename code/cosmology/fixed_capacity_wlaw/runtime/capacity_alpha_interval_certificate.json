@@ -1,0 +1,180 @@
+{
+  "artifact": "oph_capacity_alpha_interval_certificate",
+  "bindings": {
+    "interval_engine_path": "code/P_derivation/interval_contraction_certificate.py",
+    "interval_engine_sha256": "4c8191fce843fb3ef69e1a12b690682744c94c6669b68239ea3192fbff2a8493",
+    "paper_math_path": "code/P_derivation/paper_math.py",
+    "paper_math_sha256": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
+    "producer_path": "code/cosmology/fixed_capacity_wlaw/capacity_alpha_interval_certificate.py",
+    "producer_sha256": "48c1e7ce7c448c94d642b9e5b319d43f5c67da16423ea0397fdc96552b33151e",
+    "verifier_path": "code/cosmology/fixed_capacity_wlaw/verify_capacity_alpha_interval_certificate.py",
+    "verifier_sha256": "1f4bc574254f7149749219502c586be522e6dd2279c2efa52dc16d71a4a862f7"
+  },
+  "branch_certificate": {
+    "certified_domain": {
+      "P": {
+        "hi": "1.6309683387468125787124586501599816032717943210673582201813678903",
+        "lo": "1.6309680800623994931115182715899973370674920811933887142683372926"
+      },
+      "P_times_alpha_U": {
+        "hi": "0.067072567370089243923731670530137880823216343714492526100806991697",
+        "lo": "0.067072402565755758838163903890804362806179150290587010105401648251"
+      },
+      "alpha": {
+        "hi": "0.0072974255382219371889411369323770669816972606538186282704448422334",
+        "lo": "0.0072972795911706481279896772271678421255196116374837628324474703549"
+      },
+      "alpha_U": {
+        "hi": "0.041124383457759703650165015904597640254105094942079565327580124928",
+        "lo": "0.041124288933471723158520458606184313555329943258145248123449930474"
+      },
+      "guaranteed_symmetric_log_alpha_inner_radius": "0.00001",
+      "log_alpha": {
+        "hi": "-4.9202336590260638443346667687676272956185052034461124975566335686",
+        "lo": "-4.9202536590260638443346667687676272956185052034461124975566341738"
+      },
+      "outer_enclosure_max_abs_log_alpha_displacement": "0.000010000000000000000000000000000000000000000000000000000000613738659",
+      "positive_denominators": true
+    },
+    "comparison_coordinate": {
+      "P_point_display_only": "1.63096820940395932487927984778264894133598285162792506066615",
+      "alpha": {
+        "hi": "0.0072973525643314250302457952646916832280660213133653604957798815467",
+        "lo": "0.0072973525643314250302457952646916832280660213133653604957798797235"
+      },
+      "alpha_inverse": "137.035999177",
+      "ancestry": "CODATA-fed comparison coordinate; this is not the independent source-forward P coordinate"
+    },
+    "configuration": {
+      "edge_sum_tail_bounds_included": true,
+      "iv_dps": 60,
+      "mp_dps": 60,
+      "requested_log_alpha_half_width": "0.00001",
+      "su2_cutoff": 120,
+      "su3_cutoff": 90
+    },
+    "implicit_function_certificate": {
+      "alpha_U_pixel_closure": {
+        "R_u_enclosure": {
+          "hi": "-10.969161872332877861956322542638185015822048256557000190969259503",
+          "lo": "-11.011882207417106340210465048460445566036595417724788925337898794"
+        },
+        "R_u_sign_definite": true,
+        "attempts": 1,
+        "bracket_abs_half_width": "0.0000000472621439902458222786492066633493875758419671586020650977963",
+        "endpoint_signs_verified": true,
+        "m_z_ift_for_R_u": {
+          "attempts": 1,
+          "bracket_rel_half_width": "0.000712600238490631623696611820707656933117145807777759824671896",
+          "endpoint_signs_verified": true,
+          "h_m_enclosure": {
+            "hi": "-0.99587688350694631171891770481856590568315304457328083998330988531",
+            "lo": "-0.99589500963892108922254334700950273812410499359530035645705473264"
+          },
+          "h_m_sign_definite": true,
+          "orientation": "decreasing"
+        },
+        "m_z_ift_for_input_seed": {
+          "attempts": 1,
+          "bracket_rel_half_width": "0.000712600238490631623696611820707656933117145807777759824671896",
+          "endpoint_signs_verified": true,
+          "h_m_enclosure": {
+            "hi": "-0.99587688350694631171891770481856590568315304457328083998330988531",
+            "lo": "-0.99589500963892108922254334700950273812410499359530035645705473264"
+          },
+          "h_m_sign_definite": true,
+          "orientation": "decreasing"
+        },
+        "orientation": "decreasing",
+        "su2_tail_hi": "9.5028094776037809203150804547933193096019246814747245164333842415e-2153",
+        "su3_tail_hi": "2.9026292152396000446050532727167361987110201546905557383130890962e-5776"
+      },
+      "selected_branch_C1_on_domain": true,
+      "selection_scope": "the root selected by the committed scan-and-bisect solver; uniqueness is proved inside the verified bracket, while global uniqueness over the full scan window is not claimed"
+    },
+    "local_derivatives": {
+      "d_log_N_d_log_P": {
+        "hi": "-25.998529259832845666354782353384224446136734964573958135779823023",
+        "lo": "-27.006377130070705554184550158237860702796276062540662088434632504"
+      },
+      "d_log_N_d_log_alpha": {
+        "encloses_direct_dual_evaluation": {
+          "hi": "-0.20617603085186185986351181669505500074602588528645345343349105254",
+          "lo": "-0.21417386465683690729109043687376685127716153622858706725895376323"
+        },
+        "encloses_factorized_chain_rule_evaluation": {
+          "hi": "-0.20617650474801958902486606770237054988594644940631097239283876369",
+          "lo": "-0.21417337237876831298220263317704637655228381776132296174760497343"
+        },
+        "hi": "-0.20617603085186185986351181669505500074602588528645345343349105254",
+        "lo": "-0.21417386465683690729109043687376685127716153622858706725895376323",
+        "sign": "strictly_negative",
+        "zero_excluded": true
+      },
+      "d_log_P_alpha_U_d_log_P": {
+        "hi": "0.096096831471818150522866395213539158071211716384636540511189831013",
+        "lo": "0.092510832221294212385262072038994131039049167146691272006484866716"
+      },
+      "d_log_P_d_log_alpha": {
+        "hi": "0.0079304740264584901922094911045004161699947090351363007808833587864",
+        "lo": "0.0079303141607536139297751980396396791375503923628670981085479427448"
+      },
+      "d_log_alpha_U_d_log_P": {
+        "hi": "-0.90390316852818184947713360478646084192878828361536345948881016899",
+        "lo": "-0.90748916777870578761473792796100586896095083285330872799351513328"
+      },
+      "d_log_alpha_d_log_N": {
+        "computed_only_after_zero_exclusion": true,
+        "hi": "-4.6691037751140368674160027015042538426462862164825611032667338756",
+        "lo": "-4.8502243246621776839821377546511022620926081501790151492538087672",
+        "sign": "strictly_negative"
+      },
+      "log_N_over_pi": {
+        "hi": "281.03296140404727257408594498050632296311328213050045043426634024",
+        "lo": "281.03227087658265388727451635928401128307451867938322627319900421"
+      }
+    },
+    "mean_value_certificate": {
+      "abs_slope_lower": "0.20617603085186185986351181669505500074602588528645345343349105254",
+      "abs_slope_upper": "0.21417386465683690729109043687376685127716153622858706725895376323",
+      "argument": "The implicit-function denominators are sign-definite on the whole box, so the selected branch is C1.  The displayed logarithmic derivative is sign-definite there; the ordinary mean-value theorem in log alpha gives the two-sided bound and local invertibility.",
+      "forward_bound": "m |Delta log alpha| <= |Delta log N| <= L |Delta log alpha|, with m=abs_slope_lower and L=abs_slope_upper",
+      "guaranteed_symmetric_log_alpha_inner_radius": "0.00001",
+      "inverse_bound": "|Delta log alpha| <= (1/m) |Delta log N| for points on the certified branch image",
+      "outer_enclosure_max_abs_log_alpha_displacement": "0.000010000000000000000000000000000000000000000000000000000000613738659",
+      "valid_for_every_pair_of_alpha_values_in_certified_domain": true
+    }
+  },
+  "classification": {
+    "OPH_evidence_status": "none_from_this_conditional_certificate",
+    "epistemic_status": "rigorous_interval_certificate_for_declared_mathematical_branch",
+    "mathematical_branch_differentiability": "attained_on_certified_domain",
+    "physical_attachment": "requires_B1_B2_and_physical_part_of_B3",
+    "physical_epoch_evolution": "undischarged"
+  },
+  "date": "2026-08-27",
+  "nonclaims": [
+    "B1 is not derived or discharged.",
+    "B2 is not derived or discharged.",
+    "The physical branch-selection and readout part of B3 is not derived or discharged.",
+    "Mathematical differentiability of the declared branch does not imply physical epoch evolution.",
+    "The CODATA-fed comparison coordinate is not an independent prediction.",
+    "No large cosmological evolution is extrapolated beyond the certified local domain."
+  ],
+  "premises": {
+    "B1_same_capacity": {
+      "statement": "The electroweak bridge coordinate N_EW is the same physical capacity N that occurs in the conditional fixed-capacity w-law.",
+      "status": "undischarged_physical_identification"
+    },
+    "B2_epochwise_bridge": {
+      "statement": "The finite relation N = pi exp(6 pi/(P alpha_U(P))) is a physical epoch-by-epoch law on the domain used by the cosmological model.",
+      "status": "undischarged_physical_epochwise_law"
+    },
+    "B3_physical_solver_tangent": {
+      "mathematical_subresult": "C1 regularity and a sign-definite tangent of the selected declared root branch are certified by this artifact; this does not select the branch physically.",
+      "statement": "Physical evolution selects this committed root branch and co-variation convention, while a local optical-clock alpha is the same homogeneous cosmological alpha with the required time map.",
+      "status": "undischarged_physical_branch_selection_and_readout"
+    }
+  },
+  "schema": "oph.capacity_alpha_interval_certificate.v1"
+}
