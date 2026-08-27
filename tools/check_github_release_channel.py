@@ -4,7 +4,9 @@
 The paper manifest validates the local source-to-PDF bundle.  This checker
 closes the separate publication-channel boundary: the latest public GitHub
 Release must use the same release ID and expose byte-identical copies of every
-manifest PDF, the book PDF, and the manifest itself.
+manifest PDF and the manifest itself.  The book is not a Release asset; it
+publishes on its own cadence to the reader-facing book surface, and only its
+manifest receipt is validated here.
 
 The default mode reads the public GitHub API.  Tests and offline audits can
 provide captured API payloads with ``--release-json`` and ``--latest-json``.
