@@ -124,7 +124,7 @@ The word carries an original. A flight simulator earns the name because there ar
 
 Put the question to the inventory and look for the second end. Name the entry that substitutes for something, or the warehouse where the original repair rate is kept, or the object a loop residue resembles. The two-rule rewriter produced strings that described nothing filed anywhere else. Run the rules and the strings you get are the strings there are.
 
-The word computed arrives with fake attached to it. Watch one repair: a disagreement that was there is gone, the total sits where it started, and which of seven arrangements the seam held is past recovering. That is a change in the world, carried out by arithmetic. Coffee tastes the way it does by the same route, and so does a magnetic field. And nothing is stepping any of it: sixty-five thousand five hundred and thirty-six patches reached agreement on every seam between them without a tick from anywhere.
+The word computed arrives with fake attached to it. Watch one repair: a disagreement that was there is gone, the total sits where it started, and which of seven arrangements the seam held is past recovering. That is a change in the world, carried out by arithmetic. Coffee tastes the way it does by the same route, and so does a magnetic field. And nothing is stepping any of it: eighty-one thousand nine hundred and twenty patches reached agreement on every seam between them without a tick from anywhere.
 
 ## Does an observer have to be conscious?
 
@@ -148,7 +148,7 @@ The demand rules out nearly everything. A description that picks out any structu
 
 ## Does this mean my choices are already made?
 
-Twelve patches converge on one arrangement from all two thousand and forty-eight starting states, under every schedule. Sixty-five thousand patches bring 326,047 disagreements to zero by cycle 96 whatever order the repairs run in. If the endpoint depends neither on the start nor on who went first, then a person weighing a decision at two in the morning is a subsystem executing a delay.
+Twelve patches converge on one arrangement from all two thousand and forty-eight starting states, under every schedule. Eighty-two thousand patches bring 102,415 disagreements to zero whatever order the repairs run in. If the endpoint depends neither on the start nor on who went first, then a person weighing a decision at two in the morning is a subsystem executing a delay.
 
 The argument drops four words from the theorem it is quoting: given the boundary data.
 

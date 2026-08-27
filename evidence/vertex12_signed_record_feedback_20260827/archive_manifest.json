@@ -1,0 +1,43 @@
+{
+  "schema": "oph.signed_record_feedback_archive.v1",
+  "archive_id": "vertex12_signed_record_feedback_20260827",
+  "source": {
+    "repository": "https://github.com/muellerberndt/oph-physics-sim",
+    "commit": "ce17921eb7504106fef1ba445e1349b5367aa676"
+  },
+  "curated_archive": {
+    "file_count": 7,
+    "total_bytes": 3208150,
+    "inventory_sha256": "7f07897ea12458442ded46d7abac315c3d34b45e3a8ffe18dc8621905c18e0f5"
+  },
+  "result": {
+    "carrier_count": 8,
+    "ports_per_carrier": 12,
+    "literal_record_count": 8,
+    "causal_feedback_event_count": 96,
+    "A5_covariance_check_count": 720,
+    "idempotence_check_count": 96,
+    "disjoint_commutation_check_count": 528,
+    "receipt_sha256": "sha256:95ec183d6f036449e35174a65f4fd076c1090aecd549de73ca1cf384607bf67e",
+    "independent_verifier_passed": true,
+    "independent_verifier_imported_producer": false
+  },
+  "known_boundaries": {
+    "integrated_with_82k_consensus_run": false,
+    "parent_endpoint_repair_confluence_established": false,
+    "source_law_selected_by_A1_A2_A3": false,
+    "spatial_translation": false,
+    "laboratory_record_realization": false,
+    "physical_sector_realization": false,
+    "physical_prediction": false
+  },
+  "inventory": [
+    {"path": "independent_verification.json", "bytes": 731, "sha256": "e3dd1eead5f0431f4cdccc5d6c223a3d10597896acb59e61500bbef334645308"},
+    {"path": "test_vertex12_signed_record_feedback.py", "bytes": 12518, "sha256": "8f18ec6dc12d98020f28324645a7bfd3cfd49fa33b95f9f6c573e98d58221f18"},
+    {"path": "verify_vertex12_signed_record_feedback_independent.py", "bytes": 30360, "sha256": "9e13632434f04dc6b9aa7573a65eb7a8560b5fbfe40e1072d1caa32acd85e662"},
+    {"path": "vertex12_atomic_port_transfer_receipt.json", "bytes": 41087, "sha256": "9c7bc28d1a1dc1c5a0ddf350147a4923f694d2e893e3c7aa2dcef0a389bf1109"},
+    {"path": "vertex12_constructive_source_law_receipt.json", "bytes": 2018887, "sha256": "ac0f0258443c3b4433403a5d4c7609b199d15bc3ff7a1d1f4a0cc4834e446b94"},
+    {"path": "vertex12_signed_record_feedback.py", "bytes": 30382, "sha256": "3354fa2479b2193c0b15b5155dad39a20d84679cc2a931d5cefd2713cd78fb2a"},
+    {"path": "vertex12_signed_record_feedback_receipt.json", "bytes": 1074185, "sha256": "85c1e3322257d96df68640e8e8c03ef833f7bb3bc6cff24a660498acc5b9cff5"}
+  ]
+}

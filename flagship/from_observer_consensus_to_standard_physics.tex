@@ -1143,44 +1143,52 @@ relabeling), idempotence of the completed dynamics, and refinement
 compatibility where proved. The public object is the protected quotient
 record, not an arbitrary intermediate configuration.
 
-The public OPH-FPE diagnostic instantiates $65{,}536$ finite patch rows, each
-with a declared twelve-port echosahedral interface, and routes $390{,}924$
-gauge-labelled seams over a legacy Fibonacci/KNN support control. It applies
-the declared endpoint-repair and sector-link rules, commits quotient-visible
-records, materializes $2{,}048$ patch-observer neighborhoods of size $96$
-together with four auxiliary cap views, and emits configuration, seed, trace,
-observer, source-state, replay, and negative-control artifacts. The simulator
-source revision and the claim-supporting data, including the losslessly
-compressed observer rows, are pinned in the public run archive
-\cite{ophsim}.
+The current public OPH-FPE diagnostic uses the level-six cell rung of the
+geodesic icosahedral refinement tower. It contains $81{,}920$ finite patch
+rows and $122{,}880$ undirected cell adjacencies. Every row has twelve local
+port slots; three route the cell adjacencies and nine remain exposed or
+reserved. A source-bound array assigns one immutable, pairwise-distinct
+integer authority to each row before repair begins. On an inconsistent seam,
+the endpoint with larger authority is preserved and the other endpoint
+receives its unique $S_3$-transported matching label. The gauge link stays
+fixed.
 
-The separate theorem-replay source state contains $326{,}047$ gauge-covariant
-seam mismatches. In the driven $128$-cycle trace the cycle-zero update starts
-from $326{,}053$, leaves $324{,}739$, reaches $178{,}280$ at zero-indexed
-cycle $50$, and reaches zero at cycle $96$. There are $28{,}888$
-committed patch records at cycle $100$; all $65{,}536$ are committed first at
-cycle $107$ and remain committed at cycle $110$. The driven trajectory has
-$69$ cross-cycle mismatch injections, so its global Lyapunov-descent receipt
-is false. A separate theorem-phase replay accepts $326{,}047$ individual
-moves with no strict-descent or accepted-$\Phi$-increase violation. It finds
-no violation in $512$ checked edge-slot diamond pairs, $256$ disjoint
-commutations, or four frame-relabeling checks. Its finite-consensus theorem
-receipt nevertheless fails: the exact endpoint-branch argument exhibits one
-structural nonconfluence witness and certifies a lower bound of two terminal
-quotient orbits. Its exact-check hash list is empty; only one sampled terminal
-hash is materialized before fail-closed replay stops after one of the sixteen
-requested schedules.
-Repairing opposite endpoints of a seam with non-identity discrepancy can
-therefore leave distinct local-frame quotient orbits. The archived primitive
-gauge state supports replay of this finite port-link diagnostic. The dedicated
-source-to-observer contract is also false: the materialized observer records
-do not cause later bounded port writes. A historical aggregate labels the
-mere presence of observer rows with the same receipt name and reports true;
-the archive documents this false-positive naming collision and applies the
-stricter contract. The compact run did not retain a complete patch-state
-artifact, and its state model has no shared patch-local repair variable. The
-result establishes neither a schedule-independent terminal normal form nor
-the patch algebra, continuum physics, or a laboratory realization.
+The archived source contains $102{,}415$ gauge-covariant mismatches. Every
+enabled move removes exactly one. Sixteen shuffled replays each accept
+$102{,}415$ moves, end at zero mismatch, and return the same
+authority-bound terminal hash. The replay checks $512$ shared-node diamonds,
+$512$ disjoint commutations, and $16$ local-frame relabelings without a
+violation. The exact edge-slot argument gives the unique terminal state for
+the fixed authority-decorated source, and the archived port map confirms that
+no routed carrier-port slot belongs to two seams. A standalone verifier that
+imports no simulator code reconstructs $S_3$ from permutations, derives the
+terminal state from the primitive arrays, and recomputes the source,
+quotient, authority, and terminal hashes. The full twelve-coordinate patch
+state is retained. All $81{,}920$ records are committed by cycle eight, and
+$2{,}048$ observer neighborhoods of size $96$ are archived \cite{ophsim}.
+
+This finite normal form is conditional on the authority array. The present
+axioms do not select that array. A fixed realization changes under patch
+relabeling. The kernel is covariant when authority travels with each patch.
+No selection compatible with the refinement maps is established. The
+theorem concerns routed edge slots and does not cover further patch-local
+constraints coupling several slots. The large-run observer rows certify
+record custody and neighborhood readout, with no later record-driven port
+writes.
+
+A separate finite diagnostic establishes the missing literal feedback
+mechanism on eight twelve-port carriers. It commits eight full integer
+records and performs one probe, record read, and record-conditioned write on
+each of the $96$ carrier-port coordinates. After a $+1$ probe it applies
+$z_{i,p}\leftarrow z_{i,p}+(b_{i,p}-z_{i,p})$, restores the working
+coordinate exactly, and leaves the record unchanged. Omitting feedback leaves
+the displacement; increasing the read record coordinate by one changes the
+feedback increment from $-1$ to zero. A producer-free verifier recomputes all
+$96$ events, $720$ $A_5$ covariance squares, $96$ idempotence checks, and
+$528$ disjoint commutations. This bounded software self-reading component is
+a separate receipt from the $81{,}920$-row run. The signed source law has no
+axiomatic selection certificate, and neither diagnostic supplies a continuum
+or laboratory realization.
 
 The architecture sits close to distributed agreement in the tradition of
 Lamport, Shostak, and Pease \cite{lamport1982}: patches play the role of
@@ -3880,10 +3888,14 @@ record\\
 Repair gap and the conditional Yang--Mills identification & The Yang--Mills
 gap, witness, and repair-gap-chain modules; the collar gap certificate and the
 finite transfer receipt with its test\\
-Large finite repair diagnostic & The pinned OPH-FPE source, resolved
-configuration and seeds, full mismatch trace, raw gauge/replay arrays,
-losslessly compressed observer rows, fail-closed theorem receipt, and public
-curated archive\\
+Protected finite consensus diagnostic & The pinned OPH-FPE source, level-six
+icosahedral configuration and seeds, protected authority, primitive and
+terminal arrays, full mismatch trace and patch state, compressed observer
+rows, producer replay, standalone exact verifier, and public archive\\
+Literal record-feedback diagnostic & Eight full twelve-coordinate records,
+$96$ probe/read/write events, ablation and record-coordinate controls, $A_5$
+covariance and finite confluence rows, producer-free verifier, and a separate
+public archive\\
 Electroweak chart, event manifold, and the finite local domain & Certified
 contour and second-sheet outputs with fail-closed producer checks; the
 analytic theorem of this manuscript; the staged local-domain receipts and
@@ -4069,10 +4081,11 @@ negative controls accompany the artifacts. Machine-readable claim and
 prediction provenance is available with the artifacts \cite{ophregister}.
 
 The Lean source tree, pinned toolchain, exact verifiers, manifests, receipts,
-negative controls, tests, the curated $65{,}536$-patch repair archive, and
-local-domain evidence are identified in Table~\ref{tab:artifact-map}. The
-complete simulation source is maintained in the public simulator repository
-at the evidence-producing revisions \cite{ophsim}.
+negative controls, tests, the curated $81{,}920$-row protected-consensus
+archive, the separate literal-feedback archive, and local-domain evidence are
+identified in Table~\ref{tab:artifact-map}. The complete simulation source is
+maintained in the public simulator repository at the evidence-producing
+revisions \cite{ophsim}.
 
 This manuscript synthesizes and strengthens
 results whose longer proofs also appear in public component preprints on
@@ -4132,8 +4145,9 @@ The finite witnesses, simulation configurations, receipts, scientific claim regi
 release manifests supporting this study are available in the public OPH and
 simulation repositories \cite{ophrepo,ophsim}. Individual receipts and their
 bundle documentation provide the source and output provenance for
-computational claims. The artifact map identifies the curated large-run and
-local-domain evidence cited in the manuscript.
+computational claims. The artifact map identifies the curated protected
+large-run, the separate literal-feedback result, and the local-domain evidence
+cited in the manuscript.
 
 \noindent\textbf{Code availability.}
 The Lean sources, exact-arithmetic verifiers, finite scans, simulation code,
@@ -4168,9 +4182,11 @@ receipts, finite certificates, and scientific claim registries.
 Mueller, B. (2026). OPH physics simulator and reproduction source.
 \url{https://github.com/muellerberndt/oph-physics-sim}.
 Large finite-repair diagnostic revision:
-\url{https://github.com/muellerberndt/oph-physics-sim/tree/b52196b296435d704b14d005d1f69caaaa662f97}.
-Curated run-data archive:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/e6_64k_dense_20260820}.
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/ce17921eb7504106fef1ba445e1349b5367aa676}.
+Protected-consensus run-data archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/icosa_82k_protected_consensus_20260827_r1}.
+Literal signed-record feedback archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/vertex12_signed_record_feedback_20260827}.
 Preregistered signature-replication revision, including its campaign data:
 \url{https://github.com/muellerberndt/oph-physics-sim/tree/42aa96607f40dae94c5a8b65e9dd8e71e5b6434e}.
 Active refinement-readout revision:

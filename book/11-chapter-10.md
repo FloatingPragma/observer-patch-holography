@@ -76,42 +76,52 @@ The twelve-observer network has confluence, and chapter six settled it by starti
 
 The engineered protocols of chapter eight buy order-independence with sampling and probability. The guarantee they buy is a guarantee about how often. What the observers get instead is two conditions and an induction over a finite descent, which is why their version has no failure rate attached to it.
 
-## Ninety-six cycles
+## What the network is made of
 
-Sixty-five thousand five hundred and thirty-six patches. Three hundred and ninety thousand nine hundred and twenty-four seams between them. At the start, 326,047 of those seams disagree, which is 83.4 percent of them.
+The arrangement in this chapter is one the OPH research team runs as a program, and the program is called OPH-FPE. It is not a numerical model of a continuous world. Every quantity inside it is a whole number or one of the six ways of permuting three labels, every move is exact, and no step anywhere rounds anything off. A run either meets a condition or fails to, and it returns the same verdict on every machine that executes it.
+
+Each published run is archived entire: the configuration it was given, the seeds it drew from, the arrays it started with, the arrays it finished with, the full trace, and the state of all twelve ports on every patch. Beside them sits a verifier that borrows none of the simulator's own code. It builds the six permutations from scratch, recomputes the starting disagreements from the raw arrays, works out the finishing state, and recomputes every fingerprint. A reader with Python and a copy of the archive runs one command and either gets the same answer or finds out that they do not.
+
+The run read here is the level-six rung of a tower built by subdividing an icosahedron over and over. It holds 81,920 patches and 122,880 seams between them, and every patch carries twelve local port slots, three of which route seams while nine stay exposed. At the start, 102,415 of those seams disagree, which is 83.3 percent of them.
+
+## Two cycles
 
 The trace is kept in cycles. A cycle is a round in which every patch with something to repair gets a turn. That count belongs to whoever reads the trace afterward. Nothing in the network counts cycles, nothing waits for the next one, and there is no tick anywhere in the machinery.
 
-A run of a process that failed to be confluent would be an anecdote: what happened to one arrangement on one pass, with no warrant to say anything about the next pass, which would take a different order and could finish somewhere else entirely. Newman's two conditions are what make the last line of this trace worth more than the run that produced it. The lines in between are the accidents of one order. The line at cycle 96 would have read zero under any of them.
+A run of a process that failed to be confluent would be an anecdote: what happened to one arrangement on one pass, with no warrant to say anything about the next pass, which would take a different order and could finish somewhere else entirely. Newman's two conditions are what make the last line of this trace worth more than the run that produced it. The lines in between are the accidents of one order. The line at cycle 1 would have read zero under any of them.
 
-Cycle 0 reads 324,739 mismatched seams. Cycle 10, 311,475. Cycle 20, 290,020. Cycle 30, 255,710. Cycle 40, 215,970. Forty cycles of grinding have cleared about a third of the disagreement, and anyone watching would forecast a long haul.
+Cycle 0 accepts 81,920 repairs and leaves 20,495 seams in disagreement. Cycle 1 accepts the remaining 20,495 and leaves nothing. Of 122,880 seams, every single one agrees, and the trace runs on to cycle 15 without another mismatch posted against it.
 
-At cycle 50 the count is 178,280, a little over half the original. A second column of the trace comes off zero for the first time. Four committed records. Four, across a network of sixty-five thousand patches, at the halfway mark.
+Each repair removes exactly one disagreement, which is the librarians' shelf at the scale of a network, and the number of moves the run accepts is 102,415, the number of disagreements it began with. Neither figure has anything in it about the order the repairs came in.
 
-Cycle 60: 141,355 seams in disagreement, 25 records. By cycle 70 the disagreement is down to 103,769 and the records are up to 201, and by cycle 80, with 62,188 seams still arguing, 1,371 patches have written something permanent. Cycle 90 reads 21,518 and 7,051.
+## Sixteen shuffles
 
-Then it falls off a cliff. Cycle 95 reads 1,455 mismatched seams. Cycle 96 reads zero. Of 390,924 seams, every single one agrees. The last twenty-one thousand disagreements went in six cycles, after the first hundred and ten thousand had taken forty.
+The last line of one trace is the last line of one trace. What settles the question is running the same arrangement sixteen times and shuffling the order before every pass.
 
-The run continues to cycle 127 and never posts another mismatch.
+All sixteen accept 102,415 moves. All sixteen finish with no seam in disagreement. All sixteen arrive at the same finishing state, and the check on that last point is a fingerprint: the whole terminal state is boiled down to one line of characters, and the sixteen lines are the same line.
 
-The records keep arriving after the arguing stops. Cycle 100: 28,888 of them. Cycle 105: 55,989. Cycle 110: 65,536, one for every patch in the network, and from there to the end of the run nothing changes at all. Between cycle 95 and cycle 110 the network clears its final 1,455 disagreements and writes a little over fifty thousand records, which is to say that most of the memory in that universe was laid down after the last argument in it had been settled.
+Sixteen orders. One destination.
 
-The spread of those records at the finish is 11.0904, which is the natural logarithm of 65,536. Spread counts how many different things a collection holds, on a scale where doubling the number of distinct items adds a fixed amount instead of doubling the figure, and 11.0904 is the value it takes when 65,536 records are all distinct from one another and none of them is more common than the rest. Every seam agrees, and no two patches hold the same record.
+The same replay takes 512 places where two repairs share a patch and confirms that the two ways around the diamond meet, takes 512 places where two repairs have nothing in common and confirms that they commute, and relabels the local frames sixteen times over to confirm that nothing in the outcome was resting on the labels. None of those checks turns up a violation.
+
+The records arrive after the arguing stops. Nothing is committed through cycle 6. Cycle 7 posts 47,412 of them, a little under three in five. Cycle 8 posts the rest, 81,920, one for every patch in the network, and from there to the end of the run nothing changes at all.
+
+The spread of those records at the finish is 11.3134. The natural logarithm of 81,920 is 11.3135, and the whole of the gap between those two figures is the price of four coincidences: four pairs of patches hold matching readings, and each of the other 81,912 holds a reading that no other patch in the network holds. Spread counts how many different things a collection holds, on a scale where doubling the number of distinct items adds a fixed amount instead of doubling the figure.
 
 ## Agreement first
 
-Records lag agreement by about fifty cycles, and they lag it because of what a record is. A record is something you can go back to and find unchanged. Write one into a neighborhood whose seams disagree, and a repair comes through and revises what you wrote, which makes what you wrote a draft.
+Records lag agreement by six cycles, and they lag it because of what a record is. A record is something you can go back to and find unchanged. Write one into a neighborhood whose seams disagree, and a repair comes through and revises what you wrote, which makes what you wrote a draft.
 
-So the writing cannot begin in a region until the disagreement has drained out of that region, and does not begin everywhere at once, because the disagreement does not drain uniformly. The four records at cycle 50 are four small neighborhoods that finished early. By cycle 90, seven thousand of them have. The count in that column is a map of where the network has gone quiet.
+The run puts a number on that. A patch's reading becomes a record when it has held still for eight cycles together. Anything in the middle of being repaired fails that test, because being repaired is what failing to hold still consists of.
 
-None of this was arranged. There is no rule anywhere in the machinery instructing a patch to wait for its neighborhood to settle before writing. What there is instead is the price on writing, which chapter three put on any record whatever, and the fact that writing something a repair will revise costs the same and purchases nothing. A neighborhood in the middle of an argument has nothing in it worth paying for.
+Read the rule closely and notice what it does not say. It does not tell a patch to look at its neighborhood, or to wait for anybody, or to ask whether the argument nearby has finished. It asks one question, and the question is about the patch itself: has this reading stopped changing. The neighborhood enters only through the back door, because a patch whose seams are in dispute is a patch whose reading keeps getting revised out from under it.
 
-Agreement comes first and memory second. The order is forced by the arithmetic of what a record costs. It runs the opposite way to the picture most people carry, in which observers write down what they see and then compare notes and argue about the differences. The four records at cycle 50 were written by patches that had nothing left to argue about. Every other patch in the network at that moment was in the middle of a disagreement, and had written nothing, and had nothing to compare.
+Agreement comes first and memory second. The order is forced by what a record is rather than by any instruction to observe it, and it runs the opposite way to the picture most people carry, in which observers write down what they see and then compare notes and argue about the differences. Through six cycles of this run, every patch in the network is in the middle of a disagreement or fresh out of one, and not one of them has written anything down, and there is nothing anywhere to compare.
 
-## Cycle 127
+## The last line
 
-The last line of the trace reads like this. Three hundred and ninety thousand nine hundred and twenty-four seams, every one of them in agreement. Sixty-five thousand five hundred and thirty-six patches, each holding a record that no other patch holds. Whatever order the repairs ran in, that is where the network lands, and Newman's two conditions are the reason.
+The last line of the trace reads like this. One hundred and twenty-two thousand eight hundred and eighty seams, every one of them in agreement. Eighty-one thousand nine hundred and twenty patches, each holding a record of its own. Whatever order the repairs ran in, that is where the network lands, and Newman's two conditions are the reason.
 
 Everything settled. Nothing that settled is a number any two patches share. Each patch holds its own reading, taken through its own ports, of the piece of the world it can see. Walk up to two neighboring patches at the end of that run and ask each of them what the world is like, and you get two different answers from two observers in complete agreement.
 
-The network has a settled state. It is written down in none of the sixty-five thousand five hundred and thirty-six places where things get written down.
+The network has a settled state. It is written down in none of the eighty-one thousand nine hundred and twenty places where things get written down.

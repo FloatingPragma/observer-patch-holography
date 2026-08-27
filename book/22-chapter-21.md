@@ -22,7 +22,7 @@ Take the pair apart looking for a clock.
 
 The algebra is a list of questions with a rule for composing them. Nothing in a list ticks. The state is an assignment of numbers to that list. An assignment of numbers is a table. There is no parameter anywhere in either object, no reading that changes, nothing that distinguishes one moment from another, because the specification contains no moments. If time were a primitive ingredient of this world, it would have to be posted in from outside the pair by something that owns a clock and is willing to lend it, and chapter four's inside-only clause rules that out at the top of the argument: there is no outside to post it from.
 
-Chapter ten's run makes the same point in hardware. Sixty-five thousand patches worked all 390,924 seams between them into agreement. The cycles the run is reported in were put there by whoever wrote the report. No patch in the network counted a cycle or waited for one to end. The machinery has no tick in it anywhere. Whatever supplies the rate has to be manufactured out of a list of questions and a table of odds, because nothing else was ever delivered.
+Chapter ten's run makes the same point in hardware. Eighty-two thousand patches worked all 122,880 seams between them into agreement. The cycles the run is reported in were put there by whoever wrote the report. No patch in the network counted a cycle or waited for one to end. The machinery has no tick in it anywhere. Whatever supplies the rate has to be manufactured out of a list of questions and a table of odds, because nothing else was ever delivered.
 
 ## A room left alone
 
@@ -52,7 +52,7 @@ The generator is manufactured out of the state and nothing else, by a recipe sho
 
 $$K = -\log \rho$$
 
-Here rho is chapter nineteen's density matrix, the array standing for the state the observer holds, and K is the generator of the flow that state determines. Chapter sixteen's logarithm counted questions and so ran in base two. The one in this recipe is the natural logarithm, the kind chapter ten used for the spread of sixty-five thousand distinct records, where a doubling is worth 0.693 instead of 1. Applied to an array of this shape it works on each diagonal entry on its own.
+Here rho is chapter nineteen's density matrix, the array standing for the state the observer holds, and K is the generator of the flow that state determines. Chapter sixteen's logarithm counted questions and so ran in base two. The one in this recipe is the natural logarithm, the kind chapter ten used for the spread of eighty-two thousand records, where a doubling is worth 0.693 instead of 1. Applied to an array of this shape it works on each diagonal entry on its own.
 
 ## One system, two outcomes
 

@@ -1,0 +1,1132 @@
+{
+  "schema": "oph.array_screen_geometry.v1",
+  "mesh_family": "icosahedral_tower",
+  "geometry_family": "icosahedral_tower",
+  "patch_basis": "cells",
+  "refinement_level": 6,
+  "nominal_patch_count": 81920,
+  "actual_patch_count": 81920,
+  "edge_count": 122880,
+  "nominal_count_mapping": {
+    "basis": "cells",
+    "requested_count": 81920,
+    "exact_supported_count": true,
+    "lower": {
+      "level": 6,
+      "count": 81920
+    },
+    "upper": {
+      "level": 6,
+      "count": 81920
+    },
+    "nearest": {
+      "level": 6,
+      "count": 81920,
+      "absolute_difference": 0,
+      "relative_difference": 0.0
+    },
+    "nominal_label_only_if_not_exact": false
+  },
+  "rung_resolution": {
+    "schema": "oph.icosahedral_tower_rung.v1",
+    "family": "icosahedral_tower",
+    "patch_basis": "cells",
+    "refinement_level": 6,
+    "patch_count": 81920,
+    "cell_count": 81920,
+    "seam_count": 122880,
+    "port_site_vertex_count": 40962,
+    "euler_characteristic": 2,
+    "base_carrier_counts": {
+      "vertices": 12,
+      "edges": 30,
+      "faces": 20
+    },
+    "expected_degree_histogram": {
+      "3": 81920
+    },
+    "ports_per_patch_template": 12,
+    "routed_seam_slots_per_patch": 3,
+    "exposed_reserved_slots_per_patch": 9,
+    "nominal_patch_count": 81920,
+    "nominal_count_is_exact": true,
+    "ICOSAHEDRAL_TOWER_RUNG_RESOLUTION_RECEIPT": true
+  },
+  "carrier_semantics": {
+    "patch": "outward_oriented_spherical_triangular_cell_of_the_committed_tower",
+    "patch_adjacency": "dual_seam_across_one_shared_mesh_edge",
+    "seam_count_equals_primal_mesh_edge_count": true,
+    "global_defect_port_sites": "twelve_persistent_q_equals_1_primal_vertices",
+    "base_complex_at_level_0": {
+      "vertices": 12,
+      "edges": 30,
+      "faces": 20
+    },
+    "a5_action": "exact_integer_cell_permutations_certified_per_level"
+  },
+  "carrier_degree_histogram": {
+    "3": 81920
+  },
+  "carrier_verification": {
+    "schema": "oph.icosahedral_tower_carrier_verification.v1",
+    "refinement_level": 6,
+    "expected_cell_count": 81920,
+    "expected_seam_count": 122880,
+    "patch_count_exact": true,
+    "seam_count_exact": true,
+    "endpoint_indices_in_range": true,
+    "points_match_committed_builder": true,
+    "seams_match_committed_builder_in_canonical_order": true,
+    "degree_histogram": {
+      "3": 81920
+    },
+    "degree_histogram_exact": true,
+    "base_carrier_is_regular_icosahedron": true,
+    "tower_geometry_receipt": true,
+    "TRUE_TOWER_CARRIER_VERIFICATION_RECEIPT": true
+  },
+  "port_slot_reconciliation": {
+    "local_port_template": "regular_icosahedron_twelve_vertex_directions",
+    "ports_per_patch_template": 12,
+    "template_role": "hidden per-patch echosahedral presentation interface; the seam adjacency is the 3-regular cell-dual graph, not a degree-12 KNN graph",
+    "carrier_adjacency_degree_histogram": {
+      "3": 81920
+    },
+    "routed_seam_slots_per_patch": 3,
+    "exposed_reserved_slots_per_patch": 9,
+    "unused_slot_marking": "the screen-port map records node_degree, unused_port_slots, and unrouted_exposed_or_reserved_port_slot_count per federation",
+    "adjacency_padding_free": true,
+    "overflow_fail_closed": "any patch degree above the twelve-slot template raises the screen-port overflow counter and fails the port-state receipts"
+  },
+  "levels": [
+    {
+      "level_id": "ico-L0",
+      "refinement_level": 0,
+      "patch_basis": "cells",
+      "patch_count": 20,
+      "vertex_count": 12,
+      "cell_count": 20,
+      "geometry_hash": "e333556ce101cb224d94882270c17e0d7e36469908871ca133e5bbbee2c6eafd"
+    },
+    {
+      "level_id": "ico-L1",
+      "refinement_level": 1,
+      "patch_basis": "cells",
+      "patch_count": 80,
+      "vertex_count": 42,
+      "cell_count": 80,
+      "geometry_hash": "38609eacf82500b8fe8d6f3e3866dfb79c5a8f1dd34330b091a5e5690559551d",
+      "parent_level_id": "ico-L0",
+      "lineage_hash": "80ff995d5dd76156de1392f871b7f2dea8bc7d3f0484eba4a52a8bcc77b66b15"
+    },
+    {
+      "level_id": "ico-L2",
+      "refinement_level": 2,
+      "patch_basis": "cells",
+      "patch_count": 320,
+      "vertex_count": 162,
+      "cell_count": 320,
+      "geometry_hash": "5d8764f9c4c92b07f804de4c9e6677800f6be3653a14e509eab247668f4542c7",
+      "parent_level_id": "ico-L1",
+      "lineage_hash": "4f9ed21cb104e403629ccc72bd2f2bf2f6238c56d80ae16591866f9b7b6a9727"
+    },
+    {
+      "level_id": "ico-L3",
+      "refinement_level": 3,
+      "patch_basis": "cells",
+      "patch_count": 1280,
+      "vertex_count": 642,
+      "cell_count": 1280,
+      "geometry_hash": "b42f7ae812f8093c737e5d8f7c4a686d45eb25ad004a5c198640a7cda5a4b993",
+      "parent_level_id": "ico-L2",
+      "lineage_hash": "1c0eb6338567365dd2c02bbd49daf322f2b91d8f627332c0843d13e05b542edf"
+    },
+    {
+      "level_id": "ico-L4",
+      "refinement_level": 4,
+      "patch_basis": "cells",
+      "patch_count": 5120,
+      "vertex_count": 2562,
+      "cell_count": 5120,
+      "geometry_hash": "174645edc70d625a18879ec7ed58449f6ce978524ca921f1ae12f5f57ac5a437",
+      "parent_level_id": "ico-L3",
+      "lineage_hash": "1b7836473878e37a8fe2e72b842eb851cb246f904035f3ba3ba05068c64f0f99"
+    },
+    {
+      "level_id": "ico-L5",
+      "refinement_level": 5,
+      "patch_basis": "cells",
+      "patch_count": 20480,
+      "vertex_count": 10242,
+      "cell_count": 20480,
+      "geometry_hash": "a9f13dfc9201f3b56f61b25833826bdf8289a5e1c6a85f1f67f97c6301ff341c",
+      "parent_level_id": "ico-L4",
+      "lineage_hash": "2a6d9bd6a73c90665589f675311dc9ac66780f89821003174130c1fc78dfaa0b"
+    },
+    {
+      "level_id": "ico-L6",
+      "refinement_level": 6,
+      "patch_basis": "cells",
+      "patch_count": 81920,
+      "vertex_count": 40962,
+      "cell_count": 81920,
+      "geometry_hash": "36d0b38134b54490231e1229419bbecfa1c8176505b772db617dac71f01eb522",
+      "parent_level_id": "ico-L5",
+      "lineage_hash": "c136eea2c0b0bee8b9092b0d71e8161014a80a55c21d673f2da331d8636dc829"
+    }
+  ],
+  "conditional_expectations": [
+    {
+      "fine_level_id": "ico-L1",
+      "coarse_level_id": "ico-L0",
+      "operator_hash": "80ff995d5dd76156de1392f871b7f2dea8bc7d3f0484eba4a52a8bcc77b66b15",
+      "scope": "commutative_cell_geometry_scaffold",
+      "unital": true,
+      "positive": true,
+      "state_preserving": true,
+      "cap_isotony_compatible": true,
+      "noncommutative_prime_cap_expectation": false
+    },
+    {
+      "fine_level_id": "ico-L2",
+      "coarse_level_id": "ico-L1",
+      "operator_hash": "4f9ed21cb104e403629ccc72bd2f2bf2f6238c56d80ae16591866f9b7b6a9727",
+      "scope": "commutative_cell_geometry_scaffold",
+      "unital": true,
+      "positive": true,
+      "state_preserving": true,
+      "cap_isotony_compatible": true,
+      "noncommutative_prime_cap_expectation": false
+    },
+    {
+      "fine_level_id": "ico-L3",
+      "coarse_level_id": "ico-L2",
+      "operator_hash": "1c0eb6338567365dd2c02bbd49daf322f2b91d8f627332c0843d13e05b542edf",
+      "scope": "commutative_cell_geometry_scaffold",
+      "unital": true,
+      "positive": true,
+      "state_preserving": true,
+      "cap_isotony_compatible": true,
+      "noncommutative_prime_cap_expectation": false
+    },
+    {
+      "fine_level_id": "ico-L4",
+      "coarse_level_id": "ico-L3",
+      "operator_hash": "1b7836473878e37a8fe2e72b842eb851cb246f904035f3ba3ba05068c64f0f99",
+      "scope": "commutative_cell_geometry_scaffold",
+      "unital": true,
+      "positive": true,
+      "state_preserving": true,
+      "cap_isotony_compatible": true,
+      "noncommutative_prime_cap_expectation": false
+    },
+    {
+      "fine_level_id": "ico-L5",
+      "coarse_level_id": "ico-L4",
+      "operator_hash": "2a6d9bd6a73c90665589f675311dc9ac66780f89821003174130c1fc78dfaa0b",
+      "scope": "commutative_cell_geometry_scaffold",
+      "unital": true,
+      "positive": true,
+      "state_preserving": true,
+      "cap_isotony_compatible": true,
+      "noncommutative_prime_cap_expectation": false
+    },
+    {
+      "fine_level_id": "ico-L6",
+      "coarse_level_id": "ico-L5",
+      "operator_hash": "c136eea2c0b0bee8b9092b0d71e8161014a80a55c21d673f2da331d8636dc829",
+      "scope": "commutative_cell_geometry_scaffold",
+      "unital": true,
+      "positive": true,
+      "state_preserving": true,
+      "cap_isotony_compatible": true,
+      "noncommutative_prime_cap_expectation": false
+    }
+  ],
+  "nested_lineage_receipt": true,
+  "conditional_expectations_receipt": true,
+  "TRUE_ICOSAHEDRAL_REFINEMENT_TOWER_RECEIPT": true,
+  "NESTED_ICOSAHEDRAL_LINEAGE_RECEIPT": true,
+  "A5_EQUIVARIANT_REFINEMENT_RECEIPT": true,
+  "REFERENCE_ICOSAHEDRAL_A5_GEOMETRY_RECEIPT": true,
+  "TWELVE_PERSISTENT_COMBINATORIAL_DEFECT_PORTS_RECEIPT": true,
+  "BASE_CARRIER_IS_REGULAR_ICOSAHEDRON_RECEIPT": true,
+  "CARRIER_ADJACENCY_DEGREE_HISTOGRAM_RECEIPT": true,
+  "PORT_SLOT_DEGREE_RECONCILIATION_RECEIPT": true,
+  "TRUE_TOWER_CARRIER_VERIFICATION_RECEIPT": true,
+  "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+  "CARRIER_TO_SUPPORT_REALIZATION_RECEIPT": false,
+  "CARRIER_SUPPORT_CONFLATION_PRESENT_IN_LEGACY_ENGINE": false,
+  "PHYSICAL_A5_PORT_EMERGENCE_RECEIPT": false,
+  "tower": {
+    "schema": "oph.geodesic_icosahedral_tower.v1",
+    "geometry_family": "nested_geodesic_icosahedral",
+    "levels": [
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 0,
+        "frequency": 1,
+        "vertex_count": 12,
+        "edge_count": 30,
+        "face_count": 20,
+        "expected_counts": {
+          "vertices": 12,
+          "edges": 30,
+          "cells": 20
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 0.0,
+        "total_spherical_area": 12.566370614359172,
+        "four_pi_area_residual": 0.0,
+        "outward_oriented": true,
+        "geometry_hash": "e333556ce101cb224d94882270c17e0d7e36469908871ca133e5bbbee2c6eafd",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      },
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 1,
+        "frequency": 2,
+        "vertex_count": 42,
+        "edge_count": 120,
+        "face_count": 80,
+        "expected_counts": {
+          "vertices": 42,
+          "edges": 120,
+          "cells": 80
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 0.0,
+        "total_spherical_area": 12.566370614359176,
+        "four_pi_area_residual": 3.552713678800501e-15,
+        "outward_oriented": true,
+        "geometry_hash": "38609eacf82500b8fe8d6f3e3866dfb79c5a8f1dd34330b091a5e5690559551d",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      },
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 2,
+        "frequency": 4,
+        "vertex_count": 162,
+        "edge_count": 480,
+        "face_count": 320,
+        "expected_counts": {
+          "vertices": 162,
+          "edges": 480,
+          "cells": 320
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 0.0,
+        "total_spherical_area": 12.566370614359172,
+        "four_pi_area_residual": 0.0,
+        "outward_oriented": true,
+        "geometry_hash": "5d8764f9c4c92b07f804de4c9e6677800f6be3653a14e509eab247668f4542c7",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      },
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 3,
+        "frequency": 8,
+        "vertex_count": 642,
+        "edge_count": 1920,
+        "face_count": 1280,
+        "expected_counts": {
+          "vertices": 642,
+          "edges": 1920,
+          "cells": 1280
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "total_spherical_area": 12.566370614359172,
+        "four_pi_area_residual": 0.0,
+        "outward_oriented": true,
+        "geometry_hash": "b42f7ae812f8093c737e5d8f7c4a686d45eb25ad004a5c198640a7cda5a4b993",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      },
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 4,
+        "frequency": 16,
+        "vertex_count": 2562,
+        "edge_count": 7680,
+        "face_count": 5120,
+        "expected_counts": {
+          "vertices": 2562,
+          "edges": 7680,
+          "cells": 5120
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "total_spherical_area": 12.566370614359172,
+        "four_pi_area_residual": 0.0,
+        "outward_oriented": true,
+        "geometry_hash": "174645edc70d625a18879ec7ed58449f6ce978524ca921f1ae12f5f57ac5a437",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      },
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 5,
+        "frequency": 32,
+        "vertex_count": 10242,
+        "edge_count": 30720,
+        "face_count": 20480,
+        "expected_counts": {
+          "vertices": 10242,
+          "edges": 30720,
+          "cells": 20480
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "total_spherical_area": 12.566370614359176,
+        "four_pi_area_residual": 3.552713678800501e-15,
+        "outward_oriented": true,
+        "geometry_hash": "a9f13dfc9201f3b56f61b25833826bdf8289a5e1c6a85f1f67f97c6301ff341c",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      },
+      {
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "geometry_family": "nested_geodesic_icosahedral",
+        "level": 6,
+        "frequency": 64,
+        "vertex_count": 40962,
+        "edge_count": 122880,
+        "face_count": 81920,
+        "expected_counts": {
+          "vertices": 40962,
+          "edges": 122880,
+          "cells": 81920
+        },
+        "euler_characteristic": 2,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "total_spherical_area": 12.566370614359172,
+        "four_pi_area_residual": 0.0,
+        "outward_oriented": true,
+        "geometry_hash": "36d0b38134b54490231e1229419bbecfa1c8176505b772db617dac71f01eb522",
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true
+      }
+    ],
+    "cell_refinements": [
+      {
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "coarse_level": 0,
+        "fine_level": 1,
+        "coarse_cell_count": 20,
+        "fine_cell_count": 80,
+        "children_per_parent": 4,
+        "embedding": "childwise_constant_pullback",
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "reference_state": "normalized_spherical_area",
+        "normalization_residual": 1.1102230246251565e-16,
+        "state_preservation_residual": 6.938893903907228e-18,
+        "map_hash": "80ff995d5dd76156de1392f871b7f2dea8bc7d3f0484eba4a52a8bcc77b66b15",
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ]
+      },
+      {
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "coarse_level": 1,
+        "fine_level": 2,
+        "coarse_cell_count": 80,
+        "fine_cell_count": 320,
+        "children_per_parent": 4,
+        "embedding": "childwise_constant_pullback",
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "reference_state": "normalized_spherical_area",
+        "normalization_residual": 2.220446049250313e-16,
+        "state_preservation_residual": 5.204170427930421e-18,
+        "map_hash": "4f9ed21cb104e403629ccc72bd2f2bf2f6238c56d80ae16591866f9b7b6a9727",
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ]
+      },
+      {
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "coarse_level": 2,
+        "fine_level": 3,
+        "coarse_cell_count": 320,
+        "fine_cell_count": 1280,
+        "children_per_parent": 4,
+        "embedding": "childwise_constant_pullback",
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "reference_state": "normalized_spherical_area",
+        "normalization_residual": 2.220446049250313e-16,
+        "state_preservation_residual": 3.903127820947816e-18,
+        "map_hash": "1c0eb6338567365dd2c02bbd49daf322f2b91d8f627332c0843d13e05b542edf",
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ]
+      },
+      {
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "coarse_level": 3,
+        "fine_level": 4,
+        "coarse_cell_count": 1280,
+        "fine_cell_count": 5120,
+        "children_per_parent": 4,
+        "embedding": "childwise_constant_pullback",
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "reference_state": "normalized_spherical_area",
+        "normalization_residual": 2.220446049250313e-16,
+        "state_preservation_residual": 3.144186300207963e-18,
+        "map_hash": "1b7836473878e37a8fe2e72b842eb851cb246f904035f3ba3ba05068c64f0f99",
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ]
+      },
+      {
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "coarse_level": 4,
+        "fine_level": 5,
+        "coarse_cell_count": 5120,
+        "fine_cell_count": 20480,
+        "children_per_parent": 4,
+        "embedding": "childwise_constant_pullback",
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "reference_state": "normalized_spherical_area",
+        "normalization_residual": 2.220446049250313e-16,
+        "state_preservation_residual": 4.580754178751256e-18,
+        "map_hash": "2a6d9bd6a73c90665589f675311dc9ac66780f89821003174130c1fc78dfaa0b",
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ]
+      },
+      {
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "coarse_level": 5,
+        "fine_level": 6,
+        "coarse_cell_count": 20480,
+        "fine_cell_count": 81920,
+        "children_per_parent": 4,
+        "embedding": "childwise_constant_pullback",
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "reference_state": "normalized_spherical_area",
+        "normalization_residual": 2.220446049250313e-16,
+        "state_preservation_residual": 4.5333203337050154e-18,
+        "map_hash": "c136eea2c0b0bee8b9092b0d71e8161014a80a55c21d673f2da331d8636dc829",
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ]
+      }
+    ],
+    "embedding_composition": "adjacent_childwise_pullbacks_composed_by_tower",
+    "conditional_expectation_composition": "adjacent_spherical_area_expectations_composed_by_tower",
+    "GEODESIC_ICOSAHEDRAL_TOWER_RECEIPT": true,
+    "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+    "claim_boundary": "This receipt certifies the nested geodesic mesh, cell lineage, and the state-preserving commutative spherical-area scaffold only. It does not instantiate the papers' detail algebras, faithful detail states, presentation circuits, or noncommutative conditional expectations."
+  },
+  "a5_action": {
+    "schema": "oph.icosahedral_a5_equivariance.v1",
+    "geometry_family": "nested_geodesic_icosahedral",
+    "group_description": "orientation-preserving regular-icosahedron rotation group, classified analytically as A5",
+    "base_rotation_count": 60,
+    "integer_permutation_group_closed": true,
+    "integer_permutation_inverses_present": true,
+    "faithful_base_vertex_action": true,
+    "generator_rows": [
+      {
+        "generator_id": "order_3_generator",
+        "base_vertex_permutation": [
+          11,
+          10,
+          9,
+          8,
+          1,
+          0,
+          3,
+          2,
+          6,
+          7,
+          4,
+          5
+        ],
+        "order": 3,
+        "permutation_hash": "57f9cd99355570d6a785739a862f89e54a2584711750e6f4f91a327156a0851c"
+      },
+      {
+        "generator_id": "order_5_generator",
+        "base_vertex_permutation": [
+          0,
+          7,
+          4,
+          3,
+          9,
+          1,
+          2,
+          10,
+          6,
+          8,
+          11,
+          5
+        ],
+        "order": 5,
+        "permutation_hash": "b007e8a94b63728f91b0a8a9ceb0a62bbc45cde628168a8ca0e0c9b2494df6ac"
+      }
+    ],
+    "level_rows": [
+      {
+        "level": 0,
+        "vertex_count": 12,
+        "cell_count": 20,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "57f9cd99355570d6a785739a862f89e54a2584711750e6f4f91a327156a0851c",
+            "face_permutation_hash": "c10fe18e558bfec4fb0161fda1a446750308d153f3196fca96afc1ab9fdcc794",
+            "maximum_coordinate_residual": 3.331971952345631e-17,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 0.0,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 0.0,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "b007e8a94b63728f91b0a8a9ceb0a62bbc45cde628168a8ca0e0c9b2494df6ac",
+            "face_permutation_hash": "07d81e7a841a9d2823a8eef83a82c367979cd6714262c3a0583cb5a26bb16047",
+            "maximum_coordinate_residual": 2.687574773222257e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 0.0,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 0.0,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "level": 1,
+        "vertex_count": 42,
+        "cell_count": 80,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "29572df1741313ee7885adc57dfb1d21e328633f793e9c07175a7154807dfe84",
+            "face_permutation_hash": "66a54684282434888caccf28556b4e09df7bc60e279e9c54e476d6a1a4f15dad",
+            "maximum_coordinate_residual": 5.551115123125783e-17,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 0.0,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 0.0,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "b863039f5d84ee1e199d7bea2a6972fde9c31b900165ea866788c4863cd1df1f",
+            "face_permutation_hash": "16bfe8ffc6934e2b02687b89df2fd2adeedbc5cdf6be750a2718200879b7c073",
+            "maximum_coordinate_residual": 3.554447978966673e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 8.326672684688674e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 8.326672684688674e-17,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "level": 2,
+        "vertex_count": 162,
+        "cell_count": 320,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "4631a82ca6692e78e6fa0b8087a31c781a2258fbfe3f01b982bff36d28414d45",
+            "face_permutation_hash": "bb7ab511fcc95321a18e63883a4751c2d1fbe298dc55394664267632034652aa",
+            "maximum_coordinate_residual": 1.7772239894833365e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 2.0816681711721685e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 1.6653345369377348e-16,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "a61901b9c5c8ac5063006f4dba6f8d5e00413a37c07b33917282bc69915cb9db",
+            "face_permutation_hash": "e36991323fa494878e3c8c8e3ffee87e7432a354c58f6bcc454486bffea999e6",
+            "maximum_coordinate_residual": 3.7238012298709097e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 5.551115123125783e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 1.6653345369377348e-16,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "level": 3,
+        "vertex_count": 642,
+        "cell_count": 1280,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "ea053bb69b0cd1e7d3e785347d9dcb108d75c52d277e040d142f2e3ed7928aa8",
+            "face_permutation_hash": "3f2400d503699828eee07bf9220b59d85ecd096f4a6ff6127cd1dde29c692e36",
+            "maximum_coordinate_residual": 2.5438405243138006e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 3.122502256758253e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 6.106226635438361e-16,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "6788a814d524d3d9c60278b78a608589c71ea18dd7e9c85087f45bbf4ef9ea04",
+            "face_permutation_hash": "f95fb7b06dff38955640eab4ee88a1ef0e41fe84588447b4604d9b89cfb927a3",
+            "maximum_coordinate_residual": 4.509747244882934e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 4.163336342344337e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 7.494005416219807e-16,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "level": 4,
+        "vertex_count": 2562,
+        "cell_count": 5120,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "ad0f7f40a0fc0df74d413512eec93a325a83b86aebe6a37e3817da622fef0749",
+            "face_permutation_hash": "234d550a4a0a168ee91ce33bea465b87013010af5e54cb09d8f2b7a08f86673a",
+            "maximum_coordinate_residual": 2.9893669801409083e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 3.8163916471489756e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 3.858025010572419e-15,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "9a3911d383dfba93169f33f4848c8ffe3bb5b8265240722e77423b9c27b976f5",
+            "face_permutation_hash": "24e5161f4c17c7863396ca622ee1947bd48f0353935fe37a03d528df32327b29",
+            "maximum_coordinate_residual": 5.20740757162067e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 4.640385298237959e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 3.969047313034935e-15,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "level": 5,
+        "vertex_count": 10242,
+        "cell_count": 20480,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "87e0c390584b0e0f9908b43f9b017aac6e6779a847d22fe7004d5072ac208e97",
+            "face_permutation_hash": "6f49e7ddc3a81312a30cade23aa0f200c680f8d0432bb6c05a22333cf0742e18",
+            "maximum_coordinate_residual": 3.544273982392691e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 4.228388472693467e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 1.8762769116165146e-14,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "c751da1bfd9e877405b7b0d4ab076f720e410d7c983f903dc919f33d1e4825b2",
+            "face_permutation_hash": "724c5d9fcbb8f943f5855e4912b8ff7473447ad17d64160bed0194502dbffbc1",
+            "maximum_coordinate_residual": 5.4672143489065705e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 3.9898639947466563e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 1.7708057242771247e-14,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      {
+        "level": 6,
+        "vertex_count": 40962,
+        "cell_count": 81920,
+        "generator_checks": [
+          {
+            "generator_id": "order_3_generator",
+            "vertex_permutation_hash": "efdd47c5440d7cf1bbabd2bbdd01cd194dd5f2b9c96d04d383f572c2080abc2a",
+            "face_permutation_hash": "3fde9ced46be0e70d1638aa92dd92ff53b71c8e31a7514c0f5812a106caba8ac",
+            "maximum_coordinate_residual": 4.0125770192081414e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 4.5428071027142636e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 6.861178292183467e-14,
+            "passed": true
+          },
+          {
+            "generator_id": "order_5_generator",
+            "vertex_permutation_hash": "d78bb1173f7a8465ab5e8c35a44bb9510da4a7118bf38cf913f7724b590a7e4f",
+            "face_permutation_hash": "83d96afaf374e952717cb79b3979af977a7649bbf86eab7c3e387c6d9d660a9e",
+            "maximum_coordinate_residual": 6.131407058289218e-16,
+            "vertex_edge_incidence_preserved": true,
+            "maximum_face_area_residual": 4.2961511084738113e-17,
+            "parent_face_lineage_preserved": true,
+            "conditional_expectation_weight_residual": 8.093525849517391e-14,
+            "passed": true
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "A5_ROTATION_GROUP_ORDER_60_RECEIPT": true,
+    "A5_EQUIVARIANT_REFINEMENT_RECEIPT": true,
+    "REFERENCE_ICOSAHEDRAL_A5_GEOMETRY_RECEIPT": true,
+    "PHYSICAL_A5_PORT_EMERGENCE_RECEIPT": false,
+    "physical_emergence_blockers": [
+      "calibrated_curvature_KL_risk_not_emitted_by_geometry_constructor",
+      "ground_state_complete_settlement_not_emitted_by_geometry_constructor",
+      "atomic_defect_projection_not_emitted_by_geometry_constructor",
+      "pairwise_Fisher_position_risk_not_emitted_by_geometry_constructor"
+    ],
+    "classification_dependency": "The classical theorem identifying the order-60 proper rotational symmetry group of the regular icosahedron with A5 is used only after the discrete faithful order-60 action has been certified.",
+    "claim_boundary": "Exact integer-permutation equivariance of the configured reference mesh. This is not evidence that repair/readback dynamics selected the icosahedron and cannot by itself promote an A5-to-SM result."
+  },
+  "global_screen_sieve_defect_ports": {
+    "schema": "oph.icosahedral_defect_ports.v1",
+    "charge_definition": "q(v)=6-degree(v)",
+    "charge_domain": "primal_vertex_triangulation",
+    "large_array_patch_domain": "dual_spherical_triangular_cells",
+    "domains_are_distinct": true,
+    "persistent_port_vertex_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "persistent_port_count": 12,
+    "levels": [
+      {
+        "level": 0,
+        "primal_vertex_count": 12,
+        "dual_cell_patch_count": 20,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "081f56345d928c6c221ffe8e8ac18cf418a4ed8f317e2885836ccf23a60ce93f",
+        "passed": true
+      },
+      {
+        "level": 1,
+        "primal_vertex_count": 42,
+        "dual_cell_patch_count": 80,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "8742b74ae0022428cbfce6b921d47a4efb7deabf7dd8b40d9277fe58186625c7",
+        "passed": true
+      },
+      {
+        "level": 2,
+        "primal_vertex_count": 162,
+        "dual_cell_patch_count": 320,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "bbfcae7d8557b0cfd10169ba628095245cb7b92a887b88c6cd01b04dc2f9ae77",
+        "passed": true
+      },
+      {
+        "level": 3,
+        "primal_vertex_count": 642,
+        "dual_cell_patch_count": 1280,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "d4acca759fd5a4dc4b544d8f719fff27ac42f5651e78fc180d646f4b0cdb1de8",
+        "passed": true
+      },
+      {
+        "level": 4,
+        "primal_vertex_count": 2562,
+        "dual_cell_patch_count": 5120,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "246a21d2c544a02a1480003b9b965b6b8b2976158542ddd4390515b2eaf05bd3",
+        "passed": true
+      },
+      {
+        "level": 5,
+        "primal_vertex_count": 10242,
+        "dual_cell_patch_count": 20480,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "44408d27c9c99029ee8b917b2ed62d00b3836042460ab27a4c01ac6333403275",
+        "passed": true
+      },
+      {
+        "level": 6,
+        "primal_vertex_count": 40962,
+        "dual_cell_patch_count": 81920,
+        "total_combinatorial_charge": 12,
+        "unit_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "nonzero_defect_vertex_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "new_vertices_are_degree_six": true,
+        "charge_vector_hash": "dbd6259b6c8e092d4f6ca0138d9c189cc9202c92f8785aa8a3836999e7484e57",
+        "passed": true
+      }
+    ],
+    "TWELVE_PERSISTENT_COMBINATORIAL_DEFECT_PORTS_RECEIPT": true,
+    "COMBINATORIAL_DEFECT_CHARGE_IS_PHYSICAL_CURVATURE_RECEIPT": false,
+    "PHYSICAL_ATOMIC_DEFECT_PROJECTION_RECEIPT": false,
+    "physical_bridge_blockers": [
+      "combinatorial_Regge_charge_to_measured_curvature_bridge_missing",
+      "atomic_observer_visible_projection_missing",
+      "source_selection_and_complete_settlement_missing"
+    ],
+    "claim_boundary": "The twelve persistent q=1 channels are an exact combinatorial property of the configured regular refinement. Projected geodesic curvature and physical observer-visible atomic ports require separate bridge receipts."
+  },
+  "full_multiresolution_blockers": [
+    "finite_detail_algebras_not_instantiated",
+    "faithful_prime_cap_states_not_instantiated",
+    "local_presentation_circuits_not_instantiated",
+    "noncommutative_state_preserving_expectations_not_instantiated",
+    "mixed_gns_reference_tower_not_instantiated"
+  ],
+  "claim_boundary": "Production carrier family: every patch is one outward-oriented spherical triangular cell of the committed geodesic icosahedral refinement tower, every patch adjacency is the dual seam across one shared mesh edge, and the twelve persistent q=1 primal vertices are the global defect-port sites. At level 0 the complex is exactly the regular icosahedron (12 vertices, 30 edges, 20 faces). The twelve-slot local port template is per-patch presentation data: exactly three slots route seams and nine stay exposed/reserved, with the split recorded in the port map. The identification of engine state rows with tower cells is this family's declared architecture, typed as one object rather than a chart silently standing in for a carrier federation; it is not a theorem that physical source dynamics selected or realized this federation, and the physical emergence, carrier-to-support realization, and noncommutative multiresolution/BW certificates stay false."
+}

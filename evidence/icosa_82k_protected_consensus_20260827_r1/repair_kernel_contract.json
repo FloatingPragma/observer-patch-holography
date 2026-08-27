@@ -1,0 +1,40 @@
+{
+  "schema": "oph_repair_kernel_contract_v1",
+  "mode": "protected_source_authority_v1",
+  "protected_authority_present": true,
+  "authority_hash_schema": "oph_protected_distinct_node_authority_v1",
+  "authority_semantics": "larger_signed_integer_has_higher_authority",
+  "authority_count": 81920,
+  "authority_values_pairwise_distinct": true,
+  "authority_minimum": 0,
+  "authority_maximum": 81919,
+  "authority_sha256": "sha256:01002f1d42f505f994b01f9d1887ebabf6385d2168f284e25c9b598082a050b1",
+  "artifact": {
+    "path": "protected_repair_authority.npz",
+    "file_sha256": "sha256:c4113d34a9fdb016eec6d1ef77ce763f88289fbef18eda87ab07bfb6adf10f30",
+    "array_name": "node_repair_authorities",
+    "dtype": "int64"
+  },
+  "source_binding": {
+    "run_seed": 20260827,
+    "named_rng_stream": "repair_authority",
+    "stream": {
+      "stream_id": "sha256:960e1f9868a6a06b7c049d2ae036035034c3a662f6cfed7212c6dcc00c9da30c",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        2552172182,
+        1805690472,
+        714933372,
+        1342387936
+      ],
+      "bit_generator": "PCG64"
+    },
+    "frozen_before_repair": true,
+    "downstream_target_input_used": false
+  },
+  "link_boundary": "all_gauge_links_fixed_during_strict_repair",
+  "finite_consensus_eligible": true,
+  "physical_authority_derived": false,
+  "claim_boundary": "The source seed and a name-isolated stream precommit a distinct patch-authority order before dynamics. The finite consensus theorem is conditional on that protected metadata. This artifact does not derive a physical authority field."
+}

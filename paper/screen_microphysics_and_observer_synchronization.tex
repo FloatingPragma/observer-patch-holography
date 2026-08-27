@@ -456,21 +456,26 @@ second-moment receipt.
 \end{definition}
 
 The public large-run archive makes part of this ledger concrete
-\cite{ophfpe}. OPH-FPE instantiates \(65{,}536\) finite patch rows with
-declared twelve-port local interfaces, routes \(390{,}924\) gauge-labelled
-seams, applies endpoint and sector-link repair rules, commits records, and
-materializes \(2{,}048\) patch-observer neighborhoods. The archive contains
-the resolved configuration and seeds, full mismatch trace, primitive
-gauge/replay arrays, all observer rows in losslessly compressed form, and the
-resulting receipts. Its global support is the legacy Fibonacci/KNN control,
-and its exact endpoint-branch check is nonconfluent. The finite-consensus
-theorem receipt is therefore false. This run exercises the source, repair,
-record, and observer data path, but its dedicated source-to-observer contract
-finds no record readback that causes a later bounded port write. The archive
-documents a historical aggregate that incorrectly promoted observer-row
-presence under the same receipt name. The run supplies neither the normalizer
-\(n_r\), a physical quotient, nor a laboratory readout required by the
-definition above.
+\cite{ophfpe}. OPH-FPE instantiates \(81{,}920\) finite patch rows on the
+level-six icosahedral cell tower, routes \(122{,}880\) gauge-labelled seams
+through three of each row's twelve local slots, commits all patch records, and
+materializes \(2{,}048\) patch-observer neighborhoods. One immutable,
+source-bound, distinct integer authority per row selects the endpoint
+preserved by an inconsistent seam repair. The archived source has
+\(102{,}415\) mismatches. Each enabled repair removes one, and sixteen shuffled
+replays reach the same authority-bound terminal hash. A standalone verifier
+reconstructs the exact normal form and hashes from the primitive arrays
+without importing simulator code.
+
+The authority-decorated source is an explicit finite premise. Its axiomatic
+selection and refinement naturality have not been derived. The large-run
+records provide custody and readout without causing later port writes. A
+separate eight-carrier receipt implements \(96\) literal record-conditioned
+probe/read/write transactions and checks their ablation,
+record-counterfactual, \(A_5\)-covariance, idempotence, and disjoint
+commutation properties under a producer-free verifier. That component has not
+been integrated into the large run. Neither archive constructs the physical
+quotient or laboratory readout required by the definition above.
 
 \begin{definition}[Sphere fold]\label{def:sphere-fold}
 Fix a regulator \(r\). Let \(\Sigma_r\) be the finite presentation space of a patch
@@ -4568,9 +4573,11 @@ Holography physics experiments},
 2026.
 Source available at \url{https://github.com/muellerberndt/oph-physics-sim}.
 Large-run source revision:
-\url{https://github.com/muellerberndt/oph-physics-sim/tree/b52196b296435d704b14d005d1f69caaaa662f97}.
-Curated run-data archive:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/e6_64k_dense_20260820}.
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/ce17921eb7504106fef1ba445e1349b5367aa676}.
+Protected-consensus run-data archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/icosa_82k_protected_consensus_20260827_r1}.
+Literal signed-record feedback archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence/vertex12_signed_record_feedback_20260827}.
 Evidence index:
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/evidence}.
 

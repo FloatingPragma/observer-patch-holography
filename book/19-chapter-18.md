@@ -26,7 +26,7 @@ Every region in this world advances along a clock of its own. Something generate
 
 The word behaves identically wherever physics uses it. What generates turning about an axis is the angular momentum about that axis, and what generates sliding sideways is the momentum in that direction. Advance along a clock has the energy for its generator, and quantum mechanics has run on exactly that definition since the 1920s without ever saying what does the advancing.
 
-A clock of a region's own is the only kind this world has. Chapter ten ran sixty-five thousand patches with no tick anywhere in the machinery, nothing waiting for the next round and nothing counting rounds. What a region has instead is a clock its own state manufactures, out of nothing but what it holds. Two regions worked through at different rates differ in a fact about themselves, since no clock outside them has a setting they could differ in.
+A clock of a region's own is the only kind this world has. Chapter ten ran eighty-two thousand patches with no tick anywhere in the machinery, nothing waiting for the next round and nothing counting rounds. What a region has instead is a clock its own state manufactures, out of nothing but what it holds. Two regions worked through at different rates differ in a fact about themselves, since no clock outside them has a setting they could differ in.
 
 A region whose records agree everywhere generates no flow and reports nothing above the floor. A region holding standing disagreement drives its clock hard. The driving rate is the number a calorimeter or a particle detector hands you.
 

@@ -14,7 +14,7 @@ The record is a physical object made by a person under load. The Registered Prof
 
 No authority outside the room supplies the verdict. Twelve people who sat through the trial compute it from the record. When they cannot agree about what a witness said they ask for the transcript and it is read back to them.
 
-Chapter ten put sixty-five thousand patches through the repair process and the last of their 326,047 disagreements went at cycle 96, whatever order the repairs ran in. That settles the schedule. It says nothing about what any patch is holding at cycle 97. Each finished the run holding its own state, visible to nobody else, connected to the rest through what crosses its seams. So what do they end up holding in common, and how much of the world does it pin down?
+Chapter ten put eighty-two thousand patches through the repair process and the last of their 102,415 disagreements went at cycle 1, whatever order the repairs ran in. That settles the schedule. It says nothing about what any patch is holding at cycle 2. Each finished the run holding its own state, visible to nobody else, connected to the rest through what crosses its seams. So what do they end up holding in common, and how much of the world does it pin down?
 
 ## The list everybody can check
 
@@ -118,7 +118,7 @@ A reading can be refined. Resolve more seams and the record gets longer, and thr
 
 Build one. At level n there are two consistent states a full unit apart, and the record separates them: it reads 0 on the first and 1 over n on the second. Two distinct readings picking out two distinct states is reconstruction, so every level of the tower reconstructs. Then watch the levels go by. The readings converge on each other, the states sit a unit apart wherever you look, and the factor by which a difference in the record gets magnified into a difference in the state is n. At level ten thousand the record separates two worlds by one part in ten thousand. The limit has one reading and two worlds.
 
-So being determined by the record is not the same as being determined stably by the record. What separates them is the largest factor by which a difference in the record can be magnified into a difference in the state, which is the conditioning of the reconstruction, and a tower of readings has a limit worth speaking of exactly when the conditioning is bounded all the way up rather than level by level. Chapter ten's curve went to zero across all 390,924 seams in the network, and 390,924 seams is one level. The bound is what says a finer one would have gone to the same place.
+So being determined by the record is not the same as being determined stably by the record. What separates them is the largest factor by which a difference in the record can be magnified into a difference in the state, which is the conditioning of the reconstruction, and a tower of readings has a limit worth speaking of exactly when the conditioning is bounded all the way up rather than level by level. Chapter ten's curve went to zero across all 122,880 seams in the network, and 122,880 seams is one level. The bound is what says a finer one would have gone to the same place.
 
 This is why a continuum is available at all. Space that looks smooth at the scale of a laboratory is a limit of finite readings. A limit taken through a tower with unbounded conditioning is an artifact of whichever level you stopped at. With the bound, different solvers, different refinements and different orders land on one limit. The smooth description is a thing about the world rather than about the grid.
 

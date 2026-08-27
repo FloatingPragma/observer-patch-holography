@@ -1,0 +1,112 @@
+name: icosa_82k_protected_consensus
+run_id: icosa_82k_protected_consensus_20260827_r1
+seed: 20260827
+claim_boundary: True icosahedral refinement-tower carrier rung (level 6, 81,920 cells)
+  for the protected-source-authority finite consensus protocol. This run tests a conditional
+  finite normalizer, exact replay, and observer-record custody. It does not derive
+  the authority metadata, a physical event manifold, continuum dynamics, or a laboratory
+  realization.
+graph:
+  family: icosahedral_tower
+  patch_basis: cells
+  refinement_level: 6
+  patch_count: 81920
+group:
+  name: S3
+screen:
+  chart: geodesic_icosahedral_s2_cellulation
+  carrier: federated_echosahedral_patch
+  ports_per_patch: 12
+  cap_family: round_caps_on_s2
+  edge_sector_law: fixed_cutoff_heat_kernel_casimir_surrogate
+oph_constants:
+  P: 1.6309682094039593
+  P_source: endpoint_public
+  use_P_for:
+  - cell_area
+  - cell_entropy
+  - cap_capacity
+  - residual_weighting
+screen_units:
+  mode: numerical_regulator
+modular_flow:
+  enabled: true
+  dt: 0.03
+  damping: 0.012
+  repair_load_coupling: 0.35
+  cap_coupling: 0.0
+  diffusion: 0.06
+  cap_axes: 20
+dynamics:
+  cycles: 16
+  repairs_per_cycle: 81920
+  repair: array_parallel_edge_repair
+  repair_kernel:
+    mode: protected_source_authority_v1
+  record_commit_cycles: 8
+  beta_schedule:
+    kind: geometric
+    beta_start: 0.05
+    beta_end: 15.0
+theorem_core:
+  projection_sample: 512
+  include_default_sm_candidate: false
+  consensus_replay:
+    enabled: true
+    schedule_replays: 16
+    requested_schedule_replays: 16
+    max_event_rows: 256
+    disjoint_checks: 512
+    local_diamond_checks: 512
+    gauge_relabeling_checks: 16
+scheduler_conformance:
+  sample_edges_per_cycle: 32
+observers:
+  sample_count: 2048
+  neighborhood_size: 96
+  sample_pair_limit: 20000
+  consensus_analysis_max_observers: 2048
+  observer_wide_analysis_max_observers: 2048
+bw:
+  enabled: false
+  cap_count: 2
+  theta0:
+  - 0.55
+  collar_width_mode: cell_scaled
+  collar_k: 1.0
+  times:
+  - 0.05
+  normalization: 2pi
+  observables:
+  - repair_load
+  - local_mismatch_density
+  interpolation: knn
+  k_interp: 4
+  sim_k_interp: 1
+  n_jobs: 1
+  support_visible_smoothing_steps: 0
+cosmology:
+  freezeout:
+    enabled: false
+    commit_fraction: 0.95
+  angular_power:
+    ell_max: 8
+    pair_samples: 2048
+defects:
+  sector_repair:
+    enabled: false
+    mode: repair_coupled_group_compose
+    probability: 0.0
+  timeline:
+    enabled: false
+controls: []
+outputs:
+  profile: evidence
+  write_jsonl: true
+  write_bw_report: true
+  write_cap_geometry_report: true
+  write_holonomy_trace: false
+  write_dimension_report: false
+  write_modular_lift_visualization: false
+  write_echosahedral_patch_state_npz: true
+  write_capacity_spend_npz: true

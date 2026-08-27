@@ -1,0 +1,80 @@
+{
+  "mode": "named_seedsequence_rng_streams_v1",
+  "derivation": "sha256(oph-bw-array-rng-v1\\0<stream-name>) plus the uint64 run seed",
+  "run_seed": 20260827,
+  "streams": {
+    "initialization": {
+      "stream_id": "sha256:43ecbc50bb23b3712383fdad89670eccab570c7899e28466557551354103ece4",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        1354558531,
+        1907565499,
+        2919072547,
+        3423496073
+      ],
+      "bit_generator": "PCG64"
+    },
+    "patch_ports": {
+      "stream_id": "sha256:d7c20b048db1a1fd9961ccf3eee0fe9ffd2e4e9dfb770d85a0bc44d378118e9c",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        67879639,
+        4255232397,
+        4090257817,
+        2684281070
+      ],
+      "bit_generator": "PCG64"
+    },
+    "readback": {
+      "stream_id": "sha256:a20f834d669ad711a67f461f5379076b2e3c51b2654aaaa1bd744ff819d15e4d",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        1300434850,
+        299342438,
+        524713894,
+        1795651923
+      ],
+      "bit_generator": "PCG64"
+    },
+    "repair": {
+      "stream_id": "sha256:9aca5a9275061dfd801ce07d9be3a9f5690927f8f5c4cba5dbe4d4e916f9ef87",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        2455423642,
+        4246537845,
+        2111839360,
+        4121551771
+      ],
+      "bit_generator": "PCG64"
+    },
+    "sector": {
+      "stream_id": "sha256:617985f75593ea48501e284cb1fc5dcea6fc4a9b84bbddf367f4a35098f7514f",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        4152719713,
+        1223332693,
+        1277697616,
+        3462266033
+      ],
+      "bit_generator": "PCG64"
+    },
+    "repair_authority": {
+      "stream_id": "sha256:960e1f9868a6a06b7c049d2ae036035034c3a662f6cfed7212c6dcc00c9da30c",
+      "entropy_words_u32": [
+        20260827,
+        0,
+        2552172182,
+        1805690472,
+        714933372,
+        1342387936
+      ],
+      "bit_generator": "PCG64"
+    }
+  },
+  "cross_stream_draw_isolation": true
+}

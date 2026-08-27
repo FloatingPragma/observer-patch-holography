@@ -1,0 +1,1048 @@
+{
+  "atomic_transfer_operator": {
+    "all_twelve_rational_repair_projectors_exact": true,
+    "all_twelve_transfer_involutions_exact": true,
+    "block_diagonal_full_repair_formula": "A=direct_sum_p (I+S_p)/2",
+    "carrier_count": 8,
+    "carrier_ids": [
+      "carrier-00000",
+      "carrier-00001",
+      "carrier-00002",
+      "carrier-00003",
+      "carrier-00004",
+      "carrier-00005",
+      "carrier-00006",
+      "carrier-00007"
+    ],
+    "complete_matching_on_every_port": true,
+    "domain": "internal_federation_visible_port_fiber_Q^(8_times_12)",
+    "exact_symbolic_matching_and_projector_algebra": true,
+    "port_count": 12,
+    "port_rows": [
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 3,
+        "carrier_partner_permutation": [
+          6,
+          5,
+          7,
+          4,
+          3,
+          1,
+          0,
+          2
+        ],
+        "carrier_partner_permutation_sha256": "sha256:65acedf074d80c85a785306992d339e7fc4d19683e2f19e0484788fe8d74c300",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 0,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p00-000000",
+          "seam-p00-000001",
+          "seam-p00-000002",
+          "seam-p00-000003"
+        ],
+        "seam_ids_sha256": "sha256:c91483491e3172a9ff59639134ff45e81bc98c99ff6a9647e0af6cd97cf33a8a",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 2,
+        "carrier_partner_permutation": [
+          5,
+          4,
+          6,
+          7,
+          1,
+          0,
+          2,
+          3
+        ],
+        "carrier_partner_permutation_sha256": "sha256:d9fee450812c4cde69d73692a7f339b5255d8a05e6f0a5647a318c2ab2339da0",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 1,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p01-000000",
+          "seam-p01-000001",
+          "seam-p01-000002",
+          "seam-p01-000003"
+        ],
+        "seam_ids_sha256": "sha256:bf76348387b3c05f0ec62ad250ac6de3f23acfec553eecbbc2f8e956e1a0a7ce",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 1,
+        "carrier_partner_permutation": [
+          5,
+          3,
+          7,
+          1,
+          6,
+          0,
+          4,
+          2
+        ],
+        "carrier_partner_permutation_sha256": "sha256:48b25b2afd7fa6c8ce5ec8568a39367cfd73f5388c18ddb535208f6e9edeea4d",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 2,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p02-000000",
+          "seam-p02-000001",
+          "seam-p02-000002",
+          "seam-p02-000003"
+        ],
+        "seam_ids_sha256": "sha256:d8c5b913a0cfbcd77844f5dab584967431069d7ec43ecfa15654e593b564c72c",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 0,
+        "carrier_partner_permutation": [
+          3,
+          7,
+          6,
+          0,
+          5,
+          4,
+          2,
+          1
+        ],
+        "carrier_partner_permutation_sha256": "sha256:212b211c4ad9f3b0421a7dde9647dcd2e4a68c1aaf28063c6cf2a44325cb0b44",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 3,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p03-000000",
+          "seam-p03-000001",
+          "seam-p03-000002",
+          "seam-p03-000003"
+        ],
+        "seam_ids_sha256": "sha256:8d12610bd4c6a522febf48308846c5156a947eacffa960744a5b8673e4fa3a78",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 7,
+        "carrier_partner_permutation": [
+          6,
+          3,
+          7,
+          1,
+          5,
+          4,
+          0,
+          2
+        ],
+        "carrier_partner_permutation_sha256": "sha256:71aae6650f4e0c12109f9b95f1b6e71da8cacfa6997d7a66b8b0589b59b34d87",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 4,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p04-000000",
+          "seam-p04-000001",
+          "seam-p04-000002",
+          "seam-p04-000003"
+        ],
+        "seam_ids_sha256": "sha256:25719d8fe49bdd404fba47ea69a4953e86674c4ff4360413534031b801bdca1e",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 6,
+        "carrier_partner_permutation": [
+          7,
+          3,
+          6,
+          1,
+          5,
+          4,
+          2,
+          0
+        ],
+        "carrier_partner_permutation_sha256": "sha256:a8c5b1141b1a256f30f55698e3cbf0c5f6f5458ea70cef5d661e01947858118f",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 5,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p05-000000",
+          "seam-p05-000001",
+          "seam-p05-000002",
+          "seam-p05-000003"
+        ],
+        "seam_ids_sha256": "sha256:6ad02397a66bde47f698eb70a41cf4dbc3b92f518019dd7a3c6cbe4f4c76957b",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 5,
+        "carrier_partner_permutation": [
+          1,
+          0,
+          4,
+          5,
+          2,
+          3,
+          7,
+          6
+        ],
+        "carrier_partner_permutation_sha256": "sha256:2022d22b78fc333f628f625b50b583c4fe9563d17432f0f61dbb97a36ab343ad",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 6,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p06-000000",
+          "seam-p06-000001",
+          "seam-p06-000002",
+          "seam-p06-000003"
+        ],
+        "seam_ids_sha256": "sha256:b715e98f8e02c3f7468be06a8ad43d2ba099950ed5b5d649521b2fe7c7cafcb3",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 4,
+        "carrier_partner_permutation": [
+          7,
+          4,
+          6,
+          5,
+          1,
+          3,
+          2,
+          0
+        ],
+        "carrier_partner_permutation_sha256": "sha256:1ce0b3a60051542a303cfed5cf0a766c2d97367792a86739d9879e287318ec2f",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 7,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p07-000000",
+          "seam-p07-000001",
+          "seam-p07-000002",
+          "seam-p07-000003"
+        ],
+        "seam_ids_sha256": "sha256:e01c455b5592af17197a043856571f9f14bd1d70a6d287725974428628706d63",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 11,
+        "carrier_partner_permutation": [
+          1,
+          0,
+          5,
+          6,
+          7,
+          2,
+          3,
+          4
+        ],
+        "carrier_partner_permutation_sha256": "sha256:39eb25ee792c8496ab08c27af771fa7e4ae46abb9b01fde1323ec39f83533cff",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 8,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p08-000000",
+          "seam-p08-000001",
+          "seam-p08-000002",
+          "seam-p08-000003"
+        ],
+        "seam_ids_sha256": "sha256:42ab543634612c30635a90e99036d57abb57cdfe19d2947ce449e65e0f96f79d",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 10,
+        "carrier_partner_permutation": [
+          7,
+          6,
+          3,
+          2,
+          5,
+          4,
+          1,
+          0
+        ],
+        "carrier_partner_permutation_sha256": "sha256:439ecac238ccccfe75b941a9d4a53fff039d22f3ff45b742c15845a8855c6590",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 9,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p09-000000",
+          "seam-p09-000001",
+          "seam-p09-000002",
+          "seam-p09-000003"
+        ],
+        "seam_ids_sha256": "sha256:43d00541dbf28cd96ea0c869b0ed37884e87651ea34ee24e676d42d008b7dea2",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 9,
+        "carrier_partner_permutation": [
+          2,
+          4,
+          0,
+          5,
+          1,
+          3,
+          7,
+          6
+        ],
+        "carrier_partner_permutation_sha256": "sha256:a5ecd20d12ac57aea65a119714bf42c1498bad3514ae2705d12a831d371b6715",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 10,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p10-000000",
+          "seam-p10-000001",
+          "seam-p10-000002",
+          "seam-p10-000003"
+        ],
+        "seam_ids_sha256": "sha256:d55ac2321e34e7f8f43fafef411906641d89ad7e5a98776a43aa17dc3f82b86b",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      },
+      {
+        "antipodal_map_equals_inverse_transfer": false,
+        "antipodal_port": 8,
+        "carrier_partner_permutation": [
+          4,
+          2,
+          1,
+          7,
+          0,
+          6,
+          5,
+          3
+        ],
+        "carrier_partner_permutation_sha256": "sha256:e472ed5d643cf769f36d8e1360bdc7f86d0d2fc684afb0b362e2ebb0717f60a6",
+        "fixed_point_free": true,
+        "matching_size": 4,
+        "permutation": true,
+        "port": 11,
+        "repair_projector_formula": "A_p=(I+S_p)/2 over Q",
+        "repair_projector_idempotent": true,
+        "repair_projector_self_adjoint": true,
+        "seam_ids": [
+          "seam-p11-000000",
+          "seam-p11-000001",
+          "seam-p11-000002",
+          "seam-p11-000003"
+        ],
+        "seam_ids_sha256": "sha256:815f18da6a1c3f21f0c25dfbbbb89e801cea112cb123bd1bbc028343963ab903",
+        "transfer_involution_Sp_squared_is_identity": true,
+        "transfer_is_self_adjoint_permutation": true
+      }
+    ],
+    "port_rows_sha256": "sha256:0b8f9aabe92c9176508e0954aa38b9f3db3efe2e2994039e9e42ff7fb6351a09",
+    "seam_count": 48,
+    "source_native_internal_seam_partner_operator_receipt": true,
+    "source_native_spatial_translation_receipt": false
+  },
+  "audited_surface_pins": {
+    "carrier_manifest": {
+      "bytes": 3646,
+      "path": "tests/fixtures/echosahedral_federation_reference.json",
+      "sha256": "sha256:12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14"
+    },
+    "covariant_overlap": {
+      "bytes": 19217,
+      "path": "oph_fpe/gauge/covariant_overlap.py",
+      "sha256": "sha256:f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9"
+    },
+    "federation": {
+      "bytes": 174471,
+      "path": "oph_fpe/core/echosahedral_federation.py",
+      "sha256": "sha256:ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1"
+    },
+    "finite_groups": {
+      "bytes": 1283,
+      "path": "oph_fpe/finite_groups.py",
+      "sha256": "sha256:1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6"
+    },
+    "icosahedral_geometry": {
+      "bytes": 48532,
+      "path": "oph_fpe/core/icosahedral.py",
+      "sha256": "sha256:89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc"
+    },
+    "local_dynamics": {
+      "bytes": 18410,
+      "path": "oph_fpe/core/echosahedral_dynamics.py",
+      "sha256": "sha256:a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da"
+    },
+    "producer_capability_matrix": {
+      "bytes": 32853,
+      "path": "data/common_reserve/producer_capability_matrix.json",
+      "sha256": "sha256:02d913adc19e1e20b529fca7c0eb292ccb42bd1bce339982db65e346506cc293"
+    },
+    "repair_to_propagation_classifier": {
+      "bytes": 39488,
+      "path": "oph_fpe/dynamics/port_repair_propagation_bridge.py",
+      "sha256": "sha256:31f4bdfc0683be928224e5cc6b4ce7614274e59370858220fb3196c6fea975c8"
+    },
+    "screen_port_reference": {
+      "bytes": 57632,
+      "path": "oph_fpe/core/screen_ports.py",
+      "sha256": "sha256:37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e"
+    },
+    "source_capture": {
+      "bytes": 117490,
+      "path": "oph_fpe/bulk/physical_h3_kms_source_capture.py",
+      "sha256": "sha256:7e68714ab3e78ffd89b2aec2bb89e9f3c24766c105209bb50497f205eef4b8b5"
+    }
+  },
+  "candidate_next_typed_source_object": {
+    "current_fixed_matching_family_has_no_qualifying_carrier_set_quotient": true,
+    "low_cost_producer_design": [
+      "emit the twelve directed site maps from source transition events rather than assigning them after capture",
+      "reject any source whose port maps do not descend to a noncollapsed common quotient",
+      "reject unless antipodal ports act by inverse maps and the site A5 action conjugates T_p to T_g(p)",
+      "bind a later sector readout to the exact transport digest; frame, orientation, and boost transport remain separate gates"
+    ],
+    "object": "source_emitted_directed_transport_on_a_noncollapsed_quotient_site_set",
+    "required_fields": [
+      "source_capture_root_sha256",
+      "quotient_site_ids_and_carrier_to_site_map",
+      "twelve_directed_port_transport_permutations",
+      "icosahedral_antipode_map",
+      "exact_T_antipode_p_equals_inverse_T_p_receipt",
+      "source_transition_event_ids_for_every_transport",
+      "site_A5_action_and_exact_covariance_receipt"
+    ],
+    "schema": "oph.vertex12-directed-transport-ledger.v1"
+  },
+  "claim_boundary": "For the fixed canonical-seed eight-carrier source topology, the same-port seams supply twelve exact internal matching involutions and their rational averaging projectors. The repair ledger matches the named seams and arithmetic-mean rule under the declared 15-decimal serialization tolerance. Its 24 record/readback pairs are an in-process digest reread of the same captured post-repair snapshot, not independent persistence or a second producer. The inferred seam-partner matchings fail the antipodal inverse equation, and an exhaustive 4,140-partition check finds no noncollapsed common carrier-set quotient preserving all twelve matchings that repairs it. This does not exclude other seeds, carrier counts, directed maps, port-dependent or linear quotients, or enlarged site spaces. No spatial propagation, physical sector, frame, boost, or physical prediction follows from this receipt.",
+  "comparison_data_read": false,
+  "implementation_pins": {
+    "independent_packet_verifier": {
+      "bytes": 37081,
+      "path": "oph_fpe/dynamics/verify_vertex12_atomic_port_transfer_independent.py",
+      "sha256": "sha256:2af3ebd76b20991f6e14d858f1b7b644759e658f30975f4a2e471a3a835b7c61"
+    },
+    "mutation_tests": {
+      "bytes": 13469,
+      "path": "tests/test_vertex12_atomic_port_transfer.py",
+      "sha256": "sha256:f269bae70308032e407a219318a1eab8cb3db61302ec51e2a57becf1760d0e11"
+    },
+    "producer": {
+      "bytes": 41672,
+      "path": "oph_fpe/dynamics/vertex12_atomic_port_transfer.py",
+      "sha256": "sha256:3b775b7a173cfd0cc1981b6b254dfc98339c97e409a533105e2c9f0fe7dc9340"
+    }
+  },
+  "issue": 655,
+  "post_repair_in_process_snapshot_reread": {
+    "carrier_rows_sha256": "sha256:514452715c328eceadda20274743ffed841671aa2c037d9294931a849b7ea670",
+    "covered_carrier_count": 8,
+    "covered_port_coordinate_count": 96,
+    "every_carrier_full_port_state_committed": true,
+    "every_carrier_full_port_state_reread_in_process": true,
+    "independent_persistence_readback": false,
+    "independent_second_producer_readback": false,
+    "physical_sector_readout": false,
+    "readback_count": 24,
+    "readback_domain": "post_repair_internal_visible_port_snapshot",
+    "readback_mechanism": "in_process_snapshot_lookup_digest_reread",
+    "record_and_readback_state_digests_identical": true,
+    "record_count": 24,
+    "record_readback_pairs": [
+      {
+        "carrier_id": "carrier-00000",
+        "readback_event_id": "sha256:1e60d7a8e1a15f3db023b86f44ae8eda4a0f28f26b75cb2b89f247f852719ac7",
+        "record_event_id": "sha256:0eeccea53d8ef22c9cfa9521a85bc54ce95336605cbf391c1f13ce26cfec629f",
+        "state_sha256": "sha256:32e94ff0ba7e9815fcff27d19aba0f77e94868f57d45c3bf2d5c8a99a2ae77e3"
+      },
+      {
+        "carrier_id": "carrier-00000",
+        "readback_event_id": "sha256:568edcd1ff5d791636d2915d13aff2ae48c232dad25f131a91c002792754b1e9",
+        "record_event_id": "sha256:b379103e73ebca710c9f3ee92f542d576412bd8e047b7ccc0831516e8c5a097b",
+        "state_sha256": "sha256:32e94ff0ba7e9815fcff27d19aba0f77e94868f57d45c3bf2d5c8a99a2ae77e3"
+      },
+      {
+        "carrier_id": "carrier-00000",
+        "readback_event_id": "sha256:d191beaf1fbe5abaa9f59c316f8192bf7c98924beb8f708f058b4253c1ffdc22",
+        "record_event_id": "sha256:e3e13bd28a7d79ea8b63a87d047b220d962461422c3bb32fd4f46958abfb348f",
+        "state_sha256": "sha256:32e94ff0ba7e9815fcff27d19aba0f77e94868f57d45c3bf2d5c8a99a2ae77e3"
+      },
+      {
+        "carrier_id": "carrier-00001",
+        "readback_event_id": "sha256:1d88648db1da131ad204e24797883c9b6ae7eb12b51344da94b92972862cc076",
+        "record_event_id": "sha256:068746ff3879ab2e07eb2ed163c402e8ba87f86d3ccd3652af6752921f666f66",
+        "state_sha256": "sha256:f689342016d17ac8e9123f66235f4f5e858569d44a42bad50d975fada9cd9090"
+      },
+      {
+        "carrier_id": "carrier-00001",
+        "readback_event_id": "sha256:9527da1f1bff00db90c50745e028a69cc3b5e47e7dd7fec01de3f77284e0cccb",
+        "record_event_id": "sha256:26cd92dbeac2721a31318d0e0a2802e8e9399c881eee0ca9d08da3a80965df39",
+        "state_sha256": "sha256:f689342016d17ac8e9123f66235f4f5e858569d44a42bad50d975fada9cd9090"
+      },
+      {
+        "carrier_id": "carrier-00001",
+        "readback_event_id": "sha256:03df5e3bebfc88f2e847d66bd5ffc449195a87175b1442772ce249cc2946e785",
+        "record_event_id": "sha256:d3d1f735fe033a8a5e30dfe58ede042925ad27004dfa11148b94517ebccb4331",
+        "state_sha256": "sha256:f689342016d17ac8e9123f66235f4f5e858569d44a42bad50d975fada9cd9090"
+      },
+      {
+        "carrier_id": "carrier-00002",
+        "readback_event_id": "sha256:7314666880dc22979c8cca9719efd58091ecada42e58ddfe08a69519bfb0ca27",
+        "record_event_id": "sha256:70aa02adc2bf62b96e919bf984567bc7782e814cfeb10baccba03213a73f93db",
+        "state_sha256": "sha256:dd21cbf612d03d8d9def08c411d492f6210f3651627aec162720429d5fb81603"
+      },
+      {
+        "carrier_id": "carrier-00002",
+        "readback_event_id": "sha256:bde5dae10a4c33da5083e0275b8b5b32a31ef5b9cbdb616c3fe22f20a96e0e97",
+        "record_event_id": "sha256:764d2543b48dd968edd2bf261fd40279ba7eeb1cef36a56f064aaa7415d6ce48",
+        "state_sha256": "sha256:dd21cbf612d03d8d9def08c411d492f6210f3651627aec162720429d5fb81603"
+      },
+      {
+        "carrier_id": "carrier-00002",
+        "readback_event_id": "sha256:65de9b28fa40085ed6095037f2d79555103321ee74c2b32e8f0a4cab99333a0f",
+        "record_event_id": "sha256:8c53649c04bf8a2ccc9849011177ebe7c839bef77cdb9c6275b41cba146d074f",
+        "state_sha256": "sha256:dd21cbf612d03d8d9def08c411d492f6210f3651627aec162720429d5fb81603"
+      },
+      {
+        "carrier_id": "carrier-00003",
+        "readback_event_id": "sha256:d16c4e184c71c2ab9928c248b53643dd0ec753f3342970f578b26e29448330b4",
+        "record_event_id": "sha256:2373d9240da3195f2c094046ed9bda54070002ff6a9add227fcc8164242ce6e6",
+        "state_sha256": "sha256:a7e2d10b94961388eb5607d5f5510ec0382514c422e37b13f4cf96f35d56b6d8"
+      },
+      {
+        "carrier_id": "carrier-00003",
+        "readback_event_id": "sha256:e9857836786d3ce67429db4654fd6effe3ebc8f41bba9216e7a9629f7dac27ed",
+        "record_event_id": "sha256:b2275ac381f4a047adf6971ce8cd604d376a1f019f7eafd25091613b581c628b",
+        "state_sha256": "sha256:a7e2d10b94961388eb5607d5f5510ec0382514c422e37b13f4cf96f35d56b6d8"
+      },
+      {
+        "carrier_id": "carrier-00003",
+        "readback_event_id": "sha256:ff59a1fc3a838b23aa8b2b232eb5acdb72ec37c03d851cfbe40431f5e0e2af1a",
+        "record_event_id": "sha256:d7499001648aee1ae4961fbb7fe0ac678fdd0474ae369d78c9241a897d036436",
+        "state_sha256": "sha256:a7e2d10b94961388eb5607d5f5510ec0382514c422e37b13f4cf96f35d56b6d8"
+      },
+      {
+        "carrier_id": "carrier-00004",
+        "readback_event_id": "sha256:de7db8cfcc622ed1266e68a8c05af4d60e8f80dd0e4f39e03647be3e9456efd6",
+        "record_event_id": "sha256:1a1375cb6ad5f0b8bc7bd66b913f396141f40e697f9ad7692699d36035989368",
+        "state_sha256": "sha256:71eea9117303a36db88624d93222f08c4c448968b0250eb37c72e806b909861b"
+      },
+      {
+        "carrier_id": "carrier-00004",
+        "readback_event_id": "sha256:65cb0dc8dc4699444364ff4055f8aeb651eaf67112fcae2ee0e29098467de8f5",
+        "record_event_id": "sha256:3b0de96d5cd0ab574149e5345e8d86783908d82d4a9d5ccbdf9ba18019d29fcd",
+        "state_sha256": "sha256:71eea9117303a36db88624d93222f08c4c448968b0250eb37c72e806b909861b"
+      },
+      {
+        "carrier_id": "carrier-00004",
+        "readback_event_id": "sha256:fb5914793fcbe7048f291724d89c92ab100838bfcce1068f49abc07c253411db",
+        "record_event_id": "sha256:9da07565969218452a73acd57a8f1624c6dc0ba6c1eeff66ff358168e0bd8fa3",
+        "state_sha256": "sha256:71eea9117303a36db88624d93222f08c4c448968b0250eb37c72e806b909861b"
+      },
+      {
+        "carrier_id": "carrier-00005",
+        "readback_event_id": "sha256:06138b7dde855e49e0404e26e7b2c33c412d3781dcb6b41b742b6399aafafe8b",
+        "record_event_id": "sha256:3aa5635207a70672fea4175752f2eb36ad7a3e6907ef8fec7fb06aaddfc597a9",
+        "state_sha256": "sha256:0527013e7913076e254511109c7015b1512028726a32bef201ac13b075b92448"
+      },
+      {
+        "carrier_id": "carrier-00005",
+        "readback_event_id": "sha256:401b2a13950ae60d24a53ca113d31a16331fb14c8967b73f919e6d7326b3ba31",
+        "record_event_id": "sha256:d084a1c3b345b05f699fd0406b2c36af02a1f23e32615c11b4f0a628e5f8f87a",
+        "state_sha256": "sha256:0527013e7913076e254511109c7015b1512028726a32bef201ac13b075b92448"
+      },
+      {
+        "carrier_id": "carrier-00005",
+        "readback_event_id": "sha256:3a4c696f71ee2f843deb134bebcb954a9d17e6192c457a94d9d68d0b5918d988",
+        "record_event_id": "sha256:f0ab24a82e2e4329d42bb04f4bb778bf1e143307c71482b619d5ecf6941048bf",
+        "state_sha256": "sha256:0527013e7913076e254511109c7015b1512028726a32bef201ac13b075b92448"
+      },
+      {
+        "carrier_id": "carrier-00006",
+        "readback_event_id": "sha256:50b46961ce09f64c5756b72782f77395b9cf88ec8d674a6d71ed8123b467945d",
+        "record_event_id": "sha256:310a4a83d4ed78cb8b57a38fda67d15fb8770a525f5aac1ad9c2c16799f1d16a",
+        "state_sha256": "sha256:50bee572138ba209cd9e0adbbccd0ab3effcd27eb18e48c644ae27fe287c5101"
+      },
+      {
+        "carrier_id": "carrier-00006",
+        "readback_event_id": "sha256:27e25f45a16d9b99e352ffd4bc6fa1fed8eb617e1379880bfc296d93a5625ab7",
+        "record_event_id": "sha256:de2b2106296f5dbcc54dd31b6fcda136f1a8fb677a801bcc3c99c4b9ff7f2644",
+        "state_sha256": "sha256:50bee572138ba209cd9e0adbbccd0ab3effcd27eb18e48c644ae27fe287c5101"
+      },
+      {
+        "carrier_id": "carrier-00006",
+        "readback_event_id": "sha256:ff04e61be146f3141f35fe02e9179e90edf97accb980e14d9bed1c7a4f24dd45",
+        "record_event_id": "sha256:f1f569e07c1eb043f8a612a9e5fed4106e90839f14e7ce830ef72a341634d06f",
+        "state_sha256": "sha256:50bee572138ba209cd9e0adbbccd0ab3effcd27eb18e48c644ae27fe287c5101"
+      },
+      {
+        "carrier_id": "carrier-00007",
+        "readback_event_id": "sha256:6bddafee45d8e83c1363a5dbeafba88c56059a4299978270b41e59aaff4037ef",
+        "record_event_id": "sha256:3cb9acd7b5e4018d3b621e8cd5468d902a7df6ea9fca18bb11163217aea57d46",
+        "state_sha256": "sha256:41a77877df63ccc0815aed9b9afb50139eddb204f7f1fbe7057c89d051dd645f"
+      },
+      {
+        "carrier_id": "carrier-00007",
+        "readback_event_id": "sha256:dfad0c11ad4d52cb5b25495536abdc9d82095c798a6f63b1e1738b3b4a9c5e72",
+        "record_event_id": "sha256:421c0e1ef2ab1f64fbc6b38850923039a4766cfcfe1cafb010ed9a22ce3cdb12",
+        "state_sha256": "sha256:41a77877df63ccc0815aed9b9afb50139eddb204f7f1fbe7057c89d051dd645f"
+      },
+      {
+        "carrier_id": "carrier-00007",
+        "readback_event_id": "sha256:f66106527adc232eef9c3dd2695bd17c561732e7c3308309dd72fe8af789d0c1",
+        "record_event_id": "sha256:fdcb34dfa20fcd7566c421f7fd12a3ccd85306fec8a5dbc6446cf1047ab47c81",
+        "state_sha256": "sha256:41a77877df63ccc0815aed9b9afb50139eddb204f7f1fbe7057c89d051dd645f"
+      }
+    ],
+    "record_readback_pairs_sha256": "sha256:b35ace9eb654cb5acc7d9b224b75d396a95c933bea53ae9ef212ef895317f081",
+    "snapshot_cycle": 0,
+    "terminal_state_rows_sha256": "sha256:bdc02a96f6c476c92b3561312033940f694f0bc8b5c582fecfe6b8d169af075e",
+    "visible_state_sha256": "sha256:7f77456f70d6d3b9fe4d0bf1e65b948a168a0ae2ced3bcceb02d8d1ef05d71aa"
+  },
+  "quotient_and_spatial_boundary": {
+    "a5_covariant_site_action_receipt": false,
+    "all_six_antipodal_transfer_pairs_fail_inverse_relation": true,
+    "carrier_antipode_map": [
+      3,
+      2,
+      1,
+      0,
+      7,
+      6,
+      5,
+      4,
+      11,
+      10,
+      9,
+      8
+    ],
+    "coherent_frame_transport_receipt": false,
+    "declared_boost_law_receipt": false,
+    "directed_antipode_inverse_transport_receipt": false,
+    "internal_seam_transfer_is_spatial_translation": false,
+    "noncollapsed_quotient_site_map_receipt": false,
+    "orientation_transport_receipt": false,
+    "physical_prediction_unsealed": false,
+    "quotient_enumeration": {
+      "antipodal_inverse_compatible_quotient_count": 1,
+      "antipodal_inverse_compatible_quotients": [
+        {
+          "block_count": 1,
+          "canonical_labels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "common_congruence_count": 2,
+      "common_congruences": [
+        {
+          "block_count": 1,
+          "canonical_labels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "block_count": 8,
+          "canonical_labels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "noncollapsed_antipodal_inverse_compatible_quotient_count": 0,
+      "nontrivial_proper_common_congruence_count": 0,
+      "only_inverse_compatible_quotient_collapses_all_carriers": true,
+      "set_partition_count_checked": 4140
+    },
+    "same_operator_physical_readout_receipt": false,
+    "scalar_or_polarization_sector_attachment_receipt": false
+  },
+  "receipt_sha256": "sha256:61e3641624f5076c64bbd4cd8d0ec661233417f4b26e48de4432818a5c3c7732",
+  "schema": "oph.vertex12-atomic-port-transfer-subpacket.v1",
+  "source_capture_binding": {
+    "artifact_type": "OPH_TARGET_BLIND_FINITE_SOURCE_CAPTURE",
+    "canonical_default_replica": true,
+    "canonical_default_seed": true,
+    "coverage_config_seam_ledger_matches_default_source": true,
+    "federation_bundle_sha256": "sha256:c7c590a7c9085a2f3d55414080c0cb04e586ed522eeb34abbfff83621b40fa97",
+    "finite_federation_realization_receipt": true,
+    "finite_source_architecture_receipt": true,
+    "input_config_sha256": "sha256:9a227653afd42c889f71939a2e9c0e8bc6ad8b63da8dc75a15dbb7a0b146e15b",
+    "observer_log_sha256": "sha256:4db7e077e87477f41f83494f4d4b942bdebe90ebed7c20438c14248b9605375b",
+    "postrun_capture_sha256": "sha256:060ae51d1f4c249e56ea6c679e48082aec341cab2e93f99af1a7557c240f91d7",
+    "repair_log_sha256": "sha256:624ddadd0c46a51aa85ea21f0539646e15ed120d3c910c33e137af3ddf42d289",
+    "schema": "oph.physical-source-capture/1.0.0",
+    "source_capture_replay_receipt": true,
+    "source_engine_independently_reimplemented": false,
+    "source_state_root_sha256": "sha256:e3db0d964072dd7b07595c81a502bd7fce8b418ccbb83072acd024dd53ce93a4",
+    "target_or_comparison_token_hits": []
+  },
+  "source_config": {
+    "carrier_count": 8,
+    "checkpoint_interval": 1,
+    "coupling_strength": 1.0,
+    "cycles": 1,
+    "feedback_enabled": true,
+    "geometry_sample_count": 4,
+    "geometry_transport": "legacy",
+    "initialization_distribution": "normalized_complex_gaussian_v1",
+    "intrinsic_phase_distribution": "uniform_unit_interval_v1",
+    "intrinsic_step": 0.137,
+    "observer_count": 8,
+    "observer_cross_reads": false,
+    "observer_samples": 3,
+    "observer_support_size": 1,
+    "prediction_control": "semantic_hash_shuffle_v1",
+    "preregistered_plan_sha256": "sha256:352e08b0477c58e6ada1f0db1f99e7f548a840000fdcf4b5d1f9d95f590f1229",
+    "propagation_steps": 1,
+    "record_commit_cycles": 1,
+    "repair_fraction_per_cycle": 1.0,
+    "replicate_id": "primary",
+    "rng_family": "numpy_generator_pcg64_v1",
+    "rung": 8,
+    "seam_update_rule": "disjoint_single_port_endpoint_arithmetic_mean_v1",
+    "seed": 20260751,
+    "snapshot_coverage": "spanning",
+    "state_space": "normalized_complex_amplitude_in_C12",
+    "support_refinement_level": 1
+  },
+  "source_history_replay": {
+    "event_count": 48,
+    "event_rows": [
+      {
+        "event_id": "sha256:6cdebf83bf5aaa909aaf21b342ab23a0caf0b909477fb2cccdbabc23bf3dc4b9",
+        "port": 0,
+        "seam_id": "seam-p00-000000"
+      },
+      {
+        "event_id": "sha256:5155ae32c4ff9b6bd74c07ba26986ecb74a116a03c2442bbdcf6ca1348f08d0c",
+        "port": 0,
+        "seam_id": "seam-p00-000001"
+      },
+      {
+        "event_id": "sha256:c0ca2bbe040f4c67437d347435849a0c90fc825b186b6ddca7253833acc2784b",
+        "port": 0,
+        "seam_id": "seam-p00-000002"
+      },
+      {
+        "event_id": "sha256:b755cc659e6850a098a6c897fd953ddc672fa97c9943f65e905e069750763d95",
+        "port": 0,
+        "seam_id": "seam-p00-000003"
+      },
+      {
+        "event_id": "sha256:d611b8ddb12b8a423fda19ee012027e1d1b303a0113c541b22062affed006138",
+        "port": 1,
+        "seam_id": "seam-p01-000000"
+      },
+      {
+        "event_id": "sha256:e621fba83c7314af0498907892ae182fed0b50d2e79f6de8eacdbefda6b4e3f0",
+        "port": 1,
+        "seam_id": "seam-p01-000001"
+      },
+      {
+        "event_id": "sha256:9cb14363023e58d64fd3825bf780b0ede9d4e42fec31a3acb5ff26abbdd2c300",
+        "port": 1,
+        "seam_id": "seam-p01-000002"
+      },
+      {
+        "event_id": "sha256:b5836467832297f3bd74ffec75d783a303dcb83d2d1f8560922301d3dc852d82",
+        "port": 1,
+        "seam_id": "seam-p01-000003"
+      },
+      {
+        "event_id": "sha256:83e1919f67ce4f472acfbf064c6db2675145147e08a8ccd96f25f58e98b61c95",
+        "port": 2,
+        "seam_id": "seam-p02-000000"
+      },
+      {
+        "event_id": "sha256:d0c95d4c444235cbe093187841270e2199c5a0221242b01a46076b5752ca2af9",
+        "port": 2,
+        "seam_id": "seam-p02-000001"
+      },
+      {
+        "event_id": "sha256:6d70e06a55fbbacd2f87818960254e8a51977bdf22c6c5c69729bc755c4b0262",
+        "port": 2,
+        "seam_id": "seam-p02-000002"
+      },
+      {
+        "event_id": "sha256:412377d80e805945ece50c0d3340817e892e5676534ec9408ef97d0f5537cdf4",
+        "port": 2,
+        "seam_id": "seam-p02-000003"
+      },
+      {
+        "event_id": "sha256:2b87f85a5a7260dd863585c6f98722bdf7228c68663c1642cee3ba05ff7b2cef",
+        "port": 3,
+        "seam_id": "seam-p03-000000"
+      },
+      {
+        "event_id": "sha256:4993110d63b463e0ff2ae054c8d4ed3e6b7dbec89214291ac6f684ca5bacf806",
+        "port": 3,
+        "seam_id": "seam-p03-000001"
+      },
+      {
+        "event_id": "sha256:282bb792e3897e08a1447fb26db7899cead4b57ce7c4ce15c2536bc95b459323",
+        "port": 3,
+        "seam_id": "seam-p03-000002"
+      },
+      {
+        "event_id": "sha256:b9ef9553e6ff1d6007c237242985c29ff17234848288adf356f37004293bda32",
+        "port": 3,
+        "seam_id": "seam-p03-000003"
+      },
+      {
+        "event_id": "sha256:ad4f9f47f8ab804c16d55026df2c2ba0ccc4b584af276b005a4f8656b431c49c",
+        "port": 4,
+        "seam_id": "seam-p04-000000"
+      },
+      {
+        "event_id": "sha256:09c2345b685414a345457435ec98fd2c8e986baea58f05b911c49c11e0ea9211",
+        "port": 4,
+        "seam_id": "seam-p04-000001"
+      },
+      {
+        "event_id": "sha256:5022ac050a990623b6e1eaa012fb38633304aec56329a4d6428c548dded80612",
+        "port": 4,
+        "seam_id": "seam-p04-000002"
+      },
+      {
+        "event_id": "sha256:7f46d1f14c240c02e7fd0ef74c621994f148baa043d82bac609f31848eb9c9d1",
+        "port": 4,
+        "seam_id": "seam-p04-000003"
+      },
+      {
+        "event_id": "sha256:d065fe3469c9cfaa747a43f51e8bf6007750874bb06da087bafa6c08d41a7947",
+        "port": 5,
+        "seam_id": "seam-p05-000000"
+      },
+      {
+        "event_id": "sha256:e061cdf37a8f1edb6b00d3e98079a2b5688403cd37d1b21242b95319a8f4284a",
+        "port": 5,
+        "seam_id": "seam-p05-000001"
+      },
+      {
+        "event_id": "sha256:a2b322d6710932cf16571e33469528684aa6f43bee393f9d8ea8fb25a3552342",
+        "port": 5,
+        "seam_id": "seam-p05-000002"
+      },
+      {
+        "event_id": "sha256:b44baa18ebee49fc9ae0b6e8366c09131a5afa1ad2bce844c56fcdd6e5bac284",
+        "port": 5,
+        "seam_id": "seam-p05-000003"
+      },
+      {
+        "event_id": "sha256:1f7af73b0e3571fc676c81075f64693abc6fed9ff68efb8211aec5fe6c85f2f0",
+        "port": 6,
+        "seam_id": "seam-p06-000000"
+      },
+      {
+        "event_id": "sha256:0543f8e1a4b83f6ba558f94aa96d5b3de7fe4048869c2a8a25f0182886409351",
+        "port": 6,
+        "seam_id": "seam-p06-000001"
+      },
+      {
+        "event_id": "sha256:c1ec40be1f426de581eb2a263065793e4f6c6db509f4502df28513d5bbe2fe4a",
+        "port": 6,
+        "seam_id": "seam-p06-000002"
+      },
+      {
+        "event_id": "sha256:6a9e3a7d758bde1fdbcdb2e5573881048310fa6a8ff907e6cb5c4fe65ef174b1",
+        "port": 6,
+        "seam_id": "seam-p06-000003"
+      },
+      {
+        "event_id": "sha256:df364c829155dfcebb8d19657883f0308bb65a282510aebe35f1237afdcfd7ba",
+        "port": 7,
+        "seam_id": "seam-p07-000000"
+      },
+      {
+        "event_id": "sha256:43881910242c73a6a312f598b5f767f244ae73bfc129404944203e3452db1ebf",
+        "port": 7,
+        "seam_id": "seam-p07-000001"
+      },
+      {
+        "event_id": "sha256:e5b37187e860d09074fdc7c61ef55ca9a891c52ef88f80cd493bd06bc9383cae",
+        "port": 7,
+        "seam_id": "seam-p07-000002"
+      },
+      {
+        "event_id": "sha256:079ed5f674b4860690b9a470806bde00d5c4302357a865826469eb3f9ced8d3b",
+        "port": 7,
+        "seam_id": "seam-p07-000003"
+      },
+      {
+        "event_id": "sha256:83687fcf6a00d09cf74e5a3cd968f85507f331c4fce0e696d6198cac31ddfe98",
+        "port": 8,
+        "seam_id": "seam-p08-000000"
+      },
+      {
+        "event_id": "sha256:a801f258e27f20f22209621aa42691e551a575bd2a3db35edc0001060aecf2f9",
+        "port": 8,
+        "seam_id": "seam-p08-000001"
+      },
+      {
+        "event_id": "sha256:95ae5a60c942d7bf027c5f3a3d6cdcddff59843c543c28fd9368956da981d62d",
+        "port": 8,
+        "seam_id": "seam-p08-000002"
+      },
+      {
+        "event_id": "sha256:b8eee60ec9bd243a2760c44a6b6a182e5df7f975585352b30778e34a802a2c13",
+        "port": 8,
+        "seam_id": "seam-p08-000003"
+      },
+      {
+        "event_id": "sha256:776fef333bcf4895aa98a3c2d09671f7252598cc9495b200de4f6f275eee06c8",
+        "port": 9,
+        "seam_id": "seam-p09-000000"
+      },
+      {
+        "event_id": "sha256:7262fe73aaf999e10e4b4ef8e7f1595769efbb326241145407167b86914603ae",
+        "port": 9,
+        "seam_id": "seam-p09-000001"
+      },
+      {
+        "event_id": "sha256:441ad5b331d8b43216e9e5225b8960ea9be19baa7d27a54225970b8331112674",
+        "port": 9,
+        "seam_id": "seam-p09-000002"
+      },
+      {
+        "event_id": "sha256:51ecbef376dd658736db77c76edd5ce7d1e4f919fb58bca4dbd57df2dd9179e0",
+        "port": 9,
+        "seam_id": "seam-p09-000003"
+      },
+      {
+        "event_id": "sha256:bbac4960fbed776c774b1fa32233c378736442f3cdc156feb755da40d65ceee8",
+        "port": 10,
+        "seam_id": "seam-p10-000000"
+      },
+      {
+        "event_id": "sha256:4bd77ba4b35e9e4c4fac492b580620acbcbe5683b678704dba38a9ef8e5bd197",
+        "port": 10,
+        "seam_id": "seam-p10-000001"
+      },
+      {
+        "event_id": "sha256:03c31ae5be49fe28a35a97a5b5648f9e068d939a62dd26a83851e0fb85566788",
+        "port": 10,
+        "seam_id": "seam-p10-000002"
+      },
+      {
+        "event_id": "sha256:ae3239a9201ef2b2926a903ce1b0b5f47097746472d1fb950625d5268dc07fb9",
+        "port": 10,
+        "seam_id": "seam-p10-000003"
+      },
+      {
+        "event_id": "sha256:524177799d661e4d84882ee57ba23f78cea2a42351291fb510a2ff831cc3f763",
+        "port": 11,
+        "seam_id": "seam-p11-000000"
+      },
+      {
+        "event_id": "sha256:3a29cbe1a7090ab2a21a51dc06947ca26ed382dbc2023d5a81cc971ae9d01aa2",
+        "port": 11,
+        "seam_id": "seam-p11-000001"
+      },
+      {
+        "event_id": "sha256:92edfb66f8a1d6d950d0796e7b86cd0619bc0cea4b8f8b7232049510495a268f",
+        "port": 11,
+        "seam_id": "seam-p11-000002"
+      },
+      {
+        "event_id": "sha256:d49facb3385041ec160b1a51287d5d04acafb7153f2b03c281c19e0b291aa94d",
+        "port": 11,
+        "seam_id": "seam-p11-000003"
+      }
+    ],
+    "event_rows_sha256": "sha256:435d29a407fa71515ff5e1fbd4f05d7d58e4874c58c5deee9b12862f7930fc67",
+    "every_event_matches_atomic_two_endpoint_mean_rule_within_serialized_tolerance": true,
+    "every_event_matches_named_federation_seam": true,
+    "every_seam_replayed_once": true,
+    "idempotence_replay_exact": true,
+    "order_replay_exact": true,
+    "read_conflict_validation_complete": true,
+    "serialized_mismatch_and_strict_descent_recomputed": true,
+    "serialized_numeric_contract": {
+      "absolute_tolerance": "2e-15",
+      "decimal_places": 15,
+      "scope": "each source-ledger scalar is rounded independently; the symbolic matching/projector identities remain exact"
+    },
+    "terminal_seam_fixed_point": true,
+    "terminal_write_coordinate_count": 96,
+    "terminal_write_state_matches_readback_snapshot": true,
+    "terminal_write_state_rows_sha256": "sha256:bdc02a96f6c476c92b3561312033940f694f0bc8b5c582fecfe6b8d169af075e",
+    "union_atomic_revalidation_complete": true
+  },
+  "status": "INTERNAL_VERTEX12_SEAM_MATCHING_PROJECTORS_AND_IN_PROCESS_SNAPSHOT_REREAD_ATTAINED__SPATIAL_PHYSICAL_BRIDGE_OPEN"
+}

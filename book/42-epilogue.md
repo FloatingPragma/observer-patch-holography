@@ -55,7 +55,7 @@ Observers capable of running a repair law is a description of somebody, and call
 7. Why is there no such thing as now? Causality is a partial order, time is a total order, and nothing in the arrangement builds the second.
 8. Why can strangers agree without a boss? Influence along declared ports is a finite dependency cone.
 9. What move does reality actually make? One move is admissible, both readings to the midpoint, preserving their sum by construction.
-10. Why doesn't it matter who goes first? 326,047 disagreeing seams reach zero at cycle 96 under every order.
+10. Why doesn't it matter who goes first? 102,415 disagreeing seams reach zero under every order, and sixteen shuffled replays return one identical finishing state.
 11. What does everybody actually end up holding? Objective reality is the observable normal form, unique relative to the boundary data.
 12. Why is the world made of relations and not of things? The sourced action is gauge-invariant if and only if the source is conserved.
 13. What is one piece of reality actually made of? Six parts and six moves, and a bounded interface is a bound on what can be known about a region.

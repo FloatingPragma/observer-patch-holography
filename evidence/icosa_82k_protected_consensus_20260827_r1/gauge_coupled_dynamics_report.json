@@ -1,0 +1,66 @@
+{
+  "mode": "finite_gauge_covariant_overlap_repair_v1",
+  "repair_kernel_mode": "protected_source_authority_v1",
+  "protected_repair_authority": {
+    "schema": "oph_repair_kernel_contract_v1",
+    "mode": "protected_source_authority_v1",
+    "protected_authority_present": true,
+    "authority_hash_schema": "oph_protected_distinct_node_authority_v1",
+    "authority_semantics": "larger_signed_integer_has_higher_authority",
+    "authority_count": 81920,
+    "authority_values_pairwise_distinct": true,
+    "authority_minimum": 0,
+    "authority_maximum": 81919,
+    "authority_sha256": "sha256:01002f1d42f505f994b01f9d1887ebabf6385d2168f284e25c9b598082a050b1",
+    "artifact": {
+      "path": "protected_repair_authority.npz",
+      "file_sha256": "sha256:c4113d34a9fdb016eec6d1ef77ce763f88289fbef18eda87ab07bfb6adf10f30",
+      "array_name": "node_repair_authorities",
+      "dtype": "int64"
+    },
+    "source_binding": {
+      "run_seed": 20260827,
+      "named_rng_stream": "repair_authority",
+      "stream": {
+        "stream_id": "sha256:960e1f9868a6a06b7c049d2ae036035034c3a662f6cfed7212c6dcc00c9da30c",
+        "entropy_words_u32": [
+          20260827,
+          0,
+          2552172182,
+          1805690472,
+          714933372,
+          1342387936
+        ],
+        "bit_generator": "PCG64"
+      },
+      "frozen_before_repair": true,
+      "downstream_target_input_used": false
+    },
+    "link_boundary": "all_gauge_links_fixed_during_strict_repair",
+    "finite_consensus_eligible": true,
+    "physical_authority_derived": false,
+    "claim_boundary": "The source seed and a name-isolated stream precommit a distinct patch-authority order before dynamics. The finite consensus theorem is conditional on that protected metadata. This artifact does not derive a physical authority field."
+  },
+  "schema": "left_equals_g_ij_times_right_v1",
+  "consistency_equation": "port_left = g_ij * port_right",
+  "link_orientation": "g_ij maps the right endpoint frame j into the left endpoint frame i",
+  "local_frame_action": {
+    "port_i": "h_i * port_i",
+    "link_ij": "h_i * g_ij * inverse(h_j)"
+  },
+  "quotient_canonicalizer": "node_reference_port_frame_v1",
+  "group": "S3",
+  "group_order": 6,
+  "edge_count": 122880,
+  "initial_raw_label_mismatch_count": 102519,
+  "initial_covariant_mismatch_count": 102415,
+  "initial_covariant_mismatch_fraction": 0.8334554036458334,
+  "final_raw_label_mismatch_count": 102333,
+  "final_covariant_mismatch_count": 0,
+  "gauge_link_changed_count": 0,
+  "sector_edges_changed_total": 0,
+  "record_signature_includes_gauge_invariant_edge_residual": true,
+  "record_signature_includes_full_echosahedral_patch_state": true,
+  "observer_sector_fields_use_gauge_invariant_edge_residual": true,
+  "claim_boundary": "Finite regulator overlap dynamics with group-correct link transport. In protected-authority mode, an immutable source-bound patch order selects which endpoint record is preserved, every strict repair holds the gauge link fixed, and the order travels with patches under relabeling. This is a conditional finite protocol receipt; it neither derives the authority order nor establishes a continuum gauge theory or Standard Model."
+}

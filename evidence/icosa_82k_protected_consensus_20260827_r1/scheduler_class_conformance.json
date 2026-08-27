@@ -1,0 +1,85 @@
+{
+  "schema": "oph.scheduler_class_conformance.v1",
+  "engine": "bw_array",
+  "declared_class": {
+    "register_rows": [
+      "PR-60",
+      "PR-61",
+      "PR-62",
+      "PR-63"
+    ],
+    "typed_in": "reverse-engineering-reality:Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean",
+    "clauses": {
+      "mismatch_nonincrease": "no supported repair step increases the declared overlap mismatch",
+      "single_slot_locality": "every supported repair action writes at most one register slot",
+      "unit_capacity_per_step": "stepCost = privateCost + sharedCost is at most one unit per action"
+    },
+    "capacity_split_reading": {
+      "private": "endpoint port-slot write charged to the owning patch",
+      "shared": "gauge-link write charged half/half to the endpoint patches",
+      "far_endpoint_write_class": "structurally empty in this kernel"
+    },
+    "claim_kind": "measured_schedule_property_not_theorem"
+  },
+  "rng_stream": {
+    "stream_name": "conformance",
+    "stream_id": "sha256:a46b518a3ad1d80154a6c5cf3c229b08a4581f7aaf04bfd70fd2aa71d276da1d",
+    "derivation": "sha256(oph-array-conformance-rng-v1\\0conformance) plus the uint64 run seed",
+    "entropy_words_u32": [
+      20260827,
+      0,
+      2320591780,
+      30986554,
+      3485836884,
+      144384572
+    ],
+    "bit_generator": "PCG64"
+  },
+  "cycles_observed": 16,
+  "all_cycles_in_declared_class": true,
+  "violating_cycles": [],
+  "totals": {
+    "private_spend_actions": 102415,
+    "shared_spend_actions": 0,
+    "total_repair_actions": 102415,
+    "left_endpoint_writes": 51454,
+    "right_endpoint_writes": 50961,
+    "port_write_instructions": 102415,
+    "sector_link_writes_reported": 0,
+    "source_term_edges": 0
+  },
+  "spend_split_sums_to_total": true,
+  "per_patch_spend_summary": {
+    "private": {
+      "min": 0.0,
+      "mean": 1.25018310546875,
+      "max": 3.0,
+      "sum": 102415.0
+    },
+    "shared": {
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0,
+      "sum": 0.0
+    },
+    "shared_attribution": "one link write charged half/half to the two endpoint patches"
+  },
+  "transactional_sampling": {
+    "verifier": "sampled_transactional_edge_repair_conformance",
+    "sample_edges_per_cycle": 32,
+    "cycles_sampled": 2,
+    "samples_total": 64,
+    "failure_count": 0,
+    "failures": [],
+    "all_samples_committed": true,
+    "fail_closed": true
+  },
+  "source_term_separation": {
+    "kind": "observer_readback_drive",
+    "edges_touched_total": 0,
+    "excluded_from_repair_step": true,
+    "receipted_per_cycle": true
+  },
+  "SCHEDULER_CLASS_CONFORMANCE_RECEIPT": true,
+  "claim_boundary": "Telemetry measures the realized schedule of this run configuration. Class membership against PR-60..PR-63 is a measured property of the observed cycles, stated clause by clause; it is not a theorem about the scheduler class, and no dynamical trajectory is altered by this instrumentation."
+}

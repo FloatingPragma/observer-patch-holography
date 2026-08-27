@@ -80,13 +80,13 @@ The field around a charge is the solution that circulates nowhere. Every other m
 
 On a twelve-port graph all of this is exact arithmetic rather than approximation. Put one unit of positive charge at a port and one unit of negative charge at a neighbor. Send the whole unit straight down the seam that joins them and the arrangement costs one, one squared being one. Let it settle into the field that circulates nowhere and the same two charges cost eleven thirtieths, and the nineteen thirtieths that went missing was circulation delivering nothing to either port. Eleven over thirty and nineteen over thirty, off the same wiring that gave eleven directions of convention and nineteen loops.
 
-## One hundred and seven thousand nine hundred and fifty-nine seams
+## One hundred and two thousand three hundred and thirty-three seams
 
-The same behavior is visible in the large runs, where nothing about it was arranged. In the sixty-five-thousand-patch run of chapter ten, 65,536 observers wired into 390,924 seams, the raw labels began by disagreeing across 206,910 seams and ended disagreeing across 314,869, while the transport-corrected disagreement began at 326,047 and ended at zero, with 27,250 seam dictionaries rewritten on the way.
+The same behavior is visible in the large runs, where nothing about it was arranged. In the run of chapter ten, 81,920 observers wired into 122,880 seams, the raw labels began by disagreeing across 102,519 seams and ended disagreeing across 102,333, while the transport-corrected disagreement began at 102,415 and ended at zero. The dictionaries themselves were never touched on the way: a repair rewrites the label at one end of a seam and leaves the translation between the ends exactly as it found it.
 
-The number of seams whose two ends hold different labels went up by 107,959. The disagreement anybody inside could detect went to nothing. Both counts came off the same run.
+At the finish, 102,333 of the 122,880 seams have two ends holding different labels, and no seam in the network is in disagreement. Both counts came off the same run.
 
-Count the other way at the end of that run. The seams whose two ends held identical labels numbered 76,055, and the seams whose dictionary was the permutation that does nothing numbered 76,055, and they were the same seams. Two ends of a seam carry the same label exactly when the translation between them happens to be the do-nothing one, which is a coincidence of conventions with no content in it. The other 314,869 seams were in perfect agreement and said so in different words.
+Count the other way at the end of that run. The seams whose two ends held identical labels numbered 20,547, and the seams whose dictionary was the permutation that does nothing numbered 20,547, and they were the same seams. Two ends of a seam carry the same label exactly when the translation between them happens to be the do-nothing one, which is a coincidence of conventions with no content in it. The other 102,333 seams were in perfect agreement and said so in different words.
 
 What settles is the relation, never the values. It could not have been the values. The labels are each observer's private business, no procedure anywhere in the arrangement reads them, and a process that drove them together would be enforcing a convention that nothing can check.
 

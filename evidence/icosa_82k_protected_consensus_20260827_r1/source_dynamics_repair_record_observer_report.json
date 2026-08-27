@@ -1,0 +1,637 @@
+{
+  "schema_version": "oph_source_repair_record_observer_contract_v3",
+  "mode": "source_dynamics_repair_record_observer_contract",
+  "SOURCE_PATCH_ARCHITECTURE_RECEIPT": false,
+  "PATCH_LOCAL_STATE_RECEIPT": true,
+  "PATCH_PORT_BOUNDARY_RECEIPT": true,
+  "PATCH_READBACK_RECEIPT": true,
+  "PATCH_ALL_PORT_READBACK_RECEIPT": true,
+  "RECORD_SIGNATURE_BINDS_ALL_LOCAL_PORT_STATE_RECEIPT": true,
+  "ECHOSAHEDRAL_LOCAL_PATCH_ARCHITECTURE_RECEIPT": true,
+  "ECHOSAHEDRAL_CARRIER_CONFORMANCE": true,
+  "FEDERATION_SEWING_RECEIPT": false,
+  "CARRIER_QUOTIENT_INVARIANCE_RECEIPT": false,
+  "CARRIER_REFINEMENT_NATURALITY_RECEIPT": true,
+  "TRANSACTION_VALIDATION_COMPLETE_READ_CONFLICT_SET_RECEIPT": false,
+  "UNION_PAYLOAD_ATOMIC_REVALIDATION_RECEIPT": false,
+  "GAUGE_COVARIANT_OVERLAP_MISMATCH_RECEIPT": true,
+  "LOCAL_REPAIR_DYNAMICS_RECEIPT": true,
+  "SEAM_REPAIR_DESCENT_RECEIPT": true,
+  "SEAM_ATOMIC_COMMIT_RECEIPT": false,
+  "RECORD_COMMIT_RECEIPT": true,
+  "RECORD_READ_AFTER_WRITE_RECEIPT": false,
+  "OBSERVER_SELF_READING_RECORD_LOOP_RECEIPT": false,
+  "OBSERVER_LIKE_SELF_READING_SYSTEM_RECEIPT": false,
+  "OPH_SOURCE_QUALIFIED_ATOMIC_SELF_READING_SYSTEM_RECEIPT": false,
+  "OBSERVER_READBACK_FEEDBACK_CAUSAL_LOOP_RECEIPT": false,
+  "source_generator_target_free": false,
+  "source_generator_lexical_target_scan_clear": true,
+  "source_forbidden_target_hits": [],
+  "source_architecture": {
+    "bounded_patch_system": true,
+    "simulation_native_source": true,
+    "carrier_count": 81920,
+    "local_state_factor_count": 12,
+    "local_state_dimension": 2176782336,
+    "materialized_local_state_coordinate_count": 983040,
+    "boundary_port_count": 12,
+    "group_name": "S3",
+    "carrier_family": "federated_echosahedral_patch_system",
+    "one_local_echosahedron_per_carrier": true,
+    "carrier_is_not_support_chart_cell": false,
+    "carrier_is_not_primitive_observer": false,
+    "carrier_support_conflation_present": true,
+    "local_patch_template_hash": "c4fb89908882e10edbc549b06beae0adc093a04ab789d6e4080a6a62758034f4",
+    "patch_port_state_sha256": "bf05847ee0ff0a0166ce1bf3ba1d722d6953f10c9cc97fe6a7332206bc8c9c66",
+    "all_local_port_readout_maps_materialized": true,
+    "all_local_port_states_bound_into_records": true,
+    "source_architecture_hash": "sha256:3136aa75d6d570a1d296152ea868a60418221c54d0e99cfc2daca948dd7d9ab4"
+  },
+  "local_patch_architecture": {
+    "schema": "oph.echosahedral_local_patch.v1",
+    "patch_object_role": "bounded_local_observer_carrier",
+    "port_names": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P10",
+      "P11"
+    ],
+    "port_count": 12,
+    "port_template": "regular_icosahedron_vertices",
+    "port_direction_template": [
+      [
+        -0.5257311121191336,
+        0.85065080835204,
+        0.0
+      ],
+      [
+        0.5257311121191336,
+        0.85065080835204,
+        0.0
+      ],
+      [
+        -0.5257311121191336,
+        -0.85065080835204,
+        0.0
+      ],
+      [
+        0.5257311121191336,
+        -0.85065080835204,
+        0.0
+      ],
+      [
+        0.0,
+        -0.5257311121191336,
+        0.85065080835204
+      ],
+      [
+        0.0,
+        0.5257311121191336,
+        0.85065080835204
+      ],
+      [
+        0.0,
+        -0.5257311121191336,
+        -0.85065080835204
+      ],
+      [
+        0.0,
+        0.5257311121191336,
+        -0.85065080835204
+      ],
+      [
+        0.85065080835204,
+        0.0,
+        -0.5257311121191336
+      ],
+      [
+        0.85065080835204,
+        0.0,
+        0.5257311121191336
+      ],
+      [
+        -0.85065080835204,
+        0.0,
+        -0.5257311121191336
+      ],
+      [
+        -0.85065080835204,
+        0.0,
+        0.5257311121191336
+      ]
+    ],
+    "hidden_presentation_coordinates": true,
+    "hidden_coordinates_eligible_for_promoted_geometry": false,
+    "local_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "local_faces": [
+      [
+        0,
+        11,
+        5
+      ],
+      [
+        0,
+        5,
+        1
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        7,
+        10
+      ],
+      [
+        0,
+        10,
+        11
+      ],
+      [
+        1,
+        5,
+        9
+      ],
+      [
+        5,
+        11,
+        4
+      ],
+      [
+        11,
+        10,
+        2
+      ],
+      [
+        10,
+        7,
+        6
+      ],
+      [
+        7,
+        1,
+        8
+      ],
+      [
+        3,
+        9,
+        4
+      ],
+      [
+        3,
+        4,
+        2
+      ],
+      [
+        3,
+        2,
+        6
+      ],
+      [
+        3,
+        6,
+        8
+      ],
+      [
+        3,
+        8,
+        9
+      ],
+      [
+        4,
+        9,
+        5
+      ],
+      [
+        2,
+        4,
+        11
+      ],
+      [
+        6,
+        2,
+        10
+      ],
+      [
+        8,
+        6,
+        7
+      ],
+      [
+        9,
+        8,
+        1
+      ]
+    ],
+    "local_edge_count": 30,
+    "local_face_count": 20,
+    "inverse_port_involution": [
+      3,
+      2,
+      1,
+      0,
+      7,
+      6,
+      5,
+      4,
+      11,
+      10,
+      9,
+      8
+    ],
+    "antipodal_pairs": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ]
+    ],
+    "maximum_antipodal_residual": 0.0,
+    "proper_rotation_group_order": 60,
+    "incidence_audit": {
+      "vertex_count": 12,
+      "edge_count": 30,
+      "face_count": 20,
+      "vertex_degree_profile": {
+        "5": 12
+      },
+      "antipode_fixed_point_count": 0,
+      "antipode_involution": true,
+      "a5_action_count": 60,
+      "all_a5_actions_preserve_edges": true,
+      "all_a5_actions_preserve_oriented_faces": true,
+      "all_a5_actions_commute_with_antipode": true,
+      "adjacency_spectrum": [
+        {
+          "eigenvalue": -2.2360679774997902,
+          "multiplicity": 3
+        },
+        {
+          "eigenvalue": -1.0000000000000007,
+          "multiplicity": 5
+        },
+        {
+          "eigenvalue": 2.2360679774997876,
+          "multiplicity": 3
+        },
+        {
+          "eigenvalue": 4.999999999999998,
+          "multiplicity": 1
+        }
+      ],
+      "adjacency_irrep_multiplicities": [
+        1,
+        3,
+        3,
+        5
+      ],
+      "incidence_receipt": true
+    },
+    "template_hash": "c4fb89908882e10edbc549b06beae0adc093a04ab789d6e4080a6a62758034f4",
+    "shared_template_instantiated_per_cell": true,
+    "ECHOSAHEDRAL_LOCAL_PATCH_ARCHITECTURE_RECEIPT": true,
+    "ECHOSAHEDRAL_CARRIER_CONFORMANCE_RECEIPT": true,
+    "LOCAL_ICOSAHEDRAL_INCIDENCE_RECEIPT": true,
+    "GLOBAL_TWELVE_UNIT_SCREEN_SIEVE_RECEIPT": false,
+    "LOCAL_TO_GLOBAL_A5_INTERTWINER_RECEIPT": false,
+    "claim_boundary": "The twelve local P0..P11 ports belong to every bounded observer cell. Their 12 vertices, 30 edges, 20 outward-oriented faces, antipode, and order-60 A5 action are hidden carrier-presentation data. They may shape local coupling but are forbidden as promoted S2, H3, cap-normal, clock, or event coordinates. The separate screen-sieve theorem derives twelve global unit-defect ports on a connected cut. Identifying the two twelve-dimensional objects requires a quotient-visible, refinement-natural A5 intertwiner."
+  },
+  "two_level_carrier_federation_bridge": {
+    "schema": "oph.echosahedral_federation.screen_port_map_bridge.v1",
+    "bridge_scope": "existing_screen_port_map_reference_audit_only",
+    "local_carrier_conformance_imported": true,
+    "singleton_reference_sewing_imported": true,
+    "typed_general_bundle_schema_present": false,
+    "interface_algebra_hashes_bound": false,
+    "blockers": [
+      "typed_general_seam_bundle_schema_missing",
+      "interface_algebra_hash_binding_missing",
+      "explicit_external_boundary_bundle_ledger_missing",
+      "connected_observer_support_ledger_missing"
+    ],
+    "REFERENCE_SCREEN_PORT_MAP_CARRIER_BRIDGE_RECEIPT": true,
+    "ECHOSAHEDRAL_CARRIER_CONFORMANCE": true,
+    "FEDERATION_SEWING_RECEIPT": false,
+    "CARRIER_QUOTIENT_INVARIANCE_RECEIPT": false,
+    "CARRIER_REFINEMENT_NATURALITY_RECEIPT": true,
+    "CARRIER_TO_SUPPORT_CHART_REALIZATION_RECEIPT": true,
+    "ECHOSAHEDRAL_FEDERATION_SOURCE_INSTRUMENT_VALID": false,
+    "S2_SUPPORT_CHART_EMERGENCE_RECEIPT": false,
+    "H3_FRAME_EMERGENCE_RECEIPT": false,
+    "EVENT_MANIFOLD_RECEIPT": false,
+    "BW_KMS_CLOCK_RECEIPT": false,
+    "claim_boundary": "The current engine report may certify the shared local carrier template and singleton routing reference, and it imports the recomputed reference-template refinement naturality. Typed collar bundles, interface hashes, explicit external boundaries, observer supports, and quotient dynamics are open items for this engine."
+  },
+  "patch_federation_state": {
+    "schema": "oph.echosahedral_patch_federation_state.v1",
+    "patch_count": 81920,
+    "ports_per_patch": 12,
+    "materialized_local_port_state_count": 983040,
+    "routed_port_slot_count": 245760,
+    "unrouted_exposed_or_reserved_port_slot_count": 737280,
+    "routed_edge_endpoint_count": 245760,
+    "routed_state_consistent_with_patch_slots": true,
+    "all_port_coordinate_readout_maps_materialized": true,
+    "patch_port_state_sha256": "bf05847ee0ff0a0166ce1bf3ba1d722d6953f10c9cc97fe6a7332206bc8c9c66",
+    "ECHOSAHEDRAL_PATCH_STATE_INSTANTIATION_RECEIPT": true,
+    "PATCH_ALL_PORT_READBACK_RECEIPT": true,
+    "record_signature_binding": {
+      "algorithm": "routed_record_xor_splitmix_of_a5_invariant_vertex_edge_oriented_face_incidence_multisets",
+      "coordinates_per_patch": 12,
+      "full_patch_state_bound": true,
+      "mode": "node_reference_port_gauge_quotient_a5_incidence_invariants",
+      "local_value_frame_gauge_quotient": true,
+      "local_frame_gauge_quotient": true,
+      "local_a5_port_reorientation_invariant": true,
+      "hidden_xyz_coordinates_used": false,
+      "final_token_recomputation_match": true
+    },
+    "RECORD_SIGNATURE_BINDS_ALL_LOCAL_PORT_STATE_RECEIPT": true,
+    "REFERENCE_LOCAL_A5_RECORD_INVARIANCE_RECEIPT": true,
+    "CARRIER_QUOTIENT_INVARIANCE_RECEIPT": false,
+    "CARRIER_REFINEMENT_NATURALITY_RECEIPT": false,
+    "PHYSICAL_A5_PORT_EMERGENCE_RECEIPT": false,
+    "PHYSICAL_STANDARD_MODEL_EMERGENCE_RECEIPT": false,
+    "claim_boundary": "This is the actual finite local state for every port of every echosahedral cell. Routed slots participate in overlaps and repair; unrouted slots remain local exposed/reserved state. When the record binding receipt is true, all twelve coordinates enter each committed record token. This is a carrier instantiation, not a proof of the full physical quotient: the local A5-invariant record map is now exact, but schedule/worker invariance and cross-rung carrier refinement remain separate false receipts. It is not a proof of the collective A5 screen sieve or Standard Model emergence.",
+    "artifact": {
+      "path": "echosahedral_patch_state.npz",
+      "format": "numpy_compressed_npz",
+      "byte_count": 1966468,
+      "file_sha256": "sha256:8574f02dcf73cee4d302943dae0a2c57e5fc75ae2d9ff840712f9bef2acf9851",
+      "arrays": {
+        "patch_port_state": {
+          "shape": [
+            81920,
+            12
+          ],
+          "dtype": "int16"
+        },
+        "record_signature": {
+          "shape": [
+            81920
+          ],
+          "dtype": "int64"
+        },
+        "committed": {
+          "shape": [
+            81920
+          ],
+          "dtype": "bool"
+        },
+        "port_names": {
+          "shape": [
+            12
+          ],
+          "dtype": "<U3"
+        },
+        "edge_left": {
+          "shape": [
+            122880
+          ],
+          "dtype": "int64"
+        },
+        "edge_right": {
+          "shape": [
+            122880
+          ],
+          "dtype": "int64"
+        },
+        "left_port": {
+          "shape": [
+            122880
+          ],
+          "dtype": "int16"
+        },
+        "right_port": {
+          "shape": [
+            122880
+          ],
+          "dtype": "int16"
+        },
+        "routed_left_state": {
+          "shape": [
+            122880
+          ],
+          "dtype": "int16"
+        },
+        "routed_right_state": {
+          "shape": [
+            122880
+          ],
+          "dtype": "int16"
+        },
+        "canonical_record_port_state": {
+          "shape": [
+            81920,
+            12
+          ],
+          "dtype": "int16"
+        }
+      },
+      "written": true
+    }
+  },
+  "repair_dynamics": {
+    "local_update_rule": true,
+    "uses_only_local_state_and_ports": true,
+    "target_free_rule": true,
+    "repair_event_count": 102415,
+    "strict_descent_repair_event_count": 102415,
+    "non_descent_repair_cycle_count": 0,
+    "nonlocal_write_count": 0,
+    "repair_rule_hash": "sha256:91f0d63493a771dcc8d29de3622d01b2c3aaafc7943a397ce17fad9ef8685f8c",
+    "repair_event_log_hash": "sha256:e966a3705ce853cb570bf5a7352bee81a65fd7299153b0673622c3d593860de2"
+  },
+  "record_observer": {
+    "observer_count": 2048,
+    "committed_record_count": 2048,
+    "historical_committed_record_count": 2048,
+    "current_committed_record_count": 81920,
+    "causally_verified_observer_count": 0,
+    "readback_count": 0,
+    "feedback_event_count": 0,
+    "readback_changes_future_local_actions": false,
+    "records_causally_bound_to_writes": false,
+    "orphan_read_count": 0,
+    "record_readback_feedback_log_hash": null,
+    "record_feedback_audit_rows": [],
+    "external_cap_refresh_is_observer_feedback": false
+  },
+  "run_binding": {
+    "schema": "oph_self_reading_same_run_binding_v1",
+    "config_hash": "sha256:7175736ffa1154777cbd8008c37e5aebea6cb5fbeee4af29a564d8ac4049569e",
+    "seed": 20260827,
+    "patch_count": 81920,
+    "edge_count": 122880,
+    "observer_population_binding_hash": "sha256:d663c6d9f0480edd119672a29d82867e9e069c50978f004a0df9ccc11d9daf89"
+  },
+  "claim_boundary": "Diagnostic simulator-native source/repair/record audit. The current production path still uses a global support-chart cell as each carrier node and uses those coordinates to choose seams, so the four carrier-level source receipts deliberately remain false. The generic causal self-reading tier requires a committed record to be read and to cause a later bounded port write. The source-qualified atomic tier additionally requires separated carrier architecture, complete transaction validation, and a target-free source. External cap-net refresh, worker/cycle time, record correlation without feedback, and downstream H3/SM/gravity fits cannot satisfy this gate. Strict confluence and theorem promotion remain separate receipts.",
+  "causal_event_artifact": {
+    "schema": "oph_record_feedback_causal_event_log_v2",
+    "path": "source_dynamics_repair_record_observer_events.jsonl",
+    "row_count": 0,
+    "byte_count": 0,
+    "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stable_rows_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "run_binding_hash": "sha256:8bd4e248f5f4b5553c57b850a022cf0a36d8b2d144788730227765fb613cf891"
+  },
+  "record_commit_artifact": {
+    "schema": "oph_committed_local_record_log_v1",
+    "path": "source_dynamics_repair_record_commits.jsonl",
+    "row_count": 2048,
+    "byte_count": 1245809,
+    "sha256": "sha256:ee152d30c08a17577f87ca1b4dfde2d84ec8c058eb5c0897fb7f07d7ac0a1a6a",
+    "stable_rows_hash": "sha256:c2fb91758dee20bd22352271f5327a05baf976cd685be4f757511e8634a10082",
+    "run_binding_hash": "sha256:8bd4e248f5f4b5553c57b850a022cf0a36d8b2d144788730227765fb613cf891"
+  }
+}

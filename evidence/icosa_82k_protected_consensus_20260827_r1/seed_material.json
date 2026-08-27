@@ -1,0 +1,14 @@
+{
+  "config_hash": "sha256:7175736ffa1154777cbd8008c37e5aebea6cb5fbeee4af29a564d8ac4049569e",
+  "hash_schema": "oph_typed_canonical_json_v1",
+  "seed": 20260827,
+  "rng_stream_derivation": "sha256(oph-bw-array-rng-v1\\0<stream-name>) plus the uint64 run seed",
+  "rng_stream_names": [
+    "initialization",
+    "patch_ports",
+    "readback",
+    "repair",
+    "repair_authority",
+    "sector"
+  ]
+}

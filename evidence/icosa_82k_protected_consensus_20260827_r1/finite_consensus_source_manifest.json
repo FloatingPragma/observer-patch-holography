@@ -1,0 +1,41 @@
+{
+  "authority_artifact_file_sha256": "sha256:c4113d34a9fdb016eec6d1ef77ce763f88289fbef18eda87ab07bfb6adf10f30",
+  "authority_artifact_path": "protected_repair_authority.npz",
+  "authority_hash_schema": "oph_protected_distinct_node_authority_v1",
+  "authority_kernel_file_sha256": "sha256:ab33093906589e9caa2d006d63d2b0fe26a2bc4d53e44d46d78a5c2e4984dc49",
+  "authority_sha256": "sha256:01002f1d42f505f994b01f9d1887ebabf6385d2168f284e25c9b598082a050b1",
+  "claim_boundary": "Primitive gauge-coupled source arrays and exact replay parameters; the theorem validator must hash-bind and independently rerun them.",
+  "edge_count": 122880,
+  "group_name": "S3",
+  "group_order": 6,
+  "hash_schema": "oph_typed_canonical_json_v1",
+  "node_count": 81920,
+  "node_repair_authority_present": true,
+  "production_sector_repair_config": {
+    "enabled": false,
+    "mode": "repair_coupled_group_compose",
+    "probability": 0.0
+  },
+  "protected_source_hash_schema": "oph_protected_authority_coupled_source_hash_v1",
+  "protected_source_sha256": "sha256:10bc99626500bc86307919ebe8a521d2d3cde8f080d18b210bbd9fbe671173b6",
+  "repair_kernel_contract_file_sha256": "sha256:dd5fcbf112f7fcf59152f0dcf4635c956048169246e2b03317d5af9bb313a469",
+  "repair_kernel_contract_path": "repair_kernel_contract.json",
+  "repair_kernel_mode": "protected_source_authority_v1",
+  "replay_config": {
+    "disjoint_checks": 512,
+    "enabled": true,
+    "gauge_relabeling_checks": 16,
+    "local_diamond_checks": 512,
+    "max_event_rows": 256,
+    "requested_schedule_replays": 16,
+    "schedule_replays": 16
+  },
+  "replay_kernel_file_sha256": "sha256:11dcf7008972a30e4961276cdde9b99034e9e25708e49f19697e8314474f9fd7",
+  "replay_seed": 20292164,
+  "schema": "finite_consensus_replay_source_v2",
+  "source_quotient_hash": "sha256:431bde783714f1677d3e8df876852d183a7f425a761a3d1e9242f0c33d44ff3b",
+  "source_state_sha256": "sha256:5d7bad6cd4dbac6aee6b4b9fb4a2618297b08ce8283d42bbbc1056dea6fb1f6c",
+  "state_file_sha256": "sha256:eee5f2d1ddf93613824dd741336d3b2c182f4068749cc27ce0590a67f679de19",
+  "state_path": "finite_consensus_source_state.npz",
+  "terminal_hash_schema": "oph_protected_authority_terminal_quotient_hash_v1"
+}

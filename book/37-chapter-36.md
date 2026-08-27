@@ -102,7 +102,7 @@ Set the three side by side and the paradox has nowhere to live. First they work 
 
 Run the network on one computer. One process, one memory, one loop that picks a seam, checks it, repairs it if the two sides disagree, and goes round again. It ends where chapter ten said it ends. The endpoint does not depend on which seam it picked first.
 
-Then run the same network across a thousand computers, which is what anybody does in practice with sixty-five thousand patches. Cut the patches into a thousand pieces, one per machine. Each machine holds its own patches plus a copy of the seam data along its border, refreshed by messages that arrive late and out of order. Machines take checkpoints. One dies and restarts from its last checkpoint, replaying updates it had applied before it fell over. A supervisor notices another machine falling behind and re-cuts the entire partition to move work off it.
+Then run the same network across a thousand computers, which is what anybody does in practice with eighty-two thousand patches. Cut the patches into a thousand pieces, one per machine. Each machine holds its own patches plus a copy of the seam data along its border, refreshed by messages that arrive late and out of order. Machines take checkpoints. One dies and restarts from its last checkpoint, replaying updates it had applied before it fell over. A supervisor notices another machine falling behind and re-cuts the entire partition to move work off it.
 
 Anybody who has run a large computation knows what the second version looks like from the operator's chair. The logs differ. The timings differ. Two runs of the identical setup interleave their operations differently. Neither interleaving matches anything the single machine does.
 
