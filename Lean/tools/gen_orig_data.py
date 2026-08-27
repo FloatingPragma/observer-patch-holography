@@ -9,7 +9,9 @@ Inputs (pure data):
   cert.json    -- the BFS relabel map used by certify.py for OphData.lean (new label per id)
 """
 import json, sys, hashlib
-src = sys.argv[1] if len(sys.argv) > 1 else "/home/monkey/scratch/gapwitness"
+if len(sys.argv) < 2:
+    raise SystemExit("usage: gen_orig_data.py SOURCE_DIR")
+src = sys.argv[1]
 g = json.load(open(f"{src}/graph.json"))
 cert = json.load(open(f"{src}/cert.json"))
 nodes, edges = g["nodes"], g["edges"]

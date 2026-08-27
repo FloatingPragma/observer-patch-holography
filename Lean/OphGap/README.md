@@ -15,10 +15,10 @@ the proof's input.
 
 The project uses the toolchain named in `Lean/lean-toolchain`
 (`leanprover/lean4:v4.29.1`) and pins Mathlib to `v4.29.1` in
-`Lean/lakefile.lean`. From the `Lean/` directory, run:
+`Lean/lakefile.lean`. From the repository root, run:
 
 ```sh
-/home/monkey/bin/leanbuild build OphGap
+cd Lean && lake build OphGap
 ```
 
 The repository's Lean CI builds the proof on every push and pull request that
@@ -35,8 +35,6 @@ touches `Lean/**`.
 Negative control: the all-negative square is shown NOT injective, NOT positive definite,
 and to admit NO negative closed walk (`square_no_negative_cycle`).
 
-See `/home/monkey/gapproof-report.md` for the full account.
-
 ## gapwitness (2026-08-20): the rule applied to OPH's actual graph
 
 * `OphGap/Checker.lean` — a certificate checker `check n es cyc : Bool` (spanning tree rooted at
@@ -49,8 +47,6 @@ See `/home/monkey/gapproof-report.md` for the full account.
   `native_decide`), giving `oph_gram_posDef`, `oph_eigenvalues_pos`, `oph_kernel_trivial` for the
   real graph. Negative control `tampered_refused`: flipping ONE sign on a witness edge makes the
   kernel reject the same certificate.
-
-See `/home/monkey/gapwitness-report.md`.
 
 ## gapinvariance (2026-08-20): the theorem now names OPH's ORIGINAL carrier ids
 
@@ -81,4 +77,3 @@ the transport's hypotheses decided by the kernel on the literal data.
   certificates are rejected by the checker rather than silently accepted.
 
 Python now only PRODUCES data files; no step of the argument is justified outside Lean.
-See `/home/monkey/gapinvariance-report.md`.
