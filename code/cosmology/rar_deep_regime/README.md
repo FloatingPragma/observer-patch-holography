@@ -34,6 +34,29 @@ python3 code/cosmology/rar_deep_regime/rar_deep_regime_diagnostic.py \
 python3 -m pytest code/cosmology/rar_deep_regime
 ```
 
+## Source-bound full-RAR calibration
+
+`sparc_full_rar_calibration.py` is deliberately separate from the conditional
+OPH deep law above. It authenticates the committed CDS/VizieR snapshot and
+fits the published empirical interpolation
+`g_obs = g_bar / (1 - exp(-sqrt(g_bar/a_0)))`. The receipt reproduces the
+153-galaxy parent selection, retains 2696 strict-cut points in 147 galaxies,
+and records the remaining three-point difference from the published census.
+It also records fixed mass-to-light and simple weighting sensitivity.
+
+Status: `retrospective_same_data_calibration_diagnostic`,
+`oph_specific_empirical_evidence: false`,
+`independent_held_out_data: false`. The interpolation, acceleration scale, and
+SPARC data predate this replay, `a_0` is fitted, and the nuisance likelihood is
+incomplete. This producer strengthens source custody and reproducibility; it
+does not test an OPH-derived value.
+
+```bash
+python3 code/cosmology/rar_deep_regime/sparc_full_rar_calibration.py --check
+python3 -m pytest -q \
+  code/cosmology/rar_deep_regime/test_sparc_full_rar_calibration.py
+```
+
 ## Quadrupole cross-check (uncertified diagnostic)
 
 `qumond_quadrupole_crosscheck.py` computes the Solar-System external-field

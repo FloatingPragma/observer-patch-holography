@@ -493,11 +493,10 @@ nondecreasing, then \(w(a)\ge-1\) at every epoch: this conditional branch
 forbids a phantom equation of state, and an established
 \(w(a_0)<-1\) forces capacity loss at \(a_0\) through the strict readback.
 
-These statements feed a proposed conditional stance row listed pending the
-owner's freeze. A valid protocol must name post-freeze survey posteriors,
-freeze the scored range, statistic, thresholds, likelihood combination,
-fallbacks, and direction-neutral systematics checks, and treat every
-pre-freeze contour as seen data. Exclusion of \((-1,0)\) in any direction
+A prospective test would require the dataset combination, redshift range,
+statistic, thresholds, fallbacks, and direction-neutral systematics policy to
+be fixed before exposure. The comparisons below are retrospective diagnostics
+and carry no prospective score. Exclusion of \((-1,0)\) in any direction
 conflicts with the fixed branch; a posterior-mean quadrant is not a valid
 extra gate. Conversely, compatibility with \((-1,0)\) does not validate
 fixed capacity or OPH because that point is also the standard
@@ -511,19 +510,37 @@ fractions in that conditional monotone subset are \(0.00705\%\),
 \(0.1125\%\), \(0.01206\%\), and \(0.02054\%\) for BAO+CMB and its Pantheon+,
 Union3, and DESY5 combinations, respectively~\cite{desidr2}. Two
 combinations have at least one chain with no raw sample in the rare subset.
+The respective raw tail counts are 6, 126, 15, and 11. Union3 is represented
+in all four chains but remains sparse.
 These seen-data fractions depend on the collaboration's model, likelihood,
 and priors; they are not model evidences, frequentist exclusions, direct
 capacity measurements, or a prediction score.
 
+Four separately authenticated official DESI DR2 BAO+CMB base-\(\Lambda\)CDM
+chains give, under a direct samplewise nonlinear transform,
+\[
+ \Lambda\ell_P^2=(2.96770\mathbin{\pm}0.03978)\times10^{-122},
+\]
+with weighted 2.5--97.5 percent interval
+\([2.88997,3.04530]\times10^{-122}\). This automatically retains the sampled
+\(H_0\)--\(\Omega_\Lambda\) covariance. It is a target-informed retrospective
+\(\Lambda\)CDM posterior display, not an OPH likelihood or theory
+uncertainty~\cite{desidr2,ophrepo}.
+
 A second conditional diagnostic composes the capacity law with the local
-electroweak-closure tangent. It requires three extra premises: the closure
-capacity is the same \(N\), the closure holds at each epoch, the local clock
-reads the same homogeneous cosmological \(\alpha\) and cosmic-time drift, and
-physical evolution follows that one-dimensional solver-root tangent while the
-other inputs and unit definitions stay fixed. At the present root the numerical
-tangent is \(\mathrm d\ln\alpha/\mathrm d\ln N=-4.76\). Only under all three
-premises does the optical-clock drift limit imply the local bound
-\(\lvert1+w_0\rvert\lesssim7\times10^{-10}\)~\cite{filzinger2023}. The
+electroweak-closure tangent. It requires three extra premises: (B1) the closure
+capacity is the same physical \(N\); (B2) the closure holds differentiably at
+each epoch; and (B3) the compound physical-tangent attachment identifies the
+clock \(\alpha\) with the homogeneous cosmological \(\alpha\), identifies its
+proper-time drift with the background cosmic-time drift, and makes physical
+evolution follow the committed one-dimensional solver-root co-variation while
+the other inputs and unit definitions stay fixed. At the present root the numerical
+tangents are \(\mathrm d\ln N/\mathrm d\ln\alpha=-0.2101831101\) and
+\(\mathrm d\ln\alpha/\mathrm d\ln N=-4.757756222\), with relative spread
+\(1.22\times10^{-7}\) across the declared step-size sweep. Only under all three
+premises, and using \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\), does the
+optical-clock drift limit imply the local bound
+\(\lvert1+w_0\rvert\le6.81\times10^{-10}\)~\cite{filzinger2023}. The
 static closure solver does not derive the cosmic tangent, and its local
 Jacobian cannot be extrapolated over the order-one changes suggested by some
 CPL histories. The diagnostic restricts but does not empty the monotone
@@ -622,7 +639,16 @@ arXiv:2607.14042 [hep-th], 2026.
 DESI Collaboration,
 \emph{DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and
 Cosmological Constraints}, arXiv:2503.14738, 2025.
-\url{https://arxiv.org/abs/2503.14738}
+\url{https://arxiv.org/abs/2503.14738}. Official chains and checksum manifest:
+\url{https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/README.html}.
+Manifest authenticated by the replay:
+\url{https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/dr2_vac_dr2_bao-cosmo-params_v1.0.sha256sum}
+
+\bibitem{ophrepo}
+B.\ M\"uller et al.,
+\emph{Observer-Patch Holography: formal proofs and executable receipts},
+2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/fixed_capacity_wlaw}
 
 \bibitem{filzinger2023}
 M.~Filzinger et al.,

@@ -76,8 +76,14 @@ density, and the deep profile with its single constant is characterized,
 conditional on two named premises, as the unique law satisfying deep-regime
 scale covariance and quadrature
 composition of independent sources. All structural statements are
-machine-checked. The magnitude of the anomalous charge and the physical
-attachment of the envelope are not derived here.
+machine-checked. A separate source-bound replay of the published empirical
+full radial-acceleration interpolation reproduces the 153-galaxy parent
+selection and fits an acceleration scale compatible with the established
+empirical value, while exposing order-ten-percent weighting sensitivity.
+Because both the interpolation and dataset were known, that replay strengthens
+provenance but is not OPH-specific evidence. The
+magnitude of the anomalous charge and the physical attachment of the envelope
+are not derived here.
 \end{abstract}
 
 \section*{Claim Boundary}
@@ -531,11 +537,43 @@ constructions.
 
 Theorems~\ref{thm:rar} and \ref{thm:btfr} are compared with the SPARC sample
 of 175 disk galaxies with \(3.6\,\mu\)m photometry~\cite{sparc2016} under the
-standard cuts of McGaugh, Lelli, and Schombert~\cite{mls2016}: quality flag
-at most 2, inclination at least \(30^\circ\), velocity error at most ten
-percent, stellar mass-to-light ratios \(0.5\) for disks and \(0.7\) for
-bulges, leaving 2700 points in 149 galaxies. The computation is released
-with the paper~\cite{ophrar}.
+declared inclusive-error deep-law diagnostic: quality flag at most 2,
+inclination at least \(30^\circ\), velocity error at most ten percent, and
+stellar mass-to-light ratios \(0.5\) for disks and \(0.7\) for bulges. This
+leaves 2700 points in 149 galaxies. The strict published-cut replay described
+below is kept separate. Both computations are released with the
+paper~\cite{mls2016,ophrar}.
+
+\paragraph{Source-bound full-RAR calibration.}
+Separate from the conditional OPH deep law, a deterministic replay fits the
+published empirical interpolation
+\[
+g_{\rm obs}=\frac{g_{\rm bar}}
+ {1-\exp[-\sqrt{g_{\rm bar}/a_0}]}
+\]
+to a committed CDS/VizieR snapshot whose provenance, catalogue description,
+and two table files are pinned by SHA-256. The catalogue cuts reproduce the
+published 153-galaxy parent selection. The strict point cuts retain 2696
+points in 147 contributing galaxies, three more than the published 2693-point
+census. These counts are distinct from the preceding 2700-point, 149-galaxy
+deep-law diagnostic: that diagnostic uses the inclusive cut
+\(dV/V\le0.1\), whereas this full-RAR replay uses the strict cut
+\(dV/V<0.1\) and starts from the 153-galaxy parent set. With disk and bulge
+mass-to-light values 0.5 and 0.7, the unweighted
+point-level log-residual fit gives
+\[
+a_0=(1.1613\mathbin{\pm}0.0802)\times10^{-10}\,\mathrm{m\,s^{-2}},
+\qquad \sigma_{\log_{10}g}=0.1327\ \mathrm{dex},
+\]
+where the width is the standard deviation of a galaxy bootstrap. Equal total
+weight per contributing galaxy shifts \(a_0\) by \(-9.58\%\); weighting only
+by inverse fractional velocity variance shifts it by \(+15.49\%\). These are
+estimator-sensitivity controls, not calibrated likelihood alternatives. The
+interpolation and acceleration scale were known before this replay, no OPH
+source value enters the fit, and distance, inclination, gas, stellar
+population, intrinsic scatter, and correlation uncertainties are not jointly
+marginalized. The result certifies public-data custody and arithmetic, not
+independent evidence for OPH~\cite{mls2016,ophrar}.
 
 \paragraph{Radial acceleration.}
 On fixed absolute subsets \(g_{\rm bar}<f a_{\rm ref}\), with the
@@ -711,7 +749,10 @@ radial-acceleration and matched anomalous-speed channels agree on that
 constant within the paired bootstrap interval, on seen data, and the
 released penalized profile objective retains consistency at every scanned
 intra-galaxy correlation value; its contours are uncalibrated and some are
-disconnected. A calibrated
+disconnected. The separate source-bound full-RAR replay reproduces the
+published parent-galaxy selection and acceleration scale, while its simple
+weighting controls shift the fitted scale by roughly ten to fifteen percent;
+it is a custody and estimator-sensitivity result, not OPH evidence. A calibrated
 covariance and intrinsic-scatter treatment stays required for a physical
 verdict; the correlation scan is a large unresolved sensitivity, not a
 ranking of the total systematic budget. The
@@ -757,7 +798,8 @@ B. Mueller,
 F. Lelli, S. S. McGaugh, and J. M. Schombert,
 \emph{SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves},
 Astron. J. 152, 157 (2016), arXiv:1606.09251.
-\url{https://arxiv.org/abs/1606.09251}
+\url{https://arxiv.org/abs/1606.09251}. CDS/VizieR catalogue:
+\url{https://cdsarc.cds.unistra.fr/ftp/J/AJ/152/157/}
 
 \bibitem{mls2016}
 S. S. McGaugh, F. Lelli, and J. M. Schombert,
@@ -774,7 +816,7 @@ Astrophys. J. 698, 1630 (2009), arXiv:0810.4065.
 \bibitem{verlinde2016}
 E. Verlinde,
 \emph{Emergent Gravity and the Dark Universe},
-SciPost Phys. 2, 016 (2017), arXiv:1611.02269.
+SciPost Physics \textbf{2}, article 016 (2017), arXiv:1611.02269.
 \url{https://arxiv.org/abs/1611.02269}
 
 \bibitem{park2026}

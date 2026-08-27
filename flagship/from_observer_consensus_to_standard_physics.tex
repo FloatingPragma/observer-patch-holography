@@ -2741,6 +2741,18 @@ calibration import (M2). The residual is small because the count is large: a
 constant of that magnitude corresponds to a horizon record capacity of order
 $10^{122}$, and no small region of space contains a number of that size.
 
+The official DESI DR2 release supplies four base-$\Lambda$CDM chains for
+BAO+CMB. Each was authenticated against its manifest. Transforming every
+weighted sample gives a covariance-preserving retrospective coordinate,
+\[
+ \Lambda\ell_P^2=(2.96770\mathbin{\pm}0.03978)\times10^{-122},
+\]
+with weighted 2.5--97.5 percent interval
+\([2.88997,3.04530]\times10^{-122}\) \cite{desidr2,ophrepo}. The transform
+retains the sampled $H_0$--$\Omega_\Lambda$ covariance rather than inserting a
+separate Gaussian covariance. It is a target-informed $\Lambda$CDM posterior
+display, not an OPH likelihood, theory uncertainty, or predictive pull.
+
 In the displayed proposals, $A_T(\cdot)$ is the inverse electromagnetic
 coupling the declared Thomson-limit source map returns at a trial screen
 grain, $\alpha_U(\cdot)$ the coupling the same declared map returns at
@@ -3303,13 +3315,21 @@ kinematics gives, at \(u=x(1-x)\in(0,1/4]\),
 The reciprocal-linear envelope and endpoint transition are machine-checked.
 At and above the transition, Lean also proves that the equality witness is
 realized by an open physical share, so it is the constrained share minimum
-rather than merely a lower bound. The unconstrained minimizer is
-\(u_*=m_e/(\sqrt{3d}\,k^2)\); it enters the physical interval above
-\(k_t=2\sqrt{m_e}(3d)^{-1/4}\), where the envelope becomes
-\(\epsilon_{\rm env}=(\sqrt3/2)m_e k\sqrt d\). At \(a=\ell_P\), representative
-single-energy CMB targets give finite leading kinematic windows ending at
-\(7.82\times10^{19}\,\mathrm{eV}\) for \(\epsilon=6.34\times10^{-4}\,\mathrm{eV}\)
-and \(3.70\times10^{20}\,\mathrm{eV}\) for
+rather than merely a lower bound. Explicitly,
+\[
+ \epsilon_{\min}(k)=
+ \begin{cases}
+  m_e^2/k+3dk^3/16, & 3dk^4\le16m_e^2,\\
+  (\sqrt3/2)m_e k\sqrt d, & 3dk^4\ge16m_e^2.
+ \end{cases}
+\]
+The branches agree at equality. The unconstrained minimizer is
+\(u_*=m_e/(\sqrt{3d}\,k^2)\); it enters the physical interval at
+\(k_t=2\sqrt{m_e}(3d)^{-1/4}\). At \(a=\ell_P\), representative
+single-energy CMB targets give finite leading kinematic windows
+\([4.12\times10^{14},7.82\times10^{19}]\,\mathrm{eV}\) for
+\(\epsilon=6.34\times10^{-4}\,\mathrm{eV}\) and
+\([8.70\times10^{13},3.70\times10^{20}]\,\mathrm{eV}\) for
 \(\epsilon=3.0\times10^{-3}\,\mathrm{eV}\). These are roots of a conditional
 leading equation, not optical depths or fluxes. They neither transfer the
 published photon-only Auger exclusion to the common-coefficient branch nor
@@ -3518,6 +3538,22 @@ galaxies its paired log-ratio interval \([-0.117,0.026]\) dex contains zero.
 Because several observable, sample, and combination choices change together,
 this supports but does not causally identify a mixed-proxy explanation.
 
+A separate source-bound replay calibrates the published empirical full-RAR
+interpolation rather than the OPH deep law. It authenticates the committed
+CDS/VizieR SPARC snapshot, reproduces the published 153-galaxy parent
+selection, and retains 2696 points in 147 contributing galaxies after the
+strict fractional-velocity-error cut, three points more than the published
+2693-point census. At the standard fixed stellar mass-to-light values it gives
+\(a_0=(1.1613\mathbin{\pm}0.0802)\times10^{-10}\,\mathrm{m\,s^{-2}}\),
+where the displayed width is the galaxy-bootstrap standard deviation, with
+0.1327 dex residual scatter. Equal parent-galaxy weighting shifts the fitted
+scale by \(-9.58\%\), while inverse fractional-velocity-variance weighting
+alone shifts it by \(+15.49\%\). These alternatives are estimator-sensitivity
+controls, not likelihoods. The interpolation and acceleration scale were
+known before the replay, no source law fixes \(a_0\), and the nuisance model is
+incomplete, so the result strengthens data custody and arithmetic rather than
+supplying OPH-specific evidence \cite{ophdarkmatter,ophrepo}.
+
 A per-point Gaussian data term with gridded nuisance penalties and an
 equal-correlation covariance scan has also been computed. It is a penalized
 profile objective rather than a maximum-likelihood analysis: its
@@ -3572,15 +3608,18 @@ frequentist exclusion, or a frozen score. Gaussian moment distances of the
 fixed point are likewise recorded only as diagnostics, not as official
 profile-likelihood or evidence results.
 
-There is also a conditional local clock bridge, but it needs more than the
-two displayed capacity formulas. If the capacity in the electroweak closure
-is the same \(N\), the closure holds epoch by epoch, the local clock reads the
-same homogeneous cosmological \(\alpha\) and cosmic-time drift, and physical
-evolution follows the one-dimensional closure-root tangent with its other
-inputs and units fixed, the present root gives
-\(\mathrm d\ln\alpha/\mathrm d\ln N=-4.76\). Under all three extra premises,
+There is also a conditional local clock bridge, but it needs three explicit
+premises beyond the displayed capacity formulas: (B1) the electroweak closure
+capacity is the same physical \(N\); (B2) that closure holds differentiably
+epoch by epoch; and (B3) the local clock reads the same homogeneous
+cosmological \(\alpha\) and cosmic-time drift while physical evolution follows
+the same one-dimensional closure-root tangent with its other inputs and units
+fixed. The present root gives
+\(\mathrm d\ln N/\mathrm d\ln\alpha=-0.2101831101\) and
+\(\mathrm d\ln\alpha/\mathrm d\ln N=-4.757756222\), stable to relative spread
+\(1.22\times10^{-7}\) across the declared step-size sweep. Under B1--B3,
 the optical-clock drift result of Filzinger et al. gives the local diagnostic
-\(\lvert1+w_0\rvert\lesssim7\times10^{-10}\)
+\(\lvert1+w_0\rvert\le6.81\times10^{-10}\)
 \cite{filzinger2023}. This does not derive that cosmic tangent, does not
 justify extrapolating it over order-one changes, and does not empty the
 monotone branch: arbitrarily small positive capacity drift remains viable.
@@ -3937,8 +3976,9 @@ to a cosmological constant, so gauge structure and gravity descend from one
 source rather than from two independent stipulations. Modular charge carrying
 no electromagnetic readout classifies a non-luminous gravitating sector whose
 deep-regime law is unique under scale covariance and quadrature composition,
-carrying one constant into flat rotation curves and $v^4=GM_ba_0$; reading the
-record capacity as a density sends fixed capacity to $(w_0,w_a)=(-1,0)$; and
+carrying one constant into flat rotation curves and $v^4=GM_ba_0$; reading
+the dark-energy density as $\rho_{\rm DE}=\kappa/N$ sends fixed capacity to
+$(w_0,w_a)=(-1,0)$; and
 on the support-visible compact-gauge branch the continuum Yang--Mills
 Hamiltonian gap is the limiting repair gap under the named certificates.
 
@@ -4444,7 +4484,8 @@ violation from LHAASO observations of GRB 221009A.''
 \bibitem{desidr2}
 DESI Collaboration (2025). ``DESI DR2 Results II: Measurements of Baryon
 Acoustic Oscillations and Cosmological Constraints.'' arXiv:2503.14738.
-\url{https://arxiv.org/abs/2503.14738}
+\url{https://arxiv.org/abs/2503.14738}. Official chains and checksum manifest:
+\url{https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/README.html}
 
 \bibitem{filzinger2023}
 Filzinger, M., et al.\ (2023). ``Improved Limits on the Coupling of Ultralight
