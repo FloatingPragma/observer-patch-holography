@@ -18,7 +18,9 @@ lean_lib «ObservableNormalForms» where
 lean_lib «ObserverPatchHolography» where
   srcDir := "."
 
-@[default_target]
+-- The frozen 8,662-carrier certificate is deliberately opt-in.  Lean CI
+-- builds it in a dedicated, change-aware job so unrelated default builds do
+-- not inherit its sequential kernel-evaluation cost.
 lean_lib «OphGap» where
   srcDir := "."
   -- The folded proof predates this repository's project-wide explicit-binder

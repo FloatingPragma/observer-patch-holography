@@ -3,6 +3,7 @@ name: Lean CI
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - "Lean/**"
       - "claims/frozen_prediction_register.json"
@@ -33,17 +34,18 @@ on:
       - "tools/check_lean_native_decide_inventory.py"
       - ".github/workflows/lean-ci.yml"
 
+concurrency:
+  group: lean-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    # A cold build (Mathlib source fallback plus the OPH libraries) exceeds
-    # any single-job limit on a two-core runner, and a job cancelled by
-    # timeout-minutes skips cache post-steps, so no progress was ever saved
-    # and every run restarted from zero. The build therefore runs under an
-    # internal time budget, the Lake directories are saved explicitly even
-    # when the budget expires, and the next run resumes from the saved
-    # state until it completes.
-    timeout-minutes: 350
+    # Keep every per-change Lean job below the repository's 30-minute CI
+    # ceiling. Internal budgets leave time to save resumable build artifacts
+    # before this hard job timeout. The expensive frozen OphGap certificate is
+    # checked independently in the parallel, change-aware job below.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -51,6 +53,9 @@ jobs:
           # FZ-11 resolves and hashes its original and repaired proof blobs at
           # their declared commits, then checks the repair is a direct child.
           fetch-depth: 0
+
+      - name: Verify Lean CI runtime ceiling
+        run: python3 tools/check_lean_ci_budget.py
 
       - name: Install elan
         run: |
@@ -69,10 +74,12 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: |
-            Lean/.lake
-            Lean/ObservableNormalForms/.lake
-          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}
+            Lean/.lake/build
+            Lean/ObservableNormalForms/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
+            lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-
+            lean-core-v3-${{ runner.os }}-
             lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}
             lake2-${{ runner.os }}-
 
@@ -102,7 +109,7 @@ jobs:
         run: |
           set -euo pipefail
           status=0
-          timeout 300m lake build 2>&1 | tee lake-build.log || status=$?
+          timeout 18m lake build 2>&1 | tee lake-build.log || status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then
             echo "::warning::lake build stopped with exit $status (124 = time budget reached); progress is cached for the next run"
@@ -129,7 +136,7 @@ jobs:
         run: |
           set -euo pipefail
           status=0
-          timeout 60m lake build 2>&1 | tee onf-build.log || status=$?
+          timeout 5m lake build 2>&1 | tee onf-build.log || status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then
             echo "::warning::ObservableNormalForms build stopped with exit $status; progress is cached for the next run"
@@ -140,9 +147,9 @@ jobs:
         if: always()
         with:
           path: |
-            Lean/.lake
-            Lean/ObservableNormalForms/.lake
-          key: lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}
+            Lean/.lake/build
+            Lean/ObservableNormalForms/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Fail when the time budget expired before completion
         if: steps.budget_build.outputs.status != '0'
@@ -230,3 +237,133 @@ jobs:
 
       - name: Verify manifest unchanged
         run: git diff --exit-code -- Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json
+
+  ophgap:
+    name: OphGap certificate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Detect OphGap-relevant changes
+        id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "required=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            base="$PR_BASE_SHA"
+            head="$PR_HEAD_SHA"
+          else
+            base="$BEFORE_SHA"
+            head="$GITHUB_SHA"
+          fi
+
+          if [ -z "$base" ] || [[ "$base" =~ ^0+$ ]] || ! git cat-file -e "$base^{commit}"; then
+            echo "required=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if git diff --quiet "$base" "$head" -- \
+              Lean/OphGap Lean/OphGap.lean \
+              Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json \
+              .github/workflows/lean-ci.yml; then
+            echo "required=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "required=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install elan
+        if: steps.changes.outputs.required == 'true'
+        run: |
+          set -euo pipefail
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Print toolchain
+        if: steps.changes.outputs.required == 'true'
+        working-directory: Lean
+        run: |
+          lean --version
+          lake --version
+
+      - name: Restore OphGap build cache
+        if: steps.changes.outputs.required == 'true'
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            Lean/.lake/build/lib/lean/OphGap
+            Lean/.lake/build/lib/lean/OphGap.*
+            Lean/.lake/build/ir/OphGap
+            Lean/.lake/build/ir/OphGap.*
+          key: ophgap-v1-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ophgap-v1-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json') }}-
+            ophgap-v1-${{ runner.os }}-
+            lake2-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}
+            lake2-${{ runner.os }}-
+
+      - name: Fetch Mathlib olean cache
+        if: steps.changes.outputs.required == 'true'
+        working-directory: Lean
+        run: |
+          set -euo pipefail
+          status=0
+          lake exe cache get 2>&1 | tee cache-get-ophgap.log || status=$?
+          tail -n 5 cache-get-ophgap.log || true
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::lake exe cache get exited with $status; continuing under the proof budget"
+          fi
+
+      - name: Build OphGap under time budget
+        id: ophgap_build
+        if: steps.changes.outputs.required == 'true'
+        working-directory: Lean
+        run: |
+          set -euo pipefail
+          status=0
+          timeout 23m lake build OphGap 2>&1 | tee ophgap-build.log || status=$?
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          if [ "$status" -ne 0 ]; then
+            echo "::warning::OphGap stopped with exit $status (124 = time budget reached); progress is cached for the next run"
+          fi
+
+      - name: Save OphGap build cache
+        if: always() && steps.changes.outputs.required == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            Lean/.lake/build/lib/lean/OphGap
+            Lean/.lake/build/lib/lean/OphGap.*
+            Lean/.lake/build/ir/OphGap
+            Lean/.lake/build/ir/OphGap.*
+          key: ophgap-v1-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Fail when the OphGap budget expired before completion
+        if: steps.changes.outputs.required == 'true' && steps.ophgap_build.outputs.status != '0'
+        run: |
+          echo "The OphGap certificate did not complete within its 23-minute build budget." >&2
+          echo "Progress was saved; re-run this workflow to resume from the cache." >&2
+          exit 1
+
+      - name: Check OphGap proof debt
+        if: steps.changes.outputs.required == 'true'
+        run: |
+          set -euo pipefail
+          if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b|^\s*axiom\b|\bby\s+native_decide\b' \
+              Lean/OphGap.lean Lean/OphGap --glob '*.lean'; then
+            echo "Unexpected proof debt in OphGap." >&2
+            exit 1
+          fi
