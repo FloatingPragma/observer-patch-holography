@@ -1963,6 +1963,50 @@
         "docs/FROZEN_PREDICTION_LADDER.md": "statement"
       },
       "notes": "Removal needs the data-bearing source lower-bound theorem the frozen clarification names. Disposition remove rather than axiomatize because a stipulated value is inadmissible for a null verdict. Independent source invariants remain viable; the current numeric and Prop placeholders do not block them."
+    },
+    {
+      "id": "PR-77",
+      "name": "pathwise weak fairness for canonical adaptive repair",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "Along one canonical adaptive repair run, every site that remains enabled throughout a tail is eventually selected on that tail. The premise is sufficient for the eventual constant record to be normal, but it is not needed for premise-free eventual constancy and is not derived or selected by canonical repair.",
+      "consuming_lanes": [
+        750
+      ],
+      "evidence": [
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean",
+        "Lean/Tower/AdaptiveFixedPointEndpoint.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean": "conditional_consumer",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean": "no_go",
+        "Lean/Tower/AdaptiveFixedPointEndpoint.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The reducible constant remoteReader flagUp control shows that arbitrary eventual constancy does not imply normality. Removal of this row needs a source theorem that produces pathwise weak fairness for the chosen adaptive scheduler; no current source theorem does so."
+    },
+    {
+      "id": "PR-78",
+      "name": "work-conserving canonical adaptive choice",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "At every canonical adaptive repair state, whenever some site has an effective repair, the selected site has an effective repair. This stronger premise gives a normal and stable horizon bounded by the initial mismatch count. It is not required for premise-free eventual constancy or the weaker pathwise-fair normality theorem.",
+      "consuming_lanes": [
+        750
+      ],
+      "evidence": [
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean": "conditional_consumer",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The alwaysProbe witness proves the premise is nonvacuous. Canonical repair supplies the available local moves but does not select a work-conserving scheduler, so the premise remains explicitly declared and is consumed only by the quantitative rank-horizon corollary."
     }
   ]
 }

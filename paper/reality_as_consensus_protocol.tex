@@ -40,9 +40,11 @@ The Fixed-Point Computation That Implements Physics}
 The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation selects a public normal form, while its updates supply an internal record ordering. Identifying that ordering with cosmic history or a physical clock requires additional bridge data.
 
 The paper proves the finite mechanics used by the companion results:
-validated repair, exact descent, schedule-independent normal forms under the
-declared hypotheses, loop obstructions, stable records, refinement control, and
-a fair-block theorem for noisy consensus.
+validated repair, exact descent, eventual constancy of canonical adaptive
+repair attempts, normality under pathwise weak fairness, schedule-independent
+public endpoints under the remaining completeness and confluence hypotheses,
+loop obstructions, stable records, refinement control, and a fair-block theorem
+for noisy consensus.
 
 The paper's no-go result sets the scope of the title: the bare consensus
 reduct does not determine a Lorentzian metric or the
@@ -87,9 +89,12 @@ paper with their standard meanings. OPH adds the physical reading: each variable
 patch, each constraint is an overlap-visible record check, and each accepted rewrite is a local
 repair move that must descend to the quotient seen by neighboring observers.
 
-That turns consensus into the implementation layer of the theory. The paper proves when finite
-patch repair terminates, when the terminal public state is schedule-independent, how boundary data
-control uniqueness, and how cycle holonomy records the exact obstruction to global agreement. Its
+That turns consensus into the implementation layer of the theory. The paper distinguishes
+accepted-step termination from scheduler attempts that may stutter, proves that every canonical
+adaptive attempt stream is eventually constant, isolates pathwise weak fairness as sufficient for
+normality, and identifies completeness and confluence as the remaining hypotheses for one
+canonical public endpoint. It also proves how boundary data control uniqueness and how cycle
+holonomy records the exact obstruction to global agreement. Its
 finite results support the framework's mathematical core. The paper also explains why
 a bare overlap graph is only a finite constraint code. Stronger language such as
 quantum error correction, min-cut distance, BFT liveness, or hardware speedup needs its own
@@ -1009,6 +1014,32 @@ dropped by at least \(T\eta\). Since \(\Phi\ge0\), \(T\eta\le\Phi(s_0)\), giving
 ceiling bound.
 \end{proof}
 
+\begin{theorem}[Adaptive repair attempts: stabilization, fairness, and work conservation]
+\label{thm:adaptive-repair-stratification}
+Let \(C\) be a finite OPH carrier, let \(x_0\) be an initial record, and let
+\(\sigma\) choose one site from the current record at each attempt.  Write
+\(x_n=\operatorname{adaptiveRun}_C(n,\sigma,x_0)\).  Then:
+\begin{enumerate}[label=(\roman*)]
+\item for every \(\sigma\), the sequence \(x_n\) is eventually constant;
+\item if \(\sigma\) is pathwise weakly fair, so that a site which remains
+enabled along a tail is eventually selected on that tail, the stable record is
+a normal form;
+\item if \(\sigma\) is work conserving, so that it selects an effective repair
+whenever one exists, there is a normal and stable index
+\(N\le\operatorname{mismatchCount}(x_0)\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Every attempt either stutters or is an accepted repair step.  The mismatch
+count never increases and strictly decreases at every nonstuttering attempt,
+so only finitely many genuine changes are possible.  If a pathwise weak-fair
+run were eventually constant at a reducible record, an enabled site would
+remain enabled along that tail and would eventually be selected, contradicting
+constancy.  Work conservation removes stuttering before normality, so the
+initial natural-number rank bounds the normal horizon.
+\end{proof}
+
 \begin{remark}[Termination is not confluence]\label{rem:termination-not-confluence}
 Proposition~\ref{prop:lyapunov-termination} proves only that accepted repair runs stop. It does not
 prove that two update orders stop at the same physical state. Schedule-independence enters only after
@@ -1138,6 +1169,22 @@ Here objectivity is identified with schedule-independent convergence on the
 physical quotient; Theorem~\ref{thm:obsconfluence} lifts this to the physical
 observable algebra while explicitly allowing distinct microscopic terminal
 representatives.
+
+\begin{corollary}[Canonical endpoint for weak-fair adaptive repair]
+\label{cor:adaptive-canonical-public-endpoint}
+Assume the completeness and confluence hypotheses of
+Theorem~\ref{thm:confluence}.  Every pathwise weak-fair canonical adaptive run
+from one initial record reaches a stable consistent record equal to the
+canonical repair endpoint.  Its image is therefore the same public fixed-point
+object for every such scheduler.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:adaptive-repair-stratification} gives a reachable stable
+normal form.  Completeness makes that normal form consistent.  Confluence
+identifies it with the canonical repair normal form from the same start, and
+the public projection preserves the equality.
+\end{proof}
 
 \begin{remark}[Quantifier on normal-form uniqueness]\label{rem:normal-form-quantifier}
 Theorem~\ref{thm:confluence} proves quotient-normal-form uniqueness from a
@@ -4203,6 +4250,12 @@ separated cofinal refinement-limit consensus classes, controlled coarse-graining
 the fixed-cutoff operator-record theorem, distributed one-universe realization for admissible
 worker presentations of a single global carrier, and conditional noisy fair-block convergence once a
 separate contraction certificate is supplied.
+For the repository's canonical single-site attempt semantics, every adaptive
+run is eventually constant.  Pathwise weak fairness is the exact additional
+condition used here to exclude a reducible constant tail; work conservation is
+stronger and is used only for the initial-mismatch horizon.  Completeness and
+confluence remain separate requirements for one consistent canonical public
+endpoint.
 It also proves the full repair-completeness, Petz-domain, and quotient-compatibility package on
 the rooted-tree packet-net domain of Theorem~\ref{thm:tree-packet-domain}, and gives a clean
 law-selection meta-model. Separate companion constructions give the relativity
@@ -4227,7 +4280,10 @@ most the number of distinct reachable \(\mu\)-values below its start value minus
 accepted transaction strictly lowers the declared exact measure. On the scalar \(\Phi\)-branch
 this specializes to the \(|\Phi(\Sigma)|-1\le |\Sigma|-1\) bound. Exact normal-form
 computation is therefore decidable by direct iteration of accepted aggregate transactions. This
-step bound is a termination statement; the schedule-independent answer depends on the atomic
+step bound counts accepted nontrivial repairs rather than scheduler attempts,
+which may stutter.  Theorem~\ref{thm:adaptive-repair-stratification} separately
+shows eventual constancy for every canonical adaptive attempt stream and
+normality under pathwise weak fairness.  The schedule-independent answer depends on the atomic
 conflict-component local diamond and repair-completeness clauses of Theorem~\ref{thm:confluence}.
 What this paper does
 \emph{not} prove is a uniform polynomial-time bound, a sharper complexity-class placement for

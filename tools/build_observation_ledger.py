@@ -183,6 +183,8 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (742, "PR-74"): "frozen dispersion comparison contract surface of the prediction ladder, not a cosmology observation row",
     (742, "PR-75"): "frozen dispersion comparison contract surface of the prediction ladder, not a cosmology observation row",
     (742, "PR-76"): "frozen dispersion comparison contract surface of the prediction ladder, not a cosmology observation row",
+    (750, "PR-77"): "adaptive consensus theorem premise, not a physical observation row",
+    (750, "PR-78"): "adaptive consensus rank-bound premise, not a physical observation row",
     (735, "PR-15"): "SM correspondence calibration boundary",
     (729, "PR-16"): "gravity ladder attachment boundary",
     (729, "PR-29"): "layered gravity source surface",

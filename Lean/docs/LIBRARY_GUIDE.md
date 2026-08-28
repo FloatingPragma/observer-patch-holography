@@ -156,6 +156,16 @@ surface for the OPH consensus layer. Contents:
   bridge characterizes the #304 application premise for arbitrary carriers;
   the premise itself is discharged on the declared domain by the
   `BoundaryFiber` module below.
+- A canonical adaptive-repair stratification in
+  `ObserverPatchHolography/Execution/AdaptiveRunStratification.lean`, with
+  positive and unfair controls in `AdaptiveRunCounterexamples.lean` and a
+  load-bearing public endpoint consumer in
+  `Tower/AdaptiveFixedPointEndpoint.lean`.  Arbitrary attempt streams become
+  constant after finitely many genuine changes; pathwise weak fairness makes
+  the stable record normal, while work conservation gives an
+  initial-mismatch horizon.  Completeness and confluence remain required for
+  one consistent canonical public endpoint.  The package selects no
+  scheduler and supplies no stochastic law, rate, clock, or continuum claim.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

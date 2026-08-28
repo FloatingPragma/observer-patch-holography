@@ -75,6 +75,8 @@ Status legend:
 | Robust no-repair margin, `prop:robust-no-repair` | `robust_no_repair_margin`; `repairMargin_pos_of_compact` | ✅ | Uses the current nonempty-relation hypothesis; abstract collar map and dominating metric. |
 | Empty-domain/empty-relation audits | `empty_write_space_counterexample`; `empty_relation_repairMargin_zero` | ✅ | Machine-checks why the nonemptiness qualifications are load-bearing. |
 | Equivariant section / stabilizer obstruction, `thm:equivariant-section`, `thm:stabilizer` | — | ⬜ | Not encoded. |
+| Canonical adaptive repair stratification, `thm:oph-adaptive-repair-stratification` | `OPH.Execution.adaptiveRun_eventually_constant`; `OPH.Execution.pathwiseWeakFair_eventual_normalForm`; `OPH.Execution.workConserving_eventually_normal` | ✅ | Every adaptive attempt stream is eventually constant; pathwise weak fairness supplies normality; work conservation gives a normal horizon bounded by the initial mismatch count. No stochastic kernel, rate, physical scheduler, or refinement result follows. |
+| Adaptive canonical public endpoint | `OPH.Tower.AdaptiveEndpoint.adaptive_endpoint_mem_fixedPointObject`; `OPH.Tower.AdaptiveEndpoint.adaptive_public_endpoint_exists_unique` | ✅ | Completeness makes the weak-fair stable normal form consistent; confluence identifies it with the canonical `Repair` endpoint and therefore the same public fixed-point object. |
 
 ## Conditional mechanism-variant comparison
 

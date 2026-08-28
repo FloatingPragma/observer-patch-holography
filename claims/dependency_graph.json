@@ -5,6 +5,8 @@
   "OPH-OBS-PATCH-DEF",
   "OPH-CARRIER-PRESENTATION-INVARIANCE",
   "OPH-CONS-D1",
+  "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+  "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
   "OPH-CONS-BFT-PREPARED-LOCK",
   "OPH-CONS-REFINEMENT-MODULI",
   "OPH-CONS-PROTECTED-BEHAVIOR-PROFILE",
@@ -1803,6 +1805,26 @@
    "from": "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
    "to": "OPH-EM-CURL-SECTOR-EIGENBASIS",
    "role": "supplies the general energy-derived real and Hermitian forms, phase flow, generator, and coefficient-recovery theorem that the nineteen-mode curl packet instantiates"
+  },
+  {
+   "from": "OPH-CONS-D1",
+   "to": "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+   "role": "supplies the canonical localRepair, acceptedStep, mismatchCount, and finite carrier semantics on which the adaptive attempt stratification is proved"
+  },
+  {
+   "from": "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER",
+   "to": "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+   "role": "supplies the existing state-dependent AdaptiveScheduler and adaptiveRun interface only; the locality helper's consultation-region conclusion is not consumed"
+  },
+  {
+   "from": "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+   "to": "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
+   "role": "supplies reachable weak-fair adaptive normal forms and the exact work-conservation boundary"
+  },
+  {
+   "from": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+   "to": "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
+   "role": "supplies the canonical Repair endpoint, literal PublicWorld quotient, and fixed-point object consumed by the adaptive endpoint corollary"
   }
  ]
 }

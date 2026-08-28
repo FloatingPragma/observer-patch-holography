@@ -6,6 +6,9 @@ Files:
 
 - `Tower/PublicWorldQuotient.lean`
 - `Tower/FixedPointEndpoint.lean`
+- `Tower/AdaptiveFixedPointEndpoint.lean`
+- `ObserverPatchHolography/Execution/AdaptiveRunStratification.lean`
+- `ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean`
 
 ## Audited dependency boundary
 
@@ -71,6 +74,31 @@ explicitly named terminal-completion postcondition. Termination proves that at
 least one such finite schedule is reachable. Repair labels and histories are
 proof witnesses, not a clock, worldline, preferred foliation, or component of
 world identity.
+
+## Canonical adaptive attempt packet
+
+The repository's `adaptiveRun` is a state-dependent sequence of attempted
+single-site repairs and may stutter when the selected site does not fire. The
+adaptive packet separates three claims that a completed finite schedule does
+not express:
+
+- every adaptive attempt stream is eventually constant, because every genuine
+  change is an accepted repair step and strictly lowers `mismatchCount`;
+- `PathwiseWeakFair` rules out a reducible constant tail and therefore makes
+  the stable record a normal form;
+- the stronger `WorkConserving` condition gives a normal and stable index no
+  larger than the initial mismatch count.
+
+`alwaysProbe` supplies a positive work-conserving witness. The reducible
+`remoteReader flagUp` run is constant under an unfair scheduler and shows why
+eventual constancy does not imply normality.
+
+`AdaptiveFixedPointEndpoint.lean` is the downstream consumer. Under the
+separately named completeness and confluence hypotheses, every pathwise
+weak-fair adaptive run reaches a stable consistent raw endpoint equal to the
+canonical `Repair` endpoint and hence the same `PublicWorld` fixed-point
+object. The packet constructs no stochastic policy, active-source law,
+hitting probability, rate, physical scheduler, clock, or refinement theorem.
 
 ## Direct OPH primitive packet
 
