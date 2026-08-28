@@ -58,3 +58,10 @@ def test_missing_superseded_run_cancellation_is_rejected() -> None:
     workflow, lakefile = _inputs()
     mutated = workflow.replace("  cancel-in-progress: true", "  cancel-in-progress: false", 1)
     assert "Lean CI must cancel superseded runs" in validate(mutated, lakefile)
+
+
+def test_exhaustive_default_build_is_rejected() -> None:
+    workflow, lakefile = _inputs()
+    mutated = workflow.replace('lake build "$target"', "lake build", 1)
+    errors = validate(mutated, lakefile)
+    assert "per-change Lean CI must not run an exhaustive default Lake build" in errors

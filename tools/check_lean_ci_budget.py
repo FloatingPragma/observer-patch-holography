@@ -55,8 +55,18 @@ def validate(workflow: str, lakefile: str) -> list[str]:
         elif int(match.group(1)) > 30:
             errors.append(f"Lean CI {name!r} job exceeds the 30-minute ceiling")
 
-    if "timeout 18m lake build" not in build:
-        errors.append("the default Lean build must retain its 18-minute resumable budget")
+    if "Detect changed Lean modules" not in build:
+        errors.append("the core Lean build must remain change-aware")
+    changed_step = re.search(
+        r"(?ms)^      - name: Build changed Lean modules under time budget\n"
+        r"(?P<body>.*?)(?=^      - name:)",
+        build,
+    )
+    changed_body = changed_step.group("body") if changed_step else ""
+    if "timeout 18m bash -c" not in changed_body or 'lake build "$target"' not in changed_body:
+        errors.append("changed Lean modules must retain their 18-minute build budget")
+    if re.search(r"(?m)^\s+lake build\s*$", changed_body):
+        errors.append("per-change Lean CI must not run an exhaustive default Lake build")
     if "timeout 23m lake build OphGap" not in ophgap:
         errors.append("the OphGap build must retain its 23-minute resumable budget")
     if "Detect OphGap-relevant changes" not in ophgap:

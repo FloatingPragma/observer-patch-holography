@@ -103,16 +103,72 @@ jobs:
             echo "::warning::lake exe cache get exited with $status; continuing (Mathlib may build from source under the time budget)"
           fi
 
-      - name: Build under time budget
+      - name: Detect changed Lean modules
+        id: changed_modules
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            base="$PR_BASE_SHA"
+            head="$PR_HEAD_SHA"
+          else
+            base="$BEFORE_SHA"
+            head="$GITHUB_SHA"
+          fi
+
+          # These two roots provision everything needed by the explicit trust
+          # replays below.  Additional changed modules are compiled directly;
+          # the exhaustive umbrella build is intentionally nightly-only.
+          targets=(
+            "ObserverPatchHolography.EinsteinBranch.AxiomAudit"
+            "A5PrimitivePortPrediction"
+          )
+          if [ -n "$base" ] && [[ ! "$base" =~ ^0+$ ]] && git cat-file -e "$base^{commit}"; then
+            while IFS= read -r path; do
+              [ -n "$path" ] || continue
+              rel="${path#Lean/}"
+              case "$rel" in
+                lakefile.lean|*/lakefile.lean) continue ;;
+                OphGap.lean|OphGap/*) continue ;;
+                ObservableNormalForms/*) rel="${rel#ObservableNormalForms/}" ;;
+                Screen/*) rel="${rel#Screen/}" ;;
+                Thermodynamics/*) rel="${rel#Thermodynamics/}" ;;
+              esac
+              module="${rel%.lean}"
+              module="${module//\//.}"
+              targets+=("$module")
+            done < <(git diff --name-only "$base" "$head" -- 'Lean/**/*.lean')
+          fi
+
+          {
+            echo 'targets<<EOF'
+            printf '%s\n' "${targets[@]}" | sort -u
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Build changed Lean modules under time budget
         id: budget_build
         working-directory: Lean
+        env:
+          LEAN_TARGETS: ${{ steps.changed_modules.outputs.targets }}
         run: |
           set -euo pipefail
           status=0
-          timeout 18m lake build 2>&1 | tee lake-build.log || status=$?
+          timeout 18m bash -c '
+            set -euo pipefail
+            while IFS= read -r target; do
+              [ -n "$target" ] || continue
+              echo "Building Lean target: $target"
+              lake build "$target"
+            done <<< "$LEAN_TARGETS"
+          ' 2>&1 | tee lake-build.log || status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then
-            echo "::warning::lake build stopped with exit $status (124 = time budget reached); progress is cached for the next run"
+            echo "::warning::changed-module build stopped with exit $status (124 = time budget reached)"
           fi
 
       - name: Fetch Mathlib olean cache for the neutral submission artifact
@@ -154,8 +210,8 @@ jobs:
       - name: Fail when the time budget expired before completion
         if: steps.budget_build.outputs.status != '0'
         run: |
-          echo "The Lake build did not complete within the time budget." >&2
-          echo "Progress was saved; re-run this workflow to resume from the cache." >&2
+          echo "The changed-module Lean build did not complete within its 18-minute budget." >&2
+          echo "Split an oversized change or move an exceptional certificate to a dedicated lane." >&2
           exit 1
 
       - name: Fail when the artifact build did not complete
