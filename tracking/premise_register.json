@@ -2007,6 +2007,52 @@
         "claims/assumption_dictionary.md": "statement"
       },
       "notes": "The alwaysProbe witness proves the premise is nonvacuous. Canonical repair supplies the available local moves but does not select a work-conserving scheduler, so the premise remains explicitly declared and is consumed only by the quantitative rank-horizon corollary."
+    },
+    {
+      "id": "PR-79",
+      "name": "bounded waste between canonical adaptive changes",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "From every scheduler index and every reducible canonical repair record, at least one genuine record change occurs among the next q+1 attempts for one declared natural q. The premise permits bounded equality stutter and yields a normal horizon no larger than (q+1) times the initial mismatch count. Canonical repair does not derive q or select a scheduler.",
+      "consuming_lanes": [
+        750
+      ],
+      "evidence": [
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean",
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean",
+        "Lean/Tower/CumulativeCapacityEndpoint.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean": "conditional_consumer",
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean": "no_go",
+        "Lean/Tower/CumulativeCapacityEndpoint.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "Work conservation discharges the q=0 case and the committed alternating TwoCell scheduler discharges q=1. The delayed normalizing scheduler family shows that eventual normality alone does not supply any finite q or mismatch-only attempt horizon."
+    },
+    {
+      "id": "PR-80",
+      "name": "sufficient cumulative attempt budget",
+      "type": "numerical_input",
+      "disposition": "axiomatize",
+      "statement": "The declared natural attempt budget B is at least (q+1) times the initial mismatch count for the same bounded-waste value q. Every scheduler invocation costs one unit, including equality stutter. This adequacy inequality supplies a finite execution capacity but no physical time, rate, energy, bandwidth, fee, or hardware interpretation.",
+      "consuming_lanes": [
+        750
+      ],
+      "evidence": [
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean",
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean",
+        "Lean/Tower/CumulativeCapacityEndpoint.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean": "conditional_consumer",
+        "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean": "conditional_consumer",
+        "Lean/Tower/CumulativeCapacityEndpoint.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The arbitrary-width independent-defect family proves the threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. The number is a mathematical attempt cap only."
     }
   ]
 }

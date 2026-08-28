@@ -43,6 +43,7 @@ The paper proves the finite mechanics used by the companion results:
 validated repair, exact descent, eventual constancy of canonical adaptive
 repair attempts, normality under pathwise weak fairness, schedule-independent
 public endpoints under the remaining completeness and confluence hypotheses,
+a sharp cumulative attempt-capacity classification under bounded waste,
 loop obstructions, stable records, refinement control, and a fair-block theorem
 for noisy consensus.
 
@@ -92,7 +93,8 @@ repair move that must descend to the quotient seen by neighboring observers.
 That turns consensus into the implementation layer of the theory. The paper distinguishes
 accepted-step termination from scheduler attempts that may stutter, proves that every canonical
 adaptive attempt stream is eventually constant, isolates pathwise weak fairness as sufficient for
-normality, and identifies completeness and confluence as the remaining hypotheses for one
+normality, proves that no mismatch-only finite attempt horizon exists for arbitrary normalizing
+schedulers, gives a sharp \((q+1)\)-scaled horizon under bounded waste, and identifies completeness and confluence as the remaining hypotheses for one
 canonical public endpoint. It also proves how boundary data control uniqueness and how cycle
 holonomy records the exact obstruction to global agreement. Its
 finite results support the framework's mathematical core. The paper also explains why
@@ -1040,6 +1042,45 @@ constancy.  Work conservation removes stuttering before normality, so the
 initial natural-number rank bounds the normal horizon.
 \end{proof}
 
+\begin{theorem}[Cumulative attempt-capacity classification]
+\label{thm:cumulative-attempt-capacity}
+Charge one unit for every canonical adaptive scheduler invocation, including
+an equality stutter.  Then:
+\begin{enumerate}[label=(\roman*)]
+\item no function of the initial mismatch alone bounds the first normal
+attempt over all normalizing adaptive schedulers;
+\item if, from every scheduler index and every reducible record, one genuine
+change occurs among the next \(q+1\) attempts, there is a stable normal index
+\[
+N\le(q+1)\operatorname{mismatchCount}(x_0);
+\]
+\item the coefficient is sharp at \(q=0\): for every \(m\ge1\), a canonical
+independent-defect carrier has initial mismatch \(m\) and a work-conserving
+run whose first normal index is exactly \(m\).  The committed TwoCell source
+is a second sharp instance with a different patch cardinality.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For the first clause, delay the enabled TwoCell probe by selecting its
+edge-free site for any prescribed finite number of attempts, then select the
+probe.  The run normalizes one attempt later while the initial mismatch stays
+one.  For the second clause, every block of \(q+1\) attempts starting from a
+reducible record contains a genuine change, and each such change strictly
+lowers the natural mismatch rank.  Strong induction gives the product bound.
+For the sharp family, each self-loop mismatch belongs to one site and one
+canonical local repair removes exactly that mismatch.  A state-dependent
+scheduler always chooses a broken site, so its mismatch count is \(m-n\)
+through attempt \(m\).  The threshold is therefore both necessary and
+sufficient.  The TwoCell calculation repeats the threshold-one conclusion on
+a nonisomorphic source.
+\end{proof}
+
+The premise in (ii) is a bounded stutter allowance.  It is stronger than
+eventual fairness and weaker than work conservation when \(q>0\).  The
+cumulative unit is only a count of chosen-site attempts; it is not a physical
+clock, rate, energy, bandwidth allocation, hardware quota, or fee.
+
 \begin{remark}[Termination is not confluence]\label{rem:termination-not-confluence}
 Proposition~\ref{prop:lyapunov-termination} proves only that accepted repair runs stop. It does not
 prove that two update orders stop at the same physical state. Schedule-independence enters only after
@@ -1184,6 +1225,26 @@ Theorem~\ref{thm:adaptive-repair-stratification} gives a reachable stable
 normal form.  Completeness makes that normal form consistent.  Confluence
 identifies it with the canonical repair normal form from the same start, and
 the public projection preserves the equality.
+\end{proof}
+
+\begin{corollary}[Capacity-bounded canonical endpoint]
+\label{cor:capacity-bounded-canonical-endpoint}
+Assume the completeness and confluence hypotheses of
+Theorem~\ref{thm:confluence}.  Let the scheduler have waste bound \(q\), and
+let the cumulative attempt budget satisfy
+\[
+B\ge(q+1)\operatorname{mismatchCount}(x_0).
+\]
+Then the run reaches a stable consistent record at some attempt \(N\le B\).
+That record equals the canonical repair endpoint and maps to the same existing
+public fixed-point object for every scheduler satisfying the same contract.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:cumulative-attempt-capacity} gives the normal index within
+budget.  Completeness makes the record consistent.  Its accepted-step
+reachability and confluence identify it with canonical repair, and the public
+projection preserves the equality.
 \end{proof}
 
 \begin{remark}[Quantifier on normal-form uniqueness]\label{rem:normal-form-quantifier}
@@ -4283,7 +4344,11 @@ computation is therefore decidable by direct iteration of accepted aggregate tra
 step bound counts accepted nontrivial repairs rather than scheduler attempts,
 which may stutter.  Theorem~\ref{thm:adaptive-repair-stratification} separately
 shows eventual constancy for every canonical adaptive attempt stream and
-normality under pathwise weak fairness.  The schedule-independent answer depends on the atomic
+normality under pathwise weak fairness.  Theorem~\ref{thm:cumulative-attempt-capacity}
+shows that arbitrary normalizing schedulers have no mismatch-only finite
+attempt horizon; a bounded stutter allowance supplies the sharp
+\((q+1)\)-scaled horizon and Corollary~\ref{cor:capacity-bounded-canonical-endpoint}
+consumes a sufficient budget.  The schedule-independent answer depends on the atomic
 conflict-component local diamond and repair-completeness clauses of Theorem~\ref{thm:confluence}.
 What this paper does
 \emph{not} prove is a uniform polynomial-time bound, a sharper complexity-class placement for

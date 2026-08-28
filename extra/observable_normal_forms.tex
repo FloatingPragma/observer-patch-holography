@@ -93,7 +93,11 @@ adaptive repair branch, every attempt stream is eventually constant;
 pathwise weak fairness makes the stable state normal, while work conservation
 gives a normal horizon bounded by the initial mismatch count. Under the
 separately stated completeness and confluence hypotheses, weak-fair runs reach
-one canonical raw and public endpoint. The Markov-chain and fair-termination
+one canonical raw and public endpoint. Counting every scheduler invocation,
+including stutter, gives a genuinely restrictive cumulative capacity: no
+initial-mismatch-only finite attempt horizon exists for arbitrary normalizing
+schedulers, whereas a bounded stutter allowance gives a sharp quantitative
+horizon and a capacity-bounded public endpoint. The Markov-chain and fair-termination
 ingredients are standard; the contribution is their source-bound assembly
 around protected observations, canonical repair, and the existing behavior-cut
 interface. These results supply the observable-normal-form machinery used by the
@@ -177,7 +181,7 @@ At zero residual the bound is exact by definition.  Across all finite metric sys
 One-step approximate naturality follows from consistency and observation defects.  We distinguish same-level receipt-conditioned agreement from genuinely cross-level comparison.  An anchor-optimized theorem compares independently computed outputs at arbitrary refinement levels after restriction to a common level.  Compatible nested inputs leave only the intervening defect segment, and summable pathwise defects yield an implementation-independent projective limit.  A counterexample shows that stagewise injectivity is not enough without a uniform inverse modulus.
 
 \item \textbf{Repair and selection obstructions.}
-A total exact local repair preserving an exterior collar exists if and only if the local consistency relation projects surjectively onto that collar.  For a finite scheduler, four nested protected-behavior sets and their complementary cuts isolate fiber, positive-reach, almost-sure, and endpoint-selection obstructions.  On the canonical OPH adaptive branch, every attempt stream stabilizes after finitely many genuine changes, pathwise weak fairness is sufficient for normality, and work conservation gives an initial-mismatch bound on the normal horizon.  Completeness and confluence remain explicit requirements for a consistent canonical endpoint.  The underlying finite Markov and fair-termination facts are standard; the contribution is the source-bound protected-observation certificate, the adaptive repair stratification, and their exact connection to the existing behavior-cut and public-endpoint interfaces.  On a finite full-support probability space, observation-fiber resampling is the weighted orthogonal conditional-expectation projector and has a finite matrix recognition receipt.  A stabilizer obstruction prevents an equivariant selector on ambiguous fibers.
+A total exact local repair preserving an exterior collar exists if and only if the local consistency relation projects surjectively onto that collar.  For a finite scheduler, four nested protected-behavior sets and their complementary cuts isolate fiber, positive-reach, almost-sure, and endpoint-selection obstructions.  On the canonical OPH adaptive branch, every attempt stream stabilizes after finitely many genuine changes, pathwise weak fairness is sufficient for normality, and work conservation gives an initial-mismatch bound on the normal horizon.  Counting stutter as positive attempt cost separates that bound from cumulative capacity: arbitrary normalizing schedulers admit no mismatch-only attempt horizon, bounded waste gives a quantitative horizon, and two nonisomorphic canonical finite sources make the threshold sharp.  Completeness and confluence remain explicit requirements for a consistent canonical endpoint.  The underlying finite Markov, weighted-rewriting, and fair-termination facts are standard; the contribution is the source-bound protected-observation certificate, the adaptive attempt/cost classification, and their exact connection to the existing behavior-cut and public-endpoint interfaces.  On a finite full-support probability space, observation-fiber resampling is the weighted orthogonal conditional-expectation projector and has a finite matrix recognition receipt.  A stabilizer obstruction prevents an equivariant selector on ambiguous fibers.
 
 \item \textbf{Constructive and linear classes.}
 Ranked functional-audit systems have singleton-or-empty fibers, terminate under every effective asynchronous schedule with an explicit update bound, and settle synchronously in dependency depth; acyclic Boolean circuits compile directly into this class.  Linear quotient systems admit rank tests and singular-value bounds that instantiate \eqref{eq:intro-master}; finite linear dynamics yield the usual observability matrix as a special case.
@@ -189,6 +193,8 @@ A standard finite Markov drift lemma turns a row-wise kernel inequality into end
 \subsection{Relation to existing theory}
 
 The exact theory overlaps several established areas.  Abstract rewriting supplies Newman's lemma, Church--Rosser properties, unique normal forms, and normalization theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003,AotoToyama2018}.  Rewriting modulo equivalence and confluence under invariants address quotient and relevant-state restrictions \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021,Lucas2025}.  Quantitative rewriting enriches rewrite relations themselves and proves metric analogues of classical confluence theorems \citep{GavazzoDiFlorio2022}.  Error bounds and inverse stability are mature subjects in variational analysis \citep{Kruger2015,CibulkaDontchevKruger2018}.  Functoriality of rewriting is also established in categorical graph transformation \citep{DuvalEchahedProst2011}.
+
+Cumulative and nonuniform rewrite costs, derivation-height bounds, failed-attempt accounting, and self-stabilizing enabled-move convergence are established theory \citep{Dijkstra1974,KopMiddeldorpSternagel2017,AvanziniYamada2025}.  The contribution below is not a new weighted-rewriting formalism.  It locates the quantitative boundary on the repository's broader chosen-site attempt semantics, where a scheduler may spend capacity on a quiescent site, and then proves the exact additional condition and finite OPH witnesses that recover a sharp bound.
 
 The triangle inequality, error bounds, inverse continuity, section criteria,
 boundary-indexed unique normal forms, and the Lipschitz telescope are standard.
@@ -2272,6 +2278,67 @@ and therefore the same public fixed-point object.  This promotion supplies no
 stochastic kernel, active-source law, hitting probability, rate, physical
 scheduler, or refinement theorem.
 
+\subsection{Cumulative attempt capacity and sharpness}
+
+Every scheduler invocation now receives one attempt unit, including an
+equality stutter.  Let \(A_N=N\) be this cumulative attempt cost, let \(G_N\)
+count the genuine changes among the first \(N\) attempts, and let
+\(S_N=N-G_N\).  Thus \(A_N=G_N+S_N\); the initial mismatch rank controls
+\(G_N\), but it does not control \(S_N\).
+
+\begin{definition}[Bounded waste]
+For \(q\in\mathbb N\), an adaptive scheduler has \emph{waste bound} \(q\) if,
+from every scheduler index and every reducible record, at least one genuine
+change occurs among the next \(q+1\) attempts.  Work conservation is the
+special case \(q=0\).
+\end{definition}
+
+\begin{theorem}[Cumulative attempt-capacity classification]
+\label{thm:oph-cumulative-attempt-capacity}
+The canonical OPH adaptive attempt semantics has the following three
+properties.
+\begin{enumerate}[label=(\roman*)]
+\item There is no mismatch-only finite attempt horizon for arbitrary
+normalizing schedulers.  For every \(d\), a scheduler on the committed
+TwoCell source has initial mismatch one, stutters through attempt \(d\), and
+reaches a normal form at attempt \(d+1\).
+\item A scheduler with waste bound \(q\) reaches a stable normal form at some
+\[
+N\le(q+1)\operatorname{mismatchCount}(x_0).
+\]
+Consequently an attempt budget \(B\) at least this large cannot be exhausted
+before normality.
+\item The work-conserving coefficient is sharp.  For every \(m\ge1\), a
+canonical independent-defect carrier with \(m\) self-loop mismatches has a
+work-conserving scheduler whose first normal index is exactly \(m\).  Budget
+below \(m\) fails and budget at least \(m\) succeeds.  The committed TwoCell
+source is a second sharp instance with a different patch cardinality.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For (i), the delayed scheduler selects the edge-free TwoCell site for its
+first \(d\) indices and selects the enabled probe next.  All delayed attempts
+are literal equality stutters, while the final probe repair is genuine.
+For (ii), if the current record is reducible, bounded waste produces a genuine
+change within \(q+1\) attempts.  That change strictly lowers the natural
+mismatch rank.  Strong induction on the rank gives the displayed product
+bound, and normality makes the remaining tail constant.  For (iii), each site
+of the independent-defect carrier owns one self-loop mismatch.  A canonical
+local repair sets exactly that site to its unique consistent value, so every
+genuine change lowers the mismatch count by exactly one.  The state-dependent
+scheduler chooses a broken site whenever one exists.  Its rank after \(n\)
+attempts is \(m-n\) for \(n\le m\), proving both necessity and equality.  The
+TwoCell calculation gives the second, nonisomorphic threshold-one instance.
+\end{proof}
+
+Under the same budget and waste premises, the downstream Tower theorem adds
+the separately named completeness and confluence hypotheses and returns the
+existing canonical raw and public fixed-point endpoint at an index
+\(N\le B\).  The capacity is a mathematical count of scheduler invocations.
+It is not a physical clock, rate, energy, bandwidth allocation, hardware
+quota, fee, or stochastic policy.
+
 \subsection{Limitations}
 
 The theory assumes a declared meaningful quotient, consistent set, residual, observation metric, and refinement map.  It does not select those objects.  In particular:
@@ -2291,6 +2358,11 @@ The theory assumes a declared meaningful quotient, consistent set, residual, obs
       premise, but normality requires pathwise weak fairness and a
       canonical consistent endpoint requires completeness and
       confluence;
+\item cumulative attempt capacity counts every chosen-site invocation,
+      including equality stutter; bounded waste and the budget are supplied
+      premises, weak fairness alone gives no finite attempt bound, and the
+      sharp lower bound is family-specific rather than universal over all
+      carriers;
 \item coordinatewise cut comparison is not a scalar score, total order, or
       family-wide optimum, and exact finite transport is not implementation or
       product refinement.

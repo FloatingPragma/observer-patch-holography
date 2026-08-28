@@ -173,7 +173,8 @@ Mapping between Lean 4 theorems in this project and statements in
   clock, or continuum limit follows. See `A3_CONSENSUS_TOWER.md`.
 - A4 finite public-world quotient and endpoint
   (`Tower/PublicWorldQuotient.lean`, `Tower/FixedPointEndpoint.lean`,
-  `Tower/AdaptiveFixedPointEndpoint.lean`):
+  `Tower/AdaptiveFixedPointEndpoint.lean`,
+  `Tower/CumulativeCapacityEndpoint.lean`):
   admission-free finite quotient and rewriting theory. The public world is the
   kernel quotient of an explicit readback and is equivalent to its realized
   signature range. Existing `OPH.Records`, `obsMap`, `localRepair`,
@@ -187,8 +188,14 @@ Mapping between Lean 4 theorems in this project and statements in
   single-site attempt semantics: every adaptive run is eventually constant,
   pathwise weak fairness supplies normality, and work conservation bounds the
   normal horizon by the initial mismatch count. Completeness and confluence
-  remain explicit for a consistent canonical raw and public endpoint. No
-  stochastic scheduler, rate, physical clock, or refinement result follows.
+  remain explicit for a consistent canonical raw and public endpoint.
+  Cumulative attempt capacity charges equality stutters, proves that arbitrary
+  normalizing schedulers have no mismatch-only finite attempt horizon, and
+  under bounded waste returns a sharp `(q + 1)`-scaled horizon. Two
+  nonisomorphic source-faithful instances certify optimality, and the Tower
+  consumer reaches the same raw and public endpoint before a sufficient budget
+  is exhausted. No stochastic scheduler, rate, physical clock, resource
+  attachment, or refinement result follows.
   See `A4_PUBLIC_WORLD_ENDPOINT.md`.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,

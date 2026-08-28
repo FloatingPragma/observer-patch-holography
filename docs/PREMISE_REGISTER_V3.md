@@ -86,8 +86,10 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-76 | source-derived positive exclusivity lower bound | `numerical_input` | `remove` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#742](https://github.com/FloatingPragma/observer-patch-holography/issues/742) |
 | PR-77 | pathwise weak fairness for canonical adaptive repair | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 | PR-78 | work-conserving canonical adaptive choice | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-79 | bounded waste between canonical adaptive changes | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-80 | sufficient cumulative attempt budget | `numerical_input` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 
-Totals: 78 premises. 47 remove, 27 axiomatize, 4 import.
+Totals: 80 premises. 47 remove, 29 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -714,6 +716,22 @@ At every canonical adaptive repair state, whenever some site has an effective re
 - Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
 - Evidence: `Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
 - Disposition note: The alwaysProbe witness proves the premise is nonvacuous. Canonical repair supplies the available local moves but does not select a work-conserving scheduler, so the premise remains explicitly declared and is consumed only by the quantitative rank-horizon corollary.
+
+### PR-79 bounded waste between canonical adaptive changes
+
+From every scheduler index and every reducible canonical repair record, at least one genuine record change occurs among the next q+1 attempts for one declared natural q. The premise permits bounded equality stutter and yields a normal horizon no larger than (q+1) times the initial mismatch count. Canonical repair does not derive q or select a scheduler.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean` (`no_go`), `Lean/Tower/CumulativeCapacityEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: Work conservation discharges the q=0 case and the committed alternating TwoCell scheduler discharges q=1. The delayed normalizing scheduler family shows that eventual normality alone does not supply any finite q or mismatch-only attempt horizon.
+
+### PR-80 sufficient cumulative attempt budget
+
+The declared natural attempt budget B is at least (q+1) times the initial mismatch count for the same bounded-waste value q. Every scheduler invocation costs one unit, including equality stutter. This adequacy inequality supplies a finite execution capacity but no physical time, rate, energy, bandwidth, fee, or hardware interpretation.
+
+- Type `numerical_input`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean` (`conditional_consumer`), `Lean/Tower/CumulativeCapacityEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The arbitrary-width independent-defect family proves the threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. The number is a mathematical attempt cap only.
 
 ## What the dispositions mean
 
