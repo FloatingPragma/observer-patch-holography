@@ -172,9 +172,10 @@ surface for the OPH consensus layer. Contents:
   `CumulativeAttemptCapacityExamples.lean` and the load-bearing consumer in
   `Tower/CumulativeCapacityEndpoint.lean`. Every chosen-site invocation costs
   one unit, including equality stutter. Arbitrary normalizing schedulers have
-  no mismatch-only finite attempt horizon; bounded waste gives the sharp
-  `(q + 1)`-scaled horizon and a sufficient budget reaches the existing public
-  endpoint. No physical resource interpretation follows.
+  no mismatch-only finite attempt horizon; bounded waste gives a
+  `(q + 1)`-scaled upper horizon, the work-conserving case is exactly sharp,
+  and a sufficient budget reaches the existing public endpoint. No physical
+  resource interpretation follows.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

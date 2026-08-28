@@ -191,8 +191,9 @@ Mapping between Lean 4 theorems in this project and statements in
   remain explicit for a consistent canonical raw and public endpoint.
   Cumulative attempt capacity charges equality stutters, proves that arbitrary
   normalizing schedulers have no mismatch-only finite attempt horizon, and
-  under bounded waste returns a sharp `(q + 1)`-scaled horizon. Two
-  nonisomorphic source-faithful instances certify optimality, and the Tower
+  under bounded waste returns a `(q + 1)`-scaled upper horizon. Two
+  nonisomorphic source-faithful instances certify exact work-conserving
+  optimality, and the Tower
   consumer reaches the same raw and public endpoint before a sufficient budget
   is exhausted. No stochastic scheduler, rate, physical clock, resource
   attachment, or refinement result follows.

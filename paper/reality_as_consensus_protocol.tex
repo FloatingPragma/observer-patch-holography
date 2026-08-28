@@ -43,7 +43,8 @@ The paper proves the finite mechanics used by the companion results:
 validated repair, exact descent, eventual constancy of canonical adaptive
 repair attempts, normality under pathwise weak fairness, schedule-independent
 public endpoints under the remaining completeness and confluence hypotheses,
-a sharp cumulative attempt-capacity classification under bounded waste,
+a cumulative attempt-capacity classification with a bounded-waste upper
+horizon and an exact work-conserving threshold,
 loop obstructions, stable records, refinement control, and a fair-block theorem
 for noisy consensus.
 
@@ -94,7 +95,7 @@ That turns consensus into the implementation layer of the theory. The paper dist
 accepted-step termination from scheduler attempts that may stutter, proves that every canonical
 adaptive attempt stream is eventually constant, isolates pathwise weak fairness as sufficient for
 normality, proves that no mismatch-only finite attempt horizon exists for arbitrary normalizing
-schedulers, gives a sharp \((q+1)\)-scaled horizon under bounded waste, and identifies completeness and confluence as the remaining hypotheses for one
+schedulers, gives a \((q+1)\)-scaled upper horizon under bounded waste with exact sharpness in the work-conserving case, and identifies completeness and confluence as the remaining hypotheses for one
 canonical public endpoint. It also proves how boundary data control uniqueness and how cycle
 holonomy records the exact obstruction to global agreement. Its
 finite results support the framework's mathematical core. The paper also explains why
@@ -4346,8 +4347,8 @@ which may stutter.  Theorem~\ref{thm:adaptive-repair-stratification} separately
 shows eventual constancy for every canonical adaptive attempt stream and
 normality under pathwise weak fairness.  Theorem~\ref{thm:cumulative-attempt-capacity}
 shows that arbitrary normalizing schedulers have no mismatch-only finite
-attempt horizon; a bounded stutter allowance supplies the sharp
-\((q+1)\)-scaled horizon and Corollary~\ref{cor:capacity-bounded-canonical-endpoint}
+attempt horizon; bounded waste supplies the \((q+1)\)-scaled upper horizon,
+with exact sharpness at \(q=0\), and Corollary~\ref{cor:capacity-bounded-canonical-endpoint}
 consumes a sufficient budget.  The schedule-independent answer depends on the atomic
 conflict-component local diamond and repair-completeness clauses of Theorem~\ref{thm:confluence}.
 What this paper does

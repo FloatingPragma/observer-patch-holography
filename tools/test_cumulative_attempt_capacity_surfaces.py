@@ -104,6 +104,7 @@ def test_manuscripts_and_proof_indices_expose_the_same_boundary() -> None:
     assert "Cumulative attempt capacity and sharpness" in component
     assert "no mismatch-only finite attempt horizon" in component
     assert "Capacity-bounded canonical endpoint" in consensus
-    assert "bounded stutter allowance" in flagship_words
+    assert "bounded-waste upper horizon" in flagship_words
+    assert "work-conserving case exactly" in flagship_words
     assert "Cumulative attempt-capacity classification" in proof_index
     assert "No physical time, rate, or resource interpretation" in proof_index

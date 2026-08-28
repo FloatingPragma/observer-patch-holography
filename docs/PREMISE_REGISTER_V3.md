@@ -731,7 +731,7 @@ The declared natural attempt budget B is at least (q+1) times the initial mismat
 
 - Type `numerical_input`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
 - Evidence: `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean` (`conditional_consumer`), `Lean/Tower/CumulativeCapacityEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
-- Disposition note: The arbitrary-width independent-defect family proves the threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. The number is a mathematical attempt cap only.
+- Disposition note: The arbitrary-width independent-defect family proves the work-conserving q=0 threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. For general q, the registered value is a sufficient upper cap only. The number is a mathematical attempt cap only.
 
 ## What the dispositions mean
 
