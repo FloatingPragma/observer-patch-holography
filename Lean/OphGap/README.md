@@ -21,8 +21,9 @@ The project uses the toolchain named in `Lean/lean-toolchain`
 cd Lean && lake build OphGap
 ```
 
-The repository's Lean CI builds the proof on every push and pull request that
-touches `Lean/**`.
+`OphGap` is intentionally not a default Lake target. A dedicated Lean CI job
+builds it when its sources, pinned Lean inputs, or CI wiring change; unrelated
+Lean edits do not re-evaluate the frozen certificate.
 
 `OphGap/SignedGap.lean` proves, with zero `sorry`:
 
