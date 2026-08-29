@@ -171,8 +171,8 @@ surface for the OPH consensus layer. Contents:
   delayed, bounded-waste, and sharp source controls in
   `CumulativeAttemptCapacityExamples.lean` and the load-bearing consumer in
   `Tower/CumulativeCapacityEndpoint.lean`. Every chosen-site invocation costs
-  one unit, including equality stutter. Arbitrary normalizing schedulers have
-  no mismatch-only finite attempt horizon; bounded waste gives a
+  one unit, including equality stutter. No single initial-mismatch-only finite
+  attempt horizon uniformly bounds all normalizing schedulers; bounded waste gives a
   `(q + 1)`-scaled upper horizon, the work-conserving case is exactly sharp,
   and a sufficient budget reaches the existing public endpoint. No physical
   resource interpretation follows.

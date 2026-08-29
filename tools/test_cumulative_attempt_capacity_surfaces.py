@@ -80,8 +80,10 @@ def test_lean_provider_consumer_and_umbrellas_are_wired() -> None:
     consumer = _text("Lean/Tower/CumulativeCapacityEndpoint.lean")
 
     assert "def BoundedWaste" in provider
+    assert "theorem cumulativeGenuineChangeCost_le_initialMismatch" in provider
     assert "theorem boundedWaste_eventually_normal" in provider
     assert "theorem delayed_normalizing_attempt_no_go" in examples
+    assert "theorem delayThenProbe_pathwiseWeakFair" in examples
     assert "theorem firstBroken_attempt_threshold_iff" in examples
     assert "theorem sharpInstances_patchCardinality_differs" in examples
     assert "theorem boundedWaste_public_endpoint_exists_unique" in consumer
@@ -102,7 +104,7 @@ def test_manuscripts_and_proof_indices_expose_the_same_boundary() -> None:
     proof_index = _text("Lean/ObservableNormalForms/PROOF_INDEX.md")
 
     assert "Cumulative attempt capacity and sharpness" in component
-    assert "no mismatch-only finite attempt horizon" in component
+    assert "uniformly" in component
     assert "Capacity-bounded canonical endpoint" in consensus
     assert "bounded-waste upper horizon" in flagship_words
     assert "work-conserving case exactly" in flagship_words

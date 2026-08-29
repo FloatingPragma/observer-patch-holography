@@ -94,7 +94,7 @@ repair move that must descend to the quotient seen by neighboring observers.
 That turns consensus into the implementation layer of the theory. The paper distinguishes
 accepted-step termination from scheduler attempts that may stutter, proves that every canonical
 adaptive attempt stream is eventually constant, isolates pathwise weak fairness as sufficient for
-normality, proves that no mismatch-only finite attempt horizon exists for arbitrary normalizing
+normality, proves that no single mismatch-only finite attempt horizon uniformly bounds all normalizing
 schedulers, gives a \((q+1)\)-scaled upper horizon under bounded waste with exact sharpness in the work-conserving case, and identifies completeness and confluence as the remaining hypotheses for one
 canonical public endpoint. It also proves how boundary data control uniqueness and how cycle
 holonomy records the exact obstruction to global agreement. Its
@@ -4346,8 +4346,8 @@ step bound counts accepted nontrivial repairs rather than scheduler attempts,
 which may stutter.  Theorem~\ref{thm:adaptive-repair-stratification} separately
 shows eventual constancy for every canonical adaptive attempt stream and
 normality under pathwise weak fairness.  Theorem~\ref{thm:cumulative-attempt-capacity}
-shows that arbitrary normalizing schedulers have no mismatch-only finite
-attempt horizon; bounded waste supplies the \((q+1)\)-scaled upper horizon,
+shows that no single mismatch-only finite attempt horizon uniformly bounds all normalizing
+schedulers; bounded waste supplies the \((q+1)\)-scaled upper horizon,
 with exact sharpness at \(q=0\), and Corollary~\ref{cor:capacity-bounded-canonical-endpoint}
 consumes a sufficient budget.  The schedule-independent answer depends on the atomic
 conflict-component local diamond and repair-completeness clauses of Theorem~\ref{thm:confluence}.

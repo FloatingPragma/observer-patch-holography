@@ -189,8 +189,10 @@ Mapping between Lean 4 theorems in this project and statements in
   pathwise weak fairness supplies normality, and work conservation bounds the
   normal horizon by the initial mismatch count. Completeness and confluence
   remain explicit for a consistent canonical raw and public endpoint.
-  Cumulative attempt capacity charges equality stutters, proves that arbitrary
-  normalizing schedulers have no mismatch-only finite attempt horizon, and
+  Cumulative attempt capacity charges equality stutters, directly bounds
+  cumulative genuine changes by the initial mismatch rank, proves that no
+  single mismatch-only finite attempt horizon uniformly bounds all normalizing
+  schedulers, and
   under bounded waste returns a `(q + 1)`-scaled upper horizon. Two
   nonisomorphic source-faithful instances certify exact work-conserving
   optimality, and the Tower

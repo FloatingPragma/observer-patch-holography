@@ -139,6 +139,33 @@ theorem delayed_normalizing_attempt_no_go (delay : Nat) :
   rw [delayThenProbe_stutters_through delay n hn] at hnormal
   exact OPH.Execution.TwoCell.flagUp_not_normal hnormal
 
+/-- Every finitely delayed probe scheduler is pathwise weak fair: after its
+finite stutter prefix it reaches a normal form, so no site can remain enabled
+forever. -/
+theorem delayThenProbe_pathwiseWeakFair (delay : Nat) :
+    PathwiseWeakFair OPH.Locality.TwoCell.twoCellCarrier
+      (delayThenProbe delay) OPH.Locality.TwoCell.flagUp := by
+  intro i N hpersistent
+  exfalso
+  let n := max N (delay + 1)
+  have hN : N ≤ n := le_max_left _ _
+  have hthreshold : delay + 1 ≤ n := le_max_right _ _
+  have hfire := hpersistent n hN
+  have hconstant := normal_at_eventually_constant
+    OPH.Locality.TwoCell.twoCellCarrier (delay + 1)
+      (delayThenProbe delay) OPH.Locality.TwoCell.flagUp
+      (delayThenProbe_normal_at_threshold delay)
+  have heq := hconstant n hthreshold
+  have hnotnormal :
+      ¬ NormalForm OPH.Locality.TwoCell.twoCellCarrier
+        (adaptiveRun n (delayThenProbe delay)
+          OPH.Locality.TwoCell.flagUp) :=
+    (not_normal_iff_exists_firing
+      OPH.Locality.TwoCell.twoCellCarrier _).mpr ⟨i, hfire⟩
+  apply hnotnormal
+  rw [heq]
+  exact delayThenProbe_normal_at_threshold delay
+
 /-! ## Parametric independent-defect sharpness carrier -/
 
 def independentDefectCarrier (width : Nat) : OPHCarrier where
@@ -494,6 +521,7 @@ theorem sharpInstances_patchCardinality_differs :
 
 #print axioms alternatingProbe_boundedWaste_one
 #print axioms delayed_normalizing_attempt_no_go
+#print axioms delayThenProbe_pathwiseWeakFair
 #print axioms firstBrokenScheduler_workConserving
 #print axioms firstBroken_attempt_threshold_iff
 #print axioms twoCell_attempt_threshold_iff

@@ -104,11 +104,13 @@ hitting probability, rate, physical scheduler, clock, or refinement theorem.
 
 `CumulativeAttemptCapacity.lean` charges every chosen-site invocation, including
 an equality stutter, and keeps genuine-change and stutter counts separate. The
-initial mismatch rank bounds genuine changes but cannot bound attempts: the
+direct theorem `cumulativeGenuineChangeCost_le_initialMismatch` makes the
+initial-rank bound on genuine changes explicit, but that rank cannot uniformly
+bound scheduler attempts: the
 committed `delayThenProbe` family holds the initial mismatch at one, delays the
 first genuine repair for any prescribed finite prefix, and then normalizes.
 
-`BoundedWaste C q sigma` is the exact quantitative premise that closes this
+`BoundedWaste C q sigma` is an explicit sufficient quantitative premise that closes this
 gap. From every scheduler index and every reducible record, one genuine repair
 must occur among the next `q + 1` attempts. It gives a stable normal index no
 larger than `(q + 1) * mismatchCount initial`; work conservation is the `q = 0`

@@ -61,6 +61,48 @@ theorem cumulativeAttemptCost_eq_genuine_add_stutter (C : OPHCarrier)
   simp only [cumulativeAttemptCost, cumulativeStutterCost]
   omega
 
+/-- The number of genuine changes already paid for, plus the mismatch rank
+remaining after those attempts, never exceeds the initial mismatch rank. -/
+theorem cumulativeGenuineChangeCost_add_rank_le_initial (C : OPHCarrier)
+    (sigma : AdaptiveScheduler C) (x : Records C) (attempts : Nat) :
+    cumulativeGenuineChangeCost C sigma x attempts +
+        mismatchCount (adaptiveRun attempts sigma x) ≤ mismatchCount x := by
+  classical
+  induction attempts with
+  | zero =>
+      simp [cumulativeGenuineChangeCost]
+  | succ n ih =>
+      by_cases hchange :
+          adaptiveRun (n + 1) sigma x ≠ adaptiveRun n sigma x
+      · have hstrict := adaptiveRun_change_strict_rank C n sigma x hchange
+        have hcost :
+            cumulativeGenuineChangeCost C sigma x (n + 1) =
+              cumulativeGenuineChangeCost C sigma x n + 1 := by
+          simp [cumulativeGenuineChangeCost, Finset.range_add_one,
+            Finset.filter_insert, Finset.card_insert_of_notMem,
+            hchange]
+        rw [hcost]
+        omega
+      · have hsame :
+            adaptiveRun (n + 1) sigma x = adaptiveRun n sigma x :=
+          not_ne_iff.mp hchange
+        have hcost :
+            cumulativeGenuineChangeCost C sigma x (n + 1) =
+              cumulativeGenuineChangeCost C sigma x n := by
+          simp [cumulativeGenuineChangeCost, Finset.range_add_one,
+            Finset.filter_insert, hchange]
+        rw [hcost, hsame]
+        exact ih
+
+/-- The initial mismatch rank directly bounds the cumulative number of
+genuine record changes, independently of equality stutters. -/
+theorem cumulativeGenuineChangeCost_le_initialMismatch (C : OPHCarrier)
+    (sigma : AdaptiveScheduler C) (x : Records C) (attempts : Nat) :
+    cumulativeGenuineChangeCost C sigma x attempts ≤ mismatchCount x := by
+  have hbound :=
+    cumulativeGenuineChangeCost_add_rank_le_initial C sigma x attempts
+  omega
+
 /-- A normal form is reached without exceeding the declared cumulative
 attempt budget. -/
 def ReachesNormalWithinAttemptBudget (C : OPHCarrier)
@@ -146,6 +188,8 @@ theorem boundedWaste_reaches_within_attempt_budget (C : OPHCarrier)
   exact ⟨N, le_trans hN hbudget, hnormal⟩
 
 #print axioms cumulativeAttemptCost_eq_genuine_add_stutter
+#print axioms cumulativeGenuineChangeCost_add_rank_le_initial
+#print axioms cumulativeGenuineChangeCost_le_initialMismatch
 #print axioms workConserving_boundedWaste_zero
 #print axioms boundedWaste_eventually_normal
 #print axioms boundedWaste_reaches_within_attempt_budget
