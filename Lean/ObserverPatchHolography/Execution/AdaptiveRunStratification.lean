@@ -195,7 +195,7 @@ theorem adaptiveRun_eventually_constant (C : OPHCarrier) :
         calc
           adaptiveRun (((k + 1) + N) + r) sigma x =
               adaptiveRun ((k + 1) + (N + r)) sigma x := by
-                congr 1 <;> omega
+                congr 1; omega
           _ = adaptiveRun (N + r) sigmaTail y := by
                 simpa [y, sigmaTail] using
                   adaptiveRun_add C (k + 1) (N + r) sigma x
