@@ -251,6 +251,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Execute the Issue 750 adaptive-repair cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_adaptive_repair_stratification_surfaces.py",
+        ],
+    ),
+    (
         "Execute the fixed-unitary scattering obstruction controls",
         [
             sys.executable,

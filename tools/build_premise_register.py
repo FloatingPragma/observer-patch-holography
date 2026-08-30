@@ -463,6 +463,18 @@ EXPECTED_ROWS = (
         "numerical_input",
         "remove",
     ),
+    (
+        "PR-77",
+        "pathwise weak fairness for canonical adaptive repair",
+        "structural_rule",
+        "axiomatize",
+    ),
+    (
+        "PR-78",
+        "work-conserving canonical adaptive choice",
+        "structural_rule",
+        "axiomatize",
+    ),
 )
 
 DISPOSITION_MEANING = {

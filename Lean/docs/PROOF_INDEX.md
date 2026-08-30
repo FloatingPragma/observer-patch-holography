@@ -172,7 +172,8 @@ Mapping between Lean 4 theorems in this project and statements in
   nonconstant source tower, repair endpoint, causal net, channel, geometry,
   clock, or continuum limit follows. See `A3_CONSENSUS_TOWER.md`.
 - A4 finite public-world quotient and endpoint
-  (`Tower/PublicWorldQuotient.lean`, `Tower/FixedPointEndpoint.lean`):
+  (`Tower/PublicWorldQuotient.lean`, `Tower/FixedPointEndpoint.lean`,
+  `Tower/AdaptiveFixedPointEndpoint.lean`):
   admission-free finite quotient and rewriting theory. The public world is the
   kernel quotient of an explicit readback and is equivalent to its realized
   signature range. Existing `OPH.Records`, `obsMap`, `localRepair`,
@@ -182,7 +183,13 @@ Mapping between Lean 4 theorems in this project and statements in
   confluence, quotient output/enabledness congruence, and a completed finite
   schedule. Countermodels show that confluence, completion, and quotient
   congruence cannot be dropped. `CompletedSchedule` is not infinite scheduler
-  fairness. See `A4_PUBLIC_WORLD_ENDPOINT.md`.
+  fairness. The separate adaptive endpoint consumes the canonical
+  single-site attempt semantics: every adaptive run is eventually constant,
+  pathwise weak fairness supplies normality, and work conservation bounds the
+  normal horizon by the initial mismatch count. Completeness and confluence
+  remain explicit for a consistent canonical raw and public endpoint. No
+  stochastic scheduler, rate, physical clock, or refinement result follows.
+  See `A4_PUBLIC_WORLD_ENDPOINT.md`.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,
   `EventAlgebra/TwoScalePublicRepair.lean`,

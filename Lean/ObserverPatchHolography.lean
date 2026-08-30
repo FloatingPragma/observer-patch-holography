@@ -52,6 +52,7 @@ import ObserverPatchHolography.RateNonidentifiability
 import ObserverPatchHolography.RateBridgeObstruction
 import ObserverPatchHolography.Locality.DependencyCone
 import ObserverPatchHolography.Locality.NoSignalling
+import ObserverPatchHolography.Execution.AdaptiveRunCounterexamples
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root

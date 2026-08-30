@@ -216,6 +216,85 @@
       }
     },
     {
+      "claim_id": "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+      "statement": "For the repository's canonical state-dependent single-site repair, every adaptive attempt stream is eventually constant without a fairness premise because every nonstuttering attempt is an accepted repair step and strictly lowers mismatchCount. Pathwise weak fairness is sufficient to make the stable record a normal form. The stronger work-conserving condition gives a normal and stable horizon no larger than the initial mismatch count. The result selects no scheduler and supplies no stochastic kernel, active-source law, hitting probability, rate, physical clock, infinite-state extension, or refinement theorem.",
+      "owner_paper": "extra/observable_normal_forms.tex",
+      "tier": "canonical_adaptive_repair_stratification_with_exact_liveness_boundary",
+      "assumptions": [
+        "pathwise_weak_fair_adaptive_scheduler",
+        "work_conserving_adaptive_scheduler"
+      ],
+      "imported_results": [
+        "well_founded_natural_number_descent",
+        "weak_fairness_excludes_a_reducible_constant_tail"
+      ],
+      "oph_specific_delta": "The standard descent and fairness arguments are bound to the repository's actual localRepair, acceptedStep, mismatchCount, and adaptiveRun definitions, with positive and unfair finite controls and an exact split between premise-free stabilization, fairness-qualified normality, and the stronger quantitative work-conserving horizon.",
+      "novelty_type": "domain_specific_canonical_adaptive_repair_stratification",
+      "evidence": [
+        "extra/observable_normal_forms.tex",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean"
+      ],
+      "falsifier": "A canonical adaptive run changes infinitely often, a pathwise weak-fair run stabilizes at a reducible record, a work-conserving run first becomes normal after more than the initial mismatch count, or the stated positive and unfair controls do not inhabit their declared boundaries.",
+      "scope_if_false": "Only the adaptive-attempt stratification falls. Existing finite accepted-step termination, the declared stochastic protected profile, the two-register scheduler class, and the completed-schedule endpoint packet remain separately assessed.",
+      "status": "canonical_adaptive_stabilization_and_fairness_boundary_Lean_proved__scheduler_source_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        750
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-77",
+          "PR-78"
+        ],
+        "open": [],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
+      "statement": "Under pathwise weak fairness, the repository's canonical adaptive repair reaches a stable normal form from every start. Under the separately named completeness and confluence hypotheses, that endpoint is consistent, equals the canonical recursive Repair endpoint on raw records, and therefore determines the same PublicWorld fixed-point object for every such scheduler. The theorem does not derive fairness, completeness, confluence, a stochastic policy, a physical scheduler, or a cross-regulator endpoint.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "conditional_canonical_adaptive_public_endpoint",
+      "assumptions": [
+        "pathwise_weak_fair_adaptive_scheduler",
+        "repair_completeness",
+        "local_diamond"
+      ],
+      "imported_results": [
+        "canonical_adaptive_repair_stratification",
+        "confluent_normal_form_uniqueness",
+        "finite_public_world_quotient"
+      ],
+      "oph_specific_delta": "The adaptive provider is consumed by the existing OPH primitive and Tower public-world endpoint structures: the stable weak-fair record is connected by a typed Lean theorem to canonical Repair and the literal PublicWorld fixed-point object without changing the existing completed-schedule theorem.",
+      "novelty_type": "load_bearing_adaptive_endpoint_connection_to_existing_public_world",
+      "evidence": [
+        "extra/observable_normal_forms.tex",
+        "paper/reality_as_consensus_protocol.tex",
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
+        "Lean/Tower/AdaptiveFixedPointEndpoint.lean",
+        "Lean/docs/A4_PUBLIC_WORLD_ENDPOINT.md"
+      ],
+      "falsifier": "Pathwise weak fairness, completeness, and confluence hold but the adaptive run has no stable consistent endpoint, differs from the canonical Repair endpoint, or reaches a different PublicWorld fixed-point object; alternatively the adaptive Tower consumer remains valid after removal of its provider theorem.",
+      "scope_if_false": "Only the adaptive endpoint connection falls. The existing finite completed-schedule endpoint, canonical Repair map, and public quotient remain separately machine checked.",
+      "status": "adaptive_Tower_endpoint_Lean_proved__source_physical_and_cross_regulator_realization_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        750
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-01",
+          "PR-77"
+        ],
+        "open": [],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-CONS-BFT-PREPARED-LOCK",
       "statement": "For the declared raw-prepared/lock/decision-certificate QBFT-style protocol, finalisation only on an authenticated q-vote decision certificate referring to a q-acceptance lock certificate, one supported value per validator per view, monotone view participation, durable locks recorded by nonfaulty lock-certificate recipients before commit, at most f Byzantine validators, and 2q >= n+f+1 imply safety across all views. Prepared-certificate acknowledgements are provisional and non-locking. Liveness additionally requires q <= n-f, an effective post-GST phase bound, fair terminating view change, highest-lock-certificate proposal selection, valid-new-view supersession of local predecision locks, and explicit nonfaulty proposal/prepare/acceptance/lock-certificate-dissemination/commit/relay progress.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",

@@ -84,8 +84,10 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-74 | coherent frame and boost transport | `structural_rule` | `remove` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#742](https://github.com/FloatingPragma/observer-patch-holography/issues/742) |
 | PR-75 | frozen nuisance and coverage readout rules | `representation_choice` | `axiomatize` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#742](https://github.com/FloatingPragma/observer-patch-holography/issues/742) |
 | PR-76 | source-derived positive exclusivity lower bound | `numerical_input` | `remove` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#742](https://github.com/FloatingPragma/observer-patch-holography/issues/742) |
+| PR-77 | pathwise weak fairness for canonical adaptive repair | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-78 | work-conserving canonical adaptive choice | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 
-Totals: 76 premises. 47 remove, 25 axiomatize, 4 import.
+Totals: 78 premises. 47 remove, 27 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -696,6 +698,22 @@ A pre-exposure same-action, same-sector source theorem fixes a positive lower bo
 - Type `numerical_input`; disposition `remove`; consumed by [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#742](https://github.com/FloatingPragma/observer-patch-holography/issues/742).
 - Evidence: `Lean/Screen/DispersionArmingInterface.lean` (`statement`), `claims/frozen_prediction_register.json` (`statement`), `docs/FROZEN_PREDICTION_LADDER.md` (`statement`).
 - Disposition note: Removal needs the data-bearing source lower-bound theorem the frozen clarification names. Disposition remove rather than axiomatize because a stipulated value is inadmissible for a null verdict. Independent source invariants remain viable; the current numeric and Prop placeholders do not block them.
+
+### PR-77 pathwise weak fairness for canonical adaptive repair
+
+Along one canonical adaptive repair run, every site that remains enabled throughout a tail is eventually selected on that tail. The premise is sufficient for the eventual constant record to be normal, but it is not needed for premise-free eventual constancy and is not derived or selected by canonical repair.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean` (`no_go`), `Lean/Tower/AdaptiveFixedPointEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The reducible constant remoteReader flagUp control shows that arbitrary eventual constancy does not imply normality. Removal of this row needs a source theorem that produces pathwise weak fairness for the chosen adaptive scheduler; no current source theorem does so.
+
+### PR-78 work-conserving canonical adaptive choice
+
+At every canonical adaptive repair state, whenever some site has an effective repair, the selected site has an effective repair. This stronger premise gives a normal and stable horizon bounded by the initial mismatch count. It is not required for premise-free eventual constancy or the weaker pathwise-fair normality theorem.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The alwaysProbe witness proves the premise is nonvacuous. Canonical repair supplies the available local moves but does not select a work-conserving scheduler, so the premise remains explicitly declared and is consumed only by the quantitative rank-horizon corollary.
 
 ## What the dispositions mean
 

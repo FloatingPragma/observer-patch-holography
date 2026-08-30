@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 321,
+  "surface_count": 323,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1391,6 +1391,16 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EqualSeamSelection.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
