@@ -214,7 +214,10 @@ Mapping between Lean 4 theorems in this project and statements in
   step directly in that historical relation, and a one-member fair stuttering
   fixture proves that fairness cannot make the broader relation progress.
   A separate fanout control shows that fairness restricted to nodes failing
-  from time zero is too weak for nodes enabled later. No scheduler,
+  from time zero is too weak for nodes enabled later. A pre-tail scheduler
+  also selects the downstream node before activation but starves it after it
+  becomes permanently failing. The historical input-pinning compiler is a
+  typed control whose device changes with its input. No scheduler,
   attempt budget, physical resource, complexity, or finite `PublicWorld`
   presentation is constructed.
 - B2 finite publicization dynamics

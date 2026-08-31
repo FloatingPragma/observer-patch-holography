@@ -121,6 +121,18 @@ theorem weak_fair_stuttering_no_go :
     weakStutter_memberFair, weakStutter_siteFair,
     weakStutter_continuouslyEnabledFair, weakStutter_never_consensus⟩
 
+/-- Historical input pinning really produces different compiled devices. This
+typed control is the contrast class excluded by `fixedProgram`. -/
+def inputPinnedControlProgram (b : Bool) : List Node :=
+  compile (Formula.const false) (fun _ : Fin 1 => b)
+
+theorem inputPinnedControlProgram_depends_on_input :
+    inputPinnedControlProgram false ≠ inputPinnedControlProgram true := by
+  intro h
+  have hhead := congrArg
+    (fun L : List Node => L.head?.map fun n => n.val allFalse) h
+  simp [inputPinnedControlProgram, compile, inputs, buildInputs] at hhead
+
 def singletonCanonicalScheduler : NodeScheduler [forceTrueNode] :=
   fun _ _ => ⟨forceTrueNode, by simp⟩
 
@@ -269,6 +281,89 @@ theorem globallyEnabledFair_no_go :
   exact ⟨fanoutNodes, fanoutRootScheduler, allFalse, fanoutNodes_wf,
     fanoutRoot_globallyEnabledFair, fanoutRoot_never_consensus_after_start⟩
 
+/-- A still weaker scheduler contract: a node that fails on a tail need only
+have been selected once before that tail began. -/
+def SelectedBeforeFailingTailFair (L : List Node) (sigma : NodeScheduler L)
+    (s : State) : Prop :=
+  ∀ member : {n : Node // n ∈ L}, ∀ N,
+    (∀ n, N ≤ n →
+      member.1.obs.ok (attemptRun L n sigma s) = false) →
+    ∃ m, m < N ∧
+      (sigma m (attemptRun L m sigma s)).1 = member.1
+
+def preTailNodes : List Node := [forceTrueNode, copyRootOne]
+
+def preTailScheduler : NodeScheduler preTailNodes
+  | 0, _ => ⟨copyRootOne, by simp [preTailNodes]⟩
+  | _ + 1, _ => ⟨forceTrueNode, by simp [preTailNodes]⟩
+
+theorem preTail_run_one :
+    attemptRun preTailNodes 1 preTailScheduler allFalse = allFalse := by
+  rw [attemptRun_last_step]
+  change repairNode copyRootOne allFalse = allFalse
+  apply repairNode_eq_self_of_accepts
+  simp [copyRootOne, Node.obs, allFalse]
+
+theorem preTail_run_add_two (n : Nat) :
+    attemptRun preTailNodes (n + 2) preTailScheduler allFalse =
+      fanoutAfterRoot := by
+  induction n with
+  | zero =>
+      rw [show 0 + 2 = 1 + 1 by omega, attemptRun_last_step,
+        preTail_run_one]
+      rfl
+  | succ n ih =>
+      rw [show (n + 1) + 2 = (n + 2) + 1 by omega,
+        attemptRun_last_step, ih]
+      change repairNode forceTrueNode fanoutAfterRoot = fanoutAfterRoot
+      apply repairNode_eq_self_of_accepts
+      simp [fanoutAfterRoot, forceTrueNode, Node.obs, repairNode, write]
+
+theorem preTailScheduler_selectedBeforeFailingTailFair :
+    SelectedBeforeFailingTailFair preTailNodes preTailScheduler allFalse := by
+  intro member N htail
+  have hcases := member.2
+  simp [preTailNodes] at hcases
+  rcases hcases with hroot | hcopy
+  · have hfalse : False := by
+      have hfail := htail (N + 2) (by omega)
+      rw [preTail_run_add_two] at hfail
+      simp [hroot, fanoutAfterRoot, forceTrueNode, Node.obs,
+        repairNode, write] at hfail
+    exact hfalse.elim
+  · have htwo : 2 ≤ N := by
+      by_contra hnot
+      have hsmall : N = 0 ∨ N = 1 := by omega
+      rcases hsmall with rfl | rfl
+      · have hfail := htail 0 le_rfl
+        simp [hcopy, attemptRun, copyRootOne, Node.obs, allFalse] at hfail
+      · have hfail := htail 1 le_rfl
+        rw [preTail_run_one] at hfail
+        simp [hcopy, copyRootOne, Node.obs, allFalse] at hfail
+    refine ⟨0, by omega, ?_⟩
+    simp [preTailScheduler, hcopy]
+
+theorem preTailScheduler_never_consensus_after_activation (n : Nat) :
+    ¬ Consensus (preTailNodes.map Node.obs)
+      (attemptRun preTailNodes (n + 2) preTailScheduler allFalse) := by
+  rw [preTail_run_add_two]
+  intro hcons
+  have h := hcons copyRootOne.obs (by simp [preTailNodes])
+  simp [fanoutAfterRoot, forceTrueNode, copyRootOne,
+    Node.obs, repairNode, write, allFalse] at h
+
+/-- One selection before activation cannot replace selection on the failing
+tail: after the root repair, the downstream node is starved forever. -/
+theorem selectedBeforeFailingTailFair_no_go :
+    ∃ (L : List Node) (sigma : NodeScheduler L) (s : State),
+      NodesWF L ∧ SelectedBeforeFailingTailFair L sigma s ∧
+      ∀ n, ¬ Consensus (L.map Node.obs)
+        (attemptRun L (n + 2) sigma s) := by
+  exact ⟨preTailNodes, preTailScheduler, allFalse,
+    (by simp [NodesWF, preTailNodes, forceTrueNode, copyRootOne]),
+    preTailScheduler_selectedBeforeFailingTailFair,
+    preTailScheduler_never_consensus_after_activation⟩
+
 theorem fanoutRoot_not_pathwiseWeakFair :
     ¬ NodePathwiseWeakFair fanoutNodes fanoutRootScheduler allFalse := by
   intro hfair
@@ -289,11 +384,13 @@ theorem fanoutRoot_not_pathwiseWeakFair :
 
 #print axioms weak_fair_stuttering_no_go
 #print axioms weakAttemptRun_isRepairStepRun
+#print axioms inputPinnedControlProgram_depends_on_input
 #print axioms fanout_defect_count_increases
 #print axioms singletonCanonical_positive
 #print axioms singletonStart_not_consensus
 #print axioms fanoutRoot_not_pathwiseWeakFair
 #print axioms globallyEnabledFair_no_go
+#print axioms selectedBeforeFailingTailFair_no_go
 
 end
 

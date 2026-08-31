@@ -101,12 +101,14 @@ def test_manuscripts_and_proof_indices_expose_the_same_boundary() -> None:
     consensus = _text("paper/reality_as_consensus_protocol.tex")
     flagship = _text("flagship/from_observer_consensus_to_standard_physics.tex")
     flagship_words = " ".join(flagship.split())
-    proof_index = _text("Lean/ObservableNormalForms/PROOF_INDEX.md")
+    proof_index = _text("Lean/docs/PROOF_INDEX.md")
+    standalone_index = _text("Lean/ObservableNormalForms/PROOF_INDEX.md")
 
     assert "Cumulative attempt capacity and sharpness" in component
     assert "uniformly" in component
     assert "Capacity-bounded canonical endpoint" in consensus
     assert "bounded-waste upper horizon" in flagship_words
     assert "work-conserving case exactly" in flagship_words
-    assert "Cumulative attempt-capacity classification" in proof_index
-    assert "No physical time, rate, or resource interpretation" in proof_index
+    assert "Cumulative attempt capacity charges equality stutters" in proof_index
+    assert "No stochastic scheduler, rate, physical clock, resource" in proof_index
+    assert "Cumulative attempt-capacity classification" not in standalone_index

@@ -49,7 +49,7 @@ rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
 
 returns no matches.
 
-## Refresh receipt — 2026-09-01
+## Refresh receipt: 2026-09-01
 
 The archive boundary was revalidated while developing from frozen stacked OPH
 base `bbe16c0b2697e6a4beb64454832af81f1a89822e`. The library root already

@@ -75,11 +75,19 @@ def test_provider_counterexamples_consumer_and_umbrellas_are_wired() -> None:
         "fanout_defect_count_increases",
         "fanoutRoot_globallyEnabledFair",
         "globallyEnabledFair_no_go",
+        "inputPinnedControlProgram_depends_on_input",
+        "preTailScheduler_selectedBeforeFailingTailFair",
+        "selectedBeforeFailingTailFair_no_go",
         "fanoutRoot_not_pathwiseWeakFair",
     ):
         assert f"theorem {name}" in controls
 
     assert "theorem fairAttempt_reaches_unique_output" in consumer
+    assert (
+        "def fixedProgram {k : Nat} (phi : Formula k) : List Node :=\n"
+        "  (go phi k).nodes"
+    ) in provider
+    assert "(x : Fin k → Bool) : List Node :=\n  compile phi x" not in provider
     assert _text("Lean/ObserverPatchHolography.lean").count(
         "import Computation.FixedFederationCounterexamples"
     ) == 1
