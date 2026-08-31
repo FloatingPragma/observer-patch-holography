@@ -48,3 +48,25 @@ rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
 ```
 
 returns no matches.
+
+## Refresh receipt — 2026-09-01
+
+The archive boundary was revalidated while developing from frozen stacked OPH
+base `bbe16c0b2697e6a4beb64454832af81f1a89822e`. The library root already
+imported `ObservableNormalForms/SchedulerClassObstructions.lean`; the manifest
+and README now list that tracked standalone module explicitly. Parent-workspace
+OPH/Tower theorem rows were removed from this standalone proof index and remain
+in the parent `Lean/docs/PROOF_INDEX.md`.
+
+With Lean 4.29.1 and the pinned Mathlib revision, the standalone command
+
+```text
+lake build
+Build completed successfully (8265 jobs).
+```
+
+exited 0. The fresh parent-workspace build also exited 0 after 8,668 jobs. The
+standalone axiom audit reported only `propext`, `Classical.choice`, and
+`Quot.sound` where required and no `sorryAx`. After the boundary repair, the
+documented hash-generation recipe was rerun and `sha256sum -c HASHES.sha256`
+verified every listed file.

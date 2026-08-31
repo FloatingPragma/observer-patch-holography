@@ -210,8 +210,11 @@ Mapping between Lean 4 theorems in this project and statements in
   constant, and pathwise weak fairness makes the stable state a consensus.
   Same-input normal endpoints have one output through the
   observation-determined-normal-forms consumer. The historical weak
-  `RepairStep` remains unchanged; a one-member fair stuttering fixture proves
-  that fairness cannot make that broader relation progress. No scheduler,
+  `RepairStep` remains unchanged; the weak-node adapter places every fixture
+  step directly in that historical relation, and a one-member fair stuttering
+  fixture proves that fairness cannot make the broader relation progress.
+  A separate fanout control shows that fairness restricted to nodes failing
+  from time zero is too weak for nodes enabled later. No scheduler,
   attempt budget, physical resource, complexity, or finite `PublicWorld`
   presentation is constructed.
 - B2 finite publicization dynamics

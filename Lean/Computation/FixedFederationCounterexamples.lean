@@ -23,6 +23,22 @@ def WeakAttemptRun (L : List Node) (sigma : Nat → Node)
     (rho : Nat → State) : Prop :=
   ∀ n, WeakNodeAttempt L (sigma n) (rho n) (rho (n + 1))
 
+/-- The node-specialized weak attempt is an actual step of the historical
+`RepairStep` relation. -/
+theorem weakNodeAttempt_to_repairStep {L : List Node} {selected : Node}
+    {s t : State} (h : WeakNodeAttempt L selected s t) :
+    RepairStep (L.map Node.obs) s t := by
+  obtain ⟨hmember, hfail, hframe⟩ := h
+  exact ⟨selected.obs, List.mem_map.mpr ⟨selected, hmember, rfl⟩,
+    hfail, hframe⟩
+
+theorem weakAttemptRun_isRepairStepRun {L : List Node}
+    {sigma : Nat → Node} {rho : Nat → State}
+    (h : WeakAttemptRun L sigma rho) :
+    ∀ n, RepairStep (L.map Node.obs) (rho n) (rho (n + 1)) := by
+  intro n
+  exact weakNodeAttempt_to_repairStep (h n)
+
 def MemberFair (L : List Node) (sigma : Nat → Node) : Prop :=
   ∀ n ∈ L, ∀ N, ∃ m, N ≤ m ∧ sigma m = n
 
@@ -55,6 +71,11 @@ theorem weakStutter_isRun :
       weakStutterRun, allFalse]
   · intro i _hi
     rfl
+
+theorem weakStutter_isRepairStepRun :
+    ∀ n, RepairStep [forceTrueNode.obs]
+      (weakStutterRun n) (weakStutterRun (n + 1)) := by
+  simpa using weakAttemptRun_isRepairStepRun weakStutter_isRun
 
 theorem weakStutter_memberFair :
     MemberFair [forceTrueNode] weakStutterSchedule := by
@@ -90,12 +111,14 @@ step semantics, because the scheduled step itself may stutter. -/
 theorem weak_fair_stuttering_no_go :
     ∃ (L : List Node) (sigma : Nat → Node) (rho : Nat → State),
       WeakAttemptRun L sigma rho ∧
+      (∀ n, RepairStep (L.map Node.obs) (rho n) (rho (n + 1))) ∧
       MemberFair L sigma ∧
       SiteFair L sigma ∧
       ContinuouslyEnabledFair L sigma rho ∧
       (∀ n, ¬ Consensus (L.map Node.obs) (rho n)) := by
   exact ⟨[forceTrueNode], weakStutterSchedule, weakStutterRun,
-    weakStutter_isRun, weakStutter_memberFair, weakStutter_siteFair,
+    weakStutter_isRun, weakStutter_isRepairStepRun,
+    weakStutter_memberFair, weakStutter_siteFair,
     weakStutter_continuouslyEnabledFair, weakStutter_never_consensus⟩
 
 def singletonCanonicalScheduler : NodeScheduler [forceTrueNode] :=
@@ -183,6 +206,15 @@ theorem fanout_defect_count_increases :
 def fanoutRootScheduler : NodeScheduler fanoutNodes :=
   fun _ _ => ⟨forceTrueNode, by simp [fanoutNodes]⟩
 
+/-- A strictly weaker fairness notion that only protects nodes failing from
+time zero.  It does not protect a node that becomes enabled later. -/
+def NodeGloballyEnabledFair (L : List Node) (sigma : NodeScheduler L)
+    (s : State) : Prop :=
+  ∀ member : {n : Node // n ∈ L},
+    (∀ m, member.1.obs.ok (attemptRun L m sigma s) = false) →
+    ∀ N, ∃ m, N ≤ m ∧
+      (sigma m (attemptRun L m sigma s)).1 = member.1
+
 theorem fanoutRoot_run_succ (n : Nat) :
     attemptRun fanoutNodes (n + 1) fanoutRootScheduler allFalse =
       fanoutAfterRoot := by
@@ -207,6 +239,36 @@ theorem fanoutRoot_never_consensus_after_start (n : Nat) :
   rw [fanoutRoot_run_succ]
   exact fanoutAfterRoot_not_consensus
 
+theorem fanoutRoot_globallyEnabledFair :
+    NodeGloballyEnabledFair fanoutNodes fanoutRootScheduler allFalse := by
+  intro member hglobal N
+  have hcases := member.2
+  simp [fanoutNodes] at hcases
+  rcases hcases with hroot | hleft | hright
+  · have hfalse : False := by
+      have hfail := hglobal 1
+      simp [hroot, fanoutRoot_run_succ, fanoutAfterRoot, forceTrueNode,
+        Node.obs, repairNode, write] at hfail
+    exact hfalse.elim
+  · have hfalse : False := by
+      have hfail := hglobal 0
+      simp [hleft, attemptRun, copyRootOne, Node.obs, allFalse] at hfail
+    exact hfalse.elim
+  · have hfalse : False := by
+      have hfail := hglobal 0
+      simp [hright, attemptRun, copyRootTwo, Node.obs, allFalse] at hfail
+    exact hfalse.elim
+
+/-- Fairness restricted to nodes enabled from the initial instant is too weak:
+the downstream nodes become failing after the root repair and are starved. -/
+theorem globallyEnabledFair_no_go :
+    ∃ (L : List Node) (sigma : NodeScheduler L) (s : State),
+      NodesWF L ∧ NodeGloballyEnabledFair L sigma s ∧
+      ∀ n, ¬ Consensus (L.map Node.obs)
+        (attemptRun L (n + 1) sigma s) := by
+  exact ⟨fanoutNodes, fanoutRootScheduler, allFalse, fanoutNodes_wf,
+    fanoutRoot_globallyEnabledFair, fanoutRoot_never_consensus_after_start⟩
+
 theorem fanoutRoot_not_pathwiseWeakFair :
     ¬ NodePathwiseWeakFair fanoutNodes fanoutRootScheduler allFalse := by
   intro hfair
@@ -226,10 +288,12 @@ theorem fanoutRoot_not_pathwiseWeakFair :
   simp [fanoutRootScheduler, member, forceTrueNode, copyRootOne] at hreg
 
 #print axioms weak_fair_stuttering_no_go
+#print axioms weakAttemptRun_isRepairStepRun
 #print axioms fanout_defect_count_increases
 #print axioms singletonCanonical_positive
 #print axioms singletonStart_not_consensus
 #print axioms fanoutRoot_not_pathwiseWeakFair
+#print axioms globallyEnabledFair_no_go
 
 end
 
