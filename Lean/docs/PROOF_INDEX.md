@@ -200,6 +200,20 @@ Mapping between Lean 4 theorems in this project and statements in
   is exhausted. No stochastic scheduler, rate, physical clock, resource
   attachment, or refinement result follows.
   See `A4_PUBLIC_WORLD_ENDPOINT.md`.
+- Fixed computation-federation progress
+  (`Computation/FixedFederationProgress.lean`,
+  `Computation/FixedFederationCounterexamples.lean`,
+  `Tower/FixedFederationEndpoint.lean`): the generated formula nodes form one
+  input-independent federation whose immutable input ports live in the initial
+  state. A canonical genuine node repair strictly lowers a source-derived
+  superincreasing dependency rank. Arbitrary node attempts are eventually
+  constant, and pathwise weak fairness makes the stable state a consensus.
+  Same-input normal endpoints have one output through the
+  observation-determined-normal-forms consumer. The historical weak
+  `RepairStep` remains unchanged; a one-member fair stuttering fixture proves
+  that fairness cannot make that broader relation progress. No scheduler,
+  attempt budget, physical resource, complexity, or finite `PublicWorld`
+  presentation is constructed.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,
   `EventAlgebra/TwoScalePublicRepair.lean`,

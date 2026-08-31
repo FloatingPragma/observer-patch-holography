@@ -55,6 +55,8 @@ import ObserverPatchHolography.Locality.NoSignalling
 import ObserverPatchHolography.Execution.AdaptiveRunCounterexamples
 import ObserverPatchHolography.Execution.CumulativeAttemptCapacity
 import ObserverPatchHolography.Execution.CumulativeAttemptCapacityExamples
+import Computation.FixedFederationProgress
+import Computation.FixedFederationCounterexamples
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root
