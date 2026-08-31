@@ -88,8 +88,9 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-78 | work-conserving canonical adaptive choice | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 | PR-79 | bounded waste between canonical adaptive changes | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 | PR-80 | sufficient cumulative attempt budget | `numerical_input` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-81 | pathwise weak fairness for fixed node attempts | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 
-Totals: 80 premises. 47 remove, 29 axiomatize, 4 import.
+Totals: 81 premises. 47 remove, 30 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -732,6 +733,14 @@ The declared natural attempt budget B is at least (q+1) times the initial mismat
 - Type `numerical_input`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
 - Evidence: `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean` (`conditional_consumer`), `Lean/Tower/CumulativeCapacityEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
 - Disposition note: The arbitrary-width independent-defect family proves the work-conserving q=0 threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. For general q, the registered value is a sufficient upper cap only. The number is a mathematical attempt cap only.
+
+### PR-81 pathwise weak fairness for fixed node attempts
+
+Along one attempt run of an input-independent fixed node federation, if one declared node remains failing throughout a tail, that exact node is eventually selected on the tail. The premise removes reducible equality-stutter tails but does not cause accepted-step termination, select a scheduler, bound attempts, or provide a physical rate.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/Computation/FixedFederationProgress.lean` (`conditional_consumer`), `Lean/Computation/FixedFederationCounterexamples.lean` (`no_go`), `Lean/Tower/FixedFederationEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The singleton canonical scheduler proves the premise is nonvacuous. The root-only fanout scheduler proves that attempt stabilization without this premise may remain reducible. The one-member historical weak-step fixture shows fairness is insufficient when the counted relation itself permits stutter.
 
 ## What the dispositions mean
 

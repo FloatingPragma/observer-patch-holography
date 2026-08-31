@@ -269,6 +269,15 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-q",
             "tools/test_cumulative_attempt_capacity_surfaces.py",
         ],
+    ),    (
+        "Execute the Issue 750 fixed-federation cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_fixed_federation_progress_surfaces.py",
+        ],
     ),
     (
         "Execute the fixed-unitary scattering obstruction controls",

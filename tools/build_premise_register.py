@@ -487,6 +487,12 @@ EXPECTED_ROWS = (
         "numerical_input",
         "axiomatize",
     ),
+    (
+        "PR-81",
+        "pathwise weak fairness for fixed node attempts",
+        "structural_rule",
+        "axiomatize",
+    ),
 )
 
 DISPOSITION_MEANING = {
