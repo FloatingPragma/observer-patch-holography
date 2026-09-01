@@ -2743,8 +2743,23 @@ generate the four-element Boolean diamond with incomparable responses,
 while a parent-child pair alone spans the two-element interval.  The
 serialization of the two responses is invisible to the order, because the
 second response's snapshot contains the first response's output without
-certifying it.  The generated order is informational.  Schedule
-invariance of the labeled history, event separation, physical causal
+certifying it.  Executed histories carry three further machine-checked
+controls.  The labeled parent relation is invariant under swapping any
+adjacent pair of commits whose write sets avoid each other and each
+other's certified supports, and under deleting executor stutters, while a
+dependent pair marks the boundary: swapping a writer past a reader that
+certifies the written register changes the edge set.  On such histories
+the append-only ancestry rank is derived from the execution position
+rather than declared.  A commit writing only outside the visible register
+carrier changes no visible mismatch and acquires no edge into any commit
+with visible certified support, and a freshly injected mismatch that no
+later commit consumes persists at full strength through every stage.  A
+refinement receipt whose map carries every direct parent edge into the
+coarse reflexive precedence transports the generated order and its causal
+intervals through coincidence merges, and the reversed assignment on the
+committed diamond-to-chain witness inhabits no receipt.  The generated
+order is informational.  Invariance over the full admissible
+implementation class, event separation, physical causal
 faithfulness, and every Lorentzian or continuum statement carry their own
 receipts and are not supplied here.
 

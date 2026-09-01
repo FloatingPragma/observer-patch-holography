@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 329,
+  "surface_count": 332,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1465,7 +1465,22 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Provenance/QuotientInvariance.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Provenance/RefinementNaturality.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

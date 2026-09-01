@@ -187,9 +187,20 @@ surface for the OPH consensus layer. Contents:
   closure is a strict order inhabiting the A1 record-order interface, and
   an adapter containing every direct edge with no unsupported comparability
   carries exactly the generated order. Static mismatch scores are
-  writer-blind, so provenance is load-bearing for direction. The order is
-  informational; no schedule invariance, physical causality, spacetime, or
-  continuum claim follows.
+  writer-blind, so provenance is load-bearing for direction. History,
+  quotient, and refinement controls close the package:
+  `HistoryCausalInvariance.lean` executes commit specifications against a
+  threaded state and proves the labeled parent relation invariant under
+  independent adjacent commutation and stutter deletion, with the
+  append-only rank derived from list position, an unconsumed injected
+  mismatch persisting at full strength, and a dependent-pair boundary;
+  `QuotientInvariance.lean` proves every verdict reads only the visible
+  restriction and that hidden writes create no visible change and no
+  generated edge; `RefinementNaturality.lean` carries generated order and
+  causal intervals through coincidence-merging refinement maps, with the
+  reversed diamond-to-chain assignment inhabiting no receipt. The order is
+  informational; invariance over the full admissible implementation class,
+  physical causality, spacetime, and every continuum claim stay open.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

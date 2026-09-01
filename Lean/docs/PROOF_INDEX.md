@@ -211,8 +211,16 @@ Mapping between Lean 4 theorems in this project and statements in
   chain-witness world realizing the redundancy of its declared order.
   Writer-blind static mismatch, the blind-repair control, dependency-complete
   seam aggregation, and the Boolean-diamond interval bound the package.
-  The order is informational; schedule invariance of the labeled history
-  and every physical or continuum identification stay open.
+  Executed histories (`Provenance/HistoryCausalInvariance.lean`) derive the
+  append-only rank from list position and are invariant under independent
+  adjacent commutation and stutter deletion; hidden writes are invisible to
+  visible mismatch and to the generated order
+  (`Provenance/QuotientInvariance.lean`); refinement receipts carry order
+  and intervals through coincidence merges
+  (`Provenance/RefinementNaturality.lean`).
+  The order is informational; invariance over the full admissible
+  implementation class and every physical or continuum identification
+  stay open.
   See `A4_PUBLIC_WORLD_ENDPOINT.md`.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,

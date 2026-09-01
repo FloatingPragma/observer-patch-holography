@@ -66,6 +66,16 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     interval = _text("Lean/ObserverPatchHolography/Provenance/CausalInterval.lean")
     bridge = _text("Lean/QFT/SourceDerivedEventPrecedence.lean")
 
+    history = _text(
+        "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean"
+    )
+    quotient = _text(
+        "Lean/ObserverPatchHolography/Provenance/QuotientInvariance.lean"
+    )
+    refinement = _text(
+        "Lean/ObserverPatchHolography/Provenance/RefinementNaturality.lean"
+    )
+
     assert "def generatedRecordOrder" in core
     assert "theorem generatedBefore_le_of_transitive" in core
     assert "theorem eq_generatedBefore_of_exact" in core
@@ -76,6 +86,15 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     assert "theorem responses_incomparable" in interval
     assert "theorem interval_injection_answer_eq_univ" in interval
     assert "theorem chainWitnessPrecedenceAdapter_exact" in bridge
+    assert "theorem swap_execParents" in history
+    assert "theorem eqvGen_independentSwap_invariant" in history
+    assert "theorem execParents_rank_lt" in history
+    assert "theorem unconsumed_mismatch_persists" in history
+    assert "theorem dependent_swap_changes_edges" in history
+    assert "theorem hiddenSpec_no_visible_edge" in quotient
+    assert "theorem hiddenSpec_not_changes" in quotient
+    assert "theorem generatedBefore_natural" in refinement
+    assert "theorem reversed_map_not_natural" in refinement
 
     assert _text("Lean/ObserverPatchHolography.lean").count(
         "import ObserverPatchHolography.Provenance.CausalInterval"
