@@ -45,6 +45,8 @@ repair attempts, normality under pathwise weak fairness, schedule-independent
 public endpoints under the remaining completeness and confluence hypotheses,
 a cumulative attempt-capacity classification with a bounded-waste upper
 horizon and an exact work-conserving threshold,
+an event precedence generated from certified read-from provenance with
+exact adapters reduced to verifiers,
 loop obstructions, stable records, refinement control, and a fair-block theorem
 for noisy consensus.
 
@@ -96,7 +98,11 @@ accepted-step termination from scheduler attempts that may stutter, proves that 
 adaptive attempt stream is eventually constant, isolates pathwise weak fairness as sufficient for
 normality, proves that no single mismatch-only finite attempt horizon uniformly bounds all normalizing
 schedulers, gives a \((q+1)\)-scaled upper horizon under bounded waste with exact sharpness in the work-conserving case, and identifies completeness and confluence as the remaining hypotheses for one
-canonical public endpoint. It also proves how boundary data control uniqueness and how cycle
+canonical public endpoint. It derives event precedence from versioned mismatch
+provenance: certified read-from parenthood generates the strict causal order,
+any exact precedence adapter reduces to a verifier of that order, and a
+writer-blind static mismatch score determines no causal arrow.
+It also proves how boundary data control uniqueness and how cycle
 holonomy records the exact obstruction to global agreement. Its
 finite results support the framework's mathematical core. The paper also explains why
 a bare overlap graph is only a finite constraint code. Stronger language such as
@@ -2696,6 +2702,51 @@ closed to the quotient constructor. The witness world reuses the
 dimension-two cut, whose interposition chain is strict (scalar public
 algebra inside the diagonal accessible algebra inside the private matrix
 algebra), and its record readout separates the two packets.
+
+\paragraph{Source-derived event precedence from mismatch provenance.}
+Event precedence need not be declared where the source supplies
+provenance.  In the companion machine-checked package, every
+quotient-visible register version carries the identifier of its last
+semantic writer, and each commit certifies the register versions on which
+its acceptance genuinely depends, with frame and stamp laws fixing
+unwritten registers and recording written ones.  One commit is a direct
+semantic parent of another exactly when some certified register of the
+second holds the first commit's version in its pre-commit snapshot.
+The generated causal order is the transitive closure of these edges.
+Under one declared ancestry rank that increases across every edge, a
+witness that the committed ledger is append-only, the generated order is
+irreflexive, transitive, and asymmetric, and it inhabits the same
+strict-order interface the event precedence adapter consumes.  It is the
+least strict transitive relation containing the direct parent edges, so
+an adapter that contains every edge and asserts no comparability beyond
+the generated order carries exactly the generated order.  On the
+committed chain witness world, a two-commit log generates the declared
+adapter order in full, so the declaration there is a verifier rather than
+a choice.
+
+An overlap's mismatch score reads only the committed values on its
+support, so the score is writer-blind: two snapshots with identical
+values carry identical scores on every overlap, and a two-register
+countermodel realizes both parent attributions on value-identical
+snapshots.  A static residual therefore determines no causal arrow;
+provenance is load-bearing for direction.  A commit whose write set
+misses the support leaves the score unchanged, and a repair whose
+certified support does not cite the injected version acquires no
+injection-to-response edge.  Under dependency-complete read sets, any two
+proposals able to move one seam score overlap read-against-write in both
+directions and land in one aggregate conflict component, so a committed
+seam delta has one aggregate writer; an empty-read countermodel shows the
+completeness clause is load-bearing.  A four-commit log realizes the
+minimal branching interval: one injection, two responses each certifying
+exactly the injected register, and one answer certifying both outputs
+generate the four-element Boolean diamond with incomparable responses,
+while a parent-child pair alone spans the two-element interval.  The
+serialization of the two responses is invisible to the order, because the
+second response's snapshot contains the first response's output without
+certifying it.  The generated order is informational.  Schedule
+invariance of the labeled history, event separation, physical causal
+faithfulness, and every Lorentzian or continuum statement carry their own
+receipts and are not supplied here.
 
 \paragraph{Character-block coexistence of regional algebras.}
 For every \(n\ge 2\) the full matrix algebra \(M_n(\mathbb C)\) admits no unital complex-algebra homomorphism into the scalars: the matrix
