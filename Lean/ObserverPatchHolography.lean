@@ -53,6 +53,8 @@ import ObserverPatchHolography.RateBridgeObstruction
 import ObserverPatchHolography.Locality.DependencyCone
 import ObserverPatchHolography.Locality.NoSignalling
 import ObserverPatchHolography.Execution.AdaptiveRunCounterexamples
+import ObserverPatchHolography.Execution.CumulativeAttemptCapacity
+import ObserverPatchHolography.Execution.CumulativeAttemptCapacityExamples
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root

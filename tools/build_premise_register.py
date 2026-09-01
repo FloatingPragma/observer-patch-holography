@@ -475,6 +475,18 @@ EXPECTED_ROWS = (
         "structural_rule",
         "axiomatize",
     ),
+    (
+        "PR-79",
+        "bounded waste between canonical adaptive changes",
+        "structural_rule",
+        "axiomatize",
+    ),
+    (
+        "PR-80",
+        "sufficient cumulative attempt budget",
+        "numerical_input",
+        "axiomatize",
+    ),
 )
 
 DISPOSITION_MEANING = {

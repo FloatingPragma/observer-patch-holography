@@ -166,6 +166,16 @@ surface for the OPH consensus layer. Contents:
   initial-mismatch horizon.  Completeness and confluence remain required for
   one consistent canonical public endpoint.  The package selects no
   scheduler and supplies no stochastic law, rate, clock, or continuum claim.
+- A cumulative attempt-capacity classification in
+  `ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean`, with
+  delayed, bounded-waste, and sharp source controls in
+  `CumulativeAttemptCapacityExamples.lean` and the load-bearing consumer in
+  `Tower/CumulativeCapacityEndpoint.lean`. Every chosen-site invocation costs
+  one unit, including equality stutter. No single initial-mismatch-only finite
+  attempt horizon uniformly bounds all normalizing schedulers; bounded waste gives a
+  `(q + 1)`-scaled upper horizon, the work-conserving case is exactly sharp,
+  and a sufficient budget reaches the existing public endpoint. No physical
+  resource interpretation follows.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

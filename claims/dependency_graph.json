@@ -6,6 +6,8 @@
   "OPH-CARRIER-PRESENTATION-INVARIANCE",
   "OPH-CONS-D1",
   "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+  "OPH-CONS-CUMULATIVE-ATTEMPT-CAPACITY",
+  "OPH-CONS-CAPACITY-BOUNDED-PUBLIC-ENDPOINT",
   "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
   "OPH-CONS-BFT-PREPARED-LOCK",
   "OPH-CONS-REFINEMENT-MODULI",
@@ -1825,6 +1827,21 @@
    "from": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
    "to": "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
    "role": "supplies the canonical Repair endpoint, literal PublicWorld quotient, and fixed-point object consumed by the adaptive endpoint corollary"
+  },
+  {
+   "from": "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+   "to": "OPH-CONS-CUMULATIVE-ATTEMPT-CAPACITY",
+   "role": "supplies the canonical attempt, equality-stutter, accepted-change, and strict mismatch-descent semantics used by the cumulative capacity classification"
+  },
+  {
+   "from": "OPH-CONS-CUMULATIVE-ATTEMPT-CAPACITY",
+   "to": "OPH-CONS-CAPACITY-BOUNDED-PUBLIC-ENDPOINT",
+   "role": "supplies the bounded-waste threshold and sufficient cumulative attempt budget consumed by the quantitative Tower endpoint"
+  },
+  {
+   "from": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+   "to": "OPH-CONS-CAPACITY-BOUNDED-PUBLIC-ENDPOINT",
+   "role": "supplies canonical Repair, the literal PublicWorld quotient, and the existing FixedPointObject consumed after budget-bounded normalization"
   }
  ]
 }
