@@ -313,7 +313,11 @@ def inventory_payload() -> dict:
 def write_inventory() -> None:
     payload = inventory_payload()
     out = ROOT / "claims" / "active_surface_inventory.json"
-    out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    out.write_text(
+        json.dumps(payload, indent=2) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     print(
         f"wrote {out.relative_to(ROOT)} "
         f"({payload['surface_count']} surfaces)"
