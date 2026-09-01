@@ -2689,9 +2689,12 @@ owner's region, record observable in the meet of the observer-local
 algebra at that support with the owner's public algebra, and the
 soldering chart coordinate as a readout of the same packet. An event
 precedence adapter
-adds strict order data on event slots, tied to the owner's record order on
-labeled events and identified with no repair schedule, modular parameter,
-clock reading, proper time, or global time function. A selected
+carries strict order data on event slots, tied to the owner's record order
+on labeled events and identified with no repair schedule, modular
+parameter, clock reading, proper time, or global time function; where the
+events carry certified commit provenance, the source-derived construction
+below generates that order, and an exact adapter is its verifier rather
+than a choice of it. A selected
 coarse-to-fine refinement (slot maps for events, charts, and packets, with
 naturality for masks, ownership, regions, supports, packets, records, and
 visibility, plus a declared recharting map) transports the full
@@ -2762,6 +2765,19 @@ order is informational.  Invariance over the full admissible
 implementation class, event separation, physical causal
 faithfulness, and every Lorentzian or continuum statement carry their own
 receipts and are not supplied here.
+
+The generated structure meets two established programs.  In causal set
+theory a locally finite partial order is the fundamental spacetime datum
+and a continuum spacetime is recovered only through a faithful-embedding
+limit \cite{bombelli1987,surya2019}, with the causal order determining
+the conformal geometry on the continuum side \cite{malament1977}.  The
+finite order here is generated from record provenance rather than
+posited, and the reconstruction obligations of any continuum limit are
+those of that program.  In distributed computing the generated relation
+is the read-from form of the happened-before order \cite{lamport1978};
+the content added here is its binding to quotient-visible mismatch,
+certified read supports, writer-blind static scores, and the strict-order
+interface of the finite event world.
 
 \paragraph{Character-block coexistence of regional algebras.}
 For every \(n\ge 2\) the full matrix algebra \(M_n(\mathbb C)\) admits no unital complex-algebra homomorphism into the scalars: the matrix
@@ -4738,6 +4754,26 @@ data.
 \input{appendix_B_bft_qecc_extensions}
 
 \begin{thebibliography}{99}
+
+\bibitem{bombelli1987}
+L.~Bombelli, J.~Lee, D.~Meyer, and R.~D.~Sorkin,
+\emph{Space-time as a causal set},
+Phys.\ Rev.\ Lett.\ \textbf{59}, 521 (1987).
+
+\bibitem{surya2019}
+S.~Surya,
+\emph{The causal set approach to quantum gravity},
+Living Rev.\ Relativ.\ \textbf{22}, 5 (2019).
+
+\bibitem{malament1977}
+D.~B.~Malament,
+\emph{The class of continuous timelike curves determines the topology of spacetime},
+J.\ Math.\ Phys.\ \textbf{18}, 1399 (1977).
+
+\bibitem{lamport1978}
+L.~Lamport,
+\emph{Time, clocks, and the ordering of events in a distributed system},
+Commun.\ ACM \textbf{21}, 558 (1978).
 
 \bibitem{observableNormalForms}
 B.~M\"uller, J.~Kim, D.~Matscheko, and J.~Hill,

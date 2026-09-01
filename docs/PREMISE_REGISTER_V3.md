@@ -90,8 +90,9 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-80 | sufficient cumulative attempt budget | `numerical_input` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 | PR-81 | certified causal read support | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 | PR-82 | append-only semantic ancestry rank | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
+| PR-83 | commit-populated event base | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 
-Totals: 82 premises. 47 remove, 31 axiomatize, 4 import.
+Totals: 83 premises. 47 remove, 32 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -750,6 +751,14 @@ One declared natural rank strictly increases across every direct semantic parent
 - Type `structural_rule`; disposition `axiomatize`; consumed by [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763).
 - Evidence: `Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Provenance/CausalInterval.lean` (`conditional_consumer`), `Lean/QFT/SourceDerivedEventPrecedence.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
 - Disposition note: The rank makes the generated closure irreflexive and asymmetric, so the strict-order laws of the A1 interface are theorems rather than declarations. The committed chain and diamond logs discharge the premise with the event index and the level rank.
+
+### PR-83 commit-populated event base
+
+The record-germ events of the event-manifold branch are identified with quotient-visible semantic commits carrying certified read supports, so the finite population is the commit set and the finite causal reachability is the generated provenance order. Nothing derives this identification; separation, charts, cone compatibility, and every continuum receipt are outside it.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763).
+- Evidence: `Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` (`conditional_consumer`), `Lean/QFT/SourceDerivedEventPrecedence.lean` (`conditional_consumer`), `paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex` (`statement`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: Under this identification the finite halves of the population and reachability receipts of the event-manifold branch are theorems of the provenance package rather than supplied data. The identification itself is a declared premise: no theorem identifies record germs with semantic commits, and the simulator's commit-populated observer log inhabits the identification without selecting it.
 
 ## What the dispositions mean
 

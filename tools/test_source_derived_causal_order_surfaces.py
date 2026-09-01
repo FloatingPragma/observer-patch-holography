@@ -116,3 +116,47 @@ def test_manuscript_and_indices_expose_the_same_boundary() -> None:
     assert "carry their own receipts and are not supplied here" in consensus_words
     assert "Source-derived event precedence" in proof_index
     assert "source-derived causal-order package" in guide
+
+
+def test_composition_surfaces_state_the_generated_order() -> None:
+    shared = _text("paper/tex_fragments/PAPER.tex")
+    shared_words = " ".join(shared.split())
+    flagship = " ".join(
+        _text("flagship/from_observer_consensus_to_standard_physics.tex").split()
+    )
+    observers = " ".join(_text("paper/observers_are_all_you_need.tex").split())
+    consensus = " ".join(
+        _text("paper/reality_as_consensus_protocol.tex").split()
+    )
+    micro = " ".join(
+        _text("paper/screen_microphysics_and_observer_synchronization.tex").split()
+    )
+    dark = " ".join(
+        _text("cosmology/oph_dark_matter_paper.tex").split()
+    )
+
+    assert "finite halves of" in shared_words
+    assert "That commit identification is a named premise" in shared_words
+    assert "provenance-disciplined" in shared_words
+    assert "an exact adapter is its verifier rather than a choice of it" in consensus
+    assert "bombelli1987" in consensus
+    assert "lamport1978" in consensus
+    assert "reflexive transitive closure of certified read-from parenthood" in observers
+    assert "generated transitive closure of certified read-from provenance" in flagship
+    assert "causal set generated from record provenance rather than posited" in flagship
+    assert "provenance-disciplined" in micro
+    assert "long-lived by theorem" in dark
+
+
+def test_registry_carries_the_commit_identification_premise() -> None:
+    rows = {row["id"]: row for row in _json("tracking/premise_register.json")["rows"]}
+    base = rows["PR-83"]
+    assert base["disposition"] == "axiomatize"
+    assert base["consuming_lanes"] == [763]
+    assert "Nothing derives this identification" in base["statement"]
+    claims = {
+        row["claim_id"]: row for row in _json("claims/claim_registry.yaml")["claims"]
+    }
+    manifold = claims["OPH-GR-D4B-EVENT-MANIFOLD"]
+    assert "PR-83" in manifold["premise_dependencies"]["consumed"]
+    assert "commit_populated_event_base" in manifold["assumptions"]

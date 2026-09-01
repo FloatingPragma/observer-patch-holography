@@ -189,6 +189,7 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (750, "PR-80"): "adaptive cumulative attempt-budget premise, not a physical observation row",
     (763, "PR-81"): "semantic provenance support premise, not a physical observation row",
     (763, "PR-82"): "semantic ancestry-rank premise, not a physical observation row",
+    (763, "PR-83"): "event-base identification premise, not a physical observation row",
     (735, "PR-15"): "SM correspondence calibration boundary",
     (729, "PR-16"): "gravity ladder attachment boundary",
     (729, "PR-29"): "layered gravity source surface",

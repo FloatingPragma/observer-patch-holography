@@ -291,7 +291,11 @@ remain the exact requirements for one canonical public endpoint. Counting
 stutter as attempt capacity exposes a sharp boundary: no single mismatch-only
 finite attempt horizon uniformly bounds all normalizing schedulers, while bounded waste
 gives a \((q+1)\)-scaled upper horizon; canonical finite sources attain the
-work-conserving case exactly, and the public-endpoint layer consumes the sufficient bound. The carrier layer
+work-conserving case exactly, and the public-endpoint layer consumes the sufficient bound.
+Event precedence on the record layer is source-derived: certified read-from
+provenance generates the causal order, any exact adapter reduces to a
+verifier of it, and the labeled history is invariant under independent
+commutation and stutter deletion. The carrier layer
 returns the intrinsic rank-three position readback and the forced gauge Lie
 type, with the conditional $\mathbb Z_6$ matter image and its exhaustive
 exterior selection. The record layer carries the Born, L\"uders, expectation,
@@ -1056,6 +1060,23 @@ budget exhaustion \cite{ophnormalforms,ophconsensus}.  This mathematical
 capacity is not a physical clock, rate, energy, bandwidth, fee, or hardware
 quota.
 
+The precedence layer beneath these results is itself source-derived.
+Every quotient-visible register version carries the identifier of its last
+semantic writer, each commit certifies the register versions its acceptance
+genuinely depends on, and the causal order is the transitive closure of the
+resulting read-from parenthood: a strict order under one declared
+append-only ancestry rank, derived from the execution position on executed
+histories, least among strict transitive extensions of the direct edges,
+and carried verbatim by any exact precedence adapter.  Static mismatch
+scores are writer-blind, so a standing residual determines no causal
+arrow; hidden writes generate no edge; and the labeled history is
+invariant under independent commutation and stutter deletion of the
+executing schedule.  The finite object is a causal set generated from
+record provenance rather than posited \cite{bombelli1987}, its continuum
+reconstruction obligations are those of causal set theory
+\cite{surya2019}, and the generated relation is the read-from form of the
+happened-before order of distributed computing \cite{lamport1978}.
+
 \subsection{Approximate outputs, refinement, and cost}
 
 Three further results control the normalizer where exactness fails, and their
@@ -1592,7 +1613,7 @@ by zero distance and take its metric completion; call the result $X$. Then
 $X$ is a separable, second-countable metric space. Suppose the same cofinal
 sequence supplies:
 \begin{enumerate}[label=(E\arabic*),leftmargin=2.4em]
-\item population of every point of $X$ by realized record germs;
+\item population of every point of $X$ by realized record germs, whose finite half is source-derived where the germs are quotient-visible semantic commits carrying certified read supports, leaving germ realization on the continuum base;
 \item a covering family of bi-Lipschitz homeomorphisms
 $\phi_i:U_i\to V_i$ from open subsets $U_i\subset X$ onto open subsets
 $V_i\subset\mathbb R^4$;
@@ -1602,7 +1623,7 @@ $V_i\subset\mathbb R^4$;
 are related by pullback under the transition maps;
 \item a nondegenerate quadratic event form of inertia $(1,3)$, with
 compatible orientation and time orientation on every overlap; and
-\item local semantic causal reachability agreeing with the selected cone.
+\item local semantic causal reachability agreeing with the selected cone; under the commit identification the reachability itself is the generated transitive closure of certified read-from provenance, so this receipt reduces to the cone-compatibility clause.
 \end{enumerate}
 Then the event base is a time-oriented Lorentzian four-manifold of regularity
 $C^{1,1}$. The future-unit timelike vectors, equivalently observer velocities
@@ -4410,6 +4431,22 @@ Physics} \textbf{22}, 398--413.
 Kubo, R. (1957). ``Statistical-mechanical theory of irreversible processes.
 I.'' \emph{Journal of the Physical Society of Japan} \textbf{12}, 570--586.
 \url{https://doi.org/10.1143/JPSJ.12.570}
+
+\bibitem{bombelli1987}
+Bombelli, L., Lee, J., Meyer, D., and Sorkin, R. D. (1987). ``Space-time
+as a causal set.'' \emph{Physical Review Letters} \textbf{59}, 521--524.
+\url{https://doi.org/10.1103/PhysRevLett.59.521}
+
+\bibitem{surya2019}
+Surya, S. (2019). ``The causal set approach to quantum gravity.''
+\emph{Living Reviews in Relativity} \textbf{22}, 5.
+\url{https://doi.org/10.1007/s41114-019-0023-1}
+
+\bibitem{lamport1978}
+Lamport, L. (1978). ``Time, clocks, and the ordering of events in a
+distributed system.'' \emph{Communications of the ACM} \textbf{21}(7),
+558--565.
+\url{https://doi.org/10.1145/359545.359563}
 
 \bibitem{lamport1982}
 Lamport, L., Shostak, R., and Pease, M. (1982). ``The Byzantine generals

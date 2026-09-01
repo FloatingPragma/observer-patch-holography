@@ -82,6 +82,11 @@ support spherical-Hankel tomography. The physical source map must also specify
 the radial measure, null-space treatment, clock, normalization, and non-fitting
 forward residual. No finite source construction satisfying these conditions is
 supplied here. Its source-dependency graph must be finite and acyclic.
+The consensus layer supplies the machine-checked form of that requirement:
+certified read-from provenance generates a finite acyclic causal order
+whose ancestry rank is derived from the execution position on executed
+histories, so the graph condition is a theorem of the provenance
+discipline rather than a separate premise.
 
 \subsection{Conditional source spectrum}
 

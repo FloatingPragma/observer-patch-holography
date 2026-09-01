@@ -372,8 +372,13 @@ For an observer token \(O\), the observer-readable history is a labeled causal p
 \[
 \mathsf H_O=(E_O,\preceq_O,\ell_O).
 \]
-The elements of \(E_O\) are semantic record events, \(\preceq_O\) is physical or informational
-dependence, and \(\ell_O\) is the observer-visible event label. Event identity is derived from the
+The elements of \(E_O\) are semantic record events, \(\preceq_O\) is informational
+dependence, and \(\ell_O\) is the observer-visible event label.  The order is
+source-derived: \(\preceq_O\) is the reflexive transitive closure of certified
+read-from parenthood, machine-checked as the least strict extension of the
+direct parent edges and invariant under independent commutation and stutter
+deletion of the executing schedule, so executor order, retries, and stutters
+generate no edge. Event identity is derived from the
 canonical semantic payload, observer token, visible footprint, and semantic causal parents. It is
 not derived from worker ID, repair iteration, queue position, retry counter, timestamp, or packet
 latency metadata. Latency is execution gauge only when it does not alter semantic causality,
@@ -1368,7 +1373,10 @@ Every field of the event-population chart interface is a declared
 hypothesis: no source atlas, physical event population, open-chart
 topology, continuum, or four-dimensional manifold claim beyond the finite
 chart package is supplied, and the stable-causality premise is likewise not
-supplied. \\
+supplied. Where certified commit provenance is supplied, the precedence
+datum is not a choice: an adapter containing every direct parent edge and
+asserting no unsupported comparability carries exactly the generated order
+of the consensus layer. \\
 \addlinespace
 Finite local action domain &
 One target-clean source capture gives an exact finite causal complex. Its

@@ -841,7 +841,7 @@
     },
     {
       "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
-      "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is a second-countable nonseparated uniform space. Under receipts E1-E6 (population density, certified separation gaps, rank-four response frames, Poincare overlap cocycle, quadratic Lorentz-cone fit, and causal reachability), with E4-prime for the curvature upgrade, it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, and a produced conformal metric. Modular flow supplies dimensionless local ordering. An operational clock additionally requires observer-readable transitions, event correspondence, affine calibration, and the stated gluing residual. H3 is strictly the frame fiber over events with no equivariant section; explicit countermodels show dim H3 = 3 promotes nothing by itself.",
+      "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is a second-countable nonseparated uniform space. Under receipts E1-E6 (population density, certified separation gaps, rank-four response frames, Poincare overlap cocycle, quadratic Lorentz-cone fit, and causal reachability), with E4-prime for the curvature upgrade, it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, and a produced conformal metric. Modular flow supplies dimensionless local ordering. An operational clock additionally requires observer-readable transitions, event correspondence, affine calibration, and the stated gluing residual. H3 is strictly the frame fiber over events with no equivariant section; explicit countermodels show dim H3 = 3 promotes nothing by itself. Where the germs are quotient-visible semantic commits carrying certified read supports, the finite population and reachability halves of E1 and E6 are source-derived from the generated provenance order of the consensus layer; that commit identification is a separately registered premise, and the continuum, separation, chart, and cone clauses remain receipts.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_construction_theorem",
       "assumptions": [
@@ -850,6 +850,7 @@
         "quantitative_cap_observability",
         "positive_localization_gap_for_unique_finite_output",
         "event_manifold_receipts_E1_E6",
+        "commit_populated_event_base",
         "modular_intersection_receipt",
         "record_cauchy_and_stable_causality"
       ],
@@ -873,7 +874,8 @@
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
-          "PR-16"
+          "PR-16",
+          "PR-83"
         ],
         "open": [
           "PR-15",
@@ -884,7 +886,7 @@
     },
     {
       "claim_id": "OPH-GR-FINITE-LOCAL-DOMAIN",
-      "statement": "One target-clean deterministic 16384-carrier source capture produces an exact finite causal order on 2304 events, a six-neighborhood closed observer cover with induced affine wiring transitions, an observer-visible seam complex, typed scalar, chiral, and gauge section spaces, and sign-twisted local operators. The declared chart contains one ancestry-depth coordinate and three spectral embedding columns; the certificate checks that those four columns are nondegenerate, but does not select the number of dimensions. Exact integer evaluations on declared deterministic sections test the adjoint, kinetic, gauge-covariance, boundary, and restriction relations, while the signed-graph theorem fixes the kernel. The held-out global quadratic fit has inertia (1,3), while one local neighborhood has inertia (0,4) and every measured cone margin is negative. The seam complex has 8662 vertices, 11816 edges, and 38 frustrated triangles; two coordinate routes through the same GF(2) rank implementation agree with the exact rank identity and give lift-ambiguity rank 3117. A provenance DAG binds the bundle, and an isolated rerun of the same producers reproduces canonical receipt content. This is one producer implementation with a semantic replay. This artifact is not an open-chart atlas, a continuum Lorentzian manifold, a physical Spin structure, a quantum field theory, or a laboratory attachment.",
+      "statement": "One target-clean deterministic 16384-carrier source capture produces an exact finite causal order on 2304 events, a six-neighborhood closed observer cover with induced affine wiring transitions, an observer-visible seam complex, typed scalar, chiral, and gauge section spaces, and sign-twisted local operators. The declared chart contains one ancestry-depth coordinate and three spectral embedding columns; the certificate checks that those four columns are nondegenerate, but does not select the number of dimensions. Exact integer evaluations on declared deterministic sections test the adjoint, kinetic, gauge-covariance, boundary, and restriction relations, while the signed-graph theorem fixes the kernel. The held-out global quadratic fit has inertia (1,3), while one local neighborhood has inertia (0,4) and every measured cone margin is negative. The seam complex has 8662 vertices, 11816 edges, and 38 frustrated triangles; two coordinate routes through the same GF(2) rank implementation agree with the exact rank identity and give lift-ambiguity rank 3117. The ancestry is provenance-disciplined: every declared parent edge carries a read-after-write witness on certified read supports, executor chaining is record-order metadata rather than causal ancestry, and the committed control receipt regenerates the edge set from resource provenance alone, byte-identical to the declared ancestry. A provenance DAG binds the bundle, and an isolated rerun of the same producers reproduces canonical receipt content. This is one producer implementation with a semantic replay. This artifact is not an open-chart atlas, a continuum Lorentzian manifold, a physical Spin structure, a quantum field theory, or a laboratory attachment.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "exact_finite_executed_receipt",
       "assumptions": [

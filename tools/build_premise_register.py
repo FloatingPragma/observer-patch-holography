@@ -499,6 +499,12 @@ EXPECTED_ROWS = (
         "structural_rule",
         "axiomatize",
     ),
+    (
+        "PR-83",
+        "commit-populated event base",
+        "structural_rule",
+        "axiomatize",
+    ),
 )
 
 DISPOSITION_MEANING = {
