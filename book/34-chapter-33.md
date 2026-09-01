@@ -76,7 +76,7 @@ Which is why the classical layer is a readout rather than a foundation. Whatever
 
 ## The finest length anybody has measured
 
-Run a hand along your kitchen counter. It is smooth under your fingers, and chapter fifteen built space out of comparison counts that are not: the continuum is where the counts are heading, and nobody is at the destination. Whatever an observer holds is a finite list of whole numbers taken after a finite number of passes, and the distance from there to the smooth limit is every step there is. Refinement has no completed final stage. Descriptions get finer and no description arrives.
+Run a hand along your kitchen counter. It is smooth under your fingers, while chapter fifteen built an abstract Euclidean carrier completion out of comparison counts that are not smooth. Identifying that completion with physical space requires its own realization and gluing receipts. Whatever an observer holds is a finite list of whole numbers taken after a finite number of passes. Refinement has no completed final stage. Descriptions get finer and no finite description arrives at its completion.
 
 The instruments say the same thing from the other side. In Louisiana and in Washington State there are two L-shaped machines with arms four kilometers long, built to catch gravitational waves, and what they detect is a change in the length of one arm of about a meter divided by ten to the nineteenth. A proton is about 1.7 of a meter divided by ten to the fifteenth across, so what those machines resolve is under one ten-thousandth of the width of a proton. That is the finest length measurement human beings have made.
 

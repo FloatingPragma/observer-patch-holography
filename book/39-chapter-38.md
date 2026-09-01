@@ -72,7 +72,7 @@ Different lineages settle on different policies, in flasks prepared from the sam
 
 Ask how much room something has to be otherwise, and count it at each level.
 
-Chapter fourteen counted the ports: twelve, with thirty seams between them, and twelve is what the consistency conditions permit rather than a number anybody chose. Chapter fifteen counted the directions: three, the rank of the slowest-fading band, with the other bands dying away faster and taking their dimensions with them. Chapter sixteen found the arrow: one way round, because a commit discards what it resolved, and there is no arrangement of the early universe that would have made it run the other way.
+Chapter fourteen counted the ports: twelve, with thirty seams between them, on the declared carrier branch. Chapter fifteen found a rank-three candidate position band, with the other bands fading faster; its physical-space interpretation remains a separate receipt. Chapter sixteen found an informational arrow: one way round, because a commit discards what it resolved. Identifying that arrow with physical causality in an early universe is another step.
 
 Those three were settled with no history available to settle them. There was no record, nothing had happened, and the conditions had exactly one solution. A universe with eleven ports never lost a competition to a universe with twelve. Eleven ports does not survive the counting, so there was never an eleven-port world for the twelve-port one to beat.
 

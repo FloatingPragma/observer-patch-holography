@@ -14,6 +14,12 @@ geometry, asymptotic tails, physical identification, and existence of an
 Einstein-admissible source tower are explicit premises rather than proved
 facts.
 
+The computation library also contains one fixed generated-node federation
+whose input is carried by preserved initial-state ports. Canonical genuine
+repairs terminate by a dependency-order rank, while pathwise weak fairness
+upgrades stuttering attempt stabilization to consensus. The historical weak
+repair relation is unchanged and has an explicit fair-stuttering no-go.
+
 ## Layout
 
 One Lake workspace, seven Lean libraries across their source directories:

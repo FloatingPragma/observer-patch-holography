@@ -176,6 +176,83 @@ surface for the OPH consensus layer. Contents:
   `(q + 1)`-scaled upper horizon, the work-conserving case is exactly sharp,
   and a sufficient budget reaches the existing public endpoint. No physical
   resource interpretation follows.
+- A source-derived causal-order package in
+  `ObserverPatchHolography/Provenance/SemanticEventProvenance.lean`, with
+  mismatch predicates and orientation controls in `MismatchProvenance.lean`,
+  seam-delta aggregation in `SeamDeltaAggregation.lean`, causal intervals,
+  the interval-linearity/no-fork-join equivalence, and the Boolean response
+  diamond counterexample in `CausalInterval.lean`, and the
+  adapter bridge in `QFT/SourceDerivedEventPrecedence.lean`. Versioned
+  commits generate event precedence as the transitive closure of
+  authenticated read-after-write parenthood: the parent wrote the support
+  register and the child carries its exact value-version. The abstract log
+  interface carries a rank certificate; the producer-facing threaded
+  execution constructor instead derives that rank from list position. The
+  closure is a strict order inhabiting the A1 record-order interface, and
+  an adapter containing every direct edge with no unsupported comparability
+  carries exactly the generated order. Static mismatch scores are
+  writer-blind, so provenance is load-bearing for direction. History,
+  quotient, and refinement controls close the package:
+  `HistoryCausalInvariance.lean` executes commit specifications against a
+  threaded state and proves authenticated parenthood and its generated
+  closure invariant under explicitly certified independent adjacent swaps
+  and stutter deletion, with the append-only rank derived from list
+  position, mismatch persistence while its full support remains unwritten,
+  and a dependent-pair boundary;
+  `QuotientInvariance.lean` proves every verdict reads only the visible
+  restriction and that hidden writes create no visible mismatch change and,
+  under fresh identifiers, duplicate-free execution, and visible-support
+  hypotheses, no outgoing direct raw or authenticated parent edge to a
+  visibly supported child; incoming edges into the hidden commit are not
+  excluded. `RefinementNaturality.lean` conditionally carries
+  generated order and causal intervals through a supplied edge-preserving
+  candidate refinement map, with the reversed diamond-to-chain assignment
+  inhabiting no receipt. `Geometry/EventPopulationChartInterface.lean`
+  exposes the finite bridge which fixes its old precedence field to the
+  generated reflexive order while retaining atlas, cone, population, and
+  physical attachments as premises.
+  `Geometry/SourceOrderFrameCompatibilityPacket.lean` then composes that supplied
+  chart/cone attachment with the independent rank-three source quotient and
+  explicitly supplied per-event Lorentz-frame transports. It proves the
+  finite order/cone equivalence and exposes the existing algebraic soldering
+  package (ambient rank four, rank-three rest fibers, Lorentz overlap
+  cocycles, and conditional celestial covariance), together with the exact
+  transported Gram/rest-metric bridge. The source quotient's unit Gram directions are
+  exactly equivalent to the algebraic celestial two-sphere and future-null
+  rays, but are not identified with a physical sky or signal. The packet
+  constructs no inhabitant and derives no Lorentz/conformal group, physical causality, volume law,
+  manifoldlikeness, refinement limit, or continuum.
+  `Geometry/SourceOrderEinsteinComposition.lean` maps the existing
+  coordinate-fixed nine-vector null-tomography frame back to exact
+  `SourceUnitDirection` values. The distinguished nine-set is neither
+  source/poset-selected nor Lorentz- or `SO(3)`-invariant as a set.
+  Under nine supplied direction balances and supplied symmetric tensor,
+  Ward/Bianchi, connectivity, vacuum-reference, and scale
+  data on the same finite `Event` type,
+  `sourceOrderEinstein_from_source_directions` derives all-null balance and an
+  Einstein-form tensor identity. A universal-source equality is copied into
+  the conclusion for downstream composition but is not used in the tensor
+  equation. The generated order is retained in the
+  packet's finite consequences but is not used in the tensor calculation; no
+  provenance link selects a direction, field, step, or balance. No packet or
+  premise inhabitant is constructed. The supplied `Mat 3`, `eta 3`, and
+  `Fin 4` types fix the tensor-coordinate dimension as supplied data rather than
+  deriving it from the poset. No smooth curvature, physical stress-energy, manifold,
+  count--volume law, refinement, or continuum is constructed.
+  The order is
+  informational; invariance over the full admissible implementation class,
+  physical causality, spacetime, and every continuum claim stay open.
+- A fixed computation-federation package in
+  `Computation/FixedFederationProgress.lean`, with sharp controls in
+  `FixedFederationCounterexamples.lean` and a downstream endpoint in
+  `Tower/FixedFederationEndpoint.lean`. Formula nodes are fixed independently
+  of input, which is read from preserved initial-state ports. Every genuine
+  node repair lowers a dependency-order rank; attempts may stutter, so
+  continuously-enabled node fairness is used only to obtain consensus from
+  the eventual constant tail. The package also proves that raw failing-node
+  count can increase under upstream fanout and that the historical weak step
+  can remain fairly stuttering forever. It selects no scheduler and claims no
+  budget, rate, complexity, physical device, or full raw-state uniqueness.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

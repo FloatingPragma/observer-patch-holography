@@ -70,7 +70,7 @@ A pattern of that kind turns its material over, exactly as the heap in the canal
 
 Chapter seventeen put four real numbers into a two-by-two Hermitian matrix and found the interval of special relativity sitting in its determinant: the first number squared, minus the squares of the other three. The transformations that carry one observer's description into another's are exactly the ones that leave a determinant alone, which is why every observer computes that combination and gets the same answer.
 
-A region's entry is four numbers of that kind. The first is the rate the region is worked through against that region's own clock, which is its energy. The other three are the drift of its records across the seam network in the three directions chapter fifteen supplied, which is the quantity Newton listed second among his definitions and called the quantity of motion: momentum.
+A region's entry is four numbers of that kind on the declared physical carrier branch. The first is the rate the region is worked through against that region's own clock, which is its energy. The other three are the drift of its records across the seam network in the rank-three carrier directions from chapter fifteen. Identifying those coordinates and that clock with physical momentum and energy requires the separate realization receipts.
 
 Put the four numbers into the matrix and take the determinant. Every observer agrees on it. What they agree on is the square of the mass.
 
@@ -82,7 +82,7 @@ Here E is the region's energy, m is its mass, and p is the size of the drift, wi
 
 Set the three drift numbers to zero and the equation reads E = m. Run it the other way: if the energy equals the mass, then p squared is zero, and a sum of three squares comes to zero only when each of the three is zero, so the drift vanishes in every direction at once. Energy equals mass exactly when a pattern is going nowhere. The exactly-when is a two-way statement about a matrix rather than an approximation for slow objects.
 
-Chapter nine counted the conversion that equation set to one: influence advances one seam per event and no faster, which chapter seventeen turned into the speed limit. Restore it to the case where the drift is zero, and the standing cost of a pattern is its mass multiplied by the square of that speed. E = mc² is the corner of a four-number statement with the interesting term deleted. It is the equation for a brick going nowhere.
+On the physical Lorentz/action branch, the zero-drift mass shell gives $E=mc^2$. Chapter nine's one-seam-per-event statement is only a graph-local dependency bound; it neither fixes $c$ nor identifies the standing cost with physical mass. Those identifications require the ruler, clock, causal and action receipts carried by the branch.
 
 The corner is worth something because the conversion is squared. A helium-4 nucleus falls short of the two protons and two neutrons that make it by 0.0304 atomic mass units, and the energy released when those four combine, measured in the laboratory, is 28.3 million electronvolts, which is that shortfall multiplied by the square of the speed of light.
 

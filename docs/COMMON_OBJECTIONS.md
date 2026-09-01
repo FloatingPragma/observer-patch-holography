@@ -344,33 +344,56 @@ The criticism effectively assumes the opposite: it assumes the boost acts by phy
 
 ## 6. Why OPH does not stop at Newtonian gravity
 
-This is the second major error in the criticism.
+The criticism misses an exact finite tensor result, but the correction must not
+be turned into an unconditional spacetime claim. OPH separates a finite
+same-carrier premise reduction from the physical continuum interpretation.
 
-The OPH gravity derivation does not end with a Newtonian potential equation. It proceeds as follows:
+### 6.1 The exact finite result
 
-### 6.1 Rest-frame scalar equation
+Take a supplied `SourceOrderFrameCompatibilityPacket` and supplied symmetric
+geometry and stress matrices on its finite event type. The tensor interface
+has `Mat 3`, `eta 3`, and four step maps as inputs, so it is a predeclared 3+1
+algebra rather than a dimension derived from the event order.
 
-Entanglement equilibrium plus the modular-energy bridge gives, in a local diamond rest frame,
+The theorem maps the pre-existing coordinate-fixed nine-vector tomography
+frame into nine fixed algebraic source-unit-direction representatives. This
+distinguished nine-set is neither selected by the record provenance or source
+dynamics nor invariant as a set under all spatial rotations or Lorentz
+transformations. Given balance on those nine representatives, plus the stated
+symmetry, discrete Ward and Bianchi, connectedness, vacuum-reference, and
+scale conditions, the theorem derives balance on every null vector, the
+metric ambiguity and its constancy, and the finite Einstein-form identity
 
-`G_00 + Lambda g_00 = 8pi G <T_00>`.
+`geometry_ab = 8pi G stress_ab + Lambda eta_ab`.
 
-### 6.2 Null reconstruction
+The all-null balance is therefore a conclusion of nine supplied balance
+equalities, not another premise. The authenticated informational order shares
+the finite event carrier but is not used to select the directions, tensors,
+step, or balances and is not load-bearing in this calculation. A
+universal-source equality is copied into the conclusion for a downstream
+composition, but the displayed tensor proof does not use it. Neither the
+packet nor its premise bundle is constructed by the theorem.
 
-From the null modular bridge one reconstructs `T_{kk}` for all null directions, and from those null data reconstructs a symmetric tensor `T_{ab}` modulo the expected metric ambiguity:
+### 6.2 The physical Einstein reading is conditional
 
-`X_ab k^a k^b = 0` for all null `k` implies `X_ab = phi g_ab`.
+The finite fields are not thereby identified with smooth curvature and
+physical stress-energy. That interpretation additionally requires a
+physically faithful causal attachment, a populated manifoldlike event region,
+dense and isotropic link-direction coverage, count-to-volume calibration,
+compatible refinement, the small-region and continuum identities, and one
+inhabited common-domain tower carrying the stress, entropy, reference, and
+scale data. The separate gravity composition returns an Einstein-form branch
+under those explicit inputs; it does not construct them (*Observers Are All
+You Need*, Part I §5.2 and §5.6-5.7; Part V §2.4-2.5).
 
-This is why the derivation determines Einstein's equation only up to the cosmological term `Lambda g_{ab}`. That is standard and expected from null-data reconstruction (*Observers Are All You Need*, Part I §5.2 and Part V §2.4).
+### 6.3 Relation to the Newtonian limit
 
-### 6.3 Overlap consistency upgrades the scalar equation to the tensor equation
-
-Different observers through the same bulk point choose different local rest frames `u`. OPH then uses overlap consistency to require that the local equation hold for **all** timelike directions. The result is the full tensor form:
-
-`G_ab + Lambda g_ab = 8pi G <T_ab>`.
-
-This exact upgrade step is precisely what rules out the claim that the framework reaches only Newtonian gravity (*Observers Are All You Need*, Part I §5.6-5.7; Part V §2.5).
-
-If the paper had only derived a weak-field Poisson equation, the criticism would be right. But that is not what the paper claims or does.
+On a physically inhabited smooth branch, the weak-field, slow-motion limit of
+the Einstein equation gives the Newtonian Poisson equation. OPH therefore does
+not present Newtonian gravity as the end of its mathematical architecture.
+What it establishes exactly is the finite nine-direction premise reduction;
+the promotion to a smooth physical Einstein geometry retains the conditions
+listed above.
 
 ---
 

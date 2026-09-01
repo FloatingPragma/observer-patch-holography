@@ -66,7 +66,8 @@ def test_arming_claim_and_register_rows() -> None:
     register = json.loads((ROOT / "tracking/premise_register.json").read_text(
         encoding="utf-8"))
     rows = {r["id"]: r for r in register["rows"]}
-    assert len(register["rows"]) == 76
+    assert len(rows) == len(register["rows"])
+    assert set(ARMING_ROWS) <= rows.keys()
     for pid in ARMING_ROWS:
         row = rows[pid]
         assert row["disposition"] in ("remove", "axiomatize"), pid
@@ -133,8 +134,8 @@ def test_ledger_rows_cite_without_promotion() -> None:
         encoding="utf-8"))
     rows = {row["id"]: row for row in ledger["rows"]}
     assert ACTION_LEAN in rows["OL-N1"]["evidence"]
-    assert "exactly decoupled sum" in rows["OL-N1"]["notes"]
-    assert "Viable carrier-map" in rows["OL-N1"]["notes"]
+    assert "typed finite joins or decoupled products" in rows["OL-N1"]["notes"]
+    assert "do not supply a shared physical carrier" in rows["OL-N1"]["notes"]
     assert rows["OL-N1"]["status"] == "owed"
     assert ARM_LEAN in rows["OL-F4"]["evidence"]
     for pid in ARMING_ROWS:

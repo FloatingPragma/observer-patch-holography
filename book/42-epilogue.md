@@ -52,24 +52,24 @@ Observers capable of running a repair law is a description of somebody, and call
 4. Why do two descriptions ever agree? They have to match where both look, and a loop of exchange rates has to return what it started with.
 5. Why do you and I see the same table? Whatever differs between two descriptions of it was never physical.
 6. Why isn't agreeing with your neighbors enough? Every pair can agree while a loop carries a residue, and a leftover of exactly one survives every repair order.
-7. Why is there no such thing as now? Causality is a partial order, time is a total order, and nothing in the arrangement builds the second.
-8. Why can strangers agree without a boss? Influence along declared ports is a finite dependency cone.
+7. Why is there no such thing as now? Authenticated informational precedence is a partial order, time is a total order, and nothing in the arrangement builds the second.
+8. Why can strangers agree without a boss? Authenticated read-from dependence along declared ports forms a finite informational cone.
 9. What move does reality actually make? One move is admissible, both readings to the midpoint, preserving their sum by construction.
 10. Why doesn't it matter who goes first? 102,415 disagreeing seams reach zero under every order, and sixteen shuffled replays return one identical finishing state.
 11. What does everybody actually end up holding? Objective reality is the observable normal form, unique relative to the boundary data.
 12. Why is the world made of relations and not of things? The sourced action is gauge-invariant if and only if the source is conserved.
 13. What is one piece of reality actually made of? Six parts and six moves, and a bounded interface is a bound on what can be known about a region.
 14. Why twelve? A closed carrier admits twelve ports, thirty seams and twenty faces, and no other count.
-15. Why does space have three directions? Only the slowest-fading block survives enough rounds to carry a position, and its rank is three.
-16. Why does time run, and only one way? The arrow comes from writing records rather than from how the universe started.
-17. Why is there a speed limit? The angle-preserving transformations of an observer's sky are the Lorentz transformations.
+15. Why does the position carrier have three directions? On the declared operational-cost branch, only the slowest-fading block survives enough rounds to carry the candidate position readback, and its rank is three. Physical space requires the separate realization and event-manifold bridges.
+16. Why do authenticated records have a direction? A write discards alternatives and later certified reads inherit an informational arrow. Identifying it with the physical arrow of time requires the dynamical, causal and clock bridges.
+17. Why does the frame module have a limiting cone? Imported classical mathematics identifies the orientation-preserving conformal group of the realized celestial sphere with the proper Lorentz group. Physical signal speed requires causal, ruler and clock attachment.
 18. Why does anything have energy? Energy is how fast repair gets through a region's records, timed by the clock that region makes for itself.
 19. Why can't you ask everything at once? Refusing to answer two questions together is what makes an undocumented machine readable from a seat inside it, and the questions that refuse nothing form the center where records sit.
 20. Why does nature cheat, but only by exactly 2√2? The ceiling is a product of commutators, and sits at 2.8284.
 21. Why does time feel like it's moving? The state supplies its own flow, and the flow is trivial on records.
 22. Why does writing something down cost heat? All four laws of thermodynamics come out of one repair rule, and at three hundred kelvin the world charges 2.87 joules divided by ten to the twenty-first for every yes-or-no question a record settles.
 23. Why does a region's memory scale with its surface? A finite overlap network is a constraint code, and a code of that kind carries no distance.
-24. Why does gravity look like geometry? Curvature is what a settled network of observers looks like from a distance, and Newton's constant comes out 6.6742999959 times ten to the minus eleven cubic meters per kilogram per second squared, against a measured 6.67430.
+24. Why does gravity look like geometry? On the event-manifold, stress, entropy, scaling and scale branch, the Jacobson-type relation yields Einstein geometry. The finite informational network alone does not.
 25. Why exactly these forces? One plus three plus eight, and nothing else survives the arithmetic.
 26. Why this exact list of matter, and why three times over? Fifteen states make one generation, and of 1,024 possible matter contents exactly two survive as mirror images of each other.
 27. What is a particle, what is a wave, and why does it look like both? They are one object read at two record depths, and the unified route to proton decay is exactly absent.

@@ -184,7 +184,8 @@ def test_owner_papers_carry_the_new_results() -> None:
     for token in ("CertifiedScaledStepInstrument", "84/25"):
         assert token in screen, token
     flagship = _collapsed(FLAGSHIP_PAPER)
-    for token in ("The dark sector and the deep galaxy law", "a_0=Gn^2c"):
+    for token in ("The dark sector: non-luminous charge, the deep galaxy law",
+                  "a_0=Gn^2c"):
         assert token in flagship, token
 
 

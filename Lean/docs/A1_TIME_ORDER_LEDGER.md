@@ -72,6 +72,38 @@ umbrella build checks it. Its printed axiom audit contains no project axiom or
 `sorryAx`. The affine theorem has only Mathlib's standard classical/quotient
 axioms.
 
+## Source-generated inhabitant of the record-order type
+
+`ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` produces
+an `ObserverRecordOrder` from provenance instead of declaration:
+`SemanticEventLog.generatedRecordOrder` is the transitive closure of
+authenticated read-after-write parenthood. Authentication requires parent
+write membership, the child's matching writer token, and exact continuity
+of the committed value. The abstract certificate interface carries a
+well-founded rank, while `HistoryCausalInvariance.lean` constructs the
+interface from a fresh duplicate-free carrier-complete threaded execution
+and derives the rank from list position. The rank is none of the other A1
+layers, and no identification with a repair schedule, modular parameter,
+clock reading, proper time, or global time function is made.
+`QFT/SourceDerivedEventPrecedence.lean` consumes either the abstract
+certificate or the executed-history constructor for the event-precedence
+adapter and proves any exact adapter equal to it.
+`Provenance/CausalInterval.lean` proves that linearity of every generated
+interval is equivalent to the absence of an incomparable fork-and-join
+witness; its authenticated four-event Boolean diamond violates both
+conditions. This is an informational-order obstruction, not a physical
+causal-set, dimension, manifold, or continuum theorem.
+
+`Geometry/SourceOrderEinsteinComposition.lean` later shares the packet's
+finite `Event` type, but it does not convert this informational order into a
+tensor input. Its Einstein-form calculation uses the fixed algebraic inverse
+images of a pre-existing coordinate nine-vector tomography frame in the
+independent rank-three source quotient plus supplied tensor,
+conservation, reference, and scale data. No provenance link selects a
+direction, field, step, or balance. Thus the same-carrier theorem does not add
+an A1 coercion from record order to physical causality, geometry, time, or
+dimension; the theorem's `Mat 3`, `eta 3`, and `Fin 4` types are supplied.
+
 ## Downstream boundary
 
 A1 supplies names and type separation only. The bounded D1 packet in

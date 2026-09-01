@@ -12,8 +12,8 @@ observers: bounded systems that carry local state, read part of themselves and
 their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
 builds a single mathematical route through quantum records, thermodynamics,
-three-dimensional space, Lorentzian events, gravity, gauge structure, matter,
-and the constants of nature. Its strongest steps are exact finite theorems,
+Lorentz-frame kinematics, conditional event-spacetime and gravity branches,
+gauge structure, matter, and the constants of nature. Its strongest steps are exact finite theorems,
 with each physical bridge made precise enough to prove or test.
 
 Three axioms govern the observer architecture and how observers reach
@@ -79,10 +79,17 @@ calculations and reproducible simulations:
   yields all four laws, with the second law appearing as data processing
   applied to repair and the Landauer bound as a corollary.
 - **Relativity and gravity from observer geometry.** Exact finite results
-  establish Lorentz kinematics, mass-shell structure, causal order, the
-  inverse-square law, and a conditional Einstein reconstruction. Together
-  they provide a concrete route from observer-accessible records and repair
-  to spacetime and gravity.
+  derive Lorentz-frame kinematics, mass-shell structure, and an informational
+  order from authenticated reads rather than declared ancestry. The
+  rank-three source carrier has unit directions exactly equivalent to
+  (S^2) and future-null-ray labels. For every supplied order/frame packet,
+  Lean proves finite order--cone, rank, and local-metric agreement. On the same
+  finite carrier, nine algebraic source directions suffice to derive all-null
+  balance and an Einstein-form tensor relation inside a supplied 3+1 algebra.
+  Physical spacetime remains emergent: faithful embedding, manifoldlikeness,
+  dense isotropic link coverage, count-to-volume calibration, compatible
+  refinement, and continuum identification remain separate requirements. See the
+  [spacetime derivation](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 - **Field geometry on the twelve-port screen.** The finite screen carries
   exact Green, Thomson, Gauss, curvature, and gauge-invariance theorems. The
   same geometry connects port loads, seam data, local curvature, and the
@@ -99,7 +106,7 @@ calculations and reproducible simulations:
   fine-structure constant carries diagnostic status. These calculations turn
   constants into concrete derivation and falsification targets rather than
   free inputs.
-- **Machine-checked and falsifiable.** More than 9900 Lean theorems with
+- **Machine-checked and falsifiable.** More than 10100 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
   frozen-prediction ladder requires every armed comparison to bind its kill
@@ -330,7 +337,7 @@ them.
 | If you want... | Start here |
 | --- | --- |
 | The flagship introduction to OPH | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| The spacetime and Einstein derivation | [Recovering Observer Spacetime and Einstein Dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| The conditional spacetime and Einstein chain | [Recovering Observer Spacetime and Einstein Dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Both Standard Model gauge routes | [Deriving Standard Model Gauge Structure](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
@@ -348,7 +355,7 @@ The [paper index](paper/) gives the curated publication map. Focused research PD
   </a>
 </p>
 
-<p align="center"><sub>The typed OPH dependency map. It separates exact and conditional branches from the open source, support, current, attachment, and scale bridges that would make them one physical realization.</sub></p>
+<p align="center"><sub>The typed OPH dependency map. It keeps authenticated order, the rank-three carrier, S2/Lorentz frame data, and the event-population measure distinct until the effective-description compatibility square. Event population is not identified with public capacity N. The map then separates exact and conditional branches from the required physical bridges.</sub></p>
 
 ## Repository Guide
 

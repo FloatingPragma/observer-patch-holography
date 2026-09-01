@@ -1,5 +1,7 @@
 # 24. Why Does Gravity Look Like Geometry?
 
+The OPH argument in this chapter is a conditional branch theorem. It assumes the physical event manifold and stress attachment, the geometric modular and null bridges, fixed-cap generalized-entropy stationarity, the smooth small-ball formulas, controlled scaling tails, universal coupling, a vacuum reference and physical scale. The finite informational order and carrier calculations in the earlier chapters do not supply that joint antecedent.
+
 In the autumn of 1907 Albert Einstein was examining patents in Bern and owed Johannes Stark a review article on relativity for a yearbook of radioactivity and electronics. He was assembling it at his desk in the office when the thought arrived that he described fifteen years afterward, in a lecture in Kyoto on 14 December 1922, as the happiest of his life. If a person falls freely, he will not feel his own weight.
 
 Every other influence in physics discriminates. A magnet lifts a steel paperclip and does nothing at all to an aluminum one of the same mass, because the response depends on what the object is made of. Gravity pulls harder on a heavier object by exactly the factor that makes a heavier object harder to shift, the two cancel, and everything falls at one rate, which is why David Scott could stand on the Moon in August 1971 with a hammer in one hand and a falcon feather in the other and drop them together for the camera. Write the description in a frame that falls along with everything else and gravity drops out of it, leaving nothing anywhere in the equations for it to do.
@@ -46,9 +48,9 @@ Jacobson's move was to demand that this hold on every one of those horizons. A b
 
 Matter crossing such a horizon carries energy, so it delivers heat. The horizon's entropy is a quarter of its area, so the entropy change is an area change. The temperature is the one the accelerating observer reads. Insist that heat over temperature equals the area change at every point and in every direction at once, and the geometry has no freedom left: it has to distort in exactly the way that keeps the accounts straight everywhere, and that distortion is Einstein's equation, coupling constant included.
 
-Jacobson had to bring the area law and the temperature in from outside. The area law came out of chapter twenty-three's collar, where what a region can hold is a count of the seams a cut along its boundary severs. The temperature came out of chapter twenty-one, where the flow a state determines runs an accelerating observer along and reads warm on a thermometer riding with it.
+Jacobson had to bring the area law and the temperature in from outside. Chapter twenty-three's collar gives a finite boundary-capacity candidate, and chapter twenty-one gives an algebraic flow candidate. Reading the first as physical area entropy and the second as an accelerated observer's measured temperature requires the corresponding geometric, modular and unit attachments; those identifications are branch premises, not consequences of the informational order.
 
-The repair rule drives every observer to the state carrying the most entropy compatible with the constraints it has to satisfy. Take the total entropy of a small region, meaning the entropy of its contents plus a quarter of the area of its boundary. At the state the repair rule settles on, that total is at a maximum. The first-order change of anything at a maximum is zero. Stationarity of the total entropy on every small region, for every small variation of the state or the shape, is Clausius's relation with nothing thermodynamic assumed.
+The physical branch identifies a settled repair state with a maximum of generalized entropy, the entropy of a small region's contents plus one quarter of its boundary area in calibrated units. The first-order change of anything at a maximum is zero. Turning that stationarity statement into Clausius's relation requires the supplied entropy, temperature, heat-flow and physical-area identifications. The finite repair theorem alone does not establish those thermodynamic premises.
 
 ## Where the eight and the pi come from
 
@@ -60,9 +62,9 @@ One factor is owed, and chapter twenty-one supplied it. Entropy is heat divided 
 
 The geometry side. Alfred Gray and Lieven Vanhecke, in *Acta Mathematica* in 1979, worked out how the size of a small geodesic sphere depends on the curvature around it. The piece of that needed here says that if you hold the volume of a small ball fixed and raise the curvature, the area of its boundary falls by four pi times the fourth power of the radius, divided by fifteen, times the change in exactly the curvature combination that stands on the left of Einstein's equation. Curving the surroundings costs boundary area.
 
-Set the sum of the two to zero, remembering that the area enters the total entropy divided by four times Newton's constant. Every appearance of the radius cancels. Both fifteens cancel. What is left is eight pi squared on one side against pi over Newton's constant on the other, and the ratio of those two is eight pi times Newton's constant, which is the coupling that stands in front of the stress in the field equation. Nobody chose it and nobody fitted it. The eight pi that every textbook writes in front of Newton's constant without comment is the ratio of two elementary integrals over a small ball.
+Set the sum of the two to zero, remembering that the area enters the total entropy divided by four times Newton's constant. Every appearance of the radius cancels. Both fifteens cancel. What is left is eight pi squared on one side against pi over Newton's constant on the other, and the ratio of those two is eight pi times Newton's constant, which is the coupling that stands in front of the stress in the field equation. Conditional on the imported small-ball, temperature, entropy-area and physical-scale normalizations, the coefficient is fixed by the ratio of two elementary integrals rather than fitted as an additional parameter. The finite source-order theorem does not derive those normalizations.
 
-That gives one of the ten equations, in one observer's rest frame. The other nine come from the overlap rule. Chapter seventeen gave every observer a three-dimensional space of velocities, and observers passing through the same point at every velocity in an open range each supply the same relation in their own frame. Written out in terms of the velocity, each relation is a polynomial of degree two. A polynomial that vanishes for every velocity in an open range has every coefficient equal to zero. Ten components, from a ball of observers who have to agree with each other.
+On the branch just named, that gives one of the ten equations in one observer's rest frame. The other nine follow when the event-manifold population receipt supplies observers through the same event in an open set of timelike directions and the overlap law carries the same relation between their frames. Written out in terms of velocity, each relation is a polynomial of degree two. A polynomial that vanishes for every velocity in an open range has every coefficient equal to zero. Ten components then follow from the conditional family of agreeing observers.
 
 ## The gas law does not know about molecules
 
@@ -70,23 +72,45 @@ Jacobson ended his abstract with a sentence that has been irritating people for 
 
 Pressure times volume equals a constant times temperature. Émile Clapeyron put it in that form in 1834. It held up in every laboratory in Europe through the rest of the century without containing a single molecule. In 1908 Jean Perrin put grains of gamboge resin in water under a microscope, counted how the population thinned out with height, and got Avogadro's number out of the count, which finished an argument about whether matter came in pieces at all. Wilhelm Ostwald, who had spent a career arguing that atoms were a bookkeeping convenience, gave that position up in the preface to the fourth edition of his own textbook in 1909, citing Perrin by name. The gas law did not change a symbol, because it was never a claim about molecules. It is a claim about a gas that has settled down, and stays true whatever the gas turns out to be made of.
 
-Einstein's equation sits on that shelf. It is the condition a network of observers at its settled state has to satisfy, written in the language of the shape they collectively report. Quantizing the metric in the hope of finding the atom of space is quantizing the pressure of a gas in the hope of finding the molecule. The pressure is real, it is measurable, it will lift a piston, and it belongs to a settled state rather than to a constituent.
+On the physical branch stated at the start of the chapter, Einstein's equation sits on that shelf. It is the effective condition that the supplied observer, geometry, stress and thermodynamic data have to satisfy at a settled state. The finite informational network alone does not establish that identification. Quantizing the metric in the hope of finding the atom of space is then analogous to quantizing the pressure of a gas in the hope of finding the molecule. The pressure is real, it is measurable, it will lift a piston, and it belongs to a settled state rather than to a constituent.
 
-The 1907 thought comes out as a theorem. Every observer builds its local frame the same way, out of its own region's flow, so the frame of a falling observer and the frame of an observer floating in empty space are the same construction, and gravity can always be made to vanish locally by choosing the right one. And the walkers come out too. For matter with no pressure, the conservation that the field equation forces on the stress says that each speck goes straight ahead. Free fall along geodesics is a consequence of the equation rather than a separate law bolted to it.
+On that same branch, the 1907 thought is recovered as a conditional theorem. Every observer uses the supplied Lorentz-frame construction, so the local inertial reading of a falling observer and that of an observer floating in empty space have the same form. For pressureless matter, the supplied stress interpretation and conservation law then imply geodesic motion. These are consequences of the effective geometric branch, not of the read-from order by itself.
 
-## Nine light rays
+## Nine balances in a supplied frame
 
-Everything in the argument crossed a horizon, and horizons are made of light rays.
+On the conditional smooth branch, a horizon is traced by null directions and a
+symmetric stress tensor can be evaluated twice on any one of them. That is the
+physical picture behind null tomography. The exact finite theorem, however,
+does not begin with nine observed light rays.
 
-An observer's access to anything is bounded by chapter seventeen's light cone, so the boundary of what can reach it is traced by rays, and any quantity read off at that boundary is read by evaluating the stress along a ray direction. The stress takes two directions and returns a number. Feed it the same light-ray direction twice and you get the one number a horizon can report.
+It begins with a supplied 3+1 tensor algebra: matrix-valued geometry and
+stress fields, four supplied step maps and the Minkowski form. A coordinate
+frame of nine null vectors is fixed inside that algebra. The exact
+rank-three-unit-sphere equivalence gives nine algebraic inverse images of that
+frame. Neither the record order nor the source dynamics chooses this
+distinguished nine-set, and the set is not invariant under every rotation or
+Lorentz transformation.
 
-That restriction comes from the world rather than from a choice of coordinates. A record held by one observer turns into a fact for a second observer when something crosses between them, the edges of every region anybody can name are set by what can cross, and the boundary case travels at the speed light does. Slower probes report on a region from inside it, after the fact, and faster ones are unavailable at any price. So the geometry of what can be established is the geometry of rays. A quantity the rays cannot report is a quantity no local measurement will ever hand anybody.
+The theorem asks for nine balance equalities along those fixed algebraic
+representatives. Given the separately supplied symmetry, discrete
+conservation, connectedness, vacuum-reference and scale conditions, the nine
+equalities imply balance on every null vector and then the Einstein-shaped
+tensor equation on the same finite event set. The informational order shares
+that event set but does no work in the tensor calculation. No record edge
+chooses a direction or a tensor, and no theorem packet or premise bundle is
+constructed.
 
-Ten numbers describe the stress at a point. Light rays report one number each. How much of the stress do the rays determine?
-
-A symmetric object that reads zero along every light ray has to be a multiple of the metric, and nothing else. So the rays pin down nine of the ten numbers. What they leave undetermined is a multiple of the metric.
-
-Nine readings do it. Take the six rays that travel along one axis at a time, forward and backward along each of the three. Then take three more that share their motion equally among all three axes, each space component equal in size to one over the square root of three, with the signs plus plus plus, plus plus minus, and plus minus plus. The six axis rays never pick up the cross terms, the entries pairing one space direction with a different one, because a ray running along a single axis has no second direction to pair it with. The three tilted rays are there for those, and their three sign patterns read the three cross terms off one another. Nine light rays, nine numbers, one system of linear equations to invert. Its determinant is exactly eight thousand one hundred and ninety-two over twenty-seven, or two to the thirteenth over three cubed. A determinant that misses zero is a system that inverts. The inversion is stable into the bargain: an error in the nine readings grows by a factor of at most two plus the square root of three, which is under three and three quarters, in the nine numbers recovered from them.
+Why can nine equalities suffice? Take the six coordinate vectors pointing
+forward and backward along one spatial axis at a time, then three tilted
+vectors with the required sign patterns. They form one coordinate tomography
+frame. Its determinant is exactly eight thousand one hundred and ninety-two
+over twenty-seven, or two to the thirteenth over three cubed, so the linear
+system inverts. This is exact algebra and the inversion is stable. Calling
+these nine supplied equalities nine measurements would add a physical
+direction-selection and instrument theorem that the finite result does not
+contain. Turning the matrix fields into smooth curvature and physical stress
+requires the event-manifold, link-direction, count-to-volume, refinement and
+continuum conditions named at the start of the chapter.
 
 ## The vacuum and the tenth number
 
@@ -100,20 +124,20 @@ The single direction the light rays cannot see is exactly the direction the vacu
 
 Add up the zero-point energies of the quantum fields of empty space, cut the sum off at the shortest length anybody takes seriously, and you get a vacuum energy density around a hundred and twenty orders of magnitude larger than the one the sky reports, the sky's value of the cosmological constant being about 1.1 times ten to the minus fifty-second per square meter. That is the worst prediction in the history of physics, and being wrong by that factor takes a kind of commitment a merely careless calculation cannot reach. The arithmetic in it is sound. The instrument it was carried out with reads zero on the quantity it was trying to compute. Every local calculation in physics is built out of light cones, so no local calculation was ever going to fix that number.
 
-What fixes it is a count that no small region contains: the total number of distinguishable records the horizon around an observer can hold. The constant comes out small because that count is enormous.
+The OPH capacity branch asks whether a count that no small region contains---the total number of distinguishable public records associated with an observer horizon---can fix the remaining constant. That requires a physical map from public-record capacity to horizon entropy and volume on the same realized spacetime branch. The finite informational order and the nine-direction theorem provide no such map, and no cosmological value follows without it.
 
-## Newton's constant is an area
+## When Newton's constant is an area scale
 
-The area law says the entropy of a boundary is a quarter of its area divided by Newton's constant. Read that from right to left instead. Entropy is a count of records, area is an area, so Newton's constant is whatever converts one into the other. It is the number of square meters per record. One square meter of boundary holds about ten to the sixty-ninth of them.
+On the named physical-scale branch, the area law says the entropy of a boundary is a quarter of its area divided by Newton's constant. Reading that from right to left makes Newton's constant the conversion between a physical area and an identified record entropy. The conversion is not supplied by record count alone: it requires the independent area, entropy and unit attachment. With that attachment, one square meter of boundary corresponds to about ten to the sixty-ninth records.
 
 Chapter thirteen said the size of a screen is a count of readings and not a width in meters. This is where the two get joined. Chapter twenty-three's collar says what the readings are: the seams a cut along a region's boundary severs. Take one cell of that screen. Whatever area the cell covers, that area is a whole number of one small unit, the same unit everywhere, and on the wiring this world has the cell carries a quarter of that same whole number in severed seams. Divide the cell's area by four times the entropy it carries and the whole number cancels, top and bottom, exactly, leaving the unit standing on its own.
 
-Newton's constant is that unit of area, one square of the screen. Its being an area is the reason gravity has a length in it at all.
+The branch identifies Newton's constant with that calibrated unit of area, one square of the physical screen. The finite carrier does not select the square-meter calibration or prove that its combinatorial cell is the physical area unit.
 
-The area is 2.61228 times ten to the minus seventy square meters, a square 1.6163 times ten to the minus thirty-five meters on a side. Multiply it by the cube of the speed of light and divide by Planck's constant over two pi, which is the conversion any area has to go through to be quoted in the units gravity is measured in, and out comes 6.67430 times ten to the minus eleven cubic meters per kilogram per second squared. The laboratory value is 6.67430 times ten to the minus eleven, with an uncertainty of 22 parts per million.
+Under that physical calibration the area is 2.61228 times ten to the minus seventy square meters, a square 1.6163 times ten to the minus thirty-five meters on a side. Multiply it by the cube of the speed of light and divide by Planck's constant over two pi, which is the conversion any area has to go through to be quoted in the units gravity is measured in, and out comes 6.67430 times ten to the minus eleven cubic meters per kilogram per second squared. The laboratory value is 6.67430 times ten to the minus eleven, with an uncertainty of 22 parts per million. This numerical agreement tests the supplied calibration; it is not a scale derived from the informational poset.
 
 That uncertainty is where the comparison stops being informative, and worth being plain about which side it sits on. Newton's constant is the least precisely known of the fundamental constants by a wide margin, measured to five figures where the electron's magnetic moment is known to twelve, because gravity is feeble and everything in the laboratory has mass. A derived value landing inside a window that wide is a weak test passed, not a decimal place matched. MICROSCOPE measured gravity's indifference to what falls at one part in a thousand million million, and the strength of the thing being indifferent is known to twenty-two parts per million, ten orders of magnitude worse, because a difference between two cylinders nulls out everything the two have in common and a magnitude has to be assembled out of a kilogram, a meter and a second.
 
-So the geometry is complete. Ten numbers at every point, a rule fixing how they answer to what is there, a coupling that fell out of an integral over a small ball, and a constant of proportionality that turned out to be a unit of area. Curvature is what a settled network of observers looks like from a distance, free fall is going straight ahead, and the two walkers on the equator were doing physics the whole way to the pole.
+On a branch carrying all of the physical and continuum inputs, the effective geometric account would have ten numbers at every point, a rule fixing how they answer to what is there, the small-ball coefficient and a calibrated area scale. The current finite theorems do not complete that branch: they do not construct the event manifold, identify their matrix field with curvature, prove count-to-volume calibration or select the physical scale. Conditional on those attachments, curvature is what a settled network of observers looks like from a distance, free fall is going straight ahead, and the two walkers on the equator were doing physics the whole way to the pole.
 
 And nothing is standing in it. A geometry can be told how much energy and momentum is present at a point, which is all the field equation ever asks. It cannot be told why what is present comes in exactly three kinds of interaction, one of them with eight varieties, or why the twelve ports of chapter fourteen have room for those and for nothing else.

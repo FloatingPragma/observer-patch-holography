@@ -14,9 +14,9 @@ d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH construit une voie mathématique unique à travers les
-registres quantiques, la thermodynamique, l’espace tridimensionnel, les
-événements lorentziens, la gravitation, la structure de jauge, la matière et
-les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
+registres quantiques, la thermodynamique, la cinématique des référentiels
+lorentziens, des branches conditionnelles pour l’espace-temps événementiel et
+la gravitation, la structure de jauge, la matière et les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
 finis exacts, chaque pont physique étant formulé de façon à pouvoir être prouvé
 ou testé.
 
@@ -91,11 +91,19 @@ simulations reproductibles :
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité et la gravitation à partir de la géométrie des
-  observateurs.** Des résultats finis exacts établissent la cinématique de
-  Lorentz, la couche de masse, l’ordre causal, la loi en carré inverse et une
-  reconstruction conditionnelle d’Einstein. Ensemble, ils ouvrent une voie
-  concrète des registres et de la réparation vers l’espace-temps et la
-  gravitation.
+  observateurs.** Des résultats finis exacts déduisent la cinématique de
+  Lorentz, la couche de masse et un ordre informationnel des lectures
+  authentifiées plutôt que d’une ascendance déclarée. Les directions unitaires
+  du porteur source de rang trois sont exactement équivalentes à (S^2) et à
+  des étiquettes de rayons nuls futurs. Pour tout paquet ordre/référentiels
+  fourni, Lean prouve l’accord fini entre ordre, cônes, rang et métrique locale.
+  Sur le même porteur fini, neuf directions algébriques suffisent à déduire
+  l’équilibre dans toutes les directions nulles et une relation tensorielle de
+  forme einsteinienne dans une algèbre 3+1 fournie. L’espace-temps physique
+  reste émergent : plongement fidèle, propriété de variété, couverture dense
+  et isotrope, étalonnage nombre-vers-volume, raffinement compatible et limite
+  continue restent à établir. Voir la
+  [dérivation de l’espace-temps](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 - **La géométrie des champs sur l’écran à douze ports.** L’écran fini porte
   des théorèmes exacts de Green, Thomson, Gauss, courbure et invariance de
   jauge. La même géométrie relie les charges aux ports, les données de couture,
@@ -114,7 +122,7 @@ simulations reproductibles :
   fermeture du pixel, proche de la constante de structure fine mesurée,
   conserve un statut diagnostique. Ces calculs font des constantes des cibles
   concrètes de dérivation et de falsification plutôt que des données libres.
-- **Vérifié machine et falsifiable.** Plus de 9900 théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 10100 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. L’échelle des prédictions gelées exige que toute comparaison
@@ -305,7 +313,7 @@ résultats finis et structurels exacts constituent la partie la plus solide.
 
 | Pour découvrir... | Commencer ici |
 | --- | --- |
-| La dérivation de l’espace-temps et d’Einstein | [Espace-temps des observateurs et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| La chaîne conditionnelle vers l’espace-temps et Einstein | [Espace-temps des observateurs et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Les deux routes de jauge du Modèle standard | [Structure de jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | La synthèse complète | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
@@ -378,7 +386,7 @@ briseraient.
   </a>
 </p>
 
-<p align="center"><sub>La carte typée des dépendances d’OPH. Elle sépare les branches exactes et conditionnelles des ponts ouverts de source, de support, de courant, d’attachement et d’échelle qui en feraient une seule réalisation physique.</sub></p>
+<p align="center"><sub>La carte typée des dépendances d’OPH. Elle garde distincts l’ordre authentifié, le porteur de rang trois, les données S2/référentiels de Lorentz et la mesure de population des événements jusqu’au carré de compatibilité de la description effective. Cette population n’est pas identifiée à la capacité publique N. La carte sépare ensuite les branches exactes des ponts physiques conditionnels.</sub></p>
 
 ## Guide du dépôt
 

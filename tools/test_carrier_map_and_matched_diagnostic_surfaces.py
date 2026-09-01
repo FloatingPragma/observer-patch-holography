@@ -152,7 +152,8 @@ def test_ledger_rows_cite_without_promotion() -> None:
         encoding="utf-8"))
     rows = {row["id"]: row for row in ledger["rows"]}
     assert MAP_LEAN in rows["OL-N1"]["evidence"]
-    assert "declared, not forced" in rows["OL-N1"]["notes"]
+    assert "exact equivariant carrier embedding candidate" in rows["OL-N1"]["notes"]
+    assert "physical identifications remain declared" in rows["OL-N1"]["notes"]
     assert rows["OL-N1"]["status"] == "owed"
     assert DM_PY in rows["OL-I3"]["evidence"]
     assert "selects no model" in rows["OL-I3"]["notes"]

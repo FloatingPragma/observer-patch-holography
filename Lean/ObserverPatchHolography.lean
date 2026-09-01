@@ -55,6 +55,15 @@ import ObserverPatchHolography.Locality.NoSignalling
 import ObserverPatchHolography.Execution.AdaptiveRunCounterexamples
 import ObserverPatchHolography.Execution.CumulativeAttemptCapacity
 import ObserverPatchHolography.Execution.CumulativeAttemptCapacityExamples
+import ObserverPatchHolography.Provenance.SemanticEventProvenance
+import ObserverPatchHolography.Provenance.MismatchProvenance
+import ObserverPatchHolography.Provenance.SeamDeltaAggregation
+import ObserverPatchHolography.Provenance.CausalInterval
+import ObserverPatchHolography.Provenance.HistoryCausalInvariance
+import ObserverPatchHolography.Provenance.QuotientInvariance
+import ObserverPatchHolography.Provenance.RefinementNaturality
+import Computation.FixedFederationProgress
+import Computation.FixedFederationCounterexamples
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root
