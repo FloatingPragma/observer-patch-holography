@@ -4,6 +4,7 @@ import Tower.FixedPointEndpoint
 import Tower.AdaptiveFixedPointEndpoint
 import Tower.CumulativeCapacityEndpoint
 import Tower.FixedFederationEndpoint
+import Tower.FixedFederationExecutionEndpoint
 import Tower.EventGeometryReadout
 import Tower.FullPremiseInhabitant
 import Tower.OperationalObserver
