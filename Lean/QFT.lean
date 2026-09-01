@@ -5,6 +5,7 @@ import QFT.ObserverEventWorld
 import QFT.OperationalOverlapEvidence
 import QFT.StructuralNetAdequacySurface
 import QFT.ObserverEventTower
+import QFT.SourceDerivedEventPrecedence
 import QFT.NoncommutativeWitness
 import QFT.SourceLinkSquare
 import QFT.JointInstance
