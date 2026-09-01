@@ -91,10 +91,15 @@ def test_projection_pins_bounded_source_frontiers_without_exhaustive_claim() -> 
     assert set(boundaries) == {
         "finite_local_domain",
         "electroweak_source_action",
-        "inhabited_einstein_tower",
+        "source_causal_physical_continuum",
         "lorentzian_quantum_eft_transfer",
         "qcd_spectral_resource",
     }
+    source_causal = boundaries["source_causal_physical_continuum"]
+    assert source_causal["evidence_class"] == "finite_source_causal_precursor"
+    assert source_causal["status"] == (
+        "FINITE_SOURCE_CAUSAL_PRECURSOR_ATTAINED__PHYSICAL_CONTINUUM_OPEN"
+    )
     assert boundaries["qcd_spectral_resource"]["evidence_class"] == (
         "bounded_local_resource_receipt"
     )

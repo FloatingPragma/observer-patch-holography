@@ -45,6 +45,10 @@
 \setlength{\parskip}{0.1em plus 0.03em minus 0.02em}
 \setlength{\headheight}{14pt}
 \setlength{\emergencystretch}{4em}
+% Prose pages need not be stretched to a common bottom edge.  The book carries
+% many short glossary entries and section transitions; ragged bottoms preserve
+% their natural leading instead of manufacturing underfull vertical boxes.
+\raggedbottom
 \setlength{\LTpre}{0.75em}
 \setlength{\LTpost}{0.75em}
 \renewcommand{\arraystretch}{1.16}

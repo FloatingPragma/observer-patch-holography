@@ -189,7 +189,6 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (750, "PR-80"): "adaptive cumulative attempt-budget premise, not a physical observation row",
     (763, "PR-81"): "semantic provenance support premise, not a physical observation row",
     (763, "PR-82"): "semantic ancestry-rank premise, not a physical observation row",
-    (763, "PR-83"): "event-base identification premise, not a physical observation row",
     (750, "PR-84"): "fixed computation-federation fairness premise, not a physical observation row",
     (735, "PR-15"): "SM correspondence calibration boundary",
     (729, "PR-16"): "gravity ladder attachment boundary",
@@ -503,8 +502,7 @@ def render(rows: list[dict]) -> str:
     lines.append(
         f"One row per observation the architecture must reproduce. The closed"
         f" {_issue_link(726)} is the historical bootstrap; this committed"
-        f" ledger is the maintained surface. Premise ids PR-01 through"
-        f" PR-{len(load_premise_register()[0]):02d} name rows of the"
+        f" ledger is the maintained surface. Registered PR-* ids name rows of the"
         f" premise register ({_issue_link(727)}), the anti-cheating"
         f" surface; each row lists the register rows its current status"
         f" consumes. The row set, rungs, and lane assignments follow completion"

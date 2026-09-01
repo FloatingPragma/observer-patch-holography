@@ -450,8 +450,12 @@ def test_registry_epistemic_classes_and_geometry_assumptions_match_theorems() ->
     for claim_id in ("OPH-GR-D5", "OPH-GR-D5A-ABSOLUTE-EINSTEIN"):
         assert "EC_aligned_Markov_replacement_control" in claims[claim_id]["assumptions"]
 
-    events = claims["OPH-GR-D4B-EVENT-MANIFOLD"]["statement"]
-    assert "second-countable nonseparated uniform space" in events
+    events = claims["OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM"]["statement"]
+    assert "real dimension 4 and Lorentz inertia (1,3)" in events
+    assert "faithful finite causal embedding" in events
+    assert "source-causal continuum certificate" in events
+    assert "calibrated count-volume" in events
+    assert "intrinsic dimension of the finite poset is not derived" in events
     consensus = claims["OPH-CONS-D1"]
     assert "unique schedule-independent quotient normal form" in consensus["statement"]
     assert "distinct declared quotient observables" in consensus["falsifier"]

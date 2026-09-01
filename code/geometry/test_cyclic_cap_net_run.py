@@ -10,7 +10,6 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 from cyclic_cap_net_run import build_tower, run_tower  # noqa: E402
-from realized_branch_receipts import build_report  # noqa: E402
 
 
 def test_tower_shape():
@@ -40,14 +39,3 @@ def test_every_stage_is_a_genuine_repair_run():
         inc = stage["incidence"]
         assert inc["surface_classification"] == "S2"
         assert inc["euler_characteristic"] == 2
-
-
-def test_combined_report_keeps_nonemptiness_open():
-    report = build_report()
-    # the cyclic artifact upgrades the partial flag but NOT the full gate
-    assert report["realized_geometric_branch_certified_nonempty"] is False
-    if "cyclic_cap_net_repair_run" in report["evaluations"]:
-        assert report["topology_mesh_families_realized_with_branch_selection"] is True
-        cyclic = report["evaluations"]["cyclic_cap_net_repair_run"]
-        assert "branch selection" in cyclic["provenance"]
-    assert report["status"].startswith("OPEN")

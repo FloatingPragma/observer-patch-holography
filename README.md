@@ -12,7 +12,8 @@ observers: bounded systems that carry local state, read part of themselves and
 their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
 builds a single mathematical route through quantum records, thermodynamics,
-Lorentz-frame kinematics, conditional event-spacetime and gravity branches,
+Lorentz-frame kinematics, a source-derived causal/Lorentz precursor, conditional
+physical spacetime and gravity branches,
 gauge structure, matter, and the constants of nature. Its strongest steps are exact finite theorems,
 with each physical bridge made precise enough to prove or test.
 
@@ -78,17 +79,17 @@ calculations and reproducible simulations:
   conditional theorem package about how observers resample toward consensus
   yields all four laws, with the second law appearing as data processing
   applied to repair and the Landauer bound as a corollary.
-- **Relativity and gravity from observer geometry.** Exact finite results
-  derive Lorentz-frame kinematics, mass-shell structure, and an informational
-  order from authenticated reads rather than declared ancestry. The
-  rank-three source carrier has unit directions exactly equivalent to
-  (S^2) and future-null-ray labels. For every supplied order/frame packet,
-  Lean proves finite order--cone, rank, and local-metric agreement. On the same
-  finite carrier, nine algebraic source directions suffice to derive all-null
-  balance and an Einstein-form tensor relation inside a supplied 3+1 algebra.
-  Physical spacetime remains emergent: faithful embedding, manifoldlikeness,
-  dense isotropic link coverage, count-to-volume calibration, compatible
-  refinement, and continuum identification remain separate requirements. See the
+- **Relativity and gravity from observer geometry.** Authenticated reads derive
+  a finite causal poset. Independently, a real axis and the exact rank-three
+  source quotient define \(\mathbb R\oplus V_3\), a four-dimensional
+  Lorentz target with a future-null unit sphere. Source height enters only in
+  a scaled event placement, not in the carrier, intrinsic dimension, or
+  physical time. Lean proves forward cone compatibility from an edge-speed
+  bound and two-way faithfulness when the converse is supplied; a separate
+  tensor interface gives a finite Einstein shape. Physical spacetime and
+  smooth GR require event and link attachment, faithful placement,
+  count-volume calibration, dimension and manifoldlikeness tests, topology,
+  isotropy, refinement, and curvature convergence. See the
   [spacetime derivation](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 - **Field geometry on the twelve-port screen.** The finite screen carries
   exact Green, Thomson, Gauss, curvature, and gauge-invariance theorems. The
@@ -106,7 +107,7 @@ calculations and reproducible simulations:
   fine-structure constant carries diagnostic status. These calculations turn
   constants into concrete derivation and falsification targets rather than
   free inputs.
-- **Machine-checked and falsifiable.** More than 10100 Lean theorems with
+- **Machine-checked and falsifiable.** More than 10200 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
   frozen-prediction ladder requires every armed comparison to bind its kill
@@ -355,7 +356,7 @@ The [paper index](paper/) gives the curated publication map. Focused research PD
   </a>
 </p>
 
-<p align="center"><sub>The typed OPH dependency map. It keeps authenticated order, the rank-three carrier, S2/Lorentz frame data, and the event-population measure distinct until the effective-description compatibility square. Event population is not identified with public capacity N. The map then separates exact and conditional branches from the required physical bridges.</sub></p>
+<p align="center"><sub>The typed OPH dependency map. An independent real axis and the exact rank-three source quotient define the ambient target R ⊕ V₃, with dimension four and Lorentz signature. Authenticated order supplies canonical longest-chain height only for a scaled event placement in that target. The target-carrier dimension is not an intrinsic poset-dimension estimate, and height is not a physical clock. Physical placement, count-to-volume calibration, manifoldlikeness, topology, curvature, and the Einstein continuum remain explicit bridges. Event number is not public capacity N.</sub></p>
 
 ## Repository Guide
 

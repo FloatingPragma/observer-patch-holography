@@ -22,6 +22,7 @@
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
 \setlength{\emergencystretch}{3em}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -77,9 +78,17 @@ $\Lambda\ell_\star^2=3\pi/N_\star$ from capacity closure. $N_\star$ is the
 capacity-identity estimate read from measured $\Lambda$ through a declared
 capacity-to-scale bridge; $\Lambda$ is an input to this assumption, not an
 OPH output. A physical interpretation of $N_\star$ beyond that estimate
-requires the readback map $F$ and its contraction
-certificate. The cited branch theorem supplies the other geometry and
-capacity premises.
+requires the readback map $F$ and its contraction certificate. The finite
+source theorem computes canonical source height from authenticated parent
+edges and proves strict increase along generated ancestry. Independently, a
+real axis and the rank-three source quotient define the exact one-plus-three
+ambient Lorentzian carrier. An explicit positive \texttt{timeScale} on source
+height enters only through event placement, not as an intrinsic dimension
+estimate or physical clock. It does not
+supply the smooth metric assumed here. This assumption therefore imports a faithful
+manifoldlike refinement, operational clock, count--volume calibration, smooth
+curvature, physical stress attachment, and the stated capacity premises on one
+common continuum branch.
 \end{assumption}
 
 \begin{assumption}[Electromagnetic action and photon pole]\label{a:qed}
@@ -433,7 +442,7 @@ with CAMB at the sub-percent level is the numerical acceptance test.
 
 \section{Premises and Numerical Tests}\label{s:premises}
 
-\begin{longtable}{@{}p{0.16\linewidth}p{0.5\linewidth}p{0.26\linewidth}@{}}
+\begin{longtable}{@{}L{0.16\linewidth}L{0.5\linewidth}L{0.26\linewidth}@{}}
 \toprule
 \textbf{Condition} & \textbf{Statement} & \textbf{Classification}\\
 \midrule

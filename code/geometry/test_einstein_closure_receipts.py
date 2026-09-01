@@ -28,11 +28,6 @@ from einstein_closure_receipts import (  # noqa: E402
     reconstruct_from_charges,
     tomography_receipt,
 )
-from realized_branch_receipts import (  # noqa: E402
-    build_report,
-    receipt_report_for,
-    tree_packet_net_records,
-)
 
 
 # ---------------------------------------------------------------------------
@@ -152,26 +147,3 @@ def test_baseline_invisible_to_first_variations():
     assert r["variation_data_difference"] < 1e-15
     assert r["baseline_difference"] > 1.0
     assert r["eta_alignment"] < 1e-12
-
-
-# ---------------------------------------------------------------------------
-# realized-branch evaluation (report key rem:realized-branch-status; Theorem 4.3c receipt (i))
-# ---------------------------------------------------------------------------
-
-def test_tree_packet_net_fails_spherical_incidence():
-    records = tree_packet_net_records()
-    assert len(records) == 3
-    rep = receipt_report_for(records)
-    assert rep["n_triangles"] == 0
-    assert rep["euler_characteristic"] == 1
-    assert rep["spherical_incidence_receipt"] is False
-    assert rep["surface_classification"] == "NOT_A_CLOSED_SURFACE"
-
-
-def test_realized_branch_report_status_is_open():
-    report = build_report()
-    assert report["realized_geometric_branch_certified_nonempty"] is False
-    assert report["status"].startswith("OPEN")
-    designed = report["evaluations"]["designed_cellulated_sphere_icosahedron"]
-    assert designed["spherical_incidence_receipt"] is True
-    assert designed["provenance"].startswith("declared_geometry")

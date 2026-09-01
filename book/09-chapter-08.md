@@ -2,7 +2,7 @@
 
 At 22:52 UTC on 21 October 2018, maintenance work on a failing piece of 100-gigabit optical equipment cut the link between GitHub's East Coast network hub and its primary East Coast data center. The link came back forty-three seconds later.
 
-In those forty-three seconds the software that manages GitHub's database topology did what it was built to do. It runs a leader-election protocol called Raft. It could not reach the East Coast machines, and Raft carries no test that separates a machine which has stopped answering from one that has stopped. What it does instead is count. The nodes that could still hear one another formed a majority, agreed among themselves that the East Coast primary was gone, and promoted a cluster on the West Coast to accept writes in its place.
+During that forty-three-second break, GitHub's database-topology software did what it was built to do. It runs a leader-election protocol called Raft. It could not reach the East Coast machines, and Raft carries no test that separates a machine which has stopped answering from one that has stopped. What it does instead is count. The nodes that could still hear one another formed a majority, agreed among themselves that the East Coast primary was gone, and promoted a cluster on the West Coast to accept writes in its place.
 
 The East Coast primary had lost nothing except the ability to talk to the other coast. Applications in its own building went on sending it work, and it went on taking it. One of the busiest clusters accepted 954 writes during the window.
 

@@ -7,27 +7,31 @@
     "open_blocking_dependencies": [636, 637, 638],
     "non_gating_partial_receipt_ancestry": [
       {
-        "issue": 503,
-        "path": "code/geometry/runs/realized_event_receipt_report.json",
+        "issue": 763,
+        "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
         "closure_required": false,
-        "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used"
+        "scope": "authenticated finite source order and independently generated cutoff induced-restriction custody only; no physical causal or continuum promotion"
       }
     ],
     "boundary_controls": [521, 616, 617, 623]
   },
   "source_inputs": [
     {
-      "issue": 503,
+      "issue": 763,
       "kind": "json",
-      "path": "code/geometry/runs/realized_event_receipt_report.json",
-      "role": "typed_realized_event_domain",
-      "status": "finite_non_gating_context_with_bulk_depth_open",
+      "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
+      "role": "authenticated_source_causal_history_custody",
+      "status": "exact_non_gating_finite_order_custody_without_physical_promotion",
       "usable_exports": [
-        "finite realized screen event population",
-        "finite chart and causal readback receipts"
+        "authenticated finite source order at five independently generated cutoffs",
+        "exact induced restriction of direct and transitive order between adjacent cutoffs"
       ],
       "excluded_promotions": [
-        "rank-four bulk-depth completion",
+        "physical causal attachment",
+        "faithful causal embedding",
+        "3+1 manifoldlikeness or dimension",
+        "count-volume calibration",
+        "smooth continuum",
         "continuum local scalar action",
         "physical scalar attachment"
       ]
@@ -173,7 +177,7 @@
   ],
   "target_firewall": {
     "allowed_source_roots": [
-      "code/geometry/runs",
+      "evidence/source_causal_history_family",
       "code/a5_closure/receipts",
       "code/a5_closure/manifests",
       "code/particles/calibration"

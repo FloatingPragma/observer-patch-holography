@@ -56,7 +56,7 @@ def test_quantum_carrier_status_preserves_classical_count_without_promotion(resu
     )
     assert rows["gluon"]["verdict"] == "NOT_EVALUABLE_NO_QCD"
     assert rows["graviton"]["verdict"] == (
-        "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER"
+        "NOT_EVALUABLE_NO_PHYSICAL_SOURCE_CAUSAL_CONTINUUM_OR_QUANTUM_CARRIER"
     )
     assert rows["photon"]["blocking_frontier"] == [
         "source_selected_unbroken_u1_quantum_maxwell_sector",
@@ -67,7 +67,7 @@ def test_quantum_carrier_status_preserves_classical_count_without_promotion(resu
         "source_derived_qcd_physical_spectral_sector",
     ]
     assert rows["graviton"]["blocking_frontier"] == [
-        "inhabited_source_derived_einstein_tower",
+        "source_selected_faithful_3p1_causal_manifold_and_smooth_einstein_limit",
         "finite_source_to_lorentzian_linearized_quantum_carrier",
     ]
 
@@ -384,6 +384,60 @@ def test_bounded_time_row_does_not_promote_order_to_time(result):
     assert row["match"].startswith(
         "exact bounded conditional algebra with finite controls"
     )
+
+
+def test_source_derived_finite_one_three_row_binds_exact_stack_without_continuum_promotion(
+    result,
+):
+    rows = {r["id"]: r for r in result["sections"]["forced_structure"]}
+    row = rows["source_derived_finite_one_three_causal_carrier"]
+    assert row["match"] == (
+        "exact source-derived finite order and 1+3 carrier theorem "
+        "stack; physical faithful placement and continuum manifold "
+        "not constructed"
+    )
+    assert row["lean_declarations"] == {
+        "CausalInterval": ["finiteCausalSetAxioms"],
+        "SemanticEventProvenance": ["sourceHeight_eq"],
+        "SourceDerivedSpacetimeCarrier": [
+            "sourceSpacetimeCarrier_finrank",
+            "sourceCarrier_one_three_signature",
+            "sourceUnitNullVector_futureCausal",
+            "generatedBefore_sourceCausalLE",
+            "generatedBeforeEq_iff_sourceCausalLE",
+            "exactDiamondConeOrder",
+        ],
+        "SourceOrderFrameCompatibilityPacket": [
+            "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement",
+            "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame",
+            "sourceOrderFramePacket_consequences",
+        ],
+    }
+    assert "exact longest-parent-path recursion" in row["statement"]
+    assert "exact four-dimensional carrier with signature (+---)" in row[
+        "statement"
+    ]
+    assert "an independent real axis and the proved rank-three source" in row[
+        "statement"
+    ]
+    assert "Independently of that order" in row["statement"]
+    assert "use source height only in the event placement" in row["statement"]
+    assert "Adjoining that ordinal axis" not in row["statement"]
+    assert "two-way order--cone equivalence" in row["statement"]
+    assert "four-event Boolean diamond" in row["statement"]
+    boundary = row["hypothesis_boundary"]
+    for excluded in (
+        "not a physical clock",
+        "spatial readback valued in the rank-three quotient",
+        "additional converse field of a faithful placement",
+        "not empirical evidence of manifoldlikeness",
+        "calibrated density or count--volume law",
+        "independent dimension estimator",
+        "continuum convergence",
+        "smooth metric",
+        "Einstein equation",
+    ):
+        assert excluded in boundary
 
 
 def test_thermodynamic_receipt_owners_are_separate(result):

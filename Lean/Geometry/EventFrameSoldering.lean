@@ -6,12 +6,18 @@ import Geometry.CelestialSoldering
 This module adds an observer-frame readback to an event-germ atlas and proves
 its overlap covariance.  It also states the C2 premise reduction precisely.
 The algebraic soldering packet automatically supplies affine/Lorentz cocycle,
-displacement, interval, frame, celestial, and intrinsic dimension/signature
+displacement, interval, frame, celestial, and ambient module dimension/signature
 facts.  It does **not** discharge the independent source-atlas, population,
 separation, open-chart, physical-cone, refinement, causal, or clock receipts.
 
 The result is intentionally an interface theorem, not a claim that a physical
 event manifold has been constructed.
+
+`Geometry.SourceDerivedSpacetimeCarrier` constructs an algebraic `1+3`
+carrier and, from a certified source-height/spatial placement plus its explicit
+faithfulness conditions, a finite one-chart instance. That result does
+not turn the open-atlas, physical-causality, refinement, volume, clock, or
+smooth-manifold receipts below into theorems.
 -/
 
 namespace OPH.C2Soldering
@@ -85,47 +91,6 @@ theorem EventFrameSoldering.algebraicConsequences
   · intro i j p q hip hiq hjp hjq hi hj
     exact S.toEventGermAtlas.celestialSolder_overlap hip hiq hjp hjq hi hj
 
-/-- The receipts that remain independent of the C2 algebraic contract.  Each
-parameter is a proposition supplied by the corresponding source/physical
-lane; no placeholder is silently inferred. -/
-structure ResidualEventManifoldReceipts
-    (SourceAtlas Population Separation OpenChart PhysicalCone
-      Refinement Causal Clock : Prop) : Prop where
-  sourceAtlas : SourceAtlas
-  population : Population
-  separation : Separation
-  openChart : OpenChart
-  physicalCone : PhysicalCone
-  refinement : Refinement
-  causal : Causal
-  clock : Clock
-
-/-- Expanded event-manifold handoff after adjoining all exact C2 algebraic
-consequences. -/
-def ExpandedEventManifoldHandoff {Event Chart : Type*}
-    (S : EventFrameSoldering Event Chart)
-    (SourceAtlas Population Separation OpenChart PhysicalCone
-      Refinement Causal Clock : Prop) : Prop :=
-  ResidualEventManifoldReceipts SourceAtlas Population Separation OpenChart
-      PhysicalCone Refinement Causal Clock ∧
-    AlgebraicSolderingConsequences S
-
-/-- Premise-reduction theorem: after an `EventFrameSoldering` is supplied,
-adding its exact algebraic consequences costs no further premise, while all
-eight named source/physical receipts remain logically visible. -/
-theorem EventFrameSoldering.expanded_handoff_iff_residual
-    {Event Chart : Type*} (S : EventFrameSoldering Event Chart)
-    (SourceAtlas Population Separation OpenChart PhysicalCone
-      Refinement Causal Clock : Prop) :
-    ExpandedEventManifoldHandoff S SourceAtlas Population Separation OpenChart
-        PhysicalCone Refinement Causal Clock ↔
-      ResidualEventManifoldReceipts SourceAtlas Population Separation OpenChart
-        PhysicalCone Refinement Causal Clock := by
-  constructor
-  · exact And.left
-  · intro h
-    exact ⟨h, S.algebraicConsequences⟩
-
 /-! ## A finite nondegenerate algebraic control
 
 This two-event/two-chart model verifies that the contract is consistent and
@@ -184,7 +149,6 @@ theorem control_displacement_futureNull :
     spatialNormSq, Fin.sum_univ_succ]
 
 #print axioms EventFrameSoldering.algebraicConsequences
-#print axioms EventFrameSoldering.expanded_handoff_iff_residual
 #print axioms control_chart_translation_nonzero
 #print axioms control_displacement_futureNull
 

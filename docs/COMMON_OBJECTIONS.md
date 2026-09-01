@@ -117,13 +117,23 @@ activated and executed before this lane can test the "exactly our universe" clai
 
 ### Short answer
 
-The rebuttal is conditional. The spacetime and Einstein paper proves two separate results.
-Bare finite consensus does not imply the Einstein equation. The tensor equation
-does follow from one source-derived common-domain tower carrying the controlled
-geometric modular certificate, null and event data, the exact entropy split,
-certified asymptotic tails, universal coupling, a source-derived vacuum
-reference, and independent physical scale readouts. Construction and
-certification of such a tower are work in progress.
+The rebuttal has an exact finite part and a conditional continuum part. Bare
+finite consensus does not imply the Einstein equation. Authenticated
+provenance generates the finite informational order, while an independent
+real axis and the exact rank-three source quotient define the ambient
+four-dimensional Lorentz target with an $S^2$ null boundary. Canonical source
+height is recomputed from parenthood and enters only through the temporal
+coordinate of a placement after multiplication by a supplied positive
+`timeScale`. It is not an execution rank, intrinsic poset dimension, physical
+clock, or physical event time. Separately, nine algebraic
+source directions determine a finite Einstein-form tensor shape in a supplied
+$3+1$ tensor interface under the stated Ward/Bianchi and connectivity
+hypotheses; they do not construct smooth curvature. A physical Einstein
+equation requires one source-selected causal continuum family carrying
+faithful causal placement, count--volume calibration, manifoldlikeness,
+topology, convergent curvature and stress, coupling, vacuum, scale, and
+controlled remainders. No finite cell is treated as a rigid rod in a
+pre-existing spacetime.
 
 With the conditional stated, the criticism itself would be decisive against a theory that treated the UV cells as little rigid rods inside a pre-given spacetime. OPH has a different setup.
 
@@ -133,7 +143,15 @@ In OPH:
 - The physical objects are patch algebras and their overlap maps, not coordinate cells in a background bulk.
 - Lorentz kinematics follow on the controlled BW branch under the certificate above: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. In the special type-I representation this becomes `K_C = 2pi B_C + Z_C`, with a central boundary-sector term.
 - The entanglement first law is applied to these algebraic caps, and it is covariant under the induced Lorentz action.
-- On the full typed branch, overlap consistency across all local timelike directions upgrades the scalar rest-frame relation to the **full tensor Einstein equation**, `G_ab + Lambda g_ab = 8pi G <T_ab>`. The Newtonian relation is its weak-field limit. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
+- Only after one physical source-causal continuum supplies faithful placement,
+  calibrated measure, manifoldlikeness, topology, compatible rods and clocks,
+  convergent curvature and stress, coupling, vacuum, scale, and controlled
+  remainders can the finite directional identity be read as the **tensor
+  Einstein equation**, `G_ab + Lambda g_ab = 8pi G <T_ab>`. Within that
+  conditional smooth limit, the Newtonian relation is its weak-field limit.
+  This is the published chain in *Observers Are All You Need*, Part I
+  §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also
+  summarized in Part V §2.1-2.5.
 
 ---
 
@@ -346,12 +364,12 @@ The criticism effectively assumes the opposite: it assumes the boost acts by phy
 
 The criticism misses an exact finite tensor result, but the correction must not
 be turned into an unconditional spacetime claim. OPH separates a finite
-same-carrier premise reduction from the physical continuum interpretation.
+same-event-type premise reduction in a supplied tensor interface from the
+physical continuum interpretation.
 
 ### 6.1 The exact finite result
 
-Take a supplied `SourceOrderFrameCompatibilityPacket` and supplied symmetric
-geometry and stress matrices on its finite event type. The tensor interface
+Take supplied symmetric geometry and stress matrices on a finite event type. The tensor interface
 has `Mat 3`, `eta 3`, and four step maps as inputs, so it is a predeclared 3+1
 algebra rather than a dimension derived from the event order.
 
@@ -360,19 +378,27 @@ frame into nine fixed algebraic source-unit-direction representatives. This
 distinguished nine-set is neither selected by the record provenance or source
 dynamics nor invariant as a set under all spatial rotations or Lorentz
 transformations. Given balance on those nine representatives, plus the stated
-symmetry, discrete Ward and Bianchi, connectedness, vacuum-reference, and
-scale conditions, the theorem derives balance on every null vector, the
-metric ambiguity and its constancy, and the finite Einstein-form identity
+symmetry, an algebraic coupling, discrete Ward and Bianchi identities, a base
+event, and connectedness, the minimal theorem derives balance on every null
+vector, the metric ambiguity and its constancy, and the finite Einstein shape
+
+`geometry_ab = coupling stress_ab + Lambda eta_ab`.
+
+A separate normalized adapter takes a supplied
+`SourceOrderFrameCompatibilityPacket`, vacuum-reference equality, and scale
+identity and then yields the displayed finite equation
 
 `geometry_ab = 8pi G stress_ab + Lambda eta_ab`.
 
 The all-null balance is therefore a conclusion of nine supplied balance
 equalities, not another premise. The authenticated informational order shares
-the finite event carrier but is not used to select the directions, tensors,
-step, or balances and is not load-bearing in this calculation. A
-universal-source equality is copied into the conclusion for a downstream
-composition, but the displayed tensor proof does not use it. Neither the
-packet nor its premise bundle is constructed by the theorem.
+only the finite event type; it is not used to select the directions, tensors,
+step, or balances and is not load-bearing in this calculation. No theorem
+identifies tensor-coordinate differences with those of the constructed carrier. The
+normalized adapter copies a universal-source equality into the conclusion for
+a downstream composition, but neither the minimal tensor-shape proof nor the
+displayed equation uses it. Neither premise bundle is constructed by the
+theorem.
 
 ### 6.2 The physical Einstein reading is conditional
 

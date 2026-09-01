@@ -1,0 +1,53 @@
+{
+  "schema": "oph.h3-kms.finite-diagnostic-projection.v1",
+  "artifact": "oph_h3_kms_finite_diagnostic_projection",
+  "projection_sha256": "sha256:0b469fee603a8cdea06934c18b0938a00bae0ff71aea048bc23957cd4978d883",
+  "provenance": {
+    "source_archive": "survival-proof-4/outputs/run_4k_acceptance_20260720_v5",
+    "source_run_receipt_sha256": "d534a1c7de0f677ee340a046da1c874bf28da2ba3d63f525b6546f29f6e1380e",
+    "source_replay_verification_sha256": "b71ab8807dda4cc364c8c57775ef5896474e268c480dbe50220cb7c6d6791e65",
+    "source_manifest_sha256": "ad1684bca13b3b3f2c08f88ad0ea3f6e8c109e45a6f2d160ddfc6ab11fd14ab3",
+    "source_physical_preflight_sha256": "0eb065c37543f77e9de943ef12cfd9e620186a57bc48b52bf7673fa9dd9c47bf",
+    "source_geometry_controls_sha256": "07a311be7503bf8538e3c4bc5f37d597a9d8a351be81fdcff949f2edd38bbc84",
+    "source_replay_manifest_sha256": "3e05b72b326cf6266ff3c30880ea2c5dbe60289ee6585e0378a8a6b6f40782f4",
+    "source_numerical_runtime_sha256": "ca84a0b44801ed1c9aa3ba4d6a73d9f499a1199ff62c3abcb540f25a3599b0e1",
+    "source_capture_semantic_sha256": "b87f880350bf488b0b756899d54211402f8e9a2f6202a2ede81d5e4640b98f31"
+  },
+  "source_configuration": {
+    "rungs": [4096, 16384, 65536, 262144],
+    "seeds": [20260751, 20260761, 20260771],
+    "support_regulator_cell_count": 5120,
+    "numerical_runtime_bound": true
+  },
+  "finite_diagnostics": {
+    "replay_instrument_valid": true,
+    "replay_boolean_receipts_passed": 21,
+    "replay_boolean_receipts_failed": 0,
+    "diagnostic_geometry_scores": {
+      "E4": 1.1028243826578335e-16,
+      "S2": 0.007683233691735436,
+      "H3": 0.007697199005539036,
+      "E3": 0.009411812413986226
+    },
+    "diagnostic_geometry_physical_gate_eligible": false,
+    "prime_state_status": "CONSTRUCTED_DIAGNOSTIC_ONLY",
+    "source_selection_a5_quotient_invariance_receipt": false,
+    "constructed_mixed_gns_diagnostic": true,
+    "constructed_repeated_rho_identity_receipt": true,
+    "multiresolution_regulator_certificate": false,
+    "conditional_expectations_receipt": false,
+    "native_bw_payload_conformance_receipt": true,
+    "native_bw_payload_receipt": false,
+    "native_bw_passing_clauses": ["BW02"]
+  },
+  "physical_boundary": {
+    "physical_h3_kms_preflight_receipt": false,
+    "physical_promotion_allowed": false,
+    "source_selected_spacetime_refinement_family": false,
+    "physical_source_causal_attachment": false,
+    "faithful_causal_embedding": false,
+    "manifoldlike_three_plus_one_limit": false,
+    "smooth_curvature_limit": false
+  },
+  "claim_boundary": "The archived run supplies a runtime-bound finite replay instrument, diagnostic geometry scores, a constructed mixed-GNS finite diagnostic, repeated-rho identity, and native BW payload conformance. The geometry comparison is not physical-gate eligible, source selection and multiresolution certificates fail, and the physical preflight is negative. This projection supplies no source-selected spacetime refinement, physical causal attachment, faithful embedding, 3+1-dimensional manifold limit, smooth curvature, physical H3/KMS result, or Einstein promotion."
+}

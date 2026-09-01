@@ -41,10 +41,15 @@ causal or channel property.
 
 ## E2 wiring
 
-E2 should quantify over one enriched `ConsensusTower` and attach record-germ
-geometry and the finite causal algebra net to that same value. The A3
-functoriality and naturality fields then express the joint finite refinement
-obligation without constructing a second tower. E2 requires an inhabited
-nonconstant example and all geometry/net attachment receipts. A locally
-covariant functor, causal embeddings, time-slice property, continuum
-existence, and sector or field reconstruction are endpoint gates.
+E2 should quantify over one enriched `ConsensusTower` and attach the
+source-native informational-order/placement interface and the finite causal
+algebra net to that same value. Source-selected spatial placement and a
+separate physical-continuum certificate are still required before this data
+has a geometric reading. The record-germ atlas is an optional algebraic
+soldering interface; it is not an input to the source-native route. The A3
+functoriality and naturality fields express the
+joint finite naturality and custody obligation without constructing a second
+tower. E2 requires an inhabited nonconstant example and all order, placement,
+and net-attachment receipts. A locally covariant functor, causal embeddings,
+time-slice property, continuum existence, and sector or field reconstruction
+are endpoint gates.

@@ -6,7 +6,9 @@ producer lanes. It does not emit a positive scalar or Yukawa action.
 
 The source allowlist contains eight hash-bound inputs:
 
-- the completed finite E1/E2/E4 screen-sheet receipts emitted during #503;
+- the exact non-gating #763 source-history custody projection: authenticated
+  finite source order at independently generated cutoffs with exact induced
+  restrictions between adjacent cutoffs;
 - the finite port-current algebra from #566;
 - the rank-fifteen chiral matter module and conditional invariant channels
   from #314;
@@ -20,11 +22,13 @@ No particle reference store or #593 calculation packet is in the ancestry.
 The independent checker resolves every pin and repeats the structured target
 firewall.
 
-The #503 file is non-gating partial-receipt ancestry. Closing #503 is not a
-dependency of #630 or #594. Only its completed finite E1/E2/E4 screen-sheet
-receipts are consumed; E3 bulk depth remains false and unused. Issue #634
-supplies a bounded finite local field and operator domain. It does not supply
-a continuum Lorentzian/Spin quantum EFT. That transfer is owned by #635.
+The #763 projection is non-gating receipt ancestry. It contributes only
+authenticated finite source order and independent-cutoff induced-restriction
+custody. It supplies no physical causal attachment, faithful embedding,
+3+1-dimensional manifoldlikeness or dimension, count--volume calibration, or
+smooth continuum. Issue #634 supplies a bounded finite local field and operator
+domain. It does not supply a continuum Lorentzian/Spin quantum EFT. That
+transfer is owned by #635.
 
 ## Exact conditional classification
 

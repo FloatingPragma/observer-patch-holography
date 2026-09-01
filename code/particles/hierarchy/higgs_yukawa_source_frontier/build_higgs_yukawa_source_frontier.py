@@ -28,7 +28,7 @@ DEFAULT_OUTPUT = PACKAGE / "outputs" / "higgs_yukawa_source_frontier.json"
 SCHEMA = "oph.higgs_yukawa_source_frontier.v1"
 
 EXPECTED_ROLES = {
-    "typed_realized_event_domain",
+    "authenticated_source_causal_history_custody",
     "finite_current_algebra",
     "finite_chiral_matter",
     "finite_global_form",
@@ -102,14 +102,14 @@ def validate_policy(policy: dict[str, Any]) -> None:
         topology["non_gating_partial_receipt_ancestry"]
         == [
             {
-                "issue": 503,
-                "path": "code/geometry/runs/realized_event_receipt_report.json",
+                "issue": 763,
+                "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
                 "closure_required": False,
-                "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used",
+                "scope": "authenticated finite source order and independently generated cutoff induced-restriction custody only; no physical causal or continuum promotion",
             }
         ],
         "POLICY_NON_GATING_ANCESTRY",
-        "#503 must remain completed partial-receipt ancestry rather than a closure dependency",
+        "#763 must remain finite order-custody ancestry rather than a closure dependency",
     )
 
 
@@ -199,19 +199,36 @@ def target_firewall(payloads: dict[str, Any], policy: dict[str, Any]) -> None:
 
 
 def validate_parent_semantics(payloads: dict[str, Any]) -> dict[str, Any]:
-    event = payloads["typed_realized_event_domain"]
-    require(event.get("issue") == 503, "EVENT_ISSUE", "realized event parent must be issue #503")
+    history = payloads["authenticated_source_causal_history_custody"]
     require(
-        event.get("receipts_witnessed", {}).get("e1_screen_population") is True
-        and event.get("receipts_witnessed", {}).get("e2_certified_separation") is True
-        and event.get("receipts_witnessed", {}).get("e4_moebius_cocycle") is True,
-        "EVENT_RECEIPTS",
-        "required finite event receipts are absent",
+        history.get("schema")
+        == "oph.source-causal-history-family-publication-projection.v1"
+        and history.get("artifact_type")
+        == "SOURCE_CAUSAL_HISTORY_FAMILY_PUBLICATION_PROJECTION",
+        "HISTORY_SCHEMA",
+        "unexpected source-causal history projection",
     )
     require(
-        event.get("receipts_witnessed", {}).get("e3_rank_four_bulk_depth") is False,
-        "EVENT_OVERPROMOTION",
-        "the selected parent must retain the open bulk-depth boundary",
+        history.get("INFORMATIONAL_INDEPENDENT_CUTOFF_GENERATION_RECEIPT") is True
+        and history.get("INFORMATIONAL_INDUCED_PREFIX_REFINEMENT_RECEIPT") is True
+        and history.get("all_cutoffs_independently_generated") is True
+        and history.get("all_induced_order_embeddings_certified") is True
+        and history.get("controls_fail_closed") is True,
+        "HISTORY_CUSTODY",
+        "finite source-order cutoff custody is incomplete",
+    )
+    nonclaims = history.get("promotion_and_nonclaim_flags", {})
+    require(
+        nonclaims.get("PHYSICAL_CAUSAL_ATTACHMENT_RECEIPT") is False
+        and nonclaims.get("CAUSET_FAITHFUL_EMBEDDING_RECEIPT") is False
+        and nonclaims.get("CAUSET_DIMENSION_3P1_RECEIPT") is False
+        and nonclaims.get("CAUSET_MANIFOLDLIKE_REFINEMENT_RECEIPT") is False
+        and nonclaims.get("CAUSET_COUNT_VOLUME_DENSITY_RECEIPT") is False
+        and nonclaims.get("SOURCE_DERIVED_CAUSAL_3P1_MANIFOLD_LIMIT_RECEIPT")
+        is False
+        and nonclaims.get("physical_promotion_allowed") is False,
+        "HISTORY_OVERPROMOTION",
+        "source-history custody must retain every physical-continuum nonclaim",
     )
 
     current = payloads["finite_current_algebra"]

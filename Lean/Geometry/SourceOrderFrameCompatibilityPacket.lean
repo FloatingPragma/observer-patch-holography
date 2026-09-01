@@ -1,4 +1,4 @@
-import Geometry.EventPopulationChartInterface
+import Geometry.SourceDerivedSpacetimeCarrier
 import Geometry.SpatialReadbackSoldering
 
 /-!
@@ -7,29 +7,33 @@ import Geometry.SpatialReadbackSoldering
 This module composes three already separate finite ingredients:
 
 * an authenticated semantic log whose reflexive generated order is attached,
-  by a supplied event-population/chart interface, to the declared future cone;
+  by a supplied source-native chart interface, to the declared future cone;
 * the independently proved rank-three source Gram quotient; and
 * one supplied oriented Lorentz transport per event, used to choose that
   event's internal observer frame and to transport the canonical
   `FrameQuotient`--`RestSpace standardFrame` bridge into its rest fiber.
 
 The composition is deliberately noncircular.  The semantic log determines
-the informational order, but it does not construct the atlas, cone
-identification, population, or frame transports.  Conversely, the supplied
-frames do not add provenance edges.  The rank-three source quotient is a
-spatial readback carrier and is not identified with the four-dimensional
-event carrier.  Its unit Gram directions are, however, exactly equivalent
-to the already constructed celestial two-sphere and hence to future-null
-rays.  This is an algebraic unit-direction theorem, not a physical sky or
-signal identification.
+the informational order; on a finite carrier its canonical longest-parent-
+path height supplies the ordinal coordinate only inside an event placement.
+It does not select the positive conversion scale, spatial event readback, or
+frame transports. Conversely, the supplied frames do not add provenance
+edges. An independent real axis and the exact rank-three source quotient
+construct the algebraic carrier `ℝ × FrameQuotient`, its `(+---)` form,
+and the source-unit future-null map. A spatial placement with source height,
+the explicit scale, edge-speed,
+and converse-support certificates constructs the one-chart cone attachment;
+an arbitrary packet may still supply a larger finite atlas.  None of those
+finite algebraic statements identifies a physical sky or signal relation.
 
 **Nonclaims.**  This packet does not identify its algebraic unit sphere with
-a physical celestial screen and proves no source derivation of a
-Lorentz/conformal group, no physical-causality or faithful embedding theorem,
-no volume or count-density law, no manifoldlikeness or dimension estimator,
-no refinement/cofinal convergence theorem, and no topological,
-smooth-manifold, or continuum-spacetime limit.  Every geometric attachment
-used below remains visible as supplied data.
+a physical celestial screen and proves no physical-causality theorem,
+no volume or count-density law, no manifoldlikeness estimator, no
+refinement/cofinal convergence theorem, and no topological, smooth-manifold,
+or continuum-spacetime limit.  The faithful finite cone embedding is
+conditional on supplied spatial coordinates, an authenticated-edge speed
+bound, and an explicit cone-support converse.  Event-frame transports and
+any nontrivial multi-chart atlas remain supplied data.
 -/
 
 namespace OPH
@@ -37,7 +41,7 @@ namespace OPH
 noncomputable section
 
 open C1Lorentz C2Soldering CausalComposition EventPopulation
-  PrimitivePortFrameQuotient Provenance
+  PrimitivePortFrameQuotient Provenance SourceDerivedSpacetime
 
 universe u v w z
 
@@ -47,7 +51,7 @@ universe u v w z
 sphere of the proved rank-three carrier, not yet a physical celestial
 screen. -/
 abbrev SourceUnitDirection :=
-  {q : FrameQuotient // quotientGram q q = 1}
+  SourceSpatialUnitDirection
 
 /-- The unit sphere of the exact rank-three source quotient is algebraically
 the C1 celestial two-sphere.  Both sides use the same proved Euclidean Gram
@@ -84,9 +88,37 @@ by semantic provenance. -/
 structure SourceOrderFrameCompatibilityPacket
     (Register : Type u) (Value : Type v) (Event : Type w) (Chart : Type z)
     [DecidableEq Register] [Fintype Event] where
-  sourceCharts : SourceDerivedOrderEventPopulationChartInterface
+  sourceCharts : SourceDerivedCausalChartInterface
     Register Value Event Chart
   standardToEventFrame : Event → OrientedLorentzEquiv
+
+/-- A faithful canonical-height/positive-scale/spatial placement constructs
+the active source chart packet directly, without the legacy rich-region
+population map or a separately declared precedence relation. -/
+noncomputable def SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement
+    {Register : Type u} {Value : Type v} {Event : Type w}
+    [DecidableEq Register] [Fintype Event] [DecidableEq Event]
+    [DecidableEq Value]
+    {L : SemanticEventLog Register Value Event}
+    (placement : FaithfulRankSpatialCausalPlacement L)
+    (standardToEventFrame : Event → OrientedLorentzEquiv) :
+    SourceOrderFrameCompatibilityPacket Register Value Event Unit where
+  sourceCharts := placement.toSourceDerivedCausalChartInterface
+  standardToEventFrame := standardToEventFrame
+
+/-- Canonical algebraic specialization with the same standard frame at every
+event.  This removes the frame-transport field when only existence of the
+finite source-order/frame packet is required.  It is a trivial gauge choice,
+not a derivation of event-dependent physical observer frames. -/
+noncomputable def SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame
+    {Register : Type u} {Value : Type v} {Event : Type w}
+    [DecidableEq Register] [Fintype Event] [DecidableEq Event]
+    [DecidableEq Value]
+    {L : SemanticEventLog Register Value Event}
+    (placement : FaithfulRankSpatialCausalPlacement L) :
+    SourceOrderFrameCompatibilityPacket Register Value Event Unit :=
+  SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement placement
+    (fun _ ↦ OrientedLorentzEquiv.refl)
 
 namespace SourceOrderFrameCompatibilityPacket
 
@@ -104,16 +136,16 @@ def eventFrame (e : Event) : FrameHyperboloid :=
 already committed overlap cocycle.  Its underlying event-germ atlas is
 definitionally the atlas carried by `sourceCharts`. -/
 def frameSoldering : EventFrameSoldering Event Chart :=
-  EventFrameSoldering.ofBaseFrame P.sourceCharts.geometry.atlas
-    P.sourceCharts.geometry.base P.eventFrame
+  EventFrameSoldering.ofBaseFrame P.sourceCharts.atlas
+    P.sourceCharts.base P.eventFrame
 
 /-- At the declared base chart, the soldering recovers the packet's supplied
 per-event frame. -/
 theorem frameSoldering_frame_base (e : Event) :
-    P.frameSoldering.frame P.sourceCharts.geometry.base e = P.eventFrame e := by
+    P.frameSoldering.frame P.sourceCharts.base e = P.eventFrame e := by
   apply Subtype.ext
-  exact P.sourceCharts.geometry.atlas.overlap.lorentz_self
-    P.sourceCharts.geometry.base (P.eventFrame e : Herm2)
+  exact P.sourceCharts.atlas.overlap.lorentz_self
+    P.sourceCharts.base (P.eventFrame e : Herm2)
 
 /-- The source-generated reflexive informational order agrees with the
 declared future-cone displacement relation in every supplied chart.  The
@@ -123,8 +155,16 @@ theorem generatedBeforeEq_iff_futureCausal
     (i : Chart) (e f : Event) :
     P.sourceCharts.semanticLog.GeneratedBeforeEq e f ↔
       IsFutureCausal
-        (P.sourceCharts.geometry.atlas.displacement i e f) :=
+        (P.sourceCharts.atlas.displacement i e f) :=
   P.sourceCharts.generatedBeforeEq_iff_displacement_futureCausal i e f
+
+/-- The strict source-generated order agrees exactly with the non-diagonal
+part of the supplied future-cone displacement relation in every chart. -/
+theorem generatedBefore_iff_futureCausal_and_ne
+    (i : Chart) (e f : Event) :
+    P.sourceCharts.semanticLog.GeneratedBefore e f ↔
+      IsFutureCausal (P.sourceCharts.atlas.displacement i e f) ∧ e ≠ f :=
+  P.sourceCharts.generatedBefore_iff_displacement_futureCausal_and_ne i e f
 
 /-- The source Gram quotient has real rank three. -/
 theorem sourceFrame_finrank :
@@ -165,15 +205,29 @@ theorem frameQuotientEquivEventRest_preserves_metric
 versus the supplied future cone, rank three on both spatial carriers, the
 algebraic source-unit-direction/celestial/null-ray equivalences, and the
 event-local metric bridge.  It also exposes the existing algebraic soldering
-package: ambient rank four, rank-three rest fibers, Lorentz overlap cocycles,
-and conditional celestial covariance of future-null displacements.  The
+package, the independently constructed source-carrier rank four and
+`(+---)` axes, rank-three rest fibers, Lorentz overlap cocycles, and
+conditional celestial covariance of future-null displacements.  The
 nonclaims in the module header are not hidden in this conjunction. -/
 def FiniteConsequences : Prop :=
   (∀ (i : Chart) (e f : Event),
       P.sourceCharts.semanticLog.GeneratedBeforeEq e f ↔
         IsFutureCausal
-          (P.sourceCharts.geometry.atlas.displacement i e f)) ∧
+          (P.sourceCharts.atlas.displacement i e f)) ∧
+  (∀ (i : Chart) (e f : Event),
+      P.sourceCharts.semanticLog.GeneratedBefore e f ↔
+        IsFutureCausal (P.sourceCharts.atlas.displacement i e f) ∧ e ≠ f) ∧
   AlgebraicSolderingConsequences P.frameSoldering ∧
+  Module.finrank ℝ SourceSpacetimeCarrier = 4 ∧
+  sourceLorentzQ sourceTimeAxis = 1 ∧
+  (∀ i : Fin 3, sourceLorentzQ (sourceSpatialAxis i) = -1) ∧
+  (∀ i : Fin 3,
+    sourceLorentzB sourceTimeAxis (sourceSpatialAxis i) = 0) ∧
+  (∀ i j : Fin 3,
+    sourceLorentzB (sourceSpatialAxis i) (sourceSpatialAxis j) =
+      if i = j then -1 else 0) ∧
+  (∀ q : SourceUnitDirection,
+    IsSourceFutureCausal (sourceUnitNullVector q)) ∧
   Module.finrank ℝ FrameQuotient = 3 ∧
   Nonempty (SourceUnitDirection ≃ CelestialSphere) ∧
   Nonempty (SourceUnitDirection ≃ FutureNullRay) ∧
@@ -187,21 +241,54 @@ def FiniteConsequences : Prop :=
 exhaustiveness theorem about every proposition derivable from the packet. -/
 theorem finiteConsequences : P.FiniteConsequences := by
   refine ⟨P.generatedBeforeEq_iff_futureCausal,
-    P.frameSoldering.algebraicConsequences, sourceFrame_finrank,
+    P.generatedBefore_iff_futureCausal_and_ne,
+    P.frameSoldering.algebraicConsequences,
+    sourceSpacetimeCarrier_finrank, sourceLorentzQ_timeAxis,
+    sourceLorentzQ_spatialAxis, sourceLorentzB_time_spatialAxis,
+    sourceLorentzB_spatialAxis,
+    sourceUnitNullVector_futureCausal,
+    sourceFrame_finrank,
     ⟨sourceUnitDirectionEquivCelestial⟩,
     ⟨sourceUnitDirectionEquivFutureNullRay⟩,
     P.eventRest_finrank, P.frameQuotientEquivEventRest_preserves_metric⟩
 
 #print axioms sourceUnitDirectionEquivCelestial
 #print axioms sourceUnitDirectionEquivFutureNullRay
+#print axioms SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement
+#print axioms SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame
 #print axioms SourceOrderFrameCompatibilityPacket.frameSoldering_frame_base
 #print axioms SourceOrderFrameCompatibilityPacket.generatedBeforeEq_iff_futureCausal
+#print axioms SourceOrderFrameCompatibilityPacket.generatedBefore_iff_futureCausal_and_ne
 #print axioms SourceOrderFrameCompatibilityPacket.sourceFrame_finrank
 #print axioms SourceOrderFrameCompatibilityPacket.eventRest_finrank
 #print axioms SourceOrderFrameCompatibilityPacket.frameQuotientEquivEventRest_preserves_metric
 #print axioms SourceOrderFrameCompatibilityPacket.finiteConsequences
 
 end SourceOrderFrameCompatibilityPacket
+
+/-! ## Fully constructed non-chain control packet -/
+
+namespace SourceDerivedSpacetime.BooleanDiamondPlacement
+
+/-- The explicit authenticated Boolean diamond, its faithful source-carrier
+placement, one global chart, and the standard-frame gauge form a complete
+finite source-order/frame packet with no additional existence field.  This
+is a non-chain control, not a manifold or physical-frame construction. -/
+noncomputable def sourceOrderFramePacket :
+    SourceOrderFrameCompatibilityPacket (Fin 4) Bool (Fin 4) Unit :=
+  SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame
+    faithfulPlacement
+
+/-- All advertised finite carrier, cone, direction, and soldering
+consequences hold on the explicit non-chain control. -/
+theorem sourceOrderFramePacket_consequences :
+    sourceOrderFramePacket.FiniteConsequences :=
+  sourceOrderFramePacket.finiteConsequences
+
+#print axioms sourceOrderFramePacket
+#print axioms sourceOrderFramePacket_consequences
+
+end SourceDerivedSpacetime.BooleanDiamondPlacement
 
 end
 

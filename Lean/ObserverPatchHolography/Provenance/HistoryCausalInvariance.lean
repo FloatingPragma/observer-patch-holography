@@ -21,11 +21,14 @@ a reader that certifies the written register changes the citation set, so
 the independence clauses are load-bearing.
 
 On complete finite executed histories the authenticated read-after-write
-relation and append-only ancestry rank are both derived rather than
-declared.  `semanticEventLogOfExecution` selects the unique executed commit
-for every carrier identifier, derives rank from list position, and proves
-that its parent edges and generated closure are exactly the executed
-authenticated relation and its transitive closure.
+relation and a termination rank are both derived rather than declared.
+`semanticEventLogOfExecution` selects the unique executed commit for every
+carrier identifier, derives that witness from list position, and proves that
+its parent edges and generated closure are exactly the executed authenticated
+relation and its transitive closure.  The finite wrapper
+`semanticEventLogOfExecutionWithSourceHeight` then replaces list position by
+the canonical longest authenticated-parent-path height without changing an
+edge or generated comparison.
 
 A separate persistence theorem supplies the record-side reading of a
 long-lived cut: a freshly injected overlap mismatch survives every
@@ -377,10 +380,11 @@ theorem execLog_mem_split
         exact ⟨s :: xs, t, ys, by rw [hsplit]; rfl, by
           simpa [execState] using hcommit⟩
 
-/-- On a fresh, duplicate-free executed history the specification
-position is an ancestry rank: every executed direct-parent pair is
-position-ordered.  The append-only rank premise is derived on this
-branch. -/
+/-- On a fresh, duplicate-free executed history the specification position
+supplies the abstract ancestry-rank acyclicity witness: every executed
+direct-parent pair is position-ordered. The append-only rank premise is
+derived on this branch. Geometry does not use these numerical values; it
+recomputes canonical `sourceHeight` from authenticated parenthood. -/
 theorem execParents_rank_lt [DecidableEq EventId]
     {q : VersionedState Register Value EventId}
     {specs : List (CommitSpec Register Value EventId)}
@@ -684,6 +688,63 @@ theorem semanticEventLogOfExecution_generatedBefore_iff
         exact Relation.TransGen.tail ih
           ((semanticEventLogOfExecution_parentEdge_iff q specs hfresh
             hnodup hcomplete _ _).mpr hedge)
+
+/-- The finite executed semantic log re-ranked by the canonical longest
+authenticated-parent path.  The execution-position rank is retained only as
+the termination certificate used to compute `sourceHeight`; the exposed rank
+of this wrapper is determined by authenticated parenthood alone. -/
+noncomputable def semanticEventLogOfExecutionWithSourceHeight
+    [Fintype EventId] [DecidableEq EventId] [DecidableEq Value]
+    (q : VersionedState Register Value EventId)
+    (specs : List (CommitSpec Register Value EventId))
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    (hcomplete : ExecutedCarrierComplete specs) :
+    SemanticEventLog Register Value EventId :=
+  (semanticEventLogOfExecution q specs hfresh hnodup hcomplete).withSourceHeight
+
+@[simp] theorem semanticEventLogOfExecutionWithSourceHeight_rank
+    [Fintype EventId] [DecidableEq EventId] [DecidableEq Value]
+    (q : VersionedState Register Value EventId)
+    (specs : List (CommitSpec Register Value EventId))
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    (hcomplete : ExecutedCarrierComplete specs) (e : EventId) :
+    (semanticEventLogOfExecutionWithSourceHeight q specs hfresh hnodup
+      hcomplete).rank e =
+      (semanticEventLogOfExecution q specs hfresh hnodup hcomplete).sourceHeight e :=
+  rfl
+
+/-- Canonical source-height re-ranking preserves the exact executed parent
+relation. -/
+theorem semanticEventLogOfExecutionWithSourceHeight_parentEdge_iff
+    [Fintype EventId] [DecidableEq EventId] [DecidableEq Value]
+    (q : VersionedState Register Value EventId)
+    (specs : List (CommitSpec Register Value EventId))
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    (hcomplete : ExecutedCarrierComplete specs) (e f : EventId) :
+    (semanticEventLogOfExecutionWithSourceHeight q specs hfresh hnodup
+      hcomplete).ParentEdge e f ↔ execAuthenticatedParents q specs e f := by
+  simpa [semanticEventLogOfExecutionWithSourceHeight] using
+    (semanticEventLogOfExecution_parentEdge_iff q specs hfresh hnodup
+      hcomplete e f)
+
+/-- Canonical source-height re-ranking preserves the exact executed generated
+precedence. -/
+theorem semanticEventLogOfExecutionWithSourceHeight_generatedBefore_iff
+    [Fintype EventId] [DecidableEq EventId] [DecidableEq Value]
+    (q : VersionedState Register Value EventId)
+    (specs : List (CommitSpec Register Value EventId))
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    (hcomplete : ExecutedCarrierComplete specs) (e f : EventId) :
+    (semanticEventLogOfExecutionWithSourceHeight q specs hfresh hnodup
+      hcomplete).GeneratedBefore e f ↔
+      Relation.TransGen (execAuthenticatedParents q specs) e f := by
+  simpa [semanticEventLogOfExecutionWithSourceHeight] using
+    (semanticEventLogOfExecution_generatedBefore_iff q specs hfresh hnodup
+      hcomplete e f)
 
 /-! ## Independent commutation -/
 
@@ -1230,6 +1291,9 @@ end DiamondScheduleWitness
 #print axioms semanticEventLogOfExecution
 #print axioms semanticEventLogOfExecution_parentEdge_iff
 #print axioms semanticEventLogOfExecution_generatedBefore_iff
+#print axioms semanticEventLogOfExecutionWithSourceHeight
+#print axioms semanticEventLogOfExecutionWithSourceHeight_parentEdge_iff
+#print axioms semanticEventLogOfExecutionWithSourceHeight_generatedBefore_iff
 #print axioms swap_execState
 #print axioms swap_execParents
 #print axioms swap_execAuthenticatedParents

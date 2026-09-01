@@ -34,7 +34,7 @@ The second half of that result is even stranger. Put a detector in the apparatus
 
 The bet was worth making because both positions are unacceptable. If the record is erased, quantum mechanics breaks. If it survives, it has to escape from the one place in the universe that nothing escapes from. Three of the most capable physicists alive spent seven years on which of two impossibilities to prefer. At the end of it one of them changed his mind and one of them did not.
 
-**How much a region can hold is set by its surface.** This last one is arithmetic rather than anecdote. Ask how much information you can pack into a region of space. Storage scales with volume, obviously: a warehouse twice as wide in every direction holds eight times as much. What the equations give instead is that the capacity scales with the area of the boundary. Double the radius and you get four times the room, not eight. Nobody put this in. It falls out of the thermodynamics of black holes, and applies to regions of empty space that contain no black hole at all.
+**Gravity puts an area ceiling on what a region can hold.** This last one is arithmetic rather than anecdote. A warehouse twice as wide in every direction holds eight times as much. A black-hole horizon behaves differently: double its radius and its entropy grows by four. More general gravitational bounds extend that lesson under their own causal conditions, though an ordinary empty region need not saturate the bound. The observer construction reaches a separate finite boundary count. Calling that count physical entropy or area requires a map to a realized screen and a calibrated exchange rate.
 
 ## A universe without a manual
 

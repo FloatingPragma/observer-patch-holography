@@ -26,11 +26,11 @@ Here S is the entropy of the hole, A is the area of its horizon, and the length 
 
 Storage scales with volume in every warehouse ever built. Double a horizon's radius and the volume inside it goes up by eight while its memory goes up by four. Every further doubling widens that gap by another factor of two. Bekenstein worked the arithmetic into a comparison in *Scientific American* in August 2003: a black hole one centimeter in diameter has an entropy of about ten to the sixty-sixth bits, which is roughly the thermodynamic entropy of a cube of water ten billion kilometers on a side.
 
-A region's memory is the number of distinguishable things it could be doing, counted as bits: the number of yes-or-no answers a complete description of it would take. That count, for any region of space, is fixed by the area of the surface around it and takes no account of the volume inside. Take a sealed room and double the shelving in it. The ceiling on how many distinguishable things the room can be doing sits where it sat, because the walls sit where they sat.
+For a black hole, the number of distinguishable states is fixed by the horizon area. More general gravitational entropy bounds apply to suitably defined light-sheets and physical states; an ordinary room need not saturate a black-hole equality. Doubling the shelving does not evade the gravitational ceiling, but the ceiling and the room's actual entropy are different quantities.
 
-Black holes are where that ceiling was found. It does not stay there. Try to pack more entropy than it allows into a region of ordinary space. The energy required to hold the entropy collapses the region, a horizon closes around it, and the count lands back on the surface where the bound said it would. Gerard 't Hooft stated the general version in a 1993 paper called "Dimensional reduction in quantum gravity": the maximum information in a region of space is set by the area of its boundary, black hole or no black hole.
+Black holes are where the sharp equality was found. Pack enough energy and entropy into a region and gravitational collapse can close a horizon around it. Gerard 't Hooft's 1993 proposal, "Dimensional reduction in quantum gravity," made the area-scaling principle general. Its precise use outside horizons requires the causal and energetic conditions of an appropriate entropy bound.
 
-Chapter thirteen got the shape of it out of a wiring diagram, with no gravity anywhere in the argument. Everything anybody can learn about a patch arrives through its ports, so two interior states exposing the same readings on every port are one state to the entire network, and what can be known about a region is a count of arrangements of its boundary rather than of its inside. That fixes the form. What it leaves open is the exchange rate, how much one unit of boundary is worth. The exchange rate came off a horizon.
+Chapter thirteen got a related boundary-accessibility statement out of a wiring diagram, with no gravity anywhere in the argument. Everything an outsider can learn about a patch arrives through its ports, so interior states exposing the same boundary readings are indistinguishable to the network. This gives a finite count of boundary arrangements. It does not prove that the count is physical entropy, that each port carries equal area, or that a general region saturates a horizon law. Those identifications require a realized physical screen and an independently calibrated exchange rate.
 
 ## What a cut costs
 
@@ -42,7 +42,7 @@ Of either half. Two sides of a cut through a definite whole come back with exact
 
 Chapter six's coins hold a record of that shape, with no quantum mechanics in the building. Alice and Bob write one word, same or different, which states the relation between two coins and says nothing about either coin: complete about the pair, silent about the halves. Read the entry and you know what will be on Bob's coin the moment you have seen Alice's, and you know nothing whatever about either one before that. The quantum version differs in one respect, which chapter twenty measured. There are no faces sitting underneath the entry for it to be a description of. The correlations run further than any set of faces could account for. The entry is the object. There are no coins under it.
 
-A cut through this world passes through seams, because seams are the only places where two patches hold anything in common. So the number is a count of severed seams. Add a patch deep inside a region, wired only to other patches inside it, and no cut through the boundary touches it. The count moves when a seam crosses the boundary and at no other time.
+A cut through the finite patch model passes through seams, because seams are the only places where two patches hold anything in common. The severed seam registers therefore bound the shared information across the cut. The entropy equals a bare seam count only under an additional uniform-capacity and state condition. Adding a patch deep inside changes no boundary register, while adding a crossing seam changes the available boundary carrier.
 
 ## The doorway
 
@@ -76,22 +76,22 @@ He published the answer in 1950, in the *Bell System Technical Journal*, volume 
 
 What Hamming had beyond his list of checks was seven relays bolted in a row on a frame. A row has positions and the positions can be counted off with a finger. A surface made of seams has no row and no frame. What it has is the number of seams a cut through it severs. That number arrives without units.
 
-## The exchange rate
+## A conditional exchange rate
 
-Bekenstein's proportionality, with Hawking's quarter in it, runs in both directions. Left to right it prices a horizon: hand it an area and it returns an entropy. Right to left it prices a seam. Measure a horizon in Planck squares, meaning squares one Planck length on a side, take a quarter of the count, and what comes back is the number of seams a cut along that horizon severs. So each of those seams is worth four Planck squares of surface. No seam is worth more than another, because a seam is two ports joined and a connector has nothing printed on it that would make one join wider than the next. There is no such thing as a longer seam.
+Bekenstein's proportionality, with Hawking's quarter in it, prices a physical horizon: hand it an area and it returns an entropy. Reading the equation in reverse does not price an abstract seam by itself. That step assumes a selected horizon cellulation, identifies one correctable boundary-record unit with one unit of horizon entropy, and assigns equal weight to the selected seams. Under those conditions one such unit corresponds to four Planck squares. The finite connector supplies neither the physical horizon nor the equality of record and entropy units.
 
-A count of severed seams and a measurement in square meters are one measurement in two sets of units. The conversion between them is fixed once and holds everywhere in the world. Four Planck squares comes to 1.04 times ten to the minus sixty-ninth of a square meter, putting about 9.6 times ten to the sixty-eighth severed seams in a square meter of boundary.
+On that calibrated branch, the selected record count and horizon area are one quantity in two units. Four Planck squares comes to 1.04 times ten to the minus sixty-ninth of a square meter, corresponding to about 9.6 times ten to the sixty-eighth selected units per square meter. The conversion is a physical adapter, not a consequence of seam combinatorics.
 
-That count is what a surface has in place of a material. The area of a horizon is the number of its seams quoted in meters, so it arrives in whole numbers of one small square, the same square on every surface in the world, and no surface carries an area that lands between two of them. Take any region, cut along its boundary, count the seams the cut passes through, multiply by four of those squares, and out comes what a ruler laid against that boundary reports.
+If a realized horizon carries that cellulation and the adapter is local and additive, its selected units reproduce the horizon area. This does not imply that every physical surface has an exactly quantized area, that every abstract seam has the same geometric weight, or that counting seams on an arbitrary region reproduces a ruler reading.
 
 ## Draw a square on a horizon
 
-Draw a closed curve on a horizon, dividing the surface into two pieces. Finitely many seams cross that surface, so the curve can be routed between them, and every seam that a cut along the whole surface severs then belongs to one piece or to the other. The two counts add up to the count for the whole. Neither piece's count depends on anything happening across the curve.
+On a selected finite horizon cellulation, draw a closed curve dividing the carrier into two pieces. A curve routed between the selected units partitions their count, so the two counts add to the count for the whole.
 
-Entropy divides the way the seams divide. The number attached to a piece of boundary is a count of that piece's own severed seams. Halving the surface halves the number, and a piece with twice the area of another gets twice the count. Equal areas carry equal counts, on any horizon, whatever sits behind them, because the area is the count.
+Entropy divides this way only if the horizon-record adapter is local, additive and uniform on the selected state. Under those premises, equal-area pieces carry equal record capacity. The finite seam partition by itself proves additivity of the count, not equality with physical entropy or area.
 
-So the number belongs to the piece rather than to the whole surface, putting a figure on a square you can cover with your hand. Ten centimeters on a side, drawn anywhere on any boundary in the world, and the seams a cut through it severs come to about ten to the sixty-seventh.
+The conditional conversion puts about ten to the sixty-seventh selected entropy units in a ten-centimeter square on a saturated horizon. It is a scale illustration, not a derived count for any boundary in the world.
 
-A patch reads the seams of its own collar one at a time. A ruler laid along that collar reads the same seams four Planck squares at a time.
+A patch reads its collar registers one at a time. A ruler reads the same carrier only after the physical placement and area calibration identify those registers with locations and area elements.
 
 Wheeler's two teacups went in carrying entropy nobody could gather back afterwards. The surface around the hole grew by enough to cover them. That surface is made of no material at all. The only property it has to offer is a size. A count of what somebody would have to be told came out balanced, exactly, against a shape.

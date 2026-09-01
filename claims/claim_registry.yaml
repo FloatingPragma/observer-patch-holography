@@ -340,7 +340,7 @@
     },
     {
       "claim_id": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
-      "statement": "On a fresh, duplicate-free, carrier-complete threaded execution, quotient-visible semantic commits generate an authenticated informational precedence relation. A direct edge requires a certified child support register, actual parent write-membership, the matching parent writer identifier in the child's pre-state, and exact value continuity from the parent's post-state to the child's pre-state; a writer label alone is insufficient. The canonical execution constructor selects the unique executed commit for each event, derives an increasing rank from commit position, and proves that its parent relation and generated strict order are exactly the authenticated execution relation and its transitive closure, so neither edges nor rank are supplied independently on this path. The closure is the least strict transitive relation containing the direct edges; an adapter that contains every edge and asserts no unsupported comparability is exactly the generated order. The QFT execution adapter consumes the same closure, and the finite event-population wrapper forces its old precedence field to equal the reflexive generated order while leaving population, charts, separation, cone attachment, and physical interpretation explicit. Static mismatch is writer-blind; empty certified support creates no mismatch-response edge; dependency-complete seam proposals lie in one conflict component, after which any separately supplied aggregation map constant on components gives one aggregate label; and the four-event fixture realizes a Boolean-diamond interval. Authenticated parenthood and its closure are invariant under a proved adjacent independent swap when both executions satisfy freshness and duplicate-free identifiers, and under executor-stutter insertion; this is not full implementation-class schedule invariance. A mismatch persists when its entire overlap support remains unwritten, which is stronger than saying that the support remains unconsumed. Under fresh identifiers, duplicate-free execution, and visible-support hypotheses, a hidden commit makes no visible mismatch change and supplies no outgoing direct raw or authenticated parent edge to a visibly supported child; incoming edges into the hidden commit are not excluded. A supplied refinement edge-preservation certificate implies closure and interval inclusion but is not itself derived. The resulting finite locally finite poset is causal-set-like only in mathematical shape: no physical signal identification, faithful embedding or manifoldlikeness, dimension, topology, count-to-volume law, Lorentzian cone, continuum existence, or Hauptvermutung uniqueness is derived.",
+      "statement": "On a fresh, duplicate-free, carrier-complete threaded execution, quotient-visible semantic commits generate an authenticated informational precedence relation. A direct edge requires a certified child support register, actual parent write-membership, the matching parent writer identifier in the child's pre-state, and exact value continuity from the parent's post-state to the child's pre-state; a writer label alone is insufficient. The canonical execution constructor selects the unique executed commit for each event, derives an increasing append-only acyclicity witness from commit position, and proves that its parent relation and generated strict order are exactly the authenticated execution relation and its transitive closure, so neither edges nor that witness are supplied independently on this path. This witness certifies execution well-foundedness only: geometry independently recomputes canonical source height from authenticated parenthood and does not treat execution position as time. The closure is the least strict transitive relation containing the direct edges; an adapter that contains every edge and asserts no unsupported comparability is exactly the generated order. The QFT execution adapter consumes the same closure, while the active source-native chart interface takes semantic commits as its event carrier and GeneratedBeforeEq as its only reflexive order; the superseded population wrapper and its duplicate precedence have been removed. Static mismatch is writer-blind; empty certified support creates no mismatch-response edge; dependency-complete seam proposals lie in one conflict component, after which any separately supplied aggregation map constant on components gives one aggregate label; and the four-event fixture realizes a Boolean-diamond interval. Authenticated parenthood and its closure are invariant under a proved adjacent independent swap when both executions satisfy freshness and duplicate-free identifiers, and under executor-stutter insertion; this is not full implementation-class schedule invariance. A mismatch persists when its entire overlap support remains unwritten, which is stronger than saying that the support remains unconsumed. Under fresh identifiers, duplicate-free execution, and visible-support hypotheses, a hidden commit makes no visible mismatch change and supplies no outgoing direct raw or authenticated parent edge to a visibly supported child; incoming edges into the hidden commit are not excluded. A supplied edge-preservation certificate between history cuts implies closure and interval inclusion but is not itself derived. The resulting finite locally finite poset is causal-set-like only in mathematical shape: no physical signal identification, faithful embedding or manifoldlikeness, dimension, topology, count-to-volume law, Lorentzian cone, continuum existence, or Hauptvermutung uniqueness is derived.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "authenticated_source_derived_finite_informational_order_package",
       "assumptions": [
@@ -352,7 +352,7 @@
         "read_from_version_provenance",
         "conflict_serializability_aggregation"
       ],
-      "oph_specific_delta": "Authenticates event precedence against the repository's threaded versioned commit semantics instead of trusting writer labels, declared parents, or a supplied execution rank; the closure inhabits the literal A1 strict-order interface and the QFT/event-population adapters, exact adapters become verifiers, and the mismatch layer binds injection, write avoidance, and repair to writer-blind seam scores while retaining every physical-spacetime attachment as an explicit gate.",
+      "oph_specific_delta": "Authenticates event precedence against the repository's threaded versioned commit semantics instead of trusting writer labels, declared parents, or a supplied execution-rank acyclicity witness; geometry separately recomputes canonical source height from authenticated parenthood, the closure inhabits the literal A1 strict-order interface, the QFT adapter, and the source-native chart interface, exact adapters become verifiers, and the mismatch layer binds injection, write avoidance, and repair to writer-blind seam scores while retaining every physical-spacetime attachment as an explicit gate.",
       "novelty_type": "source_derived_precedence_with_adapter_exactness_and_orientation_no_go",
       "evidence": [
         "paper/reality_as_consensus_protocol.tex",
@@ -366,9 +366,9 @@
         "Lean/QFT/SourceDerivedEventPrecedence.lean",
         "Lean/Geometry/EventPopulationChartInterface.lean"
       ],
-      "falsifier": "A forged writer label, nonwriting alleged parent, or value-discontinuous citation creates an authenticated edge; the execution constructor differs from threaded authenticated provenance or fails to derive its rank; the closure violates strict-order laws or minimality; an exact adapter differs; the event-population wrapper retains a second free precedence; a static score orients writer-blind provenance; a blind repair acquires a mismatch-response edge; the diamond interval is wrong; a certified adjacent independent swap or stutter changes authenticated closure; under fresh identifiers, duplicate-free execution, and visible-support hypotheses a hidden commit changes visible mismatch or supplies an outgoing direct raw or authenticated parent edge to a visibly supported child; unwritten-support persistence fails; or closure/interval inclusion fails despite the supplied refinement edge certificate.",
-      "scope_if_false": "Only the authenticated source-derived precedence package and its finite event-order adapter fall. The transactional confluence layer and the separately conditional geometry/event-manifold receipts remain assessed on their own premises.",
-      "status": "authenticated_executed_source_order_rank_and_adjacent_commutation_Lean_proved__support_completeness_full_schedule_invariance_and_physical_attachment_open",
+      "falsifier": "A forged writer label, nonwriting alleged parent, or value-discontinuous citation creates an authenticated edge; the execution constructor differs from threaded authenticated provenance or fails to derive its append-only acyclicity witness; the closure violates strict-order laws or minimality; an exact adapter differs; the source-native chart interface reintroduces a population map or second free precedence; a static score orients writer-blind provenance; a blind repair acquires a mismatch-response edge; the diamond interval is wrong; a certified adjacent independent swap or stutter changes authenticated closure; under fresh identifiers, duplicate-free execution, and visible-support hypotheses a hidden commit changes visible mismatch or supplies an outgoing direct raw or authenticated parent edge to a visibly supported child; unwritten-support persistence fails; or closure/interval inclusion fails despite the supplied history-cut edge-preservation certificate.",
+      "scope_if_false": "Only the authenticated source-derived precedence package and its finite event-order adapters fall. The transactional confluence layer, exact rank-three quotient, finite one-plus-three carrier construction, and conditional physical-continuum certificate retain their separate scopes.",
+      "status": "authenticated_executed_source_order_and_acyclicity_witness_Lean_proved__adjacent_commutation_exact__support_completeness_full_schedule_invariance_and_physical_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
         763
@@ -842,46 +842,39 @@
       }
     },
     {
-      "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
-      "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is a second-countable nonseparated uniform space. Under receipts E1-E6 (population and density scaling, certified separation gaps, rank-four response frames, Poincare overlap cocycle, quadratic Lorentz-cone fit, and physical causal reachability), with E4-prime for the curvature upgrade, it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, and a produced conformal metric. Modular flow supplies dimensionless local ordering. An operational clock additionally requires observer-readable transitions, event correspondence, affine calibration, and the stated gluing residual. H3 is strictly the frame fiber over events with no equivariant section; explicit countermodels show dim H3 = 3 promotes nothing by itself. Under the separately registered identification of record germs with quotient-visible semantic commits, authenticated provenance supplies the finite event carrier and a finite informational precedence candidate. It does not supply physical causal faithfulness, faithful embedding or manifoldlikeness, four-dimensional topology, volume-density calibration, Lorentzian cone compatibility, or a continuum limit; those remain explicit E1-E6 and PR-52 obligations.",
+      "claim_id": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
+      "statement": "Authenticated semantic provenance fixes a finite event population and its generated read-from order. SourceDerivedSpacetimeCarrier computes the canonical sourceHeight from authenticated parenthood alone: roots have height 0 and every nonroot has 1 plus the maximum height of its direct parents; sourceHeight strictly increases on parent edges and generated ancestry. Independently of the event order, an independent real axis and the exact positive rank-three source Gram quotient V_src define the ambient carrier W_src = R + V_src, which has real dimension 4 and Lorentz inertia (1,3); source-unit directions are exactly future-null rays. For any supplied spatial readback x and positive timeScale tau, sourceHeight enters only through the event placement F(e) = (tau sourceHeight(e), x(e)); the resulting coordinate is not a physical event time or clock reading. The scaled edge speed bound sends parenthood and generated ancestry into the future cone. Injectivity plus the converse cone-order implication yields a faithful finite causal embedding and preserves every finite source interval exactly on the placed image. The machine-checked diamond witness is non-chain, has spacelike branches, and maps every parent edge to a null displacement. Thus finite event order and the ambient target-carrier dimension and signature are constructed without a free precedence relation, supplied placement rank, rank-four chart, or fitted cone; the intrinsic dimension of the finite poset is not derived. A physical Lorentzian spacetime remains conditional on one source-causal continuum certificate carrying physical event and link identification, two-way placement, compatible refinement, dense and isotropic link directions, calibrated count-volume, independent dimension and manifoldlikeness tests, stable topology, Lorentzian-limit uniqueness, and convergent curvature. The current source-history family proves exact induced-prefix custody, while its prescribed 24-event shared-frame port-anchor/barycentre placement is not faithful and is not a no-go for other source-selected placements.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-      "tier": "conditional_construction_theorem",
+      "tier": "exact_finite_one_plus_three_causal_precursor_plus_conditional_physical_continuum",
       "assumptions": [
-        "cap_normal_H3_chart",
-        "point_local_cap_response_factorization",
-        "quantitative_cap_observability",
-        "positive_localization_gap_for_unique_finite_output",
-        "event_manifold_receipts_E1_E6",
-        "commit_populated_event_base",
-        "modular_intersection_receipt",
+        "source_causal_continuum_certificate",
         "record_cauchy_and_stable_causality"
       ],
       "imported_results": [
         "causal_order_conformal_reconstruction_under_distinguishing_hypotheses",
         "causal_set_order_plus_number_and_faithful_embedding_criteria",
-        "bi_Lipschitz_atlas_arguments",
-        "convex_cone_quadric_signature_classification",
-        "Rademacher_Caratheodory_regularity"
+        "thickened_antichain_topology_and_interval_abundance_diagnostics",
+        "finite_dimensional_quadratic_form_classification"
       ],
-      "oph_specific_delta": "The step from a source-derived finite informational poset and Lorentz-group/observer-frame kinematics to an actual 3+1 Lorentzian event spacetime is a quotient-intrinsic conditional construction with named faithful-embedding, manifoldlikeness, dimension, topology, volume-density, cone, and causal-faithfulness obligations, a strict event-base/frame-fiber separation, an unconditional second-countable nonseparated uniform-space boundary, and countermodels; without those receipts the corpus claim stops at the finite poset and Lorentz kinematics.",
-      "novelty_type": "conditional_event_manifold_construction",
+      "oph_specific_delta": "OPH derives the finite event population and precedence from authenticated semantic provenance and computes a canonical longest-parent-chain height from that precedence. Independently of that order, an independent real axis and the exact rank-three source quotient define a four-dimensional ambient Lorentz carrier with an exact source-sphere to null-ray equivalence. A positive multiple of sourceHeight supplies only the temporal coordinate of a separately certified event placement in that carrier. This does not derive a physical clock or poset/manifold dimension. The remaining physical continuum obligations are one explicit causal-set-style certificate rather than a supplied event atlas.",
+      "novelty_type": "source_derived_finite_one_plus_three_precursor_with_falsifiable_continuum_certificate",
       "evidence": [
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-        "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean",
-        "Lean/QFT/SourceDerivedEventPrecedence.lean",
-        "code/geometry/event_manifold_reconstruction.py",
-        "code/geometry/test_event_manifold_reconstruction.py"
+        "Lean/Geometry/SourceDerivedSpacetimeCarrier.lean",
+        "Lean/Geometry/EventPopulationChartInterface.lean",
+        "Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean",
+        "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
+        "evidence/source_causal_history_family/verify_source_causal_history_family_projection.py"
       ],
-      "falsifier": "A receipt-carrying region fails Hausdorffness/dimension/signature as constructed, the event classes depend on schedule/gauge/refinement presentation, the finite informational order is promoted to physical causal order or continuum geometry without the named attachment receipts, H3 is identified with a spatial slice, or a global causality claim is made beyond the named assumptions.",
-      "scope_if_false": "The event-manifold continuation reopens and all corpus surfaces revert to Lorentz-group and observer-frame kinematics language; the kinematic chart and localization theorems survive.",
-      "status": "conditional_theorem",
+      "falsifier": "The ambient source carrier fails dimension four or inertia (1,3), its dimension is misreported as an intrinsic finite-poset dimension, a source-unit direction is not future-null, an edge satisfying the speed bound fails future-causality, a faithful-placement hypothesis fails to imply exact order-cone equivalence, the diamond witness loses its branch or cone properties, or a physical manifold claim is made without every source-causal continuum row.",
+      "scope_if_false": "Only the failing finite carrier, placement, or continuum clause is withdrawn; the authenticated source order, rank-three quotient, and independent Lorentz-frame kinematics retain their separate scopes.",
+      "status": "exact_finite_precursor__physical_continuum_certificate_uninhabited",
       "claim_class": "conditional_implication",
       "gates": [],
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
-          "PR-16",
-          "PR-83"
+          "PR-16"
         ],
         "open": [
           "PR-15",
@@ -911,11 +904,15 @@
       "novelty_type": "target_clean_finite_local_domain_receipt",
       "evidence": [
         "paper/screen_microphysics_and_observer_synchronization.tex",
+        "evidence/causet_likeness/causet_likeness_receipt.json",
+        "evidence/causet_likeness/verify_causet_likeness_receipt.py",
         "https://github.com/muellerberndt/oph-physics-sim/blob/550fe77dc67dc8bef2dd8927bcf72ec98cfa3506/oph_fpe/local_domain/stage1_event_complex.py",
-        "https://github.com/muellerberndt/oph-physics-sim/blob/550fe77dc67dc8bef2dd8927bcf72ec98cfa3506/data/local_domain/stage4_receipt.json"
+        "https://github.com/muellerberndt/oph-physics-sim/blob/550fe77dc67dc8bef2dd8927bcf72ec98cfa3506/data/local_domain/stage4_receipt.json",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/6080f3a4045b7cbd821476a0a8fa0a6b57eeeeab/data/causal_order/causet_likeness_receipt.json",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/6080f3a4045b7cbd821476a0a8fa0a6b57eeeeab/oph_fpe/bulk/verify_causet_likeness_independent.py"
       ],
       "falsifier": "Canonical-content replay fails; the 24-event control's generated and declared edge sets differ under the frozen canonical projection; a raw writer label without the authenticated read, write, identity, and value witnesses creates an edge; an independent recomputation changes a stated count, inertia, ambiguity rank, deterministic operator evaluation, or frozen interval diagnostic; either coordinate route disagrees with the exact rank identity; the source DAG has a target-aware ancestor; any interval enters the frozen exploratory four-dimensional band; or a continuum or physical conclusion is attributed to this finite receipt.",
-      "scope_if_false": "The finite local-domain artifact is withdrawn. The conditional event-manifold, gauge, and matter theorems remain subject to their own premises.",
+      "scope_if_false": "The finite local-domain artifact is withdrawn. The source-derived finite one-plus-three carrier and the separately conditional continuum, gauge, and matter theorems remain subject to their own premises.",
       "status": "attained_on_one_frozen_target_clean_finite_source_capture__exploratory_causet_likeness_negative",
       "claim_class": "emitted_artifact",
       "gates": [],
@@ -928,30 +925,30 @@
       }
     },
     {
-      "claim_id": "OPH-GR-FCC-CAUSET-COMPATIBILITY-CONTROL",
-      "statement": "One frozen post-hoc exploratory architecture fixture deliberately imposes face-centred cubic rank-three gluing with twelve cuboctahedral O_h port directions, exact versioned resource provenance, and deterministic nested identity-hash induced orders at depths 8, 12, 16, and 20. The generated direct-parent sets agree exactly with the versioned-resource reconstruction, the retained carriers are nested, and every induced order restricts exactly to the preceding depth. At depth 20, three frozen thinning seeds retain 2583 through 2746 events, with ordering fractions 0.10115 through 0.10786; their 3.910 through 3.986 flat-control Myrheim-Meyer candidates are inversions of those same fractions, not independent evidence. On the checked grid r = 0 through 20, spatial carrier-ball counts exactly match B(r) = (10 r^3 + 15 r^2 + 11 r + 3) / 3. On the checked grid r = 0 through 9, shell counts exactly match S(r) = 20 r^3 + 48 r^2 + 40 r + 12. On the checked grid n = 1 through 10, the fine-carrier counts at imposed even depth 2n exactly match N(2n) = B(n) + 2 sum from r=0 to n-1 of B(r) + 2 sum from r=0 to n-1 of S(r) = (35 n^4 + 46 n^3 + 22 n^2 + 11 n + 3) / 3. These are bounded exact matches, not all-r or all-n theorems. A one-seed post-hoc depth-20 sensitivity scan over hash denominators 25, 40, 50, 60, 75, and 100 keeps the ordering fraction in 0.10350 through 0.11217 and its derived Myrheim-Meyer inversion in 3.86 through 3.96, so the narrow ordering statistic is not unique to the 1/50 thinning. Its profile RMS varies from 0.06887 through 0.10148, a factor of about 1.47, so profile shape is tuning-sensitive and non-evidential. This scan supplies no beyond-grid robustness. The apparent analytic-profile RMS decline over depths 8 through 20 was found post hoc and is invalidated as convergence evidence by an additional out-of-family depth-24 extrapolation control on a 269517-event fine carrier: every seed reverses, with RMS 0.071225 through 0.074718 after 0.068269 through 0.069546 at depth 20, and the depth-24 first-interval abundance is 0.713141 through 0.726067 against the flat four-dimensional asymptotic value 0.5. At depth 20, the constructive-centroid-to-matched-Minkowski RMS is 0.090083, while two independent matched Minkowski controls differ by 0.002423, a ratio of 37.18. Held-out confirmation and a significance test remain unperformed. The count-versus-height log slope is 3.3867, the H / |I|^(1/4) normalization misses the matched finite control, and externally supplied depth is neither physical volume nor poset height. The only positive result is that this imposed rank-three-plus-time fixture realizes bounded depth-20 ordering fractions and their derived dimension candidates together with exact nested provenance and the stated bounded count matches. The FCC gluing and hash thinning are imposed, the current seeded federation selects neither, and fixed O_h directions are not the required A5-compatible refinement family densifying and isotropizing on S2. The receipt supplies no finite causet similarity, refinement convergence, physical causal set, faithful embedding, manifoldlikeness, physical volume calibration, Lorentzian geometry, continuum limit, or physical 3+1-dimensional derivation.",
+      "claim_id": "OPH-GR-SOURCE-CAUSAL-HISTORY-FAMILY",
+      "statement": "The authenticated 4, 8, 16, 32, and 64-round semantic histories form an exact source-derived order family from 24 to 384 events. Independent generation and replay reconstruct every cutoff's events, parent edges, generated closure, and canonical longest-parent-chain source height without importing declared ancestry; each smaller order is exactly the induced prefix of every larger order, and source sequence is compatible with source height. Width is exactly 2 at every level while ordering fraction rises from 0.8840579710144928 to 0.992221496953873, so this is exact induced-prefix custody rather than a spacetime-density refinement. On the real 24-event control, records sit at authenticated icosahedral port anchors and readback or feedback events at arithmetic barycentres of consumed source records, with all carrier identities placed in one stipulated reference port frame. The source-height/timeScale placement has 244 comparable and 32 incomparable unordered pairs, 8 same-height coordinate collisions, and 8 different-height incomparable pairs at zero spatial separation. Its causal lower scale is 1.129775730952839 and its spacelike upper scale is 0, so no admissible global scale exists: the map is noninjective and fails the converse cone-order test. The result proves source-order custody and falsifies this prescribed single-frame source-port placement; it supplies neither source-derived inter-carrier gluing nor a no-go for other placements, and supplies no physical event identification, faithful embedding, growing-width density family, isotropic links, count-volume calibration, manifoldlikeness, topology, Lorentzian limit, or smooth curvature.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
-      "tier": "bounded_constructive_compatibility_control",
+      "tier": "exact_source_history_custody_with_failed_prescribed_faithful_placement",
       "assumptions": [
-        "imposed_fcc_oh_rank3_twelve_port_gluing",
-        "deterministic_identity_hash_induced_order_thinning",
-        "post_hoc_exploratory_control_with_failed_depth24_extrapolation",
-        "physical_causal_attachment_deferred"
+        "authenticated_source_history_family_fixture",
+        "prescribed_single_frame_source_port_placement"
       ],
       "imported_results": [
-        "finite_FCC_lattice_and_cuboctahedral_combinatorics",
-        "causal_set_ordering_fraction_and_Myrheim_Meyer_diagnostics",
-        "Glaser_Surya_interval_abundance_reference_profile",
-        "deterministic_hash_thresholding_and_induced_suborders"
+        "finite_partial_order_closure_and_induced_suborder_algorithms",
+        "finite_Minkowski_cone_order_test"
       ],
-      "oph_specific_delta": "An explicit imposed rank-three-plus-time/twelve-port fixture with exact versioned provenance and nested induced orders realizes a bounded depth-20 ordering-fraction range and its derived flat-control dimension candidates, plus bounded exact FCC ball-count matches for r = 0 through 20, shell-count matches for r = 0 through 9, and fine-carrier-count matches for n = 1 through 10. The same receipt records one-seed post-hoc thinning sensitivity, the depth-24 profile reversal, large matched-Minkowski discrepancy, failed fourth-power and height-normalization diagnostics, and the absence of beyond-grid robustness, any all-radius theorem, A5-compatible densifying direction family, or physical promotion.",
-      "novelty_type": "bounded_imposed_fcc_coarse_value_architecture_control",
+      "oph_specific_delta": "Every cutoff in the source-selected history family is independently regenerated from authenticated read-after-write provenance, exact induced-prefix custody and source-height compatibility are proved across cutoffs, and one prescribed single-frame source-port placement is tested against an exact two-way cone criterion. The receipt separates a positive custody theorem from a negative ansatz test and blocks either from being promoted to a physical causal-set continuum.",
+      "novelty_type": "source_derived_order_custody_and_exact_faithful_placement_test",
       "evidence": [
-        "paper/screen_microphysics_and_observer_synchronization.tex"
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
+        "evidence/source_causal_history_family/verify_source_causal_history_family_projection.py",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/6080f3a4045b7cbd821476a0a8fa0a6b57eeeeab/data/causal_order/source_causal_history_family_receipt.json",
+        "https://github.com/muellerberndt/oph-physics-sim/blob/6080f3a4045b7cbd821476a0a8fa0a6b57eeeeab/oph_fpe/bulk/verify_source_causal_history_family_independent.py"
       ],
-      "falsifier": "Independent replay changes a stated event-count, ordering-fraction, derived Myrheim-Meyer candidate, checked FCC ball count for r = 0 through 20, checked shell count for r = 0 through 9, checked fine-carrier count for n = 1 through 10, sensitivity value, height, depth-24 extrapolation, or interval-profile value; versioned resources fail to regenerate the direct-parent sets; retained carriers or induced orders cease to be nested; the bounded count matches are promoted to all-radius or all-depth theorems; the one-seed post-hoc sensitivity, lack of beyond-grid robustness, depth-24 reversal, matched-Minkowski discrepancy, external-depth boundary, failed fourth-power or height-normalization diagnostic is omitted; the current federation is said to select the imposed FCC/O_h construction or fixed O_h ports are identified with an A5-compatible refinement family densifying and isotropizing on S2; or any finite-causet similarity, refinement-convergence, physical causal-set, manifold, volume, Lorentzian, continuum, significance, or derivation claim is attributed to the control.",
-      "scope_if_false": "Only the bounded imposed FCC coarse-value architecture control is withdrawn. The negative fixed-cutoff diagnostic of the current source capture, the exact rank-three local algebra, and the conditional event-manifold theorem retain their separate status.",
-      "status": "bounded_imposed_fcc_coarse_values__depth24_profile_extrapolation_and_matched_similarity_failed",
+      "falsifier": "Independent replay changes an event, parent edge, generated closure, source height, prefix restriction, width, ordering fraction, placement coordinate, collision count, causal lower scale, spacelike upper scale, or final verdict; or exact induced-prefix custody is promoted to a spacetime-density refinement or the failed prescribed placement is generalized to a no-go theorem for all physical refinements.",
+      "scope_if_false": "Only the authenticated history-family custody or prescribed-placement result at the failing clause is withdrawn; the abstract source-derived 1+3 ambient-carrier theorem and the separately conditional physical continuum retain their scopes.",
+      "status": "exact_induced_prefix_custody__prescribed_single_frame_placement_not_faithful",
       "claim_class": "emitted_artifact",
       "gates": [],
       "premise_dependencies": {
@@ -959,7 +956,7 @@
         "consumed": [],
         "open": [],
         "boundary": [],
-        "rationale": "This is a post-hoc imposed computational architecture control. It consumes no registered physical premise and does not promote the current source order, rank-three carrier, or event-manifold branch."
+        "rationale": "This is a source-native finite receipt and independent replay. It consumes no physical continuum premise and supplies none."
       }
     },
     {
@@ -969,7 +966,7 @@
       "tier": "exact_finite_tomography_plus_conditional_local_stress_upgrade",
       "assumptions": [
         "modular_intersection_receipt",
-        "event_manifold_receipts_E1_E6",
+        "source_causal_continuum_certificate",
         "kernel_residual_scaling_receipt",
         "null_stress_bridge",
         "weak_ward_conservation",
@@ -987,7 +984,7 @@
         "code/geometry/test_einstein_closure_receipts.py"
       ],
       "falsifier": "A finite family satisfying the linearity relations fails tensor reconstruction or stability, a violating family reconstructs with zero residual, or a corpus surface promotes the synthetic tomography receipt to source-derived locality, covariance, Ward conservation, or universal coupling.",
-      "scope_if_false": "The stress arrow reopens; the null bridge and event manifold survive on their own receipts.",
+      "scope_if_false": "The stress arrow reopens; the null bridge, finite source carrier, and conditional source-causal continuum survive on their own receipts.",
       "status": "finite_tomography_proved__locality_covariance_same_source_matching_and_ward_supply_conditional",
       "claim_class": "conditional_implication",
       "gates": [],
@@ -1051,7 +1048,7 @@
         "sharp_collar_rate_receipt",
         "kernel_residual_scaling_receipt",
         "uniform_small_ball_asymptotic_family",
-        "event_manifold_receipts_E1_E6",
+        "source_causal_continuum_certificate",
         "timelike_variation_coverage",
         "fixed_cap_MaxEnt_variation_family",
         "null_stress_bridge",
@@ -1092,7 +1089,7 @@
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
-      "statement": "Bare finite consensus is not Einstein-complete. The semiclassical Einstein equation follows conditionally from one source-derived repaired quotient tower whose geometry, modular, event, stress, entropy, and scale readouts share a common domain and commute with refinement. The tower must carry the finite geometry, null-net, cap-interior, and event premises; one certified cofinal family for every o(ell^4) remainder; universal coupling; a source-derived vacuum reference; and two independent scale readouts with trivial positive-rescaling stabilizer. Separately, the exact finite same-carrier source-direction theorem replaces an all-null balance premise by nine supplied balances on fixed algebraic inverse images of the pre-existing coordinate tomography frame; it does not construct the common tower or a smooth physical interpretation. The finite artifacts verify algebraic identities, evaluator logic, manifests, deletion rules, and synthetic controls. They do not certify an inhabited tower. Full isolated countermodel towers are also required before the receipt list can be called semantically minimal. Source construction, asymptotic certification, physical identification, and the isolated countermodel matrix are work in progress.",
+      "statement": "Bare finite consensus is not Einstein-complete. The source stack derives authenticated event order and its canonical longest-parent-chain height. Independently of that order, an independent real axis and the rank-three source quotient define the exact ambient one-plus-three Lorentz carrier; sourceHeight enters only through a scaled event placement in that carrier. A semiclassical Einstein equation follows only when one source-selected refinement family also inhabits the source-causal continuum certificate and carries physical events and links, two-way faithful placements, count-volume calibration, independent manifoldlikeness and topology tests, a unique smooth Lorentzian limit, and convergent causal curvature on the same domains as the modular, stress, entropy, Ward/Bianchi, vacuum, and scale readouts. The cofinal family must control every small-ball remainder, identify causal-set curvature with the smooth geometric tensor, supply universal coupling and a source-derived vacuum reference, and carry two independent scale readouts with trivial positive-rescaling stabilizer. Independently, the minimal finite source-direction shape theorem replaces an all-null balance premise by nine supplied balances without depending on a source-order packet or physical normalization fields; a separate normalized adapter yields the finite Einstein-form coefficient conditionally. The finite carrier, tensor identities, manifests, and controls do not construct the common physical continuum or certify branch nonemptiness.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
@@ -1122,18 +1119,12 @@
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "Lean/Geometry/SourceOrderEinsteinComposition.lean",
         "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
-        "code/geometry/realized_branch_receipts.py",
-        "code/geometry/runs/realized_branch_receipt_report.json",
         "code/geometry/cyclic_cap_net_run.py",
         "code/geometry/runs/cyclic_cap_net_run_domain.json",
         "code/geometry/modular_clock_instrumentation.py",
         "code/geometry/runs/modular_clock_instrumentation_report.json",
         "code/geometry/null_net_receipts.py",
-        "code/geometry/runs/null_net_receipt_report.json",
-        "code/geometry/realized_event_receipts.py",
-        "code/geometry/runs/realized_event_receipt_report.json",
-        "code/geometry/bulk_depth_receipts.py",
-        "code/geometry/runs/bulk_depth_receipt_report.json"
+        "code/geometry/runs/null_net_receipt_report.json"
       ],
       "falsifier": "An arrow of the composition fails on its stated inputs, a target quantity enters the source graph, or a claimed tower fails a common-domain, tail, coupling, vacuum, or scale premise.",
       "scope_if_false": "The composed theorem reopens at the failing arrow; individual packets keep their own statuses.",
@@ -1158,9 +1149,9 @@
     },
     {
       "claim_id": "OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
-      "statement": "For a supplied SourceOrderFrameCompatibilityPacket and SourceIndexedEinsteinPremises on its finite Event carrier, balance on nine fixed algebraic source-direction representatives, defined as exact inverse images of the pre-existing coordinate-fixed null-tomography frame, implies balance on every null vector. With supplied symmetric geometry and stress matrices, discrete Ward and Bianchi identities, symmetric-step connectivity, a vacuum-reference component equality, and the scale identity coupling = 8 pi G, sourceOrderEinstein_from_source_directions derives pointwise and constant metric ambiguity and the displayed Einstein-form tensor identity on that same finite carrier. The distinguished nine-set is neither selected by the generated informational order/source dynamics nor invariant as a set under Lorentz or SO(3) transformations. The Mat 3 and eta 3 fields and four step maps form a supplied pre-existing 3+1 tensor interface, so the theorem does not derive event dimension from the poset. The generated order is retained in the packet's finite consequences but is not used to select the directions, fields, step, or balances and is not load-bearing in the tensor equation. The universal-source equality is required as a bundle field and returned for downstream composition but is not used in the displayed equation. Neither the packet nor the premise bundle is inhabited by the theorem. No physical causal faithfulness, link-direction attachment, curvature/stress identification, event manifold, count-volume law, refinement, smoothness, continuum, or physical spacetime is proved.",
+      "statement": "For SourceDirectionEinsteinShapePremises on any finite Event type, balance on nine fixed algebraic source-direction representatives, defined as exact inverse images of the pre-existing coordinate null-tomography frame in a separately supplied 3+1 tensor interface, implies balance on every null vector. Supplied symmetric geometry and stress matrices, Ward and Bianchi identities, symmetric-step connectivity, and one coupling then imply pointwise metric ambiguity and one constant Einstein-form metric term in that interface. This minimal shape theorem has no source-order packet, entropy-stress field, universal-source equality, Newton constant, vacuum calibration, cosmological reference, or eight-pi-G scale field. A separate SourceIndexedEinsteinPremises adapter on a supplied SourceOrderFrameCompatibilityPacket restores those physical normalization fields and yields the normalized finite equation conditionally. The distinguished nine-set is neither selected by provenance/source dynamics nor invariant as a set under Lorentz or SO(3). The tensor fields and four step maps remain supplied; neither they nor their coordinate differences are identified with curvature or coordinates on the independently constructed source one-plus-three carrier. No physical causal attachment, source-selected balances, stress or curvature identification, count-volume law, manifoldlike refinement, smooth limit, or physical spacetime is proved.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-      "tier": "exact_conditional_finite_same_carrier_source_direction_premise_reduction",
+      "tier": "exact_conditional_finite_same_event_type_separate_tensor_interface_reduction",
       "assumptions": [
         "supplied_finite_source_order_frame_compatibility_packet",
         "supplied_nine_fixed_source_direction_balances",
@@ -1173,8 +1164,8 @@
         "finite_Ward_Bianchi_metric_ambiguity_constancy",
         "source_unit_direction_celestial_future_null_equivalences"
       ],
-      "oph_specific_delta": "The theorem puts the exact rank-three source quotient and the existing finite Einstein tensor algebra on one finite Event type, pulls the coordinate-fixed nine-vector tomography frame back to SourceUnitDirection, and proves that nine supplied source-indexed balances suffice for all-null balance and the Einstein-form identity while explicitly firewalling the informational order, universal-source field, and every physical or smooth interpretation that the calculation does not use.",
-      "novelty_type": "exact_same_carrier_nine_source_direction_to_all_null_premise_reduction",
+      "oph_specific_delta": "The theorem indexes the exact rank-three source quotient and the separately supplied finite Einstein tensor algebra by one finite Event type, pulls the coordinate-fixed nine-vector tomography frame back to SourceUnitDirection, and proves that nine supplied source-indexed balances suffice for all-null balance and the Einstein-form identity while explicitly firewalling coordinate differences, the informational order, universal-source field, and every physical or smooth interpretation that the calculation does not use.",
+      "novelty_type": "exact_same_event_type_nine_source_direction_to_all_null_premise_reduction",
       "evidence": [
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "flagship/from_observer_consensus_to_standard_physics.tex",
@@ -1185,9 +1176,9 @@
         "Lean/docs/C2_EVENT_FRAME_SOLDERING.md",
         "Lean/docs/PROOF_INDEX.md"
       ],
-      "falsifier": "The claim fails if one of the fixed source-direction representatives does not map exactly to its coordinate tomography vector, the nine supplied balances fail to imply all-null balance, Ward/Bianchi/connectivity fail to make the metric ambiguity constant, the vacuum-reference and scale premises fail to give the displayed Einstein-form identity, or the Lean theorem uses the generated order or universal-source equality in that tensor proof contrary to the stated dependency boundary.",
-      "scope_if_false": "Only the finite same-carrier source-direction premise reduction falls. The independent rank-three and celestial/null-ray equivalences, the informational-order theorems, and the separately conditional common-tower Einstein composition retain their own scopes.",
-      "status": "exact_conditional_finite_same_carrier_theorem__no_inhabitant_or_physical_promotion",
+      "falsifier": "The claim fails if one of the fixed source-direction representatives does not map exactly to its coordinate tomography vector, the nine supplied balances fail to imply all-null balance, Ward/Bianchi/connectivity fail to make the metric ambiguity constant, the normalized adapter's vacuum-reference and scale premises fail to give the displayed Einstein-form identity, or the Lean theorem uses the generated order or universal-source equality in that tensor proof contrary to the stated dependency boundary.",
+      "scope_if_false": "Only the finite same-event-type source-direction premise reduction in the supplied tensor interface falls. The independent rank-three and celestial/null-ray equivalences, the informational-order theorems, and the separately conditional common-tower Einstein composition retain their own scopes.",
+      "status": "exact_conditional_finite_same_event_type_tensor_theorem__no_inhabitant_or_physical_promotion",
       "claim_class": "conditional_implication",
       "gates": [],
       "premise_dependencies": {
@@ -1195,7 +1186,7 @@
         "consumed": [],
         "open": [],
         "boundary": [],
-        "rationale": "This is a finite algebraic implication from supplied packet, balance, tensor, conservation, reference, and scale data. It consumes no premise-register assertion that those fields are source-produced or physically realized; the event-manifold, refinement, count-volume, and smooth-geometry requirements remain outside the theorem."
+        "rationale": "The minimal shape result is a finite algebraic implication from supplied directions, tensors, conservation, connectivity, and one coupling, with no source-order packet or physical normalization fields. The normalized adapter adds the packet, vacuum reference, and scale conditionally. Neither result consumes a premise-register assertion that its fields are source-produced or physically realized; source-causal continuum, curvature, count-volume, and smooth-limit requirements remain outside both theorems."
       }
     },
     {
@@ -2655,7 +2646,7 @@
         "Lean/QFT/StructuralNetAdequacySurface.lean"
       ],
       "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. Its conditional E1 packet fails if a transcribed source-operator generation, declared slot-factor, checkpoint-pinch, conditional-expectation, diamond-coverage, support-disjoint counted-correlation, or constant-tower receipt fails. A source attachment fails if it asserts without proof that the retained source selects the Cartesian carrier, region map, factor reading, or a nonconstant tower. A later physical-causality promotion separately fails without the #728 source channel and scheduler receipts, source-derived clock work under #739 plus empirical calibration PR-15, or the #730 continuum causal/time-slice receipts.",
-      "scope_if_false": "Only the B4 finite helper package, conditional declared-adapter coverage, or the affected conditional E1 attachment receipt falls. Consensus termination and the independently gated channel, clock, event-manifold, and continuum-causality branches retain their separate premises.",
+      "scope_if_false": "Only the B4 finite helper package, conditional declared-adapter coverage, or the affected physical attachment falls. Consensus termination and the independently gated channel, clock, finite source carrier, and continuum-causality branches retain their separate premises.",
       "status": "fixed_word_dependency_and_generic_marginal_identities_proved__conditional_e1_operator_cp_diamond_and_support_disjoint_counted_correlation_attained__source_factor_reading_and_nonconstant_realization_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -3086,7 +3077,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
-      "statement": "The twelve-port boundary of one echosahedral carrier, the federation screen, and the support screen are distinct typed objects. One source-derived incidence-nerve producer constructs twelve carrier charts from the ports, thirty seam algebras from the edges, and twenty nonvacuous triple restrictions from the oriented faces. On that same bound artifact it verifies interface-algebra sewing, accepted confluent phase-induced repairs, operational readback, durable records, feedback and prediction controls, checkpoint continuation, and a refinement-natural oriented S2 support limit. This closes the finite carrier/federation/observer/support bridge. H3 frames, an event manifold, BW/KMS time, laboratory attachment, physical scale, and continuum fields are outside this receipt.",
+      "statement": "The twelve-port boundary of one echosahedral carrier, the federation screen, and the support screen are distinct typed objects. One source-derived incidence-nerve producer constructs twelve carrier charts from the ports, thirty seam algebras from the edges, and twenty nonvacuous triple restrictions from the oriented faces. On that same bound artifact it verifies interface-algebra sewing, accepted confluent phase-induced repairs, operational readback, durable records, feedback and prediction controls, checkpoint continuation, and a refinement-natural oriented S2 support limit. This closes the finite carrier/federation/observer/support bridge. H3 frames, source-causal physical events and links, BW/KMS time, laboratory attachment, physical scale, and continuum fields are outside this receipt.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "source_bound_exact_finite_federation_support_bridge",
       "assumptions": [
@@ -4499,7 +4490,7 @@
     },
     {
       "claim_id": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
-      "statement": "A raw Herm2 readback descends uniquely through an actual coincidence setoid exactly when it is invariant on coincidence classes. Separately, given one time-oriented affine Lorentz overlap cocycle and a supplied chart-coordinate/readback family satisfying its overlap law, coordinate displacements transform through the cocycle's Lorentz part, translations cancel, Lorentz intervals are chart independent, and identity, reverse-transition, and triple-overlap laws hold. The formal stack does not identify the standalone quotient-descended readback with the supplied EventGermAtlas coordinate family. Future-null displacements give overlap-covariant celestial directions. One base-chart future-unit frame selection constructs compatible chart frames; canonical Lorentz-orthogonal rest projections split every displacement and transport through exact rest-space linear isometries. The rank-three source FrameQuotient is linearly and isometrically equivalent to the standard internal rest fiber as a candidate local readback, not absolute space. Its unit directions are exactly equivalent to the algebraic CelestialSphere and FutureNullRay types. SourceOrderFrameCompatibilityPacket conditionally composes the authenticated informational order with a supplied event-population/chart interface, supplied cone equivalence, and supplied per-event Lorentz transports; no inhabitant of that packet is constructed. A two-event/two-chart control has nonzero affine translation and a nonzero future-null displacement, while a three-germ control proves that reflexive symmetric pairwise overlap need not be transitive. The premise-reduction theorem retains source realization of the coincidence atlas, population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. The unit-direction equivalences are algebraic and do not identify a physical sky, signal, link-direction distribution, manifold, dimension, volume, or continuum.",
+      "statement": "A raw Herm2 readback descends uniquely through an actual coincidence setoid exactly when it is invariant on coincidence classes. Separately, given one time-oriented affine Lorentz overlap cocycle and a supplied chart-coordinate/readback family satisfying its overlap law, coordinate displacements transform through the cocycle's Lorentz part, translations cancel, Lorentz intervals are chart independent, and identity, reverse-transition, and triple-overlap laws hold. The formal stack does not identify the standalone quotient-descended readback with the supplied EventGermAtlas coordinate family. Future-null displacements give overlap-covariant celestial directions. One base-chart future-unit frame selection constructs compatible chart frames; canonical Lorentz-orthogonal rest projections split every displacement and transport through exact rest-space linear isometries. The rank-three source FrameQuotient is linearly and isometrically equivalent to the standard internal rest fiber as a candidate local readback, not absolute space. Its unit directions are exactly equivalent to the algebraic CelestialSphere and FutureNullRay types. SourceOrderFrameCompatibilityPacket composes the source-native causal-chart interface with supplied per-event Lorentz transports. A faithful rank-spatial placement constructs its one-chart source interface; choosing the standard-frame gauge constructs a packet without an event-dependent frame premise, and the authenticated Boolean-diamond control inhabits the full finite packet. General spatial placement, nontrivial multi-chart atlases, and physical event-dependent frames remain supplied. The legacy quotient-descent/soldering branch is a separate algebraic contract whose setoid, chart family, and base frame remain inputs. A two-event/two-chart control has nonzero affine translation and a nonzero future-null displacement, while a three-germ control proves that reflexive symmetric pairwise overlap need not be transitive. Physical signal causality, operational clocks, count-volume calibration, manifoldlikeness, topology, refinement, and curvature convergence remain continuum obligations. The unit-direction equivalences are algebraic and do not identify a physical sky, signal, link-direction distribution, manifold, dimension, volume, or continuum.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "exact_bounded_algebraic_event_frame_soldering_contract",
       "assumptions": [
@@ -4515,8 +4506,8 @@
         "affine_cocycle_algebra",
         "source_FrameQuotient_Gram_theorem"
       ],
-      "oph_specific_delta": "C2 turns the intrinsic C1 module into one proof-carrying algebraic soldering contract, derives displacement/celestial/frame/rest covariance from one cocycle together with a supplied coordinate family obeying its overlap law, proves the exact source-frame/rest-fiber candidate bridge and SourceUnitDirection equivalences with CelestialSphere and FutureNullRay, and makes every source and physical event-manifold receipt survive the premise reduction by name. SourceOrderFrameCompatibilityPacket exposes the conditional composition while keeping its atlas, cone, population, and frame data supplied and constructing no inhabitant. Quotient descent is proved independently and is not silently identified with the atlas coordinate family.",
-      "novelty_type": "single_cocycle_four_soldering_theorem_with_exact_premise_firewall",
+      "oph_specific_delta": "C2 turns the intrinsic C1 module into one proof-carrying algebraic soldering contract, derives displacement, celestial, frame, and rest covariance from one cocycle together with a supplied coordinate family obeying its overlap law, and proves the exact source-frame/rest-fiber bridge and SourceUnitDirection equivalences with CelestialSphere and FutureNullRay. SourceOrderFrameCompatibilityPacket consumes the source-native causal-chart interface; faithful rank-spatial placement can construct that interface without a population map or duplicate precedence, while the atlas, frame transport, physical interpretation, and continuum certificate remain separate. Quotient descent is proved independently and is not silently identified with the atlas coordinate family.",
+      "novelty_type": "single_cocycle_four_soldering_theorem_with_source_native_causal_interface",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
@@ -4528,9 +4519,9 @@
         "Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean",
         "Lean/docs/C2_EVENT_FRAME_SOLDERING.md"
       ],
-      "falsifier": "The bounded contract fails if coincidence invariance is not equivalent to unique descent, the supplied atlas coordinate family violates its declared overlap law, affine translations do not cancel from displacements, an overlap changes the Lorentz interval, reverse or triple transitions fail, future-null-ray or celestial transport is ill-defined, SourceUnitDirection fails to be exactly equivalent to CelestialSphere or FutureNullRay, base-frame transport violates the cocycle, rest projection leaves the orthogonal fiber or fails metric covariance, the source quotient/rest-fiber metric identity fails, a claimed packet inhabitant silently supplies absent geometry, or either finite control fails.",
-      "scope_if_false": "Only the bounded algebraic C2 contract or its candidate source-frame bridge falls. Source event population, certified separation, topology, physical cone and causal attachment, refinement, rods, clocks, physical spacetime, Einstein dynamics, and every frozen prediction remain separate.",
-      "status": "bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open",
+      "falsifier": "The bounded contract fails if coincidence invariance is not equivalent to unique descent, the supplied atlas coordinate family violates its declared overlap law, affine translations do not cancel from displacements, an overlap changes the Lorentz interval, reverse or triple transitions fail, future-null-ray or celestial transport is ill-defined, SourceUnitDirection fails to be exactly equivalent to CelestialSphere or FutureNullRay, base-frame transport violates the cocycle, rest projection leaves the orthogonal fiber or fails metric covariance, the source quotient/rest-fiber metric identity fails, the faithful-placement constructor fails to inhabit its one-chart packet, its explicit Boolean-diamond control fails, or any constructed packet is promoted beyond its stated finite algebraic data.",
+      "scope_if_false": "Only the bounded algebraic C2 contract or its candidate source-frame bridge falls. General source-event placement, certified separation, topology, physical cone and causal attachment, refinement, rods, clocks, physical spacetime, Einstein dynamics, and every frozen prediction remain separate.",
+      "status": "bounded_algebraic_soldering_and_constructed_finite_source_packet_control_attained__general_placement_frames_and_physical_continuum_open",
       "claim_class": "conditional_implication",
       "gates": [],
       "premise_dependencies": {
@@ -4538,7 +4529,7 @@
         "consumed": [],
         "open": [],
         "boundary": [],
-        "rationale": "This proves a bounded algebraic result from supplied setoid, cocycle, coordinate, and frame data; source event population, causality, clock realization, refinement, and physical attachment remain with OPH-GR-D4B and its PR-15, PR-16, and PR-52 edges."
+        "rationale": "This proves a bounded algebraic result from supplied setoid, cocycle, coordinate, and frame data plus an exact faithful one-chart constructor; general physical event placement, clock realization, refinement, and physical attachment remain with OPH-GR-D4B and its PR-15, PR-16, and PR-52 edges."
       }
     },
     {
@@ -4646,7 +4637,7 @@
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "Lean/Geometry/InverseSquareShellLaw.lean",
         "Lean/Screen/PrimitivePortFrameQuotient.lean",
-        "docs/PREMISE_REGISTER_V3.md"
+        "tracking/premise_register.json"
       ],
       "falsifier": "The claim fails if the ball-volume scaling exponent differs from the carrier finrank, if the shell content at positive radius differs from 4 pi r^2, or if any RadialFluxData instance violates the inverse-square or scale-free identities.",
       "scope_if_false": "The Newtonian-limit row of the gravitation lane loses its receipt; the completion carrier and the Einstein composition are assessed by their own claims.",
@@ -5601,11 +5592,12 @@
     },
     {
       "claim_id": "OPH-GEOMETRY-EVENT-POPULATION-CHART-INTERFACE",
-      "statement": "SourceDerivedOrderEventPopulationChartInterface fixes finite precedence to the authenticated informational order generated by read-after-write provenance. Its event population, chart assignment into the declared Hermitian Lorentz module, event-germ atlas and affine overlap cocycle, base-chart separation, physical future-cone equivalence, and population-order identification remain supplied fields. Every inhabitant inherits the finite interface consequences: injective charts and population, chart-invariant Lorentz intervals, realization of the generated precedence as the supplied cone order, partial-order laws, the populated region-order embedding, and the exact triple-overlap cocycle. The underlying declared interface has a committed six-element witness and dropped-separation and dropped-cone counterexamples, but no inhabitant of the source-derived wrapper is constructed. The theorem derives neither physical causal faithfulness nor a source atlas, physical event population, clock, count-volume law, refinement family, continuum, open-chart topology, or four-dimensional event manifold.",
+      "statement": "SourceDerivedCausalChartInterface takes the authenticated semantic log itself as the complete finite event carrier. It has no population map and no auxiliary precedence field: reflexive and strict precedence are GeneratedBeforeEq and GeneratedBefore by construction. A supplied finite Lorentz atlas, total visibility, one base chart, separation, and one exact generated-order to future-cone equivalence imply injective coordinates in every chart, chart-invariant intervals, exact reflexive and strict order-cone equivalence in every chart, future-causality of every authenticated parent edge, and the affine cocycle consequences. The superseded event-population wrapper, its duplicate precedence, and its legacy controls are removed from the active proof surface. Every FaithfulRankSpatialCausalPlacement constructs a one-chart source-native interface, deriving separation and the converse cone clause from two-way order-cone faithfulness rather than assuming a population map. This constructor does not supply a source-selected general spatial readback, a physical event or link interpretation, multi-chart gluing, open-chart topology, calibrated count-volume, a manifoldlike refinement family, a smooth continuum, or curvature.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "typed_source_order_event_population_chart_interface_on_declared_Lorentz_module",
+      "tier": "source_native_finite_causal_chart_interface_with_faithful_placement_constructor",
       "assumptions": [
-        "source_derived_informational_precedence_with_declared_event_population_and_chart_atlas",
+        "authenticated_semantic_event_log",
+        "supplied_finite_lorentz_atlas_and_cone_attachment",
         "declared_separation_and_cone_clauses",
         "physical_lorentz_soldering_deferred"
       ],
@@ -5614,17 +5606,18 @@
         "Lorentz_quadratic_form_algebra",
         "committed_causal_order_composition_receipts"
       ],
-      "oph_specific_delta": "The source-derived wrapper removes the free finite precedence field by reusing the authenticated provenance order while retaining the event population, atlas, cone faithfulness, and physical interpretation as explicit premises. Its conditional consequences reuse the committed cone, cocycle, and order-equivalence receipts; the underlying interface retains its finite witness and dropped-clause controls, while the wrapper constructs no inhabitant.",
-      "novelty_type": "typed_event_manifold_interface_with_source_derived_informational_precedence",
+      "oph_specific_delta": "The source-native interface removes both the separate event-population map and free precedence relation: semantic commits are the finite carrier and their generated order is definitionally the causal-order candidate. It preserves only the genuinely geometric chart, separation, and cone obligations; a faithful rank-spatial placement constructs those finite chart data on the exact source one-plus-three carrier. No legacy population adapter remains on the active surface.",
+      "novelty_type": "source_native_finite_causal_chart_interface_with_faithful_placement_constructor",
       "evidence": [
         "Lean/Geometry/EventPopulationChartInterface.lean",
+        "Lean/Geometry/SourceDerivedSpacetimeCarrier.lean",
         "Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean",
         "Lean/Geometry/CausalOrderComposition.lean",
         "docs/PREMISE_REGISTER_V3.md"
       ],
-      "falsifier": "The claim fails if the wrapper's precedence differs from the authenticated provenance order; if some inhabitant has a non-injective chart or population, a chart-dependent Lorentz interval, a chart where the generated precedence and supplied cone order disagree, a precedence violating a partial-order law, or a populated pair breaking the committed order equivalence; or if the underlying witness or either dropped-clause counterexample fails.",
-      "scope_if_false": "Only the typed interface package falls. The canonical Lorentz module, the causal-order composition, the soldering contract, and every physical event, clock, or spacetime identification are assessed by their own claims and premises.",
-      "status": "source_derived_precedence_interface_attained__wrapper_inhabitant_and_physical_attachments_open",
+      "falsifier": "The claim fails if the source-native interface reintroduces a population map or auxiliary precedence; generated order and supplied cone order fail to agree in any chart; a chart is noninjective or changes an interval; an authenticated parent edge leaves the future cone; a faithful rank-spatial placement fails to construct the interface or derive separation and two-way cone faithfulness; or a conditional finite interface is promoted to a physical continuum.",
+      "scope_if_false": "Only the source-native chart interface or faithful-placement constructor falls at the failing clause. The authenticated order, exact source carrier, algebraic Lorentz module, and every physical clock or continuum identification retain their own scopes.",
+      "status": "source_native_interface_and_faithful_placement_constructor_proved__general_placement_and_physical_continuum_open",
       "claim_class": "conditional_implication",
       "gates": [
         728

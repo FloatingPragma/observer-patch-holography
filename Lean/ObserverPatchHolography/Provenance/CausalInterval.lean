@@ -34,16 +34,6 @@ namespace SemanticEventLog
 
 variable (L : SemanticEventLog Register Value EventId)
 
-/-- The reflexive generated precedence is transitive. -/
-theorem generatedBeforeEq_trans {a b c : EventId}
-    (hab : L.GeneratedBeforeEq a b) (hbc : L.GeneratedBeforeEq b c) :
-    L.GeneratedBeforeEq a c := by
-  rcases hab with rfl | hab
-  · exact hbc
-  · rcases hbc with rfl | hbc
-    · exact Or.inr hab
-    · exact Or.inr (L.generatedBefore_trans hab hbc)
-
 /-- The ancestry rank is monotone along the reflexive precedence. -/
 theorem rank_le_of_generatedBeforeEq {a b : EventId}
     (h : L.GeneratedBeforeEq a b) : L.rank a ≤ L.rank b := by
@@ -56,6 +46,29 @@ above the first and below the second in the reflexive generated
 precedence. -/
 def interval (a b : EventId) : Set EventId :=
   {x : EventId | L.GeneratedBeforeEq a x ∧ L.GeneratedBeforeEq x b}
+
+/-- Every interval is finite at a finite event cutoff.  This is the local
+finiteness axiom of an abstract causal set at that cutoff; it does not identify
+the informational order with physical causality or establish a refinement
+limit. -/
+theorem interval_finite [Fintype EventId] (a b : EventId) :
+    (L.interval a b).Finite :=
+  Set.toFinite _
+
+/-- At every finite cutoff, authenticated provenance therefore supplies the
+order-theoretic causal-set axioms: a partial order with finite intervals.
+The statement is deliberately informational; faithful physical embedding and
+manifoldlikeness remain separate certificates. -/
+theorem finiteCausalSetAxioms [Fintype EventId] :
+    (∀ e, L.GeneratedBeforeEq e e) ∧
+    (∀ a b c, L.GeneratedBeforeEq a b → L.GeneratedBeforeEq b c →
+      L.GeneratedBeforeEq a c) ∧
+    (∀ a b, L.GeneratedBeforeEq a b → L.GeneratedBeforeEq b a → a = b) ∧
+    (∀ a b, (L.interval a b).Finite) :=
+  ⟨L.generatedBeforeEq_refl,
+    fun _ _ _ hab hbc ↦ L.generatedBeforeEq_trans hab hbc,
+    fun _ _ hab hba ↦ L.generatedBeforeEq_antisymm hab hba,
+    L.interval_finite⟩
 
 theorem left_mem_interval {a b : EventId}
     (h : L.GeneratedBeforeEq a b) : a ∈ L.interval a b :=
@@ -295,6 +308,7 @@ theorem not_noForkJoin : ¬ log.NoForkJoin := by
 end BooleanDiamond
 
 #print axioms SemanticEventLog.interval
+#print axioms SemanticEventLog.finiteCausalSetAxioms
 #print axioms SemanticEventLog.intervalLinear_iff_noForkJoin
 #print axioms BooleanDiamond.log
 #print axioms BooleanDiamond.parentEdge_iff

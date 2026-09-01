@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Realized cyclic cap-net repair run for the #503 nonemptiness gate.
+"""Finite cyclic cap-net repair run on an explicitly selected spherical branch.
 
 This module executes a genuine finite transactional OPH repair run, real
 seeded conflicts, transactional majority repair, runtime-verified termination,
 confluence, and schedule independence (the node-D1 clauses checked at run
 time, as in the #238 rooted-tree export), on a refinement tower of cyclic
-cap nets, and exports the repaired record layer as a consensus artifact for
-the realized-branch receipt evaluation.
+cap nets, and exports the repaired record layer as a bounded consensus
+artifact.
 
 Provenance is stated exactly: the overlap net of each stage is CHOSEN to be a
 sphere triangulation (icosahedron plus edge subdivisions). Per the
@@ -17,7 +17,8 @@ output. What the run genuinely witnesses is the joint realizability of the
 node-D1 repair clauses with the spherical-incidence, mesh, and
 refinement-naturality receipts on one tower: the repair layer does not know
 the topology, and the incidence complex is recomputed from the repaired
-normal-form records alone.
+normal-form records alone. This packet is an atlas/topology helper; it is not
+a source-selected causal refinement family or a spacetime limit.
 
 NOT witnessed here: the modular cross-ratio receipt and the geometric
 2pi-KMS receipt, which require modular-clock instrumentation of the MaxEnt
@@ -191,7 +192,8 @@ def run_tower(stages: int = 3, seed: int = 20260712) -> dict:
             "of the MaxEnt states on this tower)",
             "geometric_2pi_kms_receipt (same instrumentation)",
             "Cyc/NTI/weak-additivity/MI null-net receipts",
-            "E1-E4 event receipts",
+            "source-causal event/link adequacy, physical placement, faithful "
+            "embedding, and continuum-limit certificates",
             "UC/VR/scale physical-identification receipts",
         ],
     }

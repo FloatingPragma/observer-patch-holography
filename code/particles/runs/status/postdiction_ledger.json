@@ -1010,7 +1010,7 @@
         "statement": "A finite inhabited raw presentation has a literal kernel quotient whose equality is exactly public-readback equality and whose points are the realized signatures. Termination constructs a finite completed schedule; confluence, semantic fixed-point completeness, and explicit repair-output plus enabledness congruence make the consistent public endpoint independent of completed schedule and raw representative. The existing OPH Repair descends to an idempotent public map, and typed OPH and A3-regulator adaptors retain every premise"
       },
       {
-        "hypothesis_boundary": "the celestial equivalence is set-level and the frames and rest spaces are algebraic. C1 alone supplies no observer-patch selection or soldering. The separate bounded C2 contract supplies algebraic overlap covariance only from declared inputs; source event realization, rods, clocks, physical spacetime, continuum attachment, observable, decision rule, and prediction are not constructed",
+        "hypothesis_boundary": "the celestial equivalence is set-level and the frames and rest spaces are algebraic. C1 alone supplies no source-event attachment or soldering. The separate source-derived causal-order packet and bounded C2 contract supply, respectively, an informational poset and algebraic overlap covariance from declared inputs. Faithful physical placement, calibrated density, manifoldlike refinement, rods, clocks, smooth spacetime, observable, decision rule, and prediction are not constructed",
         "id": "canonical_intrinsic_lorentz_module",
         "lean_declarations": {
           "CanonicalLorentzModule": [
@@ -1046,13 +1046,48 @@
           "Lean/Geometry/ObserverRestSpace.lean",
           "Lean/Geometry/EinsteinTensorBridge.lean"
         ],
-        "match": "exact intrinsic geometry and coordinate bridge; physical soldering remains outside C1",
-        "observed_counterpart": "four-dimensional Lorentzian event and observer-frame geometry",
+        "match": "exact ambient module algebra and coordinate bridge; source-causal event attachment and physical soldering remain outside C1",
+        "observed_counterpart": "four-dimensional ambient Lorentz module and observer-frame algebra",
         "paper_ref": "observers paper, canonical Lorentz module",
         "statement": "The real Pauli-coordinate module Herm2 is exactly the four-dimensional space of two-by-two complex Hermitian matrices, with determinant equal to the Lorentz quadratic form of constructive inertia (+---). Positive future-null rays are set-equivalent to the unit two-sphere, the algebraic future-unit hyperboloid has three-dimensional positive rest spaces, and an explicit linear chart matches the existing Einstein coordinates with exactly the required sign flip"
       },
       {
-        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Scientific owners #728, #729, #737, and #739 record the source, geometry, instrument, and source-clock residuals; empirical calibration is PR-15. No physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
+        "hypothesis_boundary": "source height is a canonical ordinal, not a physical clock. The generic cone-inclusion theorem supplies neither its positive time scale nor a spatial readback valued in the rank-three quotient or an edge-speed bound; two-way order--cone faithfulness is the additional converse field of a faithful placement. Event-frame transports are supplied, and the standard-frame constructor is a trivial gauge choice rather than a derivation of physical observer frames. The Boolean diamond is an exact mathematical non-chain control, not empirical evidence of manifoldlikeness. No physical event/link identification, Poisson sprinkling, calibrated density or count--volume law, independent dimension estimator, topology, manifoldlike refinement, uniqueness theorem, continuum convergence, smooth metric, curvature, Einstein equation, observable, decision rule, or prediction is constructed",
+        "id": "source_derived_finite_one_three_causal_carrier",
+        "lean_declarations": {
+          "CausalInterval": [
+            "finiteCausalSetAxioms"
+          ],
+          "SemanticEventProvenance": [
+            "sourceHeight_eq"
+          ],
+          "SourceDerivedSpacetimeCarrier": [
+            "sourceSpacetimeCarrier_finrank",
+            "sourceCarrier_one_three_signature",
+            "sourceUnitNullVector_futureCausal",
+            "generatedBefore_sourceCausalLE",
+            "generatedBeforeEq_iff_sourceCausalLE",
+            "exactDiamondConeOrder"
+          ],
+          "SourceOrderFrameCompatibilityPacket": [
+            "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement",
+            "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame",
+            "sourceOrderFramePacket_consequences"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean",
+          "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
+          "Lean/Geometry/SourceDerivedSpacetimeCarrier.lean",
+          "Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean"
+        ],
+        "match": "exact source-derived finite order and 1+3 carrier theorem stack; physical faithful placement and continuum manifold not constructed",
+        "observed_counterpart": "finite causal-set-like order with an effective 1+3 Lorentz carrier and null-cone directions",
+        "paper_ref": "flagship and spacetime papers, source-derived causal order and finite 1+3 carrier",
+        "statement": "Authenticated read-after-write provenance generates a finite locally finite partial order, and canonical source height obeys the exact longest-parent-path recursion. Independently of that order, an independent real axis and the proved rank-three source Gram quotient define an exact four-dimensional carrier with signature (+---); every source-unit spatial direction gives a future-null vector. A supplied positive time scale and spatial readback use source height only in the event placement. With the parent-edge speed bound, generated precedence maps into the carrier future cone. A separately certified faithful placement upgrades this to two-way order--cone equivalence and constructs the finite source-order/frame packet. The explicit four-event Boolean diamond is a non-chain control whose generated order agrees exactly with its carrier cone order"
+      },
+      {
+        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The source-derived packet separately supplies finite informational events and order plus an ambient 1+3 target under explicit conditions. It does not supply physical event and link attachment, two-way order-cone faithfulness, source-selected atlas coordinates, separation, open charts, calibrated count-volume density, manifoldlike refinement, topology, an operational clock, or smooth curvature. No physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
         "id": "algebraic_event_frame_soldering",
         "lean_declarations": {
           "CelestialSoldering": [
@@ -1063,7 +1098,6 @@
           ],
           "EventFrameSoldering": [
             "EventFrameSoldering.algebraicConsequences",
-            "EventFrameSoldering.expanded_handoff_iff_residual",
             "control_chart_translation_nonzero",
             "control_displacement_nonzero",
             "control_displacement_futureNull"
@@ -1839,7 +1873,7 @@
         "gluon",
         "graviton"
       ],
-      "receipt_sha256": "sha256:3d0c7434d5bba80638cdd8c647220239b1b7140f6b654f920b68a3a81b9e61ca",
+      "receipt_sha256": "sha256:b29279c2d6faf6f94ecdfe37534183fec41043ff95ab52282e70c027e039ae32",
       "rows": [
         {
           "blocking_frontier": [
@@ -1859,11 +1893,11 @@
         },
         {
           "blocking_frontier": [
-            "inhabited_source_derived_einstein_tower",
+            "source_selected_faithful_3p1_causal_manifold_and_smooth_einstein_limit",
             "finite_source_to_lorentzian_linearized_quantum_carrier"
           ],
           "carrier_id": "graviton",
-          "verdict": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER"
+          "verdict": "NOT_EVALUABLE_NO_PHYSICAL_SOURCE_CAUSAL_CONTINUUM_OR_QUANTUM_CARRIER"
         }
       ],
       "scope": "The exact (2,16,2) vector contains differently typed conditional four-dimensional propagating-mode totals. Every quantum-particle row is explicitly not evaluable on the pinned declared corpus. The packet is target-named, comparison-value-free, and ineligible as a blind prediction."

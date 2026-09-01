@@ -97,23 +97,28 @@ def test_artifact_emits_no_coefficient_assignment_or_physical_promotion() -> Non
     )
 
 
-def test_issue_503_is_non_gating_partial_receipt_ancestry() -> None:
+def test_issue_763_is_non_gating_finite_order_custody_ancestry() -> None:
     topology = load_output()["issue_topology"]
     assert topology["open_blocking_dependencies"] == [636, 637, 638]
-    assert 503 not in topology["semantic_dependencies"]
+    assert 763 not in topology["semantic_dependencies"]
     assert topology["non_gating_partial_receipt_ancestry"] == [
         {
-            "issue": 503,
-            "path": "code/geometry/runs/realized_event_receipt_report.json",
+            "issue": 763,
+            "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
             "closure_required": False,
-            "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used",
+            "scope": "authenticated finite source order and independently generated cutoff induced-restriction custody only; no physical causal or continuum promotion",
         }
     ]
+    source = load_output()["source_inputs"]["artifacts"][0]
+    assert source["role"] == "authenticated_source_causal_history_custody"
+    assert source["status"] == (
+        "exact_non_gating_finite_order_custody_without_physical_promotion"
+    )
 
 
-def test_issue_503_dependency_promotion_fails_closed(tmp_path: Path) -> None:
+def test_issue_763_dependency_promotion_fails_closed(tmp_path: Path) -> None:
     payload = load_output()
-    payload["issue_topology"]["open_blocking_dependencies"].insert(0, 503)
+    payload["issue_topology"]["open_blocking_dependencies"].insert(0, 763)
     assert_mutation_rejected(tmp_path, payload, "SCHEMA")
 
 

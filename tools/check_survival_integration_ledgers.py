@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify compact survival-campaign ledgers against the workspace archives."""
+"""Verify compact scientific projections against their external run archives."""
 
 from __future__ import annotations
 
@@ -62,8 +62,47 @@ def check_a5(workspace_root: Path) -> None:
     require(ledger["raw_defect_formula"] == "Delta_raw(k)=60*(k-1)", "A5 raw defect formula drift")
 
 
-def check_h3_kms(workspace_root: Path) -> None:
-    ledger = load_json(REPO_ROOT / "code/geometry/runs/h3_kms_repaired_4k_status.json")
+def validate_h3_kms_projection(ledger: dict[str, Any]) -> None:
+    require(
+        ledger.get("schema") == "oph.h3-kms.finite-diagnostic-projection.v1",
+        "H3/KMS projection schema drift",
+    )
+    require(
+        ledger.get("artifact") == "oph_h3_kms_finite_diagnostic_projection",
+        "H3/KMS projection artifact drift",
+    )
+    body = {key: value for key, value in ledger.items() if key != "projection_sha256"}
+    canonical = (
+        json.dumps(body, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+        + "\n"
+    ).encode("ascii")
+    require(
+        ledger.get("projection_sha256")
+        == "sha256:" + hashlib.sha256(canonical).hexdigest(),
+        "H3/KMS projection digest drift",
+    )
+    boundary = ledger.get("physical_boundary", {})
+    require(boundary and all(value is False for value in boundary.values()),
+            "H3/KMS projection contains a physical promotion")
+    encoded = json.dumps(ledger, sort_keys=True)
+    retired_fields = (
+        "campaign_" + "complete",
+        "campaign_" + "status",
+        "cell_scientific_" + "status",
+        "event_" + "manifold",
+        *(f"EVENT_E{index}" for index in range(1, 5)),
+    )
+    for retired in retired_fields:
+        require(retired not in encoded, f"retired H3/KMS status field survived: {retired}")
+
+
+def check_h3_kms(workspace_root: Path, *, projection_only: bool = False) -> None:
+    ledger = load_json(
+        REPO_ROOT / "code/geometry/runs/h3_kms_finite_diagnostic_projection.json"
+    )
+    validate_h3_kms_projection(ledger)
+    if projection_only:
+        return
     source_dir = workspace_root / "survival-proof-4/outputs/run_4k_acceptance_20260720_v5"
     run_path = source_dir / "campaign_run_receipt.json"
     replay_path = source_dir / "physical_h3_kms_replay_verification.json"
@@ -82,50 +121,49 @@ def check_h3_kms(workspace_root: Path) -> None:
     state = load_json(state_path)
     refinement = load_json(refinement_path)
 
-    require(sha256(run_path) == ledger["source_campaign_run_receipt_sha256"], "H3/KMS run receipt hash drift")
-    require(sha256(replay_path) == ledger["source_replay_verification_sha256"], "H3/KMS replay receipt hash drift")
-    require(sha256(manifest_path) == ledger["source_campaign_manifest_sha256"], "H3/KMS manifest hash drift")
-    require(sha256(preflight_path) == ledger["source_physical_preflight_sha256"], "H3/KMS preflight hash drift")
+    provenance = ledger["provenance"]
+    require(sha256(run_path) == provenance["source_run_receipt_sha256"], "H3/KMS run receipt hash drift")
+    require(sha256(replay_path) == provenance["source_replay_verification_sha256"], "H3/KMS replay receipt hash drift")
+    require(sha256(manifest_path) == provenance["source_manifest_sha256"], "H3/KMS manifest hash drift")
+    require(sha256(preflight_path) == provenance["source_physical_preflight_sha256"], "H3/KMS preflight hash drift")
     require(
-        sha256(geometry_controls_path) == ledger["source_geometry_controls_sha256"],
+        sha256(geometry_controls_path) == provenance["source_geometry_controls_sha256"],
         "H3/KMS geometry-controls hash drift",
     )
     require(
-        sha256(replay_manifest_path) == ledger["source_replay_manifest_sha256"],
+        sha256(replay_manifest_path) == provenance["source_replay_manifest_sha256"],
         "H3/KMS replay manifest hash drift",
     )
     require(
-        sha256(numerical_runtime_path) == ledger["source_numerical_runtime_sha256"],
+        sha256(numerical_runtime_path) == provenance["source_numerical_runtime_sha256"],
         "H3/KMS numerical-runtime receipt hash drift",
     )
     require(
         run["replay_manifest_byte_sha256"].removeprefix("sha256:")
-        == ledger["source_replay_manifest_sha256"],
+        == provenance["source_replay_manifest_sha256"],
         "H3/KMS replay manifest binding drift",
     )
     require(
         run["source_capture_sha256"].removeprefix("sha256:")
-        == ledger["source_capture_semantic_sha256"],
+        == provenance["source_capture_semantic_sha256"],
         "H3/KMS source-capture semantic hash drift",
     )
-    require(
-        run["plan_sha256"].removeprefix("sha256:") == ledger["campaign_plan_sha256"],
-        "H3/KMS campaign plan hash drift",
-    )
-    require(ledger["numerical_runtime_bound"] is True, "H3/KMS runtime binding was dropped")
-    require(run["instrument_status"] == ledger["instrument_status"], "H3/KMS instrument status drift")
-    require(run["campaign_complete"] is ledger["campaign_complete"], "H3/KMS campaign completion drift")
-    require(run["cell_scientific_status"] == ledger["cell_scientific_status"], "H3/KMS cell status drift")
+    configuration = ledger["source_configuration"]
+    diagnostics = ledger["finite_diagnostics"]
+    boundary = ledger["physical_boundary"]
+    require(configuration["numerical_runtime_bound"] is True, "H3/KMS runtime binding was dropped")
+    require(run["instrument_status"] == "VALID_PASS", "H3/KMS replay instrument drift")
+    require(diagnostics["replay_instrument_valid"] is True, "H3/KMS replay projection drift")
     require(run["physical_promotion_allowed"] is False, "H3/KMS run permits physical promotion")
     require(run["postrun_scientific_failures"] == [], "H3/KMS run contains a scientific failure")
-    require(len(run["postrun_not_evaluated_reasons"]) == 7, "H3/KMS not-evaluated reason count drift")
-    require(replay["scientific_status"] == ledger["replay_scientific_status"], "H3/KMS replay status drift")
     require(replay["physical_promotion_allowed"] is False, "H3/KMS replay permits physical promotion")
-    require(preflight["verdict"] == ledger["physical_preflight_verdict"], "H3/KMS preflight verdict drift")
     require(preflight["PHYSICAL_H3_KMS_PREFLIGHT_RECEIPT"] is False, "H3/KMS preflight was promoted")
     require(preflight["physical_promotion_allowed"] is False, "H3/KMS preflight permits promotion")
-    require(preflight["blocker_count"] == ledger["preflight_blocker_count"], "H3/KMS blocker count drift")
-    require(preflight["stage_gate_summary"] == ledger["physical_stage_counts"], "H3/KMS stage counts drift")
+    require(boundary["physical_h3_kms_preflight_receipt"] is False, "H3/KMS projection promoted preflight")
+    require(
+        all(value is False for value in boundary.values()),
+        "H3/KMS projection contains a physical promotion",
+    )
     replay_receipts = {
         key: value
         for key, value in replay.items()
@@ -133,23 +171,19 @@ def check_h3_kms(workspace_root: Path) -> None:
     }
     require(
         sum(value is True for value in replay_receipts.values())
-        == ledger["replay_receipt_pass_count"],
+        == diagnostics["replay_boolean_receipts_passed"],
         "H3/KMS replay pass count drift",
     )
     require(
         sum(value is False for value in replay_receipts.values())
-        == ledger["replay_receipt_fail_count"],
+        == diagnostics["replay_boolean_receipts_failed"],
         "H3/KMS replay failure count drift",
     )
-    require(manifest["rungs"] == ledger["rungs"], "H3/KMS rung ledger drift")
-    require(manifest["seeds"] == ledger["seeds"], "H3/KMS seed ledger drift")
-    require(manifest["campaign_status"] == ledger["campaign_status"], "H3/KMS campaign status drift")
+    require(manifest["rungs"] == configuration["rungs"], "H3/KMS rung projection drift")
+    require(manifest["seeds"] == configuration["seeds"], "H3/KMS seed projection drift")
     require(manifest["physical_promotion_allowed"] is False, "H3/KMS campaign permits physical promotion")
-    require(manifest["branch_retirement_authorized"] is False, "H3/KMS campaign permits retirement")
-    cell_counts = preflight["stages"]["P8_frozen_multiseed_four_rung_campaign"]["evidence"]["cell_status_counts"]
-    require(cell_counts == ledger["campaign_cell_counts"], "H3/KMS campaign cell counts drift")
     require(
-        refinement["levels"][-1]["patch_count"] == ledger["support_regulator_cell_count"],
+        refinement["levels"][-1]["patch_count"] == configuration["support_regulator_cell_count"],
         "H3/KMS support-regulator count drift",
     )
     require(
@@ -157,45 +191,67 @@ def check_h3_kms(workspace_root: Path) -> None:
             name: geometry_controls["models"][name]["heldout_score"]
             for name in ("E4", "S2", "H3", "E3")
         }
-        == ledger["diagnostic_geometry_scores"],
+        == diagnostics["diagnostic_geometry_scores"],
         "H3/KMS diagnostic geometry scores drift",
     )
     require(
         geometry_controls["physical_gate_eligible"]
-        is ledger["diagnostic_geometry_physical_gate_eligible"]
+        is diagnostics["diagnostic_geometry_physical_gate_eligible"]
         is False,
         "H3/KMS diagnostic geometry comparison was promoted",
     )
-    require(state["state_status"] == ledger["prime_state_status"], "H3/KMS state status drift")
+    require(state["state_status"] == diagnostics["prime_state_status"], "H3/KMS state status drift")
     require(
         state["SOURCE_SELECTION_A5_QUOTIENT_INVARIANCE_RECEIPT"] is False,
         "H3/KMS presentation-bound state selection was promoted",
     )
+    require(
+        diagnostics["source_selection_a5_quotient_invariance_receipt"] is False,
+        "H3/KMS projection promoted source selection",
+    )
     require(state["mixed_gns"]["constructed"] is True, "H3/KMS mixed-GNS diagnostic disappeared")
+    require(
+        diagnostics["constructed_mixed_gns_diagnostic"] is True,
+        "H3/KMS mixed-GNS projection drift",
+    )
     require(
         refinement["CONSTRUCTED_REPEATED_RHO_IDENTITY_RECEIPT"] is True,
         "H3/KMS repeated-rho diagnostic drift",
+    )
+    require(
+        diagnostics["constructed_repeated_rho_identity_receipt"] is True,
+        "H3/KMS repeated-rho projection drift",
     )
     require(
         refinement["PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE"] is False,
         "H3/KMS diagnostic was promoted to MGNS-1",
     )
     require(
+        diagnostics["multiresolution_regulator_certificate"] is False,
+        "H3/KMS projection promoted multiresolution control",
+    )
+    require(
         refinement["conditional_expectations_receipt"] is False,
         "H3/KMS conditional expectations were promoted",
+    )
+    require(
+        diagnostics["conditional_expectations_receipt"] is False,
+        "H3/KMS projection promoted conditional expectations",
     )
     bw_evidence = preflight["stages"]["P4_native_bw01_bw08"]["evidence"]
     require(bw_evidence["native_payload_conformance_receipt"] is True, "native BW payload does not parse")
     require(bw_evidence["native_payload_receipt"] is False, "native BW payload was promoted")
+    require(
+        diagnostics["native_bw_payload_conformance_receipt"] is True
+        and diagnostics["native_bw_payload_receipt"] is False,
+        "native BW projection drift",
+    )
     passed_bw = sorted(
         clause_id
         for clause_id, clause in bw_evidence["clauses"].items()
         if clause["passed"] is True
     )
-    require(passed_bw == ledger["native_bw_passing_clauses"], "native BW clause status drift")
-    event_evidence = preflight["stages"]["P7_semantic_event_e1_e4_and_frame_fiber_separation"]["evidence"]
-    require(event_evidence["event_clause_status"] == ledger["event_clause_status"], "event clause status drift")
-    require(event_evidence["heldout_quadratic_cone_passed"] is False, "Lorentzian event cone was promoted")
+    require(passed_bw == diagnostics["native_bw_passing_clauses"], "native BW clause status drift")
 
 
 def main() -> int:
@@ -206,11 +262,20 @@ def main() -> int:
         default=REPO_ROOT.parent,
         help="workspace containing survival-proof-2 and survival-proof-4",
     )
+    parser.add_argument(
+        "--projection-only",
+        action="store_true",
+        help="validate the compact RER projection without the external archive",
+    )
     args = parser.parse_args()
+    if args.projection_only:
+        check_h3_kms(args.workspace_root.resolve(), projection_only=True)
+        print("H3/KMS finite diagnostic projection OK")
+        return 0
     check_a5(args.workspace_root.resolve())
     check_h3_kms(args.workspace_root.resolve())
     print(
-        "survival integration ledgers OK: A5 finite control; H3/KMS archive status"
+        "survival integration ledgers OK: A5 finite control; H3/KMS finite diagnostic projection"
     )
     return 0
 

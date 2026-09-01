@@ -31,12 +31,16 @@
       "role": "electroweak source integration and physical action selection"
     },
     {
-      "issue": 503,
-      "role": "inhabited source-derived typed Einstein tower"
+      "issue": 728,
+      "role": "source-selected faithful 3+1 causal-manifold limit"
+    },
+    {
+      "issue": 729,
+      "role": "same-family causal curvature and smooth Einstein closure"
     }
   ],
   "producer_scope": "Bounded classification of the pinned declared corpus. It proves no exhaustive absence claim outside that projection.",
-  "receipt_sha256": "sha256:3d0c7434d5bba80638cdd8c647220239b1b7140f6b654f920b68a3a81b9e61ca",
+  "receipt_sha256": "sha256:b29279c2d6faf6f94ecdfe37534183fec41043ff95ab52282e70c027e039ae32",
   "rows": [
     {
       "blocking_frontier": [
@@ -219,7 +223,7 @@
     },
     {
       "blocking_frontier": [
-        "inhabited_source_derived_einstein_tower",
+        "source_selected_faithful_3p1_causal_manifold_and_smooth_einstein_limit",
         "finite_source_to_lorentzian_linearized_quantum_carrier"
       ],
       "capabilities": {
@@ -269,7 +273,7 @@
         "vacuum": {
           "available_declared_object": "the conditional action, phase, or background branch named by the classical parent",
           "branch_declared": true,
-          "required_quantum_object": "an inhabited source-derived Einstein tower with a selected quantum background or vacuum",
+          "required_quantum_object": "a source-selected physical 3+1 causal-manifold and smooth-Einstein limit with a selected quantum background or vacuum",
           "source_selected_quantum_object_available": false,
           "status": "DECLARED_BRANCH_ONLY"
         }
@@ -290,8 +294,12 @@
       "label": "Einstein tensor carrier",
       "open_interfaces": [
         {
-          "issue": 503,
-          "requirement": "one inhabited source-derived typed Einstein tower"
+          "issue": 728,
+          "requirement": "a source-selected refinement family with faithful 3+1 causal-manifold convergence"
+        },
+        {
+          "issue": 729,
+          "requirement": "same-family causal curvature, stress, and smooth Einstein closure"
         },
         {
           "issue": 635,
@@ -301,15 +309,15 @@
       "particle_promotion_allowed": false,
       "resource_boundaries": [],
       "strongest_supported_statement": "On the declared pure Einstein-Hilbert linearization about a suitable Ricci-flat background, the hard quadratic mass parameter is zero and the transverse-traceless classical system has two modes. This is not a graviton Hilbert-space, pole, or rest-mass prediction.",
-      "verdict": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER",
+      "verdict": "NOT_EVALUABLE_NO_PHYSICAL_SOURCE_CAUSAL_CONTINUUM_OR_QUANTUM_CARRIER",
       "verdict_class": "EXPLICIT_NOT_EVALUABLE"
     }
   ],
   "schema": "oph.quantum_carrier_status.v2",
   "source_projection_pin": {
-    "bytes": 7040,
+    "bytes": 7158,
     "path": "code/particles/manifests/quantum_carrier_status_source_projection.json",
-    "sha256": "sha256:b22f17c686f9a3e8c1e3b003173cd836e33fc5d070d4041b039e47651ecdb5a5"
+    "sha256": "sha256:894b405ab8dee4836860d687580392d968f84e11220f581c71e847a65b4dc746"
   },
   "status": "THREE_ROW_EXPLICIT_NOT_EVALUABLE",
   "target_named_status_rows": true

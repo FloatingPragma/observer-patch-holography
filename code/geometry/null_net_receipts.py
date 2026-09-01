@@ -304,8 +304,9 @@ def instrument_null_net(rings: tuple[int, ...] = (16, 32, 64)) -> dict:
             "one-particle-level finite receipts on the declared Gaussian "
             "collar family; the Cyc limit clause and all second-quantized "
             "scaling-limit clauses are the paper's theorems/receipts, "
-            "and the E1-E4 event and UC/VR/scale physical families are "
-            "outside this module"
+            "and the source-causal physical-placement, faithful-embedding, "
+            "continuum-limit, and UC/VR/scale physical families are outside "
+            "this module"
         ),
         "rings": list(rings),
         "nti": nti,
@@ -322,7 +323,8 @@ def instrument_null_net(rings: tuple[int, ...] = (16, 32, 64)) -> dict:
             "the decay of the smooth subleading systematic is uncertified)",
             "second-quantized MI relations (one-particle Lie closure is the "
             "finite surrogate)",
-            "E1-E4 event receipts on realized records",
+            "source-causal event/link adequacy, physical placement, faithful "
+            "embedding, and continuum-limit certificates",
             "UC/VR/scale physical-identification receipts",
         ],
     }

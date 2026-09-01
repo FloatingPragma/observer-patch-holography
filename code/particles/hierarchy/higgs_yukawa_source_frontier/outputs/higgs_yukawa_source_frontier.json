@@ -120,9 +120,9 @@
     "non_gating_partial_receipt_ancestry": [
       {
         "closure_required": false,
-        "issue": 503,
-        "path": "code/geometry/runs/realized_event_receipt_report.json",
-        "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used"
+        "issue": 763,
+        "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
+        "scope": "authenticated finite source order and independently generated cutoff induced-restriction custody only; no physical causal or continuum promotion"
       }
     ],
     "open_blocking_dependencies": [
@@ -151,7 +151,7 @@
         "Higgs": "r_H = 2(1-a^2)",
         "top": "r_t = a^2/2"
       },
-      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
+      "parent_projection_digest": "e03a1863ecb063334fd87af6d8c489b6704237be8bf496c7b3e78173e2c2e715",
       "physical_promotion_allowed": false,
       "scope": "dimensionless formal readout coefficients only; no physical source action or pole value",
       "source_coordinate_domain": "0 < u < 1",
@@ -168,7 +168,7 @@
       "completion_B": "declared_one_weak_doublet_extension",
       "distinguishing_projection": "scalar_carrier_multiplicity",
       "exact_relation": "rank_scalar(A) != rank_scalar(B)",
-      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
+      "parent_projection_digest": "e03a1863ecb063334fd87af6d8c489b6704237be8bf496c7b3e78173e2c2e715",
       "physical_promotion_allowed": false,
       "scope": "grammar and declared-completion level; no physical scalar is selected",
       "status": "current_finite_parent_not_constant_on_scalar_content_fiber"
@@ -181,7 +181,7 @@
       "distinguishing_projection": "coordinate_one_jet",
       "exact_relation": "jet(Phi_A) != jet(Phi_B)",
       "existence_reason": "the finite parents impose no scheme, scale, Jacobian, or finite-shift equation",
-      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
+      "parent_projection_digest": "e03a1863ecb063334fd87af6d8c489b6704237be8bf496c7b3e78173e2c2e715",
       "physical_promotion_allowed": false,
       "scope": "formal coordinate completion only; no FJ map is emitted",
       "status": "current_finite_parent_not_constant_on_FJ_coordinate_map_fiber",
@@ -195,7 +195,7 @@
       "distinguishing_projection": "family_matrix_coordinate_projection",
       "exact_relation": "Y_A != Y_B",
       "existence_reason": "the classified complex coefficient space has positive dimension",
-      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
+      "parent_projection_digest": "e03a1863ecb063334fd87af6d8c489b6704237be8bf496c7b3e78173e2c2e715",
       "physical_promotion_allowed": false,
       "scope": "formal coefficient completion only; no matrix entries are emitted",
       "status": "current_finite_parent_not_constant_on_yukawa_coefficient_fiber",
@@ -238,13 +238,13 @@
   "source_inputs": {
     "artifacts": [
       {
-        "byte_sha256": "a93d36404739e821946ee7ea692eff1fe6aa26522db9ce856769411cf4365734",
-        "bytes": 2110,
-        "canonical_json_sha256": "65bf7e1fe2ff677cf258f02558e21263e49809b0182bef9b17a00ee3c5d3b4a5",
+        "byte_sha256": "014a81196021c68c7c8b4d8b36f4a8ff9113fcf142b6486795ded71b386c361e",
+        "bytes": 15172,
+        "canonical_json_sha256": "0a5f15f6bcce8512ab44aae754c1251a921ea9d9d074c03b5ddceedde46b7397",
         "kind": "json",
-        "path": "code/geometry/runs/realized_event_receipt_report.json",
-        "role": "typed_realized_event_domain",
-        "status": "finite_non_gating_context_with_bulk_depth_open"
+        "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
+        "role": "authenticated_source_causal_history_custody",
+        "status": "exact_non_gating_finite_order_custody_without_physical_promotion"
       },
       {
         "byte_sha256": "efa206d21f59af5a96006ff283a191418c7f4a8c5f3125fcb42d1e03b1f5289b",
@@ -309,11 +309,11 @@
         "status": "exact_current_reduct_boundary"
       }
     ],
-    "input_bundle_digest": "83b9c9c8814381ce0d98d7ebca09c5190947e0e1626ed86df457c918354fc831",
+    "input_bundle_digest": "dd7efc943355d53eceafce7fea9b08ba42329ebbef8b5a63ee4f436673cd4f7f",
     "policy": {
-      "byte_sha256": "e1f93b6f388e47e63c0d11fe0a5dd003e588279dbcc81628b838cdc4d5951479",
-      "bytes": 7083,
-      "canonical_json_sha256": "18320cf0d520f4b4739d58dff67b8553e7cca2f7846311f370cff48712a0c528",
+      "byte_sha256": "868b3a3eec785c1f3fee292ca18a3db762e0e2433d0e7b76ca0500b4a034edc4",
+      "bytes": 7481,
+      "canonical_json_sha256": "397cd014594dcd36a8cb5476661926b289fa361dd53e3331b478e9d0f3003202",
       "kind": "json",
       "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/data/higgs_yukawa_source_policy_v1.json"
     }
@@ -328,7 +328,7 @@
     "a Higgs top W or Z source value",
     "closure of issue 630"
   ],
-  "subject_digest": "418e55d3ebf69cda8617dad118e1e0705ff1abc78d96edc18e91874fb074d174",
+  "subject_digest": "809fb7eb7c6f36ddb783f32c486df32cc79b22f6a37fc9d8cf796afaeb72e452",
   "target_firewall": {
     "external_593_packet_consumed": false,
     "forbidden_structured_keys_present": false,

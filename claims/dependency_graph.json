@@ -18,9 +18,9 @@
   "OPH-GR-D3-H3-LOCALIZATION",
   "OPH-GR-D3H-GEOMETRY-PRODUCER",
   "OPH-GR-D4-NULLNET-STANDARDNESS",
-  "OPH-GR-D4B-EVENT-MANIFOLD",
+  "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
   "OPH-GR-FINITE-LOCAL-DOMAIN",
-  "OPH-GR-FCC-CAUSET-COMPATIBILITY-CONTROL",
+  "OPH-GR-SOURCE-CAUSAL-HISTORY-FAMILY",
   "OPH-GR-D4C-LOCAL-STRESS",
   "OPH-GR-D4D-ENTROPY-BRIDGE",
   "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
@@ -574,29 +574,9 @@
    "role": "supplies proved standardness, derived positive null translations, Markov modular-locality boundary, and bounded-interval covariance to the null bridge"
   },
   {
-   "from": "OPH-GR-D3-CAP-H3",
-   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
-   "role": "supplies the frame-fiber H3 kinematics that the event base is constructed over"
-  },
-  {
-   "from": "OPH-GR-D3-H3-LOCALIZATION",
-   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
-   "role": "supplies certified localization balls as the germ inputs of event classes"
-  },
-  {
-   "from": "OPH-GR-D4-NULLNET-STANDARDNESS",
-   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
-   "role": "supplies dimensionless modular ordering and the four-translation assembly used for cones and signature; operational clocks require separate transition, event-correspondence, affine-calibration, and gluing receipts"
-  },
-  {
    "from": "OPH-OBS-PATCH-DEF",
    "to": "OPH-GR-FINITE-LOCAL-DOMAIN",
    "role": "supplies the finite observer, record, interface, and readback types instantiated by the target-clean source capture"
-  },
-  {
-   "from": "OPH-GR-FINITE-LOCAL-DOMAIN",
-   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
-   "role": "inhabits an exact finite causal, neighborhood, and seam domain; the negative cone margins, one local Euclidean fit, closed neighborhoods, and missing cofinal tower prevent promotion to the conditional event-manifold theorem"
   },
   {
    "from": "OPH-GR-FINITE-LOCAL-DOMAIN",
@@ -609,9 +589,9 @@
    "role": "supplies a positive finite-domain signed-seam gap only; physical reference-transition selection, SI calibration, and the charged determinant attachment remain independent"
   },
   {
-   "from": "OPH-GR-D4B-EVENT-MANIFOLD",
+   "from": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
    "to": "OPH-GR-D5",
-   "role": "supplies, conditionally on receipts E1-E6 and the E4-prime curvature upgrade where required, the locally Lorentzian d=4 regime consumed by the Einstein package"
+   "role": "supplies the exact finite one-plus-three carrier immediately and, only under the source-causal continuum and convergent-curvature certificate, the smooth Lorentzian regime consumed by the physical Einstein interpretation"
   },
   {
    "from": "OPH-GR-D4-NULLNET-STANDARDNESS",
@@ -619,9 +599,9 @@
    "role": "supplies positive directional generators and modular-intersection data as candidate tomography inputs; dependent-family linearity, effective locality, and same-source stress matching remain separate hypotheses"
   },
   {
-   "from": "OPH-GR-D4B-EVENT-MANIFOLD",
+   "from": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
    "to": "OPH-GR-D4C-LOCAL-STRESS",
-   "role": "supplies the event atlas, charts, and E4 transitions on which locality/covariance/conservation are stated"
+   "role": "supplies the finite source carrier; the source-causal continuum certificate must additionally supply the physical local domains, smooth transport, and curvature arena on which stress locality, covariance, and conservation are interpreted"
   },
   {
    "from": "OPH-GR-D4C-LOCAL-STRESS",
@@ -674,9 +654,9 @@
    "role": "records the open morphism from the local/federation carrier side to the global support S2 branch; shared screen terminology is not an identity map"
   },
   {
-   "from": "OPH-GR-D4B-EVENT-MANIFOLD",
+   "from": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
    "to": "OPH-UNIFIED-TYPED-SPINE",
-   "role": "types event space as the base and H3 as its observer-frame fiber"
+   "role": "constructs the ambient Lorentz target carrier R plus V_src independently of event order from an independent real axis and the exact rank-three source quotient, and keeps H3 as the observer-frame fiber; positive timeScale times canonical source height enters only through an event placement, is not physical time, and a physical continuum remains conditional"
   },
   {
    "from": "OPH-GAUGE-D7-D9",
@@ -955,18 +935,18 @@
   },
   {
    "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
-   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
-   "role": "supplies the bounded algebraic event-frame/celestial/rest covariance contract; source population, separation, open charts, cone and causal attachment, refinement, clocks, and physical manifold realization remain explicit event-manifold receipts"
+   "to": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
+   "role": "supplies the bounded algebraic source-unit/celestial/null-ray and frame/rest covariance bridge; the finite source carrier does not depend on a population map or legacy supplied atlas, while physical frames, refinement, clocks, volume, and continuum realization remain explicit"
   },
   {
    "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
    "to": "OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
-   "role": "supplies the conditional same-carrier packet and exact SourceUnitDirection equivalence used to pull back the fixed coordinate tomography frame; it supplies no packet inhabitant, observed link directions, tensor fields, or balance law"
+   "role": "supplies the conditional same-event-type packet and exact SourceUnitDirection equivalence used to pull back the fixed coordinate tomography frame into a separately supplied tensor interface; it supplies no packet inhabitant, coordinate-difference identification, observed link directions, tensor fields, or balance law"
   },
   {
    "from": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
    "to": "OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
-   "role": "supplies the existing finite null-tomography, Ward/Bianchi constancy, vacuum-reference, and scale algebra reused by the nine-source-direction premise reduction; the smooth physical reading and common tower remain external"
+   "role": "supplies the existing finite null-tomography and Ward/Bianchi constancy algebra reused by the minimal nine-source-direction shape theorem; a separate normalized adapter adds vacuum-reference and scale data, while the smooth physical reading and common tower remain external"
   },
   {
    "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
@@ -1865,8 +1845,23 @@
   },
   {
    "from": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
-   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
-   "role": "supplies only the finite commit carrier and its authenticated informational precedence candidate; physical causal faithfulness, faithful embedding and manifoldlikeness, dimension four, topology, volume-density calibration, and continuum soldering remain explicit event-manifold gates"
+   "to": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
+   "role": "supplies the finite semantic-event population and authenticated generated order, from which the geometry module computes canonical longest-parent-chain sourceHeight; independently of that order, the ambient carrier of dimension four and Lorentz signature is an independent real axis plus the source quotient, while positive timeScale times sourceHeight enters only through an event placement and is not a physical clock, and intrinsic poset dimension, physical event/link identification, faithful refinement, count-volume, manifoldlikeness, topology, curvature, and continuum uniqueness remain explicit"
+  },
+  {
+   "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
+   "to": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
+   "role": "supplies the exact positive rank-three FrameQuotient and Gram form used independently in the source one-plus-three carrier R plus FrameQuotient"
+  },
+  {
+   "from": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
+   "to": "OPH-GR-SOURCE-CAUSAL-HISTORY-FAMILY",
+   "role": "supplies the authenticated read-from reconstruction, closure, abstract acyclicity witness, and canonical source-height semantics independently replayed across the finite history family"
+  },
+  {
+   "from": "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
+   "to": "OPH-GR-SOURCE-CAUSAL-HISTORY-FAMILY",
+   "role": "supplies the exact source-height/spatial placement and two-way order-cone faithfulness criterion tested by one prescribed finite single-frame source-port placement; the negative ansatz result does not weaken the abstract carrier theorem or exclude other source-selected placements"
   },
   {
    "from": "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",

@@ -27,7 +27,7 @@ POLICY_PATH = PACKAGE / "data" / "higgs_yukawa_source_policy_v1.json"
 POLICY_SCHEMA_PATH = PACKAGE / "schemas" / "higgs_yukawa_source_policy_v1.schema.json"
 
 EXPECTED_ROLES = {
-    "typed_realized_event_domain",
+    "authenticated_source_causal_history_custody",
     "finite_current_algebra",
     "finite_chiral_matter",
     "finite_global_form",
@@ -146,22 +146,22 @@ def check_policy_and_sources(
     )
     require(
         topology["open_blocking_dependencies"] == [636, 637, 638]
-        and 503 not in topology["open_blocking_dependencies"],
+        and 763 not in topology["open_blocking_dependencies"],
         "POLICY_OPEN_DEPENDENCIES",
-        "#630 child ownership drifted or #503 was promoted to a closure dependency",
+        "#630 child ownership drifted or #763 was promoted to a closure dependency",
     )
     require(
         topology["non_gating_partial_receipt_ancestry"]
         == [
             {
-                "issue": 503,
-                "path": "code/geometry/runs/realized_event_receipt_report.json",
+                "issue": 763,
+                "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
                 "closure_required": False,
-                "scope": "completed finite E1/E2/E4 screen-sheet receipts only; E3 bulk depth remains open and is not used",
+                "scope": "authenticated finite source order and independently generated cutoff induced-restriction custody only; no physical causal or continuum promotion",
             }
         ],
         "POLICY_NON_GATING_ANCESTRY",
-        "#503 partial-receipt ancestry changed",
+        "#763 finite order-custody ancestry changed",
     )
     require(
         payload["issue_topology"] == topology,
@@ -230,17 +230,37 @@ def check_policy_and_sources(
 
 
 def check_parent_semantics(resolved: dict[str, Any]) -> tuple[int, list[list[str]]]:
-    event = resolved["typed_realized_event_domain"]
-    require(event.get("issue") == 503, "EVENT_ISSUE", "wrong realized-event issue")
-    receipts = event.get("receipts_witnessed", {})
+    history = resolved["authenticated_source_causal_history_custody"]
     require(
-        receipts.get("e1_screen_population") is True
-        and receipts.get("e2_certified_separation") is True
-        and receipts.get("e4_moebius_cocycle") is True,
-        "EVENT_RECEIPTS",
-        "required finite event receipts changed",
+        history.get("schema")
+        == "oph.source-causal-history-family-publication-projection.v1"
+        and history.get("artifact_type")
+        == "SOURCE_CAUSAL_HISTORY_FAMILY_PUBLICATION_PROJECTION",
+        "HISTORY_SCHEMA",
+        "unexpected source-causal history projection",
     )
-    require(receipts.get("e3_rank_four_bulk_depth") is False, "EVENT_PROMOTION", "bulk-depth gate changed")
+    require(
+        history.get("INFORMATIONAL_INDEPENDENT_CUTOFF_GENERATION_RECEIPT") is True
+        and history.get("INFORMATIONAL_INDUCED_PREFIX_REFINEMENT_RECEIPT") is True
+        and history.get("all_cutoffs_independently_generated") is True
+        and history.get("all_induced_order_embeddings_certified") is True
+        and history.get("controls_fail_closed") is True,
+        "HISTORY_CUSTODY",
+        "finite source-order cutoff custody changed",
+    )
+    nonclaims = history.get("promotion_and_nonclaim_flags", {})
+    require(
+        nonclaims.get("PHYSICAL_CAUSAL_ATTACHMENT_RECEIPT") is False
+        and nonclaims.get("CAUSET_FAITHFUL_EMBEDDING_RECEIPT") is False
+        and nonclaims.get("CAUSET_DIMENSION_3P1_RECEIPT") is False
+        and nonclaims.get("CAUSET_MANIFOLDLIKE_REFINEMENT_RECEIPT") is False
+        and nonclaims.get("CAUSET_COUNT_VOLUME_DENSITY_RECEIPT") is False
+        and nonclaims.get("SOURCE_DERIVED_CAUSAL_3P1_MANIFOLD_LIMIT_RECEIPT")
+        is False
+        and nonclaims.get("physical_promotion_allowed") is False,
+        "HISTORY_OVERPROMOTION",
+        "source-history physical-continuum boundary changed",
+    )
 
     current = resolved["finite_current_algebra"]
     require(

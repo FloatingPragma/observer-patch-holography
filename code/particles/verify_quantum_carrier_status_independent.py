@@ -23,7 +23,11 @@ EW_FRONTIER_PATH = (
     / "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs"
     / "higgs_yukawa_source_frontier.json"
 )
-EINSTEIN_PATH = REPO_ROOT / "code/geometry/runs/realized_branch_receipt_report.json"
+SOURCE_CAUSAL_CONTINUUM_PATH = (
+    REPO_ROOT
+    / "evidence/source_causal_history_family"
+    / "source_causal_history_family_publication_projection.json"
+)
 QUANTUM_EFT_PATH = (
     REPO_ROOT
     / "code/particles/calibration/wz_native_source_packet/outputs"
@@ -174,9 +178,9 @@ ROW_CONFIG = {
         ),
     },
     "graviton": {
-        "verdict": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER",
+        "verdict": "NOT_EVALUABLE_NO_PHYSICAL_SOURCE_CAUSAL_CONTINUUM_OR_QUANTUM_CARRIER",
         "blocking_frontier": [
-            "inhabited_source_derived_einstein_tower",
+            "source_selected_faithful_3p1_causal_manifold_and_smooth_einstein_limit",
             "finite_source_to_lorentzian_linearized_quantum_carrier",
         ],
         "state_space": (
@@ -192,7 +196,7 @@ ROW_CONFIG = {
             "a quantum quotient of linearized diffeomorphisms with a positive physical sector"
         ),
         "vacuum": (
-            "an inhabited source-derived Einstein tower with a selected quantum background or vacuum"
+            "a source-selected physical 3+1 causal-manifold and smooth-Einstein limit with a selected quantum background or vacuum"
         ),
         "spectral_object": (
             "a physical linearized spin-two Hamiltonian or two-point spectral object"
@@ -203,8 +207,12 @@ ROW_CONFIG = {
         "phase_status": "DECLARED_CLASSICAL_BACKGROUND_ONLY",
         "open_interfaces": [
             {
-                "issue": 503,
-                "requirement": "one inhabited source-derived typed Einstein tower",
+                "issue": 728,
+                "requirement": "a source-selected refinement family with faithful 3+1 causal-manifold convergence",
+            },
+            {
+                "issue": 729,
+                "requirement": "same-family causal curvature, stress, and smooth Einstein closure",
             },
             {
                 "issue": 635,
@@ -283,13 +291,39 @@ def _boundary_evidence() -> list[dict[str, Any]]:
     ):
         raise VerificationError("electroweak source frontier changed")
 
-    einstein = _load(EINSTEIN_PATH)
+    source_causal = _load(SOURCE_CAUSAL_CONTINUUM_PATH)
+    promotion_flags = source_causal.get("promotion_and_nonclaim_flags", {})
+    placement = source_causal.get(
+        "prescribed_single_frame_source_port_placement", {}
+    )
     if (
-        einstein.get("artifact") != "einstein_branch_realized_receipt_evaluation"
-        or einstein.get("issue") != 503
-        or einstein.get("realized_geometric_branch_certified_nonempty") is not False
+        source_causal.get("schema")
+        != "oph.source-causal-history-family-publication-projection.v1"
+        or source_causal.get("status")
+        != "CERTIFIED_INFORMATIONAL_HISTORY_EXTENSION_FAMILY__FIXED_WIDTH_NOT_SPACETIME_REFINEMENT"
+        or source_causal.get("INFORMATIONAL_HISTORY_EXTENSION_FAMILY_RECEIPT")
+        is not True
+        or source_causal.get("INFORMATIONAL_INDUCED_PREFIX_REFINEMENT_RECEIPT")
+        is not True
+        or source_causal.get("INFORMATIONAL_INDEPENDENT_CUTOFF_GENERATION_RECEIPT")
+        is not True
+        or source_causal.get("all_cutoffs_independently_generated") is not True
+        or placement.get("FINITE_FAITHFUL_RANK3_CONE_PLACEMENT_RECEIPT")
+        is not False
+        or placement.get("physical_promotion_allowed") is not False
+        or any(
+            placement.get(field) is not False
+            for field in (
+                "inter_carrier_frame_gluing_source_derived",
+                "consumed_record_barycentre_rule_source_derived",
+                "other_source_selected_placements_excluded",
+                "physical_no_go_for_other_source_selected_placements",
+            )
+        )
+        or not promotion_flags
+        or any(value is not False for value in promotion_flags.values())
     ):
-        raise VerificationError("inhabited Einstein boundary changed")
+        raise VerificationError("source-causal physical-continuum boundary changed")
 
     quantum_eft = _load(QUANTUM_EFT_PATH)
     interfaces = quantum_eft.get("required_interfaces")
@@ -345,14 +379,14 @@ def _boundary_evidence() -> list[dict[str, Any]]:
             "status": "POSITIVE_SOURCE_ACTION_OPEN",
         },
         {
-            "boundary_id": "inhabited_einstein_tower",
-            "evidence_class": "bounded_local_frontier",
-            "issue_context": [503],
+            "boundary_id": "source_causal_physical_continuum",
+            "evidence_class": "finite_source_causal_precursor",
+            "issue_context": [763, 728, 729],
             "pin": _pin(
-                EINSTEIN_PATH,
-                "partial Einstein branch receipts without full inhabited antecedent",
+                SOURCE_CAUSAL_CONTINUUM_PATH,
+                "exact finite source-causal custody with physical-continuum promotion blocked",
             ),
-            "status": "FULL_INHABITED_ANTECEDENT_NOT_CERTIFIED",
+            "status": "FINITE_SOURCE_CAUSAL_PRECURSOR_ATTAINED__PHYSICAL_CONTINUUM_OPEN",
         },
         {
             "boundary_id": "lorentzian_quantum_eft_transfer",
@@ -626,8 +660,12 @@ def _expected_receipt(projection: Mapping[str, Any]) -> dict[str, Any]:
                 "role": "electroweak source integration and physical action selection",
             },
             {
-                "issue": 503,
-                "role": "inhabited source-derived typed Einstein tower",
+                "issue": 728,
+                "role": "source-selected faithful 3+1 causal-manifold limit",
+            },
+            {
+                "issue": 729,
+                "role": "same-family causal curvature and smooth Einstein closure",
             },
         ],
         "producer_scope": (

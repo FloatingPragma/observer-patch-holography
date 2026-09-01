@@ -71,7 +71,7 @@ demo tier.  The modular, stress, entropy, and scale readouts, the
 Einstein readout completion, and every analytic and physical premise row
 of the `#694` matrix (guarded Ward limit, first law, MaxEnt envelope,
 small-ball asymptotics, vacuum reference, universal coupling, absolute
-scale, event-manifold receipts, clock network) remain open with F1.  No
+scale, source-causal continuum receipts, clock network) remain open with F1.  No
 source produces the bundle, no physical attachment, uniqueness, or
 continuum claim is made, and closure of the stated gap Props is necessary
 interface surface rather than sufficient row closure.

@@ -38,8 +38,9 @@ Construction (all modular data computed, none declared):
 
 Scope, stated exactly: this is BOUNDARY-COLLAR instrumentation on the
 declared Gaussian MaxEnt family (an Axiom-level input). Cap-interior
-modular data, the null-net families (Cyc/NTI/weak additivity/MI), the event
-families E1-E4, and the physical-identification receipts are pending.
+modular data, the null-net families (Cyc/NTI/weak additivity/MI), source-causal
+physical-placement and continuum-limit certificates, and the
+physical-identification receipts are outside this module.
 
 Run:
     python3 code/geometry/modular_clock_instrumentation.py
@@ -229,7 +230,8 @@ def instrument_tower(rings: tuple[int, ...] = (16, 32, 64)) -> dict:
         "receipts_pending": [
             "cap-interior modular data (full 2D cap algebras)",
             "Cyc/NTI/weak-additivity/MI null-net receipts",
-            "E1-E4 event receipts",
+            "source-causal event/link adequacy, physical placement, faithful "
+            "embedding, and continuum-limit certificates",
             "UC/VR/scale physical-identification receipts",
         ],
     }

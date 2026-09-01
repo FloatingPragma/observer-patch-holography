@@ -27,12 +27,12 @@ signals, or points on an identified physical sky.
 The theorem keeps the source order and tensor fields on the same finite
 `Event` carrier.  The tensor calculation uses the independent source Gram
 quotient's directions, not the generated order; no order-to-field or
-provenance-link-to-direction selection theorem is proved.  It does not prove
-the `V 3`, `Mat 3`, `eta 3`, or `Fin 4` coordinate/step types: those are the
-pre-existing `3+1` Einstein algebra in which the compatibility theorem is
-stated, not a dimension derivation from the poset.  It also does not prove
-the source-direction balance, Ward or Bianchi identities, connectivity,
-vacuum reference, Newton-scale
+provenance-link-to-direction selection theorem is proved.  The source stack
+now independently constructs a four-dimensional `ℝ × FrameQuotient` carrier
+with `(+---)` signature.  This module does not yet identify that carrier's
+finite differences with its supplied `V 3`, `Mat 3`, `eta 3`, or `Fin 4`
+tensor/step data.  It also does not prove the source-direction balance, Ward
+or Bianchi identities, connectivity, vacuum reference, Newton-scale
 identification, physical causal faithfulness, count--volume calibration,
 manifoldlikeness, a refinement/cofinal limit, smoothness, or a physical
 spacetime interpretation.  In particular, its Einstein-form conclusion is a
@@ -98,7 +98,119 @@ theorem sourceNullEinsteinVector_sourceTomographyDirections (r : Fin 9) :
       sourceUnitDirectionEquivCelestial, celestialRepresentative,
       pauliEinsteinChart]
 
-/-! ## Same-carrier source-indexed Einstein premises -/
+/-! ## Same-event-type source-indexed Einstein premises
+
+The tensor interface below is supplied separately from the constructed
+source-order carrier. Sharing the finite `Event` type supplies indexing only;
+it does not identify tensor coordinates or differences with carrier geometry.
+-/
+
+/-- Minimal premises for the finite Einstein *shape* determined by the nine
+exact source-unit tomography directions.  This package deliberately has no
+phantom dependency on a source-order packet and omits the fields that only
+name or physically normalize the final constants: entropy stress,
+universal-source equality, Newton's constant, a reference cosmological
+constant, vacuum calibration, and `8πG` scale identification. -/
+structure SourceDirectionEinsteinShapePremises (Event : Type w)
+    [Fintype Event] where
+  step : Fin 4 → Event → Event
+  base : Event
+  geometry : Event → Mat 3
+  stress : Event → Mat 3
+  coupling : ℝ
+  geometry_symmetric : ∀ p i j, geometry p i j = geometry p j i
+  stress_symmetric : ∀ p i j, stress p i j = stress p j i
+  /-- Balance on the nine fixed algebraic inverse images of the null
+  tomography frame.  It remains supplied and is not selected by the poset. -/
+  sourceTomographyBalance : ∀ p r,
+    quadOf (geometry p)
+        (sourceNullEinsteinVector (sourceTomographyDirections r)) =
+      coupling * quadOf (stress p)
+        (sourceNullEinsteinVector (sourceTomographyDirections r))
+  ward : ∀ p j, ddiv step stress p j = 0
+  bianchi : ∀ p j, ddiv step geometry p j = 0
+  connected : ∀ q, SymmReachable step base q
+
+namespace SourceDirectionEinsteinShapePremises
+
+variable {Event : Type w} [Fintype Event]
+variable (A : SourceDirectionEinsteinShapePremises Event)
+
+/-- The minimal nine source-direction balances are exactly the coordinate
+tomography balances. -/
+theorem tomographyBalance (p : Event) (r : Fin 9) :
+    quadOf (A.geometry p) (tomographyDirections r) =
+      A.coupling * quadOf (A.stress p) (tomographyDirections r) := by
+  rw [← sourceNullEinsteinVector_sourceTomographyDirections r]
+  exact A.sourceTomographyBalance p r
+
+/-- The nine source-direction balances determine each symmetric tensor
+difference modulo one metric coefficient. -/
+theorem pointwiseMetricAmbiguity :
+    ∀ p, ∃ lam : ℝ, ∀ i j,
+      A.geometry p i j =
+        A.coupling * A.stress p i j + lam * eta 3 i j := by
+  intro p
+  let B : Mat 3 := fun i j ↦ A.geometry p i j - A.coupling * A.stress p i j
+  have hBsymm : ∀ i j, B i j = B j i := by
+    intro i j
+    dsimp [B]
+    rw [A.geometry_symmetric p i j, A.stress_symmetric p i j]
+  have hBzero : ∀ r, quadOf B (tomographyDirections r) = 0 := by
+    intro r
+    dsimp [B]
+    rw [quadOf_sub_smul, A.tomographyBalance p r, sub_self]
+  refine ⟨metricCoefficient B, fun i j ↦ ?_⟩
+  have hij := nine_null_directions_determine_mod_metric B hBsymm hBzero i j
+  dsimp [B] at hij
+  linarith
+
+/-- Nine source-direction balances recover the all-null balance without an
+additional premise. -/
+theorem nullBalance (p : Event) (k : V 3)
+    (hk : quadOf (eta 3) k = 0) :
+    quadOf (A.geometry p) k =
+      A.coupling * quadOf (A.stress p) k := by
+  obtain ⟨lam, hlam⟩ := A.pointwiseMetricAmbiguity p
+  have hmatrix :
+      (fun i j ↦ A.geometry p i j - A.coupling * A.stress p i j) =
+        fun i j ↦ lam * eta 3 i j := by
+    funext i j
+    rw [hlam i j]
+    ring
+  have hzero :
+      quadOf (fun i j ↦
+        A.geometry p i j - A.coupling * A.stress p i j) k = 0 := by
+    rw [hmatrix]
+    have hquadzero :
+        quadOf (fun _ _ ↦ (0 : ℝ)) k = 0 := by
+      simp [quadOf, bilinOf]
+    have hscale :
+        quadOf (fun i j ↦ lam * eta 3 i j) k =
+          lam * quadOf (eta 3) k := by
+      have h := quadOf_sub_smul
+        (fun _ _ ↦ (0 : ℝ)) (eta 3) (-lam) k
+      rw [hquadzero] at h
+      simpa only [zero_sub, neg_mul, neg_neg] using h
+    rw [hscale, hk, mul_zero]
+  have hsub := quadOf_sub_smul
+    (A.geometry p) (A.stress p) A.coupling k
+  rw [hzero] at hsub
+  linarith
+
+/-- Ward and Bianchi conservation make the pointwise metric coefficient one
+constant on the connected finite carrier.  This is the Einstein-form shape;
+its physical interpretation and continuum limit remain separate. -/
+theorem constantMetricAmbiguity :
+    ∃ Lambda : ℝ, ∀ p i j,
+      A.geometry p i j =
+        A.coupling * A.stress p i j + Lambda * eta 3 i j := by
+  choose lam hlam using A.pointwiseMetricAmbiguity
+  obtain ⟨Lambda, hLambda⟩ := lambda_constant_symm A.step A.base A.connected
+    A.geometry A.stress lam A.coupling hlam A.bianchi A.ward
+  exact ⟨Lambda, fun p i j ↦ by rw [hlam p i j, hLambda p]⟩
+
+end SourceDirectionEinsteinShapePremises
 
 /-- Explicit finite-carrier premises for the source-indexed Einstein
 composition.  This is the existing continuum/physical premise package with
@@ -252,7 +364,47 @@ end SourceIndexedEinsteinPremises
 
 /-! ## Composed conclusion -/
 
-/-- Exact output of the same-carrier source-order/Einstein composition. -/
+/-- Exact minimal output obtained by adjoining the source-order/frame
+consequences to the independent source-direction Einstein-shape theorem.
+The source order and tensor fields share `Event`, but the order is not used
+to prove the tensor identity; that missing order-to-field bridge remains
+visible rather than hidden in a phantom premise dependency. -/
+structure SourceOrderEinsteinShapeConclusion
+    {Register : Type u} {Value : Type v} {Event : Type w} {Chart : Type z}
+    [DecidableEq Register] [Fintype Event]
+    (P : SourceOrderFrameCompatibilityPacket Register Value Event Chart)
+    (A : SourceDirectionEinsteinShapePremises Event) : Prop where
+  finiteSourceOrderFrame : P.FiniteConsequences
+  sourceTomographyBalance : ∀ p r,
+    quadOf (A.geometry p)
+        (sourceNullEinsteinVector (sourceTomographyDirections r)) =
+      A.coupling * quadOf (A.stress p)
+        (sourceNullEinsteinVector (sourceTomographyDirections r))
+  allNullBalance : ∀ p k, quadOf (eta 3) k = 0 →
+    quadOf (A.geometry p) k = A.coupling * quadOf (A.stress p) k
+  pointwiseMetricAmbiguity : ∀ p, ∃ lam : ℝ, ∀ i j,
+    A.geometry p i j =
+      A.coupling * A.stress p i j + lam * eta 3 i j
+  constantMetricAmbiguity : ∃ Lambda : ℝ, ∀ p i j,
+    A.geometry p i j =
+      A.coupling * A.stress p i j + Lambda * eta 3 i j
+
+/-- Minimal same-event-type composition in a separately supplied `3+1` tensor
+interface. It removes six non-load-bearing normalization/unification fields
+from the Einstein-shape derivation while making explicit that a source-order
+packet and source-direction tensor data are composed, not that the former
+constructs the latter. -/
+theorem sourceOrderEinsteinShape_from_minimal_source_directions
+    {Register : Type u} {Value : Type v} {Event : Type w} {Chart : Type z}
+    [DecidableEq Register] [Fintype Event]
+    (P : SourceOrderFrameCompatibilityPacket Register Value Event Chart)
+    (A : SourceDirectionEinsteinShapePremises Event) :
+    SourceOrderEinsteinShapeConclusion P A := by
+  exact ⟨P.finiteConsequences, A.sourceTomographyBalance,
+    A.nullBalance, A.pointwiseMetricAmbiguity, A.constantMetricAmbiguity⟩
+
+/-- Exact output of the same-event-type source-order/Einstein composition.
+The tensor interface remains separately supplied. -/
 structure SourceOrderEinsteinConclusion
     {Register : Type u} {Value : Type v} {Event : Type w} {Chart : Type z}
     [DecidableEq Register] [Fintype Event]
@@ -297,6 +449,11 @@ theorem sourceOrderEinstein_from_source_directions
 #print axioms sourceNullEinsteinVector_null
 #print axioms sourceNullEinsteinVector_time
 #print axioms sourceNullEinsteinVector_sourceTomographyDirections
+#print axioms SourceDirectionEinsteinShapePremises.tomographyBalance
+#print axioms SourceDirectionEinsteinShapePremises.pointwiseMetricAmbiguity
+#print axioms SourceDirectionEinsteinShapePremises.nullBalance
+#print axioms SourceDirectionEinsteinShapePremises.constantMetricAmbiguity
+#print axioms sourceOrderEinsteinShape_from_minimal_source_directions
 #print axioms SourceIndexedEinsteinPremises.tomographyBalance
 #print axioms SourceIndexedEinsteinPremises.pointwiseMetricAmbiguity
 #print axioms SourceIndexedEinsteinPremises.nullBalance

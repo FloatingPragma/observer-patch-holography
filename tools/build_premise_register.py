@@ -104,7 +104,7 @@ EXPECTED_ROWS = (
     ("PR-15", "clock and energy calibration anchors", "empirical_import", "import"),
     (
         "PR-16",
-        "stable causality and open-image conditions",
+        "source-causal continuum and stable-causality certificate",
         "structural_rule",
         "remove",
     ),
@@ -495,13 +495,7 @@ EXPECTED_ROWS = (
     ),
     (
         "PR-82",
-        "append-only semantic ancestry rank",
-        "structural_rule",
-        "axiomatize",
-    ),
-    (
-        "PR-83",
-        "commit-populated event base",
+        "abstract semantic ancestry acyclicity rank",
         "structural_rule",
         "axiomatize",
     ),

@@ -100,9 +100,11 @@ tensor input. Its Einstein-form calculation uses the fixed algebraic inverse
 images of a pre-existing coordinate nine-vector tomography frame in the
 independent rank-three source quotient plus supplied tensor,
 conservation, reference, and scale data. No provenance link selects a
-direction, field, step, or balance. Thus the same-carrier theorem does not add
-an A1 coercion from record order to physical causality, geometry, time, or
-dimension; the theorem's `Mat 3`, `eta 3`, and `Fin 4` types are supplied.
+direction, field, step, or balance. Thus the same-event-type theorem, in a
+separately supplied tensor interface, does not add an A1 coercion from record
+order to physical causality, geometry, time, or dimension; the theorem's
+`Mat 3`, `eta 3`, and `Fin 4` types are supplied, and their coordinate
+differences are not identified with those of the constructed carrier.
 
 ## Downstream boundary
 

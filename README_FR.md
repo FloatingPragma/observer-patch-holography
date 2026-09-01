@@ -15,8 +15,9 @@ mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH construit une voie mathématique unique à travers les
 registres quantiques, la thermodynamique, la cinématique des référentiels
-lorentziens, des branches conditionnelles pour l’espace-temps événementiel et
-la gravitation, la structure de jauge, la matière et les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
+lorentziens, un précurseur causal et lorentzien dérivé de la source, puis des
+branches conditionnelles pour l’espace-temps physique et la gravitation, la
+structure de jauge, la matière et les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
 finis exacts, chaque pont physique étant formulé de façon à pouvoir être prouvé
 ou testé.
 
@@ -91,18 +92,19 @@ simulations reproductibles :
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité et la gravitation à partir de la géométrie des
-  observateurs.** Des résultats finis exacts déduisent la cinématique de
-  Lorentz, la couche de masse et un ordre informationnel des lectures
-  authentifiées plutôt que d’une ascendance déclarée. Les directions unitaires
-  du porteur source de rang trois sont exactement équivalentes à (S^2) et à
-  des étiquettes de rayons nuls futurs. Pour tout paquet ordre/référentiels
-  fourni, Lean prouve l’accord fini entre ordre, cônes, rang et métrique locale.
-  Sur le même porteur fini, neuf directions algébriques suffisent à déduire
-  l’équilibre dans toutes les directions nulles et une relation tensorielle de
-  forme einsteinienne dans une algèbre 3+1 fournie. L’espace-temps physique
-  reste émergent : plongement fidèle, propriété de variété, couverture dense
-  et isotrope, étalonnage nombre-vers-volume, raffinement compatible et limite
-  continue restent à établir. Voir la
+  observateurs.** Les lectures authentifiées engendrent un poset causal fini.
+  Indépendamment, un axe réel et le quotient source de rang trois définissent
+  \(\mathbb R\oplus V_3\), une cible lorentzienne de dimension quatre à
+  sphère nulle future. La hauteur source n’intervient que dans le placement
+  des événements, non dans la construction du
+  porteur, la dimension intrinsèque ou le temps physique. Lean prouve
+  l’inclusion dans le cône par une borne de vitesse et la fidélité
+  lorsque la réciproque est fournie; une interface tensorielle séparée donne
+  une forme einsteinienne finie. L’espace-temps physique et la relativité
+  générale lisse exigent encore l’attachement des événements et liens, un
+  plongement fidèle, l’étalonnage nombre-volume, les tests de dimension et de
+  variété, la topologie, l’isotropie, le raffinement et la convergence de la
+  courbure. Voir la
   [dérivation de l’espace-temps](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 - **La géométrie des champs sur l’écran à douze ports.** L’écran fini porte
   des théorèmes exacts de Green, Thomson, Gauss, courbure et invariance de
@@ -122,7 +124,7 @@ simulations reproductibles :
   fermeture du pixel, proche de la constante de structure fine mesurée,
   conserve un statut diagnostique. Ces calculs font des constantes des cibles
   concrètes de dérivation et de falsification plutôt que des données libres.
-- **Vérifié machine et falsifiable.** Plus de 10100 théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 10200 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. L’échelle des prédictions gelées exige que toute comparaison
@@ -386,7 +388,7 @@ briseraient.
   </a>
 </p>
 
-<p align="center"><sub>La carte typée des dépendances d’OPH. Elle garde distincts l’ordre authentifié, le porteur de rang trois, les données S2/référentiels de Lorentz et la mesure de population des événements jusqu’au carré de compatibilité de la description effective. Cette population n’est pas identifiée à la capacité publique N. La carte sépare ensuite les branches exactes des ponts physiques conditionnels.</sub></p>
+<p align="center"><sub>La carte typée des dépendances d’OPH. Un axe réel indépendant et le quotient source exact de rang trois définissent la cible ambiante R ⊕ V₃, de dimension quatre et de signature lorentzienne. L’ordre authentifié détermine la hauteur source canonique, soit la longueur maximale d’une chaîne de parents, uniquement pour placer les événements dans cette cible après une mise à l’échelle positive. La dimension de la cible n’est pas une dimension intrinsèque du poset, et la hauteur n’est pas une horloge physique. Le plongement physique, l’étalonnage nombre-vers-volume, la propriété de variété, la topologie, la courbure et la limite d’Einstein restent des ponts explicites. Le nombre d’événements n’est pas la capacité publique N.</sub></p>
 
 ## Guide du dépôt
 

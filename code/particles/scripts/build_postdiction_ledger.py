@@ -93,6 +93,11 @@ LEAN_RECEIPTS = {
     "WorldlineRealization": REPO / "Lean" / "Time" / "WorldlineRealization.lean",
     "ProperTimeCalibration": REPO / "Lean" / "Time" / "ProperTimeCalibration.lean",
     "ClockComparison": REPO / "Lean" / "Time" / "ClockComparison.lean",
+    "SemanticEventProvenance": REPO / "Lean"
+    / "ObserverPatchHolography" / "Provenance"
+    / "SemanticEventProvenance.lean",
+    "CausalInterval": REPO / "Lean" / "ObserverPatchHolography"
+    / "Provenance" / "CausalInterval.lean",
     "ConsensusTower": REPO / "Lean" / "Tower" / "ConsensusTower.lean",
     "PublicWorldQuotient": REPO / "Lean" / "Tower"
     / "PublicWorldQuotient.lean",
@@ -108,6 +113,10 @@ LEAN_RECEIPTS = {
     / "ObserverRestSpace.lean",
     "EinsteinTensorBridge": REPO / "Lean" / "Geometry"
     / "EinsteinTensorBridge.lean",
+    "SourceDerivedSpacetimeCarrier": REPO / "Lean" / "Geometry"
+    / "SourceDerivedSpacetimeCarrier.lean",
+    "SourceOrderFrameCompatibilityPacket": REPO / "Lean" / "Geometry"
+    / "SourceOrderFrameCompatibilityPacket.lean",
     "LorentzOverlapCocycle": REPO / "Lean" / "Geometry"
     / "LorentzOverlapCocycle.lean",
     "EventGermDisplacement": REPO / "Lean" / "Geometry"
@@ -287,8 +296,8 @@ def _lean_receipt(
         source = path.read_text(encoding="utf-8")
         for declaration in declarations.get(m, ()):
             pattern = (
-                rf"(?m)^\s*(?:theorem|lemma)\s+{re.escape(declaration)}"
-                rf"(?:\s|:)"
+                rf"(?m)^\s*(?:noncomputable\s+)?(?:theorem|lemma|def)\s+"
+                rf"{re.escape(declaration)}(?:\s|:)"
             )
             if re.search(pattern, source) is None:
                 raise SystemExit(
@@ -349,7 +358,9 @@ def _quantum_carrier_status_row(packet: dict[str, Any]) -> dict[str, Any]:
     expected_verdicts = {
         "photon": "NOT_EVALUABLE_NO_SOURCE_SELECTED_MAXWELL_QUANTUM_SECTOR",
         "gluon": "NOT_EVALUABLE_NO_QCD",
-        "graviton": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER",
+        "graviton": (
+            "NOT_EVALUABLE_NO_PHYSICAL_SOURCE_CAUSAL_CONTINUUM_OR_QUANTUM_CARRIER"
+        ),
     }
     rows = packet.get("rows")
     if not isinstance(rows, list):
@@ -2090,11 +2101,11 @@ def _forced_structure(
                 "Einstein coordinates with exactly the required sign flip"
             ),
             "observed_counterpart": (
-                "four-dimensional Lorentzian event and observer-frame geometry"
+                "four-dimensional ambient Lorentz module and observer-frame algebra"
             ),
             "match": (
-                "exact intrinsic geometry and coordinate bridge; physical "
-                "soldering remains outside C1"
+                "exact ambient module algebra and coordinate bridge; source-causal "
+                "event attachment and physical soldering remain outside C1"
             ),
             "lean_declarations": {
                 "CanonicalLorentzModule": [
@@ -2159,14 +2170,114 @@ def _forced_structure(
             ),
             "hypothesis_boundary": (
                 "the celestial equivalence is set-level and the frames and "
-                "rest spaces are algebraic. C1 alone supplies no observer-patch "
-                "selection or soldering. The separate bounded C2 contract "
-                "supplies algebraic overlap covariance only from declared "
-                "inputs; source event realization, rods, clocks, physical "
-                "spacetime, continuum attachment, observable, decision rule, "
-                "and prediction are not constructed"
+                "rest spaces are algebraic. C1 alone supplies no source-event "
+                "attachment or soldering. The separate source-derived causal-order "
+                "packet and bounded C2 contract supply, respectively, an "
+                "informational poset and algebraic overlap covariance from declared "
+                "inputs. Faithful physical placement, calibrated density, "
+                "manifoldlike refinement, rods, clocks, smooth spacetime, "
+                "observable, decision rule, and prediction are not constructed"
             ),
             "paper_ref": "observers paper, canonical Lorentz module",
+        },
+        {
+            "id": "source_derived_finite_one_three_causal_carrier",
+            "statement": (
+                "Authenticated read-after-write provenance generates a finite "
+                "locally finite partial order, and canonical source height obeys "
+                "the exact longest-parent-path recursion. Independently of that "
+                "order, an independent real axis and the proved rank-three source "
+                "Gram quotient define an exact four-dimensional carrier with "
+                "signature (+---); every source-unit spatial direction "
+                "gives a future-null vector. A supplied positive time scale and "
+                "spatial readback use source height only in the event placement. "
+                "With the parent-edge "
+                "speed bound, generated precedence maps into the carrier future "
+                "cone. A separately certified faithful placement upgrades this to "
+                "two-way order--cone equivalence and constructs the finite "
+                "source-order/frame packet. The explicit four-event Boolean "
+                "diamond is a non-chain control whose generated order agrees "
+                "exactly with its carrier cone order"
+            ),
+            "observed_counterpart": (
+                "finite causal-set-like order with an effective 1+3 Lorentz "
+                "carrier and null-cone directions"
+            ),
+            "match": (
+                "exact source-derived finite order and 1+3 carrier theorem "
+                "stack; physical faithful placement and continuum manifold "
+                "not constructed"
+            ),
+            "lean_declarations": {
+                "CausalInterval": [
+                    "finiteCausalSetAxioms",
+                ],
+                "SemanticEventProvenance": [
+                    "sourceHeight_eq",
+                ],
+                "SourceDerivedSpacetimeCarrier": [
+                    "sourceSpacetimeCarrier_finrank",
+                    "sourceCarrier_one_three_signature",
+                    "sourceUnitNullVector_futureCausal",
+                    "generatedBefore_sourceCausalLE",
+                    "generatedBeforeEq_iff_sourceCausalLE",
+                    "exactDiamondConeOrder",
+                ],
+                "SourceOrderFrameCompatibilityPacket": [
+                    "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement",
+                    "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame",
+                    "sourceOrderFramePacket_consequences",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "CausalInterval",
+                "SemanticEventProvenance",
+                "SourceDerivedSpacetimeCarrier",
+                "SourceOrderFrameCompatibilityPacket",
+                declarations={
+                    "CausalInterval": (
+                        "finiteCausalSetAxioms",
+                    ),
+                    "SemanticEventProvenance": (
+                        "sourceHeight_eq",
+                    ),
+                    "SourceDerivedSpacetimeCarrier": (
+                        "sourceSpacetimeCarrier_finrank",
+                        "sourceCarrier_one_three_signature",
+                        "sourceUnitNullVector_futureCausal",
+                        "generatedBefore_sourceCausalLE",
+                        "generatedBeforeEq_iff_sourceCausalLE",
+                        "exactDiamondConeOrder",
+                    ),
+                    "SourceOrderFrameCompatibilityPacket": (
+                        "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement",
+                        "SourceOrderFrameCompatibilityPacket.ofFaithfulPlacementStandardFrame",
+                        "sourceOrderFramePacket_consequences",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "source height is a canonical ordinal, not a physical clock. "
+                "The generic cone-inclusion theorem supplies neither its "
+                "positive time scale nor a spatial readback valued in the "
+                "rank-three quotient or an edge-speed bound; two-way "
+                "order--cone faithfulness is the "
+                "additional converse field of a faithful placement. Event-frame "
+                "transports are supplied, and the standard-frame constructor is "
+                "a trivial gauge choice rather than a derivation of physical "
+                "observer frames. The Boolean diamond is an exact mathematical "
+                "non-chain control, not empirical evidence of manifoldlikeness. "
+                "No physical event/link identification, Poisson sprinkling, "
+                "calibrated density or count--volume law, independent dimension "
+                "estimator, topology, manifoldlike refinement, uniqueness "
+                "theorem, continuum convergence, smooth metric, curvature, "
+                "Einstein equation, observable, decision rule, or prediction is "
+                "constructed"
+            ),
+            "paper_ref": (
+                "flagship and spacetime papers, source-derived causal order and "
+                "finite 1+3 carrier"
+            ),
         },
         {
             "id": "algebraic_event_frame_soldering",
@@ -2215,7 +2326,6 @@ def _forced_structure(
                 ],
                 "EventFrameSoldering": [
                     "EventFrameSoldering.algebraicConsequences",
-                    "EventFrameSoldering.expanded_handoff_iff_residual",
                     "control_chart_translation_nonzero",
                     "control_displacement_nonzero",
                     "control_displacement_futureNull",
@@ -2258,7 +2368,6 @@ def _forced_structure(
                     ),
                     "EventFrameSoldering": (
                         "EventFrameSoldering.algebraicConsequences",
-                        "EventFrameSoldering.expanded_handoff_iff_residual",
                         "control_chart_translation_nonzero",
                         "control_displacement_nonzero",
                         "control_displacement_futureNull",
@@ -2277,15 +2386,14 @@ def _forced_structure(
                 "the coincidence setoid, invariant readback, affine Lorentz "
                 "cocycle, overlap-compatible chart-coordinate family, and base "
                 "frame are supplied. Quotient descent does not construct or "
-                "identify that atlas family. The exact handoff retains "
-                "source atlas realization, event population, certified "
-                "separation, open rank-four charts, physical cone attachment, "
-                "refinement naturality, semantic causal reachability, and an "
-                "operational clock. Scientific owners #728, #729, #737, and "
-                "#739 record the source, geometry, instrument, and source-clock "
-                "residuals; empirical calibration is PR-15. No physical spacetime, "
-                "Einstein dynamics, "
-                "observable, decision rule, or prediction follows"
+                "identify that atlas family. The source-derived packet separately "
+                "supplies finite informational events and order plus an ambient "
+                "1+3 target under explicit conditions. It does not supply physical "
+                "event and link attachment, two-way order-cone faithfulness, "
+                "source-selected atlas coordinates, separation, open charts, "
+                "calibrated count-volume density, manifoldlike refinement, topology, "
+                "an operational clock, or smooth curvature. No physical spacetime, "
+                "Einstein dynamics, observable, decision rule, or prediction follows"
             ),
             "paper_ref": "spacetime paper, bounded algebraic event-frame soldering",
         },

@@ -130,7 +130,7 @@ def test_renamed_row_rejected() -> None:
 def test_dropped_row_rejected() -> None:
     register = _register()
     register["rows"].pop()
-    with pytest.raises(SystemExit, match="exactly 84 entries"):
+    with pytest.raises(SystemExit, match="exactly 83 entries"):
         register_tool.validate(register)
 
 

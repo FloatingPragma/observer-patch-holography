@@ -16,11 +16,11 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Antimatter.** For every list of matter states there is a mirror list with every charge reversed. The two are one object, and a world built on either gets the same physics with the labels swapped.
 
-**Area law.** The surface around a region fixes how much can be known about the inside of it, and the volume does not come into it. Twice the radius buys four times the capacity where counting by volume promises eight.
+**Area law.** A black-hole horizon's entropy is fixed by its area, and suitable gravitational entropy bounds constrain more general regions. The finite observer model separately bounds outside access by boundary records. Equating that count with physical entropy or area requires a realized screen and a calibration.
 
 **Bit.** The answer to one well-chosen yes-or-no question, and the unit anything measured in questions is counted in. Erasing one releases heat, and how much depends on nothing about the device, only on the temperature around it.
 
-**Carrier.** The wiring underneath everything: twelve ports at the corners of a twenty-sided solid, thirty seams joining them, twenty triangular faces. Every number in the physics is read off that arrangement.
+**Carrier.** The finite wiring used by the construction: twelve ports at the corners of a twenty-sided solid, thirty seams joining them, twenty triangular faces. It supplies exact structural numbers. Physical constants require their separate carrier and calibration maps.
 
 **Center.** What commutes with everything else in sight. In an algebra of questions it is where records live, which is why the public world looks classical; in a group of moves it is the moves nobody inside can detect.
 
@@ -30,11 +30,11 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Chirality.** Handedness. A pattern with a heading and a spin either turns the way a right-handed screw advances or turns the other way; a mirror swaps the two cases, and the world treats them differently.
 
-**Collar.** The thin band of patches wrapped around a region's edge, with the region inside it and everything else beyond. When a collar screens, the inside can be rebuilt from the collar alone, and what a region can hold is a count taken across that band rather than through the volume behind it.
+**Collar.** The thin band of patches wrapped around a region's edge, with the region inside it and everything else beyond. When a collar screens, the inside can be rebuilt from the collar alone, and outside access is controlled by data across that band. Turning the count into physical entropy or area requires a separate calibration.
 
 **Commensurability.** Whether two observers' readings answer each other at all. The rule saying which of your readings answers which of mine sits on the seam between us.
 
-**Commit.** The write that closes a disagreement: the seam ends up satisfied, the total across it unchanged, and the record of which way the disagreement ran gone. Everything anybody calls the passing of time is made of these.
+**Commit.** The write that closes a disagreement: the seam ends up satisfied, the total across it unchanged, and the record of which way the disagreement ran gone. Commits supply informational precedence and irreversibility. Physical elapsed time and clock rate require a separate causal and clock attachment.
 
 **Commutator.** What you get by doing two operations in both orders and subtracting. Zero means the two questions can be answered together, and anything else is the amount by which they cannot.
 

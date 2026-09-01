@@ -6,8 +6,11 @@ import Time.TimeOrderLedger
 This module provides the first bounded D1 construction above the A1 type
 ledger.  A `RankedHistory` is an observer record order together with an
 explicit natural-number rank that strictly increases on that order.  Such a
-rank produces a monotone real clock coordinate.  The rank is supplied data:
-no record order is claimed to admit one, and no physical duration is inferred.
+rank can populate the abstract monotone `ClockReadout` interface. The rank is
+supplied data: no record order is claimed to admit one, and no physical
+duration is inferred. This generic D1 rank is neither the semantic-provenance
+ancestry witness nor the canonical source height used only in finite event
+placements into the independently defined ambient Lorentz target.
 
 The canonical `Fin n` chain is a nonvacuous finite model.  A separate discrete
 control shows why the existence of a `ClockReadout` alone does not establish
@@ -29,7 +32,8 @@ structure RankedHistory (Record : Type u) where
 
 namespace RankedHistory
 
-/-- The natural rank, cast to the reals, is a monotone clock coordinate. -/
+/-- The natural rank, cast to the reals, is an abstract monotone readout.
+It is not thereby a physical clock or event-time coordinate. -/
 def clock {Record : Type u} (history : RankedHistory Record) :
     ClockReadout history.order where
   read record := history.rank record

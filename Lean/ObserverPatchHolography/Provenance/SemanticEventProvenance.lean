@@ -18,12 +18,13 @@ parent's post-state.
 
 The generated causal order is the transitive closure of authenticated
 direct-parent edges.  `SemanticEventLog` remains the abstract certificate
-interface and therefore carries a well-founded rank witness.  The executed
-history bridge in `HistoryCausalInvariance.lean` constructs this interface
-from a fresh duplicate-free threaded log and derives the rank from commit
-position; producers should use that bridge rather than supply an unrelated
-rank.  The closure is the least strict transitive relation containing every
-authenticated edge.
+interface and therefore carries a well-founded rank witness.  On a finite
+event carrier, `sourceHeight` then computes a canonical longest-parent-path
+rank from authenticated parenthood itself: roots have height zero and every
+other event has one plus the maximum height of its direct parents.  The
+original rank is used only to justify termination of that recursion; it does
+not occur in the defining equation.  The closure is the least strict
+transitive relation containing every authenticated edge.
 
 The ancestry rank is a well-foundedness witness for the append-only semantic
 ledger.  It is not a repair schedule, modular parameter, clock reading,
@@ -177,12 +178,107 @@ def GeneratedBefore (c d : EventId) : Prop :=
 def GeneratedBeforeEq (c d : EventId) : Prop :=
   c = d ∨ L.GeneratedBefore c d
 
+/-! ## Canonical finite longest-path rank -/
+
+/-- The source-derived height of a finite semantic event: zero for a root,
+and one plus the maximum source height of its authenticated direct parents.
+
+The pre-existing `SemanticEventLog.rank` appears only in the termination
+argument.  The recursive equation depends solely on `ParentEdge`, so this is
+the canonical longest-path rank of the finite authenticated DAG rather than
+an execution-position or externally selected clock coordinate. -/
+noncomputable def sourceHeight [Fintype EventId] [DecidableEq EventId]
+    [DecidableEq Value] (e : EventId) : ℕ :=
+  Finset.univ.sup fun p ↦
+    if L.ParentEdge p e then sourceHeight p + 1 else 0
+termination_by L.rank e
+decreasing_by
+  exact L.rank_lt_of_parent (by assumption)
+
+/-- Unfolded source-height equation, exposed so downstream certificates can
+replay the longest-parent-path recursion without referring to the termination
+witness. -/
+theorem sourceHeight_eq [Fintype EventId] [DecidableEq EventId]
+    [DecidableEq Value] (e : EventId) :
+    L.sourceHeight e = Finset.univ.sup fun p ↦
+      if L.ParentEdge p e then L.sourceHeight p + 1 else 0 := by
+  rw [sourceHeight]
+
+/-- Every authenticated direct parent has strictly smaller canonical source
+height. -/
+theorem sourceHeight_lt_of_parent [Fintype EventId] [DecidableEq EventId]
+    [DecidableEq Value] {c d : EventId} (h : L.ParentEdge c d) :
+    L.sourceHeight c < L.sourceHeight d := by
+  rw [L.sourceHeight_eq d]
+  have hle : L.sourceHeight c + 1 ≤
+      (Finset.univ.sup (fun p ↦
+        if L.ParentEdge p d then L.sourceHeight p + 1 else 0) : ℕ) := by
+    simpa [h] using
+      (Finset.le_sup
+        (s := (Finset.univ : Finset EventId))
+        (f := fun p : EventId ↦
+          if L.ParentEdge p d then L.sourceHeight p + 1 else 0)
+        (Finset.mem_univ c))
+  simpa [h] using hle
+
+/-- Canonical source height is zero exactly at authenticated roots. -/
+theorem sourceHeight_eq_zero_iff [Fintype EventId] [DecidableEq EventId]
+    [DecidableEq Value] (e : EventId) :
+    L.sourceHeight e = 0 ↔ ∀ p, ¬ L.ParentEdge p e := by
+  constructor
+  · intro hzero p hp
+    have hlt := L.sourceHeight_lt_of_parent hp
+    rw [hzero] at hlt
+    exact Nat.not_lt_zero _ hlt
+  · intro hroot
+    rw [L.sourceHeight_eq e]
+    simp [hroot]
+
+/-- Re-rank a finite semantic log by its canonical longest authenticated
+parent path.  Commit data, parent edges, and generated precedence are left
+unchanged; only the well-foundedness witness is replaced. -/
+noncomputable def withSourceHeight [Fintype EventId] [DecidableEq EventId]
+    [DecidableEq Value] : SemanticEventLog Register Value EventId where
+  commitOf := L.commitOf
+  commitOf_eventId := L.commitOf_eventId
+  rank := L.sourceHeight
+  rank_lt_of_parent := L.sourceHeight_lt_of_parent
+
+@[simp] theorem withSourceHeight_commitOf [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] (e : EventId) :
+    L.withSourceHeight.commitOf e = L.commitOf e :=
+  rfl
+
+@[simp] theorem withSourceHeight_rank [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] (e : EventId) :
+    L.withSourceHeight.rank e = L.sourceHeight e :=
+  rfl
+
+@[simp] theorem withSourceHeight_parentEdge_iff [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] (c d : EventId) :
+    L.withSourceHeight.ParentEdge c d ↔ L.ParentEdge c d :=
+  Iff.rfl
+
+@[simp] theorem withSourceHeight_generatedBefore_iff [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] (c d : EventId) :
+    L.withSourceHeight.GeneratedBefore c d ↔ L.GeneratedBefore c d :=
+  Iff.rfl
+
 /-- The ancestry rank strictly increases along the generated precedence. -/
 theorem rank_lt_of_generatedBefore {c d : EventId}
     (h : L.GeneratedBefore c d) : L.rank c < L.rank d := by
   induction h with
   | single hedge => exact L.rank_lt_of_parent hedge
   | tail _ hedge ih => exact lt_trans ih (L.rank_lt_of_parent hedge)
+
+/-- Canonical source height strictly increases along the whole generated
+precedence, not only across direct authenticated parents. -/
+theorem sourceHeight_lt_of_generatedBefore [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] {c d : EventId}
+    (h : L.GeneratedBefore c d) : L.sourceHeight c < L.sourceHeight d := by
+  have h' : L.withSourceHeight.GeneratedBefore c d := by
+    simpa using h
+  simpa using L.withSourceHeight.rank_lt_of_generatedBefore h'
 
 /-- The generated precedence is irreflexive. -/
 theorem generatedBefore_irrefl (c : EventId) : ¬ L.GeneratedBefore c c :=
@@ -200,6 +296,42 @@ theorem generatedBefore_asymm {c d : EventId}
   intro h'
   exact lt_asymm (L.rank_lt_of_generatedBefore h)
     (L.rank_lt_of_generatedBefore h')
+
+/-- Reflexivity of the source-generated non-strict order. -/
+theorem generatedBeforeEq_refl (c : EventId) :
+    L.GeneratedBeforeEq c c :=
+  Or.inl rfl
+
+/-- Transitivity of the source-generated non-strict order. -/
+theorem generatedBeforeEq_trans {a b c : EventId}
+    (hab : L.GeneratedBeforeEq a b) (hbc : L.GeneratedBeforeEq b c) :
+    L.GeneratedBeforeEq a c := by
+  rcases hab with rfl | hab
+  · exact hbc
+  · rcases hbc with rfl | hbc
+    · exact Or.inr hab
+    · exact Or.inr (L.generatedBefore_trans hab hbc)
+
+/-- Antisymmetry of the source-generated non-strict order. -/
+theorem generatedBeforeEq_antisymm {a b : EventId}
+    (hab : L.GeneratedBeforeEq a b) (hba : L.GeneratedBeforeEq b a) :
+    a = b := by
+  rcases hab with rfl | hab
+  · rfl
+  · rcases hba with rfl | hba
+    · exact False.elim (L.generatedBefore_irrefl _ hab)
+    · exact False.elim (L.generatedBefore_asymm hab hba)
+
+/-- Exact finite-order receipt: reflexive authenticated ancestry is a partial
+order derived from source provenance, not a freely declared order. -/
+theorem generatedBeforeEq_isPartialOrder :
+    (∀ e, L.GeneratedBeforeEq e e) ∧
+    (∀ a b c, L.GeneratedBeforeEq a b → L.GeneratedBeforeEq b c →
+      L.GeneratedBeforeEq a c) ∧
+    (∀ a b, L.GeneratedBeforeEq a b → L.GeneratedBeforeEq b a → a = b) :=
+  ⟨L.generatedBeforeEq_refl,
+    fun _ _ _ hab hbc ↦ L.generatedBeforeEq_trans hab hbc,
+    fun _ _ hab hba ↦ L.generatedBeforeEq_antisymm hab hba⟩
 
 /-- The generated precedence packaged as the A1 observer-record order type:
 strict order data on event identifiers, produced from provenance rather
@@ -289,6 +421,12 @@ theorem raw_writer_label_is_not_authenticated :
 end ForgedWriterControl
 
 #print axioms SemanticEventLog.rank_lt_of_generatedBefore
+#print axioms SemanticEventLog.sourceHeight_eq
+#print axioms SemanticEventLog.sourceHeight_lt_of_parent
+#print axioms SemanticEventLog.sourceHeight_eq_zero_iff
+#print axioms SemanticEventLog.sourceHeight_lt_of_generatedBefore
+#print axioms SemanticEventLog.generatedBeforeEq_isPartialOrder
+#print axioms SemanticEventLog.withSourceHeight
 #print axioms SemanticEventLog.generatedBefore_irrefl
 #print axioms SemanticEventLog.generatedBefore_asymm
 #print axioms SemanticEventLog.generatedRecordOrder

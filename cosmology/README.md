@@ -2,7 +2,7 @@
 
 This directory develops the cosmological continuation of Observer Patch Holography: repair-charge dark gravity, finite-source primordial structure, observer-screen synchronization, Boltzmann transport, and direct comparison with public cosmological data.
 
-The main OPH papers establish the structural observer, geometry, gravity, and matter branches. These focused companions carry the additional source laws, transfer maps, calibration, and likelihood contracts needed to turn that structure into cosmological observables.
+The main OPH papers establish exact finite observer, source-causal, rank-three carrier, symmetry, and matter structures, together with conditional physical spacetime and gravity promotions. These focused companions carry the additional source laws, common physical refinement, transfer maps, calibration, and likelihood contracts needed to turn those structures into cosmological observables.
 
 ## Paper Map
 
@@ -23,7 +23,7 @@ finite-window bound. The
 [simulator contract](../code/cosmology/SIMULATOR_RADIAL_CONTRACT_330.md)
 specifies the fail-closed evidence split used by finite runs.
 
-The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the unsupplied source, lift, stress, abundance, transfer, and likelihood inputs in one place.
+The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the unsupplied physical-event, faithful-placement, count--volume, continuum, source, lift, stress, abundance, transfer, and likelihood inputs in one place.
 
 ## Dark-Gravity Structure
 

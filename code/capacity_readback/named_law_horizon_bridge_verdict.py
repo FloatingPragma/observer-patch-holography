@@ -5,8 +5,9 @@ The horizon bridge can only identify an existing named-law global-capacity
 object with an independently constructed horizon record.  The issue-648
 consumer selected no global-capacity branch and explicitly kept the stage
 gate closed.  The horizon lane is therefore not evaluable on this source
-branch.  This result neither rejects an inhabited gravity carrier nor rules
-out a future capacity law satisfying the recorded reopen condition.
+branch. This result neither rejects a future source-selected physical
+causal-manifold and smooth Einstein/de Sitter limit nor rules out a capacity
+law satisfying the recorded reopen condition.
 """
 
 from __future__ import annotations
@@ -104,10 +105,10 @@ def build() -> dict[str, Any]:
             "comparison_permitted": False,
         },
         "unaffected_issue": {
-            "issue": 503,
+            "issue": 729,
             "statement": (
-                "the independent inhabited Einstein/de Sitter carrier campaign "
-                "keeps its own theorem-or-no-go scope"
+                "the independent source-causal curvature and smooth Einstein/de Sitter "
+                "closure keeps its own theorem-or-no-go scope"
             ),
         },
         "reopen_condition": (

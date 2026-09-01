@@ -208,37 +208,55 @@ surface for the OPH consensus layer. Contents:
   generated order and causal intervals through a supplied edge-preserving
   candidate refinement map, with the reversed diamond-to-chain assignment
   inhabiting no receipt. `Geometry/EventPopulationChartInterface.lean`
-  exposes the finite bridge which fixes its old precedence field to the
-  generated reflexive order while retaining atlas, cone, population, and
-  physical attachments as premises.
-  `Geometry/SourceOrderFrameCompatibilityPacket.lean` then composes that supplied
-  chart/cone attachment with the independent rank-three source quotient and
-  explicitly supplied per-event Lorentz-frame transports. It proves the
-  finite order/cone equivalence and exposes the existing algebraic soldering
-  package (ambient rank four, rank-three rest fibers, Lorentz overlap
-  cocycles, and conditional celestial covariance), together with the exact
-  transported Gram/rest-metric bridge. The source quotient's unit Gram directions are
-  exactly equivalent to the algebraic celestial two-sphere and future-null
-  rays, but are not identified with a physical sky or signal. The packet
-  constructs no inhabitant and derives no Lorentz/conformal group, physical causality, volume law,
-  manifoldlikeness, refinement limit, or continuum.
+  defines only the source-native `SourceDerivedCausalChartInterface`: semantic
+  events are the carrier and generated ancestry is the order, with no separate
+  population map or free precedence field. The finite atlas, visibility,
+  separation, and order/cone attachment remain explicit.
+  The provenance core packages reflexive generated ancestry as a partial
+  order, and `finiteCausalSetAxioms` proves every interval finite at a finite
+  cutoff. These are the abstract causal-set axioms, not a physical-causality
+  or manifoldlikeness theorem.
+  `Geometry/SourceDerivedSpacetimeCarrier.lean` constructs the algebraic
+  carrier `ℝ × FrameQuotient`, proves real dimension four and a displayed
+  `(+---)` Gram matrix, and sends every source-unit spatial direction to a
+  future-null vector and proves its future-cone relation is a partial order.
+  The ambient target is independently `ℝ × FrameQuotient`. Positive
+  `timeScale` times canonical source height gives only the temporal coordinate
+  of a supplied event placement in that target, not a physical event time. A supplied
+  spatial readback and authenticated-edge speed bound imply the generated
+  order is future-causal; exact two-way faithfulness additionally requires the
+  explicit cone-support converse. From that converse the module derives event
+  separation and constructs the one-chart source-native interface. Its
+  Boolean-diamond control is fully non-chain: every parent edge is null and
+  the two independent responses are spacelike.
+  `Geometry/SourceOrderFrameCompatibilityPacket.lean` composes that route
+  with the rank-three quotient/rest bridge and optional per-event Lorentz
+  transports. A standard-frame specialization constructs the complete finite
+  packet without a free frame field, while explicitly making no physical
+  event-frame claim. The Boolean diamond inhabits this packet and all its
+  finite consequences. The source-unit/celestial/future-null-ray equivalences
+  and transported Gram/rest-metric bridge remain algebraic; no theorem
+  identifies them with a physical sky or proves physical causality, a volume
+  law, manifoldlikeness, a refinement limit, or a continuum.
   `Geometry/SourceOrderEinsteinComposition.lean` maps the existing
   coordinate-fixed nine-vector null-tomography frame back to exact
   `SourceUnitDirection` values. The distinguished nine-set is neither
   source/poset-selected nor Lorentz- or `SO(3)`-invariant as a set.
-  Under nine supplied direction balances and supplied symmetric tensor,
-  Ward/Bianchi, connectivity, vacuum-reference, and scale
-  data on the same finite `Event` type,
-  `sourceOrderEinstein_from_source_directions` derives all-null balance and an
-  Einstein-form tensor identity. A universal-source equality is copied into
-  the conclusion for downstream composition but is not used in the tensor
-  equation. The generated order is retained in the
-  packet's finite consequences but is not used in the tensor calculation; no
-  provenance link selects a direction, field, step, or balance. No packet or
-  premise inhabitant is constructed. The supplied `Mat 3`, `eta 3`, and
-  `Fin 4` types fix the tensor-coordinate dimension as supplied data rather than
-  deriving it from the poset. No smooth curvature, physical stress-energy, manifold,
-  count--volume law, refinement, or continuum is constructed.
+  Under nine supplied direction balances, symmetric tensor fields,
+  Ward/Bianchi, and connectivity on the same finite `Event` type,
+  `sourceOrderEinsteinShape_from_minimal_source_directions` derives all-null
+  balance and the pointwise and constant metric ambiguities while omitting six
+  non-load-bearing normalization or source-unification fields. The physically
+  normalized `sourceOrderEinstein_from_source_directions` additionally uses
+  the vacuum-reference and Newton-scale data; its conclusion also carries a
+  source-identification equality that the equation does not use. The
+  generated order is retained in the packet's finite consequences but is not
+  used in the tensor calculation; no provenance link selects a direction,
+  field, step, or balance. The `1+3` carrier is independently constructed, but
+  no theorem identifies its finite differences with the supplied `Mat 3`,
+  `eta 3`, and `Fin 4` tensor/step data. No Einstein-premise inhabitant, smooth
+  curvature, physical stress-energy, manifold, count--volume law, refinement,
+  or continuum is constructed.
   The order is
   informational; invariance over the full admissible implementation class,
   physical causality, spacetime, and every continuum claim stay open.

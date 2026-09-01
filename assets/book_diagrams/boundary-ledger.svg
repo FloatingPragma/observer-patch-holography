@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
-  <title id="title">Boundary ledger encoding candidate event records</title>
-  <desc id="desc">Boundary cells carry correlated record entries. A bulk-event interpretation requires the separate event-manifold receipts.</desc>
+  <title id="title">Boundary ledger carrying source-ordered event records</title>
+  <desc id="desc">Boundary cells carry authenticated record entries. Read-from provenance orders accepted events and determines canonical source height. An independent real axis and the exact rank-three source quotient define the finite 1+3 ambient carrier. Positive timeScale times source height supplies only the temporal coordinate of a separately certified event placement in that carrier, not physical time. A physical bulk manifold requires spatial placement and source-causal continuum certificates.</desc>
   <rect width="960" height="500" fill="#f8f5ef"/>
   <circle cx="480" cy="252" r="175" fill="#fffaf0" stroke="#2e2a25" stroke-width="4"/>
   <circle cx="480" cy="252" r="76" fill="#e8d6ad" stroke="#2e2a25" stroke-width="3"/>
@@ -20,7 +20,7 @@
     <path d="M332 385 C380 335 425 292 480 252"/>
   </g>
   <g font-family="Arial, sans-serif" fill="#2e2a25" font-weight="700">
-    <text x="330" y="256" font-size="24">candidate event</text>
+    <text x="330" y="256" font-size="24">accepted event</text>
     <text x="480" y="456" text-anchor="middle" font-size="21">boundary entries agree by correlation,</text>
     <text x="480" y="482" text-anchor="middle" font-size="21">not by volume storage</text>
   </g>

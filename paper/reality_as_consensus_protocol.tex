@@ -6,6 +6,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage[shortlabels]{enumitem}
 \usepackage{hyperref}
+\usepackage{xurl}
 \input{release_info.tex}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
@@ -2720,12 +2721,14 @@ register's writer, and the child's pre-commit value equals the parent's
 post-commit value. A writer label without the write and value witnesses does
 not create an edge.
 The generated informational order is the transitive closure of these edges.
-Under one ancestry rank that increases across every edge, the generated order is
+Under one abstract ancestry-rank witness that increases across every edge, the generated order is
 irreflexive, transitive, and asymmetric, and it inhabits the same
 strict-order interface the event precedence adapter consumes.  It is the
 least strict transitive relation containing the direct parent edges, so
 an adapter that contains every edge and asserts no comparability beyond
-the generated order carries exactly the generated order.  On the
+the generated order carries exactly the generated order. Geometry does not
+use the numerical values of this acyclicity witness; it recomputes canonical
+source height from authenticated parenthood. On the
 committed chain witness world, a two-commit log generates the declared
 adapter order in full, so the declaration there is a verifier rather than
 a choice.
@@ -2759,8 +2762,11 @@ equivalence-generated swap chain preserves only raw writer
 citation, not arbitrary labeled payloads. Executor stutters are removed
 before commits are formed. A dependent pair marks the boundary: swapping a
 writer past a reader that certifies the written register changes the edge set. On such histories
-the append-only ancestry rank is derived from the execution position
-rather than declared. Under fresh identifiers, duplicate-free execution, and
+the append-only acyclicity rank is derived from the execution position
+rather than declared. Independently of that witness, the geometry layer
+computes a canonical source height from authenticated parenthood alone---zero
+at roots and one plus the maximum direct-parent height otherwise---and proves
+that it strictly increases on every parent edge and generated ancestry. Under fresh identifiers, duplicate-free execution, and
 visible-support hypotheses, a commit writing only outside the visible
 register carrier changes no visible mismatch and supplies no outgoing direct
 raw or authenticated parent edge to a visibly supported child; incoming edges
@@ -2795,65 +2801,66 @@ when a later commit genuinely consumes the earlier record. Its OPH-specific cont
 quotient-visible mismatch, certified read supports, writer-blind static
 scores, and the strict-order interface of the finite event world.
 
-This gives a precise exact-to-conditional chain. For every supplied
-source-order/frame compatibility packet, the finite compatibility theorem
-composes the generated informational order with
-the exact rank-three quotient, algebraic
-\(\mathsf{SourceUnitDirection}\simeq S^2\simeq
-\mathsf{FutureNullRay}\), supplied charts and cones, and supplied event frames,
-while preserving the local rest metric. No inhabitant, physical link
-attachment, event-count density, or refinement family is constructed.
-The source-order Einstein theorem shares that finite event carrier. It replaces
-an all-null balance hypothesis with nine
-supplied balances on fixed algebraic source-direction representatives---the
-inverse images of the existing coordinate-fixed null-tomography frame---and,
-with symmetric fields, discrete Ward/Bianchi identities, connectedness,
-vacuum reference, and scale, derives all-null balance and the
-Einstein-form tensor relation. The nine directions are algebraic
-representatives, not observed provenance links, signals, or sky samples. A
-universal-source equality is carried into the conclusion for downstream
-composition but is not used in the displayed tensor calculation.
-The distinguished nine-set is neither selected by the informational
-poset/source dynamics nor invariant as a set under Lorentz or
-\(\mathrm{SO}(3)\) transformations.
-The informational order shares the finite event type but is not load-bearing
-in the tensor proof; no provenance link selects a direction, field, step, or
-balance, and no packet or premise inhabitant is constructed. The matrix
-fields, four step maps, and \(\eta_3\) are supplied as a pre-existing
-$3+1$-dimensional tensor interface; no event dimension is inferred from the
-poset. Smooth curvature and physical stress-energy require external event-manifold, refinement,
-count--volume, small-ball, and continuum receipts. The separate
-\texttt{composedEinsteinBranch} returns an Einstein-form composition under its
-own inputs; it does not supply those external geometric identifications. The
-exact finite premise reduction does not turn the conditional spacetime output
-into an attained result.
+This gives a precise exact-to-conditional chain. Authenticated semantic
+provenance fixes the finite event carrier and generated order and computes
+that order's canonical longest-parent-chain height. Independently, the exact
+rank-three positive source Gram quotient supplies the spatial carrier. Its
+direct sum with a real axis,
+\[
+ W_{\rm src}=\mathbb R\oplus V_{\rm src},\qquad
+ Q(t,x)=t^2-g_{\rm src}(x,x),
+\]
+is a four-dimensional ambient target carrier with Lorentz inertia \((1,3)\), while source-unit
+directions are exactly its future-null rays. Canonical source height supplies
+only the temporal coordinate of an event placement after positive scaling. A
+supplied spatial readback and edge speed bound then give one-way cone compatibility;
+injectivity and the converse
+cone/order implication give a faithful finite causal embedding and exactly
+preserve every source interval on the placed image. No rank-four
+event chart, fitted signature, or independently declared precedence relation
+enters this precursor theorem; its dimension is not an intrinsic poset-dimension
+estimate. The exact Boolean-diamond inhabitant has null
+parent edges and spacelike independent branches, so the interface is not
+restricted to chains; this finite witness is not a physical continuum.
 
-A separate post-hoc constructive control asks which bounded causal-set
-diagnostics an imposed architecture can realize without promoting the OPH log.
-It uses FCC rank-three gluing with twelve cuboctahedral \(O_h\) ports, exact
-versioned provenance, and nested identity-hash induced orders at depths
-\(8,12,16,20\). At depth \(20\), three frozen thinnings retain
-\(2{,}583\)--\(2{,}746\) events, with ordering fractions
-\(0.10115\)--\(0.10786\). Their flat-control Myrheim--Meyer candidates
-\(3.910\)--\(3.986\) are inversions of those fractions, not independent
-evidence~\cite{reid2003}. The fixture has exact nested orders; on the checked grids its
-spatial carrier-ball counts match the cubic formula for \(0\leq r\leq20\)
-and its fine-carrier counts match the quartic formula for
-\(1\leq n\leq10\) at imposed depth \(2n\)~\cite{ophfpe}. These are
-only bounded depth-\(20\) values and bounded count matches, not an all-radius
-or all-depth theorem. The apparent analytic-profile improvement over depths \(8\)--\(20\)
-uses interval abundance, a standard causal-set locality
-diagnostic~\cite{glasersurya2013}; it was found post hoc and reverses for all
-seeds in an additional out-of-family depth-\(24\) extrapolation
-control~\cite{ophfpe}. At depth \(20\), its matched-Minkowski profile RMS is
-\(0.090083\), versus \(0.002423\) between independent controls, a factor of
-\(37.18\). Held-out confirmation remains unperformed. The count-height slope
-\(3.3867\) and \(H/\lvert I\rvert^{1/4}\) normalization also fail their
-four-dimensional scaling checks. External depth is neither physical volume nor
-poset height. Its gluing and thinning are imposed and are not selected by the
-current federation; fixed \(O_h\) ports are not an \(A_5\)-compatible
-refinement family becoming dense and isotropic on \(S^2\). This is not finite causet similarity, refinement
-convergence, manifoldlikeness, or a physical causal-set or continuum result.
+The source-direction Einstein theorem shares that finite event type but works
+in a separately supplied \(3+1\) tensor interface. Nine fixed
+algebraic source directions, together with supplied symmetric fields,
+an algebraic coupling, four step maps, Ward/Bianchi identities, and
+connectedness, imply
+all-null balance and the finite Einstein-form tensor relation. The directions
+are not observed provenance links, signals, or sky samples, and the order does
+not select a field, step, or balance or identify tensor-coordinate differences
+with those of the constructed carrier. The ambient target-carrier dimension and
+signature are constructed by the carrier theorem; the poset dimension remains
+an independent observable. Interpreting the supplied fields as smooth
+curvature and physical stress requires a source-causal continuum
+certificate with two-way placement, count--volume calibration, independent
+dimension/manifoldlikeness tests, stable topology, refinement convergence,
+and curvature/stress convergence on one family.
+
+The executable audit independently generates and replays every source-history
+cutoff rather than testing an imposed lattice. It proves exact induced-prefix custody for
+the \(4,8,16,32,64\)-round family, from 24 to 384 events. Width remains
+exactly two and ordering fraction rises from \(0.8841\) to \(0.9922\), so
+this is an exact custody family rather than a spacetime-density refinement. On
+the 24-event control, one prescribed map built from positive \texttt{timeScale}
+times canonical source height, authenticated
+record-port anchors, and arithmetic consumed-record barycentres in a single
+stipulated reference frame has coordinate collisions and incomparable pairs at zero
+spatial separation; no global scale makes it injective and order-reflecting.
+The receipt therefore proves source-order custody and falsifies that
+single-frame/barycentre ansatz without claiming that no different physical refinement can
+pass the continuum certificate~\cite{ophfpe}.
+A separate post-hoc exploratory interval audit, frozen after evaluation for exact replay,
+compares the current \(2{,}304\)-event local-domain cut with Poisson-sprinkled
+\(3+1\) Minkowski, de~Sitter flat-patch, and nonmanifold controls. All \(736\)
+qualifying intervals of size \(32\)--\(72\) lie outside the frozen exploratory four-dimensional
+ordering-fraction band, so this captured event semantics is not similar at the
+current cutoff. No OPH density-refinement family or held-out confirmation is
+present; the result is not a physical no-go. The full RER receipt mirror and
+checker are \path{evidence/causet_likeness/causet_likeness_receipt.json} and
+\path{evidence/causet_likeness/verify_causet_likeness_receipt.py}.
 
 \paragraph{Character-block coexistence of regional algebras.}
 For every \(n\ge 2\) the full matrix algebra \(M_n(\mathbb C)\) admits no unital complex-algebra homomorphism into the scalars: the matrix
@@ -3959,8 +3966,8 @@ distances. Euclidean claims require the double-centered Gram test
 B=-\frac12H(D^{\circ2})H\succeq0
 \]
 and noisy runs report negative spectral mass, rank/effective rank, held-out stress, and
-positive/negative controls. Statistical certificates split independent generative batches before
-preprocessing; chart alignment, scaling, imputation, weights, graph construction, dimension
+positive and negative controls. Before preprocessing, statistical certificates split independent
+generative batches. Chart alignment, scaling, imputation, weights, graph construction, dimension
 selection, and thresholds are train/validation objects. Any shared shard batch, seed, boundary
 condition, trajectory family, duplicate, descendant, or repeated test-set inspection blocks the
 held-out theorem. This section certifies a common quotient metric or pseudometric only; physical
@@ -4932,8 +4939,8 @@ B.~M\"uller,
 Holography physics experiments},
 2026.\\
 Source available at \url{https://github.com/muellerberndt/oph-physics-sim}.
-Source-derived causal-order and causet-diagnostic revision:
-\url{https://github.com/muellerberndt/oph-physics-sim/tree/550fe77dc67dc8bef2dd8927bcf72ec98cfa3506}.
+Source-causal and causet-likeness producers, independent verifiers, and frozen receipts:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/6080f3a4045b7cbd821476a0a8fa0a6b57eeeeab}.
 
 \bibitem{ophsynthesis}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim, D.~Matscheko, J.~Hill, W.~T.~Glynn, M.~A.~Visser, and K.~A.~Anirudha,

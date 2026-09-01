@@ -109,26 +109,28 @@
         630
       ],
       "pin": {
-        "bytes": 13252,
+        "bytes": 13417,
         "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/higgs_yukawa_source_frontier.json",
         "role": "nonpromoting scalar and Yukawa source frontier",
-        "sha256": "sha256:eda5cf5846f632d82f69cbb3222f1c0fdf67d22d02416df09e82375f6ace1e54"
+        "sha256": "sha256:f5b508674eb148ab55adb5311d2a53139cbf46c2df53a7ed065ed3ed985b43a7"
       },
       "status": "POSITIVE_SOURCE_ACTION_OPEN"
     },
     {
-      "boundary_id": "inhabited_einstein_tower",
-      "evidence_class": "bounded_local_frontier",
+      "boundary_id": "source_causal_physical_continuum",
+      "evidence_class": "finite_source_causal_precursor",
       "issue_context": [
-        503
+        763,
+        728,
+        729
       ],
       "pin": {
-        "bytes": 8839,
-        "path": "code/geometry/runs/realized_branch_receipt_report.json",
-        "role": "partial Einstein branch receipts without full inhabited antecedent",
-        "sha256": "sha256:88e787bd656692bc7cbb4cabf7db7f80f6979b362ee7d2424be9f577b7bf0ea3"
+        "bytes": 15172,
+        "path": "evidence/source_causal_history_family/source_causal_history_family_publication_projection.json",
+        "role": "exact finite source-causal custody with physical-continuum promotion blocked",
+        "sha256": "sha256:014a81196021c68c7c8b4d8b36f4a8ff9113fcf142b6486795ded71b386c361e"
       },
-      "status": "FULL_INHABITED_ANTECEDENT_NOT_CERTIFIED"
+      "status": "FINITE_SOURCE_CAUSAL_PRECURSOR_ATTAINED__PHYSICAL_CONTINUUM_OPEN"
     },
     {
       "boundary_id": "lorentzian_quantum_eft_transfer",

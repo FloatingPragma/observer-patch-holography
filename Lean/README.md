@@ -51,8 +51,9 @@ Lean/
 │                                       public quotient, and conditional endpoint
 ├── Geometry.lean
 ├── Geometry/                           C1 Hermitian Lorentz module plus the C2
-│                                       algebraic event/frame/celestial/rest soldering
-│                                       contract and candidate source-frame bridge
+│                                       algebraic event/frame/celestial/rest soldering,
+│                                       source-derived finite 1+3 carrier and
+│                                       conditional causal-placement bridge
 ├── QFT.lean
 ├── QFT/                                conditional finite regional-net and
 │                                       restriction-gluing interfaces on declared
@@ -139,8 +140,9 @@ continuous integration recreates it as a real directory.
   set-level celestial quotient, frame/rest-space geometry, and exact Einstein
   coordinate bridge
 - `docs/C2_EVENT_FRAME_SOLDERING.md`: bounded affine/Lorentz overlap-cocycle
-  soldering, quotient descent, candidate source-frame/rest-fiber bridge, and
-  the retained source and physical event-manifold receipts
+  soldering, quotient descent, exact source `1+3` carrier, conditional faithful
+  finite causal placement, candidate source-frame/rest-fiber bridge, and the
+  remaining hypotheses for any physical refinement or smooth-manifold limit
 - `docs/E1_FINITE_CAUSAL_OBSERVER_NET.md`: conditional finite regional-net and
   restriction-gluing interface, its parameterized commutative consistency
   model, and the open coverage, factor-localization, and noncommutative/source

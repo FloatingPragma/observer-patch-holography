@@ -1,6 +1,6 @@
 # 24. Why Does Gravity Look Like Geometry?
 
-The OPH argument in this chapter is a conditional branch theorem. It assumes the physical event manifold and stress attachment, the geometric modular and null bridges, fixed-cap generalized-entropy stationarity, the smooth small-ball formulas, controlled scaling tails, universal coupling, a vacuum reference and physical scale. The finite informational order and carrier calculations in the earlier chapters do not supply that joint antecedent.
+The OPH argument in this chapter is a conditional branch theorem. Independently of event order, a real axis and the rank-three source carrier define an exact one-plus-three ambient target and its Lorentz cone. The finite construction also supplies an authenticated order and its canonical source height computed from direct parent edges; after one explicit positive global scaling, height enters only through an event placement in that target. The precursor is not a smooth spacetime: source height is not a physical clock, and target dimension is not intrinsic poset dimension. The argument assumes that one source-selected refinement turns that precursor into a distinguishing Lorentzian manifold with faithful causal order, calibrated event-count volume, stable topology and smooth curvature. It also assumes the physical stress attachment, the geometric modular and null bridges, fixed-cap generalized-entropy stationarity, the smooth small-ball formulas, controlled scaling tails, universal coupling, a vacuum reference and physical scale.
 
 In the autumn of 1907 Albert Einstein was examining patents in Bern and owed Johannes Stark a review article on relativity for a yearbook of radioactivity and electronics. He was assembling it at his desk in the office when the thought arrived that he described fifteen years afterward, in a lecture in Kyoto on 14 December 1922, as the happiest of his life. If a person falls freely, he will not feel his own weight.
 
@@ -64,9 +64,9 @@ The geometry side. Alfred Gray and Lieven Vanhecke, in *Acta Mathematica* in 197
 
 Set the sum of the two to zero, remembering that the area enters the total entropy divided by four times Newton's constant. Every appearance of the radius cancels. Both fifteens cancel. What is left is eight pi squared on one side against pi over Newton's constant on the other, and the ratio of those two is eight pi times Newton's constant, which is the coupling that stands in front of the stress in the field equation. Conditional on the imported small-ball, temperature, entropy-area and physical-scale normalizations, the coefficient is fixed by the ratio of two elementary integrals rather than fitted as an additional parameter. The finite source-order theorem does not derive those normalizations.
 
-On the branch just named, that gives one of the ten equations in one observer's rest frame. The other nine follow when the event-manifold population receipt supplies observers through the same event in an open set of timelike directions and the overlap law carries the same relation between their frames. Written out in terms of velocity, each relation is a polynomial of degree two. A polynomial that vanishes for every velocity in an open range has every coefficient equal to zero. Ten components then follow from the conditional family of agreeing observers.
+On the branch just named, that gives one of the ten equations in one observer's rest frame. The other nine follow when the effective continuum supplies observers through the same event in an open set of timelike directions and the overlap law carries the same relation between their frames. Written out in terms of velocity, each relation is a polynomial of degree two. A polynomial that vanishes for every velocity in an open range has every coefficient equal to zero. Ten components then follow from the conditional family of agreeing observers.
 
-## The gas law does not know about molecules
+## A gas law without molecules
 
 Jacobson ended his abstract with a sentence that has been irritating people for thirty years: it may be no more appropriate to canonically quantize the Einstein equation than it would be to quantize the wave equation for sound in air.
 
@@ -78,27 +78,11 @@ On that same branch, the 1907 thought is recovered as a conditional theorem. Eve
 
 ## Nine balances in a supplied frame
 
-On the conditional smooth branch, a horizon is traced by null directions and a
-symmetric stress tensor can be evaluated twice on any one of them. That is the
-physical picture behind null tomography. The exact finite theorem, however,
-does not begin with nine observed light rays.
+On the conditional smooth branch, a horizon is traced by null directions and a symmetric stress tensor can be evaluated twice on any one of them. That is the physical picture behind null tomography. The exact finite theorem does not begin with nine observed light rays.
 
-It begins with a supplied 3+1 tensor algebra: matrix-valued geometry and
-stress fields, four supplied step maps and the Minkowski form. A coordinate
-frame of nine null vectors is fixed inside that algebra. The exact
-rank-three-unit-sphere equivalence gives nine algebraic inverse images of that
-frame. Neither the record order nor the source dynamics chooses this
-distinguished nine-set, and the set is not invariant under every rotation or
-Lorentz transformation.
+It begins in a separately supplied three-plus-one tensor interface indexed by the same finite event type used by the source-derived placement: matrix-valued geometry and stress fields, four step maps and the Lorentz form. A coordinate frame of nine null vectors is fixed inside that tensor interface. The exact rank-three unit sphere gives nine algebraic inverse images of that frame. Neither the dependency order nor the source dynamics chooses this distinguished nine-set, and no theorem identifies tensor-coordinate differences with coordinate differences in the constructed carrier. The set is not invariant under every rotation or Lorentz transformation.
 
-The theorem asks for nine balance equalities along those fixed algebraic
-representatives. Given the separately supplied symmetry, discrete
-conservation, connectedness, vacuum-reference and scale conditions, the nine
-equalities imply balance on every null vector and then the Einstein-shaped
-tensor equation on the same finite event set. The informational order shares
-that event set but does no work in the tensor calculation. No record edge
-chooses a direction or a tensor, and no theorem packet or premise bundle is
-constructed.
+The theorem asks for nine balance equalities along those fixed algebraic representatives. Symmetry, discrete conservation and connectedness make them imply balance on every null vector, followed by an Einstein-shaped tensor identity with one constant metric term in that supplied tensor interface on the finite event type. The dependency order shares those events but does no work in the tensor calculation. No dependency edge chooses a direction, a finite-difference operator or a tensor. The vacuum reference, Newton scale and physical normalization belong to the separate gravitational interpretation.
 
 Why can nine equalities suffice? Take the six coordinate vectors pointing
 forward and backward along one spatial axis at a time, then three tilted
@@ -109,8 +93,9 @@ system inverts. This is exact algebra and the inversion is stable. Calling
 these nine supplied equalities nine measurements would add a physical
 direction-selection and instrument theorem that the finite result does not
 contain. Turning the matrix fields into smooth curvature and physical stress
-requires the event-manifold, link-direction, count-to-volume, refinement and
-continuum conditions named at the start of the chapter.
+requires the faithful placement, link-direction, count-to-volume, topology,
+refinement and curvature-convergence conditions named at the start of the
+chapter.
 
 ## The vacuum and the tenth number
 
@@ -138,6 +123,6 @@ Under that physical calibration the area is 2.61228 times ten to the minus seven
 
 That uncertainty is where the comparison stops being informative, and worth being plain about which side it sits on. Newton's constant is the least precisely known of the fundamental constants by a wide margin, measured to five figures where the electron's magnetic moment is known to twelve, because gravity is feeble and everything in the laboratory has mass. A derived value landing inside a window that wide is a weak test passed, not a decimal place matched. MICROSCOPE measured gravity's indifference to what falls at one part in a thousand million million, and the strength of the thing being indifferent is known to twenty-two parts per million, ten orders of magnitude worse, because a difference between two cylinders nulls out everything the two have in common and a magnitude has to be assembled out of a kilogram, a meter and a second.
 
-On a branch carrying all of the physical and continuum inputs, the effective geometric account would have ten numbers at every point, a rule fixing how they answer to what is there, the small-ball coefficient and a calibrated area scale. The current finite theorems do not complete that branch: they do not construct the event manifold, identify their matrix field with curvature, prove count-to-volume calibration or select the physical scale. Conditional on those attachments, curvature is what a settled network of observers looks like from a distance, free fall is going straight ahead, and the two walkers on the equator were doing physics the whole way to the pole.
+On a branch carrying all of the physical and continuum inputs, the effective geometric account has ten numbers at every point, a rule fixing how they answer to what is there, the small-ball coefficient and a calibrated area scale. The finite theorems construct a four-dimensional ambient Lorentzian carrier and its source-generated cone, but do not derive the event poset's intrinsic dimension, identify their matrix field with smooth curvature, prove count-to-volume calibration or select the physical scale. Conditional on the common refinement and those attachments, curvature is what a settled network of observers looks like from a distance, free fall is going straight ahead, and the two walkers on the equator were doing physics the whole way to the pole.
 
 And nothing is standing in it. A geometry can be told how much energy and momentum is present at a point, which is all the field equation ever asks. It cannot be told why what is present comes in exactly three kinds of interaction, one of them with eight varieties, or why the twelve ports of chapter fourteen have room for those and for nothing else.

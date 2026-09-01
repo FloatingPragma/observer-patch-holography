@@ -3,7 +3,10 @@
 This index covers GitHub issue #578. The Lean modules mechanize exact finite
 algebra and the composition *conditional on* the listed continuum,
 asymptotic, and physical inputs. They do not construct an inhabited
-Einstein-admissible source tower.
+Einstein-admissible source tower. A separate finite source-order path now
+constructs an exact `1+3` algebraic carrier and an explicit faithful non-chain
+control; it does not construct the tensor fields or continuum tower consumed
+by the Einstein branch.
 
 Toolchain: `leanprover/lean4:v4.29.1`, Mathlib `v4.29.1`. The CI build imports
 `EinsteinBranch/AxiomAudit.lean`, which applies `assert_no_sorry` to every
@@ -40,6 +43,14 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 | `continuumEinstein_from_explicit_premises` | `thm:absolute-einstein-base-condition` | conditional physical composition | Ward/Bianchi constancy is fixed by VR and the coupling is translated by the independent scale premise. |
 | `composedEinsteinBranch` | `thm:einstein-branch-entry-composed` | composed conditional theorem | Returns the boundary/readout, first-law, MaxEnt, small-ball, common-tail, universal-source, dependency, and Einstein certificates from explicit premises. It proves no premise truth and no tower nonemptiness. |
 | `composedEinsteinAdmissibleTower` | `thm:einstein-branch-entry-composed` | bundled composed theorem | The same conditional implication with the finite/common-domain receipts supplied by an explicit `EinsteinAdmissibleTower` value. |
+| `SourceDerivedSpacetime.sourceCarrier_one_three_signature` | finite source-carrier precursor | exact finite algebra | `ℝ × FrameQuotient` has real dimension four and an explicitly displayed `(+---)` Gram matrix. This is an algebraic carrier, not a manifold. |
+| `Provenance.SemanticEventLog.generatedBeforeEq_isPartialOrder`, `finiteCausalSetAxioms` | finite source-causal order | exact finite order theory | Reflexive authenticated ancestry is a source-derived partial order, and every interval is finite at each finite cutoff. These are the abstract causal-set axioms, not a physical-causality or manifoldlikeness theorem. |
+| `SourceDerivedSpacetime.sourceCausalLE_isPartialOrder` | ambient Lorentz-cone order | exact finite algebra | The future-cone relation on the constructed `ℝ × FrameQuotient` target is a partial order. |
+| `SourceDerivedSpacetime.RankSpatialCausalPlacement.generatedBefore_sourceCausalLE` | finite source-order precursor | exact conditional finite theorem | The ambient target is independently `ℝ × FrameQuotient`. Positive `timeScale` times canonical source height gives only the temporal coordinate of the supplied event placement, not a physical event time. A supplied spatial readback and authenticated-edge speed bound send every generated ancestry comparison into the future cone. |
+| `SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.generatedBeforeEq_iff_sourceCausalLE`, `mem_interval_iff_sourceCausalInterval` | finite faithful-embedding precursor | exact conditional finite theorem | The explicit cone-support converse upgrades the forward map to exact two-way order/cone agreement and event separation; every finite source interval is exactly the corresponding interval among placed event points. |
+| `SourceDerivedSpacetime.BooleanDiamondPlacement.exactDiamondConeOrder`, `sourceOrderFramePacket_consequences` | finite non-chain control | exact constructed witness | The authenticated Boolean diamond inhabits the full standard-frame finite packet; all parent edges are null and its independent responses are spacelike. The standard gauge is not a physical event-frame derivation. |
+| `SourceDirectionEinsteinShapePremises.constantMetricAmbiguity` | finite Einstein-shape algebra | exact conditional algebra | Nine source-direction balances, symmetric tensors, Ward/Bianchi, and connectivity imply one constant metric ambiguity without entropy-source, Newton, vacuum-reference, or physical-scale fields. |
+| `sourceOrderEinsteinShape_from_minimal_source_directions` | finite same-event-type composition | exact conditional composition | Combines the finite source-order/frame consequences with a separately supplied tensor interface. The order does not construct or enter the tensor fields, steps, balances, or conservation laws, and no coordinate-difference identification with the constructed carrier follows. |
 
 ## Premises deliberately not proved
 
@@ -60,6 +71,9 @@ manifest. They are not Lean axioms: they are ordinary theorem arguments.
 | Universal coupling (`UC`) | `ContinuumEinsteinPremises.universalCoupling` | The entropy and null channels must use the same stress source. |
 | Vacuum reference (`VR`) | `ContinuumEinsteinPremises.vacuumReference` | Fixes the otherwise undetermined metric residue. |
 | Independent physical scale | `ContinuumEinsteinPremises.physicalScale`, manifest stabilizer key | Identifies `kappa=8pi G`; SI conversion is separate. |
+| Generic spatial event placement and edge-speed certificate | `RankSpatialCausalPlacement.spatial`, `edge_speed_sq` | The finite forward order-to-cone theorem does not select spatial coordinates or prove the speed bound. |
+| Generic cone-support converse | `FaithfulRankSpatialCausalPlacement.cone_supported` | Required for two-way faithfulness. It is proved only for the explicit Boolean-diamond control, not for a refinement family or physical event set. |
+| Order-to-tensor identification | no constructor or theorem | The exact `1+3` source carrier is not yet identified with the supplied `Mat 3`, `eta 3`, and `Fin 4` tensor/step data. |
 | Inhabited Einstein-admissible tower | no constructor or theorem | Open source-construction/certification problem. |
 
 ## Receipt non-vacuity and deletion boundary

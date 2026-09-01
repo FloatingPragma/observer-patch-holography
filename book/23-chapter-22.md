@@ -113,10 +113,10 @@ Nothing is violated by that. The second law is about the distance between a desc
 
 The bit had to go somewhere. It leaves the two observers as heat, at least the temperature times the logarithm of two of it, at whatever temperature the pair's own state sets, which is the multiplier in its own exponential. Chapter sixteen showed that a commit discards which of seven arrangements the seam used to hold, and priced it at 2.807 bits of the world's ability to say what it used to hold. The same commit has an energy attached: 2.807 bits of erasure at three hundred kelvin costs 8.06 divided by ten to the twenty-first joules, expelled as heat, per seam, per commit, forever, everywhere in a universe that is making a public record out of private disagreements.
 
-## Five instruments, one quantity
+## Five entropy readings
 
-The same number has been read off five different instruments by five sets of people who did not know they were measuring the same thing.
+The same entropy mathematics appears in five kinds of reading, though the physical dictionaries connecting them have to be supplied and tested.
 
-An engine reads it as the heat it took in divided by the temperature it took it at. That ratio is what Carnot's ceiling is a statement about. A gas reads it as Boltzmann's count of the arrangements a coarse description fails to distinguish. A memory reads it as Shannon's count of the questions it takes to identify what is stored, and Landauer's price per question. A horizon reads it as an area, in square meters, the strangest of the five. And a public record reads it as what a settled disagreement threw away, the one this world is built out of.
+An engine reads entropy through heat and temperature. A gas reads it through Boltzmann's count of arrangements. A memory reads a Shannon count of questions, with Landauer giving a lower heat cost for physical erasure. A black-hole horizon carries the Bekenstein-Hawking entropy fixed by its area. A commit loses alternatives from an informational record. These quantities share formal relations, but the finite record count becomes horizon entropy only after a physical carrier, temperature, energy and entropy map identifies the two readings.
 
-Every record ever written has been paid for in heat, at the temperature of whatever wrote it. The heat leaves through the edge of the region holding the record, putting a bill on the edge rather than on the volume inside it. Ask how many records a region of space can hold, and the answer comes back in square meters.
+A logically irreversible physical write has a Landauer lower cost when its device and thermal environment satisfy the law's premises. The finite observer model counts discarded alternatives and boundary channels without supplying that laboratory realization. A record count comes back in square meters only on a separate horizon-record branch that calibrates the count against physical entropy and area.

@@ -2,7 +2,7 @@
   "schema": "oph.gravity_premise_ladder.v1",
   "issue": 618,
   "generated_surface": "docs/GRAVITY_PREMISE_LADDER.md",
-  "policy": "Recovery, generalized entropy, stationarity, focusing, vacuum choice, and metrological scale are named interfaces or theorem targets rather than axioms. Every rung carries a typed premise packet, a theorem or countermodel, and a deletion or mutation test; no rung is promoted from A2 naturality or A3 optimization alone; fixed-cutoff, continuum-limit, and physical-identification claims stay distinct; an open or independent rung does not erase the exact finite gravity mathematics below it.",
+  "policy": "Recovery, generalized entropy, stationarity, focusing, source-causal continuum promotion, curvature identification, vacuum choice, and metrological scale are named interfaces or theorem targets rather than axioms. Every rung carries a typed premise packet, a theorem or countermodel, and a deletion or mutation test; no rung is promoted from A2 naturality or A3 optimization alone; the exact finite one-plus-three precursor, continuum limit, smooth-curvature interpretation, and physical identification stay distinct; an open or independent rung does not erase the exact finite gravity mathematics below it.",
   "rungs": [
     {
       "rung": 1,
@@ -284,16 +284,22 @@
     },
     {
       "rung": 9,
-      "title": "Composed small-ball tensor theorem",
+      "title": "Source-causal continuum attachment and composed small-ball tensor theorem",
       "status": "conditional_open_interface",
       "premise_interfaces": [
         "fixed_volume_small_ball_variation"
       ],
       "assumption_tokens": [
+        "source_causal_continuum_certificate",
         "smooth_lorentzian_small_ball_regime",
         "fixed_volume_small_ball_area_identity"
       ],
       "theorem_or_countermodel": [
+        {
+          "kind": "lean",
+          "module": "Lean/Geometry/SourceDerivedSpacetimeCarrier.lean",
+          "declaration": "sourceCarrier_one_three_signature"
+        },
         {
           "kind": "lean",
           "module": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
@@ -312,16 +318,24 @@
       ],
       "mutation_tests": [
         {
+          "path": "tools/test_source_derived_causal_order_surfaces.py",
+          "name": "test_lean_package_and_umbrellas_are_wired"
+        },
+        {
           "path": "code/geometry/test_einstein_closure_receipts.py",
           "name": "test_consistent_charges_reconstruct_tracefree_part_exactly"
         }
       ],
       "paper_anchors": [],
       "claim_ids": [
+        "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
         "OPH-GR-D5",
         "OPH-GR-D5A-ABSOLUTE-EINSTEIN"
       ],
-      "owner_issues": []
+      "owner_issues": [
+        728,
+        729
+      ]
     },
     {
       "rung": 10,
@@ -349,10 +363,6 @@
         {
           "path": "code/geometry/test_einstein_closure_receipts.py",
           "name": "test_baseline_invisible_to_first_variations"
-        },
-        {
-          "path": "code/geometry/test_einstein_closure_receipts.py",
-          "name": "test_realized_branch_report_status_is_open"
         }
       ],
       "paper_anchors": [],
