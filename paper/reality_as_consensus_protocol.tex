@@ -4552,14 +4552,38 @@ strictly descends on every genuine step; arbitrary attempts stabilize, and
 pathwise weak fairness promotes the stable state to consensus.  Same-input
 normal endpoints have one output.  A one-member fair-stuttering control shows
 why the historical weak relation itself cannot support that conclusion.
+The execution continuation makes the remaining mathematical scheduler and
+cost boundary exact.  Tail-relative pathwise weak fairness is equivalent to
+eventual stable consensus on a fixed run; the reverse is vacuous after stable consensus
+and supplies no recurrence.  Member and register-site recurrence coincide at
+the generated-node granularity because output registers are unique, while an
+actual stable-consensus schedule proves recurrence remains strictly stronger
+than tail fairness.  A state-blind round-robin function is recurrent,
+pathwise weak-fair, and bounded-waste, so at least one explicit mathematical
+scheduler reaches the correct same-input output.
+
+The actual \texttt{go} compiler has at most one downstream consumer per
+generated register.  Linear defect weights therefore bound every canonical
+accepted path by \(n(n+1)/2\) for \(n\) emitted nodes.  A recursively nested
+NAND family from that compiler has a consensus-reaching path with
+\(8m+1=n^2+8n\), making the same-metric classification order-sharp
+\(\Theta(n^2)\), not constant-sharp.  Arbitrarily long finite stuttering
+prefixes remain pathwise weak-fair, so weak fairness gives no uniform attempt
+horizon.  A separately supplied fixed-node bounded-waste value \(q\) gives a
+stable horizon of \((q+1)n(n+1)/2\); round robin supplies \(q=n-1\).  The
+bounded-waste counting proof is shared with the adaptive route through a
+neutral ranked-attempt theorem, while the two domain adapters and scientific
+claims remain distinct.
 Separately, a width-five permutation word program is fixed independently of
 the input and evaluates the formula under the stated encoding; the formal
 carrier is the ambient permutation group on five points, and membership of
 every instruction in the alternating subgroup is not a typed theorem.  These
 results establish a fixed finite repair device with accepted nontrivial
-repairs and fair asynchronous convergence.  They do not prove a scheduler
-source, attempt horizon, polynomial overhead, noise stability, physical
-device realization, or identity with the width-five engine.
+repairs and fair asynchronous convergence.  They prove a mathematical
+round-robin function and conditional attempt counts, but no physical scheduler
+source, wall-clock horizon, rate, energy, bandwidth, fee, hardware resource,
+noise stability, physical device realization, finite \texttt{PublicWorld}, or
+identity with the width-five engine.
 
 \paragraph{Refinement and observable boundaries.}
 Theorem~\ref{thm:coarse-grain-consensus} gives an abstract reconciliation

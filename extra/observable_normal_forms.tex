@@ -2375,12 +2375,50 @@ attempt and remain continuously enabled, yet the run stutters forever outside
 consensus because the relation does not require the declared repair to execute.
 Thus fairness cannot compensate for a step semantics that counts a no-op.
 
+\begin{theorem}[Fixed-federation execution classification]
+\label{thm:fixed-federation-execution-classification}
+For a well-formed generated-node federation and a fixed attempt run, pathwise
+weak fairness holds if and only if the run eventually reaches a stable
+consensus.  The reverse implication is vacuous after consensus: no node can
+remain failing on that stable tail, so it does not imply recurrent selection.
+At the compiler's present node granularity, member recurrence and register-site
+recurrence coincide because generated output registers are unique; recurrence
+is nevertheless strictly stronger than tail fairness.  A state-blind
+round-robin scheduler is member- and site-recurrent and reaches the stable
+correct output.
+
+If the emitted program has \(n\) nodes, every canonical genuine accepted path
+has length at most
+\[
+  \frac{n(n+1)}{2}.
+\]
+An actual recursively nested NAND family emitted by the same compiler has a
+consensus-reaching accepted path of length \(m\) satisfying
+\[
+  8m+1=n^2+8n.
+\]
+Thus the accepted-step classification is order-sharp
+\(\Theta(n^2)\) in one node-count metric; the finite upper and lower constants
+are not claimed equal.  Weak fairness alone supplies no uniform finite attempt
+horizon.  If a supplied fixed-node scheduler instead has bounded waste \(q\),
+stable consensus is reached within
+\((q+1)n(n+1)/2\) attempts.  Round robin discharges this premise with
+\(q=n-1\), and the Tower consumer returns the same-input unique output.
+\end{theorem}
+
+The bounded-waste counting theorem is shared with the canonical adaptive
+repair route through a neutral ranked-attempt interface.  Each domain proves
+its own run and quiescence equivalence, and each Tower receiver calls the
+shared theorem.  This is code and proof reuse, not a claim that adaptive
+scheduler waste and fixed-compiler repair work are the same scientific
+quantity.
+
 The endpoint statement uses the immutable input prefix as the protected
 observation and output-register equality as the endpoint equivalence.  Unused
-natural-number registers are not identified.  No scheduler is selected, no
-attempt budget or complexity bound is proved, and no physical device, finite
-\texttt{PublicWorld} presentation, clock, rate, or resource interpretation is
-constructed.
+natural-number registers are not identified.  The selected round-robin object
+is a mathematical function, not a physical scheduler source.  No physical
+device, finite \texttt{PublicWorld} presentation, clock, rate, energy,
+bandwidth, fee, hardware realization, or raw-state uniqueness is constructed.
 
 \subsection{Limitations}
 
@@ -2406,6 +2444,12 @@ The theory assumes a declared meaningful quotient, consistent set, residual, obs
       premises, weak fairness alone gives no uniform mismatch-only finite attempt bound, and the
       sharp lower bound is family-specific rather than universal over all
       carriers;
+\item fixed-federation pathwise weak fairness is exactly stable consensus only
+      relative to one attempt run and the source-derived eventual-constancy
+      theorem; its reverse is vacuous after stable consensus and does not give
+      recurrence, weak fairness alone has no uniform finite attempt horizon,
+      the accepted-step result is order-sharp rather than constant-sharp, and
+      bounded-waste attempts have no physical unit;
 \item coordinatewise cut comparison is not a scalar score, total order, or
       family-wide optimum, and exact finite transport is not implementation or
       product refinement.

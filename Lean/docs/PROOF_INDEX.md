@@ -297,6 +297,25 @@ Mapping between Lean 4 theorems in this project and statements in
   typed control whose device changes with its input. No scheduler,
   attempt budget, physical resource, complexity, or finite `PublicWorld`
   presentation is constructed.
+- Fixed-federation execution classification
+  (`Computation/FixedFederationExecution.lean`,
+  `Computation/FixedFederationComplexity.lean`,
+  `Computation/FixedFederationExecutionExamples.lean`,
+  `ObserverPatchHolography/Execution/RankedAttemptCapacity.lean`,
+  `Tower/FixedFederationExecutionEndpoint.lean`): pathwise weak fairness is
+  equivalent to eventual stable consensus on each well-formed fixed attempt
+  run, with a vacuous reverse after consensus. Member and register-site
+  recurrence coincide under generated-register uniqueness and are strictly
+  stronger than tail fairness. An explicit state-blind round robin is
+  recurrent, bounded-waste, stable, and correct. Every actual compiler
+  accepted path has length at most `n * (n + 1) / 2`; an actual nested-NAND
+  compiler family supplies a same-metric quadratic lower path, so the result is
+  order-sharp `Theta(n^2)` but not constant-sharp. Weak fairness alone has no
+  uniform finite attempt horizon. A fixed-node bounded-waste premise gives a
+  conditional `(q + 1)`-scaled triangular attempt horizon, and the shared
+  generic theorem is called by both fixed and adaptive Tower consumers. No
+  physical scheduler, clock, rate, energy, bandwidth, fee, hardware, finite
+  `PublicWorld`, or full raw-state uniqueness is constructed.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,
   `EventAlgebra/TwoScalePublicRepair.lean`,

@@ -505,6 +505,12 @@ EXPECTED_ROWS = (
         "structural_rule",
         "axiomatize",
     ),
+    (
+        "PR-85",
+        "bounded waste between fixed node changes",
+        "structural_rule",
+        "axiomatize",
+    ),
 )
 
 DISPOSITION_MEANING = {

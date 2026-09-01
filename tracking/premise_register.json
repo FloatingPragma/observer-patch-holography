@@ -2124,6 +2124,31 @@
         "claims/assumption_dictionary.md": "statement"
       },
       "notes": "The singleton canonical scheduler proves the premise is nonvacuous. The root-only fanout scheduler proves that attempt stabilization without this premise may remain reducible. The one-member historical weak-step fixture shows fairness is insufficient when the counted relation itself permits stutter."
+    },
+    {
+      "id": "PR-85",
+      "name": "bounded waste between fixed node changes",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "From every scheduler index and every non-consensus state of one input-independent fixed node federation, at least one genuine state change occurs among the next q+1 attempts for one declared natural q. Combined with the source-specific triangular potential, the premise yields stable consensus within (q+1) times the triangular node bound. It is not implied by pathwise weak fairness and gives no physical rate or unit.",
+      "consuming_lanes": [
+        750
+      ],
+      "evidence": [
+        "Lean/Computation/FixedFederationComplexity.lean",
+        "Lean/Computation/FixedFederationExecutionExamples.lean",
+        "Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean",
+        "Lean/Tower/FixedFederationExecutionEndpoint.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/Computation/FixedFederationComplexity.lean": "conditional_consumer",
+        "Lean/Computation/FixedFederationExecutionExamples.lean": "no_go",
+        "Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean": "conditional_consumer",
+        "Lean/Tower/FixedFederationExecutionEndpoint.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The state-blind fixedRoundRobinScheduler discharges q = fixedProgram.length - 1 and proves the premise nonvacuous. The arbitrary-delay weak-fair family shows PR-84 does not provide a uniform finite q. Other supplied schedulers must establish their own bounded-waste witness."
     }
   ]
 }

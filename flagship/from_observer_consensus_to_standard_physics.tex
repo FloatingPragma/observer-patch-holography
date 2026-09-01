@@ -1267,9 +1267,26 @@ pathwise weak fairness makes the stable record a consensus with the correct
 output.  Same-input normal endpoints agree on that output through the
 observation-determined normal-form interface.  The historical weak patch-frame
 relation is not strengthened: even its one-member execution can remain fairly
-stuttering forever.  The result supplies neither a physical computer nor a
-scheduler source, attempt budget, complexity bound, or full raw-state
-uniqueness \cite{ophnormalforms,ophconsensus}.
+stuttering forever.
+
+The execution classification sharpens this mathematical layer.  Pathwise weak
+fairness on one fixed attempt run is equivalent to eventual stable consensus;
+the reverse is vacuous on the stable consensus tail and gives no recurrence.
+Member and register-site recurrence coincide because generated output
+registers are unique, but recurrence is strictly stronger than tail fairness.
+A state-blind round-robin function is recurrent and bounded-waste and reaches
+the correct output.  The actual compiler's single-consumer structure bounds
+all genuine accepted paths by \(n(n+1)/2\), while an emitted nested-NAND family
+has a consensus path satisfying \(8m+1=n^2+8n\).  This is an order-sharp
+\(\Theta(n^2)\) result in the same node-count metric, not equality of finite
+constants.  Weak fairness alone has no uniform attempt horizon; bounded-waste
+\(q\) gives the conditional horizon \((q+1)n(n+1)/2\), with round robin
+inhabiting \(q=n-1\).  A neutral ranked-attempt theorem is reused by both this
+fixed route and the adaptive route through distinct adapters and actual Tower
+receivers.  None of these mathematical attempts is a physical computer,
+scheduler source, clock, rate, energy, bandwidth, fee, hardware resource,
+full raw-state uniqueness, or finite \texttt{PublicWorld}
+\cite{ophnormalforms,ophconsensus}.
 
 \subsection{Approximate outputs, refinement, and cost}
 
