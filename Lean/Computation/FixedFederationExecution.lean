@@ -168,6 +168,46 @@ theorem roundRobinScheduler_memberRecurrent
     simp [m, Nat.add_mod, Nat.mod_eq_of_lt i.isLt]
   rw [hindex, hi]
 
+/-- From every starting index, round robin selects any declared member within
+one finite cycle. -/
+theorem roundRobinScheduler_selects_within
+    (L : List Node) (hL : L ≠ [])
+    (member : {n : Node // n ∈ L}) (start : Nat) (s : State) :
+    ∃ offset, offset < L.length ∧
+      (roundRobinScheduler L hL (start + offset) s).1 = member.1 := by
+  obtain ⟨i, hi⟩ := List.mem_iff_get.mp member.2
+  have hlen : 0 < L.length := List.length_pos_iff.mpr hL
+  let a := start % L.length
+  let offset := if a ≤ i.val then i.val - a else L.length - a + i.val
+  have ha : a < L.length := Nat.mod_lt start hlen
+  have hoffset : offset < L.length := by
+    dsimp [offset]
+    split <;> omega
+  have hmod : (start + offset) % L.length = i.val := by
+    rw [Nat.add_mod]
+    rw [Nat.mod_eq_of_lt hoffset]
+    dsimp [offset, a]
+    split
+    · rename_i h
+      have hadd : start % L.length + (i.val - start % L.length) = i.val :=
+        Nat.add_sub_of_le h
+      rw [hadd, Nat.mod_eq_of_lt i.isLt]
+    · rename_i h
+      have hle : start % L.length ≤ L.length := Nat.le_of_lt ha
+      have hadd : start % L.length + (L.length - start % L.length) = L.length :=
+        Nat.add_sub_of_le hle
+      rw [← Nat.add_assoc, hadd, Nat.add_mod_left, Nat.mod_eq_of_lt i.isLt]
+  refine ⟨offset, hoffset, ?_⟩
+  change L.get
+      ⟨(start + offset) % L.length,
+        Nat.mod_lt (start + offset) hlen⟩ = member.1
+  have hindex :
+      (⟨(start + offset) % L.length,
+        Nat.mod_lt (start + offset) hlen⟩ : Fin L.length) = i := by
+    apply Fin.ext
+    exact hmod
+  rw [hindex, hi]
+
 def fixedRoundRobinScheduler {k : Nat} (phi : Formula k) :
     NodeScheduler (fixedProgram phi) :=
   roundRobinScheduler (fixedProgram phi) (fixedProgram_nonempty phi)

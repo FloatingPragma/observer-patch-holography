@@ -503,6 +503,50 @@ def NodeBoundedWaste (L : List Node) (waste : Nat)
       attemptRun L (offset + 1) (fun k x => sigma (start + k) x) s ≠
         attemptRun L offset (fun k x => sigma (start + k) x) s
 
+/-- Round robin is a concrete fixed-node bounded-waste scheduler: from every
+starting index, a non-consensus state sees a genuine change within one cycle. -/
+theorem roundRobinScheduler_boundedWaste
+    (L : List Node) (hL : L ≠ []) :
+    NodeBoundedWaste L (L.length - 1) (roundRobinScheduler L hL) := by
+  intro start s hnotConsensus
+  have hfailure :
+      ∃ member : {n : Node // n ∈ L}, member.1.obs.ok s = false := by
+    by_contra hnone
+    apply hnotConsensus
+    intro o ho
+    obtain ⟨n, hn, rfl⟩ := List.mem_map.mp ho
+    cases hok : n.obs.ok s with
+    | false => exact False.elim (hnone ⟨⟨n, hn⟩, hok⟩)
+    | true => rfl
+  obtain ⟨member, hfail⟩ := hfailure
+  obtain ⟨offset, hoffset, hselected⟩ :=
+    roundRobinScheduler_selects_within L hL member start s
+  have hoffsetLe : offset ≤ L.length - 1 := by omega
+  let tau : NodeScheduler L :=
+    fun k x => roundRobinScheduler L hL (start + k) x
+  by_contra hnoChange
+  push Not at hnoChange
+  have hprefix : ∀ j, j ≤ offset → attemptRun L j tau s = s := by
+    intro j hj
+    induction j with
+    | zero => rfl
+    | succ j ih =>
+        exact (hnoChange j (by omega)).trans (ih (by omega))
+  have htargetChange :
+      attemptRun L (offset + 1) tau s ≠
+        attemptRun L offset tau s := by
+    rw [attemptRun_last_step, hprefix offset le_rfl]
+    simp only [tau]
+    rw [hselected]
+    exact repairNode_ne_self_of_fails member.1 s hfail
+  exact htargetChange (hnoChange offset hoffsetLe)
+
+theorem fixedRoundRobin_nodeBoundedWaste {k : Nat} (phi : Formula k) :
+    NodeBoundedWaste (fixedProgram phi)
+      ((fixedProgram phi).length - 1) (fixedRoundRobinScheduler phi) :=
+  roundRobinScheduler_boundedWaste
+    (fixedProgram phi) (fixedProgram_nonempty phi)
+
 theorem fixedProgram_nodeBoundedWaste_iff_ranked
     {k : Nat} (phi : Formula k) (waste : Nat)
     (sigma : NodeScheduler (fixedProgram phi)) :
@@ -571,6 +615,7 @@ theorem fixedProgram_nodeBoundedWaste_triangle
 #print axioms fixedProgram_atMostOneDownstreamConsumer
 #print axioms canonicalAcceptedStep_linearDefectRank_lt
 #print axioms fixedProgram_acceptedSteps_quadratic
+#print axioms fixedRoundRobin_nodeBoundedWaste
 #print axioms fixedProgram_nodeBoundedWaste_triangle
 
 end
