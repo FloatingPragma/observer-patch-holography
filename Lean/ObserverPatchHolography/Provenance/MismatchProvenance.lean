@@ -76,12 +76,15 @@ def Repairs (d : SemanticCommit Register Value EventId) (e : Overlap) :
     Prop :=
   M.score e d.after < M.score e d.before
 
-/-- A response reads from a commit on an overlap when its certified causal
-support meets the overlap support at a register whose pre-commit writer is
-that commit.  This is version provenance, not timestamp order. -/
+  /-- A response reads from a commit on an overlap when its certified causal
+support meets the overlap support at a register carrying the exact version
+written by that commit.  A writer identifier alone is insufficient: write
+membership and value continuity are part of the witness. -/
 def ReadsFrom (d c : SemanticCommit Register Value EventId) (e : Overlap) :
     Prop :=
-  ∃ a ∈ d.causalSupp ∩ M.support e, d.before.writer a = some c.eventId
+  ∃ a ∈ d.causalSupp ∩ M.support e, a ∈ c.writeSet ∧
+    d.before.writer a = some c.eventId ∧
+    d.before.value a = c.after.value a
 
 /-- The distinguished mismatch-response parent relation: a fresh injection
 whose changed seam version the response reads and repairs. -/
@@ -98,12 +101,22 @@ theorem changes_of_freshInjects
   rw [heq, hzero] at hpos
   exact lt_irrefl 0 hpos
 
-/-- Every mismatch-response edge is a direct semantic parent edge. -/
+/-- Every mismatch-response edge is an authenticated direct semantic
+parent edge. -/
+theorem authenticatedDirectSemanticParent_of_mismatchResponse
+    {c d : SemanticCommit Register Value EventId}
+    (h : M.MismatchResponseParent c d) :
+    AuthenticatedDirectSemanticParent c d := by
+  obtain ⟨e, _, ⟨a, hmem, hwrite, hwriter, hvalue⟩, _⟩ := h
+  exact ⟨a, (Finset.mem_inter.mp hmem).1, hwrite, hwriter, hvalue⟩
+
+/-- Backward-compatible raw-citation consequence of an authenticated
+mismatch-response edge. -/
 theorem directSemanticParent_of_mismatchResponse
     {c d : SemanticCommit Register Value EventId}
-    (h : M.MismatchResponseParent c d) : DirectSemanticParent c d := by
-  obtain ⟨e, _, ⟨a, hmem, hwriter⟩, _⟩ := h
-  exact ⟨a, (Finset.mem_inter.mp hmem).1, hwriter⟩
+    (h : M.MismatchResponseParent c d) : DirectSemanticParent c d :=
+  directSemanticParent_of_authenticated
+    (M.authenticatedDirectSemanticParent_of_mismatchResponse h)
 
 /-- A commit whose write set misses the overlap support leaves that
 overlap's score unchanged.  Hidden or presentation-only writes create no
@@ -175,20 +188,20 @@ def response (q : VersionedState Bool Bool Bool) :
   frame_writer := by intro a ha; cases a <;> simp at ha
   stamp := by intro a _; rfl
 
-/-- A candidate parent commit carrying the identifier `false`; its own
-snapshots are the trivial agreeing state, and it writes nothing.  Only its
-identifier participates in the countermodel. -/
+/-- A candidate parent commit carrying the identifier `false`.  It genuinely
+writes both displayed versions, so the orientation control does not rely on
+a forged writer label. -/
 def candidateParent : SemanticCommit Bool Bool Bool where
   eventId := false
   before := { value := fun _ => false, writer := fun _ => none }
-  after := { value := fun _ => false, writer := fun _ => none }
+  after := leftAttributed
   readSet := ∅
-  writeSet := ∅
+  writeSet := {false, true}
   causalSupp := ∅
   supp_subset_read := by intro a ha; exact absurd ha (Finset.notMem_empty a)
-  frame_value := fun _ _ => rfl
-  frame_writer := fun _ _ => rfl
-  stamp := by intro a ha; exact absurd ha (Finset.notMem_empty a)
+  frame_value := by intro a ha; cases a <;> simp at ha
+  frame_writer := by intro a ha; cases a <;> simp at ha
+  stamp := by intro a _; rfl
 
 /-- The two snapshots agree on every overlap score, and the score is
 positive: the standing mismatch is statically identical. -/
@@ -206,11 +219,13 @@ theorem scores_agree_and_positive :
 snapshots: the left attribution makes the candidate a direct semantic
 parent of the response, the right attribution does not. -/
 theorem orientation_not_determined :
-    DirectSemanticParent candidateParent (response leftAttributed) ∧
-    ¬ DirectSemanticParent candidateParent (response rightAttributed) := by
+    AuthenticatedDirectSemanticParent candidateParent
+        (response leftAttributed) ∧
+    ¬ AuthenticatedDirectSemanticParent candidateParent
+        (response rightAttributed) := by
   constructor
-  · exact ⟨false, by simp [response], rfl⟩
-  · rintro ⟨a, _, hwriter⟩
+  · exact ⟨false, by simp [response], by simp [candidateParent], rfl, rfl⟩
+  · rintro ⟨a, _, _, hwriter, _⟩
     have : (some true : Option Bool) = some false := hwriter
     simp at this
 
@@ -248,13 +263,14 @@ theorem repairs_without_reading :
       ¬ system.MismatchResponseParent c blindRepair) := by
   constructor
   · simp [MismatchSystem.Repairs, system, blindRepair, leftAttributed]
-  · rintro c ⟨e, _, ⟨a, hmem, _⟩, _⟩
+  · rintro c ⟨e, _, ⟨a, hmem, _, _, _⟩, _⟩
     have ha := (Finset.mem_inter.mp hmem).1
     exact absurd ha (Finset.notMem_empty a)
 
 end UnconsumedInjectionControl
 
 #print axioms MismatchSystem.directSemanticParent_of_mismatchResponse
+#print axioms MismatchSystem.authenticatedDirectSemanticParent_of_mismatchResponse
 #print axioms MismatchSystem.not_changes_of_writes_disjoint
 #print axioms MismatchSystem.score_writer_blind
 #print axioms StaticOrientationControl.scores_agree_and_positive

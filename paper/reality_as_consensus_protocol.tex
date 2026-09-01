@@ -37,7 +37,7 @@ The Fixed-Point Computation That Implements Physics}
 \end{center}
 
 \begin{abstract}
-The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation selects a public normal form, while its updates supply an internal record ordering. Identifying that ordering with cosmic history or a physical clock requires additional bridge data.
+The consensus layer of Observer-Patch Holography (OPH) models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation selects a public normal form, while authenticated read-from provenance generates a finite informational poset. Identifying that order with physical causality, cosmic history, or a clock requires additional bridge data.
 
 The paper proves the finite mechanics used by the companion results:
 validated repair, exact descent, eventual constancy of canonical adaptive
@@ -45,7 +45,7 @@ repair attempts, normality under pathwise weak fairness, schedule-independent
 public endpoints under the remaining completeness and confluence hypotheses,
 a cumulative attempt-capacity classification with a bounded-waste upper
 horizon and an exact work-conserving threshold,
-an event precedence generated from certified read-from provenance with
+an informational event precedence generated from certified read-from provenance with
 exact adapters reduced to verifiers,
 loop obstructions, stable records, refinement control, and a fair-block theorem
 for noisy consensus.
@@ -99,7 +99,7 @@ adaptive attempt stream is eventually constant, isolates pathwise weak fairness 
 normality, proves that no single mismatch-only finite attempt horizon uniformly bounds all normalizing
 schedulers, gives a \((q+1)\)-scaled upper horizon under bounded waste with exact sharpness in the work-conserving case, and identifies completeness and confluence as the remaining hypotheses for one
 canonical public endpoint. It derives event precedence from versioned mismatch
-provenance: certified read-from parenthood generates the strict causal order,
+provenance: certified read-from parenthood generates the strict informational order,
 any exact precedence adapter reduces to a verifier of that order, and a
 writer-blind static mismatch score determines no causal arrow.
 It also proves how boundary data control uniqueness and how cycle
@@ -2275,11 +2275,12 @@ The last claim is visible separation applied to the compatible normal-form and h
 \end{proof}
 
 \begin{remark}[Scope of the refinement theorem]\label{rem:refinement-consensus}
-Theorem~\ref{thm:refinement-consensus} is a controlled continuum bridge. It proves persistence,
+Theorem~\ref{thm:refinement-consensus} is a controlled inverse-limit bridge. It proves persistence,
 exhaustion, and collapse of the consensus data once the OPH refinement system supplies the
 restriction maps and the two naturality clauses in Definition~\ref{def:refinement-consensus}. It
 leaves uniform complexity bounds, automatic fair-block noisy-consensus certificates, and
 automatic normal-form naturality for arbitrary changing repair laws as separate branch conditions.
+It does not identify this inverse limit with a physical continuum or spacetime.
 \end{remark}
 
 \begin{definition}[Repair morphism]\label{def:repair-morphism}
@@ -2713,11 +2714,13 @@ quotient-visible register version carries the identifier of its last
 semantic writer, and each commit certifies the register versions on which
 its acceptance genuinely depends, with frame and stamp laws fixing
 unwritten registers and recording written ones.  One commit is a direct
-semantic parent of another exactly when some certified register of the
-second holds the first commit's version in its pre-commit snapshot.
-The generated causal order is the transitive closure of these edges.
-Under one declared ancestry rank that increases across every edge, a
-witness that the committed ledger is append-only, the generated order is
+semantic parent of another exactly when the child certifies a register that
+the parent wrote, the child's pre-commit snapshot names the parent as that
+register's writer, and the child's pre-commit value equals the parent's
+post-commit value. A writer label without the write and value witnesses does
+not create an edge.
+The generated informational order is the transitive closure of these edges.
+Under one ancestry rank that increases across every edge, the generated order is
 irreflexive, transitive, and asymmetric, and it inhabits the same
 strict-order interface the event precedence adapter consumes.  It is the
 least strict transitive relation containing the direct parent edges, so
@@ -2737,47 +2740,120 @@ misses the support leaves the score unchanged, and a repair whose
 certified support does not cite the injected version acquires no
 injection-to-response edge.  Under dependency-complete read sets, any two
 proposals able to move one seam score overlap read-against-write in both
-directions and land in one aggregate conflict component, so a committed
-seam delta has one aggregate writer; an empty-read countermodel shows the
-completeness clause is load-bearing.  A four-commit log realizes the
+directions and land in one aggregate conflict component. Any aggregation
+map that is constant on conflict components assigns them one aggregate
+label; an empty-read countermodel shows the completeness clause is
+load-bearing. A four-commit log realizes the
 minimal branching interval: one injection, two responses each certifying
 exactly the injected register, and one answer certifying both outputs
 generate the four-element Boolean diamond with incomparable responses,
 while a parent-child pair alone spans the two-element interval.  The
-serialization of the two responses is invisible to the order, because the
+serialization of the two responses is invisible to this order, because the
 second response's snapshot contains the first response's output without
-certifying it.  Executed histories carry three further machine-checked
-controls.  The labeled parent relation is invariant under swapping any
-adjacent pair of commits whose write sets avoid each other and each
-other's certified supports, and under deleting executor stutters, while a
-dependent pair marks the boundary: swapping a writer past a reader that
-certifies the written register changes the edge set.  On such histories
+certifying it. Executed histories carry three further machine-checked
+controls. One adjacent independent swap preserves the authenticated
+direct-parent relation and its transitive closure when the two executions
+both satisfy fresh-ID and duplicate-free hypotheses and the commits' write
+sets avoid each other and each other's certified supports. The general
+equivalence-generated swap chain preserves only raw writer
+citation, not arbitrary labeled payloads. Executor stutters are removed
+before commits are formed. A dependent pair marks the boundary: swapping a
+writer past a reader that certifies the written register changes the edge set. On such histories
 the append-only ancestry rank is derived from the execution position
-rather than declared.  A commit writing only outside the visible register
-carrier changes no visible mismatch and acquires no edge into any commit
-with visible certified support, and a freshly injected mismatch that no
-later commit consumes persists at full strength through every stage.  A
-refinement receipt whose map carries every direct parent edge into the
-coarse reflexive precedence transports the generated order and its causal
-intervals through coincidence merges, and the reversed assignment on the
-committed diamond-to-chain witness inhabits no receipt.  The generated
-order is informational.  Invariance over the full admissible
-implementation class, event separation, physical causal
-faithfulness, and every Lorentzian or continuum statement carry their own
-receipts and are not supplied here.
+rather than declared. Under fresh identifiers, duplicate-free execution, and
+visible-support hypotheses, a commit writing only outside the visible
+register carrier changes no visible mismatch and supplies no outgoing direct
+raw or authenticated parent edge to a visibly supported child; incoming edges
+into the hidden commit are not excluded. A freshly injected mismatch persists at full
+strength through a continuation whose commits never write its overlap
+support. A refinement receipt assumes that its map carries every direct
+parent edge into the coarse reflexive precedence; under that assumption it
+transports the generated order and its causal intervals through coincidence
+merges. The reversed assignment on the committed diamond-to-chain witness
+inhabits no such receipt. The generated order is informational. No theorem
+here supplies invariance over the full admissible implementation class,
+event separation, physical causal faithfulness, or a Lorentzian continuum.
 
-The generated structure meets two established programs.  In causal set
-theory a locally finite partial order is the fundamental spacetime datum
-and a continuum spacetime is recovered only through a faithful-embedding
-limit \cite{bombelli1987,surya2019}, with the causal order determining
-the conformal geometry on the continuum side \cite{malament1977}.  The
-finite order here is generated from record provenance rather than
-posited, and the reconstruction obligations of any continuum limit are
-those of that program.  In distributed computing the generated relation
-is the read-from form of the happened-before order \cite{lamport1978};
-the content added here is its binding to quotient-visible mismatch,
-certified read supports, writer-blind static scores, and the strict-order
-interface of the finite event world.
+The generated structure meets two established programs. In causal set theory,
+a locally finite partial order represents proto-causality
+\cite{bombelli1987,surya2019}. The OPH order is finite and therefore locally
+finite, but its proved interpretation is semantic read-from dependence. It is
+thus causal-set-like rather than a physically attached causal set. A physical
+continuum reading requires a faithful causal embedding, manifoldlikeness and
+dimension, and a rule identifying element count with spacetime volume
+\cite{bombellimeyer1989,brightwellgregory1991,majorrideoutsurya2007}. In a
+past- and future-distinguishing continuum, causal order fixes conformal
+geometry \cite{hawkingkingmccarthy1976,malament1977}; the volume datum fixes
+the conformal factor. The standard Lorentz-invariant continuum approximation
+uses Poisson sprinkling \cite{bombellihensonsorkin2009}; the OPH commit log is
+not a Poisson sprinkling, and its cardinality is not a spacetime volume.
+Neither continuum existence nor the causal-set Hauptvermutung follows from a
+finite order. In distributed computing the generated relation is an
+authenticated read-from dependence suborder and analogue of
+happened-before~\cite{lamport1978}; record or program order contributes only
+when a later commit genuinely consumes the earlier record. Its OPH-specific content is the binding to
+quotient-visible mismatch, certified read supports, writer-blind static
+scores, and the strict-order interface of the finite event world.
+
+This gives a precise exact-to-conditional chain. For every supplied
+\texttt{SourceOrderFrameCompatibilityPacket}, the theorem
+\texttt{finiteConsequences} composes the generated informational order with
+the exact rank-three quotient, algebraic
+\(\mathsf{SourceUnitDirection}\simeq S^2\simeq
+\mathsf{FutureNullRay}\), supplied charts and cones, and supplied event frames,
+while preserving the local rest metric. No inhabitant, physical link
+attachment, event-count density, or refinement family is constructed.
+The theorem \texttt{sourceOrderEinstein\_from\_source\_directions} shares that
+finite event carrier. It replaces an all-null balance hypothesis with nine
+supplied balances on fixed algebraic source-direction representatives---the
+inverse images of the existing coordinate-fixed null-tomography frame---and,
+with symmetric fields, discrete Ward/Bianchi identities, connectedness,
+vacuum reference, and scale, derives all-null balance and the
+Einstein-form tensor relation. The nine directions are algebraic
+representatives, not observed provenance links, signals, or sky samples. A
+universal-source equality is carried into the conclusion for downstream
+composition but is not used in the displayed tensor calculation.
+The distinguished nine-set is neither selected by the informational
+poset/source dynamics nor invariant as a set under Lorentz or
+\(\mathrm{SO}(3)\) transformations.
+The informational order shares the finite event type but is not load-bearing
+in the tensor proof; no provenance link selects a direction, field, step, or
+balance, and no packet or premise inhabitant is constructed. The matrix
+fields, four step maps, and \(\eta_3\) are supplied as a pre-existing
+$3+1$-dimensional tensor interface; no event dimension is inferred from the
+poset. Smooth curvature and physical stress-energy require external event-manifold, refinement,
+count--volume, small-ball, and continuum receipts. The separate
+\texttt{composedEinsteinBranch} returns an Einstein-form composition under its
+own inputs; it does not supply those external geometric identifications. The
+exact finite premise reduction does not turn the conditional spacetime output
+into an attained result.
+
+A separate post-hoc constructive control asks which bounded causal-set
+diagnostics an imposed architecture can realize without promoting the OPH log.
+It uses FCC rank-three gluing with twelve cuboctahedral \(O_h\) ports, exact
+versioned provenance, and nested identity-hash induced orders at depths
+\(8,12,16,20\). At depth \(20\), three frozen thinnings retain
+\(2{,}583\)--\(2{,}746\) events, with ordering fractions
+\(0.10115\)--\(0.10786\). Their flat-control Myrheim--Meyer candidates
+\(3.910\)--\(3.986\) are inversions of those fractions, not independent
+evidence~\cite{reid2003}. The fixture has exact nested orders; on the checked grids its
+spatial carrier-ball counts match the cubic formula for \(0\leq r\leq20\)
+and its fine-carrier counts match the quartic formula for
+\(1\leq n\leq10\) at imposed depth \(2n\)~\cite{ophfpe}. These are
+only bounded depth-\(20\) values and bounded count matches, not an all-radius
+or all-depth theorem. The apparent analytic-profile improvement over depths \(8\)--\(20\)
+uses interval abundance, a standard causal-set locality
+diagnostic~\cite{glasersurya2013}; it was found post hoc and reverses for all
+seeds in an additional out-of-family depth-\(24\) extrapolation
+control~\cite{ophfpe}. At depth \(20\), its matched-Minkowski profile RMS is
+\(0.090083\), versus \(0.002423\) between independent controls, a factor of
+\(37.18\). Held-out confirmation remains unperformed. The count-height slope
+\(3.3867\) and \(H/\lvert I\rvert^{1/4}\) normalization also fail their
+four-dimensional scaling checks. External depth is neither physical volume nor
+poset height. Its gluing and thinning are imposed and are not selected by the
+current federation; fixed \(O_h\) ports are not an \(A_5\)-compatible
+refinement family becoming dense and isotropic on \(S^2\). This is not finite causet similarity, refinement
+convergence, manifoldlikeness, or a physical causal-set or continuum result.
 
 \paragraph{Character-block coexistence of regional algebras.}
 For every \(n\ge 2\) the full matrix algebra \(M_n(\mathbb C)\) admits no unital complex-algebra homomorphism into the scalars: the matrix
@@ -4759,16 +4835,50 @@ data.
 L.~Bombelli, J.~Lee, D.~Meyer, and R.~D.~Sorkin,
 \emph{Space-time as a causal set},
 Phys.\ Rev.\ Lett.\ \textbf{59}, 521 (1987).
+\url{https://doi.org/10.1103/PhysRevLett.59.521}
 
 \bibitem{surya2019}
 S.~Surya,
 \emph{The causal set approach to quantum gravity},
 Living Rev.\ Relativ.\ \textbf{22}, 5 (2019).
+\url{https://doi.org/10.1007/s41114-019-0023-1}
+
+\bibitem{bombellimeyer1989}
+L.~Bombelli and D.~A.~Meyer,
+\emph{The origin of Lorentzian geometry},
+Phys.\ Lett.\ A \textbf{141}, 226--228 (1989).
+\url{https://doi.org/10.1016/0375-9601(89)90474-X}
+
+\bibitem{brightwellgregory1991}
+G.~Brightwell and R.~Gregory,
+\emph{Structure of random discrete spacetime},
+Phys.\ Rev.\ Lett.\ \textbf{66}, 260--263 (1991).
+\url{https://doi.org/10.1103/PhysRevLett.66.260}
+
+\bibitem{majorrideoutsurya2007}
+S.~Major, D.~Rideout, and S.~Surya,
+\emph{On recovering continuum topology from a causal set},
+J.\ Math.\ Phys.\ \textbf{48}, 032501 (2007).
+\url{https://doi.org/10.1063/1.2435599}
+
+\bibitem{bombellihensonsorkin2009}
+L.~Bombelli, J.~Henson, and R.~D.~Sorkin,
+\emph{Discreteness without symmetry breaking: A theorem},
+Mod.\ Phys.\ Lett.\ A \textbf{24}, 2579--2587 (2009).
+\url{https://doi.org/10.1142/S0217732309031958}
+
+\bibitem{hawkingkingmccarthy1976}
+S.~W.~Hawking, A.~R.~King, and P.~J.~McCarthy,
+\emph{A new topology for curved space--time which incorporates the causal,
+differential, and conformal structures},
+J.\ Math.\ Phys.\ \textbf{17}, 174--181 (1976).
+\url{https://doi.org/10.1063/1.522874}
 
 \bibitem{malament1977}
 D.~B.~Malament,
 \emph{The class of continuous timelike curves determines the topology of spacetime},
 J.\ Math.\ Phys.\ \textbf{18}, 1399 (1977).
+\url{https://doi.org/10.1063/1.523436}
 
 \bibitem{lamport1978}
 L.~Lamport,

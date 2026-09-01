@@ -14,10 +14,12 @@ verdicts.
 The hidden boundary is exact in the other direction.  A commit whose
 write set misses the visible carrier fixes the visible restriction, so it
 changes no visible mismatch, and along any executed history whose
-identifiers are fresh it is never cited by a commit with visible
-certified support: hidden or presentation-only writes create no mismatch
-change and no generated edge.  Both directions are machine-checked, with
-the visible-writer trace lemma carrying the run-level control.
+identifiers are fresh it is never cited as a direct raw or authenticated
+parent by a child with visible certified support: hidden or
+presentation-only writes create no visible mismatch change and no such
+outgoing direct edge.  Incoming edges into the hidden commit are not
+excluded.  Both directions are machine-checked, with the visible-writer
+trace lemma carrying the run-level control.
 
 No continuum quotient, gauge group, or physical presentation is
 constructed here; the visible carrier is declared data.
@@ -89,6 +91,29 @@ theorem directSemanticParent_visible_congr {visible : Finset Register}
     have ha' : a ∈ d.causalSupp := hsupp ▸ ha
     exact ⟨a, ha', ((hbefore a (hvis ha')).2).trans hw⟩
 
+/-- Authenticated parenthood also reads only visible child values and
+writers when the certified support is visible.  Parent write membership and
+post-state values are held fixed; both parts of the cited child version are
+transported through visible equality. -/
+theorem authenticatedDirectSemanticParent_visible_congr
+    {visible : Finset Register}
+    {c : SemanticCommit Register Value EventId}
+    {d d' : SemanticCommit Register Value EventId}
+    (hsupp : d.causalSupp = d'.causalSupp)
+    (hvis : d.causalSupp ⊆ visible)
+    (hbefore : VisiblyEqual visible d.before d'.before) :
+    AuthenticatedDirectSemanticParent c d ↔
+      AuthenticatedDirectSemanticParent c d' := by
+  constructor
+  · rintro ⟨a, ha, hwrite, hw, hv⟩
+    have hvisa := hbefore a (hvis ha)
+    exact ⟨a, hsupp ▸ ha, hwrite, hvisa.2.symm.trans hw,
+      hvisa.1.symm.trans hv⟩
+  · rintro ⟨a, ha, hwrite, hw, hv⟩
+    have ha' : a ∈ d.causalSupp := hsupp ▸ ha
+    have hvisa := hbefore a (hvis ha')
+    exact ⟨a, ha', hwrite, hvisa.2.trans hw, hvisa.1.trans hv⟩
+
 /-! ## The hidden boundary -/
 
 /-- A hidden commit specification writes outside the visible carrier. -/
@@ -151,9 +176,9 @@ theorem spec_eq_of_eventId_eq
         · exact absurd (hid ▸ List.mem_map_of_mem htrest) hnodup.1
         · exact ih hnodup.2 htrest hhrest
 
-/-- Along a fresh executed history, a hidden commit is never a generated
-parent of any commit whose certified support is visible: hidden writes
-are invisible to the generated order. -/
+/-- Along a fresh executed history, a hidden commit is never a direct raw
+parent of a child whose certified support is visible.  This is an outgoing
+edge statement and does not exclude incoming edges into the hidden commit. -/
 theorem hiddenSpec_no_visible_edge {visible : Finset Register}
     {q : VersionedState Register Value EventId}
     {specs : List (CommitSpec Register Value EventId)}
@@ -188,10 +213,31 @@ theorem hiddenSpec_no_visible_edge {visible : Finset Register}
     have hth : t = h := spec_eq_of_eventId_eq hnodup htspecs hh hid
     exact htvis (hth ▸ hhidden)
 
+/-- In particular, a hidden commit is never a direct authenticated edge
+into a visibly supported child. -/
+theorem hiddenSpec_no_visible_authenticated_edge
+    {visible : Finset Register}
+    {q : VersionedState Register Value EventId}
+    {specs : List (CommitSpec Register Value EventId)}
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    {h : CommitSpec Register Value EventId}
+    (hh : h ∈ specs) (hhidden : HiddenSpec visible h)
+    (hsupp : ∀ s ∈ specs, s.causalSupp ⊆ visible)
+    (f : EventId) :
+    ¬ execAuthenticatedParents q specs h.eventId f := by
+  intro hedge
+  apply hiddenSpec_no_visible_edge hfresh hnodup hh hhidden hsupp f
+  obtain ⟨c, hc, d, hd, hce, hdf, hparent⟩ := hedge
+  exact ⟨c, hc, d, hd, hce, hdf,
+    directSemanticParent_of_authenticated hparent⟩
+
 #print axioms MismatchSystem.score_visible_congr
 #print axioms MismatchSystem.verdicts_visible_congr
 #print axioms directSemanticParent_visible_congr
+#print axioms authenticatedDirectSemanticParent_visible_congr
 #print axioms hiddenSpec_not_changes
 #print axioms hiddenSpec_no_visible_edge
+#print axioms hiddenSpec_no_visible_authenticated_edge
 
 end OPH.Provenance

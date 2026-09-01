@@ -8,6 +8,7 @@ import ObserverPatchHolography.EinsteinBranch.SparseRecordDefectWitness
 import ObserverPatchHolography.EinsteinBranch.CollarPremiseDerivation
 import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
 import ObserverPatchHolography.EinsteinBranch.FixedCapacityWLaw
+import Geometry.SourceOrderEinsteinComposition
 
 /-!
 # Einstein-branch theorem audit
@@ -105,6 +106,25 @@ assert_no_sorry continuumEinstein_from_explicit_premises
 assert_no_sorry composedEinsteinBranch
 assert_no_sorry composedEinsteinAdmissibleTower
 
+/-! ## Source-order/source-direction conditional Einstein composition -/
+
+/-! The audited nine-element direction family is the fixed algebraic inverse
+image of the pre-existing coordinate tomography frame.  It is not selected by
+the generated poset/source dynamics and is not invariant, as a distinguished
+set, under Lorentz or `SO(3)` transformations.  Only each fixed direction's
+`(1,n)` future-null representative is canonical. -/
+
+assert_no_sorry OPH.sourceNullEinsteinVector_null
+assert_no_sorry OPH.sourceNullEinsteinVector_time
+assert_no_sorry OPH.sourceNullEinsteinVector_sourceTomographyDirections
+assert_no_sorry OPH.SourceIndexedEinsteinPremises.tomographyBalance
+assert_no_sorry OPH.SourceIndexedEinsteinPremises.pointwiseMetricAmbiguity
+assert_no_sorry OPH.SourceIndexedEinsteinPremises.nullBalance
+assert_no_sorry OPH.SourceIndexedEinsteinPremises.toContinuumEinsteinPremises
+assert_no_sorry OPH.SourceIndexedEinsteinPremises.constantMetricAmbiguity
+assert_no_sorry OPH.SourceIndexedEinsteinPremises.einsteinEquation
+assert_no_sorry OPH.sourceOrderEinstein_from_source_directions
+
 /-! ## Generic dark sector and modular-anomaly source -/
 
 assert_no_sorry totalStress_eq_luminous_add_dark
@@ -150,6 +170,9 @@ assert_no_sorry localHaloTidal_below_cassini
 #print axioms continuumEinstein_from_explicit_premises
 #print axioms composedEinsteinBranch
 #print axioms composedEinsteinAdmissibleTower
+#print axioms OPH.SourceIndexedEinsteinPremises.nullBalance
+#print axioms OPH.SourceIndexedEinsteinPremises.einsteinEquation
+#print axioms OPH.sourceOrderEinstein_from_source_directions
 #print axioms luminousOnlyRelation_iff_darkStress_eq_zero
 #print axioms exists_dark_source_of_geometric_excess
 #print axioms anomalousStress_tendsto_zero

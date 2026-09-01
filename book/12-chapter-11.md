@@ -120,7 +120,7 @@ Build one. At level n there are two consistent states a full unit apart, and the
 
 So being determined by the record is not the same as being determined stably by the record. What separates them is the largest factor by which a difference in the record can be magnified into a difference in the state, which is the conditioning of the reconstruction, and a tower of readings has a limit worth speaking of exactly when the conditioning is bounded all the way up rather than level by level. Chapter ten's curve went to zero across all 122,880 seams in the network, and 122,880 seams is one level. The bound is what says a finer one would have gone to the same place.
 
-This is why a continuum is available at all. Space that looks smooth at the scale of a laboratory is a limit of finite readings. A limit taken through a tower with unbounded conditioning is an artifact of whichever level you stopped at. With the bound, different solvers, different refinements and different orders land on one limit. The smooth description is a thing about the world rather than about the grid.
+This is what can make a continuum candidate stable. A limit taken through a tower with unbounded conditioning may be an artifact of whichever level you stopped at. A uniform bound, compatible refinement maps and convergence can make different solvers and orders land on one mathematical limit. They do not by themselves identify that limit with physical space or spacetime; that still needs the causal, dimensional, volume, ruler and clock attachments introduced later.
 
 ## Hold the boundary fixed
 

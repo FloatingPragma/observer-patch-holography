@@ -62,9 +62,9 @@ The Higgs boson was measured at 125.20 billion electron-volts, with an uncertain
 
 The assumption is the top of the range. A hierarchy problem is a comparison. A comparison needs two scales, one of which was written into the theory by hand as the place where the description gives out.
 
-Nothing here is written in by hand. Newton's constant is an area, 2.61 times ten to the minus seventy square meters. That area is one cell of a screen, so the scale at the bottom of the world is a count of cells rather than a number entered on line one. The weak scale comes off the same solve. The ratio between the two is the exponential of minus two pi divided by four times the coupling at a cell, and that coupling is 0.0411, one part in 24.32. Work the exponential and out comes two parts in ten to the seventeenth, which is the size of the scalar's vacuum vector, 246.22 billion electron-volts, measured against the scale of a cell.
+The hierarchy branch begins with a named physical-scale identification: a screen cell is assigned Newton's area, 2.61 times ten to the minus seventy square meters. The finite screen count does not derive that meter-valued calibration. Conditional on it and on the branch's coupling and matching premises, the weak scale is obtained from the same solve. The ratio between the two is the exponential of minus two pi divided by four times the coupling at a cell, and that coupling is 0.0411, one part in 24.32. Work the exponential and out comes two parts in ten to the seventeenth, which is the size of the scalar's vacuum vector, 246.22 billion electron-volts, measured against the calibrated cell scale.
 
-A gap of seventeen orders of magnitude is what one number near a twenty-fourth does when it lands in an exponent. Arranging a gap that size would have taken some effort. Nobody had to.
+A gap of seventeen orders of magnitude is what one number near a twenty-fourth does when it lands in an exponent. Within the calibrated branch, the exponential relation does not introduce a second fitted hierarchy parameter at this step; the physical-scale and matching inputs remain explicit.
 
 ## The groups that died in 1894
 
@@ -110,11 +110,11 @@ Why do the charged-lepton masses satisfy Koide's relation? Because three masses 
 
 Why does light have two polarizations? Because the central band carries four components, removing the redundancy takes two of them away, and what is left is transverse and two wide.
 
-Why does space have three directions? Because the twelve readings of a patch split into blocks that fade at different rates under repair, and the slowest block, holding 0.9539 of what it carries per pass against nine tenths and 0.8794 for the others, has rank three.
+Why does the position carrier have three directions? Because the twelve readings of a patch split into blocks that fade at different rates under repair, and the slowest block, holding 0.9539 of what it carries per pass against nine tenths and 0.8794 for the others, has rank three. Its interpretation as physical space remains conditional.
 
-Why is there a speed limit at all? Because a separation is a count of seams crossed and a duration is a count of repairs committed, and the speed of light is the conversion between the two counts, worked out by each observer from its own books and agreed on because every observer's sky is a sphere.
+Why does the Lorentz module have a limiting cone? Because its determinant has one positive and three negative directions and the celestial sphere is its projective null boundary. Identifying that cone with physical signal propagation, and calibrating its speed, require the separate causal, ruler and clock receipts.
 
-And the missing mass at galactic scales is a repair charge carried on the collars themselves rather than a particle nobody has caught, with a profile around a galaxy that produces an acceleration law fixing the speed of the outermost stars from the visible mass and one acceleration constant.
+On the proposed dark-sector branch, missing-mass phenomenology is represented by a repair charge on the collars rather than by an additional particle. The charge persists only if later accepted commits do not write the support needed to clear it; the map from that conditional record defect to a galactic profile, geometry and acceleration law remains a physical premise.
 
 ## The empty column
 

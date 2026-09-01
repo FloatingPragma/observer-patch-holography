@@ -2,26 +2,25 @@ import Mathlib.Logic.Relation
 import Mathlib.Data.Finset.Basic
 
 /-!
-# Single-aggregate provenance of seam deltas
+# Conflict-class aggregation condition for seam proposals
 
 A seam-supported mismatch score can only move when some proposal writes
 into the seam support.  Under semantic-dependency-complete read sets, any
 proposal whose write meets the support reads the complete support.  Two
 such proposals therefore overlap read-against-write in both directions, so
 they conflict under any declared conflict relation containing mutual
-read/write overlap, and every conflict-respecting aggregation assigns them
-one aggregate.  A committed seam delta at one source batch consequently has
-exactly one canonical aggregate semantic event as its writer.
+read/write overlap, and every supplied conflict-respecting aggregation maps
+them to equal aggregate labels.
 
 A two-proposal countermodel shows the dependency-completeness clause is
 load-bearing: with empty read sets, two proposals writing into the same
-support share no mutual overlap, and the generated conflict equivalence
-identifies nothing, so they can commit as separate writers.
+  support share no mutual overlap, and the generated conflict equivalence
+identifies nothing.
 
-The aggregation discipline itself, replacing each connected conflict
-component by one canonical aggregate transaction, is the committed
-transactional layer of the consensus protocol; this module proves the
-conflict step that routes every seam delta into one component.
+This module neither constructs an aggregation function nor proves that one
+aggregate commit exists or is its support's unique writer.  Those are
+producer/transaction-layer obligations.  It proves only the conditional
+conflict-class equality needed by such a producer.
 -/
 
 namespace OPH.Provenance
@@ -86,10 +85,10 @@ theorem conflictEquiv_of_touches
   Relation.EqvGen.rel p q
     (hmutual p q (F.mutualOverlap_of_touches hcomplete hp hq))
 
-/-- Single-aggregate writer: every aggregation constant on the generated
-conflict classes assigns one aggregate to all proposals touching one
-dependency-complete support. -/
-theorem aggregate_unique_of_touches {Aggregate : Type p}
+/-- Every supplied aggregation constant on conflict edges assigns equal
+aggregate labels to proposals touching one dependency-complete support.
+Existence and uniqueness of an aggregate commit do not follow. -/
+theorem aggregate_equal_of_touches {Aggregate : Type p}
     (Conflict : Proposal → Proposal → Prop)
     (hmutual : ∀ p q : Proposal, F.MutualOverlap p q → Conflict p q)
     (agg : Proposal → Aggregate)
@@ -105,8 +104,8 @@ end ProposalFamily
 /-! ## Dependency completeness is load-bearing
 
 Two proposals with empty read sets each write into the same two-register
-support.  No mutual overlap holds anywhere, the generated conflict
-equivalence is equality, and the two proposals stay separate writers. -/
+support. No mutual overlap holds anywhere, the generated conflict
+equivalence is equality, and the two proposals remain inequivalent under it. -/
 
 namespace SeparateWriterControl
 
@@ -140,9 +139,10 @@ theorem conflictEquiv_eq {p q : Bool}
   | symm x y _ ih => exact ih.symm
   | trans x y z _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
-/-- The two support-touching proposals are not identified: without
-dependency completeness the seam delta admits two separate writers. -/
-theorem separate_writers :
+/-- The two support-touching proposals are not identified by the generated
+conflict equivalence.  This does not itself construct two committed
+writers. -/
+theorem not_conflictEquivalent :
     ¬ Relation.EqvGen family.MutualOverlap false true := by
   intro h
   exact Bool.false_ne_true (conflictEquiv_eq h)
@@ -151,7 +151,7 @@ end SeparateWriterControl
 
 #print axioms ProposalFamily.mutualOverlap_of_touches
 #print axioms ProposalFamily.conflictEquiv_of_touches
-#print axioms ProposalFamily.aggregate_unique_of_touches
-#print axioms SeparateWriterControl.separate_writers
+#print axioms ProposalFamily.aggregate_equal_of_touches
+#print axioms SeparateWriterControl.not_conflictEquivalent
 
 end OPH.Provenance

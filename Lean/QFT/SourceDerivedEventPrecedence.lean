@@ -1,5 +1,6 @@
 import QFT.ObserverEventTower
 import ObserverPatchHolography.Provenance.CausalInterval
+import ObserverPatchHolography.Provenance.HistoryCausalInvariance
 
 /-!
 # Source-derived event precedence for observer event worlds
@@ -87,6 +88,72 @@ theorem generatedPrecedenceAdapter_precedes
       L.GeneratedBefore e f :=
   Iff.rfl
 
+/-! ## Threaded-execution adapter
+
+The general constructor above accepts an abstract certified event log.  The
+constructor below is the producer-facing path: it first derives that log and
+its rank from one fresh, duplicate-free, carrier-complete threaded execution,
+then installs its authenticated closure as the QFT event order.  The only
+remaining consistency input is the explicitly typed attachment from that
+informational order to the tower's observer-record labels. -/
+
+/-- A QFT precedence adapter built directly from a threaded semantic
+execution.  Neither direct edges nor a rank are supplied to this
+constructor. -/
+noncomputable def generatedPrecedenceAdapterOfExecution
+    (W : FiniteEventGeometryWorld A sig S)
+    (q : VersionedState Register Value sig.Event)
+    (specs : List (CommitSpec Register Value sig.Event))
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    (hcomplete : ExecutedCarrierComplete specs)
+    (labeled : sig.Event → Prop)
+    (recordLabel : ∀ e : sig.Event, labeled e → T.Record r)
+    (hconsistent : ∀ {i : sig.Chart} {e f : sig.Event},
+      W.activeChart i → W.activeEvent e → W.activeEvent f →
+      S.visible i e → S.visible i f →
+      ∀ (hle : labeled e) (hlf : labeled f),
+        Relation.TransGen (execAuthenticatedParents q specs) e f →
+          (T.recordOrder r (W.chartOwner i)).precedes
+            (recordLabel e hle) (recordLabel f hlf)) :
+    EventPrecedenceAdapter W := by
+  letI : DecidableEq sig.Event := Classical.decEq sig.Event
+  let L := semanticEventLogOfExecution q specs hfresh hnodup hcomplete
+  exact generatedPrecedenceAdapter W L labeled recordLabel (by
+    intro i e f hchart he hf hve hvf hle hlf hbefore
+    apply hconsistent hchart he hf hve hvf hle hlf
+    exact (semanticEventLogOfExecution_generatedBefore_iff q specs hfresh
+      hnodup hcomplete e f).mp hbefore)
+
+/-- The execution-built adapter's order is exactly the transitive closure
+of authenticated executed read-after-write edges. -/
+theorem generatedPrecedenceAdapterOfExecution_precedes
+    (W : FiniteEventGeometryWorld A sig S)
+    (q : VersionedState Register Value sig.Event)
+    (specs : List (CommitSpec Register Value sig.Event))
+    (hfresh : FreshStart q specs)
+    (hnodup : (specs.map CommitSpec.eventId).Nodup)
+    (hcomplete : ExecutedCarrierComplete specs)
+    (labeled : sig.Event → Prop)
+    (recordLabel : ∀ e : sig.Event, labeled e → T.Record r)
+    (hconsistent : ∀ {i : sig.Chart} {e f : sig.Event},
+      W.activeChart i → W.activeEvent e → W.activeEvent f →
+      S.visible i e → S.visible i f →
+      ∀ (hle : labeled e) (hlf : labeled f),
+        Relation.TransGen (execAuthenticatedParents q specs) e f →
+          (T.recordOrder r (W.chartOwner i)).precedes
+            (recordLabel e hle) (recordLabel f hlf))
+    (e f : sig.Event) :
+    (generatedPrecedenceAdapterOfExecution W q specs hfresh hnodup
+      hcomplete labeled recordLabel hconsistent).eventOrder.precedes e f ↔
+      Relation.TransGen (execAuthenticatedParents q specs) e f := by
+  letI : DecidableEq sig.Event := Classical.decEq sig.Event
+  change
+    (semanticEventLogOfExecution q specs hfresh hnodup hcomplete).GeneratedBefore
+        e f ↔ _
+  exact semanticEventLogOfExecution_generatedBefore_iff q specs hfresh
+    hnodup hcomplete e f
+
 /-- Exactness: an adapter whose event order contains every direct parent
 edge and asserts no comparability beyond the generated order carries
 exactly the generated order.  An admissible adapter verifies the
@@ -158,7 +225,7 @@ def chainLog : SemanticEventLog Unit Bool (Fin 2) where
   rank e := e.val
   rank_lt_of_parent := by
     have h : ∀ c d : Fin 2,
-        DirectSemanticParent (![chainWriter, chainReader] c)
+        AuthenticatedDirectSemanticParent (![chainWriter, chainReader] c)
             (![chainWriter, chainReader] d) →
           c.val < d.val := by decide
     intro c d
@@ -224,6 +291,8 @@ theorem chainWitnessPrecedenceAdapter_exact (e f : Fin 2) :
 end ChainWitness
 
 #print axioms generatedPrecedenceAdapter
+#print axioms generatedPrecedenceAdapterOfExecution
+#print axioms generatedPrecedenceAdapterOfExecution_precedes
 #print axioms eventOrder_eq_generated_of_exact
 #print axioms chainLog
 #print axioms chainLog_generatedBefore_iff

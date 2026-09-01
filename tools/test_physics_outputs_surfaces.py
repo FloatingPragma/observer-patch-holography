@@ -47,7 +47,7 @@ def test_wlaw_claim_carries_law_and_pending_status() -> None:
     statement = _claim(WLAW_CLAIM)["statement"]
     for token in ("(w0,wa)=(-1,0)", "w = -1 + (1/3) d ln N/d ln a",
                   "w >= -1", "not anchorable", "no OPH confirmation",
-                  "seen diagnostics only"):
+                  "retrospective prior- and likelihood-dependent diagnostics"):
         assert token in statement, token
 
 
@@ -142,7 +142,7 @@ def test_owner_papers_carry_the_results() -> None:
     desitter = _collapsed(
         "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex")
     for token in ("The fixed-capacity equation of state", "(w_0,w_a)=(-1,0)",
-                  "w(a)\\ge-1", "pending the owner's freeze"):
+                  "w(a)\\ge-1", "No comparison is frozen or armed by this paper"):
         assert token in desitter, token
     bh = _collapsed("cosmology/oph_black_hole_information_ledger.tex")
     for token in ("integer-\\(k\\) ringdown transition comb",

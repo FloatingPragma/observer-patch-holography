@@ -203,21 +203,57 @@ Mapping between Lean 4 theorems in this project and statements in
   (`ObserverPatchHolography/Provenance/SemanticEventProvenance.lean`,
   `MismatchProvenance.lean`, `SeamDeltaAggregation.lean`,
   `CausalInterval.lean`, `QFT/SourceDerivedEventPrecedence.lean`) generates
-  the causal order of semantic commits as the transitive closure of
-  certified read-from parenthood: a strict order in the A1 record-order
-  interface under one declared append-only ancestry rank, least among
+  the informational order of semantic commits as the transitive closure of
+  authenticated read-after-write parenthood, including parent write
+  membership and exact value-version continuity: a strict order in the A1
+  record-order interface, least among
   strict transitive extensions of the direct edges, with an exactness
   theorem reducing any admissible precedence adapter to a verifier and the
   chain-witness world realizing the redundancy of its declared order.
   Writer-blind static mismatch, the blind-repair control, dependency-complete
-  seam aggregation, and the Boolean-diamond interval bound the package.
-  Executed histories (`Provenance/HistoryCausalInvariance.lean`) derive the
-  append-only rank from list position and are invariant under independent
-  adjacent commutation and stutter deletion; hidden writes are invisible to
-  visible mismatch and to the generated order
-  (`Provenance/QuotientInvariance.lean`); refinement receipts carry order
-  and intervals through coincidence merges
-  (`Provenance/RefinementNaturality.lean`).
+  seam aggregation, the interval-linearity/no-fork-join equivalence, and the
+  Boolean-diamond counterexample to that chain condition bound the package.
+  Executed histories (`Provenance/HistoryCausalInvariance.lean`) construct
+  the certified log and derive the append-only rank from list position;
+  authenticated edges and their closure are invariant under explicitly
+  certified independent adjacent swaps and stutter deletion. Hidden writes
+  make no visible mismatch change and, under fresh identifiers, duplicate-free
+  execution, and visible-support hypotheses, supply no outgoing direct raw or
+  authenticated parent edge to a visibly supported child; incoming edges into
+  the hidden commit are not excluded
+  (`Provenance/QuotientInvariance.lean`); supplied edge-preserving candidate
+  refinement maps conditionally carry order and intervals through
+  coincidence merges (`Provenance/RefinementNaturality.lean`). The finite
+  event-population wrapper fixes its precedence field to generated order but
+  retains the atlas, Lorentz cone, population, and physical attachments
+  (`Geometry/EventPopulationChartInterface.lean`). The finite
+  `Geometry/SourceOrderFrameCompatibilityPacket.lean` composes this conditional
+  order/cone bridge with the independent rank-three source quotient and
+  supplied per-event Lorentz-frame transports. Its conjunction proves the
+  generated-order/future-cone equivalence, the existing ambient-rank-four and
+  rank-three-rest algebraic soldering/covariance package, rank-three quotient and rest
+  fibers, the exact equivalence between source-unit Gram directions and the
+  algebraic celestial two-sphere/future-null rays, and the transported
+  quotient-Gram/rest-metric identity. It does not identify that unit sphere
+  with a physical sky or construct an inhabitant of the packet; it does not
+  derive the Lorentz group, physical causality, volume,
+  manifoldlikeness, refinement convergence, or a continuum.
+  `Geometry/SourceOrderEinsteinComposition.lean` then uses the exact
+  inverse images of the existing coordinate-fixed nine-vector null-tomography
+  frame in the source unit sphere. The distinguished nine-set is neither
+  source/poset-selected nor Lorentz- or `SO(3)`-invariant as a set.
+  `sourceOrderEinstein_from_source_directions` derives all-null
+  balance, the pointwise and constant metric ambiguities, and an Einstein-form
+  tensor identity on the same finite `Event` type from nine supplied balances
+  plus supplied symmetric fields, Ward/Bianchi, connectivity, vacuum-reference,
+  and scale data. A universal-source equality is copied into the conclusion
+  for downstream composition but is not used in the tensor equation. The order is bundled in
+  `P.FiniteConsequences` but is not used in the tensor calculation; no
+  provenance link selects a direction, field, step, or balance. Its supplied
+  `Mat 3`, `eta 3`, and `Fin 4` types already fix the tensor-coordinate
+  dimension rather than deriving it from the poset. No packet or
+  premise inhabitant, smooth geometry, or physical interpretation is
+  constructed.
   The order is informational; invariance over the full admissible
   implementation class and every physical or continuum identification
   stay open.
@@ -339,7 +375,23 @@ Mapping between Lean 4 theorems in this project and statements in
   Quotient descent does not construct or identify that atlas coordinate family.
   Rest transport preserves the positive metric, and the source rank-three
   `FrameQuotient` is linearly and isometrically identified with the standard
-  internal rest fiber as a candidate readback. A reflexive symmetric
+  internal rest fiber as a candidate readback. The finite
+  `SourceOrderFrameCompatibilityPacket.lean` transports that bridge to supplied
+  per-event frames while keeping the provenance order and supplied chart/cone
+  interface separate; it constructs no inhabitant of that supplied interface.
+  `SourceOrderEinsteinComposition.lean` uses the independent quotient's fixed
+  algebraic inverse images of the pre-existing coordinate tomography frame to
+  replace all-null balance by nine supplied direction balances on the same
+  finite event type. That distinguished nine-set is neither source/poset-selected
+  nor Lorentz- or `SO(3)`-invariant as a set. Its main theorem
+  derives the all-null and Einstein-form tensor relations under supplied
+  symmetric-field, Ward/Bianchi, connectivity, reference, and scale data. The
+  informational order only shares the carrier and is not load-bearing in this
+  tensor proof. Its supplied `Mat 3`, `eta 3`, and `Fin 4` types already fix
+  the tensor-coordinate dimension; the theorem does not infer it from the
+  poset. Smooth curvature, physical stress-energy, event-manifold,
+  refinement, count--volume, and continuum readings remain external.
+  A reflexive symmetric
   nontransitive overlap control blocks pairwise-overlap quotient shortcuts.
   The exact premise-reduction theorem retains source-atlas, population,
   separation, open-chart, physical-cone, refinement, causal, and clock

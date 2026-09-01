@@ -14,9 +14,9 @@ d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH construit une voie mathématique unique à travers les
-registres quantiques, la thermodynamique, l’espace tridimensionnel, les
-événements lorentziens, la gravitation, la structure de jauge, la matière et
-les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
+registres quantiques, la thermodynamique, la cinématique des référentiels
+lorentziens, des branches conditionnelles pour l’espace-temps événementiel et
+la gravitation, la structure de jauge, la matière et les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
 finis exacts, chaque pont physique étant formulé de façon à pouvoir être prouvé
 ou testé.
 
@@ -92,10 +92,35 @@ simulations reproductibles :
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité et la gravitation à partir de la géométrie des
   observateurs.** Des résultats finis exacts établissent la cinématique de
-  Lorentz, la couche de masse, l’ordre causal, la loi en carré inverse et une
-  reconstruction conditionnelle d’Einstein. Ensemble, ils ouvrent une voie
-  concrète des registres et de la réparation vers l’espace-temps et la
-  gravitation.
+  Lorentz des référentiels, la couche de masse et un ordre informationnel
+  authentifié, engendré par les versions écrites que chaque registre validé a
+  réellement lues. Cet ordre fini ressemble à un ensemble causal, mais ne
+  constitue à lui seul ni un ensemble causal physique ni un continuum
+  d’espace-temps. Les directions unitaires du porteur de rang trois sont
+  algébriquement équivalentes à des étiquettes S2/rayons nuls, mais une lecture
+  en quatre dimensions exige encore que les images physiquement fidèles des
+  liens locaux authentifiés couvrent ces directions de façon dense et isotrope.
+  Le plongement fidèle, la propriété de
+  variété, l’attachement au cône physique, l’étalonnage nombre-vers-volume et
+  un raffinement qui recolle globalement les voisinages de rang trois avec une
+  croissance cubique des boules, tout en préservant ordre, directions et
+  densité, forment le pont vers la reconstruction conditionnelle d’Einstein.
+  Un théorème de composition vérifié par machine fixe les relations finies
+  d’ordre, de rang, de direction et de métrique locale pour tout paquet
+  atlas/référentiels fourni ; il ne construit ni ce paquet ni le continuum. Un
+  second théorème exact travaille dans une algèbre tensorielle 3+1 fournie et
+  utilise neuf images inverses algébriques fixes de son repère tomographique
+  coordonné pour déduire l’équilibre dans toutes les directions nulles et une
+  relation tensorielle de forme einsteinienne sur le même porteur fini
+  d’événements ; il ne déduit pas la dimension 3+1 de l’ordre des événements.
+  Cet ensemble distingué de neuf directions est fixé par les coordonnées :
+  il n’est ni sélectionné par les registres ni invariant comme ensemble sous
+  toutes les transformations spatiales ou de Lorentz.
+  L’ordre informationnel partage ce porteur mais ne sélectionne ni ces
+  directions ni ces tenseurs. Interpréter ce tenseur comme une courbure
+  physique lisse exige encore les
+  entrées d’attachement, de raffinement, de volume et de limite continue sur
+  une même tour compatible.
 - **La géométrie des champs sur l’écran à douze ports.** L’écran fini porte
   des théorèmes exacts de Green, Thomson, Gauss, courbure et invariance de
   jauge. La même géométrie relie les charges aux ports, les données de couture,
@@ -114,7 +139,7 @@ simulations reproductibles :
   fermeture du pixel, proche de la constante de structure fine mesurée,
   conserve un statut diagnostique. Ces calculs font des constantes des cibles
   concrètes de dérivation et de falsification plutôt que des données libres.
-- **Vérifié machine et falsifiable.** Plus de 10000 théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 10100 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. L’échelle des prédictions gelées exige que toute comparaison
@@ -305,7 +330,7 @@ résultats finis et structurels exacts constituent la partie la plus solide.
 
 | Pour découvrir... | Commencer ici |
 | --- | --- |
-| La dérivation de l’espace-temps et d’Einstein | [Espace-temps des observateurs et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
+| La chaîne conditionnelle vers l’espace-temps et Einstein | [Espace-temps des observateurs et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Les deux routes de jauge du Modèle standard | [Structure de jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | La synthèse complète | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
 | Le mécanisme de consensus fini | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
@@ -378,7 +403,7 @@ briseraient.
   </a>
 </p>
 
-<p align="center"><sub>La carte typée des dépendances d’OPH. Elle sépare les branches exactes et conditionnelles des ponts ouverts de source, de support, de courant, d’attachement et d’échelle qui en feraient une seule réalisation physique.</sub></p>
+<p align="center"><sub>La carte typée des dépendances d’OPH. Elle garde distincts l’ordre authentifié, le porteur de rang trois, les données S2/référentiels de Lorentz et la mesure de population des événements jusqu’au carré de compatibilité de la description effective. Cette population n’est pas identifiée à la capacité publique N. La carte sépare ensuite les branches exactes des ponts physiques conditionnels.</sub></p>
 
 ## Guide du dépôt
 

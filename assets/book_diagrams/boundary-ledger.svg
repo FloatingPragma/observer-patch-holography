@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
-  <title id="title">Boundary ledger encoding bulk records</title>
-  <desc id="desc">Boundary cells carry a ledger whose correlated entries reconstruct bulk events.</desc>
+  <title id="title">Boundary ledger encoding candidate event records</title>
+  <desc id="desc">Boundary cells carry correlated record entries. A bulk-event interpretation requires the separate event-manifold receipts.</desc>
   <rect width="960" height="500" fill="#f8f5ef"/>
   <circle cx="480" cy="252" r="175" fill="#fffaf0" stroke="#2e2a25" stroke-width="4"/>
   <circle cx="480" cy="252" r="76" fill="#e8d6ad" stroke="#2e2a25" stroke-width="3"/>
@@ -20,7 +20,7 @@
     <path d="M332 385 C380 335 425 292 480 252"/>
   </g>
   <g font-family="Arial, sans-serif" fill="#2e2a25" font-weight="700">
-    <text x="350" y="256" font-size="24">bulk event</text>
+    <text x="330" y="256" font-size="24">candidate event</text>
     <text x="480" y="456" text-anchor="middle" font-size="21">boundary entries agree by correlation,</text>
     <text x="480" y="482" text-anchor="middle" font-size="21">not by volume storage</text>
   </g>

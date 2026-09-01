@@ -136,7 +136,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Orbit.** Every place the moves in a group can send one thing. The four corners of a square make one orbit under its eight moves, the four edge midpoints make another, and nothing carries a corner into the second set.
 
-**Order.** A relation between two events saying which came first, and only for the pairs where an answer exists. Twelve observers hold a hundred and twenty pairs of seams where the later repair worked from what the earlier one wrote, which settles the pair; three hundred and fifteen pairs have nothing anywhere to consult, and a clock pretends those are settled too.
+**Order.** A relation between two events saying which depends on which, and only for pairs where an authenticated read-from fact exists. In the twelve-observer wiring, a hundred and twenty seam pairs may compete through a shared observer and three hundred and fifteen are structurally disjoint. The wiring lists possibilities; the certified versions actually read in one history determine its ordered pairs. A clock may then put even incomparable events into a sequence.
 
 **Overlap rule.** Two accounts have to match where both parties look, and nowhere else. Alice's brown table and Bob's waxy one never have to be reconciled.
 
@@ -156,13 +156,13 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Quotient.** Sweeping up everything that counts as the same into one bundle and working with the bundles. The twelve hours on a clock face are the whole numbers with twelve counting as nothing.
 
-**Rank.** How many rows of a table of numbers are independent of the rest. Space has three directions because the slowest-fading band of comparisons has rank three, and light has two polarizations because the directions perpendicular to its travel make a plane.
+**Rank.** How many rows of a table of numbers are independent of the rest. The candidate position carrier has three directions because the slowest-fading band of comparisons has rank three. Calling it physical space requires a realization map. The two transverse modes of the separately selected Maxwell action branch are likewise not, by themselves, a photon-particle theorem.
 
 **Record.** A write into the protected part of a patch's state, the part later moves may not touch. It reads the same twice, it can be copied to a neighbor, and everything an observer holds onto is made of them.
 
 **Record map.** Takes the full state of a network and hands back the part that survives comparison: every seam entry, and nothing that only one observer could ever have known. What it deletes is exactly what no two parties were in a position to check against each other.
 
-**Refinement.** Describing something at ever finer resolution with no completed infinite object at the end, the way 3, 3.1, 3.14 describes pi and nobody ever holds pi. Space looks smooth for that reason, and the smooth version is a limit nobody occupies.
+**Refinement.** Describing something at ever finer resolution with no completed infinite object at the end, the way 3, 3.1, 3.14 describes pi and nobody ever holds pi. The carrier completion is smooth in that mathematical sense. Its identification with physical space is a separate claim.
 
 **Relative entropy.** How many extra questions per state your description costs against the settled one. Zero when the two match, positive when they do not, and nothing done to both of them afterwards pushes it back up.
 

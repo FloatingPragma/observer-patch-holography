@@ -20,6 +20,7 @@
   "OPH-GR-D4-NULLNET-STANDARDNESS",
   "OPH-GR-D4B-EVENT-MANIFOLD",
   "OPH-GR-FINITE-LOCAL-DOMAIN",
+  "OPH-GR-FCC-CAUSET-COMPATIBILITY-CONTROL",
   "OPH-GR-D4C-LOCAL-STRESS",
   "OPH-GR-D4D-ENTROPY-BRIDGE",
   "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
@@ -100,6 +101,7 @@
   "OPH-FINITE-CAUSAL-OBSERVER-NET",
   "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
   "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+  "OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
   "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
   "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
   "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
@@ -953,6 +955,16 @@
    "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
    "to": "OPH-GR-D4B-EVENT-MANIFOLD",
    "role": "supplies the bounded algebraic event-frame/celestial/rest covariance contract; source population, separation, open charts, cone and causal attachment, refinement, clocks, and physical manifold realization remain explicit event-manifold receipts"
+  },
+  {
+   "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+   "to": "OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
+   "role": "supplies the conditional same-carrier packet and exact SourceUnitDirection equivalence used to pull back the fixed coordinate tomography frame; it supplies no packet inhabitant, observed link directions, tensor fields, or balance law"
+  },
+  {
+   "from": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
+   "to": "OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
+   "role": "supplies the existing finite null-tomography, Ward/Bianchi constancy, vacuum-reference, and scale algebra reused by the nine-source-direction premise reduction; the smooth physical reading and common tower remain external"
   },
   {
    "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
@@ -1848,6 +1860,11 @@
    "from": "OPH-CONS-D1",
    "to": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
    "role": "supplies the accepted transactional commit semantics, read/write validation, and aggregate conflict discipline whose versioned register image the provenance layer reads"
+  },
+  {
+   "from": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
+   "to": "OPH-GR-D4B-EVENT-MANIFOLD",
+   "role": "supplies only the finite commit carrier and its authenticated informational precedence candidate; physical causal faithfulness, faithful embedding and manifoldlikeness, dimension four, topology, volume-density calibration, and continuum soldering remain explicit event-manifold gates"
   }
  ]
 }

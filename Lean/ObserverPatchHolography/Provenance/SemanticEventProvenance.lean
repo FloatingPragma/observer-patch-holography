@@ -8,18 +8,22 @@ import Time.TimeOrderLedger
 A quotient-visible semantic register carries the identifier of its last
 semantic writer.  An accepted semantic commit reads a snapshot, writes a
 declared register set, stamps its own identifier on every written register,
-and leaves every other register untouched.  The direct semantic parent
-relation reads that provenance: `c` is a direct parent of `d` exactly when
-some register in the certified causal read support of `d` still carries the
-committed value written by `c` in the pre-commit snapshot of `d`.
+and leaves every other register untouched.  A raw writer citation is not
+yet a causal edge: an arbitrary snapshot can name an event which never
+wrote the cited register.  The authenticated direct-parent relation
+therefore requires a read-after-write witness consisting of all four facts:
+the child certifies the register, the parent wrote it, the child's pre-state
+names the parent as last writer, and the child's value is the value in the
+parent's post-state.
 
-The generated causal order is the transitive closure of the direct parent
-relation.  Under one declared ancestry rank that strictly increases across
-direct parent edges, the closure is irreflexive, transitive, and asymmetric,
-so it inhabits the A1 `ObserverRecordOrder` type ledger with no further
-choice.  The closure is also the least strict transitive relation containing
-every direct parent edge: any candidate precedence that contains the edges
-and adds no unsupported comparability equals the generated order exactly.
+The generated causal order is the transitive closure of authenticated
+direct-parent edges.  `SemanticEventLog` remains the abstract certificate
+interface and therefore carries a well-founded rank witness.  The executed
+history bridge in `HistoryCausalInvariance.lean` constructs this interface
+from a fresh duplicate-free threaded log and derives the rank from commit
+position; producers should use that bridge rather than supply an unrelated
+rank.  The closure is the least strict transitive relation containing every
+authenticated edge.
 
 The ancestry rank is a well-foundedness witness for the append-only semantic
 ledger.  It is not a repair schedule, modular parameter, clock reading,
@@ -80,10 +84,11 @@ structure SemanticCommit (Register : Type u) (Value : Type v)
 variable {Register : Type u} {Value : Type v} {EventId : Type w}
 variable [DecidableEq Register]
 
-/-- Direct semantic parenthood between two commits: some register in the
-child's certified causal support carries the parent's committed version in
-the child's pre-commit snapshot.  This is version provenance, not timestamp
-order. -/
+/-- A raw writer citation between two commits.  This predicate deliberately
+does not assert that `c` wrote the cited register or that the cited value
+matches `c.after`; it is useful as the negative-control boundary for
+untrusted snapshots.  Generated precedence uses
+`AuthenticatedDirectSemanticParent`, not this predicate. -/
 def DirectSemanticParent (c d : SemanticCommit Register Value EventId) :
     Prop :=
   ∃ a ∈ d.causalSupp, d.before.writer a = some c.eventId
@@ -94,10 +99,47 @@ instance [DecidableEq EventId]
   decidable_of_iff
     (∃ a ∈ d.causalSupp, d.before.writer a = some c.eventId) Iff.rfl
 
-/-- A finite semantic event log: one commit per event identifier, coherent
-identifiers, and one declared ancestry rank that strictly increases across
-direct parent edges.  The rank witnesses that the ledger is append-only; it
-carries no clock, schedule, or physical-time reading. -/
+/-- An authenticated read-after-write witness at one register.  The event
+identifier is not accepted as provenance by itself: the alleged parent must
+actually write the register and the child must read the exact committed
+value which appears in that parent's post-state. -/
+def ReadAfterWriteAt (c d : SemanticCommit Register Value EventId)
+    (a : Register) : Prop :=
+  a ∈ d.causalSupp ∧ a ∈ c.writeSet ∧
+    d.before.writer a = some c.eventId ∧
+    d.before.value a = c.after.value a
+
+/-- Authenticated direct semantic parenthood: at least one certified child
+support register carries the exact value-version written by the parent. -/
+def AuthenticatedDirectSemanticParent
+    (c d : SemanticCommit Register Value EventId) : Prop :=
+  ∃ a : Register, ReadAfterWriteAt c d a
+
+instance [DecidableEq EventId] [DecidableEq Value]
+    (c d : SemanticCommit Register Value EventId) :
+    Decidable (AuthenticatedDirectSemanticParent c d) :=
+  decidable_of_iff
+    (∃ a ∈ d.causalSupp, a ∈ c.writeSet ∧
+      d.before.writer a = some c.eventId ∧
+      d.before.value a = c.after.value a) (by
+        simp only [AuthenticatedDirectSemanticParent, ReadAfterWriteAt])
+
+/-- Authentication implies the underlying writer citation. -/
+theorem directSemanticParent_of_authenticated
+    {c d : SemanticCommit Register Value EventId}
+    (h : AuthenticatedDirectSemanticParent c d) :
+    DirectSemanticParent c d := by
+  obtain ⟨a, ha, _, hw, _⟩ := h
+  exact ⟨a, ha, hw⟩
+
+/-- An abstract semantic event-log certificate: one commit per event
+identifier, coherent identifiers, and a well-founded rank increasing across
+authenticated read-after-write edges.  Finiteness is supplied by a
+`Fintype EventId` at finite-world use sites rather than hidden in this
+structure.  The executed-history constructor derives the rank from a
+threaded append-only log; arbitrary inhabitants of this abstract interface
+must still provide the certificate.  The rank carries no clock, schedule,
+or physical-time reading. -/
 structure SemanticEventLog (Register : Type u) (Value : Type v)
     (EventId : Type w) [DecidableEq Register] where
   /-- The commit recorded under each event identifier. -/
@@ -108,20 +150,23 @@ structure SemanticEventLog (Register : Type u) (Value : Type v)
   rank : EventId → ℕ
   /-- The rank strictly increases across every direct parent edge. -/
   rank_lt_of_parent : ∀ {c d : EventId},
-    DirectSemanticParent (commitOf c) (commitOf d) → rank c < rank d
+    AuthenticatedDirectSemanticParent (commitOf c) (commitOf d) →
+      rank c < rank d
 
 namespace SemanticEventLog
 
 variable (L : SemanticEventLog Register Value EventId)
 
-/-- The direct parent relation of the log, read on event identifiers. -/
+/-- The authenticated direct parent relation of the log, read on event
+identifiers.  Raw writer labels which fail write-membership or value-version
+continuity do not generate edges. -/
 def ParentEdge (c d : EventId) : Prop :=
-  DirectSemanticParent (L.commitOf c) (L.commitOf d)
+  AuthenticatedDirectSemanticParent (L.commitOf c) (L.commitOf d)
 
-instance [DecidableEq EventId] (c d : EventId) :
+instance [DecidableEq EventId] [DecidableEq Value] (c d : EventId) :
     Decidable (L.ParentEdge c d) :=
   decidable_of_iff
-    (DirectSemanticParent (L.commitOf c) (L.commitOf d)) Iff.rfl
+    (AuthenticatedDirectSemanticParent (L.commitOf c) (L.commitOf d)) Iff.rfl
 
 /-- The generated causal precedence: the transitive closure of the direct
 parent edges. -/
@@ -199,11 +244,56 @@ theorem eq_generatedBefore_of_exact
 
 end SemanticEventLog
 
+/-! ## Forged-writer negative control -/
+
+namespace ForgedWriterControl
+
+/-- An alleged parent whose identifier is `false` but which writes no
+register. -/
+def allegedParent : SemanticCommit Unit Bool Bool where
+  eventId := false
+  before := ⟨fun _ => false, fun _ => none⟩
+  after := ⟨fun _ => false, fun _ => none⟩
+  readSet := ∅
+  writeSet := ∅
+  causalSupp := ∅
+  supp_subset_read := by simp
+  frame_value := fun _ _ => rfl
+  frame_writer := fun _ _ => rfl
+  stamp := by simp
+
+/-- A child snapshot forged to name the alleged parent as writer. -/
+def forgedChild : SemanticCommit Unit Bool Bool where
+  eventId := true
+  before := ⟨fun _ => true, fun _ => some false⟩
+  after := ⟨fun _ => true, fun _ => some false⟩
+  readSet := {()}
+  writeSet := ∅
+  causalSupp := {()}
+  supp_subset_read := by simp
+  frame_value := fun _ _ => rfl
+  frame_writer := fun _ _ => rfl
+  stamp := by simp
+
+/-- A writer identifier by itself still creates a raw citation, but it is
+rejected by the authenticated relation because the alleged parent did not
+write the register. -/
+theorem raw_writer_label_is_not_authenticated :
+    DirectSemanticParent allegedParent forgedChild ∧
+      ¬ AuthenticatedDirectSemanticParent allegedParent forgedChild := by
+  constructor
+  · exact ⟨(), by simp [forgedChild], rfl⟩
+  · rintro ⟨a, _, hwrite, _, _⟩
+    exact absurd hwrite (by simp [allegedParent])
+
+end ForgedWriterControl
+
 #print axioms SemanticEventLog.rank_lt_of_generatedBefore
 #print axioms SemanticEventLog.generatedBefore_irrefl
 #print axioms SemanticEventLog.generatedBefore_asymm
 #print axioms SemanticEventLog.generatedRecordOrder
 #print axioms SemanticEventLog.generatedBefore_le_of_transitive
 #print axioms SemanticEventLog.eq_generatedBefore_of_exact
+#print axioms ForgedWriterControl.raw_writer_label_is_not_authenticated
 
 end OPH.Provenance

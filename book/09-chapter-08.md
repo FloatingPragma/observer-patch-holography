@@ -98,7 +98,7 @@ An engineer would take that guarantee over Snowball's in an instant and cannot h
 
 Fix an observer and ask a question that the engineered protocols cannot even pose: what could the reading it holds possibly depend on?
 
-Before any repair, its own state. After one repair, its own state and whatever its neighbors held, because a repair compares readings across a shared boundary and nothing else was consulted. After two repairs, the neighbors of those neighbors, and no further. The set of observers capable of having influenced what this one holds grows by exactly one step of the wiring per round of repair. At every stage it is a finite set you could write out by name.
+Before any repair, its own state. After one repair, its own state and whatever its neighbors held, because a repair compares readings across a shared boundary and nothing else was consulted. After two repairs, the neighbors of those neighbors, and no further. The set of observers whose records could have contributed through a read chain grows by at most one step of the wiring per round of repair. At every stage it is a finite set you could write out by name.
 
 The twelve-observer arrangement makes the counting easy, because the wiring is regular enough that everybody is in the same position. Take any observer of the twelve. Five of the others are its neighbors, five more are neighbors of those, and exactly one, the observer directly opposite it on the solid, is three steps away. So after one round of repair, six of the twelve can have touched what it holds. After two rounds, eleven. The twelfth arrives in the third round and not before. There is nothing it can do to arrive sooner.
 

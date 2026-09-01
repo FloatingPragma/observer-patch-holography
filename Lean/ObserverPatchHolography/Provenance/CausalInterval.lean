@@ -65,6 +65,42 @@ theorem right_mem_interval {a b : EventId}
     (h : L.GeneratedBeforeEq a b) : b ∈ L.interval a b :=
   ⟨h, Or.inl rfl⟩
 
+/-! ## The interval-linearity obstruction
+
+The following two predicates isolate the exact order-theoretic obstruction
+seen in a chain-like event log.  They concern the source-generated
+informational order only.  In particular, they make no statement about a
+Hasse diagram being a physical causal set, about manifoldlikeness, or about a
+continuum realization. -/
+
+/-- Every two events in every source-derived interval are comparable.  This
+is a global chain condition on generated intervals, not a dimension or
+manifold criterion. -/
+def IntervalLinear : Prop :=
+  ∀ ⦃a b x y : EventId⦄,
+    x ∈ L.interval a b → y ∈ L.interval a b →
+      L.GeneratedBeforeEq x y ∨ L.GeneratedBeforeEq y x
+
+/-- There is no incomparable fork-and-join witness: whenever `x` and `y`
+both lie above `a` and below `b`, they are comparable.  The name records the
+forbidden order pattern; it does not assert any graph-theoretic forest
+presentation. -/
+def NoForkJoin : Prop :=
+  ∀ ⦃a b x y : EventId⦄,
+    L.GeneratedBeforeEq a x → L.GeneratedBeforeEq a y →
+    L.GeneratedBeforeEq x b → L.GeneratedBeforeEq y b →
+      L.GeneratedBeforeEq x y ∨ L.GeneratedBeforeEq y x
+
+/-- Interval linearity is exactly the absence of an incomparable
+fork-and-join witness. -/
+theorem intervalLinear_iff_noForkJoin :
+    L.IntervalLinear ↔ L.NoForkJoin := by
+  constructor
+  · intro h a b x y hax hay hxb hyb
+    exact h ⟨hax, hxb⟩ ⟨hay, hyb⟩
+  · intro h a b x y hx hy
+    exact h hx.1 hy.1 hx.2 hy.2
+
 end SemanticEventLog
 
 /-! ## The committed Boolean response diamond -/
@@ -156,7 +192,7 @@ def log : SemanticEventLog (Fin 4) Bool (Fin 4) where
   rank := ![0, 1, 1, 2]
   rank_lt_of_parent := by
     have h : ∀ c d : Fin 4,
-        DirectSemanticParent
+        AuthenticatedDirectSemanticParent
             (![injection, leftResponse, rightResponse, answer] c)
             (![injection, leftResponse, rightResponse, answer] d) →
           (![0, 1, 1, 2] : Fin 4 → ℕ) c < ![0, 1, 1, 2] d := by decide
@@ -229,13 +265,43 @@ theorem interval_injection_left_eq_pair :
     · exact log.left_mem_interval (Or.inr before_left)
     · exact log.right_mem_interval (Or.inr before_left)
 
+/-- The Boolean response diamond is a concrete counterexample to interval
+linearity: its two response events lie in one interval and are incomparable.
+-/
+theorem not_intervalLinear : ¬ log.IntervalLinear := by
+  intro h
+  have hcomp : log.GeneratedBeforeEq 1 2 ∨
+      log.GeneratedBeforeEq 2 1 :=
+    h (a := 0) (b := 3) (x := 1) (y := 2)
+      ⟨Or.inr before_left, Or.inr left_before_answer⟩
+      ⟨Or.inr before_right, Or.inr right_before_answer⟩
+  rcases hcomp with h12 | h21
+  · exact responses_incomparable.1 (by
+      rcases h12 with hEq | hBefore
+      · omega
+      · exact hBefore)
+  · exact responses_incomparable.2 (by
+      rcases h21 with hEq | hBefore
+      · omega
+      · exact hBefore)
+
+/-- Equivalently, the Boolean response diamond contains an incomparable
+fork-and-join witness. -/
+theorem not_noForkJoin : ¬ log.NoForkJoin := by
+  intro h
+  exact not_intervalLinear
+    ((log.intervalLinear_iff_noForkJoin).mpr h)
+
 end BooleanDiamond
 
 #print axioms SemanticEventLog.interval
+#print axioms SemanticEventLog.intervalLinear_iff_noForkJoin
 #print axioms BooleanDiamond.log
 #print axioms BooleanDiamond.parentEdge_iff
 #print axioms BooleanDiamond.responses_incomparable
 #print axioms BooleanDiamond.interval_injection_answer_eq_univ
 #print axioms BooleanDiamond.interval_injection_left_eq_pair
+#print axioms BooleanDiamond.not_intervalLinear
+#print axioms BooleanDiamond.not_noForkJoin
 
 end OPH.Provenance

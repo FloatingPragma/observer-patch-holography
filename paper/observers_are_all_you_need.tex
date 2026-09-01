@@ -175,8 +175,10 @@ structure as the fixed point of those records and repairs. Finite repair gives
 normal forms and repeatable measurement records. On a declared signed-record
 branch, its normalized response metric has an exact rank-three quotient and
 completes to an abstract continuous Euclidean carrier. No physical-space
-attachment is supplied. Modular screen geometry supplies Lorentz kinematics and a
-conditional Einstein branch.
+attachment is supplied. Authenticated read-from provenance generates a finite
+informational poset; physical causality, faithful embedding, manifoldlikeness,
+dimension, and count-to-volume calibration remain separate. Modular screen
+geometry supplies Lorentz-frame kinematics and a conditional Einstein branch.
 Complete reversible port response and endogenous observer transport force
 the local Standard Model gauge Lie algebra. Icosahedral incidence and target-blind
 port readback derive a signed finite response. Under a conditional matrix
@@ -368,22 +370,121 @@ readout, repair maps, and checkpoint continuation. A carrier implementation is a
 those data are invariant within its declared error model.
 
 \begin{definition}[Semantic observer history]\label{def:semantic-observer-history}
-For an observer token \(O\), the observer-readable history is a labeled causal poset
+For an observer token \(O\), the observer-readable history is a labeled informational poset
 \[
 \mathsf H_O=(E_O,\preceq_O,\ell_O).
 \]
 The elements of \(E_O\) are semantic record events, \(\preceq_O\) is informational
-dependence, and \(\ell_O\) is the observer-visible event label.  The order is
-source-derived: \(\preceq_O\) is the reflexive transitive closure of certified
-read-from parenthood, machine-checked as the least strict extension of the
-direct parent edges and invariant under independent commutation and stutter
-deletion of the executing schedule, so executor order, retries, and stutters
-generate no edge. Event identity is derived from the
-canonical semantic payload, observer token, visible footprint, and semantic causal parents. It is
+dependence, and \(\ell_O\) is the observer-visible event label. The strict part
+of the order is the transitive closure of certified read-from parenthood, and
+\(\preceq_O\) is its reflexive closure. The strict part is machine-checked as
+the least strict extension of the direct parent edges. A direct edge requires
+the child to certify the resource, the parent to write it, the child's
+pre-commit snapshot to name that parent as writer, and the pre-commit value to
+equal the parent's post-commit value; a raw writer label alone creates no
+edge. One adjacent independent swap preserves the authenticated direct-parent
+relation and its closure only under the fresh-ID and duplicate-free hypotheses
+on both executions; the general swap-chain theorem preserves only the raw
+writer-citation relation. Executor stutters are removed before the commit list
+is formed. Event identity is defined from the
+canonical semantic payload, observer token, visible footprint, and semantic dependency parents. It is
 not derived from worker ID, repair iteration, queue position, retry counter, timestamp, or packet
-latency metadata. Latency is execution gauge only when it does not alter semantic causality,
+latency metadata. This definition is not a theorem that arbitrary schedule
+rewrites preserve labels or payloads. Latency is execution gauge only when it does not alter informational dependence,
 delivered data, timeout-sensitive operations, or operational clock records.
 \end{definition}
+
+This finite semantic history is causal-set-like in a precise, limited sense.
+Standard causal set theory uses a locally finite partial order as a discrete
+proto-causal structure \cite{bombelli1987,surya2019}. Finiteness supplies local
+finiteness here, while the proved relation is informational read-from
+dependence. Identifying it with physical causality requires a faithful causal
+embedding and manifoldlikeness. Recovering a continuum also requires dimension
+and a count-to-volume rule
+\cite{bombellimeyer1989,brightwellgregory1991,majorrideoutsurya2007}.
+Stable homology, for example, is necessary rather than sufficient evidence for
+manifoldlikeness~\cite{majorrideoutsurya2009}. Under the appropriate distinguishing hypotheses,
+causal order fixes the conformal geometry and volume fixes the conformal
+factor \cite{hawkingkingmccarthy1976,malament1977}. The Lorentz-invariant
+causal-set approximation uses Poisson sprinkling
+\cite{bombellihensonsorkin2009}; an OPH commit log is not a Poisson sprinkling,
+and its event count is not a spacetime volume. No physical embedding, volume
+law, four-dimensional manifold limit, or causal-set Hauptvermutung is a
+consequence of Definition~\ref{def:semantic-observer-history}.
+The conditional event branch therefore keeps four inputs distinct:
+authenticated order, the rank-three local carrier, celestial/Lorentz
+frame-and-cone data, and a typed event-population measure distinct from public
+capacity \(N\). Their compatible decorated finite join does not constitute
+spacetime; refinement, physical cone/order
+faithfulness, manifoldlikeness, dimension, and count-to-volume receipts are
+required for an emergent continuum.
+The exact algebraic bridge identifies the unit directions of the rank-three
+source Gram quotient with \(S^2\) and with future-null-ray labels. It does not
+identify them with a physical sky or signals. A \(d=4\) effective reading
+requires the physically faithful images of authenticated local read-from links
+to cover those directions densely and isotropically, since a Lorentzian \(d\)-geometry has null-direction
+space \(S^{d-2}\). That coverage is not supplied. The count calibration additionally
+requires \(\#I/\rho\to\operatorname{Vol}(I)\). Refinement must preserve the
+order, directions, and count density while soldering rank-three neighborhoods
+with \(\lvert B_{\mathrm{car}}(r)\rvert\asymp r^3\) over a scaling window.
+This belongs to compatibility of the four inputs rather than adding a fifth
+one. Neither the local rank-three band nor the seeded global carrier wiring
+fixes event dimension.
+
+The machine-checked composition makes the premise reduction explicit. For any
+supplied \texttt{SourceOrderFrameCompatibilityPacket},
+\texttt{finiteConsequences} proves the generated-order/cone agreement,
+rank-three quotient and rest fibres, unit-direction--\(S^2\)--future-null-ray
+equivalences, and exact local rest-metric bridge. It does not construct the
+packet, event population, count density, physical link attachment, or
+refinement family. The same-carrier theorem
+\texttt{sourceOrderEinstein\_from\_source\_directions} then uses nine supplied
+balance identities on fixed algebraic source-direction representatives---the
+inverse images of the existing coordinate-fixed null-tomography frame---together
+with symmetric geometry/stress fields, discrete Ward/Bianchi identities,
+connectedness, vacuum reference, and scale, to derive
+all-null balance and an Einstein-form tensor identity on the same finite event
+type. Those nine algebraic directions are not observed links, signals, or sky
+samples. A universal-source equality is carried into the conclusion for
+downstream composition but is not used in the displayed tensor calculation.
+The distinguished nine-set is neither selected by the informational
+poset/source dynamics nor invariant as a set under Lorentz or
+\(\mathrm{SO}(3)\) transformations.
+The informational order shares the event type but is not used to
+select the directions, fields, steps, or balances; no packet or premise
+inhabitant is constructed. The matrix fields, four step maps, and \(\eta_3\)
+are supplied as a pre-existing $3+1$-dimensional tensor interface, not
+derived as event dimension from the poset. Identifying the fields with smooth
+curvature and physical stress-energy requires external event-manifold, link-direction,
+refinement, count--volume, small-ball, and continuum receipts. The separate
+\texttt{composedEinsteinBranch} supplies an Einstein-form composition under its
+own stated inputs, not those external geometric identifications. Thus the exact premise reduction is stronger,
+while spacetime and physical Einstein dynamics remain conditional on named
+tests.
+
+A separate post-hoc constructive control imposes FCC rank-three gluing with
+twelve cuboctahedral \(O_h\) ports, exact versioned provenance, and nested
+identity-hash induced orders at depths \(8,12,16,20\). Its depth-\(20\)
+thinnings retain \(2{,}583\)--\(2{,}746\) events, with ordering fractions
+\(0.10115\)--\(0.10786\). Their flat-control Myrheim--Meyer candidates
+\(3.910\)--\(3.986\) are inversions of those fractions, not independent
+evidence~\cite{reid2003}. The fixture has exact nested orders; on the checked grids its
+spatial carrier-ball counts match the cubic formula for \(0\leq r\leq20\)
+and its fine-carrier counts match the quartic formula for
+\(1\leq n\leq10\) at imposed depth \(2n\)~\cite{ophfpe}. These are
+only bounded depth-\(20\) values and bounded count matches for an
+imposed architecture. Its post-hoc analytic-profile trend over
+depths \(8\)--\(20\) uses interval abundance, a standard causal-set locality
+diagnostic~\cite{glasersurya2013}, and reverses for every seed in an additional
+out-of-family depth-\(24\) extrapolation control~\cite{ophfpe}. At depth \(20\) its matched-Minkowski
+profile RMS is \(0.090083\), versus \(0.002423\) between independent controls,
+a factor of \(37.18\). Held-out confirmation remains unperformed. Its count-height slope
+\(3.3867\) and \(H/\lvert I\rvert^{1/4}\) normalization also fail the
+four-dimensional scaling checks. External depth is neither physical volume nor
+poset height. The imposed FCC gluing and thinning are not selected by the
+current federation, and fixed \(O_h\) ports are not an \(A_5\)-compatible
+refinement family becoming dense and isotropic on \(S^2\). This is not finite causet similarity, refinement
+convergence, manifoldlikeness, or a physical or continuum promotion.
 
 \begin{definition}[Observer registry groupoid and namespaces]\label{def:observer-registry-groupoid}
 Observer identities live in a registry groupoid, not in a flat UUID table. Objects are observer
@@ -592,7 +693,8 @@ the declared tensor category, matter is the charge and excitation content that s
 certified transport and fusion tests. Completeness of the physical light sector is a separate
 source-grammar and laboratory attachment premise.
 
-The first major result is spacetime kinematics. Modular flow on screen caps becomes geometric,
+The first major geometric result is Lorentz-frame kinematics. On the declared
+support-visible branch, modular flow on screen caps becomes geometric,
 and the compact cap-normal theorem identifies a sky direction with \(q(\Omega)=(1,\Omega)\),
 represents an oriented round cap by \(n_C=(\cot\alpha,\csc\alpha\,\mathbf c)\), proves
 \(\eta(n_C,q(\Omega))=0\) exactly on the cap boundary with the interior/exterior sign rule, and
@@ -1379,7 +1481,7 @@ asserting no unsupported comparability carries exactly the generated order
 of the consensus layer. \\
 \addlinespace
 Finite local action domain &
-One target-clean source capture gives an exact finite causal complex. Its
+One target-clean source capture gives an exact finite informational event complex. Its
 declared chart contains one ancestry-depth coordinate and three spectral
 embedding columns, all nondegenerate on the sample, and its global held-out
 form has inertia \((1,3)\). The capture also gives six observer neighborhoods
@@ -1666,7 +1768,7 @@ or simulation trace retains its type when used in another argument.
 \item \textbf{Observers and records become physical objects.} Finite patches, shared overlaps,
 record algebras, repair maps, and observer checkpoints are represented on the screen as part of the
 construction.
-\item \textbf{Spacetime is reconstructed.} On the controlled Einstein-branch geometry readout,
+\item \textbf{The spacetime implication remains conditional.} On the controlled Einstein-branch geometry readout,
 the finite cap-normal Bisognano--Wichmann (BW) certificate (support-order faithfulness, BW framing,
 held-out oriented cross-ratio rigidity, and independently normalized geometric
 \(2\pi\)-KMS (Kubo--Martin--Schwinger) convergence), together with an independent
@@ -1698,13 +1800,13 @@ The last display uses the selected scale certificate \(G_{\mathrm{geom}}=\ell_\s
 	common-domain source tower with hash-bound provenance and cross-source
 	splice rejection, and fail-closed instruments with adversarial negative
 	controls for geometric modular normalization, GNS cyclicity and modular
-	intersections, the ancestry-derived event cone, and same-source
+	intersections, the informational-ancestry cone candidate, and same-source
 	stress/coupling, together with semantic countermodels proving each receipt
 	family load-bearing~\cite{ophfpe}. Two clauses are theorem-grade: coupling
 	universality holds with zero spread for every icosahedrally equivariant
 	source law, and generator positivity holds by construction on the declared
 	law family. A separate target-clean capture inhabits the finite local action domain:
-	\(2{,}304\) causal events, six observer neighborhoods with exact induced
+	\(2{,}304\) informational record events, six observer neighborhoods with exact induced
 	affine wiring transitions, and an
 	observer-visible seam complex with \(8{,}662\) carriers, \(11{,}816\)
 	seams, and \(38\) frustrated triangles. Two coordinate routes through the
@@ -2029,7 +2131,9 @@ module, with the shared fields identified definitionally, and four join
 theorems place the four-momentum, the clock worldline, and every
 nonnegative flow displacement inside the cone order that carries the
 finite causal nets, with the four-momentum future-causal from the causal
-net's bottom vertex. On the screen side, the temporal Maxwell receipt and
+net's bottom vertex. Those nets and their Lorentz-module cone order are
+declared kinematic data, not the source-derived informational read-from
+order. On the screen side, the temporal Maxwell receipt and
 the electroweak-breaking receipt hold of the same record, and the pinned
 port-dual measure of the record's structure premises evaluates the Maxwell
 Gauss load on the one twelve-port index type, with every weight equal to
@@ -4090,7 +4194,8 @@ enters.
 \item \emph{Observer-Patch Holography as a String-Vacuum Selector}~\cite{ophstringselector}, which treats string theory as an effective edge language and applies the OPH acceptance criteria to critical-string candidates; its rank certificate classifies the Bouchard-Donagi row as a structural benchmark rather than a selected witness.
 \end{enumerate}
 
-The complete spacetime and Einstein chain is proved in
+The complete conditional spacetime and Einstein implication chain, with its
+physical and continuum premises stated at the arrows, is proved in
 Ref.~\cite{ophEinstein}; the two gauge-reconstruction routes and their
 identification boundary are proved in Ref.~\cite{ophGauge}. The synthesis
 therefore concentrates on their shared observer interpretation, quantitative

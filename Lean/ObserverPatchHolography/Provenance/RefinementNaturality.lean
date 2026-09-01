@@ -1,15 +1,14 @@
 import ObserverPatchHolography.Provenance.CausalInterval
 
 /-!
-# Refinement naturality of the generated causal order
+# Consequences of a certified refinement order map
 
-A refinement receipt between two semantic event logs is a map on event
-identifiers under one clause: every fine direct-parent edge lands in the
-coarse reflexive generated precedence, so that fine events merged by the
-map are declared semantically coincident.  Order naturality, reflexive
-naturality, and interval compatibility are then theorems: the fine
-generated order maps into the coarse reflexive order, and the image of a
-fine causal interval lies in the coarse interval of the image endpoints.
+A refinement receipt between two semantic event logs supplies a map on
+event identifiers and the substantive edge-preservation clause: every fine
+direct-parent edge lands in the coarse reflexive generated precedence.  The
+module does not derive that clause from register provenance or prove that an
+arbitrary map is a semantic refinement.  Conditional on the supplied
+certificate, closure preservation and interval inclusion follow.
 
 The committed witness coarsens the four-event Boolean diamond onto a
 three-event chain by merging the two incomparable responses into one
@@ -29,9 +28,9 @@ variable {RegisterF : Type u₁} {ValueF : Type v₁} {EventIdF : Type w₁}
 variable {RegisterC : Type u₂} {ValueC : Type v₂} {EventIdC : Type w₂}
 variable [DecidableEq RegisterF] [DecidableEq RegisterC]
 
-/-- A refinement receipt between two semantic event logs: an identifier
-map carrying every fine direct-parent edge into the coarse reflexive
-generated precedence. -/
+/-- A certified candidate refinement map between two semantic event logs.
+The `edge_natural` field is a load-bearing supplied certificate, not a
+derived theorem that the map is a physical or provenance refinement. -/
 structure LogRefinement
     (Lf : SemanticEventLog RegisterF ValueF EventIdF)
     (Lc : SemanticEventLog RegisterC ValueC EventIdC) where
@@ -47,9 +46,10 @@ namespace LogRefinement
 variable {Lf : SemanticEventLog RegisterF ValueF EventIdF}
 variable {Lc : SemanticEventLog RegisterC ValueC EventIdC}
 
-/-- Order naturality: the fine generated precedence maps into the coarse
-reflexive precedence. -/
-theorem generatedBefore_natural (R : LogRefinement Lf Lc)
+/-- Conditional closure preservation: the fine generated precedence maps
+into the coarse reflexive precedence under the supplied edge certificate. -/
+theorem generatedBefore_maps_under_edge_certificate
+    (R : LogRefinement Lf Lc)
     {e f : EventIdF} (h : Lf.GeneratedBefore e f) :
     Lc.GeneratedBeforeEq (R.map e) (R.map f) := by
   induction h with
@@ -57,20 +57,24 @@ theorem generatedBefore_natural (R : LogRefinement Lf Lc)
   | tail _ hedge ih =>
       exact Lc.generatedBeforeEq_trans ih (R.edge_natural hedge)
 
-/-- Reflexive naturality. -/
-theorem generatedBeforeEq_natural (R : LogRefinement Lf Lc)
+/-- Conditional preservation of reflexive generated precedence. -/
+theorem generatedBeforeEq_maps_under_edge_certificate
+    (R : LogRefinement Lf Lc)
     {e f : EventIdF} (h : Lf.GeneratedBeforeEq e f) :
     Lc.GeneratedBeforeEq (R.map e) (R.map f) := by
   rcases h with rfl | h
   · exact Or.inl rfl
-  · exact R.generatedBefore_natural h
+  · exact R.generatedBefore_maps_under_edge_certificate h
 
-/-- Interval compatibility: the image of a fine causal interval lies in
-the coarse interval of the image endpoints. -/
-theorem interval_mapsTo (R : LogRefinement Lf Lc) {a b x : EventIdF}
+/-- Conditional interval inclusion: the image of a fine causal interval
+lies in the coarse interval of the image endpoints.  Surjectivity and
+interval equality are not consequences. -/
+theorem interval_maps_under_edge_certificate
+    (R : LogRefinement Lf Lc) {a b x : EventIdF}
     (hx : x ∈ Lf.interval a b) :
     R.map x ∈ Lc.interval (R.map a) (R.map b) :=
-  ⟨R.generatedBeforeEq_natural hx.1, R.generatedBeforeEq_natural hx.2⟩
+  ⟨R.generatedBeforeEq_maps_under_edge_certificate hx.1,
+    R.generatedBeforeEq_maps_under_edge_certificate hx.2⟩
 
 end LogRefinement
 
@@ -140,7 +144,7 @@ def chainLog3 : SemanticEventLog (Fin 3) Bool (Fin 3) where
   rank := ![0, 1, 2]
   rank_lt_of_parent := by
     have h : ∀ c d : Fin 3,
-        DirectSemanticParent
+        AuthenticatedDirectSemanticParent
             (![coarseInjection, coarseResponse, coarseAnswer] c)
             (![coarseInjection, coarseResponse, coarseAnswer] d) →
           (![0, 1, 2] : Fin 3 → ℕ) c < ![0, 1, 2] d := by decide
@@ -174,7 +178,7 @@ interval. -/
 theorem diamond_interval_refines {x : Fin 4}
     (hx : x ∈ BooleanDiamond.log.interval 0 3) :
     diamondToChain x ∈ chainLog3.interval 0 2 :=
-  refinement.interval_mapsTo hx
+  refinement.interval_maps_under_edge_certificate hx
 
 /-- The reversed assignment inhabits no refinement receipt: it would
 carry the first diamond edge against the chain's precedence. -/
@@ -192,8 +196,8 @@ theorem reversed_map_not_natural :
 
 end DiamondChainRefinement
 
-#print axioms LogRefinement.generatedBefore_natural
-#print axioms LogRefinement.interval_mapsTo
+#print axioms LogRefinement.generatedBefore_maps_under_edge_certificate
+#print axioms LogRefinement.interval_maps_under_edge_certificate
 #print axioms DiamondChainRefinement.refinement
 #print axioms DiamondChainRefinement.diamond_interval_refines
 #print axioms DiamondChainRefinement.reversed_map_not_natural
