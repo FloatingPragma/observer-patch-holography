@@ -271,6 +271,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Execute the Issue 763 source-derived causal-order cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_source_derived_causal_order_surfaces.py",
+        ],
+    ),
+    (
         "Execute the fixed-unitary scattering obstruction controls",
         [
             sys.executable,

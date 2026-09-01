@@ -176,6 +176,20 @@ surface for the OPH consensus layer. Contents:
   `(q + 1)`-scaled upper horizon, the work-conserving case is exactly sharp,
   and a sufficient budget reaches the existing public endpoint. No physical
   resource interpretation follows.
+- A source-derived causal-order package in
+  `ObserverPatchHolography/Provenance/SemanticEventProvenance.lean`, with
+  mismatch predicates and orientation controls in `MismatchProvenance.lean`,
+  seam-delta aggregation in `SeamDeltaAggregation.lean`, causal intervals
+  and the Boolean response diamond in `CausalInterval.lean`, and the
+  adapter bridge in `QFT/SourceDerivedEventPrecedence.lean`. Versioned
+  commits generate event precedence as the transitive closure of certified
+  read-from parenthood; under one declared append-only ancestry rank the
+  closure is a strict order inhabiting the A1 record-order interface, and
+  an adapter containing every direct edge with no unsupported comparability
+  carries exactly the generated order. Static mismatch scores are
+  writer-blind, so provenance is load-bearing for direction. The order is
+  informational; no schedule invariance, physical causality, spacetime, or
+  continuum claim follows.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

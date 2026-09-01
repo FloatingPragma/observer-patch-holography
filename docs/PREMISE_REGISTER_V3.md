@@ -88,8 +88,10 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-78 | work-conserving canonical adaptive choice | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 | PR-79 | bounded waste between canonical adaptive changes | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 | PR-80 | sufficient cumulative attempt budget | `numerical_input` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-81 | certified causal read support | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
+| PR-82 | append-only semantic ancestry rank | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 
-Totals: 80 premises. 47 remove, 29 axiomatize, 4 import.
+Totals: 82 premises. 47 remove, 31 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -732,6 +734,22 @@ The declared natural attempt budget B is at least (q+1) times the initial mismat
 - Type `numerical_input`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
 - Evidence: `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean` (`conditional_consumer`), `Lean/Tower/CumulativeCapacityEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
 - Disposition note: The arbitrary-width independent-defect family proves the work-conserving q=0 threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. For general q, the registered value is a sufficient upper cap only. The number is a mathematical attempt cap only.
+
+### PR-81 certified causal read support
+
+Every semantic commit declares the register versions on which its enablement, accepted payload, visible label, or continuation genuinely depends, and the declared support is sound and complete for that dependence. The generated parent relation reads this support; nothing derives the support from executor traces, and a repair that does not cite the injected seam version acquires no mismatch-response edge.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763).
+- Evidence: `Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean` (`no_go`), `Lean/QFT/SourceDerivedEventPrecedence.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The blind-repair control shows the citation clause is load-bearing: a repair with empty certified support repairs the seam yet acquires no injection-to-response edge. Support soundness and completeness are receipt obligations of any producing pipeline; the finite package consumes the declared support.
+
+### PR-82 append-only semantic ancestry rank
+
+One declared natural rank strictly increases across every direct semantic parent edge, witnessing that the committed ledger is append-only: no commit cites a version written by its own causal future. The rank is not a repair schedule, modular parameter, clock reading, proper time, or global time coordinate, and none of those identifications is made.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763).
+- Evidence: `Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Provenance/CausalInterval.lean` (`conditional_consumer`), `Lean/QFT/SourceDerivedEventPrecedence.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The rank makes the generated closure irreflexive and asymmetric, so the strict-order laws of the A1 interface are theorems rather than declarations. The committed chain and diamond logs discharge the premise with the event index and the level rank.
 
 ## What the dispositions mean
 

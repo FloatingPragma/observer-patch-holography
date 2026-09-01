@@ -199,6 +199,20 @@ Mapping between Lean 4 theorems in this project and statements in
   consumer reaches the same raw and public endpoint before a sufficient budget
   is exhausted. No stochastic scheduler, rate, physical clock, resource
   attachment, or refinement result follows.
+  Source-derived event precedence
+  (`ObserverPatchHolography/Provenance/SemanticEventProvenance.lean`,
+  `MismatchProvenance.lean`, `SeamDeltaAggregation.lean`,
+  `CausalInterval.lean`, `QFT/SourceDerivedEventPrecedence.lean`) generates
+  the causal order of semantic commits as the transitive closure of
+  certified read-from parenthood: a strict order in the A1 record-order
+  interface under one declared append-only ancestry rank, least among
+  strict transitive extensions of the direct edges, with an exactness
+  theorem reducing any admissible precedence adapter to a verifier and the
+  chain-witness world realizing the redundancy of its declared order.
+  Writer-blind static mismatch, the blind-repair control, dependency-complete
+  seam aggregation, and the Boolean-diamond interval bound the package.
+  The order is informational; schedule invariance of the labeled history
+  and every physical or continuum identification stay open.
   See `A4_PUBLIC_WORLD_ENDPOINT.md`.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,

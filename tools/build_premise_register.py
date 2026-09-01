@@ -40,7 +40,7 @@ TYPES = (
     "numerical_input",
 )
 DISPOSITIONS = ("remove", "axiomatize", "import")
-LANE_ISSUES = frozenset((*range(728, 738), 740, 742, 743, 744, 745, 750))
+LANE_ISSUES = frozenset((*range(728, 738), 740, 742, 743, 744, 745, 750, 763))
 EVIDENCE_ROLES = {
     "statement",
     "conditional_consumer",
@@ -485,6 +485,18 @@ EXPECTED_ROWS = (
         "PR-80",
         "sufficient cumulative attempt budget",
         "numerical_input",
+        "axiomatize",
+    ),
+    (
+        "PR-81",
+        "certified causal read support",
+        "structural_rule",
+        "axiomatize",
+    ),
+    (
+        "PR-82",
+        "append-only semantic ancestry rank",
+        "structural_rule",
         "axiomatize",
     ),
 )

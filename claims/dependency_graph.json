@@ -8,6 +8,7 @@
   "OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
   "OPH-CONS-CUMULATIVE-ATTEMPT-CAPACITY",
   "OPH-CONS-CAPACITY-BOUNDED-PUBLIC-ENDPOINT",
+  "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
   "OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
   "OPH-CONS-BFT-PREPARED-LOCK",
   "OPH-CONS-REFINEMENT-MODULI",
@@ -1842,6 +1843,11 @@
    "from": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
    "to": "OPH-CONS-CAPACITY-BOUNDED-PUBLIC-ENDPOINT",
    "role": "supplies canonical Repair, the literal PublicWorld quotient, and the existing FixedPointObject consumed after budget-bounded normalization"
+  },
+  {
+   "from": "OPH-CONS-D1",
+   "to": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
+   "role": "supplies the accepted transactional commit semantics, read/write validation, and aggregate conflict discipline whose versioned register image the provenance layer reads"
   }
  ]
 }

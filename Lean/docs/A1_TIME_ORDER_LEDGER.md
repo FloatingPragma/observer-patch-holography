@@ -72,6 +72,19 @@ umbrella build checks it. Its printed axiom audit contains no project axiom or
 `sorryAx`. The affine theorem has only Mathlib's standard classical/quotient
 axioms.
 
+## Source-generated inhabitant of the record-order type
+
+`ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` produces
+an `ObserverRecordOrder` from provenance instead of declaration:
+`SemanticEventLog.generatedRecordOrder` is the transitive closure of
+certified read-from parenthood, with irreflexivity and asymmetry proved
+from one declared append-only ancestry rank. The rank is a
+well-foundedness witness under the ledger discipline; it is none of the
+other A1 layers, and no identification with a repair schedule, modular
+parameter, clock reading, proper time, or global time function is made.
+`QFT/SourceDerivedEventPrecedence.lean` consumes this inhabitant for the
+event-precedence adapter and proves any exact adapter equal to it.
+
 ## Downstream boundary
 
 A1 supplies names and type separation only. The bounded D1 packet in

@@ -2053,6 +2053,52 @@
         "claims/assumption_dictionary.md": "statement"
       },
       "notes": "The arbitrary-width independent-defect family proves the work-conserving q=0 threshold is worst-case sharp, while the different-patch-cardinality TwoCell source supplies a second nonisomorphic sharp instance. For general q, the registered value is a sufficient upper cap only. The number is a mathematical attempt cap only."
+    },
+    {
+      "id": "PR-81",
+      "name": "certified causal read support",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "Every semantic commit declares the register versions on which its enablement, accepted payload, visible label, or continuation genuinely depends, and the declared support is sound and complete for that dependence. The generated parent relation reads this support; nothing derives the support from executor traces, and a repair that does not cite the injected seam version acquires no mismatch-response edge.",
+      "consuming_lanes": [
+        763
+      ],
+      "evidence": [
+        "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
+        "Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean",
+        "Lean/QFT/SourceDerivedEventPrecedence.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean": "conditional_consumer",
+        "Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean": "no_go",
+        "Lean/QFT/SourceDerivedEventPrecedence.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The blind-repair control shows the citation clause is load-bearing: a repair with empty certified support repairs the seam yet acquires no injection-to-response edge. Support soundness and completeness are receipt obligations of any producing pipeline; the finite package consumes the declared support."
+    },
+    {
+      "id": "PR-82",
+      "name": "append-only semantic ancestry rank",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "One declared natural rank strictly increases across every direct semantic parent edge, witnessing that the committed ledger is append-only: no commit cites a version written by its own causal future. The rank is not a repair schedule, modular parameter, clock reading, proper time, or global time coordinate, and none of those identifications is made.",
+      "consuming_lanes": [
+        763
+      ],
+      "evidence": [
+        "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
+        "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean",
+        "Lean/QFT/SourceDerivedEventPrecedence.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean": "conditional_consumer",
+        "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean": "conditional_consumer",
+        "Lean/QFT/SourceDerivedEventPrecedence.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The rank makes the generated closure irreflexive and asymmetric, so the strict-order laws of the A1 interface are theorems rather than declarations. The committed chain and diamond logs discharge the premise with the event index and the level rank."
     }
   ]
 }
