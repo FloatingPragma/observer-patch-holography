@@ -50,7 +50,7 @@ PREMISE_DEPENDENCY_CLASSIFICATIONS = {
 }
 PREMISE_ID = re.compile(r"^PR-[0-9]{2}$")
 PREMISE_DEPENDENCY_PROJECTION_SHA256 = (
-    "8b39e40196d7e030a5066e9ba07538d2c56af6f957c064ebbf87f331f30dc5c8"
+    "afb62ab462c386d7fa4b9b5a26eef09421caec98f4ee9dc38c8f9cdb7e9d3d8e"
 )
 
 # Controlled claim classification (issue #512). `status` stays descriptive

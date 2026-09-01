@@ -21,6 +21,7 @@ ObservableNormalForms/ObserverConfluence.lean
 ObservableNormalForms/ProtectedObstructions.lean
 ObservableNormalForms/Refinement.lean
 ObservableNormalForms/Repair.lean
+ObservableNormalForms/SchedulerClassObstructions.lean
 ObservableNormalForms/Stability.lean
 ObservableNormalForms/Stochastic.lean
 PROOF_INDEX.md

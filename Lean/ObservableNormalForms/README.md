@@ -103,6 +103,9 @@ implementation refinement, or arbitrary-scheduler invariance is claimed.
   fiber, fine/coarse TwoBit, full/missing fixed relations, and proper-target
   closed-trap and ambiguous-endpoint chains. The proper-target models keep
   equality at the source distinct from positive transition support.
+- `SchedulerClassObstructions.lean`: a declared finite admissible-scheduler
+  class on the standalone two-register carrier, with exact self/network update
+  subclasses, capacity-split controls, and scheduler-quantified obstructions.
 - `Functional.lean`: synchronous ranked-dependency settling, fixed-point, and
   uniqueness theorems.
 - `Stochastic.lean`: finite Markov affine-drift iteration and a one-time

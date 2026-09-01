@@ -242,6 +242,17 @@ surface for the OPH consensus layer. Contents:
   The order is
   informational; invariance over the full admissible implementation class,
   physical causality, spacetime, and every continuum claim stay open.
+- A fixed computation-federation package in
+  `Computation/FixedFederationProgress.lean`, with sharp controls in
+  `FixedFederationCounterexamples.lean` and a downstream endpoint in
+  `Tower/FixedFederationEndpoint.lean`. Formula nodes are fixed independently
+  of input, which is read from preserved initial-state ports. Every genuine
+  node repair lowers a dependency-order rank; attempts may stutter, so
+  continuously-enabled node fairness is used only to obtain consensus from
+  the eventual constant tail. The package also proves that raw failing-node
+  count can increase under upstream fanout and that the historical weak step
+  can remain fairly stuttering forever. It selects no scheduler and claims no
+  budget, rate, complexity, physical device, or full raw-state uniqueness.
 - A sorry-free **#304 application theorem**
   (`ObserverPatchHolography/BoundaryFiber.lean`): the verified
   rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)

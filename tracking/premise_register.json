@@ -2128,6 +2128,29 @@
         "claims/assumption_dictionary.md": "statement"
       },
       "notes": "Under this identification the finite event carrier and an informational precedence candidate are supplied by the provenance package rather than independently declared. The identification itself is a declared premise: no theorem identifies record germs with semantic commits, and neither the Lean package nor the simulator proves that read-after-write reachability is physical causal reachability. The simulator's commit-populated observer log inhabits the finite identification without selecting a faithful continuum embedding, a dimension, a volume density, or a Lorentzian manifold."
+    },
+    {
+      "id": "PR-84",
+      "name": "pathwise weak fairness for fixed node attempts",
+      "type": "structural_rule",
+      "disposition": "axiomatize",
+      "statement": "Along one attempt run of an input-independent fixed node federation, if one declared node remains failing throughout a tail, that exact node is eventually selected on the tail. The premise removes reducible equality-stutter tails but does not cause accepted-step termination, select a scheduler, bound attempts, or provide a physical rate.",
+      "consuming_lanes": [
+        750
+      ],
+      "evidence": [
+        "Lean/Computation/FixedFederationProgress.lean",
+        "Lean/Computation/FixedFederationCounterexamples.lean",
+        "Lean/Tower/FixedFederationEndpoint.lean",
+        "claims/assumption_dictionary.md"
+      ],
+      "evidence_roles": {
+        "Lean/Computation/FixedFederationProgress.lean": "conditional_consumer",
+        "Lean/Computation/FixedFederationCounterexamples.lean": "no_go",
+        "Lean/Tower/FixedFederationEndpoint.lean": "conditional_consumer",
+        "claims/assumption_dictionary.md": "statement"
+      },
+      "notes": "The singleton canonical scheduler proves the premise is nonvacuous. The root-only fanout scheduler proves that attempt stabilization without this premise may remain reducible. The one-member historical weak-step fixture shows fairness is insufficient when the counted relation itself permits stutter."
     }
   ]
 }

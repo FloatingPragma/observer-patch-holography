@@ -258,6 +258,26 @@ Mapping between Lean 4 theorems in this project and statements in
   implementation class and every physical or continuum identification
   stay open.
   See `A4_PUBLIC_WORLD_ENDPOINT.md`.
+- Fixed computation-federation progress
+  (`Computation/FixedFederationProgress.lean`,
+  `Computation/FixedFederationCounterexamples.lean`,
+  `Tower/FixedFederationEndpoint.lean`): the generated formula nodes form one
+  input-independent federation whose immutable input ports live in the initial
+  state. A canonical genuine node repair strictly lowers a source-derived
+  superincreasing dependency rank. Arbitrary node attempts are eventually
+  constant, and pathwise weak fairness makes the stable state a consensus.
+  Same-input normal endpoints have one output through the
+  observation-determined-normal-forms consumer. The historical weak
+  `RepairStep` remains unchanged; the weak-node adapter places every fixture
+  step directly in that historical relation, and a one-member fair stuttering
+  fixture proves that fairness cannot make the broader relation progress.
+  A separate fanout control shows that fairness restricted to nodes failing
+  from time zero is too weak for nodes enabled later. A pre-tail scheduler
+  also selects the downstream node before activation but starves it after it
+  becomes permanently failing. The historical input-pinning compiler is a
+  typed control whose device changes with its input. No scheduler,
+  attempt budget, physical resource, complexity, or finite `PublicWorld`
+  presentation is constructed.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,
   `EventAlgebra/TwoScalePublicRepair.lean`,

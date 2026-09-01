@@ -3,6 +3,7 @@ import Tower.PublicWorldQuotient
 import Tower.FixedPointEndpoint
 import Tower.AdaptiveFixedPointEndpoint
 import Tower.CumulativeCapacityEndpoint
+import Tower.FixedFederationEndpoint
 import Tower.EventGeometryReadout
 import Tower.FullPremiseInhabitant
 import Tower.OperationalObserver

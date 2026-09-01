@@ -91,8 +91,9 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-81 | certified causal read support | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 | PR-82 | append-only semantic ancestry rank | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 | PR-83 | commit-populated event base | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
+| PR-84 | pathwise weak fairness for fixed node attempts | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 
-Totals: 83 premises. 47 remove, 32 axiomatize, 4 import.
+Totals: 84 premises. 47 remove, 33 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -759,6 +760,14 @@ The record-germ events of the event-manifold branch are identified with quotient
 - Type `structural_rule`; disposition `axiomatize`; consumed by [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763).
 - Evidence: `Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean` (`conditional_consumer`), `Lean/QFT/SourceDerivedEventPrecedence.lean` (`conditional_consumer`), `Lean/Geometry/EventPopulationChartInterface.lean` (`conditional_consumer`), `paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex` (`statement`), `claims/assumption_dictionary.md` (`statement`).
 - Disposition note: Under this identification the finite event carrier and an informational precedence candidate are supplied by the provenance package rather than independently declared. The identification itself is a declared premise: no theorem identifies record germs with semantic commits, and neither the Lean package nor the simulator proves that read-after-write reachability is physical causal reachability. The simulator's commit-populated observer log inhabits the finite identification without selecting a faithful continuum embedding, a dimension, a volume density, or a Lorentzian manifold.
+
+### PR-84 pathwise weak fairness for fixed node attempts
+
+Along one attempt run of an input-independent fixed node federation, if one declared node remains failing throughout a tail, that exact node is eventually selected on the tail. The premise removes reducible equality-stutter tails but does not cause accepted-step termination, select a scheduler, bound attempts, or provide a physical rate.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/Computation/FixedFederationProgress.lean` (`conditional_consumer`), `Lean/Computation/FixedFederationCounterexamples.lean` (`no_go`), `Lean/Tower/FixedFederationEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The singleton canonical scheduler proves the premise is nonvacuous. The root-only fanout scheduler proves that attempt stabilization without this premise may remain reducible. The one-member historical weak-step fixture shows fairness is insufficient when the counted relation itself permits stutter.
 
 ## What the dispositions mean
 

@@ -2339,6 +2339,49 @@ existing canonical raw and public fixed-point endpoint at an index
 It is not a physical clock, rate, energy, bandwidth allocation, hardware
 quota, fee, or stochastic policy.
 
+\subsection{Fixed computation federations}
+
+The computation compiler has a second, distinct asynchronous surface.  For a
+Boolean formula \(\varphi\) on \(k\) inputs, the generated node list
+\(\operatorname{go}(\varphi,k)\) is independent of the input.  Its registers
+start at \(k\); the initial state supplies the lower input ports.  A canonical
+accepted step chooses a failing node and performs exactly that node's declared
+write.  The historical patch-frame relation remains unchanged and is not used
+as the accepted relation.
+
+Read the node defects in increasing register order, with every earlier bit
+more significant than all later bits together.  This superincreasing natural
+rank strictly decreases at every canonical accepted step.  An upstream repair
+may expose several later defects: the machine-checked fanout control raises
+the raw failing-node count from one to two, so ordinary defect count is not the
+measure.  The dependency rank nevertheless falls, and the accepted relation
+is well founded without a fairness premise.
+
+\begin{theorem}[Fixed computation-federation progress]
+\label{thm:fixed-computation-federation}
+For every finite Boolean function there is one input-independent generated-node
+federation such that every canonical attempt run is eventually constant.  If
+every node that remains failing on a tail is eventually selected on that tail,
+the stable state is a consensus and its output equals the function value for
+the preserved initial input.  Any two normal endpoints with the same input
+observation agree on the output register.
+\end{theorem}
+
+The fairness premise removes attempt stutter; it does not prove accepted-step
+termination.  Its positive singleton instance and a root-only starvation
+schedule inhabit the two sides.  The broader historical relation admits a
+sharper one-member control: the only member and site are selected at every
+attempt and remain continuously enabled, yet the run stutters forever outside
+consensus because the relation does not require the declared repair to execute.
+Thus fairness cannot compensate for a step semantics that counts a no-op.
+
+The endpoint statement uses the immutable input prefix as the protected
+observation and output-register equality as the endpoint equivalence.  Unused
+natural-number registers are not identified.  No scheduler is selected, no
+attempt budget or complexity bound is proved, and no physical device, finite
+\texttt{PublicWorld} presentation, clock, rate, or resource interpretation is
+constructed.
+
 \subsection{Limitations}
 
 The theory assumes a declared meaningful quotient, consistent set, residual, observation metric, and refinement map.  It does not select those objects.  In particular:

@@ -142,6 +142,8 @@
   "OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
   "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
   "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
+  "OPH-COMPUTATION-FIXED-FEDERATION-PROGRESS",
+  "OPH-COMPUTATION-FIXED-FEDERATION-ENDPOINT",
   "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
   "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
   "OPH-EVENTALGEBRA-SOURCE-PHASE-INSTRUMENT-OUTCOME-BRIDGE",
@@ -1865,6 +1867,16 @@
    "from": "OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
    "to": "OPH-GR-D4B-EVENT-MANIFOLD",
    "role": "supplies only the finite commit carrier and its authenticated informational precedence candidate; physical causal faithfulness, faithful embedding and manifoldlikeness, dimension four, topology, volume-density calibration, and continuum soldering remain explicit event-manifold gates"
+  },
+  {
+   "from": "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
+   "to": "OPH-COMPUTATION-FIXED-FEDERATION-PROGRESS",
+   "role": "supplies the generated formula nodes, straight-line dependency order, weak-step limitation, and fixed-device gap closed by the canonical fixed-federation theorem"
+  },
+  {
+   "from": "OPH-COMPUTATION-FIXED-FEDERATION-PROGRESS",
+   "to": "OPH-COMPUTATION-FIXED-FEDERATION-ENDPOINT",
+   "role": "supplies ranked accepted-step termination, fair attempt consensus, input preservation, and same-input output uniqueness to the Tower endpoint consumer"
   }
  ]
 }
