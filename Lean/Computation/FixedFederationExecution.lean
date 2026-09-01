@@ -145,6 +145,41 @@ def roundRobinScheduler (L : List Node) (hL : L ≠ []) :
         Nat.mod_lt step (List.length_pos_iff.mpr hL)⟩
     ⟨L.get i, List.get_mem L i⟩
 
+/-- Before the first wraparound, round robin executes exactly the source-order
+prefix sweep. -/
+theorem roundRobinScheduler_prefix_eq_sweepFrom
+    (L : List Node) (hL : L ≠ []) (s : State) (steps : Nat)
+    (hsteps : steps ≤ L.length) :
+    attemptRun L steps (roundRobinScheduler L hL) s =
+      sweepFrom s (L.take steps) := by
+  induction steps with
+  | zero => rfl
+  | succ n ih =>
+      have hnlt : n < L.length := Nat.lt_of_succ_le hsteps
+      rw [attemptRun_last_step, ih (Nat.le_of_lt hnlt)]
+      change repairNode
+        (L.get ⟨n % L.length,
+          Nat.mod_lt n (List.length_pos_iff.mpr hL)⟩)
+        (sweepFrom s (L.take n)) = _
+      have hindex :
+          (⟨n % L.length,
+            Nat.mod_lt n (List.length_pos_iff.mpr hL)⟩ : Fin L.length) =
+            ⟨n, hnlt⟩ := by
+        apply Fin.ext
+        exact Nat.mod_eq_of_lt hnlt
+      rw [hindex, List.get_eq_getElem,
+        List.take_succ_eq_append_getElem hnlt, sweepFrom_append]
+      rfl
+
+/-- One complete round-robin cycle is definitionally the existing
+source-order sweep. -/
+theorem roundRobinScheduler_cycle_eq_sweepFrom
+    (L : List Node) (hL : L ≠ []) (s : State) :
+    attemptRun L L.length (roundRobinScheduler L hL) s =
+      sweepFrom s L := by
+  simpa using
+    roundRobinScheduler_prefix_eq_sweepFrom L hL s L.length le_rfl
+
 theorem roundRobinScheduler_memberRecurrent
     (L : List Node) (hL : L ≠ []) (s : State) :
     NodeMemberRecurrent L (roundRobinScheduler L hL) s := by
@@ -212,6 +247,49 @@ def fixedRoundRobinScheduler {k : Nat} (phi : Formula k) :
     NodeScheduler (fixedProgram phi) :=
   roundRobinScheduler (fixedProgram phi) (fixedProgram_nonempty phi)
 
+theorem fixedRoundRobin_cycle_eq_fixedSweep
+    {k : Nat} (phi : Formula k) (s : State) :
+    attemptRun (fixedProgram phi) (fixedProgram phi).length
+        (fixedRoundRobinScheduler phi) s =
+      sweepFrom s (fixedProgram phi) :=
+  roundRobinScheduler_cycle_eq_sweepFrom
+    (fixedProgram phi) (fixedProgram_nonempty phi) s
+
+/-- Source-order round robin reaches consensus after at most one cycle, hence
+within a number of attempts linear in the emitted node count. -/
+theorem fixedRoundRobin_consensus_after_one_cycle
+    {k : Nat} (phi : Formula k) (s : State) :
+    Consensus (fixedFederation phi)
+      (attemptRun (fixedProgram phi) (fixedProgram phi).length
+        (fixedRoundRobinScheduler phi) s) := by
+  rw [fixedRoundRobin_cycle_eq_fixedSweep]
+  exact fixedSweep_consensus phi s
+
+theorem fixedRoundRobin_output_after_one_cycle
+    {k : Nat} (phi : Formula k) (x : Fin k → Bool) (s : State)
+    (hinput : CarriesInput x s) :
+    attemptRun (fixedProgram phi) (fixedProgram phi).length
+        (fixedRoundRobinScheduler phi) s (fixedOutReg phi) =
+      Formula.evalF phi x := by
+  rw [fixedRoundRobin_cycle_eq_fixedSweep]
+  exact fixedSweep_output phi x s hinput
+
+theorem fixedRoundRobin_stable_after_one_cycle
+    {k : Nat} (phi : Formula k) (s : State) :
+    ∀ n, (fixedProgram phi).length ≤ n →
+      attemptRun (fixedProgram phi) n (fixedRoundRobinScheduler phi) s =
+        attemptRun (fixedProgram phi) (fixedProgram phi).length
+          (fixedRoundRobinScheduler phi) s := by
+  intro n hn
+  obtain ⟨m, rfl⟩ := Nat.exists_eq_add_of_le hn
+  rw [attemptRun_add]
+  exact attemptRun_eq_self_of_consensus
+    (fixedProgram phi)
+    (fun k x => fixedRoundRobinScheduler phi ((fixedProgram phi).length + k) x)
+    (attemptRun (fixedProgram phi) (fixedProgram phi).length
+      (fixedRoundRobinScheduler phi) s)
+    (fixedRoundRobin_consensus_after_one_cycle phi s) m
+
 theorem fixedRoundRobin_memberRecurrent {k : Nat} (phi : Formula k)
     (s : State) :
     NodeMemberRecurrent (fixedProgram phi)
@@ -277,6 +355,8 @@ theorem exists_mathematical_fair_scheduler {k : Nat}
 #print axioms nodePathwiseWeakFair_iff_eventuallyStableConsensus
 #print axioms nodeMemberRecurrent_iff_nodeSiteRecurrent
 #print axioms fixedRoundRobin_memberRecurrent
+#print axioms roundRobinScheduler_cycle_eq_sweepFrom
+#print axioms fixedRoundRobin_consensus_after_one_cycle
 #print axioms exists_mathematical_fair_scheduler
 
 end

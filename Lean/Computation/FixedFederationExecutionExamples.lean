@@ -176,8 +176,45 @@ theorem weakFair_no_uniform_attempt_bound (budget : Nat) :
     exact delayedRoundRobin_run_before (budget + 1) n (by omega)]
   exact recurrenceGap_allFalse_not_consensus
 
+/-! ## Typed premise controls -/
+
+/-- Starting the allocator below the input range can collide with an input
+register and falsifies the exact compiler use profile. -/
+def allocatorCollisionFormula : Formula 1 :=
+  .var ⟨0, by omega⟩
+
+theorem allocatorSeparation_needed :
+    ¬ GoUseProfile allocatorCollisionFormula 0 := by
+  intro h
+  have hout := h.output_unused
+  simp [allocatorCollisionFormula, go, dependencyOccurrences] at hout
+
+/-- Without a bounded-waste premise, even a weak-fair actual scheduler need
+not reach consensus inside the triangular attempt horizon. -/
+theorem boundedWaste_premise_needed :
+    ∃ sigma : NodeScheduler (fixedProgram recurrenceGapFormula),
+      NodePathwiseWeakFair (fixedProgram recurrenceGapFormula) sigma allFalse ∧
+      ¬ ∃ N,
+        N ≤ (0 + 1) * triangle (fixedProgram recurrenceGapFormula).length ∧
+        Consensus (fixedFederation recurrenceGapFormula)
+          (attemptRun (fixedProgram recurrenceGapFormula) N sigma allFalse) ∧
+        ∀ n, N ≤ n →
+          attemptRun (fixedProgram recurrenceGapFormula) n sigma allFalse =
+            attemptRun (fixedProgram recurrenceGapFormula) N sigma allFalse := by
+  let budget := triangle (fixedProgram recurrenceGapFormula).length
+  obtain ⟨sigma, hfair, hdelay⟩ :=
+    weakFair_no_uniform_attempt_bound budget
+  refine ⟨sigma, hfair, ?_⟩
+  intro hbound
+  obtain ⟨N, hN, hcons, _⟩ := hbound
+  apply hdelay N
+  · simpa [budget] using hN
+  · exact hcons
+
 #print axioms recurrence_strictly_stronger_than_tail_fairness
 #print axioms weakFair_no_uniform_attempt_bound
+#print axioms allocatorSeparation_needed
+#print axioms boundedWaste_premise_needed
 
 /-! ## Actual nested-negation compiler family -/
 

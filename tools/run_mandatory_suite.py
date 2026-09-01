@@ -301,6 +301,10 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Kernel-check the typed fixed-federation execution audit",
+        [sys.executable, "tools/check_fixed_federation_execution_audit.py"],
+    ),
+    (
         "Execute the fixed-unitary scattering obstruction controls",
         [
             sys.executable,

@@ -29,6 +29,8 @@ def test_claim_and_premises_keep_the_exact_execution_boundary() -> None:
     assert claim["owner_paper"] == "paper/reality_as_consensus_protocol.tex"
     assert claim["premise_dependencies"]["consumed"] == ["PR-84", "PR-85"]
     assert "reverse is vacuous" in claim["statement"]
+    assert "first n attempts equal the source-order sweep" in claim["statement"]
+    assert "within n attempts" in claim["statement"]
     assert "order-sharp Theta(n^2)" in claim["statement"]
     assert "Weak fairness alone supplies no uniform finite attempt horizon" in claim["statement"]
     assert "not an exact constant match" in claim["statement"]
@@ -67,6 +69,9 @@ def test_lean_provider_controls_and_actual_consumers_are_wired() -> None:
         "nodeMemberRecurrent_iff_nodeSiteRecurrent",
         "exists_mathematical_fair_scheduler",
         "roundRobinScheduler_selects_within",
+        "roundRobinScheduler_cycle_eq_sweepFrom",
+        "fixedRoundRobin_consensus_after_one_cycle",
+        "fixedRoundRobin_output_after_one_cycle",
     ):
         assert f"theorem {name}" in execution
 
@@ -82,6 +87,8 @@ def test_lean_provider_controls_and_actual_consumers_are_wired() -> None:
     for name in (
         "recurrence_strictly_stronger_than_tail_fairness",
         "weakFair_no_uniform_attempt_bound",
+        "allocatorSeparation_needed",
+        "boundedWaste_premise_needed",
         "negComb_quadratic_lower",
         "fixedProgram_sharp_quadratic_certificates",
     ):
@@ -94,6 +101,7 @@ def test_lean_provider_controls_and_actual_consumers_are_wired() -> None:
     assert provider_call in adaptive_tower
     assert "theorem canonicalAcceptedSteps_within_quadratic" in fixed_tower
     assert "fixedProgram_acceptedSteps_quadratic phi hsteps" in fixed_tower
+    assert "theorem roundRobin_reaches_correct_output_within_linear" in fixed_tower
     assert "theorem roundRobin_reaches_bounded_unique_output" in fixed_tower
 
 
@@ -107,9 +115,12 @@ def test_manuscripts_and_indices_keep_nonclaims_and_order_sharpness() -> None:
     index = _text("Lean/docs/PROOF_INDEX.md")
 
     assert "Fixed-federation execution classification" in component
+    assert "one emitted-node cycle" in component
     assert "vacuous after stable consensus" in consensus
+    assert "within \\(n\\) attempts" in consensus
     assert "order-sharp" in consensus
     assert "bounded-waste" in flagship
+    assert "linear emitted-node horizon" in flagship
     assert "FixedFederationExecution.lean" in guide
     assert "FixedFederationExecutionEndpoint.lean" in index
     assert "finite `PublicWorld`" in index
@@ -124,4 +135,17 @@ def test_umbrellas_register_each_new_module_once() -> None:
         "import ObserverPatchHolography.Execution.RankedAttemptCapacity"
     ) == 1
     assert tower.count("import Tower.FixedFederationExecutionEndpoint") == 1
+    assert tower.count("import Tower.FixedFederationExecutionAudit") == 1
     assert lake.count("Computation.FixedFederationExecutionExamples") == 1
+
+
+def test_typed_execution_audit_is_registered_in_mandatory() -> None:
+    audit = _text("Lean/Tower/FixedFederationExecutionAudit.lean")
+    mandatory = _text("tools/run_mandatory_suite.py")
+    checker = _text("tools/check_fixed_federation_execution_audit.py")
+    assert "example (L : List Node)" in audit
+    assert "roundRobin_reaches_correct_output_within_linear" in audit
+    assert "allocatorSeparation_needed" in audit
+    assert "boundedWaste_premise_needed" in audit
+    assert "Kernel-check the typed fixed-federation execution audit" in mandatory
+    assert 'TARGET = "Tower.FixedFederationExecutionAudit"' in checker

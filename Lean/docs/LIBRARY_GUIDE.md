@@ -276,17 +276,21 @@ surface for the OPH consensus layer. Contents:
   `Computation/FixedFederationComplexity.lean`, and
   `Computation/FixedFederationExecutionExamples.lean`, with the shared neutral
   counter in `ObserverPatchHolography/Execution/RankedAttemptCapacity.lean`
-  and actual receiver in `Tower/FixedFederationExecutionEndpoint.lean`.
+  and actual receiver in `Tower/FixedFederationExecutionEndpoint.lean`, with
+  exact public signatures pinned by
+  `Tower/FixedFederationExecutionAudit.lean`.
   Tail-relative weak fairness is equivalent to eventual stable consensus on
   one fixed run; the reverse is vacuous after consensus and gives no
   recurrence. Register uniqueness makes member and site recurrence coincide,
   while an actual control keeps recurrence strictly stronger than tail
-  fairness. State-blind round robin is recurrent and bounded-waste. The actual
-  compiler has an order-sharp `Theta(n^2)` genuine accepted-step cost in its
+  fairness. State-blind round robin is recurrent and bounded-waste; its first
+  `n` attempts equal the source-order sweep and reach stable correct output.
+  The actual compiler has an order-sharp `Theta(n^2)` genuine accepted-step cost in its
   emitted-node metric: all paths satisfy `n * (n + 1) / 2`, and one emitted
   nested-NAND family supplies a quadratic lower path with a different finite
   constant. Weak fairness gives no uniform attempt horizon; fixed-node bounded
-  waste gives a conditional attempt bound. No physical scheduler, clock,
+  waste gives a conditional attempt bound. Typed negative controls show why
+  allocator separation and bounded waste cannot be silently dropped. No physical scheduler, clock,
   rate, energy, bandwidth, fee, hardware, finite `PublicWorld`, or raw-state
   uniqueness follows.
 - A sorry-free **#304 application theorem**

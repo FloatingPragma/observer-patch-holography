@@ -37,6 +37,31 @@ theorem roundRobin_reaches_correct_output {k : Nat}
           Formula.evalF phi x :=
   exists_mathematical_fair_scheduler phi x s hinput
 
+/-- The source-order round-robin scheduler reaches stable consensus and the
+exact formula output after one emitted-node cycle.  This is a linear attempt
+bound for this explicit mathematical scheduler, not a physical runtime. -/
+theorem roundRobin_reaches_correct_output_within_linear {k : Nat}
+    (phi : Formula k) (x : Fin k → Bool) (s : State)
+    (hinput : CarriesInput x s) :
+    Consensus (fixedFederation phi)
+      (attemptRun (fixedProgram phi) (fixedProgram phi).length
+        (fixedRoundRobinScheduler phi) s) ∧
+    (∀ n, (fixedProgram phi).length ≤ n →
+      attemptRun (fixedProgram phi) n (fixedRoundRobinScheduler phi) s =
+        attemptRun (fixedProgram phi) (fixedProgram phi).length
+          (fixedRoundRobinScheduler phi) s) ∧
+    CarriesInput x
+      (attemptRun (fixedProgram phi) (fixedProgram phi).length
+        (fixedRoundRobinScheduler phi) s) ∧
+    attemptRun (fixedProgram phi) (fixedProgram phi).length
+        (fixedRoundRobinScheduler phi) s (fixedOutReg phi) =
+      Formula.evalF phi x := by
+  refine ⟨fixedRoundRobin_consensus_after_one_cycle phi s,
+    fixedRoundRobin_stable_after_one_cycle phi s, ?_,
+    fixedRoundRobin_output_after_one_cycle phi x s hinput⟩
+  exact (fixedAttemptRun_preservesInputObservation phi
+    (fixedProgram phi).length (fixedRoundRobinScheduler phi) s).trans hinput
+
 /-- The actual compiler accepted-step upper is consumed at the Tower boundary.
 This wrapper receives no separate novelty credit. -/
 theorem canonicalAcceptedSteps_within_quadratic {k : Nat}
@@ -119,6 +144,7 @@ theorem roundRobin_reaches_bounded_unique_output {k : Nat}
     hinput (fixedRoundRobin_nodeBoundedWaste phi)
 
 #print axioms roundRobin_reaches_correct_output
+#print axioms roundRobin_reaches_correct_output_within_linear
 #print axioms canonicalAcceptedSteps_within_quadratic
 #print axioms boundedWaste_reaches_unique_output
 #print axioms roundRobin_reaches_bounded_unique_output
