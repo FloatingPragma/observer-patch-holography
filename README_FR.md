@@ -91,36 +91,19 @@ simulations reproductibles :
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité et la gravitation à partir de la géométrie des
-  observateurs.** Des résultats finis exacts établissent la cinématique de
-  Lorentz des référentiels, la couche de masse et un ordre informationnel
-  authentifié, engendré par les versions écrites que chaque registre validé a
-  réellement lues. Cet ordre fini ressemble à un ensemble causal, mais ne
-  constitue à lui seul ni un ensemble causal physique ni un continuum
-  d’espace-temps. Les directions unitaires du porteur de rang trois sont
-  algébriquement équivalentes à des étiquettes S2/rayons nuls, mais une lecture
-  en quatre dimensions exige encore que les images physiquement fidèles des
-  liens locaux authentifiés couvrent ces directions de façon dense et isotrope.
-  Le plongement fidèle, la propriété de
-  variété, l’attachement au cône physique, l’étalonnage nombre-vers-volume et
-  un raffinement qui recolle globalement les voisinages de rang trois avec une
-  croissance cubique des boules, tout en préservant ordre, directions et
-  densité, forment le pont vers la reconstruction conditionnelle d’Einstein.
-  Un théorème de composition vérifié par machine fixe les relations finies
-  d’ordre, de rang, de direction et de métrique locale pour tout paquet
-  atlas/référentiels fourni ; il ne construit ni ce paquet ni le continuum. Un
-  second théorème exact travaille dans une algèbre tensorielle 3+1 fournie et
-  utilise neuf images inverses algébriques fixes de son repère tomographique
-  coordonné pour déduire l’équilibre dans toutes les directions nulles et une
-  relation tensorielle de forme einsteinienne sur le même porteur fini
-  d’événements ; il ne déduit pas la dimension 3+1 de l’ordre des événements.
-  Cet ensemble distingué de neuf directions est fixé par les coordonnées :
-  il n’est ni sélectionné par les registres ni invariant comme ensemble sous
-  toutes les transformations spatiales ou de Lorentz.
-  L’ordre informationnel partage ce porteur mais ne sélectionne ni ces
-  directions ni ces tenseurs. Interpréter ce tenseur comme une courbure
-  physique lisse exige encore les
-  entrées d’attachement, de raffinement, de volume et de limite continue sur
-  une même tour compatible.
+  observateurs.** Des résultats finis exacts déduisent la cinématique de
+  Lorentz, la couche de masse et un ordre informationnel des lectures
+  authentifiées plutôt que d’une ascendance déclarée. Les directions unitaires
+  du porteur source de rang trois sont exactement équivalentes à (S^2) et à
+  des étiquettes de rayons nuls futurs. Pour tout paquet ordre/référentiels
+  fourni, Lean prouve l’accord fini entre ordre, cônes, rang et métrique locale.
+  Sur le même porteur fini, neuf directions algébriques suffisent à déduire
+  l’équilibre dans toutes les directions nulles et une relation tensorielle de
+  forme einsteinienne dans une algèbre 3+1 fournie. L’espace-temps physique
+  reste émergent : plongement fidèle, propriété de variété, couverture dense
+  et isotrope, étalonnage nombre-vers-volume, raffinement compatible et limite
+  continue restent à établir. Voir la
+  [dérivation de l’espace-temps](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
 - **La géométrie des champs sur l’écran à douze ports.** L’écran fini porte
   des théorèmes exacts de Green, Thomson, Gauss, courbure et invariance de
   jauge. La même géométrie relie les charges aux ports, les données de couture,
