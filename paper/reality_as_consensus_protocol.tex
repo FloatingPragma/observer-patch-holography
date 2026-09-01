@@ -46,6 +46,10 @@ repair attempts, normality under pathwise weak fairness, schedule-independent
 public endpoints under the remaining completeness and confluence hypotheses,
 a cumulative attempt-capacity classification with a bounded-waste upper
 horizon and an exact work-conserving threshold,
+an input-independent compiler execution classification in which source-order
+round robin reaches the exact output in a linear node-count horizon while
+arbitrary accepted order is sharp quadratic and weak fairness alone has no
+uniform attempt horizon,
 an informational event precedence generated from certified read-from provenance with
 exact adapters reduced to verifiers,
 loop obstructions, stable records, refinement control, and a fair-block theorem
@@ -4561,6 +4565,9 @@ actual stable-consensus schedule proves recurrence remains strictly stronger
 than tail fairness.  A state-blind round-robin function is recurrent,
 pathwise weak-fair, and bounded-waste, so at least one explicit mathematical
 scheduler reaches the correct same-input output.
+Its first \(n\) attempts are exactly the source-order compiler sweep, so this
+explicit scheduler reaches stable consensus and the correct output within
+\(n\) attempts for \(n\) emitted nodes.
 
 The actual \texttt{go} compiler has at most one downstream consumer per
 generated register.  Linear defect weights therefore bound every canonical
@@ -4573,7 +4580,9 @@ horizon.  A separately supplied fixed-node bounded-waste value \(q\) gives a
 stable horizon of \((q+1)n(n+1)/2\); round robin supplies \(q=n-1\).  The
 bounded-waste counting proof is shared with the adaptive route through a
 neutral ranked-attempt theorem, while the two domain adapters and scientific
-claims remain distinct.
+claims remain distinct.  The general bounded-waste formula is deliberately
+retained for other schedulers; the direct one-cycle theorem is the sharper
+linear bound for source-order round robin.
 Separately, a width-five permutation word program is fixed independently of
 the input and evaluates the formula under the stated encoding; the formal
 carrier is the ambient permutation group on five points, and membership of

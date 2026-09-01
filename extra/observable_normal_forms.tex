@@ -97,7 +97,7 @@ one canonical raw and public endpoint. Counting every scheduler invocation,
 including stutter, gives a genuinely restrictive cumulative capacity: no
 initial-mismatch-only finite attempt horizon exists for arbitrary normalizing
 schedulers, whereas bounded waste gives a quantitative upper horizon, with an
-exact sharp threshold in the work-conserving case, and a capacity-bounded public endpoint. The Markov-chain and fair-termination
+exact sharp threshold in the work-conserving case, and a capacity-bounded public endpoint. On the separate input-independent compiler branch, one source-order round-robin cycle reaches the exact output in \(n\) attempts, arbitrary accepted repair order has order-sharp \(\Theta(n^2)\) paths, and weak fairness alone has no uniform finite attempt horizon. The Markov-chain and fair-termination
 ingredients are standard; the contribution is their source-bound assembly
 around protected observations, canonical repair, and the existing behavior-cut
 interface. These results supply the observable-normal-form machinery used by the
@@ -252,6 +252,24 @@ Control-theoretic observability reconstructs a state, or a prescribed function o
 \subsection{Constraints, databases, and global sections}
 
 Acyclic database schemes and positive-semiring relations provide local-to-global consistency results \citep{BeeriEtAl1983,AtseriasKolaitis2020}.  Constraint satisfaction studies local consistency as an algorithmic reduction \citep{DalmauOprsal2023}.  Database repair semantics distinguishes the existence of many consistent repairs from the answers invariant across them \citep{ArenasBertossiChomicki1999}.  Sheaf-theoretic contextuality similarly turns failure of a global section into an obstruction \citep{AbramskyBrandenburger2011}.  Our empty-fiber certificate belongs to this broad lineage.  The additional layer is the interaction with normal-form stability and refinement.
+
+\subsection{Fair scheduling and asynchronous Boolean-network fixing}
+
+Fairness is a qualitative liveness condition rather than a latency bound;
+Lamport formulates the general closure issue explicitly
+\citep{Lamport2000Fairness}, while the self-stabilization daemon taxonomy
+separates fairness, boundedness, and enabledness as independent scheduling
+axes \citep{DuboisTixeuil2011}.  Asynchronous Boolean-network work studies
+fixing words and their minimal lengths, including monotone, acyclic, tree, and
+conjunctive families \citep{AracenaEtAl2019,GadouleauRichard2018}.  We assign
+no novelty credit to weak fairness, round robin, fixing words, or quadratic
+fixing phenomena themselves.  The source-specific contribution below is the
+joint machine-checked classification for the actual nonmonotone
+\texttt{go} compiler: its first source-order cycle is the existing sweep and
+therefore has a linear exact-output horizon, its adversarial genuine
+accepted-step paths are order-sharp quadratic in the same emitted-node metric,
+and its Tower endpoint distinguishes both from arbitrary weak-fair attempts
+and from a separately supplied bounded-waste contract.
 
 \subsection{Asynchronous functional networks}
 
@@ -2385,7 +2403,9 @@ At the compiler's present node granularity, member recurrence and register-site
 recurrence coincide because generated output registers are unique; recurrence
 is nevertheless strictly stronger than tail fairness.  A state-blind
 round-robin scheduler is member- and site-recurrent and reaches the stable
-correct output.
+correct output.  More sharply, its first \(n\) attempts are exactly the
+source-order sweep, so it reaches stable consensus and the correct output
+within one emitted-node cycle.
 
 If the emitted program has \(n\) nodes, every canonical genuine accepted path
 has length at most
@@ -2403,7 +2423,9 @@ are not claimed equal.  Weak fairness alone supplies no uniform finite attempt
 horizon.  If a supplied fixed-node scheduler instead has bounded waste \(q\),
 stable consensus is reached within
 \((q+1)n(n+1)/2\) attempts.  Round robin discharges this premise with
-\(q=n-1\), and the Tower consumer returns the same-input unique output.
+\(q=n-1\), but its direct one-cycle theorem gives the sharper \(n\)-attempt
+bound for that scheduler.  The Tower consumer returns the same-input unique
+output.
 \end{theorem}
 
 The bounded-waste counting theorem is shared with the canonical adaptive
@@ -2470,6 +2492,14 @@ source-derived rather than postulated as a scheduler property.  The remaining
 steps are deliberately separate: pathwise weak fairness supplies normality,
 while completeness and confluence promote the stable state to one consistent
 canonical raw and public endpoint.
+
+On the separate fixed compiler branch, the source-order round-robin schedule
+reaches the exact output in one \(n\)-attempt cycle, arbitrary genuine accepted
+order has an order-sharp \(\Theta(n^2)\) worst-case family, weak fairness alone
+has no uniform finite attempt horizon, and bounded waste supplies the general
+conditional attempt bound.  These four statements classify distinct
+scheduler and cost regimes rather than attaching a physical duration to an
+attempt.
 
 The resulting estimate is universal and sharp in its two unavoidable components. It survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies the determination and stability question, a four-stage protected-behavior ladder, and an orthogonal local-support question:
 \[
