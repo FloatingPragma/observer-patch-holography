@@ -1,4 +1,5 @@
 import ObserverPatchHolography.Execution.AdaptiveRunStratification
+import ObserverPatchHolography.Execution.RankedAttemptCapacity
 
 /-!
 # Cumulative attempt capacity for canonical adaptive repair
@@ -120,6 +121,65 @@ def BoundedWaste (C : OPHCarrier) (waste : Nat)
       adaptiveRun (offset + 1) (fun k => sigma (start + k)) x ≠
         adaptiveRun offset (fun k => sigma (start + k)) x
 
+def adaptiveRankedAttemptSystem (C : OPHCarrier) :
+    OPH.RankedAttempt.System (Records C) (Site C) where
+  step := localRepair C
+  rank := mismatchCount
+  change_rank_lt := by
+    intro i x hchange
+    exact mismatchCount_localRepair_lt C i x hchange
+
+@[simp] theorem rankedAttemptRun_eq_adaptiveRun
+    (C : OPHCarrier) (n : Nat)
+    (sigma : AdaptiveScheduler C) (x : Records C) :
+    OPH.RankedAttempt.run (adaptiveRankedAttemptSystem C) n sigma x =
+      adaptiveRun n sigma x := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      rw [OPH.RankedAttempt.run_last_step, adaptiveRun_last_step, ih]
+      rfl
+
+theorem rankedQuiescent_iff_normalForm
+    (C : OPHCarrier) (x : Records C) :
+    OPH.RankedAttempt.Quiescent (adaptiveRankedAttemptSystem C) x ↔
+      NormalForm C x := by
+  constructor
+  · intro hquiet
+    by_contra hnotNormal
+    obtain ⟨i, hchange⟩ :=
+      (not_normal_iff_exists_firing C x).mp hnotNormal
+    exact hchange (hquiet i)
+  · intro hnormal i
+    by_contra hchange
+    exact (not_normal_iff_exists_firing C x).mpr ⟨i, hchange⟩ hnormal
+
+theorem boundedWaste_iff_rankedBoundedWaste
+    (C : OPHCarrier) (waste : Nat)
+    (sigma : AdaptiveScheduler C) :
+    BoundedWaste C waste sigma ↔
+      OPH.RankedAttempt.BoundedWaste
+        (adaptiveRankedAttemptSystem C) waste sigma := by
+  constructor
+  · intro h start x hnotQuiet
+    have hnotNormal : ¬ NormalForm C x := by
+      intro hnormal
+      exact hnotQuiet ((rankedQuiescent_iff_normalForm C x).2 hnormal)
+    obtain ⟨offset, hoffset, hchange⟩ :=
+      h start x ((not_normal_iff_exists_firing C x).mp hnotNormal)
+    refine ⟨offset, hoffset, ?_⟩
+    simpa only [rankedAttemptRun_eq_adaptiveRun] using hchange
+  · intro h start x henabled
+    have hnotNormal : ¬ NormalForm C x :=
+      (not_normal_iff_exists_firing C x).mpr henabled
+    have hnotQuiet :
+        ¬ OPH.RankedAttempt.Quiescent (adaptiveRankedAttemptSystem C) x := by
+      intro hquiet
+      exact hnotNormal ((rankedQuiescent_iff_normalForm C x).1 hquiet)
+    obtain ⟨offset, hoffset, hchange⟩ := h start x hnotQuiet
+    refine ⟨offset, hoffset, ?_⟩
+    simpa only [rankedAttemptRun_eq_adaptiveRun] using hchange
+
 theorem workConserving_boundedWaste_zero (C : OPHCarrier)
     (sigma : AdaptiveScheduler C) (hwork : WorkConserving C sigma) :
     BoundedWaste C 0 sigma := by
@@ -134,38 +194,14 @@ theorem boundedWaste_exists_normal_by_rank (C : OPHCarrier) (waste : Nat) :
       ∃ N, N ≤ (waste + 1) * mismatchCount x ∧
         NormalForm C (adaptiveRun N sigma x) := by
   intro x sigma hbounded
-  generalize hd : mismatchCount x = d
-  induction d using Nat.strong_induction_on generalizing x sigma with
-  | h d ih =>
-      by_cases hnormal : NormalForm C x
-      · exact ⟨0, Nat.zero_le _, by simpa using hnormal⟩
-      · have henabled := (not_normal_iff_exists_firing C x).mp hnormal
-        obtain ⟨offset, hoffset, hchange⟩ := hbounded 0 x henabled
-        simp at hchange
-        let y : Records C := adaptiveRun (offset + 1) sigma x
-        let sigmaTail : AdaptiveScheduler C :=
-          fun k => sigma ((offset + 1) + k)
-        have hylt : mismatchCount y < d := by
-          have hstrict :=
-            adaptiveRun_change_strict_rank C offset sigma x hchange
-          have hprefix := adaptiveRun_rank_le_initial C offset sigma x
-          dsimp [y]
-          omega
-        have hboundedTail : BoundedWaste C waste sigmaTail := by
-          intro start z hfire
-          obtain ⟨later, hlater, hchanges⟩ :=
-            hbounded ((offset + 1) + start) z hfire
-          refine ⟨later, hlater, ?_⟩
-          simpa [sigmaTail, Nat.add_assoc] using hchanges
-        obtain ⟨N, hN, hnormalN⟩ :=
-          ih (mismatchCount y) hylt y sigmaTail hboundedTail rfl
-        refine ⟨(offset + 1) + N, ?_, ?_⟩
-        · have hrank : mismatchCount y + 1 ≤ d := Nat.succ_le_iff.mpr hylt
-          have hmul := Nat.mul_le_mul_left (waste + 1) hrank
-          rw [Nat.mul_add, Nat.mul_one] at hmul
-          omega
-        · rw [adaptiveRun_add]
-          simpa [y, sigmaTail] using hnormalN
+  have hranked :=
+    (boundedWaste_iff_rankedBoundedWaste C waste sigma).mp hbounded
+  obtain ⟨N, hN, hquiet⟩ :=
+    OPH.RankedAttempt.boundedWaste_exists_quiescent_by_rank
+      (adaptiveRankedAttemptSystem C) waste x sigma hranked
+  refine ⟨N, hN, ?_⟩
+  exact (rankedQuiescent_iff_normalForm C _).1
+    (by simpa only [rankedAttemptRun_eq_adaptiveRun] using hquiet)
 
 theorem boundedWaste_eventually_normal (C : OPHCarrier) (waste : Nat)
     (x : Records C) (sigma : AdaptiveScheduler C)

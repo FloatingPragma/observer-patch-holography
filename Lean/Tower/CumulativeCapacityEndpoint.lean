@@ -1,5 +1,6 @@
 import Tower.AdaptiveFixedPointEndpoint
 import ObserverPatchHolography.Execution.CumulativeAttemptCapacity
+import ObserverPatchHolography.Execution.RankedAttemptCapacity
 
 /-!
 # Capacity-bounded adaptive public endpoints
@@ -42,8 +43,19 @@ theorem boundedWaste_endpoint_within_attempt_budget
       ∃ w : FixedPointObject (presentation C seed) (localSystem C seed),
         w.1 = (presentation C seed).toPublicWorld
           (adaptiveRun N sigma start) := by
-  obtain ⟨N, hN, hnormal, hconstant⟩ :=
-    boundedWaste_eventually_normal C waste start sigma hbounded
+  have hranked :=
+    (boundedWaste_iff_rankedBoundedWaste C waste sigma).mp hbounded
+  obtain ⟨N, hN, hquiet, hconstantRanked⟩ :=
+    OPH.RankedAttempt.boundedWaste_eventually_quiescent
+      (adaptiveRankedAttemptSystem C) waste start sigma hranked
+  have hnormal : NormalForm C (adaptiveRun N sigma start) :=
+    (rankedQuiescent_iff_normalForm C _).1
+      (by simpa only [rankedAttemptRun_eq_adaptiveRun] using hquiet)
+  have hconstant : ∀ n, N ≤ n →
+      adaptiveRun n sigma start = adaptiveRun N sigma start := by
+    intro n hn
+    simpa only [rankedAttemptRun_eq_adaptiveRun] using
+      hconstantRanked n hn
   have hwithin : cumulativeAttemptCost N ≤ budget := by
     simpa [cumulativeAttemptCost] using le_trans hN hbudget
   have hconsistent : Consistent C (adaptiveRun N sigma start) :=
@@ -71,8 +83,19 @@ theorem boundedWaste_public_endpoint_exists_unique
   obtain ⟨w, hw⟩ := canonicalEndpoint_mem_fixedPointObject C seed start
   refine ⟨w, ?_⟩
   intro sigma hbounded
-  obtain ⟨N, hN, hnormal, hconstant⟩ :=
-    boundedWaste_eventually_normal C waste start sigma hbounded
+  have hranked :=
+    (boundedWaste_iff_rankedBoundedWaste C waste sigma).mp hbounded
+  obtain ⟨N, hN, hquiet, hconstantRanked⟩ :=
+    OPH.RankedAttempt.boundedWaste_eventually_quiescent
+      (adaptiveRankedAttemptSystem C) waste start sigma hranked
+  have hnormal : NormalForm C (adaptiveRun N sigma start) :=
+    (rankedQuiescent_iff_normalForm C _).1
+      (by simpa only [rankedAttemptRun_eq_adaptiveRun] using hquiet)
+  have hconstant : ∀ n, N ≤ n →
+      adaptiveRun n sigma start = adaptiveRun N sigma start := by
+    intro n hn
+    simpa only [rankedAttemptRun_eq_adaptiveRun] using
+      hconstantRanked n hn
   have hwithin : cumulativeAttemptCost N ≤ budget := by
     simpa [cumulativeAttemptCost] using le_trans hN hbudget
   have hconsistent : Consistent C (adaptiveRun N sigma start) :=
