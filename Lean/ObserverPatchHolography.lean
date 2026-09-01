@@ -59,6 +59,9 @@ import ObserverPatchHolography.Provenance.SemanticEventProvenance
 import ObserverPatchHolography.Provenance.MismatchProvenance
 import ObserverPatchHolography.Provenance.SeamDeltaAggregation
 import ObserverPatchHolography.Provenance.CausalInterval
+import ObserverPatchHolography.Provenance.HistoryCausalInvariance
+import ObserverPatchHolography.Provenance.QuotientInvariance
+import ObserverPatchHolography.Provenance.RefinementNaturality
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root
