@@ -19,8 +19,10 @@ When `R` is supplied as the full strict order of a poset, this generic
 compiler therefore authenticates every strict predecessor as a `ParentEdge`;
 it does not first reduce `R` to its Hasse/cover relation.  The separate
 geometry-seeded simulation compiler uses authenticated geometric covers and
-recovers the full order by transitive closure.  A Lean cover compiler would be
-a distinct strengthening of the present theorem.
+recovers the full order by transitive closure.  The companion
+`FiniteCausetCoverCompiler` provides the distinct abstract strengthening that
+authenticates exactly the Hasse covers and reconstructs `R` by transitive
+closure.
 
 This is a finite abstract-log compiler, not a source-selection theorem.  It
 does not derive `R`, a rank, physical event identity, a signal relation,

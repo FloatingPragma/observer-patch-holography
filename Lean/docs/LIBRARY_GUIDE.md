@@ -195,10 +195,12 @@ surface for the OPH consensus layer. Contents:
   `FiniteCausetCompiler.lean` realizes every supplied finite decidable
   irreflexive transitive relation exactly as parenthood and generated
   precedence, with predecessor count as the derived rank. For transitive
-  input it authenticates every strict-order pair rather than reducing the
-  relation to Hasse covers. Its per-event snapshots are not proved to arise
-  from one threaded execution, so this is expressivity rather than source
-  selection. The
+  input, `FiniteCausetCompiler.lean` retains the full-order compiler, while
+  `FiniteCausetCoverCompiler.lean` strengthens the abstract expressivity result
+  by authenticating exactly the Hasse covers and reconstructing the supplied
+  strict order by transitive closure. Their per-event snapshots are not proved
+  to arise from one threaded execution, so this is expressivity rather than
+  source selection. The
   closure is a strict order inhabiting the A1 record-order interface, and
   an adapter containing every direct edge with no unsupported comparability
   carries exactly the generated order. Static mismatch scores are

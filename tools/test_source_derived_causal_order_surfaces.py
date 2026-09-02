@@ -94,6 +94,9 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     compiler = _text(
         "Lean/ObserverPatchHolography/Provenance/FiniteCausetCompiler.lean"
     )
+    cover_compiler = _text(
+        "Lean/ObserverPatchHolography/Provenance/FiniteCausetCoverCompiler.lean"
+    )
     history = _text(
         "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean"
     )
@@ -113,6 +116,11 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     assert "theorem generatedBefore_iff_transGen" in compiler
     assert "def predecessorRank" in compiler
     assert "theorem finiteStrictTransitiveRelation_realized" in compiler
+    assert "def CoverRelation" in cover_compiler
+    assert "theorem rel_iff_transGen_coverRelation" in cover_compiler
+    assert "theorem coverLog_parentEdge_iff" in cover_compiler
+    assert "theorem coverLog_generatedBefore_iff" in cover_compiler
+    assert "theorem finiteStrictTransitiveRelation_cover_realized" in cover_compiler
     assert "theorem semanticEventLogOfExecution_generatedBefore_iff" in history
     assert "theorem execParents_rank_lt" in history
 
@@ -170,6 +178,11 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
         assert removed not in shape
     assert "theorem constantMetricAmbiguity" in einstein
     assert "structure SourceIndexedEinsteinPremises" in einstein
+
+    root_umbrella = _text("Lean/ObserverPatchHolography.lean")
+    assert root_umbrella.splitlines().count(
+        "import ObserverPatchHolography.Provenance.FiniteCausetCoverCompiler"
+    ) == 1
 
     umbrella = _text("Lean/Geometry.lean")
     assert umbrella.count("import Geometry.SourceDerivedSpacetimeCarrier") == 1
