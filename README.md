@@ -84,13 +84,28 @@ calculations and reproducible simulations:
   source quotient define \(\mathbb R\oplus V_3\), a four-dimensional
   Lorentz target with a future-null unit sphere. Source height enters only in
   a scaled event placement, not in the carrier, intrinsic dimension, or
-  physical time. Lean proves forward cone compatibility from an edge-speed
-  bound and two-way faithfulness when the converse is supplied; a separate
+  physical time. Every finite strict poset compiles into the authenticated
+  grammar, and every finite log has an auxiliary injective forward-causal
+  placement. On a source-selected placement, an edge-speed bound gives the
+  forward implication and two finite geometric checks give the converse,
+  together yielding exact order--cone agreement and interval preservation. The archived
+  native-link receipt tests source-native carrier-local causal decorations
+  without establishing local cone or frame gluing. Geometry-seeded Poisson
+  \(3+1\) controls recompile exactly through the provenance grammar with
+  injective seeded maps and a separate Poisson/count check. Their geometry,
+  density, event material, read pattern, and placement are seeded upstream;
+  these are compatibility results, not physical selection. A separate
   tensor interface gives a finite Einstein shape. Physical spacetime and
-  smooth GR require event and link attachment, faithful placement,
-  count-volume calibration, dimension and manifoldlikeness tests, topology,
-  isotropy, refinement, and curvature convergence. See the
+  smooth GR require event and link attachment, a source-selected order
+  embedding, Poisson/count-volume calibration, dimension and manifoldlikeness tests, topology,
+  isotropy and refinement. Smooth Einstein promotion further needs a
+  same-family tensor-curvature reconstruction or the independent continuum
+  small-ball/null-balance identification; scalar-curvature convergence alone
+  is diagnostic. See the
   [spacetime derivation](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
+  The current [source-history archive](evidence/source_causal_history_family/)
+  and [causet-control archive](evidence/causet_likeness/) include full receipts
+  and standard-library checkers.
 - **Field geometry on the twelve-port screen.** The finite screen carries
   exact Green, Thomson, Gauss, curvature, and gauge-invariance theorems. The
   same geometry connects port loads, seam data, local curvature, and the
@@ -317,17 +332,14 @@ The [reproduction guide](REPRODUCE.md) gives the clean-clone setup and the
 fuller finite-core lane, which adds the two W/Z convention and
 survival-boundary calibration tests.
 
-## Open Problems And The Falsification Boundary
+## The Falsification Boundary
 
 The reconstruction runs from the three axioms toward a public quantum
-theory, event geometry, a macroscopic spacetime description, and, at the
-end of the chain, the Standard Model Lagrangian. Some links in that chain
-are proved, some are proved in bounded form, and some are open. Each open
-step is a tracked
-[research question](https://github.com/FloatingPragma/observer-patch-holography/issues)
-with its dependencies, and every claim in the papers carries its own scope
-note. A mismatch with the Standard Model at any step is an allowed outcome
-that the protocol may not tune away.
+theory, event geometry, an effective macroscopic spacetime description, and
+the Standard Model Lagrangian. The papers distinguish exact finite theorems,
+conditional physical implications, and empirical attachments, with a scope
+note on every claim. A mismatch with the Standard Model at any step is an
+allowed outcome that the protocol may not tune away.
 
 The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) lists
 the mature claims together with the exact observations that would break
@@ -356,7 +368,7 @@ The [paper index](paper/) gives the curated publication map. Focused research PD
   </a>
 </p>
 
-<p align="center"><sub>The typed OPH dependency map. An independent real axis and the exact rank-three source quotient define the ambient target R ⊕ V₃, with dimension four and Lorentz signature. Authenticated order supplies canonical longest-chain height only for a scaled event placement in that target. The target-carrier dimension is not an intrinsic poset-dimension estimate, and height is not a physical clock. Physical placement, count-to-volume calibration, manifoldlikeness, topology, curvature, and the Einstein continuum remain explicit bridges. Event number is not public capacity N.</sub></p>
+<p align="center"><sub>The typed OPH dependency map. An independent real axis and the exact rank-three source quotient define the ambient target R ⊕ V₃, with dimension four and Lorentz signature. Authenticated order supplies its exact longest parent-chain height only for a scaled event placement in that target. The target-carrier dimension is not an intrinsic poset-dimension estimate, and height is not a physical clock. Physical placement, count-to-volume calibration, independent dimension tests, manifoldlikeness, topology, curvature, and the Einstein continuum remain explicit bridges. Event number is not public capacity N.</sub></p>
 
 ## Repository Guide
 
@@ -391,11 +403,9 @@ cited here.
 
 OPH welcomes proofs, counterexamples, simulations, independent reviews, and readable
 explanations. The [reproduction guide](REPRODUCE.md) rebuilds the certificates
-and checks from a clean clone. The
-[scoped research questions](https://github.com/FloatingPragma/observer-patch-holography/issues)
-identify suitable contributions, while the
-[selection ledger](docs/SELECTION_LEDGER.md) states their exact theorem
-premises and unresolved mathematical inputs.
+and checks from a clean clone, while the
+[selection ledger](docs/SELECTION_LEDGER.md) states the exact theorem premises
+and scientific boundaries relevant to new contributions.
 
 ## License
 

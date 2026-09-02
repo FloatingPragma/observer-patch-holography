@@ -38,7 +38,7 @@ The compression is also lossy, by an amount somebody can write down. Add a term 
 
 ## Twelve. Where does a number like that come from?
 
-A patch with twelve ports carries the forces, the matter and the three directions. A specific small integer sitting at the base of a theory is what a fitted parameter looks like.
+A patch with twelve ports supplies candidate carriers for the forces and matter and an exact rank-three candidate position readback. Physical identification of those structures requires their separate attachment receipts. A specific small integer sitting at the base of a theory is what a fitted parameter looks like.
 
 The suspicion assumes the number could have been otherwise, which is what a parameter is: a quantity whose value had to be chosen and can be moved.
 
@@ -52,7 +52,7 @@ Twelve ports, thirty seams, patches wired to neighbors. Draw that on a page and 
 
 The question hands itself a place for free: everything is in something, and a relation needs a room to be a relation in.
 
-Distance here is a count of comparisons. Two patches are far apart when many comparisons separate them. A direction is a pattern in that tally rather than an arrow drawn in a room. The three directions come out of a fading rate. A repair operator's twelve readings split into blocks that fade at 0.9539, at exactly nine tenths and at 0.8794 a pass, with only the slowest block surviving enough rounds to carry a position, and the rank of that block is three.
+Distance here is a count of comparisons. Two patches are far apart when many comparisons separate them. A candidate direction is a pattern in that tally rather than an arrow drawn in a room. On the declared operational-cost branch, a repair operator's twelve readings split into blocks that fade at 0.9539, at exactly nine tenths and at 0.8794 a pass, with only the slowest block surviving enough rounds to carry the candidate position readback; its rank is three. Turning that exact rank-three carrier into physical directions requires the source-causal spacetime attachment.
 
 Turn the question on the room it asks for. A room for the network to sit in would have to be assembled out of comparisons between record-keepers, which is what a network is, and then that room would need a room. What exists is a tally, a rank of three, and observers doing the counting from inside while occupying no position in anything larger.
 
@@ -178,7 +178,7 @@ Only two quantities are open, the horizon and the discount rate. How far ahead t
 
 ## Do I have to accept the ethics to accept the physics?
 
-A reader can want the derivation of the forces and the three directions and want to stop before the part about good and evil, on the ground that a physicist's opinions about conduct are a physicist's opinions.
+A reader can want the structural force derivations and the rank-three candidate position carrier, with their stated physical attachment conditions, and want to stop before the part about good and evil, on the ground that a physicist's opinions about conduct are a physicist's opinions.
 
 The question assumes the join between the two is preference.
 

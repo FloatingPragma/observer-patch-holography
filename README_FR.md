@@ -95,17 +95,35 @@ simulations reproductibles :
   observateurs.** Les lectures authentifiées engendrent un poset causal fini.
   Indépendamment, un axe réel et le quotient source de rang trois définissent
   \(\mathbb R\oplus V_3\), une cible lorentzienne de dimension quatre à
-  sphère nulle future. La hauteur source n’intervient que dans le placement
+  sphère nulle future. La hauteur source est exactement la longueur de la plus
+  longue chaîne de parents authentifiés; elle n’intervient que dans le placement
   des événements, non dans la construction du
-  porteur, la dimension intrinsèque ou le temps physique. Lean prouve
-  l’inclusion dans le cône par une borne de vitesse et la fidélité
-  lorsque la réciproque est fournie; une interface tensorielle séparée donne
+  porteur, la dimension intrinsèque ou le temps physique. Lean démontre que
+  tout poset strict fini se compile dans la grammaire authentifiée et que tout
+  journal fini admet un placement auxiliaire injectif et causal vers l’avenir.
+  Sur un placement sélectionné par la source, une borne de vitesse donne
+  l’implication vers le cône ; la séparation spatiale à hauteur égale et le
+  caractère strictement spatial des paires incomparables à hauteur croissante
+  donnent la réciproque. Ensemble, elles donnent l’accord exact de l’ordre et
+  du cône ainsi que la préservation des intervalles. Le reçu natif archivé teste des décorations causales locales à
+  chaque porteur sans établir un cône local ni un recollement des repères. Des
+  contrôles de Poisson \(3+1\) amorcés par la géométrie se recompilent
+  exactement dans la grammaire de provenance, avec des applications amorcées
+  injectives et un contrôle Poisson/comptage séparé. Leur géométrie, densité,
+  matière événementielle, schéma de lecture et placement sont imposés en
+  amont : ces résultats montrent la compatibilité, non une sélection physique. Une interface tensorielle séparée donne
   une forme einsteinienne finie. L’espace-temps physique et la relativité
   générale lisse exigent encore l’attachement des événements et liens, un
-  plongement fidèle, l’étalonnage nombre-volume, les tests de dimension et de
-  variété, la topologie, l’isotropie, le raffinement et la convergence de la
-  courbure. Voir la
+  plongement d’ordre exact, l’étalonnage nombre-volume, les tests de dimension et de
+  variété, la topologie, l’isotropie et le raffinement. La promotion vers
+  l’équation d’Einstein exige en outre soit une reconstruction tensorielle de
+  la courbure sur la même famille, soit l’identification indépendante par
+  petits domaines/bilan nul ; la seule convergence de la courbure scalaire
+  reste un diagnostic. Voir la
   [dérivation de l’espace-temps](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
+  Les [archives de l’historique causal](evidence/source_causal_history_family/)
+  et des [contrôles causet](evidence/causet_likeness/) contiennent les reçus
+  complets et leurs vérificateurs en bibliothèque standard.
 - **La géométrie des champs sur l’écran à douze ports.** L’écran fini porte
   des théorèmes exacts de Green, Thomson, Gauss, courbure et invariance de
   jauge. La même géométrie relie les charges aux ports, les données de couture,
@@ -363,18 +381,16 @@ Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
 propre et la voie complète du noyau fini, qui ajoute les deux tests de
 calibration W/Z de convention et de frontières de survie.
 
-## Problèmes ouverts et frontière de falsification
+## Frontière de falsification
 
 La reconstruction va des trois axiomes vers une théorie quantique
-publique, une géométrie des événements, une description macroscopique de
-l'espace-temps et, au bout de la chaîne, le lagrangien du Modèle
-Standard. Certains maillons de cette chaîne sont prouvés, d'autres le
-sont sous forme bornée, d'autres sont ouverts. Chaque étape ouverte est
-une [question de recherche](https://github.com/FloatingPragma/observer-patch-holography/issues)
-suivie avec ses dépendances, et chaque affirmation des articles porte sa
+publique, une géométrie des événements, une description macroscopique
+effective de l'espace-temps et le lagrangien du Modèle Standard. Les articles
+distinguent les théorèmes finis exacts, les implications physiques
+conditionnelles et les attachements empiriques ; chaque affirmation porte sa
 propre note de portée. Un désaccord avec le Modèle Standard à une étape
-quelconque est un résultat admis que le protocole ne peut pas ajuster
-pour l'éviter.
+quelconque est un résultat admis que le protocole ne peut pas ajuster pour
+l'éviter.
 
 Le [programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md)
 recense les affirmations mûres avec les observations exactes qui les
@@ -388,7 +404,7 @@ briseraient.
   </a>
 </p>
 
-<p align="center"><sub>La carte typée des dépendances d’OPH. Un axe réel indépendant et le quotient source exact de rang trois définissent la cible ambiante R ⊕ V₃, de dimension quatre et de signature lorentzienne. L’ordre authentifié détermine la hauteur source canonique, soit la longueur maximale d’une chaîne de parents, uniquement pour placer les événements dans cette cible après une mise à l’échelle positive. La dimension de la cible n’est pas une dimension intrinsèque du poset, et la hauteur n’est pas une horloge physique. Le plongement physique, l’étalonnage nombre-vers-volume, la propriété de variété, la topologie, la courbure et la limite d’Einstein restent des ponts explicites. Le nombre d’événements n’est pas la capacité publique N.</sub></p>
+<p align="center"><sub>La carte typée des dépendances d’OPH. Un axe réel indépendant et le quotient source exact de rang trois définissent la cible ambiante R ⊕ V₃, de dimension quatre et de signature lorentzienne. L’ordre authentifié détermine la hauteur source canonique, soit la longueur maximale d’une chaîne de parents, uniquement pour placer les événements dans cette cible après une mise à l’échelle positive. La dimension de la cible n’est pas une dimension intrinsèque du poset, et la hauteur n’est pas une horloge physique. Le plongement physique, l’étalonnage nombre-vers-volume, les tests de dimension indépendants, la propriété de variété, la topologie, la courbure et la limite d’Einstein restent des ponts explicites. Le nombre d’événements n’est pas la capacité publique N.</sub></p>
 
 ## Guide du dépôt
 
@@ -416,11 +432,10 @@ briseraient.
 
 OPH accueille les preuves, les contre-exemples, les simulations, les revues
 indépendantes et les explications lisibles. Le [guide de reproduction](REPRODUCE.md)
-reconstruit les certificats et les vérifications à partir d’un clone propre. Les
-[questions de recherche cadrées](https://github.com/FloatingPragma/observer-patch-holography/issues)
-identifient les contributions adaptées, tandis que le
-[registre de sélection](docs/SELECTION_LEDGER.md) énonce leurs prémisses de
-théorème exactes et les entrées mathématiques non résolues.
+reconstruit les certificats et les vérifications à partir d’un clone propre,
+tandis que le [registre de sélection](docs/SELECTION_LEDGER.md) énonce les
+prémisses exactes et les frontières scientifiques utiles aux nouvelles
+contributions.
 
 ## Licence
 

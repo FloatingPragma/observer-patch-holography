@@ -188,6 +188,17 @@ surface for the OPH consensus layer. Contents:
   register and the child carries its exact value-version. The abstract log
   interface carries a rank certificate; the producer-facing threaded
   execution constructor instead derives that rank from list position. The
+  finite wrapper replaces that termination witness by canonical source height,
+  and `sourceHeight_eq_max_parentChainLength` proves that this height is both
+  an upper bound for every ending authenticated-parent chain and the length of
+  an attaining chain. The abstract grammar compiler in
+  `FiniteCausetCompiler.lean` realizes every supplied finite decidable
+  irreflexive transitive relation exactly as parenthood and generated
+  precedence, with predecessor count as the derived rank. For transitive
+  input it authenticates every strict-order pair rather than reducing the
+  relation to Hasse covers. Its per-event snapshots are not proved to arise
+  from one threaded execution, so this is expressivity rather than source
+  selection. The
   closure is a strict order inhabiting the A1 record-order interface, and
   an adapter containing every direct edge with no unsupported comparability
   carries exactly the generated order. Static mismatch scores are
@@ -210,8 +221,10 @@ surface for the OPH consensus layer. Contents:
   inhabiting no receipt. `Geometry/EventPopulationChartInterface.lean`
   defines only the source-native `SourceDerivedCausalChartInterface`: semantic
   events are the carrier and generated ancestry is the order, with no separate
-  population map or free precedence field. The finite atlas, visibility,
-  separation, and order/cone attachment remain explicit.
+  population map or free precedence field. The finite atlas, visibility, and
+  order/cone attachment remain explicit; exact base order/cone agreement and
+  source-order antisymmetry derive separation, which propagates through the
+  overlap cocycle.
   The provenance core packages reflexive generated ancestry as a partial
   order, and `finiteCausalSetAxioms` proves every interval finite at a finite
   cutoff. These are the abstract causal-set axioms, not a physical-causality
@@ -222,13 +235,19 @@ surface for the OPH consensus layer. Contents:
   future-null vector and proves its future-cone relation is a partial order.
   The ambient target is independently `ℝ × FrameQuotient`. Positive
   `timeScale` times canonical source height gives only the temporal coordinate
-  of a supplied event placement in that target, not a physical event time. A supplied
-  spatial readback and authenticated-edge speed bound imply the generated
-  order is future-causal; exact two-way faithfulness additionally requires the
-  explicit cone-support converse. From that converse the module derives event
-  separation and constructs the one-chart source-native interface. Its
-  Boolean-diamond control is fully non-chain: every parent edge is null and
-  the two independent responses are spacelike.
+  of a supplied event placement in that target, not a physical event time.
+  Every finite log also has an explicit enumeration-dependent injective
+  forward-causal placement along one source axis, with distinct equal-height
+  events spacelike. That construction is neither source-selected nor
+  order-reflecting. A general supplied spatial readback and authenticated-edge
+  speed bound imply the generated order is future-causal. Spatial separation
+  inside equal-height layers plus strict spacelikeness of every
+  increasing-height nonancestor derives the explicit cone-support converse.
+  From that converse the module derives exact two-way order/cone agreement,
+  event separation, exact interval transport, and the one-chart source-native
+  interface. The geometric conditions remain supplied. Its Boolean-diamond
+  control is fully non-chain: every parent edge is null and the two independent
+  responses are spacelike.
   `Geometry/SourceOrderFrameCompatibilityPacket.lean` composes that route
   with the rank-three quotient/rest bridge and optional per-event Lorentz
   transports. A standard-frame specialization constructs the complete finite

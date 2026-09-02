@@ -12,9 +12,9 @@ It does not construct a physical event manifold.
 | `Geometry/CelestialSoldering.lean` | Oriented Lorentz maps descend to future-null rays and the C1 celestial sphere, respect identity and composition, and carry a future-null event displacement covariantly across overlaps. Nullness remains an input. |
 | `Geometry/EventFrameSoldering.lean` | One base-chart frame selection and one Lorentz cocycle construct all chart-frame readbacks and their exact algebraic consequences. A finite two-event/two-chart control has a nonzero affine transition and a nonzero future-null displacement. |
 | `Geometry/SpatialReadbackSoldering.lean` | Canonical rest projection, temporal-plus-rest decomposition, Lorentz-natural rest-space equivalence, exact rest-metric preservation, overlap-covariant local spatial readback, and an exact isometric linear bridge from the source `FrameQuotient` to the standard internal rest fiber. |
-| `Geometry/EventPopulationChartInterface.lean` | `SourceDerivedCausalChartInterface` uses semantic events as the population and generated ancestry as the order, with no separate population map or free precedence relation. The finite atlas, total visibility, separation, and exact order/cone attachment remain explicit data. |
-| `Geometry/SourceDerivedSpacetimeCarrier.lean` | Constructs `SourceSpacetimeCarrier := ℝ × FrameQuotient` from an independent real axis and the exact rank-three source quotient; proves real dimension four, exact equivalence to `Herm2`, and a displayed `(+---)` Gram matrix; maps every source-unit direction to `(1,q)`, which is future-null. Positive `timeScale` times canonical source height gives only the temporal coordinate of a supplied event placement in that independently defined target, not a physical event time. A supplied spatial readback and authenticated-edge speed bound imply generated ancestry is future-causal; an explicit cone-support converse gives a faithful two-way finite embedding, preserves every source interval exactly in the placed cone, and constructs a one-chart source-native interface. The Boolean response diamond is a fully checked non-chain control: all parent edges are null and its two responses are spacelike. |
-| `Geometry/SourceOrderFrameCompatibilityPacket.lean` | Combines the source-native chart interface with the quotient/rest bridge and optional event-frame transports. A faithful placement constructs the chart packet; choosing the standard-frame gauge removes the frame-transport existence field without claiming physical event-dependent frames. The explicit Boolean diamond inhabits the full finite packet and its advertised consequences. Exact equivalences `SourceUnitDirection ≃ CelestialSphere` and `SourceUnitDirection ≃ FutureNullRay` and the transported rest-metric identity remain algebraic. |
+| `Geometry/EventPopulationChartInterface.lean` | `SourceDerivedCausalChartInterface` uses semantic events as the population and generated ancestry as the order, with no separate population map or free precedence relation. The finite atlas, total visibility, and exact order/cone attachment remain explicit data; base-chart separation follows from order/cone exactness and source-order antisymmetry and then propagates through the overlap cocycle. |
+| `Geometry/SourceDerivedSpacetimeCarrier.lean` | Constructs `SourceSpacetimeCarrier := ℝ × FrameQuotient` from an independent real axis and the exact rank-three source quotient; proves real dimension four, exact equivalence to `Herm2`, and a displayed `(+---)` Gram matrix; maps every source-unit direction to `(1,q)`, which is future-null. Positive `timeScale` times canonical source height gives only the temporal coordinate of a supplied event placement in that independently defined target, not a physical event time. A supplied spatial readback and authenticated-edge speed bound imply generated ancestry is future-causal; an explicit cone-support converse gives an exact two-way finite order embedding, preserves every source interval exactly in the placed cone, and constructs a one-chart source-native interface. The Boolean response diamond is a fully checked non-chain control: all parent edges are null and its two responses are spacelike. |
+| `Geometry/SourceOrderFrameCompatibilityPacket.lean` | Combines the source-native chart interface with the quotient/rest bridge and optional event-frame transports. An order-faithful placement constructs the chart packet; choosing the standard-frame gauge removes the frame-transport existence field without claiming physical event-dependent frames. The explicit Boolean diamond inhabits the full finite packet and its advertised consequences. Exact equivalences `SourceUnitDirection ≃ CelestialSphere` and `SourceUnitDirection ≃ FutureNullRay` and the transported rest-metric identity remain algebraic. |
 | `Geometry/SourceOrderEinsteinComposition.lean` | Defines the exact inverse images of the existing coordinate-fixed nine-vector null-tomography frame in `SourceUnitDirection`; the resulting distinguished family is neither source-selected nor invariant as a set. `SourceDirectionEinsteinShapePremises` removes six normalization or unification fields from the Einstein-shape argument. Nine supplied balances plus supplied symmetric tensors, Ward/Bianchi identities, and connectivity imply all-null balance and one constant metric ambiguity. The physically normalized equation still requires the separate vacuum and Newton-scale data; the full conclusion also carries a source-identification equality that the equation does not use. The generated order shares only the finite event type with the separately supplied tensor interface; it does not construct the tensor fields, identify coordinate differences, or enter the tensor calculation. |
 
 ## What the contract discharges
@@ -36,7 +36,7 @@ It does not construct a physical event manifold.
 - a forward order-to-cone theorem for the event placement whose temporal
   coordinate is scaled canonical source height, using a supplied spatial
   readback and one authenticated-edge squared-speed bound;
-- a faithful one-chart finite embedding, event separation, and source-native
+- an exact one-chart finite order embedding, event separation, and source-native
   chart interface under the explicit cone-support converse;
 - a fully constructed non-chain Boolean-diamond packet whose parent edges are
   null and whose independent responses are spacelike;
@@ -54,24 +54,37 @@ It does not construct a physical event manifold.
 
 ## What remains external
 
-The finite algebraic interfaces do not supply any of the following inputs
-required for a physical open-manifold claim:
+The finite algebraic interfaces do not supply the source-causal continuum
+certificate required for a physical open-manifold claim. One common cofinal
+family must still provide:
 
-1. a source-produced event-germ atlas and coincidence relation, including a
-   supplied chart-coordinate/readback family satisfying the affine overlap law;
-2. population/realization of completion points;
-3. certified separation on the completed/refined carrier;
-4. open, locally bi-Lipschitz four-dimensional charts with an interior receipt;
-5. physical attachment of the source cone to the intrinsic form with a positive margin;
-6. refinement naturality on one source tower;
-7. semantic causal reachability;
-8. an operational clock.
+1. a physical interpretation of retained events and authenticated links, with
+   an adequacy argument relating informational support to physical signals;
+2. source-selected placements with exact order/cone agreement, together with
+   dense and isotropic source-`S²` link directions rather than a fitted cone;
+3. refinement maps preserving events, generated order, directions, and
+   placements, plus a specified convergence notion on the full cofinal family;
+4. a locally calibrated Poisson/count--volume density law, separate from the
+   finite exact-order theorem;
+5. mutually consistent dimension, interval-profile, and manifoldlikeness
+   tests, with stable topology or homology;
+6. a distinguishing Lorentzian limit with open local four-dimensional charts,
+   regularity, and uniqueness control;
+7. an operational clock calibration kept separate from ordinal source height.
+
+Einstein promotion then additionally needs either same-family tensor-curvature
+reconstruction converging to the Einstein tensor or an independently premised
+continuum small-ball/null-balance identification, as well as physical stress,
+conservation, coupling, and controlled remainders. Scalar-curvature convergence
+alone is only a diagnostic. A supplied `EventGermAtlas` remains a valid
+multi-chart adapter for a continuum already obtained this way; it is not the
+producer or first premise of the source-derived route.
 
 At the finite semantic-event level, the source-native route needs no separate
 population map, freely declared precedence, or pre-existing rank-four carrier.
-A faithful placement constructs separation,
+An order-faithful placement constructs separation,
 one global chart, and exact order/cone agreement. Generic placements still
-require a spatial readback and edge-speed certificate; faithfulness still
+require a spatial readback and edge-speed certificate; exact order reflection still
 requires the cone-support converse. None of these finite results supplies
 open chart images, completion points, a topology, local finiteness,
 count--volume calibration, manifoldlikeness, refinement convergence, a
@@ -86,7 +99,7 @@ Likewise, the unit-direction equivalences identify algebraic types, not a
 physical sky or signal distribution. The explicit Boolean diamond now
 inhabits `SourceOrderFrameCompatibilityPacket` in a standard-frame gauge, but
 that gauge does not derive physical event-dependent frames and the four-event
-control carries no count-density law. The generic faithful embedding theorem
+control carries no count-density law. The generic exact-order-embedding theorem
 is conditional on its spatial and converse certificates. It therefore proves
 no dense or isotropic link coverage, physical causal faithfulness, volume
 calibration, manifoldlikeness, refinement convergence, or continuum limit.

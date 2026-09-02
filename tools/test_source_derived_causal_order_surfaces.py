@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -40,6 +41,12 @@ def test_source_order_claim_keeps_its_finite_boundary_explicit() -> None:
     assert "writer-blind" in claim["statement"]
     assert "causal-set-like" in claim["statement"]
     assert "count-to-volume" in claim["statement"]
+    assert "attained maximum authenticated-parent-chain length" in claim["statement"]
+    assert "finite causet compiler" in claim["statement"]
+    assert (
+        "Lean/ObserverPatchHolography/Provenance/FiniteCausetCompiler.lean"
+        in claim["evidence"]
+    )
 
 
 def test_premise_register_retires_the_old_event_base_and_exposes_continuum() -> None:
@@ -84,6 +91,9 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     provenance = _text(
         "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean"
     )
+    compiler = _text(
+        "Lean/ObserverPatchHolography/Provenance/FiniteCausetCompiler.lean"
+    )
     history = _text(
         "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean"
     )
@@ -96,6 +106,13 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     assert "def generatedRecordOrder" in provenance
     assert "theorem generatedBefore_le_of_transitive" in provenance
     assert "theorem eq_generatedBefore_of_exact" in provenance
+    assert "inductive ParentChainTo" in provenance
+    assert "theorem sourceHeight_chain_attained" in provenance
+    assert "theorem sourceHeight_eq_max_parentChainLength" in provenance
+    assert "theorem authenticatedParent_commit_iff" in compiler
+    assert "theorem generatedBefore_iff_transGen" in compiler
+    assert "def predecessorRank" in compiler
+    assert "theorem finiteStrictTransitiveRelation_realized" in compiler
     assert "theorem semanticEventLogOfExecution_generatedBefore_iff" in history
     assert "theorem execParents_rank_lt" in history
 
@@ -107,6 +124,8 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
     assert "generated_cone_base" in source_interface
     assert "populate" not in source_interface
     assert "prec :" not in source_interface
+    assert "separation :" not in source_interface
+    assert "theorem separation_base" in geometry
     assert "theorem generatedBefore_iff_causalLE_and_ne" in geometry
     assert "structure EventPopulationChartInterface" not in geometry
     assert "SourceDerivedOrderEventPopulationChartInterface" not in geometry
@@ -119,7 +138,11 @@ def test_lean_package_and_umbrellas_are_wired() -> None:
         "theorem sourceUnitNullVector_futureCausal",
         "structure RankSpatialCausalPlacement",
         "theorem generatedBefore_sourceCausalLE",
+        "theorem eventPoint_injective_of_sameHeightSpatialInjective",
+        "namespace EnumeratedCausalPlacement",
+        "theorem finiteLog_has_separated_forwardCausalPlacement",
         "structure FaithfulRankSpatialCausalPlacement",
+        "noncomputable def ofIncomparableSpacelike",
         "theorem generatedBeforeEq_iff_sourceCausalLE",
         "theorem eventPoint_injective",
         "def toSourceDerivedCausalChartInterface",
@@ -179,6 +202,13 @@ def test_registry_carries_the_finite_carrier_and_conditional_continuum() -> None
     assert "Lorentz inertia (1,3)" in carrier["statement"]
     assert "rank-four chart" in carrier["statement"]
     assert "calibrated count-volume" in carrier["statement"]
+    assert "attained maximum authenticated-parent-chain length" in carrier["statement"]
+    assert "enumeration-dependent injective placement" in carrier["statement"]
+    assert "cross-height incomparable events can become cone-related" in carrier["statement"]
+    assert (
+        "Lean/ObserverPatchHolography/Provenance/FiniteCausetCompiler.lean"
+        in carrier["evidence"]
+    )
 
     history = claims[HISTORY_CLAIM]
     assert "24 to 384 events" in history["statement"]
@@ -195,12 +225,35 @@ def test_registry_carries_the_finite_carrier_and_conditional_continuum() -> None
     charts = claims["OPH-GEOMETRY-EVENT-POPULATION-CHART-INTERFACE"]
     assert "no population map" in charts["statement"]
     assert "FaithfulRankSpatialCausalPlacement" in charts["statement"]
+    assert "Separation is therefore a theorem rather than a field" in charts["statement"]
+    assert "declared_exact_base_order_cone_clause" in charts["assumptions"]
+    assert "declared_separation_and_cone_clauses" not in charts["assumptions"]
     assert "source_native_finite_causal_chart_interface" in charts["novelty_type"]
 
     shape = claims["OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION"]
     assert "SourceDirectionEinsteinShapePremises" in shape["statement"]
     assert "no source-order packet" in shape["statement"]
     assert "separate SourceIndexedEinsteinPremises adapter" in shape["statement"]
+
+
+def test_observation_ledger_carries_exact_lean_gains_without_physical_promotion() -> None:
+    rows = {
+        row["id"]: row for row in _json("tracking/observation_ledger.json")["rows"]
+    }
+    compiler = (
+        "Lean/ObserverPatchHolography/Provenance/FiniteCausetCompiler.lean"
+    )
+    order = rows["OL-A3"]
+    carrier = rows["OL-A4"]
+    assert compiler in order["evidence"]
+    assert compiler in carrier["evidence"]
+    assert "attained maximum authenticated-parent-chain length" in order["notes"]
+    assert "grammar expressivity" in order["notes"]
+    assert "Exact base order-cone agreement now derives chart separation" in order["notes"]
+    assert "separated one-way realization" in carrier["notes"]
+    assert "not source-selected or order-reflecting" in carrier["notes"]
+    assert "calibrated count-volume" in carrier["notes"]
+    assert carrier["status"] == "partial"
 
 
 def test_history_receipt_records_positive_custody_and_negative_placement() -> None:
@@ -241,11 +294,66 @@ def test_history_receipt_records_positive_custody_and_negative_placement() -> No
     assert cone["physical_no_go_for_other_source_selected_placements"] is False
     assert "not a no-go" in cone["interpretation"]
     assert receipt["promotion_and_nonclaim_flags"]["physical_promotion_allowed"] is False
+    full_path = ROOT / (
+        "evidence/source_causal_history_family/"
+        "source_causal_history_family_receipt.json"
+    )
+    full_raw = full_path.read_bytes()
+    full_receipt = json.loads(full_raw.decode("ascii"))
+    assert receipt["full_receipt_file_sha256"] == (
+        "sha256:" + hashlib.sha256(full_raw).hexdigest()
+    )
+    assert receipt["full_receipt_report_sha256"] == full_receipt["report_sha256"]
     verifier = _text(
         "evidence/source_causal_history_family/verify_source_causal_history_family_projection.py"
     )
-    assert "reconstructs every cutoff separately" in verifier
+    assert "reconstructs every cutoff separately" in " ".join(verifier.split())
     assert "EXPECTED_ORDERING_FRACTIONS" in verifier
+
+
+def test_every_simulation_claiming_surface_points_to_current_rer_evidence() -> None:
+    source_history_surfaces = (
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/observers_are_all_you_need.tex",
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/tex_fragments/PAPER.tex",
+        "paper/tex_fragments/EINSTEIN_DERIVATION_SCOPE.tex",
+        "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+        "extra/observer_patch_holography_as_string_vacuum_selector.tex",
+        "book/08-chapter-07.md",
+        "book/35-chapter-34.md",
+        "book/45-appendix-c.md",
+        "README.md",
+        "README_FR.md",
+    )
+    causet_control_surfaces = source_history_surfaces + (
+        "cosmology/oph_cosmology_finite_source_cmb_program.tex",
+        "cosmology/oph_dark_matter_paper.tex",
+        "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
+    )
+    for relative in source_history_surfaces:
+        assert "evidence/source_causal_history_family" in _text(relative), relative
+    for relative in causet_control_surfaces:
+        assert "evidence/causet_likeness" in _text(relative), relative
+
+    claims = _claims()
+    history_evidence = claims[HISTORY_CLAIM]["evidence"]
+    assert (
+        "evidence/source_causal_history_family/"
+        "source_causal_history_family_receipt.json"
+    ) in history_evidence
+    assert (
+        "evidence/source_causal_history_family/"
+        "verify_source_causal_history_family_projection.py"
+    ) in history_evidence
+    local_domain_evidence = claims["OPH-GR-FINITE-LOCAL-DOMAIN"]["evidence"]
+    assert "evidence/causet_likeness/causet_likeness_receipt.json" in local_domain_evidence
+    assert (
+        "evidence/causet_likeness/verify_causet_likeness_receipt.py"
+        in local_domain_evidence
+    )
 
 
 def test_publication_surfaces_reject_the_retired_gluing_story() -> None:
@@ -267,3 +375,32 @@ def test_publication_surfaces_reject_the_retired_gluing_story() -> None:
         "OPH-GR-FCC-CAUSET-COMPATIBILITY-CONTROL",
     ):
         assert stale not in combined
+
+    publication_surfaces = tuple(
+        ROOT.glob("flagship/*.tex")
+    ) + tuple(ROOT.glob("paper/*.tex")) + tuple(ROOT.glob("cosmology/*.tex")) + (
+        ROOT / "extra/observer_patch_holography_as_string_vacuum_selector.tex",
+        ROOT / "paper/tex_fragments/PAPER.tex",
+        ROOT / "paper/tex_fragments/EINSTEIN_DERIVATION_SCOPE.tex",
+        ROOT / "paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex",
+    )
+    all_publication_text = "\n".join(
+        path.read_text(encoding="utf-8") for path in publication_surfaces
+    )
+    for stale in (
+        "Sufficient gluing criterion",
+        "populated record-germ",
+        "event_manifold_receipts_E1_E6",
+        "commit_populated_event_base",
+        "SOURCE_NATIVE_EDGE_LOCAL_RANK3_NULL_CONE_DECORATION_RECEIPT",
+        "OPH-GR-FCC-CAUSET-COMPATIBILITY-CONTROL",
+        "parent-free",
+    ):
+        assert stale not in all_publication_text
+    for tracking_phrase in (
+        "github.com/FloatingPragma/observer-patch-holography/issues/",
+        "issue #",
+        "completion plan",
+        "work in progress",
+    ):
+        assert tracking_phrase.lower() not in all_publication_text.lower()

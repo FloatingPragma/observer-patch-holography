@@ -8,6 +8,7 @@ import ObserverPatchHolography.EinsteinBranch.SparseRecordDefectWitness
 import ObserverPatchHolography.EinsteinBranch.CollarPremiseDerivation
 import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
 import ObserverPatchHolography.EinsteinBranch.FixedCapacityWLaw
+import ObserverPatchHolography.Provenance.FiniteCausetCompiler
 import Geometry.SourceOrderEinsteinComposition
 
 /-!
@@ -108,16 +109,24 @@ assert_no_sorry composedEinsteinAdmissibleTower
 
 /-! ## Source-order/source-direction conditional Einstein composition -/
 
-/-! The finite source carrier is constructed as positive-scale canonical
-longest-path time times the exact rank-three quotient.  A supplied spatial
-placement plus an edge-speed bound gives the forward causal map; faithful
-equivalence requires the explicit converse-support certificate. -/
+/-! The finite source carrier independently adjoins one real axis to the exact
+rank-three quotient.  Source height is proved to be the attained maximum
+authenticated-parent-chain length and enters only an event placement.  Every
+finite log has an enumeration-dependent separated forward-causal placement;
+exact two-way order/cone equivalence still requires geometric order reflection. -/
 
 assert_no_sorry OPH.Provenance.SemanticEventLog.sourceHeight_eq
 assert_no_sorry OPH.Provenance.SemanticEventLog.sourceHeight_lt_of_parent
 assert_no_sorry OPH.Provenance.SemanticEventLog.sourceHeight_eq_zero_iff
+assert_no_sorry OPH.Provenance.SemanticEventLog.ParentChainTo.length_le_sourceHeight
+assert_no_sorry OPH.Provenance.SemanticEventLog.sourceHeight_chain_attained
+assert_no_sorry OPH.Provenance.SemanticEventLog.sourceHeight_eq_max_parentChainLength
 assert_no_sorry OPH.Provenance.SemanticEventLog.sourceHeight_lt_of_generatedBefore
 assert_no_sorry OPH.Provenance.SemanticEventLog.withSourceHeight
+assert_no_sorry OPH.Provenance.FiniteCausetCompiler.authenticatedParent_commit_iff
+assert_no_sorry OPH.Provenance.FiniteCausetCompiler.generatedBefore_iff_transGen
+assert_no_sorry OPH.Provenance.FiniteCausetCompiler.predecessorRank_lt_of_rel
+assert_no_sorry OPH.Provenance.FiniteCausetCompiler.finiteStrictTransitiveRelation_realized
 assert_no_sorry OPH.SourceDerivedSpacetime.sourceSpacetimeCarrier_finrank
 assert_no_sorry OPH.SourceDerivedSpacetime.sourceCarrier_one_three_signature
 assert_no_sorry OPH.SourceDerivedSpacetime.sourceUnitNullVector_null
@@ -125,9 +134,14 @@ assert_no_sorry OPH.SourceDerivedSpacetime.sourceUnitNullVector_futureCausal
 assert_no_sorry OPH.SourceDerivedSpacetime.RankSpatialCausalPlacement.parentEdge_sourceCausalLE
 assert_no_sorry OPH.SourceDerivedSpacetime.RankSpatialCausalPlacement.generatedBefore_sourceCausalLE
 assert_no_sorry OPH.SourceDerivedSpacetime.RankSpatialCausalPlacement.sourceHeight_le_of_sourceCausalLE
+assert_no_sorry OPH.SourceDerivedSpacetime.RankSpatialCausalPlacement.eventPoint_injective_of_sameHeightSpatialInjective
+assert_no_sorry OPH.SourceDerivedSpacetime.EnumeratedCausalPlacement.placement
+assert_no_sorry OPH.SourceDerivedSpacetime.EnumeratedCausalPlacement.sameHeight_spacelike
+assert_no_sorry OPH.SourceDerivedSpacetime.EnumeratedCausalPlacement.finiteLog_has_separated_forwardCausalPlacement
 assert_no_sorry OPH.Provenance.SemanticEventLog.generatedBeforeEq_isPartialOrder
 assert_no_sorry OPH.Provenance.SemanticEventLog.finiteCausalSetAxioms
 assert_no_sorry OPH.SourceDerivedSpacetime.sourceCausalLE_isPartialOrder
+assert_no_sorry OPH.SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.ofIncomparableSpacelike
 assert_no_sorry OPH.SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.generatedBeforeEq_iff_sourceCausalLE
 assert_no_sorry OPH.SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.mem_interval_iff_sourceCausalInterval
 assert_no_sorry OPH.SourceDerivedSpacetime.FaithfulRankSpatialCausalPlacement.eventPoint_injective
