@@ -5,8 +5,8 @@ import Tower.CumulativeCapacityEndpoint
 # Typed audit for fixed-federation execution classification
 
 These examples pin the exact public theorem types consumed by the Tower.  The
-module is compiled by the normal Lean build and by the mandatory cross-surface
-gate, so theorem-name text alone cannot satisfy the release check.
+module is compiled by the normal Lean build and by the Lean CI kernel-check
+step, so theorem-name text alone cannot satisfy the release check.
 -/
 
 namespace OPH.Tower.FixedFederationExecutionAudit

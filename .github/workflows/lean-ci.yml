@@ -291,6 +291,13 @@ jobs:
       - name: Replay FZ-11 primitive-port axiom audit
         run: python3 tools/build_fz_registry.py --check --verify-fz11-lean
 
+      - name: Kernel-check the typed fixed-federation execution audit
+        # The typed audit module pins the exact public theorem types of the
+        # fixed-federation execution classification. The checker fails closed
+        # when lake is unavailable, so it runs here after the Lean toolchain and
+        # caches are provisioned rather than in the Python-only mandatory job.
+        run: python3 tools/check_fixed_federation_execution_audit.py
+
       - name: Verify manifest unchanged
         run: git diff --exit-code -- Lean/lean-toolchain Lean/lakefile.lean Lean/lake-manifest.json
 

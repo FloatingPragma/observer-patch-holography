@@ -29,7 +29,7 @@ def test_claim_and_premises_keep_the_exact_execution_boundary() -> None:
     assert claim["owner_paper"] == "paper/reality_as_consensus_protocol.tex"
     assert claim["premise_dependencies"]["consumed"] == ["PR-84", "PR-85"]
     assert "reverse is vacuous" in claim["statement"]
-    assert "first n attempts equal the source-order sweep" in claim["statement"]
+    assert "first n attempts equal the emission-order sweep" in claim["statement"]
     assert "within n attempts" in claim["statement"]
     assert "order-sharp Theta(n^2)" in claim["statement"]
     assert "Weak fairness alone supplies no uniform finite attempt horizon" in claim["statement"]
@@ -139,13 +139,16 @@ def test_umbrellas_register_each_new_module_once() -> None:
     assert lake.count("Computation.FixedFederationExecutionExamples") == 1
 
 
-def test_typed_execution_audit_is_registered_in_mandatory() -> None:
+def test_typed_execution_audit_is_kernel_checked_in_lean_ci() -> None:
     audit = _text("Lean/Tower/FixedFederationExecutionAudit.lean")
+    workflow = _text(".github/workflows/lean-ci.yml")
     mandatory = _text("tools/run_mandatory_suite.py")
     checker = _text("tools/check_fixed_federation_execution_audit.py")
     assert "example (L : List Node)" in audit
     assert "roundRobin_reaches_correct_output_within_linear" in audit
     assert "allocatorSeparation_needed" in audit
     assert "boundedWaste_premise_needed" in audit
-    assert "Kernel-check the typed fixed-federation execution audit" in mandatory
+    assert "Kernel-check the typed fixed-federation execution audit" in workflow
+    assert "tools/check_fixed_federation_execution_audit.py" in workflow
+    assert "check_fixed_federation_execution_audit.py" not in mandatory
     assert 'TARGET = "Tower.FixedFederationExecutionAudit"' in checker
