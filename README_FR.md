@@ -92,34 +92,15 @@ simulations reproductibles :
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité et la gravitation à partir de la géométrie des
-  observateurs.** Les lectures authentifiées engendrent un poset causal fini.
-  Indépendamment, un axe réel et le quotient source de rang trois définissent
-  \(\mathbb R\oplus V_3\), une cible lorentzienne de dimension quatre à
-  sphère nulle future. La hauteur source est exactement la longueur de la plus
-  longue chaîne de parents authentifiés; elle n’intervient que dans le placement
-  des événements, non dans la construction du
-  porteur, la dimension intrinsèque ou le temps physique. Lean démontre que
-  tout poset strict fini se compile dans la grammaire authentifiée et que tout
-  journal fini admet un placement auxiliaire injectif et causal vers l’avenir.
-  Sur un placement sélectionné par la source, une borne de vitesse donne
-  l’implication vers le cône ; la séparation spatiale à hauteur égale et le
-  caractère strictement spatial des paires incomparables à hauteur croissante
-  donnent la réciproque. Ensemble, elles donnent l’accord exact de l’ordre et
-  du cône ainsi que la préservation des intervalles. Le reçu natif archivé teste des décorations causales locales à
-  chaque porteur sans établir un cône local ni un recollement des repères. Des
-  contrôles de Poisson \(3+1\) amorcés par la géométrie se recompilent
-  exactement dans la grammaire de provenance, avec des applications amorcées
-  injectives et un contrôle Poisson/comptage séparé. Leur géométrie, densité,
-  matière événementielle, schéma de lecture et placement sont imposés en
-  amont : ces résultats montrent la compatibilité, non une sélection physique. Une interface tensorielle séparée donne
-  une forme einsteinienne finie. L’espace-temps physique et la relativité
-  générale lisse exigent encore l’attachement des événements et liens, un
-  plongement d’ordre exact, l’étalonnage nombre-volume, les tests de dimension et de
-  variété, la topologie, l’isotropie et le raffinement. La promotion vers
-  l’équation d’Einstein exige en outre soit une reconstruction tensorielle de
-  la courbure sur la même famille, soit l’identification indépendante par
-  petits domaines/bilan nul ; la seule convergence de la courbure scalaire
-  reste un diagnostic. Voir la
+  observateurs.** Les lectures authentifiées entre observateurs engendrent
+  directement un poset causal fini, sans ordre événementiel posé à la main.
+  Un axe réel et le quotient source de rang trois donnent une cible
+  lorentzienne de dimension quatre dont les directions unitaires sont
+  exactement ses rayons nuls futurs : la signature est dérivée et non ajustée.
+  Deux vérifications finies portent un placement sélectionné par la source
+  jusqu’à l’accord exact de l’ordre des enregistrements et du cône de lumière.
+  L’espace-temps physique et la relativité générale lisse exigent encore
+  attachement, étalonnage et raffinement, tous nommés dans la
   [dérivation de l’espace-temps](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
   Les [archives de l’historique causal](evidence/source_causal_history_family/)
   et des [contrôles causet](evidence/causet_likeness/) contiennent les reçus

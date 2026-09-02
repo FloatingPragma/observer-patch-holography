@@ -79,33 +79,18 @@ calculations and reproducible simulations:
   conditional theorem package about how observers resample toward consensus
   yields all four laws, with the second law appearing as data processing
   applied to repair and the Landauer bound as a corollary.
-- **Relativity and gravity from observer geometry.** Authenticated reads derive
-  a finite causal poset. Independently, a real axis and the exact rank-three
-  source quotient define \(\mathbb R\oplus V_3\), a four-dimensional
-  Lorentz target with a future-null unit sphere. Source height enters only in
-  a scaled event placement, not in the carrier, intrinsic dimension, or
-  physical time. Every finite strict poset compiles into the authenticated
-  grammar, and every finite log has an auxiliary injective forward-causal
-  placement. On a source-selected placement, an edge-speed bound gives the
-  forward implication and two finite geometric checks give the converse,
-  together yielding exact order--cone agreement and interval preservation. The archived
-  native-link receipt tests source-native carrier-local causal decorations
-  without establishing local cone or frame gluing. Geometry-seeded Poisson
-  \(3+1\) controls recompile exactly through the provenance grammar with
-  injective seeded maps and a separate Poisson/count check. Their geometry,
-  density, event material, read pattern, and placement are seeded upstream;
-  these are compatibility results, not physical selection. A separate
-  tensor interface gives a finite Einstein shape. Physical spacetime and
-  smooth GR require event and link attachment, a source-selected order
-  embedding, Poisson/count-volume calibration, dimension and manifoldlikeness tests, topology,
-  isotropy and refinement. Smooth Einstein promotion further needs a
-  same-family tensor-curvature reconstruction or the independent continuum
-  small-ball/null-balance identification; scalar-curvature convergence alone
-  is diagnostic. See the
+- **Relativity and gravity from observer geometry.** Authenticated reads
+  between observers generate a finite causal poset directly, with no event
+  order supplied by hand. A real axis and the exact rank-three source quotient
+  give a four-dimensional Lorentz target whose unit directions are exactly its
+  future-null rays, so the signature is derived rather than fitted. Two finite
+  checks lift a source-selected placement to exact agreement between record
+  order and light cone. Physical spacetime and smooth general relativity need
+  further attachment, calibration, and refinement, each named in the
   [spacetime derivation](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
-  The current [source-history archive](evidence/source_causal_history_family/)
-  and [causet-control archive](evidence/causet_likeness/) include full receipts
-  and standard-library checkers.
+  The [source-history archive](evidence/source_causal_history_family/) and
+  [causet-control archive](evidence/causet_likeness/) carry full receipts and
+  standard-library checkers.
 - **Field geometry on the twelve-port screen.** The finite screen carries
   exact Green, Thomson, Gauss, curvature, and gauge-invariance theorems. The
   same geometry connects port loads, seam data, local curvature, and the
