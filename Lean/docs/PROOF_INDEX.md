@@ -235,10 +235,12 @@ Mapping between Lean 4 theorems in this project and statements in
   `Provenance/FiniteCausetCompiler.lean` realizes every supplied finite
   decidable irreflexive transitive relation exactly as both parenthood and
   generated precedence, deriving a rank from strict-predecessor cardinality.
-  For a transitive input its `ParentEdge` relation is the whole supplied
-  strict order rather than its Hasse reduction; its per-event snapshots are not
-  proved to arise from one threaded execution. This is grammar expressivity,
-  not source or dynamical selection.
+  `FiniteCausetCompiler.lean` retains the full-order compiler, while
+  `FiniteCausetCoverCompiler.lean` strengthens the abstract expressivity result
+  by authenticating exactly the Hasse covers and reconstructing the supplied
+  strict order by transitive closure. Their per-event snapshots are not proved
+  to arise from one threaded execution. This is grammar expressivity, not source
+  or dynamical selection.
   `Geometry/EventPopulationChartInterface.lean` defines the source-native
   `SourceDerivedCausalChartInterface`: semantic events are the carrier and
   generated ancestry is the order, with no separate population map or free
