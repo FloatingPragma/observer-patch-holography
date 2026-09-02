@@ -1398,8 +1398,8 @@ Member and register-site recurrence coincide because generated output
 registers are unique, but recurrence is strictly stronger than tail fairness.
 A state-blind round-robin function is recurrent and bounded-waste and reaches
 the correct output.  Its first \(n\) attempts are exactly the compiler's
-emission-order sweep, so it reaches stable consensus and the correct output in a
-linear emitted-node horizon.  The actual compiler's single-consumer structure bounds
+emission-order sweep, the order in which it emits nodes, so it reaches stable
+consensus and the correct output in a linear emitted-node horizon.  The actual compiler's single-consumer structure bounds
 all genuine accepted paths by \(n(n+1)/2\), while an emitted nested-NAND family
 has a consensus path satisfying \(8m+1=n^2+8n\).  This is an order-sharp
 \(\Theta(n^2)\) result in the same node-count metric, not equality of finite

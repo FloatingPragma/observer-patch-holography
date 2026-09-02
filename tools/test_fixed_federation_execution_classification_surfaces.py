@@ -34,6 +34,9 @@ def test_claim_and_premises_keep_the_exact_execution_boundary() -> None:
     assert "order-sharp Theta(n^2)" in claim["statement"]
     assert "Weak fairness alone supplies no uniform finite attempt horizon" in claim["statement"]
     assert "not an exact constant match" in claim["statement"]
+    assert "source_order" not in claim["status"]
+    assert "source-order" not in claim["statement"]
+    assert "source-order" not in claim["oph_specific_delta"]
 
     rows = {row["id"]: row for row in _json("tracking/premise_register.json")["rows"]}
     bounded = rows["PR-85"]
