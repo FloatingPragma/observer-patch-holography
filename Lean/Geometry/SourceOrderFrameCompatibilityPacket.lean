@@ -30,7 +30,7 @@ finite algebraic statements identifies a physical sky or signal relation.
 a physical celestial screen and proves no physical-causality theorem,
 no volume or count-density law, no manifoldlikeness estimator, no
 refinement/cofinal convergence theorem, and no topological, smooth-manifold,
-or continuum-spacetime limit.  The faithful finite cone embedding is
+or continuum-spacetime limit.  The exact finite order/cone embedding is
 conditional on supplied spatial coordinates, an authenticated-edge speed
 bound, and an explicit cone-support converse.  Event-frame transports and
 any nontrivial multi-chart atlas remain supplied data.
@@ -92,7 +92,7 @@ structure SourceOrderFrameCompatibilityPacket
     Register Value Event Chart
   standardToEventFrame : Event → OrientedLorentzEquiv
 
-/-- A faithful canonical-height/positive-scale/spatial placement constructs
+/-- An order-faithful canonical-height/positive-scale/spatial placement constructs
 the active source chart packet directly, without the legacy rich-region
 population map or a separately declared precedence relation. -/
 noncomputable def SourceOrderFrameCompatibilityPacket.ofFaithfulPlacement
@@ -270,7 +270,7 @@ end SourceOrderFrameCompatibilityPacket
 
 namespace SourceDerivedSpacetime.BooleanDiamondPlacement
 
-/-- The explicit authenticated Boolean diamond, its faithful source-carrier
+/-- The explicit authenticated Boolean diamond, its order-faithful source-carrier
 placement, one global chart, and the standard-frame gauge form a complete
 finite source-order/frame packet with no additional existence field.  This
 is a non-chain control, not a manifold or physical-frame construction. -/

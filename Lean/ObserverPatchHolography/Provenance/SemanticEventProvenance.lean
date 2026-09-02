@@ -234,6 +234,68 @@ theorem sourceHeight_eq_zero_iff [Fintype EventId] [DecidableEq EventId]
     rw [L.sourceHeight_eq e]
     simp [hroot]
 
+/-! ## Exact longest authenticated-parent-chain characterization -/
+
+/-- A finite authenticated-parent chain of exactly `n` edges ending at `e`.
+The zero-edge constructor may start at any event; every successor appends one
+authenticated direct parent edge. -/
+inductive ParentChainTo
+    (L : SemanticEventLog Register Value EventId) : EventId → ℕ → Prop
+  | singleton (e : EventId) : ParentChainTo L e 0
+  | step {p e : EventId} {n : ℕ} :
+      ParentChainTo L p n → L.ParentEdge p e →
+        ParentChainTo L e (n + 1)
+
+/-- Every authenticated-parent chain ending at an event is bounded by that
+event's canonical source height. -/
+theorem ParentChainTo.length_le_sourceHeight [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value]
+    {e : EventId} {n : ℕ} (h : ParentChainTo L e n) :
+    n ≤ L.sourceHeight e := by
+  induction h with
+  | singleton e => exact Nat.zero_le _
+  | step hchain hedge ih =>
+      have hp := L.sourceHeight_lt_of_parent hedge
+      omega
+
+/-- The source-height maximum is attained: every event has an authenticated
+parent chain whose edge length is exactly its canonical source height. -/
+theorem sourceHeight_chain_attained [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] (e : EventId) :
+    ParentChainTo L e (L.sourceHeight e) := by
+  by_cases hzero : L.sourceHeight e = 0
+  · simpa [hzero] using ParentChainTo.singleton (L := L) e
+  · let f : EventId → ℕ := fun p ↦
+      if L.ParentEdge p e then L.sourceHeight p + 1 else 0
+    have huniv : (Finset.univ : Finset EventId).Nonempty :=
+      ⟨e, Finset.mem_univ e⟩
+    obtain ⟨p, _, hsup⟩ :=
+      Finset.exists_mem_eq_sup (Finset.univ : Finset EventId) huniv f
+    have hheight : L.sourceHeight e = f p := by
+      rw [L.sourceHeight_eq e]
+      exact hsup
+    have hparent : L.ParentEdge p e := by
+      by_contra hnot
+      simp [f, hnot] at hheight
+      exact hzero hheight
+    have hheight' : L.sourceHeight e = L.sourceHeight p + 1 := by
+      simpa [f, hparent] using hheight
+    have ih := sourceHeight_chain_attained p
+    rw [hheight']
+    exact ParentChainTo.step ih hparent
+termination_by L.rank e
+decreasing_by
+  exact L.rank_lt_of_parent hparent
+
+/-- Exact maximum-chain receipt: source height is both an upper bound for
+all authenticated-parent chains ending at `e` and the length of one such
+chain. -/
+theorem sourceHeight_eq_max_parentChainLength [Fintype EventId]
+    [DecidableEq EventId] [DecidableEq Value] (e : EventId) :
+    (∀ {n : ℕ}, ParentChainTo L e n → n ≤ L.sourceHeight e) ∧
+      ParentChainTo L e (L.sourceHeight e) :=
+  ⟨fun h ↦ h.length_le_sourceHeight, L.sourceHeight_chain_attained e⟩
+
 /-- Re-rank a finite semantic log by its canonical longest authenticated
 parent path.  Commit data, parent edges, and generated precedence are left
 unchanged; only the well-foundedness witness is replaced. -/
@@ -424,6 +486,9 @@ end ForgedWriterControl
 #print axioms SemanticEventLog.sourceHeight_eq
 #print axioms SemanticEventLog.sourceHeight_lt_of_parent
 #print axioms SemanticEventLog.sourceHeight_eq_zero_iff
+#print axioms SemanticEventLog.ParentChainTo.length_le_sourceHeight
+#print axioms SemanticEventLog.sourceHeight_chain_attained
+#print axioms SemanticEventLog.sourceHeight_eq_max_parentChainLength
 #print axioms SemanticEventLog.sourceHeight_lt_of_generatedBefore
 #print axioms SemanticEventLog.generatedBeforeEq_isPartialOrder
 #print axioms SemanticEventLog.withSourceHeight

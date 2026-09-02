@@ -18,7 +18,7 @@ a separate conditional attachment.
 
 | Paper | Role |
 | --- | --- |
-| [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Source-derived causal poset and ambient 1+3 target carrier; conditional physical continuum, curvature, stress, generalized-entropy, and Einstein chain |
+| [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Universal finite-poset provenance compiler, source-derived causal order, carrier-local port/null-ray decoration and seeded 3+1 causet grammar controls, ambient 1+3 target carrier, and conditional physical continuum, curvature, stress, generalized-entropy, and Einstein chain |
 | [Deriving Standard Model Gauge Structure](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) ([source](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex)) | Full categorical and finite-carrier gauge routes, conditional matter image, and physical global-form boundary |
 | [From Observer Consensus to Standard Physics](../flagship/from_observer_consensus_to_standard_physics.pdf) ([source](../flagship/from_observer_consensus_to_standard_physics.tex)) | Flagship observer-first synthesis and main account of the local $P$ and global $N$ closures |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Finite repair, protected records, and quotient normal forms |

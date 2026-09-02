@@ -136,6 +136,137 @@ def main() -> None:
     require(comparison.get("heldout_negative_controls_distinguished") is True,
             "held-out negative controls were not distinguished")
 
+    compiler = report.get("constructive_source_grammar_3p1_control", {})
+    require(
+        compiler.get("status")
+        == "ATTAINED_GEOMETRY_SEEDED_3P1_CAUSESET_TO_PROVENANCE_COMPILER_CONTROL",
+        "geometry-seeded causet compiler status changed",
+    )
+    require(
+        compiler.get("GEOMETRY_SEEDED_3P1_CAUSESET_TO_PROVENANCE_COMPILER_CONTROL_RECEIPT")
+        is True,
+        "geometry-seeded causet compiler control is not attained",
+    )
+    require(
+        compiler.get("compiler_acceptance_independent_of_seeded_order_embedding_and_count_volume_controls")
+        is True,
+        "compiler acceptance was not separated from seeded diagnostics",
+    )
+    require(
+        compiler.get("GEOMETRY_SEEDED_FINITE_ORDER_EMBEDDING_CONTROL_RECEIPT")
+        is True
+        and compiler.get("GEOMETRY_SEEDED_COUNT_VOLUME_CALIBRATION_CONTROL_RECEIPT")
+        is True,
+        "a separately evaluated seeded control failed",
+    )
+    require(
+        compiler.get("all_seeded_order_embeddings_attained") is True
+        and compiler.get("causet_faithful_embedding_seeded_by_construction") is True
+        and compiler.get("GEOMETRY_SEEDED_CAUSESET_FAITHFUL_EMBEDDING_CONTROL_RECEIPT")
+        is True,
+        "the seeded order-plus-density faithful-embedding control failed",
+    )
+    faithful_definition = compiler.get("causet_faithful_embedding_control_definition", {})
+    require(
+        faithful_definition.get("aggregate_predicate")
+        == "all_seeded_order_embeddings_attained AND GEOMETRY_SEEDED_COUNT_VOLUME_CALIBRATION_CONTROL_RECEIPT"
+        and faithful_definition.get("geometry_density_and_poisson_process_seeded_upstream")
+        is True
+        and faithful_definition.get("OPH_source_derived") is False,
+        "causal-set faithful-embedding definition or nonpromotion boundary changed",
+    )
+    require(
+        compiler.get("source_provenance_grammar_uses_no_declared_parent_lists") is True,
+        "declared-parent-list-free grammar boundary changed",
+    )
+    require(
+        compiler.get("SOURCE_GRAMMAR_GEOMETRY_SEEDED_3P1_FAITHFUL_REFINEMENT_CONTROL_RECEIPT")
+        is False
+        and compiler.get("OPH_SOURCE_LOG_REFINEMENT_RECEIPT") is False,
+        "seeded controls were unexpectedly promoted to source-log refinement",
+    )
+    require(
+        compiler.get("regulator_specific_event_material") is True
+        and compiler.get("shared_semantic_commit_material_preserved") is False
+        and compiler.get("only_carrier_and_transitive_order_are_induced") is True,
+        "regulator-specific semantic-material boundary changed",
+    )
+    require(
+        compiler.get("aggregate_dimension_diagnostic_role")
+        == "DIAGNOSTIC_ONLY_NOT_COMPILER_ACCEPTANCE_CRITERION",
+        "dimension diagnostic was promoted into compiler acceptance",
+    )
+    require(
+        compiler.get("aggregate_dimension_diagnostic")
+        == [
+            {
+                "target_poisson_mean_count": 64,
+                "mean_myrheim_meyer_dimension_estimate": 4.028237157921849,
+                "absolute_error_from_seeded_dimension_four": 0.028237157921848777,
+            },
+            {
+                "target_poisson_mean_count": 128,
+                "mean_myrheim_meyer_dimension_estimate": 3.845947760942414,
+                "absolute_error_from_seeded_dimension_four": 0.1540522390575858,
+            },
+            {
+                "target_poisson_mean_count": 256,
+                "mean_myrheim_meyer_dimension_estimate": 3.9034561962046683,
+                "absolute_error_from_seeded_dimension_four": 0.09654380379533167,
+            },
+        ],
+        "seeded Myrheim-Meyer diagnostics changed",
+    )
+    families = compiler.get("families", [])
+    require(len(families) == 4 and all(len(family.get("levels", [])) == 3 for family in families),
+            "expected all twelve geometry-seeded control levels")
+    require(
+        [[level.get("event_count") for level in family.get("levels", [])]
+         for family in families]
+        == [[70, 136, 281], [62, 123, 251], [60, 130, 254], [51, 120, 244]],
+        "seeded compiler populations changed",
+    )
+    mutation_names = {
+        "one_causal_support_deletion_breaks_order_identity",
+        "duplicate_writer_injection_rejects_without_accepted_order",
+        "last_writer_mutation_breaks_pre_state_parent_clause",
+        "read_value_mutation_breaks_parent_post_value_continuity",
+        "version_mutation_breaks_version_continuity",
+        "missing_writer_mutation_rejects_unresolved_read",
+        "sequence_mutation_rejects_nonprior_writer",
+        "self_read_mutation_rejects_self_parent",
+    }
+    require(
+        all(
+            family.get("OPH_SOURCE_LOG_REFINEMENT_RECEIPT") is False
+            and family.get("shared_semantic_commit_material_preserved") is False
+            and all(
+                level.get("overall_acceptance") is True
+                and level.get("provenance_direct_edges_equal_geometric_cover_relation") is True
+                and level.get("provenance_closure_equals_full_geometric_causal_order") is True
+                and level.get("declared_parent_lists_absent") is True
+                and level.get("coordinate_map_injective") is True
+                and level.get("coordinates_inside_fixed_minkowski_alexandrov_interval") is True
+                and level.get("finite_order_embedding_control") is True
+                and level.get("seeded_order_embedding_by_construction") is True
+                and level.get("count_within_declared_three_sigma_poisson_interval") is True
+                and set(level.get("negative_controls", {})) == mutation_names
+                and all(level.get("negative_controls", {}).values())
+                for level in family.get("levels", [])
+            )
+            for family in families
+        ),
+        "a seeded compiler reconstruction or mutation control failed",
+    )
+    require(
+        compiler.get("OPH_SOURCE_SELECTS_THIS_EVENT_POPULATION_OR_READ_PATTERN")
+        is False
+        and compiler.get("OPH_CAUSAL_SET_SIMILARITY_RECEIPT") is False
+        and compiler.get("OPH_CAUSAL_3P1_MANIFOLD_DERIVATION_RECEIPT") is False
+        and compiler.get("physical_promotion_allowed") is False,
+        "seeded compiler control was physically promoted",
+    )
+
     invariance = report.get("invariance_controls", {})
     require(isinstance(invariance, dict) and invariance
             and all(value is True for value in invariance.values()),
@@ -196,6 +327,7 @@ def main() -> None:
         "local_domain_events": 2304,
         "matched_intervals": 736,
         "intervals_in_exploratory_4d_band": 0,
+        "geometry_seeded_3p1_compiler_control": True,
         "physical_promotion_allowed": False,
     }, sort_keys=True))
 

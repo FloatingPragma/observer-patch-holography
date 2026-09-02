@@ -140,7 +140,7 @@ continuous integration recreates it as a real directory.
   set-level celestial quotient, frame/rest-space geometry, and exact Einstein
   coordinate bridge
 - `docs/C2_EVENT_FRAME_SOLDERING.md`: bounded affine/Lorentz overlap-cocycle
-  soldering, quotient descent, exact source `1+3` carrier, conditional faithful
+  soldering, quotient descent, exact source `1+3` carrier, conditional order-faithful
   finite causal placement, candidate source-frame/rest-fiber bridge, and the
   remaining hypotheses for any physical refinement or smooth-manifold limit
 - `docs/E1_FINITE_CAUSAL_OBSERVER_NET.md`: conditional finite regional-net and

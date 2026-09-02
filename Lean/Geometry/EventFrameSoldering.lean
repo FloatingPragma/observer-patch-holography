@@ -15,7 +15,7 @@ event manifold has been constructed.
 
 `Geometry.SourceDerivedSpacetimeCarrier` constructs an algebraic `1+3`
 carrier and, from a certified source-height/spatial placement plus its explicit
-faithfulness conditions, a finite one-chart instance. That result does
+order-faithfulness conditions, a finite one-chart instance. That result does
 not turn the open-atlas, physical-causality, refinement, volume, clock, or
 smooth-manifold receipts below into theorems.
 -/

@@ -22,7 +22,7 @@ The third is **flow**: why anything seems to be moving, and why there is a rate 
 
 ## What gets ordered
 
-Chapter seven taught partial orders on a kitchen counter, before this world contained anything to order, and chapter nine supplied the missing ingredient. The events are committed repairs.
+Chapter seven taught partial orders on a kitchen counter, before this world contained anything to order, and chapter nine supplied the missing ingredient. Events are authenticated semantic commits. An accepted repair commit is one possible event when its reads and writes are recorded; record, readback and feedback commits can also be events. The archived source-history receipt uses the latter instrumentation carrier and excludes recurrent seam-repair transactions from its physical-event interpretation.
 
 Take the twelve observers of chapter six, wired as an icosahedron, thirty seams between them, every observer with five neighbors. A repair reads the two readings at the ends of one seam, writes the two readings at the ends of that same seam, and touches nothing else in the world.
 

@@ -57,8 +57,9 @@ theorem interval_finite [Fintype EventId] (a b : EventId) :
 
 /-- At every finite cutoff, authenticated provenance therefore supplies the
 order-theoretic causal-set axioms: a partial order with finite intervals.
-The statement is deliberately informational; faithful physical embedding and
-manifoldlikeness remain separate certificates. -/
+The statement is deliberately informational; causal-set faithful embedding,
+including calibrated count density, and manifoldlikeness remain separate
+certificates. -/
 theorem finiteCausalSetAxioms [Fintype EventId] :
     (∀ e, L.GeneratedBeforeEq e e) ∧
     (∀ a b c, L.GeneratedBeforeEq a b → L.GeneratedBeforeEq b c →

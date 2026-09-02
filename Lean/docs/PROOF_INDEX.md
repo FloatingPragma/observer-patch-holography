@@ -228,26 +228,46 @@ Mapping between Lean 4 theorems in this project and statements in
   authenticated ancestry as a source-derived partial order, while
   `SemanticEventLog.finiteCausalSetAxioms` adds finite intervals at each
   finite cutoff. This is the exact abstract causal-set layer; physical
-  causality and manifoldlikeness are not inferred.
+  causality and manifoldlikeness are not inferred. On a finite carrier,
+  `sourceHeight_eq_max_parentChainLength` proves that canonical source height
+  is both an upper bound for every authenticated-parent chain ending at an
+  event and the length of an attaining chain. The abstract compiler in
+  `Provenance/FiniteCausetCompiler.lean` realizes every supplied finite
+  decidable irreflexive transitive relation exactly as both parenthood and
+  generated precedence, deriving a rank from strict-predecessor cardinality.
+  For a transitive input its `ParentEdge` relation is the whole supplied
+  strict order rather than its Hasse reduction; its per-event snapshots are not
+  proved to arise from one threaded execution. This is grammar expressivity,
+  not source or dynamical selection.
   `Geometry/EventPopulationChartInterface.lean` defines the source-native
   `SourceDerivedCausalChartInterface`: semantic events are the carrier and
   generated ancestry is the order, with no separate population map or free
-  precedence field. `Geometry/SourceDerivedSpacetimeCarrier.lean`
+  precedence field. Exact base-chart order/cone agreement and source-order
+  antisymmetry derive event separation, which then propagates through the
+  overlap cocycle. `Geometry/SourceDerivedSpacetimeCarrier.lean`
   constructs `ℝ × FrameQuotient`, proves its real dimension is four and its
   displayed Gram matrix has signature `(+---)`, and maps every source-unit
   direction to a future-null `(1,q)`. Its future-cone relation is itself a
   partial order (`sourceCausalLE_isPartialOrder`). Positive `timeScale` times canonical
   source height gives only the temporal coordinate of a supplied event
-  placement in that independently defined target, not a physical event time. A
+  placement in that independently defined target, not a physical event time.
+  `EnumeratedCausalPlacement.finiteLog_has_separated_forwardCausalPlacement`
+  gives every finite log an explicit injective forward-causal placement along
+  one source axis and makes distinct equal-height events spacelike. The
+  enumeration is arbitrary and the map need not reflect order. A general
   supplied spatial readback and authenticated-edge speed bound imply every
-  generated ancestry comparison is future-causal; an explicit cone-support
-  converse gives exact two-way faithfulness, injectivity, and a one-chart
-  source-native interface. The Boolean response diamond is a fully proved
-  non-chain control: all parent edges are null and its two responses are
-  spacelike.
+  generated ancestry comparison is future-causal.
+  `FaithfulRankSpatialCausalPlacement.ofIncomparableSpacelike` derives the
+  converse cone-support clause from spatial separation within equal-height
+  layers and strict spacelikeness of every increasing-height nonancestor.
+  Exact two-way order/cone equivalence, injectivity, interval preservation, and a
+  one-chart source-native interface then follow. Those geometric conditions
+  are supplied, not consequences of provenance. The Boolean response diamond
+  is a fully proved non-chain control: all parent edges are null and its two
+  responses are spacelike.
   `Geometry/SourceOrderFrameCompatibilityPacket.lean` composes this route
   with the rank-three quotient/rest bridge and optional per-event Lorentz
-  transports. A faithful placement constructs the chart packet, and the
+  transports. An order-faithful placement constructs the chart packet, and the
   standard-frame specialization constructs a complete packet without a free
   frame field while making no physical event-frame claim. The Boolean diamond
   inhabits that packet and all its finite consequences. The exact
@@ -446,13 +466,20 @@ Mapping between Lean 4 theorems in this project and statements in
   `SourceDerivedSpacetimeCarrier.lean` adjoins an independent real axis to
   that quotient, constructs an exact four-dimensional `(+---)` carrier,
   proves the source-unit future-null map, and proves the ambient future-cone
-  relation is a partial order. Canonical source height enters only through a
-  scaled event placement in that carrier. Its forward
-  order-to-cone theorem assumes a spatial readback and edge-speed bound; exact
-  faithfulness assumes the explicit cone-support converse. That faithful
-  placement constructs the source-native one-chart interface and event
-  separation. The Boolean diamond proves the construction is non-chain, with
-  null parent edges and spacelike branches.
+  relation is a partial order. Canonical source height is the attained longest
+  authenticated-parent-chain length and enters only through a scaled event
+  placement in that carrier. An arbitrary enumeration supplies an injective
+  one-way forward-causal placement for every finite log, not an order-reflecting
+  physical placement. The general forward order-to-cone theorem assumes a
+  spatial readback and edge-speed bound. Within-height spatial separation and
+  strict spacelikeness of increasing-height nonancestors derive exact converse
+  support; the resulting order-faithful placement constructs the source-native
+  one-chart interface, event separation, and exact interval transport. The
+  Boolean diamond proves the exact-order-embedding construction is non-chain, with null
+  parent edges and spacelike branches. Independently,
+  `FiniteCausetCompiler.lean` proves abstract grammar expressivity for every
+  finite strict partial order; it authenticates the supplied full order, not
+  its Hasse reduction, and makes no threaded-history or selection claim.
   `SourceOrderFrameCompatibilityPacket.lean` transports the quotient/rest
   bridge to optional per-event frames. Its standard-frame specialization and
   Boolean-diamond control construct an inhabitant; the standard gauge is not a

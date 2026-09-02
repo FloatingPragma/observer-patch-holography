@@ -2718,7 +2718,11 @@ provenance.  In the companion machine-checked package, every
 quotient-visible register version carries the identifier of its last
 semantic writer, and each commit certifies the register versions on which
 its acceptance genuinely depends, with frame and stamp laws fixing
-unwritten registers and recording written ones.  One commit is a direct
+unwritten registers and recording written ones. The \texttt{causalSupp}
+field is supplied semantic data: Lean checks that it lies inside the read
+set, while producer and independent-verifier receipts must establish that it
+is sound and complete for genuine dependence. It is not inferred by a
+kernel-checked dependence analysis. One commit is a direct
 semantic parent of another exactly when the child certifies a register that
 the parent wrote, the child's pre-commit snapshot names the parent as that
 register's writer, and the child's pre-commit value equals the parent's
@@ -2768,9 +2772,10 @@ before commits are formed. A dependent pair marks the boundary: swapping a
 writer past a reader that certifies the written register changes the edge set. On such histories
 the append-only acyclicity rank is derived from the execution position
 rather than declared. Independently of that witness, the geometry layer
-computes a canonical source height from authenticated parenthood alone---zero
-at roots and one plus the maximum direct-parent height otherwise---and proves
-that it strictly increases on every parent edge and generated ancestry. Under fresh identifiers, duplicate-free execution, and
+computes canonical source height from authenticated parenthood alone---zero
+at roots and one plus the maximum direct-parent height otherwise---proves
+that it is the attained longest authenticated-parent-chain length, and proves
+strict increase on every parent edge and generated ancestry. Under fresh identifiers, duplicate-free execution, and
 visible-support hypotheses, a commit writing only outside the visible
 register carrier changes no visible mismatch and supplies no outgoing direct
 raw or authenticated parent edge to a visibly supported child; incoming edges
@@ -2789,8 +2794,9 @@ a locally finite partial order represents proto-causality
 \cite{bombelli1987,surya2019}. The OPH order is finite and therefore locally
 finite, but its proved interpretation is semantic read-from dependence. It is
 thus causal-set-like rather than a physically attached causal set. A physical
-continuum reading requires a faithful causal embedding, manifoldlikeness and
-dimension, and a rule identifying element count with spacetime volume
+continuum reading requires an order embedding whose image has the approximately
+Poisson count density needed for a causal-set faithful embedding, together
+with manifoldlikeness and dimension
 \cite{bombellimeyer1989,brightwellgregory1991,majorrideoutsurya2007}. In a
 past- and future-distinguishing continuum, causal order fixes conformal
 geometry \cite{hawkingkingmccarthy1976,malament1977}; the volume datum fixes
@@ -2807,7 +2813,7 @@ scores, and the strict-order interface of the finite event world.
 
 This gives a precise exact-to-conditional chain. Authenticated semantic
 provenance fixes the finite event carrier and generated order and computes
-that order's canonical longest-parent-chain height. Independently, the exact
+that order's exact longest authenticated-parent-chain height. Independently, the exact
 rank-three positive source Gram quotient supplies the spatial carrier. Its
 direct sum with a real axis,
 \[
@@ -2816,11 +2822,19 @@ direct sum with a real axis,
 \]
 is a four-dimensional ambient target carrier with Lorentz inertia \((1,3)\), while source-unit
 directions are exactly its future-null rays. Canonical source height supplies
-only the temporal coordinate of an event placement after positive scaling. A
-supplied spatial readback and edge speed bound then give one-way cone compatibility;
-injectivity and the converse
-cone/order implication give a faithful finite causal embedding and exactly
-preserve every source interval on the placed image. No rank-four
+only the temporal coordinate of an event placement after positive scaling.
+Every finite strict partial order compiles exactly into an abstract
+authenticated log, with rank derived from predecessor cardinality. Its generic
+authenticated-parent relation is the whole supplied order rather than its
+Hasse reduction alone. This is an
+expressivity theorem for the grammar, not a dynamics or execution-history
+selection theorem.
+An enumeration-dependent placement along one source axis gives every finite
+log an injective one-way forward-causal realization, without order reflection
+or physical coordinate selection. A supplied source-selected spatial readback and edge speed bound then give one-way cone compatibility.
+Equal-height spatial separation plus strict spacelikeness of unsupported
+increasing-height pairs imply converse support and exact order--cone equivalence. Antisymmetry derives
+injectivity, while the two-way equivalence preserves every source interval on the placed image. No rank-four
 event chart, fitted signature, or independently declared precedence relation
 enters this precursor theorem; its dimension is not an intrinsic poset-dimension
 estimate. The exact Boolean-diamond inhabitant has null
@@ -2841,7 +2855,10 @@ an independent observable. Interpreting the supplied fields as smooth
 curvature and physical stress requires a source-causal continuum
 certificate with two-way placement, count--volume calibration, independent
 dimension/manifoldlikeness tests, stable topology, refinement convergence,
-and curvature/stress convergence on one family.
+and a tensor-curvature reconstruction converging to the smooth Einstein tensor
+or the separately stated continuum small-ball/null-balance identification,
+together with stress convergence on one family. Scalar-curvature convergence
+is only a diagnostic.
 
 The executable audit independently generates and replays every source-history
 cutoff rather than testing an imposed lattice. It proves exact induced-prefix custody for
@@ -2856,6 +2873,17 @@ spatial separation; no global scale makes it injective and order-reflecting.
 The receipt therefore proves source-order custody and falsifies that
 single-frame/barycentre ansatz without claiming that no different physical refinement can
 pass the continuum certificate~\cite{ophfpe}.
+The same order has 30 authenticated-read Hasse links. Each carries a
+source-native carrier-local port label and a normalized null-ray representative
+in a hidden reference presentation. The used-port ranks are \(2,1,2\);
+independent carrier relabeling makes pooled rank non-invariant. This exact
+decoration result supplies no local rank-three cone, frame gluing, or
+integrated global event placement.
+The full embedded-history receipt, compact projection, and local checker are
+\path{evidence/source_causal_history_family/source_causal_history_family_receipt.json},
+\path{evidence/source_causal_history_family/source_causal_history_family_publication_projection.json},
+and
+\path{evidence/source_causal_history_family/verify_source_causal_history_family_projection.py}.
 A separate post-hoc exploratory interval audit, frozen after evaluation for exact replay,
 compares the current \(2{,}304\)-event local-domain cut with Poisson-sprinkled
 \(3+1\) Minkowski, de~Sitter flat-patch, and nonmanifold controls. All \(736\)
@@ -2864,7 +2892,21 @@ ordering-fraction band, so this captured event semantics is not similar at the
 current cutoff. No OPH density-refinement family or held-out confirmation is
 present; the result is not a physical no-go. The full RER receipt mirror and
 checker are \path{evidence/causet_likeness/causet_likeness_receipt.json} and
-\path{evidence/causet_likeness/verify_causet_likeness_receipt.py}.
+\path{evidence/causet_likeness/verify_causet_likeness_receipt.py}. The exact
+underlying local-domain package and its archive checker are under
+\path{evidence/local_domain/}.
+In the same receipt, four nested Poisson-sprinkled Minkowski \(3+1\) control
+families compile through declared-parent-list-free provenance at target means \(64,128,256\).
+Across all 12 levels, rederived direct edges and closures exactly equal the
+seeded Hasse links and orders. Coordinate-map injectivity, sampled-interval
+membership, and the fixed-volume Poisson count channel are independently
+rechecked, jointly forming a construction-seeded causal-set faithful-embedding control;
+only carrier/order restrictions are induced, event material is
+regulator-specific, and counts
+pass the declared three-sigma checks; mean Myrheim--Meyer diagnostic estimates are
+\(4.02824,3.84595,3.90346\)~\cite{reid2003}. This proves grammar compatibility with a \(3+1\)
+causet carrier and order, not OPH selection, refinement, similarity,
+manifoldlikeness, dimension, volume, or a continuum.
 
 \paragraph{Character-block coexistence of regional algebras.}
 For every \(n\ge 2\) the full matrix algebra \(M_n(\mathbb C)\) admits no unital complex-algebra homomorphism into the scalars: the matrix

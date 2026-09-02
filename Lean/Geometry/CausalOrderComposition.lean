@@ -27,7 +27,7 @@ equivalence.  The committed partition net
 through the label map `siteRegionLabel` with the same receipts; its
 four-element carrier affords exactly one incomparable doubleton
 (`partitionNet_unique_incomparable_pair`), so one unordered spacelike pair is
-the maximum any faithful embedding of that carrier can produce.
+the maximum any exact order embedding of that carrier can produce.
 
 Negative controls: projecting the vertex assignment to the scalar axis
 collapses the committed order to a chain and breaks the equivalence
@@ -478,8 +478,8 @@ theorem siteRegionLabel_disj :
 /-- Sharpness of the partition carrier: the doubleton `{0}`, `{1}` is
 incomparable in both directions, and every incomparable pair is that
 doubleton in some order, so the committed order has exactly one unordered
-incomparable pair and one spacelike doubleton is the maximum any faithful
-embedding of that carrier can produce. -/
+incomparable pair and one spacelike doubleton is the maximum any order-faithful
+placement of that carrier can produce. -/
 theorem partitionNet_unique_incomparable_pair :
     (¬ ({0} : Finset (Fin 2)) ⊆ {1} ∧ ¬ ({1} : Finset (Fin 2)) ⊆ {0}) ∧
     ∀ U V : Finset (Fin 2), ¬ U ⊆ V → ¬ V ⊆ U →

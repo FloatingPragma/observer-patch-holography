@@ -23,7 +23,7 @@ finite-window bound. The
 [simulator contract](../code/cosmology/SIMULATOR_RADIAL_CONTRACT_330.md)
 specifies the fail-closed evidence split used by finite runs.
 
-The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the unsupplied physical-event, faithful-placement, count--volume, continuum, source, lift, stress, abundance, transfer, and likelihood inputs in one place.
+The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the unsupplied physical-event, order-faithful-placement, count--volume, continuum, source, lift, stress, abundance, transfer, and likelihood inputs in one place.
 
 ## Dark-Gravity Structure
 

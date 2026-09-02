@@ -15,13 +15,15 @@ The exact interface carries:
 * the authenticated semantic log;
 * a supplied finite `EventGermAtlas`;
 * total visibility at the finite cutoff;
-* base-chart separation; and
 * exact agreement between generated order and the base-chart future cone.
 
-The overlap cocycle propagates separation, order/cone agreement, interval
+Base-chart separation is a theorem: equality of coordinates gives both cone
+comparisons, hence both generated-order comparisons, and source-order
+antisymmetry gives equality of events.  The overlap cocycle propagates that
+derived separation, order/cone agreement, interval
 invariance, and parent-edge future causality to every supplied chart. The
-atlas, total visibility, separation, and cone identification remain explicit
-hypotheses. Nothing here constructs open chart images, topology, physical
+atlas, total visibility, and cone identification remain explicit hypotheses.
+Nothing here constructs open chart images, topology, physical
 signal causality, an operational clock, count--volume calibration,
 manifoldlikeness, refinement, curvature, or a continuum limit.
 -/
@@ -60,8 +62,6 @@ structure SourceDerivedCausalChartInterface
   total : ∀ (i : Chart) (e : Event), atlas.visible i e
   /-- A base chart used to state the one load-bearing cone attachment. -/
   base : Chart
-  /-- Distinct events have distinct coordinates in the base chart. -/
-  separation : Function.Injective (atlas.coordinate base)
   /-- The source-generated reflexive order, not an auxiliary precedence
   field, agrees exactly with the supplied base-chart future-cone order. -/
   generated_cone_base : ∀ e f : Event,
@@ -81,11 +81,24 @@ theorem coordinate_from_base (i : Chart) (e : Event) :
       S.atlas.overlap.act S.base i (S.atlas.coordinate S.base e) :=
   S.atlas.coordinate_overlap (S.total S.base e) (S.total i e)
 
+/-- Exact base-chart order/cone agreement already forces event separation;
+no independent injectivity field is needed. -/
+theorem separation_base :
+    Function.Injective (S.atlas.coordinate S.base) := by
+  intro e f hcoordinate
+  apply S.semanticLog.generatedBeforeEq_antisymm
+  · apply (S.generated_cone_base e f).mpr
+    rw [hcoordinate]
+    exact causalLE_refl _
+  · apply (S.generated_cone_base f e).mpr
+    rw [hcoordinate]
+    exact causalLE_refl _
+
 /-- Source-event separation propagates to every supplied chart. -/
 theorem separation_all (i : Chart) :
     Function.Injective (S.atlas.coordinate i) := by
   intro e f h
-  apply S.separation
+  apply S.separation_base
   have h2 :
       S.atlas.overlap.act S.base i (S.atlas.coordinate S.base e) =
         S.atlas.overlap.act S.base i (S.atlas.coordinate S.base f) := by
@@ -112,7 +125,7 @@ theorem generatedBeforeEq_iff_displacement_futureCausal
   S.generatedBeforeEq_iff_causalLE i e f
 
 /-- The strict authenticated precedence is exactly the irreflexive part of
-the supplied cone order in every chart. This is a finite faithful-cone
+the supplied cone order in every chart. This is a finite exact order/cone
 statement conditional on the supplied chart and cone attachment, not a
 construction of that attachment. -/
 theorem generatedBefore_iff_causalLE_and_ne (i : Chart) (e f : Event) :
@@ -153,6 +166,7 @@ theorem parentEdge_displacement_futureCausal
 end SourceDerivedCausalChartInterface
 
 -- Axiom audit: no project axiom or admission is used.
+#print axioms OPH.EventPopulation.SourceDerivedCausalChartInterface.separation_base
 #print axioms OPH.EventPopulation.SourceDerivedCausalChartInterface.separation_all
 #print axioms OPH.EventPopulation.SourceDerivedCausalChartInterface.generatedBeforeEq_iff_causalLE
 #print axioms OPH.EventPopulation.SourceDerivedCausalChartInterface.generatedBefore_iff_causalLE_and_ne

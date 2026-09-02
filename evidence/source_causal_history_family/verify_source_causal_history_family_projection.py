@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Verify the compact RER mirror of the OPH-FPE history-family receipt.
 
-This standard-library checker verifies canonical bytes, the projection digest,
-the published exact counts, and every promotion/nonclaim gate. It is not the
-raw-history replay: the pinned simulator custody record names the producer-free
-verifier that reconstructs every cutoff separately from its own embedded raw
-observer log.
+This standard-library checker verifies the archived full receipt, canonical
+bytes and digests, the compact projection, the published exact counts, and
+every promotion/nonclaim gate. It is not the raw-history replay: the pinned
+simulator custody record names the producer-free verifier that reconstructs
+every cutoff separately from its own embedded raw observer log.
 """
 
 from __future__ import annotations
@@ -17,6 +17,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 RECEIPT = HERE / "source_causal_history_family_publication_projection.json"
+FULL_RECEIPT = HERE / "source_causal_history_family_receipt.json"
 
 EXPECTED_CUTOFFS = [4, 8, 16, 32, 64]
 EXPECTED_EVENT_COUNTS = [24, 48, 96, 192, 384]
@@ -55,6 +56,45 @@ def main() -> None:
     raw = RECEIPT.read_bytes()
     report = json.loads(raw.decode("ascii"))
     require(raw == canonical_bytes(report), "receipt is not canonical JSON")
+
+    full_raw = FULL_RECEIPT.read_bytes()
+    full_report = json.loads(full_raw.decode("ascii"))
+    require(full_raw == canonical_bytes(full_report),
+            "full receipt is not canonical JSON")
+    full_file_digest = "sha256:" + hashlib.sha256(full_raw).hexdigest()
+    require(report.get("full_receipt_file_sha256") == full_file_digest,
+            "archived full-receipt file digest mismatch")
+    full_body = {
+        key: value for key, value in full_report.items() if key != "report_sha256"
+    }
+    full_report_digest = "sha256:" + hashlib.sha256(
+        canonical_bytes(full_body)
+    ).hexdigest()
+    require(full_report.get("report_sha256") == full_report_digest,
+            "archived full-receipt report digest mismatch")
+    require(report.get("full_receipt_report_sha256") == full_report_digest,
+            "projection does not bind the archived full receipt")
+    require(
+        full_report.get("schema") == "oph.source-causal-history-family.v1",
+        "unexpected full-receipt schema",
+    )
+    for key in (
+        "status",
+        "round_cutoffs",
+        "claim_boundary",
+        "canonical_four_round_source_binding",
+        "induced_order_embeddings",
+        "negative_controls",
+        "prescribed_single_frame_source_port_placement",
+        "scaling_diagnostic",
+        "INFORMATIONAL_HISTORY_EXTENSION_FAMILY_RECEIPT",
+        "INFORMATIONAL_INDUCED_PREFIX_REFINEMENT_RECEIPT",
+        "INFORMATIONAL_INDEPENDENT_CUTOFF_GENERATION_RECEIPT",
+        "SOURCE_NATIVE_AUTHENTICATED_LOCAL_PORT_NULL_RAY_DECORATION_RECEIPT",
+        "SOURCE_NATIVE_EDGE_LOCAL_RANK3_NULL_CONE_DECORATION_RECEIPT",
+    ):
+        require(report.get(key) == full_report.get(key),
+                f"projection/full-receipt mismatch: {key}")
 
     body = {key: value for key, value in report.items() if key != "projection_sha256"}
     digest = "sha256:" + hashlib.sha256(canonical_bytes(body)).hexdigest()
@@ -150,7 +190,7 @@ def main() -> None:
     require(cone.get("global_time_scale_interval_nonempty") is False,
             "prescribed placement unexpectedly gained an admissible scale")
     require(cone.get("FINITE_FAITHFUL_RANK3_CONE_PLACEMENT_RECEIPT") is False,
-            "faithful-placement gate changed")
+            "order-faithful-placement gate changed")
     for field in (
         "inter_carrier_frame_gluing_source_derived",
         "consumed_record_barycentre_rule_source_derived",
@@ -160,6 +200,64 @@ def main() -> None:
         require(cone.get(field) is False, f"placement boundary changed: {field}")
     require("not a no-go" in cone.get("interpretation", ""),
             "placement interpretation lost its no-go boundary")
+
+    rays = report.get("source_native_authenticated_local_port_null_rays", {})
+    require(
+        rays.get("status")
+        == "ATTAINED_AUTHENTICATED_LOCAL_PORT_NULL_RAY_DECORATION__NO_LOCAL_RANK3_CONE_OR_FRAME_GLUING",
+        "authenticated local-port null-ray status changed",
+    )
+    require(rays.get("event_count") == 24, "null-ray event carrier changed")
+    require(rays.get("authenticated_direct_read_edge_count") == 38,
+            "authenticated direct-edge count changed")
+    require(rays.get("source_order_cover_link_count") == 30
+            and rays.get("link_row_count") == 30,
+            "authenticated cover-link count changed")
+    require(rays.get("cover_links_are_authenticated_direct_reads") is True
+            and rays.get("cover_relation_transitive_closure_equals_source_order") is True,
+            "cover-link provenance or closure failed")
+    require(rays.get("reference_template_rank") == 3,
+            "hidden reference-template rank changed")
+    require(rays.get("per_local_carrier_used_port_ranks") == [2, 1, 2]
+            and rays.get("maximum_single_carrier_used_link_rank") == 2,
+            "per-carrier populated port ranks changed")
+    require(rays.get("cross_carrier_rank_evaluation_allowed") is False,
+            "cross-carrier pooled rank was unexpectedly allowed")
+    require(rays.get("coordinate_role") == "hidden_reference_presentation_only"
+            and rays.get("normalized_null_ray_representative_only") is True,
+            "hidden-presentation null-ray boundary changed")
+    relabel = rays.get("independent_a5_carrier_relabeling_control", {})
+    require(relabel.get("all_relabelings_are_registered_a5_actions") is True
+            and relabel.get("all_individual_carrier_ranks_preserved") is True
+            and relabel.get("pooled_rank_before_independent_relabeling") == 3
+            and relabel.get("pooled_rank_after_independent_relabeling") == 2
+            and relabel.get("pooled_rank_changes_under_independent_carrier_relabeling") is True,
+            "A5 pooled-rank non-invariance control changed")
+    integration = rays.get("naive_shared_template_unit_scale_path_dependence_control", {})
+    require(integration.get("path_independence_holds") is False
+            and integration.get("control_failure_detected") is True
+            and integration.get("other_frame_gluings_or_edge_scales_excluded") is False,
+            "naive path-dependence control changed")
+    require(
+        report.get("SOURCE_NATIVE_AUTHENTICATED_LOCAL_PORT_NULL_RAY_DECORATION_RECEIPT")
+        is True
+        and rays.get("SOURCE_NATIVE_AUTHENTICATED_LOCAL_PORT_NULL_RAY_DECORATION_RECEIPT")
+        is True,
+        "authenticated local-port null-ray receipt is not attained",
+    )
+    require(
+        report.get("SOURCE_NATIVE_EDGE_LOCAL_RANK3_NULL_CONE_DECORATION_RECEIPT")
+        is False,
+        "superseded pooled rank-three receipt was unexpectedly promoted",
+    )
+    for field in (
+        "SINGLE_CARRIER_USED_LINK_RANK3_RECEIPT",
+        "INTER_CARRIER_FRAME_GLUING_RECEIPT",
+        "GLOBAL_LINK_RAY_INTEGRABILITY_RECEIPT",
+        "SOURCE_NATIVE_LOCAL_RANK3_CONE_RECEIPT",
+        "SOURCE_NATIVE_LORENTZ_CONE_RECEIPT",
+    ):
+        require(rays.get(field) is False, f"native null-ray boundary changed: {field}")
 
     flags = report.get("promotion_and_nonclaim_flags", {})
     require(flags and all(value is False for value in flags.values()),
@@ -175,10 +273,14 @@ def main() -> None:
         "status": "VERIFIED_COMPACT_PUBLICATION_PROJECTION",
         "projection_sha256": digest,
         "full_receipt_file_sha256": report["full_receipt_file_sha256"],
+        "full_receipt_report_sha256": full_report_digest,
+        "full_receipt_archived": True,
         "levels": len(levels),
         "event_counts": EXPECTED_EVENT_COUNTS,
         "widths": EXPECTED_WIDTHS,
-        "prescribed_placement_faithful": False,
+        "prescribed_placement_order_faithful": False,
+        "authenticated_local_port_null_ray_labels": True,
+        "maximum_single_carrier_used_link_rank": 2,
         "physical_promotion_allowed": False,
     }, sort_keys=True))
 

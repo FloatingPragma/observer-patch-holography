@@ -133,6 +133,8 @@ The public normal form has two separately typed projections:
 \]
 \[
 \begin{aligned}
+\mathsf{FiniteStrictPoset}_r
+&\longrightarrow \mathsf{ExactAuthenticatedCausetLog}_r,\\
 \left.
 \begin{gathered}
 \mathsf{FiniteInformationalCauset}_r\\
@@ -143,13 +145,21 @@ The public normal form has two separately typed projections:
 &\longrightarrow \mathsf{AmbientLorentzCarrier}_{1+3,r},\\
 \left.
 \begin{gathered}
+\mathsf{FiniteInformationalCauset}_r\\
+\mathsf{AmbientLorentzCarrier}_{1+3,r}
+\end{gathered}
+\right\}
+&\longrightarrow \mathsf{AuxiliarySeparatedForwardPlacement}_r,\\
+\left.
+\begin{gathered}
 \mathsf{AmbientLorentzCarrier}_{1+3,r}\\
 \mathsf{SuppliedSpatialReadback+EdgeSpeed}_r
 \end{gathered}
 \right\}
 &\longrightarrow \mathsf{ForwardConePlacement}_r,\\
 \mathsf{ForwardConePlacement}_r
-&\xrightarrow{\;\mathsf{injectivity+converse\ cone/order}\;}
+&\xrightarrow{\;\substack{\mathsf{equal\mbox{-}height\ separation,}\\
+\mathsf{incomparable\ spacelike}}\;}
 \mathsf{FaithfulFiniteCausalPlacement}_r,\\
 \mathsf{FaithfulFiniteCausalPlacement}_r
 &\xrightarrow{\;\substack{\mathsf{physical\ signals+operational\ clocks,}\\
@@ -206,9 +216,13 @@ outputs of that finite bridge. The state tower, common-comparison maps,
 compatible state/vector data, modular controls, and cofinal modulus form an
 independent compatible modular-state tower. The BW theorem consumes both
 inputs on the same refinement tower. Independently, authenticated read-from
-provenance supplies the finite event carrier and generated order; its
+provenance supplies the finite event carrier and generated order. Every finite
+strict partial order also compiles exactly into an abstract authenticated log;
+the supplied relation and unthreaded snapshots make this grammar expressivity,
+not OPH dynamics or physical selection. Its
 canonical source height is zero at roots and one plus the maximum direct-parent
-height otherwise, with strict increase on generated ancestry. The exact source Gram quotient supplies a positive rank-three
+height otherwise, equals the attained longest authenticated-parent-chain
+length, and strictly increases on generated ancestry. The exact source Gram quotient supplies a positive rank-three
 carrier. Its direct sum with an independent real axis,
 \[
   W_{\rm src}=\mathbb R\oplus V_{\rm src},\qquad
@@ -223,14 +237,21 @@ identity \(\operatorname{Conf}^+(S^2)\cong\operatorname{SO}^+(3,1)\) gives
 the same celestial Lorentz cone and the three-dimensional observer-frame
 fiber \(H^3=\operatorname{SO}^+(3,1)/\operatorname{SO}(3)\).
 
+Every finite event log admits an auxiliary injective one-way realization:
+enumerate its events along one source axis and take a height scale larger than
+the enumeration diameter. Distinct same-height events are then spacelike. The
+enumeration is arbitrary and generally creates unsupported cone comparisons,
+so it supplies neither source selection nor faithful physical coordinates.
 A supplied event-local spatial readback and edge speed bound send generated
-precedence into the future cone; injectivity and the converse implication give
-a faithful finite causal embedding. Physical spacetime then requires one
+precedence into the future cone. Equal-height spatial separation and a strict
+spacelike inequality for every increasing-height pair unsupported by ancestry
+derive converse cone support and exact two-way order--cone equivalence. Event
+separation follows from antisymmetry, and the two-way equivalence gives exact interval preservation. Physical spacetime requires one
 source-selected refinement family preserving order, placement, and source
 directions, with dense and isotropic physical links on \(S^2\), calibrated
 \(\#I/\rho\to\operatorname{Vol}(I)\), independent dimension and
 manifoldlikeness tests, stable thickened-antichain topology, and convergence
-to a unique distinguishing Lorentzian limit. Event population is not public
+to a unique distinguishing Lorentzian limit. Event count is not public
 capacity \(N\). The current source-history family proves exact induced-prefix
 custody from 24 to 384 events, but its width remains two and the
 prescribed single-frame source-port placement of the 24-event control is not
@@ -239,6 +260,25 @@ and consumed-record barycentres; it is an exact custody family and a placement
 falsification, not a spacetime-density refinement or a no-go for other
 source-selected placements.
 
+All 30 Hasse links of that frozen source order nevertheless carry source-native
+carrier-local port labels and normalized null-ray representatives in a hidden
+reference presentation. Used-port ranks are \(2,1,2\); pooled rank is
+non-invariant under independent carrier relabeling, so no local rank-three
+cone or frame gluing follows. A separate four-seed nested Poisson
+\(3+1\) control recompiles Hasse links and full orders exactly through
+declared-parent-list-free provenance. Coordinate-map injectivity,
+sampled-interval membership, and the fixed-volume Poisson count channel are
+independently rechecked, jointly forming a construction-seeded causal-set
+faithful-embedding control,
+while only carrier and order have induced nested restrictions and event
+material is regulator-specific. These
+establish link-decoration and grammar compatibility, not OPH selection,
+manifoldlikeness, or a continuum.
+The full current receipts and standard-library checkers are archived under
+\path{evidence/source_causal_history_family/} and
+\path{evidence/causet_likeness/}; the exact local-domain inputs and receipts
+consumed by the comparison are archived under \path{evidence/local_domain/}.
+
 On the same finite event type, the source-order Einstein theorem replaces
 all-null balance by nine supplied balances on fixed algebraic source-direction
 representatives and, with symmetric fields, an algebraic coupling, four step
@@ -246,9 +286,12 @@ maps, Ward/Bianchi identities, and connectedness, derives the all-null and Einst
 relations. The directions are algebraic rather than observed signals; the
 informational order does not select a field, step, or balance. The matrix
 fields and steps remain supplied. Reading them as smooth curvature and
-physical stress requires convergent causal-set curvature, same-source stress,
+physical stress requires a same-family tensor-curvature reconstruction
+converging to the smooth Einstein tensor, or the separately stated continuum
+small-ball/null-balance identification, together with same-source stress,
 Ward/Bianchi, coupling, scale, and remainder data on the physical continuum
-family. The separate \texttt{composedEinsteinBranch} returns the conditional
+family. Scalar-curvature convergence is only a diagnostic. The separate
+\texttt{composedEinsteinBranch} returns the conditional
 Einstein-form composition under those typed inputs; it does not supply them.
 Any admitted continuum spacetime is an emergent effective description, not a
 fundamental object inserted into the finite carrier.

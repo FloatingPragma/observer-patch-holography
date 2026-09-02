@@ -60,15 +60,26 @@ causal reachability, refinement tower, rods, clocks, or physical spacetime.
 carrier `ℝ × FrameQuotient` from an independent real axis and the exact
 rank-three source quotient, proves dimension four and one-positive/
 three-negative Lorentz signature, and maps source-unit directions to
-future-null vectors. Positive-scale canonical source height enters only in
-the event placement. Given a supplied spatial readback, its explicit
-edge-speed bound proves every generated ancestry relation future-causal; an
-equally explicit converse-support clause yields a faithful one-chart finite
-embedding.  The spatial readback and converse clause remain hypotheses, and
-the result is not a topology, open atlas, physical-causality theorem, or
+future-null vectors. On every finite authenticated log, canonical source
+height is the attained maximum authenticated-parent-chain length. The
+separate finite-relation compiler realizes every supplied finite decidable
+strict partial order exactly in an abstract semantic log; for a transitive
+input it authenticates every strict-order pair as a parent edge rather than
+reducing the relation to Hasse covers, and it does not construct a threaded
+execution. Positive-scale source height enters only in an event placement.
+Every finite log has an
+explicit enumeration-dependent injective forward-causal placement, but that
+placement is not order-reflecting or source-selected. Given a general supplied
+spatial readback, its explicit edge-speed bound proves every generated
+ancestry relation future-causal. Equal-height spatial separation together
+with strict spacelikeness of every increasing-height nonancestor derives the
+converse cone-support clause; exact two-way agreement then derives event
+separation and a one-chart exact finite order embedding. The physical spatial readback,
+geometric conditions, and continuum family remain inputs, and the result is
+not a topology, open atlas, physical-causality theorem, count--volume law, or
 refinement/manifold limit.
 The finite `SourceOrderFrameCompatibilityPacket` keeps those boundaries
-explicit. A faithful placement constructs its one-chart order/cone attachment;
+explicit. An order-faithful placement constructs its one-chart order/cone attachment;
 event-dependent Lorentz-frame transports remain optional supplied data, while
 the standard-frame specialization removes that field for a purely algebraic
 existence result. The Boolean-diamond control constructs a complete non-chain
