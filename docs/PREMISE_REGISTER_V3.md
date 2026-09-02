@@ -91,8 +91,9 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-81 | certified causal read support | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 | PR-82 | abstract semantic ancestry acyclicity rank | `structural_rule` | `axiomatize` | [#763](https://github.com/FloatingPragma/observer-patch-holography/issues/763) |
 | PR-84 | pathwise weak fairness for fixed node attempts | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-85 | bounded waste between fixed node changes | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 
-Totals: 83 premises. 47 remove, 32 axiomatize, 4 import.
+Totals: 84 premises. 47 remove, 33 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -759,6 +760,14 @@ Along one attempt run of an input-independent fixed node federation, if one decl
 - Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
 - Evidence: `Lean/Computation/FixedFederationProgress.lean` (`conditional_consumer`), `Lean/Computation/FixedFederationCounterexamples.lean` (`no_go`), `Lean/Tower/FixedFederationEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
 - Disposition note: The singleton canonical scheduler proves the premise is nonvacuous. The root-only fanout scheduler proves that attempt stabilization without this premise may remain reducible. The one-member historical weak-step fixture shows fairness is insufficient when the counted relation itself permits stutter.
+
+### PR-85 bounded waste between fixed node changes
+
+From every scheduler index and every non-consensus state of one input-independent fixed node federation, at least one genuine state change occurs among the next q+1 attempts for one declared natural q. Combined with the source-specific triangular potential, the premise yields stable consensus within (q+1) times the triangular node bound. It is not implied by pathwise weak fairness and gives no physical rate or unit.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/Computation/FixedFederationComplexity.lean` (`conditional_consumer`), `Lean/Computation/FixedFederationExecutionExamples.lean` (`no_go`), `Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean` (`conditional_consumer`), `Lean/Tower/FixedFederationExecutionEndpoint.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Disposition note: The state-blind fixedRoundRobinScheduler discharges q = fixedProgram.length - 1 and proves the premise nonvacuous. The arbitrary-delay weak-fair family shows PR-84 does not provide a uniform finite q. Other supplied schedulers must establish their own bounded-waste witness.
 
 ## What the dispositions mean
 
