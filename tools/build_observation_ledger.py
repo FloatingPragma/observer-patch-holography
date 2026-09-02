@@ -190,6 +190,7 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (763, "PR-81"): "semantic provenance support premise, not a physical observation row",
     (763, "PR-82"): "semantic ancestry-rank premise, not a physical observation row",
     (750, "PR-84"): "fixed computation-federation fairness premise, not a physical observation row",
+    (750, "PR-85"): "fixed computation-federation bounded-waste premise, not a physical observation row",
     (735, "PR-15"): "SM correspondence calibration boundary",
     (729, "PR-16"): "gravity ladder attachment boundary",
     (729, "PR-29"): "layered gravity source surface",

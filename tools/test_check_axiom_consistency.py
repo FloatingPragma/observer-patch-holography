@@ -109,9 +109,10 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
 
     def test_inventory_writer_reports_surfaces(self) -> None:
         guard.write_inventory()
-        payload = (guard.ROOT / "claims" / "active_surface_inventory.json").read_text(
-            encoding="utf-8"
-        )
+        inventory = guard.ROOT / "claims" / "active_surface_inventory.json"
+        raw = inventory.read_bytes()
+        payload = raw.decode("utf-8")
+        self.assertNotIn(b"\r\n", raw)
         self.assertIn('"oph.active_surface_inventory.v1"', payload)
         self.assertIn('"path": "extra/observable_normal_forms.tex"', payload)
         self.assertIn(

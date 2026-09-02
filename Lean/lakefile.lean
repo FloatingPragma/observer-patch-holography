@@ -46,7 +46,11 @@ lean_lib «OPHComputation» where
   srcDir := "."
   roots := #[`Computation.RepairUniversality,
     `Computation.FixedFederationProgress,
-    `Computation.FixedFederationCounterexamples]
+    `Computation.FixedFederationCounterexamples,
+    `Computation.FixedFederationExecution,
+    `Computation.FixedFederationExecutionExamples,
+    `Computation.FixedFederationComplexity,
+    `Computation.FixedFederationFanoutControl]
 
 @[default_target]
 lean_lib «OPHThermodynamics» where

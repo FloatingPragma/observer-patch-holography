@@ -218,6 +218,20 @@ theorem repairNode_eq_self_of_accepts (n : Node) (s : State)
   · next hi => rw [hi]; exact hforced.symm
   · rfl
 
+/-- Once every declared node accepts, arbitrary further attempts stutter. -/
+theorem attemptRun_eq_self_of_consensus
+    (L : List Node) (sigma : NodeScheduler L) (s : State)
+    (hcons : Consensus (L.map Node.obs) s) :
+    ∀ steps, attemptRun L steps sigma s = s := by
+  intro steps
+  induction steps with
+  | zero => rfl
+  | succ n ih =>
+      rw [attemptRun_last_step, ih]
+      apply repairNode_eq_self_of_accepts
+      exact hcons (sigma n s).1.obs
+        (List.mem_map.mpr ⟨(sigma n s).1, (sigma n s).2, rfl⟩)
+
 theorem repairNode_ne_self_of_fails (n : Node) (s : State)
     (hfail : n.obs.ok s = false) : repairNode n s ≠ s := by
   intro heq

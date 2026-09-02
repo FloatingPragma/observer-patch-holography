@@ -97,7 +97,7 @@ one canonical raw and public endpoint. Counting every scheduler invocation,
 including stutter, gives a genuinely restrictive cumulative capacity: no
 initial-mismatch-only finite attempt horizon exists for arbitrary normalizing
 schedulers, whereas bounded waste gives a quantitative upper horizon, with an
-exact sharp threshold in the work-conserving case, and a capacity-bounded public endpoint. The Markov-chain and fair-termination
+exact sharp threshold in the work-conserving case, and a capacity-bounded public endpoint. On the separate input-independent compiler branch, one emission-order round-robin cycle reaches the exact output in \(n\) attempts, every accepted repair path is quadratically bounded and a same-metric family makes the worst case order-sharp \(\Theta(n^2)\), and weak fairness alone has no uniform finite attempt horizon. The Markov-chain and fair-termination
 ingredients are standard; the contribution is their source-bound assembly
 around protected observations, canonical repair, and the existing behavior-cut
 interface. These results supply the observable-normal-form machinery used by the
@@ -252,6 +252,29 @@ Control-theoretic observability reconstructs a state, or a prescribed function o
 \subsection{Constraints, databases, and global sections}
 
 Acyclic database schemes and positive-semiring relations provide local-to-global consistency results \citep{BeeriEtAl1983,AtseriasKolaitis2020}.  Constraint satisfaction studies local consistency as an algorithmic reduction \citep{DalmauOprsal2023}.  Database repair semantics distinguishes the existence of many consistent repairs from the answers invariant across them \citep{ArenasBertossiChomicki1999}.  Sheaf-theoretic contextuality similarly turns failure of a global section into an obstruction \citep{AbramskyBrandenburger2011}.  Our empty-fiber certificate belongs to this broad lineage.  The additional layer is the interaction with normal-form stability and refinement.
+
+\subsection{Fair scheduling and asynchronous Boolean-network fixing}
+
+Fairness is a qualitative liveness condition rather than a latency bound;
+Lamport formulates the general closure issue explicitly
+\citep{Lamport2000Fairness}, while the self-stabilization daemon taxonomy
+separates fairness, boundedness, and enabledness as independent scheduling
+axes \citep{DuboisTixeuil2011}.  Asynchronous Boolean-network work studies
+fixing words and their minimal lengths, including monotone, acyclic, tree, and
+conjunctive families \citep{AracenaEtAl2019,GadouleauRichard2018}.  We assign
+no novelty credit to weak fairness, round robin, fixing words, or quadratic
+fixing phenomena themselves.  The source-specific contribution below is the
+joint machine-checked classification for the actual nonmonotone
+\texttt{go} compiler: its first emission-order cycle, taken in the order in
+which the compiler emits nodes, is the existing sweep and
+therefore has a linear exact-output horizon, its adversarial genuine
+accepted-step paths are order-sharp quadratic in the same emitted-node metric,
+and its Tower endpoint distinguishes both from arbitrary weak-fair attempts
+and from a separately supplied bounded-waste contract.  General well-formed
+federations remain sharply exponential, in line with the order of the acyclic
+fixing-length results \citep{GadouleauRichard2018}; the source-specific delta
+is that the compiler's single-consumer shape is exactly what removes the
+exponent.
 
 \subsection{Asynchronous functional networks}
 
@@ -2375,12 +2398,59 @@ attempt and remain continuously enabled, yet the run stutters forever outside
 consensus because the relation does not require the declared repair to execute.
 Thus fairness cannot compensate for a step semantics that counts a no-op.
 
+\begin{theorem}[Fixed-federation execution classification]
+\label{thm:fixed-federation-execution-classification}
+For a well-formed generated-node federation and a fixed attempt run, pathwise
+weak fairness holds if and only if the run eventually reaches a stable
+consensus.  The reverse implication is vacuous after consensus: no node can
+remain failing on that stable tail, so it does not imply recurrent selection.
+At the compiler's present node granularity, member recurrence and register-site
+recurrence coincide because generated output registers are unique; recurrence
+is nevertheless strictly stronger than tail fairness.  A state-blind
+round-robin scheduler is member- and site-recurrent and reaches the stable
+correct output.  More sharply, its first \(n\) attempts are exactly the
+emission-order sweep, so it reaches stable consensus and the correct output
+within one emitted-node cycle.
+
+If the emitted program has \(n\) nodes, every canonical genuine accepted path
+has length at most
+\[
+  \frac{n(n+1)}{2}.
+\]
+An actual recursively nested NAND family emitted by the same compiler has a
+consensus-reaching accepted path of length \(m\) satisfying
+\[
+  8m+1=n^2+8n.
+\]
+Thus the accepted-step classification is order-sharp
+\(\Theta(n^2)\) in one node-count metric; the finite upper and lower constants
+are not claimed equal.  Well-formedness alone does not yield this: every
+well-formed node list admits fewer than \(2^n\) canonical accepted steps, an
+explicit fanout chain family attains \(2^n-1\), and at three nodes that
+family realizes seven accepted steps against the triangular budget six, so
+the compiler's single-consumer structure is what collapses the exponential
+regime to a quadratic one.  Weak fairness alone supplies no uniform finite attempt
+horizon.  If a supplied fixed-node scheduler instead has bounded waste \(q\),
+stable consensus is reached within
+\((q+1)n(n+1)/2\) attempts.  Round robin discharges this premise with
+\(q=n-1\), but its direct one-cycle theorem gives the sharper \(n\)-attempt
+bound for that scheduler.  The Tower consumer returns the same-input unique
+output.
+\end{theorem}
+
+The bounded-waste counting theorem is shared with the canonical adaptive
+repair route through a neutral ranked-attempt interface.  Each domain proves
+its own run and quiescence equivalence, and each Tower receiver calls the
+shared theorem.  This is code and proof reuse, not a claim that adaptive
+scheduler waste and fixed-compiler repair work are the same scientific
+quantity.
+
 The endpoint statement uses the immutable input prefix as the protected
 observation and output-register equality as the endpoint equivalence.  Unused
-natural-number registers are not identified.  No scheduler is selected, no
-attempt budget or complexity bound is proved, and no physical device, finite
-\texttt{PublicWorld} presentation, clock, rate, or resource interpretation is
-constructed.
+natural-number registers are not identified.  The selected round-robin object
+is a mathematical function, not a physical scheduler source.  No physical
+device, finite \texttt{PublicWorld} presentation, clock, rate, energy,
+bandwidth, fee, hardware realization, or raw-state uniqueness is constructed.
 
 \subsection{Limitations}
 
@@ -2406,6 +2476,12 @@ The theory assumes a declared meaningful quotient, consistent set, residual, obs
       premises, weak fairness alone gives no uniform mismatch-only finite attempt bound, and the
       sharp lower bound is family-specific rather than universal over all
       carriers;
+\item fixed-federation pathwise weak fairness is exactly stable consensus only
+      relative to one attempt run and the source-derived eventual-constancy
+      theorem; its reverse is vacuous after stable consensus and does not give
+      recurrence, weak fairness alone has no uniform finite attempt horizon,
+      the accepted-step result is order-sharp rather than constant-sharp, and
+      bounded-waste attempts have no physical unit;
 \item coordinatewise cut comparison is not a scalar score, total order, or
       family-wide optimum, and exact finite transport is not implementation or
       product refinement.
@@ -2426,6 +2502,14 @@ source-derived rather than postulated as a scheduler property.  The remaining
 steps are deliberately separate: pathwise weak fairness supplies normality,
 while completeness and confluence promote the stable state to one consistent
 canonical raw and public endpoint.
+
+On the separate fixed compiler branch, the emission-order round-robin schedule
+reaches the exact output in one \(n\)-attempt cycle, arbitrary genuine accepted
+order has an order-sharp \(\Theta(n^2)\) worst-case family, weak fairness alone
+has no uniform finite attempt horizon, and bounded waste supplies the general
+conditional attempt bound.  These four statements classify distinct
+scheduler and cost regimes rather than attaching a physical duration to an
+attempt.
 
 The resulting estimate is universal and sharp in its two unavoidable components. It survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies the determination and stability question, a four-stage protected-behavior ladder, and an orthogonal local-support question:
 \[

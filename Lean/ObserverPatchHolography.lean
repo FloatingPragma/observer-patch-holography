@@ -65,6 +65,11 @@ import ObserverPatchHolography.Provenance.QuotientInvariance
 import ObserverPatchHolography.Provenance.RefinementNaturality
 import Computation.FixedFederationProgress
 import Computation.FixedFederationCounterexamples
+import Computation.FixedFederationExecution
+import Computation.FixedFederationExecutionExamples
+import Computation.FixedFederationComplexity
+import Computation.FixedFederationFanoutControl
+import ObserverPatchHolography.Execution.RankedAttemptCapacity
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root

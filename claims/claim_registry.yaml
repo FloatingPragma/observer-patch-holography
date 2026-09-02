@@ -6291,6 +6291,52 @@
       }
     },
     {
+      "claim_id": "OPH-COMPUTATION-FIXED-FEDERATION-EXECUTION-CLASSIFICATION",
+      "statement": "For every well-formed input-independent fixed formula federation and every attempt run, pathwise weak fairness is equivalent to eventual stable consensus; the reverse is vacuous because consensus removes the forever-failing antecedent and does not imply recurrent selection. Node-member and register-site recurrence coincide at the current compiler granularity because well-formed programs have unique output registers, and recurrence is strictly stronger than tail fairness. A concrete state-blind round-robin scheduler is member- and site-recurrent and pathwise weak-fair. Its first n attempts equal the emission-order sweep for n emitted nodes, so it reaches stable consensus and the correct same-input output within n attempts. The actual go compiler has at most one downstream consumer per generated register, so every canonical genuine accepted path has length at most n(n+1)/2. An actual recursive nested-NAND compiler family has a consensus-reaching accepted path with 8m+1=n^2+8n, giving an order-sharp Theta(n^2) classification in the same node-count metric, not an exact constant match. Weak fairness alone supplies no uniform finite attempt horizon. Under a separately supplied fixed-node bounded-waste value q, the shared ranked-attempt theorem gives stable consensus within (q+1)n(n+1)/2 attempts and the Tower consumer gives the same-input unique output; round robin also inhabits bounded waste, but its direct one-cycle theorem is the sharper bound for that scheduler. Well-formedness alone does not give the quadratic bound: every well-formed node list admits fewer than 2^n canonical accepted steps, an explicit fanout chain family attains 2^n-1, and at three nodes that family realizes seven accepted steps against the triangular budget six, so the compiler's single-consumer structure is load-bearing.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "fixed_federation_exact_fairness_and_order_sharp_quadratic_execution_classification",
+      "assumptions": [
+        "pathwise_weak_fair_fixed_node_scheduler",
+        "bounded_waste_fixed_node_scheduler"
+      ],
+      "imported_results": [
+        "weak_fairness_and_recurrence_for_asynchronous_updates",
+        "acyclic_boolean_network_stabilization",
+        "ranked_bounded_waste_counting"
+      ],
+      "oph_specific_delta": "Binds the exact fairness iff, its vacuous reverse, recurrence collapse and strictness, an explicit emission-order round-robin cycle equal to the compiler sweep with a linear exact-output horizon, a compiler-specific single-consumer linear potential, a same-metric actual nested-NAND quadratic lower family, a weak-fair arbitrary-delay no-go, and a dual-domain shared ranked provider to removal-sensitive Tower consumers. General fairness, round robin, ranked counting, asynchronous Boolean stabilization, fixing words, and quadratic fixing phenomena receive no novelty credit.",
+      "novelty_type": "source_specific_execution_classification_with_order_sharp_quadratic_compiler_cost",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "extra/observable_normal_forms.tex",
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "Lean/Computation/FixedFederationExecution.lean",
+        "Lean/Computation/FixedFederationComplexity.lean",
+        "Lean/Computation/FixedFederationExecutionExamples.lean",
+        "Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean",
+        "Lean/Tower/FixedFederationExecutionEndpoint.lean",
+        "Lean/Tower/FixedFederationExecutionAudit.lean",
+        "Lean/Computation/FixedFederationFanoutControl.lean",
+        "Lean/Tower/FixedFederationFanoutEndpoint.lean"
+      ],
+      "falsifier": "The claim fails if stable consensus does not imply the typed tail-fair predicate, a well-formed program repeats a generated register, recurrence does not imply tail fairness or the committed strictness witness fails, the first round-robin cycle differs from the emission-order sweep or fails to reach the correct output within n attempts, the compiler single-consumer theorem or linear strict descent fails, an accepted path exceeds n(n+1)/2, the actual nested-NAND schedule or size identity fails, a uniform weak-fair attempt bound exists contrary to the delay family, the allocator-separation or bounded-waste typed negative control survives its forbidden strengthening, the bounded-waste adapter weakens either direction, or removal leaves an actual Tower receiver valid, or the fanout control fails: the generic bound admits 2^n canonical accepted steps, the fanout chain family fails to attain 2^n-1, or the three-node family satisfies the single-consumer profile.",
+      "scope_if_false": "Only the fixed-federation execution classification and its new Tower endpoint fall. The ranked fixed-federation progress and output endpoint, the adaptive cumulative-capacity classification, the input-specialized repair precursor, and the separate finite PublicWorld program retain their registered scopes.",
+      "status": "exact_tail_fairness_linear_emission_order_round_robin_and_order_sharp_quadratic_fixed_compiler_execution_attained__physical_runtime_and_finite_public_world_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        750
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-84",
+          "PR-85"
+        ],
+        "open": [],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
       "statement": "On the committed eight-context effect table of the phase packet, with the declared Pauli +Y projector in the phase slot, the Lueders outcome maps X -> E X E form a typed instrument whose fields are the PR-64 channel clauses, proved as exact finite matrix algebra: every outcome map is completely positive by a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of every context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table. The normalized post-measurement state is certain of its effect, a state-update proxy for the readback clause. On the declared matrix diag(111/179, 68/179) the outcome traces equal the fixture frequencies in every context, with 1/2 in the phase context, where the post-measurement state is the declared effect itself; the phase and diagonal values are also obtained by direct matrix computation through the outcome maps. A swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lueders instrument on the declared matrix at an explicit entry, and fails repeatability, so the declared effect table does not determine the instrument and the Lueders choice is a declared selection. The construction is a declared conditional instrument: no source implements it, no public outcome is read back through it, and no register row is discharged.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 333,
+  "surface_count": 334,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1411,6 +1411,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

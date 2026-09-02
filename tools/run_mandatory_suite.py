@@ -291,6 +291,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Execute the Issue 750 fixed-federation execution-classification gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_fixed_federation_execution_classification_surfaces.py",
+        ],
+    ),
+    (
         "Execute the fixed-unitary scattering obstruction controls",
         [
             sys.executable,
