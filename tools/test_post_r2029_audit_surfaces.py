@@ -452,7 +452,7 @@ def test_registry_epistemic_classes_and_geometry_assumptions_match_theorems() ->
 
     events = claims["OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM"]["statement"]
     assert "real dimension 4 and Lorentz inertia (1,3)" in events
-    assert "faithful finite causal embedding" in events
+    assert "causal-set faithful embedding" in events
     assert "source-causal continuum certificate" in events
     assert "calibrated count-volume" in events
     assert "intrinsic dimension of the finite poset is not derived" in events
