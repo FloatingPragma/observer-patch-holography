@@ -1,5 +1,6 @@
 import Tower.FixedFederationExecutionEndpoint
 import Tower.CumulativeCapacityEndpoint
+import Tower.FixedFederationFanoutEndpoint
 
 /-!
 # Typed audit for fixed-federation execution classification
@@ -14,6 +15,7 @@ namespace OPH.Tower.FixedFederationExecutionAudit
 open OPH.RepairUniversality
 open OPH.RepairUniversality.FixedFederation
 open OPH.Tower.FixedFederationExecutionEndpoint
+open OPH.Tower.FixedFederationFanoutEndpoint
 
 noncomputable section
 
@@ -72,6 +74,29 @@ example :
           attemptRun (fixedProgram recurrenceGapFormula) n sigma allFalse =
             attemptRun (fixedProgram recurrenceGapFormula) N sigma allFalse :=
   boundedWaste_premise_needed
+
+example (n : Nat) :
+    (∀ (L : List Node), NodesWF L → ∀ {m : Nat} {s t : State},
+      CanonicalAcceptedSteps L m s t → m < 2 ^ L.length) ∧
+    (∃ t : State,
+      CanonicalAcceptedSteps (fanoutChain n) (2 ^ n - 1) allFalse t ∧
+      Consensus ((fanoutChain n).map Node.obs) t ∧
+      NodesWF (fanoutChain n) ∧
+      (fanoutChain n).length = n) :=
+  fanoutChain_sharp_exponential n
+
+example :
+    (∀ {k : Nat} (phi : Formula k) {m : Nat} {s t : State},
+      CanonicalAcceptedSteps (fixedProgram phi) m s t →
+      m ≤ triangle (fixedProgram phi).length) ∧
+    (∃ t : State,
+      CanonicalAcceptedSteps (fanoutChain 3) 7 allFalse t ∧
+      Consensus ((fanoutChain 3).map Node.obs) t ∧
+      triangle (fanoutChain 3).length = 6 ∧
+      ¬ (7 ≤ triangle (fanoutChain 3).length)) ∧
+    NodesWF (fanoutChain 3) ∧
+    ¬ AtMostOneDownstreamConsumer (fanoutChain 3) :=
+  triangular_bound_needs_single_consumer
 
 end
 

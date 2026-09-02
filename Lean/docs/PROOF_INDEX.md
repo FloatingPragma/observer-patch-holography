@@ -317,7 +317,12 @@ Mapping between Lean 4 theorems in this project and statements in
   conditional `(q + 1)`-scaled triangular attempt horizon, and the shared
   generic theorem is called by both fixed and adaptive Tower consumers. Typed
   controls reject allocator collision and removal of the bounded-waste
-  premise, while the audit module pins exact theorem types. No
+  premise, while the audit module pins exact theorem types. The fanout
+  control (`Computation/FixedFederationFanoutControl.lean`,
+  `Tower/FixedFederationFanoutEndpoint.lean`) proves that well-formedness
+  alone admits fewer than `2^n` canonical accepted steps, that an explicit
+  fanout chain attains `2^n - 1`, and that at three nodes it exceeds the
+  triangular budget, so the single-consumer hypothesis is load-bearing. No
   physical scheduler, clock, rate, energy, bandwidth, fee, hardware, finite
   `PublicWorld`, or full raw-state uniqueness is constructed.
 - B2 finite publicization dynamics

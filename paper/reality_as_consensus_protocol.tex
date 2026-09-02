@@ -4575,7 +4575,10 @@ generated register.  Linear defect weights therefore bound every canonical
 accepted path by \(n(n+1)/2\) for \(n\) emitted nodes.  A recursively nested
 NAND family from that compiler has a consensus-reaching path with
 \(8m+1=n^2+8n\), making the same-metric classification order-sharp
-\(\Theta(n^2)\), not constant-sharp.  Arbitrarily long finite stuttering
+\(\Theta(n^2)\), not constant-sharp.  Well-formedness alone admits fewer than
+\(2^n\) accepted steps and an explicit fanout chain attains \(2^n-1\), so the
+single-consumer structure is load-bearing for the quadratic bound.
+Arbitrarily long finite stuttering
 prefixes remain pathwise weak-fair, so weak fairness gives no uniform attempt
 horizon.  A separately supplied fixed-node bounded-waste value \(q\) gives a
 stable horizon of \((q+1)n(n+1)/2\); round robin supplies \(q=n-1\).  The

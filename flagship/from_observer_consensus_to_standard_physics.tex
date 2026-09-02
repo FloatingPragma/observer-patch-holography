@@ -1281,7 +1281,9 @@ linear emitted-node horizon.  The actual compiler's single-consumer structure bo
 all genuine accepted paths by \(n(n+1)/2\), while an emitted nested-NAND family
 has a consensus path satisfying \(8m+1=n^2+8n\).  This is an order-sharp
 \(\Theta(n^2)\) result in the same node-count metric, not equality of finite
-constants.  Weak fairness alone has no uniform attempt horizon; bounded-waste
+constants.  Well-formedness alone admits fewer than \(2^n\)
+accepted steps and an explicit fanout chain attains \(2^n-1\), so the
+single-consumer structure is load-bearing for the quadratic bound.  Weak fairness alone has no uniform attempt horizon; bounded-waste
 \(q\) gives the conditional horizon \((q+1)n(n+1)/2\), with round robin
 inhabiting \(q=n-1\); the direct one-cycle theorem is the sharper bound for
 that scheduler.  A neutral ranked-attempt theorem is reused by both this

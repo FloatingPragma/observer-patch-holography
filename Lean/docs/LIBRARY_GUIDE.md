@@ -290,7 +290,13 @@ surface for the OPH consensus layer. Contents:
   nested-NAND family supplies a quadratic lower path with a different finite
   constant. Weak fairness gives no uniform attempt horizon; fixed-node bounded
   waste gives a conditional attempt bound. Typed negative controls show why
-  allocator separation and bounded waste cannot be silently dropped. No physical scheduler, clock,
+  allocator separation and bounded waste cannot be silently dropped. The
+  fanout control in `Computation/FixedFederationFanoutControl.lean`, consumed
+  by `Tower/FixedFederationFanoutEndpoint.lean`, shows the single-consumer
+  hypothesis is load-bearing: every well-formed node list admits fewer than
+  `2^n` canonical accepted steps, an explicit fanout chain attains `2^n - 1`,
+  and at three nodes it realizes seven accepted steps against the triangular
+  budget six. No physical scheduler, clock,
   rate, energy, bandwidth, fee, hardware, finite `PublicWorld`, or raw-state
   uniqueness follows.
 - A sorry-free **#304 application theorem**

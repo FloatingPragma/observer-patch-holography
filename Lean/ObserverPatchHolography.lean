@@ -67,6 +67,7 @@ import Computation.FixedFederationCounterexamples
 import Computation.FixedFederationExecution
 import Computation.FixedFederationExecutionExamples
 import Computation.FixedFederationComplexity
+import Computation.FixedFederationFanoutControl
 import ObserverPatchHolography.Execution.RankedAttemptCapacity
 
 /-!

@@ -270,7 +270,11 @@ which the compiler emits nodes, is the existing sweep and
 therefore has a linear exact-output horizon, its adversarial genuine
 accepted-step paths are order-sharp quadratic in the same emitted-node metric,
 and its Tower endpoint distinguishes both from arbitrary weak-fair attempts
-and from a separately supplied bounded-waste contract.
+and from a separately supplied bounded-waste contract.  General well-formed
+federations remain sharply exponential, in line with the order of the acyclic
+fixing-length results \citep{GadouleauRichard2018}; the source-specific delta
+is that the compiler's single-consumer shape is exactly what removes the
+exponent.
 
 \subsection{Asynchronous functional networks}
 
@@ -2420,7 +2424,12 @@ consensus-reaching accepted path of length \(m\) satisfying
 \]
 Thus the accepted-step classification is order-sharp
 \(\Theta(n^2)\) in one node-count metric; the finite upper and lower constants
-are not claimed equal.  Weak fairness alone supplies no uniform finite attempt
+are not claimed equal.  Well-formedness alone does not yield this: every
+well-formed node list admits fewer than \(2^n\) canonical accepted steps, an
+explicit fanout chain family attains \(2^n-1\), and at three nodes that
+family realizes seven accepted steps against the triangular budget six, so
+the compiler's single-consumer structure is what collapses the exponential
+regime to a quadratic one.  Weak fairness alone supplies no uniform finite attempt
 horizon.  If a supplied fixed-node scheduler instead has bounded waste \(q\),
 stable consensus is reached within
 \((q+1)n(n+1)/2\) attempts.  Round robin discharges this premise with

@@ -152,3 +152,47 @@ def test_typed_execution_audit_is_kernel_checked_in_lean_ci() -> None:
     assert "tools/check_fixed_federation_execution_audit.py" in workflow
     assert "check_fixed_federation_execution_audit.py" not in mandatory
     assert 'TARGET = "Tower.FixedFederationExecutionAudit"' in checker
+
+
+def test_fanout_control_is_wired_and_bounded() -> None:
+    control = _text("Lean/Computation/FixedFederationFanoutControl.lean")
+    endpoint = _text("Lean/Tower/FixedFederationFanoutEndpoint.lean")
+    audit = _text("Lean/Tower/FixedFederationExecutionAudit.lean")
+    root = _text("Lean/ObserverPatchHolography.lean")
+    tower = _text("Lean/Tower.lean")
+    lake = _text("Lean/lakefile.lean")
+    for name in (
+        "fanoutChain_wf",
+        "fanoutChain_exponential_lower",
+        "canonicalAcceptedSteps_lt_pow",
+        "fanoutChain_not_single_consumer",
+        "fanoutChain_two_single_consumer",
+        "fanoutChain_exceeds_triangle",
+        "fanoutChain_sharp_exponential",
+    ):
+        assert f"theorem {name}" in control
+    for name in (
+        "fanout_vs_compiler_sharp_separation",
+        "triangular_bound_needs_single_consumer",
+    ):
+        assert f"theorem {name}" in endpoint
+    assert "fixedProgram_acceptedSteps_quadratic phi h" in endpoint
+    assert "fixedProgram_acceptedSteps_triangle phi h" in endpoint
+    assert "fanoutChain_sharp_exponential n" in audit
+    assert "triangular_bound_needs_single_consumer" in audit
+    assert root.count("import Computation.FixedFederationFanoutControl") == 1
+    assert tower.count("import Tower.FixedFederationFanoutEndpoint") == 1
+    assert lake.count("Computation.FixedFederationFanoutControl") == 1
+    assert "not new mathematics" in control
+    claims = {
+        row["claim_id"]: row for row in _json("claims/claim_registry.yaml")["claims"]
+    }
+    claim = claims[CLASSIFICATION]
+    assert "fanout chain family attains 2^n-1" in claim["statement"]
+    assert "Lean/Computation/FixedFederationFanoutControl.lean" in claim["evidence"]
+    component = " ".join(_text("extra/observable_normal_forms.tex").split())
+    assert "explicit fanout chain family attains" in component
+    flagship = " ".join(
+        _text("flagship/from_observer_consensus_to_standard_physics.tex").split()
+    )
+    assert "explicit fanout chain attains" in flagship
