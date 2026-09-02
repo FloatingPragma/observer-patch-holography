@@ -284,7 +284,7 @@ surface for the OPH consensus layer. Contents:
   recurrence. Register uniqueness makes member and site recurrence coincide,
   while an actual control keeps recurrence strictly stronger than tail
   fairness. State-blind round robin is recurrent and bounded-waste; its first
-  `n` attempts equal the source-order sweep and reach stable correct output.
+  `n` attempts equal the emission-order sweep and reach stable correct output.
   The actual compiler has an order-sharp `Theta(n^2)` genuine accepted-step cost in its
   emitted-node metric: all paths satisfy `n * (n + 1) / 2`, and one emitted
   nested-NAND family supplies a quadratic lower path with a different finite

@@ -37,7 +37,7 @@ theorem roundRobin_reaches_correct_output {k : Nat}
           Formula.evalF phi x :=
   exists_mathematical_fair_scheduler phi x s hinput
 
-/-- The source-order round-robin scheduler reaches stable consensus and the
+/-- The emission-order round-robin scheduler reaches stable consensus and the
 exact formula output after one emitted-node cycle.  This is a linear attempt
 bound for this explicit mathematical scheduler, not a physical runtime. -/
 theorem roundRobin_reaches_correct_output_within_linear {k : Nat}

@@ -46,7 +46,7 @@ repair attempts, normality under pathwise weak fairness, schedule-independent
 public endpoints under the remaining completeness and confluence hypotheses,
 a cumulative attempt-capacity classification with a bounded-waste upper
 horizon and an exact work-conserving threshold,
-an input-independent compiler execution classification in which source-order
+an input-independent compiler execution classification in which emission-order
 round robin reaches the exact output in a linear node-count horizon while
 arbitrary accepted order is sharp quadratic and weak fairness alone has no
 uniform attempt horizon,
@@ -4565,7 +4565,8 @@ actual stable-consensus schedule proves recurrence remains strictly stronger
 than tail fairness.  A state-blind round-robin function is recurrent,
 pathwise weak-fair, and bounded-waste, so at least one explicit mathematical
 scheduler reaches the correct same-input output.
-Its first \(n\) attempts are exactly the source-order compiler sweep, so this
+Its first \(n\) attempts are exactly the emission-order compiler sweep, the
+order in which the compiler emits nodes, so this
 explicit scheduler reaches stable consensus and the correct output within
 \(n\) attempts for \(n\) emitted nodes.
 
@@ -4582,7 +4583,7 @@ bounded-waste counting proof is shared with the adaptive route through a
 neutral ranked-attempt theorem, while the two domain adapters and scientific
 claims remain distinct.  The general bounded-waste formula is deliberately
 retained for other schedulers; the direct one-cycle theorem is the sharper
-linear bound for source-order round robin.
+linear bound for emission-order round robin.
 Separately, a width-five permutation word program is fixed independently of
 the input and evaluates the formula under the stated encoding; the formal
 carrier is the ambient permutation group on five points, and membership of

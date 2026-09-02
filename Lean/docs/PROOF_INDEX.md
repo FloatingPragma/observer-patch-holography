@@ -308,7 +308,7 @@ Mapping between Lean 4 theorems in this project and statements in
   run, with a vacuous reverse after consensus. Member and register-site
   recurrence coincide under generated-register uniqueness and are strictly
   stronger than tail fairness. An explicit state-blind round robin is
-  recurrent and bounded-waste; its first `n` attempts equal the source-order
+  recurrent and bounded-waste; its first `n` attempts equal the emission-order
   sweep and reach stable correct output. Every actual compiler
   accepted path has length at most `n * (n + 1) / 2`; an actual nested-NAND
   compiler family supplies a same-metric quadratic lower path, so the result is

@@ -145,7 +145,7 @@ def roundRobinScheduler (L : List Node) (hL : L ≠ []) :
         Nat.mod_lt step (List.length_pos_iff.mpr hL)⟩
     ⟨L.get i, List.get_mem L i⟩
 
-/-- Before the first wraparound, round robin executes exactly the source-order
+/-- Before the first wraparound, round robin executes exactly the emission-order
 prefix sweep. -/
 theorem roundRobinScheduler_prefix_eq_sweepFrom
     (L : List Node) (hL : L ≠ []) (s : State) (steps : Nat)
@@ -172,7 +172,7 @@ theorem roundRobinScheduler_prefix_eq_sweepFrom
       rfl
 
 /-- One complete round-robin cycle is definitionally the existing
-source-order sweep. -/
+emission-order sweep. -/
 theorem roundRobinScheduler_cycle_eq_sweepFrom
     (L : List Node) (hL : L ≠ []) (s : State) :
     attemptRun L L.length (roundRobinScheduler L hL) s =
@@ -255,7 +255,7 @@ theorem fixedRoundRobin_cycle_eq_fixedSweep
   roundRobinScheduler_cycle_eq_sweepFrom
     (fixedProgram phi) (fixedProgram_nonempty phi) s
 
-/-- Source-order round robin reaches consensus after at most one cycle, hence
+/-- Emission-order round robin reaches consensus after at most one cycle, hence
 within a number of attempts linear in the emitted node count. -/
 theorem fixedRoundRobin_consensus_after_one_cycle
     {k : Nat} (phi : Formula k) (s : State) :
