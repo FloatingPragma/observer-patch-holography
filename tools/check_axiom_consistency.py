@@ -81,6 +81,14 @@ STALE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
         re.compile(r"\bAxiom-?3 MaxEnt/refinement branch\b", re.IGNORECASE),
     ),
     (
+        "retired economy card label",
+        re.compile(r"\bMAR\s+Economy\b", re.IGNORECASE),
+    ),
+    (
+        "retired axiom-package heading",
+        re.compile(r"\bAxiom\s+Package\b", re.IGNORECASE),
+    ),
+    (
         "retired economy selector",
         re.compile(r"\bMAR is used\b", re.IGNORECASE),
     ),
@@ -252,6 +260,37 @@ def scan_surfaces(errors: list[str]) -> None:
             scan_text(path.relative_to(ROOT).as_posix(), text, errors)
 
 
+
+POSTER = "assets/prediction-chain.svg"
+POSTER_CARD_BADGE_ROW = 'y="541"'
+
+
+def poster_axiom_card_checks(errors: list[str]) -> None:
+    """The derivation poster must show exactly three AXIOM-badged cards.
+
+    Prose patterns do not catch a diagram, because a card carries a short label
+    such as "A4 Recoverable" rather than a sentence about five axioms. The poster
+    regressed to the retired five-card basis in 23e69c5c and stayed wrong through
+    several releases while every text gate passed, so the card row is counted
+    directly. Badges outside the card row belong to the legend and are ignored.
+    """
+
+    path = ROOT / POSTER
+    if not path.is_file():
+        errors.append(f"{POSTER}: derivation poster missing")
+        return
+    badges = [
+        line
+        for line in path.read_text(encoding="utf-8", errors="replace").splitlines()
+        if ">AXIOM</text>" in line and POSTER_CARD_BADGE_ROW in line
+    ]
+    if len(badges) != 3:
+        errors.append(
+            f"{POSTER}: card row carries {len(badges)} AXIOM badges; the basis has exactly three. "
+            "Re-badge non-axiom cards as INTERFACE or DECLARED."
+        )
+
+
 def entry_surface_checks(errors: list[str]) -> None:
     for rel, needle in ENTRY_SURFACES.items():
         path = ROOT / rel
@@ -360,6 +399,7 @@ def main(argv: list[str] | None = None) -> int:
     registry_checks(errors)
     scan_surfaces(errors)
     entry_surface_checks(errors)
+    poster_axiom_card_checks(errors)
     if args.check_inventory:
         inventory_check(errors)
     if args.pdf:
