@@ -1,0 +1,90 @@
+{
+  "artifact": "oph_arithmon_koide_cross_0",
+  "schema": "oph.koide_arithmon_cross_0.v1",
+  "status": "EXTERNAL_NEGATIVE_CONTROL__ARITHMON_MASS_PAIR_INCOMPATIBLE_WITH_EXACT_OPH_BALANCE",
+  "claim_class": "external_negative_control",
+  "issue_context": [
+    546,
+    736
+  ],
+  "source_only_physical_prediction": false,
+  "prospective_prediction_freeze": false,
+  "public_physical_promotion_allowed": false,
+  "formal_composition_in_one_kernel": false,
+  "experimental_data_consumed": false,
+  "claim_boundary": "Compare-only same-quantity compatibility test. OPH and Arithmon exact receipts are kernel-checked in separate repositories and version-pinned here, but not composed in one Lean environment. No Arithmon statement is imported as an OPH premise; no charged-family attachment or physical adjudication is claimed.",
+  "same_quantity_bridge": {
+    "quantity": "Q = (m_e + m_mu + m_tau) / (sqrt(m_e) + sqrt(m_mu) + sqrt(m_tau))^2",
+    "normalization": "m_e = 1 (scale invariance)",
+    "oph_scope": "positive-chamber exact balanced circulant implies Q = 2/3"
+  },
+  "pinned_receipts": {
+    "oph": {
+      "path": "Lean/ObserverPatchHolography/KoideCirculant.lean",
+      "theorem": "OPH.KoideCirculant.koide_eq_two_thirds_iff"
+    },
+    "arithmon": {
+      "arithmon_k7": {
+        "repository": "Arithmon/K7",
+        "commit": "af9224cf3bd0c7bb8a895b98d4d1146eb138b555",
+        "path": "docs/wiki/Observable-Reference.md",
+        "git_blob_sha": "646500c22e40fcd89d3584df7d64d5a9d452f754"
+      },
+      "arithmon_k7_lean": {
+        "repository": "Arithmon/K7-Lean",
+        "commit": "836296db191c49307f7df59aa0df989399a0b1bb",
+        "path": "GIFT/Relations/KoideAssembly.lean",
+        "git_blob_sha": "47ff66d563e50f64f73ad085490459f28ff0df85",
+        "theorem": "GIFT.Relations.KoideAssembly.koideQ_gift_lt_two_thirds",
+        "statement": "koideQ jordan_power_phi 3477 < 2 / 3"
+      }
+    }
+  },
+  "version_pinned_arithmon_inputs": {
+    "normalization": "m_e = 1",
+    "m_mu_over_m_e": {
+      "formula": "27^phi",
+      "public_reference_status": "DERIVED"
+    },
+    "m_tau_over_m_e": {
+      "formula": "3477",
+      "public_reference_status": "DERIVED"
+    }
+  },
+  "local_recompute": {
+    "decimal_precision": 120,
+    "m_mu_over_m_e": "207.011856741603477932023309743594823644725221283538880551381359828877756318984959895950624333364622307025208080359545420",
+    "m_tau_over_m_e": "3477",
+    "Q": "0.666546162072081219458353176639518748624547259848002503084853069410638338349083512162447343137410477312783795195609372091",
+    "Q_minus_two_thirds": "-0.000120504594585447208313490027147918042119406818664163581813597256028328317583154504219323529256189353882871471057294576",
+    "strictly_below_two_thirds": true
+  },
+  "logical_verdict": {
+    "oph_exact_balance_requires": "Q = 2/3",
+    "arithmon_exact_external_receipt": "Q(27^phi, 3477) < 2/3",
+    "joint_exact_realization_possible": false,
+    "scope": "version-pinned Arithmon mass pair versus exact balanced positive-chamber OPH spectrum"
+  },
+  "controls": {
+    "replace_tau_by_balance_root": {
+      "replacement_m_tau_over_m_e": "3481.17920940240697424020209590644711858652270668296616323378298594524614866324965534731436991096270534404812629144221203",
+      "delta": "4.17920940240697424020209590644711858652270668296616323378298594524614866324965534731436991096270534404812629144221203",
+      "abs_Q_minus_two_thirds_after_replacement": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "restores_exact_balance_numerically": true
+    },
+    "replace_muon_by_balance_root": {
+      "replacement_m_mu_over_m_e": "206.739502561980981002197866144983268634334750230174505012663559557095241483016436643098359330789714327479903831751282112",
+      "delta": "-0.272354179622496929825443598611555010390471053364375538717800271782514835968523252852265002574907979545304248608263308",
+      "abs_Q_minus_two_thirds_after_replacement": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "restores_exact_balance_numerically": true
+    }
+  },
+  "checks": {
+    "external_source_pins_match_fixture": true,
+    "current_oph_koide_theorem_surface_present": true,
+    "no_experimental_mass_input": true,
+    "local_sign_matches_external_exact_receipt": true,
+    "balance_root_controls_close": true
+  },
+  "checks_pass": true
+}

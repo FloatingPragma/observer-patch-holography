@@ -1,0 +1,37 @@
+{
+  "schema": "oph.external_arithmon_koide_cross_fixture.v1",
+  "role": "external_framework_compare_only_version_pin",
+  "freeze": {
+    "arithmon_k7": {
+      "repository": "Arithmon/K7",
+      "commit": "af9224cf3bd0c7bb8a895b98d4d1146eb138b555",
+      "path": "docs/wiki/Observable-Reference.md",
+      "git_blob_sha": "646500c22e40fcd89d3584df7d64d5a9d452f754"
+    },
+    "arithmon_k7_lean": {
+      "repository": "Arithmon/K7-Lean",
+      "commit": "836296db191c49307f7df59aa0df989399a0b1bb",
+      "path": "GIFT/Relations/KoideAssembly.lean",
+      "git_blob_sha": "47ff66d563e50f64f73ad085490459f28ff0df85",
+      "theorem": "GIFT.Relations.KoideAssembly.koideQ_gift_lt_two_thirds",
+      "statement": "koideQ jordan_power_phi 3477 < 2 / 3"
+    }
+  },
+  "excluded_from_cross_input": {
+    "arithmon_own_koide_value": "2/3",
+    "reason": "KOIDE-CROSS-0 tests only the version-pinned Arithmon mass-pair formulas against OPH exact balance. Arithmon's own topological Koide value is context, not an input to the cross-check."
+  },
+  "experimental_data_consumed": false,
+  "version_pinned_arithmon_mass_pair": {
+    "normalization": "m_e = 1",
+    "m_mu_over_m_e": {
+      "formula": "27^phi",
+      "public_reference_status": "DERIVED"
+    },
+    "m_tau_over_m_e": {
+      "formula": "3477",
+      "public_reference_status": "DERIVED"
+    }
+  },
+  "prediction_freeze_claimed": false
+}
