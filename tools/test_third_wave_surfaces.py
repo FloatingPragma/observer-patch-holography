@@ -21,6 +21,7 @@ FORCE_LEAN = "Lean/Geometry/TransportedChargeForceLaw.lean"
 SPEED_LEAN = "Lean/Geometry/SeamStepSpeedLimit.lean"
 CLOCK_LEAN = "Lean/Geometry/SourceClockRateAlongWorldlines.lean"
 GOLD_LEAN = "Lean/Screen/GoldenSectorCharacters.lean"
+GOLD_BRIDGE_LEAN = "Lean/Screen/A5PortSixAxesBridge.lean"
 
 
 def _registry() -> list[dict]:
@@ -82,6 +83,7 @@ def test_golden_claim_separates_character_and_later_irreducibility_theorems() ->
                   "twelve each", "This character module proves the projector and character identities, not irreducibility",
                   "The later dedicated GoldenSectorIrreducibility module proves",
                   "The subsequent dedicated GoldenSectorComplexIrreducibility module proves complex scalar-extension irreducibility",
+                  "exactly the repository's explicit six-axis PSL(2,F5) model",
                   "Identification with the abstract A5 or icosahedral character table remains an inference outside Lean"):
         assert token in statement, token
 
@@ -104,6 +106,9 @@ def test_lean_modules_carry_headline_declarations() -> None:
         GOLD_LEAN: ("plus_add_minus", "plus_mul_minus", "normal_plus", "minus_eq_conj_plus",
                     "chi_plus_values", "chi_conj", "chi_differ_iff", "five_class_counts",
                     "character_norms_golden", "faceAct_comm_plus"),
+        GOLD_BRIDGE_LEAN: ("quotient_respects_antipode", "axisRelabel",
+                           "rowEquiv", "bridged_axis_eq_six_axis",
+                           "every_six_axis_row_realized", "quotient_action_faithful"),
     }
     for relative_path, tokens in expectations.items():
         text = (ROOT / relative_path).read_text(encoding="utf-8")

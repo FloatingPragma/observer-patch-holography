@@ -1154,6 +1154,19 @@ Mapping between Lean 4 theorems in this project and statements in
   The identification of this order-sixty incidence-automorphism group with
   the abstract `A5` (simplicity or classification) stays on paper; no
   physical current or descent content.
+- Antipodal port-to-six-axis bridge
+  (`Screen/A5PortSixAxesBridge.lean`): sorry-free, standard axioms, no
+  `native_decide`.  Quotients the twelve ports by the six explicit antipodal
+  pairs, proves the quotient is representative-independent, and verifies
+  directly on all `60 * 6` entries that conjugation by the fixed axis
+  relabeling `[0,1,2,4,5,3]` matches the repository's explicit six-axis
+  `PSL(2,F5)` action through an explicit bijection of row indices.  Every
+  six-axis row is realized and the quotient action is faithful.  This is an
+  exact equivalence of the two committed finite actions, not an isomorphism
+  to Mathlib's abstract `PSL(2, ZMod 5)`, an abstract `PSL(2,5) ≅ A5`
+  classification, a construction of `2I` or McKay, a derivation or selection
+  of `φ` or `27^φ`, a mass law, a physical rotation identification, or a new
+  observable.
 - Universal cap coupling from icosahedral symmetry
   (`Screen/A5CouplingSymmetry.lean`, #576/#568): 9 / 9 declarations,
   sorry-free, standard axioms. Finite facts by kernel `decide` (caps map to
