@@ -331,6 +331,15 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the seam-Maxwell continuum receipt",
+        [sys.executable, "code/electromagnetism/seam_maxwell_continuum.py", "--check"],
+    ),
+    (
+        "Execute independent continuum, forcing and false-green controls",
+        [sys.executable, "-m", "pytest", "-q",
+         "code/electromagnetism/test_seam_maxwell_continuum.py"],
+    ),
+    (
         "Execute the modal Maxwell cross-surface scope gates",
         [
             sys.executable,
@@ -339,6 +348,11 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-q",
             "tools/test_modal_maxwell_factorization_surfaces.py",
         ],
+    ),
+    (
+        "Execute serial feedback, decoded Maxwell action and provenance controls",
+        [sys.executable, "-m", "pytest", "-q",
+         "code/electromagnetism/test_serial_maxwell_readout.py"],
     ),
     (
         "Execute the discrete Coulomb-Green replay, verifier, and mutation guards",

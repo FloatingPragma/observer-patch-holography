@@ -144,7 +144,8 @@ def test_owner_paper_carries_the_results() -> None:
     for token in ("TransportedChargeForceLaw", "SeamStepSpeedLimit",
                   "two rests per crossing", "SourceClockRateAlongWorldlines",
                   "GoldenSectorCharacters", "PSL2F5SixAxesBridge",
-                  "canonical center quotient", "pointwise port bridge is not appended"):
+                  "canonical center quotient", "whose kernel is the center",
+                  "yields a faithful action of", "pointwise port bridge is not appended"):
         assert token in observers, token
 
 

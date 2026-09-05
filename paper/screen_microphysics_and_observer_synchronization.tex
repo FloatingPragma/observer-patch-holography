@@ -3493,6 +3493,109 @@ every stated premise and implies no empirical prediction. The construction suppl
 no physical local-field, gauge-action, source-current, continuum, or readout
 attachment.
 
+\begin{theorem}[Continuum Maxwell limit of the complete seam symbol]
+\label{thm:seam-maxwell-continuum}
+Supply one Euclidean domain $\mathbb R^3$ with Lebesgue measure, the complete
+equal-weight seam symbol $\Lambda_a$ at every $a>0$, and the reversible
+curl-pair generator above. Write $r=|k|$, $\omega_a=\sqrt{\Lambda_a}$ and
+$P_T(k)$ for the orthogonal transverse projection on both field components.
+Use the convention $P_T(0)=0$. For $r>0$ let $\mathcal J(k)=\mathcal G_{0,k}/r$, where
+$\mathcal G_{0,k}(E,B)=(ik\times B,-ik\times E)$; set $\mathcal J(0)=0$.
+On the full six-component space define
+\[
+ U_a(t,k)=I+(\cos(t\omega_a)-1)P_T+\sin(t\omega_a)\mathcal J.
+\]
+At $k=0$ this is the identity. These multipliers define strongly continuous
+unitary groups on $L^2(\mathbb R^3;\mathbb C^6)$ preserving real fields and
+both divergence-free constraints when those constraints hold initially.
+For every $k$ and $a>0$,
+\begin{align}
+ 0\le r^2-\Lambda_a(k)&\le a^2r^4/20,\label{eq:seam-continuum-symbol}\\
+ 0\le r-\omega_a(k)&\le a^2r^3/20,\label{eq:seam-continuum-frequency}\\
+ \|U_a(t,k)-U_0(t,k)\|&\le\min\{2,|t|a^2r^3/20\}.
+ \label{eq:seam-continuum-propagator}
+\end{align}
+Here $U_0$ is the local Maxwell group, with longitudinal components fixed.
+In particular, for $F\in H^3(\mathbb R^3;\mathbb C^6)$,
+\[
+ \sup_{|t|\le T}\|(U_a(t)-U_0(t))F\|_2
+ \le \frac{Ta^2}{20}\,\||D|^3F\|_2,
+ \qquad T\ge0,
+\]
+where $|D|^3$ has Fourier multiplier $r^3$. For every $F\in L^2$ the left
+side tends to zero as $a\to0$, without an imposed momentum cutoff.
+
+For the same initial datum $F$ and the same prescribed forcing
+$f\in L^1([0,T];H^3)$ on every scale, the mild solutions satisfy
+\[
+ \sup_{0\le t\le T}\|F_a(t)-F_0(t)\|_2
+ \le\frac{a^2}{20}\left(
+ T\,\||D|^3F\|_2+
+ \int_0^T(T-s)\,\||D|^3f(s)\|_2\,ds\right).
+\]
+Strong convergence also holds for $F\in L^2$ and $f\in L^1([0,T];L^2)$.
+For $f=(-j,0)$ and a prescribed charge obeying
+$\partial_t\rho+\nabla\cdot j=0$, the initially satisfied constraints
+$\nabla\cdot E=\rho$ and $\nabla\cdot B=0$ propagate, in the distributional
+sense, at every scale and in the limit.
+\end{theorem}
+
+\begin{proof}
+The complete source support has
+$\sum_e(k\cdot w_e)^2=10r^2$ and
+$\sum_e(k\cdot w_e)^4=6r^4$. The global inequalities
+\[
+ 1-x^2/2\le\cos x\le1-x^2/2+x^4/24
+\]
+give~\eqref{eq:seam-continuum-symbol} after summing the full cosine symbol.
+The upper cosine inequality follows by integrating
+$\cos x\ge1-x^2/2$ twice from zero and using evenness; it requires no
+small-argument restriction. Positivity of $\Lambda_a$ is termwise.
+For $r>0$, factor $r^2-\omega_a^2=(r-\omega_a)(r+\omega_a)$ and use
+$r+\omega_a\ge r$ to obtain~\eqref{eq:seam-continuum-frequency}; at zero
+both frequencies vanish. These universal inequalities and their sine/cosine
+propagator consequences are checked in
+\path{Lean/Screen/SeamMaxwellContinuum.lean}.
+
+The Fourier curl is Hermitian, so $\mathcal J^*=-\mathcal J$,
+$\mathcal J^2=-P_T$, and $\mathcal J$ vanishes on the longitudinal sector.
+The displayed formula is therefore $\exp(t\omega_a\mathcal J)$, is unitary,
+and obeys the group law. Its transverse eigenvalues are
+$e^{it\omega_a}$ and $e^{-it\omega_a}$. Thus its difference from $U_0$ has
+norm $2|\sin(t(\omega_a-r)/2)|$, proving
+\eqref{eq:seam-continuum-propagator}. The evenness of $\omega_a$ and $P_T$,
+and $\mathcal J(-k)=\overline{\mathcal J(k)}$, preserve
+$\widehat F(-k)=\overline{\widehat F(k)}$ and hence real fields.
+The zero mode is fixed, not divided by its frequency. Pointwise time
+continuity and the bound two give strong continuity by dominated convergence.
+
+Apply Plancherel to~\eqref{eq:seam-continuum-propagator} for the $H^3$ bound.
+For arbitrary $L^2$ data, its square is dominated by
+$4|\widehat F(k)|^2$ and tends to zero uniformly for $|t|\le T$ at each
+fixed $k$. Dominated convergence proves the uniform strong limit. Apply the
+same bound inside Duhamel's integral for the forcing estimate; the
+$L^1_tL^2_x$ result follows with the bound $2\|f(s)\|_2$. Finally,
+$k\cdot(k\times v)=0$ gives
+$\partial_t\nabla\cdot E=-\nabla\cdot j$ and
+$\partial_t\nabla\cdot B=0$; the stipulated charge continuity gives Gauss
+propagation. The field assembly and functional-analytic limit are the paper
+argument just given, rather than additional Lean declarations. Independent
+matrix-exponential controls test the full propagator, constant forcing,
+reality, zero mode, high momenta, and sign and normalization mutations.
+\end{proof}
+
+The theorem recovers a local continuum field equation from the complete
+source-shaped operator after specifying a common spatial domain and
+reversible dynamics. The scale maps act on that same domain; they are not
+refinements of authenticated source logs. The finite-scale curl is generally
+pseudodifferential and no exact finite propagation cone is inferred from its
+frequency bound. The Markov generator also available from the seam action
+does not select the reversible curl-pair dynamics. The supplied current is
+not generated by observer repair, and no equality with the finite
+seam-incidence Gauss/action/readout packet is proved. Physical position,
+operational time, charge units, detector records, and an empirical realization
+of this field family require additional maps.
+
 The two seam-carrier packages are premise-free exact finite mathematics
 on the committed thirty-seam, twelve-port incidence table. Write
 \(\partial\) for the committed rational seam boundary, \(d\) for its

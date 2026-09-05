@@ -5,6 +5,7 @@
 - Handoff lu : `arithmon/golden-lift-1 @ 5636e48539f88a1f4f1f48b8bbfe5cf12a8ac1b7`
 - Dépôt cible : `https://github.com/Arithmon/observer-patch-holography.git`
 - Branche de travail : `agent/k3-golden-lift-1-handoff-review-2026-09-05`
+- Base synchronisée : `origin/main = upstream/main @ e58d0acc4edeed919d0207f68a474badc6e6c348`
 - Lot lu : plan corrigé, handoff, `A5SixAxes`, pont port-à-six-axes, surfaces de claim et papier propriétaire
 - Corpus de décision : Mathlib épinglée par le projet, constructions Lean locales, contrôles structurels et recomptage indépendant des matrices sur `ZMod 5`
 
@@ -42,10 +43,10 @@ Les six théorèmes imprimés en fin de module ne dépendent que de `propext`, `
 ## Validations
 
 - `lake build PSL2F5SixAxesBridge` : PASS, 8 249 jobs, sans avertissement sur le nouveau module.
-- `lake build OPHScreen` : PASS, 8 466 jobs.
+- `lake build OPHScreen` : PASS, 8 468 jobs sur la base synchronisée.
 - Fonctions de `tools/test_third_wave_surfaces.py` exécutées directement : PASS, 9/9. L'invocation pytest demandée reste indisponible faute du module `pytest`.
-- `python3 tools/check_claim_registry.py` : PASS, 211 claims.
-- `python3 tools/check_axiom_consistency.py --inventory` : inventaire régénéré, 337 surfaces.
+- `python3 tools/check_claim_registry.py` : PASS, 213 claims.
+- `python3 tools/check_axiom_consistency.py --inventory` : inventaire régénéré, 339 surfaces.
 - `python3 tools/check_axiom_consistency.py --check-inventory` : PASS.
 - `python3 tools/run_mandatory_suite.py` : environnement bloquant au premier gate, module `pytest` absent; aucun pool lourd lancé.
 

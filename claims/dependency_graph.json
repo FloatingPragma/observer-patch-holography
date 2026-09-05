@@ -211,7 +211,9 @@
   "OPH-EM-SOURCED-FIELD-CONSISTENCY",
   "OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY",
   "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
-  "OPH-EM-CURL-SECTOR-EIGENBASIS"
+  "OPH-EM-CURL-SECTOR-EIGENBASIS",
+  "OPH-SEAM-MAXWELL-CONTINUUM",
+  "OPH-SERIAL-MAXWELL-READOUT"
  ],
  "edges": [
   {
@@ -1878,6 +1880,26 @@
    "from": "OPH-COMPUTATION-FIXED-FEDERATION-PROGRESS",
    "to": "OPH-COMPUTATION-FIXED-FEDERATION-EXECUTION-CLASSIFICATION",
    "role": "supplies eventual attempt stabilization, compiler well-formedness, input preservation, and output uniqueness to the exact fairness, complexity, and bounded-attempt classification"
+  },
+  {
+   "from": "OPH-A5-SEAM-CURRENT-EDGE30",
+   "to": "OPH-SEAM-MAXWELL-CONTINUUM",
+   "role": "Exact complete seam symbol and source second/fourth moments determine the global continuum consistency bound."
+  },
+  {
+   "from": "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
+   "to": "OPH-SEAM-MAXWELL-CONTINUUM",
+   "role": "The declared opposite-sign transverse Fourier curl pair is assembled on a supplied common Euclidean domain; no source-history or laboratory identification is inherited."
+  },
+  {
+   "from": "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+   "to": "OPH-SERIAL-MAXWELL-READOUT",
+   "role": "Uses the classical active inverse on the typed 42-coordinate first refinement layer; no physical embedding is consumed."
+  },
+  {
+   "from": "OPH-EM-SOURCED-FIELD-CONSISTENCY",
+   "to": "OPH-SERIAL-MAXWELL-READOUT",
+   "role": "Uses the declared finite neutral-pair action and exact rational stationary history as the decoded execution target."
   }
  ]
 }

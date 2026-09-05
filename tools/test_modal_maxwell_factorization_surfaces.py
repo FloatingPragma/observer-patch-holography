@@ -34,6 +34,13 @@ OBSERVATION_EVIDENCE = [
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "Lean/Screen/ScaledMaxwellStability.lean",
     "Lean/Screen/SeamChargeContinuity.lean",
+    "Lean/Screen/SeamMaxwellContinuum.lean",
+    "code/electromagnetism/seam_maxwell_continuum.py",
+    "code/electromagnetism/verify_seam_maxwell_continuum.py",
+    "code/electromagnetism/test_seam_maxwell_continuum.py",
+    "code/electromagnetism/runtime/seam_maxwell_continuum_receipt.json",
+    "Lean/Screen/SerialMaxwellReadout.lean",
+    "code/electromagnetism/runtime/serial_maxwell_readout_receipt.json",
 ]
 
 POSTDICTION_ARTIFACTS = [

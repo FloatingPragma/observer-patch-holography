@@ -29,6 +29,7 @@ docs/POSTDICTION_LEDGER.md.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import hashlib
 import json
 import math
@@ -77,6 +78,8 @@ PARENTS = {
 }
 
 LEAN_RECEIPTS = {
+    "SeamMaxwellContinuum": LEAN_SCREEN / "SeamMaxwellContinuum.lean",
+    "SerialMaxwellReadout": LEAN_SCREEN / "SerialMaxwellReadout.lean",
     "A2HolonomyBridge": LEAN_SCREEN / "A2HolonomyBridge.lean",
     "A5OPH": LEAN_SCREEN / "A5OPH.lean",
     "A5CharacterField": LEAN_SCREEN / "A5CharacterField.lean",
@@ -4431,6 +4434,101 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
     ]
 
 
+def _seam_maxwell_continuum_row() -> dict[str, Any]:
+    """Derive a structural row only after the separate continuum replay."""
+    path = CODE / "electromagnetism" / "verify_seam_maxwell_continuum.py"
+    spec = importlib.util.spec_from_file_location("seam_continuum_ledger_verifier", path)
+    if spec is None or spec.loader is None:
+        raise SystemExit("missing independent continuum verifier")
+    verifier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(verifier)
+    receipt = verifier.load_receipt(verifier.OUTPUT)
+    count = verifier.verify(receipt)
+    declarations = ("cosine_quartic_upper", "unit_seam_fourth_moment_eq",
+                    "exact_symbol_quadratic_error", "exact_frequency_error",
+                    "cosine_propagator_error", "sine_propagator_error")
+    return {
+        "id": "seam_maxwell_continuum",
+        "statement": (
+            "The complete seam symbol has global quadratic consistency error "
+            "a^2|k|^4/20 and frequency error a^2|k|^3/20. On a supplied common "
+            "Euclidean domain, its declared reversible curl pair assembles to "
+            "real L2 fields converging strongly to local Maxwell evolution, "
+            "uniformly on bounded times, with an O(a^2) H3-to-L2 rate and "
+            "same-forcing Duhamel bound. Prescribed charge continuity propagates "
+            "initial Gauss constraints. Lean checks scalar estimates; the L2 "
+            "assembly and source/limit statements are proved in the paper"
+        ),
+        "observed_counterpart": "Classical continuum Maxwell equations; no measured data",
+        "match": "analytic continuum field bridge on a supplied domain and dynamics",
+        "lean_declarations": {"SeamMaxwellContinuum": list(declarations)},
+        "lean_receipts": _lean_receipt("SeamMaxwellContinuum", declarations={
+            "SeamMaxwellContinuum": declarations}),
+        "artifact_refs": [
+            "code/electromagnetism/runtime/seam_maxwell_continuum_receipt.json",
+            "code/electromagnetism/seam_maxwell_continuum.py",
+            "code/electromagnetism/verify_seam_maxwell_continuum.py",
+            "paper/screen_microphysics_and_observer_synchronization.tex"],
+        "universal_bounds": receipt["universal_bounds"],
+        "independently_replayed_control_cases": count,
+        "hypothesis_boundary": (
+            "Supplied R3/Lebesgue field domain, complete seam symbol, reversible "
+            "curl-pair evolution, common time and same data/forcing. No source-log "
+            "refinement, operational clock, physical current, finite-scale local "
+            "cone, decoded observer-field/action join or laboratory identification "
+            "is constructed. The result discharges no physical premise and does "
+            "not arm FZ-12. Owners #728 and #754 retain the physical maps"
+        ),
+        "paper_ref": "screen microphysics, Continuum Maxwell limit of the complete seam symbol",
+    }
+
+
+def _serial_maxwell_readout_row() -> dict[str, Any]:
+    """Structural instrument evidence, with independent replay before inclusion."""
+    path = CODE / "electromagnetism" / "verify_serial_maxwell_readout.py"
+    spec = importlib.util.spec_from_file_location("serial_maxwell_ledger_verifier", path)
+    if spec is None or spec.loader is None:
+        raise SystemExit("missing independent serial Maxwell verifier")
+    verifier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(verifier)
+    result = verifier.verify(verifier.load())
+    declarations = ("cycle_restores", "serial_restores", "response_after_prefix",
+                    "decode_serial", "feedback_error", "decoded_fields",
+                    "decoded_coupled_action", "decoded_joint_field_stationary")
+    return {
+        "id": "serial_maxwell_readout",
+        "statement": (
+            "Exact classical baseline/response feedback restores every pair and "
+            "every finite overlapping probe word. Serial decoding recovers all "
+            "42 typed potential coordinates and preserves electric/magnetic "
+            "fields and the finite neutral-pair action. Decoded initial records "
+            "and the charged path current advance a third rational slice"
+        ),
+        "observed_counterpart": "Finite Maxwell field and charged-path equations; no measured data",
+        "match": "exact classical software instrument and decoded finite action join",
+        "lean_declarations": {"SerialMaxwellReadout": list(declarations)},
+        "lean_receipts": _lean_receipt("SerialMaxwellReadout", declarations={
+            "SerialMaxwellReadout": declarations}),
+        "artifact_refs": [
+            "code/electromagnetism/runtime/serial_maxwell_readout_receipt.json",
+            "code/electromagnetism/serial_maxwell_readout.py",
+            "code/electromagnetism/verify_serial_maxwell_readout.py",
+            "paper/observers_are_all_you_need.tex"],
+        "events_per_gauge_execution": result["events"],
+        "feedback_cycles_per_execution": result["cycles"],
+        "independently_checked_field_derivatives": result["field_variations"],
+        "exhaustive_path_replacements_per_execution": result["path_variations"],
+        "hypothesis_boundary": (
+            "Exact classical memory and writable ports, declared potential typing, "
+            "initial slices, paths, finite action, h=1/2 and Lorentz unit tau=3. "
+            "No source-selected physical clock, long noisy stability, quantum "
+            "copying, spatial refinement into the continuum family or laboratory "
+            "identification. No physical prediction is armed or premise discharged"
+        ),
+        "paper_ref": "observers synthesis, Serial feedback readout and finite Maxwell action",
+    }
+
+
 def build(
     out_path: Path = DEFAULT_OUT,
     md_path: Path | None = DEFAULT_MD,
@@ -4495,6 +4593,8 @@ def build(
             }
         ],
     }
+    sections["forced_structure"].append(_seam_maxwell_continuum_row())
+    sections["forced_structure"].append(_serial_maxwell_readout_row())
     result = {
         "artifact": "oph_postdiction_ledger",
         "generator": "code/particles/scripts/build_postdiction_ledger.py",
