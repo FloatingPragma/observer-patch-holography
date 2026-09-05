@@ -97,7 +97,7 @@ lean_lib «OPHScreen» where
     `SeamCurrentHomogeneousAction,
     `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift,
     `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment,
-    `SeamCurrentPhotonLeptonThreshold, `CarrierFrequencySpeed,
+    `SeamCurrentPhotonLeptonThreshold, `CarrierFrequencySpeed, `SeamMaxwellContinuum,
     `GaugeKineticInvariantForms, `OrientedFaceBracketSelector,
     `OrientedFaceInvariantMetric, `PortDualMetricSelection,
     `LightSignalAdequacySurface, `ModalMaxwellFactorizationBoundary,

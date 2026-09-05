@@ -473,7 +473,7 @@
   "candidate_inventory_sha256": "sha256:12c8a569a92f265f0b033a9df4b20fa59adce6c05b8d63d918e81ce553731752",
   "contract_schema_sha256": "sha256:518ca92a84a073f25f0e967e8b4cedf92f7243d56d6c9e10c958cbe9a460ae62",
   "forecast_freeze_policy_sha256": "sha256:ae9508d362de40dec25c2935d96606ce3cb4d9d7d40f255b6c00576abeb9b2c5",
-  "frozen_prediction_register_sha256": "sha256:34995fa287d56e019289c6709a5062ef7722472e42f8270a6714e4141ea0aace",
+  "frozen_prediction_register_sha256": "sha256:765591766710cd956f6bb514ff21fe6a919d90766db0c5b65dfceb93465f2999",
   "module_sha256": "sha256:27cf76a626733e58c5246d13d87cb8ce0904b954f63887fd03d7c73399441a35"
  },
  "potential_upgrade_routes": {
@@ -497,5 +497,5 @@
   "rule": "This C1 draft orders its static seed rows by candidate_class, integer selection_priority, and candidate_id. It is not the C3 ranking contract. Before any C3 candidate generation or evaluation, a successor policy must pin the complete issue-647 grammar, numerical weights, eligibility, tie breaker, skip policy, exposure class, direct-N non-reentry rule, and campaign-wide one-comparison stop.",
   "status": "DRAFT_UNFROZEN"
  },
- "state_sha256": "sha256:9647d96ade2480d15596f3eecbd5185c3a9430f0d527a488615ecc31bed754ec"
+ "state_sha256": "sha256:dffacc81b616c8fbc1ae12ce805d75f7c469a547c11e3e3164a0e53c207a59ad"
 }

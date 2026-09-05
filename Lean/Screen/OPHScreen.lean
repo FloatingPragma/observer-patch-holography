@@ -39,6 +39,7 @@ import ModalMaxwellFactorizationBoundary
 import SeamCurrentPhysicalMetricAttachment
 import SeamCurrentPhotonLeptonThreshold
 import CarrierFrequencySpeed
+import SeamMaxwellContinuum
 import NeutralPairCoupledAction
 import NeutralPairJointStationaryWitness
 import CurlStoneClockBridge

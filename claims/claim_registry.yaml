@@ -9053,6 +9053,51 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-SEAM-MAXWELL-CONTINUUM",
+      "statement": "On a supplied common Euclidean R3 domain with Lebesgue measure, the complete equal-weight thirty-seam cosine symbol obeys 0 <= |k|^2-Lambda_a(k) <= a^2|k|^4/20 globally for every a>0, hence 0 <= |k|-sqrt(Lambda_a(k)) <= a^2|k|^3/20. The declared reversible opposite-sign Fourier curl-pair evolution assembles to a strongly continuous unitary real L2 field group, preserving transverse constraints and fixing longitudinal components. Its propagator differs from local Maxwell evolution by at most min(2,|t|a^2|k|^3/20) at each momentum. Plancherel gives an O(a^2) H3-to-L2 bound uniform on bounded time intervals and dominated convergence gives uniform strong convergence for every L2 datum. Duhamel extends the bound and strong limit to the same prescribed forcing at every scale; a prescribed conserved current propagates initially satisfied Gauss constraints. Lean proves the global scalar symbol, frequency, cosine and sine estimates; the L2 assembly, operator-norm estimate, Duhamel limit and Gauss argument are paper proofs. A separate exact-moment and matrix-exponential implementation verifies 120 deterministic finite controls, with no empirical data. This is a mathematical continuum Maxwell limit on a supplied domain, not source-selected spacetime, operational time, a source-produced current, finite-scale local propagation, a join to the finite seam-incidence action/readout history, or laboratory physics.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "analytic_continuum_field_bridge_on_supplied_domain",
+      "assumptions": [
+        "complete_equal_weight_edge_orbit_support",
+        "seam_current_continuum_quadratic_normalization",
+        "supplied_common_euclidean_field_domain",
+        "declared_reversible_seam_curl_pair",
+        "same_data_and_conserved_forcing_across_scales"
+      ],
+      "imported_results": [
+        "Plancherel_theorem",
+        "dominated_convergence",
+        "Duhamel_formula",
+        "finite_dimensional_skew_Hermitian_spectral_calculus"
+      ],
+      "oph_specific_delta": "Upgrades the exact source-shaped seam symbol and modal factorization to a real finite-energy field family with a global source-specific coefficient 1/20 and a controlled continuum Maxwell limit, including prescribed forcing. The continuum proof uses the complete cosine symbol rather than an effective Taylor polynomial. It isolates the absent map from authenticated observer histories to this field family.",
+      "novelty_type": "quantitative_source_operator_continuum_bridge_using_standard_Fourier_analysis",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "Lean/Screen/SeamMaxwellContinuum.lean",
+        "code/electromagnetism/seam_maxwell_continuum.py",
+        "code/electromagnetism/verify_seam_maxwell_continuum.py",
+        "code/electromagnetism/test_seam_maxwell_continuum.py",
+        "code/electromagnetism/runtime/seam_maxwell_continuum_receipt.json"
+      ],
+      "falsifier": "A global symbol or frequency inequality fails; the exact curl-pair group is nonunitary, violates opposite-momentum reality or zero-mode behavior, fails its propagator or Duhamel estimate, or does not converge strongly for the stated same-data class; a conserved prescribed current breaks initially satisfied Gauss constraints; independent replay accepts a changed sign, normalization, source pin, omitted case or promoted physical status.",
+      "scope_if_false": "The continuum field bridge falls. Exact finite carrier, moment, modal factorization and independently frozen dispersion claims keep their separate hypotheses. No physical confirmation or phenomenological falsification is asserted here.",
+      "status": "analytic_real_L2_Maxwell_limit_with_Lean_scalar_bounds__source_history_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728,
+        754
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The claim proves the continuum limit of a specifically supplied common-domain Fourier family. Its Euclidean domain, reversible curl-pair dynamics and same forcing are local mathematical hypotheses, not the physical event/readback, calibration or propagation-identification assertions of PR-15, PR-52 or PR-53. Those are explicitly excluded downstream conclusions, not premises consumed by this theorem."
+      }
     }
   ]
 }

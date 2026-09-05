@@ -3077,17 +3077,38 @@ row in $C^{\mathsf T}C$. The local quadratic action is gauge
 invariant exactly for conserved seam currents, its stationary points exist
 exactly for those currents, and they are global minima unique modulo gauge.
 
-A transverse oscillator completion connects this static sector to the
-dispersion branch: at every nonzero momentum the momentum-orthogonal fiber has
-real dimension two, the scalar symbol acts equally on it, and an explicit
-boundary map carries the supplied mode dynamics onto the opposite-sign curl
-pairing at the identified frequency, with both modal divergence constraints
-preserved and the same-sign mutation failing the wave law.
+The complete seam-current symbol also carries a quantitative continuum
+field theorem. On a supplied common Euclidean domain, set
+$\omega_a(k)=\sqrt{\Lambda_a(k)}$, and use the opposite-sign curl pair
+$\mathcal G_a(E,B)=(D_aB,-D_aE)$ with
+$D_a=i\omega_a(k)|k|^{-1}k\times$ at nonzero momentum and zero at the origin.
+The exact source second and fourth moments imply the global bounds
+\[
+ 0\le |k|^2-\Lambda_a(k)\le \frac{a^2|k|^4}{20},\qquad
+ 0\le |k|-\omega_a(k)\le \frac{a^2|k|^3}{20}.
+\]
+Its Fourier propagator assembles to a unitary group on real
+$L^2(\mathbb R^3;\mathbb R^6)$: opposite momenta obey the conjugate reality
+condition, and longitudinal components are fixed. For the local Maxwell
+group $U_0$, Plancherel gives
+\[
+ \sup_{|t|\le T}\|(U_a(t)-U_0(t))F\|_2
+ \le \frac{Ta^2}{20}\,\||D|^3F\|_2.
+\]
+For arbitrary finite-energy data the convergence is strong and uniform on
+bounded time intervals. Duhamel's formula extends it to the same prescribed
+current on every scale; charge continuity propagates the Gauss constraint.
+The global scalar estimates are kernel-checked in
+\path{Lean/Screen/SeamMaxwellContinuum.lean}; the real-field, strong-limit,
+and forcing arguments are proved in the detailed microphysics paper
+\cite{ophMicrophysics}. This is continuum Maxwell dynamics for a declared field
+family. The Euclidean domain, reversible evolution, common time and physical
+current identification are supplied, and the finite-scale curl is generally
+nonlocal. A map from authenticated source histories and decoded observer
+fields into this family is not constructed.
 
 \begin{boundary}
-The intertwining is a factorization rather than an equivalence, and the modal
-wave statement depends on choosing the spatial symbol as the oscillator
-stiffness. A finite packet adds a typed continuity equivalence conditional on
+A finite packet adds a typed continuity equivalence conditional on
 the declared unit-step Amp\`ere recurrence, whose Faraday identity, gauge
 invariance, static Coulomb join, and staggered quadratic-form balance are
 exact. For nonzero $h$, every zero-current datum has uniformly bounded
@@ -3125,36 +3146,16 @@ radical; gradient velocity/electric directions are non-null. Every
 zero-current temporal-gauge solution is the assembled history of a
 coefficient state
 (\path{Lean/Screen/FieldSectorEnergyInnerProduct.lean},
-\path{Lean/Screen/CurlSectorEigenbasis.lean}).  Complex-conjugating the
-coefficient orientation puts this entire packet in exact Schr\"odinger-sign
-form for the selected principal-angle interpolation, on a separately constructed
-$M_{19}(\mathbb C)$ block: the diagonal
-self-adjoint Hamiltonian has entries
-$\omega_i=\theta_i/h$, its Stone propagator is the diagonal phase
-$e^{-i\omega_i t}$, and conjugation of the coefficient outer product is
-exactly the outer product of the evolved coefficient state.  The vector
-intertwiner retains absolute phase; the rank-one outer product loses global
-phase and retains relative phases only.  With the energy weights, its trace is
-the assembled field-energy Hermitian norm.  For any one selected mode, the
-joined scalar clock drives the same phase at the discrete steps under the
-sufficient calibrations $\delta=h$ and $m=\omega_i$
-(\path{Lean/Screen/CurlStoneClockBridge.lean}).  The bridge also proves its
-own limits: the new nineteen-dimensional index is not a relabelling of the
-committed two-dimensional private carrier, the committed joined witness fails
-the duration calibration, and the eigenvalue-two and eigenvalue-three
-principal-branch frequencies differ throughout the positive strict window.
-Thus no one identical scalar rate equals every selected principal-branch
-frequency.  This narrow result excludes neither a shared time parameter nor
-phase aliases, harmonics, nonlinear finite-horizon decoding, mode-resolved
-rates, or operator-valued readout.  There are five distinct frequencies among
-the nineteen coordinates.  The logarithm branch is selected rather than
-uniquely recovered from the discrete step, and the displayed calibration is
-sufficient rather than necessary modulo $2\pi$ phase aliases.  Moreover the
-coefficient input is arbitrary: no theorem identifies it with the actual
-history in the joined Maxwell record.  The rank-one projective image is not an
-algebra homomorphism or an equivalence with the committed $M_2(\mathbb C)$
-record algebra; a viable bridge needs a specified compression/channel, a
-selected lower-dimensional sector, or an enlarged private carrier.  Reading
+\path{Lean/Screen/CurlSectorEigenbasis.lean}).  A selected principal-angle interpolation also places the energy-weighted
+coefficient vector on a separately constructed $M_{19}(\mathbb C)$ block,
+with an exact self-adjoint diagonal Hamiltonian and a rank-one outer-product
+intertwiner whose trace equals the field energy
+(\path{Lean/Screen/CurlStoneClockBridge.lean}). The vector retains absolute
+phase; the outer product loses it. This representation is not an algebra
+isomorphism with the two-dimensional private carrier, and its arbitrary input
+is not identified with the joined record's field history. The branch and
+clock matching are declared; mode-resolved channels and larger carriers are
+not excluded. Reading
 the group parameter as physical time remains the declared clock and duration
 premise.  The listed rows are orthogonal rather than normalised, but
 normalisation is not a premise of the weighted energy form.  These modules
@@ -4858,7 +4859,7 @@ Mueller, B., Osika, A., Xue, K., and Cassie, B. (2026).
  \emph{Federated Echosahedral Screen Microphysics: Patch Hardware,
 Records, and Observer Synchronization in Observer-Patch Holography}. Public
 manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/paper/screen_microphysics_and_observer_synchronization.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophobservers}
 Mueller, B., Osika, A., Poneder, M., Xue, K., Cassie, B., Nguyen, P., Kim, J., Matscheko, D., Hill, J., Glynn, W.\,T., Visser, M.\,A., and Anirudha, K.\,A. (2026).
