@@ -22,6 +22,7 @@ SPEED_LEAN = "Lean/Geometry/SeamStepSpeedLimit.lean"
 CLOCK_LEAN = "Lean/Geometry/SourceClockRateAlongWorldlines.lean"
 GOLD_LEAN = "Lean/Screen/GoldenSectorCharacters.lean"
 GOLD_BRIDGE_LEAN = "Lean/Screen/A5PortSixAxesBridge.lean"
+GOLD_PSL_BRIDGE_LEAN = "Lean/Screen/PSL2F5SixAxesBridge.lean"
 
 
 def _registry() -> list[dict]:
@@ -109,12 +110,25 @@ def test_lean_modules_carry_headline_declarations() -> None:
         GOLD_BRIDGE_LEAN: ("quotient_respects_antipode", "axisRelabel",
                            "rowEquiv", "bridged_axis_eq_six_axis",
                            "every_six_axis_row_realized", "quotient_action_faithful"),
+        GOLD_PSL_BRIDGE_LEAN: ("slToPsl_ker_center", "p1EquivSix_affine",
+                              "p1EquivSix_infinity", "slProjectiveAction_ker",
+                              "pslProjectiveAction_injective", "tClass_action",
+                              "sClass_action", "center_eq_plus_minus_one",
+                              "center_card_two", "pslToSix_range",
+                              "psl_equiv_six_axis_group"),
     }
     for relative_path, tokens in expectations.items():
         text = (ROOT / relative_path).read_text(encoding="utf-8")
         for token in tokens:
             assert token in text, (relative_path, token)
         assert "#print axioms" in text, relative_path
+
+
+def test_psl_bridge_is_registered_and_exported() -> None:
+    lake = (ROOT / "Lean/lakefile.lean").read_text(encoding="utf-8")
+    umbrella = (ROOT / "Lean/Screen/OPHScreen.lean").read_text(encoding="utf-8")
+    assert "`PSL2F5SixAxesBridge" in lake
+    assert "import PSL2F5SixAxesBridge" in umbrella
 
 
 def test_owner_paper_carries_the_results() -> None:

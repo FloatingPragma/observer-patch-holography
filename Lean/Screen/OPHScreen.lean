@@ -48,6 +48,7 @@ import ExteriorComponentBridge
 import QuantumMatterIntegration
 import B10EdgeCenterAction
 import B10QuantumLimitations
+import PSL2F5SixAxesBridge
 
 /-!
 # OPH screen arithmetic umbrella
