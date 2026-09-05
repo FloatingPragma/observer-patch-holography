@@ -31,15 +31,15 @@ PROVIDERS = [
 
 
 def geometry():
-    text = (ROOT / PROVIDERS[0]).read_text()
+    text = (ROOT / PROVIDERS[0]).read_text(encoding="utf-8")
     left, right = [parse_vector(text, name, 30) for name in ("seamLeft", "seamRight")]
-    faces = parse_faces((ROOT / PROVIDERS[1]).read_text())
+    faces = parse_faces((ROOT / PROVIDERS[1]).read_text(encoding="utf-8"))
     b, c = build_incidence(left, right, faces)
     return left, right, b, c
 
 
 def reference():
-    text = (ROOT / PROVIDERS[2]).read_text().split("def jointPotentialZ", 1)[1]
+    text = (ROOT / PROVIDERS[2]).read_text(encoding="utf-8").split("def jointPotentialZ", 1)[1]
     rows = re.findall(r"!\[([^\[\]]+)\]", text.split("/-- Real seam", 1)[0])
     return [[Q(int(v), 9192) for v in row.split(",")] for row in rows]
 
@@ -195,5 +195,6 @@ def build():
 
 
 if __name__ == "__main__":
-    OUTPUT.write_text(json.dumps(build(), sort_keys=True, separators=(",", ":")) + "\n")
+    OUTPUT.write_text(json.dumps(build(), sort_keys=True, separators=(",", ":")) + "\n",
+                      encoding="utf-8", newline="\n")
     print(OUTPUT)

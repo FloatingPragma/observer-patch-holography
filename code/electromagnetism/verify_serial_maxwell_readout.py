@@ -40,18 +40,18 @@ def load(path=OUTPUT):
         return result
     def constant(_):
         raise ValueError("nonfinite JSON")
-    return json.loads(path.read_text(), object_pairs_hook=pairs, parse_constant=constant)
+    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=pairs, parse_constant=constant)
 
 
 def carrier():
-    seams = (ROOT / "Lean/Screen/SeamCurrentCarrierQuotient.lean").read_text()
+    seams = (ROOT / "Lean/Screen/SeamCurrentCarrierQuotient.lean").read_text(encoding="utf-8")
     def row(name):
         segment = seams.split("def " + name, 1)[1].split("![", 1)[1].split("]", 1)[0]
         result = [int(t) for t in re.findall(r"\d+", segment)]
         require(len(result) == 30, "seam count")
         return result
     edges = list(zip(row("seamLeft"), row("seamRight")))
-    raw = (ROOT / "Lean/ObserverPatchHolography/CoreAxioms.lean").read_text()
+    raw = (ROOT / "Lean/ObserverPatchHolography/CoreAxioms.lean").read_text(encoding="utf-8")
     raw = raw.split("def orientedFaces", 1)[1].split("def faceEdges", 1)[0]
     triangles = [tuple(int(n) for n in t) for t in re.findall(r"\((\d+),\s*(\d+),\s*(\d+)\)", raw)]
     require(len(triangles) == 20 and len(set(edges)) == 30, "carrier census")
@@ -70,7 +70,7 @@ def carrier():
 
 
 def reference():
-    raw = (ROOT / "Lean/Screen/NeutralPairJointStationaryWitness.lean").read_text()
+    raw = (ROOT / "Lean/Screen/NeutralPairJointStationaryWitness.lean").read_text(encoding="utf-8")
     denominator = raw.split("def potentialDenominator : ℤ :=", 1)[1].split()[0]
     require(denominator == "9192", "reference denominator")
     raw = raw.split("def jointPotentialZ", 1)[1].split("/-- Real seam", 1)[0]

@@ -24,6 +24,15 @@ def test_pinned_receipt_and_producer_replay(receipt):
         "cycles": 180, "path_variations": 8, "field_variations": 54}
 
 
+def test_cp1252_default_cannot_change_source_decoding(receipt, monkeypatch):
+    original = Path.read_text
+    def windows_default(path, encoding=None, errors=None):
+        return original(path, encoding=encoding or "cp1252", errors=errors)
+    monkeypatch.setattr(Path, "read_text", windows_default)
+    assert producer.build() == receipt
+    assert verifier.verify(verifier.load())["events"] == 585
+
+
 @pytest.mark.parametrize("mutation", ["missing_feedback", "wrong_feedback", "wrong_writer",
     "forged_parent", "synthetic_read", "wrong_response", "mixed_frame", "omitted_probe",
     "wrong_current", "external_reset", "clock_substitution", "direct_reference_advance",
