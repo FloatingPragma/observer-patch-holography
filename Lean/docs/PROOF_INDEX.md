@@ -1167,6 +1167,20 @@ Mapping between Lean 4 theorems in this project and statements in
   classification, a construction of `2I` or McKay, a derivation or selection
   of `φ` or `27^φ`, a mass law, a physical rotation identification, or a new
   observable.
+- Abstract `PSL(2,F5)` six-axis bridge
+  (`Screen/PSL2F5SixAxesBridge.lean`): sorry-free, standard axioms, no
+  `native_decide`.  Constructs Mathlib's canonical quotient
+  `SL(2,ZMod 5) → PSL(2,ZMod 5)`, proves its kernel is the center and that the
+  center is exactly `{+I,-I}` of cardinal two, and gives the explicit
+  projective-line coordinates `[z:1] ↔ z`, `[1:0] ↔ 5`.  The descended action
+  is faithful; the standard determinant-one lifts of `T` and `S` act as the
+  committed six-axis generators; and exhaustive preimage witnesses prove
+  that its image is exactly `A5SixAxes.L60`, yielding
+  `PSL2F5 ≃* SixAxisGroup`.  This does not prove an abstract `PSL(2,5) ≅ A5`
+  classification, identify `SL(2,5)` with `2I`, invoke McKay, transport the
+  golden sectors as typed `PSL2F5` representations, select `φ` or a mass law,
+  or make a physical claim.  The preceding port bridge remains a pointwise
+  indexed-row bridge, not a group-homomorphism arrow in this chain.
 - Universal cap coupling from icosahedral symmetry
   (`Screen/A5CouplingSymmetry.lean`, #576/#568): 9 / 9 declarations,
   sorry-free, standard axioms. Finite facts by kernel `decide` (caps map to

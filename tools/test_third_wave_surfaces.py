@@ -22,6 +22,7 @@ SPEED_LEAN = "Lean/Geometry/SeamStepSpeedLimit.lean"
 CLOCK_LEAN = "Lean/Geometry/SourceClockRateAlongWorldlines.lean"
 GOLD_LEAN = "Lean/Screen/GoldenSectorCharacters.lean"
 GOLD_BRIDGE_LEAN = "Lean/Screen/A5PortSixAxesBridge.lean"
+GOLD_PSL_BRIDGE_LEAN = "Lean/Screen/PSL2F5SixAxesBridge.lean"
 
 
 def _registry() -> list[dict]:
@@ -84,8 +85,16 @@ def test_golden_claim_separates_character_and_later_irreducibility_theorems() ->
                   "The later dedicated GoldenSectorIrreducibility module proves",
                   "The subsequent dedicated GoldenSectorComplexIrreducibility module proves complex scalar-extension irreducibility",
                   "exactly the repository's explicit six-axis PSL(2,F5) model",
+                  "canonical SL(2,ZMod 5) to PSL(2,ZMod 5) center quotient",
+                  "its image is exactly A5SixAxes.L60",
+                  "does not identify PSL2F5 with abstract A5",
+                  "nor transport the Golden sectors as typed PSL representations",
                   "Identification with the abstract A5 or icosahedral character table remains an inference outside Lean"):
         assert token in statement, token
+    scope_if_false = _claim(GOLD_CLAIM)["scope_if_false"]
+    for token in ("Failure of the separate PSL2F5 bridge removes only the abstract-cover interface",
+                  "the projector, character, and later irreducibility results remain intact"):
+        assert token in scope_if_false, token
 
 
 def test_lean_modules_carry_headline_declarations() -> None:
@@ -109,6 +118,12 @@ def test_lean_modules_carry_headline_declarations() -> None:
         GOLD_BRIDGE_LEAN: ("quotient_respects_antipode", "axisRelabel",
                            "rowEquiv", "bridged_axis_eq_six_axis",
                            "every_six_axis_row_realized", "quotient_action_faithful"),
+        GOLD_PSL_BRIDGE_LEAN: ("slToPsl_ker_center", "p1EquivSix_affine",
+                              "p1EquivSix_infinity", "slProjectiveAction_ker",
+                              "pslProjectiveAction_injective", "tClass_action",
+                              "sClass_action", "center_eq_plus_minus_one",
+                              "center_card_two", "pslToSix_range",
+                              "psl_equiv_six_axis_group"),
     }
     for relative_path, tokens in expectations.items():
         text = (ROOT / relative_path).read_text(encoding="utf-8")
@@ -117,11 +132,20 @@ def test_lean_modules_carry_headline_declarations() -> None:
         assert "#print axioms" in text, relative_path
 
 
+def test_psl_bridge_is_registered_and_exported() -> None:
+    lake = (ROOT / "Lean/lakefile.lean").read_text(encoding="utf-8")
+    umbrella = (ROOT / "Lean/Screen/OPHScreen.lean").read_text(encoding="utf-8")
+    assert "`PSL2F5SixAxesBridge" in lake
+    assert "import PSL2F5SixAxesBridge" in umbrella
+
+
 def test_owner_paper_carries_the_results() -> None:
     observers = _collapsed("paper/observers_are_all_you_need.tex")
     for token in ("TransportedChargeForceLaw", "SeamStepSpeedLimit",
                   "two rests per crossing", "SourceClockRateAlongWorldlines",
-                  "GoldenSectorCharacters"):
+                  "GoldenSectorCharacters", "PSL2F5SixAxesBridge",
+                  "canonical center quotient", "whose kernel is the center",
+                  "yields a faithful action of", "pointwise port bridge is not appended"):
         assert token in observers, token
 
 
