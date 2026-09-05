@@ -30,7 +30,7 @@ def antisymmetric(values, size=4):
 
 @lru_cache(maxsize=1)
 def cone_geometry():
-    source = (ROOT / "Lean/Screen/SeamCurrentEdge30Moment.lean").read_text()
+    source = (ROOT / "Lean/Screen/SeamCurrentEdge30Moment.lean").read_text(encoding="utf-8")
     definition = source.split("def portVector", 1)[1].split(
         "theorem portVector_positivePort", 1)[0]
     literals = {"0": s.Integer(0), "1": s.Integer(1), "-1": s.Integer(-1),
@@ -209,3 +209,18 @@ def test_actual_common_face_value_and_tangential_covariant_derivative():
     right_value, right_tangent = trace(right)
     assert zero(left_value-right_value)
     assert zero(left_tangent-right_tangent)
+
+
+def test_coordinate_reconstruction_uses_utf8_with_windows_default(monkeypatch):
+    original = Path.read_text
+    def windows_default(path, *args, **kwargs):
+        if not args and "encoding" not in kwargs:
+            kwargs["encoding"] = "cp1252"
+        return original(path, *args, **kwargs)
+    monkeypatch.setattr(Path, "read_text", windows_default)
+    cone_geometry.cache_clear()
+    try:
+        vertices, edges, elements = cone_geometry()
+        assert (len(vertices), len(edges), len(elements)) == (13, 42, 20)
+    finally:
+        cone_geometry.cache_clear()
