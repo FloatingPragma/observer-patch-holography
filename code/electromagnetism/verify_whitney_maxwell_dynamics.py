@@ -74,6 +74,25 @@ def close(actual, expected, name, tol=1e-9):
             and np.allclose(a, b, atol=tol, rtol=tol), name)
 
 
+def verify_parent_summary(recorded, fresh):
+    """Compare exact census and numerical diagnostics at their own precision.
+
+    The caller must obtain ``fresh`` by fully replaying the parent. Its
+    float64 quadrature diagnostics are not bitwise portable between BLAS
+    platforms; the parent's own absolute/relative tolerance is 1e-10.
+    """
+    counts = {"tetrahedra", "gauge_histories", "field_variations_per_history"}
+    diagnostics = {"volume_action", "gauss_max_abs", "ampere_hat_max_abs"}
+    require(isinstance(recorded, dict) and set(recorded) == set(fresh)
+            == counts | diagnostics, "parent replay summary schema")
+    for key in counts:
+        require(type(recorded[key]) is int and recorded[key] == fresh[key],
+                "parent replay exact census " + key)
+    for key in diagnostics:
+        close(recorded[key], fresh[key], "parent replay numerical " + key,
+              tol=1e-10)
+
+
 def exact_mv(matrix, vector):
     return [sum((int(a)*v for a, v in zip(row, vector, strict=True)), Q(0)) for row in matrix]
 
@@ -311,7 +330,7 @@ def verify(packet):
     for path, sha in packet["pins"].items():
         require(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, "provider pin " + path)
     parent = geometry.load()
-    require(packet["parent_replay"] == geometry.verify(parent), "fresh transitive parent replay")
+    verify_parent_summary(packet["parent_replay"], geometry.verify(parent))
     require(packet["numeric_policy"] == {"evolution": "float64 solves and mass matrices; no interval or exact-trajectory certificate", "registers": "exact rational encodings of finite numeric results; exact pair-average restoration", "stability": "exact Q(sqrt(5)) LDL certificate, independent of float eigensolvers", "atol": 1e-9, "rtol": 1e-9}, "numeric policy")
     v, be, bf = geometry.source_mesh()
     vertices = [(0, 0, 0)]+v

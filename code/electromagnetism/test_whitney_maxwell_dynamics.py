@@ -129,6 +129,38 @@ def test_fresh_transitive_custody_after_prior_success(monkeypatch):
         verifier.verify(packet)
 
 
+def test_parent_replay_allows_platform_roundoff_after_full_verification(monkeypatch):
+    original = verifier.geometry.verify
+    calls = []
+    def rounded(parent):
+        result = original(parent)
+        calls.append(True)
+        for key in ("volume_action", "gauss_max_abs", "ampere_hat_max_abs"):
+            result[key] = float(np.nextafter(result[key], np.inf))
+        return result
+    monkeypatch.setattr(verifier.geometry, "verify", rounded)
+    assert verifier.verify(verifier.load())["field_variations_per_history"] == 68
+    assert calls == [True]
+
+
+@pytest.mark.parametrize("mutation", [
+    lambda r: r.__setitem__("tetrahedra", 20.0),
+    lambda r: r.__setitem__("gauge_histories", True),
+    lambda r: r.__setitem__("field_variations_per_history", 67),
+    lambda r: r.__setitem__("volume_action", r["volume_action"] + 1e-5),
+    lambda r: r.__setitem__("gauss_max_abs", True),
+    lambda r: r.__setitem__("ampere_hat_max_abs", float("nan")),
+    lambda r: r.__setitem__("unverified", 1),
+    lambda r: r.pop("volume_action"),
+])
+def test_parent_summary_keeps_exact_census_and_numeric_error_guards(mutation):
+    fresh = verifier.load()["parent_replay"]
+    recorded = deepcopy(fresh)
+    mutation(recorded)
+    with pytest.raises(ValueError):
+        verifier.verify_parent_summary(recorded, fresh)
+
+
 def test_exact_variational_map_and_modified_hamiltonian():
     q, next_q, p, h, lam = sp.symbols("q next_q p h lam", positive=True)
     discrete_l = (next_q-q)**2/(2*h)-h*lam*(q*q+q*next_q+next_q*next_q)/6
