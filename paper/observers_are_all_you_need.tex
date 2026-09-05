@@ -3949,12 +3949,77 @@ response for each of the thirty midpoint values, form an invertible
 stable under the proper \(A_5\) action and rank \(42\) once \(Q\) is
 included. This is a different protocol from the passive history
 \((Q,QL_f,\ldots,QL_f^{41})\), whose rank remains \(29\). The active responses
-must share one pre-event state, so a reset, checkpoint, parallel preparation,
-or nondestructive instrument is required. No source-selected event
-instrument, spatial translation, laboratory observable, or sky map follows
-(\path{Lean/Screen/LabeledEventReadout.lean};
-\path{oph-physics-sim/data/repair_closure/angular_refinement_labeled_event_readout_receipt.json};
-\cite{ophfpe}).
+must share one pre-event state. A classical record-assisted implementation
+satisfies this condition by restoring each probed pair before the next probe.
+No source-selected physical instrument, spatial translation, laboratory
+observable, or sky map follows
+(\path{Lean/Screen/LabeledEventReadout.lean}; \cite{ophfpe}).
+This symmetry statement concerns the scalar probe support. It asserts no
+equivariance of mixed scalar/seam-potential measurements under signed cochain
+transformations.
+
+\begin{theorem}[Serial feedback readout and finite Maxwell action]
+\label{thm:serial-maxwell-readout}
+Assume exact classical scalar records and writable coordinates on
+\(\{1,\ldots,12\}\sqcup\{1,\ldots,30\}\). Retain the inherited baseline
+\(b_u=x_u\). For a labeled endpoint--midpoint pair \((u,m)\), apply pair
+averaging, record its exposed endpoint response \(r\), and replace the pair
+by \((b_u,2r-b_u)\), fixing every other coordinate. Every finite sequence of
+these cycles preserves \(x\), including repeated and overlapping pairs.
+If each midpoint is probed, the records reconstruct \(x\) exactly.
+
+Explicitly type a packet as \(x_n=(\phi_n,A_n)\), with twelve scalar
+potentials and thirty oriented seam potentials. Serial decoding at each
+slice commutes with
+\[
+ E_n=-\frac{A_{n+1}-A_n}{h}-D\phi_n,\qquad B_n=CA_n,
+\]
+where \(h\ne0\), \(D\) is the committed port coboundary and \(C\) its oriented face
+incidence. It preserves the entire declared neutral-pair action, including
+its values on varied fields and paths.
+\end{theorem}
+\begin{proof}
+The response is \(r=(b_u+x_m)/2\), so \(2r-b_u=x_m\). The feedback restores
+both written coordinates and leaves the rest fixed. Induction on the probe
+word gives preservation at every prefix; each retained response therefore
+refers to the identical initial state. The explicit inverse then reconstructs
+every coordinate. Applied separately at each potential slice, this identity
+gives the displayed fields and equality of any action evaluated on the
+decoded potentials. It holds for every input, hence for every allowed
+variation. These identities and their application to the rational stationary
+neutral-pair history are kernel-checked in
+\mbox{\path{Lean/Screen/SerialMaxwellReadout.lean}}.
+\end{proof}
+
+The executable instrument uses one evolving \(42\)-slot state, retained
+baseline and response records, port-local feedback writes, and a public
+evidence bundle. It reads all sixty endpoint--midpoint pairs at each of three
+slices. Only \(A_0,A_1\) are supplied as initial seam data. At \(h=1/2\), the
+decoded records and the current of the opposite charged paths produce
+\[
+ A_2=2A_1-A_0-h^2C^{\mathsf T}CA_1+h^2J_0-hD(\phi_1-\phi_0).
+\]
+An independent implementation advances \(E\) by Amp\`ere's equation and then
+recovers \(A_2\); it obtains the same rational stationary history. It checks
+all \(54\) free field derivatives of the finite action, all eight admissible
+closed two-step path replacements, Gauss, Faraday and source continuity.
+Each of two gauge-related executions has \(585\) semantic events and
+\(180\) completed feedback cycles. Replay reconstructs each operation's read
+set and checks its pre-write values and writer versions; declared parent
+lists cannot manufacture causal reads. The gauge control changes raw
+potentials and records while preserving fields and, with zero endpoint gauge,
+the coupled action. The exact execution receipt and its independent verifier
+are reproducible from the accompanying code \cite{ophrepo}.
+
+This instrument assumes classical read/write access and exact memory. A
+baseline error \(\epsilon_b\) and response error \(\epsilon_r\) give midpoint
+error \(2\epsilon_r-\epsilon_b\) in one cycle; this is not a stability bound
+for a long noisy execution. Pair averaging alone does not implement the
+feedback, and quantum state copying is not asserted. The feedback-cycle
+counter counts executed operations. Its relation to the separately declared
+Lorentz clock unit \(\tau=3\), laboratory time, source-selected geometry or
+a spatial continuum refinement is not supplied. A scalar first-refinement
+slot becomes a potential only under the displayed typing assumption.
 
 The coefficient manifold and its decision rule are frozen before a qualifying
 comparison \cite{ophpredictionregister}. The dated cosmic-microwave-background template search and every

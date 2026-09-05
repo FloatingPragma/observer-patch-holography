@@ -1865,6 +1865,39 @@
           "propagator": "||U_a(t,k)-U_0(t,k)|| <= min(2, |t| a^2 |k|^3 / 20)",
           "symbol": "0 <= |k|^2 - Lambda_a(k) <= a^2 |k|^4 / 20"
         }
+      },
+      {
+        "artifact_refs": [
+          "code/electromagnetism/runtime/serial_maxwell_readout_receipt.json",
+          "code/electromagnetism/serial_maxwell_readout.py",
+          "code/electromagnetism/verify_serial_maxwell_readout.py",
+          "paper/observers_are_all_you_need.tex"
+        ],
+        "events_per_gauge_execution": 585,
+        "exhaustive_path_replacements_per_execution": 8,
+        "feedback_cycles_per_execution": 180,
+        "hypothesis_boundary": "Exact classical memory and writable ports, declared potential typing, initial slices, paths, finite action, h=1/2 and Lorentz unit tau=3. No source-selected physical clock, long noisy stability, quantum copying, spatial refinement into the continuum family or laboratory identification. No physical prediction is armed or premise discharged",
+        "id": "serial_maxwell_readout",
+        "independently_checked_field_derivatives": 54,
+        "lean_declarations": {
+          "SerialMaxwellReadout": [
+            "cycle_restores",
+            "serial_restores",
+            "response_after_prefix",
+            "decode_serial",
+            "feedback_error",
+            "decoded_fields",
+            "decoded_coupled_action",
+            "decoded_joint_field_stationary"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/SerialMaxwellReadout.lean"
+        ],
+        "match": "exact classical software instrument and decoded finite action join",
+        "observed_counterpart": "Finite Maxwell field and charged-path equations; no measured data",
+        "paper_ref": "observers synthesis, Serial feedback readout and finite Maxwell action",
+        "statement": "Exact classical baseline/response feedback restores every pair and every finite overlapping probe word. Serial decoding recovers all 42 typed potential coordinates and preserves electric/magnetic fields and the finite neutral-pair action. Decoded initial records and the charged path current advance a third rational slice"
       }
     ],
     "hadrons": [

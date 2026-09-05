@@ -39,6 +39,8 @@ OBSERVATION_EVIDENCE = [
     "code/electromagnetism/verify_seam_maxwell_continuum.py",
     "code/electromagnetism/test_seam_maxwell_continuum.py",
     "code/electromagnetism/runtime/seam_maxwell_continuum_receipt.json",
+    "Lean/Screen/SerialMaxwellReadout.lean",
+    "code/electromagnetism/runtime/serial_maxwell_readout_receipt.json",
 ]
 
 POSTDICTION_ARTIFACTS = [
