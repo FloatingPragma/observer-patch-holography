@@ -9141,6 +9141,50 @@
         "boundary": [],
         "rationale": "Exact classical port/record access, potential typing and the declared finite initial value problem are local mathematical/instrument hypotheses. The registered physical carrier, calibration and photon identifications are excluded conclusions, not premises consumed or discharged by this construction."
       }
+    },
+    {
+      "claim_id": "OPH-CONE-WHITNEY-BRIDGE",
+      "statement": "The actual three decoded potential slices of the authenticated serial Maxwell instrument admit an explicit gauge-covariant cochain extension from the committed icosahedral surface to its finite cone, with 13 vertices, 42 edges, 50 faces and 20 tetrahedra. The apex scalar is the boundary mean, radial edge potentials use the committed graph Green operator, and the scalar-to-edge and edge-to-face squares commute. A boundary two-cochain has a closed cone extension if and only if its total boundary flux is zero; every potential curvature qualifies. On the separately supplied Euclidean tetrahedral embedding, spatial Whitney interpolation and a uniform positive-step prism interpolation give vector potentials and magnetic fields continuous and piecewise linear in time, slabwise-constant electric fields and exact homogeneous Maxwell identities. Spatial conformity is tangential for one-forms and normal for two-forms; global spatial vector continuity is not asserted. Charge loads remain slabwise constant and current is the FE covector impulse functional sum h J_n delta(t-(n+1)h), with endpoint loads explicit; it is not an ordinary piecewise-constant continuum current. For the quadratic form Q of any symmetric magnetic pairing, the exactly integrated magnetic action minus right-endpoint quadrature is h/4 times the endpoint change of Q(B) plus h/12 times the sum of Q(B_(n+1)-B_n). Lean proves the finite cochain statements and algebraic time-average, telescoping and hat-residual coefficient identities, not analytic integration. Analytic barycentric mass moments and independent spacetime quadrature and action differentiation numerically verify the two gauge-related histories, retaining all 42 vector-potential variations at the interior time node and 26 scalar slab variations. These geometric calculations use float64 with declared tolerances, not exact-real or interval certificates. The geometric action differs from the counting action and the full sourced weak Maxwell residuals are nonzero. The temporal h-squared correction does not remove the separate spatial Hodge and source-functional defect. This is a finite decoded-history interpolation and quantified action mismatch on supplied geometry, not source-selected spacetime, a continuum refinement or convergence theorem, physical metric or clock selection, laboratory identification, or a new prediction.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "finite_authenticated_history_to_supplied_Whitney_prism_with_explicit_action_defect",
+      "assumptions": [
+        "declared_euclidean_cone_geometry_and_Whitney_metric",
+        "declared_nonlocal_Green_radial_extension",
+        "declared_uniform_step_prism_and_impulse_source_functional"
+      ],
+      "imported_results": [
+        "Whitney_de_Rham_commuting_interpolation",
+        "affine_simplex_barycentric_moments",
+        "finite_element_action_and_temporal_quadrature"
+      ],
+      "oph_specific_delta": "Constructs an explicit cochain-to-spatial-field-to-time-prism map for the actual decoded observer-like software history, instead of comparing unrelated finite and continuum field families. Proves the full zero-flux extension criterion and isolates spatial constitutive and temporal quadrature defects without discarding radial edge or apex scalar variations. The ingredients are standard cochain, Whitney and variational mathematics; the contribution is their authenticated-history composition and independently checked nonzero-defect boundary.",
+      "novelty_type": "authenticated_history_to_supplied_volume_field_with_constitutive_and_time_defect",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Screen/ConeCochainBridge.lean",
+        "Lean/Screen/WhitneyTimeBridge.lean",
+        "code/electromagnetism/cone_whitney_bridge.py",
+        "code/electromagnetism/verify_cone_whitney_bridge.py",
+        "code/electromagnetism/test_cone_whitney_bridge.py",
+        "code/electromagnetism/runtime/cone_whitney_bridge_receipt.json",
+        "code/electromagnetism/runtime/serial_maxwell_readout_receipt.json"
+      ],
+      "falsifier": "A claimed commuting square, boundary trace, zero-flux equivalence, gauge law or homogeneous Maxwell identity fails; a coefficient or endpoint in the exact magnetic action defect is wrong; independent quadrature or any of the 68 action derivatives disagrees; replay accepts altered provenance, a missing radial/apex test, a changed mass matrix, an ordinary-current replacement, a false zero residual or an unsupported physical promotion.",
+      "scope_if_false": "The finite cone interpolation or its numerical action certificate fails. The existing serial readout, finite counting-metric Maxwell action and supplied-domain Fourier continuum theorem retain their separate statements; no observational or phenomenological conclusion is inferred.",
+      "status": "exact_finite_cochain_and_time_coefficient_bridge__numeric_nonzero_sourced_volume_residual__physical_refinement_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728,
+        737,
+        754
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The antecedents are the recorded finite potential history and explicitly supplied cone, Green extension, Euclidean Whitney mass metric, uniform time interpolation and impulse source functional. The theorem and numerical certificate establish conditional interpolation and its nonzero action residual; they neither assume nor conclude the physical propagation, event placement, calibration, laboratory comparison or source-selection assertions of the registered physical premises. Those remain excluded downstream conclusions, so no direct premise edge is created or discharged."
+      }
     }
   ]
 }

@@ -213,7 +213,8 @@
   "OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
   "OPH-EM-CURL-SECTOR-EIGENBASIS",
   "OPH-SEAM-MAXWELL-CONTINUUM",
-  "OPH-SERIAL-MAXWELL-READOUT"
+  "OPH-SERIAL-MAXWELL-READOUT",
+  "OPH-CONE-WHITNEY-BRIDGE"
  ],
  "edges": [
   {
@@ -1900,6 +1901,21 @@
    "from": "OPH-EM-SOURCED-FIELD-CONSISTENCY",
    "to": "OPH-SERIAL-MAXWELL-READOUT",
    "role": "Uses the declared finite neutral-pair action and exact rational stationary history as the decoded execution target."
+  },
+  {
+   "from": "OPH-SERIAL-MAXWELL-READOUT",
+   "to": "OPH-CONE-WHITNEY-BRIDGE",
+   "role": "Supplies the authenticated and independently decoded three-slice potential history, exact current/load records and original counting action; the cone bridge reconstructs that same history on supplied geometry."
+  },
+  {
+   "from": "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+   "to": "OPH-CONE-WHITNEY-BRIDGE",
+   "role": "Supplies the committed face incidence complex, cycle projector and zero-total-flux face section used in the exact cone extension; no physical volume or constitutive identification is inherited."
+  },
+  {
+   "from": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+   "to": "OPH-CONE-WHITNEY-BRIDGE",
+   "role": "Supplies the exact graph Green matrix, mean-zero identity and boundary/coboundary adjunction directly used to derive the radial potential and apex gauge correction."
   }
  ]
 }

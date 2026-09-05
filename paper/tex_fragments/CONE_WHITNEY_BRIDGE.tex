@@ -1,0 +1,200 @@
+\paragraph{From decoded cochains to fields on a solid.}
+The twelve vertices, thirty edges and twenty faces form a closed surface.
+A concrete volume reconstruction is obtained by coning its declared
+Euclidean realization to the centre. Use the registered coordinates
+\((0,\pm1,\pm\varphi)\), \((\pm\varphi,0,\pm1)\),
+\((\pm1,\pm\varphi,0)\), with their fixed port labels and
+\(\varphi=(1+\sqrt5)/2\). Each boundary edge has length two; each of the
+twenty positively oriented tetrahedra has volume \((3+\sqrt5)/6\).
+The cone has \(13,42,50,20\) simplices in degrees zero through three.
+This geometric realization and its numerical length unit are supplied.
+
+\begin{theorem}[Gauge-covariant cone reconstruction]
+\label{thm:cone-whitney-bridge}
+Let \(D\) and \(C\) denote the signed boundary gradient and curl.
+For \(\Pi_m=\mathbf1_m\mathbf1_m^{\mathsf T}/m\), set
+\[
+ G=(D^{\mathsf T}D+\Pi_{12})^{-1}-\Pi_{12},\qquad
+ H=(CC^{\mathsf T}+\Pi_{20})^{-1}-\Pi_{20}.
+\]
+Order cone edges radially first and cone faces by boundary faces first.
+Then its incidence maps and trace-preserving extensions are
+\begin{align*}
+ \widetilde D&=\begin{pmatrix}-\mathbf1_{12}&I_{12}\\0&D\end{pmatrix},&
+ \widetilde C&=\begin{pmatrix}0&C\\-D&I_{30}\end{pmatrix},&
+ \widetilde B&=\begin{pmatrix}I_{20}&-C\end{pmatrix},\\
+ P_0&=\begin{pmatrix}\mathbf1_{12}^{\mathsf T}/12\\I_{12}\end{pmatrix},&
+ P_1&=\begin{pmatrix}GD^{\mathsf T}\\I_{30}\end{pmatrix},&
+ P_2&=\begin{pmatrix}I_{20}\\C^{\mathsf T}H\end{pmatrix}.
+\end{align*}
+They satisfy
+\[
+ \widetilde DP_0=P_1D,\qquad
+ \widetilde CP_1=P_2C,\qquad
+ \widetilde BP_2=\Pi_{20}.
+\]
+A boundary two-cochain has a closed cone extension if and only if its
+total flux vanishes. In particular, every \(B=CA\) has such an extension.
+
+Let \(W_k\) be Whitney interpolation on this geometric cone. On a uniform
+time grid \(t_n=nh\), \(h>0\), interpolate \(P_1A_n\) linearly and
+\(P_0\phi_n\) constantly on each open slab. For \(s=(t-t_n)/h\), the fields are
+\begin{align*}
+ \mathcal E(t)&=W_1P_1\left[-(A_{n+1}-A_n)/h-D\phi_n\right],\\
+ \mathcal B(t)&=W_2P_2\left[(1-s)CA_n+sCA_{n+1}\right].
+\end{align*}
+The discrete gauge rule lifts to the ordinary potential gauge rule.
+On the interior of the supplied solid and time window,
+\(\partial_t\mathcal B+d\mathcal E=0\) and \(d\mathcal B=0\)
+hold distributionally.
+\end{theorem}
+
+\begin{proof}
+The exact Green identity gives
+\(GD^{\mathsf T}D=I-\Pi_{12}\). The verified boundary complex has
+\(\ker C=\operatorname{im}D\) and
+\(\operatorname{im}C=\mathbf1_{20}^{\perp}\), hence
+\(C^{\mathsf T}HC=I-DGD^{\mathsf T}\) and \(CC^{\mathsf T}H=I-\Pi_{20}\).
+Block multiplication proves the three displayed identities.
+Closedness of a cone two-cochain with boundary value \(B\) requires
+\(B=Cr\) for its radial component \(r\), equivalent to zero total flux.
+The radial potential \(GD^{\mathsf T}A\) has zero mean and changes by
+\(\chi-\overline\chi\) under \(A\mapsto A+D\chi\), exactly matching
+the apex scalar value \(\overline\chi\).
+
+In barycentric coordinates, the local forms are
+\begin{gather*}
+ w_i=\lambda_i,\qquad
+ w_{ij}=\lambda_i\,d\lambda_j-\lambda_j\,d\lambda_i,\\
+ w_{ijk}=2\sum_{\mathrm{cyc}(i,j,k)}
+                  \lambda_i\,d\lambda_j\wedge d\lambda_k.
+\end{gather*}
+Their exterior derivatives commute with signed incidence. Their matching
+traces give the assembled identities in the weak sense
+\cite{ArnoldFalkWinther2010}. Vector potentials continuous and piecewise
+affine in time, with constant slab scalar potentials, give the displayed fields.
+For affine \(\chi(t)\), the scalar gauge change is
+\(-\partial_t\chi\); differentiation and \(d^2=0\) prove the claims.
+The magnetic field is continuous in time, so its derivative acquires no
+additional time-interface impulse.
+\end{proof}
+
+The radial reconstruction is global on the boundary graph: its
+\(12\times30\) matrix has \(240\) nonzero entries. It is a reconstruction
+rule, not a derivation of local radial transport. Its cone coefficients are
+determined by the boundary data and introduce no independent radial degrees
+of freedom. The finite cochain and zero-flux statements are formalized in
+\path{Lean/Screen/ConeCochainBridge.lean}. That implementation uses a
+dual-tree section followed by the cycle projector for the radial two-form;
+uniqueness among co-closed radial solutions proves agreement with
+\(C^{\mathsf T}H\) on the zero-flux domain. The Whitney field and
+distributional statements are the paper argument above.
+
+\paragraph{The metric and time defects of the actual history.}
+Let \(M_1,M_2\) be the Gram matrices of \(W_1,W_2\) in the supplied
+Euclidean metric, with unit constitutive coefficients. Their exact
+integrals use \(\int_T\lambda_i\lambda_j=|T|(1+\delta_{ij})/20\).
+These positive matrices specify geometric field energy. They are distinct
+from counting inner products. Extend source covectors as
+\(\widetilde\rho_n=(0,\rho_n)\) and
+\(\widetilde J_n=(0_{12},J_n)\), preserving the source pairing.
+Slabwise constant charge has jumps at the knots. Its compatible temporal
+current functional is
+\(\sum_n h\widetilde J_n\delta_{t_{n+1}}\), since
+\(\rho_{n+1}-\rho_n=-hD^{\mathsf T}J_n\).
+This identity uses interior test functions; an extension beyond the window
+uses the initial charge before zero and the terminal charge after the last
+current impulse. Ordinary constant slab current has a different pairing.
+
+Write \(\widetilde A_n=P_1A_n\), \(\widetilde\phi_n=P_0\phi_n\),
+\(\widetilde E_n=P_1E_n\), \(\widetilde B_n=P_2CA_n\), and
+\(Q(b)=b^{\mathsf T}M_2b\). The exactly integrated field-plus-source action is
+\begin{align*}
+ S_{\mathrm{pr}}=\sum_{n=0}^{N-1}\biggl\{&
+ \frac h2\widetilde E_n^{\mathsf T}M_1\widetilde E_n
+ -\frac h6\left[Q(\widetilde B_n)+
+ \widetilde B_n^{\mathsf T}M_2\widetilde B_{n+1}+Q(\widetilde B_{n+1})\right]\\
+ &+h\widetilde J_n^{\mathsf T}\widetilde A_{n+1}
+ +h\widetilde\rho_n^{\mathsf T}\widetilde\phi_n\biggr\}.
+\end{align*}
+Let \(S_{\mathrm{right}}\) use the same electric and source terms but
+right-endpoint magnetic quadrature. Direct integration and telescoping give
+\begin{equation}
+ S_{\mathrm{pr}}-S_{\mathrm{right}}
+ =\frac h4\left[Q(\widetilde B_N)-Q(\widetilde B_0)\right]
+ +\frac h{12}\sum_{n=0}^{N-1}Q(\widetilde B_{n+1}-\widetilde B_n).
+ \label{eq:cone-time-action-defect}
+\end{equation}
+The second term equals
+\(h^2\int Q(\partial_t\widetilde B)\,dt/12\).
+It is second order on a fixed time window only under uniform temporal regularity; the total action
+defect includes the displayed endpoint term. Fixed-endpoint variations
+remove that term. Nonuniform time grids need additional terms.
+The separate spatial defect relative to the counting action is
+\[
+ S_{\mathrm{right}}-S_{\mathrm{count}}
+ =\frac h2\sum_n\left[
+ E_n^{\mathsf T}(P_1^{\mathsf T}M_1P_1-I)E_n
+ -B_{n+1}^{\mathsf T}(P_2^{\mathsf T}M_2P_2-I)B_{n+1}\right].
+\]
+The clock action is excluded from all three field-plus-source actions.
+
+For the derivatives, allow every cone potential coefficient to vary
+independently and evaluate afterward at the reconstructed history; variations
+need not stay in the images of \(P_1\) and \(P_0\).
+With fixed vector-potential endpoints and free spatial traces, the full
+finite-element derivatives of \(S_{\mathrm{pr}}\) are
+\begin{align*}
+ \frac{\partial S_{\mathrm{pr}}}{\partial\widetilde\phi_n}
+ &=h\left(\widetilde\rho_n-\widetilde D^{\mathsf T}M_1\widetilde E_n\right),\\
+ \frac{\partial S_{\mathrm{pr}}}{\partial\widetilde A_m}
+ &=M_1(\widetilde E_m-\widetilde E_{m-1})+h\widetilde J_{m-1}\\
+ &\quad-\frac h6\widetilde C^{\mathsf T}M_2
+ (\widetilde B_{m-1}+4\widetilde B_m+\widetilde B_{m+1}),
+ \qquad 0<m<N.
+\end{align*}
+The second line differs from the metric right-endpoint derivative by
+\(h\widetilde C^{\mathsf T}M_2(2\widetilde B_m-
+\widetilde B_{m-1}-\widetilde B_{m+1})/6\).
+This temporal correction does not remove the spatial metric/source defect.
+The coefficient identities and telescoping are formalized in
+\path{Lean/Screen/WhitneyTimeBridge.lean}; analytic integration and
+distributional source interpretation are stated here separately.
+
+The authenticated serial history gives the following dimensionless values
+for both endpoint-fixed gauge representatives:
+\begin{center}
+\begin{tabular}{lr}
+Counting field-plus-source action & $-14.42982115034$\\
+Volume action, right-endpoint magnetic term & $-14.25989506948$\\
+Exactly time-integrated volume action & $-10.21278655268$\\
+Spatial action defect & $0.16992608086$\\
+Temporal action defect & $4.04710851680$\\
+Maximum absolute scalar residual, divided by $h$ & $0.64544633271$\\
+Maximum absolute interior vector residual & $1.57903507514$
+\end{tabular}
+\end{center}
+The rational cochain identities are exact. The volume Gram matrices and
+displayed values use double-precision analytic moments and independent
+tetrahedral quadrature, compared with absolute and relative tolerances
+\(10^{-10}\); they are not interval certificates. The independent verifier
+differentiates all \(42+2\cdot13=68\) free coefficients of the action,
+including the twelve radial vector variations omitted by a boundary-only
+test. A separate exact counting-metric control gives temporal action defect
+\(663629599/63369648\) and first vector residual \(44749/55152\).
+These are mathematical controls on recorded inputs, not measurements.
+
+Whitney one-forms have matching tangential traces; their normal jumps can
+contribute to electric divergence. Magnetic tangential jumps and temporal
+electric jumps likewise contribute to the sourced equations. The assembled
+weak derivatives retain these effects; element-interior tests are
+insufficient. The source covectors specify finite-element test functionals,
+not arbitrary-test physical densities. Under the conventional smooth
+potential signs, \(D^{\mathsf T}\) represents weak negative divergence, so
+the coupling \(+J\cdot A+\rho_{\mathrm{load}}\phi\) corresponds to
+\(\rho_{\mathrm{physical}}=-\rho_{\mathrm{load}}\) if a density
+identification is made.
+The supplied cone yields continuous-coordinate fields and explicit
+defects. It supplies neither sourced stationary volume dynamics nor a
+source-selected geometry, physical clock, spatial refinement family,
+intertwiner with the translation-symbol field group, or laboratory law.
