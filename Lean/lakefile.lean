@@ -82,6 +82,7 @@ lean_lib «OPHScreen» where
     `KineticFormDichotomy, `A5PrimitivePortPrediction,
     `A5CarrierClassBand,
     `A5OrbitRaySeparation, `DiscreteRefinement, `LabeledEventReadout, `SerialMaxwellReadout,
+    `ConeCochainBridge, `WhitneyTimeBridge,
     `BaryonDimensionSix,
     `BipoSHTransferInvariant, `BipoSHInverseBoundary, `BipoSHFrameInvariant,
     `VolumeReadoutBridge, `PrimitivePortTranslationBridge,

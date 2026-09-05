@@ -80,6 +80,8 @@ PARENTS = {
 LEAN_RECEIPTS = {
     "SeamMaxwellContinuum": LEAN_SCREEN / "SeamMaxwellContinuum.lean",
     "SerialMaxwellReadout": LEAN_SCREEN / "SerialMaxwellReadout.lean",
+    "ConeCochainBridge": LEAN_SCREEN / "ConeCochainBridge.lean",
+    "WhitneyTimeBridge": LEAN_SCREEN / "WhitneyTimeBridge.lean",
     "A2HolonomyBridge": LEAN_SCREEN / "A2HolonomyBridge.lean",
     "A5OPH": LEAN_SCREEN / "A5OPH.lean",
     "A5CharacterField": LEAN_SCREEN / "A5CharacterField.lean",
@@ -4529,6 +4531,98 @@ def _serial_maxwell_readout_row() -> dict[str, Any]:
     }
 
 
+def _cone_whitney_bridge_row() -> dict[str, Any]:
+    """Finite mathematical bridge; inclusion requires independent full replay."""
+    path = CODE / "electromagnetism" / "verify_cone_whitney_bridge.py"
+    spec = importlib.util.spec_from_file_location("cone_whitney_ledger_verifier", path)
+    if spec is None or spec.loader is None:
+        raise SystemExit("missing independent cone Whitney verifier")
+    verifier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(verifier)
+    receipt = verifier.load()
+    result = verifier.verify(receipt)
+    declarations = {
+        "ConeCochainBridge": (
+            "extendOne_gradient", "extendOne_gauge_covariant",
+            "coneCurl_extendOne", "coneCurl_gauge_invariant",
+            "coneCurl_boundary_trace", "extended_curvature_closed",
+            "extendTwo_curvature", "extendTwo_closed", "extendTwo_radial_unique",
+            "closed_extension_iff_zero_flux", "constant_unit_flux_has_no_closed_extension",
+            "zero_apex_constant_gauge_fails",
+        ),
+        "WhitneyTimeBridge": (
+            "affine_quadratic_polynomial", "magnetic_window_action_defect",
+            "magnetic_defect_divided_difference", "polarized_trapezoid_defect",
+            "polarized_defect_divided_difference", "temporal_hat_mean",
+            "temporal_hat_residual", "ampere_covector_decomposition",
+            "scalar_nonzero_residual_control",
+        ),
+    }
+    return {
+        "id": "cone_whitney_bridge",
+        "statement": (
+            "Exact gauge-covariant cone cochain extension preserves decoded "
+            "boundary fields, Faraday and zero magnetic divergence; closed "
+            "two-form extension exists exactly at zero total boundary flux. "
+            "Whitney interpolation supplies piecewise polynomial fields on a "
+            "declared solid and time slabs. Exact temporal coefficient identities "
+            "and numerical spatial action/residual controls distinguish the "
+            "interpolated action from the counting action; all 68 finite-element "
+            "free-coordinate derivatives are checked for each of two gauge histories"
+        ),
+        "observed_counterpart": (
+            "Mathematical Maxwell cochain and variational identities; no observed data"
+        ),
+        "match": (
+            "exact finite cochain and coefficient theorems; numerical geometric "
+            "action/residual audit; no physical postdiction"
+        ),
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "observed_postdiction": False,
+        "continuum_convergence_established": False,
+        "lean_declarations": {key: list(value) for key, value in declarations.items()},
+        "lean_receipts": _lean_receipt(*declarations, declarations=declarations),
+        "artifact_refs": [
+            "code/electromagnetism/runtime/cone_whitney_bridge_receipt.json",
+            "code/electromagnetism/cone_whitney_bridge.py",
+            "code/electromagnetism/verify_cone_whitney_bridge.py",
+            "code/electromagnetism/test_cone_whitney_bridge.py",
+            "paper/observers_are_all_you_need.tex",
+            "paper/tex_fragments/CONE_WHITNEY_BRIDGE.tex",
+        ],
+        "certificate_scope": receipt["scope"],
+        "numeric_policy": receipt["numeric_policy"],
+        "tetrahedra": result["tetrahedra"],
+        "independently_replayed_gauge_histories": result["gauge_histories"],
+        "independently_checked_field_derivatives_per_history": result[
+            "field_variations_per_history"],
+        "full_volume_stationarity": receipt["controls"]["full_volume_stationarity"],
+        "hypothesis_boundary": (
+            "Supplied Euclidean embedding, apex, nonlocal radial extension, "
+            "Whitney Hodge pairings, unit constitutive coefficients, uniform "
+            "h=1/2 interpolation and the same finite source/clock contract. "
+            "The Lorentz clock action is not a volume field term, and no physical "
+            "clock or SI calibration is selected. Sources are finite-element "
+            "covector impulses with the declared endpoint convention, not "
+            "identified physical charge/current densities. Quadratic identities "
+            "require symmetric pairings; the h-squared interior defect scaling "
+            "requires uniform temporal regularity for a convergence reading, "
+            "and the action has an explicit endpoint defect. Spatial Gram and "
+            "action/residual values are float64 controls, not interval "
+            "certificates. Whitney fields have tangential/normal conformity, "
+            "not global vector continuity; full sourced weak residuals retain "
+            "face jumps and temporal impulses and do not vanish here. Checking "
+            "all finite-element coordinates does not establish arbitrary-test "
+            "continuum stationarity. No refinement family, source-selected "
+            "physical geometry, continuum convergence, measured postdiction, "
+            "new prediction or premise discharge is supplied"
+        ),
+        "paper_ref": (
+            "observers synthesis, Gauge-covariant cone reconstruction and metric/time action defects"
+        ),
+    }
+
+
 def build(
     out_path: Path = DEFAULT_OUT,
     md_path: Path | None = DEFAULT_MD,
@@ -4595,6 +4689,7 @@ def build(
     }
     sections["forced_structure"].append(_seam_maxwell_continuum_row())
     sections["forced_structure"].append(_serial_maxwell_readout_row())
+    sections["forced_structure"].append(_cone_whitney_bridge_row())
     result = {
         "artifact": "oph_postdiction_ledger",
         "generator": "code/particles/scripts/build_postdiction_ledger.py",

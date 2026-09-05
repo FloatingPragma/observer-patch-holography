@@ -3574,23 +3574,23 @@ physical readout of that same operator. The equal-weight stencils on the
 vertex, face, and edge orbits have pairwise distinct rank-six rays, and
 proper-carrier transitivity selects no orbit as the physical hop support.
 
-Classical feedback reads the first refinement layer
-serially. Retain the twelve inherited values \(b_u=x_u\). Pair-average
-endpoint \(u\) and midpoint \(m\), read \(r=(b_u+x_m)/2\), then write
-\((b_u,2r-b_u)\) back to that pair. Induction proves restoration after every
-finite probe word. Both endpoints give \(A_5\)-stable probe support and recover
-all \(42\) coordinates. The passive
-averaged-semigroup history has rank \(29\) under its different access rule.
-Typing inherited and midpoint slots as scalar and seam potentials makes
-decoded fields identical to those in the finite action. A neutral-pair execution advances
-its third potential slice from the first two decoded slices and the charged
-path current. Independent replay checks continuity, Gauss, Amp\`ere and joint
-field/path stationarity. Endpoint-fixed gauge shifts preserve fields and
-action. Exact classical records, writable ports,
-potential typing, initial conditions, sources and time step are hypotheses.
-The counter supplies no physical clock; continuum refinement and laboratory
-identification are unconstructed
-(\path{Lean/Screen/SerialMaxwellReadout.lean}; \cite{ophrepo}).
+Classical feedback reconstructs all \(42\) first-refinement coordinates:
+retain baseline \(b\), measure pair average \(r\), then write
+\((b,2r-b)\). Every finite probe word restores the field. Declared potential
+typing equates decoded and finite-action fields; a neutral-pair execution
+advances from decoded records and current, with independently verified field
+equations and joint field/path stationarity.
+
+These potentials also have a gauge-covariant extension to a supplied
+Euclidean solid of twenty tetrahedra. Whitney interpolation preserves
+curvature and the homogeneous Maxwell identities. Exact spatial and temporal
+action-defect formulas distinguish the reconstructed field from a stationary
+volume solution; the full finite-element source residuals are nonzero.
+Exact classical memory, writable ports, geometry, constitutive
+coefficients, sources and time step are hypotheses. The feedback counter
+supplies no physical clock, and the fixed cone supplies no spatial refinement
+limit or laboratory identification
+(\path{Lean/Screen/ConeCochainBridge.lean}; \cite{ophrepo}).
 
 \begin{proposition}[Primitive twelve-port branch prediction]
 \label{prop:spin-six-prediction}

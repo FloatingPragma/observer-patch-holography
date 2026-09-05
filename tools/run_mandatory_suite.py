@@ -355,6 +355,11 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
          "code/electromagnetism/test_serial_maxwell_readout.py"],
     ),
     (
+        "Execute cone Whitney interpolation, full action derivatives and custody controls",
+        [sys.executable, "-m", "pytest", "-q",
+         "code/electromagnetism/test_cone_whitney_bridge.py"],
+    ),
+    (
         "Execute the discrete Coulomb-Green replay, verifier, and mutation guards",
         [
             sys.executable,

@@ -1898,6 +1898,68 @@
         "observed_counterpart": "Finite Maxwell field and charged-path equations; no measured data",
         "paper_ref": "observers synthesis, Serial feedback readout and finite Maxwell action",
         "statement": "Exact classical baseline/response feedback restores every pair and every finite overlapping probe word. Serial decoding recovers all 42 typed potential coordinates and preserves electric/magnetic fields and the finite neutral-pair action. Decoded initial records and the charged path current advance a third rational slice"
+      },
+      {
+        "artifact_refs": [
+          "code/electromagnetism/runtime/cone_whitney_bridge_receipt.json",
+          "code/electromagnetism/cone_whitney_bridge.py",
+          "code/electromagnetism/verify_cone_whitney_bridge.py",
+          "code/electromagnetism/test_cone_whitney_bridge.py",
+          "paper/observers_are_all_you_need.tex",
+          "paper/tex_fragments/CONE_WHITNEY_BRIDGE.tex"
+        ],
+        "certificate_scope": "EXACT_COCHAIN_INTERPOLATION__NUMERIC_GEOMETRIC_ACTION_DEFECT__NO_CONTINUUM_CLOSURE",
+        "continuum_convergence_established": false,
+        "full_volume_stationarity": false,
+        "hypothesis_boundary": "Supplied Euclidean embedding, apex, nonlocal radial extension, Whitney Hodge pairings, unit constitutive coefficients, uniform h=1/2 interpolation and the same finite source/clock contract. The Lorentz clock action is not a volume field term, and no physical clock or SI calibration is selected. Sources are finite-element covector impulses with the declared endpoint convention, not identified physical charge/current densities. Quadratic identities require symmetric pairings; the h-squared interior defect scaling requires uniform temporal regularity for a convergence reading, and the action has an explicit endpoint defect. Spatial Gram and action/residual values are float64 controls, not interval certificates. Whitney fields have tangential/normal conformity, not global vector continuity; full sourced weak residuals retain face jumps and temporal impulses and do not vanish here. Checking all finite-element coordinates does not establish arbitrary-test continuum stationarity. No refinement family, source-selected physical geometry, continuum convergence, measured postdiction, new prediction or premise discharge is supplied",
+        "id": "cone_whitney_bridge",
+        "independently_checked_field_derivatives_per_history": 68,
+        "independently_replayed_gauge_histories": 2,
+        "lean_declarations": {
+          "ConeCochainBridge": [
+            "extendOne_gradient",
+            "extendOne_gauge_covariant",
+            "coneCurl_extendOne",
+            "coneCurl_gauge_invariant",
+            "coneCurl_boundary_trace",
+            "extended_curvature_closed",
+            "extendTwo_curvature",
+            "extendTwo_closed",
+            "extendTwo_radial_unique",
+            "closed_extension_iff_zero_flux",
+            "constant_unit_flux_has_no_closed_extension",
+            "zero_apex_constant_gauge_fails"
+          ],
+          "WhitneyTimeBridge": [
+            "affine_quadratic_polynomial",
+            "magnetic_window_action_defect",
+            "magnetic_defect_divided_difference",
+            "polarized_trapezoid_defect",
+            "polarized_defect_divided_difference",
+            "temporal_hat_mean",
+            "temporal_hat_residual",
+            "ampere_covector_decomposition",
+            "scalar_nonzero_residual_control"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/ConeCochainBridge.lean",
+          "Lean/Screen/WhitneyTimeBridge.lean"
+        ],
+        "match": "exact finite cochain and coefficient theorems; numerical geometric action/residual audit; no physical postdiction",
+        "numeric_policy": {
+          "comparison_atol": 1e-10,
+          "comparison_rtol": 1e-10,
+          "exact": "rational incidence, extension maps, decoded histories, cochain identities and source pairing",
+          "metric": "float64 analytic barycentric moments; no interval certificate",
+          "reproduction": "numeric comparisons use tolerances; digests authenticate stored bytes, not cross-platform float identity"
+        },
+        "observed_counterpart": "Mathematical Maxwell cochain and variational identities; no observed data",
+        "observed_postdiction": false,
+        "paper_ref": "observers synthesis, Gauge-covariant cone reconstruction and metric/time action defects",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "statement": "Exact gauge-covariant cone cochain extension preserves decoded boundary fields, Faraday and zero magnetic divergence; closed two-form extension exists exactly at zero total boundary flux. Whitney interpolation supplies piecewise polynomial fields on a declared solid and time slabs. Exact temporal coefficient identities and numerical spatial action/residual controls distinguish the interpolated action from the counting action; all 68 finite-element free-coordinate derivatives are checked for each of two gauge histories",
+        "tetrahedra": 20
       }
     ],
     "hadrons": [

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 338,
+  "surface_count": 341,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -86,6 +86,11 @@
     },
     {
       "path": "paper/tex_fragments/COMPACT_N_CLOSURE_PRO5.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CONE_WHITNEY_BRIDGE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -810,6 +815,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/ConeCochainBridge.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/CurlSectorEigenbasis.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -1201,6 +1211,11 @@
     },
     {
       "path": "Lean/Screen/VolumeReadoutBridge.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/WhitneyTimeBridge.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },

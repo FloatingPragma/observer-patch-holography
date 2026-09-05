@@ -41,6 +41,13 @@ OBSERVATION_EVIDENCE = [
     "code/electromagnetism/runtime/seam_maxwell_continuum_receipt.json",
     "Lean/Screen/SerialMaxwellReadout.lean",
     "code/electromagnetism/runtime/serial_maxwell_readout_receipt.json",
+    "paper/observers_are_all_you_need.tex",
+    "Lean/Screen/ConeCochainBridge.lean",
+    "Lean/Screen/WhitneyTimeBridge.lean",
+    "code/electromagnetism/cone_whitney_bridge.py",
+    "code/electromagnetism/verify_cone_whitney_bridge.py",
+    "code/electromagnetism/test_cone_whitney_bridge.py",
+    "code/electromagnetism/runtime/cone_whitney_bridge_receipt.json",
 ]
 
 POSTDICTION_ARTIFACTS = [
