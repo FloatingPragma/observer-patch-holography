@@ -1,0 +1,163 @@
+\paragraph{A joint action with dynamical charged matter.}
+Prescribed currents can be replaced by a dynamical complex scalar on the
+same solid. This requires an additional matter action and coupling;
+neither is selected by the classical readback protocol. Gauge-invariant
+simplicial actions have established precedents
+\cite{ChristiansenHalvorsen2012}. The construction below specifies a
+potential-dependent scalar trial space on this particular volume and retains the
+complete dependence of the scalar interpolation on the gauge potential.
+
+Let \(a\in\mathbb R^{42}\), \(\phi\in\mathbb R^{13}\) and
+\(\psi\in\mathbb C^{13}\) be variable coefficients, and supply a
+real charge \(e\). On a tetrahedron, write \(a_{ij}=-a_{ji}\) for
+the oriented edge coefficient, set \(a_{ii}=0\), and define
+\begin{align*}
+ A_h&=W_1a,& \phi_h&=W_0\phi,& \chi_h&=W_0\chi,\\
+ \theta_i(x)&=\int_{v_i}^{x}A_h
+             =\sum_j a_{ij}\lambda_j(x),&
+ \Psi_a(x)&=\sum_i\lambda_i(x)e^{ie\theta_i(x)}\psi_i.
+\end{align*}
+The paths in \(\theta_i\) are straight segments within the tetrahedron.
+The coefficients \(a_{ij}\) are real unwrapped integrals; compact link
+phases alone do not determine these interpolants.
+Let \(D_t\Psi=\partial_t\Psi+ie\phi_h\Psi\),
+\(D_x\Psi=\nabla\Psi-ieA_h\Psi\), and
+\(E=-\dot a-D\phi\). With supplied \(m^2,g\geq0\), use the
+autonomous action
+\begin{equation}
+ S=\int dt\left\{\frac12E^{\mathsf T}ME-\frac12a^{\mathsf T}Ka
+ +\int_\Omega\left[
+ |D_t\Psi_a|^2-|D_x\Psi_a|^2-m^2|\Psi_a|^2
+                  -\frac g2|\Psi_a|^4\right]dx\right\}.
+ \label{eq:whitney-charged-action}
+\end{equation}
+Every occurrence of \(\Psi_a\), including its time derivative, is
+differentiated when varying \(a\). The field-dependent trial space makes
+this requirement substantive.
+
+\begin{theorem}[Gauge-covariant charged field and joint evolution]
+\label{thm:whitney-charged-matter}
+On the fixed nondegenerate cone, \(\Psi_a\) is a continuous
+\(H^1(\Omega)\) field with nodal values \(\psi_i\). The action
+\eqref{eq:whitney-charged-action} is invariant under every smooth nodal
+gauge transformation
+\[
+ a\longmapsto a+D\chi,\qquad
+ \phi\longmapsto\phi-\dot\chi,\qquad
+ \psi_i\longmapsto e^{ie\chi_i}\psi_i.
+\]
+In temporal gauge, its joint real Euler--Lagrange equations for
+\(a,\operatorname{Re}\psi,\operatorname{Im}\psi\) have a unique
+global classical solution for every finite initial position and velocity.
+If all thirteen Gauss equations hold initially, they hold for all time.
+Nonzero locally charged, globally neutral compatible initial data exist
+whenever \(e\ne0\). These statements concern the full nonlinear
+finite-dimensional action and do not assume a prescribed external current.
+\end{theorem}
+
+\begin{proof}
+Pullback of a Whitney edge form to the straight segment from \(v_i\)
+to \(x\) gives the displayed formula for \(\theta_i\). Since
+\(\sum_j\lambda_j=1\), a gauge transformation changes it by
+\(\chi_h(x)-\chi_i\), and consequently
+\(\Psi_{a+D\chi}[e^{ie\chi}\psi]=e^{ie\chi_h}\Psi_a[\psi]\).
+Both covariant derivatives acquire this same unit phase. The electric and
+magnetic fields are unchanged, proving action invariance.
+At a vertex only its own basis function survives. On a common face only
+its vertices contribute, and the barycentric functions and tangential
+Whitney field have identical traces from either tetrahedron. The scalar
+traces therefore agree. Piecewise smoothness on a finite mesh proves
+\(H^1\) conformity.
+
+Write \(\psi=u+iv\) and define the Euler expressions with the sign
+convention \(\mathcal E_y=\partial L/\partial y-
+d(\partial L/\partial\dot y)/dt\), while
+\(\mathcal E_\phi=\partial L/\partial\phi\).
+Gauge invariance, integrated against an arbitrary compactly supported
+\(\chi(t)\), gives the off-shell identity
+\begin{equation}
+ \dot{\mathcal E}_\phi+D^{\mathsf T}\mathcal E_a
+       +e\bigl(u\mathbin{\odot}\mathcal E_v
+                         -v\mathbin{\odot}\mathcal E_u\bigr)=0.
+ \label{eq:whitney-matter-noether}
+\end{equation}
+Here \(\odot\) means coordinatewise multiplication. In particular,
+\[
+ (\mathcal E_\phi)_i=-(D^{\mathsf T}ME)_i+\rho_i,
+ \qquad
+ \rho_i=2e\int_\Omega\lambda_i
+                   \operatorname{Im}(\overline{\Psi_a}D_t\Psi_a)\,dx.
+\]
+Thus the joint matter and vector equations propagate Gauss's law. Free
+variation of every scalar coefficient requires \(\sum_i\rho_i=0\)
+on this closed-load convention; a nonzero total charge would require a
+different boundary-flux or source prescription. As for the prescribed
+source action, conventional physical charge has the opposite load sign.
+
+To prove existence, fix temporal gauge. Write the scalar interpolation as
+\(W(a)\psi\). Its time derivative is
+\(W(a)\dot\psi+S(a,\psi)\dot a\), with \(S\) the derivative
+of \(W\) in the gauge-potential direction. The quadratic velocity
+Hessian is
+\[
+ \delta\dot a^{\mathsf T}M\delta\dot a
+ +2\|W(a)\delta\dot\psi+S(a,\psi)\delta\dot a\|_{L^2}^2.
+\]
+It is positive definite: vanishing first forces
+\(\delta\dot a=0\), and then nodal interpolation forces
+\(\delta\dot\psi=0\). All coefficients are smooth real functions,
+so the Euler equations form a regular smooth first-order system in
+positions and velocities and have unique local solutions.
+
+The conserved energy is the sum of the positive electric and magnetic
+energies and \(\|\partial_t\Psi_a\|_{L^2}^2+
+\|D_x\Psi_a\|_{L^2}^2+m^2\|\Psi_a\|_{L^2}^2+
+g\|\Psi_a\|_{L^4}^4/2\). It bounds \(|\dot a|\), hence
+keeps \(a\) in a compact set on each finite time interval.
+On that set the positive scalar Gram matrix \(W(a)^*W(a)\) has a
+uniform positive lower bound. Smoothness and linearity in \(\psi\)
+give \(\|S(a,\psi)\dot a\|_{L^2}\leq C|\psi||\dot a|\).
+Consequently \(|\dot\psi|\leq C_T(\sqrt H+|\psi|)\), where
+\(H\) is the initial energy. Gronwall's inequality bounds \(\psi\)
+and \(\dot\psi\) on every finite interval. Smooth Hessian inversion
+then excludes finite-time escape, proving global existence. This argument
+does not assert a time-uniform bound on gauge potentials or require a
+globally smooth quotient by the gauge group.
+
+For an explicit charged initial condition, take \(a_0=0\),
+\(\psi_i(0)=1\), and \(\dot\psi_i(0)=if_i\), where the real
+nonzero nodal function \(f_h=\sum_i f_i\lambda_i\) has zero
+integral. Antisymmetry gives
+\(\sum_{ij}\lambda_i\lambda_j\dot a_{ij}=0\), so the
+dressing contribution to \(\partial_t\Psi_a\) cancels at these
+data for every \(\dot a\). Hence
+\(\rho_i=2e\int\lambda_i f_h\) has zero total and is nonzero
+by positivity of the scalar mass matrix. Solve
+\(D^{\mathsf T}MDz=\rho\) with mean-zero \(z\), and set
+\(E_0=Dz\), \(\dot a_0=-Dz\). This satisfies all Gauss equations
+without a circular source definition.
+On the regular cone an explicit choice is \(f_0=3\) at the centre and
+\(f_i=-1\) at all twelve boundary vertices. If
+\(V_T=(3+\sqrt5)/6\) is the common tetrahedron volume, then
+\(\rho_0=6eV_T\) and \(\rho_i=-eV_T/2\).
+Writing \(\beta=e(2+3\varphi)/10\), take
+\(z_0=12\beta/13\) and \(z_i=-\beta/13\).
+Each radial electric coefficient is \(-\beta\) and every boundary
+electric coefficient is zero. The apex gradient norm
+\(|\nabla\lambda_0|^2=3/(2+3\varphi)\), simplex incidence and
+the exact barycentric moments verify all thirteen Gauss equations.
+\end{proof}
+
+The finite holonomy and interpolation gauge algebra is formalized in
+\path{Lean/Screen/WhitneyChargedMatter.lean}. Conformity, the variational
+identity and global existence are the analytic argument above. In
+particular, the action-derived edge force includes the change of
+\(\Psi_a\) when \(a\) varies. The Whitney projection of the continuum
+scalar current generally omits these terms even when the nodal matter
+equations hold. This finite approximation has dynamical
+matter and a joint stationary action. Its geometry, scalar species, charge,
+mass, interaction coefficient and continuum matter Lagrangian are supplied.
+No executed charged-matter history, source-selected matter content, spatial
+error bound, interacting quantum completion or Standard Model identification
+is asserted. The free radiative Hilbert space above describes a sector;
+it is not a quantization of this full interacting action.

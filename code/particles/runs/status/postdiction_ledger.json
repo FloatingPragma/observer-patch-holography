@@ -1960,6 +1960,119 @@
         "physical_comparison_status": "NOT_EVALUABLE",
         "statement": "Exact gauge-covariant cone cochain extension preserves decoded boundary fields, Faraday and zero magnetic divergence; closed two-form extension exists exactly at zero total boundary flux. Whitney interpolation supplies piecewise polynomial fields on a declared solid and time slabs. Exact temporal coefficient identities and numerical spatial action/residual controls distinguish the interpolated action from the counting action; all 68 finite-element free-coordinate derivatives are checked for each of two gauge histories",
         "tetrahedra": 20
+      },
+      {
+        "arbitrary_test_continuum_stationarity": false,
+        "artifact_refs": [
+          "paper/observers_are_all_you_need.tex",
+          "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex",
+          "code/electromagnetism/runtime/whitney_maxwell_dynamics_receipt.json",
+          "code/electromagnetism/whitney_maxwell_dynamics.py",
+          "code/electromagnetism/verify_whitney_maxwell_dynamics.py",
+          "code/electromagnetism/test_whitney_maxwell_dynamics.py"
+        ],
+        "certificate_scope": "NUMERIC_STATIONARY_FINITE_VOLUME_MAXWELL__EXACT_CLASSICAL_READBACK__EXACT_LOCAL_STABILITY_BOUND",
+        "continuum_convergence_established": false,
+        "finite_element_stationarity": "numerically verified for all 68 free coefficients per gauge history",
+        "hypothesis_boundary": "Supplied Euclidean cone, constitutive metric, h=1/2, changed initial electric field, prescribed impulse source covectors, dense software evolution and exact writable classical ports. Float64 trajectory with 1e-9 comparison tolerances is not an interval trajectory certificate. Only three slices per gauge are instrumented. Finite-element stationarity is not arbitrary-test continuum stationarity; no physical clock, spatial refinement, laboratory evidence or new prediction.",
+        "id": "whitney_maxwell_dynamics",
+        "independent_verifier_result": {
+          "continuation_slabs": 64,
+          "events_per_history": 805,
+          "exact_global_stiffness_bound": 24,
+          "field_variations_per_history": 68,
+          "gauge_histories": 2,
+          "instrumented_slices_per_history": 3,
+          "probe_cycles_per_history": 252
+        },
+        "lean_declarations": {
+          "WhitneyMaxwellDynamics": [
+            "two_slab_action_expansion",
+            "scalar_potential_action_expansion",
+            "temporal_gauge_ampere_iff_recurrence",
+            "recurrence_next_unique",
+            "gauss_residual_preserved",
+            "pairEnergy_work",
+            "modal_solution_bound",
+            "criticalMode_unbounded_difference",
+            "supercritical_unbounded_solution",
+            "two_slab_endpoint_resonance"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/WhitneyMaxwellDynamics.lean"
+        ],
+        "match": "exact finite action/stability theorems and algebraic matrix certificate; numerical trajectory and authenticated classical records; no observed postdiction",
+        "numeric_policy": {
+          "atol": 1e-09,
+          "evolution": "float64 solves and mass matrices; no interval or exact-trajectory certificate",
+          "registers": "exact rational encodings of finite numeric results; exact pair-average restoration",
+          "rtol": 1e-09,
+          "stability": "exact Q(sqrt(5)) LDL certificate, independent of float eigensolvers"
+        },
+        "observed_counterpart": "Mathematical classical/quantum field structures; no observed data",
+        "observed_postdiction": false,
+        "paper_ref": "observers synthesis, whitney maxwell dynamics",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "statement": "Full-metric prism action yields a unique next finite volume potential, preserves the initial Gauss residual under source continuity, and obeys an exact work identity. Positive-mode boundedness has the sharp window 0<h^2 lambda<12; stable initial-value dynamics can have a singular fixed-endpoint problem at h^2 lambda=3. An exact local Q(sqrt5) certificate gives K<24M on the supplied cone. A new Gauss-projected numerical history has two 805-event gauge representatives, all 68 action derivatives verified, exact serial readback restoration and a separately identified 64-slab numerical continuation."
+      },
+      {
+        "artifact_refs": [
+          "paper/observers_are_all_you_need.tex",
+          "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex"
+        ],
+        "continuum_convergence_established": false,
+        "hypothesis_boundary": "Canonical quantization and hbar are imported. Lean assumes a complete positive normal frame; the paper constructs it by the finite spectral theorem for the supplied mesh. Hilbert completion, operator closures and temporal convergence are paper proofs. This is the zero-charge source-free radiative sector, not quantization of the prescribed-charge episode or interacting matter action. sqrt(lambda) and finite-step theta/h are distinct; no uniform operator-norm quantum error, spatial continuum limit, selected Born statistics or physical clock is supplied.",
+        "id": "whitney_radiative_quantum",
+        "lean_declarations": {
+          "WhitneyQuantumBridge": [
+            "reconstruct_surjective",
+            "same_action_normal_modes",
+            "annihilation_creation",
+            "canonical_position_momentum",
+            "same_modes_quantized_energy",
+            "quantumHamiltonian_monomial",
+            "quantumHamiltonian_position",
+            "quantumHamiltonian_momentum"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/WhitneyQuantumBridge.lean"
+        ],
+        "match": "exact conditional algebraic quantum realization; analytic Hilbert/domain and temporal-limit proof in the paper; no observed postdiction",
+        "observed_counterpart": "Mathematical classical/quantum field structures; no observed data",
+        "observed_postdiction": false,
+        "paper_ref": "observers synthesis, whitney radiative quantum",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "statement": "The same geometric mass/stiffness action has a thirty-dimensional homogeneous transverse sector. A complete mass-orthonormal spectral frame pulls its source-free continuous-time action back to ordinary oscillators. Canonical bosonic quantization with supplied positive hbar gives exact polynomial CCR, occupation energies and Heisenberg equations. The paper constructs the factorial-weight Hilbert completion l2(N^30), self-adjoint diagonal Hamiltonian and strongly continuous unitary flow. A separate exact Legendre map identifies the stable prism-step modified oscillator Hamiltonian and a second-order classical temporal limit at fixed bounded spectrum."
+      },
+      {
+        "artifact_refs": [
+          "paper/observers_are_all_you_need.tex",
+          "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex",
+          "code/electromagnetism/test_whitney_charged_matter.py"
+        ],
+        "continuum_convergence_established": false,
+        "hypothesis_boundary": "Supplied scalar species, charge, mass, nonnegative quartic coefficient, Euclidean geometry, time and exact pulled-back scalar-QED Lagrangian. Real unwrapped edge integrals are needed. Differentiate the gauge-dependent scalar basis in all field variations; a naive projected scalar current omits terms. All thirteen scalar variations require total neutrality in the declared boundary convention. No executed charged-matter episode, source-selected matter content, spatial error estimate, interacting quantum completion or Standard Model identification is supplied.",
+        "id": "whitney_charged_matter",
+        "lean_declarations": {
+          "WhitneyChargedMatter": [
+            "pathPhase_gauge",
+            "interpolate_gauge",
+            "interpolate_gauge_norm",
+            "interpolate_vertex",
+            "interpolate_face_trace"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/WhitneyChargedMatter.lean"
+        ],
+        "match": "exact finite interpolation gauge algebra; analytic coupled-action and global-existence proof; no observed postdiction",
+        "observed_counterpart": "Mathematical classical/quantum field structures; no observed data",
+        "observed_postdiction": false,
+        "paper_ref": "observers synthesis, whitney charged matter",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "statement": "Real Whitney edge integrals dress nodal complex scalar fields by straight-segment U(1) phases, giving exact nodal interpolation, gauge covariance and matching face traces. Restriction of a supplied nonnegative-potential scalar-QED action to these fields and the same volume Maxwell variables gives a joint gauge-invariant action. The paper proves its Noether/Gauss identity, positive temporal-gauge velocity Hessian and global finite-dimensional classical evolution, and constructs nonzero locally charged but globally neutral exact initial data."
       }
     ],
     "hadrons": [

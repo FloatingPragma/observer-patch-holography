@@ -9184,6 +9184,142 @@
         "boundary": [],
         "rationale": "The antecedents are the recorded finite potential history and explicitly supplied cone, Green extension, Euclidean Whitney mass metric, uniform time interpolation and impulse source functional. The theorem and numerical certificate establish conditional interpolation and its nonzero action residual; they neither assume nor conclude the physical propagation, event placement, calibration, laboratory comparison or source-selection assertions of the registered physical premises. Those remain excluded downstream conclusions, so no direct premise edge is created or discharged."
       }
+    },
+    {
+      "claim_id": "OPH-WHITNEY-MAXWELL-DYNAMICS",
+      "statement": "On the supplied 13-vertex, 42-edge, 50-face, 20-tetrahedron Whitney cone, the exactly integrated Maxwell prism action with a constant step h > 0 has a unique next-potential update for every declared scalar potential and previous pair. Thirty-one Lean theorems establish finite action variations, the weak Noether identity, Gauss-residual propagation, the work identity and the sharp positive-mode stability condition 0 < h^2 lambda < 12, including critical Jordan growth, zero-mode gauge drift and fixed-endpoint resonance controls. A separate exact Q(sqrt(5)) local LDL certificate assembles to K < 24 M, so h=1/2 gives a positive conserved field energy on source-free intervals. Applying a declared mass-metric Gauss projection creates a new initial condition and volume history; it does not make the inherited counting-action history stationary. Two gauge-related numerical executions each record 805 events and 252 feedback cycles over three decoded slices, with exact writer/value provenance and exact restoration of rational encodings of float64 outputs. Independent spacetime quadrature and differentiation check all 68 free action variations with declared 1e-9 tolerances. A separate 64-slab numerical continuation checks Gauss, evolution, work and source-free energy but has no serial trace beyond the first three slices. Sources, dense projection, constitutive metric, step and classical writable ports are supplied. No exact-real trajectory, dynamical matter stationarity, arbitrary-smooth-test continuum stationarity, physical clock, source selection, spatial convergence or observed postdiction is established.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_full_metric_prism_theorems_and_local_stability_certificate_with_numeric_stationary_readback",
+      "assumptions": [
+        "declared_euclidean_cone_geometry_and_Whitney_metric",
+        "declared_uniform_step_prism_and_impulse_source_functional",
+        "exact_classical_record_feedback_access",
+        "declared_mass_metric_Gauss_projected_volume_initial_data",
+        "declared_numeric_volume_evolution_and_exact_register_encoding"
+      ],
+      "imported_results": [
+        "Whitney_Maxwell_finite_element_action",
+        "discrete_variational_and_Noether_calculus",
+        "positive_definite_linear_solve_and_exact_LDL_certification",
+        "classical_record_assisted_feedback_inversion"
+      ],
+      "oph_specific_delta": "Joins the actual full geometric mass and stiffness matrices to an independently checked stationary volume evolution and a new observer-like software execution with writable ports, readback, retained records and feedback. The exact local algebraic stability bound and explicit change of initial data prevent a numerical eigenvalue or the inherited nonstationary history from being substituted for that result. The variational, finite-element and feedback mathematics is standard; the contribution is the concrete verified composition on this carrier.",
+      "novelty_type": "same_geometric_operator_stationary_dynamics_and_classical_record_integration",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex",
+        "Lean/Screen/WhitneyMaxwellDynamics.lean",
+        "code/electromagnetism/whitney_maxwell_dynamics.py",
+        "code/electromagnetism/verify_whitney_maxwell_dynamics.py",
+        "code/electromagnetism/test_whitney_maxwell_dynamics.py",
+        "code/electromagnetism/runtime/whitney_maxwell_dynamics_receipt.json",
+        "code/electromagnetism/runtime/cone_whitney_bridge_receipt.json"
+      ],
+      "falsifier": "A finite variation, recurrence, Noether, Gauss, work, uniqueness or sharp scalar-control theorem fails; the independently reconstructed Q(sqrt(5)) local factorization or signed assembly does not imply K < 24 M; any of the 68 action derivatives, gauge comparison or continuation residuals exceeds the declared tolerance; replay accepts a forged writer/value, incorrect restoration, altered metric, unprojected initial field or an unsupported claim that the numerical continuation is serially instrumented.",
+      "scope_if_false": "The new full-volume stationary evolution, stability certificate or recorded implementation fails at the affected layer. The original serial history, its explicitly nonstationary cone interpolation, the separately supplied Fourier continuum family and frozen physical predictions retain their distinct hypotheses.",
+      "status": "31_Lean_theorems_and_exact_local_24_bound__numeric_68_variation_stationary_history_and_805_event_readback__uninstrumented_64_slab_tail",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728,
+        737,
+        754
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This implication consumes explicitly supplied finite cone geometry, Whitney pairings, impulse-source covectors, Gauss-projected initial data, a declared time step and classical writable records. Its exact algebraic certificate and numerical evolution do not consume or discharge any registered physical geometry, clock, constitutive, laboratory or source-selection premise; those physical identifications are excluded conclusions."
+      }
+    },
+    {
+      "claim_id": "OPH-WHITNEY-RADIATIVE-QUANTUM",
+      "statement": "For the source-free neutral transverse sector of the same supplied Whitney mass M and stiffness K=C^T M2 C, cone exactness ker K=im D and the finite spectral theorem give a complete positive mass-orthonormal frame of 30 modes. Twenty-four Lean theorems prove the same-action pullback for a supplied complete frame, the full polynomial finite-particle creation/annihilation algebra, canonical position/momentum commutators, occupation energies, quadratic Hamiltonian equality and full-Hamiltonian Heisenberg equations. Canonical bosonic quantization and hbar>0 are imported. The paper's separate analytic proof completes the factorial-weight polynomial domain to l2(N^30), proves the position/momentum closures and the diagonal Hamiltonian with domain sum E_n^2 |psi_n|^2 < infinity self-adjoint, and constructs its strongly continuous unitary group. Reconstructed field operators satisfy the source-free semidiscrete Maxwell equations on the common invariant domain. The positive stable prism step instead has a distinct modified Hamiltonian and phase frequency theta/h. At fixed mesh, bounded positive spectral window and discrete-Legendre-matched canonical initial data, its classical propagator converges to the continuous-time oscillator at order h^2; no uniform operator-norm bound for unbounded quantum generators is asserted. This quantizes the free radiative sector, not the recorded prescribed-charge history or the interacting scalar action. It selects no physical quantum state, Born statistics, hbar, clock, source realization, relativistic local field net or spatial limit.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "same_operator_conditional_canonical_quantization_with_polynomial_Lean_core_and_analytic_Hilbert_completion",
+      "assumptions": [
+        "declared_euclidean_cone_geometry_and_Whitney_metric",
+        "declared_source_free_neutral_transverse_Whitney_sector",
+        "supplied_complete_positive_Whitney_normal_frame",
+        "imported_canonical_bosonic_quantization_and_positive_hbar",
+        "fixed_mesh_temporal_limit_with_Legendre_matched_data"
+      ],
+      "imported_results": [
+        "finite_dimensional_generalized_spectral_theorem",
+        "canonical_bosonic_CCR_and_oscillator_quantization",
+        "factorial_weight_Fock_completion",
+        "analytic_vector_essential_self_adjointness_and_diagonal_operator_theory",
+        "finite_dimensional_symplectic_and_modified_Hamiltonian_calculus"
+      ],
+      "oph_specific_delta": "Binds a genuine infinite-occupation canonical quantum representation to the full geometric volume action through the same complete positive normal modes. It separates kernel-checked polynomial identities from the analytic Hilbert proof and separates continuous-time oscillator frequencies from finite-step prism phases. Finite-element diagonalization, CCR, Fock space and canonical quantization are standard imports, not derived OPH quantum physics.",
+      "novelty_type": "same_Whitney_operator_free_radiative_quantum_representation_with_explicit_quantization_inputs",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex",
+        "Lean/Screen/WhitneyQuantumBridge.lean",
+        "Lean/Screen/ConeCochainBridge.lean",
+        "Lean/Screen/WhitneyMaxwellDynamics.lean"
+      ],
+      "falsifier": "The supplied complete frame fails to exhaust the transverse sector or preserve the mass/stiffness action; a polynomial CCR, occupation energy, quadratic Hamiltonian or Heisenberg identity fails; the factorial normalization, analytic-vector bound, diagonal self-adjoint domain or unitary-group construction is invalid; the prism Legendre map or bounded-window temporal estimate has an incorrect coefficient or missing initial-data hypothesis; a charged history, interacting quantum model, physical Born rule or spatial limit is inferred from the free-sector theorem.",
+      "scope_if_false": "The same-operator free radiative canonical representation or its temporal comparison fails at the affected mathematical interface. The classical finite-volume dynamics, charged-matter variational construction and separately gated physical quantum attachments retain their own hypotheses.",
+      "status": "24_Lean_polynomial_and_complete_frame_theorems__paper_analytic_Fock_and_self_adjoint_Hamiltonian__canonical_quantization_imported",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        737,
+        754
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The antecedents are a declared fixed Whitney geometry, its homogeneous neutral transverse sector, a complete positive spectral frame, and explicitly imported canonical bosonic quantization with a positive Planck parameter. Registered source-produced effects, Born statistics, physical quantum instruments and clock attachments are neither used to construct this standard representation nor inferred from it, so no canonical physical premise edge is consumed or discharged."
+      }
+    },
+    {
+      "claim_id": "OPH-WHITNEY-CHARGED-MATTER",
+      "statement": "On the same fixed nondegenerate 13-vertex, 42-edge Whitney cone, supply a charged complex scalar, real unwrapped edge integrals, charge e, and an autonomous scalar-QED action with m^2,g>=0 and exact spatial integration. The dressed interpolant Psi_a=sum_i lambda_i exp(i e sum_j a_ij lambda_j) psi_i has the nodal values and common-face traces, and transforms by the ordinary pointwise gauge phase. Ten Lean theorems prove the finite edge/phase, interpolation, norm and trace algebra; the paper separately proves H1 conformity and the full nonlinear restricted-action theorem. Every variation differentiates the dependence of the scalar trial space on a and its time derivative. In temporal gauge the full velocity Hessian is positive, and conserved positive energy plus finite-time compactness and Gronwall bounds gives a unique global finite-dimensional classical solution from every finite initial position and velocity. The off-shell Noether identity propagates all initially satisfied Gauss equations. With all thirteen scalar variations free and no boundary/source term, total charge load is zero; for e != 0, explicit nonzero locally charged neutral initial data satisfy the mass-metric Gauss solve. The coupled canonical edge momentum includes the dressing contribution and need not equal minus M E. This is genuine joint stationarity of the supplied finite field/matter action, with no prescribed external current. It is not an executed matter trajectory, stationarity against arbitrary continuum tests, a selected scalar species or coupling, an interacting quantum completion, a spatial convergence theorem, or a Standard Model identification.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "finite_gauge_interpolation_Lean_core_and_conditional_global_nonlinear_charged_action_theorem",
+      "assumptions": [
+        "declared_euclidean_cone_geometry_and_Whitney_metric",
+        "supplied_scalar_QED_action_and_real_unwrapped_connection",
+        "exact_dressed_scalar_action_with_full_shape_derivatives",
+        "autonomous_positive_energy_temporal_gauge_and_neutral_load_boundary",
+        "finite_Gauss_compatible_charged_initial_data"
+      ],
+      "imported_results": [
+        "gauge_covariant_simplicial_and_connection_dependent_finite_elements",
+        "ordinary_scalar_QED_Lagrangian_and_covariant_derivatives",
+        "variational_Noether_identity",
+        "smooth_finite_dimensional_ODE_existence_and_Gronwall_continuation"
+      ],
+      "oph_specific_delta": "Adds a dynamical charged scalar to the same declared geometric Maxwell family, retaining the gauge-potential dependence of its interpolating functions and deriving the resulting full joint equations, constraint propagation and explicit charged-neutral data. The gauge-covariant finite-element method, scalar-QED action and finite-dimensional existence arguments are standard mathematics; the contribution is their explicit consistent integration on this cone, not source-selected matter or novel fundamental quantum physics.",
+      "novelty_type": "same_geometry_dynamical_charged_scalar_action_with_exact_gauge_core_and_global_finite_evolution",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex",
+        "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex",
+        "Lean/Screen/WhitneyChargedMatter.lean",
+        "Lean/Screen/ConeCochainBridge.lean",
+        "code/electromagnetism/test_whitney_charged_matter.py"
+      ],
+      "falsifier": "The finite phase or face-trace law fails; the dressed field is not H1 conforming; a full shape derivative is omitted from the coupled action; the kinetic Hessian is singular for finite data under the stated assumptions; the Noether or Gauss identity has the wrong load sign; finite-time escape occurs despite the stated positive-energy bounds; or the explicit locally charged neutral data fail a Gauss equation. Treating compact link phases alone as the real connection, the vacuum edge momentum as the coupled momentum, or the free Fock sector as its interacting quantization also violates the stated scope.",
+      "scope_if_false": "The dressed charged-scalar finite-family theorem or its particular initial-data construction fails. The classical prescribed-current volume histories, exact cone cochain extension and separately constructed free radiative Hilbert space remain distinct results. No empirical or Standard Model conclusion has been drawn.",
+      "status": "10_Lean_gauge_interpolation_theorems__paper_global_joint_scalar_Maxwell_ODE_Noether_and_explicit_neutral_charged_data__physical_and_interacting_quantum_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728,
+        754
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This theorem begins with a supplied complex scalar, real charge, nonnegative mass-squared and self-coupling, real unwrapped Whitney connection, exact integrated scalar-QED Lagrangian and closed-load boundary convention. Its dynamical current and Gauss propagation follow within that declared finite mathematical model. Registered physical matter-selection, Standard Model, charge-normalization, spacetime and interacting-quantum premises are not antecedents or discharged consequences of this construction."
+      }
     }
   ]
 }

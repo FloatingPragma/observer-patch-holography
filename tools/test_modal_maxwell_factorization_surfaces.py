@@ -48,6 +48,15 @@ OBSERVATION_EVIDENCE = [
     "code/electromagnetism/verify_cone_whitney_bridge.py",
     "code/electromagnetism/test_cone_whitney_bridge.py",
     "code/electromagnetism/runtime/cone_whitney_bridge_receipt.json",
+    "Lean/Screen/WhitneyMaxwellDynamics.lean",
+    "Lean/Screen/WhitneyQuantumBridge.lean",
+    "Lean/Screen/WhitneyChargedMatter.lean",
+    "code/electromagnetism/runtime/whitney_maxwell_dynamics_receipt.json",
+    "code/electromagnetism/verify_whitney_maxwell_dynamics.py",
+    "code/electromagnetism/test_whitney_maxwell_dynamics.py",
+    "code/electromagnetism/test_whitney_charged_matter.py",
+    "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex",
+    "paper/tex_fragments/WHITNEY_CHARGED_MATTER.tex",
 ]
 
 POSTDICTION_ARTIFACTS = [

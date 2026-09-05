@@ -82,6 +82,9 @@ LEAN_RECEIPTS = {
     "SerialMaxwellReadout": LEAN_SCREEN / "SerialMaxwellReadout.lean",
     "ConeCochainBridge": LEAN_SCREEN / "ConeCochainBridge.lean",
     "WhitneyTimeBridge": LEAN_SCREEN / "WhitneyTimeBridge.lean",
+    "WhitneyMaxwellDynamics": LEAN_SCREEN / "WhitneyMaxwellDynamics.lean",
+    "WhitneyQuantumBridge": LEAN_SCREEN / "WhitneyQuantumBridge.lean",
+    "WhitneyChargedMatter": LEAN_SCREEN / "WhitneyChargedMatter.lean",
     "A2HolonomyBridge": LEAN_SCREEN / "A2HolonomyBridge.lean",
     "A5OPH": LEAN_SCREEN / "A5OPH.lean",
     "A5CharacterField": LEAN_SCREEN / "A5CharacterField.lean",
@@ -4623,6 +4626,69 @@ def _cone_whitney_bridge_row() -> dict[str, Any]:
     }
 
 
+def _whitney_dynamics_rows() -> list[dict[str, Any]]:
+    """Same-geometry mathematical constructions, never observed postdictions."""
+    path = CODE / "electromagnetism" / "verify_whitney_maxwell_dynamics.py"
+    spec = importlib.util.spec_from_file_location("whitney_dynamics_ledger_verifier", path)
+    if spec is None or spec.loader is None:
+        raise SystemExit("missing independent Whitney dynamics verifier")
+    verifier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(verifier)
+    receipt = verifier.load()
+    verified = verifier.verify(receipt)
+    specs = [
+        ("whitney_maxwell_dynamics", "WhitneyMaxwellDynamics", (
+            "two_slab_action_expansion", "scalar_potential_action_expansion",
+            "temporal_gauge_ampere_iff_recurrence", "recurrence_next_unique",
+            "gauss_residual_preserved", "pairEnergy_work", "modal_solution_bound",
+            "criticalMode_unbounded_difference", "supercritical_unbounded_solution",
+            "two_slab_endpoint_resonance"),
+         "Full-metric prism action yields a unique next finite volume potential, preserves the initial Gauss residual under source continuity, and obeys an exact work identity. Positive-mode boundedness has the sharp window 0<h^2 lambda<12; stable initial-value dynamics can have a singular fixed-endpoint problem at h^2 lambda=3. An exact local Q(sqrt5) certificate gives K<24M on the supplied cone. A new Gauss-projected numerical history has two 805-event gauge representatives, all 68 action derivatives verified, exact serial readback restoration and a separately identified 64-slab numerical continuation.",
+         "exact finite action/stability theorems and algebraic matrix certificate; numerical trajectory and authenticated classical records; no observed postdiction",
+         "Supplied Euclidean cone, constitutive metric, h=1/2, changed initial electric field, prescribed impulse source covectors, dense software evolution and exact writable classical ports. Float64 trajectory with 1e-9 comparison tolerances is not an interval trajectory certificate. Only three slices per gauge are instrumented. Finite-element stationarity is not arbitrary-test continuum stationarity; no physical clock, spatial refinement, laboratory evidence or new prediction.",
+         "WHITNEY_MAXWELL_DYNAMICS.tex"),
+        ("whitney_radiative_quantum", "WhitneyQuantumBridge", (
+            "reconstruct_surjective", "same_action_normal_modes", "annihilation_creation",
+            "canonical_position_momentum", "same_modes_quantized_energy",
+            "quantumHamiltonian_monomial", "quantumHamiltonian_position", "quantumHamiltonian_momentum"),
+         "The same geometric mass/stiffness action has a thirty-dimensional homogeneous transverse sector. A complete mass-orthonormal spectral frame pulls its source-free continuous-time action back to ordinary oscillators. Canonical bosonic quantization with supplied positive hbar gives exact polynomial CCR, occupation energies and Heisenberg equations. The paper constructs the factorial-weight Hilbert completion l2(N^30), self-adjoint diagonal Hamiltonian and strongly continuous unitary flow. A separate exact Legendre map identifies the stable prism-step modified oscillator Hamiltonian and a second-order classical temporal limit at fixed bounded spectrum.",
+         "exact conditional algebraic quantum realization; analytic Hilbert/domain and temporal-limit proof in the paper; no observed postdiction",
+         "Canonical quantization and hbar are imported. Lean assumes a complete positive normal frame; the paper constructs it by the finite spectral theorem for the supplied mesh. Hilbert completion, operator closures and temporal convergence are paper proofs. This is the zero-charge source-free radiative sector, not quantization of the prescribed-charge episode or interacting matter action. sqrt(lambda) and finite-step theta/h are distinct; no uniform operator-norm quantum error, spatial continuum limit, selected Born statistics or physical clock is supplied.",
+         "WHITNEY_MAXWELL_DYNAMICS.tex"),
+        ("whitney_charged_matter", "WhitneyChargedMatter", (
+            "pathPhase_gauge", "interpolate_gauge", "interpolate_gauge_norm",
+            "interpolate_vertex", "interpolate_face_trace"),
+         "Real Whitney edge integrals dress nodal complex scalar fields by straight-segment U(1) phases, giving exact nodal interpolation, gauge covariance and matching face traces. Restriction of a supplied nonnegative-potential scalar-QED action to these fields and the same volume Maxwell variables gives a joint gauge-invariant action. The paper proves its Noether/Gauss identity, positive temporal-gauge velocity Hessian and global finite-dimensional classical evolution, and constructs nonzero locally charged but globally neutral exact initial data.",
+         "exact finite interpolation gauge algebra; analytic coupled-action and global-existence proof; no observed postdiction",
+         "Supplied scalar species, charge, mass, nonnegative quartic coefficient, Euclidean geometry, time and exact pulled-back scalar-QED Lagrangian. Real unwrapped edge integrals are needed. Differentiate the gauge-dependent scalar basis in all field variations; a naive projected scalar current omits terms. All thirteen scalar variations require total neutrality in the declared boundary convention. No executed charged-matter episode, source-selected matter content, spatial error estimate, interacting quantum completion or Standard Model identification is supplied.",
+         "WHITNEY_CHARGED_MATTER.tex"),
+    ]
+    rows = []
+    for name, module, declarations, statement, match, boundary, fragment in specs:
+        row = {"id": name, "statement": statement,
+            "observed_counterpart": "Mathematical classical/quantum field structures; no observed data",
+            "match": match, "physical_comparison_status": "NOT_EVALUABLE",
+            "observed_postdiction": False, "continuum_convergence_established": False,
+            "lean_declarations": {module: list(declarations)},
+            "lean_receipts": _lean_receipt(module, declarations={module: declarations}),
+            "artifact_refs": ["paper/observers_are_all_you_need.tex", "paper/tex_fragments/"+fragment],
+            "hypothesis_boundary": boundary,
+            "paper_ref": "observers synthesis, " + name.replace("_", " ")}
+        if name == "whitney_maxwell_dynamics":
+            row.update({"certificate_scope": receipt["scope"], "numeric_policy": receipt["numeric_policy"],
+                "independent_verifier_result": {key: value for key, value in verified.items()
+                    if not key.endswith("_max_abs")},
+                "finite_element_stationarity": "numerically verified for all 68 free coefficients per gauge history",
+                "arbitrary_test_continuum_stationarity": False})
+            row["artifact_refs"] += ["code/electromagnetism/"+x for x in (
+                "runtime/whitney_maxwell_dynamics_receipt.json", "whitney_maxwell_dynamics.py",
+                "verify_whitney_maxwell_dynamics.py", "test_whitney_maxwell_dynamics.py")]
+        if name == "whitney_charged_matter":
+            row["artifact_refs"].append("code/electromagnetism/test_whitney_charged_matter.py")
+        rows.append(row)
+    return rows
+
+
 def build(
     out_path: Path = DEFAULT_OUT,
     md_path: Path | None = DEFAULT_MD,
@@ -4690,6 +4756,7 @@ def build(
     sections["forced_structure"].append(_seam_maxwell_continuum_row())
     sections["forced_structure"].append(_serial_maxwell_readout_row())
     sections["forced_structure"].append(_cone_whitney_bridge_row())
+    sections["forced_structure"].extend(_whitney_dynamics_rows())
     result = {
         "artifact": "oph_postdiction_ledger",
         "generator": "code/particles/scripts/build_postdiction_ledger.py",

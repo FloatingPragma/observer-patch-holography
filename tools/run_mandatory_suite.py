@@ -360,6 +360,12 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
          "code/electromagnetism/test_cone_whitney_bridge.py"],
     ),
     (
+        "Execute stationary Whitney volume, exact stability, readback and charged-data controls",
+        [sys.executable, "-m", "pytest", "-q",
+         "code/electromagnetism/test_whitney_maxwell_dynamics.py",
+         "code/electromagnetism/test_whitney_charged_matter.py"],
+    ),
+    (
         "Execute the discrete Coulomb-Green replay, verifier, and mutation guards",
         [
             sys.executable,

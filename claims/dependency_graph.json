@@ -214,7 +214,10 @@
   "OPH-EM-CURL-SECTOR-EIGENBASIS",
   "OPH-SEAM-MAXWELL-CONTINUUM",
   "OPH-SERIAL-MAXWELL-READOUT",
-  "OPH-CONE-WHITNEY-BRIDGE"
+  "OPH-CONE-WHITNEY-BRIDGE",
+  "OPH-WHITNEY-MAXWELL-DYNAMICS",
+  "OPH-WHITNEY-RADIATIVE-QUANTUM",
+  "OPH-WHITNEY-CHARGED-MATTER"
  ],
  "edges": [
   {
@@ -1916,6 +1919,31 @@
    "from": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
    "to": "OPH-CONE-WHITNEY-BRIDGE",
    "role": "Supplies the exact graph Green matrix, mean-zero identity and boundary/coboundary adjunction directly used to derive the radial potential and apex gauge correction."
+  },
+  {
+   "from": "OPH-CONE-WHITNEY-BRIDGE",
+   "to": "OPH-WHITNEY-MAXWELL-DYNAMICS",
+   "role": "Supplies the actual cone incidence, full geometric Whitney mass matrices, exact time-prism action and inherited source/initial records; the new Gauss projection and volume recurrence replace the initial electric field and do not inherit stationarity from the older history."
+  },
+  {
+   "from": "OPH-CONE-WHITNEY-BRIDGE",
+   "to": "OPH-WHITNEY-RADIATIVE-QUANTUM",
+   "role": "Supplies the same finite cone cochain complex and geometric mass/stiffness pair whose complete homogeneous transverse normal modes enter the conditional canonical quantum representation; no physical quantum attachment is inherited."
+  },
+  {
+   "from": "OPH-WHITNEY-MAXWELL-DYNAMICS",
+   "to": "OPH-WHITNEY-RADIATIVE-QUANTUM",
+   "role": "Supplies the exact full-metric prism recurrence and positive-mode stability window used in the distinct modified-Hamiltonian and fixed-mesh temporal comparison; the numerical prescribed-charge execution is not quantized by the free-sector theorem."
+  },
+  {
+   "from": "OPH-CONE-WHITNEY-BRIDGE",
+   "to": "OPH-WHITNEY-CHARGED-MATTER",
+   "role": "Supplies the same fixed nondegenerate tetrahedral geometry, Whitney fields and mass/stiffness forms to which the independently supplied dressed scalar-QED action is attached; no matter content or coupling is inherited."
+  },
+  {
+   "from": "OPH-WHITNEY-MAXWELL-DYNAMICS",
+   "to": "OPH-WHITNEY-CHARGED-MATTER",
+   "role": "Supplies the full geometric Maxwell action and connected mass-metric Gauss solve used by the explicit neutral charged initial data; the new scalar dynamics does not consume the prescribed-current numerical trajectory."
   }
  ]
 }

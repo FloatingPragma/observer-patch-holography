@@ -1,0 +1,292 @@
+\paragraph{Stationary evolution in the full volume.}
+The preceding interpolation need not be stationary. A different, explicitly
+declared initial-value problem uses every volume edge as an independent
+coordinate. In this paragraph write \(D=\widetilde D\),
+\(C=\widetilde C\), \(M=M_1\), \(K=C^{\mathsf T}M_2C\) and
+\(F=M+h^2K/6\). These are the geometric matrices above, not counting
+pairings. Since \(M>0\), \(K\geq0\) and \(CD=0\), one has
+\(F>0\) and \(KD=0\). Sources have the same covector and temporal
+impulse interpretation as before.
+
+\begin{theorem}[Full-volume prism evolution and constraint preservation]
+\label{thm:whitney-volume-dynamics}
+For \(h>0\), the interior vector-potential equations of the exactly
+integrated prism action are equivalent to
+\begin{equation}
+ F A_{n+1}=\left(2M-\frac{2h^2}{3}K\right)A_n-F A_{n-1}
+ +h^2J_{n-1}-hMD(\phi_n-\phi_{n-1}).
+ \label{eq:whitney-prism-recurrence}
+\end{equation}
+They determine a unique next vector potential for every supplied scalar
+potential and pair of previous vector potentials. With
+\(E_n=-(A_{n+1}-A_n)/h-D\phi_n\), the Gauss residual
+\(g_n=D^{\mathsf T}ME_n-\rho_n\) satisfies
+\[
+ g_n-g_{n-1}=-hD^{\mathsf T}J_{n-1}-(\rho_n-\rho_{n-1}).
+\]
+Thus conserved sources propagate the initial constraint, including any
+initial error. For neutral \(\rho_0\), a given initial electric field
+\(E_{\rm old}\) can instead be replaced by
+\begin{equation}
+ E_0=E_{\rm old}+Dz,\qquad
+ z=(D^{\mathsf T}MD+\Pi_{13})^{-1}
+            (\rho_0-D^{\mathsf T}ME_{\rm old}).
+ \label{eq:whitney-gauss-projection}
+\end{equation}
+This is the minimum \(M\)-norm correction satisfying Gauss's law. It
+preserves the curl of the initial electric field and defines a new initial
+condition.
+\end{theorem}
+
+\begin{proof}
+Substitute the definitions of \(E_n\) and \(B_n=CA_n\) in the full
+action derivatives above and collect the next-potential coefficient.
+Positive definiteness of \(F\) proves existence and uniqueness in the
+finite-dimensional edge space. Applying \(D^{\mathsf T}\) to the vector
+equation removes every magnetic term and gives the displayed residual
+identity. The connected cone has
+\(\ker D=\operatorname{span}\{\mathbf1\}\), so
+\(D^{\mathsf T}MD\) is invertible on mean-zero vertex vectors.
+Neutrality places the right-hand side of
+\eqref{eq:whitney-gauss-projection} in that subspace. Any competing
+correction differs from \(Dz\) by \(w\) with
+\(D^{\mathsf T}Mw=0\); hence \((Dz)^{\mathsf T}Mw=0\).
+Pythagoras proves minimality. Finally, \(CDz=0\).
+\end{proof}
+
+\begin{theorem}[Work identity and sharp positive-mode stability]
+\label{thm:whitney-prism-stability}
+Let \(\overline B_n=(B_n+B_{n+1})/2\). Along the full recurrence,
+\begin{align*}
+ H_n&=\frac12E_n^{\mathsf T}\left(M-\frac{h^2}{12}K\right)E_n
+             +\frac12\overline B_n^{\mathsf T}M_2\overline B_n,\\
+ H_n-H_{n-1}&=-\frac h2 J_{n-1}^{\mathsf T}(E_n+E_{n-1}).
+\end{align*}
+For a positive generalized mode \(Kv=\lambda Mv\), all source-free
+modal solutions are bounded exactly when \(0<h^2\lambda<12\).
+At \(h^2\lambda=12\), the double characteristic root \(-1\) admits
+linearly growing alternating solutions. Above twelve an exponentially
+growing solution exists. Source-free zero modes have constant electric field and can
+have linearly drifting gauge potentials.
+\end{theorem}
+
+\begin{proof}
+The recurrence also reads
+\(F(E_n-E_{n-1})=hKA_n-hJ_{n-1}\); here \(KD=0\)
+removes the scalar-potential terms. Faraday's identity is
+\(B_{n+1}-B_n=-hCE_n\). Polarize the two quadratic terms, use these
+identities, and cancel the magnetic cross terms. Equivalently,
+\(H_n=E_n^{\mathsf T}FE_n/2+B_n^{\mathsf T}M_2B_{n+1}/2\),
+which makes the telescoping cancellation immediate. This proves the work
+law in every gauge.
+
+For \(z=h^2\lambda\), the scalar characteristic equation is
+\[
+ r^2-2a_zr+1=0,\qquad a_z=\frac{1-z/3}{1+z/6}.
+\]
+For positive \(z\), the strict inequality \(|a_z|<1\) holds exactly
+on \(z<12\). Its two distinct unit-circle roots give bounded solutions.
+At twelve, \((-1)^{n+1}n\) is a solution and its electric difference is
+unbounded. Above twelve, the negative real reciprocal roots include one
+with modulus greater than one. In temporal gauge the zero-mode recurrence
+is a second difference, giving affine potentials. These facts do not bound gauge
+potentials by field energy.
+\end{proof}
+
+The finite action expansions, weak Noether identity, work law, uniqueness
+and sharp scalar alternatives are formalized in
+\path{Lean/Screen/WhitneyMaxwellDynamics.lean}. Stable initial-value
+evolution does not imply a nonsingular fixed-endpoint boundary problem:
+for two slabs and one mode with \(h^2\lambda=3\), zero endpoint
+potentials leave the interior potential arbitrary when its source is zero,
+and are incompatible with a nonzero interior source. The initial-value
+coefficient \(1+h^2\lambda/6\) remains positive there.
+
+\paragraph{An exact bound for the supplied cone.}
+Every tetrahedron has three apex rays with Gram matrix
+\(2I_3+\varphi\mathbf1\mathbf1^{\mathsf T}\).
+Divide each local Whitney mass and curl-energy matrix by its positive
+tetrahedron volume. Exact arithmetic in \(\mathbb Q(\sqrt5)\) gives an
+\(LDL^{\mathsf T}\) factorization of \(24M_T-K_T\) with strictly
+positive diagonal. An independent verifier reconstructs the barycentric
+gradients from the supplied vertex coordinates, checks the matrix identity
+and encloses \(\sqrt5\) between rational bounds to certify each sign.
+The twenty signed local-to-global edge maps cover every global edge, so
+assembly proves \(K<24M\), without a floating-point eigenvalue bound.
+At \(h=1/2\), therefore,
+\[
+ M-h^2K/12>M/2,\qquad
+ E_n^{\mathsf T}ME_n\leq4H_n,\qquad
+ B_n^{\mathsf T}M_2B_n\leq16H_n
+\]
+on a source-free interval. The magnetic estimate also holds at the other
+endpoint of each slab: use
+\(B_n=\overline B_n+hCE_n/2\) and
+\(h^2E_n^{\mathsf T}KE_n\leq6E_n^{\mathsf T}ME_n\).
+The factorization is an exact algebraic certificate; the trajectory below
+is a separate numerical calculation.
+
+\paragraph{A recorded stationary volume history.}
+Retain the inherited initial vector potential and prescribed neutral source
+covectors, apply \eqref{eq:whitney-gauss-projection}, and use
+\eqref{eq:whitney-prism-recurrence}. The correction changes the initial
+electric field by approximately \(0.71279026\) in \(M\)-norm.
+Consequently this history is distinct from the earlier counting-action
+history and its cone interpolation. Each of three slices occupies thirteen
+scalar and forty-two edge registers. For each edge, read both endpoint
+pair averages, retain scalar baselines, and restore the registers by
+\((b,2r-b)\). The resulting bounded observer-like software patch has
+writable ports, readback, records, feedback and a public evidence bundle.
+Its \(805\) recorded events include \(252\) feedback cycles. Every
+read names its last writer and exact value; the volume advance consumes
+the decoded registers and source covectors. The dense metric projection
+and evolution rule are supplied software operations, not consequences of
+pair averaging or local causal ancestry.
+
+The two endpoint-fixed gauge representatives have field-plus-source action
+approximately \(-1.14785515542\). Independent spacetime quadrature and
+complex-step differentiation verify all \(42+2\cdot13=68\) free action
+derivatives, including radial edges and the apex. Their absolute residuals
+are below \(10^{-12}\). The metric evolution uses double precision and
+declared \(10^{-9}\) comparison tolerances; register values are exact
+rational encodings of the numerical outputs, and feedback restoration is
+exact for those encodings. No interval or exact-real trajectory certificate
+is asserted.
+
+A separate \(64\)-slab numerical continuation starts from the decoded
+temporal-gauge data. Its maximum Gauss, vector-equation and work residuals
+are below \(10^{-12}\), as is the source-free energy drift. Its departure
+from the fixed radial extension reaches approximately \(0.45218\),
+showing that the volume recurrence exercises independent radial degrees
+of freedom. Only the first three slices have the serial execution trace.
+The remaining continuation is a numerical field calculation.
+Prescribed currents are not dynamical charged matter. Stationarity against
+all finite-element coordinates also does not imply stationarity against
+arbitrary smooth continuum tests. Spatial refinement, physical clock and
+metric selection, and laboratory identification require further input.
+
+\paragraph{The Hilbert space of the same radiative modes.}
+Consider the source-free neutral sector of this same geometric action,
+in continuous time and temporal gauge, with the spatial mesh fixed. The constraint is
+\(D^{\mathsf T}M\dot A=0\). A time-independent gauge transformation
+removes the constant longitudinal potential, giving the transverse space
+\(V_\perp=\ker(D^{\mathsf T}M)\). The cone is contractible:
+its explicit curl blocks imply \(\ker C=\operatorname{im}D\),
+of dimension twelve. Thus \(V_\perp\) has dimension thirty and
+\(K\) is positive definite there. The finite-dimensional spectral theorem
+gives a complete real frame \(v_1,\ldots,v_{30}\) with
+\[
+ v_i^{\mathsf T}Mv_j=\delta_{ij},\qquad
+ Kv_i=\omega_i^2Mv_i,\qquad \omega_i>0.
+\]
+For \(A=\sum_i q_i v_i\), the exact spatially semidiscrete action is
+\[
+ S_0=\frac12\int\left(\dot A^{\mathsf T}M\dot A-A^{\mathsf T}KA\right)dt
+    =\frac12\int\sum_i(\dot q_i^2-\omega_i^2q_i^2)\,dt.
+\]
+The spatial edge-element action is standard \cite{HeTeixeira2005}, as are
+the finite normal-mode theorem and canonical field quantization. The
+attachment here is to these geometric matrices.
+
+\begin{theorem}[Canonical quantum realization of the volume radiative sector]
+\label{thm:whitney-fock-bridge}
+Supply canonical bosonic quantization and \(\hbar>0\). The preceding
+sector has Hilbert space \(\mathcal H=\ell^2(\mathbb N^{30})\).
+On its finite-occupation domain, let
+\begin{align*}
+ a_i|n\rangle&=\sqrt{n_i}\,|n-e_i\rangle,&
+ a_i^\dagger|n\rangle&=\sqrt{n_i+1}\,|n+e_i\rangle,\\
+ \widehat q_i&=\sqrt{\frac{\hbar}{2\omega_i}}(a_i+a_i^\dagger),&
+ \widehat p_i&=i\sqrt{\frac{\hbar\omega_i}{2}}(a_i^\dagger-a_i).
+\end{align*}
+Then \([\widehat q_i,\widehat p_j]=i\hbar\delta_{ij}I\), and
+\[
+ \widehat H=\frac12\sum_i(\widehat p_i^2+\omega_i^2\widehat q_i^2),
+ \qquad E_n=\hbar\sum_i\omega_i(n_i+1/2).
+\]
+The diagonal Hamiltonian on
+\(\mathcal D(\widehat H)=\{\psi:\sum_n E_n^2|\psi_n|^2<\infty\}\)
+is self-adjoint and generates the strongly continuous unitary group
+\((U_t\psi)_n=e^{-itE_n/\hbar}\psi_n\).
+The Heisenberg equations are
+\(\dot{\widehat q}_i=\widehat p_i\) and
+\(\dot{\widehat p}_i=-\omega_i^2\widehat q_i\).
+Consequently \(\widehat A=\sum_i v_i\widehat q_i\),
+\(\widehat E=-\sum_i v_i\widehat p_i\) and
+\(\widehat B=C\widehat A\) use the same classical mode shapes and
+satisfy the source-free semidiscrete Maxwell equations on the common
+invariant domain.
+\end{theorem}
+
+\begin{proof}
+Start with polynomials in thirty complex variables. Give monomials the
+inner product \(\langle X^n,X^m\rangle=n!\delta_{nm}\),
+where \(n!=\prod_i n_i!\). Multiplication by \(X_i\) and
+differentiation by \(X_i\) are adjoint on this domain and satisfy
+\([a_i,a_j^\dagger]=\delta_{ij}I\). Normalizing monomials gives the
+displayed orthonormal occupation basis and its \(\ell^2\) completion.
+The quadratic Hamiltonian and commutators follow by expansion. Finite
+occupation vectors are analytic for each position and momentum operator.
+If \(N\) bounds a vector's occupation support, its \(k\)-th iterate
+has norm at most \(C_\psi C^k\sqrt{(N+k)!/N!}\), with fixed
+constants \(C_\psi,C\). This makes the analytic-vector series converge
+for sufficiently small argument. Thus these symmetric operators have
+unique self-adjoint closures by the analytic-vector theorem
+\cite{Nelson1959}.
+
+The adjoint of the real diagonal operator has exactly the stated weighted
+square-summability domain, proving self-adjointness of \(\widehat H\).
+Truncation in the occupation basis proves that finite-support vectors are
+a core. The same finite-tail argument proves strong continuity of
+\(U_t\). Finally
+\([\widehat H,\widehat q_i]=-i\hbar\widehat p_i\) and
+\([\widehat H,\widehat p_i]=i\hbar\omega_i^2\widehat q_i\)
+give the equations, and the complete spectral frame pulls them back to
+the actual mass and stiffness forms.
+\end{proof}
+
+\path{Lean/Screen/WhitneyQuantumBridge.lean} formalizes the complete
+normal-frame action pullback, polynomial commutation relations, occupation
+energies and Heisenberg identities. Its frame is supplied; existence here
+uses the finite spectral argument above. The Hilbert completion and
+self-adjoint-domain argument are the analytic proof just given, not Lean
+results. This is canonical quantization of the free radiative sector.
+The recorded history with nonzero prescribed charge additionally needs an
+affine longitudinal sector and source coupling. Classical readback does
+not select a quantum state, Born statistics, \(\hbar\) or a physical
+clock, and the finite mesh supplies no relativistic quantum field net.
+
+\paragraph{A controlled temporal limit.}
+The finite-step prism dynamics and the continuous-time oscillator have
+different frequencies. For one mode, put \(z=h^2\lambda\),
+\(f=1+z/6\) and choose \(0<z<12\). The discrete Legendre momenta
+give the exact symplectic map
+\[
+ \begin{pmatrix}q'\\p'\end{pmatrix}
+ =\frac1f\begin{pmatrix}
+ 1-z/3&h\\-h\lambda(1-z/12)&1-z/3
+ \end{pmatrix}\begin{pmatrix}q\\p\end{pmatrix}.
+\]
+Define \(\theta\in(0,\pi)\) by
+\(\cos\theta=(1-z/3)/f\). Since
+\(\sin^2\theta=z(1-z/12)/f^2\), this is the time-\(h\)
+flow of the positive modified Hamiltonian
+\[
+ H_h=\frac{\theta}{2f\sin\theta}
+        \left[p^2+\lambda(1-z/12)q^2\right].
+\]
+On any fixed bounded positive spectral window,
+\(\theta/h=\sqrt\lambda+O(h^2)\) and the quadratic coefficients
+of \(H_h-H_0\) are \(O(h^2)\), uniformly as \(h\to0\).
+On bounded time intervals the corresponding classical propagators
+therefore converge at order two for bounded canonical initial data.
+The initial pair of potentials must be obtained from the discrete
+Legendre map for those data; an arbitrary first-order initial displacement
+does not provide the same order claim. This is a finite-dimensional
+temporal convergence argument with the spatial mesh fixed.
+Canonical quantization of \(H_h\) supplies its own unitary oscillator
+flow, with frequency \(\theta/h\); its continuous Hamiltonian path
+fixes the metaplectic lift. Neither its generator nor its frequency equals
+\(\widehat H\) at fixed \(h\). No uniform operator-norm error bound
+for the unbounded quantum generators, spatial convergence theorem or
+physical time calibration follows from this calculation.

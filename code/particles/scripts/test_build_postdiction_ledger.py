@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import pytest
 
@@ -13,6 +14,13 @@ import build_postdiction_ledger as ledger
 def result(tmp_path_factory):
     tmp = tmp_path_factory.mktemp("ledger")
     return ledger.build(tmp / "postdiction_ledger.json", tmp / "POSTDICTION_LEDGER.md")
+
+
+@pytest.fixture(scope="module")
+def whitney_rows():
+    rows = ledger._whitney_dynamics_rows()
+    assert len(rows) == 3
+    return {row["id"]: row for row in rows}
 
 
 def test_guards_are_compare_only(result):
@@ -663,3 +671,184 @@ def test_fail_closed_on_inconsistent_port_current(tmp_path, monkeypatch):
     monkeypatch.setattr(ledger, "_rel", lambda key: f"test/{key}.json")
     with pytest.raises(SystemExit, match="product algebra"):
         ledger.build(tmp_path / "out.json", None)
+
+
+def test_whitney_rows_remain_mathematical_not_observed_or_continuum(whitney_rows):
+    assert set(whitney_rows) == {
+        "whitney_maxwell_dynamics",
+        "whitney_radiative_quantum",
+        "whitney_charged_matter",
+    }
+    for row in whitney_rows.values():
+        assert row["physical_comparison_status"] == "NOT_EVALUABLE"
+        assert row["observed_postdiction"] is False
+        assert row["continuum_convergence_established"] is False
+        assert "no observed data" in row["observed_counterpart"]
+        assert "no observed postdiction" in row["match"]
+        assert not {"measured", "delta_over_sigma"} & row.keys()
+
+
+def test_whitney_rows_are_in_the_generated_forced_structure(result, whitney_rows):
+    rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
+    for name, expected in whitney_rows.items():
+        assert rows[name] == expected
+
+
+def test_whitney_dynamics_keeps_exact_numeric_and_instrumented_scopes(whitney_rows):
+    row = whitney_rows["whitney_maxwell_dynamics"]
+    verified = row["independent_verifier_result"]
+    assert {
+        key: verified[key]
+        for key in (
+            "gauge_histories",
+            "events_per_history",
+            "instrumented_slices_per_history",
+            "probe_cycles_per_history",
+            "field_variations_per_history",
+            "continuation_slabs",
+            "exact_global_stiffness_bound",
+        )
+    } == {
+        "gauge_histories": 2,
+        "events_per_history": 805,
+        "instrumented_slices_per_history": 3,
+        "probe_cycles_per_history": 252,
+        "field_variations_per_history": 68,
+        "continuation_slabs": 64,
+        "exact_global_stiffness_bound": 24,
+    }
+    # Residuals are checked by the verifier but omitted from the generated row
+    # so platform-dependent rounding does not change the ledger's bytes.
+    assert not {"gauss_max_abs", "ampere_max_abs"} & verified.keys()
+    assert row["certificate_scope"] == (
+        "NUMERIC_STATIONARY_FINITE_VOLUME_MAXWELL__"
+        "EXACT_CLASSICAL_READBACK__EXACT_LOCAL_STABILITY_BOUND"
+    )
+    policy = row["numeric_policy"]
+    assert policy["atol"] == policy["rtol"] == 1e-9
+    assert "float64" in policy["evolution"]
+    assert "no interval or exact-trajectory certificate" in policy["evolution"]
+    assert "exact pair-average restoration" in policy["registers"]
+    assert "exact Q(sqrt(5)) LDL certificate" in policy["stability"]
+    assert row["arbitrary_test_continuum_stationarity"] is False
+    assert row["finite_element_stationarity"] == (
+        "numerically verified for all 68 free coefficients per gauge history"
+    )
+    assert "separately identified 64-slab numerical continuation" in row["statement"]
+    boundary = row["hypothesis_boundary"]
+    for qualification in (
+        "changed initial electric field",
+        "prescribed impulse source covectors",
+        "Only three slices per gauge are instrumented",
+        "not arbitrary-test continuum stationarity",
+    ):
+        assert qualification in boundary
+    assert {
+        "recurrence_next_unique",
+        "gauss_residual_preserved",
+        "pairEnergy_work",
+        "modal_solution_bound",
+        "two_slab_endpoint_resonance",
+    } <= set(row["lean_declarations"]["WhitneyMaxwellDynamics"])
+    assert {
+        "code/electromagnetism/runtime/whitney_maxwell_dynamics_receipt.json",
+        "code/electromagnetism/verify_whitney_maxwell_dynamics.py",
+    } <= set(row["artifact_refs"])
+
+
+def test_whitney_quantum_keeps_paper_hilbert_proof_and_free_sector(whitney_rows):
+    row = whitney_rows["whitney_radiative_quantum"]
+    assert set(row["lean_declarations"]) == {"WhitneyQuantumBridge"}
+    assert set(row["lean_declarations"]["WhitneyQuantumBridge"]) == {
+        "reconstruct_surjective",
+        "same_action_normal_modes",
+        "annihilation_creation",
+        "canonical_position_momentum",
+        "same_modes_quantized_energy",
+        "quantumHamiltonian_monomial",
+        "quantumHamiltonian_position",
+        "quantumHamiltonian_momentum",
+    }
+    assert "exact polynomial CCR" in row["statement"]
+    assert "paper constructs the factorial-weight Hilbert completion l2(N^30)" in row[
+        "statement"
+    ]
+    assert "analytic Hilbert/domain and temporal-limit proof in the paper" in row["match"]
+    boundary = row["hypothesis_boundary"]
+    for qualification in (
+        "Canonical quantization and hbar are imported",
+        "Lean assumes a complete positive normal frame",
+        "Hilbert completion, operator closures and temporal convergence are paper proofs",
+        "zero-charge source-free radiative sector",
+        "not quantization of the prescribed-charge episode or interacting matter action",
+        "sqrt(lambda) and finite-step theta/h are distinct",
+        "no uniform operator-norm quantum error",
+    ):
+        assert qualification in boundary
+    assert "independent_verifier_result" not in row
+
+
+def test_whitney_matter_keeps_gauge_algebra_distinct_from_analytic_evolution(whitney_rows):
+    row = whitney_rows["whitney_charged_matter"]
+    assert set(row["lean_declarations"]) == {"WhitneyChargedMatter"}
+    assert set(row["lean_declarations"]["WhitneyChargedMatter"]) == {
+        "pathPhase_gauge",
+        "interpolate_gauge",
+        "interpolate_gauge_norm",
+        "interpolate_vertex",
+        "interpolate_face_trace",
+    }
+    assert "exact finite interpolation gauge algebra" in row["match"]
+    assert "analytic coupled-action and global-existence proof" in row["match"]
+    assert "paper proves its Noether/Gauss identity" in row["statement"]
+    assert "global finite-dimensional classical evolution" in row["statement"]
+    boundary = row["hypothesis_boundary"]
+    for qualification in (
+        "nonnegative quartic coefficient",
+        "Real unwrapped edge integrals are needed",
+        "Differentiate the gauge-dependent scalar basis in all field variations",
+        "All thirteen scalar variations require total neutrality",
+        "No executed charged-matter episode",
+        "source-selected matter content",
+        "interacting quantum completion",
+    ):
+        assert qualification in boundary
+    assert "independent_verifier_result" not in row
+    assert "code/electromagnetism/test_whitney_charged_matter.py" in row["artifact_refs"]
+
+
+@pytest.mark.parametrize("row_id", [
+    "whitney_maxwell_dynamics",
+    "whitney_radiative_quantum",
+    "whitney_charged_matter",
+])
+def test_whitney_named_theorem_cannot_be_replaced_by_empty_provider(
+    whitney_rows, row_id, tmp_path, monkeypatch
+):
+    row = whitney_rows[row_id]
+    module, declarations = next(iter(row["lean_declarations"].items()))
+    empty = tmp_path / f"{module}.lean"
+    empty.write_text("-- No declared theorem is present.\n", encoding="utf-8")
+    monkeypatch.setitem(ledger.LEAN_RECEIPTS, module, empty)
+    with pytest.raises(SystemExit, match=f"Lean declaration missing: {module}"):
+        ledger._lean_receipt(module, declarations={module: tuple(declarations)})
+
+
+def test_whitney_builder_rejects_altered_dynamics_provider(monkeypatch):
+    original = Path.read_bytes
+    provider = ledger.REPO / "Lean/Screen/WhitneyMaxwellDynamics.lean"
+    seen = []
+
+    def altered(path):
+        data = original(path)
+        if path == provider:
+            seen.append(path)
+            return data + b"\n-- independent provider mutation\n"
+        return data
+
+    monkeypatch.setattr(Path, "read_bytes", altered)
+    with pytest.raises(
+        ValueError, match="provider pin Lean/Screen/WhitneyMaxwellDynamics.lean"
+    ):
+        ledger._whitney_dynamics_rows()
+    assert seen == [provider]
