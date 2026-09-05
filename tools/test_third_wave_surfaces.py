@@ -85,8 +85,16 @@ def test_golden_claim_separates_character_and_later_irreducibility_theorems() ->
                   "The later dedicated GoldenSectorIrreducibility module proves",
                   "The subsequent dedicated GoldenSectorComplexIrreducibility module proves complex scalar-extension irreducibility",
                   "exactly the repository's explicit six-axis PSL(2,F5) model",
+                  "canonical SL(2,ZMod 5) to PSL(2,ZMod 5) center quotient",
+                  "its image is exactly A5SixAxes.L60",
+                  "does not identify PSL2F5 with abstract A5",
+                  "nor transport the Golden sectors as typed PSL representations",
                   "Identification with the abstract A5 or icosahedral character table remains an inference outside Lean"):
         assert token in statement, token
+    scope_if_false = _claim(GOLD_CLAIM)["scope_if_false"]
+    for token in ("Failure of the separate PSL2F5 bridge removes only the abstract-cover interface",
+                  "the projector, character, and later irreducibility results remain intact"):
+        assert token in scope_if_false, token
 
 
 def test_lean_modules_carry_headline_declarations() -> None:
@@ -135,7 +143,8 @@ def test_owner_paper_carries_the_results() -> None:
     observers = _collapsed("paper/observers_are_all_you_need.tex")
     for token in ("TransportedChargeForceLaw", "SeamStepSpeedLimit",
                   "two rests per crossing", "SourceClockRateAlongWorldlines",
-                  "GoldenSectorCharacters"):
+                  "GoldenSectorCharacters", "PSL2F5SixAxesBridge",
+                  "canonical center quotient", "pointwise port bridge is not appended"):
         assert token in observers, token
 
 

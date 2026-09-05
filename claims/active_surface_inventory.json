@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 336,
+  "surface_count": 337,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -996,6 +996,11 @@
     },
     {
       "path": "Lean/Screen/OrientedFaceInvariantMetric.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PSL2F5SixAxesBridge.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },

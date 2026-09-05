@@ -2984,6 +2984,23 @@ modes are thus sorted by the same group that sorts the matter sectors,
 with the identification of a mode with a physical oscillation open
 (\path{Lean/Screen/CarrierModeEquivariance.lean}).
 
+The finite six-axis interface now also has an abstract group endpoint.  The
+existing antipodal port bridge is a pointwise equivalence of indexed action
+rows only.  Separately, the resulting projective group
+\(PSL(2,\mathbb Z/5)\), formed by the canonical center quotient
+\(SL(2,\mathbb Z/5)\to PSL(2,\mathbb Z/5)\), acts faithfully on the projective
+line under the explicit coordinates \([z:1]\leftrightarrow z\) and
+\([1:0]\leftrightarrow5\); its center is exactly \(\{+I,-I\}\), its image is
+exactly the committed sixty-element subgroup \texttt{A5SixAxes.L60}, and the
+result is a typed group isomorphism onto that subgroup
+(\path{Lean/Screen/A5PortSixAxesBridge.lean},
+\path{Lean/Screen/PSL2F5SixAxesBridge.lean}).  This is not an abstract
+\(PSL(2,5)\simeq A_5\) classification, an identification with the binary
+icosahedral group or McKay \(E_8\), a transport of the golden pieces as typed
+projective-group representations, a selection of \(\varphi\) or a mass law,
+or a physical-rotation statement; in particular the pointwise port bridge is
+not appended as a group-homomorphism arrow.
+
 The golden split is exact. On the six-dimensional golden sector, where
 \(N^2-6N+4=0\), the two spectral projectors with eigenvalues
 \(3\pm\sqrt5=2\varphi^{\pm2}\) have entries in \(\tfrac1{20}\mathbb Z[\varphi]\),
