@@ -75,7 +75,7 @@ lean_lib «OPHScreen» where
     `PortFrameGram, `A5PortAction, `A5CouplingSymmetry, `A5OPH,
     `A2HolonomyBridge, `HolonomyInterference, `A5CharacterField, `A5SixAxes,
     `PSL2F5SixAxesBridge,
-    `A5PortModule, `A5PortSixAxesBridge, `A5Commutant, `A5ResponseWordAlgebra,
+    `A5PortModule, `A5PortSixAxesBridge, `A5PortGroupBridge, `A5Commutant, `A5ResponseWordAlgebra,
     `A5IncidenceResponse, `TraceBalancedKernel, `TrichotomyCases, `Z6Descent,
     `A5AngularMultiplets, `A5AngularBands, `A5AngularKernels,
     `ExteriorSelection, `WeylYukawaConventions, `QuarkMeanDomain, `EqualStateWeights,

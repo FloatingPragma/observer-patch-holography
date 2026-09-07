@@ -1179,8 +1179,21 @@ Mapping between Lean 4 theorems in this project and statements in
   `PSL2F5 ≃* SixAxisGroup`.  This does not prove an abstract `PSL(2,5) ≅ A5`
   classification, identify `SL(2,5)` with `2I`, invoke McKay, transport the
   golden sectors as typed `PSL2F5` representations, select `φ` or a mass law,
-  or make a physical claim.  The preceding port bridge remains a pointwise
-  indexed-row bridge, not a group-homomorphism arrow in this chain.
+  or make a physical claim.  The preceding antipodal port bridge remains a
+  pointwise indexed-row equivalence of committed actions; the subsequent
+  twelve-port group bridge promotes those rows to a typed group isomorphism.
+- Twelve-port rotation group bridge
+  (`Screen/A5PortGroupBridge.lean`): sorry-free, standard axioms, no
+  `native_decide`.  Packages the sixty committed twelve-port rotations as the
+  subgroup `PortGroup` of `Equiv.Perm (Fin 12)` whose carrier is exactly
+  `Set.range portEl`.  Kernel `decide` checks multiplication and inversion on
+  the actual `Fin 12` permutations against the `rowEquiv`-transported
+  six-axis tables; `portEl` is injective, so the carrier has cardinality
+  sixty.  The resulting isomorphism `PortGroup ≃* SixAxisGroup` composes with
+  `psl_equiv_six_axis_group` to give `PSL2F5 ≃* PortGroup`.  This does not
+  prove an abstract `PSL(2,5) ≅ A5` classification, identify `SL(2,5)` with
+  `2I`, invoke McKay, transport the golden sectors as typed representations,
+  select `φ` or a mass law, or make a physical claim.
 - Universal cap coupling from icosahedral symmetry
   (`Screen/A5CouplingSymmetry.lean`, #576/#568): 9 / 9 declarations,
   sorry-free, standard axioms. Finite facts by kernel `decide` (caps map to

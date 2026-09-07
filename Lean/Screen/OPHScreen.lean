@@ -50,6 +50,7 @@ import QuantumMatterIntegration
 import B10EdgeCenterAction
 import B10QuantumLimitations
 import PSL2F5SixAxesBridge
+import A5PortGroupBridge
 
 /-!
 # OPH screen arithmetic umbrella
