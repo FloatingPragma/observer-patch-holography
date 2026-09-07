@@ -794,6 +794,19 @@ Mapping between Lean 4 theorems in this project and statements in
   charge. The theorem does not identify a simulator stationary law with the
   state optimizer's source reference and proves no energy, clock, refinement,
   or physical realization receipt.
+- Finite rate reconstruction on the reversible layer
+  (`Thermodynamics/KolmogorovCriterion.lean`, PR #772): sorry-free, standard
+  axioms, no `native_decide`.  On any connected simple graph with positive
+  rates in both directions of every edge, the closed-walk cycle condition on
+  the log-rate affinity cochain, the existence of a potential, and the
+  existence of a strictly positive detailed-balance weight are proved
+  equivalent as a `TFAE`, with the potential unique up to an additive
+  constant, the literal `π ∝ exp(−K)` identity, and a triangle witness on
+  which all three conditions fail.  This is the finite potential-theory part
+  of the paper theorem behind `OPH-SCREEN-MODULAR-GEARING`; condition (i) is
+  rendered over closed walks rather than simple cycles, and the source-derived
+  rates, channel realization, compressed grading, clock, and BW normalization
+  stay outside Lean.
 - Source-seam edge-orbit moments
   (`Screen/SeamCurrentEdge30Moment.lean`): sorry-free exact real polynomial
   and finite multiset reasoning. Each canonical seam current maps to the
@@ -1179,21 +1192,13 @@ Mapping between Lean 4 theorems in this project and statements in
   `PSL2F5 ≃* SixAxisGroup`.  This does not prove an abstract `PSL(2,5) ≅ A5`
   classification, identify `SL(2,5)` with `2I`, invoke McKay, transport the
   golden sectors as typed `PSL2F5` representations, select `φ` or a mass law,
-  or make a physical claim.  The preceding antipodal port bridge remains a
-  pointwise indexed-row equivalence of committed actions; the subsequent
-  twelve-port group bridge promotes those rows to a typed group isomorphism.
-- Twelve-port rotation group bridge
-  (`Screen/A5PortGroupBridge.lean`): sorry-free, standard axioms, no
-  `native_decide`.  Packages the sixty committed twelve-port rotations as the
-  subgroup `PortGroup` of `Equiv.Perm (Fin 12)` whose carrier is exactly
-  `Set.range portEl`.  Kernel `decide` checks multiplication and inversion on
-  the actual `Fin 12` permutations against the `rowEquiv`-transported
-  six-axis tables; `portEl` is injective, so the carrier has cardinality
-  sixty.  The resulting isomorphism `PortGroup ≃* SixAxisGroup` composes with
-  `psl_equiv_six_axis_group` to give `PSL2F5 ≃* PortGroup`.  This does not
-  prove an abstract `PSL(2,5) ≅ A5` classification, identify `SL(2,5)` with
-  `2I`, invoke McKay, transport the golden sectors as typed representations,
-  select `φ` or a mass law, or make a physical claim.
+  or make a physical claim.  The module's port-group section
+  (`OPH.A5PortGroupBridge`, PR #774) packages the sixty committed twelve-port
+  rotations as `PortGroup : Subgroup (Equiv.Perm (Fin 12))`, checks the
+  multiplication and inverse laws by kernel `decide` on the actual port
+  permutations, reuses the certified faithfulness of the antipodal quotient
+  for injectivity, and gives `PortGroup ≃* SixAxisGroup` and
+  `PSL2F5 ≃* PortGroup`.  The nonclaims above are unchanged.
 - Universal cap coupling from icosahedral symmetry
   (`Screen/A5CouplingSymmetry.lean`, #576/#568): 9 / 9 declarations,
   sorry-free, standard axioms. Finite facts by kernel `decide` (caps map to

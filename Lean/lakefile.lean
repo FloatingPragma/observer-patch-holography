@@ -65,7 +65,8 @@ lean_lib «OPHThermodynamics» where
     `CommonReferenceObstruction, `RepairCurrentOrientation,
     `FourLawAdequacySurface, `HorizonThermalitySurface,
     `CoherentRefinementFamily, `CofinalSpectralTailFamily,
-    `PhysicalCalibrationImport]
+    `PhysicalCalibrationImport,
+    `KolmogorovCriterion]
 
 @[default_target]
 lean_lib «OPHScreen» where

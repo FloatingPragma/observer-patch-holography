@@ -3004,8 +3004,8 @@ with the identification of a mode with a physical oscillation open
 (\path{Lean/Screen/CarrierModeEquivariance.lean}).
 
 The finite six-axis interface also has an abstract group endpoint.  The
-existing antipodal port bridge is a pointwise equivalence of indexed action
-rows only.  Separately, the canonical center quotient
+antipodal port bridge is first a pointwise equivalence of indexed action
+rows.  Separately, the canonical center quotient
 \(SL(2,\mathbb Z/5)\to PSL(2,\mathbb Z/5)\), whose kernel is the center
 \(\{+I,-I\}\) of \(SL(2,\mathbb Z/5)\), yields a faithful action of
 \(PSL(2,\mathbb Z/5)\) on the projective line under the explicit coordinates
@@ -3013,12 +3013,16 @@ rows only.  Separately, the canonical center quotient
 the committed sixty-element subgroup \texttt{A5SixAxes.L60}, and the
 result is a typed group isomorphism onto that subgroup
 (\path{Lean/Screen/A5PortSixAxesBridge.lean},
-\path{Lean/Screen/PSL2F5SixAxesBridge.lean}).  This is not an abstract
+\path{Lean/Screen/PSL2F5SixAxesBridge.lean}).  The sixty committed
+twelve-port rotations are then packaged as a typed subgroup of the
+permutations of the twelve ports, with the multiplication and inverse laws
+checked on the actual port permutations, and the pointwise port bridge is
+promoted to a group isomorphism between that port subgroup, the six-axis
+subgroup, and \(PSL(2,\mathbb Z/5)\).  This is not an abstract
 \(PSL(2,5)\simeq A_5\) classification, an identification with the binary
 icosahedral group or McKay \(E_8\), a transport of the golden pieces as typed
 projective-group representations, a selection of \(\varphi\) or a mass law,
-or a physical-rotation statement; in particular the pointwise port bridge is
-not appended as a group-homomorphism arrow.
+or a physical-rotation statement.
 
 The golden split is exact. On the six-dimensional golden sector, where
 \(N^2-6N+4=0\), the two spectral projectors with eigenvalues
