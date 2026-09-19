@@ -59,13 +59,17 @@ versions branch to all needed children. A receiver accumulates each required
 version once. Only after every read is complete are new immutable layer
 versions committed. No route or read interface depends on payload values.
 
-The exact hop and sharp additive error bound are inherited from
+The exact real hop and sharp additive error bound are inherited from
 `Lean/Geometry/SourceFeedbackTransport.lean`. The new
-`Lean/Geometry/SourceReadRouting.lean` proves full-history value equality for
-every initial state and integer local-commit intervention, conditional on
-exact transport. It also proves equality of induced logical reachability
+`Lean/Geometry/SourceReadRouting.lean` additionally evaluates the concrete
+six-operation word in integer half-units, proving source preservation,
+capture, cleanup and its 6-event/7-read/7-write cost. This word discharges the
+transport hypothesis in `six_event_compiledHistory_eq`, which proves
+full-history value equality for every initial integer state and integer
+local-commit intervention. It also proves equality of induced logical reachability
 from the local-edge and lifted-read certificates. The native verifier checks
-these hypotheses against every consumed writer. This covers the complete
+the order hypotheses against every consumed writer. The C++ verifier itself
+is reviewed executable code, not a Lean-verified interpreter. This covers the complete
 order without enumerating billions of logical pairs. A separate Python
 traversal checks all 6,561 logical pairs in each of four q=3 controls.
 
@@ -103,8 +107,11 @@ For C hosts, n sites, K rounds, R logical reads and H multicast hops:
   serial duration in the declared unit-event schedule equals the total
   event count. It is not the distinguished layer count K or a physical clock.
 
-Each scalar has an exact signed 64-bit half-unit representation. Overflow
-and inexact mean division are rejected; all retained runs fit. Each explicit
+Each scalar in the retained executions has an exact signed 64-bit half-unit
+representation. Independent replay checks mean exactness, arithmetic bounds
+and every result; all supported runs fit. The arbitrary-intervention theorem
+uses unbounded integers: it does not promise that arbitrary interventions or
+inputs fit the native binary. Each explicit
 event row occupies 64 bytes, including opcode, owner, input/output register
 identifiers, both consumed writer identifiers and the result. Two-output
 mean writes share the recorded result. Absent reads have a reserved sentinel;
@@ -122,7 +129,9 @@ extra origin certificate makes its structure 32 bytes. Codec work is in
 65,536-event blocks, with a 4 MiB raw block and at most three differential
 dependency levels for the archived controls. Stored manifests and compressed
 part byte sizes account for the archive metadata too; compression is not a
-reduction in executed events or scalar accesses.
+reduction in executed events or scalar accesses. The raw-block size is not
+the codec's total memory use; the RSS observation covers the native producer,
+not the whole Python preparation/codec pipeline.
 
 Routing computation is also charged separately. The current implementation
 recomputes each source BFS in each round: `K*n*C` vertex dequeues,
@@ -176,18 +185,32 @@ cd Lean
 lake env lean Geometry/SourceReadRouting.lean
 ```
 
-To execute anew, compile `produce.cpp` instead, then use `run.py --q 13
---variant baseline --binary /tmp/produce-routing --output temp/routing` (and
-the other q/variant combinations). `pack.py RECEIPT DESTINATION --work
-temp/packing` packages each baseline before its intervention. `account.py`
-uses GNU time and requires a byte-identical reexecution before adding host
-memory accounting. The large intermediate tapes and first-layer differential
-workspace require several gigabytes of temporary disk. Final files are
-split below GitHub's per-file size limit.
+To execute anew, compile `produce.cpp` and perform execution, accounting and
+packing in that order. Package each baseline before its intervention:
+
+```sh
+g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/produce.cpp -o /tmp/produce-routing
+python code/source_read_routing/run.py --q 13 --variant baseline --binary /tmp/produce-routing --output temp/routing
+python code/source_read_routing/account.py temp/routing/q13_baseline.json --binary /tmp/produce-routing --work temp/accounting
+python code/source_read_routing/pack.py temp/routing/q13_baseline.json temp/routing-packed --work temp/packing
+python code/source_read_routing/verify.py temp/routing-packed/q13_baseline.json --binary /tmp/verify-routing
+```
+
+Repeat for the other q/variant combinations. `account.py` uses GNU time and
+requires a byte-identical reexecution before adding host memory accounting.
+The large intermediate tapes and first-layer differential workspace require
+several gigabytes of temporary disk. Final files are split below GitHub's
+per-file size limit. For a small end-to-end reproduction of all four controls:
+
+```sh
+python code/source_read_routing/check_reproduction.py --producer /tmp/produce-routing --verifier /tmp/verify-routing
+```
 
 The `Source Read Routing` CI workflow executes the small controls and both
-inherited transport suites on Linux and Windows. Its Linux jobs run the full
-native replay for both production levels, including semantic negative
+inherited transport suites on Linux and Windows. Linux also builds the
+producer and reproduces all four small controls through execution, accounting,
+packing, both independent verifiers and comparison with the retained hashes.
+Its replay jobs run the full native replay for both production levels, including semantic negative
 controls. The existing mandatory runner is an input to the invariant-mining
 campaign's byte-frozen source projection; its bytes are preserved.
 
@@ -203,7 +226,7 @@ impossibility is asserted.
 | Acceptance requirement | Delivered evidence |
 | --- | --- |
 | Establish a sufficient routing rule on the wired federation and its cost | Six-event local feedback hop; fixed pruned-BFS multicast compiler on captured W12 L4/L5; exact hop proof in `SourceFeedbackTransport.lean`; full-layer induction in `SourceReadRouting.lean`; cost formulas and executed census above. The rule is explicitly supplied as M1. |
-| Theorem with the finite part formalized | `compiledHistory_eq`, `schedule_independent_readouts` and `exact_induced_order` prove conditional value/intervention preservation and both directions of the induced order. Native replay checks every consumed writer and the local-edge/read-path hypotheses; the independent small oracle exhausts all logical pairs. |
+| Theorem with the finite part formalized | `six_event_hop_exact` and `six_event_hop_cost` evaluate the concrete local word; `six_event_compiledHistory_eq` instantiates full-history intervention preservation. `exact_induced_order` proves both order inclusions. Native replay checks every consumed writer and the local-edge/read-path hypotheses; the independent small oracle exhausts all logical pairs. |
 | Full routed receipts at q=13 and q=21 | `q13_baseline.json`, `q13_source.json`, `q21_baseline.json`, `q21_source.json` and every referenced explicit event segment in `evidence/source_net_causal_poset/routed_read_law/`. The independent verifier rebuilds every metric read decision and compares every completed logical value. |
 | Retain every intermediate event and account for resources | Every preparation, export, reset, mean, archive, accumulation and commit remains in the decoded tape. Receipts and replay count reads, writes, registers, distances and controller work; host memory and archive sizes are recorded separately. Serial unit-event duration includes all primitives; no physical clock is inferred. |
 | Record M1 and transfer its derivation obligation explicitly | `specification.json` lists the supplied read, memory, feedback, placement and control law; `claims/assumption_dictionary.md` records `M1_full_family_read_feedback_and_routing`; PR-52 assigns derivation/selection of that entire law to the open #779/#740 lanes. |
@@ -238,7 +261,7 @@ change its input; a no-op mutation is rejected by the test itself.
 
 ## Local validation (2026-09-19)
 
-The final closeout regression run passed 136 tests: 94 routing/inherited
+The audit regression run passed 138 tests: 96 routing/inherited
 transport tests and 42 premise-register/cross-surface tests. The
 native checker passed its positive control and rejected all ten semantic
 mutations. All four final packed production histories were fully replayed:
@@ -259,5 +282,10 @@ the final full collection imported 5,207 tests. Execution required restoration o
 Windows CRLF checkout files to their verified exact HEAD bytes and a local
 `python3` alias to the installed Python. The frozen mandatory runner was
 preserved; the added routing controls execute in their dedicated CI job.
-The broader `--full` heavy steps and optional certificate suites were not
-run. No hosted CI run, issue closure or publication is claimed.
+The broader `--full` heavy steps were not run locally. Hosted CI on the
+pre-audit commit `5556050` passed both full production replay jobs, the Linux
+and Windows controls, the whole Lean build and its two certificate jobs,
+all mandatory shards and collection gates, claim validation and paper preview.
+See [AUDIT.md](AUDIT.md) for the detailed
+contract review and the distinction between that CI evidence and the audit
+follow-up. No issue merge or closure is claimed.

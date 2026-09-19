@@ -49,9 +49,13 @@ writer path through export, mean and capture (or the direct self-read) into
 the receiver's accumulator and commit.  Path induction gives both
 inclusions for the full induced order.  The independent verifier checks
 these edge and path hypotheses from the actual register writers at every
-primitive.  The finite induction and order arguments are kernel checked in
-\texttt{Geometry/SourceReadRouting.lean}; the exact real hop and sharp
+primitive. The finite integer six-operation word, its cost, the instantiated
+history induction and the abstract order arguments are kernel checked in
+\texttt{Geometry/SourceReadRouting.lean}. Native execution is separately
+checked code, not a formally verified interpreter. The exact real hop and sharp
 additive error law are in \texttt{Geometry/SourceFeedbackTransport.lean}.
+The universal intervention statement uses unbounded integers; only the
+retained bounded executions are claimed to fit the native 64-bit format.
 
 \paragraph{Executed resource census.}
 For $C$ hosts, $n$ source sites, $K$ rounds, $R$ logical reads and $H$ retained

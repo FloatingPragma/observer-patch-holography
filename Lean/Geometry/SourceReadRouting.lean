@@ -3,9 +3,10 @@ import Std
 /-!
 # Full-family compilation under the retained M1 transport law
 
-The transport identity is a hypothesis here.  Its classical six-event
-implementation and real-valued error bound are proved separately in
-`Geometry.SourceFeedbackTransport`.  No theorem below selects that feedback
+The generic compiler takes a transport identity as a hypothesis.  The concrete
+six-event integer word below discharges it, including scratch cleanup and
+preservation of the protected source.  The real-valued error bound is proved
+separately in `Geometry.SourceFeedbackTransport`. No theorem selects that feedback
 law, the read menu, the host placement, or a physical clock from A1--A3.
 
 The finite theorem applies to every number of layers, every immutable initial
@@ -59,6 +60,81 @@ theorem schedule_independent_readouts (first second : Nat → Int → Int)
 def executeWord {State : Type} : List (State → State) → State → State
   | [] => id
   | step :: rest => fun x => executeWord rest (step x)
+
+/-- Values in half-units, as in the native event rows. `receiverArchive`
+models the newly allocated capture slot, not an overwrite of an old version.
+The constant zero records and the admitted local feedback are supplied M1.
+This is unbounded integer arithmetic, not a claim about arbitrary Int64 inputs. -/
+structure HopState where
+  sourceArchive : Int
+  sourcePort : Int
+  receiverPort : Int
+  receiverArchive : Int
+  deriving DecidableEq
+
+inductive HopOp where
+  | exportPayload | resetReceiver | pairMean | capture | resetSource
+  deriving DecidableEq
+
+def hopStep (op : HopOp) (s : HopState) : HopState :=
+  match op with
+  | .exportPayload => { s with sourcePort := s.sourceArchive }
+  | .resetReceiver => { s with receiverPort := 0 }
+  | .pairMean =>
+      let mean := (s.sourcePort + s.receiverPort) / 2
+      { s with sourcePort := mean, receiverPort := mean }
+  | .capture => { s with receiverArchive := 2 * s.receiverPort }
+  | .resetSource => { s with sourcePort := 0 }
+
+def sixEventOps : List HopOp :=
+  [.exportPayload, .resetReceiver, .pairMean, .capture, .resetSource, .resetReceiver]
+
+def sixEventHop : HopState → HopState := executeWord (sixEventOps.map hopStep)
+
+/-- The actual six operations transmit any integer payload and erase arbitrary
+incoming scratch loads. Both the source archive and the captured version equal
+the original payload; both ports are zero on exit. -/
+theorem six_event_hop_exact (x a b old : Int) :
+    sixEventHop ⟨2*x, a, b, old⟩ = ⟨2*x, 0, 0, 2*x⟩ := by
+  simp [sixEventHop, sixEventOps, executeWord, hopStep]
+
+def hopReads : HopOp → Nat
+  | .pairMean => 2
+  | _ => 1
+
+def hopWrites : HopOp → Nat
+  | .pairMean => 2
+  | _ => 1
+
+theorem six_event_hop_cost :
+    sixEventOps.length = 6 ∧
+    (sixEventOps.map hopReads).sum = 7 ∧ (sixEventOps.map hopWrites).sum = 7 := by
+  decide
+
+def feedbackHopValue (x : Int) : Int :=
+  (sixEventHop ⟨2*x, 0, 0, 0⟩).receiverArchive / 2
+
+theorem feedbackHopValue_eq (x : Int) : feedbackHopValue x = x := by
+  simp [feedbackHopValue, six_event_hop_exact]
+
+def feedbackRoute : Nat → Int → Int
+  | 0, x => x
+  | d + 1, x => feedbackHopValue (feedbackRoute d x)
+
+theorem feedbackRoute_eq (d : Nat) (x : Int) : feedbackRoute d x = x := by
+  induction d with
+  | zero => rfl
+  | succ d ih => simp [feedbackRoute, feedbackHopValue_eq, ih]
+
+/-- The concrete feedback word discharges the generic compiler's transport
+hypothesis. Fixed routing and local-commit interventions are arbitrary here;
+the graph/writer-path certificate is separately checked by native replay. -/
+theorem six_event_compiledHistory_eq
+    (depth : Nat → Site → Site → Nat) (menu : Site → List Site)
+    (bias : Nat → Site → Int) (initial : Site → Int) (t : Nat) :
+    compiledHistory feedbackRoute depth menu bias initial t =
+      logicalHistory menu bias initial t :=
+  compiledHistory_eq feedbackRoute feedbackRoute_eq depth menu bias initial t
 
 /-- Class-wide finite-word invariant. Applied analytically to total live
 load, every canonical pair mean satisfies the hypothesis. -/
@@ -155,6 +231,9 @@ theorem exact_induced_order {Logical Event : Type}
 end OPH.SourceReadRouting
 
 #print axioms OPH.SourceReadRouting.compiledHistory_eq
+#print axioms OPH.SourceReadRouting.six_event_hop_exact
+#print axioms OPH.SourceReadRouting.six_event_hop_cost
+#print axioms OPH.SourceReadRouting.six_event_compiledHistory_eq
 #print axioms OPH.SourceReadRouting.schedule_independent_readouts
 #print axioms OPH.SourceReadRouting.exact_induced_order
 #print axioms OPH.SourceReadRouting.closed_sum_preserving_word_cannot_reset

@@ -42,6 +42,14 @@ jobs:
         run: pip install -r requirements.txt
       - name: Execute routed histories, inherited transport and adversarial controls
         run: python -m pytest -q code/source_read_routing/test_read_routing.py code/source_feedback_transport/test_transport.py code/source_routing/test_routing.py
+      - name: Build producer and independent verifier for fresh execution
+        if: runner.os == 'Linux'
+        run: |
+          g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/produce.cpp -o "$RUNNER_TEMP/produce-routing"
+          g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/verify.cpp -o "$RUNNER_TEMP/verify-routing"
+      - name: Reproduce all four controls through execution, accounting and packing
+        if: runner.os == 'Linux'
+        run: python code/source_read_routing/check_reproduction.py --producer "$RUNNER_TEMP/produce-routing" --verifier "$RUNNER_TEMP/verify-routing"
   replay:
     runs-on: ubuntu-latest
     timeout-minutes: 30

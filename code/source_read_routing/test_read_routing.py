@@ -87,7 +87,7 @@ def test_capacity_undercount_is_recomputed(baseline):
 
 
 @pytest.mark.parametrize("mutation", ["axiom_promotion", "universal_no_go", "physical_clock", "closed_owner", "integer_flag",
-                                      "missing_exit", "derived_exit"])
+                                      "missing_exit", "derived_exit", "missing_read_law", "blank_derivation"])
 def test_scientific_scope_and_live_m1_transfer_fail_closed(mutation):
     spec = verify.load(HERE/"specification.json")
     if mutation == "closed_owner":
@@ -98,6 +98,10 @@ def test_scientific_scope_and_live_m1_transfer_fail_closed(mutation):
         del spec["exit"]
     elif mutation == "derived_exit":
         spec["exit"]["selected_route"] = "axiomatic_read_law_derived"
+    elif mutation == "missing_read_law":
+        del spec["M1"]["read_law"]
+    elif mutation == "blank_derivation":
+        spec["M1"]["derivation_obligation"] = "  "
     else:
         key = {"axiom_promotion":"axiomatic_read_law_derived", "universal_no_go":"universal_routing_impossibility",
                "physical_clock":"physical_clock_identified"}[mutation]

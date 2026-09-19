@@ -54,6 +54,11 @@ def check_specification(packet=None):
                 "universal_routing_impossibility":False, "physical_clock_identified":False,
                 "quantum_instrument_implemented":False, "routing_events_counted_as_spacetime_volume":False}
     require(packet["scope"] == expected and all(type(x) is bool for x in packet["scope"].values()), "scope promotion")
+    # Merely retaining the M1 label/owners is insufficient: the law and the
+    # outstanding derivation must remain stated, not disappear at closeout.
+    for key in ("population", "read_law", "local_feedback", "compiler", "derivation_obligation"):
+        value = packet["M1"].get(key)
+        require(isinstance(value, str) and bool(value.strip()), "missing M1 declaration: "+key)
     require(packet["M1"]["status"] == "retained supplied structural rule" and packet["M1"]["derivation_owners"] == [740,779]
             and packet["M1"]["premise_register"] == "PR-52", "M1 obligation transfer")
     require(packet.get("exit") == {
