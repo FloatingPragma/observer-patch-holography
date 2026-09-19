@@ -1,0 +1,66 @@
+name: Source Read Routing
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "code/source_read_routing/**"
+      - "code/source_routing/**"
+      - "code/source_feedback_transport/**"
+      - "evidence/source_net_causal_poset/**"
+      - "Lean/Geometry/SourceReadRouting.lean"
+      - "requirements.txt"
+      - ".github/workflows/source-read-routing.yml"
+  pull_request:
+    paths:
+      - "code/source_read_routing/**"
+      - "code/source_routing/**"
+      - "code/source_feedback_transport/**"
+      - "evidence/source_net_causal_poset/**"
+      - "Lean/Geometry/SourceReadRouting.lean"
+      - "requirements.txt"
+      - ".github/workflows/source-read-routing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  controls:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install pinned scientific dependencies
+        run: pip install -r requirements.txt
+      - name: Execute routed histories, inherited transport and adversarial controls
+        run: python -m pytest -q code/source_read_routing/test_read_routing.py code/source_feedback_transport/test_transport.py code/source_routing/test_routing.py
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        q: [13, 21]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install pinned scientific dependencies
+        run: pip install -r requirements.txt
+      - name: Build the independent native verifier
+        run: g++ -std=c++17 -O3 -Wall -Wextra code/source_read_routing/verify.cpp -o "$RUNNER_TEMP/verify-routing"
+      - name: Run independent native adversarial controls
+        run: python code/source_read_routing/native_negative_controls.py --binary "$RUNNER_TEMP/verify-routing"
+      - name: Replay every baseline and intervention event
+        run: |
+          python code/source_read_routing/verify.py evidence/source_net_causal_poset/routed_read_law/q${{ matrix.q }}_baseline.json --binary "$RUNNER_TEMP/verify-routing"
+          python code/source_read_routing/verify.py evidence/source_net_causal_poset/routed_read_law/q${{ matrix.q }}_source.json --binary "$RUNNER_TEMP/verify-routing"

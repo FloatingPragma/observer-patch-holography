@@ -1,0 +1,31 @@
+{
+  "schema": "oph.source_read_routing.specification.v1",
+  "issue": 777,
+  "production_levels": [13, 21],
+  "control_level": 3,
+  "production_variants": ["baseline", "source"],
+  "control_variants": ["baseline", "source", "branch", "scratch"],
+  "M1": {
+    "status": "retained supplied structural rule",
+    "population": "Prepared golden addresses in immutable local records; one distinct host carrier per source site.",
+    "read_law": "All preceding-layer records inside the exact source-metric radius L/sqrt(q), including self; local commit is one plus their sum.",
+    "local_feedback": "Local protected-record export to any port of its owner carrier, local zero reset, factor-two capture, integer accumulation, immutable allocation and commits.",
+    "compiler": "Exact golden-coordinate Morton host placement, ascending-neighbour breadth-first trees pruned to the complete recipient set, serial non-interleaved six-event hops and fixed layer barriers.",
+    "derivation_obligation": "Derive or explicitly justify selection and acceptance of the record-read, memory, local feedback and control law from the source architecture; the finite compiler does not discharge this obligation.",
+    "derivation_owners": [740, 779],
+    "premise_register": "PR-52"
+  },
+  "projection": "Authenticated scalar value-consumption order on distinguished publish/commit events; every intermediate operation remains in the tape.",
+  "exit": {
+    "selected_route": "declared_M1_with_explicit_derivation_transfer",
+    "acceptance_matrix": "code/source_read_routing/README.md#objective-deliverables-exit-and-audit-corrections"
+  },
+  "scope": {
+    "full_q13_q21_routed_execution": true,
+    "axiomatic_read_law_derived": false,
+    "universal_routing_impossibility": false,
+    "physical_clock_identified": false,
+    "quantum_instrument_implemented": false,
+    "routing_events_counted_as_spacetime_volume": false
+  }
+}

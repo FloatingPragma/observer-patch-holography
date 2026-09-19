@@ -1,0 +1,76 @@
+{
+  "costs": {
+    "events": 19113548,
+    "hops": 2972512,
+    "max_abs_scaled_scalar": 2655747456806,
+    "max_read_depth": 44,
+    "register_reads": 23178688,
+    "register_writes": 22086060,
+    "registers": 3065436,
+    "total_read_depth": 12599152,
+    "tree_hops_per_round": 743128
+  },
+  "implementation_resources": {
+    "auxiliary_heap_requested_bytes": 3125728,
+    "codec_block_events": 65536,
+    "codec_raw_block_bytes": 4194304,
+    "event_row_bytes": 64,
+    "native_peak_resident_bytes": 107311104,
+    "native_peak_resident_scope": "GNU time %M on the executing Linux host; includes allocator, stack and runtime; not a physical patch capacity.",
+    "producer_cell_struct_bytes": 24,
+    "register_heap_peak_requested_bytes": 150994944,
+    "register_heap_scope": "Requested vector storage including simultaneous old/new allocation during growth; allocator bookkeeping excluded here and included in host peak RSS.",
+    "wide_arithmetic_bytes": 16
+  },
+  "inputs": {
+    "carriers": 5120,
+    "centre_site": 732,
+    "input_sha256": "2facf06717584bd904e1c90136e11207d358fe395ca149a17bc85287945f7b54",
+    "logical_reads": 1176764,
+    "neighbour_sha256": "5c8f5681bba63a50d993326f642eec5e0cd89f76723e94712a1ba617e068d94a",
+    "q": 13,
+    "rounds": 4,
+    "sites": 2197,
+    "support_path": "code/source_read_routing/support_w12_l4.json",
+    "support_sha256": "1f074442a16c9003454a7e364bbb27af0a6c8c493472ec91120482f718823869"
+  },
+  "producer_sha256": "182464e7a0960f20fb77dadd085cc043a80b6dcdeff70ecbc946fe49b476c0ca",
+  "routing_control_work": {
+    "bfs_directed_edge_examinations": 539407440,
+    "bfs_nonroot_discoveries": 44985772,
+    "bfs_vertex_dequeues": 44994560,
+    "parent_and_mark_initializations": 89989120,
+    "pruning_parent_traversals": 2972512,
+    "recipient_path_queries": 1176764,
+    "tree_mark_examinations": 44985772
+  },
+  "schema": "oph.source_read_routing.run.v1",
+  "tape": {
+    "decoded_bytes": 1223267072,
+    "decoded_sha256": "6996153df82c87da393dc8f137bfb36b9b653e7af58a6ff0cccd73a716625bc2",
+    "events": 19113548,
+    "segments": [
+      {
+        "path": "q13_baseline_phase0.segment.json",
+        "sha256": "10ba416cb95aadcc374efc84a970f61ffbb9aa0ced143bddc82630d5ed2817b9"
+      },
+      {
+        "path": "q13_baseline_phase1.segment.json",
+        "sha256": "b912a6cdce34477f1cc639e9a4f6e7b77675fce4f93e748635404750a2ab5875"
+      },
+      {
+        "path": "q13_baseline_phase2.segment.json",
+        "sha256": "8430fb6774b0d48a90cc2902c75818f8b568afeb11ad01db327e2624ec808633"
+      },
+      {
+        "path": "q13_baseline_phase3.segment.json",
+        "sha256": "68dc0ace590612b206afdcbf48f8bd7337fa5bcf9ecd1b7493079eddb7e3c67e"
+      },
+      {
+        "path": "q13_baseline_phase4.segment.json",
+        "sha256": "9e6af776f8535cc05b32cf56202e4c6154d4f300182f8ae98ced09438da5f165"
+      }
+    ]
+  },
+  "variant": "baseline"
+}

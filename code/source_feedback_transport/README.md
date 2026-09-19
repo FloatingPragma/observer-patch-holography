@@ -66,3 +66,8 @@ The q=13 and q=21 rows are a checked census from a pinned declared-family
 receipt and a unicast compiler cost calculation. They are not new full-family
 executions. Full routing at those levels, source selection of copy/reset and
 read rules, physical costs, and quantum preparation/readout remain separate.
+
+The subsequent [full-family compiler](../source_read_routing/README.md) now
+retains complete q=13/q=21 routed executions and their interventions under
+an explicitly retained M1 law. This earlier receipt and its census remain
+unchanged; its small episodes are not relabelled as those new executions.
