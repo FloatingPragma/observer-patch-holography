@@ -1,0 +1,156 @@
+{
+  "l3_original_sha256": "57ec958cb0c26f1614df67b88549bf193213ec3997863d818e462befdeb0f5a4",
+  "levels": {
+    "3": {
+      "geometry": {
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true,
+        "edge_count": 1920,
+        "euler_characteristic": 2,
+        "expected_counts": {
+          "cells": 1280,
+          "edges": 1920,
+          "vertices": 642
+        },
+        "face_count": 1280,
+        "four_pi_area_residual": 0.0,
+        "frequency": 8,
+        "geometry_family": "nested_geodesic_icosahedral",
+        "geometry_hash": "b42f7ae812f8093c737e5d8f7c4a686d45eb25ad004a5c198640a7cda5a4b993",
+        "level": 3,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "outward_oriented": true,
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "total_spherical_area": 12.566370614359172,
+        "vertex_count": 642
+      },
+      "sha256": "f96cf5a5d51dd100baf89576296a28782a2e3ecd9b71218c9439b7a4e911d2ba",
+      "w12": {
+        "local_frame_hash": "42ec5c747c0335f8d37953ba1ea5eb90b34d4b41dea8c1d0c2104de06cdecfb6",
+        "routing_mode": "icosahedral_directional_assignment"
+      },
+      "w3": {
+        "local_frame_hash": "42ec5c747c0335f8d37953ba1ea5eb90b34d4b41dea8c1d0c2104de06cdecfb6",
+        "routing_mode": "icosahedral_directional_assignment"
+      }
+    },
+    "4": {
+      "geometry": {
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true,
+        "edge_count": 7680,
+        "euler_characteristic": 2,
+        "expected_counts": {
+          "cells": 5120,
+          "edges": 7680,
+          "vertices": 2562
+        },
+        "face_count": 5120,
+        "four_pi_area_residual": 0.0,
+        "frequency": 16,
+        "geometry_family": "nested_geodesic_icosahedral",
+        "geometry_hash": "174645edc70d625a18879ec7ed58449f6ce978524ca921f1ae12f5f57ac5a437",
+        "level": 4,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "outward_oriented": true,
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "total_spherical_area": 12.566370614359172,
+        "vertex_count": 2562
+      },
+      "refinement": {
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ],
+        "children_per_parent": 4,
+        "coarse_cell_count": 1280,
+        "coarse_level": 3,
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "embedding": "childwise_constant_pullback",
+        "fine_cell_count": 5120,
+        "fine_level": 4,
+        "map_hash": "f414ee65ea64c022c6b61a6e389f48cfd6f137781daa5b038af18c6420e7aed7",
+        "normalization_residual": 2.220446049250313e-16,
+        "reference_state": "normalized_spherical_area",
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "state_preservation_residual": 3.144186300207963e-18
+      },
+      "sha256": "89d8224aef754cd8554095ca20f6434b481714bf6a03bff877d8cfe17dc01e55",
+      "w12": {
+        "local_frame_hash": "2882af6b5d340dd32962f0dd34d82ef325c047bfd44181d9a1f337ff3bd811a7",
+        "routing_mode": "icosahedral_directional_assignment"
+      },
+      "w3": {
+        "local_frame_hash": "2882af6b5d340dd32962f0dd34d82ef325c047bfd44181d9a1f337ff3bd811a7",
+        "routing_mode": "icosahedral_directional_assignment"
+      }
+    },
+    "5": {
+      "geometry": {
+        "GEODESIC_ICOSAHEDRAL_GEOMETRY_RECEIPT": true,
+        "edge_count": 30720,
+        "euler_characteristic": 2,
+        "expected_counts": {
+          "cells": 20480,
+          "edges": 30720,
+          "vertices": 10242
+        },
+        "face_count": 20480,
+        "four_pi_area_residual": 3.552713678800501e-15,
+        "frequency": 32,
+        "geometry_family": "nested_geodesic_icosahedral",
+        "geometry_hash": "a9f13dfc9201f3b56f61b25833826bdf8289a5e1c6a85f1f67f97c6301ff341c",
+        "level": 5,
+        "maximum_unit_sphere_residual": 2.220446049250313e-16,
+        "outward_oriented": true,
+        "schema": "oph.geodesic_icosahedral_level.v1",
+        "total_spherical_area": 12.566370614359176,
+        "vertex_count": 10242
+      },
+      "refinement": {
+        "GEOMETRIC_CELL_REFINEMENT_RECEIPT": true,
+        "PAPER_MULTIRESOLUTION_REGULATOR_CERTIFICATE": false,
+        "certificate_blockers": [
+          "finite_detail_algebras_not_instantiated",
+          "faithful_detail_states_not_instantiated",
+          "local_presentation_circuits_not_instantiated",
+          "noncommutative_state_preserving_expectations_not_instantiated"
+        ],
+        "children_per_parent": 4,
+        "coarse_cell_count": 5120,
+        "coarse_level": 4,
+        "conditional_expectation": "spherical_area_weighted_child_average",
+        "embedding": "childwise_constant_pullback",
+        "fine_cell_count": 20480,
+        "fine_level": 5,
+        "map_hash": "2a6d9bd6a73c90665589f675311dc9ac66780f89821003174130c1fc78dfaa0b",
+        "normalization_residual": 2.220446049250313e-16,
+        "reference_state": "normalized_spherical_area",
+        "schema": "oph.icosahedral_cell_refinement.v1",
+        "scope": "commutative_cell_geometry_scaffold",
+        "state_preservation_residual": 4.580754178751256e-18
+      },
+      "sha256": "fa1df001c27a3c4fe63fb6e4936540ea5b180a2b2381f4346d82e0fd8713c6a1",
+      "w12": {
+        "local_frame_hash": "3c01ee82729016fa239c6484605219fd571254b309751a54aaeeb5a040081f60",
+        "routing_mode": "icosahedral_directional_assignment"
+      },
+      "w3": {
+        "local_frame_hash": "3c01ee82729016fa239c6484605219fd571254b309751a54aaeeb5a040081f60",
+        "routing_mode": "icosahedral_directional_assignment"
+      }
+    }
+  },
+  "repository": "https://github.com/muellerberndt/oph-physics-sim",
+  "revision": "7faa47b5cf00b42f6bf6b3e95ed4f7eb64f4239f",
+  "schema": "oph.support_wiring.geometry.v1",
+  "source_sha256": {
+    "oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9"
+  }
+}

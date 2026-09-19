@@ -1,0 +1,56 @@
+name: Support wiring paired receipt
+
+on:
+  pull_request:
+    paths:
+      - "code/support_wiring/**"
+      - "evidence/support_wiring_776/**"
+      - "evidence/source_net_causal_poset/**"
+      - "code/source_routing/support_w12_l3.json"
+      - "evidence/exact_federation_L6_canonical_20260909/**"
+      - "requirements.txt"
+      - ".github/workflows/support-wiring.yml"
+  push:
+    branches: [main]
+    paths:
+      - "code/support_wiring/**"
+      - "evidence/support_wiring_776/**"
+      - "evidence/source_net_causal_poset/**"
+      - "code/source_routing/support_w12_l3.json"
+      - "evidence/exact_federation_L6_canonical_20260909/**"
+      - "requirements.txt"
+      - ".github/workflows/support-wiring.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Mutation tests and independent order oracles
+        run: python -m pytest -q code/support_wiring/test_support_wiring.py
+      - name: Complete independent replay, kernels and paired receipt
+        run: python code/support_wiring/verify.py
+      - name: Fresh full production run and comparison
+        run: |
+          python code/support_wiring/experiment.py trace --output temp/support-wiring-fresh
+          python code/support_wiring/experiment.py controls --output temp/support-wiring-fresh
+          python code/support_wiring/readouts.py provenance --output temp/support-wiring-fresh
+          python code/support_wiring/readouts.py q13 --output temp/support-wiring-fresh
+          python code/support_wiring/verify.py --part trace --archive temp/support-wiring-fresh
+          python code/support_wiring/check_reproduction.py temp/support-wiring-fresh
+      - name: Historical comparison and causal-poset archive custody
+        run: |
+          python evidence/exact_federation_L6_canonical_20260909/verify_archive.py
+          python evidence/source_net_causal_poset/verify_causal_poset_archive.py

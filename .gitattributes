@@ -16,3 +16,8 @@ evidence/e6_64k_dense_20260820/mismatch_trace.csv -text -eol -diff
 # Frozen-prediction custody artifacts are byte-exact copies whose hashes and
 # OpenTimestamps proofs are verified; never normalize them.
 evidence/custody/** -text -eol -diff
+
+# Issue 776 exact provenance chunks and geometry are byte-hashed binary inputs.
+code/support_wiring/geometry/*.npz -text -eol -diff
+evidence/support_wiring_776/*.npz -text -eol -diff
+evidence/support_wiring_776/trace/*.npz -text -eol -diff

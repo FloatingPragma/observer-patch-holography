@@ -25,11 +25,11 @@
   ]
  },
  "curated_archive": {
-  "file_count": 5,
-  "total_bytes": 417493,
-  "inventory_sha256": "36259ccf0a624ab7e036b5d08dbf9e9a0d4e5082cf029363b1ee9d01064de999",
+  "file_count": 6,
+  "total_bytes": 502584,
+  "inventory_sha256": "607fc7e75f5dd409cdcecce7d61b721e528d2b3f4b0944242ceb87e680665633",
   "is_complete_copy_of_original_receipts": true,
-  "selection": "the source-net causal-limit receipt (q = 5..55, three families), the carrier source-net receipt (q = 5..34), the two stored carrier event logs (q = 5, 8) and the standalone generator"
+  "selection": "the source-net causal-limit receipt (q = 5..55, three families), the carrier source-net receipt (q = 5..34), the two stored carrier event logs (q = 5, 8) and the standalone generator; paired canonical support-wiring diagnostic (#776)"
  },
  "result": {
   "levels": [
@@ -47,7 +47,7 @@
    21,
    34
   ],
-  "interior_diamond_myrheim_meyer_dimension_3d": [
+  "central_diamond_myrheim_meyer_dimension_3d": [
    2.634,
    2.932,
    4.149,
@@ -93,7 +93,15 @@
   ],
   "rer_compared_fields": 28,
   "source_net_receipt_sha256": "sha256:97c837913b75b2b019428028e114259caedd54345bd5a2efb78abd040f7e11f3",
-  "carrier_receipt_sha256": "sha256:755c7721f719dcf6811f602afa108589dce3fb6bacc92530e6958c6b8b358f64"
+  "carrier_receipt_sha256": "sha256:755c7721f719dcf6811f602afa108589dce3fb6bacc92530e6958c6b8b358f64",
+  "central_diamond_inside_cube_3d": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
  },
  "known_boundaries": {
   "population_selected_by_native_repair": false,
@@ -131,6 +139,11 @@
    "path": "source_net_causal_limit_receipt.json",
    "bytes": 216420,
    "sha256": "97c837913b75b2b019428028e114259caedd54345bd5a2efb78abd040f7e11f3"
+  },
+  {
+   "path": "support_wiring_receipt.json",
+   "bytes": 85091,
+   "sha256": "f5af550934f621fcd1c39e5e66df8ad2b2b0132f614fec88067f90e452f444af"
   }
  ]
 }
