@@ -1,0 +1,80 @@
+{
+  "costs": {
+    "events": 292722053,
+    "hops": 46288315,
+    "max_abs_scaled_scalar": 93925644767532316,
+    "max_read_depth": 91,
+    "register_reads": 353229265,
+    "register_writes": 339010368,
+    "registers": 46674948,
+    "total_read_depth": 294030780,
+    "tree_hops_per_round": 9257663
+  },
+  "implementation_resources": {
+    "auxiliary_heap_requested_bytes": 19480408,
+    "codec_block_events": 65536,
+    "codec_raw_block_bytes": 4194304,
+    "event_row_bytes": 64,
+    "native_peak_resident_bytes": 1634869248,
+    "native_peak_resident_scope": "GNU time %M on the executing Linux host; includes allocator, stack and runtime; not a physical patch capacity.",
+    "producer_cell_struct_bytes": 24,
+    "register_heap_peak_requested_bytes": 2415919104,
+    "register_heap_scope": "Requested vector storage including simultaneous old/new allocation during growth; allocator bookkeeping excluded here and included in host peak RSS.",
+    "wide_arithmetic_bytes": 16
+  },
+  "inputs": {
+    "carriers": 20480,
+    "centre_site": 7871,
+    "input_sha256": "a3b25a5058a348a6d32fa61cc5dd3bf55a2fac1a392baea94481eb1e83572ae7",
+    "logical_reads": 14559225,
+    "neighbour_sha256": "a6270c91514abf173d6cf134e4149a88410038e4be6653019f6434e8d362cfa4",
+    "q": 21,
+    "rounds": 5,
+    "sites": 9261,
+    "support_path": "code/source_read_routing/support_w12_l5.json",
+    "support_sha256": "dcaaf081787b1c04622e4375f35aea7b5d5a69c02139d8abff9725b5d1b2b5ef"
+  },
+  "producer_sha256": "182464e7a0960f20fb77dadd085cc043a80b6dcdeff70ecbc946fe49b476c0ca",
+  "routing_control_work": {
+    "bfs_directed_edge_examinations": 11377138500,
+    "bfs_nonroot_discoveries": 948280095,
+    "bfs_vertex_dequeues": 948326400,
+    "parent_and_mark_initializations": 1896652800,
+    "pruning_parent_traversals": 46288315,
+    "recipient_path_queries": 14559225,
+    "tree_mark_examinations": 948280095
+  },
+  "schema": "oph.source_read_routing.run.v1",
+  "tape": {
+    "decoded_bytes": 18734211392,
+    "decoded_sha256": "8fc82de07ecdafc938d594994326594070131449109cb59d9c95e7173c83d99a",
+    "events": 292722053,
+    "segments": [
+      {
+        "path": "q21_source_phase0.segment.json",
+        "sha256": "ae6a4da23756720714911b1aa2c910bdcb3aa95ff0804311eef933fc22a2b998"
+      },
+      {
+        "path": "q21_source_phase1.segment.json",
+        "sha256": "4d2cf20e09ca9d7ae19df569788ee3757c37b7b9e11936107cb8b148f46c8e4b"
+      },
+      {
+        "path": "q21_source_phase2.segment.json",
+        "sha256": "a0b31024edfcc0a0524f41b0f0423ab71b260f8d6fdbf6f7568f244f0e900d27"
+      },
+      {
+        "path": "q21_source_phase3.segment.json",
+        "sha256": "ece09c52258346f1d68331160b2b9ee0e4e4fefd19bad63cb51a7dbdec6b218a"
+      },
+      {
+        "path": "q21_source_phase4.segment.json",
+        "sha256": "782fbcff54c3662eebf26fd0bc73091a37deb91997698344e6367b3031b9be8d"
+      },
+      {
+        "path": "q21_source_phase5.segment.json",
+        "sha256": "e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
+      }
+    ]
+  },
+  "variant": "source"
+}

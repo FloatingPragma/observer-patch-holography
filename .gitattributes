@@ -16,3 +16,9 @@ evidence/e6_64k_dense_20260820/mismatch_trace.csv -text -eol -diff
 # Frozen-prediction custody artifacts are byte-exact copies whose hashes and
 # OpenTimestamps proofs are verified; never normalize them.
 evidence/custody/** -text -eol -diff
+
+# Full routed histories use explicit binary event rows and lossless deltas.
+code/source_read_routing/controls/*.tape -text -eol -diff
+code/source_read_routing/controls/*.input -text -eol -diff
+evidence/source_net_causal_poset/routed_read_law/*.tape -text -eol -diff
+evidence/source_net_causal_poset/routed_read_law/*.input -text -eol -diff

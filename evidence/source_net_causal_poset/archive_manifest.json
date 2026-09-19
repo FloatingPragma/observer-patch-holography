@@ -25,11 +25,11 @@
   ]
  },
  "curated_archive": {
-  "file_count": 5,
-  "total_bytes": 417493,
-  "inventory_sha256": "36259ccf0a624ab7e036b5d08dbf9e9a0d4e5082cf029363b1ee9d01064de999",
+  "file_count": 64,
+  "total_bytes": 536287171,
+  "inventory_sha256": "ccbe03cdb096c4c62f010c1ee7dee2190e46232398555a8f5772cc6fbdd311f6",
   "is_complete_copy_of_original_receipts": true,
-  "selection": "the source-net causal-limit receipt (q = 5..55, three families), the carrier source-net receipt (q = 5..34), the two stored carrier event logs (q = 5, 8) and the standalone generator"
+  "selection": "The original source-net and carrier receipts, q5/q8 logs and standalone generator remain byte-exact; routed_read_law/ is a separate research-repository extension retaining full conditional q13/q21 W12 executions."
  },
  "result": {
   "levels": [
@@ -128,9 +128,313 @@
    "sha256": "755c7721f719dcf6811f602afa108589dce3fb6bacc92530e6958c6b8b358f64"
   },
   {
+   "path": "routed_read_law/q13.input",
+   "bytes": 1799696,
+   "sha256": "2facf06717584bd904e1c90136e11207d358fe395ca149a17bc85287945f7b54"
+  },
+  {
+   "path": "routed_read_law/q13_baseline.json",
+   "bytes": 2899,
+   "sha256": "bc4f331a8b2665043a0b2d1238b758806e59104d12254083949bdc0983f7008f"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase0.000.tape",
+   "bytes": 46249,
+   "sha256": "d9561cc5ff2cf4b9b72f6715e7d7a91907112ecf679dc26246a342b37c26537c"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase0.segment.json",
+   "bytes": 341,
+   "sha256": "10ba416cb95aadcc374efc84a970f61ffbb9aa0ced143bddc82630d5ed2817b9"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase1.000.tape",
+   "bytes": 19759669,
+   "sha256": "514abbb85a5d8b1c88a6c0a80a65ae43cb25c15f5d58c69807ccff427e79627f"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase1.segment.json",
+   "bytes": 346,
+   "sha256": "b912a6cdce34477f1cc639e9a4f6e7b77675fce4f93e748635404750a2ab5875"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase2.000.tape",
+   "bytes": 2685467,
+   "sha256": "da47c7e2ac9f2d65cea2eef15b7c5f702aefa4b484c1d75677003a97ad86f7f3"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase2.segment.json",
+   "bytes": 397,
+   "sha256": "8430fb6774b0d48a90cc2902c75818f8b568afeb11ad01db327e2624ec808633"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase3.000.tape",
+   "bytes": 2991205,
+   "sha256": "20f87c502c9cecd0890116e3543166e74c5fdd8766f1bdfa9f14291d0f7a9167"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase3.segment.json",
+   "bytes": 397,
+   "sha256": "68dc0ace590612b206afdcbf48f8bd7337fa5bcf9ecd1b7493079eddb7e3c67e"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase4.000.tape",
+   "bytes": 3274041,
+   "sha256": "a417c1b7841e210e1cc4e47488004b64db8ddea8c4180dea8d95ef2faed42796"
+  },
+  {
+   "path": "routed_read_law/q13_baseline_phase4.segment.json",
+   "bytes": 397,
+   "sha256": "9e6af776f8535cc05b32cf56202e4c6154d4f300182f8ae98ced09438da5f165"
+  },
+  {
+   "path": "routed_read_law/q13_source.json",
+   "bytes": 2887,
+   "sha256": "a8895d573d7df2bccc6642cedf308972ccc8554bfd57dfb38be415db1bd49ae0"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase0.000.tape",
+   "bytes": 23935,
+   "sha256": "d750133d493863f4742adb63ca1877af9f15eb89e2f8f6c318519cb841a1f577"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase0.segment.json",
+   "bytes": 391,
+   "sha256": "baf8b0b448011690f4c713761738f628adea0753873af15f4ff2a0672d67a8b6"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase1.000.tape",
+   "bytes": 1376419,
+   "sha256": "38f99417a61aca778c4a0c78357aae5098f57523ac87ed83c8b7a4a7e7547cca"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase1.segment.json",
+   "bytes": 395,
+   "sha256": "93890e32585af215248975587d5f0b4bb6a68a4d96f5ecb350f3522339e6be8c"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase2.000.tape",
+   "bytes": 1553368,
+   "sha256": "d36ac558ee3761d6045f4cd75d53d14894860594a74f6792e3e350761726dd09"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase2.segment.json",
+   "bytes": 395,
+   "sha256": "d416292b3b38a3a2364b23994dc16078e4b38b2075e2605b2e5808c2b68b39a7"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase3.000.tape",
+   "bytes": 1894535,
+   "sha256": "1754c647395452ca321e3a2484179b108d82c923d6650aad482b8a2ca2c0a0a8"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase3.segment.json",
+   "bytes": 395,
+   "sha256": "5feb6ee9304abca019f8e9afd738f450190822357c60e569dda2f335904848d6"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase4.000.tape",
+   "bytes": 2229174,
+   "sha256": "74bac54aff4c644c7fa5cf88ec1e49ddd9a9641196b4e463664aeb2dc619fe5c"
+  },
+  {
+   "path": "routed_read_law/q13_source_phase4.segment.json",
+   "bytes": 395,
+   "sha256": "938a3f500c59fffb30ad7aa709f1f25cc1535dd9070754e9993dd2e35093e160"
+  },
+  {
+   "path": "routed_read_law/q21.input",
+   "bytes": 14168712,
+   "sha256": "a3b25a5058a348a6d32fa61cc5dd3bf55a2fac1a392baea94481eb1e83572ae7"
+  },
+  {
+   "path": "routed_read_law/q21_baseline.json",
+   "bytes": 3081,
+   "sha256": "cf590f86c935cbd1b5d618b38261bd1df858b86a0cc3254cebdb1118a024542b"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase0.000.tape",
+   "bytes": 187508,
+   "sha256": "0a156426842a11b96a24fcf55518a1d03709a4e1eaf735ec20c2e2c7cc3c9e9c"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase0.segment.json",
+   "bytes": 343,
+   "sha256": "798ee577b634fac8e9ee9d66beb47c0690897127bf2ef1d04665089f11538f2e"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.000.tape",
+   "bytes": 33554432,
+   "sha256": "8b4104d58e6ac61832a8abc9b50931b9019ed73fc0dc6d5a8dc2572f5bc2d93d"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.001.tape",
+   "bytes": 33554432,
+   "sha256": "b3e55fd17a8748f4a5a20a3a529d4825be26fcec99c65a23b466b7a9bf3ce08a"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.002.tape",
+   "bytes": 33554432,
+   "sha256": "c6a2dd02deabfd1959169877ec62fff697d9af8de00ada501a03306cedf9d154"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.003.tape",
+   "bytes": 33554432,
+   "sha256": "338ae290966d97eb975ad1819fccbfb826c4d1e47cc4956a0920924ceefd1f0c"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.004.tape",
+   "bytes": 33554432,
+   "sha256": "9080c9c2d7a927779f537cef1a2210fd1f05e2315a397f8c94bb42765f71ff4c"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.005.tape",
+   "bytes": 33554432,
+   "sha256": "470c7eec13dd57b5f8e77e76f180edb6aeee12e17db44fb79ab6884395e6f253"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.006.tape",
+   "bytes": 32795256,
+   "sha256": "e5bb45f14f1c00013c10f6428c4966deaebecc02eef66989f4b947e141fb3114"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase1.segment.json",
+   "bytes": 1349,
+   "sha256": "652759c06479d0e8a0d7ec470cf867b456ff2a2e6edaa19021d016baffb415b2"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase2.000.tape",
+   "bytes": 29807306,
+   "sha256": "3ba665fc6c0a8662136663ac92d5e72173fdf2dd8bca05de97c9122c6050d762"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase2.segment.json",
+   "bytes": 399,
+   "sha256": "8d4a07a07d7c7db57a30708e2b57da205ed092429e475b944156dff8607413f5"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase3.000.tape",
+   "bytes": 33008656,
+   "sha256": "3da800b9ef3a0ffb4dc5a713b44c1142b9b76472146bb5a887908a359433c895"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase3.segment.json",
+   "bytes": 399,
+   "sha256": "8698849ac6426ffee5815547ae682abd76a166172e2f1d39fc9e888d5bf3ff3b"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase4.000.tape",
+   "bytes": 33554432,
+   "sha256": "9cece79c89560f1d68856839253d1b67bf5f8dfffbb7f3d5bb2ed1bfe63ca029"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase4.001.tape",
+   "bytes": 2585226,
+   "sha256": "4763885252100a4959efe24cbb683a4d556364bb825708ddfb0923f195e3d452"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase4.segment.json",
+   "bytes": 565,
+   "sha256": "960afd95cafa9900d286db7e410c49b93ecdd661f2c32a13f21f2bbe9acaf4ee"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase5.000.tape",
+   "bytes": 33554432,
+   "sha256": "6b125b8290bb6b61c403f00e9cf3a51383d2595d9630996dc4cd9bb19b1c7db8"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase5.001.tape",
+   "bytes": 5800955,
+   "sha256": "5f12a30e3ed3984260fac4c937a9532ace69b1c0ac60538b36bd4a069c435bcb"
+  },
+  {
+   "path": "routed_read_law/q21_baseline_phase5.segment.json",
+   "bytes": 565,
+   "sha256": "33e3fc553cb73db00f508644d9ee8e347628a288b87e484d8df236c0e9ea8111"
+  },
+  {
+   "path": "routed_read_law/q21_source.json",
+   "bytes": 3067,
+   "sha256": "421992e46c5cacfb6e76ce5c4d3bae3d6b3cab70665118736f185d443572933f"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase0.000.tape",
+   "bytes": 96715,
+   "sha256": "afda93b40155929a9f0f0a960e2cedbc5cd2476c6d611a69a64036e2f22e2856"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase0.segment.json",
+   "bytes": 392,
+   "sha256": "ae6a4da23756720714911b1aa2c910bdcb3aa95ff0804311eef933fc22a2b998"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase1.000.tape",
+   "bytes": 16636013,
+   "sha256": "64b58e5d3b4824a7ec3b03e01d43d52e85caf13e8166646e9fc77650f9aa4a45"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase1.segment.json",
+   "bytes": 397,
+   "sha256": "4d2cf20e09ca9d7ae19df569788ee3757c37b7b9e11936107cb8b148f46c8e4b"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase2.000.tape",
+   "bytes": 18147603,
+   "sha256": "afb2397463f27621fa2487a98dd87235751919c1703025676246f19b0aa5bb4c"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase2.segment.json",
+   "bytes": 397,
+   "sha256": "a0b31024edfcc0a0524f41b0f0423ab71b260f8d6fdbf6f7568f244f0e900d27"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase3.000.tape",
+   "bytes": 21972679,
+   "sha256": "58e05bcbaa68ed2137d14d4450f93a7dc61e32fe932b0a431db1d92c0b2bc618"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase3.segment.json",
+   "bytes": 397,
+   "sha256": "ece09c52258346f1d68331160b2b9ee0e4e4fefd19bad63cb51a7dbdec6b218a"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase4.000.tape",
+   "bytes": 25660393,
+   "sha256": "f38557ea39f15b0033a98109316ad1c0345e4bb63e658ec1ad683a37cda543bc"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase4.segment.json",
+   "bytes": 397,
+   "sha256": "782fbcff54c3662eebf26fd0bc73091a37deb91997698344e6367b3031b9be8d"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase5.000.tape",
+   "bytes": 28910479,
+   "sha256": "bb734d9cc4bbfd7e01606e680f2af356f18a17bf52a5905df2fd7155cf18d8cb"
+  },
+  {
+   "path": "routed_read_law/q21_source_phase5.segment.json",
+   "bytes": 397,
+   "sha256": "e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
+  },
+  {
+   "path": "routed_read_law/README.md",
+   "bytes": 1183,
+   "sha256": "939aa6ab3f6a91ed257b60118e5e11daf70ef1e0389461e48b26570dda452e11"
+  },
+  {
    "path": "source_net_causal_limit_receipt.json",
    "bytes": 216420,
    "sha256": "97c837913b75b2b019428028e114259caedd54345bd5a2efb78abd040f7e11f3"
+  }
+ ],
+ "extensions": [
+  {
+   "directory": "routed_read_law",
+   "source_repository": "https://github.com/FloatingPragma/observer-patch-holography",
+   "source_directory": "code/source_read_routing",
+   "support_source_revision": "7faa47b5cf00b42f6bf6b3e95ed4f7eb64f4239f",
+   "scope": "Complete baseline/intervention event tapes under supplied M1; not part of the older simulator receipts, not an axiomatic read-law derivation, physical clock, or count-volume attachment."
   }
  ]
 }

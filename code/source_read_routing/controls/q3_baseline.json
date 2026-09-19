@@ -1,0 +1,68 @@
+{
+  "costs": {
+    "events": 22818,
+    "hops": 872,
+    "max_abs_scaled_scalar": 8726,
+    "max_read_depth": 7,
+    "register_reads": 7456,
+    "register_writes": 23690,
+    "registers": 17782,
+    "total_read_depth": 1404,
+    "tree_hops_per_round": 436
+  },
+  "implementation_resources": {
+    "auxiliary_heap_requested_bytes": 448488,
+    "codec_block_events": 65536,
+    "codec_raw_block_bytes": 4194304,
+    "event_row_bytes": 64,
+    "native_peak_resident_bytes": 4886528,
+    "native_peak_resident_scope": "GNU time %M on the executing Linux host; includes allocator, stack and runtime; not a physical patch capacity.",
+    "producer_cell_struct_bytes": 24,
+    "register_heap_peak_requested_bytes": 1179648,
+    "register_heap_scope": "Requested vector storage including simultaneous old/new allocation during growth; allocator bookkeeping excluded here and included in host peak RSS.",
+    "wide_arithmetic_bytes": 16
+  },
+  "inputs": {
+    "carriers": 1280,
+    "centre_site": 13,
+    "input_sha256": "b672542f44717bfda0ba6b1a7389d1cc9df3505fce6bcd82eab30d6f8e8b3f08",
+    "logical_reads": 622,
+    "neighbour_sha256": "4a982b6b9b645c3b522b551137242fd364201cf206560ab37c053dee96df67dd",
+    "q": 3,
+    "rounds": 2,
+    "sites": 27,
+    "support_path": "code/source_routing/support_w12_l3.json",
+    "support_sha256": "57ec958cb0c26f1614df67b88549bf193213ec3997863d818e462befdeb0f5a4"
+  },
+  "producer_sha256": "182464e7a0960f20fb77dadd085cc043a80b6dcdeff70ecbc946fe49b476c0ca",
+  "routing_control_work": {
+    "bfs_directed_edge_examinations": 826200,
+    "bfs_nonroot_discoveries": 69066,
+    "bfs_vertex_dequeues": 69120,
+    "parent_and_mark_initializations": 138240,
+    "pruning_parent_traversals": 872,
+    "recipient_path_queries": 622,
+    "tree_mark_examinations": 69066
+  },
+  "schema": "oph.source_read_routing.run.v1",
+  "tape": {
+    "decoded_bytes": 1460352,
+    "decoded_sha256": "b4fc16b1c168d1805aadd1219426777fcabebedf71b6fd26a68cb2aa357d6a57",
+    "events": 22818,
+    "segments": [
+      {
+        "path": "q3_baseline_phase0.segment.json",
+        "sha256": "26228ff3c7811a6152e1b308e4779152c6b68175702fc90116e35095aceb3102"
+      },
+      {
+        "path": "q3_baseline_phase1.segment.json",
+        "sha256": "9700eb470431d09ec826542a24d28853f04324d473d26e5c0b2a1f38f708f5dc"
+      },
+      {
+        "path": "q3_baseline_phase2.segment.json",
+        "sha256": "da298db4999b13672f2899ab37c1eb7f110d8d4237e493c1f504f607d7ab163a"
+      }
+    ]
+  },
+  "variant": "baseline"
+}

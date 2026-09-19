@@ -36,6 +36,13 @@ ratio `phi`, and `L = 2/sqrt(phi + 2)`.
 The population, the read law, the round duration `Delta_q = a_q/c` and one
 counted event per carrier and round are supplied, as in the source paper.
 
+A separate [routed-read extension](routed_read_law/README.md) now executes the
+complete q=13/q=21 logical menus on declared W12 L4/L5 support. It retains all
+intermediate events and costs and verifies a semantic refinement under a
+supplied local M1 feedback law. The original receipts below remain the
+declared-family records; the new routing does not derive M1 or turn its
+auxiliary events into spacetime-volume counts.
+
 ## Properties
 
 | Property | Value | Status |
