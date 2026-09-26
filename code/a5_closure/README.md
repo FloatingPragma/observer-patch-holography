@@ -21,6 +21,8 @@ python3 axis_center_descent_certificate.py all    # issue #567 conditional kerne
 python3 coset_carrier_certificate.py all          # A1 carrier as coset geometry of a supplied SL(2,5) source, 900 placements, receipt, controls
 python3 sl2f5_port_spin_bridge_certificate.py verify  # exact SL(2,F5) to PORT-SPIN-LIFT bridge
 python3 sl2f5_mckay_e8_certificate.py verify         # exact McKay graph of the certified spin doublet: affine E8, Galois control
+python3 verify_galois_port_frame_independent.py    # incidence-derived two-frame geometry and exact degrees 1/7
+python3 galois_source_response_control.py          # bounded non-selection under complete source-law conjugation
 python3 source_current_tomography_stage0.py verify    # source-current tomography Stage 0 baseline pins
 python3 source_current_tomography_stage1_contract.py verify  # Stage 1 admissibility contract
 python3 source_current_order_sensitive_inventory.py all      # Stage 2 bounded inventory and certificate
@@ -39,6 +41,17 @@ Requires Python 3.11+ and SymPy. The independent cross-check
 `independent_lane_check.py` also needs NumPy. The suite exits 0.
 
 ## What is certified (exact; no floating-point fit, no measured number)
+
+The [Galois frame attachment certificate](galois_port_frame_certificate.md)
+constructs both rank-three Gram frames directly from the committed oriented
+incidence. The marked order-five traces, Laplacian modes, chord rankings and
+oriented degrees distinguish the two frames exactly. The audited A1 support
+bridge has no source-bound identification with these local radial face maps;
+`PORT-GRAM-SUPPORT-ATTACHMENT` is absent. The integrated source-response
+clauses pass for both fully conjugate laws. The verdict is
+`GALOIS_FRAME_AMBIGUITY_PERSISTS_WITHOUT_SUPPORT_ATTACHMENT`, with no physical
+selection or numerical prediction. Its two-frame menu is separate from the
+orientation-preserving/full-automorphism menu in the selection ledger.
 
 Two scripts in this directory corroborate in floating point and carry none
 of this exactness. `a5_harmonic_decomposition.py` evaluates characters with

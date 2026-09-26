@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 845,
+    "file_count": 851,
     "files": [
       {
         "byte_count": 42558,
@@ -1503,9 +1503,9 @@
         "sha256": "sha256:0cdb1fbd1cf7c5ee1cb5f3ba29207ed50841495904155997501c305fef72ecb7"
       },
       {
-        "byte_count": 5232,
+        "byte_count": 11171,
         "path": "Lean/Screen/PortGramRepairBand.lean",
-        "sha256": "sha256:8b48c8fd1e61ddf09f7468a870892a66c1b9b469fdac33597ff26658d9f5c635"
+        "sha256": "sha256:75286414b7c33492b40225dd48ca9321cf3a09ecf96b65e254af9bd02421cf72"
       },
       {
         "byte_count": 20836,
@@ -1893,9 +1893,9 @@
         "sha256": "sha256:01a0e5a867febc03fa3e84ee6831734b13be19596375e8b13d26fcb7cf78889e"
       },
       {
-        "byte_count": 35153,
+        "byte_count": 36118,
         "path": "code/a5_closure/README.md",
-        "sha256": "sha256:15093081e54257ed45b943af32a48ad4bf18c651241741a55b9387de56491b79"
+        "sha256": "sha256:d5a9bb33df56ccf6d4768f360c9328ad2f66f85f59d4a21aabf14bedf496848d"
       },
       {
         "byte_count": 37263,
@@ -2011,6 +2011,21 @@
         "byte_count": 95414,
         "path": "code/a5_closure/flux_defect_criterion_certificate.py",
         "sha256": "sha256:e3bfc362b525d6f7f0ee27497c077e49836cac67ea3536763cb369767ba50297"
+      },
+      {
+        "byte_count": 19899,
+        "path": "code/a5_closure/galois_port_frame_certificate.md",
+        "sha256": "sha256:72e253d48af2e3369b012227a165a784852cd1ebb0e68d7bfc4b580d2ff05fec"
+      },
+      {
+        "byte_count": 9782,
+        "path": "code/a5_closure/galois_port_frame_certificate.py",
+        "sha256": "sha256:05b917898f3a2266ca54c22a9c1b174aa87f374196e4297c8bda1839a8b0452a"
+      },
+      {
+        "byte_count": 8878,
+        "path": "code/a5_closure/galois_source_response_control.py",
+        "sha256": "sha256:43fa9328911b9ab920becdee7334bac96f082b71343dc8abc6bd73f0d61664fa"
       },
       {
         "byte_count": 3323,
@@ -2151,6 +2166,11 @@
         "byte_count": 2404,
         "path": "code/a5_closure/manifests/flux_defect_criterion_reference.json",
         "sha256": "sha256:1a5317e2ac1692e59e0b2966b904bde7a5473b49b76ddbec6c8d5133e6cf41e2"
+      },
+      {
+        "byte_count": 63529,
+        "path": "code/a5_closure/manifests/galois_port_frame_reference.json",
+        "sha256": "sha256:455085536262ad942918ab541bd0a14784d682bb428fa25deabd55f400993a6f"
       },
       {
         "byte_count": 9246,
@@ -2533,6 +2553,11 @@
         "sha256": "sha256:da6297d4f55448e33e5b02c1e247fd645daefefbc0e82ecffc50a4d470e579d4"
       },
       {
+        "byte_count": 5362,
+        "path": "code/a5_closure/tests/test_galois_port_frame_certificate.py",
+        "sha256": "sha256:c29aa9cf92358809b5c1a55fa931b7fda60f4ffb2dd961e98b711414a4c86e66"
+      },
+      {
         "byte_count": 23780,
         "path": "code/a5_closure/tests/test_load_fiber_readback_certificate.py",
         "sha256": "sha256:2487bb59e738866fc38308d5c89dc1408dbe98d77d7593ea4f1d1079f79bab35"
@@ -2626,6 +2651,11 @@
         "byte_count": 17420,
         "path": "code/a5_closure/verify_baryon_dimension_six_census_independent.py",
         "sha256": "sha256:abb83f17ef1f309ffee0599e63108f01dddeb46ac601b4d5798f978940714910"
+      },
+      {
+        "byte_count": 12352,
+        "path": "code/a5_closure/verify_galois_port_frame_independent.py",
+        "sha256": "sha256:0b805033eb3e7c27c812a2d0919504796f73980d5d6d75f23dd68925045fbbea"
       },
       {
         "byte_count": 20870,
@@ -4423,7 +4453,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:3dde0311e4681502e562bdb692737613b67c0cd04db59672365946dfecbdd6bc",
+    "files_sha256": "sha256:f7fc6d677ae8fbb47e10700edf9f77ed3a3e59be1a0087fc115bae3439b698cc",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "9b527a4f8d07a21944b56bc3967a739339aff2c8",
@@ -7253,7 +7283,7 @@
     ],
     "through_upstream_main_sha": "9b527a4f8d07a21944b56bc3967a739339aff2c8"
   },
-  "inventory_sha256": "sha256:34c9aacab10ad078f583230032f1546da6cd1ec60af45e538c52c39f0774ce3d",
+  "inventory_sha256": "sha256:3844fa40a46f537154c8b5c999082d8f541933e5ac11aac6e2f98c4534856374",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",

@@ -1984,7 +1984,7 @@
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
-      "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, an integer total-charge-twelve counting grammar, a normalized central-readback quadratic cost, and refinement cocycle, the named packet uniquely derives the one-unit-per-port split with exact gap two. An append-only signed-event machine realizes integer loads and conservative whole-unit repairs. The load-square Lyapunov function proves termination, minimum settling-move cost is natural under every carrier rotation and declared refinement, and the half-unit display is a unit rescaling of the same event graph. The incidence packet separately derives the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture, integer normalization, positive readback scale, quadratic readback cost, or dynamic settling cost from arbitrary OPH data, and it does not supply a physical gauge-current lift.",
+      "statement": "On a declared quotient-visible twelve-port echosahedral carrier lineage with equal-trace primitive central port atoms, oriented incidence, an integer total-charge-twelve counting grammar, a normalized central-readback quadratic cost, and refinement cocycle, the named packet uniquely derives the one-unit-per-port split with exact gap two. An append-only signed-event machine realizes integer loads and conservative whole-unit repairs. The load-square Lyapunov function proves termination, minimum settling-move cost is natural under every carrier rotation and declared refinement, and the half-unit display is a unit rescaling of the same event graph. The incidence packet separately derives the graph-distance-three inverse pairing, six axes, the proper A5 action, and a rank-three regular-icosahedral Gram frame. The construction is refinement-natural and relabel-equivariant. It does not derive the echosahedral carrier architecture, integer normalization, positive readback scale, quadratic readback cost, or dynamic settling cost from arbitrary OPH data, and it does not supply a physical gauge-current lift. The complementary boundary OPH-SCREEN-GALOIS-FRAME-BOUNDARY treats the frozen Galois pair separately; the present claim does not select the positive real embedding.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "exact_named_realization_and_finite_incidence_theorem",
       "assumptions": [
@@ -2024,6 +2024,47 @@
         "open": [],
         "boundary": [],
         "rationale": "This named-realization theorem uses declared carrier, counting, cost, and event-machine data that are not PR rows and explicitly stops before the physical gauge-current lift."
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-GALOIS-FRAME-BOUNDARY",
+      "statement": "For the explicitly frozen pair of Galois-conjugate rank-three port frames reconstructed from CoreAxioms.orientedFaces, both Gram matrices satisfy G squared equal to 4G and trace twelve. With the marked order-five class and one common convex-positive ambient orientation fixed, their traces are phi and 1-phi, their coordinate Laplacian eigenvalues are 5-sqrt(5) and 5+sqrt(5), abstract edges have first and second chord rank, and radial degrees are one and seven. These diagnostics are equivalent only within this pair, not an exhaustive classification of compatible rank-three realizations. Full Galois conjugation of the audited source_selection_model response law preserves response completeness and same-response proper holonomy, so those clauses do not select the positive member. A source-bound PORT-GRAM-SUPPORT-ATTACHMENT carrying the local fundamental cycle to the nerve cycle and identifying the radial map up to oriented homotopy with the A1 degree-one support bridge would select the positive member within this pair; no such attachment is supplied in the audited corpus.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "exact_frozen_pair_certificate_and_bounded_source_attachment_audit",
+      "assumptions": [
+        "declared_oriented_twelve_port_incidence",
+        "explicitly_frozen_Galois_pair_of_radial_realizations",
+        "fixed_marked_order_five_class_and_common_ambient_orientation",
+        "audited_source_selection_model_response_law"
+      ],
+      "imported_results": [
+        "exact_quadratic_field_linear_algebra",
+        "topological_degree_by_signed_regular_value_count",
+        "homotopy_invariance_of_degree"
+      ],
+      "oph_specific_delta": "Separates the incidence-derived Galois ambiguity from the orientation/action selector. Independent arithmetic bases and linear-system methods certify the frozen pair, while conjugation of the full response law including its quadrupole exposes the bounded nonselection result. PORT-GRAM-SUPPORT-ATTACHMENT remains a missing source interface; PR-53 is neither consumed nor discharged.",
+      "novelty_type": "exact_frozen_Galois_pair_and_bounded_support_attachment_boundary",
+      "evidence": [
+        "code/a5_closure/galois_port_frame_certificate.md",
+        "code/a5_closure/galois_port_frame_certificate.py",
+        "code/a5_closure/verify_galois_port_frame_independent.py",
+        "code/a5_closure/manifests/galois_port_frame_reference.json",
+        "code/a5_closure/galois_source_response_control.py",
+        "code/a5_closure/tests/test_galois_port_frame_certificate.py",
+        "Lean/Screen/PortGramRepairBand.lean"
+      ],
+      "falsifier": "On the frozen pair with its stated conventions, a Gram identity, marked trace, Laplacian mode, chord ranking, radial degree or diagnostic equivalence fails; the conjugated source law fails an audited response-completeness or proper-holonomy clause; or a source-bound theorem in the pinned audit corpus supplies the stated support attachment.",
+      "scope_if_false": "The affected frozen-pair diagnostic, bounded source nonselection result or support-attachment audit falls. The unit split, inverse pairing, six axes and proper A5 action in OPH-SCREEN-ECHOSAHEDRAL-SELECTOR remain independently assessed; no universal embedding classification or physical selection is asserted.",
+      "status": "frozen_Galois_pair_certified__positive_selection_requires_missing_source_support_attachment",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [],
+        "boundary": [
+          "PR-53"
+        ]
       }
     },
     {

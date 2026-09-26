@@ -86,7 +86,7 @@
     {
       "row": 3,
       "selector_id": "icosahedral_screen_selector_port_frame",
-      "label": "Icosahedral screen selector and port frame (A5 action, rank-3 Gram frame)",
+      "label": "Icosahedral oriented action (A5 versus orientation-forgetting A5 x C2)",
       "class": "forced",
       "conditional_on": [
         "echosahedral_carrier_lineage"
@@ -94,7 +94,7 @@
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Issue #565 closure packet: Aut+ isomorphic to A5, full Aut isomorphic to A5 x C2, Gram identity G^2 = 4G with trace 12. Lean: `Lean/Screen/PortFrameGram.lean`, `Lean/Screen/A5PortAction.lean` (kernel `decide`). Conditional on row 4.",
+      "where": "Issue #565 closure packet: Aut+ isomorphic to A5 and full Aut isomorphic to A5 x C2. Lean: `Lean/Screen/A5PortAction.lean` (kernel `decide`). Conditional on row 4. OPH-SCREEN-GALOIS-FRAME-BOUNDARY separately certifies an additional unselected ambiguity within a frozen Gram pair.",
       "menu": {
         "size": 2,
         "alternatives": "oriented A5 frame or orientation-forgetting A5 x C2 frame; the orientation receipt fixes the oriented class",
