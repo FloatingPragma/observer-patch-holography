@@ -19,7 +19,7 @@ pytest==9.1.1
 # the pinned CAMB interpolator is exercised without running transfer evolution.
 matplotlib==3.11.2
 networkx==3.7
-camb==1.6.6
+camb==2.0.4
 # Frozen-prediction custody (evidence/custody/): `ots info` parses the detached
 # OpenTimestamps proofs locally, without network access. The client cannot
 # start on Windows (python-bitcoinlib finds no OpenSSL there), so it is skipped.
