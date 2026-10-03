@@ -1,0 +1,57 @@
+{
+  "schema": "oph.full_entropy_w5_selector_spec.v1",
+  "candidate": "uniform-reference full relative entropy on the antipodal W5 record at fixed norm",
+  "purpose": "Test an explicit P-and-icosahedron selector mechanism without fitting a quark mass, introducing a free coefficient, or promoting a conjectured source law to an axiom.",
+  "source_structure": {
+    "carrier": "twelve icosahedral ports in six antipodal pairs",
+    "record": "a bounded observer-like self-reading patch has local port records, readback and a public probability record; only its declared classical antipodal scalar record is modeled here, not a general quantum state",
+    "pair_count": 6,
+    "pair_reference": "1/6",
+    "centered_record": "sum_i a_i = 0; 2*sum_i a_i^2 = 1",
+    "pair_probability": "p_i = (1+r*a_i)/6",
+    "port_probability": "q_(i,+) = q_(i,-) = p_i/2",
+    "amplitude_domain": "0 <= r <= sqrt(60)",
+    "P_role": "No numerical P is consumed. The result holds for every admissible amplitude, hence for any scalar amplitude map r(P). Such a map is not derived here."
+  },
+  "selector": {
+    "objective": "minimize D(p||uniform) = sum_i p_i*log(6*p_i)",
+    "zero_convention": "0*log(0) = 0",
+    "constraints": ["p_i >= 0", "sum_i p_i = 1", "sum_i p_i^2 = 1/6+r^2/72"],
+    "fixed_assumptions_not_derived_from_core": [
+      "antipodal scalar records on the twelve-port carrier",
+      "the uniform reference distribution",
+      "selection by full relative entropy at a fixed quadratic norm",
+      "the quadrupole spectral attachment to a three-family mass operator"
+    ],
+    "continuous_fitted_coefficients": 0,
+    "new_physical_law_claimed": false,
+    "core_axiom_derivation_claimed": false
+  },
+  "global_argument": [
+    "At each fixed purity the feasible closed simplex is compact and the objective extends continuously to zero, so a minimum exists.",
+    "For 0<r<sqrt(60), a boundary point cannot minimize the objective. If two positive coordinates differ, adding epsilon at a zero and changing those coordinates by O(epsilon) preserves sum and purity by the implicit function theorem. The new coordinate contributes epsilon*log(epsilon), while existing positive coordinates change by O(epsilon).",
+    "If all k positive boundary coordinates equal 1/k with 2<=k<=5, give each the base (1-epsilon)/k and displace two by plus/minus delta, with delta^2=epsilon/k-(k+1)*epsilon^2/(2*k); put epsilon at a previously zero coordinate. Sum and purity remain exact. The opposite displacements cancel their O(sqrt(epsilon)) first-order entropy terms, so the old-coordinate entropy change is O(epsilon), whereas epsilon*log(epsilon) is negative and dominant. The k=1 case occurs only at r=sqrt(60).",
+    "At an interior stationary point the two constraint gradients are independent unless r=0. Lagrange stationarity reads log(p_i)+1=lambda+2*mu*p_i. Strict concavity of log(x) implies at most two positive roots a<b.",
+    "If b occurs at least twice, the direction (1,-1) on two b coordinates is tangent to both constraints. Its constrained second variation is 2*(1/b-log(b/a)/(b-a)). This is strictly negative because, for t=b/a>1, log(t)-1+1/t has value zero at one and derivative (t-1)/t^2>0.",
+    "Thus an interior minimum has one high and five equal low coordinates. Solving its two constraints gives p_H=(1+5*r/sqrt(60))/6 and p_L=(1-r/sqrt(60))/6. Compactness, boundary exclusion and stationarity prove this is the only minimum up to permutation.",
+    "The endpoints are the uniform distribution at r=0 and a one-point distribution at r=sqrt(60). At zero every normalized direction a is equivalent as a probability record, no direction is selected, and the actual quadrupole r*Q is zero. Every winner at nonzero r selects one of the six antipodal axes and has a quadrupole with one double eigenvalue. An unoriented fivefold axis has a D5 stabilizer of order ten."
+  ],
+  "physical_boundary": {
+    "quadrupole": "Q = 2*sum_i a_i*(n_i*n_i^T-I/3), with six unit icosahedral axis representatives; this forward map obeys n_i^T Q n_i = (8/5)*a_i, not a_i",
+    "actual_record_quadrupole": "r*Q",
+    "conditional_mass_consequence": "A single quadrupole spectral readout retains the double eigenvalue, so this mechanism cannot supply three unequal masses in either sector for any scalar r(P).",
+    "scope_exclusion": "Only this full-entropy fixed-norm antipodal-record mechanism and its single-quadrupole spectral readout are excluded. General OPH completions, different source constraints, multiple coupled records and independently derived physical readouts are not excluded.",
+    "absolute_masses_emitted": false,
+    "quark_ratios_emitted": false,
+    "physical_comparison_performed": false,
+    "positive_physical_evidence_claimed": false,
+    "prediction_freeze_claimed": false
+  },
+  "input_policy": {
+    "empirical_targets_loaded": false,
+    "numeric_P_loaded": false,
+    "legacy_flavor_templates_loaded": false,
+    "historical_quartic_receipt_modified": false,
+    "discovery_status": "exploratory mechanism-level theorem; existing mass hierarchy knowledge motivates the question, so this is not a blind discovery"
+  }
+}

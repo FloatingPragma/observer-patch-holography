@@ -1,0 +1,157 @@
+{
+  "calibrations": {
+    "E_star_GeV": {
+      "role": "external_dimensionful_unit_calibration",
+      "value": "1.220890e19"
+    },
+    "alpha_inverse": {
+      "role": "external_measured_calibration",
+      "value": "137.035999177"
+    }
+  },
+  "charts": {
+    "b": {
+      "scale": "self_scale_mu_equals_running_mass",
+      "scheme": "MSbar"
+    },
+    "c": {
+      "scale": "self_scale_mu_equals_running_mass",
+      "scheme": "MSbar"
+    },
+    "d": {
+      "scale": "2 GeV",
+      "scheme": "MSbar"
+    },
+    "s": {
+      "scale": "2 GeV",
+      "scheme": "MSbar"
+    },
+    "t": {
+      "boundary": "pole_attachment_is_assumed_not_derived; experimental_extraction_matching_is_separate",
+      "scale": "not_a_running_scale",
+      "scheme": "declared_pole_coordinate"
+    },
+    "u": {
+      "scale": "2 GeV",
+      "scheme": "MSbar"
+    }
+  },
+  "claim_class": "conditional_retrospective_RSCC_native_mass_chart_replay",
+  "coefficient_menu": {
+    "a_d_linear": "33/32",
+    "a_d_quadratic": "1/420",
+    "a_u_linear": "29/5",
+    "a_u_quadratic": "1/22",
+    "delta_g_P": "1/1008",
+    "delta_g_quadratic_color": "1/432",
+    "delta_g_quadratic_relabel": "-1/1584",
+    "mean_d_linear": "4/15",
+    "mean_d_quadratic": "-1/432",
+    "mean_u_linear": "79/15",
+    "mean_u_quadratic": "1/29",
+    "module_dimensions": [
+      29,
+      432,
+      22,
+      32,
+      840,
+      1008,
+      432,
+      1584
+    ],
+    "q_d": "-1/4",
+    "q_u": "-rho/10"
+  },
+  "equations": {
+    "a_down": "2*P+33*w/32+w^2/420",
+    "a_up": "3*P+29*w/5+w^2/22",
+    "affine": "A=1/(2*(1+rho-x^2)); B=1/(2*(1-x^2-x^2/(1+rho))); sigma=(mean_u+mean_d)/2; eta=(mean_u-mean_d)/2",
+    "b_down": "a_d*(-rho*x-rho-x+1)/((1+rho)*(x^2-1))-w/4",
+    "b_up": "a_u*(-rho*x+rho-x-1)/((1+rho)*(x^2-1))-w*rho/10",
+    "basis": "L=ctr(-1,x,1); Q=ctr(1,x^2,1)",
+    "common": "g_ch/v=2*exp(-2*pi+delta_g)",
+    "control": "Remove only the four quadratic corrections in mean/a and all delta_g; keep the same remaining law and inputs.",
+    "delta_g": "P/1008+w^2/432-w^2/1584",
+    "down": "m_down/v=(g_ch/v)*exp(-A*sigma-B*eta+a_d*L+b_d*Q)",
+    "heat": "tau=P/4-w/5; r=exp(-3*tau); rho=3/(2+r); x=(r-1)/(r+1)",
+    "mean_down": "2*P+4*w/15-w^2/432",
+    "mean_up": "3*P+79*w/15+w^2/29",
+    "root": "P=phi+sqrt(pi)/alpha_inverse; w=pi*alpha_U(P)",
+    "unit": "v/E_star=P^(-1/2)*exp(-2*pi/(4*alpha_U)); m_GeV=(m/v)*(v/E_star)*E_star_GeV",
+    "up": "m_up/v=(g_ch/v)*exp(-A*sigma+B*eta+a_u*L+b_u*Q)"
+  },
+  "gauge_solver": {
+    "alpha_U_domain": [
+      "0.02",
+      "0.08"
+    ],
+    "precision": 50,
+    "su2_cutoff": 80,
+    "su3_cutoff": 60
+  },
+  "guards": {
+    "common_scale_yukawa_matrix": false,
+    "conditional_native_chart_replay": true,
+    "controls_used_for_model_selection": false,
+    "formula_discovery_target_informed": true,
+    "independent_prediction": false,
+    "module_and_sign_ledger_target_informed": true,
+    "new_blind_evidential_weight": false,
+    "old_mixed_branch_scale_used": false,
+    "physical_quark_mass_derivation": false,
+    "quark_reference_values_used_at_runtime": false,
+    "source_selected_flavor_law": false,
+    "top_pole_attachment_assumed": true
+  },
+  "historical_law_sha256": {
+    "code/particles/flavor/quark_rscc_completion_candidate.py": "c2703016b69a5617e2f057254fa655f141eeb596d3f1f178071d417dee2106d2",
+    "code/particles/flavor/verify_quark_rscc_module_arithmetic.py": "403e6db0dca07fa877b32eef542ffb02a0103fdf51a9ff7b15096211cc9efb55",
+    "code/particles/runs/flavor/quark_rscc_completion_candidate_audit.json": "49746ade49d84a759957784ecaae24bb50e54ed5ec9d849cf49914c40844849a"
+  },
+  "hypotheses": {
+    "H10_gauge_trunk": "The finite SU(2)/SU(3) heat closure, one-loop coefficients (33/5,1,-3), tree weak fixed point and beta_EW=4 define the declared D10 branch.",
+    "H11_representation_attachment": "The selected D3 group heat law is represented faithfully by six conjugation channels on native W5, without an added regular submodule. Selecting this background, transposition-only jumps and the physical heat/three-generation readout remains assumed; it is not the native full-seam generator or the A5-triplet restriction.",
+    "H12_ordering": "Increasing entries of the up/down output vectors label (u,c,t)/(d,s,b); no CKM or right-family frame is inferred.",
+    "H1_family_response_carrier": "The physical response is identified with the native A5-irreducible W5 and a supplied face-axis D3 background. Its restriction F=1+2+2 and dimensions5,4 are certified; this physical identification and background are assumed.",
+    "H2_module_incidence": "The eight declared composite module incidences are the physical channels.",
+    "H3_effects_and_signs": "The remaining composite effect ranks, orientations and sector signs are physical. The common exposure specifically uses the normalized quadratic color-Casimir observable on the native D3 line, not a rank-four invariant color projector; that physical response choice is assumed.",
+    "H4_cumulant_law": "A5 symmetry suffices for normalized trace on native W5. Isotropy on the composite modules, Gaussian two-cumulant truncation and the order of color contraction versus nonlinear response remain hypotheses; negative terms require a separate signed-response law.",
+    "H5_family_attachment": "The count-only 24-slot register has an additional physical family non-singlet attachment.",
+    "H6_readout_laws": "The frozen heat-time, even-response, L/Q log-spectrum and affine-mean equations are the physical readout laws.",
+    "H7_residual_selection": "The declared residual functional is physically minimized; this is not inferred from the existence of its mathematical minimum.",
+    "H8_chart_attachment": "The six native coordinates have exactly the declared light-MSbar, heavy-self-scale and top-pole charts; a physical top pole and extraction relation are not derived.",
+    "H9_normalization": "The D10 transmutation law supplies v/E_star and the external E_star GeV calibration supplies the absolute unit."
+  },
+  "schema": "oph.conditional_quark_mass_replay.v1",
+  "source_cache": {
+    "P": "1.6309682094039593248792798477826489413359828516279250606661507",
+    "alpha1_mz": "0.016885708038988161852595837483019662480429572308238855452606673",
+    "alpha2_mz": "0.033777889448908048830243115421578706821802275625809225226146418",
+    "alpha3_mz": "0.11833602747445048348500390585110968660510620528848387519059292",
+    "alpha_U": "0.041124336195630482177799935872286596350022591650485992431640625",
+    "mu_U_over_E_star": "0.0020260720012100031055338687795379539496331874422094612911915344",
+    "mz_over_E_star": "7.5024032389859183913100260342622779004344742163348276191459725E-18",
+    "v_over_E_star": "2.0199803239725258706912675862369951543104217003037326817856081E-17"
+  },
+  "source_response": {
+    "physical_boundary": "The dimensions and normalized native projector traces are certified. Choosing the face-axis background, Casimir-line common-exposure readout, scalar budget assignment and its physical quark attachment remains conditional. Composite modules, signed responses and Gaussian/contraction laws are not selected by these coefficients.",
+    "projection": {
+      "centered_fraction": "4/5",
+      "common_exposure": "4/15",
+      "family_dimension": 5,
+      "line_complement_dimension": 4,
+      "scalar_fraction": "1/5"
+    },
+    "receipt": "code/particles/runs/flavor/source_w5_response_constraints.json"
+  },
+  "status": "conditional_forward_replay_not_source_selected_or_independent_prediction",
+  "structural_counts": {
+    "N_c": 3,
+    "N_g": 3,
+    "beta_EW": 4,
+    "d_std_S3": 2,
+    "order_S3": 6,
+    "orientation_dimension": 2,
+    "oriented_repair_slots": 24
+  }
+}

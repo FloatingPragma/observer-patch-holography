@@ -1,0 +1,116 @@
+{
+  "boundary": "The zero-light-Yukawa truncation has unquantified model and matching uncertainty. The local zero-muon charged-current coefficient is not an operational muon lifetime. Quoted measurement uncertainties are retained as descriptive references; no standardized residual, joint significance, statistical confidence interval or success classification is constructed.",
+  "edition": "Particle Data Group 2025 update",
+  "inherited_top_fixture": {
+    "path": "code/particles/data/pdg_2025_conditional_quark_comparison.json",
+    "row": "masses/quark=t",
+    "sha256": "503f043ec8581b48e1a8ae184c97e7676dd5e84198ad18f2781d1bf7e32156a5"
+  },
+  "interpretation": {
+    "all_scale_order_rows_retained": true,
+    "blind_prediction_claimed": false,
+    "complete_flavor_model_claimed": false,
+    "confidence_interval_claimed": false,
+    "descriptive_residuals_only": true,
+    "joint_significance_claimed": false,
+    "local_GF_is_operational_muon_lifetime": false,
+    "retuned_parameters": false,
+    "scale_selected_by_agreement": false,
+    "successful_postdiction_promoted": false,
+    "theory_uncertainty_supplied": false
+  },
+  "inventory": {
+    "additional_top_method_at_order2": "top_QCD4_EW2",
+    "matching_orders": [
+      0,
+      1,
+      2
+    ],
+    "scale_multipliers": [
+      1,
+      2,
+      4
+    ],
+    "top_methods_all_orders": [
+      "top_method0",
+      "top_method1"
+    ]
+  },
+  "primary_selection": {
+    "matching_order": 2,
+    "scale_multiplier": 1,
+    "top_method": "top_QCD4_EW2"
+  },
+  "retrieved_date": "2026-10-03",
+  "role": "retrospective_comparison_only_not_a_forward_producer_input",
+  "schema": "oph.source_ew_comparison_targets.v1",
+  "sources": {
+    "constants": {
+      "pdf_bytes": 249001,
+      "pdf_sha256": "596a9ed34c582e92a13c1fff7263a498844ea7e301511417587ecfb191516e6f",
+      "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-phys-constants.pdf"
+    },
+    "gauge_higgs": {
+      "pdf_bytes": 83221,
+      "pdf_sha256": "4a1b1afd334e5cda6134d526e43f4965d95d978511a2cd2efdc8365e57633a86",
+      "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf"
+    },
+    "quarks": {
+      "pdf_bytes": 49062,
+      "pdf_sha256": "586adace46689cb8580ce068cbab242397b7f313256052bde8c69dcff65de5d1",
+      "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf"
+    }
+  },
+  "targets": [
+    {
+      "central": "80.3692",
+      "comparison_chart": "running_width_Breit_Wigner_mass",
+      "page": 1,
+      "primary_source_field": "W/BW_mass_GeV",
+      "quantity": "W",
+      "quoted_uncertainty": "0.0133",
+      "source": "gauge_higgs",
+      "unit": "GeV"
+    },
+    {
+      "central": "91.1880",
+      "comparison_chart": "running_width_Breit_Wigner_mass",
+      "page": 2,
+      "primary_source_field": "Z/BW_mass_GeV",
+      "quantity": "Z",
+      "quoted_uncertainty": "0.0020",
+      "source": "gauge_higgs",
+      "unit": "GeV"
+    },
+    {
+      "central": "125.20",
+      "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+      "page": 4,
+      "primary_source_field": "higgs/mass_GeV",
+      "quantity": "H",
+      "quoted_uncertainty": "0.11",
+      "source": "gauge_higgs",
+      "unit": "GeV"
+    },
+    {
+      "central": "0.000011663785",
+      "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+      "page": 1,
+      "primary_source_field": "GF_local_zero_muon_GeVm2",
+      "quantity": "GF",
+      "quoted_uncertainty": "0.000000000006",
+      "source": "constants",
+      "unit": "GeV^-2"
+    },
+    {
+      "central": "172.4",
+      "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+      "page": 1,
+      "primary_source_field": "top_QCD4_EW2/mass_GeV",
+      "quantity": "top",
+      "quoted_uncertainty": "0.7",
+      "source": "quarks",
+      "unit": "GeV"
+    }
+  ]
+}

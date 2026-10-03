@@ -1,0 +1,259 @@
+{
+  "basis": {
+    "H": "h0 e_3 + h1 e_4",
+    "Q": "e_c wedge e_(3+w), ordered by color then weak component",
+    "color_modes": [
+      0,
+      1,
+      2
+    ],
+    "d_c": "u_c wedge e_3 wedge e_4",
+    "inner_product": "orthonormal ordered exterior monomials; the CAR metric, not an emitted physical kinetic form",
+    "normalization_convention": "four-component Dirac Yukawa after charge-conjugating the right Weyl field; Z_q is its right-handed kinetic metric",
+    "ordered_top_form": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "tensor_convention": "all-left Weyl coefficients",
+    "u_c": "(-1)^c times the ordered complementary color two-form",
+    "weak_modes": [
+      3,
+      4
+    ]
+  },
+  "claims": {
+    "color_ward_constraint_checked": true,
+    "conditional_family_blind_closure": true,
+    "conditional_kinetic_metric_cancellation": true,
+    "empirical_prediction": false,
+    "family_hierarchy_derived": false,
+    "full_doublet_gauge_tensors_reconstructed": true,
+    "g_u_g_d_selected": false,
+    "mass_scheme_emitted": false,
+    "physical_kinetic_normalization_emitted": false,
+    "quark_masses_emitted": false,
+    "source_selected_Higgs_dependent_quark_kernel": false,
+    "source_selected_record_state": false
+  },
+  "down_conjugate_higgs_component_matrices": [
+    [
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ]
+  ],
+  "equations": {
+    "Weyl_normalization": "For a literal all-left bilinear Q^T Y_W q_c, the left factor is Z_Q^(-T/2); do not apply the Dirac sandwich to Y_W without charge-conjugation conversion.",
+    "canonical_yukawa": "Dirac convention: Y_q,can=Z_Q^(-1/2) Y_q Z_q^(-1/2)/sqrt(Z_H)",
+    "channel_gram": "[g_u U,g_d D]^dagger [g_u U,g_d D]=||H||^2 diag(|g_u|^2 I3,|g_d|^2 I3)",
+    "down": "top(interior_Hbar(Q) wedge d_c)",
+    "effective_higgs_derivative": "partial_H K_eff=A_H-B_H D^(-1) C-B D^(-1) C_H+B D^(-1) D_H D^(-1) C",
+    "effective_kernel": "K_eff=A-B D^(-1) C",
+    "full_down": "I_color tensor column(-conjugate(h0),-conjugate(h1))",
+    "full_gram": "U(H)^dagger U(H)=D(H)^dagger D(H)=||H||^2 I3; U(H)^dagger D(H)=0",
+    "full_up": "I_color tensor column(h1,-h0)",
+    "mass": "M_q=v_chart Y_q,can/sqrt(2), conditional on the stated local action and chart convention",
+    "shared_metric": "Z_Q=Z_q=R>0 and Y_q=g_q R imply Y_q,can=g_q I3/sqrt(Z_H)",
+    "shared_metric_pencil": "det(p R-h g R)=det(R)(p-h g)^3",
+    "up": "top(Q wedge H wedge u_c)"
+  },
+  "exact_checks": {
+    "arbitrary_complex_channel_coefficients_checked": true,
+    "color_commutant_basis": "I3",
+    "color_commutant_complex_dimension": 1,
+    "color_commutant_constraint_rank": 8,
+    "complex_Hermitian_Dirac_normalization_checked": true,
+    "family_tensor_schur_complement_checked": true,
+    "full_complex_doublet_gram": true,
+    "full_weak_infinitesimal_covariance_checked": true,
+    "incorrect_Weyl_transpose_substitution_rejected": true,
+    "kinetic_congruence_matrix": [
+      [
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "1",
+        "5",
+        "2"
+      ],
+      [
+        "0",
+        "2",
+        "10"
+      ]
+    ],
+    "mixed_up_down_gram_zero": true,
+    "noncommuting_schur_derivative_checked": true,
+    "shared_metric_generalized_root_multiplicity": 3,
+    "up_down_hypercharge_balance_checked": true
+  },
+  "family_response": {
+    "CKM_identifiable_on_triply_degenerate_branch": false,
+    "canonical_down": "g_d I3 / sqrt(z_Q z_d Z_H)",
+    "canonical_up": "g_u I3 / sqrt(z_Q z_u Z_H)",
+    "dimension": 3,
+    "down": "g_d I3",
+    "normalization_convention": "four-component Dirac Yukawa",
+    "restricted_operator_algebra": "I_family tensor End(matter)",
+    "up": "g_u I3",
+    "within_sector_singular_value_multiplicities": [
+      3
+    ]
+  },
+  "hypotheses": [
+    "The declared trace-balanced exterior matter carrier C^3 plus C^2 and one weak-block scalar are retained; scalar existence is not newly proved.",
+    "The scalar-dependent invariant tensors are the normalized top-form wedge and contraction displayed here. Their action coefficients g_u and g_d remain independent supplied complex scalars.",
+    "The physical family attachment is conditional. The restricted direct-contraction model uses only operators I_family tensor O_matter, with family-blind projection and elimination. This is a bounded model, not all operators allowed by the source axioms.",
+    "Physical canonical normalization requires positive kinetic matrices from the same local chiral action. The finite CAR inner product alone is not such an emission. The normalization formulas use four-component Dirac Yukawas after charge-conjugation conversion, whereas the displayed exterior tensors use all-left Weyl coefficients.",
+    "The displayed canonical trilinear coefficient assumes Higgs-independent kinetic metrics. Higgs-dependent metrics carry additional derivative interactions.",
+    "The shared-metric cancellation is an if-then result for Y=g R; it neither selects nor assumes that choice for the physical source."
+  ],
+  "numeric_input_paths": [
+    "code/a5_closure/manifests/super_tannakian_matter_reference.json",
+    "code/a5_closure/manifests/family_band_attachment_reference.json"
+  ],
+  "proof_grade": "analytic finite-dimensional algebra plus executable exact tensor and noncommuting-matrix checks; not a new Lean theorem or a universal source-selection proof",
+  "schema": "oph.exterior-higgs-response.v1",
+  "source_pins": {
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "fc99eaaca6b0782595ed24289ee4fd1e9080e8108f81b4d2e6c823da72d9fc3d",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "code/a5_closure/manifests/family_band_attachment_reference.json": "3a02d02fd3bcd318535348186aad7008c861c7ff3b8c9558f64d36b7ee0eb64b",
+    "code/a5_closure/manifests/super_tannakian_matter_reference.json": "cb627653c332996adcec8f9d501299e0fcb272958b346316946b613253040c59",
+    "code/a5_closure/super_tannakian_matter_lift_certificate.py": "f6f3ed3f6d9b9bcfe3fd3c23663e97cb17db512d54c06c008a41e7ef2cc6b1fa",
+    "code/particles/flavor/exterior_higgs_response_certificate.py": "2f4dbb740e959723f1ecf4312046324bca81c64b312e15242824505883a69b1c",
+    "code/particles/flavor/exterior_higgs_response_spec.json": "260c99f7c768c6507f10e993152def3af81a6940342dc4ce047c4133e2b82dac",
+    "code/particles/flavor/verify_exterior_higgs_response.py": "2d8e0cf8f53d4cf83b4367d342da61cb59fe8db62810049d94c421adcb03682e",
+    "code/source_selection_model/response.py": "c66160a6b6246692e19b32e9b00383c8abca8b493655cf534932bfcd900e8400"
+  },
+  "status": "exact_conditional_tensor_and_normalization_certificate",
+  "up_higgs_component_matrices": [
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  ]
+}

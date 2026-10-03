@@ -1,0 +1,46 @@
+{
+  "schema": "oph.pdg_2025_conditional_quark_comparison.v1",
+  "role": "retrospective_comparison_only_not_a_producer_input",
+  "source": {
+    "publisher": "Particle Data Group",
+    "edition": "Review of Particle Physics 2025 update",
+    "citation": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024), and 2025 update",
+    "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf",
+    "page": 1,
+    "transcription": "Hand-transcribed central values and quoted marginal ranges; the PDF is not vendored and no source-payload hash is asserted."
+  },
+  "masses": [
+    {"quark": "u", "scheme": "MSbar", "scale": "2 GeV", "unit": "GeV", "central": "0.00216", "minus": "0.00007", "plus": "0.00007", "quoted_confidence": "90%"},
+    {"quark": "d", "scheme": "MSbar", "scale": "2 GeV", "unit": "GeV", "central": "0.00470", "minus": "0.00007", "plus": "0.00007", "quoted_confidence": "90%"},
+    {"quark": "s", "scheme": "MSbar", "scale": "2 GeV", "unit": "GeV", "central": "0.0935", "minus": "0.0008", "plus": "0.0008", "quoted_confidence": "90%"},
+    {"quark": "c", "scheme": "MSbar", "scale": "m_c(m_c)", "unit": "GeV", "central": "1.2730", "minus": "0.0046", "plus": "0.0046", "quoted_confidence": "90%"},
+    {"quark": "b", "scheme": "MSbar", "scale": "m_b(m_b)", "unit": "GeV", "central": "4.183", "minus": "0.007", "plus": "0.007", "quoted_confidence": "90%"},
+    {"quark": "t", "scheme": "pole_extraction", "scale": "pole from cross-section measurements", "unit": "GeV", "central": "172.4", "minus": "0.7", "plus": "0.7", "quoted_confidence": "not explicitly specified in this summary row"}
+  ],
+  "light_quantities": [
+    {"quantity": "mu_over_md", "unit": "1", "central": "0.462", "minus": "0.020", "plus": "0.020", "quoted_confidence": "90%"},
+    {"quantity": "ms_over_mud", "definition": "m_ud=(m_u+m_d)/2", "unit": "1", "central": "27.33", "minus": "0.14", "plus": "0.18", "quoted_confidence": "90%"},
+    {"quantity": "mud_gev", "definition": "m_ud=(m_u+m_d)/2", "unit": "GeV", "central": "0.00349", "minus": "0.00007", "plus": "0.00007", "quoted_confidence": "90%"}
+  ],
+  "criticality_top_comparison": {
+    "scheme": "MSbar",
+    "scale": "m_t(m_t), cross-section extraction",
+    "unit": "GeV",
+    "central": "162.5",
+    "minus": "1.5",
+    "plus": "2.1",
+    "quoted_confidence": "not explicitly specified in this summary row"
+  },
+  "interpretation": {
+    "joint_covariance_available": false,
+    "pdg_and_flag_independent": false,
+    "theory_uncertainty_supplied": false,
+    "no_gaussian_sigma_conversion_of_quoted_ranges": true,
+    "mass_chart_attachment_is_conditional": true,
+    "six_marginal_matches_are_not_joint_model_acceptance": true,
+    "all_scheduled_light_comparisons_must_be_retained": true,
+    "target_informed_formula_discovery_remains_target_informed": true,
+    "direct_reconstruction_top_mass_not_used_as_pole_mass": true,
+    "new_independent_evidence_claimed": false
+  }
+}

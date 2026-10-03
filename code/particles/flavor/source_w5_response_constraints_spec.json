@@ -1,0 +1,55 @@
+{
+  "D3_channel_interpretation": "The six unitary conjugation channels on W5 have positive Gram24I6+J6. A classical D3 group-walk probability therefore gives a faithful random-unitary channel without choosing a regular submodule. Its channel coefficients, its spectrum on End(W5), and its normalized heat trace are different observables; only the physical readout law can select one.",
+  "D3_scope": "The normalizer of one supplied unoriented face axis is an additional background. Its three involutions are not native seam-transfer events.",
+  "central_jump_law": {
+    "assumptions": "A supplied D3 background and time-homogeneous class-uniform random-unitary jumps, with nonnegative rates c2 per involution and c3 per three-cycle",
+    "class_probabilities": [
+      "(1+4*r+s)/6",
+      "(1-s)/6",
+      "(1-2*r+s)/6"
+    ],
+    "heat_cone": "r=exp(-3*(c2+c3)*t), s=exp(-6*c2*t); r^2<=s<=1 for 0<r<=1",
+    "lambda_sign": "6*c2",
+    "lambda_standard": "3*(c2+c3)",
+    "transposition_only": "c3=0 is additional and gives s=r^2"
+  },
+  "claim_class": "exact_source_carrier_and_conditional_response_constraints",
+  "color_law": {
+    "Gaussian_comparison": "Only for a separately postulated centered Gaussian Hermitian matrix G with Cov(Tr(BG),Tr(CG))=2*Tr(B*C)/d for Hermitian B,C does X=w*Tr(EG) have log-MGF w^2*Tr(E^2)/d. Isotropy alone does not fix that covariance normalization. Twirling before this response changes r/d to r/(3d); averaging covariant responses after nonlinear evaluation is a distinct protocol.",
+    "generators": "Tr(T_a*T_b)=delta_ab/2 in the fundamental SU3 representation",
+    "normalized_spectral_mgf": "Tr(exp(w*A))/15=(4+exp(4*w/3))/5",
+    "observable": "A=(sum_a T_a*T_a) tensor P0=(4/3)I3 tensor P0, where P0 is the supplied D3-axis invariant line in W5",
+    "response_assumption": "Choosing this quadratic observable and its normalized-trace readout as a physical quark response is an additional hypothesis, with this explicit gauge-generator convention. It is not selected by the source calculation. A has eigenvalue4/3 and is not a POVM effect.",
+    "twirl": "A color rank-one component projector tensor a rank-r projector twirls to (I3/3) tensor that projector. Its first trace remains r, while its Hilbert-Schmidt square becomes r/3."
+  },
+  "coordinate": "b_i=N_i_plus+N_i_minus; W5 is the centered six-dimensional pair-total carrier",
+  "guards": {
+    "Gaussian_repair_history_claimed": false,
+    "face_axis_selected_by_source": false,
+    "finite_entropy_law_changed": false,
+    "mass_targets_consumed": false,
+    "native_generator_identified_with_D3_jumps": false,
+    "old_RSCC_coefficients_replaced": false,
+    "physical_RSCC_readout_selected": false,
+    "quark_mass_prediction": false,
+    "source_selected_Poisson_clock": false,
+    "symmetrized_proposals_identified_with_accepted_events": false
+  },
+  "proof_grade": "exact finite rational/symbolic geometry and representation checks plus explicit analytic covariance and central-jump-cone arguments; not a machine proof of a universal OPH mass theorem",
+  "proposal_law": {
+    "accepted_covariance_bound": "0<=Cov(Delta b|N)<=E[Delta b Delta b^T|N]<=(2/5)P_W5; all are zero at a settled record",
+    "log_mgf": "log(((sum_i exp(t*a_i))*(sum_i exp(-t*a_i))-6)/30), sum_i a_i=0",
+    "native": "A uniform proposal chooses one of 30 undirected seams. Strict-descent admission executes its unique downhill unit transfer only at load difference at least two; otherwise the step is zero.",
+    "proof": "The missing raw second moment is the sum of positive outer products of rejected seam increments divided by30; covariance subtracts the mean outer product. Covariance positivity is its weighted centered-outer-product formula.",
+    "symmetrized": "The full MGF additionally averages both directions with equal weight. This is a symmetrized proposal alphabet, not an asserted physical orientation or accepted-history law."
+  },
+  "quadrupole": "T(b)=sum_i b_i(n_i*n_i^T-I3/3); T^*T=(4/5)P_W5",
+  "schema": "oph.source_w5_response_constraints.spec.v1",
+  "source_files": [
+    "code/a5_closure/manifests/echosahedral_federation_reference.json",
+    "code/a5_closure/manifests/a3_scheduler_kernel_reference.json",
+    "code/a5_closure/manifests/record_counting_mechanism_reference.json",
+    "code/a5_closure/source_repair_generator_certificate.py"
+  ],
+  "trace_law": "A5-invariant normalized complex-linear functionals on End(W5) equal Tr/5; no full U5 hypothesis is needed"
+}

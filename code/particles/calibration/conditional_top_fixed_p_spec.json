@@ -1,0 +1,97 @@
+{
+  "schema": "oph.conditional_top_fixed_p_spec.v1",
+  "alpha_fixture": "code/P_derivation/codata_2022_alpha_fixture.json",
+  "inverse_alpha": "137.035999177",
+  "inverse_alpha_standard_uncertainty": "0.000000021",
+  "P_law": "P=(1+sqrt(5))/2+sqrt(pi)/inverse_alpha",
+  "E_star_display_GeV": "1.220890e19",
+  "D10": {
+    "precision": 50,
+    "su2_cutoff": 40,
+    "su3_cutoff": 40,
+    "gauge_slopes": [
+      "33/5",
+      "1",
+      "-3"
+    ],
+    "heat_weight": "dim(R)*exp(-4*pi^2*alpha*C2(R))",
+    "heat_equation": "ellbar_SU2+ellbar_SU3=P/4",
+    "beta_EW": 4,
+    "v_over_Estar": "P^(-1/2)*exp(-pi/(2*alpha_U))",
+    "mu_U_over_Estar": "exp(-2*pi)*P^(1/6)",
+    "role": "declared algebraic low-gauge-boundary recipe, not threshold-complete SM unification"
+  },
+  "boundary": {
+    "mu_over_Estar": "exp(-pi)*P^(-1/6)",
+    "selection_hypothesis": "equal-weight squared log-distance to mu_U and E_cell; unique logarithmic midpoint",
+    "conditions": [
+      "lambda=0",
+      "beta_lambda=0"
+    ],
+    "root": "lowest positive perturbative Yukawa root connected to the one-loop root",
+    "yukawa_bracket": [
+      0.05,
+      2.0
+    ],
+    "global_polynomial_uniqueness": false
+  },
+  "transport": {
+    "state": [
+      "g1_GUT",
+      "g2",
+      "g3",
+      "yt",
+      "lambda"
+    ],
+    "hypercharge": "g1_GUT=sqrt(5/3)*gY",
+    "potential": "V=lambda*(Hdagger*H)^2",
+    "time": "ln(mu)",
+    "non_top_yukawas": "all zero",
+    "branches": [
+      "one_loop",
+      "two_loop_yukawa_quartic_with_one_loop_gauges",
+      "coupled_two_loop_top_only"
+    ],
+    "hybrid_RK4_steps": [
+      12000,
+      24000
+    ],
+    "coupled_rtol": [
+      2e-10,
+      2e-12
+    ],
+    "coupled_atol_over_rtol": 0.01,
+    "coupled_method": "DOP853",
+    "low_anchor": "same recomputed D10 gauge packet at its running Z coordinate",
+    "threshold_complete": false
+  },
+  "readout": {
+    "top_equation": "mu=yt(mu)*v_chart/sqrt(2)",
+    "v_chart": "constant D10 transmutation coordinate",
+    "physical_MSbar_identification": "conditional on matching v_chart to the renormalized electroweak mass convention; finite matching and tadpole/FJ bridge not supplied",
+    "top_proxy": "m*(1+4*a/3+(13.4434-1.0414*n_l)*a^2+(190.595-26.655*n_l+0.653*n_l^2)*a^3)",
+    "a": "alpha_s/pi",
+    "n_l": 5,
+    "QCD_order": 3,
+    "electroweak_pole_matching": false,
+    "complex_pole_matching": false,
+    "Higgs_proxy": "sqrt(2*lambda(mu_top))*v_chart"
+  },
+  "scope": {
+    "standing": "conditional numerical mass coordinate",
+    "fixed_P_from_independent_alpha": true,
+    "source_only_alpha_claimed": false,
+    "mass_targets_consumed": false,
+    "quark_template_consumed": false,
+    "source_selected_boundary_claimed": false,
+    "source_selected_criticality_claimed": false,
+    "external_Estar_scale_calibration": true,
+    "physical_pole_prediction_claimed": false,
+    "all_six_quark_masses_claimed": false,
+    "blind_prediction_claimed": false,
+    "numerical_enclosure_certified": false,
+    "theory_uncertainty_quantified": false
+  },
+  "uncertainty": "Step/tolerance differences and root residuals diagnose numerics only; branch shifts are not confidence intervals; no combined theory uncertainty is supplied.",
+  "primary_beta_source": "https://arxiv.org/pdf/1307.3536 Appendix B; non-top Yukawas zero"
+}

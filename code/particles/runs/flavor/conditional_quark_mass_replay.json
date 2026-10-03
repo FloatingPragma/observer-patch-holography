@@ -1,0 +1,318 @@
+{
+  "claim_class": "conditional_retrospective_RSCC_native_mass_chart_replay",
+  "full_rscc": {
+    "basis": {
+      "linear": [
+        "-0.8275158638268839848810774052923030700356",
+        "-0.3449682723462320302378451894153938599288",
+        "1.172484136173116015118922594707696929964"
+      ],
+      "quadratic": [
+        "0.2440810016391752474701240632671565590668",
+        "-0.4881620032783504949402481265343131181336",
+        "0.2440810016391752474701240632671565590668"
+      ]
+    },
+    "coefficients": {
+      "A": "0.2467353220526855264453435691808722528154",
+      "B": "0.8123033098091396008815880008867812258684",
+      "a_d": "3.395209445414933272614934184949581487921",
+      "a_u": "5.642999628926953231941413654254342961442",
+      "b_d": "-1.836951248907127427828106075218826830209",
+      "b_d_ray": "-1.804652270788140040593838294266811120217",
+      "b_u": "-4.992752895078915912540967982164168362285",
+      "b_u_ray": "-4.976032101806832088054609521205386911064",
+      "delta_g": "0.001646124326694272421665587942839515004455",
+      "g_ch_over_v": "0.003741038612269284883777858781684277593628",
+      "mean_d": "3.296350024209374424807731543761263027396",
+      "mean_u": "5.573912005773735020291759704899097205666",
+      "q_d": "-0.03229897811898738723426778095201570999199",
+      "q_u": "-0.01672079327208382448635846095878145122085",
+      "r": "0.3179985011533225328295582978088989127359",
+      "rho": "1.294219991301697098420589052830719791526",
+      "tau": "0.3819028698557999214324057371840496673404",
+      "w": "0.1291959124759495489370711238080628399679",
+      "x": "-0.5174524085193480453567677841230907898931"
+    },
+    "light_ratios": {
+      "s_over_mean_ud": "27.09465907877600360085426483333089265868",
+      "u_over_d": "0.4582767011722896367553089785636792056723"
+    },
+    "mass_over_E_star": {
+      "b": "3.431478507674351418950470784174007139112e-19",
+      "c": "1.042075570712619808510479307244424039197e-19",
+      "d": "3.858689462166227540548610926382008038889e-22",
+      "s": "7.623132375291355618458040181431859910452e-21",
+      "t": "1.40933685037889576617403926489030552544e-17",
+      "u": "1.768347477569815276686119056192401927367e-22"
+    },
+    "mass_over_v": {
+      "b": "0.01698768283507806880220451927283066514805",
+      "c": "0.005158840204261283055923348242132387993499",
+      "d": "0.00001910260915105186091873847539950941900186",
+      "s": "0.0003773864668295174574358100710897313340891",
+      "t": "0.697698306094027289967875023174320864415",
+      "u": "0.00000875428070552763909346366392845108331244"
+    },
+    "native_mass_chart_GeV": {
+      "b": "4.189457795234538903882440275690203576071",
+      "c": "1.272259643527330398012359081421644865215",
+      "d": "0.004711035377464125541980393593910529794599",
+      "s": "0.09307006085669463161019236677108343446072",
+      "t": "172.0645267259090051964222798111925112954",
+      "u": "0.002158957751890211773153315894514741589103"
+    }
+  },
+  "guards": {
+    "common_scale_yukawa_matrix": false,
+    "conditional_native_chart_replay": true,
+    "controls_used_for_model_selection": false,
+    "formula_discovery_target_informed": true,
+    "independent_prediction": false,
+    "module_and_sign_ledger_target_informed": true,
+    "new_blind_evidential_weight": false,
+    "old_mixed_branch_scale_used": false,
+    "physical_quark_mass_derivation": false,
+    "quark_reference_values_used_at_runtime": false,
+    "source_selected_flavor_law": false,
+    "top_pole_attachment_assumed": true
+  },
+  "hypotheses": {
+    "H10_gauge_trunk": "The finite SU(2)/SU(3) heat closure, one-loop coefficients (33/5,1,-3), tree weak fixed point and beta_EW=4 define the declared D10 branch.",
+    "H11_representation_attachment": "The selected D3 group heat law is represented faithfully by six conjugation channels on native W5, without an added regular submodule. Selecting this background, transposition-only jumps and the physical heat/three-generation readout remains assumed; it is not the native full-seam generator or the A5-triplet restriction.",
+    "H12_ordering": "Increasing entries of the up/down output vectors label (u,c,t)/(d,s,b); no CKM or right-family frame is inferred.",
+    "H1_family_response_carrier": "The physical response is identified with the native A5-irreducible W5 and a supplied face-axis D3 background. Its restriction F=1+2+2 and dimensions5,4 are certified; this physical identification and background are assumed.",
+    "H2_module_incidence": "The eight declared composite module incidences are the physical channels.",
+    "H3_effects_and_signs": "The remaining composite effect ranks, orientations and sector signs are physical. The common exposure specifically uses the normalized quadratic color-Casimir observable on the native D3 line, not a rank-four invariant color projector; that physical response choice is assumed.",
+    "H4_cumulant_law": "A5 symmetry suffices for normalized trace on native W5. Isotropy on the composite modules, Gaussian two-cumulant truncation and the order of color contraction versus nonlinear response remain hypotheses; negative terms require a separate signed-response law.",
+    "H5_family_attachment": "The count-only 24-slot register has an additional physical family non-singlet attachment.",
+    "H6_readout_laws": "The frozen heat-time, even-response, L/Q log-spectrum and affine-mean equations are the physical readout laws.",
+    "H7_residual_selection": "The declared residual functional is physically minimized; this is not inferred from the existence of its mathematical minimum.",
+    "H8_chart_attachment": "The six native coordinates have exactly the declared light-MSbar, heavy-self-scale and top-pole charts; a physical top pole and extraction relation are not derived.",
+    "H9_normalization": "The D10 transmutation law supplies v/E_star and the external E_star GeV calibration supplies the absolute unit."
+  },
+  "inputs": {
+    "E_star_GeV": {
+      "role": "external_dimensionful_unit_calibration",
+      "value": "1.220890e19"
+    },
+    "P": {
+      "definition": "phi+sqrt(pi)/alpha_inverse",
+      "value": "1.6309682094039593248792798477826489413359828516279250606661507"
+    },
+    "alpha_inverse": {
+      "role": "external_measured_calibration",
+      "value": "137.035999177"
+    },
+    "structural_counts": {
+      "N_c": 3,
+      "N_g": 3,
+      "beta_EW": 4,
+      "d_std_S3": 2,
+      "order_S3": 6,
+      "orientation_dimension": 2,
+      "oriented_repair_slots": 24
+    }
+  },
+  "lower_order_control": {
+    "basis": {
+      "linear": [
+        "-0.8275158638268839848810774052923030700356",
+        "-0.3449682723462320302378451894153938599288",
+        "1.172484136173116015118922594707696929964"
+      ],
+      "quadratic": [
+        "0.2440810016391752474701240632671565590668",
+        "-0.4881620032783504949402481265343131181336",
+        "0.2440810016391752474701240632671565590668"
+      ]
+    },
+    "coefficients": {
+      "A": "0.2467353220526855264453435691808722528154",
+      "B": "0.8123033098091396008815880008867812258684",
+      "a_d": "3.395169703548741622099914291992362686389",
+      "a_u": "5.642240920572385358472852061434711295822",
+      "b_d": "-1.836930124952855630177185509984364681251",
+      "b_d_ray": "-1.804631146833868242942917729032348971259",
+      "b_u": "-4.992083861342162560477084448285281966142",
+      "b_u_ray": "-4.975363068070078735990725987326500514921",
+      "delta_g": "0.0",
+      "g_ch_over_v": "0.003734885463415977628860425869654060786846",
+      "mean_d": "3.29638866213483852947511199524744797333",
+      "mean_u": "5.573336433918545599039747462070411114506",
+      "q_d": "-0.03229897811898738723426778095201570999199",
+      "q_u": "-0.01672079327208382448635846095878145122085",
+      "r": "0.3179985011533225328295582978088989127359",
+      "rho": "1.294219991301697098420589052830719791526",
+      "tau": "0.3819028698557999214324057371840496673404",
+      "w": "0.1291959124759495489370711238080628399679",
+      "x": "-0.5174524085193480453567677841230907898931"
+    },
+    "light_ratios": {
+      "s_over_mean_ud": "27.09155614143565225916973388129249656697",
+      "u_over_d": "0.4583931980017188134946773847481539988403"
+    },
+    "mass_over_E_star": {
+      "b": "3.426774218627285200856861254333879723885e-19",
+      "c": "1.040103526048178111320669407994598960267e-19",
+      "d": "3.853705795011503331265193308113207045736e-22",
+      "s": "7.613023005198782074957420333386306504937e-21",
+      "t": "1.405739717310120926094560268480640804737e-17",
+      "u": "1.766512523533079260331287557934630363146e-22"
+    },
+    "mass_over_v": {
+      "b": "0.01696439404859219508135363654267243003479",
+      "c": "0.005149077511818004982996590862955287149712",
+      "d": "0.00001907793729115511079044204431741560204449",
+      "s": "0.000376885998088678819300163179491964232661",
+      "t": "0.6959175298032460707753845895401953791895",
+      "u": "0.000008745196686168839765341682843338808595838"
+    },
+    "native_mass_chart_GeV": {
+      "b": "4.183714375779866228874133336803690416094",
+      "c": "1.2698519939169601743302920735265259246",
+      "d": "0.004704950868071594302108361857942333350069",
+      "s": "0.09294663656817141047494764910828007748813",
+      "t": "171.6253563466753537459587686185329552096",
+      "u": "0.002156717474856301138145865666606810864061"
+    }
+  },
+  "model": {
+    "charts": {
+      "b": {
+        "scale": "self_scale_mu_equals_running_mass",
+        "scheme": "MSbar"
+      },
+      "c": {
+        "scale": "self_scale_mu_equals_running_mass",
+        "scheme": "MSbar"
+      },
+      "d": {
+        "scale": "2 GeV",
+        "scheme": "MSbar"
+      },
+      "s": {
+        "scale": "2 GeV",
+        "scheme": "MSbar"
+      },
+      "t": {
+        "boundary": "pole_attachment_is_assumed_not_derived; experimental_extraction_matching_is_separate",
+        "scale": "not_a_running_scale",
+        "scheme": "declared_pole_coordinate"
+      },
+      "u": {
+        "scale": "2 GeV",
+        "scheme": "MSbar"
+      }
+    },
+    "coefficient_menu": {
+      "a_d_linear": "33/32",
+      "a_d_quadratic": "1/420",
+      "a_u_linear": "29/5",
+      "a_u_quadratic": "1/22",
+      "delta_g_P": "1/1008",
+      "delta_g_quadratic_color": "1/432",
+      "delta_g_quadratic_relabel": "-1/1584",
+      "mean_d_linear": "4/15",
+      "mean_d_quadratic": "-1/432",
+      "mean_u_linear": "79/15",
+      "mean_u_quadratic": "1/29",
+      "module_dimensions": [
+        29,
+        432,
+        22,
+        32,
+        840,
+        1008,
+        432,
+        1584
+      ],
+      "q_d": "-1/4",
+      "q_u": "-rho/10"
+    },
+    "control": "lower_order_ablation_not_selected",
+    "equations": {
+      "a_down": "2*P+33*w/32+w^2/420",
+      "a_up": "3*P+29*w/5+w^2/22",
+      "affine": "A=1/(2*(1+rho-x^2)); B=1/(2*(1-x^2-x^2/(1+rho))); sigma=(mean_u+mean_d)/2; eta=(mean_u-mean_d)/2",
+      "b_down": "a_d*(-rho*x-rho-x+1)/((1+rho)*(x^2-1))-w/4",
+      "b_up": "a_u*(-rho*x+rho-x-1)/((1+rho)*(x^2-1))-w*rho/10",
+      "basis": "L=ctr(-1,x,1); Q=ctr(1,x^2,1)",
+      "common": "g_ch/v=2*exp(-2*pi+delta_g)",
+      "control": "Remove only the four quadratic corrections in mean/a and all delta_g; keep the same remaining law and inputs.",
+      "delta_g": "P/1008+w^2/432-w^2/1584",
+      "down": "m_down/v=(g_ch/v)*exp(-A*sigma-B*eta+a_d*L+b_d*Q)",
+      "heat": "tau=P/4-w/5; r=exp(-3*tau); rho=3/(2+r); x=(r-1)/(r+1)",
+      "mean_down": "2*P+4*w/15-w^2/432",
+      "mean_up": "3*P+79*w/15+w^2/29",
+      "root": "P=phi+sqrt(pi)/alpha_inverse; w=pi*alpha_U(P)",
+      "unit": "v/E_star=P^(-1/2)*exp(-2*pi/(4*alpha_U)); m_GeV=(m/v)*(v/E_star)*E_star_GeV",
+      "up": "m_up/v=(g_ch/v)*exp(-A*sigma+B*eta+a_u*L+b_u*Q)"
+    },
+    "gauge_solver": {
+      "alpha_U_domain": [
+        "0.02",
+        "0.08"
+      ],
+      "precision": 50,
+      "su2_cutoff": 80,
+      "su3_cutoff": 60
+    },
+    "historical_law_paths": [
+      "code/particles/flavor/quark_rscc_completion_candidate.py",
+      "code/particles/flavor/verify_quark_rscc_module_arithmetic.py",
+      "code/particles/runs/flavor/quark_rscc_completion_candidate_audit.json"
+    ],
+    "numeric_input_paths": [
+      "code/P_derivation/codata_2022_alpha_fixture.json",
+      "code/particles/flavor/conditional_quark_mass_spec.json",
+      "code/particles/runs/flavor/source_w5_response_constraints.json",
+      "code/particles/flavor/source_w5_response_constraints_spec.json",
+      "code/a5_closure/manifests/echosahedral_federation_reference.json",
+      "code/a5_closure/manifests/a3_scheduler_kernel_reference.json",
+      "code/a5_closure/manifests/record_counting_mechanism_reference.json"
+    ],
+    "precision_boundary": "Printed digits are deterministic numerical output, not certified accuracy, model error or calibration uncertainty.",
+    "primary": "full_rscc",
+    "source_response": {
+      "physical_boundary": "The dimensions and normalized native projector traces are certified. Choosing the face-axis background, Casimir-line common-exposure readout, scalar budget assignment and its physical quark attachment remains conditional. Composite modules, signed responses and Gaussian/contraction laws are not selected by these coefficients.",
+      "projection": {
+        "centered_fraction": "4/5",
+        "common_exposure": "4/15",
+        "family_dimension": 5,
+        "line_complement_dimension": 4,
+        "scalar_fraction": "1/5"
+      },
+      "receipt": "code/particles/runs/flavor/source_w5_response_constraints.json"
+    }
+  },
+  "schema": "oph.conditional_quark_mass_replay.v1",
+  "source_packet": {
+    "P": "1.6309682094039593248792798477826489413359828516279250606661507",
+    "alpha1_mz": "0.016885708038988161852595837483019662480429572308238855452606673",
+    "alpha2_mz": "0.033777889448908048830243115421578706821802275625809225226146418",
+    "alpha3_mz": "0.11833602747445048348500390585110968660510620528848387519059292",
+    "alpha_U": "0.041124336195630482177799935872286596350022591650485992431640625",
+    "mu_U_over_E_star": "0.0020260720012100031055338687795379539496331874422094612911915344",
+    "mz_over_E_star": "7.5024032389859183913100260342622779004344742163348276191459725E-18",
+    "v_over_E_star": "2.0199803239725258706912675862369951543104217003037326817856081E-17"
+  },
+  "source_pins": {
+    "code/P_derivation/codata_2022_alpha_fixture.json": "e5a967c2895c51ce11574da0d5fda9630b05d9162335a1e9e06da12cfecc9930",
+    "code/P_derivation/paper_math.py": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
+    "code/a5_closure/manifests/a3_scheduler_kernel_reference.json": "85435a4c36bccace0e81fb0bb9476444641a63750067557bb79a006cec8879eb",
+    "code/a5_closure/manifests/echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+    "code/a5_closure/manifests/record_counting_mechanism_reference.json": "13429664e61008e3d2414fecf758deebb15bfe21eada8cf42e7afc4ef64d7eb3",
+    "code/a5_closure/source_repair_generator_certificate.py": "894e9eef09cfee4f698f6ed0677eb1a32abea9f5999d655599b067caf54770c2",
+    "code/particles/flavor/conditional_quark_mass_replay.py": "b83a2b55e40bbcf64574d40c538a888122218d2eb38e43eecab19dc84b059612",
+    "code/particles/flavor/conditional_quark_mass_spec.json": "7dac1a6000395790f7dd156837c11c43f3a5ca56c8fe9313add1c50a8df654e8",
+    "code/particles/flavor/quark_rscc_completion_candidate.py": "c2703016b69a5617e2f057254fa655f141eeb596d3f1f178071d417dee2106d2",
+    "code/particles/flavor/source_w5_response_constraints.py": "40d5ac5a177700d2cd6e71a3e2c9870c164dae8e41b83d68325633d2be015b45",
+    "code/particles/flavor/source_w5_response_constraints_spec.json": "71a112358ff9e24efa843cfebec96678b0c9d90e428467ce080f5da8642bcb00",
+    "code/particles/flavor/verify_quark_rscc_module_arithmetic.py": "403e6db0dca07fa877b32eef542ffb02a0103fdf51a9ff7b15096211cc9efb55",
+    "code/particles/flavor/verify_source_w5_response_constraints.py": "4db545ee5aa6a576c549b9eacc97eb98d83e3753312458f78c7f95a6374d4d59",
+    "code/particles/runs/flavor/quark_rscc_completion_candidate_audit.json": "49746ade49d84a759957784ecaae24bb50e54ed5ec9d849cf49914c40844849a",
+    "code/particles/runs/flavor/source_w5_response_constraints.json": "79d0a239517300cd39307bb529b7fc77cc066200b921805fc302084ea19ec685"
+  },
+  "status": "conditional_forward_replay_not_source_selected_or_independent_prediction"
+}

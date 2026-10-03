@@ -1,0 +1,121 @@
+name: Source Electroweak Matching
+
+on:
+  pull_request:
+    paths:
+      - 'code/P_derivation/**'
+      - 'code/particles/calibration/**'
+      - 'code/particles/runs/calibration/**'
+      - '.github/workflows/source-ew-matching.yml'
+      - 'requirements.txt'
+  push:
+    branches: [main]
+    paths:
+      - 'code/P_derivation/**'
+      - 'code/particles/calibration/**'
+      - 'code/particles/runs/calibration/**'
+      - '.github/workflows/source-ew-matching.yml'
+      - 'requirements.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-smdr-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout research source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Checkout pinned matching library
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: davidgrobertson/SMDR
+          ref: 5c4dd92c918cadb7f91ad3795694f8398b5c287a
+          path: .smdr-replay
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Independently verify source, VEV, one-loop matching and conventions
+        run: python -m pytest -q code/particles/calibration/test_conditional_top_fixed_p.py code/particles/calibration/test_source_ew_vev_matching.py code/particles/calibration/test_verify_source_ew_vev_matching.py code/particles/calibration/test_compare_source_ew_vev_matching.py
+      - name: Rebuild and execute every retained multiloop matching control
+        # GCC spends over 18 minutes optimizing the upstream effpot.c alone.
+        # Clang preserves the library's precision and all replay controls.
+        run: |
+          mkdir -p .source-ew-diagnostics
+          python code/particles/calibration/source_ew_vev_matching.py --smdr-dir .smdr-replay --build --refresh --output .source-ew-diagnostics/fresh-receipt.json --cc clang
+      - name: Record all numerical deltas and enforce unchanged validation
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          import sys
+
+          sys.path.insert(0, 'code/particles/calibration')
+          import source_ew_vev_matching as producer
+
+          fresh_path = Path('.source-ew-diagnostics/fresh-receipt.json')
+          cached = json.loads(producer.RECEIPT.read_text())
+          fresh = json.loads(fresh_path.read_text())
+          numbers, failures = [], []
+
+          def inspect(expected, actual, path='root', matching_order=None):
+              if isinstance(expected, dict) and isinstance(actual, dict):
+                  order = expected.get('matching_order', matching_order)
+                  if expected.keys() != actual.keys():
+                      failures.append({'path': path, 'error': 'key mismatch',
+                                       'expected_keys': sorted(expected),
+                                       'actual_keys': sorted(actual)})
+                  for key in sorted(expected.keys() & actual.keys()):
+                      inspect(expected[key], actual[key], f'{path}/{key}', order)
+                  return
+              if isinstance(expected, list) and isinstance(actual, list):
+                  if len(expected) != len(actual):
+                      failures.append({'path': path, 'error': 'list length mismatch',
+                                       'expected_length': len(expected),
+                                       'actual_length': len(actual)})
+                  for index, (old, new) in enumerate(zip(expected, actual)):
+                      inspect(old, new, f'{path}/{index}', matching_order)
+                  return
+              error = None
+              try:
+                  producer.compare(expected, actual, path, matching_order=matching_order)
+              except ValueError as exc:
+                  error = str(exc)
+                  failures.append({'path': path, 'error': error,
+                                   'expected': expected, 'actual': actual})
+              if all(isinstance(value, (int, float)) and not isinstance(value, bool)
+                     and math.isfinite(value) for value in (expected, actual)):
+                  delta = actual - expected
+                  numbers.append({'path': path, 'expected': expected, 'actual': actual,
+                                  'signed_delta': delta, 'absolute_delta': abs(delta),
+                                  'relative_delta': delta / expected if expected else None,
+                                  'current_tolerance_passed': error is None})
+
+          inspect(cached, fresh)
+          report = {'schema': 'oph.source_ew_replay_diagnostics.v1',
+                    'retained_receipt': producer.RECEIPT.relative_to(producer.ROOT).as_posix(),
+                    'fresh_receipt': fresh_path.as_posix(),
+                    'numeric_leaf_count': len(numbers), 'mismatch_count': len(failures),
+                    'numeric_deltas': numbers, 'mismatches': failures,
+                    'tolerances': 'Unmodified source_ew_vev_matching.compare; diagnostics do not relax validation.'}
+          Path('.source-ew-diagnostics/numeric-deltas.json').write_text(
+              json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + '\n')
+          producer.compare(cached, fresh)
+          producer.validate_cached(cached)
+          print('Fresh source EW replay and retained receipt validation: PASS')
+          PY
+      - name: Preserve fresh receipt and numerical diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: source-ew-matching-diagnostics
+          path: .source-ew-diagnostics/*.json
+          include-hidden-files: true
+          if-no-files-found: warn

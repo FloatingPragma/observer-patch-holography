@@ -1,0 +1,2042 @@
+{
+  "boundary": "The zero-light-Yukawa truncation has unquantified model and matching uncertainty. The local zero-muon charged-current coefficient is not an operational muon lifetime. Quoted measurement uncertainties are retained as descriptive references; no standardized residual, joint significance, statistical confidence interval or success classification is constructed.",
+  "comparisons": [
+    {
+      "absolute_difference": "0.03233743365242",
+      "computed": "80.33686256634758",
+      "matching_order": 0,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.00040236102452705762904197130243924",
+      "relative_percent": "-0.040236102452705762904197130243924",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.03233743365242",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.4080909044548",
+      "computed": "91.5960909044548",
+      "matching_order": 0,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "0.0044752698211913848313374566828969",
+      "relative_percent": "0.44752698211913848313374566828969",
+      "scale_multiplier": 1,
+      "signed_difference": "0.4080909044548",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "5.3088946051316",
+      "computed": "130.5088946051316",
+      "matching_order": 0,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "0.042403311542584664536741214057508",
+      "relative_percent": "4.2403311542584664536741214057508",
+      "scale_multiplier": 1,
+      "signed_difference": "5.3088946051316",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "3.7588717135111E-8",
+      "computed": "0.000011626196282864889",
+      "matching_order": 0,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "-0.0032226860436051418986203878072170",
+      "relative_percent": "-0.32226860436051418986203878072170",
+      "scale_multiplier": 1,
+      "signed_difference": "-3.7588717135111E-8",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "4.57538189144508",
+      "computed": "167.82461810855492",
+      "matching_order": 0,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.026539338117430858468677494199536",
+      "relative_percent": "-2.6539338117430858468677494199536",
+      "scale_multiplier": 1,
+      "signed_difference": "-4.57538189144508",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "4.57538189144508",
+      "computed": "167.82461810855492",
+      "matching_order": 0,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.026539338117430858468677494199536",
+      "relative_percent": "-2.6539338117430858468677494199536",
+      "scale_multiplier": 1,
+      "signed_difference": "-4.57538189144508",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.48178227744176",
+      "computed": "79.88741772255824",
+      "matching_order": 1,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0059946133275155158941485046510355",
+      "relative_percent": "-0.59946133275155158941485046510355",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.48178227744176",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.62604703232158",
+      "computed": "90.56195296767842",
+      "matching_order": 1,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0068654541422290213624599728034390",
+      "relative_percent": "-0.68654541422290213624599728034390",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.62604703232158",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.67480489589482",
+      "computed": "123.52519510410518",
+      "matching_order": 1,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.013377035909703035143769968051118",
+      "relative_percent": "-1.3377035909703035143769968051118",
+      "scale_multiplier": 1,
+      "signed_difference": "-1.67480489589482",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.64336044034277E-7",
+      "computed": "0.000011828121044034277",
+      "matching_order": 1,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.014089426719909274733716370800731",
+      "relative_percent": "1.4089426719909274733716370800731",
+      "scale_multiplier": 1,
+      "signed_difference": "1.64336044034277E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "3.40395050109708",
+      "computed": "168.99604949890292",
+      "matching_order": 1,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.019744492465760324825986078886311",
+      "relative_percent": "-1.9744492465760324825986078886311",
+      "scale_multiplier": 1,
+      "signed_difference": "-3.40395050109708",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "3.47202753697632",
+      "computed": "168.92797246302368",
+      "matching_order": 1,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.020139370864131786542923433874710",
+      "relative_percent": "-2.0139370864131786542923433874710",
+      "scale_multiplier": 1,
+      "signed_difference": "-3.47202753697632",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.50704601671135",
+      "computed": "79.86215398328865",
+      "matching_order": 2,
+      "method": "W",
+      "primary": true,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0063089593614388347775018290588932",
+      "relative_percent": "-0.63089593614388347775018290588932",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.50704601671135",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.59752656546192",
+      "computed": "90.59047343453808",
+      "matching_order": 2,
+      "method": "Z",
+      "primary": true,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0065526885715436241610738255033557",
+      "relative_percent": "-0.65526885715436241610738255033557",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.59752656546192",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.31969084522967",
+      "computed": "124.88030915477033",
+      "matching_order": 2,
+      "method": "higgs",
+      "primary": true,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0025534412558280351437699680511182",
+      "relative_percent": "-0.25534412558280351437699680511182",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.31969084522967",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.64048992756225E-7",
+      "computed": "0.000011827833992756225",
+      "matching_order": 2,
+      "method": null,
+      "primary": true,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.014064816245860584707279840977864",
+      "relative_percent": "1.4064816245860584707279840977864",
+      "scale_multiplier": 1,
+      "signed_difference": "1.64048992756225E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "2.3590473461409",
+      "computed": "170.0409526538591",
+      "matching_order": 2,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.013683569293160672853828306264501",
+      "relative_percent": "-1.3683569293160672853828306264501",
+      "scale_multiplier": 1,
+      "signed_difference": "-2.3590473461409",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "2.4154958060146",
+      "computed": "169.9845041939854",
+      "matching_order": 2,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.014010996554609048723897911832947",
+      "relative_percent": "-1.4010996554609048723897911832947",
+      "scale_multiplier": 1,
+      "signed_difference": "-2.4154958060146",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.77447234921856",
+      "computed": "170.62552765078144",
+      "matching_order": 2,
+      "method": "top_QCD4_EW2",
+      "primary": true,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.010292763046511368909512761020882",
+      "relative_percent": "-1.0292763046511368909512761020882",
+      "scale_multiplier": 1,
+      "signed_difference": "-1.77447234921856",
+      "source_field": "top_QCD4_EW2/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.09675962022536",
+      "computed": "79.27244037977464",
+      "matching_order": 0,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.013646516578805811181397848927201",
+      "relative_percent": "-1.3646516578805811181397848927201",
+      "scale_multiplier": 2,
+      "signed_difference": "-1.09675962022536",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.60441153893083",
+      "computed": "90.58358846106917",
+      "matching_order": 0,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0066281916362989647760670263631180",
+      "relative_percent": "-0.66281916362989647760670263631180",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.60441153893083",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "2.3786549135283",
+      "computed": "122.8213450864717",
+      "matching_order": 0,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.018998841162366613418530351437700",
+      "relative_percent": "-1.8998841162366613418530351437700",
+      "scale_multiplier": 2,
+      "signed_difference": "-2.3786549135283",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.42531240659842E-7",
+      "computed": "0.000011806316240659842",
+      "matching_order": 0,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.012219981820639012121708347676162",
+      "relative_percent": "1.2219981820639012121708347676162",
+      "scale_multiplier": 2,
+      "signed_difference": "1.42531240659842E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "12.72998269739258",
+      "computed": "159.67001730260742",
+      "matching_order": 0,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.073839806829423317865429234338747",
+      "relative_percent": "-7.3839806829423317865429234338747",
+      "scale_multiplier": 2,
+      "signed_difference": "-12.72998269739258",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "12.72998269739258",
+      "computed": "159.67001730260742",
+      "matching_order": 0,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.073839806829423317865429234338747",
+      "relative_percent": "-7.3839806829423317865429234338747",
+      "scale_multiplier": 2,
+      "signed_difference": "-12.72998269739258",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.4643746189427",
+      "computed": "79.9048253810573",
+      "matching_order": 1,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0057780171874636054607984153133290",
+      "relative_percent": "-0.57780171874636054607984153133290",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.4643746189427",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.56319350081052",
+      "computed": "90.62480649918948",
+      "matching_order": 1,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0061761799887103566258718252401632",
+      "relative_percent": "-0.61761799887103566258718252401632",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.56319350081052",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.56422651267954",
+      "computed": "124.63577348732046",
+      "matching_order": 1,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0045066015389739616613418530351438",
+      "relative_percent": "-0.45066015389739616613418530351438",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.56422651267954",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.63609929292933E-7",
+      "computed": "0.000011827394929292933",
+      "matching_order": 1,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.014027172936823938369920227439035",
+      "relative_percent": "1.4027172936823938369920227439035",
+      "scale_multiplier": 2,
+      "signed_difference": "1.63609929292933E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "4.63358081806535",
+      "computed": "167.76641918193465",
+      "matching_order": 1,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.026876918898290893271461716937355",
+      "relative_percent": "-2.6876918898290893271461716937355",
+      "scale_multiplier": 2,
+      "signed_difference": "-4.63358081806535",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "4.41391635098966",
+      "computed": "167.98608364901034",
+      "matching_order": 1,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.025602763056784570765661252900232",
+      "relative_percent": "-2.5602763056784570765661252900232",
+      "scale_multiplier": 2,
+      "signed_difference": "-4.41391635098966",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.4987584586373",
+      "computed": "79.8704415413627",
+      "matching_order": 2,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0062058407777768100217496254784171",
+      "relative_percent": "-0.62058407777768100217496254784171",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.4987584586373",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.5914908898969",
+      "computed": "90.5965091101031",
+      "matching_order": 2,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0064864992092917927797517217177699",
+      "relative_percent": "-0.64864992092917927797517217177699",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.5914908898969",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.41233740711733",
+      "computed": "124.78766259288267",
+      "matching_order": 2,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0032934297693077476038338658146965",
+      "relative_percent": "-0.32934297693077476038338658146965",
+      "scale_multiplier": 2,
+      "signed_difference": "-0.41233740711733",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.61832870341069E-7",
+      "computed": "0.000011825617870341069",
+      "matching_order": 2,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.013874815965920925325698304624099",
+      "relative_percent": "1.3874815965920925325698304624099",
+      "scale_multiplier": 2,
+      "signed_difference": "1.61832870341069E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "2.67009030745617",
+      "computed": "169.72990969254383",
+      "matching_order": 2,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.015487762804270127610208816705336",
+      "relative_percent": "-1.5487762804270127610208816705336",
+      "scale_multiplier": 2,
+      "signed_difference": "-2.67009030745617",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "2.49396181349513",
+      "computed": "169.90603818650487",
+      "matching_order": 2,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.014466135809136484918793503480278",
+      "relative_percent": "-1.4466135809136484918793503480278",
+      "scale_multiplier": 2,
+      "signed_difference": "-2.49396181349513",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.80349661049393",
+      "computed": "170.59650338950607",
+      "matching_order": 2,
+      "method": "top_QCD4_EW2",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.010461117230243213457076566125290",
+      "relative_percent": "-1.0461117230243213457076566125290",
+      "scale_multiplier": 2,
+      "signed_difference": "-1.80349661049393",
+      "source_field": "top_QCD4_EW2/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "2.06875368291048",
+      "computed": "78.30044631708952",
+      "matching_order": 0,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.025740628037985696012900464356992",
+      "relative_percent": "-2.5740628037985696012900464356992",
+      "scale_multiplier": 4,
+      "signed_difference": "-2.06875368291048",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.51356035791157",
+      "computed": "89.67443964208843",
+      "matching_order": 0,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.016598240535065688467780848357240",
+      "relative_percent": "-1.6598240535065688467780848357240",
+      "scale_multiplier": 4,
+      "signed_difference": "-1.51356035791157",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "9.22840414035113",
+      "computed": "115.97159585964887",
+      "matching_order": 0,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.073709298245616054313099041533546",
+      "relative_percent": "-7.3709298245616054313099041533546",
+      "scale_multiplier": 4,
+      "signed_difference": "-9.22840414035113",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "3.02611206306508E-7",
+      "computed": "0.000011966396206306508",
+      "matching_order": 0,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.025944511692088631606292468525440",
+      "relative_percent": "2.5944511692088631606292468525440",
+      "scale_multiplier": 4,
+      "signed_difference": "3.02611206306508E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "19.79615146805573",
+      "computed": "152.60384853194427",
+      "matching_order": 0,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.11482686466389634570765661252900",
+      "relative_percent": "-11.482686466389634570765661252900",
+      "scale_multiplier": 4,
+      "signed_difference": "-19.79615146805573",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "19.79615146805573",
+      "computed": "152.60384853194427",
+      "matching_order": 0,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.11482686466389634570765661252900",
+      "relative_percent": "-11.482686466389634570765661252900",
+      "scale_multiplier": 4,
+      "signed_difference": "-19.79615146805573",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.54518214077584",
+      "computed": "79.82401785922416",
+      "matching_order": 1,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0067834710408445026204068225140974",
+      "relative_percent": "-0.67834710408445026204068225140974",
+      "scale_multiplier": 4,
+      "signed_difference": "-0.54518214077584",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.6144344303717",
+      "computed": "90.5735655696283",
+      "matching_order": 1,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0067381062241928762556476729394219",
+      "relative_percent": "-0.67381062241928762556476729394219",
+      "scale_multiplier": 4,
+      "signed_difference": "-0.6144344303717",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.14924253338596",
+      "computed": "124.05075746661404",
+      "matching_order": 1,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0091792534615492012779552715654952",
+      "relative_percent": "-0.91792534615492012779552715654952",
+      "scale_multiplier": 4,
+      "signed_difference": "-1.14924253338596",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.81168141169198E-7",
+      "computed": "0.000011844953141169198",
+      "matching_order": 1,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.015532534350487256066534148220325",
+      "relative_percent": "1.5532534350487256066534148220325",
+      "scale_multiplier": 4,
+      "signed_difference": "1.81168141169198E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "6.68501876019115",
+      "computed": "165.71498123980885",
+      "matching_order": 1,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.038776210905981148491879350348028",
+      "relative_percent": "-3.8776210905981148491879350348028",
+      "scale_multiplier": 4,
+      "signed_difference": "-6.68501876019115",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "5.27626334619227",
+      "computed": "167.12373665380773",
+      "matching_order": 1,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.030604775789978364269141531322506",
+      "relative_percent": "-3.0604775789978364269141531322506",
+      "scale_multiplier": 4,
+      "signed_difference": "-5.27626334619227",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.50126266622505",
+      "computed": "79.86793733377495",
+      "matching_order": 2,
+      "method": "W",
+      "primary": false,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0062369995747755359018131323940017",
+      "relative_percent": "-0.62369995747755359018131323940017",
+      "scale_multiplier": 4,
+      "signed_difference": "-0.50126266622505",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.5903678908987",
+      "computed": "90.5976321091013",
+      "matching_order": 2,
+      "method": "Z",
+      "primary": false,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0064741840033633811466421020309690",
+      "relative_percent": "-0.64741840033633811466421020309690",
+      "scale_multiplier": 4,
+      "signed_difference": "-0.5903678908987",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.51830572742159",
+      "computed": "124.68169427257841",
+      "matching_order": 2,
+      "method": "higgs",
+      "primary": false,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0041398221040063099041533546325879",
+      "relative_percent": "-0.41398221040063099041533546325879",
+      "scale_multiplier": 4,
+      "signed_difference": "-0.51830572742159",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.62321884439569E-7",
+      "computed": "0.000011826106884439569",
+      "matching_order": 2,
+      "method": null,
+      "primary": false,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.013916741815762979170140739048259",
+      "relative_percent": "1.3916741815762979170140739048259",
+      "scale_multiplier": 4,
+      "signed_difference": "1.62321884439569E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "3.28502841963492",
+      "computed": "169.11497158036508",
+      "matching_order": 2,
+      "method": "top_method0",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.019054689209019257540603248259861",
+      "relative_percent": "-1.9054689209019257540603248259861",
+      "scale_multiplier": 4,
+      "signed_difference": "-3.28502841963492",
+      "source_field": "top_method0/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "2.5101622421734",
+      "computed": "169.8898377578266",
+      "matching_order": 2,
+      "method": "top_method1",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.014560105813070765661252900232019",
+      "relative_percent": "-1.4560105813070765661252900232019",
+      "scale_multiplier": 4,
+      "signed_difference": "-2.5101622421734",
+      "source_field": "top_method1/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.79876475826455",
+      "computed": "170.60123524173545",
+      "matching_order": 2,
+      "method": "top_QCD4_EW2",
+      "primary": false,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.010433670291557714617169373549884",
+      "relative_percent": "-1.0433670291557714617169373549884",
+      "scale_multiplier": 4,
+      "signed_difference": "-1.79876475826455",
+      "source_field": "top_QCD4_EW2/mass_GeV",
+      "unit": "GeV"
+    }
+  ],
+  "fit_or_success_verdict": null,
+  "interpretation": {
+    "all_scale_order_rows_retained": true,
+    "blind_prediction_claimed": false,
+    "complete_flavor_model_claimed": false,
+    "confidence_interval_claimed": false,
+    "descriptive_residuals_only": true,
+    "joint_significance_claimed": false,
+    "local_GF_is_operational_muon_lifetime": false,
+    "retuned_parameters": false,
+    "scale_selected_by_agreement": false,
+    "successful_postdiction_promoted": false,
+    "theory_uncertainty_supplied": false
+  },
+  "joint_significance": null,
+  "primary": [
+    {
+      "absolute_difference": "0.50704601671135",
+      "computed": "79.86215398328865",
+      "matching_order": 2,
+      "method": "W",
+      "primary": true,
+      "quantity": "W",
+      "reference": {
+        "central": "80.3692",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 1,
+        "primary_source_field": "W/BW_mass_GeV",
+        "quantity": "W",
+        "quoted_uncertainty": "0.0133",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0063089593614388347775018290588932",
+      "relative_percent": "-0.63089593614388347775018290588932",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.50704601671135",
+      "source_field": "W/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.59752656546192",
+      "computed": "90.59047343453808",
+      "matching_order": 2,
+      "method": "Z",
+      "primary": true,
+      "quantity": "Z",
+      "reference": {
+        "central": "91.1880",
+        "comparison_chart": "running_width_Breit_Wigner_mass",
+        "page": 2,
+        "primary_source_field": "Z/BW_mass_GeV",
+        "quantity": "Z",
+        "quoted_uncertainty": "0.0020",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0065526885715436241610738255033557",
+      "relative_percent": "-0.65526885715436241610738255033557",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.59752656546192",
+      "source_field": "Z/BW_mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "0.31969084522967",
+      "computed": "124.88030915477033",
+      "matching_order": 2,
+      "method": "higgs",
+      "primary": true,
+      "quantity": "H",
+      "reference": {
+        "central": "125.20",
+        "comparison_chart": "Higgs_mass_summary_vs_matched_complex_pole_real_mass",
+        "page": 4,
+        "primary_source_field": "higgs/mass_GeV",
+        "quantity": "H",
+        "quoted_uncertainty": "0.11",
+        "source": "gauge_higgs",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.0025534412558280351437699680511182",
+      "relative_percent": "-0.25534412558280351437699680511182",
+      "scale_multiplier": 1,
+      "signed_difference": "-0.31969084522967",
+      "source_field": "higgs/mass_GeV",
+      "unit": "GeV"
+    },
+    {
+      "absolute_difference": "1.64048992756225E-7",
+      "computed": "0.000011827833992756225",
+      "matching_order": 2,
+      "method": null,
+      "primary": true,
+      "quantity": "GF",
+      "reference": {
+        "central": "0.000011663785",
+        "comparison_chart": "descriptive_local_zero_muon_coefficient_vs_empirical_Fermi_constant",
+        "page": 1,
+        "primary_source_field": "GF_local_zero_muon_GeVm2",
+        "quantity": "GF",
+        "quoted_uncertainty": "0.000000000006",
+        "source": "constants",
+        "unit": "GeV^-2"
+      },
+      "relative_difference": "0.014064816245860584707279840977864",
+      "relative_percent": "1.4064816245860584707279840977864",
+      "scale_multiplier": 1,
+      "signed_difference": "1.64048992756225E-7",
+      "source_field": "GF_local_zero_muon_GeVm2",
+      "unit": "GeV^-2"
+    },
+    {
+      "absolute_difference": "1.77447234921856",
+      "computed": "170.62552765078144",
+      "matching_order": 2,
+      "method": "top_QCD4_EW2",
+      "primary": true,
+      "quantity": "top",
+      "reference": {
+        "central": "172.4",
+        "comparison_chart": "matched_complex_pole_real_mass_vs_cross_section_pole_extraction",
+        "page": 1,
+        "primary_source_field": "top_QCD4_EW2/mass_GeV",
+        "quantity": "top",
+        "quoted_uncertainty": "0.7",
+        "source": "quarks",
+        "unit": "GeV"
+      },
+      "relative_difference": "-0.010292763046511368909512761020882",
+      "relative_percent": "-1.0292763046511368909512761020882",
+      "scale_multiplier": 1,
+      "signed_difference": "-1.77447234921856",
+      "source_field": "top_QCD4_EW2/mass_GeV",
+      "unit": "GeV"
+    }
+  ],
+  "primary_selection": {
+    "matching_order": 2,
+    "scale_multiplier": 1,
+    "top_method": "top_QCD4_EW2"
+  },
+  "retained_forward_output": {
+    "m2_minimum_controls": {
+      "0": -8516.285785526672,
+      "1": -8271.03853275457,
+      "2": -8373.745914736108
+    },
+    "rows": [
+      {
+        "GF_local_zero_muon_GeVm2": 1.1626196282864889e-05,
+        "GF_raw_GeVm2": 1.1626202312442805e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.029577916219388e-12,
+        "W": {
+          "BW_mass_GeV": 80.33686256634758,
+          "BW_width_GeV": 0,
+          "mass_GeV": 80.33686256634758,
+          "width_GeV": 0
+        },
+        "Z": {
+          "BW_mass_GeV": 91.5960909044548,
+          "BW_width_GeV": 0,
+          "mass_GeV": 91.5960909044548,
+          "width_GeV": 0
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 130.5088946051316,
+          "width_GeV": 0
+        },
+        "matching_order": 0,
+        "scale_multiplier": 1,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.82461810855492,
+          "width_GeV": 0
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.82461810855492,
+          "width_GeV": 0
+        },
+        "working": {
+          "Q": 91.59609090445517,
+          "g2": 0.6515101514065812,
+          "g3": 1.219448390986677,
+          "gY": 0.3568126107388487,
+          "lambda": 0.1400241275827676,
+          "m2": -8373.745914736108,
+          "mt_MSbar": 167.82461810855492,
+          "v": 246.6173777734818,
+          "yt": 0.9623808880459368
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1828121044034277e-05,
+        "GF_raw_GeVm2": 1.1828127073612193e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.029577916219388e-12,
+        "W": {
+          "BW_mass_GeV": 79.88741772255824,
+          "BW_width_GeV": 2.04800236130667,
+          "mass_GeV": 79.86773859989376,
+          "width_GeV": 2.0471615667195584
+        },
+        "Z": {
+          "BW_mass_GeV": 90.56195296767842,
+          "BW_width_GeV": 2.4781553987384735,
+          "mass_GeV": 90.53653706621428,
+          "width_GeV": 2.4769963063321994
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 123.52519510410518,
+          "width_GeV": -2.348047356618506e-17
+        },
+        "matching_order": 1,
+        "scale_multiplier": 1,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 168.99604949890292,
+          "width_GeV": 1.3305032826555145
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 168.92797246302368,
+          "width_GeV": 1.3713015194193074
+        },
+        "working": {
+          "Q": 91.59609090445517,
+          "g2": 0.6515101514065812,
+          "g3": 1.219448390986677,
+          "gY": 0.3568126107388487,
+          "lambda": 0.1400241275827676,
+          "m2": -8373.745914736108,
+          "mt_MSbar": 167.82461810855492,
+          "v": 246.6173777734818,
+          "yt": 0.9623808880459368
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1827833992756225e-05,
+        "GF_raw_GeVm2": 1.1827840022334141e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.029577916219388e-12,
+        "W": {
+          "BW_mass_GeV": 79.86215398328865,
+          "BW_width_GeV": 2.0797668749638842,
+          "mass_GeV": 79.84185357061973,
+          "width_GeV": 2.078885805647111
+        },
+        "Z": {
+          "BW_mass_GeV": 90.59047343453808,
+          "BW_width_GeV": 2.483847361047218,
+          "mass_GeV": 90.56494873942954,
+          "width_GeV": 2.482681000964456
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.88030915477033,
+          "width_GeV": 0.0016520940849000286
+        },
+        "matching_order": 2,
+        "scale_multiplier": 1,
+        "top_QCD4_EW2": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.62552765078144,
+          "width_GeV": 1.3194683466147756
+        },
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.0409526538591,
+          "width_GeV": 1.2687970188197026
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.9845041939854,
+          "width_GeV": 1.301680857395421
+        },
+        "working": {
+          "Q": 91.59609090445517,
+          "g2": 0.6515101514065812,
+          "g3": 1.219448390986677,
+          "gY": 0.3568126107388487,
+          "lambda": 0.1400241275827676,
+          "m2": -8373.745914736108,
+          "mt_MSbar": 167.82461810855492,
+          "v": 246.6173777734818,
+          "yt": 0.9623808880459368
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1806316240659842e-05,
+        "GF_raw_GeVm2": 1.180632236365157e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.122991728731008e-12,
+        "W": {
+          "BW_mass_GeV": 79.27244037977464,
+          "BW_width_GeV": 0,
+          "mass_GeV": 79.27244037977464,
+          "width_GeV": 0
+        },
+        "Z": {
+          "BW_mass_GeV": 90.58358846106917,
+          "BW_width_GeV": 0,
+          "mass_GeV": 90.58358846106917,
+          "width_GeV": 0
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 122.8213450864717,
+          "width_GeV": 0
+        },
+        "matching_order": 0,
+        "scale_multiplier": 2,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 159.67001730260742,
+          "width_GeV": 0
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 159.67001730260742,
+          "width_GeV": 0
+        },
+        "working": {
+          "Q": 183.19218180891033,
+          "g2": 0.6478387606219717,
+          "g3": 1.1656658708766434,
+          "gY": 0.3582106779876518,
+          "lambda": 0.12593519316769253,
+          "m2": -8562.252433351556,
+          "mt_MSbar": 159.67001730260742,
+          "v": 244.72892083106422,
+          "yt": 0.9226841813664047
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1827394929292933e-05,
+        "GF_raw_GeVm2": 1.1827401052284661e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.122991728731008e-12,
+        "W": {
+          "BW_mass_GeV": 79.9048253810573,
+          "BW_width_GeV": 1.9711556313392586,
+          "mass_GeV": 79.88659870672178,
+          "width_GeV": 1.9704062744939874
+        },
+        "Z": {
+          "BW_mass_GeV": 90.62480649918948,
+          "BW_width_GeV": 2.3967787959636975,
+          "mass_GeV": 90.60104801904222,
+          "width_GeV": 2.3957315937504404
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.63577348732046,
+          "width_GeV": 1.5423555151226047e-15
+        },
+        "matching_order": 1,
+        "scale_multiplier": 2,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.76641918193465,
+          "width_GeV": 1.090888982820573
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.98608364901034,
+          "width_GeV": 1.3751000684156145
+        },
+        "working": {
+          "Q": 183.19218180891033,
+          "g2": 0.6478387606219717,
+          "g3": 1.1656658708766434,
+          "gY": 0.3582106779876518,
+          "lambda": 0.12593519316769253,
+          "m2": -8562.252433351556,
+          "mt_MSbar": 159.67001730260742,
+          "v": 244.72892083106422,
+          "yt": 0.9226841813664047
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1825617870341069e-05,
+        "GF_raw_GeVm2": 1.1825623993332797e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.122991728731008e-12,
+        "W": {
+          "BW_mass_GeV": 79.8704415413627,
+          "BW_width_GeV": 2.074333958576688,
+          "mass_GeV": 79.8502490918591,
+          "width_GeV": 2.0734599548911365
+        },
+        "Z": {
+          "BW_mass_GeV": 90.5965091101031,
+          "BW_width_GeV": 2.480934422954263,
+          "mass_GeV": 90.57104591014338,
+          "width_GeV": 2.4797723147709
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.78766259288267,
+          "width_GeV": 0.0007618714259861339
+        },
+        "matching_order": 2,
+        "scale_multiplier": 2,
+        "top_QCD4_EW2": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.59650338950607,
+          "width_GeV": 1.326855672495362
+        },
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.72990969254383,
+          "width_GeV": 1.2435352148974972
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.90603818650487,
+          "width_GeV": 1.3079297863504007
+        },
+        "working": {
+          "Q": 183.19218180891033,
+          "g2": 0.6478387606219717,
+          "g3": 1.1656658708766434,
+          "gY": 0.3582106779876518,
+          "lambda": 0.12593519316769253,
+          "m2": -8562.252433351556,
+          "mt_MSbar": 159.67001730260742,
+          "v": 244.72892083106422,
+          "yt": 0.9226841813664047
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1966396206306508e-05,
+        "GF_raw_GeVm2": 1.1966402412318908e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.206012400514682e-12,
+        "W": {
+          "BW_mass_GeV": 78.30044631708952,
+          "BW_width_GeV": 0,
+          "mass_GeV": 78.30044631708952,
+          "width_GeV": 0
+        },
+        "Z": {
+          "BW_mass_GeV": 89.67443964208843,
+          "BW_width_GeV": 0,
+          "mass_GeV": 89.67443964208843,
+          "width_GeV": 0
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 115.97159585964887,
+          "width_GeV": 0
+        },
+        "matching_order": 0,
+        "scale_multiplier": 4,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 152.60384853194427,
+          "width_GeV": 0
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 152.60384853194427,
+          "width_GeV": 0
+        },
+        "working": {
+          "Q": 366.38436361782067,
+          "g2": 0.6442188396384831,
+          "g3": 1.118547797457422,
+          "gY": 0.35962331965484506,
+          "lambda": 0.1138024592626902,
+          "m2": -8732.598422009394,
+          "mt_MSbar": 152.60384853194424,
+          "v": 243.08648396879997,
+          "yt": 0.8878092633562661
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1844953141169198e-05,
+        "GF_raw_GeVm2": 1.1844959347181599e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.206012400514682e-12,
+        "W": {
+          "BW_mass_GeV": 79.82401785922416,
+          "BW_width_GeV": 1.9035313293598184,
+          "mass_GeV": 79.80700263369532,
+          "width_GeV": 1.9028550930254036
+        },
+        "Z": {
+          "BW_mass_GeV": 90.5735655696283,
+          "BW_width_GeV": 2.326252511462881,
+          "mass_GeV": 90.55117141439453,
+          "width_GeV": 2.32529394524913
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.05075746661404,
+          "width_GeV": 1.7077406253982773e-16
+        },
+        "matching_order": 1,
+        "scale_multiplier": 4,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 165.71498123980885,
+          "width_GeV": 0.9129248388355172
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.12373665380773,
+          "width_GeV": 1.3775530703331398
+        },
+        "working": {
+          "Q": 366.38436361782067,
+          "g2": 0.6442188396384831,
+          "g3": 1.118547797457422,
+          "gY": 0.35962331965484506,
+          "lambda": 0.1138024592626902,
+          "m2": -8732.598422009394,
+          "mt_MSbar": 152.60384853194424,
+          "v": 243.08648396879997,
+          "yt": 0.8878092633562661
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1826106884439569e-05,
+        "GF_raw_GeVm2": 1.1826113090451969e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.206012400514682e-12,
+        "W": {
+          "BW_mass_GeV": 79.86793733377495,
+          "BW_width_GeV": 2.0637642409569183,
+          "mass_GeV": 79.84794941431436,
+          "width_GeV": 2.0629034711109147
+        },
+        "Z": {
+          "BW_mass_GeV": 90.5976321091013,
+          "BW_width_GeV": 2.4714206930936182,
+          "mass_GeV": 90.57236403120713,
+          "width_GeV": 2.470271926117997
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.68169427257841,
+          "width_GeV": 0.00035370151504113723
+        },
+        "matching_order": 2,
+        "scale_multiplier": 4,
+        "top_QCD4_EW2": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.60123524173545,
+          "width_GeV": 1.328701072906574
+        },
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.11497158036508,
+          "width_GeV": 1.1822830125805706
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.8898377578266,
+          "width_GeV": 1.3095342342584981
+        },
+        "working": {
+          "Q": 366.38436361782067,
+          "g2": 0.6442188396384831,
+          "g3": 1.118547797457422,
+          "gY": 0.35962331965484506,
+          "lambda": 0.1138024592626902,
+          "m2": -8732.598422009394,
+          "mt_MSbar": 152.60384853194424,
+          "v": 243.08648396879997,
+          "yt": 0.8878092633562661
+        }
+      }
+    ],
+    "schema": "oph.smdr_forward_matching.v1"
+  },
+  "schema": "oph.source_ew_vev_matching_comparison.v1",
+  "source_inputs": {
+    "Q0_GeV": 91.59609090445517,
+    "RG_loop_order": 2,
+    "SMDR_commit": "5c4dd92c918cadb7f91ad3795694f8398b5c287a",
+    "attachment": "v_Landau_MSbar(Q0)=v_source_chart; this finite normalization and reference-scale identification is a new conditional physical attachment, not a source theorem.",
+    "consumed_fields": [
+      "source_scales_GeV/mz_run_gev",
+      "source_scales_GeV/v_transmutation_gev",
+      "source_scales_GeV/log_midpoint_half_turn",
+      "fully_coupled_two_loop_same_low_gauge_anchor/1/boundary_gauges",
+      "fully_coupled_two_loop_same_low_gauge_anchor/1/boundary_top_yukawa"
+    ],
+    "criticality_input": {
+      "initial": [
+        0.5960558317109657,
+        0.5140454803875881,
+        0.5050652140142712,
+        0.3892417476714668,
+        0.0
+      ],
+      "scale_GeV": 4.862869332756601e+17
+    },
+    "g2_Q0": 0.6515101514065812,
+    "g3_Q0": 1.219448390986677,
+    "gY_Q0": 0.3568126107388487,
+    "lambda_Q0": 0.1400241275827676,
+    "m2_minimum_order": 2,
+    "non_top_yukawas": 0.0,
+    "scale_multipliers": [
+      1,
+      2,
+      4
+    ],
+    "schema": "oph.smdr_conditional_matching_input.v1",
+    "source_file": "code/particles/runs/calibration/conditional_top_fixed_p.json",
+    "v_Q0_GeV": 246.6173777734818,
+    "yt_Q0": 0.9623808880459368
+  },
+  "source_pins": {
+    "code/particles/calibration/compare_source_ew_vev_matching.py": "3e2a901d824f0b1c5eb9a832d89067b96143c054868ebc728e55366c253ccb9b",
+    "code/particles/calibration/source_ew_comparison_targets.json": "4c740d14565123a8fc8534c004309ccc986ae86efb5523917339c4dc7152cc83",
+    "code/particles/calibration/source_ew_vev_matching_spec.json": "edc9be3eba98cb4b06da54854c5ed8c268fd53c5f6dc0dafb1124b4bd551f466",
+    "code/particles/calibration/verify_source_ew_top_pole.py": "2080cf67ab7a24913635a36e3b002f9b2e024d48e6d5a402825f87d4a6e1582a",
+    "code/particles/calibration/verify_source_ew_vev_matching.py": "c80c2fb73e9565cf9a4315083a314a7b23d3485f4eacc38ca074c83edf90b5ab",
+    "code/particles/data/pdg_2025_conditional_quark_comparison.json": "503f043ec8581b48e1a8ae184c97e7676dd5e84198ad18f2781d1bf7e32156a5",
+    "code/particles/runs/calibration/source_ew_vev_matching.json": "16ab0acad008760fd681d34e8a655d32e43dd06c204725876c54ec5a5896a8e4"
+  },
+  "sources": {
+    "constants": {
+      "pdf_bytes": 249001,
+      "pdf_sha256": "596a9ed34c582e92a13c1fff7263a498844ea7e301511417587ecfb191516e6f",
+      "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-phys-constants.pdf"
+    },
+    "gauge_higgs": {
+      "pdf_bytes": 83221,
+      "pdf_sha256": "4a1b1afd334e5cda6134d526e43f4965d95d978511a2cd2efdc8365e57633a86",
+      "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf"
+    },
+    "quarks": {
+      "pdf_bytes": 49062,
+      "pdf_sha256": "586adace46689cb8580ce068cbab242397b7f313256052bde8c69dcff65de5d1",
+      "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf"
+    }
+  },
+  "status": "DESCRIPTIVE_CONDITIONAL_COMPARISON",
+  "theory_uncertainty": null
+}

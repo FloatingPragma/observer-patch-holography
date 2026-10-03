@@ -1,0 +1,606 @@
+{
+  "forward": {
+    "m2_minimum_controls": {
+      "0": -8516.285785526672,
+      "1": -8271.03853275457,
+      "2": -8373.745914736108
+    },
+    "rows": [
+      {
+        "GF_local_zero_muon_GeVm2": 1.1626196282864889e-05,
+        "GF_raw_GeVm2": 1.1626202312442805e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.029577916219388e-12,
+        "W": {
+          "BW_mass_GeV": 80.33686256634758,
+          "BW_width_GeV": 0,
+          "mass_GeV": 80.33686256634758,
+          "width_GeV": 0
+        },
+        "Z": {
+          "BW_mass_GeV": 91.5960909044548,
+          "BW_width_GeV": 0,
+          "mass_GeV": 91.5960909044548,
+          "width_GeV": 0
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 130.5088946051316,
+          "width_GeV": 0
+        },
+        "matching_order": 0,
+        "scale_multiplier": 1,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.82461810855492,
+          "width_GeV": 0
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.82461810855492,
+          "width_GeV": 0
+        },
+        "working": {
+          "Q": 91.59609090445517,
+          "g2": 0.6515101514065812,
+          "g3": 1.219448390986677,
+          "gY": 0.3568126107388487,
+          "lambda": 0.1400241275827676,
+          "m2": -8373.745914736108,
+          "mt_MSbar": 167.82461810855492,
+          "v": 246.6173777734818,
+          "yt": 0.9623808880459368
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1828121044034277e-05,
+        "GF_raw_GeVm2": 1.1828127073612193e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.029577916219388e-12,
+        "W": {
+          "BW_mass_GeV": 79.88741772255824,
+          "BW_width_GeV": 2.04800236130667,
+          "mass_GeV": 79.86773859989376,
+          "width_GeV": 2.0471615667195584
+        },
+        "Z": {
+          "BW_mass_GeV": 90.56195296767842,
+          "BW_width_GeV": 2.4781553987384735,
+          "mass_GeV": 90.53653706621428,
+          "width_GeV": 2.4769963063321994
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 123.52519510410518,
+          "width_GeV": -2.348047356618506e-17
+        },
+        "matching_order": 1,
+        "scale_multiplier": 1,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 168.99604949890292,
+          "width_GeV": 1.3305032826555145
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 168.92797246302368,
+          "width_GeV": 1.3713015194193074
+        },
+        "working": {
+          "Q": 91.59609090445517,
+          "g2": 0.6515101514065812,
+          "g3": 1.219448390986677,
+          "gY": 0.3568126107388487,
+          "lambda": 0.1400241275827676,
+          "m2": -8373.745914736108,
+          "mt_MSbar": 167.82461810855492,
+          "v": 246.6173777734818,
+          "yt": 0.9623808880459368
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1827833992756225e-05,
+        "GF_raw_GeVm2": 1.1827840022334141e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.029577916219388e-12,
+        "W": {
+          "BW_mass_GeV": 79.86215398328865,
+          "BW_width_GeV": 2.0797668749638842,
+          "mass_GeV": 79.84185357061973,
+          "width_GeV": 2.078885805647111
+        },
+        "Z": {
+          "BW_mass_GeV": 90.59047343453808,
+          "BW_width_GeV": 2.483847361047218,
+          "mass_GeV": 90.56494873942954,
+          "width_GeV": 2.482681000964456
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.88030915477033,
+          "width_GeV": 0.0016520940849000286
+        },
+        "matching_order": 2,
+        "scale_multiplier": 1,
+        "top_QCD4_EW2": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.62552765078144,
+          "width_GeV": 1.3194683466147756
+        },
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.0409526538591,
+          "width_GeV": 1.2687970188197026
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.9845041939854,
+          "width_GeV": 1.301680857395421
+        },
+        "working": {
+          "Q": 91.59609090445517,
+          "g2": 0.6515101514065812,
+          "g3": 1.219448390986677,
+          "gY": 0.3568126107388487,
+          "lambda": 0.1400241275827676,
+          "m2": -8373.745914736108,
+          "mt_MSbar": 167.82461810855492,
+          "v": 246.6173777734818,
+          "yt": 0.9623808880459368
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1806316240659842e-05,
+        "GF_raw_GeVm2": 1.180632236365157e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.122991728731008e-12,
+        "W": {
+          "BW_mass_GeV": 79.27244037977464,
+          "BW_width_GeV": 0,
+          "mass_GeV": 79.27244037977464,
+          "width_GeV": 0
+        },
+        "Z": {
+          "BW_mass_GeV": 90.58358846106917,
+          "BW_width_GeV": 0,
+          "mass_GeV": 90.58358846106917,
+          "width_GeV": 0
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 122.8213450864717,
+          "width_GeV": 0
+        },
+        "matching_order": 0,
+        "scale_multiplier": 2,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 159.67001730260742,
+          "width_GeV": 0
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 159.67001730260742,
+          "width_GeV": 0
+        },
+        "working": {
+          "Q": 183.19218180891033,
+          "g2": 0.6478387606219717,
+          "g3": 1.1656658708766434,
+          "gY": 0.3582106779876518,
+          "lambda": 0.12593519316769253,
+          "m2": -8562.252433351556,
+          "mt_MSbar": 159.67001730260742,
+          "v": 244.72892083106422,
+          "yt": 0.9226841813664047
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1827394929292933e-05,
+        "GF_raw_GeVm2": 1.1827401052284661e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.122991728731008e-12,
+        "W": {
+          "BW_mass_GeV": 79.9048253810573,
+          "BW_width_GeV": 1.9711556313392586,
+          "mass_GeV": 79.88659870672178,
+          "width_GeV": 1.9704062744939874
+        },
+        "Z": {
+          "BW_mass_GeV": 90.62480649918948,
+          "BW_width_GeV": 2.3967787959636975,
+          "mass_GeV": 90.60104801904222,
+          "width_GeV": 2.3957315937504404
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.63577348732046,
+          "width_GeV": 1.5423555151226047e-15
+        },
+        "matching_order": 1,
+        "scale_multiplier": 2,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.76641918193465,
+          "width_GeV": 1.090888982820573
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.98608364901034,
+          "width_GeV": 1.3751000684156145
+        },
+        "working": {
+          "Q": 183.19218180891033,
+          "g2": 0.6478387606219717,
+          "g3": 1.1656658708766434,
+          "gY": 0.3582106779876518,
+          "lambda": 0.12593519316769253,
+          "m2": -8562.252433351556,
+          "mt_MSbar": 159.67001730260742,
+          "v": 244.72892083106422,
+          "yt": 0.9226841813664047
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1825617870341069e-05,
+        "GF_raw_GeVm2": 1.1825623993332797e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.122991728731008e-12,
+        "W": {
+          "BW_mass_GeV": 79.8704415413627,
+          "BW_width_GeV": 2.074333958576688,
+          "mass_GeV": 79.8502490918591,
+          "width_GeV": 2.0734599548911365
+        },
+        "Z": {
+          "BW_mass_GeV": 90.5965091101031,
+          "BW_width_GeV": 2.480934422954263,
+          "mass_GeV": 90.57104591014338,
+          "width_GeV": 2.4797723147709
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.78766259288267,
+          "width_GeV": 0.0007618714259861339
+        },
+        "matching_order": 2,
+        "scale_multiplier": 2,
+        "top_QCD4_EW2": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.59650338950607,
+          "width_GeV": 1.326855672495362
+        },
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.72990969254383,
+          "width_GeV": 1.2435352148974972
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.90603818650487,
+          "width_GeV": 1.3079297863504007
+        },
+        "working": {
+          "Q": 183.19218180891033,
+          "g2": 0.6478387606219717,
+          "g3": 1.1656658708766434,
+          "gY": 0.3582106779876518,
+          "lambda": 0.12593519316769253,
+          "m2": -8562.252433351556,
+          "mt_MSbar": 159.67001730260742,
+          "v": 244.72892083106422,
+          "yt": 0.9226841813664047
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1966396206306508e-05,
+        "GF_raw_GeVm2": 1.1966402412318908e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.206012400514682e-12,
+        "W": {
+          "BW_mass_GeV": 78.30044631708952,
+          "BW_width_GeV": 0,
+          "mass_GeV": 78.30044631708952,
+          "width_GeV": 0
+        },
+        "Z": {
+          "BW_mass_GeV": 89.67443964208843,
+          "BW_width_GeV": 0,
+          "mass_GeV": 89.67443964208843,
+          "width_GeV": 0
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 115.97159585964887,
+          "width_GeV": 0
+        },
+        "matching_order": 0,
+        "scale_multiplier": 4,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 152.60384853194427,
+          "width_GeV": 0
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 152.60384853194427,
+          "width_GeV": 0
+        },
+        "working": {
+          "Q": 366.38436361782067,
+          "g2": 0.6442188396384831,
+          "g3": 1.118547797457422,
+          "gY": 0.35962331965484506,
+          "lambda": 0.1138024592626902,
+          "m2": -8732.598422009394,
+          "mt_MSbar": 152.60384853194424,
+          "v": 243.08648396879997,
+          "yt": 0.8878092633562661
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1844953141169198e-05,
+        "GF_raw_GeVm2": 1.1844959347181599e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.206012400514682e-12,
+        "W": {
+          "BW_mass_GeV": 79.82401785922416,
+          "BW_width_GeV": 1.9035313293598184,
+          "mass_GeV": 79.80700263369532,
+          "width_GeV": 1.9028550930254036
+        },
+        "Z": {
+          "BW_mass_GeV": 90.5735655696283,
+          "BW_width_GeV": 2.326252511462881,
+          "mass_GeV": 90.55117141439453,
+          "width_GeV": 2.32529394524913
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.05075746661404,
+          "width_GeV": 1.7077406253982773e-16
+        },
+        "matching_order": 1,
+        "scale_multiplier": 4,
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 165.71498123980885,
+          "width_GeV": 0.9129248388355172
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 167.12373665380773,
+          "width_GeV": 1.3775530703331398
+        },
+        "working": {
+          "Q": 366.38436361782067,
+          "g2": 0.6442188396384831,
+          "g3": 1.118547797457422,
+          "gY": 0.35962331965484506,
+          "lambda": 0.1138024592626902,
+          "m2": -8732.598422009394,
+          "mt_MSbar": 152.60384853194424,
+          "v": 243.08648396879997,
+          "yt": 0.8878092633562661
+        }
+      },
+      {
+        "GF_local_zero_muon_GeVm2": 1.1826106884439569e-05,
+        "GF_raw_GeVm2": 1.1826113090451969e-05,
+        "GF_removed_finite_muon_term_GeVm2": 6.206012400514682e-12,
+        "W": {
+          "BW_mass_GeV": 79.86793733377495,
+          "BW_width_GeV": 2.0637642409569183,
+          "mass_GeV": 79.84794941431436,
+          "width_GeV": 2.0629034711109147
+        },
+        "Z": {
+          "BW_mass_GeV": 90.5976321091013,
+          "BW_width_GeV": 2.4714206930936182,
+          "mass_GeV": 90.57236403120713,
+          "width_GeV": 2.470271926117997
+        },
+        "higgs": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 124.68169427257841,
+          "width_GeV": 0.00035370151504113723
+        },
+        "matching_order": 2,
+        "scale_multiplier": 4,
+        "top_QCD4_EW2": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 170.60123524173545,
+          "width_GeV": 1.328701072906574
+        },
+        "top_method0": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.11497158036508,
+          "width_GeV": 1.1822830125805706
+        },
+        "top_method1": {
+          "BW_mass_GeV": 0,
+          "BW_width_GeV": 0,
+          "mass_GeV": 169.8898377578266,
+          "width_GeV": 1.3095342342584981
+        },
+        "working": {
+          "Q": 366.38436361782067,
+          "g2": 0.6442188396384831,
+          "g3": 1.118547797457422,
+          "gY": 0.35962331965484506,
+          "lambda": 0.1138024592626902,
+          "m2": -8732.598422009394,
+          "mt_MSbar": 152.60384853194424,
+          "v": 243.08648396879997,
+          "yt": 0.8878092633562661
+        }
+      }
+    ],
+    "schema": "oph.smdr_forward_matching.v1"
+  },
+  "inputs": {
+    "Q0_GeV": 91.59609090445517,
+    "RG_loop_order": 2,
+    "SMDR_commit": "5c4dd92c918cadb7f91ad3795694f8398b5c287a",
+    "attachment": "v_Landau_MSbar(Q0)=v_source_chart; this finite normalization and reference-scale identification is a new conditional physical attachment, not a source theorem.",
+    "consumed_fields": [
+      "source_scales_GeV/mz_run_gev",
+      "source_scales_GeV/v_transmutation_gev",
+      "source_scales_GeV/log_midpoint_half_turn",
+      "fully_coupled_two_loop_same_low_gauge_anchor/1/boundary_gauges",
+      "fully_coupled_two_loop_same_low_gauge_anchor/1/boundary_top_yukawa"
+    ],
+    "criticality_input": {
+      "initial": [
+        0.5960558317109657,
+        0.5140454803875881,
+        0.5050652140142712,
+        0.3892417476714668,
+        0.0
+      ],
+      "scale_GeV": 4.862869332756601e+17
+    },
+    "g2_Q0": 0.6515101514065812,
+    "g3_Q0": 1.219448390986677,
+    "gY_Q0": 0.3568126107388487,
+    "lambda_Q0": 0.1400241275827676,
+    "m2_minimum_order": 2,
+    "non_top_yukawas": 0.0,
+    "scale_multipliers": [
+      1,
+      2,
+      4
+    ],
+    "schema": "oph.smdr_conditional_matching_input.v1",
+    "source_file": "code/particles/runs/calibration/conditional_top_fixed_p.json",
+    "v_Q0_GeV": 246.6173777734818,
+    "yt_Q0": 0.9623808880459368
+  },
+  "schema": "oph.source_ew_vev_matching.v1",
+  "scope": {
+    "blind_prediction_claimed": false,
+    "complete_flavor_model_claimed": false,
+    "conditional_complex_pole_matching": true,
+    "electroweak_mass_or_GF_targets_consumed": false,
+    "finite_muon_phase_space_term_retained": false,
+    "numerical_enclosure_certified": false,
+    "physical_nonzero_light_quark_masses_derived": false,
+    "quark_mass_targets_consumed": false,
+    "scale_controls_are_confidence_interval": false,
+    "source_derived_vev_attachment_claimed": false,
+    "theory_uncertainty_quantified": false
+  },
+  "source_pins": {
+    "code/particles/calibration/sm_two_loop_rge_engine.py": "5cf4dec530fa9bc51905507c8cf50ea38e90cfa6f488cfebb2367c5fec915d97",
+    "code/particles/calibration/source_ew_vev_matching.py": "2ce235d3956026c7b7b2d55cef4e5ed40821fe0785f218dc5992c3dc5a9f1b95",
+    "code/particles/calibration/source_ew_vev_matching_smdr.c": "b36f333bf227e069d8ffea2410b793ab5847a49d5e30df2222f07eb074e85805",
+    "code/particles/calibration/source_ew_vev_matching_spec.json": "edc9be3eba98cb4b06da54854c5ed8c268fd53c5f6dc0dafb1124b4bd551f466",
+    "code/particles/runs/calibration/conditional_top_fixed_p.json": "e027f9225efec2497080995cfc7e435e2e37536815715a9e02aca6cf6d4d47fe"
+  },
+  "specification": {
+    "calculation": {
+      "RG_loop_order": 2,
+      "UV_transport": "DOP853 fully coupled top-only SM two-loop beta functions, GUT-normalized g1, rtol=2e-12, atol=2e-14",
+      "WZ_BW_conversion": "M_BW=M*(1+delta)/sqrt(1-delta); Gamma_BW=Gamma*(1+delta)/(1-delta)^(3/2); delta=Gamma^2/(4*M^2)",
+      "complex_pole": "s=(M-i*Gamma/2)^2",
+      "empirical_globals": "All41 upstream SMDR_*EXPT* globals and Delta_alpha_had_5_MZ are NaN-poisoned; no input/reference-model loader, fit, ALT mass routine, or experimental-scale convenience routine is called.",
+      "extra_top_control": "method1 pure-QCD order4, remaining order2 retained at every scale alongside method0 and method1 uniform matching orders0,1,2",
+      "m2_minimum_order": 2,
+      "matching_orders": [
+        0,
+        1,
+        2
+      ],
+      "primary_GF_order": 2,
+      "primary_boson_order": 2,
+      "primary_scale_multiplier": 1,
+      "primary_top": "method1, pure-QCD order4, remaining order2",
+      "removed_GF_delta": "0.00000051862",
+      "scale_multipliers": [
+        1,
+        2,
+        4
+      ],
+      "top_methods": [
+        0,
+        1
+      ],
+      "two_loop_top_width_replay_atol_GeV": 1e-06,
+      "working_mt_MSbar": "Full-SM Landau-gauge running quantity yt(Q)*v(Q)/sqrt(2), not a pure-QCD MSbar mass or directly the PDG cross-section extracted mass."
+    },
+    "hypotheses": {
+      "GF": "Local charged-current coefficient in the zero-muon truncation; the upstream empirical finite-muon phase-space correction is removed algebraically. No operational muon lifetime is predicted when the muon is massless.",
+      "criticality": "Retain the previously declared equal-log-capacity midpoint boundary with lambda=beta_lambda=0 and the lowest positive perturbative Yukawa root; its dynamics and scale selection remain hypotheses.",
+      "field_content": "Full Standard Model with all non-top Yukawa couplings zero and massless neutrinos; this is a chiral truncation, not the observed complete flavor sector.",
+      "gauge_attachment": "The D10 algebraic low-gauge packet is identified with the full-SM MSbar gauge couplings at Q0; no threshold-complete source unification claim.",
+      "potential": "V=m2 HdaggerH + lambda (HdaggerH)^2; v is the minimum of the Landau-gauge effective potential, Goldstone resummed at two loops.",
+      "source_scale": "Q0 is the pre-existing source running-Z coordinate, not an observed Z mass or derived top mass.",
+      "transport": "The same Q0 boundary is transported to every evaluation scale, including v and m2; v is never reanchored at alternate scales.",
+      "vev_attachment": "v_Landau_MSbar(Q0)=v_source_chart; this finite normalization and reference-scale identification is a new conditional physical attachment, not a source theorem."
+    },
+    "precision_boundary": "Printed digits diagnose deterministic arithmetic. Matching-order and transported-scale shifts are controls, not statistical confidence intervals or a complete theory uncertainty. Pole top mass has the usual nonperturbative ambiguity; no Monte Carlo mass identification is made. The two-loop top-width cross-platform replay budget is 1 keV; it measures computational reproducibility, not a certified numerical enclosure or physical uncertainty. Other quantity tolerances are unchanged.",
+    "retained_forward_payload": {
+      "role": "Integrity binding of the retained numerical receipt, not independent multiloop verification; fresh pinned-SMDR replay compares all numbers with platform-tolerant tolerances.",
+      "sha256": "192d7f907397e61ba21c4f248bc0a6fb4803faed18ed5320c52d64162fb40216"
+    },
+    "schema": "oph.source_ew_vev_matching_spec.v1",
+    "scope": {
+      "blind_prediction_claimed": false,
+      "complete_flavor_model_claimed": false,
+      "conditional_complex_pole_matching": true,
+      "electroweak_mass_or_GF_targets_consumed": false,
+      "finite_muon_phase_space_term_retained": false,
+      "numerical_enclosure_certified": false,
+      "physical_nonzero_light_quark_masses_derived": false,
+      "quark_mass_targets_consumed": false,
+      "scale_controls_are_confidence_interval": false,
+      "source_derived_vev_attachment_claimed": false,
+      "theory_uncertainty_quantified": false
+    },
+    "source_boundary_fields": [
+      "source_scales_GeV/mz_run_gev",
+      "source_scales_GeV/v_transmutation_gev",
+      "source_scales_GeV/log_midpoint_half_turn",
+      "fully_coupled_two_loop_same_low_gauge_anchor/1/boundary_gauges",
+      "fully_coupled_two_loop_same_low_gauge_anchor/1/boundary_top_yukawa"
+    ],
+    "source_receipt": "code/particles/runs/calibration/conditional_top_fixed_p.json",
+    "upstream": {
+      "commit": "5c4dd92c918cadb7f91ad3795694f8398b5c287a",
+      "license": "GPL-2.0-or-later",
+      "primary_references": [
+        "https://arxiv.org/abs/1907.02500",
+        "https://arxiv.org/abs/1604.01134",
+        "https://arxiv.org/abs/1406.2355",
+        "https://arxiv.org/abs/1307.3536"
+      ],
+      "repository": "https://github.com/davidgrobertson/SMDR",
+      "threevil_archive_sha256": "bbdca8c0c400eb2af55c26e1d42d532bedcb776321cc84233b02306f10bd3560",
+      "tracked_tree_sha256": "bf5dc73a32493e871ced70ba847a2a54438bb1cbe60caf36cd43e9b07bfa108b",
+      "tree_hash_recipe": "sha256(concat(sorted tracked path UTF8, NUL, sha256(file bytes).digest()))",
+      "tsil_archive_sha256": "89eec56137a4cb8ea2477b6cf7e1d139ec00c02451fc45f9d9d60a17cbf2f84e",
+      "version": "1.3"
+    }
+  }
+}

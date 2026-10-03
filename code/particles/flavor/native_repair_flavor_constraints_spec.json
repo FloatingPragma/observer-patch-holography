@@ -1,0 +1,130 @@
+{
+  "accepted_response": {
+    "covariance_bound": "0<=Cov(Delta b|N)<=E[Delta b Delta b^T|N]",
+    "normalization": "For centered pair totals b, tr(Q(b)^2)=4*sum_a b_a^2/5.",
+    "pair_totals": "b_a=N_{a+}+N_{a-} on six antipodal axes",
+    "projection": "P5=I6-J6/6",
+    "proof": "The full30-seam rank-one sum divided by30 is2*P5/5; rejection omits positive rank-one terms.",
+    "quadrupole_bound": "On a Frobenius-orthonormal traceless-symmetric basis, Cov(DeltaQ|N)<=8*I5/25.",
+    "raw_second_bound": "0<=E[Delta b Delta b^T|N]<=2*P5/5",
+    "stationary": "Every accepted increment moment is zero at every settled state.",
+    "step": "Executed Delta b is0 or an oriented(e_a-e_b)."
+  },
+  "conditional_affine_log_readout": {
+    "all_totals_extension": "For one individual settled count state at arbitrary integer total, positive distinct masses under the same affine-log law have a gap ratio among19possibilities. These are the positive solutions of chi(g)=chi for the10nondegenerate invariant values in the complete global menu; no decimal ratios or empirical targets are used.",
+    "allowed_set": [
+      "1",
+      "(3/sqrt(5)-1)/2",
+      "2/(3/sqrt(5)-1)"
+    ],
+    "empirical_comparison": false,
+    "free_inputs": "a,b, physicalsector and orbit, up/down attachment, scale and mass scheme are not source selected.",
+    "gap_invariant_equation": "chi(g)=(g-1)^2*(g+2)^2*(2*g+1)^2/(24*(g^2+g+1)^3)",
+    "hypothesis": "log(m_i)=a+b*q_i, where q_i are the ordered eigenvalues of one individual settledQ with totalS=12*k, k integer; masses positive and distinct; b!=0.",
+    "physical_law_derived": false,
+    "ratio": "(log(m3)-log(m2))/(log(m2)-log(m1))"
+  },
+  "finite_fiber": {
+    "clock": "K is a one-proposal count-readback operator; no physical clock or Poisson process is supplied.",
+    "conditional_linear_gap_mass_bound": "If all masses were proportional to nonzero eigenvalues of I-K with one common factor, every nonzero mass ratio would be at most30; no such physical identification is derived.",
+    "domain": "N in Z^12; sum_i N_i=S; V(N)<=B, finite B",
+    "eigenvalues": "1-a(N)/30, with algebraic multiplicity; a(N) in {0,...,30}",
+    "history_hypothesis": "Absorption probabilities require fresh Markov proposals; source relation and marginal symmetry alone do not supply this path law.",
+    "operator": "K(N,N)=1-a(N)/30; K(N,T_eN)=1/30 for each admissible seam e",
+    "proposal_hypothesis": "At each count state, every seam has conditional proposal probability1/30; this binding of the declared uniform scheduler to native repair is a hypothesis.",
+    "stationary": "All probability laws supported on settled count states; no unique law asserted."
+  },
+  "global_stationary_classification": {
+    "all_totals": "Modulo a uniform integer shift, every settled state has minimum0 and maximum at most3.",
+    "complete_menu": "All settled ternary assignments with minimum0, plus the12range-three profiles, exhaust all signed stationary configurations modulo uniform integer shifts.",
+    "coordinate_bound": "At a settled state, S/12-3/2<=N_i<=S/12+3/2 for every port.",
+    "distance_profile": [
+      1,
+      5,
+      5,
+      1
+    ],
+    "distance_sum": 18,
+    "individual_state_scope": "The finite menu classifies the quadrupole of one individual settled count state. An arbitrary average or nonlinear response to a mixture is not confined to that spectral menu; an A5-invariant mixture has meanQ=0.",
+    "integer_mean_corollary": "If S=12*k, every settled coordinate lies in{k-1,k,k+1}; atS=12 all303ternary sinks are globally exhaustive even for signed initial counts.",
+    "physical_boundary": "No particular total residue, orbit, stationary weights, physical mass readout or scale is selected by this classification.",
+    "range_three": "Range3 forces antipodal extrema and the unique profile N_j=3-d(v,j); there are12 such profiles, each total18 andQ=0.",
+    "residue": "Uniform shifts change totalS by12 and leaveQ unchanged, so the menu is graded by S mod12.",
+    "sharp_quadrupole_bound": {
+      "attainment": "Counts1 on three complete antipodal pairs and0 on the other three.",
+      "bound": "tr(Q^2)<=24/5",
+      "domain": "Signed integer settled counts; also abstract real assignments with seam differences at most1. Real native counts under the integer admission threshold are not included.",
+      "pair_matching": "The two seams between any two antipodal pairs form a perfect matching, so their pair totals differ by at most2.",
+      "variance": "For six pair totals of range at most2, sum_a (b_a-mean(b))^2<=6."
+    },
+    "termination": "Every maximal accepted-repair schedule terminates at a classified sink; almost-sure absorption under fresh uniform proposals is a separate Markov conclusion."
+  },
+  "one_record_sector": {
+    "P_loaded": false,
+    "alphabet": [
+      0,
+      1,
+      2
+    ],
+    "complete_schedules": "Exactly ordered maximal matchings of the active bipartite graph.",
+    "matching": "H={i:N_i=2}, L={i:N_i=0}; active seams form a bipartite graph. A repair deletes both endpoints of an edge.",
+    "maximum_steps": "Maximum matching cardinality.",
+    "meaning": "Complete forward-invariant one-record deviation sector about unit consensus. Its transient census and matching reduction use this sector; its303endpoints exhaust all signed equilibria with total12. No physical total or vacuum is P-selected.",
+    "minimal_sector": "V<=14 within the one-record sector: consensus plus132 ordered dipoles.",
+    "minimum_cost": "Minimum cardinality of a maximal matching.",
+    "total": 12
+  },
+  "quadrupole": {
+    "definition": "Q(N)=sum_i (N_i-1)*(n_i*n_i^T-I/3), with unit icosahedral n_i",
+    "four_spectrum_scope": "Individual settled states with totalS=12*k, k integer; uniform integer shifts leaveQ unchanged.",
+    "polynomial": "det(lambda*I-Q)=lambda^3-tr(Q^2)*lambda/2-tr(Q^3)/3",
+    "shape_invariant": "chi=tr(Q^3)^2/tr(Q^2)^3 for nonzeroQ",
+    "stationary_spectra": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-2/sqrt(5)",
+        "0",
+        "2/sqrt(5)"
+      ],
+      [
+        "-1-1/sqrt(5)",
+        "1-1/sqrt(5)",
+        "2/sqrt(5)"
+      ],
+      [
+        "-2/sqrt(5)",
+        "-1+1/sqrt(5)",
+        "1+1/sqrt(5)"
+      ]
+    ]
+  },
+  "schema": "oph.native_repair_flavor_constraints_spec.v1",
+  "scope": {
+    "accepted_covariance_equals_proposal_covariance": false,
+    "continuum_hessian_claimed": false,
+    "exact_finite_count_constraints": true,
+    "individual_spectrum_menu_applies_to_arbitrary_mixtures": false,
+    "physical_clock_derived": false,
+    "physical_quark_operator_derived": false,
+    "positive_physical_evidence_claimed": false,
+    "quark_fit_performed": false,
+    "quark_masses_emitted": false,
+    "quark_targets_loaded": false,
+    "source_selected_vacuum": false,
+    "stationary_law_unique": false
+  },
+  "source": {
+    "carrier": "code/a5_closure/manifests/echosahedral_federation_reference.json",
+    "conserved": "sum_i N_i",
+    "count_rule": "N_i is the signed count of whole record events.",
+    "ports": 12,
+    "potential": "V(N)=sum_i N_i^2; DeltaV=-2*(N_i-N_j-1)<0.",
+    "repair": "If N_i-N_j>=2 on a seam, N -> N-e_i+e_j.",
+    "rotations": 60,
+    "seams": 30
+  }
+}

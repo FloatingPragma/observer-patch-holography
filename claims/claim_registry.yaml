@@ -3573,20 +3573,23 @@
     },
     {
       "claim_id": "OPH-W5-STABILISER-POTENTIAL-BOUNDARY",
-      "statement": "In W5=Sym^2_0(R^3) with the real A5 rotation action, the C3- and C5-fixed loci are one-dimensional and every nonzero fixed point has a doubly degenerate spectrum. The C2-fixed locus is three-dimensional, hence projective dimension two after overall scaling, and admits simple-spectrum points. Thus stabilizer symmetry alone does not select two charged-family mass ratios: a predictive simple-spectrum orbit requires a specific screen-derived A5-invariant potential or other independently fixed dynamical input. On the twelve-port realization, a W5 vector is exactly six antipodal-pair values with zero sum and fixed square sum. The leading cubic entropy functional has global maximum 2/sqrt(15) on the C5 orbit and exact double quadrupole eigenvalue. For the quartic-truncated entropy candidate, exact stationarity, saddle, and face certificates classify every global minimizer. With r_c=(32 sqrt(15)-20 sqrt(6))/27, the strict positive domain selects the degenerate multiplicity-one orbit below r_c, ties it with the simple-spectrum multiplicity-two golden orbit at r_c, selects the golden orbit up to sqrt(24), and has no attained minimum from sqrt(24) to sqrt(60). On the closed simplex, that high-amplitude infimum is attained by a support-two boundary branch with four zero antipodal-pair weights. Its quadrupole gap ratio R=2d/(3-d), d=sqrt((r^2-15)/5), continuously reaches the compare-only charged-lepton ratio at target-attached r approximately 5.061326. Thus the strict full-support quartic route is conditionally excluded only after the separate mass attachment, while the closed boundary, positive regularizations, higher/full entropy, source-amplitude selection, and other potentials remain viable. No physical charged-mass prediction or packet-wide impossibility is claimed.",
+      "statement": "In W5=Sym^2_0(R^3) with the real A5 rotation action, the C3- and C5-fixed loci are one-dimensional and every nonzero fixed point has a doubly degenerate spectrum. The C2-fixed locus is three-dimensional, hence projective dimension two after overall scaling, and admits simple-spectrum points. Thus stabilizer symmetry alone does not select two charged-family mass ratios: a predictive simple-spectrum orbit requires a specific screen-derived A5-invariant potential or other independently fixed dynamical input. On the twelve-port realization, a W5 vector is exactly six antipodal-pair values with zero sum and fixed square sum. The leading cubic entropy functional has global maximum 2/sqrt(15) on the C5 orbit and exact double quadrupole eigenvalue. For the quartic-truncated entropy candidate, exact stationarity, saddle, and face certificates classify every global minimizer. With r_c=(32 sqrt(15)-20 sqrt(6))/27, the strict positive domain selects the degenerate multiplicity-one orbit below r_c, ties it with the simple-spectrum multiplicity-two golden orbit at r_c, selects the golden orbit up to sqrt(24), and has no attained minimum from sqrt(24) to sqrt(60). On the closed simplex, that high-amplitude infimum is attained by a support-two boundary branch with four zero antipodal-pair weights. Its quadrupole gap ratio R=2d/(3-d), d=sqrt((r^2-15)/5), continuously reaches the compare-only charged-lepton ratio at target-attached r approximately 5.061326. The quartic boundary formula remains valid for that truncated objective. For the full uniform-reference divergence D(p||1/6), p_i=(1+r a_i)/6, at fixed purity sum p_i^2=1/6+r^2/72, every global minimizer for 0<r<=sqrt(60) has one high weight (1+5r/sqrt(60))/6 and five low weights (1-r/sqrt(60))/6. At r=0 the uniform distribution does not select a normalized a direction. The six minimizing branches are antipodal vertex axes with D5 stabilizer; their normalized quadrupole spectrum is (-2,-2,4)/sqrt(15). Therefore no feasible amplitude law r(P) yields three distinct family masses through an attachment depending only on these eigenvalues and treating equal eigenvalues equally. This excludes the stated full-entropy mechanism with that readout, including its closed boundary, but not other reference states, constraints, actions, physical readouts, or OPH. No numerical quark or charged-family mass prediction is emitted.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-      "tier": "exact_W5_stabiliser_cubic_extremum_and_quartic_global_minimizer_boundary__full_entropy_source_amplitude_and_physical_attachment_open",
+      "tier": "exact_W5_stabiliser_cubic_quartic_and_full_uniform_reference_entropy_minimizer_boundary__source_mass_attachment_open",
       "assumptions": [
         "W5_real_symmetric_traceless_A5_representation",
-        "simple_spectrum_W5_orbit_requirement"
+        "simple_spectrum_W5_orbit_requirement",
+        "uniform_reference_and_fixed_pair_norm_for_full_entropy_candidate",
+        "quadrupole_eigenvalue_readout_if_interpreted_as_family_masses"
       ],
       "imported_results": [
         "real_A5_representation_W5",
         "symmetric_matrix_spectral_theorem",
-        "finite_rotation_fixed_space_linear_algebra"
+        "finite_rotation_fixed_space_linear_algebra",
+        "Shannon_entropy_at_fixed_index_of_coincidence_Harremoes_Topsoe_2001_DOI_10.1109_18.959272"
       ],
-      "oph_specific_delta": "OPH makes the W5 orbit-selector gap executable: it separates the exact stabilizer boundary from the unresolved source-derived potential, replaces the finite-seed cubic search by an exhaustive six-pair extremum proof, and exactly classifies all global minimizers of the quartic truncation on both the strict positive domain and the closed simplex. The resulting zero-weight boundary branch keeps the packet viable and isolates regularization, entropy-remainder, source-amplitude, and physical-attachment work.",
-      "novelty_type": "conditional_flavor_orbit_potential_boundary_with_exact_cubic_and_quartic_minimizer_classification",
+      "oph_specific_delta": "Applies the standard fixed-purity Shannon entropy extremum to the six antipodal icosahedral pairs. An analytic stationary, constrained-Hessian, and boundary-descent proof selects only the six D5 axis branches for the full uniform-reference objective at every positive feasible amplitude; their exact quadrupoles have a double eigenvalue. Thus the support-two branch of the separately valid quartic truncation does not rescue this full-entropy family-mass mechanism for any r(P). The stabilizer, cubic, and quartic results retain their bounded scopes, and alternative source actions and physical readouts remain separately assessable.",
+      "novelty_type": "icosahedral_application_of_standard_fixed_purity_entropy_extremum_with_exact_quadrupole_degeneracy",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
         "extra/koide_identity_from_positive_c3_face_circulants.tex",
@@ -3598,11 +3601,16 @@
         "code/particles/leptons/test_charged_entropic_branch_no_go.py",
         "code/particles/runs/leptons/charged_entropic_branch_no_go.json",
         "code/particles/flavor/entropy_w5_shape_certificate.py",
-        "code/particles/runs/flavor/entropy_w5_shape_certificate.json"
+        "code/particles/runs/flavor/entropy_w5_shape_certificate.json",
+        "code/particles/flavor/full_entropy_w5_selector.py",
+        "code/particles/flavor/full_entropy_w5_selector_spec.json",
+        "code/particles/flavor/verify_full_entropy_w5_selector.py",
+        "code/particles/flavor/test_full_entropy_w5_selector.py",
+        "code/particles/runs/flavor/full_entropy_w5_selector.json"
       ],
-      "falsifier": "For the declared W5 action, a stabilizer fixed-locus statement fails, the six-pair reduction or cubic extremum formula fails, a three-coordinate-value quartic stationary point supplies an unaccounted local minimum, a face beats the certified candidates, the strict or closed global-minimizer classification fails, the boundary energy or quadrupole spectrum is wrong, or the packet is presented as globally excluded despite its support-two boundary branch.",
-      "scope_if_false": "A failed stabilizer, cubic, or quartic identity reopens only that bounded selector result. Even if all stated identities hold, they do not select the amplitude, control the entropy remainder at zero weights, prove the full-entropy selector, attach W5 eigenvalues to charged masses, or rule out other source-derived potentials, regularizations, dynamics, or flavor representations.",
-      "status": "exact_fixed_locus_cubic_extremum_and_quartic_global_minimizer_classification_attained__boundary_reentry_keeps_full_entropy_source_amplitude_and_physical_attachment_open",
+      "falsifier": "For the declared W5 action, a stabilizer fixed-locus statement, cubic identity, quartic global-minimizer classification, or quartic boundary formula fails; a feasible full-entropy point has lower divergence than the stated one-high-five-low branch or a distinct minimum exists; a constrained-Hessian or boundary-descent step fails; an exact selected quadrupole has simple spectrum; or r=0 is incorrectly claimed to select a normalized direction. Promoting the bounded selector exclusion to OPH-wide impossibility or the computation to numerical mass evidence also violates the claim.",
+      "scope_if_false": "Only the affected stabilizer, cubic, quartic, or fixed-norm uniform-reference full-entropy result is reopened. The standard entropy theorem is credited prior work. No source amplitude, reference or norm constraint, physical family attachment, absolute scale, or numerical mass is derived. Other references, constraints, actions, dynamics, flavor representations, and physical readouts lie outside the full-entropy exclusion.",
+      "status": "exact_stabiliser_cubic_quartic_and_full_entropy_minimizer_classifications__uniform_reference_fixed_norm_quadrupole_mass_mechanism_excluded__no_numerical_mass_output",
       "claim_class": "conditional_implication",
       "gates": [
         736,
@@ -13784,6 +13792,326 @@
         "boundary": [],
         "rationale": "This row constructs an informative complete QND read over an explicitly prepared sea and charges its longer noisy source lifetime. Masses, reference preparation, timing, supplied-program capability and fixed-strength local noise remain declared; the interval and resource proof neither assumes nor establishes an empirical premise-register branch or autonomous physical clock."
       }
+    },
+    {
+      "claim_id": "OPH-QUARK-CONDITIONAL-FIXED-P-REPLAY",
+      "statement": "The frozen full RSCC law, evaluated at P=phi+sqrt(pi)/137.035999177 with one coherent D10 gauge/transmutation packet and the external E_star=1.220890e19 GeV unit, emits native mass coordinates (u,d,s,c,b,t) approximately (0.002158958,0.004711035,0.093070061,1.272260,4.189458,172.064527) GeV. The light entries carry assumed MSbar charts at 2 GeV, charm and bottom assumed MSbar self-scale charts, and top an assumed pole coordinate. No quark reference mass is read by the producer, but the frozen formula, module incidences and signs have target-informed ancestry. The fixed lower-order ablation remains a control. A separate retrospective comparison places all six full-law coordinates inside the individual PDG 2025 quoted ranges, while m_s/mean(m_u,m_d)=27.094659 lies below its quoted PDG range; all scheduled FLAG ratio comparisons remain present. Neither joint model acceptance, a common-scale Yukawa matrix, a physical pole derivation, a source-selected flavor law nor new blind predictive evidence is asserted. The carrier dimension five, complement rank four and normalized source trace coefficients are checked against the independent W5 source certificate; their physical use does not select the remaining target-informed module, sign or nonlinear response law.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_retrospective_numerical_construction",
+      "assumptions": [
+        "measured_alpha_and_external_energy_unit",
+        "declared_fixed_P_D10_gauge_transmutation",
+        "frozen_RSCC_response_module_and_readout_hypotheses",
+        "conditional_RSCC_mass_chart_and_family_attachment"
+      ],
+      "imported_results": [
+        "finite_group_heat_kernel_and_centered_log_spectrum_algebra",
+        "CODATA_2022_inverse_fine_structure_calibration",
+        "PDG_2025_and_FLAG_2024_native_chart_comparison_values"
+      ],
+      "oph_specific_delta": "Replays the existing target-informed RSCC law at the independently alpha-calibrated P with a coherent scale packet, explicit source and chart hypotheses, independent numerical verification and retained adverse ratio comparisons.",
+      "novelty_type": "conditional_fixed_P_retrospective_mass_chart_replay",
+      "evidence": [
+        "code/particles/flavor/conditional_quark_mass_spec.json",
+        "code/particles/flavor/conditional_quark_mass_replay.py",
+        "code/particles/flavor/verify_conditional_quark_mass_replay.py",
+        "code/particles/flavor/test_conditional_quark_mass_replay.py",
+        "code/particles/flavor/test_verify_conditional_quark_mass_replay.py",
+        "code/particles/runs/flavor/conditional_quark_mass_replay.json",
+        "code/particles/flavor/compare_conditional_quark_masses.py",
+        "code/particles/flavor/test_compare_conditional_quark_masses.py",
+        "code/particles/data/pdg_2025_conditional_quark_comparison.json",
+        "code/particles/data/flag_2024_light_quark_ratio_fixture.json",
+        "code/particles/runs/flavor/conditional_quark_mass_comparison.json",
+        "code/particles/runs/flavor/source_w5_response_constraints.json"
+      ],
+      "falsifier": "Independent reconstruction disagrees with the pinned equations or source packet; a runtime mass target or target-closed P enters the producer; a coefficient, sign, unit or chart changes silently; the historical control is selected by agreement; or a scheduled adverse comparison is omitted.",
+      "scope_if_false": "The stated frozen numerical replay or its comparison fails. Its physical carrier, response law, normalization and mass-chart attachments remain hypotheses; no general OPH mass theorem or independent validation follows from the replay.",
+      "status": "reproduced_conditional_target_informed_native_chart_coordinates_with_comparison_limits",
+      "claim_class": "emitted_artifact",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row asserts the emitted coordinates of a completely specified retrospective RSCC law and the content of its separate comparison, not the physical realization of that law. Its declared response carrier, signed cumulants, family attachment and mass charts are explicit input hypotheses. Neither the physical scalar-action normalization nor the complete physical Yukawa-matrix premise is consumed or discharged by evaluating these formulas."
+      }
+    },
+    {
+      "claim_id": "OPH-TOP-CONDITIONAL-FIXED-P-CRITICALITY",
+      "statement": "At the same measured-alpha P and external E_star=1.220890e19 GeV calibration, the declared logarithmic-midpoint boundary mu/E_star=exp(-pi)*P^(-1/6), lambda=beta_lambda=0 and the lowest positive perturbative Yukawa root yield a conditional top coordinate without consuming a quark-mass target or RSCC template. Fully coupled two-loop top-only transport anchored to the declared D10 low-scale gauge packet gives a running mass coordinate about 162.05945 GeV, a three-loop QCD-only pole proxy about 171.75164 GeV and a tree Higgs proxy about 124.91142 GeV. One-loop and hybrid two-loop controls remain separate; the hybrid-to-coupled running-coordinate shift is about 0.822 GeV. The boundary functional, criticality, root branch, top-only truncation and readout are hypotheses. The constant transmutation v coordinate lacks the finite electroweak mass/tadpole matching bridge, so no physical MSbar or pole prediction, all-six-mass result, blind prediction, certified numerical enclosure or quantified theory uncertainty is asserted.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_numerical_RGE_coordinate",
+      "assumptions": [
+        "measured_alpha_and_external_energy_unit",
+        "declared_fixed_P_D10_gauge_transmutation",
+        "declared_top_log_midpoint_criticality_and_root",
+        "declared_top_only_RGE_and_mass_coordinate_readout"
+      ],
+      "imported_results": [
+        "Standard_Model_two_loop_beta_functions_top_only_specialization",
+        "three_loop_QCD_running_to_pole_mass_expansion",
+        "CODATA_2022_inverse_fine_structure_calibration",
+        "numerical_ODE_and_root_finding"
+      ],
+      "oph_specific_delta": "Separates a fixed-P criticality calculation from quark-template closure and exposes the change from hybrid to fully coupled two-loop transport while retaining physical matching and boundary selection as hypotheses.",
+      "novelty_type": "conditional_fixed_P_top_criticality_coordinate",
+      "evidence": [
+        "code/particles/calibration/conditional_top_fixed_p_spec.json",
+        "code/particles/calibration/conditional_top_fixed_p.py",
+        "code/particles/calibration/verify_conditional_top_fixed_p.py",
+        "code/particles/calibration/test_conditional_top_fixed_p.py",
+        "code/particles/calibration/sm_two_loop_rge_engine.py",
+        "code/particles/runs/calibration/conditional_top_fixed_p.json"
+      ],
+      "falsifier": "Independent beta-function, heat-packet, root or transport reconstruction disagrees; the wrong positive polynomial branch is called unique; a quark target enters P or the boundary; numerical controls fail; or the QCD proxy is presented as a matched physical pole.",
+      "scope_if_false": "The specified criticality coordinate or its numerical implementation fails. The RSCC replay remains a separate construction; no source-selected criticality, physical quark-mass attachment or all-six-mass model is established by this calculation.",
+      "status": "reproduced_conditional_fixed_P_top_coordinate_with_separate_transport_controls",
+      "claim_class": "emitted_artifact",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row records the numerical output of supplied criticality, scale, perturbative-root and top-only transport hypotheses. It neither uses a source-selected Higgs/Yukawa action nor identifies the constant transmutation coordinate with a matched electroweak mass convention. Therefore it does not consume or discharge the physical scalar-action or physical Yukawa-matrix premises; those physical identifications are outside the emitted-coordinate claim."
+      }
+    },
+    {
+      "claim_id": "OPH-QUARK-SOURCE-W5-RESPONSE-CONSTRAINTS",
+      "statement": "For the pinned twelve-port icosahedral incidence and centered antipodal pair totals, the source W5 quadrupole map obeys T* T=(4/5)P_W5 and A5 irreducibility forces every normalized invariant complex-linear functional on End(W5) to be Tr/5. Relative to one supplied unoriented face axis, W5 restricted to its D3 normalizer is 1+2+2, with invariant-line and complement ranks one and four. The six conjugation channels have Gram matrix 24I+J, so a declared class-uniform D3 jump process has a faithful random-unitary realization; nonnegative per-element rates c2,c3 imply r=exp(-3(c2+c3)t), s=exp(-6c2t), and r^2<=s<=1. The full-seam port graph Laplacian acts as 6I on W5 and is not identified with this supplied jump law. With the explicit SU(3) convention Tr(T_a T_b)=delta_ab/2, the separately chosen Casimir-line observable A=(4/3)I3 tensor P0 has normalized trace 4/15, normalized Hilbert-Schmidt square 16/45 and normalized spectral MGF (4+exp(4w/3))/5; it is not a POVM effect. Color twirling before a separately postulated Gaussian response divides the relevant squared-norm coefficient by three, while preserving its first trace. A uniform native seam proposal gives executed pair-increment covariance bounded by its raw second moment and by (2/5)P_W5, with all accepted moments zero at settled records. The full symmetrized-proposal MGF is a separate alphabet law, not an accepted-history Gaussian assumption. These exact constraints supply the replayed carrier and trace coefficients; the face axis, jump law, color observable, physical response, module/sign assignments, clock and quark-mass attachment remain unselected.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_finite_source_geometry_and_conditional_response_constraints",
+      "assumptions": [
+        "fixed_icosahedral_integer_record_carrier",
+        "conditional_uniform_seam_count_scheduler",
+        "declared_D3_axis_class_jump_response",
+        "declared_color_Casimir_trace_readout"
+      ],
+      "imported_results": [
+        "finite_group_representation_theory_and_Schur_lemma",
+        "finite_random_unitary_channels_and_class_generators",
+        "standard_SU3_fundamental_Casimir",
+        "moment_and_cumulant_algebra"
+      ],
+      "oph_specific_delta": "Derives finite carrier dimensions, normalized traces, the positive-rate heat cone and executed-step bounds from pinned source geometry, replacing corresponding unexplained numerical coefficients while retaining their physical readout assumptions.",
+      "novelty_type": "source_derived_finite_flavor_response_constraints",
+      "evidence": [
+        "code/particles/flavor/source_w5_response_constraints_spec.json",
+        "code/particles/flavor/source_w5_response_constraints.py",
+        "code/particles/flavor/verify_source_w5_response_constraints.py",
+        "code/particles/flavor/test_source_w5_response_constraints.py",
+        "code/particles/runs/flavor/source_w5_response_constraints.json"
+      ],
+      "falsifier": "Independent incidence, character, channel-Gram, Casimir, twirl or moment arithmetic fails; a positive class-rate process leaves the heat cone; the geometric and response representations are conflated; or symmetrized proposals, native accepted events and Gaussian response histories are identified without their additional assumptions.",
+      "scope_if_false": "The specified finite geometry or conditional response identity fails. No physical quark mass, unique flavor law, source-selected face axis, Gaussian history or autonomous clock follows merely from the identities.",
+      "status": "exact_source_carrier_coefficients_and_conditional_response_cone_verified",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row concerns finite representation, trace and one-proposal moment identities on a pinned carrier, plus explicitly supplied axis, jump and color-observable constructions. It does not consume a physical gauge-current realization, Higgs normalization or complete Yukawa-matrix premise. Those physical identifications remain outside this mathematical constraint claim."
+      }
+    },
+    {
+      "claim_id": "OPH-QUARK-NATIVE-REPAIR-FLAVOR-CONSTRAINTS",
+      "statement": "For native conservative integer transfers on the thirty icosahedral seams, every finite count fiber with fixed total S and bounded V=sum N_i^2 is forward invariant and each accepted move strictly lowers V. Composing that relation with a declared conditional uniform seam proposal gives a triangular count operator K with eigenvalues 1-a(N)/30, where a(N) is the number of admissible seams; stationary laws are arbitrary distributions on settled counts. In the complete forward-invariant one-record-deviation sector N_i in {0,1,2}, sum N_i=12, all 73,789 states and 1,275 A5 orbits reduce exactly to deletion of matched endpoints in the bipartite seam graph between excess and missing records. Complete accepted schedules are orderings of maximal matchings; the minimum native cost is the smallest maximal-matching size. Exact independent enumeration checks 13,133 maximal matchings across the 1,275 orbit representatives, 303 settled states in nine A5 orbits, largest minimum cost four and largest completed schedule six. The minimal 133-state fluctuation sector has 73 settled states and spectrum 1 with multiplicity 73 and 29/30 with multiplicity 60. The full ternary sector has an eight-dimensional A5-invariant stationary simplex. At any signed integer equilibrium, the graph-distance profile gives S/12-3/2<=N_i<=S/12+3/2. Thus the 303 endpoints exhaust all equilibria with S=12, and uniform shifts give the same four individual quadrupole spectra for S=12k: zero, {-2/sqrt5,0,2/sqrt5}, {-1-1/sqrt5,1-1/sqrt5,2/sqrt5}, or the negative of the last, with respective multiplicities 63, 180, 30 and 30. At arbitrary integer total, normalization to minimum zero leaves 6,065 settled ternary assignments and twelve range-three antipodal distance profiles, hence exactly 6,077 classes modulo uniform integer shifts. Their individual geometric quadrupoles have 31 spectral types, including one zero type, eight repeated-eigenvalue types and 22 nondegenerate types, with eleven nonzero-quadrupole normalized cubic-square invariant values. Pair-total range at most two and the frame normalization give the sharp bound tr(Q^2)<=24/5. Only under the additional pointwise affine-log readout log m_i=a+b q_i, with positive distinct masses, does the ordered logarithmic gap ratio have nineteen possibilities at arbitrary integer total, or {1,R,1/R}, R=(3/sqrt5-1)/2, for S=12k. Arbitrary averaged or nonlinear mixture responses need not have one of the individual-state spectra; A5-invariant mixtures have mean Q=0. Executed pair-increment covariance is bounded by (2/5)P_W5 and geometric quadrupole covariance by (8/25)I5; both vanish in every stationary count state. The total residue, orbit, stationary mixture, mass readout, scale and scheme are not P-selected; no quark values or empirical comparison are supplied.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_native_count_dynamics_and_conditional_flavor_shape_constraints",
+      "assumptions": [
+        "fixed_icosahedral_integer_record_carrier",
+        "conditional_uniform_seam_count_scheduler",
+        "declared_one_record_deviation_sector_and_geometric_readout",
+        "conditional_affine_log_quadrupole_readout"
+      ],
+      "imported_results": [
+        "finite_absorbing_Markov_chains_and_triangular_spectra",
+        "maximal_matching_combinatorics",
+        "Burnside_orbit_counting",
+        "exact_quadratic_field_linear_algebra"
+      ],
+      "oph_specific_delta": "Reconstructs the accepted integer dynamics instead of replacing settling cost by a Hessian, obtains its complete finite matching and stationary-shape constraints, and states the remaining preparation and physical-readout freedom exactly.",
+      "novelty_type": "exact_native_repair_spectrum_matching_and_stationary_flavor_shapes",
+      "evidence": [
+        "code/particles/flavor/native_repair_flavor_constraints_spec.json",
+        "code/particles/flavor/native_repair_flavor_constraints.py",
+        "code/particles/flavor/verify_native_repair_flavor_constraints.py",
+        "code/particles/flavor/test_native_repair_flavor_constraints.py",
+        "code/particles/runs/flavor/native_repair_flavor_constraints.json"
+      ],
+      "falsifier": "An admissible move leaves the finite fiber or fails strict descent; a transition, matching or global height digest differs; a state or orbit is omitted; an integer settled quadrupole escapes the 31-type global menu or sharp 24/5 bound; the residue-zero four-spectrum reduction or conditional logarithmic gap sets fail; or proposal variance is substituted for accepted equilibrium variance.",
+      "scope_if_false": "The specified exact count closure or conditional shape implication fails. The transient matching census is ternary; the individual stationary quadrupole classification covers all signed integer totals modulo uniform shifts. Neither stationary mixture responses nor physical Yukawa data are identified with these individual quadrupoles or with relaxation rates.",
+      "status": "complete_integer_stationary_classification_and_independent_native_constraint_replay_verified",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row is an exact count-state and finite-geometric result for the native strict-descent relation with a declared scheduler binding and readout. The imposed one-record sector and optional affine-log mass interpretation are explicit mathematical hypotheses, not uses of the physical scalar-action or full Yukawa-matrix premises. No empirical mass or source-selected vacuum premise is consumed or discharged."
+      }
+    },
+    {
+      "claim_id": "OPH-TOP-POSITIVE-CAPACITY-BAND",
+      "statement": "At the independently measured-alpha P and external E_star=1.220890e19 GeV unit, retain the declared D10 gauge and transmutation packet but allow arbitrary positive capacities on the squared logarithmic distances to mu_U=E_star exp(-2pi)P^(1/6) and E_cell=E_star P^(-1/2). Their minimizing boundary has log mu_b=(1-u)log mu_U+u log E_cell with 0<u<1; equal capacities are unnecessary. Two strictly convex single-anchor costs, or the stated common exponential-family KL hypotheses, retain the between-anchor property. Assuming lambda=beta_lambda=0, the perturbative root, top-only one-loop Standard Model transport, the stated gauge-ratio margins and the constant-v self-scale mass coordinate, analytic parameter sensitivity and a backward barrier prove that the coordinate increases strictly with log mu_b. The resulting full positive-capacity range is an open interval with numerically evaluated limiting endpoints approximately 154.7923135121 and 160.8057614213 GeV; endpoints require a zero capacity or a limit, and these digits are not certified enclosures. Five fully coupled two-loop controls at u=0,1/4,1/2,3/4,1 give approximately 158.99069305,160.55378984,162.05945109,163.51339055,164.92083899 GeV. The samples are not a two-loop continuum bound. Anchor records, criticality, physical electroweak matching and theory uncertainty remain unproved; capacity variation and loop shifts are not confidence intervals, and no quark target or RSCC template enters the calculation.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_analytic_one_loop_capacity_range_with_numerical_controls",
+      "assumptions": [
+        "measured_alpha_and_external_energy_unit",
+        "declared_fixed_P_D10_gauge_transmutation",
+        "declared_positive_two_anchor_criticality_and_margins",
+        "declared_top_only_RGE_and_mass_coordinate_readout"
+      ],
+      "imported_results": [
+        "strict_convexity_and_exponential_family_KL_projection",
+        "scalar_ODE_parameter_sensitivity_and_comparison_barriers",
+        "Standard_Model_beta_functions_top_only_specialization",
+        "numerical_quadrature_and_coupled_ODE_shooting"
+      ],
+      "oph_specific_delta": "Removes equal repair capacities from the conditional criticality calculation and replaces one boundary choice by an analytically controlled one-loop family, while retaining all sampled two-loop controls and physical matching limitations.",
+      "novelty_type": "conditional_positive_capacity_top_coordinate_range",
+      "evidence": [
+        "code/particles/calibration/top_positive_capacity_band_spec.json",
+        "code/particles/calibration/top_positive_capacity_band.py",
+        "code/particles/calibration/verify_top_positive_capacity_band.py",
+        "code/particles/calibration/test_top_positive_capacity_band.py",
+        "code/particles/runs/calibration/top_positive_capacity_band.json"
+      ],
+      "falsifier": "A positive-capacity minimizer leaves the anchor interval; a stated gauge margin or analytic sensitivity/barrier argument fails; independent quadrature or transport disagrees; endpoints are called positive-capacity interior values; or five two-loop samples are promoted to a continuum enclosure or theory uncertainty.",
+      "scope_if_false": "The specified conditional capacity-range theorem or numerical evaluation fails. The equal-capacity coordinate is one retained control, and no source-selected anchor records, criticality, matched physical top mass or full flavor model follows from this family.",
+      "status": "analytic_one_loop_open_capacity_range_and_separate_two_loop_controls_verified",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row proves an implication about declared two-anchor costs and a supplied perturbative RGE coordinate. It deliberately does not assume a physically selected Higgs/Yukawa action, realized anchor records or finite electroweak matching. The mathematical range therefore consumes no physical scalar-action or complete physical Yukawa-matrix premise and discharges neither."
+      }
+    },
+    {
+      "claim_id": "OPH-QUARK-CONDITIONAL-RECORD-RENEWAL",
+      "statement": "On all 6,077 settled signed integer count configurations projected to relative heights on the twelve-port icosahedron, add or remove one record at a uniformly chosen port with equal sign probability, then complete native strict-descent repair using fresh uniform seam proposals before the next event. Under this explicitly supplied renewal protocol the exact finite chain has 136 proper-rotation orbits, is irreducible with period two, and has one positive stationary law. A single defect follows a strictly monotone path in the original settled heights and needs at most three accepted repairs. Exact stationary balance gives mean accepted repairs 11/24, uniform total-residue weights 1/12, mean geometric quadrupole zero, mean tr(Q^2) approximately 1.46476386118 and isotropic quadrupole covariance approximately 0.292952772236 I5. Exact nonzero stationary current excludes detailed balance, and the radial fourth moment differs from its isotropic Gaussian value. The law fixes all 31 individual quadrupole spectral weights, but every equivariant family operator averaged in the rotation-invariant law is scalar, including nonlinear readouts. The unprojected total is an unbiased walk on the integers with no normalizable stationary distribution. Relative-height projection is a readout, not a claim that distinct protected totals are physically equivalent. P does not select the event alphabet, fresh driving schedule or physical response, and no source-selected vacuum, quark-Higgs coupling, mass scale or mass prescription is derived.",
+      "tier": "exact_conditional_driven_relative_record_state",
+      "assumptions": [
+        "fixed_icosahedral_integer_record_carrier",
+        "conditional_uniform_seam_count_scheduler",
+        "declared_atomic_record_renewal_and_relative_readout"
+      ],
+      "imported_results": [
+        "finite_irreducible_periodic_Markov_chain_stationarity",
+        "exact_rational_linear_algebra",
+        "finite_group_invariant_operator_averaging"
+      ],
+      "oph_specific_delta": "Replaces an arbitrary settled-state mixture by the unique exactly computed law of one explicit native-record renewal protocol, including nonzero stationary currents, non-Gaussian moments and the protected-total limitation.",
+      "novelty_type": "conditional_native_record_renewal_stationary_law",
+      "evidence": [
+        "code/particles/flavor/native_record_renewal_spec.json",
+        "code/particles/flavor/native_record_renewal.py",
+        "code/particles/flavor/verify_native_record_renewal.py",
+        "code/particles/flavor/test_native_record_renewal.py",
+        "code/particles/runs/flavor/native_record_renewal.json"
+      ],
+      "falsifier": "Independent complete-state or orbit enumeration differs; the single-defect rule, transition probabilities, irreducibility, period or exact stationary equation fails; the stated moments or stationary currents differ; or the relative-state law is promoted to a stationary protected total or source-selected physical vacuum.",
+      "scope_if_false": "The stated finite driven relative-state calculation fails. Native settling alone permits many endpoint preparations; a physical record-production law, interacting matter response, absolute normalization and mass prescription remain separate.",
+      "status": "exact_conditional_renewal_law_and_independent_stationary_check",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row proves a finite driven count-chain statement after an explicit atomic preparation and full-settlement protocol. It does not consume a physical vacuum, thermal preparation, Higgs action or Yukawa-matrix premise. The protected total is expressly outside the stationary readout, and the specified driving protocol is not asserted to follow from physical source selection."
+      },
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+    },
+    {
+      "claim_id": "OPH-QUARK-EXTERIOR-HIGGS-RESPONSE",
+      "statement": "On the declared trace-balanced exterior carrier C3 plus C2, top-form wedge and dual-Higgs contraction reconstruct the complete all-left-Weyl up/down tensors for H=(h0,h1): U=I_color tensor (h1,-h0) and D=I_color tensor (-conjugate(h0),-conjugate(h1)). Independent CAR reconstruction and exact weak and hypercharge identities give Udagger U=Ddagger D=norm(H)^2 I3 and Udagger D=0 for arbitrary complex H. The color commutant is one-dimensional, so the traceless internal color response is not a family mass operator. In the bounded direct-contraction model containing only I_family tensor O_matter operators, the two vertices are g_u I3 and g_d I3, and this form survives products, adjoints, inverses, family-blind Schur elimination and positive kinetic normalization. The channel coefficients remain unselected. After conversion to the four-component Dirac convention, canonical normalization is Z_Q^(-1/2) Y_q Z_q^(-1/2)/sqrt(Z_H); the corresponding all-left formula has a transposed left factor. Conditionally setting both fermion kinetic matrices to R>0 and the Dirac vertex to g_q R cancels R and cannot create a hierarchy. A complex Hermitian control distinguishes this from an incorrect Weyl transpose. The full Higgs derivative of a Schur-complement kernel is stated and checked, but no source-selected interacting Higgs-dependent kernel, physical kinetic metric, quark mass or mass prescription is emitted.",
+      "tier": "exact_exterior_gauge_tensors_and_conditional_kinetic_response",
+      "assumptions": [
+        "declared_exterior_Higgs_tensor_and_family_blind_action",
+        "declared_Dirac_kinetic_normalization_and_same_source_kernel"
+      ],
+      "imported_results": [
+        "exterior_algebra_and_CAR",
+        "SU3_and_SU2_intertwiner_identities",
+        "positive_Hermitian_kinetic_normalization",
+        "Schur_complement_differentiation"
+      ],
+      "oph_specific_delta": "Computes both Higgs components on the committed exterior carrier and checks precisely which source response can survive the color Ward identity and physical kinetic normalization, exposing the required family-sensitive interaction derivative.",
+      "novelty_type": "exact_full_doublet_exterior_response_and_normalization_boundary",
+      "evidence": [
+        "code/particles/flavor/exterior_higgs_response_spec.json",
+        "code/particles/flavor/exterior_higgs_response_certificate.py",
+        "code/particles/flavor/verify_exterior_higgs_response.py",
+        "code/particles/flavor/test_exterior_higgs_response.py",
+        "code/particles/runs/flavor/exterior_higgs_response.json"
+      ],
+      "falsifier": "Independent CAR coefficients, full-doublet Ward identities or color commutant differ; a family-blind algebra operation creates a nonidentity family factor; the declared Dirac metric cancellation or noncommuting Schur derivative fails; or Weyl and Dirac coefficient conventions are mixed.",
+      "scope_if_false": "The finite tensor identity or conditional normalization result fails. The bounded direct-contraction model is not every admissible source interaction; its unselected scalar couplings and missing family-sensitive Higgs derivative cannot be promoted to physical mass selection.",
+      "status": "exact_full_doublet_response_and_kinetic_convention_controls_verified",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The claim evaluates declared finite exterior tensors and if-then normalization identities, including a bounded family-blind operator algebra. It neither assumes nor discharges a physical scalar action or a complete source-selected Yukawa matrix. CAR inner products, physical kinetic coefficients and Dirac versus Weyl field conventions are explicitly distinguished."
+      },
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+    },
+    {
+      "claim_id": "OPH-EW-CONDITIONAL-SOURCE-VEV-MATCHING",
+      "statement": "Take the independent-alpha, externally calibrated energy-unit gauge packet and midpoint top-criticality branch, and impose the new finite attachment v_Landau_MSbar(Q0)=v_source_chart at the source running-Z coordinate Q0. In the Standard Model truncation with every non-top Yukawa zero, transport the same full boundary with two-loop running, including v and the Higgs quadratic parameter, and perform pinned SMDR matching with a two-loop Goldstone-resummed effective-potential minimum. At Q0 the declared primary orders give approximate complex-pole masses top 170.6255 GeV and Higgs 124.8803 GeV, running-width Breit-Wigner coordinates W 79.8622 GeV and Z 90.5905 GeV, and local charged-current coefficient 1.1827834e-5 GeV^-2. The forward matching producer NaN-poisons all 41 upstream experimental globals and the hadronic alpha input, and consumes no quark-mass or electroweak target. A separate retrospective PDG comparison retains all 57 scheduled descriptive rows across the nine scale/order settings, with the primary scale and matching order fixed beforehand; it supplies no standardized residuals, joint likelihood or success classification. The fixed empirical finite-muon correction is subtracted, so this massless-muon truncation emits a local coefficient rather than a muon lifetime. Matching orders and scales Q0,2Q0,4Q0 are retained with the same transported VEV rather than reanchoring it. This computes an explicit conditional mass prescription but does not derive the VEV attachment, full flavor sector or source vacuum; it is not a blind prediction or a successful joint fit. Matching-order and scale controls are not confidence intervals or complete theory uncertainties.",
+      "tier": "conditional_source_chart_to_SM_pole_matching_calculation",
+      "assumptions": [
+        "measured_alpha_and_external_energy_unit",
+        "declared_fixed_P_D10_gauge_transmutation",
+        "declared_top_log_midpoint_criticality_and_root",
+        "declared_source_Landau_vev_and_top_only_SM_matching"
+      ],
+      "imported_results": [
+        "Standard_Model_two_loop_beta_functions_and_effective_potential",
+        "SMDR_1_3_complex_pole_and_local_charged_current_matching",
+        "TSIL_and_3VIL_loop_integral_evaluation",
+        "complex_pole_to_running_width_Breit_Wigner_conversion"
+      ],
+      "oph_specific_delta": "Replaces an unspecified mass-chart interpretation with one reproducible finite Landau-VEV attachment and a complete transported matching calculation, while preserving the resulting electroweak tensions and the absence of a full flavor model.",
+      "novelty_type": "conditional_explicit_source_vev_to_pole_matching",
+      "evidence": [
+        "code/particles/calibration/source_ew_vev_matching_spec.json",
+        "code/particles/calibration/source_ew_vev_matching.py",
+        "code/particles/calibration/verify_source_ew_vev_matching.py",
+        "code/particles/calibration/verify_source_ew_top_pole.py",
+        "code/particles/runs/calibration/source_ew_vev_matching.json",
+        "code/particles/calibration/test_source_ew_vev_matching.py",
+        "code/particles/calibration/compare_source_ew_vev_matching.py",
+        "code/particles/calibration/source_ew_comparison_targets.json",
+        "code/particles/calibration/test_compare_source_ew_vev_matching.py",
+        "code/particles/runs/calibration/source_ew_vev_matching_comparison.json"
+      ],
+      "falsifier": "Independent boundary transport, pole matching or local charged-current reconstruction disagrees; a target-bearing input enters the runtime; the VEV is reanchored at an alternate scale; the Weyl/Dirac or complex-pole/Breit-Wigner conventions are mixed; or numerical scale variation is presented as a physical uncertainty interval.",
+      "scope_if_false": "The declared finite chart attachment or its numerical matching fails. A source-selected Higgs action, complete nonzero light-quark sector and physical vacuum remain unproved; this conditional calculation does not validate the separate retrospective six-mass replay.",
+      "status": "explicit_conditional_Landau_vev_matching_with_retained_joint_tensions",
+      "claim_class": "emitted_artifact",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row records a numerical matching calculation after supplying the finite Landau-gauge VEV and gauge-coupling identifications and a top-only chiral action. It does not assert those physical identifications follow from source dynamics. No physical normalization or full Yukawa premise is consumed or discharged merely by evaluating the declared external-SM matching map."
+      },
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
     }
   ]
 }

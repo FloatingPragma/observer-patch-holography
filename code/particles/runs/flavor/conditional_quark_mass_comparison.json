@@ -1,0 +1,524 @@
+{
+  "branches": {
+    "full_rscc": {
+      "flag_light_ratios": [
+        {
+          "computed": "0.45827670117228963675530897856368",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-0.28013745115459846852879255984667",
+          "nf": "2+1+1",
+          "quantity": "mu_over_md",
+          "reference": {
+            "published_notation": "0.465(24)",
+            "standard_uncertainty": "0.024",
+            "value": "0.465"
+          }
+        },
+        {
+          "computed": "27.094659078776003600854264833331",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-1.6338385336295851746387057613457",
+          "nf": "2+1+1",
+          "quantity": "ms_over_mud",
+          "reference": {
+            "published_notation": "27.227(81)",
+            "standard_uncertainty": "0.081",
+            "value": "27.227"
+          }
+        },
+        {
+          "computed": "0.45827670117228963675530897856368",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-1.4064894119847559602468958650695",
+          "nf": "2+1",
+          "quantity": "mu_over_md",
+          "reference": {
+            "published_notation": "0.485(19)",
+            "standard_uncertainty": "0.019",
+            "value": "0.485"
+          }
+        },
+        {
+          "computed": "27.094659078776003600854264833331",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-2.7111743435333033262144597222417",
+          "nf": "2+1",
+          "quantity": "ms_over_mud",
+          "reference": {
+            "published_notation": "27.42(12)",
+            "standard_uncertainty": "0.12",
+            "value": "27.42"
+          }
+        }
+      ],
+      "pdg_individual_masses": [
+        {
+          "computed": "0.002158957751890211773153315894514741589103",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.00209",
+          "quoted_upper": "0.00223",
+          "reference": {
+            "central": "0.00216",
+            "minus": "0.00007",
+            "plus": "0.00007",
+            "quark": "u",
+            "quoted_confidence": "90%",
+            "scale": "2 GeV",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.0000010422481097882268466841054852584"
+        },
+        {
+          "computed": "0.004711035377464125541980393593910529794599",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.00463",
+          "quoted_upper": "0.00477",
+          "reference": {
+            "central": "0.00470",
+            "minus": "0.00007",
+            "plus": "0.00007",
+            "quark": "d",
+            "quoted_confidence": "90%",
+            "scale": "2 GeV",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "0.000011035377464125541980393593910530"
+        },
+        {
+          "computed": "0.09307006085669463161019236677108343446072",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.0927",
+          "quoted_upper": "0.0943",
+          "reference": {
+            "central": "0.0935",
+            "minus": "0.0008",
+            "plus": "0.0008",
+            "quark": "s",
+            "quoted_confidence": "90%",
+            "scale": "2 GeV",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.00042993914330536838980763322891657"
+        },
+        {
+          "computed": "1.272259643527330398012359081421644865215",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "1.2684",
+          "quoted_upper": "1.2776",
+          "reference": {
+            "central": "1.2730",
+            "minus": "0.0046",
+            "plus": "0.0046",
+            "quark": "c",
+            "quoted_confidence": "90%",
+            "scale": "m_c(m_c)",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.00074035647266960198764091857835513"
+        },
+        {
+          "computed": "4.189457795234538903882440275690203576071",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "4.176",
+          "quoted_upper": "4.190",
+          "reference": {
+            "central": "4.183",
+            "minus": "0.007",
+            "plus": "0.007",
+            "quark": "b",
+            "quoted_confidence": "90%",
+            "scale": "m_b(m_b)",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "0.0064577952345389038824402756902036"
+        },
+        {
+          "computed": "172.0645267259090051964222798111925112954",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "171.7",
+          "quoted_upper": "173.1",
+          "reference": {
+            "central": "172.4",
+            "minus": "0.7",
+            "plus": "0.7",
+            "quark": "t",
+            "quoted_confidence": "not explicitly specified in this summary row",
+            "scale": "pole from cross-section measurements",
+            "scheme": "pole_extraction",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.33547327409099480357772018880749"
+        }
+      ],
+      "pdg_light_quantities": [
+        {
+          "computed": "0.45827670117228963675530897856368",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.442",
+          "quoted_upper": "0.482",
+          "reference": {
+            "central": "0.462",
+            "minus": "0.020",
+            "plus": "0.020",
+            "quantity": "mu_over_md",
+            "quoted_confidence": "90%",
+            "unit": "1"
+          },
+          "signed_difference": "-0.00372329882771036324469102143632"
+        },
+        {
+          "computed": "27.094659078776003600854264833331",
+          "inside_quoted_marginal_range": false,
+          "quoted_lower": "27.19",
+          "quoted_upper": "27.51",
+          "reference": {
+            "central": "27.33",
+            "definition": "m_ud=(m_u+m_d)/2",
+            "minus": "0.14",
+            "plus": "0.18",
+            "quantity": "ms_over_mud",
+            "quoted_confidence": "90%",
+            "unit": "1"
+          },
+          "signed_difference": "-0.235340921223996399145735166669"
+        },
+        {
+          "computed": "0.0034349965646771686575668547442126",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.00342",
+          "quoted_upper": "0.00356",
+          "reference": {
+            "central": "0.00349",
+            "definition": "m_ud=(m_u+m_d)/2",
+            "minus": "0.00007",
+            "plus": "0.00007",
+            "quantity": "mud_gev",
+            "quoted_confidence": "90%",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.0000550034353228313424331452557874"
+        }
+      ]
+    },
+    "lower_order_control": {
+      "flag_light_ratios": [
+        {
+          "computed": "0.45839319800171881349467738474815",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-0.27528341659504943772177563549375",
+          "nf": "2+1+1",
+          "quantity": "mu_over_md",
+          "reference": {
+            "published_notation": "0.465(24)",
+            "standard_uncertainty": "0.024",
+            "value": "0.465"
+          }
+        },
+        {
+          "computed": "27.091556141435652259169733881293",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-1.6721464020289844546946434408272",
+          "nf": "2+1+1",
+          "quantity": "ms_over_mud",
+          "reference": {
+            "published_notation": "27.227(81)",
+            "standard_uncertainty": "0.081",
+            "value": "27.227"
+          }
+        },
+        {
+          "computed": "0.45839319800171881349467738474815",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-1.4003579999095361318590850132553",
+          "nf": "2+1",
+          "quantity": "mu_over_md",
+          "reference": {
+            "published_notation": "0.485(19)",
+            "standard_uncertainty": "0.019",
+            "value": "0.485"
+          }
+        },
+        {
+          "computed": "27.091556141435652259169733881293",
+          "includes_theory_uncertainty": false,
+          "joint_or_independent_significance": false,
+          "marginal_standardized_residual": "-2.7370321547028978402522176558917",
+          "nf": "2+1",
+          "quantity": "ms_over_mud",
+          "reference": {
+            "published_notation": "27.42(12)",
+            "standard_uncertainty": "0.12",
+            "value": "27.42"
+          }
+        }
+      ],
+      "pdg_individual_masses": [
+        {
+          "computed": "0.002156717474856301138145865666606810864061",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.00209",
+          "quoted_upper": "0.00223",
+          "reference": {
+            "central": "0.00216",
+            "minus": "0.00007",
+            "plus": "0.00007",
+            "quark": "u",
+            "quoted_confidence": "90%",
+            "scale": "2 GeV",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.0000032825251436988618541343333931891"
+        },
+        {
+          "computed": "0.004704950868071594302108361857942333350069",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.00463",
+          "quoted_upper": "0.00477",
+          "reference": {
+            "central": "0.00470",
+            "minus": "0.00007",
+            "plus": "0.00007",
+            "quark": "d",
+            "quoted_confidence": "90%",
+            "scale": "2 GeV",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "0.0000049508680715943021083618579423334"
+        },
+        {
+          "computed": "0.09294663656817141047494764910828007748813",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.0927",
+          "quoted_upper": "0.0943",
+          "reference": {
+            "central": "0.0935",
+            "minus": "0.0008",
+            "plus": "0.0008",
+            "quark": "s",
+            "quoted_confidence": "90%",
+            "scale": "2 GeV",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.00055336343182858952505235089171992"
+        },
+        {
+          "computed": "1.2698519939169601743302920735265259246",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "1.2684",
+          "quoted_upper": "1.2776",
+          "reference": {
+            "central": "1.2730",
+            "minus": "0.0046",
+            "plus": "0.0046",
+            "quark": "c",
+            "quoted_confidence": "90%",
+            "scale": "m_c(m_c)",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.0031480060830398256697079264734741"
+        },
+        {
+          "computed": "4.183714375779866228874133336803690416094",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "4.176",
+          "quoted_upper": "4.190",
+          "reference": {
+            "central": "4.183",
+            "minus": "0.007",
+            "plus": "0.007",
+            "quark": "b",
+            "quoted_confidence": "90%",
+            "scale": "m_b(m_b)",
+            "scheme": "MSbar",
+            "unit": "GeV"
+          },
+          "signed_difference": "0.00071437577986622887413333680369042"
+        },
+        {
+          "computed": "171.6253563466753537459587686185329552096",
+          "inside_quoted_marginal_range": false,
+          "quoted_lower": "171.7",
+          "quoted_upper": "173.1",
+          "reference": {
+            "central": "172.4",
+            "minus": "0.7",
+            "plus": "0.7",
+            "quark": "t",
+            "quoted_confidence": "not explicitly specified in this summary row",
+            "scale": "pole from cross-section measurements",
+            "scheme": "pole_extraction",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.77464365332464625404123138146704"
+        }
+      ],
+      "pdg_light_quantities": [
+        {
+          "computed": "0.45839319800171881349467738474815",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.442",
+          "quoted_upper": "0.482",
+          "reference": {
+            "central": "0.462",
+            "minus": "0.020",
+            "plus": "0.020",
+            "quantity": "mu_over_md",
+            "quoted_confidence": "90%",
+            "unit": "1"
+          },
+          "signed_difference": "-0.00360680199828118650532261525185"
+        },
+        {
+          "computed": "27.091556141435652259169733881293",
+          "inside_quoted_marginal_range": false,
+          "quoted_lower": "27.19",
+          "quoted_upper": "27.51",
+          "reference": {
+            "central": "27.33",
+            "definition": "m_ud=(m_u+m_d)/2",
+            "minus": "0.14",
+            "plus": "0.18",
+            "quantity": "ms_over_mud",
+            "quoted_confidence": "90%",
+            "unit": "1"
+          },
+          "signed_difference": "-0.238443858564347740830266118707"
+        },
+        {
+          "computed": "0.0034308341714639477201271137622746",
+          "inside_quoted_marginal_range": true,
+          "quoted_lower": "0.00342",
+          "quoted_upper": "0.00356",
+          "reference": {
+            "central": "0.00349",
+            "definition": "m_ud=(m_u+m_d)/2",
+            "minus": "0.00007",
+            "plus": "0.00007",
+            "quantity": "mud_gev",
+            "quoted_confidence": "90%",
+            "unit": "GeV"
+          },
+          "signed_difference": "-0.0000591658285360522798728862377254"
+        }
+      ]
+    }
+  },
+  "control_role": "fixed_historical_lower_order_ablation_not_selected_by_agreement",
+  "criticality_top_boundary": {
+    "QCD_pole_proxy_promoted_to_physical_pole": false,
+    "branches_selected_by_comparison": false,
+    "finite_electroweak_and_complex_pole_matching_supplied": false,
+    "physical_electroweak_vev_matching_assumed": true,
+    "truncation_spread_is_a_confidence_interval": false
+  },
+  "criticality_top_running_coordinate_comparisons": {
+    "coupled_two_loop_top_only": {
+      "computed": "162.05945109078706",
+      "inside_quoted_marginal_range": true,
+      "quoted_lower": "161.0",
+      "quoted_upper": "164.6",
+      "reference": {
+        "central": "162.5",
+        "minus": "1.5",
+        "plus": "2.1",
+        "quoted_confidence": "not explicitly specified in this summary row",
+        "scale": "m_t(m_t), cross-section extraction",
+        "scheme": "MSbar",
+        "unit": "GeV"
+      },
+      "signed_difference": "-0.44054890921294"
+    },
+    "one_loop": {
+      "computed": "157.8982894169271",
+      "inside_quoted_marginal_range": false,
+      "quoted_lower": "161.0",
+      "quoted_upper": "164.6",
+      "reference": {
+        "central": "162.5",
+        "minus": "1.5",
+        "plus": "2.1",
+        "quoted_confidence": "not explicitly specified in this summary row",
+        "scale": "m_t(m_t), cross-section extraction",
+        "scheme": "MSbar",
+        "unit": "GeV"
+      },
+      "signed_difference": "-4.6017105830729"
+    },
+    "two_loop_yukawa_quartic_one_loop_gauges": {
+      "computed": "162.8813340397102",
+      "inside_quoted_marginal_range": true,
+      "quoted_lower": "161.0",
+      "quoted_upper": "164.6",
+      "reference": {
+        "central": "162.5",
+        "minus": "1.5",
+        "plus": "2.1",
+        "quoted_confidence": "not explicitly specified in this summary row",
+        "scale": "m_t(m_t), cross-section extraction",
+        "scheme": "MSbar",
+        "unit": "GeV"
+      },
+      "signed_difference": "0.3813340397102"
+    }
+  },
+  "interpretation": {
+    "all_scheduled_light_comparisons_must_be_retained": true,
+    "direct_reconstruction_top_mass_not_used_as_pole_mass": true,
+    "joint_covariance_available": false,
+    "mass_chart_attachment_is_conditional": true,
+    "new_independent_evidence_claimed": false,
+    "no_gaussian_sigma_conversion_of_quoted_ranges": true,
+    "pdg_and_flag_independent": false,
+    "six_marginal_matches_are_not_joint_model_acceptance": true,
+    "target_informed_formula_discovery_remains_target_informed": true,
+    "theory_uncertainty_supplied": false
+  },
+  "joint_likelihood": null,
+  "primary_branch": "full_rscc",
+  "schema": "oph.conditional_quark_mass_comparison.v1",
+  "source_pins": {
+    "code/particles/calibration/verify_conditional_top_fixed_p.py": "5790d7e59fa03f2fb5aba16097ff49a77c29bdf2fae3d74f9c6fafc99c4d8a8a",
+    "code/particles/data/flag_2024_light_quark_ratio_fixture.json": "82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78",
+    "code/particles/data/pdg_2025_conditional_quark_comparison.json": "503f043ec8581b48e1a8ae184c97e7676dd5e84198ad18f2781d1bf7e32156a5",
+    "code/particles/flavor/compare_conditional_quark_masses.py": "c7a4f03acdf90d99fb27ead5e6b52010408917fcb9239398a549280ddb45cd10",
+    "code/particles/flavor/conditional_quark_mass_spec.json": "7dac1a6000395790f7dd156837c11c43f3a5ca56c8fe9313add1c50a8df654e8",
+    "code/particles/flavor/verify_conditional_quark_mass_replay.py": "e6f1f91b3970987fe712c8a56e5e8e4301c62ca9a0a053f8c36dd82260a52e86",
+    "code/particles/runs/calibration/conditional_top_fixed_p.json": "e027f9225efec2497080995cfc7e435e2e37536815715a9e02aca6cf6d4d47fe",
+    "code/particles/runs/flavor/conditional_quark_mass_replay.json": "995f370724d79fd3922f24f5bb49a28734dcda7f7b12ebce86bdeec6f726b0a2"
+  },
+  "sources": {
+    "flag": {
+      "citation": "Y. Aoki et al., FLAG Review 2024, arXiv:2411.04268; light-quark averages summarized in Tables 11 and 12, with the higher-precision Nf=2+1+1 ms/mud recommendation in Eq. (37).",
+      "edition": "FLAG Review 2024, arXiv:2411.04268v3",
+      "publisher": "Flavour Lattice Averaging Group (FLAG)",
+      "transcription_note": "Values are transcribed from the published review. The repository does not vendor the source PDF or claim a raw table-payload hash.",
+      "url": "https://arxiv.org/abs/2411.04268"
+    },
+    "pdg": {
+      "citation": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024), and 2025 update",
+      "edition": "Review of Particle Physics 2025 update",
+      "page": 1,
+      "publisher": "Particle Data Group",
+      "transcription": "Hand-transcribed central values and quoted marginal ranges; the PDF is not vendored and no source-payload hash is asserted.",
+      "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf"
+    }
+  },
+  "status": "RETROSPECTIVE_CONDITIONAL_COMPARISON",
+  "theory_uncertainty": null
+}

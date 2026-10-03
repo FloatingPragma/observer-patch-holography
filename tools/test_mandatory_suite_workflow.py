@@ -22,6 +22,19 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "code/P_derivation/test_selection_accounting.py",
     "code/P_derivation/test_printed_pair_identity.py",
     "evidence/source_net_causal_poset/manifold_refinement/test_verify.py",
+    "code/particles/flavor/test_full_entropy_w5_selector.py",
+    "code/particles/flavor/test_conditional_quark_mass_replay.py",
+    "code/particles/flavor/test_verify_conditional_quark_mass_replay.py",
+    "code/particles/flavor/test_compare_conditional_quark_masses.py",
+    "code/particles/calibration/test_conditional_top_fixed_p.py",
+    "code/particles/flavor/test_source_w5_response_constraints.py",
+    "code/particles/flavor/test_native_repair_flavor_constraints.py",
+    "code/particles/calibration/test_top_positive_capacity_band.py",
+    "code/particles/flavor/test_native_record_renewal.py",
+    "code/particles/flavor/test_exterior_higgs_response.py",
+    "code/particles/calibration/test_source_ew_vev_matching.py",
+    "code/particles/calibration/test_verify_source_ew_vev_matching.py",
+    "code/particles/calibration/test_compare_source_ew_vev_matching.py",
 )
 
 

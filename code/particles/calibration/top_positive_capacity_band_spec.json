@@ -1,0 +1,82 @@
+{
+  "schema": "oph.top_positive_capacity_band_spec.v1",
+  "alpha_fixture": "code/P_derivation/codata_2022_alpha_fixture.json",
+  "inverse_alpha": "137.035999177",
+  "inverse_alpha_standard_uncertainty": "0.000000021",
+  "E_star_display_GeV": "1.220890e19",
+  "P_law": "P=(1+sqrt(5))/2+sqrt(pi)/inverse_alpha",
+  "D10": {
+    "precision": 50,
+    "su2_cutoff": 40,
+    "su3_cutoff": 40,
+    "gauge_slopes": ["33/5", "1", "-3"],
+    "beta_EW": 4,
+    "role": "declared algebraic low-gauge and vacuum-coordinate recipe; threshold-complete SM unification is not claimed"
+  },
+  "anchors": {
+    "mu_U_over_Estar": "exp(-2*pi)*P^(1/6)",
+    "E_cell_over_Estar": "P^(-1/2)",
+    "cost": "w_U*(t-t_U)^2+w_E*(t-t_E)^2; t=ln(mu); w_U,w_E>0",
+    "minimizer": "t_b=(1-u)*t_U+u*t_E; u=w_E/(w_U+w_E)",
+    "open_capacity_domain": "0<u<1",
+    "control_fractions": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "endpoint_role": "u=0,1 are limiting boundary values, not strictly positive two-anchor capacities",
+    "equal_capacities_assumed": false,
+    "broader_anchor_hypothesis": "Two differentiable strictly convex costs, each minimized at its own anchor, also place the unique minimizer between the anchors.",
+    "exponential_family_hypothesis": "For one common regular one-parameter exponential family with psi''>0 and affine natural parameter theta(t), forward KL gives the same weighted log mean; reverse KL gives the mean in expectation coordinates, still between the anchors."
+  },
+  "criticality": {
+    "conditions": ["lambda=0", "beta_lambda=0"],
+    "one_loop_y_boundary": "((gY^4+2*gY^2*g2^2+3*g2^4)/16)^(1/4)",
+    "two_loop_root": "lowest positive perturbative Yukawa root connected to the one-loop root",
+    "yukawa_bracket": [0.05, 2.0]
+  },
+  "transport": {
+    "non_top_yukawas": "all zero",
+    "one_loop": "exact inverse-affine gauge paths and linear scalar equation for z=1/yt^2, evaluated by quadrature",
+    "one_loop_crosscheck": "separate DOP853 integration of the Yukawa equation",
+    "two_loop": "fully coupled SM gauge, top Yukawa and quartic equations; low gauge anchors held fixed by shooting",
+    "two_loop_method": "DOP853",
+    "two_loop_rtol": [2e-10, 2e-12],
+    "two_loop_atol_over_rtol": 0.01,
+    "primary_beta_source": "https://arxiv.org/pdf/1307.3536 Appendix B",
+    "lower_transport_scale_GeV": 50.0,
+    "threshold_complete": false
+  },
+  "readout": {
+    "top_equation": "mu=yt(mu)*v_chart/sqrt(2)",
+    "v_chart": "constant D10 transmutation coordinate",
+    "physical_MSbar_identification": "conditional on a finite matching map from v_chart to the renormalized electroweak vacuum; this map is not supplied",
+    "QCD_pole_proxy": "m*(1+4*a/3+(13.4434-1.0414*5)*a^2+(190.595-26.655*5+0.653*25)*a^3); a=alpha_s/pi",
+    "Higgs_tree_proxy": "sqrt(2*lambda(mu_top))*v_chart",
+    "complex_pole_matching": false,
+    "electroweak_pole_matching": false
+  },
+  "proof_contract": {
+    "gauge_ratios": "g3^2/g2^2>=1/2 between anchors; g3^2/gY^2>=1/2 between lower transport scale and E_cell",
+    "endpoint_sufficiency": "Positive inverse-affine gauge paths have fractional-linear ratios with derivative of constant sign.",
+    "sensitivity": "partial_tb y(t;tb)=exp(integral_tb^t f_y ds)*(F'(tb)-f(tb,F(tb)))",
+    "sensitivity_lower_bound": "(F'-f)/F>=k*(7*a/24+8*c-(11/12+9*sqrt(3)/8)*b)>0 when c>=b/2",
+    "negative_beta_barrier": "R=9*y^2/2-C<0 is backward-invariant: at R=0, R'=-C'>0; C'=k*(697*a^2/36-57*b^2/4-112*c^2)<0 when c>=a/2",
+    "mass_range": "The unique self-scale top coordinate is strictly increasing in tb; all positive capacities therefore give the open interval between the two endpoint solutions.",
+    "proof_role": "The mathematical argument accompanies these numerical hypothesis margins; tests of symbolic identities or sampled trajectories are not a formal proof of the theorem."
+  },
+  "scope": {
+    "standing": "conditional top-coordinate range with equal-capacity premise removed",
+    "one_loop_continuum_monotonicity_analytic": true,
+    "equal_capacities_assumed": false,
+    "mass_targets_consumed": false,
+    "quark_template_consumed": false,
+    "controls_used_for_model_selection": false,
+    "numerical_endpoint_enclosure_certified": false,
+    "two_loop_continuum_enclosure_claimed": false,
+    "theory_error_bound_claimed": false,
+    "physical_pole_prediction_claimed": false,
+    "source_selected_criticality_claimed": false,
+    "source_selected_anchor_records_claimed": false,
+    "source_only_alpha_claimed": false,
+    "external_Estar_scale_calibration": true,
+    "blind_prediction_claimed": false
+  },
+  "uncertainty": "Endpoint digits, quadrature errors and solver tolerance differences diagnose numerical computation. Capacity dependence is not a confidence interval, loop shifts are not a theory-error bound, and physical matching uncertainty remains unquantified."
+}

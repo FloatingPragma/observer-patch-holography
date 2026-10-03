@@ -1,0 +1,67 @@
+{
+  "carrier": "code/a5_closure/manifests/echosahedral_federation_reference.json",
+  "defect_theorem": {
+    "admission": "A legal repair moves the defect from j to k exactly when s*(N_j-N_k)=1.",
+    "cost": "At most3 accepted repairs; each lowers centered load-square by2.",
+    "form": "During settlement after sign s at port i, the state is the original settled N plus s*e_j at one moving port j.",
+    "routing": "Uniform among those legal neighbors; independent of rejected proposal counts."
+  },
+  "preparation": {
+    "alphabet": "Exactly24 atomic events (port i, sign s), i in0..11 and s in{-1,+1}.",
+    "probability": "1/24",
+    "reference": "Uniform counting on this declared complete event alphabet.",
+    "status": "Source-allowed conditional renewal protocol; source grammar does not select this driving schedule.",
+    "temporal": "Fresh event choice only after the preceding repair has settled; no correlations or additional preparation constraints."
+  },
+  "readout": {
+    "Q_covariance": "E[Q tensor Q]=(E tr(Q^2)/5)*I5 in a Frobenius-orthonormal basis.",
+    "averaging_boundary": "Every A5-equivariant End(P3) readout averaged in this law is scalar, even when nonlinear. Individual sampled spectra are distinct from spectra of the averaged response.",
+    "mean_Q": "0",
+    "non_Gaussian_test": "Compare E[(tr Q^2)^2] with (7/5)*(E tr Q^2)^2, the radial fourth moment of an isotropic centered Gaussian in five dimensions.",
+    "odd_moments": "Sign reversal forces all odd centered-count moments, including E tr(Q^3), to vanish.",
+    "port_covariance": "Centered count covariance decomposes as b3*P3+b3prime*P3prime+b5*P5.",
+    "quadrupole": "Q(N)=sum_i N_i*(n_i*n_i^T-I/3), unit icosahedral vectors n_i.",
+    "spectral_key": "tr(Q^2); rational_part(tr(Q^3)); sqrt(5)_coefficient(tr(Q^3))"
+  },
+  "repair": {
+    "completion": "Complete native repair before the next preparation event.",
+    "move": "If N_i-N_j>=2 on a seam, transfer one whole record from i to j.",
+    "physical_clock": "No physical duration, Poisson clock or energy assigned.",
+    "scheduler": "Fresh uniform30-seam proposals; rejected proposals leave counts unchanged."
+  },
+  "schema": "oph.native_record_renewal_spec.v1",
+  "scope": {
+    "Gaussian_stationary_law": false,
+    "aperiodic": false,
+    "conditional_driven_relative_state_selected": true,
+    "physical_clock_derived": false,
+    "physical_mass_scheme_attached": false,
+    "quark_Higgs_response_derived": false,
+    "quark_fit_performed": false,
+    "quark_masses_emitted": false,
+    "quark_targets_loaded": false,
+    "source_selected_vacuum": false,
+    "stationary_law_is_empirical_prior": false,
+    "stationary_total_distribution": false,
+    "thermal_equilibrium_derived": false
+  },
+  "state": {
+    "P_used": false,
+    "cardinality": 6077,
+    "mass_normalization_boundary": "Only shift-invariant observables have this stationary law. A Higgs or mass map depending on the mean count still needs a law for the unbounded protected total; a common shift is not assumed to be a physical gauge equivalence.",
+    "projection_boundary": "This is a relative-count readout projection, not identification of different protected totals as physically identical.",
+    "proper_rotation_orbits": 136,
+    "space": "All signed integer settled counts, projected modulo uniform integer translations by subtracting the minimum.",
+    "unquotiented_total": "S changes by independent equiprobable+1 or-1. It has no normalizable stationary law on the integers."
+  },
+  "stationarity": {
+    "balance": "Mean centered-square injection11/12 and decrease2 per repair force mean accepted repairs11/24.",
+    "convergence": "Unique positive stationary law; Cesaro means converge. Stepwise convergence from a single parity class is not asserted.",
+    "detailed_balance": "Test exact stationary edge flows; a nonzero current forbids identifying this driven law with a reversible equilibrium process.",
+    "irreducibility": "Direct removal at a global maximum remains settled; repetition reaches zero. Reverse direct additions give positive-probability paths.",
+    "orbit_lift": "A5 invariance gives per-state weight equal to orbit weight divided by orbit size.",
+    "period": 2,
+    "period_reason": "Total-residue parity flips each renewal and direct edges have positive-probability two-cycles.",
+    "residue_weights": "1/12 for each total residue modulo12."
+  }
+}

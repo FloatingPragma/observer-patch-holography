@@ -1,0 +1,274 @@
+{
+  "D10": {
+    "alpha1_mz": "0.016885708038988161852595837483019662480429572308238855452606673",
+    "alpha2_mz": "0.033777889448908048830243115421578706821802275625809225226146418",
+    "alpha3_mz": "0.11833602747445048348500390585110968660510620528848387519059292",
+    "alpha_em_inv_mz": "128.30796547328624821825269322270956605604638174483844592400751",
+    "alpha_em_mz": "0.0077937483952093392056708567954774355659678335142183975570169225",
+    "alpha_u": "0.041124336195630482177799935872286596350022591650485992431640625",
+    "alpha_y_mz": "0.010131424823392897111557502489811797488257743384943313271564004",
+    "mu_u": "0.0020260720012100031055338687795379539496331874422094612911915344",
+    "mz_run": "7.5024032389859183913100260342622779004344742163348276191459725E-18",
+    "n_c": "3",
+    "p": "1.6309682094039593248792798477826489413359828516279250606661507",
+    "sin2w_mz": "0.23073520940371515093236067386020525882965038599183495747997142",
+    "v": "2.0199803239725258706912675862369951543104217003037326817856081E-17"
+  },
+  "P_from_independent_alpha": "1.6309682094039593248792798477826489413359828516279250606661507",
+  "fully_coupled_two_loop_same_low_gauge_anchor": [
+    {
+      "Higgs_tree_proxy_GeV": 124.91141729934127,
+      "alpha_s_self_scale": 0.10980091454776314,
+      "beta_lambda_boundary": -5.2410163611359833e-20,
+      "boundary_gauges": [
+        0.5960558317109581,
+        0.5140454803876787,
+        0.505065214014356
+      ],
+      "boundary_top_yukawa": 0.38924174767151604,
+      "critical_polynomial_roots_yt_squared": [
+        -0.15056490916428308,
+        0.1515091381303762,
+        31.872835185861923
+      ],
+      "lambda_self_scale": 0.1282705406095981,
+      "low_anchor_gauge_residual": [
+        4.773959005888173e-15,
+        1.929567616798522e-13,
+        -8.548717289613705e-14
+      ],
+      "relative_tolerance": 2e-10,
+      "top_QCD_pole_proxy_GeV": 171.7516371246547,
+      "top_QCD_pole_proxy_over_Estar": 1.4067740510992367e-17,
+      "top_fixed_point_residual_GeV": -2.842170943040401e-14,
+      "top_running_coordinate_over_Estar": 1.3273878160815355e-17,
+      "top_running_mass_coordinate_GeV": 162.0594510775786,
+      "yukawa_self_scale": 0.929320860086181
+    },
+    {
+      "Higgs_tree_proxy_GeV": 124.91141731354497,
+      "alpha_s_self_scale": 0.10980091456753675,
+      "beta_lambda_boundary": 4.2034010007494654e-20,
+      "boundary_gauges": [
+        0.5960558317109657,
+        0.5140454803875881,
+        0.5050652140142712
+      ],
+      "boundary_top_yukawa": 0.3892417476714668,
+      "critical_polynomial_roots_yt_squared": [
+        -0.15056490916424523,
+        0.15150913813033778,
+        31.872835185861824
+      ],
+      "lambda_self_scale": 0.1282705406387695,
+      "low_anchor_gauge_residual": [
+        -5.551115123125783e-17,
+        -1.1102230246251565e-16,
+        2.0872192862952943e-14
+      ],
+      "relative_tolerance": 2e-12,
+      "top_QCD_pole_proxy_GeV": 171.75163714087572,
+      "top_QCD_pole_proxy_over_Estar": 1.4067740512320988e-17,
+      "top_fixed_point_residual_GeV": -2.842170943040401e-14,
+      "top_running_coordinate_over_Estar": 1.3273878161897227e-17,
+      "top_running_mass_coordinate_GeV": 162.05945109078706,
+      "yukawa_self_scale": 0.9293208601619243
+    }
+  ],
+  "hybrid_rows": {
+    "1": [
+      {
+        "Higgs_tree_proxy_GeV": 121.64456824672386,
+        "RK4_steps": 12000,
+        "alpha_s_mt": 0.11040939169923426,
+        "boundary_scale_gev": 4.862869332756601e+17,
+        "lambda_mt": 0.12164887460615599,
+        "top_QCD_pole_proxy_GeV": 167.40834434819755,
+        "top_QCD_pole_proxy_over_Estar": 1.37119924275076e-17,
+        "top_running_coordinate_over_Estar": 1.293304801716902e-17,
+        "top_running_mass_coordinate_GeV": 157.89828993681485,
+        "y_t_mt": 0.9054589142039365,
+        "y_t_u": 0.3881015415426328
+      },
+      {
+        "Higgs_tree_proxy_GeV": 121.64456762143234,
+        "RK4_steps": 24000,
+        "alpha_s_mt": 0.11040939174395019,
+        "boundary_scale_gev": 4.862869332756601e+17,
+        "lambda_mt": 0.12164887335552871,
+        "top_QCD_pole_proxy_GeV": 167.40834380190853,
+        "top_QCD_pole_proxy_over_Estar": 1.3711992382762454e-17,
+        "top_running_coordinate_over_Estar": 1.2933047974586335e-17,
+        "top_running_mass_coordinate_GeV": 157.8982894169271,
+        "y_t_mt": 0.9054589112226743,
+        "y_t_u": 0.3881015415426328
+      }
+    ],
+    "2": [
+      {
+        "Higgs_tree_proxy_GeV": 125.78175279913872,
+        "RK4_steps": 12000,
+        "alpha_s_mt": 0.10998902679613785,
+        "boundary_scale_gev": 4.862869332756601e+17,
+        "lambda_mt": 0.13006424905641314,
+        "top_QCD_pole_proxy_GeV": 172.6439347224306,
+        "top_QCD_pole_proxy_over_Estar": 1.4140826341638526e-17,
+        "top_running_coordinate_over_Estar": 1.3341196518200972e-17,
+        "top_running_mass_coordinate_GeV": 162.88133417106386,
+        "y_t_mt": 0.9340339027187984,
+        "y_t_u": 0.38801222564136506
+      },
+      {
+        "Higgs_tree_proxy_GeV": 125.78175264446995,
+        "RK4_steps": 24000,
+        "alpha_s_mt": 0.1099890268070068,
+        "boundary_scale_gev": 4.862869332756601e+17,
+        "lambda_mt": 0.13006424873654357,
+        "top_QCD_pole_proxy_GeV": 172.64393458443297,
+        "top_QCD_pole_proxy_over_Estar": 1.414082633033549e-17,
+        "top_running_coordinate_over_Estar": 1.3341196507442128e-17,
+        "top_running_mass_coordinate_GeV": 162.8813340397102,
+        "y_t_mt": 0.9340339019655642,
+        "y_t_u": 0.38801222564136506
+      }
+    ]
+  },
+  "numerical_diagnostics": {
+    "coupled_top_tolerance_difference_GeV": 1.3208477867010515e-08,
+    "hybrid_to_coupled_top_shift_GeV": 0.8218829489231325,
+    "hybrid_top_step_differences_GeV": {
+      "1": 5.198877488510334e-07,
+      "2": 1.3135365861671744e-07
+    },
+    "interpretation": "Step/tolerance differences and root residuals diagnose numerics only; branch shifts are not confidence intervals; no combined theory uncertainty is supplied."
+  },
+  "schema": "oph.conditional_top_fixed_p.v1",
+  "scope": {
+    "all_six_quark_masses_claimed": false,
+    "blind_prediction_claimed": false,
+    "external_Estar_scale_calibration": true,
+    "fixed_P_from_independent_alpha": true,
+    "mass_targets_consumed": false,
+    "numerical_enclosure_certified": false,
+    "physical_pole_prediction_claimed": false,
+    "quark_template_consumed": false,
+    "source_only_alpha_claimed": false,
+    "source_selected_boundary_claimed": false,
+    "source_selected_criticality_claimed": false,
+    "standing": "conditional numerical mass coordinate",
+    "theory_uncertainty_quantified": false
+  },
+  "source_pins": {
+    "code/P_derivation/codata_2022_alpha_fixture.json": "e5a967c2895c51ce11574da0d5fda9630b05d9162335a1e9e06da12cfecc9930",
+    "code/P_derivation/paper_math.py": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
+    "code/particles/calibration/conditional_top_fixed_p.py": "7459d46dca6cf04265f817758d5187825e3be71c19687f449b3b5fef94c09b21",
+    "code/particles/calibration/conditional_top_fixed_p_spec.json": "842c2ae23168141de92f2348e0480baf1500963850683da29358a883a7281c6b",
+    "code/particles/calibration/derive_d11_criticality_boundary_scan.py": "1511d1e041d41338cfd935acc396005b1a62a1979880ebfb775b61ec7f36373c",
+    "code/particles/calibration/sm_two_loop_rge_engine.py": "5cf4dec530fa9bc51905507c8cf50ea38e90cfa6f488cfebb2367c5fec915d97"
+  },
+  "source_scales_GeV": {
+    "E_cell_pixel_energy": 9.559909667260187e+18,
+    "E_star": 1.22089e+19,
+    "log_midpoint_half_turn": 4.862869332756601e+17,
+    "mu_U_gauge_unification": 2.4736110455572816e+16,
+    "mz_run_gev": 91.59609090445517,
+    "v_transmutation_gev": 246.6173777734818
+  },
+  "specification": {
+    "D10": {
+      "beta_EW": 4,
+      "gauge_slopes": [
+        "33/5",
+        "1",
+        "-3"
+      ],
+      "heat_equation": "ellbar_SU2+ellbar_SU3=P/4",
+      "heat_weight": "dim(R)*exp(-4*pi^2*alpha*C2(R))",
+      "mu_U_over_Estar": "exp(-2*pi)*P^(1/6)",
+      "precision": 50,
+      "role": "declared algebraic low-gauge-boundary recipe, not threshold-complete SM unification",
+      "su2_cutoff": 40,
+      "su3_cutoff": 40,
+      "v_over_Estar": "P^(-1/2)*exp(-pi/(2*alpha_U))"
+    },
+    "E_star_display_GeV": "1.220890e19",
+    "P_law": "P=(1+sqrt(5))/2+sqrt(pi)/inverse_alpha",
+    "alpha_fixture": "code/P_derivation/codata_2022_alpha_fixture.json",
+    "boundary": {
+      "conditions": [
+        "lambda=0",
+        "beta_lambda=0"
+      ],
+      "global_polynomial_uniqueness": false,
+      "mu_over_Estar": "exp(-pi)*P^(-1/6)",
+      "root": "lowest positive perturbative Yukawa root connected to the one-loop root",
+      "selection_hypothesis": "equal-weight squared log-distance to mu_U and E_cell; unique logarithmic midpoint",
+      "yukawa_bracket": [
+        0.05,
+        2.0
+      ]
+    },
+    "inverse_alpha": "137.035999177",
+    "inverse_alpha_standard_uncertainty": "0.000000021",
+    "primary_beta_source": "https://arxiv.org/pdf/1307.3536 Appendix B; non-top Yukawas zero",
+    "readout": {
+      "Higgs_proxy": "sqrt(2*lambda(mu_top))*v_chart",
+      "QCD_order": 3,
+      "a": "alpha_s/pi",
+      "complex_pole_matching": false,
+      "electroweak_pole_matching": false,
+      "n_l": 5,
+      "physical_MSbar_identification": "conditional on matching v_chart to the renormalized electroweak mass convention; finite matching and tadpole/FJ bridge not supplied",
+      "top_equation": "mu=yt(mu)*v_chart/sqrt(2)",
+      "top_proxy": "m*(1+4*a/3+(13.4434-1.0414*n_l)*a^2+(190.595-26.655*n_l+0.653*n_l^2)*a^3)",
+      "v_chart": "constant D10 transmutation coordinate"
+    },
+    "schema": "oph.conditional_top_fixed_p_spec.v1",
+    "scope": {
+      "all_six_quark_masses_claimed": false,
+      "blind_prediction_claimed": false,
+      "external_Estar_scale_calibration": true,
+      "fixed_P_from_independent_alpha": true,
+      "mass_targets_consumed": false,
+      "numerical_enclosure_certified": false,
+      "physical_pole_prediction_claimed": false,
+      "quark_template_consumed": false,
+      "source_only_alpha_claimed": false,
+      "source_selected_boundary_claimed": false,
+      "source_selected_criticality_claimed": false,
+      "standing": "conditional numerical mass coordinate",
+      "theory_uncertainty_quantified": false
+    },
+    "transport": {
+      "branches": [
+        "one_loop",
+        "two_loop_yukawa_quartic_with_one_loop_gauges",
+        "coupled_two_loop_top_only"
+      ],
+      "coupled_atol_over_rtol": 0.01,
+      "coupled_method": "DOP853",
+      "coupled_rtol": [
+        2e-10,
+        2e-12
+      ],
+      "hybrid_RK4_steps": [
+        12000,
+        24000
+      ],
+      "hypercharge": "g1_GUT=sqrt(5/3)*gY",
+      "low_anchor": "same recomputed D10 gauge packet at its running Z coordinate",
+      "non_top_yukawas": "all zero",
+      "potential": "V=lambda*(Hdagger*H)^2",
+      "state": [
+        "g1_GUT",
+        "g2",
+        "g3",
+        "yt",
+        "lambda"
+      ],
+      "threshold_complete": false,
+      "time": "ln(mu)"
+    },
+    "uncertainty": "Step/tolerance differences and root residuals diagnose numerics only; branch shifts are not confidence intervals; no combined theory uncertainty is supplied."
+  }
+}

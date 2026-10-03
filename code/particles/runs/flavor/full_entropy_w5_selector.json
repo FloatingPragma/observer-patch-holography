@@ -1,0 +1,549 @@
+{
+  "claim_class": "conditional_mechanism_specific_analytic_theorem",
+  "controls": {
+    "changed_high_profile_breaks_sum": true,
+    "quartic_taylor_objective_not_used": true,
+    "repeated_high_branch_excluded": true,
+    "split_spectrum_has_nonzero_discriminant": true
+  },
+  "geometry": {
+    "axis_count": 6,
+    "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+    "construction_field": "Q(sqrt(5),sqrt(15))",
+    "eigenvalues": [
+      "-2*sqrt(15)/15",
+      "-2*sqrt(15)/15",
+      "4*sqrt(15)/15"
+    ],
+    "exact_checks": {
+      "axis_projectors_idempotent": true,
+      "equal_axis_norms": true,
+      "quadrupole_gram": true,
+      "quadrupole_rank_five": true,
+      "six_axis_two_design": true
+    },
+    "forward_map_readback": "n_i^T Q n_i=(8/5)*a_i; Q is not the inverse map with unit coefficient",
+    "minimum_adjacent_gap": "0",
+    "pair_record_dimension": 5,
+    "quadrupole_convention": "Q=2 sum_i a_i (n_i n_i^T-I/3); actual centered record r*a gives r*Q",
+    "quadrupole_gram_entries": [
+      [
+        "2/3",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "2/3",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "2/3",
+        "-2/15",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "2/3",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "2/3",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "2/3"
+      ]
+    ],
+    "single_spectral_readout_boundary": "any scalar spectral function of one Q retains its double eigenvalue; independent coupled tensors are outside this candidate",
+    "unoriented_axis_stabilizer": "D5 of order 10",
+    "winning_axis_rows": [
+      {
+        "axis_index": 0,
+        "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+        "discriminant": "0",
+        "exact_Q_entries": [
+          [
+            "-2*sqrt(15)/15",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-sqrt(3)/5 + sqrt(15)/15",
+            "2*sqrt(3)/5"
+          ],
+          [
+            "0",
+            "2*sqrt(3)/5",
+            "sqrt(15)/15 + sqrt(3)/5"
+          ]
+        ],
+        "exact_checks": {
+          "axial_projector_formula": true,
+          "centered_record": true,
+          "characteristic_polynomial": true,
+          "double_eigenvalue": true,
+          "forward_readback_factor_eight_fifths": true,
+          "nonzero_quadrupole": true,
+          "quadrupole_trace_zero": true,
+          "unit_twelve_port_record_norm": true
+        },
+        "unnormalized_axis": [
+          "0",
+          "1",
+          "1/2 + sqrt(5)/2"
+        ]
+      },
+      {
+        "axis_index": 1,
+        "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+        "discriminant": "0",
+        "exact_Q_entries": [
+          [
+            "-2*sqrt(15)/15",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-sqrt(3)/5 + sqrt(15)/15",
+            "-2*sqrt(3)/5"
+          ],
+          [
+            "0",
+            "-2*sqrt(3)/5",
+            "sqrt(15)/15 + sqrt(3)/5"
+          ]
+        ],
+        "exact_checks": {
+          "axial_projector_formula": true,
+          "centered_record": true,
+          "characteristic_polynomial": true,
+          "double_eigenvalue": true,
+          "forward_readback_factor_eight_fifths": true,
+          "nonzero_quadrupole": true,
+          "quadrupole_trace_zero": true,
+          "unit_twelve_port_record_norm": true
+        },
+        "unnormalized_axis": [
+          "0",
+          "1",
+          "-sqrt(5)/2 - 1/2"
+        ]
+      },
+      {
+        "axis_index": 2,
+        "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+        "discriminant": "0",
+        "exact_Q_entries": [
+          [
+            "-sqrt(3)/5 + sqrt(15)/15",
+            "2*sqrt(3)/5",
+            "0"
+          ],
+          [
+            "2*sqrt(3)/5",
+            "sqrt(15)/15 + sqrt(3)/5",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-2*sqrt(15)/15"
+          ]
+        ],
+        "exact_checks": {
+          "axial_projector_formula": true,
+          "centered_record": true,
+          "characteristic_polynomial": true,
+          "double_eigenvalue": true,
+          "forward_readback_factor_eight_fifths": true,
+          "nonzero_quadrupole": true,
+          "quadrupole_trace_zero": true,
+          "unit_twelve_port_record_norm": true
+        },
+        "unnormalized_axis": [
+          "1",
+          "1/2 + sqrt(5)/2",
+          "0"
+        ]
+      },
+      {
+        "axis_index": 3,
+        "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+        "discriminant": "0",
+        "exact_Q_entries": [
+          [
+            "-sqrt(3)/5 + sqrt(15)/15",
+            "-2*sqrt(3)/5",
+            "0"
+          ],
+          [
+            "-2*sqrt(3)/5",
+            "sqrt(15)/15 + sqrt(3)/5",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-2*sqrt(15)/15"
+          ]
+        ],
+        "exact_checks": {
+          "axial_projector_formula": true,
+          "centered_record": true,
+          "characteristic_polynomial": true,
+          "double_eigenvalue": true,
+          "forward_readback_factor_eight_fifths": true,
+          "nonzero_quadrupole": true,
+          "quadrupole_trace_zero": true,
+          "unit_twelve_port_record_norm": true
+        },
+        "unnormalized_axis": [
+          "1",
+          "-sqrt(5)/2 - 1/2",
+          "0"
+        ]
+      },
+      {
+        "axis_index": 4,
+        "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+        "discriminant": "0",
+        "exact_Q_entries": [
+          [
+            "sqrt(15)/15 + sqrt(3)/5",
+            "0",
+            "2*sqrt(3)/5"
+          ],
+          [
+            "0",
+            "-2*sqrt(15)/15",
+            "0"
+          ],
+          [
+            "2*sqrt(3)/5",
+            "0",
+            "-sqrt(3)/5 + sqrt(15)/15"
+          ]
+        ],
+        "exact_checks": {
+          "axial_projector_formula": true,
+          "centered_record": true,
+          "characteristic_polynomial": true,
+          "double_eigenvalue": true,
+          "forward_readback_factor_eight_fifths": true,
+          "nonzero_quadrupole": true,
+          "quadrupole_trace_zero": true,
+          "unit_twelve_port_record_norm": true
+        },
+        "unnormalized_axis": [
+          "1/2 + sqrt(5)/2",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "axis_index": 5,
+        "characteristic_polynomial": "lambda**3 - 4*lambda/5 - 16*sqrt(15)/225",
+        "discriminant": "0",
+        "exact_Q_entries": [
+          [
+            "sqrt(15)/15 + sqrt(3)/5",
+            "0",
+            "-2*sqrt(3)/5"
+          ],
+          [
+            "0",
+            "-2*sqrt(15)/15",
+            "0"
+          ],
+          [
+            "-2*sqrt(3)/5",
+            "0",
+            "-sqrt(3)/5 + sqrt(15)/15"
+          ]
+        ],
+        "exact_checks": {
+          "axial_projector_formula": true,
+          "centered_record": true,
+          "characteristic_polynomial": true,
+          "double_eigenvalue": true,
+          "forward_readback_factor_eight_fifths": true,
+          "nonzero_quadrupole": true,
+          "quadrupole_trace_zero": true,
+          "unit_twelve_port_record_norm": true
+        },
+        "unnormalized_axis": [
+          "1/2 + sqrt(5)/2",
+          "0",
+          "-1"
+        ]
+      }
+    ],
+    "winning_axis_scope": "0<r<=sqrt(60); at r=0 no normalized direction is selected and r*Q=0"
+  },
+  "physical_boundary": {
+    "absolute_masses_emitted": false,
+    "actual_record_quadrupole": "r*Q",
+    "conditional_mass_consequence": "A single quadrupole spectral readout retains the double eigenvalue, so this mechanism cannot supply three unequal masses in either sector for any scalar r(P).",
+    "physical_comparison_performed": false,
+    "positive_physical_evidence_claimed": false,
+    "prediction_freeze_claimed": false,
+    "quadrupole": "Q = 2*sum_i a_i*(n_i*n_i^T-I/3), with six unit icosahedral axis representatives; this forward map obeys n_i^T Q n_i = (8/5)*a_i, not a_i",
+    "quark_ratios_emitted": false,
+    "scope_exclusion": "Only this full-entropy fixed-norm antipodal-record mechanism and its single-quadrupole spectral readout are excluded. General OPH completions, different source constraints, multiple coupled records and independently derived physical readouts are not excluded."
+  },
+  "proof_grade": "analytic_global_argument_with_executable_exact_algebra_not_formal_machine_proof",
+  "schema": "oph.full_entropy_w5_selector.v1",
+  "scope": {
+    "all_OPH_completions_excluded": false,
+    "core_axiom_derivation_claimed": false,
+    "empirical_target_consumed": false,
+    "extra_continuous_fitted_coefficients": 0,
+    "legacy_flavor_template_consumed": false,
+    "numeric_P_consumed": false,
+    "old_quartic_certificate_superseded": false,
+    "source_law": "declared full-relative-entropy minimization at fixed norm on the antipodal W5 record",
+    "source_selected_physical_readout": false
+  },
+  "selector": {
+    "amplitude_domain": "0 <= r <= sqrt(60)",
+    "amplitude_map": "the result holds for every admissible r and therefore any scalar r(P); no such source map is supplied or needed for this exclusion",
+    "boundary_certificate": {
+      "analytic_tools": "implicit function theorem for unequal support; Taylor expansion on positive support for both cases",
+      "entropy_descent": "new epsilon log epsilon term dominates the O(epsilon) change of existing positive coordinates",
+      "equal_support_rows": [
+        {
+          "delta_squared": "epsilon*(2 - 3*epsilon)/4",
+          "exact_checks": {
+            "delta_squared_positive_near_zero": true,
+            "opposite_first_order_entropy_terms_cancel": true,
+            "positive_support_limit": true,
+            "purity_preserved": true,
+            "sum_preserved": true
+          },
+          "positive_support_size": 2
+        },
+        {
+          "delta_squared": "epsilon*(1 - 2*epsilon)/3",
+          "exact_checks": {
+            "delta_squared_positive_near_zero": true,
+            "opposite_first_order_entropy_terms_cancel": true,
+            "positive_support_limit": true,
+            "purity_preserved": true,
+            "sum_preserved": true
+          },
+          "positive_support_size": 3
+        },
+        {
+          "delta_squared": "epsilon*(2 - 5*epsilon)/8",
+          "exact_checks": {
+            "delta_squared_positive_near_zero": true,
+            "opposite_first_order_entropy_terms_cancel": true,
+            "positive_support_limit": true,
+            "purity_preserved": true,
+            "sum_preserved": true
+          },
+          "positive_support_size": 4
+        },
+        {
+          "delta_squared": "epsilon*(1 - 3*epsilon)/5",
+          "exact_checks": {
+            "delta_squared_positive_near_zero": true,
+            "opposite_first_order_entropy_terms_cancel": true,
+            "positive_support_limit": true,
+            "purity_preserved": true,
+            "sum_preserved": true
+          },
+          "positive_support_size": 5
+        }
+      ],
+      "exact_checks": {
+        "implicit_derivative_nonzero_if_a_ne_b": true,
+        "unequal_support_constraint_at_origin": true,
+        "unequal_support_sum_preserved": true
+      },
+      "unequal_support_implicit_derivative_at_origin": "2*a - 2*b",
+      "unequal_support_purity_residual": "-a**2 - b**2 + epsilon**2 + (a + u)**2 + (-b + epsilon + u)**2"
+    },
+    "differential_certificate": {
+      "at_most_two_positive_roots_reason": "a strictly concave logarithm minus a line has at most two zeros",
+      "exact_checks": {
+        "antipodal_pair_relative_entropy_reduction": true,
+        "boundary_epsilon_log_epsilon_limit": true,
+        "boundary_log_dominates_linear": true,
+        "entropy_first_derivative": true,
+        "entropy_second_derivative": true,
+        "log_secant_sign_gap_at_one": true,
+        "log_secant_sign_gap_derivative": true,
+        "repeated_high_second_variation": true,
+        "stationarity_strict_concavity": true
+      },
+      "log_secant_gap": "log(t) - 1 + 1/t",
+      "log_secant_gap_derivative": "(t - 1)/t**2",
+      "repeated_high_second_variation": "2*(a - b + log((b/a)**b))/(b*(a - b))",
+      "stationarity_equation": "log(p_i)+1=lambda+2*mu*p_i (constant log(6) absorbed into lambda)",
+      "stationarity_strict_concavity": "-1/p**2",
+      "strict_sign_domain": "a>0 and t=b/a>1"
+    },
+    "endpoint_checks": {
+      "nonzero_amplitude_norm_separates_radial_rescaling": true,
+      "pure_endpoint_purity": true,
+      "pure_high": true,
+      "pure_low": true,
+      "uniform_high": true,
+      "uniform_low": true
+    },
+    "minimizer": {
+      "high": "sqrt(15)*r/36 + 1/6",
+      "high_multiplicity": 1,
+      "low": "-sqrt(15)*r/180 + 1/6",
+      "low_multiplicity": 5
+    },
+    "pair_count": 6,
+    "purity": "r**2/72 + 1/6",
+    "radial_rescaling_separated": "fixing a nonzero source norm changes purity under a positive radial rescaling unless the multiplier is one; the selected shape is nonetheless degenerate",
+    "stationary_branches": [
+      {
+        "exact_checks": {
+          "fixed_purity": true,
+          "low_probability_zero_at_domain_endpoint": true,
+          "positive_ordered_amplitude_difference": true,
+          "probability_sum": true,
+          "unit_twelve_port_norm": true,
+          "zero_mean_amplitude": true
+        },
+        "high_amplitude": "sqrt(15)/6",
+        "high_multiplicity": 1,
+        "high_probability": "sqrt(15)*r/36 + 1/6",
+        "low_amplitude": "-sqrt(15)/30",
+        "low_multiplicity": 5,
+        "low_probability": "-sqrt(15)*r/180 + 1/6",
+        "minimum_classification": "unique_global_minimum_up_to_permutation",
+        "strict_support_upper_r": "2*sqrt(15)"
+      },
+      {
+        "exact_checks": {
+          "fixed_purity": true,
+          "low_probability_zero_at_domain_endpoint": true,
+          "positive_ordered_amplitude_difference": true,
+          "probability_sum": true,
+          "repeated_high_direction_norm_squared_two": true,
+          "repeated_high_direction_purity_tangent": true,
+          "repeated_high_direction_sum_zero": true,
+          "unit_twelve_port_norm": true,
+          "zero_mean_amplitude": true
+        },
+        "high_amplitude": "sqrt(6)/6",
+        "high_multiplicity": 2,
+        "high_probability": "sqrt(6)*r/36 + 1/6",
+        "low_amplitude": "-sqrt(6)/12",
+        "low_multiplicity": 4,
+        "low_probability": "-sqrt(6)*r/72 + 1/6",
+        "minimum_classification": "excluded_by_negative_constrained_second_variation",
+        "strict_support_upper_r": "2*sqrt(6)"
+      },
+      {
+        "exact_checks": {
+          "fixed_purity": true,
+          "low_probability_zero_at_domain_endpoint": true,
+          "positive_ordered_amplitude_difference": true,
+          "probability_sum": true,
+          "repeated_high_direction_norm_squared_two": true,
+          "repeated_high_direction_purity_tangent": true,
+          "repeated_high_direction_sum_zero": true,
+          "unit_twelve_port_norm": true,
+          "zero_mean_amplitude": true
+        },
+        "high_amplitude": "sqrt(3)/6",
+        "high_multiplicity": 3,
+        "high_probability": "sqrt(3)*r/36 + 1/6",
+        "low_amplitude": "-sqrt(3)/6",
+        "low_multiplicity": 3,
+        "low_probability": "-sqrt(3)*r/36 + 1/6",
+        "minimum_classification": "excluded_by_negative_constrained_second_variation",
+        "strict_support_upper_r": "2*sqrt(3)"
+      },
+      {
+        "exact_checks": {
+          "fixed_purity": true,
+          "low_probability_zero_at_domain_endpoint": true,
+          "positive_ordered_amplitude_difference": true,
+          "probability_sum": true,
+          "repeated_high_direction_norm_squared_two": true,
+          "repeated_high_direction_purity_tangent": true,
+          "repeated_high_direction_sum_zero": true,
+          "unit_twelve_port_norm": true,
+          "zero_mean_amplitude": true
+        },
+        "high_amplitude": "sqrt(6)/12",
+        "high_multiplicity": 4,
+        "high_probability": "sqrt(6)*r/72 + 1/6",
+        "low_amplitude": "-sqrt(6)/6",
+        "low_multiplicity": 2,
+        "low_probability": "-sqrt(6)*r/36 + 1/6",
+        "minimum_classification": "excluded_by_negative_constrained_second_variation",
+        "strict_support_upper_r": "sqrt(6)"
+      },
+      {
+        "exact_checks": {
+          "fixed_purity": true,
+          "low_probability_zero_at_domain_endpoint": true,
+          "positive_ordered_amplitude_difference": true,
+          "probability_sum": true,
+          "repeated_high_direction_norm_squared_two": true,
+          "repeated_high_direction_purity_tangent": true,
+          "repeated_high_direction_sum_zero": true,
+          "unit_twelve_port_norm": true,
+          "zero_mean_amplitude": true
+        },
+        "high_amplitude": "sqrt(15)/30",
+        "high_multiplicity": 5,
+        "high_probability": "sqrt(15)*r/180 + 1/6",
+        "low_amplitude": "-sqrt(15)/6",
+        "low_multiplicity": 1,
+        "low_probability": "-sqrt(15)*r/36 + 1/6",
+        "minimum_classification": "excluded_by_negative_constrained_second_variation",
+        "strict_support_upper_r": "2*sqrt(15)/5"
+      }
+    ],
+    "zero_amplitude_boundary": "at r=0 the probability record is uniform for every normalized a; no direction is selected and the actual quadrupole r*Q is zero"
+  },
+  "source_pins": [
+    {
+      "bytes": 5146,
+      "path": "code/particles/flavor/full_entropy_w5_selector_spec.json",
+      "role": "declared selector and analytic global argument",
+      "sha256": "dbcbcc1798ca5df63ff4ca6b8e6e931fb13ecc7d06f383e1c7a6c27a723828c1"
+    },
+    {
+      "bytes": 18195,
+      "path": "code/particles/flavor/full_entropy_w5_selector.py",
+      "role": "exact symbolic producer",
+      "sha256": "303bb27a70b9febd272483b65957e8fb5236df611e4a41582c010640c720f86b"
+    }
+  ],
+  "status": "EXACT_FULL_ENTROPY_SELECTOR_CLASSIFICATION__SINGLE_QUADRUPOLE_HIERARCHY_EXCLUDED"
+}
