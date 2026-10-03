@@ -1,0 +1,41 @@
+name: McKay golden character field
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "code/a5_closure/mckay_golden_field_*.py"
+      - "code/a5_closure/verify_mckay_golden_field_*.py"
+      - "code/a5_closure/test_mckay_golden_field_*.py"
+      - "code/a5_closure/receipts/**"
+      - "code/a5_closure/mckay_golden_field_*.md"
+      - ".github/workflows/mckay-golden-field.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "code/a5_closure/mckay_golden_field_*.py"
+      - "code/a5_closure/verify_mckay_golden_field_*.py"
+      - "code/a5_closure/test_mckay_golden_field_*.py"
+      - "code/a5_closure/receipts/**"
+      - "code/a5_closure/mckay_golden_field_*.md"
+      - ".github/workflows/mckay-golden-field.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-mckay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Reconstruct the exact quaternionic carrier
+        run: python3 -B code/a5_closure/mckay_golden_field_certificate.py --output "$RUNNER_TEMP/mckay-golden-raw.json"
+      - name: Independently reconstruct and verify McKay data
+        run: python3 -B code/a5_closure/verify_mckay_golden_field_independent.py --input "$RUNNER_TEMP/mckay-golden-raw.json" --output "$RUNNER_TEMP/mckay-golden-verified.json"
+      - name: Run hostile controls
+        run: |
+          python3 -B code/a5_closure/test_mckay_golden_field_certificate.py
+          python3 -B code/a5_closure/test_mckay_golden_field_cross_control.py
+      - name: Check the pinned OPH cross-control
+        run: python3 -B code/a5_closure/verify_mckay_golden_field_cross_control.py

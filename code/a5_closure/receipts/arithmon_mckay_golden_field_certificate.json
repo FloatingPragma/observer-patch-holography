@@ -1,0 +1,445 @@
+{
+  "claim_boundary": [
+    "no OPH derivation input",
+    "no Koide input",
+    "no experimental data",
+    "no physical particle identification",
+    "no real embedding selector"
+  ],
+  "conjugacy_classes": {
+    "count": 9,
+    "partition_verified": true,
+    "sizes": [
+      1,
+      1,
+      12,
+      12,
+      12,
+      12,
+      20,
+      20,
+      30
+    ]
+  },
+  "faithful_doublet": {
+    "central_minus_one_action": "-I_2",
+    "character_norm": 1,
+    "coefficient_field": "Q(sqrt(5), i)",
+    "determinant_one": true,
+    "dimension": 2,
+    "faithful": true,
+    "i_coefficient_witness_quaternion": [
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    "irreducible": true,
+    "sqrt5_coefficient_witness_quaternion": [
+      "0",
+      "-1/2",
+      "1/4+1/4*sqrt(5)",
+      "1/4-1/4*sqrt(5)"
+    ],
+    "trace_field_candidate": "Q(sqrt(5))"
+  },
+  "fusion": {
+    "connected": true,
+    "dimension_vector": [
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      5,
+      6,
+      4
+    ],
+    "dimension_vector_2_eigenvector": true,
+    "dimension_vector_eigenvalue": 2,
+    "edge_count": 8,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "matrix": [
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    "simply_laced": true,
+    "tree": true,
+    "vertices": 9
+  },
+  "galois_conjugate_fusion": {
+    "automorphism": "sqrt(5)->-sqrt(5); i fixed",
+    "connected": true,
+    "determinant_one": true,
+    "dimension": 2,
+    "dimension_vector": [
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      5,
+      6,
+      4
+    ],
+    "dimension_vector_2_eigenvector": true,
+    "dimension_vector_eigenvalue": 2,
+    "doublet_distinct": true,
+    "doublet_faithful": true,
+    "doublet_irreducible": true,
+    "edge_count": 8,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "faithful": true,
+    "fusion_recomputed": true,
+    "irreducible": true,
+    "matrix": [
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    "representation_homomorphism": true,
+    "same_labeled_graph": false,
+    "sigma_fixes_i": true,
+    "simply_laced": true,
+    "tree": true,
+    "vertices": 9
+  },
+  "golden_character_field": {
+    "all_traces_in_Qsqrt5": true,
+    "field_exactly": "Q(sqrt(5))",
+    "nonrational_trace_witness": {
+      "quaternion": [
+        "1/4-1/4*sqrt(5)",
+        "1/2",
+        "0",
+        "1/4+1/4*sqrt(5)"
+      ],
+      "trace": "1/2-1/2*sqrt(5)"
+    },
+    "witness_minimal_polynomial": "X^2-X-1"
+  },
+  "golden_embedding": {
+    "phi": "1/2+1/2*sqrt(5)",
+    "psi": "1/2-1/2*sqrt(5)",
+    "sigma_phi_equals_psi": true
+  },
+  "irreducibles": {
+    "count": 9,
+    "derivation": "symmetric powers, exact constituent subtraction, inner products, and field conjugation",
+    "dimensions": [
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      5,
+      6,
+      4
+    ],
+    "hardcoded_character_table": false,
+    "hardcoded_dimension_list": false,
+    "labels": [
+      "Sym^0(V) residual",
+      "Sym^1(V) residual",
+      "sigma(Sym^1(V)) residual",
+      "Sym^2(V) residual",
+      "sigma(Sym^2(V)) residual",
+      "Sym^3(V) residual",
+      "Sym^4(V) residual",
+      "Sym^5(V) residual",
+      "Sym^6(V) residual"
+    ],
+    "orthonormal": true,
+    "sum_squared_dimensions": 120
+  },
+  "primary_verdict": "EXACT_DATA_DERIVED_GRAPH_IDENTIFICATION_PENDING",
+  "schema": "arithmon.mckay_golden_field.raw.v1",
+  "sl2f5_cross_identification": {
+    "center": [
+      "+I",
+      "-I"
+    ],
+    "center_size": 2,
+    "closure": true,
+    "definition": "all 2x2 matrices over F5 with determinant one, enumerated from entries",
+    "explicit_isomorphism": false,
+    "not_identified_by_order_alone": true,
+    "order": 120,
+    "status": "separately constructed with matching order and center; explicit isomorphism not proved"
+  },
+  "source_group": {
+    "associativity_source": "Hamilton quaternion algebra; basis-triple implementation check passed",
+    "canonical_element_set_sha256": "16611e96b706bde2e304f09c7358a6843d300248cc29e97302811a1d19670629",
+    "center": [
+      "+1",
+      "-1"
+    ],
+    "center_size": 2,
+    "closure": true,
+    "construction": "exact standard H4/600-cell unit-quaternion coordinate set",
+    "inverse_closure": true,
+    "order": 120
+  }
+}

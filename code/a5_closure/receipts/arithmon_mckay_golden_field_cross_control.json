@@ -1,0 +1,42 @@
+{
+  "schema": "arithmon.mckay_golden_field.cross_control.v2",
+  "arithmon_frozen_commit": "c6f69b502d30f465868e0127c2f2e1d30f5791ed",
+  "arithmon_receipts": {
+    "producer": {
+      "path": "code/a5_closure/receipts/arithmon_mckay_golden_field_certificate.json",
+      "git_blob_sha": "62e5d622f00cb9df920503014b8d558227e94412",
+      "sha256": "179702705753810b70fa0551c1f9847bfa54594fcfb9c02cf46e8041d546b67e"
+    },
+    "independent_reference": {
+      "path": "code/a5_closure/receipts/arithmon_mckay_golden_field_reference.json",
+      "git_blob_sha": "847117b3e509af40b4e7b815ba0ab6178810bade",
+      "sha256": "f2c1f5741c52a6cd3495e933d5ae542a98c0ea078e49ac733ae5e9135ed62cee"
+    }
+  },
+  "oph": {
+    "repository": "FloatingPragma/observer-patch-holography",
+    "commit": "4ae2148a26ce15591adaac78ff408fb2cc32d3a2",
+    "producer_path": "code/a5_closure/sl2f5_mckay_e8_certificate.py",
+    "producer_blob_sha": "2938db085477737cab6eb09a3a87f7330c37f473",
+    "output_schema": "oph.sl2f5_mckay_e8.v1",
+    "raw_receipt_path": "code/a5_closure/receipts/external/oph_sl2f5_mckay_e8_4ae2148a.json",
+    "raw_receipt_sha256": "6b2daf8fe387cff880aa50af5edc150fd41cfdb0eb6f03ae3ace082ea79a3b55",
+    "exact_producer_executed": true,
+    "tests_executed": false
+  },
+  "expected_comparison_result": "INDEPENDENT_EXACT_AGREEMENT",
+  "claim_boundary": {
+    "no_explicit_isomorphism_between_carriers": true,
+    "oph_used_as_derivation_input": false,
+    "koide_used": false,
+    "experimental_data_used": false,
+    "observable_changed": false,
+    "physical_identification": false
+  },
+  "chronology_note": "Comparator deliberately remains pinned to OPH commit 4ae2148a. Verified 2026-10-03: upstream main is d2fb7da3 and retains the same producer blob; the comparator remains pinned to 4ae2148a.",
+  "upstream_current_main": {
+    "commit": "d2fb7da33aa1056dd3feebec50937497bfdb5da9",
+    "producer_blob_sha": "2938db085477737cab6eb09a3a87f7330c37f473",
+    "verified": true
+  }
+}

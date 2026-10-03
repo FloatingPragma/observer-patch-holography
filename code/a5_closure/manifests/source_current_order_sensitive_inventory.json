@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 875,
+    "file_count": 886,
     "files": [
       {
         "byte_count": 42558,
@@ -2348,6 +2348,21 @@
         "sha256": "sha256:a5e01681bfd9ddbc3723b3e51adaf933d6009c777aa12fa3a92610313b2a3cd9"
       },
       {
+        "byte_count": 6173,
+        "path": "code/a5_closure/mckay_golden_field_certificate.md",
+        "sha256": "sha256:a9e5896a45d9af6769e0e246853bf42e1e82e8a734a508334c977fec76378859"
+      },
+      {
+        "byte_count": 23835,
+        "path": "code/a5_closure/mckay_golden_field_certificate.py",
+        "sha256": "sha256:5bbcd84f68905361599be9e9a97765f0a58cc32d822e6dc88847fffadeb4519f"
+      },
+      {
+        "byte_count": 6198,
+        "path": "code/a5_closure/mckay_golden_field_scope_audit.md",
+        "sha256": "sha256:5e66879faa34dc01f2fda93a5d757b9bfd6f262bc5cb87aace7588bcaf86df07"
+      },
+      {
         "byte_count": 35102,
         "path": "code/a5_closure/multiplicity_window_certificate.py",
         "sha256": "sha256:11ba7d832d9d203f61752fa8f691f56e36c5eb3058f71752a24a24025c532e4f"
@@ -2438,6 +2453,21 @@
         "sha256": "sha256:93d72fb361d3522145aab7bbf21edabcc4a2d960f87e66629ef831c4662a9e89"
       },
       {
+        "byte_count": 6775,
+        "path": "code/a5_closure/receipts/arithmon_mckay_golden_field_certificate.json",
+        "sha256": "sha256:179702705753810b70fa0551c1f9847bfa54594fcfb9c02cf46e8041d546b67e"
+      },
+      {
+        "byte_count": 1985,
+        "path": "code/a5_closure/receipts/arithmon_mckay_golden_field_cross_control.json",
+        "sha256": "sha256:8904cc227397bccf928eaa71352d5e18e4cce30f3716db174d58fbff7b30b477"
+      },
+      {
+        "byte_count": 5771,
+        "path": "code/a5_closure/receipts/arithmon_mckay_golden_field_reference.json",
+        "sha256": "sha256:f2c1f5741c52a6cd3495e933d5ae542a98c0ea078e49ac733ae5e9135ed62cee"
+      },
+      {
         "byte_count": 15587,
         "path": "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
         "sha256": "sha256:c12251507f8843c664854da0682717b3a6b437fdc5632679c7fe1d4918c5d2fb"
@@ -2461,6 +2491,11 @@
         "byte_count": 15457,
         "path": "code/a5_closure/receipts/echosahedral_federation_reference.receipt.json",
         "sha256": "sha256:bffec48f0d11d488fb02b852dd110394148a997b739a366f519fec5f9ac31ca5"
+      },
+      {
+        "byte_count": 11094,
+        "path": "code/a5_closure/receipts/external/oph_sl2f5_mckay_e8_4ae2148a.json",
+        "sha256": "sha256:6b2daf8fe387cff880aa50af5edc150fd41cfdb0eb6f03ae3ace082ea79a3b55"
       },
       {
         "byte_count": 36667,
@@ -2596,6 +2631,16 @@
         "byte_count": 10045,
         "path": "code/a5_closure/test_audit.py",
         "sha256": "sha256:f6150a1ccf9c46d5ece349740b5f1384bdaaefa4aff1c38e29a2411e98ad9cf8"
+      },
+      {
+        "byte_count": 9560,
+        "path": "code/a5_closure/test_mckay_golden_field_certificate.py",
+        "sha256": "sha256:a88ce8bd99bfcd4e11bae0a00324a387dc33f6cc8a4b757b2f50c592e9f2706d"
+      },
+      {
+        "byte_count": 4112,
+        "path": "code/a5_closure/test_mckay_golden_field_cross_control.py",
+        "sha256": "sha256:d28643fbed8c74dcc88f5f9abe326e27854916d23d40c0d0239f462d478a9447"
       },
       {
         "byte_count": 8671,
@@ -2766,6 +2811,16 @@
         "byte_count": 12352,
         "path": "code/a5_closure/verify_galois_port_frame_independent.py",
         "sha256": "sha256:0b805033eb3e7c27c812a2d0919504796f73980d5d6d75f23dd68925045fbbea"
+      },
+      {
+        "byte_count": 11769,
+        "path": "code/a5_closure/verify_mckay_golden_field_cross_control.py",
+        "sha256": "sha256:36771683445feed5263415c7127c5605d1ff80ccc206b3f413ba400428293bc7"
+      },
+      {
+        "byte_count": 12812,
+        "path": "code/a5_closure/verify_mckay_golden_field_independent.py",
+        "sha256": "sha256:a78178b9557b43c5114d14592c67273e7547dd8b2a4eb8a6b65fdb717ab57d27"
       },
       {
         "byte_count": 10368,
@@ -4573,7 +4628,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:974c9717d98caf8332af261615a1338e42446d04ea6843d2cb0b29d2bb7c16a2",
+    "files_sha256": "sha256:32fa637e219d4af877f930216c1519ae3a2383175a86b026e6bf00c27e485a5b",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
@@ -7482,7 +7537,7 @@
     ],
     "through_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f"
   },
-  "inventory_sha256": "sha256:85aef832e41e009a56afb9c23bb477f8e1107d091aedbaff7a0863125dd1a372",
+  "inventory_sha256": "sha256:1eb09641f08ffb3d26f9720df21efbd1a57369f35aed79e633de295841062f21",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",

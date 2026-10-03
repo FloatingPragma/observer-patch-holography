@@ -1,0 +1,631 @@
+{
+  "character_table": [
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "5",
+        "quotient4": "4",
+        "spin2": "2",
+        "spin2_galois": "2",
+        "spin4": "4",
+        "spin6": "6",
+        "triplet3": "3",
+        "triplet3_galois": "3"
+      },
+      "class": 0,
+      "element_order": 1,
+      "representative": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "size": 1
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "5",
+        "quotient4": "4",
+        "spin2": "-2",
+        "spin2_galois": "-2",
+        "spin4": "-4",
+        "spin6": "-6",
+        "triplet3": "3",
+        "triplet3_galois": "3"
+      },
+      "class": 1,
+      "element_order": 2,
+      "representative": [
+        4,
+        0,
+        0,
+        4
+      ],
+      "size": 1
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "-1",
+        "quotient4": "1",
+        "spin2": "-1",
+        "spin2_galois": "-1",
+        "spin4": "1",
+        "spin6": "0",
+        "triplet3": "0",
+        "triplet3_galois": "0"
+      },
+      "class": 2,
+      "element_order": 3,
+      "representative": [
+        0,
+        1,
+        4,
+        4
+      ],
+      "size": 20
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "1",
+        "quotient4": "0",
+        "spin2": "0",
+        "spin2_galois": "0",
+        "spin4": "0",
+        "spin6": "0",
+        "triplet3": "-1",
+        "triplet3_galois": "-1"
+      },
+      "class": 3,
+      "element_order": 4,
+      "representative": [
+        0,
+        1,
+        4,
+        0
+      ],
+      "size": 30
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "0",
+        "quotient4": "-1",
+        "spin2": "-1/2 + 1/2*sqrt(5)",
+        "spin2_galois": "-1/2 + -1/2*sqrt(5)",
+        "spin4": "-1",
+        "spin6": "1",
+        "triplet3": "1/2 + -1/2*sqrt(5)",
+        "triplet3_galois": "1/2 + 1/2*sqrt(5)"
+      },
+      "class": 4,
+      "element_order": 5,
+      "representative": [
+        0,
+        1,
+        4,
+        2
+      ],
+      "size": 12
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "0",
+        "quotient4": "-1",
+        "spin2": "-1/2 + -1/2*sqrt(5)",
+        "spin2_galois": "-1/2 + 1/2*sqrt(5)",
+        "spin4": "-1",
+        "spin6": "1",
+        "triplet3": "1/2 + 1/2*sqrt(5)",
+        "triplet3_galois": "1/2 + -1/2*sqrt(5)"
+      },
+      "class": 5,
+      "element_order": 5,
+      "representative": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "size": 12
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "-1",
+        "quotient4": "1",
+        "spin2": "1",
+        "spin2_galois": "1",
+        "spin4": "-1",
+        "spin6": "0",
+        "triplet3": "0",
+        "triplet3_galois": "0"
+      },
+      "class": 6,
+      "element_order": 6,
+      "representative": [
+        0,
+        1,
+        4,
+        1
+      ],
+      "size": 20
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "0",
+        "quotient4": "-1",
+        "spin2": "1/2 + -1/2*sqrt(5)",
+        "spin2_galois": "1/2 + 1/2*sqrt(5)",
+        "spin4": "1",
+        "spin6": "-1",
+        "triplet3": "1/2 + -1/2*sqrt(5)",
+        "triplet3_galois": "1/2 + 1/2*sqrt(5)"
+      },
+      "class": 7,
+      "element_order": 10,
+      "representative": [
+        0,
+        1,
+        4,
+        3
+      ],
+      "size": 12
+    },
+    {
+      "characters": {
+        "one": "1",
+        "quintet5": "0",
+        "quotient4": "-1",
+        "spin2": "1/2 + 1/2*sqrt(5)",
+        "spin2_galois": "1/2 + -1/2*sqrt(5)",
+        "spin4": "1",
+        "spin6": "-1",
+        "triplet3": "1/2 + 1/2*sqrt(5)",
+        "triplet3_galois": "1/2 + -1/2*sqrt(5)"
+      },
+      "class": 8,
+      "element_order": 10,
+      "representative": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "size": 12
+    }
+  ],
+  "claim_boundary": {
+    "also_proves": "the sqrt(5)-Galois-conjugate faithful doublet produces the same affine-E8 graph type, so graph type alone does not select one real embedding of Q(sqrt(5))",
+    "does_not_prove": [
+      "selection or derivation of phi rather than its Galois conjugate",
+      "27^phi or any mass relation",
+      "physical identification of the finite spin action",
+      "source selection of the charged-double-triplet current fixture",
+      "a typed Lean McKay or affine-E8 theorem"
+    ],
+    "proves": "the McKay graph of the certified faithful two-dimensional SL(2,F5) spin representation is exactly affine E8, with all nine irreducible characters recovered from exact character arithmetic"
+  },
+  "galois_control": {
+    "affine_e8_graph_type_selects_galois_embedding": false,
+    "affine_e8_isomorphism_count": 1,
+    "automorphism": "sqrt(5) -> -sqrt(5), i fixed",
+    "conjugate_doublet": "spin2_galois",
+    "edges": [
+      [
+        "one",
+        "spin2_galois"
+      ],
+      [
+        "quintet5",
+        "spin6"
+      ],
+      [
+        "spin2",
+        "quotient4"
+      ],
+      [
+        "spin2_galois",
+        "triplet3_galois"
+      ],
+      [
+        "spin4",
+        "quintet5"
+      ],
+      [
+        "spin4",
+        "triplet3_galois"
+      ],
+      [
+        "spin6",
+        "quotient4"
+      ],
+      [
+        "triplet3",
+        "spin6"
+      ]
+    ],
+    "faithful": true,
+    "fusion_matrix": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "galois_trace_values": [
+      "-1",
+      "-1/2 + -1/2*sqrt(5)",
+      "-1/2 + 1/2*sqrt(5)",
+      "-2",
+      "0",
+      "1",
+      "1/2 + -1/2*sqrt(5)",
+      "1/2 + 1/2*sqrt(5)",
+      "2"
+    ],
+    "kernel_size": 1,
+    "same_affine_e8_graph_type": true,
+    "same_labeled_graph": false,
+    "spin_trace_values": [
+      "-1",
+      "-1/2 + -1/2*sqrt(5)",
+      "-1/2 + 1/2*sqrt(5)",
+      "-2",
+      "0",
+      "1",
+      "1/2 + -1/2*sqrt(5)",
+      "1/2 + 1/2*sqrt(5)",
+      "2"
+    ],
+    "sqrt5_sensitive_spin_trace_values": [
+      "-1/2 + -1/2*sqrt(5)",
+      "-1/2 + 1/2*sqrt(5)",
+      "1/2 + -1/2*sqrt(5)",
+      "1/2 + 1/2*sqrt(5)"
+    ]
+  },
+  "irreducible_recovery": {
+    "center_signs": {
+      "one": 1,
+      "quintet5": 1,
+      "quotient4": 1,
+      "spin2": -1,
+      "spin2_galois": -1,
+      "spin4": -1,
+      "spin6": -1,
+      "triplet3": 1,
+      "triplet3_galois": 1
+    },
+    "derivation": {
+      "spin2_times_spin2_galois_known_projections": {
+        "one": 0,
+        "quintet5": 0,
+        "spin2": 0,
+        "spin2_galois": 0,
+        "spin4": 0,
+        "spin6": 0,
+        "triplet3": 0
+      },
+      "sym0_through_sym5_irreducible_dimensions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sym6_final_projection": {
+        "quotient4": 1
+      },
+      "sym6_known_projections": {
+        "one": 0,
+        "quintet5": 0,
+        "spin2": 0,
+        "spin4": 0,
+        "spin6": 0,
+        "triplet3": 0
+      },
+      "sym6_residual_dimension": 7,
+      "sym6_residual_norm": 2,
+      "sym7_known_projections": {
+        "one": 0,
+        "quintet5": 0,
+        "spin2": 0,
+        "spin4": 0,
+        "spin6": 1,
+        "triplet3": 0
+      },
+      "sym7_residual_dimension": 2
+    },
+    "dimensions": {
+      "one": 1,
+      "quintet5": 5,
+      "quotient4": 4,
+      "spin2": 2,
+      "spin2_galois": 2,
+      "spin4": 4,
+      "spin6": 6,
+      "triplet3": 3,
+      "triplet3_galois": 3
+    },
+    "hard_coded_character_table": false,
+    "irreducible_count": 9,
+    "method": "exact symmetric-power recurrence plus finite-group character inner products",
+    "sum_squared_dimensions": 120
+  },
+  "mckay": {
+    "affine_e8_isomorphism": {
+      "one": "e0",
+      "quintet5": "e4",
+      "quotient4": "e6",
+      "spin2": "e1",
+      "spin2_galois": "e7",
+      "spin4": "e3",
+      "spin6": "e5",
+      "triplet3": "e2",
+      "triplet3_galois": "e8"
+    },
+    "affine_e8_isomorphism_count": 1,
+    "connected_tree": true,
+    "dimension_vector_is_two_eigenvector": true,
+    "edges": [
+      [
+        "one",
+        "spin2"
+      ],
+      [
+        "quintet5",
+        "spin6"
+      ],
+      [
+        "spin2",
+        "triplet3"
+      ],
+      [
+        "spin2_galois",
+        "quotient4"
+      ],
+      [
+        "spin4",
+        "quintet5"
+      ],
+      [
+        "spin6",
+        "quotient4"
+      ],
+      [
+        "spin6",
+        "triplet3_galois"
+      ],
+      [
+        "triplet3",
+        "spin4"
+      ]
+    ],
+    "fusion_matrix": [
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "node_order": [
+      "one",
+      "spin2",
+      "triplet3",
+      "spin4",
+      "quintet5",
+      "spin6",
+      "spin2_galois",
+      "quotient4",
+      "triplet3_galois"
+    ],
+    "tensor_doublet": "spin2"
+  },
+  "negative_control": {
+    "affine_e8_isomorphism_count": 0,
+    "dimension": 2,
+    "passes": true,
+    "representation": "1 direct-sum 1"
+  },
+  "schema": "oph.sl2f5_mckay_e8.v1",
+  "source": {
+    "certified_doublet_field": "Q(sqrt(5), i)",
+    "conjugacy_class_count": 9,
+    "group": "SL(2,F5)",
+    "order": 120
+  }
+}
