@@ -1973,6 +1973,13 @@
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "2e8a440f73ee7c7e0f97925769b4670263e99409b447d30e500da6aed0dda3a3"
       },
+      "OPH-SOURCE-PAIRED-GRAVITY-NONIDENTIFICATION": {
+        "assumptions": [
+          "declared_calibrated_two_field_gravity_source_and_probe_dictionary"
+        ],
+        "disposition": "existing_contract_retained_without_automatic_transfer",
+        "original_claim_sha256": "11a891ba8194fa64abcf731a19c465c4748d757a84069bfd9a129aa964931e61"
+      },
       "OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION": {
         "assumptions": [
           "declared_fault_protected_source_schedule"
@@ -2958,6 +2965,11 @@
         "to": "OPH-WZ-STRICT-1L-POLE-MAP"
       },
       {
+        "from": "OPH-SOURCE-ACTION-MEASURE-IDENTIFICATION",
+        "role": "Supplies the actual positive source action support and distinguishes its action measure from record multiplicity; the new massless two-field constitutive and physical probe maps are explicitly supplied.",
+        "to": "OPH-SOURCE-PAIRED-GRAVITY-NONIDENTIFICATION"
+      },
+      {
         "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
         "role": "Supplies the native single-qubit and entangling response controls and full physical code instruments in the named source.",
         "to": "OPH-SOURCE-COMPILED-MASS-CLOCK"
@@ -3747,7 +3759,7 @@
     "code/m1_necessity/CONSUMERS.md": "5e178a21be7719c24794fbcab673c4ae6d76a96aa66cab2d69e62663526780d4",
     "code/m1_necessity/CONTRACT.md": "f3186f4911ea004fcad0058dbc0a526d359c623d42bdb4bf279fc6dd43ea1670",
     "code/m1_necessity/DERIVATION.md": "13754829bb642c0e48c4ae8cfb8f69d56baa8de90c36dfcb18ae0ff0a8dcca9c",
-    "code/m1_necessity/README.md": "2b2c66e14383a45a2b8e7d4e25dd85a3e37bcf591bd178b6b631e7fb7c38cba5",
+    "code/m1_necessity/README.md": "939b756634312bc2cba38d6b5656d9b5df2763f0fc199885b4de5aa2f47655ac",
     "code/m1_necessity/SPECTRAL_COMPLETION.md": "1e633dcbe37a26401ef7c81c158f47d164b5ffb03ae6631da4e42b431ea19f54",
     "code/m1_necessity/__init__.py": "a49a6656f96a30bd6343e498a0ca5302dae30515d4cf458d45c172933a0247ac",
     "code/m1_necessity/audit.py": "d6a0df2ca2ab885fa8cb7c527f3a74ac17b748847524f4cec7d8df7a049a50c0",
@@ -3756,9 +3768,9 @@
     "code/m1_necessity/build.py": "02da13ead4ae1dda4bbce10d2d54fd3868e11a9c772675df85fedb8f85af9bd6",
     "code/m1_necessity/check.py": "5b32a5391dbbdd4f2ea428b8913ff0f7359234757eaa675f85d40e49a42d26e3",
     "code/m1_necessity/consumers.json": "388204f13cda0b8fbe804ef544cdaf7092a2dbc64e90f5849ba4fc3ed7569996",
-    "code/m1_necessity/downstream.json": "250102780ac5eccdcbdff35da21d203af2b5316692e5583c9799bdd8a42345ec",
+    "code/m1_necessity/downstream.json": "889f01a0023156823a3388097cc8cdb76ae427f2a8c2e2cb609220857c14a1ec",
     "code/m1_necessity/model.py": "8193f1ebd30f00ee4ba5616839899b2dac86e6ee9ca2f3dfd71fe2022f65cb89",
-    "code/m1_necessity/test_necessity.py": "d946a902a7144b1d0a76c5cc37d63285c17b8a8d0741728f0098b6019cbd5a43",
+    "code/m1_necessity/test_necessity.py": "2bce1ff77c34308671691f5b4acba0ea3e82a3f80ef18d7c6dc1b0af98e6c29f",
     "code/m1_necessity/verify.py": "b49005bbb65ceee876ba76dd3242dcc7e6729bcc35c1e54a1050b5832ddff3f0",
     "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex": "5460ddfa8a588944d7eac244c2962f38bde7c2fed785bae72987671b37204e18",
     "paper/tex_fragments/M1_NECESSITY.tex": "b153dca6015888c4db7968b4610f933b05e058b4198b36664e91171bb6c7f2c2",

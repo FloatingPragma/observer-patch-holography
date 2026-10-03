@@ -13784,6 +13784,54 @@
         "boundary": [],
         "rationale": "This row constructs an informative complete QND read over an explicitly prepared sea and charges its longer noisy source lifetime. Masses, reference preparation, timing, supplied-program capability and fixed-strength local noise remain declared; the interval and resource proof neither assumes nor establishes an empirical premise-register branch or autonomous physical clock."
       }
+    },
+    {
+      "claim_id": "OPH-SOURCE-PAIRED-GRAVITY-NONIDENTIFICATION",
+      "statement": "On the existing grounded source-addressed scalar support, every positive symmetric two-field edge coefficient with unit clock Schur complement has coefficients (1+kappa gamma^2,-kappa gamma,kappa), kappa>0. All members have identical complete static clock response, Gaussian clock marginal and supplied clock dynamics, but v=gamma u. This nonidentifiability also holds for the common proper-time resting-source energy with j exp(-u) coupling and its non-Gaussian marginal. A single declared metric and universal matter/Maxwell coupling give the same static clock ratio exp(u_receiver-u_emitter) but first-order exterior bending 2(1+gamma)mu/b. The conformal member has exactly zero bending. Linearized physical exterior G_ij=0 selects gamma=1 in this class, whereas scalar vacuum and Ward balance do not. Sixteen independently replayed local histories retain both source laws, strengths, schedules and transverse seeds, with finite residual bounds and same-history clock/optical reads. Published static redshift and solar radio coefficients are compared retrospectively without raw-likelihood or physical-establishment claims.",
+      "assumptions": [
+        "declared_calibrated_two_field_gravity_source_and_probe_dictionary"
+      ],
+      "imported_results": [
+        "positive_quadratic_Schur_complement",
+        "convex_Dirichlet_minimization",
+        "discrete_maximum_principle",
+        "stationary_metric_Killing_frequency_and_Fermat_optics",
+        "linearized_Einstein_tensor",
+        "Pound_Snider_1965_and_Fomalont_2009_published_measurements"
+      ],
+      "oph_specific_delta": "Constructs the missing spatial-response selector on the inherited source support, including full clock-marginal equivalence, nonlinear proper-time matter sourcing and authenticated local read consequences; it does not relabel a supplied GR solution as source-derived.",
+      "novelty_type": "source_class_nonidentifiability_with_paired_gravity_comparison",
+      "falsifier": "A positive normalized two-field coefficient escapes the classification; clock marginals differ at the same source; local replay or error bounds fail; the common metric produces another read law; or the primary measurement chart is mis-transcribed.",
+      "scope_if_false": "The calibrated two-field source classification, finite replay or measurement chart fails. No physical A1-A3 source selection, Einstein branch or parent gravity closure is asserted; #729/#779 retain physical stress and spatial-response selection, #736 calibration and #740 common history.",
+      "owner_paper": "extra/PAIRED_SOURCE_GRAVITY.md",
+      "tier": "analytic_theorem_with_independent_finite_controls",
+      "evidence": [
+        "code/paired_gravity/CONTRACT.md",
+        "code/paired_gravity/DATA.md",
+        "code/paired_gravity/README.md",
+        "code/paired_gravity/__init__.py",
+        "code/paired_gravity/build.py",
+        "code/paired_gravity/format.py",
+        "code/paired_gravity/measurements.json",
+        "code/paired_gravity/observable_check.py",
+        "code/paired_gravity/observables.py",
+        "code/paired_gravity/receipt.json",
+        "code/paired_gravity/source.py",
+        "code/paired_gravity/source_check.py",
+        "code/paired_gravity/test_paired_gravity.py",
+        "code/paired_gravity/verify.py",
+        "extra/PAIRED_SOURCE_GRAVITY.md"
+      ],
+      "status": "constructed_nonidentifiability_on_declared_source_class_with_retrospective_compressed_comparison",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This scoped source-class nonidentifiability theorem supplies its constitutive and probe dictionary and does not assume or establish physical premise-register branch entry. In particular physical stress matching, source/geometry selection and clock/unit calibration remain parent obligations, not hypotheses smuggled into the mathematical comparison."
+      }
     }
   ]
 }

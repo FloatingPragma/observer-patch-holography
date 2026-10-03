@@ -1,0 +1,37 @@
+{
+  "schema": "oph-paired-gravity-measurements-v1",
+  "exposure": "retrospective; primary results inspected 2026-10-03; no prospective or raw-data replay claim",
+  "redshift": {
+    "doi": "10.1103/PhysRev.140.B788",
+    "url": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.140.B788",
+    "location": "publisher abstract; Pound and Snider (1965)",
+    "observable": "reversal frequency contrast divided by measured 2gh/c^2",
+    "reference_fraction": "981/200000000000000000",
+    "ratio": "999/1000",
+    "statistical_sd": "19/2500",
+    "systematic_bound": "1/100",
+    "systematic_distribution": "unspecified; bounded nuisance, not a Gaussian standard deviation"
+  },
+  "deflection": {
+    "doi": "10.1088/0004-637X/699/2/1395",
+    "url": "https://arxiv.org/pdf/0904.3992v1",
+    "pdf_sha256": "66c1f9a90b3b5481d04b9ecc36f8ee4bd3a4a39b7f44b2c00042b4f23275fb6b",
+    "location": "Fomalont et al. (2009), Table 5; Section 4 template convention",
+    "observable": "differential angular-deflection amplitude relative to GR: (1+gamma)/2",
+    "template": "published residual P = (gamma-1) D/2, not gamma D and not (gamma+1) D/2",
+    "primary": "43 GHz corona-free",
+    "rows": [
+      {"name": "43 GHz corona-free", "gamma_minus_one": "-3/12500", "sd_gamma": "1/3125", "reduced_chi_square": "9/10"},
+      {"name": "43 GHz uncorrected", "gamma_minus_one": "-1/10000", "sd_gamma": "13/50000", "reduced_chi_square": "11/5"},
+      {"name": "43 GHz uncorrected without Oct05", "gamma_minus_one": "-1/3125", "sd_gamma": "7/25000", "reduced_chi_square": "11/10"},
+      {"name": "23 GHz without Oct05", "gamma_minus_one": "-1/5000", "sd_gamma": "3/12500", "reduced_chi_square": "47/10"}
+    ],
+    "covariance": "same observations reused across rows; cross-row covariance and raw likelihood not supplied; never combine as independent",
+    "corona_free_position_sd_mas": ["11/100", "1/5", "7/50", "1/4", "1/20", "1/25", "3/20", "3/20", "3/50", "7/100", "11/100", "7/50", "9/100", "3/25", "11/100", "11/100", "4/25", "9/50", "9/100", "13/100"]
+  },
+  "screened_not_scored": {
+    "url": "https://arxiv.org/pdf/1812.03711v1",
+    "pdf_sha256": "1ded2da1c4127ce0be27bd1891a7afaf65ca62739602c03bf8961f4794f06bdd",
+    "reason": "Galileo clock reduction also consumes orbital and propagation models; a common spatial-response change cannot be scored by inserting alpha=0 without redoing or bounding that reduction. Use the static resonance measurement for this bounded paired test."
+  }
+}
