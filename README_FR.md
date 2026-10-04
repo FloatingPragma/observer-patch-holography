@@ -76,21 +76,6 @@ constructions de points fixes pour les constantes.
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
 
-## Des parcelles d’observateur aux machines apprenantes
-
-[Cadence](https://github.com/muellerberndt/cadence) rend l’idée de stabilisation
-exécutable sous forme d’architecture d’apprentissage. Ses parcelles logicielles
-bornées portent un état local et une capacité de relecture, avec une
-rétroaction qui répare les erreurs de prédiction. Son cerveau par
-défaut, le Système 1, apprend par l’expérience comme les cerveaux animaux, et
-non par rétropropagation. Des observateurs optionnels, le Système 2, ajoutent
-une rétroaction récursive au sein de la même stabilisation.
-
-L’[article Cadence](https://philpapers.org/rec/MUECAP-2) décrit l’architecture
-et les expériences. Son évaluation repose sur le comportement
-d’apprentissage et les ressources mesurées.
-[Pragma Research](https://floatingpragma.io/) relie ce travail à l’IA incarnée.
-
 ## Preuves et éléments de vérification
 
 La [bibliothèque Lean](Lean/) contient plus de 12300 théorèmes et lemmes
@@ -159,6 +144,21 @@ OPH accueille les preuves, contre-exemples, simulations, revues indépendantes
 et explications lisibles. Commencez par le [guide de reproduction](REPRODUCE.md)
 et le [registre de sélection](docs/SELECTION_LEDGER.md), qui énonce les
 prémisses et les frontières scientifiques utiles aux contributions.
+
+## Des parcelles d’observateur aux machines apprenantes
+
+[Cadence](https://github.com/muellerberndt/cadence) rend l’idée de stabilisation
+exécutable sous forme d’architecture d’apprentissage. Ses parcelles logicielles
+bornées portent un état local et une capacité de relecture, avec une
+rétroaction qui répare les erreurs de prédiction. Son cerveau par
+défaut, le Système 1, apprend par l’expérience comme les cerveaux animaux, et
+non par rétropropagation. Des observateurs optionnels, le Système 2, ajoutent
+une rétroaction récursive au sein de la même stabilisation.
+
+L’[article Cadence](https://philpapers.org/rec/MUECAP-2) décrit l’architecture
+et les expériences. Son évaluation repose sur le comportement
+d’apprentissage et les ressources mesurées.
+[Pragma Research](https://floatingpragma.io/) relie ce travail à l’IA incarnée.
 
 ## Licence
 

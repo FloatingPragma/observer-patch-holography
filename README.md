@@ -70,20 +70,6 @@ constructions for the constants.
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
 
-## From observer patches to learning machines
-
-[Cadence](https://github.com/muellerberndt/cadence) makes the settling idea
-executable as a learning architecture. Its bounded software patches carry
-local state and readback, with feedback that repairs prediction errors.
-Its default brain, System 1, learns from experience as animal brains do and
-not by backpropagation. Optional System 2 observers add recursive feedback
-inside the same settlement.
-
-The [Cadence preprint](https://philpapers.org/rec/MUECAP-2) describes the
-architecture and experiments. Its computational case rests on learning
-behavior and measured resource use. [Pragma Research](https://floatingpragma.io/)
-connects this work to embodied AI.
-
 ## Evidence you can inspect
 
 The [Lean library](Lean/) contains more than 12300 public theorems and lemmas
@@ -150,6 +136,20 @@ OPH welcomes proofs, counterexamples, simulations, independent reviews and
 readable explanations. Start with the [reproduction guide](REPRODUCE.md) and
 the [selection ledger](docs/SELECTION_LEDGER.md), which states the premises
 and scientific boundaries relevant to contributions.
+
+## From observer patches to learning machines
+
+[Cadence](https://github.com/muellerberndt/cadence) makes the settling idea
+executable as a learning architecture. Its bounded software patches carry
+local state and readback, with feedback that repairs prediction errors.
+Its default brain, System 1, learns from experience as animal brains do and
+not by backpropagation. Optional System 2 observers add recursive feedback
+inside the same settlement.
+
+The [Cadence preprint](https://philpapers.org/rec/MUECAP-2) describes the
+architecture and experiments. Its computational case rests on learning
+behavior and measured resource use. [Pragma Research](https://floatingpragma.io/)
+connects this work to embodied AI.
 
 ## License
 
