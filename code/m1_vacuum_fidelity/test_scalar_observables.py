@@ -366,3 +366,44 @@ def test_precision_budget_refuses_unresolved_revival_and_preserves_context(
             assert (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty) == before
         finally:
             mp.iv.prec = previous_iv_precision
+
+
+def test_interval_formatter_requires_all_reported_digits_to_be_resolved():
+    from mpmath.ctx_iv import MPIntervalContext
+    from mpmath.ctx_mp import MPContext
+    from m1_vacuum_fidelity import numerics
+
+    ctx, formatter = MPIntervalContext(), MPContext()
+    ctx.dps = 90
+    # Positive endpoints on opposite sides of the final reported digit.
+    crossing = ctx.mpf(["1.234567890123456789012349", "1.234567890123456789012351"])
+    assert numerics._formatted_interval(crossing, formatter) is None
+    resolved = ctx.mpf(["1.234567890123456789012341", "1.234567890123456789012342"])
+    assert numerics._formatted_interval(resolved, formatter) == "1.2345678901234567890123"
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("order,center", [(2, NEAR_REVIVAL), (4, FOURTH_ORDER_NEAR_REVIVAL)])
+def test_precision_budget_refuses_positive_but_unresolved_observations(
+        evaluate, order, center, monkeypatch):
+    from mpmath.ctx_iv import MPIntervalContext
+    from mpmath.ctx_mp import MPContext
+    from m1_vacuum_fidelity import numerics
+
+    spectrum, tick = ((F(1), 1),), center+F(1, 10**70)
+    ctx, expected = original_observables(spectrum, tick, order)
+    assert_observables(evaluate(spectrum, tick, order), expected, ctx)
+    # Unlike the closer revival control, this budget resolves positivity.
+    # The formatter, rather than the zero-containing-interval guard, must
+    # refuse it: the last population has fewer than 23 resolved digits.
+    interval, formatter = MPIntervalContext(), MPContext()
+    interval.dps = 90
+    kernel = model._mode_numbers if evaluate is model.quantum_case else check._matrix_mode_numbers
+    numbers = list(kernel(interval, spectrum, tick, order))[0][2]
+    assert all(number.a > 0 for number in numbers)
+    endpoints = [formatter.nstr(formatter.make_mpf(endpoint), 23, strip_zeros=False)
+                 for endpoint in numbers[-1]._mpi_]
+    assert endpoints[0] != endpoints[1]
+    monkeypatch.setattr(numerics, "PRECISION_STEPS", (90,))
+    with pytest.raises(ValueError, match="precision|budget"):
+        evaluate(spectrum, tick, order)
