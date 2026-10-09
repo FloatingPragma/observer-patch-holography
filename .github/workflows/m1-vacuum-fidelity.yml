@@ -38,4 +38,4 @@ jobs:
       - name: Install pinned dependencies
         run: pip install -r requirements.txt
       - name: Replay full-spectrum quantum evidence and hostile controls
-        run: python -m pytest -q code/m1_vacuum_fidelity
+        run: python -m pytest -q -W error code/m1_vacuum_fidelity

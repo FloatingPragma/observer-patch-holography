@@ -15,6 +15,8 @@ import math
 import mpmath as mp
 import numpy as np
 
+from . import numerics
+
 
 @dataclass(frozen=True)
 class Cubic:
@@ -103,10 +105,6 @@ def decimal(value):
     return mp.nstr(value, 23, strip_zeros=False)
 
 
-def rational(value):
-    return mp.mpf(value.numerator)/value.denominator
-
-
 def padd(a, b):
     return [(a[i] if i < len(a) else ZERO)+(b[i] if i < len(b) else ZERO)
             for i in range(max(len(a), len(b)))]
@@ -191,11 +189,6 @@ def certify_stability(algebra):
          and defect.interval()[1]+d7.interval()[1]*s < F(1, 8), "nonzero defect bound")
 
 
-def evaluate(coefficients, z):
-    return sum(Cubic(tuple(F(x) for x in triple)).real()*z**i
-               for i, triple in enumerate(coefficients))
-
-
 def vectors_for(kind):
     out = []
     for x, y, z in itertools.product(range(-2, 3), repeat=3):
@@ -246,29 +239,48 @@ def spatial(q, kind):
     return vectors, spectrum, moments, b, eigenvalues, eigenvectors
 
 
+def _matrix_mode_numbers(ctx, spectrum, tick, order):
+    """Enclose actual matrix powers from the independently multiplied gates.
+
+    Cancellation in the off-diagonal sum is retained inside directed intervals;
+    the reporting driver increases precision when that sum is unresolved. No
+    producer defect factorization or Chebyshev recurrence is used here.
+    """
+    root = ctx.mpf(2)**(ctx.mpf(1)/3)
+    powers = (ctx.mpf(1), root, root*root)
+    coefficients = {
+        key: [sum((numerics.rational(ctx, F(value))*power
+                   for value, power in zip(triple, powers)), ctx.mpf(0))
+              for triple in row]
+        for key, row in exact_algebra()[str(order)].items()
+    }
+
+    def polynomial(row, z):
+        value = ctx.mpf(0)
+        for coefficient in reversed(row):
+            value = value*z+coefficient
+        return value
+
+    def multiply(left, right):
+        return [[left[i][0]*right[0][j]+left[i][1]*right[1][j]
+                 for j in range(2)] for i in range(2)]
+
+    for value, multiplicity in spectrum:
+        omega = ctx.sqrt(numerics.rational(ctx, value))
+        z = ctx.sqrt(numerics.rational(ctx, tick*tick*value))
+        a, b, c, d = (polynomial(coefficients[key], z) for key in ("a", "b", "c", "d"))
+        step = [[a, b], [c, d]]
+        state = [[ctx.mpf(1), ctx.mpf(0)], [ctx.mpf(0), ctx.mpf(1)]]
+        numbers = []
+        for _ in range(32):
+            state = multiply(step, state)
+            numbers.append(((state[0][0]-state[1][1])**2
+                            +(state[0][1]+state[1][0])**2)/4)
+        yield omega, multiplicity, numbers
+
+
 def quantum(spectrum, tick, order):
-    with mp.workdps(75):
-        rows = []
-        coeffs = exact_algebra()[str(order)]
-        modes = []
-        for value, multiplicity in spectrum:
-            omega = mp.sqrt(rational(value))
-            z = rational(tick)*omega
-            need(0 < z <= mp.mpf("0.1"), "outside certified domain")
-            a, b, c = (evaluate(coeffs[k], z) for k in ("a", "b", "c"))
-            theta = mp.atan2(mp.sqrt(-b*c), a)
-            amplitude = (b+c)**2/(-4*b*c)
-            modes.append((omega, multiplicity, theta, amplitude))
-        for j in range(1, 33):
-            n_total = energy = log_fidelity = mp.mpf(0)
-            for omega, multiplicity, theta, amplitude in modes:
-                n = amplitude*mp.sin(j*theta)**2
-                n_total += multiplicity*n
-                energy += multiplicity*omega*n
-                log_fidelity += multiplicity*mp.log1p(n)/2
-            rows.append([n_total, energy, log_fidelity])
-        return dict(times=list(range(1, 33)), observations=[[decimal(x) for x in row] for row in rows],
-                    mean=[decimal(sum(row[i] for row in rows)/32) for i in range(3)])
+    return numerics.quantum_observations(spectrum, tick, order, _matrix_mode_numbers)
 
 
 def word(order, steps):

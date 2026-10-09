@@ -63,9 +63,50 @@ cost exponents are analytic theorems; ten Lean results check finite oscillator,
 composition, bulk-fraction and scale algebra. Their transitive axiom audit
 allows only propext, Classical.choice and Quot.sound, with negative trust tests.
 
-Numerical observations use 23 significant decimal digits. Producer mode
-matrices use 65-digit arithmetic; the checker uses 75-digit analytic mode
-formulas. The supplemental binary64 spatial covariance check uses relative
+## Numerical contract
+
+`model.quantum_case` and `check.quantum` accept a nonempty spectrum of positive
+exact Python integers or `Fraction` eigenvalues, positive integer
+multiplicities, a positive exact integer or `Fraction` tick, and order 2 or 4.
+Booleans and inexact scalar types are rejected. The certified domain is
+checked **before rounding**, as `0 < tick**2 * eigenvalue <= 1/100` for every
+mode. All 32 times and the full multiplicities enter the reported particle
+number, original-Hamiltonian excess energy (hbar=1), and negative log fidelity.
+
+The producer uses the factored Chebyshev identity in the
+[derivation](DERIVATION.md#evaluating-the-original-vacuum-signal-without-cancellation).
+The checker constructs the original gate matrix from independently multiplied
+exact cubic-field polynomials and evolves that matrix. They share the
+input, interval arithmetic and output-formatting layer, not the mode formula.
+Each uses a private outward-rounded interval context and recomputes from the
+exact inputs at increasing precision. An observation or mean is emitted only
+when both endpoints are positive and format to the same 23 significant
+decimal digits. The positive series for `log(1+n)` includes an explicit
+remainder bound; no absolute floor discards a small mode before weighting.
+
+Precision starts at 90 decimal digits and doubles up to 5760. Unresolved
+formatting or a zero-containing enclosure raises `ValueError` at that budget;
+it is not an accepted zero or a mathematical domain exclusion. Neither path
+changes the caller's ordinary or interval mpmath context. These numerical
+enclosures rely on mpmath's directed arithmetic; they are not additional Lean
+proofs or a certification of the physical source model.
+
+The retained original-input controls reproduce failures on main commit
+`0660c945`: both old paths erased second-order production at tick `10^-40`,
+including an ordinary total of `1.5625` after multiplicity weighting. The
+fourth-order producer reported a value about `2.56e23` times too large at
+tick `10^-20`, while the checker reported zero. Near a step-32 revival both
+were wrong by many orders of magnitude. The checker also accepted an exact
+tick just above the certified upper boundary. Exact rational second-order
+controls and independent elementary-gate covariance evolution cover these
+cases, both orders, compensated units, mixed spectra and the retained catalog.
+Canonical regeneration preserves the complete existing numerical evidence
+and parent-claim hashes exactly; only source pins change. The four registered
+vacuum, sparse-tick, polynomial-obstruction and signal-clock claims retain
+their stated mathematical scope. No frozen acquisition, paper theorem,
+physical classification or claim-registry payload changes.
+
+The supplemental binary64 spatial covariance check uses relative
 tolerance 0.002 and absolute tolerance 1e-24 for the very small produced
 particle numbers; the exact algebra and high-precision receipt comparison
 do not use this tolerance. Inverse reference execution is exact in the

@@ -5,6 +5,7 @@ fourth-order oracle executes the elementary signed gates on a covariance at
 independently chosen high precision; it imports no implementation helpers.
 """
 
+from decimal import Decimal
 from fractions import Fraction as F
 from functools import lru_cache
 import json
@@ -90,10 +91,12 @@ def assert_observables(actual, expected, ctx):
             assert ctx.isfinite(value)
             assert correct > 0
             error = abs(value/correct-1)
-            assert error < ctx.mpf("5e-23"), (
-                f"row={row_index}, observable={column}, actual={observed}, "
-                f"expected={ctx.nstr(correct, 40)}, relative_error={ctx.nstr(error, 10)}"
-            )
+            if error >= ctx.mpf("5e-23"):
+                pytest.fail(
+                    f"row={row_index}, observable={column}, actual={observed}, "
+                    f"expected={ctx.nstr(correct, 40)}, relative_error={ctx.nstr(error, 10)}"
+                )
+            assert len(Decimal(observed).as_tuple().digits) == 23
 
 
 @pytest.mark.parametrize("evaluate", EVALUATORS)
@@ -145,6 +148,24 @@ def test_near_revivals_resolve_the_supplied_rational(evaluate, order, center, si
     assert_observables(evaluate(spectrum, tick, order), expected, ctx)
 
 
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("order,exponent", [(2, 40), (4, 20)])
+@pytest.mark.parametrize("ambient_dps", [7, 90, 300])
+def test_scalar_results_isolate_and_restore_arithmetic_context(evaluate, order, exponent, ambient_dps):
+    tick = F(1, 10**exponent)
+    ctx, expected = original_observables(AXIS3, tick, order)
+    with mp.workdps(ambient_dps):
+        previous_iv_precision = mp.iv.prec
+        mp.iv.prec = 37 if ambient_dps == 7 else 137
+        try:
+            before = (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty)
+            actual = evaluate(AXIS3, tick, order)
+            assert (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty) == before
+        finally:
+            mp.iv.prec = previous_iv_precision
+    assert_observables(actual, expected, ctx)
+
+
 def test_committed_catalog_agrees_with_original_input_control():
     packet = json.loads((Path(__file__).with_name("receipt.json")).read_text(encoding="utf-8"))
     for graph in packet["evidence"]["graphs"].values():
@@ -155,12 +176,193 @@ def test_committed_catalog_agrees_with_original_input_control():
             assert_observables(case, expected, ctx)
 
 
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("order", [2, 4])
 @pytest.mark.parametrize("side", [-1, 0, 1])
-def test_checker_compares_original_exact_domain(side):
+def test_original_exact_tick_domain(evaluate, order, side):
     tick = F(1, 10)+side*F(1, 10**100)
     if side > 0:
         with pytest.raises(ValueError, match="domain"):
-            check.quantum(((F(1), 1),), tick, 2)
+            evaluate(((F(1), 1),), tick, order)
     else:
-        ctx, expected = original_observables(((F(1), 1),), tick, 2)
-        assert_observables(check.quantum(((F(1), 1),), tick, 2), expected, ctx)
+        ctx, expected = original_observables(((F(1), 1),), tick, order)
+        assert_observables(evaluate(((F(1), 1),), tick, order), expected, ctx)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("order", [2, 4])
+@pytest.mark.parametrize("side", [-1, 0, 1])
+def test_original_exact_eigenvalue_domain(evaluate, order, side):
+    spectrum = ((F(1)+side*F(1, 10**100), 1),)
+    if side > 0:
+        with pytest.raises(ValueError, match="domain"):
+            evaluate(spectrum, F(1, 10), order)
+    else:
+        ctx, expected = original_observables(spectrum, F(1, 10), order)
+        assert_observables(evaluate(spectrum, F(1, 10), order), expected, ctx)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("spectrum,tick,order", [
+    (((1, 3), (F(1), 7), (F(4), 2)), F(1, 256), 2),
+    (((F(4), 2), (F(1), 7), (1, 3)), F(1, 256), 4),
+    (((F(1, 100), 1),), 1, 2),
+    (((F(1, 100), 1),), 1, 4),
+])
+def test_integer_scalars_and_repeated_modes_are_valid(evaluate, spectrum, tick, order):
+    ctx, expected = original_observables(spectrum, F(tick), order)
+    assert_observables(evaluate(spectrum, tick, order), expected, ctx)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("bad", [True, False, 0.01, Decimal("0.01"), "1/100", None, 1j])
+@pytest.mark.parametrize("field", ["tick", "eigenvalue"])
+def test_inexact_or_non_numeric_scalars_are_refused(evaluate, field, bad):
+    spectrum, tick = ((F(1), 1),), F(1, 256)
+    if field == "tick":
+        tick = bad
+    else:
+        spectrum = ((bad, 1),)
+    with pytest.raises((TypeError, ValueError)):
+        evaluate(spectrum, tick, 2)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("bad", [0, -1, F(0), F(-1, 10**100)])
+@pytest.mark.parametrize("field", ["tick", "eigenvalue"])
+def test_nonpositive_scalars_are_refused(evaluate, field, bad):
+    spectrum, tick = ((F(1), 1),), F(1, 256)
+    if field == "tick":
+        tick = bad
+    else:
+        spectrum = ((bad, 1),)
+    with pytest.raises(ValueError):
+        evaluate(spectrum, tick, 2)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("multiplicity", [0, -1, True, False, F(1), 1.0, Decimal(1), "1", None])
+def test_multiplicity_requires_positive_python_integer(evaluate, multiplicity):
+    with pytest.raises((TypeError, ValueError)):
+        evaluate(((F(1), multiplicity),), F(1, 256), 2)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("order", [0, 1, 3, -2, True, F(2), 2.0, "2", None])
+def test_order_requires_supported_python_integer(evaluate, order):
+    with pytest.raises((TypeError, ValueError)):
+        evaluate(((F(1), 1),), F(1, 256), order)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("spectrum", [(), [], ((F(1),),), ((F(1), 1, 2),), (None,)])
+def test_empty_or_malformed_spectrum_is_refused(evaluate, spectrum):
+    with pytest.raises((TypeError, ValueError)):
+        evaluate(spectrum, F(1, 256), 2)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+def test_domain_refusal_preserves_arithmetic_context(evaluate):
+    with mp.workdps(11):
+        previous_iv_precision = mp.iv.prec
+        mp.iv.prec = 37
+        try:
+            before = (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty)
+            with pytest.raises(ValueError):
+                evaluate(((F(1), 1),), F(1, 10)+F(1, 10**100), 2)
+            assert (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty) == before
+        finally:
+            mp.iv.prec = previous_iv_precision
+
+
+def exact_interval_bounds(value):
+    """Read binary endpoints as rationals without an ambient mp conversion."""
+    result = []
+    for sign, mantissa, exponent, bit_count in value._mpi_:
+        assert bit_count >= 0  # The oracle tests only finite intervals.
+        value = F(-mantissa if sign else mantissa)
+        result.append(value*2**exponent if exponent >= 0 else value/F(2**(-exponent)))
+    return result
+
+
+@pytest.mark.parametrize("value", [F(1, 3), F(-1, 3), F(1, 10**1000), F(10**1000)])
+def test_interval_rational_conversion_encloses_original_fraction(value):
+    from mpmath.ctx_iv import MPIntervalContext
+    from m1_vacuum_fidelity import numerics
+
+    ctx = MPIntervalContext()
+    ctx.dps = 40
+    lower, upper = exact_interval_bounds(numerics.rational(ctx, value))
+    assert lower <= value <= upper
+    assert upper-lower < abs(value)*F(1, 10**35)
+
+
+@pytest.mark.parametrize("value", [
+    F(1, 10), F(1, 2**1074), F(1, 10**400), F(1, 10**1000),
+    F(1, 8)-F(1, 10**100), F(1, 8), F(1, 8)+F(1, 10**100), F(10**1000),
+])
+def test_interval_logarithm_encloses_original_positive_input(value):
+    from mpmath.ctx_iv import MPIntervalContext
+    from m1_vacuum_fidelity import numerics
+
+    ctx = MPIntervalContext()
+    ctx.dps = 50
+    lower, upper = exact_interval_bounds(numerics.log1p_positive(ctx, numerics.rational(ctx, value)))
+    # Independent log1p receives the original exact fraction.  Computing
+    # log(1+x) at this interval precision would erase the three small inputs.
+    oracle = mp.mp.clone()
+    oracle.dps = 250
+    expected = oracle.log1p(scalar(oracle, value))
+    assert 0 < scalar(oracle, lower) <= expected <= scalar(oracle, upper)
+    assert scalar(oracle, upper-lower) < expected*oracle.mpf("1e-40")
+
+
+def test_interval_logarithm_keeps_exact_zero_and_refuses_invalid_inputs():
+    from mpmath.ctx_iv import MPIntervalContext
+    from m1_vacuum_fidelity import numerics
+
+    ctx = MPIntervalContext()
+    ctx.dps = 50
+    assert exact_interval_bounds(numerics.log1p_positive(ctx, ctx.mpf(0))) == [F(0), F(0)]
+    for value in (ctx.mpf(-1), ctx.mpf([-1, 1]), ctx.mpf("inf"), ctx.mpf("nan")):
+        with pytest.raises(ValueError, match="nonnegative"):
+            numerics.log1p_positive(ctx, value)
+
+
+def test_interval_logarithm_encloses_both_ends_of_a_positive_interval():
+    from mpmath.ctx_iv import MPIntervalContext
+    from m1_vacuum_fidelity import numerics
+
+    ctx = MPIntervalContext()
+    ctx.dps = 50
+    original_lower, original_upper = F(1, 10**400), F(2, 10**400)
+    value = ctx.mpf([numerics.rational(ctx, original_lower).a,
+                    numerics.rational(ctx, original_upper).b])
+    lower, upper = exact_interval_bounds(numerics.log1p_positive(ctx, value))
+    oracle = mp.mp.clone()
+    oracle.dps = 250
+    assert 0 < scalar(oracle, lower) <= oracle.log1p(scalar(oracle, original_lower))
+    assert oracle.log1p(scalar(oracle, original_upper)) <= scalar(oracle, upper)
+
+
+@pytest.mark.parametrize("evaluate", EVALUATORS)
+@pytest.mark.parametrize("order,near_revival", [(2, NEAR_REVIVAL), (4, FOURTH_ORDER_NEAR_REVIVAL)])
+def test_precision_budget_refuses_unresolved_revival_and_preserves_context(
+        evaluate, order, near_revival, monkeypatch):
+    from m1_vacuum_fidelity import numerics
+
+    monkeypatch.setattr(numerics, "PRECISION_STEPS", (90,))
+    spectrum = ((F(1), 1),)
+    # A budget refusal must leave an ordinary valid control available.
+    ctx, expected = original_observables(spectrum, F(1, 256), order)
+    assert_observables(evaluate(spectrum, F(1, 256), order), expected, ctx)
+    with mp.workdps(11):
+        previous_iv_precision = mp.iv.prec
+        mp.iv.prec = 37
+        try:
+            before = (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty)
+            with pytest.raises(ValueError, match="precision|budget"):
+                evaluate(spectrum, near_revival, order)
+            assert (mp.mp.prec, mp.mp.trap_complex, mp.mp.pretty, mp.iv.prec, mp.iv.pretty) == before
+        finally:
+            mp.iv.prec = previous_iv_precision
