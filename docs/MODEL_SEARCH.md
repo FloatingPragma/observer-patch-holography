@@ -1,7 +1,7 @@
 # OPH model search: iterative construction from local repair
 
 Research status: **10 October 2026**. Source reference:
-`145967663e44c51e9d34dfd193a058a884395a95`.
+`b9c25816b8547e0b1df0555704aaa8d68d2d632b`.
 
 **Current approach:** build one common microscopic process by making the
 smallest justified extension to native patch repair, testing each connection,
@@ -11,45 +11,45 @@ This document tracks that candidate, rather than an unrestricted model search.
 
 ## 1. Headline results and missing-link completion status
 
-- **One finite source joins repair, records and quantum dynamics.** The native
-  twelve-port total-two sector has an explicit positive quantum instrument,
-  protected recording, overlapping observer readouts and intermediate
-  measurement tests. Atomic C and completed E have the same finite reduced
-  working limit under the declared uniform network schedule.
-- **Exterior repair implements a positive entropy completion.** Independently
-  counted exterior multiplicity Z_B gives
-  `S(ρ_A)+〈Z_B〉=log66−D(ρ_A‖τ_A)`. Repair restricted to a connected exterior
-  of at least three ports reaches the maximum-entropy extension preserving
-  the entire regional density. It retains shared charge-sector correlations.
-- **Nested regional completions compose exactly.** For A contained in R,
-  both composition orders give Φ_A, and their entropy deficits obey an exact
-  chain rule, including singular quantum inputs. This closes consistency
-  across nested regions of the fixed carrier. Nonnested completions can have
-  order-dependent outputs.
-- **A charge-resolved collar and controlled approach to it are constructed.**
-  Retaining regional charge gives completed states an explicit aligned
-  product split and exact recovery across the native one-hop collar. Exterior
-  repair decreases an entropy deficit bounding distance to that family.
-  The three-value register and formal split are explicit candidate resources.
-- **The same generator fixes transport costs and boundary memory.** Repair is
-  entropy gradient flow in a logarithmic-mean metric. Retained-port costs
-  depend on correlations and on whether hidden velocities may change.
-  Eliminating remote ports gives an exact memory equation. Two retained
-  remote load contrasts give a minimal linear augmentation closing the mean
-  dynamics. This restores the eleven independent port means; entropy and
-  quantum-state closure require information beyond those means.
-- **Records recover correlations, native geometry and clock relations.** Two
-  retained current events identify all 66 diagonal shell probabilities;
-  the one-event menu has rank 42. Equilibrium currents recover the port
-  response, resistance and rank-three Gram geometry, with an exact
-  rate-independent circulation/relaxation relation. These are ensemble
-  readouts, not full quantum-state tomography or physical calibration.
-- **Physical identification is open.** The counted entropy includes remote
-  bulk information; the tested collar has a trivial left factor and is not
-  identified with the flagship's physical gauge-edge decomposition. Fixed
-  cut capacity and the tested activity/information proxies fail the entropy
-  response test. Area, stress, physical time, common carrier refinement and
-  observations require explicit attachments to this same process.
+- **The native repair kernel determines an explicit finite Hamiltonian.** On
+  the binary sector, `H=I−P=Σ_e(I−S_e)/60`, a positive local exchange
+  Hamiltonian. Its imaginary-time correlations equal the stationary repair
+  correlations. This is a source-specific instance of an established
+  reversible-chain construction, not a selection of physical real time.
+- **Coherent records join repair to reversible gates and to that H.** A
+  different measurement basis of the same native C records reveals four
+  conditional unitary gates. Two native events with a controlled coherent
+  record measurement can implement `exp[−iθ(I−S_e)]` on success. Trotter
+  composition approaches the full H, with explicit error and success costs.
+  The phase controls and postselection are supplied resources; autonomous
+  Hamiltonian evolution has not been derived.
+- **The candidate has full finite ensemble tomography and a clock test.**
+  Coherently comparing at most four current events reads every shell
+  coherence. On an explicit preparation, H predicts a cosine in a native
+  number observable while discarded-record C predicts positive decay.
+  The two exchange-mode frequencies have ratio `(3+√5)/2`. Physical preparation,
+  clock calibration and an eligible experiment remain to be identified.
+- **One common finite family reaches beyond the isolated carrier.** The same
+  binary instrument and exchange construction extend to the archived
+  240- and 960-port federations, with a declared per-carrier clock. Their
+  natural cell averages fail exact autonomous closure; existing geometric
+  refinement maps do not by themselves intertwine the dynamics.
+- **The other Hamiltonian routes have explicit costs.** A tested coherent
+  swap/wait walk gives phases `arccos(λ_P)` and square-root small-gap scaling.
+  It preserves the classical kernel but changes the quantum instrument and
+  adds a coherent scheduler. Transfer-matrix and incidence-factorization
+  routes are also tracked below. There is no claim to have exhausted all laws.
+- **Entropy, geometry and memory results remain part of the same construction.**
+  Exterior repair realizes counted maximum-entropy extensions and an exact
+  nested inclusion tower. Mean closure needs two hidden contrasts; full
+  diagonal regional closure needs twenty. A nontrivial bulk collar split is
+  constructed, but native spatial symmetry does not supply the required
+  physical gauge-edge identification.
+- **The next target is controlled physical dynamics across refinement.** The
+  finite operator, operational controls and common graph family are joined.
+  Physical time selection, local continuum observables, the limiting state
+  and correlators, matter/relativistic behavior, responsive geometry and
+  observations remain open. A finite Hamiltonian is not a continuum QFT.
 
 **Status convention:** “finite complete” closes the stated mathematical
 construction, under its declared inputs. It does not close the entire physical
@@ -60,18 +60,18 @@ this document is not an empirical verification bundle or an axiom amendment.
 
 | Link | Completion status and constructed result | What completes the remaining physical connection |
 | --- | --- | --- |
-| **M01: common source** | **Finite specification, active continuation and diagonal reconstruction complete.** The 78 native working states; explicit C/E operations, preparation and schedule. Two retained events recover all 66 shell probabilities. Finite append-and-halt and replaceable diagnostic storage are constructed. | Attach the carrier/federation and physical readouts with explicit maps, state selection and refinement. Replacing diagnostics requires physical reset resources; accumulating immutable history requires storage or export. Ensemble reconstruction requires repeated preparations and retained event labels. |
+| **M01: common source** | **Finite common source, recording and reconstruction complete.** Native 78-state C/E; binary66 diagonal and coherent ensemble readouts; two finite federation rungs with the same local binary law. Explicit append-and-halt or replacing diagnostics. | Select physical sectors, gluing, preparation and readouts; complete dynamical/quantum refinement. Archived federation routing is a declared convention. Coherent tomography requires phase control and repeated preparations; continuing records require retention/reset resources. |
 | **M02: observers and agreement** | **Finite observer contracts, candidate equalizers and nested completions complete.** Proper overlaps, protected marginals and actual interventions. E completes the supplied exchange/phase-invariant algebra. Exterior repair realizes regional maximum-entropy completions with an exact inclusion tower. | Justify those interpretations from the required observer menu; translated-chart naturality alone does not select them. Supply the used completeness, acceptance, confluence, authentication and broader history contracts. Nonnested completions can fail to commute; the supplied targets are not the complete A2 diagram. |
 | **M03: geometry** | **Native port reconstruction, transport metric and retained-port costs complete in their finite regimes.** Equilibrium currents recover the response operator, resistance and rank-three Gram. The same source gives correlation-dependent tangent costs, static boundary response and exact mean dynamics with exterior memory. | Identify physical regions, responsive spacetime metric, collar volume and area, with common refinement. Free hidden motion and zero hidden motion have different costs. A static Schur reduction is not an autonomous boundary generator; the metric depends on the full probability. |
-| **M04: physical time** | **Finite count/current/relaxation relations complete; physical clock open.** Event order, count-time extension, circulation clock and exact rate-independent relation to native slow density relaxation. | Join the existing source-geometric/count/moving-clock constructions through common event/population/refinement maps and calibrate physical scales. Ensemble variance is not a monotone individual clock. |
-| **M05: fields and current** | **Finite current, entropy-flow and boundary mean-closure interfaces complete.** Recorded flux, continuity, susceptibility and fluctuations; logarithmic-mean constitutive law. Exact boundary memory can be represented by two remote load contrasts, minimally among linear augmentations of the retained means. | Identify charge, energy and stress; construct or explicitly supply the field/action, physical units and reciprocal geometry response. Initialize and make available the retained contrasts. Their mean closure does not close entropy, correlations or a full regional quantum channel; the count-time law alone is not a relativistic field theory. |
-| **M06: quantum dynamics and regime** | **Finite positivity, composition, network completion and regional inclusion complete.** C and E have shared finite limits with certified rates, while retaining different quantum histories. Nested regional completions have an exact quantum entropy-deficit chain rule. | Identify physical sectors and observables. Inclusion within one fixed carrier does not establish UV/carrier refinement; control that common refinement, relevant correlators and renormalization for a continuum claim. Unique quantum selection needs additional premises. |
-| **M07: entropy/area stationarity** | **Finite counting stationarity, native exterior completion and charge-resolved collar complete.** `S_A+〈Z_B〉=log66−D(ρ_A‖τ_A)`. Completed states have a declared aligned collar split and exact recovery; exterior repair decreases their entropy-deficit comparison bound. | Identify the formal split with the required physical edge factors and derive area, stress/flow, fixed-volume variations, normalization and common refinement. Z_B contains remote bulk entropy. Charge retention alone does not give all-state screening, and unrestricted boundary repair can break alignment. |
-| **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's physical attachment is open.** Finite entropy and controlled charge-collar constructions supply explicit candidate inputs. | Realize the flagship's G1–G6 premises on this same family, including its physical EC factors, conserved stress, universal coupling and gravitational constraints, or justify a different route. The tested collar has a trivial left factor; it does not discharge those physical premises. |
+| **M04: physical time** | **Finite current and exchange-phase clock tests complete; physical clock open.** One source fixes relaxation, circulation and exchange frequencies. The same prepared number mode distinguishes unitary oscillation from C decay. | Select the autonomous time law and join existing geometric/count/moving clocks through common event and refinement maps. Calibrate physical scales. Ensemble variance and phase modulo a cycle are not monotone individual clocks. |
+| **M05: fields and current** | **Finite current, entropy flow and linear boundary closures complete.** Two hidden contrasts close port means. Twenty hidden probability contrasts are necessary and sufficient for full regional diagonal closure on the tested carrier. | Identify charge, energy, stress, units and reciprocal geometry response. The full diagonal closure restores all 65 normalized probabilities; it is not a compressed state or a quantum-state closure. Coherent tomography is an ensemble readout, not an autonomous regional channel. |
+| **M06: quantum dynamics and regime** | **Finite instrument, tomography, Euclidean H and controlled real-time gates complete.** Same-C unitary unravelling and heralded exchange gates; exact phase/readout discriminator; common finite spin family. Prior convergence and nested entropy results remain valid. | Select physical quantum dynamics and its resources; construct compatible local algebras, states, clock/length scaling and convergent correlators across refinement. Controlled postselected simulation is not autonomous evolution. Finite inclusion or two graph sizes do not prove a continuum QFT. |
+| **M07: entropy/area stationarity** | **Finite counting stationarity, exterior completion and bulk collar splits complete.** `S_A+〈Z_B〉=log66−D(ρ_A‖τ_A)`. Exact recovery and a nontrivial 3×4 bulk block are constructed with declared charge centers. | Identify the formal split with the required physical edge factors and derive area, stress/flow, fixed-volume variations, normalization and common refinement. Z_B contains remote bulk entropy. Charge retention alone does not give all-state screening, and unrestricted boundary repair can break alignment. |
+| **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's physical attachment is open.** Finite entropy and controlled charge-collar constructions supply explicit candidate inputs. | Realize the flagship's G1–G6 premises on this same family, including its physical EC factors, conserved stress, universal coupling and gravitational constraints, or justify a different route. The nontrivial bulk collar factors do not discharge the physical gauge-edge premises; the tested spatial-symmetry identification fails. |
 | **M09: parameters and P** | **Open on this candidate.** No P-to-coin, temperature, amplitude or rate identification is derived here. | Compute each claimed quantity from the same law, metric, units and endpoint map; distinguish derivation from calibration. Prove that any P readback measures the intended quantity. |
 | **M10: physical matter** | **Open on this candidate.** Existing OPH gauge/matter results remain conditional inputs, not an attached spectrum. | Realize the required matter content, interactions and stable poles. Running claims require charged response, thresholds and matching. Matching an abstract gauge type is insufficient. |
 | **M11: cosmology/dark sector** | **Outside the active minimal target; open if claimed.** Existing conditional cosmology constructions are retained. | Attach common expansion/source dynamics, stress, physical scales and observational transfer; add abundance, pressure/slip and lensing where used. |
-| **M12: eligible physical test** | **Internal discriminator tests complete; empirical test open.** Competing records, schedules and preparations have distinguishable predictions. | Choose a physical observable and rejection rule; enumerate remaining freedom, establish calibration/uncertainty and baseline, then freeze an unavoidable relation before an eligible independent comparison. |
+| **M12: eligible physical test** | **Internal discriminator tests complete; empirical test open.** Same-source decay versus oscillation, incompatible record menus and alternative coherent lifts have explicit distinguishing tests. | Choose a physical observable and rejection rule; enumerate remaining freedom, establish calibration/uncertainty and baseline, then freeze an unavoidable relation before an eligible independent comparison. |
 
 M01–M12 are a dependency map. Develop the connected cluster needed by a
 specific claim; they are neither twelve sequential hurdles nor a requirement
@@ -117,17 +117,16 @@ parameters, quotient, readout and memory budget. Label each as an axiom input,
 derived object, candidate hypothesis, calibration or target-exposed choice.
 Adaptation is allowed if its state and update belong to the same process.
 
-The next work is concentrated, not a search over unrelated models:
+The next work is concentrated on a connected set of interfaces:
 
 | Next question | Smallest proposed move | Decisive completion or rejection condition |
 | --- | --- | --- |
-| **Why this public agreement target?** | Test the constructed invariant interpretation against the observer menu and existing A2 translations. | Derive or justify why endpoint exchange and relative phase are invisible to that readout while required working probes remain available. Ordinary translated-chart covariance cannot supply this selection. |
-| **Which probes read physical geometry and time?** | Join the recovered port-response/Gram and circulation clock to the existing OPH event, region and count-clock maps. | Preserve the common response under relevant preparations and refinement. An activity-dependent matrix that disagrees with measured mean propagation fails that proposed identification. |
-| **Can the constructed collar carry physical area?** | Test a realization map from the explicit charge-center split to the required physical edge algebra. Track the collar and remote contributions to Z_B separately. | Derive the actual representation dimensions, geometric area, locality/refinement and normalization. The supplied charge register, trivial left factor and bulk multiplicities cannot acquire those meanings by relabeling. |
-| **How much memory does a claimed readout need?** | Two source contrasts close port means. For richer entropy or quantum readouts, test existing current and pair-correlation records before adding state. | An autonomous claim requires equal retained data to determine equal subsequent predictions over its preparation family. Open patches may instead retain an explicit environment-memory description. Repeated completion is an additional operation requiring a schedule and cost. |
-| **Can the transport metric join the geometric source?** | Carry the exact retained-port cost and exterior-memory equation onto the proposed physical region/refinement maps. | Derive the physical metric and its dynamics from the same source. An autonomous approximation needs a proved closure or a controlled time-scale separation; static elimination and a one-time entropy completion do not supply it. |
-| **Which memory is actually committed?** | Choose append-and-halt or replaceable diagnostics according to the required history menu, with a distinct protected register. | Include retention/export/reset resources in the common physical source. A bounded scratch record cannot masquerade as an unlimited immutable archive. |
-| **What can be tested against nature first?** | Choose the smallest physical observable whose dependencies can be completed. | Derive a relation that survives the candidate's allowed freedom and specify an eligible independent comparison. A whole cosmology or continuum is required only when that observable consumes it. |
+| **What selects physical quantum time?** | Compare retained-record C, its exact conditional unitary readout, controlled exchange evolution and the alternative walk with one preparation/readout menu. | Derive an autonomous update and clock from the declared hardware. A chosen phase or a postselected gate is an implementation resource, not a derived physical clock. |
+| **Can the family have controlled coarse dynamics?** | Retain the routed-port information that the failed cell average discards; derive its exact memory before testing a justified approximation. | Bound the error uniformly under the proposed space/time scaling. The existing area expectation and a compressed Laplacian do not establish closure. |
+| **Which continuum route keeps locality?** | Compare exchange scaling with a locally implemented walk or incidence lift on the same source graph family. | Specify local observables, states and embeddings; prove convergence and propagation. A square-root spectrum without a local implementation or a physical bulk map is insufficient. |
+| **Can the collar become a physical edge?** | Seek an internal paired-representation map compatible with native updates, the retained observables and state. | Supply the required Gauss/sector and alignment conditions. Spatial covariance, bulk dimensions and a constant appended entangled pair do not supply area or its response. |
+| **Which observer meaning and memory are needed?** | Test the candidate agreement algebra and coherent measurement menu against A2 translations and actual resource policies. | Justify the readouts, phase reference, preparation, protected history and reset/export. Incompatible record bases cannot be treated as simultaneous sharp records. |
+| **What is the first eligible physical test?** | Attach one unavoidable relation to a calibrated physical preparation and readout. | Enumerate remaining choices and uncertainties, set the baseline and rejection rule, and freeze the prediction before independent comparison. |
 
 ## 3. The candidate repair law being tested
 
@@ -263,6 +262,38 @@ working interventions remain necessary for quantum claims. At τ_B, the
 regional modular observable is diagonal, so the first entropy differential
 is nevertheless accessible through this classical reconstruction.
 
+### Coherent current histories give full ensemble tomography
+
+Keeping the histories coherent extends what can be read without changing C.
+For any two shell configurations x and y, choose a native exclusion path from
+y to x. All pairs have such a path of length at most four. One record history
+holds x fixed; the other moves y to x along that path. The histories are
+orthogonal, have unique input preimages and end at the same configuration.
+
+Measure that final occupation and interfere the two record histories with
+relative phases `1, −1, −i, +i`. For a path of m events the effects are
+
+```text
+F_t = 2^(−m−1) [|x〉〈x|+|y〉〈y|+conj(t)|x〉〈y|+t|y〉〈x|],
+Re ρ_xy = 2^(m−1)(p_1−p_−1),
+Im ρ_xy = 2^(m−1)(p_−i−p_i).
+```
+
+Together with diagonal readout these span all 4,356 Hermitian directions
+on the 66-state shell. The construction uses 4,291 unoptimized measurement
+settings. Four events suffice; no minimal-depth claim is made. With only
+real interference the imaginary coherences remain invisible; dephasing the
+current record before interference destroys the relevant signal.
+
+The additional resources are explicit: repeated identical preparations,
+full working occupation readout, a collective coherent-history measurement
+and a complex phase reference. This is ensemble tomography, not a way to
+copy or fully read an unknown single quantum state. At the uniform shell
+reference a length-four two-outcome fringe occurs with probability 1/528
+under prescribed seams, or 1/427,680,000 including its passive uniform seam
+word. The four-event six-letter recorder has dimension 102,630 on this
+shell. Informational completeness does not imply economical measurement.
+
 ### An independently defined candidate agreement target
 
 On the binary shell, define S_e by exchanging the seam's endpoint occupancies
@@ -331,7 +362,255 @@ absorbing. This law does not generate the nonzero-remainder sector or the
 first physical disturbance from perfect symmetry. State selection and the
 source of incoming interactions remain separate questions.
 
-## 4. Connections obtained from this same law
+## 4. Joining repair, Hamiltonian, records and time
+
+### The operator follows from the native binary kernel
+
+Let S_e swap the endpoint occupations. The native fair coin gives
+`P_e=(I+S_e)/2`. For uniform seam attempts on one carrier, define P as the
+classical transition matrix on the 66 configurations. A unit-rate Poisson
+embedding gives
+
+```text
+P = (1/60) Σ_e(I+S_e),       Q = P−I,
+H = −Q = (1/60) Σ_e(I−S_e) ≥ 0,
+H = (1/120) Σ_e[I−σ_i·σ_j]   on the full binary-qubit space.
+```
+
+The last expression is a ferromagnetic exchange Hamiltonian; its qubits are
+occupation coordinates, not identified physical spins. The connected
+fixed-total shell has unique uniform ground amplitude `g_x=1/√66`. The
+full qubit space has multiple ground states across occupation sectors.
+No independent exchange strength was fitted, once the sector, fair coin,
+uniform schedule and Poisson normalization were declared.
+
+For diagonal observables F and G, stationary repair has the exact relation
+
+```text
+〈g|F exp(−sH) G|g〉 = E_τ[f(X_s)g(X_0)],       s≥0.
+```
+
+The analogous ordered multi-time identities also hold. This is the established
+[Rokhsar–Kivelson correspondence](https://arxiv.org/abs/cond-mat/0311345),
+with [stochastic-matrix-form generalizations](https://arxiv.org/abs/cond-mat/0502068),
+instantiated from the actual source events. It does not equate repair
+trajectories to `exp(−itH)` evolution. The density-channel generator
+`Q_C−Id` acts on 4,356 operator directions; H acts on 66 amplitudes.
+The native mixed reference `I/66` is not the pure vector state `|g〉〈g|`.
+
+The distinction is testable at finite size. A neighboring transition
+has native probability slope 1/60, whereas the unitary transition probability
+starts quadratically, with second derivative 1/1800. No common positive
+constant time rescaling equates them. The specified reduced C semigroup has
+no nonconstant undamped sector. This does not exclude coherent environments,
+controlled records or a different limiting physical interpretation.
+
+### The same C can reveal reversible conditional gates
+
+On local basis `(00,01,10,11)`, write its four active Kraus operators as
+
+```text
+a = diag(1,1,0,1)/√2,    b = |01〉〈10|/√2,
+c = diag(1,0,1,1)/√2,    d = |10〉〈01|/√2.
+```
+
+For the four sign triples `(+++)`, `(+−−)`, `(−+−)`, `(−−+)`, let U_s be
+identity on 00 and 11 and, on 01/10, let
+
+```text
+U_s = [I+i(s_x σ_x+s_y σ_y+s_z σ_z)]/2,
+C_e(ρ) = (1/4) Σ_s U_s ρ U_s*.
+```
+
+A specified unitary change of basis on the existing coherent current record
+gives these four Kraus operators `U_s/2`. Every outcome has probability 1/4
+independently of the input, and its conditional working operation is unitary.
+Known records plus supplied inverse control reverse even overlapping events.
+This is an exact unravelling of the same channel, not a changed classical
+law or a claim that unobserved repair is reversible.
+
+Sharp current readout and this tetrahedral basis are incompatible measurement
+menus. Measuring current first destroys the unitary conditional property.
+Their unchanged discarded channel does not make them simultaneously available
+sharp records. The tetrahedral gate logarithms average to zero, so this
+unravelling does not select H. It is valid on binary occupations; the full
+78-state C is nonunital and cannot be an average of unitary channels.
+
+### Two native events implement the particular exchange gate conditionally
+
+The join can be made to H itself. Write xy for matrix product K_x K_y,
+whose chronological record is `(y,x)`. The actual two-event words obey
+
+```text
+I = 2(aa+cc−ac),        S_e = 2(ac+bc+da).
+```
+
+Consequently, a specified coherent projection on the two records implements
+`U_θ=exp[−iθ(I−S_e)]`. One five-word projection has success probability
+1/12 for every input. The least-norm projection using all ten nonzero words
+has
+
+```text
+p_θ = 3/[4(4−cos²θ)],       3/16 ≤ p_θ ≤ 1/4.
+```
+
+This optimum is for one rank-one herald outcome in exactly two native events,
+with no extra working control. It does not bound feedback, longer records or
+multiple accepted outcomes. The success/failure instrument is trace preserving
+and sums back to the unchanged C_e². Failure generally changes the state;
+an unknown input cannot simply be retried unchanged. Dephasing records can
+leave a plausible herald frequency while destroying the target coherence.
+
+A prescribed sweep of the thirty seam gates at `θ=t/(60r)`, repeated r times,
+conditionally approximates the full exchange evolution with
+
+```text
+‖U_r(t)−exp(−itH)‖ ≤ t²/(30r).
+```
+
+The bound uses the native 120 overlapping seam pairs and commuting disjoint
+pairs. There are 30r heralds and 60r primitive events. The all-success
+probability is `p_(t/(60r))^(30r)`, at most `4^(−30r)`, or `12^(−30r)` for
+the simpler construction. Thus this is a rigorous finite operational join
+with exponential cost, not an efficient deterministic implementation or an
+autonomous physical law. The phase angle, schedule and coherent measurement
+are supplied. Infinite Trotter refinement is not carrier/UV refinement.
+
+The exponential cost belongs to this protocol, not to every possible record
+control. An analytical follow-up uses the tetrahedral gates' finite
+24-element group: tracking the gate product and stopping at an attainable
+target gives almost-sure arrival with finite expected waiting, provided
+fresh coherent records and adaptive stopping are available. A finite recorder
+has a failure tail. On the complete local binary space these fixed-menu words
+are identity on the even sector and have odd-sector determinant one; they
+cannot equal a nontrivial U_θ above. On an odd-only sector global phase is
+unobservable and some projective swaps are reachable. Changing readout bases,
+overlapping seams or feedback may offer broader control and is not excluded
+by that restricted observation.
+
+A separate supplied coherent seam-choice register permits a one-event
+postselected filter `P/√2`, with success `Tr(P²ρ)/2`. A classical mixture of
+seam choices does not supply the required inter-seam interference. This
+provides an operational transfer filter, distinct from both H and a unitary.
+
+### A common preparation and observable distinguish the time laws
+
+The port Laplacian has density bands `λ_±=5±√5`. Choose
+`v=P_λ unit_0` from its exact spectral projector and define
+`F(x)=Σ_i v_i x_i`. The same shell gives
+
+```text
+〈F〉_τ = 〈F³〉_τ = 0,     σ²=〈F²〉_τ=5/132,
+χ_x = F(x)/(√66 σ),       Hχ=(λ/60)χ,
+ψ(0) = (g+χ)/√2.
+```
+
+This explicit coherent preparation and the same working-number observable
+then predict
+
+```text
+unitary H:    〈F〉(t)=σ cos(ωt),
+native C:     〈F〉(s)=σ exp(−ωs),       ω=λ/60.
+```
+
+A negative unitary half-cycle cannot equal positive native decay under any
+forward clock relabeling. The fast/slow frequency ratio is `(3+√5)/2`,
+independent of a common rate. Period divided by the matching relaxation time
+is `2π` under the declared common normalization; independently calibrated
+clocks cannot silently be equated.
+
+Coherent quadratures give phase modulo `2π` through the constructed ensemble
+readout. Cycle counting, persistent records and measurement back-action
+matter for an individual clock. Neither law creates this preparation from
+its stationary mixed reference. This closes a finite operational discriminator,
+not physical seconds, energy units or agreement with an observed system.
+
+### Other routes remain explicit alternatives
+
+| Route from repair | What is constructed or available | Additional selection and unresolved cost |
+| --- | --- | --- |
+| **Poisson exchange: H=I−P** | Exact finite positive local H, Euclidean correlations, controlled native-record gates and the number-mode clock test above. | Physical real time, preparation and units; the present gate implementation has exponential all-success cost. |
+| **Discrete transfer: H_T=−log P** | The declared discrete transfer defines this spectral operator on the positive spectral support; coherent P filtering is constructed. | A zero eigenvalue requires support restriction. Logarithms generally introduce longer-range terms and different frequencies; no local physical-time identification is proved. |
+| **Retained-record unitaries** | Exact four-unitary unravelling of C; two-event heralds give the specific exchange gate. | Readout basis, phase reference, feedback/schedule and efficient continuation. Average channel or average gate logarithm does not select a trajectory Hamiltonian. |
+| **Coherent swap/wait walk** | A tested alternative lift of the actual classical P gives unitary eigenphases `±arccos(λ_P)` and square-root small-gap scaling. | It changes the coherent instrument from C and adds a retained register/reflection. A local scalable scheduler, physical clock and continuum limit are not supplied. |
+| **Incidence/first-order lift** | Factoring a graph Laplacian as D*D permits a block operator with off-diagonal D and D*, squaring to Laplacians. Existing OPH modal oscillator constructions are relevant inputs. | An added edge space, physical incidence/readout, energy-sign interpretation and local dynamics must be attached. The port and configuration graph lifts are different spaces; a formal square root is insufficient. |
+
+For the tested walk, a fair swap/wait coin supplies the same P as native
+placement. Let A append a uniform 60-state seam/coin register, T perform its
+controlled swap and `R=2AA*−I`. Then
+
+```text
+U_walk=TR,        A*TA=P,
+U_walk(Av)=TAv,   U_walk(TAv)=2λ_P TAv−Av.
+```
+
+For `|λ_P|<1`, this two-dimensional span has characteristic polynomial
+`z²−2λ_P z+1`; at `λ_P=1` the vectors coincide. Thus
+`θ=arccos(1−ε)~√(2ε)` near a vanishing relaxation gap ε. This instantiates
+[quantized-walk spectral theory](https://arxiv.org/abs/quant-ph/0401053).
+If a controlled spatial limit later gave `ε(k)∝|k|²`, this branch could have
+linear small-momentum phase. That conditional observation does not establish
+Lorentz symmetry or a continuum field.
+
+Discarding the swap register gives `(ρ+S_eρS_e)/2`, which differs from C_e
+on coherences. Repreparing the register every step loses the closed walk.
+The reflection mixes the carrier's seam choices; its naive federation-wide
+form is global. Local implementation must therefore be constructed, not
+assumed from the word “walk.” These alternatives organize a finite research
+program; there is no proof that they exhaust every possible repair-derived
+quantum law.
+
+### How far this is from a continuum QFT
+
+The same binary C and local exchange expressions extend by identity to every
+hard-core occupation sector on a finite graph. Applying the archived builder
+at levels 0 and 1 gives 240 and 960 ports. With N carriers, M seams and the
+explicit per-carrier Poisson rate N,
+
+```text
+Q_G=N(P_global−I),   H_G=Σ_e(I−S_e)/D,   D=2M/N.
+```
+
+D is 60 for isolated carriers and 63 for the existing port-pair gluing; the
+one-particle restriction is exactly `L_G/D`. The gluing receipt explicitly
+marks its routing as a declared convention, not source-derived physical
+routing. This is a common finite lattice quantum system, with a chosen
+Hamiltonian interpretation, rather than a continuum construction.
+
+The source has positive/unital cell refinement maps and an
+area-preserving conditional expectation. Those static maps pass their stated
+checks. They do not establish dynamical closure: two positive states with
+equal cell marginals have different immediate neighboring-cell derivatives.
+The fine cell Laplacian also sends one parent indicator to child values
+`[2,2,2,0]`, outside the parent-constant image. A common nonzero clock
+rescaling cannot fix that exact invariance defect. Memory, better variables
+or a controlled homogenization limit remain possible.
+
+A continuum claim must complete the following connected obligations:
+
+1. **One physical space and clock scaling.** Relate this spherical screen
+   family and its port/frame choices to the claimed physical regions and
+   three-dimensional bulk; select lengths, time, density and state family.
+2. **Compatible local observables and controlled coarse dynamics.** Specify
+   quantum embeddings/readouts or an explicit convergence framework. Bound
+   discarded port/memory effects, rather than replacing compression by closure.
+3. **A limiting quantum theory.** Establish convergence of relevant states,
+   correlations and dynamics, locality/causality and the required continuum
+   reconstruction assumptions. Finite Euclidean identities alone are not a
+   relativistic Euclidean field theory. Treat interactions and renormalization
+   where the claimed limit needs them.
+4. **The required physics.** Identify matter, charges, stable excitations,
+   relativistic behavior, stress and responsive geometry on that same limit,
+   and confront an eligible physical observable.
+
+There is no defensible percentage or completion date for these research
+steps. The present gain is an explicit source, operator, control construction,
+clock discriminator and finite family, together with precise failures of
+some proposed identifications. The next economical test is port-aware coarse
+memory and a local coherent scheduler, not an unrelated imported field theory.
+
+
+## 5. Entropy, geometry and memory connections retained
 
 | Constructed connection | Exact result | Physical boundary |
 | --- | --- | --- |
@@ -518,6 +797,33 @@ tangent changes none of these eleven coordinates while changing entropy and
 mobility. Thus mean closure is complete, with full-state closure a separate
 question. An open patch may use the exact memory description; autonomous
 local evolution is required only for a claim that uses it.
+
+### Full diagonal closure costs twenty additional coordinates
+
+The retained region U=A∪C has 46 distinct occupation patterns. Ten patterns
+have three compatible remote states; the other 36 have one. In each
+three-state fiber, retain two probability contrasts alongside its total y:
+
+```text
+z1=p1−p3,  z2=p2−p3,
+p3=(y−z1−z2)/3,  p1=(y+2z1−z2)/3,  p2=(y−z1+2z2)/3.
+```
+
+These twenty extra coordinates give an invertible coordinate map R of the
+66 probabilities and hence an exact transformed generator `R Q R⁻¹`.
+Observability ranks of the regional readout J through two derivatives are
+`rank(J)=46`, `rank(J,JQ)=65`, `rank(J,JQ,JQ²)=66`. Therefore twenty is
+necessary and sufficient among linear autonomous extensions valid for all
+positive diagonal preparations. This restores every normalized diagonal
+degree of freedom; it is not compression or a nonlinear minimality theorem.
+
+Positive states with identical regional data and all port means can have
+unequal regional derivatives. Another positive pair agrees even in its first
+regional derivative but differs at the second. The two-contrast mean closure
+above cannot be promoted to full-state closure. Classical current histories
+can initialize the diagonal coordinates through repeated preparations, while
+quantum coherences require the distinct coherent readout constructed above.
+Tomography alone does not make an open regional quantum channel autonomous.
 
 ### Regional entropy and recorded modular balance
 
@@ -745,8 +1051,24 @@ These controls refresh the register to the resulting Q_A; the failure
 persists with that readout resource granted.
 The [Markov-state structure theorem](https://arxiv.org/abs/quant-ph/0304007)
 provides some split at zero conditional mutual information; the core's MSA
-condition requires alignment with the specified physical factors. Our
-trivial-left construction is not identified with those factors.
+condition requires alignment with the specified physical factors. The
+first trivial-left construction is not identified with those factors. A
+stronger native bulk split is available: incidence divides C into
+L={5,8,10} and R={6,9,11}. Adding Q_L to the declared center gives a 3×4
+block with both factors nontrivial, and exact alignment of completed states.
+That block has empty A; it is not evidence of a nontrivial matter region
+coupled to a physical gauge edge. Boundary repair can change Q_L, so this
+center is not protected for arbitrary inputs.
+
+The actual face stabilizers are spatial C3 or S3 actions. Their pointwise-A
+stabilizer is trivial; they do not provide the required nontrivial
+collar-supported gauge action while preserving the full A observables.
+Covariance also does not imply a Gauss invariant-vector constraint: a tested
+spatial invariant vector acquires leakage 4/27 under a native exterior event.
+An appended invariant S3 pair supplies a constant log2 entropy only by adding
+a prepared spectator resource; it has zero area response. These tests reject
+those particular physical-edge identifications, not every internal symmetry
+or encoding. The physical edge/area connection remains open.
 
 Finally, a collar does not turn all exterior entropy into area. For
 `w(s∣q)=choose(6,s)choose(3,2−q−s)/choose(9,2−q)`, counting gives
@@ -760,7 +1082,7 @@ The last term is remote bulk entropy; at the reference its mean is
 `(5/11)log3`. Ordinary U(1) charge irreps have dimension one. A physical
 edge-dimension/area map must therefore do more than retain Q_A or rename Z_B.
 
-## 5. OPH results retained as inputs and attachment targets
+## 6. OPH results retained as inputs and attachment targets
 
 The current work uses the documented source and preserves its existing
 results. Their premises must be realized together, not replaced by simpler
@@ -796,7 +1118,7 @@ method. The particular native quantum instrument, network proof, current
 clock and modular-response calculations are constructions tested in this
 campaign, not outputs attributed to unseen Genesis or Prism software.
 
-## 6. Retired approaches and lessons retained
+## 7. Retired approaches and lessons retained
 
 The following routes are **obsolete as the active construction strategy**.
 A successful diagnostic remains a valid result in its own stated domain;
