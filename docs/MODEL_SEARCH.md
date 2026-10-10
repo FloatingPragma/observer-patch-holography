@@ -15,16 +15,56 @@ This document tracks that candidate, rather than an unrestricted model search.
   twelve-port total-two sector has an explicit positive quantum instrument,
   fixed-capacity recording, overlapping observer readouts and actual
   intermediate measurement tests.
+- **Two retained events recover the missing classical correlations.** A
+  specified pair of disjoint current transfers identifies each occupied pair.
+  The full one-event record menu has rank 42 on the 66 probabilities; two
+  events distinguish all 66. This is ensemble probability reconstruction,
+  with explicit record capacity, rather than quantum-state tomography.
+- **Repair has an exact entropy-driven transport metric.** On positive
+  classical shell probabilities, the same generator is entropy gradient flow
+  in a logarithmic-mean metric. Its projected port mobility depends on pair
+  correlations even while the mean propagation operator stays fixed.
+- **A positive finite entropy-stationarity functional is constructed.** Count
+  the exterior configurations compatible with each regional charge and call
+  their logarithmic multiplicity Z_B. Then
+  `S(ρ_A)+〈Z_B〉=log66−D(ρ_A||τ_A)`. This supplies an exact maximum and the
+  missing first-order correlation response without changing repair. It is a
+  counting identity; identifying Z_B with physical area is the next gap.
+- **Native exterior repair realizes that entropy completion.** With a
+  connected exterior of at least three ports, repair confined to exterior
+  seams converges to uniform exterior completions while preserving the
+  entire regional density. For the tested three-port region, the limiting
+  algebra has dimension 19. This uses a declared restricted schedule.
 - **Atomic repair reaches completed reconciliation.** On one seam,
   `C_e^n=E_e+2^(1−n)(C_e−E_e)`. Across the whole carrier, independently uniform
   seam choices give C and E the same reduced working limit, including
   transient inputs. This network convergence gap is closed for the finite law.
+- **A candidate agreement target is constructed independently.** On the
+  binary shell, invariance under endpoint exchange and relative number phase
+  defines an equalizer before repair is chosen. E is exactly its conditional
+  expectation. Declaring those changes invisible to this public readout is
+  an explicit interpretation hypothesis, not a consequence of A2 alone.
+- **Current records recover the native port geometry.** Equilibrium load
+  increments and circulation reconstruct the port-response operator and its
+  rank-three Gram geometry. Independent intervention means agree. A common
+  rate cancels in a joined circulation/relaxation relation.
 - **Records supply conserved transport and operational probes.** The recorded
   current satisfies local and regional continuity. Integrated circulation,
   first-passage response and configuration resistance obey exact relations.
 - **The same state supplies regional entropy.** Its regional modular
   observable, entropy first law and boundary-current balance are explicit.
   Protected records and coherent information accounting have been tested.
+- **Finite continuing hardware is constructed.** A replaceable diagnostic
+  register supports indefinitely many active ticks while a distinct protected
+  register is untouched. This policy loses old diagnostics; physical reset
+  resources and unbounded immutable history are separate requirements.
+- **The simplest area attachments fail a precise test.** Fixed cut capacity,
+  cut activity and the tested one-event record mutual information cannot
+  satisfy a common entropy-stationarity coefficient on the declared tangent
+  family. A correlation change can alter entropy while preserving every
+  mean load and cut activity. The counted exterior multiplicity resolves
+  that response; its physical collar and area interpretation needs a separate
+  construction. Those failed summaries do not exhaust the available records.
 - **Physical identification is open.** Configuration distance is not
   identified with spacetime geometry; modular current is not identified with
   physical stress. Physical clock, area, continuum and observational
@@ -39,13 +79,13 @@ this document is not an empirical verification bundle or an axiom amendment.
 
 | Link | Completion status and constructed result | What completes the remaining physical connection |
 | --- | --- | --- |
-| **M01: common source** | **Finite specification complete.** The 78 native working states; explicit C/E operations, preparation, schedule, records, fixed capacity and exhaustion policy. | Attach the carrier/federation and physical readouts consumed by the claim, with explicit maps. Supply sustained active resource use or the required finite horizon, state selection and refinement. |
-| **M02: observers and agreement** | **Finite recording/readout/intervention contracts complete.** Compatible proper overlaps, predecessor recovery, protected old marginals, actual working and record measurements. | Define the A2 interpretation/translation/equalizer target independently and match it to completed repair. Supply the used acceptance, completeness, confluence, authentication and broader history-menu requirements. Local checkpoints alone are not autonomous. |
-| **M03: geometry** | **Operational probes constructed; physical geometry open.** Native intervention/hitting response and a genuine resistance metric on configurations. | Identify physical regions, metric, collar volume and area from those source probes, with state dependence, quotient invariance and refinement. A configuration metric or fixed graph is insufficient. |
-| **M04: physical time** | **Event-order/count interfaces constructed; physical clock open.** Disjoint-operation commutation, positive count-time extension, ensemble circulation clock and a common clock–response relation. | Join the existing source-geometric/count/moving-clock constructions to this instrument; establish physical causal interpretation and calibrate rates/scales. A fluctuation statistic is not a monotone individual clock. |
-| **M05: fields and current** | **Finite conserved-current interface complete; physical field attachment open.** Record-defined flux, continuity, quantum number action, susceptibility and fluctuation identities. | Identify charge, energy and stress; construct or explicitly supply the field/action and propagation contract, physical units and reciprocal geometry response. |
+| **M01: common source** | **Finite specification, active continuation and diagonal reconstruction complete.** The 78 native working states; explicit C/E operations, preparation and schedule. Two retained events recover all 66 shell probabilities. Finite append-and-halt and replaceable diagnostic storage are constructed. | Attach the carrier/federation and physical readouts with explicit maps, state selection and refinement. Replacing diagnostics requires physical reset resources; accumulating immutable history requires storage or export. Ensemble reconstruction requires repeated preparations and retained event labels. |
+| **M02: observers and agreement** | **Finite observer contracts and candidate equalizers complete.** Proper overlaps, protected marginals and actual interventions. E completes the supplied exchange/phase-invariant algebra. Exterior-only native repair also realizes a regional-data-preserving maximum-entropy completion. | Justify those interpretations from the required observer menu; translated-chart naturality alone does not select them. Supply the used completeness, acceptance, confluence, authentication and broader history contracts. The supplied invariant targets are not the complete A2 diagram. |
+| **M03: geometry** | **Native port reconstruction and state-dependent transport metric complete in their finite regimes.** Equilibrium currents recover the response operator, port resistance and native rank-three Gram. A logarithmic-mean metric and its projected port tangent cost follow from the same generator. | Identify physical regions, responsive spacetime metric, collar volume and area, with common refinement. The transport metric depends on the full probability, including correlations; its spacetime interpretation is open. Raw activity is generally different from the transport mobility. |
+| **M04: physical time** | **Finite count/current/relaxation relations complete; physical clock open.** Event order, count-time extension, circulation clock and exact rate-independent relation to native slow density relaxation. | Join the existing source-geometric/count/moving-clock constructions through common event/population/refinement maps and calibrate physical scales. Ensemble variance is not a monotone individual clock. |
+| **M05: fields and current** | **Finite conserved-current and classical entropy-flow interfaces complete.** Record-defined flux, continuity, quantum number action, susceptibility and fluctuations; exact logarithmic-mean constitutive law and entropy dissipation on positive shell probabilities. | Identify charge, energy and stress; construct or explicitly supply the field/action and propagation contract, physical units and reciprocal geometry response. The dissipative count-time identity alone does not give a relativistic or Hamiltonian field theory. |
 | **M06: quantum dynamics and regime** | **Finite positivity, composition and network completion complete.** C and E have shared finite limits with certified rates, while retaining different quantum histories. | Identify physical sectors and observables. For a continuum claim, control common refinement, relevant correlators and renormalization. A claim of unique quantum selection needs additional premises. |
-| **M07: entropy/area stationarity** | **Regional entropy/modular-current input complete; physical stationarity open.** Actual reduced state, first law, recorded modular balance and constrained entropy completion. | Construct physical area and stress/modular-flow maps, admissible fixed-volume variations, area normalization and stationarity with controlled remainders. Stationary probability alone does not establish them. |
+| **M07: entropy/area stationarity** | **Regional entropy differential, counting stationarity and native exterior completion complete.** Exterior multiplicity Z_B gives `S_A+〈Z_B〉=log66−D(ρ_A||τ_A)`. Exterior-only repair realizes the completion with entropy `S_A+〈Z_B〉` under the stated connectivity/size hypotheses. | Realize the counted term as a compatible physical collar/area observable, with stress/flow, actual fixed-volume variations, normalization and common refinement. Complementary bulk multiplicity is not automatically the flagship's gauge-representation edge dimension. |
 | **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's attachment is open.** The finite entropy result supplies part of the input problem. | Realize the flagship's G1–G6 premises on this same family, including conserved stress, universal coupling and gravitational constraints, or state and justify a different route. |
 | **M09: parameters and P** | **Open on this candidate.** No P-to-coin, temperature, amplitude or rate identification is derived here. | Compute each claimed quantity from the same law, metric, units and endpoint map; distinguish derivation from calibration. Prove that any P readback measures the intended quantity. |
 | **M10: physical matter** | **Open on this candidate.** Existing OPH gauge/matter results remain conditional inputs, not an attached spectrum. | Realize the required matter content, interactions and stable poles. Running claims require charged response, thresholds and matching. Matching an abstract gauge type is insufficient. |
@@ -100,9 +140,11 @@ The next work is concentrated, not a search over unrelated models:
 
 | Next question | Smallest proposed move | Decisive completion or rejection condition |
 | --- | --- | --- |
-| **What exactly must agree?** | Define the source's interpretation/translation diagram before selecting its repair. | Show its agreement algebra equals the completed repair's retained algebra, or exhibit a specific mismatch and revise the minimal interface. |
-| **Which probes read physical geometry and time?** | Start with the constructed current, first-passage and modular-response probes and existing OPH clock/geometry maps. | Produce a common region/distance/time map that survives interventions and the relevant refinement. Configuration-distance relabeling alone fails. |
-| **Can the entropy input meet the gravity premise?** | Identify physical stress/flow and area on the same regional state before adding gravity variables. | Test normalized entropy/area balance under independent admissible fixed-volume perturbations, then the required conservation and constraint identities. Defining area to cancel entropy fails as a derivation. |
+| **Why this public agreement target?** | Test the constructed invariant interpretation against the observer menu and existing A2 translations. | Derive or justify why endpoint exchange and relative phase are invisible to that readout while required working probes remain available. Ordinary translated-chart covariance cannot supply this selection. |
+| **Which probes read physical geometry and time?** | Join the recovered port-response/Gram and circulation clock to the existing OPH event, region and count-clock maps. | Preserve the common response under relevant preparations and refinement. An activity-dependent matrix that disagrees with measured mean propagation fails that proposed identification. |
+| **Can counting stationarity become physical entropy/area stationarity?** | Construct a source-compatible collar map for the exterior-completion observable Z_B; retain its exact finite deficit and the two-event record reconstruction. Keep stress/flow and volume independently defined. | Show that the collar carries the required edge algebra and dimension weights, then derive geometric area, locality/refinement and normalization. Defining a geometric area as Z_B by convention does not establish those maps. |
+| **Can the transport metric join the geometric source?** | Use the derived logarithmic-mean metric as the candidate constitutive object, with its full probability dependence and equilibrium port limit. | Derive the physical region/metric map and its dynamics on a common refinement. Test the force and mobility together; neither fixed mean propagation nor changing activity alone settles the question. |
+| **Which memory is actually committed?** | Choose append-and-halt or replaceable diagnostics according to the required history menu, with a distinct protected register. | Include retention/export/reset resources in the common physical source. A bounded scratch record cannot masquerade as an unlimited immutable archive. |
 | **What can be tested against nature first?** | Choose the smallest physical observable whose dependencies can be completed. | Derive a relation that survives the candidate's allowed freedom and specify an eligible independent comparison. A whole cosmology or continuum is required only when that observable consumes it. |
 
 ## 3. The candidate repair law being tested
@@ -184,6 +226,83 @@ schedule. The two-write recorder does not provide indefinitely active repair
 or a free reusable memory. Its explicit halt is a completed finite resource
 policy; sustained operation requires a further justified policy.
 
+A constructed alternative uses a fixed 180-state temporary register Z for
+`(seam,coin,current)`. With uniform independent seam choices, let
+
+```text
+J(ρ) = (1/30) Σ_e |e〉〈e| ⊗ W_e ρ W_e*,
+F(σ_ZW) = J(Tr_Z σ_ZW),
+F^n = J Q_C^(n−1) Tr_Z,   n≥1.
+```
+
+This CPTP law runs on the same 14,040-dimensional working/diagnostic space
+at every tick. Its unique fixed state is `Ω=J(τ_B)`; the working reduction is
+τ_B. A separate protected register retains its marginal, with joint limit
+`ρ_R⊗Ω`. The prior diagnostic is explicitly discarded. There are `60^n`
+distinct seam/coin histories after n active attempts, so indefinite exact
+readability of all history from the record alone requires that many
+distinguishable record states. Fixed finite memory cannot provide it. This is an open
+channel implementation contract, not a closed-unitary Universe or a supplied
+physical reset environment. Neither policy changes native C itself.
+
+### Reading correlations from two repair events
+
+For each occupied pair {i,k}, choose native seams (i,j) and (k,l) with four
+distinct endpoints. Such seams exist for every pair. The two recorded
+outward transfers, with their specified coins, can occur only from {i,k}.
+Their joint effect on the initial shell state is
+
+```text
+effect = |ik〉〈ik|/4       conditioned on the ordered seam choices,
+effect = |ik〉〈ik|/3600    including the independent uniform seam schedule.
+```
+
+Consequently the 66 query probabilities determine all diagonal pair
+probabilities. They determine regional number distributions, exterior
+completion counts and the entropy differential at τ_B. No added field or
+different microscopic operation is needed. This exact identification uses
+an ensemble of the same preparation; finite-sample accuracy and sample cost
+are additional questions. Both event labels must be retained. A single-event
+scratch register alone does not implement this observation menu.
+
+One event provides less information: its full label menu spans the constant,
+port loads and native-edge pair occupations, with rank 42 and a
+24-dimensional invisible diagonal subspace. The original entropy/activity
+counterexample below is visible to that full one-event menu. A
+different tangent, `(δ_02+δ_13−δ_03−δ_12)/66`, is invisible to every
+one-event label but changes entropy on the connected region {0,2,10} by
+`log(9/4)/66`; two events detect it.
+
+Classical record labels do not determine quantum coherences. Every finite
+record word is an injective partial translation, so its probability effect
+is diagonal. Coherent and dephased preparations can therefore give identical
+label statistics and different regional entropies. The constructed
+working interventions remain necessary for quantum claims. At τ_B, the
+regional modular observable is diagonal, so the first entropy differential
+is nevertheless accessible through this classical reconstruction.
+
+### An independently defined candidate agreement target
+
+On the binary shell, define S_e by exchanging the seam's endpoint occupancies
+and `U_e=exp[iπ(N_i−N_j)/2]`. They are local operators lifted to the common
+total-two space, independently of the repair channel. The proposed public
+algebra is the equalizer of `Id`, `Ad(S_e)` and `Ad(U_e)`. The eight-element
+group generated by S_e and U_e has an exact twirl equal to E_e. Its algebra is
+`M_46 ⊕ (I_2⊗M_10)`, of dimension 2216. The corresponding common equalizers
+have dimension 1378 for the tested two seams and one for all thirty seams.
+With protected R, the common target includes the full protected algebra
+`B(R)⊗I_binary`.
+
+This closes the candidate target-to-completion calculation. The public
+interpretation explicitly ignores those representation changes. A correctly
+translated covariant chart can instead retain the full working algebra, so
+A2 naturality alone does not select this target. Endpoint number remains a
+changing working probe, not an invariant committed meaning by definition.
+Completion preserves the chosen retained data; observers with different
+retained data are not made equal merely by applying this twirl.
+Overlapping primitive completions need not commute; a common ensemble limit
+does not prove transaction-level confluence of individual histories.
+
 ### Atomic steps, completed repair and network equilibrium
 
 The completed comparison law E_e records `(coin, pre-repair contrast)` rather
@@ -197,7 +316,8 @@ C_e^n=E_e+2^(1−n)(C_e−E_e),   n≥1.
 
 Thus C is a partial reconciliation whose repeated use reaches E. On the
 binary shell E is a faithful trace-preserving conditional expectation;
-its fixed algebra has not been identified with the A2 overlap equalizer.
+its fixed algebra equals the candidate invariant target above, while
+identification with the complete source A2 overlap diagram is open.
 The corresponding contrast recorder remains a valid comparison construction,
 not an abandoned model or the same quantum instrument as C.
 
@@ -239,7 +359,7 @@ source of incoming interactions remain separate questions.
 | **Event order** | Disjoint recorded operations commute after occurrence alignment. Linear extensions of a fixed dependency order give the same completed operation. | Intermediate probes and timestamps must be included in the dependency order; the theorem does not identify all observed histories. |
 | **Entropy completion** | On the shell, `D(ρ||Eρ)=S(Eρ)−S(ρ)`; Eρ uniquely maximizes entropy at fixed retained-algebra data. C approaches that completion. | The entropy deficit need not follow the channel's exact halving rate. The full 78-state space has no faithful stationary reference for this repair. |
 
-### Circulation, a clock statistic and configuration distance
+### Current-derived port geometry and clock relations
 
 Let D be oriented incidence, `G=L_ico⁺`, `P_c=I−DᵀGD`, and
 `A_n=Σ_(k≤n)J_k` the integrated recorded current. Then `P_c A_n` is a
@@ -256,6 +376,74 @@ from endpoint densities. The circulation variance measures ensemble attempt
 count. A single squared circulation is noisy and need not grow monotonically.
 Uniform pile preparations with the same mean loads give first-attempt variance
 1/60 instead, so the calibration depends on the declared state.
+
+There is a direct connection to the existing native **port** geometry. Let
+`B=E[ΔX ΔXᵀ]` and `ν=E[(cᵀJ)²]` for one triangular circulation attempt.
+At uniform binary equilibrium, branch counting gives
+
+```text
+B=L_ico/198,   ν=1/66,   L_record=3B/ν=L_ico.
+```
+
+The factor three is the loop length. A common event rate and load-unit scale
+cancel. The same operator is independently recovered from the mean response
+to the twelve pile preparations. Its Green matrix gives port resistances
+`11/30`, `7/15` and `1/2` for the three nontrivial pair classes. Its slow
+eigenspace has rank three, and four times that projector is exactly the
+documented unit-diagonal native Gram. The finite centered response has rank
+eleven; rank three is the specified spectral/long-time readout. This recovers
+the existing source geometry from records, within that declared regime.
+
+With `κ=5/33`, continuous Poisson attempt rate λ gives slow density decay
+`γ_s=λ(5−√5)/60` and circulation variance rate `ν_t=λ/66`. Thus
+
+```text
+κ γ_s/ν_t = (5−√5)/6.
+```
+
+This is a common-process clock/response relation with no fitted rate.
+An exactly localized pile instead yields a rank-five activity operator;
+a half-equilibrium/half-localized mixture yields a connected but differently
+weighted operator, while measured mean propagation remains unchanged. These
+controls reject identifying arbitrary state-dependent activity with the
+metric controlling that mean response. The physical source-clock and
+responsive-geometry attachments need their explicit maps.
+
+### An entropy-driven metric without changing the dynamics
+
+Let P be the shell transition matrix and use continuous Poisson attempt time
+at declared rate one. Configurations connected by one native exclusion move
+have generator rate `q_xy=1/60`. For positive probabilities p, define
+
+```text
+θ(a,b) = (a−b)/(log a−log b),   θ(a,a)=a,
+K_p = Σ_{unordered x~y} q_xy θ(p_x,p_y) b_xy b_xyᵀ,
+p_dot = (P−I)p = −K_p log(p/τ),   τ_x=1/66.
+```
+
+Here b_xy is configuration incidence. K_p is positive on zero-sum forces;
+its inverse there gives a tangent metric. Relative entropy dissipates exactly:
+`dD(p||τ)/dt=−log(p/τ)ᵀK_p log(p/τ)`. The general reversible-chain
+construction is established mathematics; this is its normalized application
+to native repair ([Maas, 2011](https://arxiv.org/abs/1102.5238)).
+
+For occupancy matrix X, the projected mobility is `M_p=XᵀK_pX`.
+At the specified full state, the least configuration tangent cost inducing
+a zero-sum port velocity v is `vᵀM_p⁺v`. Thus it has a precise transport
+meaning. It depends on correlations beyond the mean `μ=Xᵀp`.
+At equilibrium, `M_τ=L_ico/396=B_τ/2`; in general `M_p≤B_p/2`, where
+B_p is the raw increment second-moment rate. The mean law satisfies
+`μ_dot=−L_ico μ/60`: changing mobility and entropy force combine to give
+that same response. Fixed mean propagation does not rule out this metric.
+
+On the entropy counterexample `p_ε=τ+ε(δ_01+δ_23−δ_02−δ_13)/66`, the
+full port mobility changes at first order while every mean stays fixed.
+For A={0,1,7}, its regional contraction is
+`1_AᵀM_pε 1_A=1/44−ε²/3960+O(ε³)`. The regional first derivative
+is zero, so this metric does not itself cancel the first-order entropy
+witness. It is a classical configuration transport metric and projected
+tangent cost, with a supplied count-time scale. A spacetime metric,
+physical action and quantum refinement have not been identified with it.
 
 The binary configuration transition matrix P gives a genuine resistance
 metric `R_ab` through `(I−P)⁺`. Mean first-passage times satisfy
@@ -295,6 +483,119 @@ A preparation tilt at port 0 gives regional entropy derivative
 This is an actual regional-state calculation, not an inference from global
 stationarity. Physical area, stress and boost/modular-flow correspondence
 have not been derived from it.
+
+The complete first differential for a region with b exterior ports is,
+on its feasible support and for b≥2,
+
+```text
+δS_A = log[(b−1)/2] δ〈Q_A〉 + log[2b/(b−1)] δ〈choose(Q_A,2)〉.
+```
+
+This covers arbitrary shell-density variations, including directions outside
+the port-tilt family. The
+pair term exposes an omitted response. For A={0,1,7}, take the positive
+nearby preparation curve
+
+```text
+p_ε = τ_B + ε(δ_01 + δ_23 − δ_02 − δ_13)/66,   |ε|<1,
+```
+
+where ij denotes the occupied pair. Every individual mean load is constant,
+but `dS_A/dε=log(9/4)/66`. Fixed cut capacity and boundary current activity
+both have zero derivative. They cannot supply a compensating area term on
+this tangent. The tested one-crossing-event mutual information between
+`(seam,coin,current)` and the post-event regional readout also fails a
+constant coefficient across independent port tilts. Its failure is distinct
+from the capacity/activity witness; not every information readout is ruled out.
+
+These tests use fixed region cardinality as a candidate volume and do not
+construct the physical fixed-volume family. They reject those attachments;
+the following counting construction supplies a response they missed.
+
+### Positive entropy balance from exterior completions
+
+Use the existing fixed-total shell split, with a interior and b exterior
+ports. In regional charge sector q there are `d_A(q)=choose(a,q)` interior
+patterns and `d_B(q)=choose(b,2−q)` compatible exterior patterns. The reference
+regional state has eigenvalue `d_B(q)/66` on each feasible interior pattern.
+Define a central observable by counting the exterior completions:
+
+```text
+Z_B = Σ_q log d_B(q) Π_q,
+−log τ_A = log66 I − Z_B,
+S(ρ_A)+〈Z_B〉 = log66 − D(ρ_A||τ_A).
+```
+
+The last identity holds for every allowed shell density, including quantum
+coherences within a regional charge sector. Its maximum is log66, attained
+exactly when `ρ_A=τ_A`. Hence every normalized first variation there obeys
+`δS_A+δ〈Z_B〉=0`, with a positive coefficient of one and an exact
+relative-entropy deficit away from the maximum. Z_B was counted from source
+multiplicities, not fitted to cancel a selected entropy perturbation.
+
+On the original four-pair tangent, `δ〈Z_B〉=log(4/9)/66`, precisely
+balancing the missing entropy response. Two-event diagonal reconstruction
+reads this observable and the first entropy variation, even for quantum
+perturbations at the reference. It does not recover arbitrary off-reference
+von Neumann entropy when local coherences are unknown.
+
+This closes a finite positive counting-stationarity subproblem. It also
+sharpens the next construction: **realize these multiplicities in a physical
+collar and derive its area map**. Exterior bulk completion counts are not
+automatically gauge-representation dimensions. In particular, ordinary U(1)
+charge irreducible representations have dimension one; their representation
+edge term alone cannot be renamed `log choose(b,2−q)`. The flagship's edge
+entropy theorem requires its actual collar decomposition. Locality,
+refinement, area normalization, physical fixed volume and stress/modular-flow
+identification need that common construction.
+
+Fixed total charge makes ρ_A block diagonal in regional q, even when the
+global state has coherence between different q sectors. Global sector-entropy
+bookkeeping must retain the pinching correction
+`C_Q=S(Δ_Qρ)−S(ρ)`. Exact coherent controls distinguish that correction
+from the regional identity above. The counted maximum does not by itself
+prove that every region's functional grows monotonically under native repair.
+
+### Exterior repair implements the counted completion
+
+The completion has an implementation with the same primitives. Fix A and
+schedule only native seams wholly in its exterior B. If that exterior graph
+is connected and has at least three ports, positive fixed seam weights give
+the reduced C and E limits
+
+```text
+Φ_A(ρ) = ⊕_q ρ_A,q ⊗ I_B,2−q / choose(b,2−q),
+fixed algebra = ⊕_q B(H_A,q) ⊗ I_B,2−q.
+```
+
+Here ρ_A,q is the unnormalized regional charge block. Relative-number phases
+force surviving exterior bra and ket patterns to coincide; connected endpoint
+swaps then make their coefficients uniform at fixed exterior charge. This
+independently defines the fixed algebra. Each native C_e is self-adjoint with
+spectrum in {0,1/2,1} and has the same fixed space as E_e; their positive
+mixture converges to the stated conditional expectation.
+
+For A={0,1,7}, all 4,356 matrix units verify the result on 18 exterior seams.
+The algebra has dimension `1²+3²+3²=19`. Φ_A preserves the entire regional
+density, including within-charge quantum coherence, and uniquely maximizes
+global entropy at that fixed regional state:
+
+```text
+S(Φ_Aρ) = S(ρ_A)+〈Z_B〉.
+```
+
+The completed state retains the shared charge-sector correlation across the
+boundary; it removes within-sector correlations with the exterior.
+
+This joins the counting identity to an actual scheduled repair process.
+The restrictions matter: one- or two-port exteriors can retain additional
+vacuum/full coherences; disconnected exteriors retain component charges.
+The all-thirty schedule includes boundary crossings and changes ρ_A, so it
+does not implement this regional-preserving limit. A finite recorder that
+halts after two writes cannot implement an infinite-time completion either;
+continuing reduced evolution uses its declared memory/reset policy. Physical
+collar locality and area identification require further work on this same
+construction.
 
 Coherent record retention preserves total joint entropy. Forgetting records
 can increase reduced entropy. The full 78-state uniform state instead loses entropy
