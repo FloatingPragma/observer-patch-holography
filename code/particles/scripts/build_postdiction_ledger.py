@@ -4809,7 +4809,7 @@ def _forced_structure(
                 "committed fields, inducing only four distinct partitions: "
                 "its repair-load count aggregation is an "
                 "eight-state ergodic nonreversible H-theorem probe, but it "
-                "fails the pinned-table strong-lumpability diagnostic, the "
+                "fails the exact count-kernel strong-lumpability test, the "
                 "declared record charge is constant, and the common reference "
                 "is unidentified; the fine chain's only recurrent restriction "
                 "is singleton freezeout. The audit does not exclude arbitrary "
