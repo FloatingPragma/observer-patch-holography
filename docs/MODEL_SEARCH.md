@@ -27,7 +27,7 @@ This document tracks that candidate, rather than an unrestricted model search.
 - **A positive finite entropy-stationarity functional is constructed.** Count
   the exterior configurations compatible with each regional charge and call
   their logarithmic multiplicity Z_B. Then
-  `S(ρ_A)+〈Z_B〉=log66−D(ρ_A||τ_A)`. This supplies an exact maximum and the
+  `S(ρ_A)+〈Z_B〉=log66−D(ρ_A‖τ_A)`. This supplies an exact maximum and the
   missing first-order correlation response without changing repair. It is a
   counting identity; identifying Z_B with physical area is the next gap.
 - **Native exterior repair realizes that entropy completion.** With a
@@ -85,7 +85,7 @@ this document is not an empirical verification bundle or an axiom amendment.
 | **M04: physical time** | **Finite count/current/relaxation relations complete; physical clock open.** Event order, count-time extension, circulation clock and exact rate-independent relation to native slow density relaxation. | Join the existing source-geometric/count/moving-clock constructions through common event/population/refinement maps and calibrate physical scales. Ensemble variance is not a monotone individual clock. |
 | **M05: fields and current** | **Finite conserved-current and classical entropy-flow interfaces complete.** Record-defined flux, continuity, quantum number action, susceptibility and fluctuations; exact logarithmic-mean constitutive law and entropy dissipation on positive shell probabilities. | Identify charge, energy and stress; construct or explicitly supply the field/action and propagation contract, physical units and reciprocal geometry response. The dissipative count-time identity alone does not give a relativistic or Hamiltonian field theory. |
 | **M06: quantum dynamics and regime** | **Finite positivity, composition and network completion complete.** C and E have shared finite limits with certified rates, while retaining different quantum histories. | Identify physical sectors and observables. For a continuum claim, control common refinement, relevant correlators and renormalization. A claim of unique quantum selection needs additional premises. |
-| **M07: entropy/area stationarity** | **Regional entropy differential, counting stationarity and native exterior completion complete.** Exterior multiplicity Z_B gives `S_A+〈Z_B〉=log66−D(ρ_A||τ_A)`. Exterior-only repair realizes the completion with entropy `S_A+〈Z_B〉` under the stated connectivity/size hypotheses. | Realize the counted term as a compatible physical collar/area observable, with stress/flow, actual fixed-volume variations, normalization and common refinement. Complementary bulk multiplicity is not automatically the flagship's gauge-representation edge dimension. |
+| **M07: entropy/area stationarity** | **Regional entropy differential, counting stationarity and native exterior completion complete.** Exterior multiplicity Z_B gives `S_A+〈Z_B〉=log66−D(ρ_A‖τ_A)`. Exterior-only repair realizes the completion with entropy `S_A+〈Z_B〉` under the stated connectivity/size hypotheses. | Realize the counted term as a compatible physical collar/area observable, with stress/flow, actual fixed-volume variations, normalization and common refinement. Complementary bulk multiplicity is not automatically the flagship's gauge-representation edge dimension. |
 | **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's attachment is open.** The finite entropy result supplies part of the input problem. | Realize the flagship's G1–G6 premises on this same family, including conserved stress, universal coupling and gravitational constraints, or state and justify a different route. |
 | **M09: parameters and P** | **Open on this candidate.** No P-to-coin, temperature, amplitude or rate identification is derived here. | Compute each claimed quantity from the same law, metric, units and endpoint map; distinguish derivation from calibration. Prove that any P readback measures the intended quantity. |
 | **M10: physical matter** | **Open on this candidate.** Existing OPH gauge/matter results remain conditional inputs, not an attached spectrum. | Realize the required matter content, interactions and stable poles. Running claims require charged response, thresholds and matching. Matching an abstract gauge type is insufficient. |
@@ -354,10 +354,10 @@ source of incoming interactions remain separate questions.
 | Constructed connection | Exact result | Physical boundary |
 | --- | --- | --- |
 | **Transport and phase** | `Δx=−b_e j`; every region's change equals its boundary flux. A branch gains phase `exp[−i(θ_i−θ_j)j]` under local number phases, compensated by its record. | Covariance constrains quantum lifts; it does not uniquely select C or identify electromagnetism. |
-| **Response and fluctuations** | For uniform active seam attempts, `E[Δx|x]=−L_ico x/60`. At uniform binary equilibrium, susceptibility is `χ=(5/33)(I−11ᵀ/12)`. The exact discrete balance uses conditional innovations rather than raw increments. | This is preparation response and finite fluctuation balance, not a supplied temperature, external field or physical stress law. |
+| **Response and fluctuations** | For uniform active seam attempts, `E[Δx∣x]=−L_ico x/60`. At uniform binary equilibrium, susceptibility is `χ=(5/33)(I−11ᵀ/12)`. The exact discrete balance uses conditional innovations rather than raw increments. | This is preparation response and finite fluctuation balance, not a supplied temperature, external field or physical stress law. |
 | **Observer intervention** | A working read between overlapping C events changes a later coherence expectation from 1/4 to 0 while preserving the averaged old record state. All 312 two-event classical paths reverse; all 6084 working matrix units match C_f C_e. | Compatible common-state restrictions also hold before repair, so they do not independently identify an A2 repair target. Hidden-neighbor dependence remains. |
 | **Event order** | Disjoint recorded operations commute after occurrence alignment. Linear extensions of a fixed dependency order give the same completed operation. | Intermediate probes and timestamps must be included in the dependency order; the theorem does not identify all observed histories. |
-| **Entropy completion** | On the shell, `D(ρ||Eρ)=S(Eρ)−S(ρ)`; Eρ uniquely maximizes entropy at fixed retained-algebra data. C approaches that completion. | The entropy deficit need not follow the channel's exact halving rate. The full 78-state space has no faithful stationary reference for this repair. |
+| **Entropy completion** | On the shell, `D(ρ‖Eρ)=S(Eρ)−S(ρ)`; Eρ uniquely maximizes entropy at fixed retained-algebra data. C approaches that completion. | The entropy deficit need not follow the channel's exact halving rate. The full 78-state space has no faithful stationary reference for this repair. |
 
 ### Current-derived port geometry and clock relations
 
@@ -423,7 +423,7 @@ p_dot = (P−I)p = −K_p log(p/τ),   τ_x=1/66.
 
 Here b_xy is configuration incidence. K_p is positive on zero-sum forces;
 its inverse there gives a tangent metric. Relative entropy dissipates exactly:
-`dD(p||τ)/dt=−log(p/τ)ᵀK_p log(p/τ)`. The general reversible-chain
+`dD(p‖τ)/dt=−log(p/τ)ᵀK_p log(p/τ)`. The general reversible-chain
 construction is established mathematics; this is its normalized application
 to native repair ([Maas, 2011](https://arxiv.org/abs/1102.5238)).
 
@@ -523,7 +523,7 @@ Define a central observable by counting the exterior completions:
 ```text
 Z_B = Σ_q log d_B(q) Π_q,
 −log τ_A = log66 I − Z_B,
-S(ρ_A)+〈Z_B〉 = log66 − D(ρ_A||τ_A).
+S(ρ_A)+〈Z_B〉 = log66 − D(ρ_A‖τ_A).
 ```
 
 The last identity holds for every allowed shell density, including quantum
