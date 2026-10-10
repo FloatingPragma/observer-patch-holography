@@ -1,0 +1,49 @@
+name: K7 gauge kinetic cross-control
+
+on:
+  push:
+    paths:
+      - 'code/angular_sprint/k7_gauge_kinetic_cross_control.py'
+      - 'code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py'
+      - 'code/angular_sprint/test_k7_gauge_kinetic_cross_control.py'
+      - 'code/angular_sprint/k7_gauge_kinetic_cross_control.md'
+      - 'code/angular_sprint/runtime/k7_gauge_kinetic_cross_control.json'
+      - 'code/angular_sprint/external/k7_gauge/**'
+      - 'Lean/Screen/KineticFormDichotomy.lean'
+      - 'Lean/Screen/RGRepresentationFrontier.lean'
+      - 'code/angular_sprint/kinetic_form_selection_certificate.py'
+      - 'code/angular_sprint/runtime/kinetic_form_selection_receipt.json'
+      - '.github/workflows/k7-gauge-kinetic-cross.yml'
+  pull_request:
+    paths:
+      - 'code/angular_sprint/k7_gauge_kinetic_cross_control.py'
+      - 'code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py'
+      - 'code/angular_sprint/test_k7_gauge_kinetic_cross_control.py'
+      - 'code/angular_sprint/k7_gauge_kinetic_cross_control.md'
+      - 'code/angular_sprint/runtime/k7_gauge_kinetic_cross_control.json'
+      - 'code/angular_sprint/external/k7_gauge/**'
+      - 'Lean/Screen/KineticFormDichotomy.lean'
+      - 'Lean/Screen/RGRepresentationFrontier.lean'
+      - 'code/angular_sprint/kinetic_form_selection_certificate.py'
+      - 'code/angular_sprint/runtime/kinetic_form_selection_receipt.json'
+      - '.github/workflows/k7-gauge-kinetic-cross.yml'
+
+jobs:
+  exact-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned dependencies
+        run: python3 -m pip install -r requirements.txt
+      - run: python3 code/angular_sprint/k7_gauge_kinetic_cross_control.py --check
+      - run: >-
+          python3 code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py
+          --receipt code/angular_sprint/runtime/k7_gauge_kinetic_cross_control.json
+      - run: python3 -m pytest -q code/angular_sprint/test_k7_gauge_kinetic_cross_control.py
+      - run: python3 code/angular_sprint/kinetic_form_selection_certificate.py --verify
+      - run: >-
+          python3 code/angular_sprint/verify_kinetic_form_selection_independent.py
+          --receipt code/angular_sprint/runtime/kinetic_form_selection_receipt.json

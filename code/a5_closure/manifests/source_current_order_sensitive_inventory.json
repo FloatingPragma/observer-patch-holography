@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 888,
+    "file_count": 897,
     "files": [
       {
         "byte_count": 42558,
@@ -2858,6 +2858,36 @@
         "sha256": "sha256:b58755ebd0f2df8efad0b283734fefe1da39dc7e59f8eab9b521822c8a218244"
       },
       {
+        "byte_count": 9173,
+        "path": "code/angular_sprint/external/k7_gauge/ERRATUM_v3.5.md",
+        "sha256": "sha256:38666697a4c8e13d8822c65dc55e3989ae5dc4caa93641ecb871425aa6f6a31c"
+      },
+      {
+        "byte_count": 5113,
+        "path": "code/angular_sprint/external/k7_gauge/GaugeSector.lean",
+        "sha256": "sha256:90f6ac3b99459e0bfab36e252f70c618a110cf59434df71e5e27a0da5ad6955e"
+      },
+      {
+        "byte_count": 8418,
+        "path": "code/angular_sprint/external/k7_gauge/honest_ledger.md",
+        "sha256": "sha256:2086355a75a0cce22cc3323c89dc1e7c0a9a9a5c052b4f031a651123f3051ac0"
+      },
+      {
+        "byte_count": 117869,
+        "path": "code/angular_sprint/external/k7_gauge/k7_framework_3_5_main.md",
+        "sha256": "sha256:a725f115690562eba63feefccd9ef612f83b8d2c05c3b1736ebf424df2d1d00d"
+      },
+      {
+        "byte_count": 6484,
+        "path": "code/angular_sprint/k7_gauge_kinetic_cross_control.md",
+        "sha256": "sha256:81f71c13fdbb7d51210d615f999eded4f2e97863b38b3343d346fc9d7e019e33"
+      },
+      {
+        "byte_count": 17204,
+        "path": "code/angular_sprint/k7_gauge_kinetic_cross_control.py",
+        "sha256": "sha256:dacdb2307059dad85dfa87d15c34314aa1a4ad5cf293baf7f4ba7f25ea1836df"
+      },
+      {
         "byte_count": 32254,
         "path": "code/angular_sprint/kinetic_form_selection_certificate.py",
         "sha256": "sha256:36db6dbd44a2f1d6013965aa2ed0ea9b4939d9ba47c6962352606c1406ae5df9"
@@ -2886,6 +2916,11 @@
         "byte_count": 12252,
         "path": "code/angular_sprint/runtime/electroweak_pole_quotient_receipt.json",
         "sha256": "sha256:6edae85139f7699e36ff89109cbe2ddc68838d1a87acf8099cfc615916a1ec45"
+      },
+      {
+        "byte_count": 11705,
+        "path": "code/angular_sprint/runtime/k7_gauge_kinetic_cross_control.json",
+        "sha256": "sha256:07e932a0b954ded06cb1396de3ee7db11dbd4b80da7c205844305d44497e3bdc"
       },
       {
         "byte_count": 8006,
@@ -2918,6 +2953,11 @@
         "sha256": "sha256:ee4aed7975739f178742df572901f507ec6cfe9f0ebba6d9956ca1548bd596ab"
       },
       {
+        "byte_count": 13149,
+        "path": "code/angular_sprint/test_k7_gauge_kinetic_cross_control.py",
+        "sha256": "sha256:0367897a0dd74d1dae7017d0feaf509b0fb293c615052f6fd5a4a8b4951f22d3"
+      },
+      {
         "byte_count": 8018,
         "path": "code/angular_sprint/test_kinetic_form_selection_certificate.py",
         "sha256": "sha256:50506b3edd9872a093f2da4d2415812d53c4955f3b4cfd35ce743923b27f4ef1"
@@ -2941,6 +2981,11 @@
         "byte_count": 27888,
         "path": "code/angular_sprint/verify_electroweak_pole_quotient.py",
         "sha256": "sha256:07d56dfd9d7f78e55df6f317e0542950908bae332356177263af1274048d2864"
+      },
+      {
+        "byte_count": 16715,
+        "path": "code/angular_sprint/verify_k7_gauge_kinetic_cross_control_independent.py",
+        "sha256": "sha256:cdb8ef5dcb480021fdf33c34c943bf82858f46e471ef8e1efba6cd35c7395f62"
       },
       {
         "byte_count": 27687,
@@ -4638,7 +4683,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:7489e3bf94970015f53c2e1dd1806cdf93638d0a50a14e5708abbc9d4f24dfbf",
+    "files_sha256": "sha256:8f979107713420252007e1627d3e6599c93d4c1cb90aca917f83a9c9ca97f58b",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
@@ -7547,7 +7592,7 @@
     ],
     "through_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f"
   },
-  "inventory_sha256": "sha256:3165e4fb8b2e42319a7dcc582936913860653cc700714d808f8d6de0d8c43f7a",
+  "inventory_sha256": "sha256:76d98d32b8104945d7c51e57d53058b52b0fa485f85fad059579fea6b8ea208a",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",
