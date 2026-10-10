@@ -1,332 +1,364 @@
-# OPH model search: what is constructed, what is missing
+# OPH model search: iterative construction from local repair
 
-Status review: **10 October 2026**. Upstream reference:
-`bdafda7de78b2a97f04883b062a7facbaabd84f8`.
+Research status: **10 October 2026**. Source reference:
+`145967663e44c51e9d34dfd193a058a884395a95`.
 
-This document records the physical-model research thread, including its source
-reread and corrections. It is a construction and dependency ledger, not a new
-axiom, theorem, prediction registration, or declaration that OPH describes
-nature. The [axiom reference](AXIOM_REFERENCE.md),
-[claim registry](../claims/claim_registry.yaml),
-[physical-identification registry](../claims/physical_identification_registry.json)
-and their linked proofs remain authoritative. Local research packets retain
-their original source revisions; their results are not silently rebased.
+**Current approach:** build one common microscopic process by making the
+smallest justified extension to native patch repair, testing each connection,
+and preserving what works. The leading candidate is **local integer repair
+with retained current records**, denoted C; its completed reconciliation is E.
+This document tracks that candidate, rather than an unrestricted model search.
 
-**Present assessment:** OPH has concrete twelve-port carriers, repair
-implementations, observer/record constructions, geometry and clock results,
-and several field-theory constructions. A single physically identified
-realization joining all the required components has not been established by
-this campaign. The generic models in this campaign undercredited those existing results and
-drifted away from the actual carrier. The next construction starts with the
-documented OPH source.
+## 1. Headline results and missing-link completion status
 
-## 1. Working rule: the simplest compatible construction
+- **One finite source joins repair, records and quantum dynamics.** The native
+  twelve-port total-two sector has an explicit positive quantum instrument,
+  fixed-capacity recording, overlapping observer readouts and actual
+  intermediate measurement tests.
+- **Atomic repair reaches completed reconciliation.** On one seam,
+  `C_e^n=E_e+2^(1−n)(C_e−E_e)`. Across the whole carrier, independently uniform
+  seam choices give C and E the same reduced working limit, including
+  transient inputs. This network convergence gap is closed for the finite law.
+- **Records supply conserved transport and operational probes.** The recorded
+  current satisfies local and regional continuity. Integrated circulation,
+  first-passage response and configuration resistance obey exact relations.
+- **The same state supplies regional entropy.** Its regional modular
+  observable, entropy first law and boundary-current balance are explicit.
+  Protected records and coherent information accounting have been tested.
+- **Physical identification is open.** Configuration distance is not
+  identified with spacetime geometry; modular current is not identified with
+  physical stress. Physical clock, area, continuum and observational
+  attachments must be constructed on this same process.
 
-**Assume the simplest construction compatible with the actual OPH carrier and
-all retained evidence as the working hypothesis. Start with the existing constructions. Add only what a specific failed interface demonstrably requires.**
+**Status convention:** “finite complete” closes the stated mathematical
+construction, under its declared inputs. It does not close the entire physical
+entry. A construction, selection of that construction by OPH, and agreement
+with observations are separate claims. The experiments retain analytical
+proofs, exact controls, independent reviews and isolated replays locally;
+this document is not an empirical verification bundle or an axiom amendment.
 
-This is a research preference, not a theorem that nature must select the
-shortest formula. “Simple” does not mean deleting load-bearing hypotheses or
-replacing the carrier with an easier unrelated graph.
-
-1. **Use the smallest adequate existing source.** Preserve the oriented
-   twelve-port incidence, actual local repair, records, neutral continuation,
-   observer interfaces and declared refinement. Use a larger federation only
-   when the question needs it.
-2. **Try a readout or composition of existing objects first.** Before adding
-   metric variables, memory, noise, kinetic terms or counterterms, test whether
-   an existing response, record or operation supplies the missing object.
-3. **Expose every choice.** List state variables, law, preparation, scheduler,
-   measure, quotient, units, parameters and measurement maps. State which are
-   axiom inputs, derived, branch hypotheses, calibrated or target-informed.
-4. **Require a reason for every addition.** Name the obstruction, show why the
-   unchanged construction fails to meet the required contract, and explain
-   which minimal addition addresses it. Preserve existing working results.
-5. **Test one common construction.** Matter, geometry, clock and entropy must
-   be read from compatible states and operations with explicit maps. Separate
-   successful models cannot be joined just by sharing notation or symmetry.
-6. **Keep the comparison capable of failure.** Attempt a countermodel within
-   the admitted assumptions; compare against an established-physics baseline
-   and simpler controls. Do not retune after a failed comparison and call the
-   original prediction successful.
-7. **Use bounded decisions.** Each attempt has one missing connection, one
-   decisive calculation, a computation cap and a stopping condition. The list
-   of missing items below is not authorization for an unlimited prerequisite
-   programme.
-
-Repair can depend on the instantaneous state, local records and changing context.
-That does not require an externally changing law. If a proposed law learns or
-adapts, its adaptation state and update must also belong to the model.
-
-## 2. What a complete candidate must specify
-
-The microphysics paper separates these objects in its typed simulator:
-
-| Object | Required meaning |
-| --- | --- |
-| Carrier and observer | Accessible algebras/state, oriented ports, overlap restrictions, readout, records, response and checkpoints. A carrier is not automatically an operational observer. |
-| Proposal and accepted repair | Allowed local proposals; validated accepted transactions; protected quantities; actual descent score; completeness and confluence domain. |
-| Normalizer | The quotient-visible map taking admissible data to the declared consistent normal form. |
-| Equilibrium dynamics | State/ensemble, measure, transition law or generator, rates and invariants. This need not be the strict-descent relation. |
-| Quantum dynamics | Noncommutative algebra/state, representation, positive transfer or self-adjoint Hamiltonian, instruments and relevant limits. |
-| History and clock | Authenticated event dependence, event correspondence, duration readout and calibration. A repair attempt counter is not automatically physical time. |
-| Geometry, fields and instruments | Operational geometry, matter/current/stress readouts, physical region/area maps and laboratory measurement interpretation. |
-| Refinement | Maps between resolutions and quantitative compatibility of all objects used in the claim. A stated fixed-cutoff macroscopic regime is an alternative to an unjustified continuum claim. |
-
-See the [microphysics paper](../paper/screen_microphysics_and_observer_synchronization.tex),
-the [consensus paper](../paper/reality_as_consensus_protocol.tex), and their
-[shared construction](../paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex).
-OPH is invariant under presentation changes preserving the complete visible
-contract. It is not neutral under arbitrary changes of carrier or law.
-
-## 3. Constructed items and their exact boundaries
-
-“Constructed” below means a specified mathematical object, theorem under its
-stated premises, or implemented finite realization. It does not mean a
-laboratory identification. These rows summarize source results; the document
-does not independently reprove every theorem or rebuild Lean.
-
-### Carrier, repair, observers and records
-
-| ID | Constructed | Premises and boundary |
+| Link | Completion status and constructed result | What completes the remaining physical connection |
 | --- | --- | --- |
-| C01 | **Oriented icosahedral carrier.** Current A1 includes twelve primitive ports, thirty edges and twenty oriented faces, with typed seam/triple-overlap and support/refinement data. | The incidence is an axiom input, not a new prediction of the model search. Euclidean coordinates, scales and particle labels are not specified by the combinatorial packet. [Axiom reference](AXIOM_REFERENCE.md). |
-| C02 | **Carrier geometry.** Inverse pairing, proper A5 symmetry, exact Gram relations `G²=4G`, `tr G=12`, rank three; a response-selected Euclidean completion of conservative integer records. | Counting selection uses its stated integer-load, total-charge and cost realization. The response completion takes the normalized slow-response limit; finite response kernels have ranks eleven/six on the indicated sectors. Physical position and common field/refinement attachment remain distinct. [Microphysics](../paper/screen_microphysics_and_observer_synchronization.tex), [flagship](../flagship/from_observer_consensus_to_standard_physics.tex), [selector implementation](../code/a5_closure/echosahedral_selector_certificate.py). |
-| C03 | **Explicit recovery and accepted consensus.** Markov-splice/Petz-type candidates, finite decoding, protected transactional validation, strict descent and quotient normalizers. A complete rooted-tree realization is executable. | Recovery reference/channel/domain, decoder, protected data, completeness and local diamonds must hold for the chosen realization. Atomic commits or arbitrary local mismatch reduction alone do not imply confluence. [Consensus](../paper/reality_as_consensus_protocol.tex), [finite implementation](../code/consensus/README.md), [Lean primitives](../Lean/ObserverPatchHolography/Primitives.lean). |
-| C04 | **Native scalar repair implementation.** Real seam means, conservative integer unit transfers, and nearest-integer pair completion are specified; large twelve-port federation runs retain independent checks. | These are distinguishable laws within a declared scalar realization and gluing. The scalar engine alone is not the full observable algebra/current/quantum model. The large runs establish their retained settlement results, not physical identification. [Federation evidence](../evidence/exact_federation_L6_canonical_20260909/README.md), [tower evidence](../evidence/exact_federation_tower_20260924/README.md). |
-| C05 | **Activity after settlement.** Fair nearest-integer continuation has a unique uniform fixed-occupancy equilibrium, exact density covariance, occupation-history limit and local attempt-record corrections on a fixed connected graph. | Rates, sector, clock convention, record gain/memory and preparation are declared. The stochastic limit theorem and finite Lean witnesses have different scopes. A joint physical refinement limit is not supplied by fixed-graph stationarity. [Native record theorem](../paper/tex_fragments/NATIVE_REPAIR_RECORD_SPECTRUM.tex), [verification interface](../code/observer_dynamics/README.md). |
-| C06 | **Distinct operational observers and continuation.** Finite witnesses have unequal local records agreeing on proper overlaps, record-conditioned control and checkpoint behavior; a nonzero private generator can fix public records. | Agreement equates shared restrictions, not all private states. The cited proper-meet witness is at one regulator; common cross-observer refinement and higher overlaps need additional evidence. Gauge-hidden labels alone are not individuality. Stable marginal distributions are not stable stored records: the current law-space criterion compares the two-time joint record, under a continuation map. [Consensus](../paper/reality_as_consensus_protocol.tex), [operational witness](../Lean/QFT/OperationalOverlapEvidence.lean). |
-| C07 | **Authenticated history.** Writer/read-value certificates generate informational precedence and canonical longest-parent-chain height. An abstract finite-poset compiler also exists. | The producer must supply genuine, complete semantic dependencies. Compiler expressivity is not selection of a physical history, and identifying informational ancestry with physical causality requires an additional map. [Consensus](../paper/reality_as_consensus_protocol.tex). |
-| C08 | **A finite carrier-to-support construction and refinement theory.** One artifact has twelve carrier charts, thirty seam algebras, twenty nontrivial triple restrictions, observer controls, confluent seam repair and an oriented sphere support limit. Repair-morphism and inverse-limit theorems specify normalizer compatibility. | This bridge is not absent. Its identification with an arbitrary native federation, modular state tower and physical field family needs explicit maps. Each proposed refinement must satisfy the theorem's move-word/coherence conditions or controlled vanishing defects. [Shared construction](../paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex), [consensus](../paper/reality_as_consensus_protocol.tex). |
+| **M01: common source** | **Finite specification complete.** The 78 native working states; explicit C/E operations, preparation, schedule, records, fixed capacity and exhaustion policy. | Attach the carrier/federation and physical readouts consumed by the claim, with explicit maps. Supply sustained active resource use or the required finite horizon, state selection and refinement. |
+| **M02: observers and agreement** | **Finite recording/readout/intervention contracts complete.** Compatible proper overlaps, predecessor recovery, protected old marginals, actual working and record measurements. | Define the A2 interpretation/translation/equalizer target independently and match it to completed repair. Supply the used acceptance, completeness, confluence, authentication and broader history-menu requirements. Local checkpoints alone are not autonomous. |
+| **M03: geometry** | **Operational probes constructed; physical geometry open.** Native intervention/hitting response and a genuine resistance metric on configurations. | Identify physical regions, metric, collar volume and area from those source probes, with state dependence, quotient invariance and refinement. A configuration metric or fixed graph is insufficient. |
+| **M04: physical time** | **Event-order/count interfaces constructed; physical clock open.** Disjoint-operation commutation, positive count-time extension, ensemble circulation clock and a common clock–response relation. | Join the existing source-geometric/count/moving-clock constructions to this instrument; establish physical causal interpretation and calibrate rates/scales. A fluctuation statistic is not a monotone individual clock. |
+| **M05: fields and current** | **Finite conserved-current interface complete; physical field attachment open.** Record-defined flux, continuity, quantum number action, susceptibility and fluctuation identities. | Identify charge, energy and stress; construct or explicitly supply the field/action and propagation contract, physical units and reciprocal geometry response. |
+| **M06: quantum dynamics and regime** | **Finite positivity, composition and network completion complete.** C and E have shared finite limits with certified rates, while retaining different quantum histories. | Identify physical sectors and observables. For a continuum claim, control common refinement, relevant correlators and renormalization. A claim of unique quantum selection needs additional premises. |
+| **M07: entropy/area stationarity** | **Regional entropy/modular-current input complete; physical stationarity open.** Actual reduced state, first law, recorded modular balance and constrained entropy completion. | Construct physical area and stress/modular-flow maps, admissible fixed-volume variations, area normalization and stationarity with controlled remainders. Stationary probability alone does not establish them. |
+| **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's attachment is open.** The finite entropy result supplies part of the input problem. | Realize the flagship's G1–G6 premises on this same family, including conserved stress, universal coupling and gravitational constraints, or state and justify a different route. |
+| **M09: parameters and P** | **Open on this candidate.** No P-to-coin, temperature, amplitude or rate identification is derived here. | Compute each claimed quantity from the same law, metric, units and endpoint map; distinguish derivation from calibration. Prove that any P readback measures the intended quantity. |
+| **M10: physical matter** | **Open on this candidate.** Existing OPH gauge/matter results remain conditional inputs, not an attached spectrum. | Realize the required matter content, interactions and stable poles. Running claims require charged response, thresholds and matching. Matching an abstract gauge type is insufficient. |
+| **M11: cosmology/dark sector** | **Outside the active minimal target; open if claimed.** Existing conditional cosmology constructions are retained. | Attach common expansion/source dynamics, stress, physical scales and observational transfer; add abundance, pressure/slip and lensing where used. |
+| **M12: eligible physical test** | **Internal discriminator tests complete; empirical test open.** Competing records, schedules and preparations have distinguishable predictions. | Choose a physical observable and rejection rule; enumerate remaining freedom, establish calibration/uncertainty and baseline, then freeze an unavoidable relation before an eligible independent comparison. |
 
-### Geometry, quantum fields and gravity
+M01–M12 are a dependency map. Develop the connected cluster needed by a
+specific claim; they are neither twelve sequential hurdles nor a requirement
+to solve all physics at once. Finite results stay completed unless a new test
+invalidates them. Enlarging the physical scope adds an explicit obligation.
 
-| ID | Constructed | Premises and boundary |
+## 2. The iterative minimalist method
+
+**Compatibility with OPH's mathematical requirements matters; reproducing
+every detail of the current implementation is not the goal.** We are
+reverse-engineering hardware and software. Protected registers, a quantum
+representation or a changed operation are permitted candidate hypotheses
+when their purpose, cost and compatibility are explicit. The simulator is a
+tested starting realization, not an immutable specification of nature.
+
+**Use the simplest compatible construction, then let a decisive test determine
+the next change.** Simplicity is a research preference, not a proof that nature
+selects the shortest formula. Preserve the actual carrier and load-bearing
+premises of every imported result.
+
+1. **Name one missing interface.** State which objects must be related, which
+   result needs that relation, and what would falsify the proposed attachment.
+2. **Try an existing readout or composition first.** Current, recorded order,
+   first passage and regional entropy have supplied useful objects without
+   adding independent fields. Test those before introducing new state variables.
+3. **Add only what a demonstrated gap requires.** If the existing source fails,
+   specify the smallest compatible hardware or law change. Explain why it is
+   needed and what demonstrated capabilities it preserves.
+4. **Test one common process.** Use the same states, operations, records and
+   maps. A matching mean, symmetry, stationary histogram or parameter name
+   does not join otherwise separate constructions.
+5. **Retain countercontrols and bounded decisions.** Pin sources and inputs,
+   declare the computation cap and stopping rule, compare an independent
+   calculation, review the derivation, and replay. Do not retune after failure
+   and call the original prediction successful.
+6. **Update the completion ledger.** Close the precise finite subproblem,
+   retain the remaining parent criterion, and move a rejected route to the
+   historical section. Do not repeatedly reopen a completed contract merely
+   because physical interpretation remains to be supplied.
+
+Each extension declares state, law, preparation, schedule, reference, units,
+parameters, quotient, readout and memory budget. Label each as an axiom input,
+derived object, candidate hypothesis, calibration or target-exposed choice.
+Adaptation is allowed if its state and update belong to the same process.
+
+The next work is concentrated, not a search over unrelated models:
+
+| Next question | Smallest proposed move | Decisive completion or rejection condition |
 | --- | --- | --- |
-| C09 | **Finite Lorentz carrier and flat causal/count limit.** The source rank-three space plus a real axis gives Lorentz inertia `(1,3)`. Prepared conservative source-record populations with specified neighbour reads have a proved flat causal-order and count-volume limit. | Ambient dimension is constructed; arbitrary event-poset dimension is not thereby measured. Population, read law, duration and density choices are explicit. Curved/common interacting physical refinement remains separate. [Spacetime paper](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex), [flagship](../flagship/from_observer_consensus_to_standard_physics.tex). |
-| C10 | **Clock constructions.** Fourth-root interval-count ratios recover proper-duration ratios in the flat source family. Separate operational matter-clock constructions and a regular-path Jacobi action clock exist. | These are real constructions, not a missing clock theory. Their agreement with each other and with a running laboratory clock is an additional physical identification. Ordinal height is explicitly not proper time. [Flagship](../flagship/from_observer_consensus_to_standard_physics.tex), [operational clocks](research/MASSIVE_OPERATIONAL_CLOCKS.md). |
-| C11 | **Finite quantum and entropy identities.** Born–Lüders identities, declared two-wing bounds, central records, edge-center entropy splitting, modular first laws and conditional repair-channel results. | The algebra/state, representation and instrument matter. An effect table alone does not select the Lüders instrument. Conditioning requires positive event weight and preserves intra-block state; only the appropriate partition-averaged conditional state becomes the normalized block projector. A finite identity does not construct the common quantum scaling limit. [Microphysics](../paper/screen_microphysics_and_observer_synchronization.tex), [quantum repair](../code/quantum_information/ALGEBRAS_AND_REPAIR.md). |
-| C12 | **Scalar waves, detectors and feedback.** Source-address/metric scalar actions support classical and Fock waves, controlled detector limits and authenticated intervention/feedback examples. | Action, preparation, boundary, controls, model time and quantization are supplied where stated. These consumers must be joined to the native repair source and physical instruments. [Flagship](../flagship/from_observer_consensus_to_standard_physics.tex), [spacetime paper](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex). |
-| C13 | **Seam fields and conditional Maxwell continuum.** Finite charge/holonomy/kinetic constructions and a controlled Maxwell limit exist for a declared reversible curl-pair evolution and spatial domain. | The scalar Markov repair mean does not itself select reversible Maxwell dynamics. Currents, operational space/time, physical units and common refinement need a source attachment. [Microphysics](../paper/screen_microphysics_and_observer_synchronization.tex), [Maxwell module](../Lean/Screen/SeamMaxwellContinuum.lean). |
-| C14 | **Interacting field construction.** A declared charged-scalar/Maxwell Whitney action has controlled classical sectors and a gauge-reduced, essentially self-adjoint finite-mesh quantum Hamiltonian with neutral unitary evolution. | Full classical backreaction estimates, interacting quantum continuum, selection/attachment of quantization and common physical source are separate. These finite constructions predate the local tensor-model search. [Flagship](../flagship/from_observer_consensus_to_standard_physics.tex), [observer paper](../paper/observers_are_all_you_need.tex). |
-| C15 | **Gauge type and conditional matter structure.** Complete reversible response and endogenous overlap transport force the abstract local `u(1) ⊕ su(2) ⊕ su(3)` type. Declared matter tensors support anomaly/descent and common Z6-kernel results. | The complete response/transport contract is essential. Matrix-current realization, matter action, physical global form, family/seam attachment, laboratory current, scalar multiplicity and poles are not obtained by matching the Lie-algebra name. [Microphysics](../paper/screen_microphysics_and_observer_synchronization.tex), [SM correspondence](registers/SM_LAGRANGIAN_CORRESPONDENCE.md). |
-| C16 | **Conditional Einstein reconstruction.** Exact null tomography, edge-entropy and small-ball coefficient results compose with directional balance and independently conserved stress to give Einstein form with constant Λ. A separate source-carrier inverse-square shell law exists. | One family must realize physical geometry, normalized modular charges, stress/Ward identity, area normalization, generalized-entropy stationarity, controlled shrinking-region remainders, universal coupling and scale. Shell flux assumptions and their join to Einstein gravity remain explicit. [Flagship](../flagship/from_observer_consensus_to_standard_physics.tex), [gravity premise ladder](registers/GRAVITY_PREMISE_LADDER.md). |
+| **What exactly must agree?** | Define the source's interpretation/translation diagram before selecting its repair. | Show its agreement algebra equals the completed repair's retained algebra, or exhibit a specific mismatch and revise the minimal interface. |
+| **Which probes read physical geometry and time?** | Start with the constructed current, first-passage and modular-response probes and existing OPH clock/geometry maps. | Produce a common region/distance/time map that survives interventions and the relevant refinement. Configuration-distance relabeling alone fails. |
+| **Can the entropy input meet the gravity premise?** | Identify physical stress/flow and area on the same regional state before adding gravity variables. | Test normalized entropy/area balance under independent admissible fixed-volume perturbations, then the required conservation and constraint identities. Defining area to cancel entropy fails as a derivation. |
+| **What can be tested against nature first?** | Choose the smallest physical observable whose dependencies can be completed. | Derive a relation that survives the candidate's allowed freedom and specify an eligible independent comparison. A whole cosmology or continuum is required only when that observable consumes it. |
 
-### Parameters, cosmology and empirical evidence
+## 3. The candidate repair law being tested
 
-| ID | Constructed | Premises and boundary |
-| --- | --- | --- |
-| C17 | **P coordinates and conditional closure calculations.** Cell-area/capacity conventions, `ΔP=P−φ`, the declared relation `α_out=ΔP/√π`, and certified roots for specified endpoint maps. | Distinguish source, inner-coupling and measured-endpoint maps. Measured-α-conditioned P is not an independent α prediction. The registry's `p_detuning_same_quantity_readback` remains undischarged; no derived identification with a repair coin, temperature or physical rate exists here. [P derivation](../code/P_derivation/README.md), [physical identifications](../claims/physical_identification_registry.json). |
-| C18 | **Conditional cosmological constructions.** Flat and specified expanding source-record/count representations, conditional primordial and radial reconstruction results, and dark-source scaling relations. | A supplied expansion profile is not derived cosmological dynamics. Finite expanding diamonds do not generally give exact proper-time ratios; redshift/count identities have specific epoch/diamond conditions. Primordial source, physical stress, radial lift, transfer/recombination, abundance and lensing attachments require their stated additional inputs. [Cosmology](../cosmology/README.md), [FLRW theorem](../paper/tex_fragments/SOURCE_NET_FLRW_RECORD_DENSITY.tex). |
-| C19 | **Reproducible conditional comparisons and hardware experiments.** The repository contains numerical postdictions, frozen-register machinery, apparatus/controller evidence and bounded independent verification. | Numerical reproduction, programmed algorithm behavior, engineering resonance and a universal physical-constant measurement are different claims. Alex's P reference identified in this thread was a bench-test plan; no independent P-measurement receipt was located in the material inspected. This does not establish that no later experiment exists. Apply the public evidence rule to any promoted hardware claim. [Hardware policy](policies/HARDWARE_EVIDENCE_BUNDLE_H.md), [postdictions](POSTDICTION_LEDGER.md), [frozen register](../claims/frozen_prediction_register.json). |
+### Native working state and atomic update
 
-## 4. The actual simple rule we should start from
-
-Keep the native twelve-port seam graph and its scalar loads `x_i`. These
-operations exist and must not be conflated:
-
-| Operation | Update on a seam `(i,j)` | Exact property |
-| --- | --- | --- |
-| Real mean | `(a,b) → ((a+b)/2,(a+b)/2)` | Preserves total; lowers `V=Σx_i²` by `(a−b)²/2`. Uniform sampling of the thirty internal seams has mean operator `I−L/60`. |
-| Integer unit transfer | `(a,b) → (a−1,b+1)` when `a−b≥2` | Preserves integer total; lowers V by `2(a−b−1)`. |
-| Integer nearest agreement | Replace by `floor((a+b)/2), ceil((a+b)/2)`; declared orientation assigns the ceiling | Composes unit descents for `|a−b|≥2`; for difference one, swaps or waits; for zero, waits. A fair tie supplies the documented stationary continuation. |
-
-For nearest agreement the potential drop is
-`(d²−(d mod 2))/2`, with `d=|a−b|`. The full seam-disagreement sum
-`Φ=Σ_seams(x_i−x_j)²` is **not** this Lyapunov function and can increase
-while V decreases. Temporary local disagreement therefore does not by itself
-require a new fundamental noise mechanism.
-
-In a balanced fixed-occupancy sector on a connected graph, write
-`n_i∈{0,1}`, `Σn_i=r`, `z=n−(r/p)1`, with `0<r<p`. Independent Poisson
-edge attempts with positive declared rates and swap probability one half give
+Use the documented twelve-port icosahedral carrier with thirty seams. The
+current exact test sector is
 
 ```text
-Π = I − 11ᵀ/p
-κ = r(p−r)/(p(p−1))
-Cov(z(t),z(0)) = κ exp(−|t|L/2) Π.
+x_i ∈ nonnegative integers,   Σ_i x_i = 2,
+H_work = span{|x〉}: dimension 78.
 ```
 
-This stationary activity is proved for the stated law. The terminal
-component-multiset quotient forgets position, whereas local load histories
-retain it. A nonconstant `z_i` cannot factor through a quotient constant on
-its whole occupancy sector. A physical use of those histories must specify
-the richer record/observer quotient and maps. That is an interface to
-construct, not a reason to discard the stationary theorem.
+These are configurations of the entire carrier, not the twelve primitive A1
+atoms. Total two is a declared test sector, not a selected cosmic state. The
+binary shell `x_i∈{0,1}` has 66 configurations and is invariant under repair.
 
-The flagship records a second, distinct quotient boundary: the nonlinear
-integer repair does not descend through the signed response quotient even
-though its conditional mean does. The working state and ordered history
-therefore require their stated additional data. A response quotient alone
-cannot be substituted for the whole microscopic dynamics.
+Orient a selected seam e=(i,j), set `d=x_i−x_j`, and take a fair placement
+coin `c∈{0,1}`. With `b_e=unit_i−unit_j`, define
 
-Reference implementations and controls are retained in the
-[archived native source](../evidence/observer_dynamics_20260925/oph-physics-sim/)
-and the [observer-dynamics interface](../code/observer_dynamics/README.md).
-The scalar engine does not consume P as a jump probability. Its use as the
-baseline is a disclosed branch choice, not a proof that A1–A3 uniquely select
-every detail of that algorithm; the
-[canonical repair-law RFC](CANONICAL_REPAIR_LAW_RFC.md) states additional
-selection premises.
+```text
+j(x,c) = [d − (2c−1)(abs(d) mod 2)]/2,
+x' = x − b_e j(x,c).
+```
 
-For the affirmative hardware/controller evidence in C19, the
-[IBM quantum archive](../code/ibm_quantum_cloud/README.md) supplies repository
-receipts and its declared instrument/null scope. It does not measure P.
+Equivalently, replace the two endpoint loads by the floor and ceiling of
+half their sum; c=1 places the ceiling at i. This is the native nearest-integer
+law. It conserves total load. Large imbalances lower `V=Σ_i x_i²`; difference
+one gives a swap or wait, and difference zero gives a wait. Some neighboring
+seam disagreements can increase even when V decreases.
 
-## 5. Missing connections, with completion criteria
+**Atomic instruction:** apply that local reconciliation and retain its
+transported current with the coin and event identity. The quantum candidate
+coherently groups configurations with the same `(c,j)`:
 
-These are dependencies for the claims that use them, not tasks to execute
-indiscriminately. A bounded physical proposal may address a subset; a claim
-to a common physical model must supply every connection it consumes.
+```text
+L_(e,c,j) = (1/√2) Σ_{x:j(x,c)=j} |x−b_e j〉〈x|,
+C_e(ρ) = Σ_(c,j) L_(e,c,j) ρ L_(e,c,j)*,
+Σ_(c,j) L* L = I.
+```
 
-| ID | Missing or incomplete item | Concrete completion criterion |
+Each branch is an injective translation on its domain. The completeness
+identity makes C_e completely positive and trace preserving (CPTP), with
+exactly the native classical transition probabilities. The Hilbert-space
+representation, quantum probabilities and record registers are explicit
+candidate structure. The classical law alone does not uniquely select them.
+
+### Recorded events, observers and finite hardware
+
+Keeping the coherent record implements the isometry
+`W_e=Σ_(c,j) |c,j〉⊗L_(e,c,j)`. Knowing the output and current recovers the
+classical predecessor, `x=x'+b_e j`. Keeping the full coherent joint state
+retains more information than measuring those labels.
+
+For total two there are six `(c,j)` letters. The fixed-capacity recorder is
+
+```text
+H_cap = ⊕_(p=0)^L [(C^6)^⊗p ⊗ H_work],
+T_C(ρ) = Σ_(p<L) V_p P_p ρ P_p V_p* + P_L ρ P_L.
+```
+
+The pointer p selects the programmed seam; V_p appends its record and applies
+C coherently. All sectors are allocated initially. Cross-pointer coherence
+is dephased, and the full-capacity sector halts. At L=2, dimension is 3354;
+the tested word uses (0,1) then (0,5). A separately declared seven-state,
+single-use meter supplies actual working-number and record measurements.
+The total space including that meter has dimension 23478.
+
+Proper patch restrictions trace unowned ports and records whose entire seam
+is not owned, retaining event-slot addresses. Their overlap restrictions
+agree. Later repair and an outcome-averaged working measurement preserve the
+whole old record marginal. Selecting a measurement outcome can change its
+conditional state. Reading the record itself can destroy its quantum
+coherence while preserving repeatable classical values.
+
+A proof for arbitrary finite words requires the corresponding capacity and
+schedule. The two-write recorder does not provide indefinitely active repair
+or a free reusable memory. Its explicit halt is a completed finite resource
+policy; sustained operation requires a further justified policy.
+
+### Atomic steps, completed repair and network equilibrium
+
+The completed comparison law E_e records `(coin, pre-repair contrast)` rather
+than `(coin,current)`. It has the same classical kernel but different quantum
+coherences. On one seam,
+
+```text
+E_e²=E_e,   E_e C_e=C_e E_e=E_e,
+C_e^n=E_e+2^(1−n)(C_e−E_e),   n≥1.
+```
+
+Thus C is a partial reconciliation whose repeated use reaches E. On the
+binary shell E is a faithful trace-preserving conditional expectation;
+its fixed algebra has not been identified with the A2 overlap equalizer.
+The corresponding contrast recorder remains a valid comparison construction,
+not an abandoned model or the same quantum instrument as C.
+
+For independent uniform choices among all thirty seams, let
+`Q_C=Σ_e C_e/30`, `Q_E=Σ_e E_e/30` and `τ_B=I_binary/66`. Both channels obey
+
+```text
+Q_C^n(ρ) → Tr(ρ) τ_B,
+Q_E^n(ρ) → Tr(ρ) τ_B.
+```
+
+The result includes all 78 input states and transient piles. On the 66-state binary shell,
+Hilbert–Schmidt contraction is bounded by `(3239/3250)^n`; the bound is
+certified but nonsharp. The uniform two-seam mixture retains a larger
+outside algebra and has recurrent contraction factor 3/4. The single-seam
+factor 1/2 is not a network rate. Positive fixed weights and bounded-coverage
+reduced schedules have their stated extensions; unrestricted adaptive,
+outcome-conditioned trajectories are not covered by the ensemble claim.
+
+An untouched protected register R gives the all-thirty reduced limit
+`ρ_RW → ρ_R⊗τ_B`, including initially entangled states. Protected distinctions
+survive while working correlations relax. The written coherent records
+retain information outside that reduced state. This is an explicit protected
+hardware construction, not a derivation of protection from bare working loads.
+
+The reference and continuation matter: uniform binary equilibrium can coexist
+with moving swap/wait realizations. An exactly all-equal native state is
+absorbing. This law does not generate the nonzero-remainder sector or the
+first physical disturbance from perfect symmetry. State selection and the
+source of incoming interactions remain separate questions.
+
+## 4. Connections obtained from this same law
+
+| Constructed connection | Exact result | Physical boundary |
 | --- | --- | --- |
-| M01 | **One source-bound candidate specification** | Pin one state space, carrier/federation, algebras, preparations, proposals, commits, equilibrium/quantum law, parameters, records and refinement. Give an explicit restriction or intertwining map for every imported component. |
-| M02 | **The selected source's observer/quotient contract** | Show that actual public readouts, protected boundary, observer restrictions, histories and checkpoints factor through the declared quotient; test proper overlaps and interventions. Instantiate the acceptance, completeness and confluence assumptions actually used. Do not substitute a coarse multiset for a history-visible state. |
-| M03 | **Operational geometry from that evolving source** | Construct an observable metric/collar/volume or probe-response readout and its state dependence, quotient invariance and refinement. The native load repair keeps its supplied graph/mean operator fixed; renaming load noise “curvature” or setting volume to an exponential of load does not establish this. [Existing obstruction](../paper/tex_fragments/NATIVE_GEOMETRIC_SOURCE_IDENTIFIABILITY.tex). |
-| M04 | **A common physical clock and causal interpretation** | Identify which events and influences are physical; prove correspondence among authenticated records, geometric count clock, field/action time and running instruments. Declare the rate/scale calibration and compare moving as well as resting clocks. Accepted-step counts alone do not discharge this. |
-| M05 | **Source-bound fields, currents and backreaction** | Realize the field variables and complete response/current contract on the same source; derive or explicitly supply its action. Test stable propagation, conserved currents/Gauss relations, geometry-to-matter and matter-to-geometry response when claimed. Shared scheduling or equal parameter names is insufficient. |
-| M06 | **Common quantum state and controlled regime** | Supply the algebra, state, physical sectors and positive/unitary dynamics together. For a continuum claim, control their common refinement, relevant correlators and renormalization; distinguish classical sectors, fixed-background free limits and the full interacting limit. |
-| M07 | **Physical entropy/area stationarity** | On the same regional state, define physical entropy, stress, area and fixed-volume variations; establish the area normalization and stationarity for an adequate family of independent perturbations, with controlled remainders. MaxEnt over a declared ensemble or stationarity of a Markov distribution alone is insufficient. |
-| M08 | **Dynamical gravity on that family** | Supply the shared modular/geometric/stress inputs and all G1–G6 conditions in the flagship, or an explicitly different justified gravity route. Test conservation and gravitational constraints in the claimed regime. Merely introducing lapse/shear coefficients, or obtaining a common wave speed, does not complete gravity. |
-| M09 | **Physical parameters and P readback** | Compute the claimed quantity from the chosen law using the same cell, metric, units and endpoint map; distinguish derived values from calibration. Prove any P-to-detuning/amplitude/rate identification. Do not set exploration probability `η=P−φ` by naming convention. |
-| M10 | **Matter spectrum and physical interactions** | Supply the actual matter realization, chirality/family/scalar content and stable poles relevant to the proposed test. Running claims need charged response, thresholds and matching. A declared charge table or an abstract gauge Lie algebra does not by itself deliver these. |
-| M11 | **Cosmological or dark-sector attachment, if used** | Derive or explicitly specify common expansion/source dynamics, stress, physical scales and observational transfer. Provide abundance, pressure/slip and lensing for dark-source claims. Preserve distinctions between conditional relations, fitted comparisons and predictions. |
-| M12 | **One unavoidable observable and eligible test** | Enumerate all freedom allowed in the fixed candidate, prove a measurable relation/bound that survives it, attempt an admissible countermodel and obtain an independent check. Specify calibration, target exposure, baseline, justified uncertainty, sensitivity and rejection rule; freeze before eligible held-out/future comparison. |
+| **Transport and phase** | `Δx=−b_e j`; every region's change equals its boundary flux. A branch gains phase `exp[−i(θ_i−θ_j)j]` under local number phases, compensated by its record. | Covariance constrains quantum lifts; it does not uniquely select C or identify electromagnetism. |
+| **Response and fluctuations** | For uniform active seam attempts, `E[Δx|x]=−L_ico x/60`. At uniform binary equilibrium, susceptibility is `χ=(5/33)(I−11ᵀ/12)`. The exact discrete balance uses conditional innovations rather than raw increments. | This is preparation response and finite fluctuation balance, not a supplied temperature, external field or physical stress law. |
+| **Observer intervention** | A working read between overlapping C events changes a later coherence expectation from 1/4 to 0 while preserving the averaged old record state. All 312 two-event classical paths reverse; all 6084 working matrix units match C_f C_e. | Compatible common-state restrictions also hold before repair, so they do not independently identify an A2 repair target. Hidden-neighbor dependence remains. |
+| **Event order** | Disjoint recorded operations commute after occurrence alignment. Linear extensions of a fixed dependency order give the same completed operation. | Intermediate probes and timestamps must be included in the dependency order; the theorem does not identify all observed histories. |
+| **Entropy completion** | On the shell, `D(ρ||Eρ)=S(Eρ)−S(ρ)`; Eρ uniquely maximizes entropy at fixed retained-algebra data. C approaches that completion. | The entropy deficit need not follow the channel's exact halving rate. The full 78-state space has no faithful stationary reference for this repair. |
 
-For M07–M08, entropy stationarity is a substantive hypothesis about physical
-regional variations. The Einstein implication is present. The work
-is to realize its premises together. No claim here establishes that OPH must
-add elementary gravitons, a particular kinetic term, or any specific new
-microscopic geometry variable.
+### Circulation, a clock statistic and configuration distance
 
-For noisy consensus in M02, the corrected theorem bounds
-block-indexed expected distance under its contraction certificate. The
-stated calendar-time bound additionally needs deterministic block endpoints;
-random stopping blocks need separate occupation-time control. Block type is chosen at block start; its complete implemented conditional
-law, including any within-block adaptation, must equal the certified kernel. A favorable
-marginal kernel or stationary histogram is not sufficient.
+Let D be oriented incidence, `G=L_ico⁺`, `P_c=I−DᵀGD`, and
+`A_n=Σ_(k≤n)J_k` the integrated recorded current. Then `P_c A_n` is a
+martingale, and at uniform binary equilibrium,
 
-## 6. Research approaches and minimal repair results
+```text
+Cov(P_c A_n) = n(5/33)P_c/30,
+Var(Y_n) = n/66                  for circulation around a native triangle,
+(I−P_c) A_n = DᵀG(X_0−X_n).
+```
 
-The research has tested several approaches in parallel. The following
-summarizes analytical and numerical findings from the unpublished campaign;
-it does not add a public verification bundle or an empirical confirmation.
+The gradient component stays bounded; cycle records retain information absent
+from endpoint densities. The circulation variance measures ensemble attempt
+count. A single squared circulation is noisy and need not grow monotonically.
+Uniform pile preparations with the same mean loads give first-attempt variance
+1/60 instead, so the calibration depends on the declared state.
 
-### Approaches tried
+The binary configuration transition matrix P gives a genuine resistance
+metric `R_ab` through `(I−P)⁺`. Mean first-passage times satisfy
+`H_ab+H_ba=66R_ab`. A common supplied Poisson rate λ cancels in
 
-| Approach | Result and limitation |
+```text
+mean commute duration × triangle-circulation variance rate = R_ab.
+```
+
+This joins clock and response without fitting a rate. It does not select
+physical units or make configurations into spatial positions. Hitting probes
+use continuing active repair: a capacity-two halt can leave a target unhit
+forever with positive probability. The supplied port chart and exact linear
+response remain fixed; these new probes require a physical geometric map.
+
+### Regional entropy and recorded modular balance
+
+For A={0,1,7}, tracing τ_B gives probability 6/11 for the empty pattern,
+3/22 for each one-occupied pattern, and 1/66 for each two-occupied pattern.
+On the seven-dimensional feasible support,
+
+```text
+K_A = −log ρ_A = log(11/6) I + log4 Q_A + log(9/4) choose(Q_A,2),
+δS_A = Tr(δρ_A K_A).
+```
+
+The last term follows from fixed-total counting, not an added microscopic
+interaction. For outward recorded current J_A, `ΔQ_A=−J_A` and
+
+```text
+ΔK_A = −log4 J_A + log(9/4)[−Q_A J_A + J_A(J_A+1)/2].
+```
+
+A preparation tilt at port 0 gives regional entropy derivative
+`(4log2+log3)/22`. Applying the crossing seam (0,5) changes it to
+`(4log2+log3)/66`; the difference is the same recorded modular flux.
+This is an actual regional-state calculation, not an inference from global
+stationarity. Physical area, stress and boost/modular-flow correspondence
+have not been derived from it.
+
+Coherent record retention preserves total joint entropy. Forgetting records
+can increase reduced entropy. The full 78-state uniform state instead loses entropy
+under repair, so shell assumptions cannot be dropped. Likewise, full-space
+norm convergence to τ_B need not make relative entropy to that singular
+reference finite while transient population remains.
+
+## 5. OPH results retained as inputs and attachment targets
+
+The current work uses the documented source and preserves its existing
+results. Their premises must be realized together, not replaced by simpler
+analogies or treated as if the results did not exist.
+
+| Relevant foundation | What is retained and what needs joining |
 | --- | --- |
-| Supplied quantum, Hamiltonian and covariant field models | Binding, energy, propagation and matter–geometry calculations provide consistency benchmarks. An imported Einstein–scalar–Maxwell action does not derive that action from patch repair. |
-| Adaptive equilibrium repair and induced interactions | Specified local laws retain charged matter and induce gauge interactions in controlled settings. Naive geometry extensions can pin volume, and some global constraints fail quantum-transfer positivity. Results from different laws cannot be combined without a common construction. |
-| Coupled geometry and quantum dynamics | Positive finite Hamiltonians with reciprocal matter/geometry response and a common matter/Maxwell principal metric were constructed. A frozen-background free-scalar continuum and finite joint entropy response were established. Geometry kinetics, couplings and physical time remain supplied. |
-| Physical and entropy attachments | Tested direct attachments failed atomic-clock or weak-field comparisons. A one-sided area proxy failed a common stationarity coefficient across two sourced ground states at fixed mean volume to first order. These failures constrain those specified attachments; they do not exclude every physical area map or refute OPH. |
-| Minimal local record and phase rules | Exact finite models isolate agreement, frustration, exploration, activity and equilibrium. They clarify which mechanisms suffice in their stated domains, but have no demonstrated map preserving the full twelve-port OPH contract. |
+| [A1–A3 and carrier](AXIOM_REFERENCE.md), [microphysics](../paper/screen_microphysics_and_observer_synchronization.tex) | Oriented twelve-port incidence, inverse pairing, A5 symmetry, exact rank-three Gram geometry and native scalar repair. The 78-state configuration lift is an added representation of a declared sector, not the entire A1 algebra. |
+| [Consensus and observers](../paper/reality_as_consensus_protocol.tex), [shared observer/support construction](../paper/tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex) | Concrete protected records, proper overlaps, repair/normalizer and support/refinement constructions exist. Their acceptance, confluence, quotient and naturality hypotheses must be attached to the candidate's operational menu. |
+| [Canonical repair RFC](CANONICAL_REPAIR_LAW_RFC.md), [finite completion theorem](../code/quantum_information/ALGEBRAS_AND_REPAIR.md) | Faithful-reference, modular-invariant retained algebras admit canonical conditional expectations. The RFC is an unadopted strengthening: agreement algebras, complete grammar, reference and path-law premises are substantive inputs. This research does not adopt it or select an A2 equalizer by defining it as Fix(C). |
+| [Spacetime construction](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex), [operational clocks](research/MASSIVE_OPERATIONAL_CLOCKS.md) | Flat source causal/count limits and moving/matter-clock constructions exist. Their event populations, probes, refinement and rate/scale maps must join the same repair instrument. Ordinal order and Poisson attempt time do not discharge those contracts. |
+| [Flagship fields and gravity](../flagship/from_observer_consensus_to_standard_physics.tex), [gravity premise ladder](registers/GRAVITY_PREMISE_LADDER.md) | Scalar/Maxwell/interacting constructions and conditional Einstein reconstruction are available. Their action, state, complete response, stress, entropy/area and common-refinement premises remain load-bearing. Gauge type and ambient dimension do not alone supply the physical model. |
+| [Geometric identifiability](../paper/tex_fragments/NATIVE_GEOMETRIC_SOURCE_IDENTIFIABILITY.tex), [physical-identification registry](../claims/physical_identification_registry.json) | Fixed chart volumes cannot become fluctuating geometry by relabeling load noise. New operational constitutive maps are permitted but need tests. P is not a repair coin or physical rate by naming convention. |
 
-The positive tensor-capable Hamiltonian is the strongest benchmark in this
-campaign for quantum positivity and coupled entropy/geometry diagnostics.
-The documented native twelve-port construction remains the source-aligned
-starting point. An icosahedral mean-repair calculation did reproduce its
-scalar operator `I−L/60`; the added inertial laws and general Hamiltonian
-models were separate supplied constructions.
+The [claim registry](../claims/claim_registry.yaml) and linked proofs remain
+authoritative. This is a research ledger, not a new theorem registration.
+[#1025](https://github.com/FloatingPragma/observer-patch-holography/issues/1025)
+tracks selection of a physical test;
+[#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026)
+tracks its common model, derivation and eligible comparison. These finite
+results do not establish their physical completion. Existing seen-data
+comparisons retain the [postdiction ledger](POSTDICTION_LEDGER.md) and
+[frozen-prediction rules](FROZEN_PREDICTION_LADDER.md).
 
-### Results for minimal equilibrium detuning and repair laws
-
-Here “detuning” must distinguish three quantities: a physical departure from
-a preferred relation, disagreement between copies of a shared record, and the
-probability of making an exploratory update. The tests do not identify these
-quantities with each other or with OPH P.
-
-| Question | What was shown | Boundary |
-| --- | --- | --- |
-| Can agreement preserve nontrivial structure? | Endpoint records can agree while phase relations retain nonzero loop holonomy and unequal residuals. | Agreement concerns shared data. Frustration can be static; it does not by itself imply motion. |
-| Can purely greedy repair fail? | In the restricted single-patch Z3 cycle rule, random greedy ties leave single-error traps. A temporary second error permits an escape path; an explicit construction extends to finite odd cycles. | This is an obstruction of that move menu. Native OPH uses different admissible repairs and scores; some local mismatches can increase even during valid native descent. |
-| Can arbitrarily rare departures restore convergence? | Allowing every increment on an inconsistent adjacent pair gives almost-sure agreement on finite odd Z3 cycles. Mixing this rule into greedy repair with any positive exploration probability gives the same almost-sure agreement, while the mean wait for the first uphill event from a single-error trap grows inversely with that probability. | Even cycles have an additional conserved alternating sum. Rare updates do not guarantee efficient repair, small amplitudes or a uniform bound on total disagreement. No identification of the exploration probability with `P−φ` was derived. |
-| Can motion survive agreement? | A compact single-patch rule combines record repair with residual swaps; the tested finite joint model has only agreed recurrent states, with continuing residual motion and multiple stationary sectors. | Its component marginals are autonomous. Sharing one instruction does not establish reciprocal coupling, a unique equilibrium or physical time. Native OPH's neutral swaps and stationary record correlations provide the source-specific counterpart in section 4. |
-| Does a small thermal departure solve both preparation and equilibrium? | A common heat-bath weight has an exact equilibrium, but its conditional choices factor. Finite temperature recreates record errors. On the triangle, the cold limiting measure favors agreement while the strictly cold dynamics can trap a single record error. | The long-time and zero-temperature limits need not commute. A desirable equilibrium does not prove that a chosen repair process reaches it. |
-| Does residual transport produce physical propagation? | A one-defect sector has an exact local hopping law and a conditional diffusive continuum under a declared event-rate scaling. Reversible swaps also give motion without a thermal bath. | Diffusion is not a relativistic wave equation. Conservation, stationary activity, positive Euclidean transfer and unitary quantum dynamics require distinct checks. |
-
-These results support a focused possibility: local agreement repair can
-coexist with persistent distinctions and activity, and occasional exploratory
-departures can overcome particular finite algorithmic traps. They do not
-establish that fundamental OPH repair requires such departures, select their
-physical size or rate, or prove a model of the Universe. The construction rule
-is to test the simplest source-compatible version of each mechanism and
-preserve the exact distinction between a proposal, an accepted repair and
-equilibrium evolution.
-
-### Dongyang Stephen Chen's contributions
+### Dongyang Stephen Chen's contribution to the method
 
 Both **Genesis / The Ladder of Symmetry** and **The Balance Bridge** were
-supplied by Dongyang Stephen Chen. Genesis motivated minimal local relational
+supplied by Dongyang Stephen Chen. Genesis motivated minimal relational
 records and exact reconciliation; the Balance Bridge motivated loop-sensitive
-tests, symmetry comparisons and checking dynamics against null controls.
-The particular local rules and proofs in this campaign were added constructions,
-not claimed outputs of unseen Genesis/CycleHologram or Prism code.
+readouts, symmetry comparisons and tests against null controls. These ideas
+support the current “local event, retained distinction, test the consequence”
+method. The particular native quantum instrument, network proof, current
+clock and modular-response calculations are constructions tested in this
+campaign, not outputs attributed to unseen Genesis or Prism software.
 
-The supplied Genesis moment formula has a useful bounded-support result:
-with distinct nonzero field nodes and nonzero weights, `2k+1` moments separate
-support at most k from support exactly k+1. Universal rejection of arbitrary
-overflow does not follow; finite-field collisions were retained. Likewise,
-shared algebraic form, a unit mode, phase holonomy or a reported power law does
-not by itself select physical dynamics or establish criticality. The supplied
-Prism measurements and software-performance claims were not independently
-reproduced. These inputs remain useful heuristics and component ideas.
+## 6. Retired approaches and lessons retained
 
-## 7. Concrete next decision and issue completion
+The following routes are **obsolete as the active construction strategy**.
+A successful diagnostic remains a valid result in its own stated domain;
+retiring a route does not declare all its mathematics false. The comparison
+law E and the established OPH constructions above remain active inputs.
 
-The next source-alignment check is **M01–M04 on a bounded native instance**:
-export the actual state, transitions, protected data, record restrictions and
-readout maps; keep strict descents, swaps and waits distinct; determine exactly
-which proposed physical readout survives the declared quotient. Then test its
-connection to the existing source geometry/count clock and field action. A
-constant fixed-geometry readout is a useful negative control, not a reason
-to introduce an arbitrary metric field immediately.
+| Earlier route | What it established | Why it was retired from the main search |
+| --- | --- | --- |
+| **Import a continuum action or Hamiltonian first** | Supplied Einstein–scalar–Maxwell and quantum models supplied consistency, propagation and binding benchmarks. | Importing the desired physics did not derive it from repair. Too many action, coupling and clock choices preceded the microscopic connection. |
+| **Add geometry variables, kinetic terms and counterterms successively** | Positive coupled matter/geometry models and restricted shared principal metrics; some fixed-background free continuum limits. | The explanatory burden grew with each supplied mechanism. These remain benchmarks, while the active approach first tests source readouts and only adds structure for a named failed interface. |
+| **Adaptive equilibrium/heat-bath repair as a universal solution** | Controlled finite equilibria and induced interactions in selected models. | Component factorization, volume pinning, positivity failures in some constraints, and cold-limit traps prevented a common physical construction. A stationary distribution alone did not establish the required dynamics. |
+| **Direct weak-field or entropy/area attachments** | Explicit comparisons and regional-response calculations. | Tested attachments failed atomic-clock or weak-field checks; a one-sided area proxy failed a common stationarity coefficient across independent perturbations. This rejects those attachments, not every possible geometry or area map. |
+| **Generic phase loops, cubic grids and scalar toy worlds** | Agreement with nonzero holonomy, finite positive equilibria, greedy traps and residual motion. | They lacked a demonstrated map preserving the full native twelve-port contract. Loop frustration can be static; phase covariance alone did not produce physical gauge dynamics. |
+| **Exploratory uphill repair as the missing microscopic law** | On restricted odd Z3 cycles, any positive exploration restores almost-sure agreement, with an inverse-probability waiting cost. | It resolves a trap of that move menu. Native repair has a different admissible law and can increase some local mismatches while decreasing its actual potential. No P-to-exploration relation was derived. |
+| **Separate record repair plus independently evolving residuals** | Agreement could coexist with persistent distinctions and activity; conditional diffusive limits were constructed. | Autonomous component marginals did not establish reciprocal coupling, a common physical clock or relativistic propagation. The current candidate tests full instruments and records together. |
+| **Identify dynamics by matching a mean, channel or stationary histogram** | Exact controls produced identical means with different histories, and identical forgotten channels with different retained instruments. | These summaries cannot select the physical law. Ordered events, interventions, record preservation and same-source maps are required. |
+| **Treat an analogy or reported measurement as the missing proof** | Chen's bounded Genesis moment formula separates support at most k from exactly k+1 under distinct nonzero nodes and weights; loop tests motivated useful calculations. | Universal overflow rejection failed finite-field controls. Shared algebraic form, a unit mode or a reported power law does not select physical dynamics. Supplied Prism measurements and broad software claims were not independently reproduced. |
 
-Before a new numerical run, record:
-
-```text
-SOURCE:       pinned carrier, state, law, records and refinement
-EXISTING:     construction being reused, with proof/evidence references
-MISSING:      one named connection from M01–M12
-MINIMAL MOVE: readout/composition first; otherwise one justified addition
-PRESERVATION: totals, descent/neutral classes, observer/readout identities
-TEST:         explicit success condition, counterexample and baseline
-INPUTS:       supplied, derived, calibrated and target-exposed quantities
-CAP:          bounded computation and decision/stop condition
-CLAIM:        exact finite / conditional continuum / physical proposal / tested
-```
-
-This check does not replace the actual acceptance criteria of the two physics
-issues, whose bodies were read for this review:
-
-- **[#1025: choose one test](https://github.com/FloatingPragma/observer-patch-holography/issues/1025):**
-  audit at most three existing physical routes (matter/current relation,
-  shared-calibration redshift/deflection, or attached dispersion) and select
-  at most one law, observable and bounded calculation. End with a feasible
-  specified candidate or **no testable physical model established**. Its
-  recorded review date is 9 October; this ledger does not claim that decision
-  has been completed.
-- **[#1026: derive and test the selected model](https://github.com/FloatingPragma/observer-patch-holography/issues/1026):**
-  proceed only after the positive selection required by #1025. Fix the model,
-  derive an unavoidable measurable relation, attempt an admissible
-  countermodel, independently check it, and state a feasible calibrated
-  rejection test. The issue limits the attempt budget and calls for final
-  review by 18 October. A testable proposal awaiting data is unconfirmed;
-  a justified failed comparison rejects the specified candidate; no viable
-  candidate is a legitimate negative outcome.
-- **[#1033: audit existing evidence](https://github.com/FloatingPragma/observer-patch-holography/issues/1033):**
-  repair reproduced defects with independent controls and downstream impact
-  review. Audit completion does not discharge #1025 or #1026.
-
-All three issues were open when read on 10 October. Existing cosmology
-comparisons with seen data remain postdictions, fits or diagnostic baselines
-according to their ledgers; unarmed or conditionally registered tests retain
-their eligibility requirements. Mathematical construction, a testable
-physical proposal, and empirical support are separate deliverables.
-
-In particular, FZ-13/FZ-15 retain their conditional registration and anchoring
-requirements, and FZ-14 has no evaluated event likelihood in the reviewed
-register. These are not completed prospective confirmations. The
-[cosmology postdiction ledger](../code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md)
-classifies its seen-data comparisons separately.
+The retained lesson is operational: a simple local rule can support conserved
+transport, protected distinctions, entropy completion and nontrivial histories.
+Each physical interpretation must earn its place through an explicit map and
+a test on that same rule. Historical details and experiment folders remain
+local rather than becoming the structure of the active research plan.
