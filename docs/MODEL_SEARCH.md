@@ -1,7 +1,7 @@
 # OPH model search: iterative construction from local repair
 
 Research status: **10 October 2026**. Source reference:
-`8bee7fd138331fe238704d623269bb08331bb28d`.
+`b234ba500e0227d739ad8e244bb5149f8b1a2bd9`.
 
 **Current approach:** join the existing weighted repair stiffness to the
 existing scalar theory through its **minimal canonical inertial completion**.
@@ -9,7 +9,9 @@ Use the same local capacity for repair and inertia; test that identification
 rather than introduce another fitted action. A constrained first-order field
 representation retains local position/momentum access and both frequency
 signs. It reuses the scalar continuum, preparation and instrument theorems
-without changing their Hamiltonian, vacuum or readout. This is a declared
+without changing their Hamiltonian, vacuum or readout. A finite source-qubit
+compiler attaches individual force and pointer factors, with controlled
+low-occupation error; original-vacuum preparation remains open. This is a declared
 conservative extension of repair, not the original dissipative channel or a
 proof that the physical law has been selected. Native integer repair C,
 completed reconciliation E and the coherent-walk constructions remain valid
@@ -36,6 +38,12 @@ baselines and alternatives.
   This route needs neither a doubled sheet nor the arc walk's phase-error
   correction or population-dependent event normalization. Those are valid
   alternative constructions, not requirements of this canonical completion.
+- **Finite source controls implement the scalar operation components.**
+  The existing twelve-port response and coherent code service compile local
+  force and pointer factors into proper qubit codes. Direct infinite-oscillator
+  bounds include escaped amplitude and arbitrary reference entanglement.
+  All 18 fixed cases passed; source-vacuum preparation and free-field history
+  remain separate obligations. No extra primitive oscillator gate is assumed.
 - **The new interfaces passed bounded tests and countercontrols.** Exact
   source/action identities and full-matrix checks passed at 8 and 64 sites,
   including all frequency signs, local constraints, quantum commutators,
@@ -64,7 +72,7 @@ this document is not an empirical verification bundle or an axiom amendment.
 | **M03: geometry** | **Finite geometry and controlled coarse energy constructed.** Native rank-three response; uniform memory/gap bounds and local coarse energies; periodic acoustic tensor; existing golden coordinates and uniquely reconstructible relative action capacities. | Identify physical regions, spacetime metric, area/volume and bulk refinement; select the response being reconstructed. Event-count weights and nonuniform action capacities are distinct finite references. A positive Schur energy need not be a Markov generator. |
 | **M04: physical time** | **Finite clocks and explicit model-time laws constructed; physical attachment open.** Canonical flow reuses the original scalar time. The weighted walk and periodic exchange/wave scalings remain alternatives. | Justify and calibrate the physical law and clock with complete execution costs. Avoiding the walk normalization does not identify canonical time with accepted source-event counts or establish an operational physical cone. |
 | **M05: fields and current** | **Finite currents, full scalar stiffness and local canonical fields joined.** Exact energy/symplectic preservation and local position/momentum decoder; no independent edge field is added. | Select physical charge, energy, stress and units; attach interactions and reciprocal geometry response. Local field coordinates do not supply stress coupling or native many-body closure. |
-| **M06: quantum dynamics and regime** | **Conditional canonical scalar continuum and local instrument compatibility complete.** Exact original Hamiltonian, CCR, vacuum, preparations and readouts; constrained first-order field equation. Native finite control and the two coherent-walk continuum constructions are retained. | Justify the quantum representation, vacuum and actual controls from the microscopic law, and attach physical time and interacting relativistic matter. The original instrument premises remain supplied; no native many-body quantum continuum has been derived. |
+| **M06: quantum dynamics and regime** | **Conditional canonical scalar continuum and local instrument compatibility complete.** Exact original Hamiltonian, CCR, vacuum, preparations and readouts; constrained first-order field equation. Finite source-qubit force/pointer factors have reference-preserving low-occupation error bounds; coherent-walk alternatives are retained. | Prepare and encode the original coupled vacuum, implement joint free-plus-driven histories with a common error/resource budget, and justify representation, controls and physical time. The tested k=3 vacuum bound is inconclusive; no native many-body or interacting continuum has been derived. |
 | **M07: entropy/area stationarity** | **Finite counting stationarity, exterior completion and bulk collar splits complete.** `S_A+〈Z_B〉=log66−D(ρ_A‖τ_A)`. Exact recovery and a nontrivial 3×4 bulk block are constructed with declared charge centers. | Identify the formal split with the required physical edge factors and derive area, stress/flow, fixed-volume variations, normalization and common refinement. Z_B contains remote bulk entropy. Charge retention alone does not give all-state screening, and unrestricted boundary repair can break alignment. |
 | **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's physical attachment is open.** Finite entropy and controlled charge-collar constructions supply explicit candidate inputs. | Realize the flagship's G1–G6 premises on this same family, including its physical EC factors, conserved stress, universal coupling and gravitational constraints, or justify a different route. The nontrivial bulk collar factors do not discharge the physical gauge-edge premises; the tested spatial-symmetry identification fails. |
 | **M09: parameters and P** | **Relative-capacity identification and conditional kinetic-law uniqueness constructed.** Reciprocity reconstructs normalized capacities for an admissible connected response. The same-capacity linear reversible completion uniquely gives its canonical equation. | Select the response, absolute action scale, inertia identification, mass and physical clock. The counterfamily shows why configuration equilibrium alone cannot do this. No P-to-amplitude, temperature or rate map follows. |
@@ -122,7 +130,7 @@ The next work is concentrated on a connected set of interfaces:
 | --- | --- | --- |
 | **Why should repair capacity also be inertia?** | Test the linear reversible same-capacity completion against `I+εA` kinetic alternatives using dynamical response, not configuration equilibrium alone. | Derive the identification from admissible microscopic operations or constrain it independently; retain velocity, clock and linearity premises. |
 | **Which weighted source law is selected?** | Reuse the exact stiffness factorization and action-measure theorem. | Justify conductances, reference, mass and boundaries independently of the target action; reciprocity identifies normalized capacities given an admissible response, not that response's physical selection. |
-| **Can the canonical quantum interface be realized?** | Reuse the unchanged local field preparation and pointer instruments, plus the two-complementary-read coherence criterion. | Implement the supplied quantum state, coherent transfer, controls and complete outcome accounting on a common source. The coordinate change does not construct their hardware. |
+| **Can the finite quantum components become a full source history?** | Reuse the source-qubit force/pointer compiler and coherent-transfer criterion; attach the original coupled vacuum and free evolution. | Control the actual state/energy tail, simultaneous free-plus-driven pulse, retained pointer, resets and complete outcomes with one resource/error budget. The component compiler does not prepare the vacuum or derive autonomous controls. |
 | **Which model time is physical?** | Attach the canonical flow and existing local split implementation to a declared source clock. | Establish preparation, readout, event ancestry and all execution costs; a model-time parameter or a local matrix is insufficient. |
 | **Does the archived spherical family converge?** | Use its uniform internal gap, exact memory and positive local coarse approximants. | Prove compatible spatial operator/state convergence on that different routing; neither of the two completed continuum examples substitutes for this. |
 | **Can the field assumptions be supplied by the microscopic process?** | Test the canonical phase reference, state preparation and statistics against retained records and resources. | Justify or replace the supplied Bose CCR and vacuum. The constrained field decoder is local; the free Fock representation requires justification. |
@@ -271,6 +279,75 @@ local field representation → existing scalar continuum and instruments**.
 Quantum CCR, state, controls, the kinetic choice and physical time
 need a common microscopic justification or implementation. No new defect
 in the cited core theorems was established by this targeted review.
+
+### A finite source code for the scalar force and pointer operations
+
+The existing six-level source controls and coherent proper-code service give
+an explicit finite implementation of two local scalar interaction factors.
+This reuses the [native source realization](../code/m1_source_realization/README.md)
+and [coherent transfer contract](research/COHERENT_SOURCE_CLOCKS.md), rather
+than adding a primitive oscillator gate. With supplied canonical fields and
+local occupation basis of reference frequency one, write
+
+```text
+Q_i=√M_i f_i,       X_d=P_d(a+a†)P_d/√2,       d=2^b,
+U_F=exp(+iκ_F X_d), κ_F=√M_i v_i,
+U_P=exp(−iκ_P Z⊗X_d), κ_P=√M_i g_i/2.
+```
+
+The occupation basis is an encoding choice; its product vacuum does not
+replace the coupled scalar vacuum. Encode one oscillator in b proper qubit
+codes and retain the pointer. Expand X_d in Pauli strings without dropping
+nonzero coefficients. The actual twelve-port controls implement each string
+through single-qubit rotations and a phase-exact three-pulse CNOT. A fixed
+palindromic product with r repetitions has operator error at most
+`|κ|³L³/(3r²)`, where `L=Σ|c_P|`. The bound holds with an arbitrary reference.
+Packing, transport, resets, analogue precision and complementary failure
+outcomes remain part of the source-service contract.
+
+The comparison reaches the **infinite oscillator**, including amplitude
+outside the code. On entrance levels 0,…,k−1, put
+
+```text
+t_j=|κ|^j/j! sqrt[2^j(k+j−1)!/(k−1)!],
+ε_cut=min(2,2Σ_(j≥d−k+1)t_j).
+```
+
+The exact and truncated exponential powers agree below that order, giving
+an isometry error at most ε_cut. This also bounds the half diamond distance
+restricted to that entrance code, after capping at one. Add the compilation
+and service errors. A trace-preserving overflow encoder retains its failure
+flag; for occupation tail p_k the general-input error is bounded by
+`min(1,2√p_k+ε_cut+ε_compile+ε_service)`.
+This mathematical encoder is not a demonstrated vacuum-preparation device.
+
+The bounded checks retain all original 64-site coefficients and select the
+largest local force and pointer strengths by exact comparison. All 18 fixed
+cases use d=8,16,32 and r=8,16,32, with entrance k=3. They compare complete
+operators, entangled-reference outputs and escaped amplitude; phase-erasing
+controls fail. At d=8,r=32, the ideal-service restricted half-diamond bounds
+are below 0.0022 for the force and 0.0000027 for the pointer, including source
+coefficient rounding. The uncancelled constructions require 10,272 and
+14,688 native pulses respectively, plus packing/export, routing, reset and
+preparation costs. Increasing d at fixed r worsens the synthesis bound;
+cutoff and compilation effort must scale together.
+
+The full coupled-vacuum occupations are approximately 2.54 and 2.75 in these
+local code coordinates. Conservative analytical occupation bounds give a
+**vacuous combined vacuum-output guarantee of one** at k=3. This does not
+invalidate the low-input operation bound, but it prevents claiming accurate
+control of the original vacuum from these tests. Tiny cutoff errors are not
+a replacement for a state-preparation and energy budget.
+
+The completed part is a conditional finite **operation** interface. These
+are individual force and pointer factors from disjoint original supports,
+not a transported response. Concurrent free evolution, the complete
+finite-duration pulse, GHZ pointer preparation, source vacuum encoding and
+an executed readout history need their joint construction and budget.
+Exact CCR cannot hold in a finite code: the boundary defect is
+`[X_d,Y_d]=i(I−d|d−1><d−1|)`. Controlled approximation replaces that impossible
+identity. Source controls remain supplied; compiling a chosen operation does
+not show that autonomous repair selects it or calibrates physical time.
 
 ### A short selection theorem isolates the substantive extra assumption
 
@@ -1128,8 +1205,8 @@ The remaining connected targets are:
    with independent observations under a stated rejection rule.
 
 No OPH core theorem defect was established by this targeted reread. The
-new gain is an exact local field/instrument join and a conditional selection
-lemma using the existing scalar construction. The remaining task is physical
+gain is an exact local field/instrument join, a conditional selection
+lemma and a finite source-control compiler for its local operation factors. The remaining task is physical
 selection and joint operational realization, rather than rebuilding its
 free-field theorem or treating its field coordinates as independent particles.
 
