@@ -15,7 +15,8 @@ from .check import need, same, verify_evidence
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 SOURCE_FILES = [f"code/m1_vacuum_fidelity/{p}" for p in
-                ("__init__.py", "model.py", "check.py", "verify.py", "build.py", "test_fidelity.py",
+                ("__init__.py", "model.py", "check.py", "numerics.py", "verify.py", "build.py",
+                 "test_fidelity.py", "test_scalar_observables.py",
                  "README.md", "CONTRACT.md", "DERIVATION.md")]
 SOURCE_FILES += ["Lean/Geometry/M1VacuumFidelity.lean", "Lean/Geometry/M1VacuumFidelityAxiomAudit.lean",
                  "paper/tex_fragments/M1_VACUUM_FIDELITY.tex",

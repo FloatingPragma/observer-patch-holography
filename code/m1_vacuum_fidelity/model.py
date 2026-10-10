@@ -11,6 +11,8 @@ import math
 import mpmath as mp
 import sympy as sp
 
+from . import numerics
+
 
 CONFIGS = (("axis3", 3, "axis"), ("axis4", 4, "axis"),
            ("ball6", 6, "ball"), ("two_scale6", 6, "two_scale"))
@@ -86,23 +88,38 @@ def mode_step(z, order):
 
 
 def quantum_case(spec, tick, order):
-    with mp.workdps(65):
-        accum = [[mp.mpf(0), mp.mpf(0), mp.mpf(0)] for _ in TIMES]
-        for eigenvalue, multiplicity in spec:
-            omega = mp.sqrt(mp_fraction(eigenvalue))
-            one = mode_step(mp_fraction(tick)*omega, order)
-            state = mp.eye(2)
-            for j in range(len(TIMES)):
-                state = one*state
-                # Bogoliubov norm avoids subtracting almost equal vacuum energies.
-                n = ((state[0, 0]-state[1, 1])**2
-                     +(state[0, 1]+state[1, 0])**2)/4
-                accum[j][0] += multiplicity*n
-                accum[j][1] += multiplicity*omega*n
-                accum[j][2] += multiplicity*mp.log1p(n)/2
-        rows = [[number(x) for x in row] for row in accum]
-        return dict(times=list(TIMES), observations=rows,
-                    mean=[number(sum(row[i] for row in accum)/len(accum)) for i in range(3)])
+    if tuple(TIMES) != numerics.OBSERVATION_TIMES:
+        raise ValueError("all 32 declared observation times are required")
+    return numerics.quantum_observations(spec, tick, order, _mode_numbers)
+
+
+def _mode_numbers(ctx, spec, tick, order):
+    """Factored symplectic defect times the Chebyshev power polynomial.
+
+    For S=[[a,b],[c,a]], det(S)=1 gives
+    n_j=(b+c)^2 U_(j-1)(a)^2/4. The off-diagonal defect is factored
+    before numerical evaluation, retaining arbitrarily small rational ticks.
+    """
+    if order == 4:
+        r = ctx.mpf(2)**(ctx.mpf(1)/3)
+        a6 = ctx.mpf(1)/48+5*r/288+r*r/72
+        defect5 = ctx.mpf(1)/36+r/48+r*r/72
+        defect7 = ctx.mpf(25)/1728+5*r/432+r*r/108
+    for eigenvalue, multiplicity in spec:
+        omega = ctx.sqrt(numerics.rational(ctx, eigenvalue))
+        squared = numerics.rational(ctx, tick*tick*eigenvalue)
+        if order == 2:
+            a = 1-squared/2
+            one_number = squared**3/64
+        else:
+            a = 1-squared/2+squared**2/24+a6*squared**3
+            one_number = squared**5*(defect5+defect7*squared)**2/4
+        previous, current = ctx.mpf(0), ctx.mpf(1)
+        populations = []
+        for _ in TIMES:
+            populations.append(one_number*current**2)
+            previous, current = current, 2*a*current-previous
+        yield omega, multiplicity, populations
 
 
 def gate_word(order, steps):

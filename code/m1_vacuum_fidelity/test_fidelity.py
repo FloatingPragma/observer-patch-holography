@@ -115,9 +115,12 @@ def test_coordinated_modified_vacuum_substitution_rejected(packet):
 
 def test_producer_cannot_filter_observation_times(packet, monkeypatch):
     monkeypatch.setattr(model, "TIMES", (1, 2, 3))
+    with pytest.raises(ValueError, match="32 declared observation times"):
+        model.quantum_case(model.spectrum(3, model.stencil("axis")), model.TICKS[0], 2)
     changed = copy.deepcopy(packet["evidence"])
-    changed["graphs"]["axis3"]["quantum"]["2:1/256"] = model.quantum_case(
-        model.spectrum(3, model.stencil("axis")), model.TICKS[0], 2)
+    case = changed["graphs"]["axis3"]["quantum"]["2:1/256"]
+    case["times"] = case["times"][:3]
+    case["observations"] = case["observations"][:3]
     with pytest.raises(ValueError):
         check.verify_evidence(changed)
 

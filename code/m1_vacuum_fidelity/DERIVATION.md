@@ -76,6 +76,32 @@ Fourier degeneracies count with their full real multiplicities, not half
 of the complex Fourier catalog. No ultraviolet zero-point subtraction is
 being adjusted: Delta E is the nonnegative energy above the original vacuum.
 
+### Evaluating the original-vacuum signal without cancellation
+
+Cayley--Hamilton gives `S^2-2aS+I=0`, hence
+`S^j=U_(j-1)(a)S-U_(j-2)(a)I`, where `U_-1=0`, `U_0=1` and
+`U_(k+1)=2a U_k-U_(k-1)`. The diagonal entries of every power agree,
+so its original-vacuum particle number is exactly
+
+    n_j = (b+c)^2 U_(j-1)(a)^2/4.
+
+With `s=lambda*tau^2`, equations (1)--(3) therefore become
+
+    order 2: n_j = s^3 U_(j-1)(1-s/2)^2/64,
+    order 4: n_j = s^5 (D0+D*s)^2 U_(j-1)(a4)^2/4,
+    D0 = 1/36+rho/48+rho^2/72 = -d4.
+
+These are identities, not asymptotic replacements. Forming the positive
+defect from these coefficients avoids subtracting the nearly opposite
+off-diagonal entries. It also exposes the separate conditioning problem at
+a zero of `U_(j-1)`: a factored defect alone does not resolve a nearby revival.
+The numerical evaluator encloses the recurrence and refines precision until
+the returned observables have unambiguous 23-digit formatting; it refuses
+unresolved results rather than replacing them with zero. The checker
+reconstructs the original gate evolution independently. Both paths retain
+the original exact `s` for the domain decision, all multiplicities and all
+32 times. See the [numerical contract](README.md#numerical-contract).
+
 For p=2 or 4, uniformly on the stated domain,
 
     c_p z^(2p) <= (b+c)^2/(-4bc) <= C_p z^(2p).                    (7)
