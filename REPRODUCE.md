@@ -21,12 +21,13 @@ python -m pytest -q \
   code/electromagnetism/test_whitney_charged_enclosure.py \
   code/electromagnetism/test_whitney_magnetic_continuum.py \
   code/electromagnetism/test_neutral_packet_observables.py \
+  code/electromagnetism/test_neutral_packet_projection.py \
   code/electromagnetism/test_whitney_quantum_packet.py
 ```
 
 These check a rigorous fixed-mesh time enclosure, numerical controls for the
-analytic prescribed-magnetic-field continuum theorem, and full-dimensional
-neutral-state preparation. Their separate acceptance rules do not certify
+analytic prescribed-magnetic-field continuum theorem, full-dimensional
+neutral-state preparation, and the closed-form neutral projection. Their separate acceptance rules do not certify
 physical calibration or useful interacting quantum propagation.
 
 The neutral-packet audit under [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033)
@@ -56,17 +57,25 @@ Every returned nonzero scalar must retain relative `1e-12` accuracy when
 converted to binary64, or that readout explicitly refuses the range. This
 is a reporting criterion, not a certified error enclosure. An unreportable
 probability does not prevent a separately representable normalized radius.
-The pointwise circle sampler remains a fixed-node numerical quadrature
-without a certified pointwise error; it propagates norm-reporting failures.
+The pointwise projection evaluates the closed form of the circle integral,
+a modified Bessel function of the complex cosine and sine coefficients,
+derived in the [neutral-packet projection audit](docs/research/NEUTRAL_PACKET_PROJECTION_AUDIT.md).
+No angle count controls its accuracy: the legacy `nodes` argument is
+validated and has no effect. The normalized amplitude is returned even when
+the separately reported projection norm is unrepresentable.
 Its binary64 seed, rotation and phase-space callers validate the original
 entries too. They reject masked/boolean data and scalars whose conversion
 would change their value, including an integer displacement erased above
 `2^53`. This explicit caller limitation does not restrict the scalar
 norm/radius evaluator's exact-rational input arithmetic.
-The seed logarithm avoids squaring extreme widths, and circle samples are
-weighted before summation. Unreportable pointwise amplitudes raise a range
-error instead of returning NaN or an underflowed Gaussian sample. These
-checks do not bound discretization error or resolve oscillatory cancellation.
+The seed and the projection form displacements, dot products and the
+combined exponent as exact fractions of those entries. A private mpmath
+context evaluates the normalized expression; successive precisions must
+agree to relative `1e-30`, the binary64 result to relative `1e-12`, and a
+returned seed phase to `1e-12` radians. Unresolved zeros and unreportable
+amplitudes raise an error instead of returning NaN, zero or an underflowed
+Gaussian sample. This is a numerical stability policy, not an interval
+certificate.
 
 The independent receipt replay imports neither the packet producer nor the
 interacting coefficient evaluator. It uses positive one-dimensional integrals

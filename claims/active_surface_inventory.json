@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 480,
+  "surface_count": 481,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -898,6 +898,11 @@
       "path": "docs/FROZEN_PREDICTION_LADDER.md",
       "glob": "docs/**/*.md",
       "allowlisted": true
+    },
+    {
+      "path": "docs/MODEL_SEARCH.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
     },
     {
       "path": "docs/OPH_FALSIFICATION_PROGRAM.md",

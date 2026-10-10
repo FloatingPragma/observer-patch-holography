@@ -1016,7 +1016,7 @@ def open_receipts() -> dict[str, Any]:
             "make those maps induce only four distinct partitions. The "
             "repair-load count aggregation "
             "gives an eight-state ergodic nonreversible H-theorem probe, but "
-            "it fails the pinned-table strong-lumpability diagnostic, its "
+            "it fails the exact count-kernel strong-lumpability test, its "
             "declared record charge is constant, its stationary law is not "
             "identified with the state optimizer's source reference, and the "
             "fine chain's only recurrent restriction is a singleton freezeout "

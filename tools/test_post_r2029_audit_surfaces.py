@@ -318,6 +318,17 @@ def test_heat_kernel_formula_and_finite_diagnostics_keep_their_conditions() -> N
     assert "At \\(h=h_*\\), the relative log residual and log-ratio divide by zero" in paper
     assert "the earlier table did not reproduce the declared Hamiltonian" in paper
     assert "strict held-out mismatch at every finite coupling" in paper
+    # The S3 identity is a proved finite counterexample to exact heat-kernel
+    # weights, so no surface may state those weights as a law of the model.
+    assert "The heat-kernel ansatz assigns the sector probabilities" in paper
+    assert "the conditional ansatz assigns the probabilities" in paper
+    assert "The sector probabilities follow a heat-kernel law" not in paper
+    assert "samples do not transfer the law" not in paper
+    assert "transfers nothing to either continuous group" in paper
+    assert "with the fit overpredicting the sign sector" in paper
+    dictionary = _text("claims/assumption_dictionary.md")
+    assert "Gauge and spacetime paper shared finite-diagnostic fragment" not in dictionary
+    assert "depart from the ansatz at every finite coupling" in dictionary
     assert "earlier truncated SU3 numerical table" in claim["statement"]
     assert "withheld" in claim["statement"]
 
@@ -358,10 +369,25 @@ def test_field_subset_search_records_nonlumpability_and_keeps_other_maps_open() 
     assert repair["state_count"] == 8
     assert repair["fine_chain_strongly_lumpable_at_tolerance"] is False
     assert repair["fine_chain_strong_lumpability_max_err"] > 0.9
-    claim = _claims()["OPH-THERMO-FOUR-LAW-PACKAGE"]["statement"]
+    # Exact rational fields decide the classification; the tolerance field is a display.
+    assert repair["fine_chain_strongly_lumpable"] is False
+    assert repair["irreducible"] is True
+    assert repair["period"] == 1
+    assert repair["reversible"] is False
+    claims = _claims()
+    claim = claims["OPH-THERMO-FOUR-LAW-PACKAGE"]["statement"]
     assert "only four distinct partitions" in claim
     assert "not a certified Markov quotient" in claim
     assert "weakly lumpable" in claim
+    assert "exact strong-lumpability test" in claim
+    audit = claims["OPH-THERMO-SOURCE-REALIZATION-AUDIT"]
+    assert "exact rational full-support stationary law" in audit["statement"]
+    assert "exact strong-lumpability defect 0.911587983" in audit["statement"]
+    assert "code/thermodynamics/exact_count_chain.py" in audit["evidence"]
+    for text in (claim, audit["statement"], audit["falsifier"]):
+        assert "pinned-table" not in text
+        assert "numerically resolved" not in text
+        assert "at the declared tolerance" not in text
 
 
 def test_particle_exact_formulae_preserve_degeneracy_and_domain_boundaries() -> None:
@@ -493,3 +519,11 @@ def test_cosmology_and_source_no_gos_leave_alternative_typed_routes_open() -> No
     paper = _text("paper/tex_fragments/PAPER.tex")
     assert "this null-data route cannot fix" in paper
     assert "Bound neutral composites, dipole or higher-multipole sources" in paper
+
+
+def test_reproduction_guide_describes_the_closed_form_neutral_projection() -> None:
+    guide = _text("REPRODUCE.md")
+    assert "fixed-node numerical quadrature" not in guide
+    assert "closed form of the circle integral" in guide
+    assert "the legacy `nodes` argument is validated and has no effect" in guide
+    assert "code/electromagnetism/test_neutral_packet_projection.py" in guide

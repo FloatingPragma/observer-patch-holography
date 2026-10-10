@@ -62,6 +62,15 @@ Each quantitative closure condition is tracked as a
 [GitHub issue labeled `closure`](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure),
 with its evaluation boundary and required completion stated on the issue.
 
+## Model Construction Status
+
+[Model Search](MODEL_SEARCH.md) records what is constructed, which physical
+connections remain missing, and the rule to start from the simplest existing
+OPH carrier and repair implementation. It includes the model campaign's
+scoped results, source-reread corrections and completion criteria for the
+physical-model issues. It is a research status map, not a replacement for the
+claim registry or a new verified-result package.
+
 ## Registers
 
 Each register is generated from a JSON source by a tool in [`tools/`](../tools/).
