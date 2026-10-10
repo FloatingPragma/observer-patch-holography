@@ -1,76 +1,54 @@
 # OPH model search: iterative construction from local repair
 
 Research status: **10 October 2026**. Source reference:
-`a7ef0965312b04e00036f9d001326f4c28c2ee6d`.
+`8bee7fd138331fe238704d623269bb08331bb28d`.
 
-**Current approach:** build one common microscopic process by making the
-smallest justified extension to native patch repair, testing each connection,
-and preserving what works. The baseline is **local integer repair with
-retained current records**, denoted C; its completed reconciliation is E.
-The active continuum work **joins weighted local repair to the existing
-three-dimensional golden-source scalar construction**. A conservative binary
-extension and a local coherent walk give its complete operator and free-field
-limit. This uses the supplied scalar action; it does not select that
-action or change native C by renaming it. The native-carrier periodic walk
-remains a complementary benchmark whose acoustic coefficient follows from
-its declared seam graph. Both routes keep their quantum instrument, clock
-and field assumptions explicit.
+**Current approach:** join the existing weighted repair stiffness to the
+existing scalar theory through its **minimal canonical inertial completion**.
+Use the same local capacity for repair and inertia; test that identification
+rather than introduce another fitted action. A constrained first-order field
+representation retains local position/momentum access and both frequency
+signs. It reuses the scalar continuum, preparation and instrument theorems
+without changing their Hamiltonian, vacuum or readout. This is a declared
+conservative extension of repair, not the original dissipative channel or a
+proof that the physical law has been selected. Native integer repair C,
+completed reconciliation E and the coherent-walk constructions remain valid
+baselines and alternatives.
 
 ## 1. Headline results and missing-link completion status
 
-- **Weighted local repair connects to the existing three-dimensional
-  massive free field.** Capacity-preserving pairwise agreement, with stated
-  conductance rates, has a conservative doubled-sheet realization whose
-  entire odd-sector operator is the golden scalar action. Its exact-event
-  coherent walk inherits the existing full-mode continuum Weyl limit while
-  retaining the original fields, preparations and vacuum. This closes an
-  operator-to-continuum connection under explicit inputs; it does not derive
-  the physical rates, sheet sector, quantum lift or clock.
-- **The paper reread removes duplicated work.** The scalar continuum,
-  conditional quantum instruments, regional reconstruction and source clocks
-  exist. Relative action capacities are reconstructible from the
-  connected reversible response. The task is to join these results with their premises
-  intact, including operational preparation and timing.
-- **A complementary native-carrier continuum benchmark is constructed.** Two native
-  carriers per periodic screen cell give an exact acoustic tensor
-  `G=(5/246)[[1,−1/2],[−1/2,1]]`. A local coherent walk on this declared
-  family has a massless two-dimensional free-field observable limit, with
-  full internal-mode error control and mean-zero L² Weyl smearings. Periodic
-  gluing, space/time scaling, Bose CCR, positive-frequency selection and
-  vacuum are supplied. This is a scoped continuum construction, not the
-  physical 3+1-dimensional theory or the archived spherical refinement.
-- **The coherent update can be strictly local.** A fixed vertex coin followed
-  by edge reversal gives a two-layer walk on the actual 240- and 960-port
-  graphs, with a strict graph-distance light cone. Its compressed operator is
-  `I−L/63`. This supplies a local implementation on the one-particle graph
-  route; the coherent instrument differs from native C.
-- **The missing coarse information has a controlled description.** Native
-  carriers give an exact memory equation, a size-independent internal gap
-  `g=5−√5`, and a low-frequency response bound. The coarse energy admits
-  positive finite-range approximants with exponentially decreasing error.
-  Exact sign tests show it is not an ordinary cell Markov generator.
-- **The native repair kernel determines an explicit finite Hamiltonian.** On
-  the binary sector, `H=I−P=Σ_e(I−S_e)/60`. Its imaginary-time correlations
-  equal stationary repair correlations. Rotated coherent C records and
-  adaptive feedback give su(66) control, hence implementation of this H up
-  to global phase on the fixed shell. The controller and physical real-time
-  interpretation remain supplied; this result is retained as a baseline.
-- **There are operational discriminators and explicit alternative routes.**
-  Coherent C histories give finite ensemble tomography; one prepared number
-  mode distinguishes exchange oscillation from discarded-record decay.
-  Exchange scaling gives quadratic frequency, while the coherent walk gives
-  linear low-momentum frequency on the declared periodic family. Neither
-  scaling is selected merely by matching the classical kernel.
-- **Entropy, geometry and memory results remain part of the construction.**
-  Exterior repair realizes counted maximum-entropy extensions and an exact
-  nested inclusion tower. Full regional diagonal closure needs twenty hidden
-  contrasts. A nontrivial bulk collar split exists, but its required physical
-  gauge-edge identification has not been established.
-- **The next target is the physical attachment of the continuum construction.**
-  Select or justify the weighted source law and quantum sector, implement its
-  preparations/readouts, and attach the physical clock, matter, interactions
-  and responsive geometry. The golden scalar connection and periodic native
-  benchmark close precise constructions; they do not close all M01–M12.
+- **The repair force has a minimal conditional Hamiltonian completion.**
+  Weighted agreement factors the supplied scalar stiffness exactly. If the
+  same capacity measures inertia, linear autonomous dynamics, the declared
+  velocity reading, energy conservation and time reversal uniquely give
+  `M f_ddot=−(K_D+m²M)f`. The canonical Hamiltonian and action follow.
+  Choosing that inertia and those premises remains substantive.
+- **Local field access is compatible with that completion.** The constrained
+  variables `χ=(m q+i p,Dq)` obey a local self-adjoint first-order equation
+  with `DᵀD=A−m²I`. Recover q and p locally from its vertex quadratures.
+  No independent edge oscillator or nonlocal positive-branch preparation is
+  needed. χ is a field-operator vector, not a one-particle wavefunction; its
+  commutators and quantum ordering are explicitly retained.
+- **The existing scalar continuum and quantum instruments join exactly.**
+  The original positive canonical Hamiltonian, fields, vacuum, local force
+  and pointer couplings are unchanged. Their massive three-dimensional
+  free-field continuum and conditional operational results apply directly.
+  This route needs neither a doubled sheet nor the arc walk's phase-error
+  correction or population-dependent event normalization. Those are valid
+  alternative constructions, not requirements of this canonical completion.
+- **The new interfaces passed bounded tests and countercontrols.** Exact
+  source/action identities and full-matrix checks passed at 8 and 64 sites,
+  including all frequency signs, local constraints, quantum commutators,
+  preparation and detector comparison. The counterfamily with kinetic
+  mobility `I+εA` has the same classical configuration equilibrium but
+  different frequencies: equilibrium alone does not select the law.
+- **The remaining physical choices are sharper, not erased.** Justify the
+  same-capacity inertia, source coefficients, quantum representation/state,
+  controls and clock on one microscopic process; then attach interactions,
+  physical matter and responsive geometry. The finite native-control,
+  periodic continuum, entropy, geometry and protected-memory results remain
+  available below with their original premises. No complete interacting QFT
+  or empirical identification with our Universe is claimed.
 
 **Status convention:** “finite complete” closes the stated mathematical
 construction, under its declared inputs. It does not close the entire physical
@@ -81,18 +59,18 @@ this document is not an empirical verification bundle or an axiom amendment.
 
 | Link | Completion status and constructed result | What completes the remaining physical connection |
 | --- | --- | --- |
-| **M01: common source** | **Finite common source and coherent extensions constructed.** Native C/E, binary66 control, actual federations and local arc walks; exact weighted-event realization of the full golden scalar operator; declared periodic native-carrier continuum. | Select the physical rates/capacities, sectors, gluing, quantum instrument and preparation/readouts. Weighted repair and its binary sheet are explicit extensions, not the unchanged native C channel. |
+| **M01: common source** | **Finite source constructions and canonical field join complete.** Native C/E and coherent extensions; exact weighted factorization of the golden scalar stiffness; a local constrained first-order representation of its canonical completion. | Select the source coefficients, same-capacity inertia, quantum representation and controls. Conservative canonical evolution and the native dissipative channel are distinct laws. |
 | **M02: observers and agreement** | **Finite observer contracts, candidate equalizers and nested completions complete.** Proper overlaps, protected marginals and actual interventions. E completes the supplied exchange/phase-invariant algebra. Exterior repair realizes regional maximum-entropy completions with an exact inclusion tower. | Justify those interpretations from the required observer menu; translated-chart naturality alone does not select them. Supply the used completeness, acceptance, confluence, authentication and broader history contracts. Nonnested completions can fail to commute; the supplied targets are not the complete A2 diagram. |
 | **M03: geometry** | **Finite geometry and controlled coarse energy constructed.** Native rank-three response; uniform memory/gap bounds and local coarse energies; periodic acoustic tensor; existing golden coordinates and uniquely reconstructible relative action capacities. | Identify physical regions, spacetime metric, area/volume and bulk refinement; select the response being reconstructed. Event-count weights and nonuniform action capacities are distinct finite references. A positive Schur energy need not be a Markov generator. |
-| **M04: physical time** | **Finite clocks and autonomous discrete candidates constructed; physical attachment open.** Native decay/oscillation discriminator; periodic wave step h versus exchange h²; weighted exact-event walk step `sqrt(2/Λ_q)`. Existing source clock theorems retain their original premises. | Select and calibrate the physical law and clock, including all execution costs. The weighted step depends on population size. Graph locality alone gives neither a uniform operational physical cone nor the previous count-clock certificate. |
-| **M05: fields and current** | **Finite currents, coarse memory and a full scalar operator join constructed.** Native projected memory and closure counts; weighted agreement plus a conservative binary extension reproduces every mass/boundary term of the supplied scalar action. | Identify physical charge, energy, stress and units, derive interactions, and attach reciprocal geometry response. A scalar operator identity does not supply physical stress or a many-body channel closure. |
-| **M06: quantum dynamics and regime** | **Finite quantum constructions and two scoped free-field continuum limits complete.** Native finite control; local arc walks; periodic native-carrier massless 2D benchmark; weighted golden-source massive 3D scalar limit with full-mode control and original fields/vacuum. | Select or justify the coherent instrument, sector, statistics, state and physical spacetime. Implement preparations/readouts on the arc workspace and attach interacting relativistic matter. These are conditional free-field constructions, not native C’s hard-core many-body continuum or a completed physical theory. |
+| **M04: physical time** | **Finite clocks and explicit model-time laws constructed; physical attachment open.** Canonical flow reuses the original scalar time. The weighted walk and periodic exchange/wave scalings remain alternatives. | Justify and calibrate the physical law and clock with complete execution costs. Avoiding the walk normalization does not identify canonical time with accepted source-event counts or establish an operational physical cone. |
+| **M05: fields and current** | **Finite currents, full scalar stiffness and local canonical fields joined.** Exact energy/symplectic preservation and local position/momentum decoder; no independent edge field is added. | Select physical charge, energy, stress and units; attach interactions and reciprocal geometry response. Local field coordinates do not supply stress coupling or native many-body closure. |
+| **M06: quantum dynamics and regime** | **Conditional canonical scalar continuum and local instrument compatibility complete.** Exact original Hamiltonian, CCR, vacuum, preparations and readouts; constrained first-order field equation. Native finite control and the two coherent-walk continuum constructions are retained. | Justify the quantum representation, vacuum and actual controls from the microscopic law, and attach physical time and interacting relativistic matter. The original instrument premises remain supplied; no native many-body quantum continuum has been derived. |
 | **M07: entropy/area stationarity** | **Finite counting stationarity, exterior completion and bulk collar splits complete.** `S_A+〈Z_B〉=log66−D(ρ_A‖τ_A)`. Exact recovery and a nontrivial 3×4 bulk block are constructed with declared charge centers. | Identify the formal split with the required physical edge factors and derive area, stress/flow, fixed-volume variations, normalization and common refinement. Z_B contains remote bulk entropy. Charge retention alone does not give all-state screening, and unrestricted boundary repair can break alignment. |
 | **M08: gravity** | **Conditional OPH reconstruction exists; this candidate's physical attachment is open.** Finite entropy and controlled charge-collar constructions supply explicit candidate inputs. | Realize the flagship's G1–G6 premises on this same family, including its physical EC factors, conserved stress, universal coupling and gravitational constraints, or justify a different route. The nontrivial bulk collar factors do not discharge the physical gauge-edge premises; the tested spatial-symmetry identification fails. |
-| **M09: parameters and P** | **Benchmark coefficient and conditional relative-capacity reconstruction derived.** The periodic graph fixes its acoustic tensor. Given a connected response admitting a positive diagonal symmetrizer, reciprocity fixes normalized capacities; given conductances/capacities, the weighted repair rates reproduce it exactly. | Select the response, absolute action scale, mass, geometry and physical clock. No P-to-coin, amplitude, temperature or event-rate identification follows from this factorization. Each physical parameter needs a same-law endpoint map. |
-| **M10: physical matter** | **Declared free scalar benchmarks are joined to repair.** Massive 3D golden-source and massless 2D periodic fields have controlled stated observables. Existing conditional fermionic/source constructions remain available. | Attach statistics, physical sectors, interactions, stable poles and charges to this repair process. The supplied Bose representation and free scalar limit do not select particle content or establish the existing fermionic compiler’s premises. |
+| **M09: parameters and P** | **Relative-capacity identification and conditional kinetic-law uniqueness constructed.** Reciprocity reconstructs normalized capacities for an admissible connected response. The same-capacity linear reversible completion uniquely gives its canonical equation. | Select the response, absolute action scale, inertia identification, mass and physical clock. The counterfamily shows why configuration equilibrium alone cannot do this. No P-to-amplitude, temperature or rate map follows. |
+| **M10: physical matter** | **Declared free scalar benchmarks joined to repair stiffness.** The canonical massive 3D scalar preserves the existing full field/instrument theory; periodic massless 2D and weighted arc versions remain alternatives. | Attach statistics, physical sectors, interactions, stable poles and charges to the same process. Supplied Bose CCR and a free scalar limit do not select particle content or establish the fermionic compiler premises. |
 | **M11: cosmology/dark sector** | **Outside the active minimal target; open if claimed.** Existing conditional cosmology constructions are retained. | Attach common expansion/source dynamics, stress, physical scales and observational transfer; add abundance, pressure/slip and lensing where used. |
-| **M12: eligible physical test** | **Internal discriminator tests complete; empirical test open.** Same-source decay versus oscillation, incompatible record menus and alternative coherent lifts have explicit distinguishing tests. | Choose a physical observable and rejection rule; enumerate remaining freedom, establish calibration/uncertainty and baseline, then freeze an unavoidable relation before an eligible independent comparison. |
+| **M12: eligible physical test** | **Internal discriminators complete; empirical test open.** Decay versus oscillation, retained-record menus, coherent lifts and alternative inertias give distinct predictions under specified preparations/readouts. | Select a physical observable and rejection rule; enumerate freedom, calibration, uncertainties and baseline, then freeze an unavoidable relation before independent comparison. |
 
 M01–M12 are a dependency map. Develop the connected cluster needed by a
 specific claim; they are neither twelve sequential hurdles nor a requirement
@@ -142,48 +120,205 @@ The next work is concentrated on a connected set of interfaces:
 
 | Next question | Smallest proposed move | Decisive completion or rejection condition |
 | --- | --- | --- |
-| **Which quantum law and time are physical?** | Compare unchanged C, controlled exchange and the fixed local arc walk using explicit preparation/readout resources. | Select the quantum instrument and autonomous physical clock. Same classical probabilities and implementability do not choose a law. |
-| **Which weighted source law is selected?** | Reuse the exact golden scalar operator join and test how its reference, conductances and mass could follow from admissible repair operations. | Derive or justify those inputs independently of the target action. Reciprocity reconstructs relative capacities after a response is given; it does not select that response. |
-| **Can the existing quantum source interface implement the walk?** | Use its two-complementary-read coherence criterion, reference entanglement and complete outcome accounting. | Construct preparation, transfer and readout with explicit resources. A spectral embedding or matching scalar means alone does not supply local quantum access. |
+| **Why should repair capacity also be inertia?** | Test the linear reversible same-capacity completion against `I+εA` kinetic alternatives using dynamical response, not configuration equilibrium alone. | Derive the identification from admissible microscopic operations or constrain it independently; retain velocity, clock and linearity premises. |
+| **Which weighted source law is selected?** | Reuse the exact stiffness factorization and action-measure theorem. | Justify conductances, reference, mass and boundaries independently of the target action; reciprocity identifies normalized capacities given an admissible response, not that response's physical selection. |
+| **Can the canonical quantum interface be realized?** | Reuse the unchanged local field preparation and pointer instruments, plus the two-complementary-read coherence criterion. | Implement the supplied quantum state, coherent transfer, controls and complete outcome accounting on a common source. The coordinate change does not construct their hardware. |
+| **Which model time is physical?** | Attach the canonical flow and existing local split implementation to a declared source clock. | Establish preparation, readout, event ancestry and all execution costs; a model-time parameter or a local matrix is insufficient. |
 | **Does the archived spherical family converge?** | Use its uniform internal gap, exact memory and positive local coarse approximants. | Prove compatible spatial operator/state convergence on that different routing; neither of the two completed continuum examples substitutes for this. |
-| **Can the field assumptions be supplied by the microscopic process?** | Test a candidate phase reference, positive-frequency sector, state preparation and statistics against retained records and resource policies. | Justify or replace Bose CCR, vacuum and spectral readouts. A free Fock extension is not the native hard-core many-body theory automatically. |
+| **Can the field assumptions be supplied by the microscopic process?** | Test the canonical phase reference, state preparation and statistics against retained records and resources. | Justify or replace the supplied Bose CCR and vacuum. The constrained field decoder is local; the free Fock representation requires justification. |
 | **Which interaction is the smallest justified extension?** | Start with actual multi-occupation repair and its retained correlations before adding a fitted continuum interaction. | Derive a controlled many-body limit or a surviving interaction and a distinguishing observable. A free field does not determine the Standard Model. |
 | **Can the collar become a physical edge?** | Seek an internal paired-representation map compatible with the update, observables and state. | Supply Gauss/sector alignment, area/stress response and common refinement. Spatial covariance and bulk dimensions alone do not supply them. |
 | **What is the first eligible physical test?** | Attach an unavoidable relation to a calibrated physical preparation and readout. | Enumerate remaining choices, uncertainties and baseline; freeze the prediction before independent comparison. |
 
 ## 3. The candidate repair law being tested
 
-### The active weighted-agreement extension
+### Weighted agreement and its minimal inertial completion
 
 For a chosen overlap e=(i,j), reconcile the two readings to their common
 capacity-weighted mean, leaving every other reading untouched:
 
 ```text
-E_e^M(f_i,f_j) = (a,a),    a=(M_i f_i+M_j f_j)/(M_i+M_j),
-lambda_e = c_e(1/M_i+1/M_j),
-P = Σ_e (lambda_e/Λ) E_e^M,    Λ=Σ_e lambda_e.
+E_e^M(f_i,f_j)=(a,a),    a=(M_i f_i+M_j f_j)/(M_i+M_j),
+lambda_e=c_e(1/M_i+1/M_j),
+Σ_e lambda_e(I−E_e^M)=M^−1 K_internal.
 ```
 
 M_i is a positive local capacity and c_e a positive seam conductance. Each
-map preserves `Σ_i M_i f_i` and is the conditional expectation onto the
-specified endpoint-agreement algebra for that reference. P is one randomly
-selected completed agreement event with the stated rate weights. This is a
-linear real-valued extension; it is distinct from the native integer rule
-and from that rule's recorded quantum channel below.
+map preserves `Σ_i M_i f_i`. The rates and reference are declared inputs.
+This real-valued extension is distinct from the native integer rule below.
+Grounded boundary seams and the supplied constant mass give the full
+configuration potential `V=fᵀ(K_D+m²M)f/2`.
 
-For the existing massive Dirichlet scalar, keep its spatial edges on two
-copies of each site and add one same-site seam between the copies with
-conductance `(d_i+m²M_i)/2`, where d_i is the boundary-grounding coefficient.
-The whole process remains conservative. Its antisymmetric sector contains
-exactly the scalar operator; the symmetric sector retains equilibrium.
-The binary copy and sector are declared additional structure.
+The active candidate adds a local velocity ν and uses **the same M for
+inertia**, retaining the repair restoring force:
 
-The quantum candidate applies a vertex-local coherent reflection and arc
-reversal using P's transition amplitudes. It is an explicitly changed
-instrument with extra arc states. Its positive-frequency sector and the
-old scalar Fock interpretation give the continuum construction detailed
-below. Neither classical averaging nor a shared transition kernel selects
-this coherent lift, its statistics or the physical clock.
+```text
+f_dot=ν,    M ν_dot=−(K_D+m²M)f,
+Π=Mν,      H_can=ΠᵀM^−1Π/2+V(f).
+```
+
+This is a conservative reversible completion, not dissipative averaging:
+it generally oscillates and does not converge asymptotically to agreement.
+Any claimed settling, record formation or environment coupling needs its
+own compatible mechanism and accounting. The conditional uniqueness result
+below explains exactly which premises fix this completion.
+
+Its simplest local first-order coordinates are
+`χ=(m q+i p,Dq)`, where q and p are the mass-whitened position and momentum
+and `DᵀD=M^−1/2K_D M^−1/2`. Edge entries are dependent differences; both
+frequency signs describe the original real field. Quantum CCR, state,
+controls and clock are explicit further hypotheses. The positive canonical
+state Hamiltonian stays unchanged. This avoids adding an arc workspace or
+using a spectral positive-energy decoder merely to represent that field.
+The doubled-sheet coherent walk remains an alternative under different
+implementation and clock premises, detailed in section 4.
+
+### Exact local field coordinates for the canonical completion
+
+Factor the full grounded stiffness as `K_D=BᵀCB`, where B has one signed
+incidence row for each internal edge and one single-endpoint row for every
+Dirichlet boundary stub. C is the diagonal positive conductance matrix. For
+constant mass m>0, whiten the original scalar variables:
+
+```text
+q=M^(1/2)f,    p=M^(−1/2)Π,    D=C^(1/2)BM^(−1/2),
+A=m²I+DᵀD,    H_can=(pᵀp+qᵀAq)/2,    Ω=sqrt(A).
+```
+
+The following local first-order coordinates give **exactly the existing
+canonical scalar dynamics**:
+
+```text
+χ=(u,v)=(m q+i p,Dq),
+i χ_dot=H_inc χ,    H_inc=[[mI,Dᵀ],[D,−mI]],
+H_inc²=diag(A,m²I+DDᵀ).
+```
+
+The edge coordinates are dependent local differences. The invariant physical
+image is real-linear, defined by `Im(v)=0` and `v=D Re(u)/m`. Keep both
+frequency signs. The local inverse `q=Re(u)/m`, `p=Im(u)` uses no spectral
+projection or inverse square root. Classically `||χ||²=2H_can` and
+`Im〈χ,χ'〉/m=qᵀp'−pᵀq'`, so the representation preserves the energy and
+canonical symplectic form. It does not introduce independent edge oscillators.
+
+With supplied canonical quantum commutators, χ denotes **field operators**,
+not a one-particle state or independent annihilators. Entrywise adjoints give
+`q=(u+u†)/(2m)` and `p=(u−u†)/(2i)`. On the oscillator core,
+
+```text
+[χ_a,χ_b†]=ℏ(H_inc+mI)_ab,
+[χ_a,χ_b]=ℏ[[0,Dᵀ],[−D,0]]_ab,
+Σ_a χ_a†χ_a=2H_can−m n ℏI.
+```
+
+Here n is the number of mutable sites. These identities retain the quantum
+ordering correction. The stable state
+Hamiltonian is the **original** `H_can`; after subtracting its vacuum energy
+it is `ℏ dΓ(Ω)>=0`. Unrestricted bosonic `dΓ(H_inc)` instead has arbitrarily
+negative energy and is not this construction. The extra `−m` edge-kernel
+modes are excluded by the local field constraints, not populated as additional
+particles. The earlier positive-branch map
+`[Ω+m;D][2Ω(Ω+m)]^(−1/2)` remains spectral and generally nonlocal; changing
+the represented object to constrained field quadratures avoids needing that
+map for the canonical field interface.
+
+At q=3 and q=5, exact Q(phi) checks reconstruct every stiffness entry from
+incidence and verify weighted symmetry, both coefficient intertwiners,
+energy/symplectic forms, local constraints and both commutator matrices.
+The q=5 capacities, addresses, preparation and detector agree entry by entry
+with the existing scalar execution receipt. Full-matrix checks retain every
+frequency sign and edge mode, rather than selecting a comparison band.
+They also compare the original force pulse and field detector through this
+local representation. Countercontrols retain the extra unconstrained modes,
+incorrect independent-boson interpretation, varying-mass obstruction and
+alternative inertia. These finite checks support the algebraic join; the
+continuum conclusion uses the existing proof.
+
+### Reuse the scalar continuum and instruments without changing their law
+
+The [common scalar packet](../paper/tex_fragments/SOURCE_COMMON_SCALAR_PACKET.tex)
+proves the massive three-dimensional Dirichlet free-field
+Weyl-product limit for its stated bounded piecewise-continuous L² smearings
+with Riemann-integrable products. The canonical completion above retains
+**the same** action, field normalization, vacuum, evolution and preparation.
+Consequently its theorem applies directly, with no walk-phase approximation,
+population-dependent event normalization or new continuum fit.
+
+The same local f_i couples to the original
+[force preparation](../paper/tex_fragments/SOURCE_SCALAR_LOCAL_PREPARATION.tex)
+and [finite pointer instrument](../paper/tex_fragments/SOURCE_SCALAR_FINITE_INSTRUMENT.tex).
+Substitute `f_i=(u_raw,i+u_raw,i†)/(2m)` with
+`u_raw=m f+iM^−1Π`: all coupling coefficients and their local supports remain
+unchanged. Existing [sequential-read results](../paper/tex_fragments/SOURCE_SCALAR_SEQUENTIAL_INSTRUMENT.tex)
+therefore transfer with their original control, entanglement, reset, noise
+and Born-readout premises. This is a compatible quantum instrument
+construction, not an executed quantum observation history or a
+realization of these controls in native C.
+
+Two distinctions matter. The
+[regional reconstruction theorem](../paper/tex_fragments/SOURCE_SCALAR_REGIONAL_TIME_SLICE.tex)
+requires `row(A_RE) subset row(C_read)` when access consists of two regional
+position layers and exterior linear reads; its minimum exterior rank remains
+`rank(A_RE)`. Writing a local momentum quadrature does not provide access to
+that quadrature from the narrower menu. Also the
+[local split-step theorem](../paper/tex_fragments/SOURCE_SCALAR_TIME_REFINEMENT.tex)
+retains its step restriction and full-mode vacuum-squeezing bound. Its finite
+split flow is not the continuous flow above. A local continuous generator
+has finite-cutoff tails; it does not supply a strict microscopic graph cone.
+
+The precise closure is **repair stiffness → conditional canonical law →
+local field representation → existing scalar continuum and instruments**.
+Quantum CCR, state, controls, the kinetic choice and physical time
+need a common microscopic justification or implementation. No new defect
+in the cited core theorems was established by this targeted review.
+
+### A short selection theorem isolates the substantive extra assumption
+
+Let `K=K_D+m²M>0`. Suppose `(f,ν)` evolves linearly and autonomously,
+`f_dot=ν`, its conserved energy is
+`E=(fᵀKf+νᵀMν)/2`, and time reversal sends `(f,ν)` to `(f,−ν)`.
+Writing `ν_dot=Ff+Gν`, conservation for every state forces
+`MF=−K` and `MG+(MG)ᵀ=0`. Time reversal forces G=0. Thus
+
+```text
+f_dot=ν,    M ν_dot=−Kf,
+Π=Mν,      H_can=(ΠᵀM^−1Π+fᵀKf)/2.
+```
+
+This proves the unique dynamics **within those hypotheses** and exhibits
+its local canonical form and Legendre action. It does not select the
+hypotheses, an arbitrary nonlinear Poisson structure, quantum CCR or physical
+time. In particular, identifying repair capacity with inertia is a candidate
+principle, not a consequence of the equilibrium alone. Linearity also
+matters: reversible nonlinear forces perpendicular to velocity can conserve
+the same energy.
+
+A concrete counterfamily shows the missing information. In whitened
+coordinates, `H_ε=(pᵀ(I+εA)p+qᵀAq)/2`, ε≥0, is positive, local and
+reversible and preserves every orthogonal source symmetry commuting with A.
+Its normalized **classical configuration Gibbs marginal** is unchanged,
+but its frequencies are `sqrt(λ(1+ελ))`. For distinct eigenvalues these changes
+cannot be absorbed into one clock rescaling. Its full phase-space Gibbs
+reference and quantum vacuum change. Configuration agreement and the
+restoring force therefore do not fix the inertia; dynamical evidence can
+distinguish these laws.
+
+This is consistent with the existing
+[source-to-Hamiltonian theorem](../Lean/Variational/SourceToHamiltonianComposed.lean),
+which uses real enrichment, regularity and real fixed-endpoint minimality,
+and the [realized-history nonidentifiability result](../Lean/Variational/RealizedHistoryLegendreNoGo.lean).
+The [field energy-inner-product](../Lean/Screen/FieldSectorEnergyInnerProduct.lean)
+and [clock conversion](../Lean/Screen/CurlStoneClockBridge.lean) results
+supply conditional Hamiltonian readings of their committed field
+step. These conversions need not be reproved. The next question is why the
+source chooses that kinetic step and clock, together with the original
+capacities, mass and conductances.
+
+## 4. Retained native results and coherent alternatives
+
+These constructions remain valid under their stated inputs. They are
+alternatives or native baselines, not additional steps required by the
+canonical scalar completion above.
 
 ### Native working state and atomic update retained as the baseline
 
@@ -416,8 +551,6 @@ with moving swap/wait realizations. An exactly all-equal native state is
 absorbing. This law does not generate the nonzero-remainder sector or the
 first physical disturbance from perfect symmetry. State selection and the
 source of incoming interactions remain separate questions.
-
-## 4. Joining repair, Hamiltonian, records and time
 
 ### The operator follows from the native binary kernel
 
@@ -858,17 +991,26 @@ native repair graph and its declared coherent walk. Their premises differ;
 neither may silently substitute for the other or for the missing physical
 attachment of C.
 
-### Reusing the existing three-dimensional scalar construction
+### Alternative: the doubled-sheet coherent walk to the same scalar limit
 
 The [golden-address scalar packet](../paper/tex_fragments/SOURCE_COMMON_SCALAR_PACKET.tex)
 supplies the actual sorted coordinates, positive tensor capacities,
-Dirichlet action and a massive free-field detector limit. The new connection
-factors its full operator through the weighted agreement law above:
+Dirichlet action and a massive free-field detector limit. The earlier
+coherent-walk connection factors its full operator through weighted agreement:
 
 ```text
 Σ_e lambda_e(I−E_e^M) = M^−1 K_internal,
 A_q = I + M^−1/2 K_D M^−1/2.
 ```
+
+For this alternative, define `P=Σ_e(lambda_e/Λ)E_e^M`,
+`Λ=Σ_e lambda_e`: one completed weighted agreement event. Keep the original
+spatial conductances on each of two copies of every site and join the
+copies at site i with conductance `(d_i+m²M_i)/2`, where d_i is the summed
+boundary grounding. The full doubled process is conservative. The binary
+copy and its odd sector are supplied additional structure. In P and Λ_q,
+the sum is over every edge of this full doubled graph, whose capacities are
+(M,M); it is not the original interior graph normalization.
 
 The interior massive operator is not a conservative Markov generator:
 `(M^−1 K_D+I)1=M^−1 d+1`, which is nonzero. In the doubled conservative
@@ -945,8 +1087,9 @@ weights are not these nonuniform finite action capacities.
 Existing [time-refinement](../paper/tex_fragments/SOURCE_SCALAR_TIME_REFINEMENT.tex),
 [regional reconstruction](../paper/tex_fragments/SOURCE_SCALAR_REGIONAL_TIME_SLICE.tex)
 and [quantum instrument](../paper/tex_fragments/SOURCE_SCALAR_SEQUENTIAL_INSTRUMENT.tex)
-results supply conditional interfaces. Their finite execution certificates
-must be compared with the changed walk; sharing addresses and allowed edges
+results supply conditional interfaces. The canonical completion keeps their
+law and ports unchanged. For the alternative changed walk, finite execution
+certificates require comparison; sharing addresses and allowed edges
 alone does not preserve event ancestry or a clock certificate. The regional
 collar theorem's minimum exterior linear access is `rank(A_RE)`; access to
 those quantum observables remains an explicit hypothesis.
@@ -969,9 +1112,8 @@ Neither the golden scalar join nor the periodic benchmark proves its limit.
 
 The remaining connected targets are:
 
-1. **Select the source law.** Justify the weights, reference, mass/sector and
-   coherent instrument through admissible microscopic operations, preserving
-   the native results used. Fitting the desired action backwards is not
+1. **Select the source law.** Justify the weights, reference, mass, inertia
+   identification and quantum operations, preserving the native results used. Fitting the desired action backwards is not
    physical selection.
 2. **Attach quantum access and time.** Construct the actual preparations,
    readouts, code transport and clock with complete resource and event-order
@@ -986,9 +1128,10 @@ The remaining connected targets are:
    with independent observations under a stated rejection rule.
 
 No OPH core theorem defect was established by this targeted reread. The
-new gain is a repair-to-continuum connection using a construction
-present in the papers. Its remaining task is physical selection and joint
-operational realization, rather than rebuilding the same free-field theorem.
+new gain is an exact local field/instrument join and a conditional selection
+lemma using the existing scalar construction. The remaining task is physical
+selection and joint operational realization, rather than rebuilding its
+free-field theorem or treating its field coordinates as independent particles.
 
 
 ## 5. Entropy, geometry and memory connections retained
@@ -1503,7 +1646,11 @@ campaign, not outputs attributed to unseen Genesis or Prism software.
 
 The following routes are **obsolete as the active construction strategy**.
 A successful diagnostic remains a valid result in its own stated domain;
-retiring a route does not declare all its mathematics false. The comparison
+retiring a route does not declare all its mathematics false. The active
+inertial completion is explicitly conditional: its source stiffness is
+factored through repair, its kinetic assumption is isolated and tested, and
+its operational and continuum interfaces reuse the original action. This
+does not reinstate importing a fitted physical action as a derivation. The comparison
 law E and the established OPH constructions above remain active inputs.
 
 | Earlier route | What it established | Why it was retired from the main search |
