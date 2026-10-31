@@ -1,0 +1,173 @@
+{
+  "schema": "oph.full_spatial_CAR_repair.v1",
+  "design": "binary endpoint C/E balancing, otherwise a recorded collision hold",
+  "basis": "site outer, static per-site quasiparticle internal state inner",
+  "collision_raw_record": 8,
+  "raw_slots_per_coin": 16,
+  "general_domain": "all 2^(sites*internal_states) CAR basis states, with arbitrary reference",
+  "general_proof": "Within each recorded branch the map is injective: holds are identities; a signed hop is inverted by the recorded seam/current. Distinct inputs give orthogonal outputs. Every input occurs once for each fair coin. Thus sum K_h^dagger K_h=I on all sectors.",
+  "unital_repair": "Every output has two preimages across the recorded branches: two coin holds on local counts zero, two or nonbinary; two possible initial endpoints for local count one. Thus sum K_h K_h^dagger=I and the finite normalized identity is a faithful stationary state of each fixed-seam repair channel.",
+  "unital_scope": "This does not assert stationarity under arbitrary record-conditioned field operations or feedback schedules. The tracial reference has trivial modular flow.",
+  "original_restriction": "On the two-particle hard-core subspace the collision flag never occurs and every existing C/E colored branch, CAR sign and weight is unchanged.",
+  "history_composition": "Any complete unitary propagation or particle-changing operation on the same full CAR space can precede or follow this instrument. Every resulting record is retained; no sector is projected out of the dynamics.",
+  "collision_disturbance": {
+    "vacuum_pair_superposition_output_purity": 0.5,
+    "vacuum_pair_coherence_after_unread_collision_record": 0,
+    "hold_outcome_is_not_a_no_disturbance_claim": true
+  },
+  "exact_bounded_audits": [
+    {
+      "sites": 2,
+      "internal_states": 2,
+      "law": "C",
+      "all_particle_number_sectors": 5,
+      "full_Fock_dimension": 16,
+      "complete_coin_and_raw_slots": 32,
+      "zero_slots": 26,
+      "collision_columns": 14
+    },
+    {
+      "sites": 2,
+      "internal_states": 2,
+      "law": "E",
+      "all_particle_number_sectors": 5,
+      "full_Fock_dimension": 16,
+      "complete_coin_and_raw_slots": 32,
+      "zero_slots": 24,
+      "collision_columns": 14
+    },
+    {
+      "sites": 3,
+      "internal_states": 1,
+      "law": "C",
+      "all_particle_number_sectors": 4,
+      "full_Fock_dimension": 8,
+      "complete_coin_and_raw_slots": 32,
+      "zero_slots": 28,
+      "collision_columns": 0
+    },
+    {
+      "sites": 3,
+      "internal_states": 1,
+      "law": "E",
+      "all_particle_number_sectors": 4,
+      "full_Fock_dimension": 8,
+      "complete_coin_and_raw_slots": 32,
+      "zero_slots": 26,
+      "collision_columns": 0
+    },
+    {
+      "sites": 4,
+      "internal_states": 2,
+      "law": "C",
+      "all_particle_number_sectors": 9,
+      "full_Fock_dimension": 256,
+      "complete_coin_and_raw_slots": 32,
+      "zero_slots": 26,
+      "collision_columns": 224
+    },
+    {
+      "sites": 4,
+      "internal_states": 2,
+      "law": "E",
+      "all_particle_number_sectors": 9,
+      "full_Fock_dimension": 256,
+      "complete_coin_and_raw_slots": 32,
+      "zero_slots": 24,
+      "collision_columns": 224
+    }
+  ],
+  "source_executions": [
+    {
+      "sites": 2,
+      "internal_states": 2,
+      "law": "C",
+      "all_input_columns": 16,
+      "padded_output_addresses": 512,
+      "initialized_coin_bits": 1,
+      "initialized_record_bits": 4,
+      "isometry_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 69635,
+        "single_code_pulses": 52295,
+        "pair_code_pulses": 17340,
+        "identity_phase_pulses": 34,
+        "proper_code_load_events": 69635,
+        "proper_code_export_events": 69635,
+        "proper_code_service_events": 139270,
+        "proper_code_complement_outcome_slots": 243860
+      }
+    },
+    {
+      "sites": 2,
+      "internal_states": 2,
+      "law": "E",
+      "all_input_columns": 16,
+      "padded_output_addresses": 512,
+      "initialized_coin_bits": 1,
+      "initialized_record_bits": 4,
+      "isometry_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 94207,
+        "single_code_pulses": 70747,
+        "pair_code_pulses": 23460,
+        "identity_phase_pulses": 46,
+        "proper_code_load_events": 94207,
+        "proper_code_export_events": 94207,
+        "proper_code_service_events": 188414,
+        "proper_code_complement_outcome_slots": 329908
+      }
+    },
+    {
+      "sites": 3,
+      "internal_states": 1,
+      "law": "C",
+      "all_input_columns": 8,
+      "padded_output_addresses": 512,
+      "initialized_coin_bits": 1,
+      "initialized_record_bits": 4,
+      "isometry_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 42731,
+        "single_code_pulses": 32021,
+        "pair_code_pulses": 10710,
+        "identity_phase_pulses": 21,
+        "proper_code_load_events": 42731,
+        "proper_code_export_events": 42731,
+        "proper_code_service_events": 85462,
+        "proper_code_complement_outcome_slots": 149504
+      }
+    },
+    {
+      "sites": 3,
+      "internal_states": 1,
+      "law": "E",
+      "all_input_columns": 8,
+      "padded_output_addresses": 512,
+      "initialized_coin_bits": 1,
+      "initialized_record_bits": 4,
+      "isometry_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 67315,
+        "single_code_pulses": 50485,
+        "pair_code_pulses": 16830,
+        "identity_phase_pulses": 33,
+        "proper_code_load_events": 67315,
+        "proper_code_export_events": 67315,
+        "proper_code_service_events": 134630,
+        "proper_code_complement_outcome_slots": 235600
+      }
+    }
+  ],
+  "full_1080_mode_source_execution_claimed": false,
+  "source_scope": "All input columns of the four stated small witnesses. General extension is exact finite algebra and a specified algorithm, not an executed 1080-mode dilation.",
+  "floating_execution_is_interval_or_hardware_certificate": false,
+  "physical_particle_identification_complete": false,
+  "source_sha256": {
+    "model/defect_field_bridge/full_domain.py": "7e131b9f73c7bc369f56dce91767bc1651be26bff76d087845bb64aab7ca13e7",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/record_code.py": "0359a77057cd38329bc696a1cc0566a1a8863f7cbf0a697312e4581cc5c10f7a",
+    "model/exchange_sector/statistics_service.py": "a0da5143bdb169b3531091ef16c347bbbe3327239a287170273468ab83a9a3af",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
+  }
+}

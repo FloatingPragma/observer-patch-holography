@@ -1,0 +1,1591 @@
+{
+  "schema": "oph.defect_field_clock.v1",
+  "source_sha256": {
+    "model/defect_field_clock/packet.py": "79e8e417ddbcf66f4a71e88db00c86f0763da493fa61c44bb1ad89f957888912",
+    "model/defect_field_clock/clock.py": "4e8d4d954f93e59949002522fbae00e0cf759bb6a4281e6501682569deac39f2",
+    "model/defect_field_clock/README.md": "7f36b748a1f2055b454f94cfb6880f5195b7378f44e15491420f00206dfa103e",
+    "model/defect_field_clock/test_clock.py": "9d1e7f95c8b98022fa1170a044bed54a0f5091d01192555f27bb051875ab87b5",
+    "model/defect_field_clock/test_packet.py": "c6078e9786eb83c16ab546a715db79ca584b807fd5da54411a871f8b6d98fe7c",
+    "model/defect_field_bridge/dynamics_results.json": "5e3521846004bcd22210d30f8e3ffe82f2baaaaba71b060637ee00d7d1da4144",
+    "model/defect_field_bridge/dynamics_results.npz": "9aacbb27e224722b42671c22c1135a905ed261bacd2ff687b72707707b02c760",
+    "model/defect_field_bridge/dynamics.py": "75bd7b2e46af36703e416c9d279c123a8c7bb344daeb3034c69fa353aaca86c1",
+    "model/defect_field_bridge/dynamics_packet.py": "83b7f756a44a7b737892f58690088eeb7be8d8ff14bdf9f54a053251eccbe9f6",
+    "model/common_source/mass_response/history.py": "1046f4be64b2ad6498df83b1949ec316449d0ce0d9b57ce4763d96a0ed3a2abb",
+    "model/common_source/mass_response/model.py": "1ffdf1a680763d52d0841636aee3dc05a51a16487a5770b2e7208dcb3dbdaacf",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d"
+  },
+  "calibration": {
+    "reference_energy_GeV": "1/4",
+    "populations": [
+      "1/6",
+      "5/6"
+    ],
+    "contrast": "-2/3",
+    "reference_modular_gap": "log(5)",
+    "inverse_temperature_GeV_inverse": "log(5)/Omega_ref",
+    "reference_identity": "-log(rho_ref)=constant I+(log(5)/Omega_ref) H_clock",
+    "clock_Hamiltonian": "H_clock=Omega_ref Z/2",
+    "phase_window": [
+      "0",
+      "3/2"
+    ],
+    "time_convention": "tau_effective=sum_j lambda_j delta_tau_j; the same lambda_j multiplies the entire field Hamiltonian and both clock hands",
+    "host_runtime_or_pulse_count_is_elapsed_time": false,
+    "energy_calibration_is_species_dependent": false
+  },
+  "SI_unit_map": {
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "Planck_h_J_s_exact": "132521403/200000000000000000000000000000000000000000",
+    "elementary_charge_C_exact": "801088317/5000000000000000000000000000",
+    "hbar_GeV_s_interval": [
+      "4128623331448379314622632712758188795971687734089798118639530166490270860110556537549683315736707761377600650910680000627798582881449140608310699462890625/6272483032021730687717916253924077994453450900407979935826623463367999303556571357989315510025106949177226567264509506591408376638597850975287736061742082993956552031125324693504",
+      "9433243732626514993222376127418420088587951002357734333392344105603630472015003999255018427127859361505997071226758092634419314110850254427492618560791015625/14331620130884531144525403773615890280990064370982830803775254860687463127439653323310868752456192288324326621823796138805979091225130176479522506945138286518898537986459683092692992"
+    ],
+    "formula": "t_seconds=hbar_GeV_s*tau_effective_GeV_inverse",
+    "pi_enclosure": "Machin pi=16 atan(1/5)-4 atan(1/239), exact alternating rational bounds",
+    "role": "unit conversion and specified reference-energy calibration; not a fit of the model to a physical laboratory clock"
+  },
+  "ensemble_sampling_example": {
+    "independent_repetitions_per_conditional_branch": 10000000,
+    "individual_frequency_error": "1/1000",
+    "clock_binary_marginal_error": "1/500",
+    "four_cell_clock_total_variation_error": "1/500",
+    "field_Ramsey_binary_error": "1/1000",
+    "simultaneous_failure_probability_upper": "24103124269210325885801166060283141129120932479456889513596750390652573915918032006690850241073460496634487662808880047878624169787949583249696129878907746514552133393816252247707820779176814996768455431373878200575973458579045991094613871220995079649978156413423006776294733552816174284117941639677858703703689691092215919430542320115627584500805795878509009937148922834766466311815150638048733751822605062469928378987059710125258433244012329868570047603393167360/556374515035388087243213716213429478697166607960118482654732793744904425718833284910254439533811399291552038001647614398126404349782404229365266259012384370613816266578392750588280618550687967521357334064457858279155901722501792445421155206982056618972222632461519548571880225509842472576249230714596510171087487457237948241084112549287323395360170634926478469623838530905562426966028095487126187280843749454535896754895265592042508183843743573968050336991018969363758081",
+    "assumptions": "independent repetitions of the same prepared conditional native branch; add these sampling errors to the separate source-service errors",
+    "observed_shots_in_this_receipt": 0
+  },
+  "joint_state": "For each retained native record: sum(source_factor tensor internal_factor) tensor clock_work_and_purifiers; all factors are kept without normalization.",
+  "parent_quantum_arrays": "model/defect_field_bridge/dynamics_results.npz",
+  "native_records": 24,
+  "terminal_clock_records": 96,
+  "rows": [
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 0,
+        "raw": 0,
+        "current": 0,
+        "abort": false
+      },
+      "array_prefix": "C_0_0",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 9.487975544864523e-25,
+      "joint_clock_marginals": {
+        "00": 7.013070836390887e-26,
+        "01": 9.783415680244821e-26,
+        "10": 3.2602264504233014e-25,
+        "11": 4.548100442777621e-25
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.23193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.688429084286524e-15,
+      "expected_effective_time_for_comparison_only": "1",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 0,
+        "raw": 1,
+        "current": 1,
+        "abort": false
+      },
+      "array_prefix": "C_0_1",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 0.4999999999921891,
+      "joint_clock_marginals": {
+        "00": 0.03633549680651013,
+        "01": 0.05506984518403301,
+        "10": 0.1624247507603206,
+        "11": 0.2461699072413234
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.29443297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.601906561386021e-15,
+      "expected_effective_time_for_comparison_only": "5/4",
+      "record_only_inverse": {
+        "energy_gap_GeV_interval": [
+          "49071897719297915/480430535335663534",
+          "24593827923015633/240168688644493307"
+        ],
+        "field_phase_interval": [
+          "147215693157893745/1152921504606846976",
+          "73781483769046899/576460752303423488"
+        ],
+        "clock": {
+          "phase_interval": [
+            "720506065933479921/2305843009213693952",
+            "720645803003495301/2305843009213693952"
+          ],
+          "effective_time_GeV_inverse_interval": [
+            "720506065933479921/576460752303423488",
+            "720645803003495301/576460752303423488"
+          ],
+          "inverse_uses_matter_energies_or_program_duration": false,
+          "inverse_method": "exact rational alternating Taylor enclosures and 60 bisections on [0,3/2]",
+          "probability_error_bound": "480552074806092600060719/50000000000000000000000000000"
+        },
+        "species_specific_scale_used": false,
+        "source_energies_or_program_duration_used_by_inverse": false,
+        "phase_window": "0 <= Delta*tau_effective <= 3/2",
+        "absolute_common_energy_offset_inferred": false,
+        "record_probability_grid": "1/1000000000",
+        "rounded_clock_probabilities": {
+          "00": "36335497/500000000",
+          "01": "11013969/100000000",
+          "10": "162424751/500000000",
+          "11": "246169907/500000000"
+        },
+        "rounded_field_Ramsey_probability": "497959899/500000000"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 0,
+        "raw": 2,
+        "current": -1,
+        "abort": false
+      },
+      "array_prefix": "C_0_2",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 7.624023497462317e-29,
+      "joint_clock_marginals": {
+        "00": 5.758859938392526e-30,
+        "01": 7.393258799873619e-30,
+        "10": 2.762411383385232e-29,
+        "11": 3.5464002402504457e-29
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.16943297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.680315500531094e-15,
+      "expected_effective_time_for_comparison_only": "3/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 0,
+        "raw": 3,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "C_0_3",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 2.107863417261718e-27,
+      "joint_clock_marginals": {
+        "00": 1.7565528477180939e-28,
+        "01": 1.7565528477180948e-28,
+        "10": 8.782764238590457e-28,
+        "11": 8.782764238590462e-28
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 1,
+        "raw": 0,
+        "current": 0,
+        "abort": false
+      },
+      "array_prefix": "C_1_0",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 0.4999999999914467,
+      "joint_clock_marginals": {
+        "00": 0.036957677657942646,
+        "01": 0.051556918722102135,
+        "10": 0.17180832912939817,
+        "11": 0.23967707448200212
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.23193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.688429084286524e-15,
+      "expected_effective_time_for_comparison_only": "1",
+      "record_only_inverse": {
+        "energy_gap_GeV_interval": [
+          "39231502942104751/384352916358996698",
+          "78752117608586989/768522851863479640"
+        ],
+        "field_phase_interval": [
+          "117694508826314253/1152921504606846976",
+          "236256352825760967/2305843009213693952"
+        ],
+        "clock": {
+          "phase_interval": [
+            "288196069448804865/1152921504606846976",
+            "576529374538495047/2305843009213693952"
+          ],
+          "effective_time_GeV_inverse_interval": [
+            "288196069448804865/288230376151711744",
+            "576529374538495047/576460752303423488"
+          ],
+          "inverse_uses_matter_energies_or_program_duration": false,
+          "inverse_method": "exact rational alternating Taylor enclosures and 60 bisections on [0,3/2]",
+          "probability_error_bound": "480552074806092600060719/50000000000000000000000000000"
+        },
+        "species_specific_scale_used": false,
+        "source_energies_or_program_duration_used_by_inverse": false,
+        "phase_window": "0 <= Delta*tau_effective <= 3/2",
+        "absolute_common_energy_offset_inferred": false,
+        "record_probability_grid": "1/1000000000",
+        "rounded_clock_probabilities": {
+          "00": "14783071/200000000",
+          "01": "103113837/1000000000",
+          "10": "171808329/500000000",
+          "11": "479354149/1000000000"
+        },
+        "rounded_field_Ramsey_probability": "99738739/100000000"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 1,
+        "raw": 1,
+        "current": 1,
+        "abort": false
+      },
+      "array_prefix": "C_1_1",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 2.2515580039843e-28,
+      "joint_clock_marginals": {
+        "00": 1.636229573294438e-29,
+        "01": 2.4798590140844555e-29,
+        "10": 7.314174952505356e-29,
+        "11": 1.108531649995866e-28
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.29443297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.601906561386021e-15,
+      "expected_effective_time_for_comparison_only": "5/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 1,
+        "raw": 2,
+        "current": -1,
+        "abort": false
+      },
+      "array_prefix": "C_1_2",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 1.1770110485764392e-27,
+      "joint_clock_marginals": {
+        "00": 8.890635996791453e-29,
+        "01": 1.1413851616974564e-28,
+        "10": 4.264662510602151e-28,
+        "11": 5.4749992137856e-28
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.16943297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.680315500531094e-15,
+      "expected_effective_time_for_comparison_only": "3/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "C",
+      "native_record": {
+        "coin": 1,
+        "raw": 3,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "C_1_3",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 6.152824932066338e-33,
+      "joint_clock_marginals": {
+        "00": 5.127354110055269e-34,
+        "01": 5.127354110055271e-34,
+        "10": 2.563677055027631e-33,
+        "11": 2.5636770550276327e-33
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 0,
+        "current": 0,
+        "abort": false
+      },
+      "array_prefix": "E_0_0",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 9.48450023591541e-25,
+      "joint_clock_marginals": {
+        "00": 7.010502049432781e-26,
+        "01": 9.779832155824287e-26,
+        "10": 3.25903227637577e-25,
+        "11": 4.546434539013904e-25
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.23193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.688429084286524e-15,
+      "expected_effective_time_for_comparison_only": "1",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 1,
+        "current": 1,
+        "abort": false
+      },
+      "array_prefix": "E_0_1",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 1.056572129044156e-28,
+      "joint_clock_marginals": {
+        "00": 7.678214644266257e-30,
+        "01": 1.1637052714626956e-29,
+        "10": 3.432269294459585e-29,
+        "11": 5.201925260092613e-29
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.29443297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.601906561386021e-15,
+      "expected_effective_time_for_comparison_only": "5/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 2,
+        "current": -1,
+        "abort": false
+      },
+      "array_prefix": "E_0_2",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 6.252969509413336e-29,
+      "joint_clock_marginals": {
+        "00": 4.723224635356446e-30,
+        "01": 6.0637040095953704e-30,
+        "10": 2.265637580801481e-29,
+        "11": 2.9086390641166533e-29
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.16943297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.680315500531094e-15,
+      "expected_effective_time_for_comparison_only": "3/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 3,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "E_0_3",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 1.1348131338823023e-30,
+      "joint_clock_marginals": {
+        "00": 9.456776115685828e-32,
+        "01": 9.456776115685833e-32,
+        "10": 4.728388057842908e-31,
+        "11": 4.7283880578429105e-31
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 4,
+        "current": 0,
+        "abort": false
+      },
+      "array_prefix": "E_0_4",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 4.2408217694972725e-28,
+      "joint_clock_marginals": {
+        "00": 3.134618479290946e-29,
+        "01": 4.37287406577265e-29,
+        "10": 1.4572170047307363e-28,
+        "11": 2.032855510260163e-28
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.23193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.688429084286524e-15,
+      "expected_effective_time_for_comparison_only": "1",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 5,
+        "current": 1,
+        "abort": false
+      },
+      "array_prefix": "E_0_5",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 0.4999999999921732,
+      "joint_clock_marginals": {
+        "00": 0.03633549680650898,
+        "01": 0.05506984518403126,
+        "10": 0.16242475076031543,
+        "11": 0.24616990724131557
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.29443297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.601906561386021e-15,
+      "expected_effective_time_for_comparison_only": "5/4",
+      "record_only_inverse": {
+        "energy_gap_GeV_interval": [
+          "49071897719297915/480430535335663534",
+          "24593827923015633/240168688644493307"
+        ],
+        "field_phase_interval": [
+          "147215693157893745/1152921504606846976",
+          "73781483769046899/576460752303423488"
+        ],
+        "clock": {
+          "phase_interval": [
+            "720506065933479921/2305843009213693952",
+            "720645803003495301/2305843009213693952"
+          ],
+          "effective_time_GeV_inverse_interval": [
+            "720506065933479921/576460752303423488",
+            "720645803003495301/576460752303423488"
+          ],
+          "inverse_uses_matter_energies_or_program_duration": false,
+          "inverse_method": "exact rational alternating Taylor enclosures and 60 bisections on [0,3/2]",
+          "probability_error_bound": "480552074806092600060719/50000000000000000000000000000"
+        },
+        "species_specific_scale_used": false,
+        "source_energies_or_program_duration_used_by_inverse": false,
+        "phase_window": "0 <= Delta*tau_effective <= 3/2",
+        "absolute_common_energy_offset_inferred": false,
+        "record_probability_grid": "1/1000000000",
+        "rounded_clock_probabilities": {
+          "00": "36335497/500000000",
+          "01": "11013969/100000000",
+          "10": "162424751/500000000",
+          "11": "246169907/500000000"
+        },
+        "rounded_field_Ramsey_probability": "497959899/500000000"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 6,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "E_0_6",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 2.56181571476369e-29,
+      "joint_clock_marginals": {
+        "00": 2.134846428969736e-30,
+        "01": 2.134846428969737e-30,
+        "10": 1.0674232144848665e-29,
+        "11": 1.0674232144848672e-29
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 0,
+        "raw": 7,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "E_0_7",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 2.2334670682677064e-27,
+      "joint_clock_marginals": {
+        "00": 1.8612225568897506e-28,
+        "01": 1.8612225568897515e-28,
+        "10": 9.30611278444874e-28,
+        "11": 9.306112784448745e-28
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 0,
+        "current": 0,
+        "abort": false
+      },
+      "array_prefix": "E_1_0",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 9.273916414780297e-25,
+      "joint_clock_marginals": {
+        "00": 6.85484826980033e-26,
+        "01": 9.562691096811518e-26,
+        "10": 3.1866721674727163e-25,
+        "11": 4.445490310646366e-25
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.23193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.688429084286524e-15,
+      "expected_effective_time_for_comparison_only": "1",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 1,
+        "current": 1,
+        "abort": false
+      },
+      "array_prefix": "E_1_1",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 2.9582204760522696e-30,
+      "joint_clock_marginals": {
+        "00": 2.149768213244586e-31,
+        "01": 3.258174872779597e-31,
+        "10": 9.609764470487458e-31,
+        "11": 1.4564497204010938e-30
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.29443297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.601906561386021e-15,
+      "expected_effective_time_for_comparison_only": "5/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 2,
+        "current": -1,
+        "abort": false
+      },
+      "array_prefix": "E_1_2",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 1.6143366733334276e-28,
+      "joint_clock_marginals": {
+        "00": 1.2194005957919975e-29,
+        "01": 1.5654737711726286e-29,
+        "10": 5.849223844229827e-29,
+        "11": 7.509268522139769e-29
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.16943297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.680315500531094e-15,
+      "expected_effective_time_for_comparison_only": "3/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 3,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "E_1_3",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 2.8220994700898204e-33,
+      "joint_clock_marginals": {
+        "00": 2.3517495584081775e-34,
+        "01": 2.351749558408179e-34,
+        "10": 1.1758747792040871e-33,
+        "11": 1.175874779204088e-33
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 4,
+        "current": 0,
+        "abort": false
+      },
+      "array_prefix": "E_1_4",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 0.4999999999914382,
+      "joint_clock_marginals": {
+        "00": 0.03695767765794202,
+        "01": 0.05155691872210126,
+        "10": 0.17180832912939525,
+        "11": 0.23967707448199807
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.23193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.688429084286524e-15,
+      "expected_effective_time_for_comparison_only": "1",
+      "record_only_inverse": {
+        "energy_gap_GeV_interval": [
+          "39231502942104751/384352916358996698",
+          "78752117608586989/768522851863479640"
+        ],
+        "field_phase_interval": [
+          "117694508826314253/1152921504606846976",
+          "236256352825760967/2305843009213693952"
+        ],
+        "clock": {
+          "phase_interval": [
+            "288196069448804865/1152921504606846976",
+            "576529374538495047/2305843009213693952"
+          ],
+          "effective_time_GeV_inverse_interval": [
+            "288196069448804865/288230376151711744",
+            "576529374538495047/576460752303423488"
+          ],
+          "inverse_uses_matter_energies_or_program_duration": false,
+          "inverse_method": "exact rational alternating Taylor enclosures and 60 bisections on [0,3/2]",
+          "probability_error_bound": "480552074806092600060719/50000000000000000000000000000"
+        },
+        "species_specific_scale_used": false,
+        "source_energies_or_program_duration_used_by_inverse": false,
+        "phase_window": "0 <= Delta*tau_effective <= 3/2",
+        "absolute_common_energy_offset_inferred": false,
+        "record_probability_grid": "1/1000000000",
+        "rounded_clock_probabilities": {
+          "00": "14783071/200000000",
+          "01": "103113837/1000000000",
+          "10": "171808329/500000000",
+          "11": "479354149/1000000000"
+        },
+        "rounded_field_Ramsey_probability": "99738739/100000000"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 5,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "E_1_5",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 1.992825428409005e-28,
+      "joint_clock_marginals": {
+        "00": 1.6606878570074999e-29,
+        "01": 1.6606878570075007e-29,
+        "10": 8.303439285037488e-29,
+        "11": 8.303439285037493e-29
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 6,
+        "current": -1,
+        "abort": false
+      },
+      "array_prefix": "E_1_6",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 1.0711857552293038e-27,
+      "joint_clock_marginals": {
+        "00": 8.091277177228125e-29,
+        "01": 1.0387629988003537e-28,
+        "10": 3.8812258710252765e-28,
+        "11": 4.98274096474456e-28
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 84.16943297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 66,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 66,
+        "proper_code_load_events": 66,
+        "proper_code_service_events": 132,
+        "single_code_pulses": 60,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.680315500531094e-15,
+      "expected_effective_time_for_comparison_only": "3/4",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    },
+    {
+      "law": "E",
+      "native_record": {
+        "coin": 1,
+        "raw": 7,
+        "current": null,
+        "abort": true
+      },
+      "array_prefix": "E_1_7",
+      "old_pointer_shape": [
+        2,
+        2,
+        128,
+        128
+      ],
+      "new_clock_pointer_shape": [
+        2,
+        2
+      ],
+      "prior_probability_mass": 6.083452055621051e-32,
+      "joint_clock_marginals": {
+        "00": 5.069543379684196e-33,
+        "01": 5.069543379684198e-33,
+        "10": 2.5347716898420945e-32,
+        "11": 2.534771689842096e-32
+      },
+      "source_clock_resources": {
+        "committed_classical_bits": 2,
+        "fresh_pointer_blanks": 2,
+        "identity_phase_pulses": 18,
+        "integrated_processor_norm_upper": 83.98193297635649,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 64,
+        "pair_code_pulses": 6,
+        "proper_code_export_events": 64,
+        "proper_code_load_events": 64,
+        "proper_code_service_events": 128,
+        "single_code_pulses": 58,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "work_preparations": 1,
+        "zero_angle_requests": 8,
+        "total_clock_qubits_including_purifiers_and_fresh_pointers": 6
+      },
+      "clock_output_work_dimension": 4,
+      "untouched_clock_purifier_columns": 4,
+      "clock_preparations": 1,
+      "clock_resets": 0,
+      "fresh_clock_hands": 2,
+      "fresh_clock_purifiers": 2,
+      "fresh_clock_pointer_bits": 2,
+      "full_clock_instrument_input_columns": 4,
+      "clock_source_instrument_error": 3.488876958924778e-15,
+      "expected_effective_time_for_comparison_only": "0",
+      "record_only_inverse": {
+        "status": "no conditioning on a zero ideal native branch"
+      }
+    }
+  ],
+  "same_action_convention": "Every field term and H_clock share lambda_j=1+j/4. The clock is prepared once before the field history; only the final two hand readings are made.",
+  "noncommuting_piecewise_field_actions_allowed": true,
+  "time_from_native_pulse_count_or_host_runtime": false,
+  "species_dependent_energy_scale": false,
+  "absolute_energy_zero_or_vacuum_offset_observed": false,
+  "bounds": "The retained result inverts reconstructed ensemble probabilities, not a single-shot time reading. Exact rational inversion is conditional on the stated numerical source-service probability admission and phase windows. The separate finite-shot envelope can be added for independent repeated preparations; no shots or physical hardware observations were collected.",
+  "physical_clock_fit_established": false
+}

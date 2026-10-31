@@ -4,6 +4,7 @@
   "gate": "CP-13",
   "selected_issues": [
     1138,
+    1139,
     1140,
     1141,
     1142,
@@ -14,8 +15,8 @@
   "canonical_registry": "tracking/premise_register.json",
   "physical_comparison_count_added": 0,
   "canonical_premises_discharged": [],
-  "finite_obligations_realized": 22,
-  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 27 explicit finite theorem/model attachments, 22 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged.",
+  "finite_obligations_realized": 34,
+  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 39 explicit finite theorem/model attachments, 34 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged.",
   "existing_navigation_coverage": {
     "claim_count": 346,
     "lean_module_count": 662,
@@ -1648,6 +1649,120 @@
         "def certificate("
       ],
       "boundary": "Symbolic complete-Fock sector polynomials prove that for every t>0 and U>=0 at mu=U/2, each charge-one sector has only two doublet gaps sqrt(U^2+16t^2)/2 +/- t, with ratio in (1,3]. Thus one common positive linear gap-to-mass conversion cannot yield the charged-lepton hierarchy or three same-charge generations anywhere in this family. A changed-mu countercontrol retains the limit of the ratio theorem. A larger or different same-process particle carrier and independently justified physical dictionary."
+    },
+    "defect_protection": {
+      "path": "model/defect_protection/protection.py",
+      "anchors": [
+        "def lifted_pairs",
+        "def algebra_certificate",
+        "def memory_and_localization_certificate"
+      ],
+      "boundary": "Finite declared repair/memory and interface consequence; no physical particle, energy calibration or broad gate acceptance."
+    },
+    "defect_identity": {
+      "path": "model/defect_identity/identity.py",
+      "anchors": [
+        "def matter_basis",
+        "def native_intertwining",
+        "def certificate"
+      ],
+      "boundary": "Finite declared repair/memory and interface consequence; no physical particle, energy calibration or broad gate acceptance."
+    },
+    "defect_energy": {
+      "path": "model/defect_energy/energy.py",
+      "anchors": [
+        "def matched_cost_certificate",
+        "def action_certificate",
+        "def memory_channel"
+      ],
+      "boundary": "Finite declared repair/memory and interface consequence; no physical particle, energy calibration or broad gate acceptance."
+    },
+    "defect_field_bridge": {
+      "path": "model/defect_field_bridge/colored.py",
+      "anchors": [
+        "def colored_pairs",
+        "def ordered_cover_embedding",
+        "def complete_native_certificate"
+      ],
+      "boundary": "Explicit finite designed law and complete source controls; no independent physical comparison or broad gate acceptance."
+    },
+    "defect_field_benchmark": {
+      "path": "model/defect_field_benchmark/benchmark.py",
+      "anchors": [
+        "def charged_mass_comparison",
+        "def mass_shell_certificate",
+        "def certificate"
+      ],
+      "boundary": "Explicit finite designed law and complete source controls; no independent physical comparison or broad gate acceptance."
+    },
+    "defect_field_full_domain": {
+      "path": "model/defect_field_bridge/full_domain.py",
+      "anchors": [
+        "def branch_action",
+        "def source_isometry",
+        "def certificate"
+      ],
+      "boundary": "Exact finite all-sector extension and small complete source witnesses; no full 1080-mode source execution or empirical compatibility claim."
+    },
+    "defect_field_coherent_extension": {
+      "path": "model/defect_field_bridge/coherent_extension.py",
+      "anchors": [
+        "def branch_action",
+        "def even_endpoint_identity",
+        "def source_echo"
+      ],
+      "boundary": "Explicit coherent collision-hold design; identity on the even-endpoint subspace does not eliminate general repair backaction."
+    },
+    "defect_field_propagation": {
+      "path": "model/defect_field_propagation/propagation.py",
+      "anchors": [
+        "def execute_block"
+      ],
+      "boundary": "Finite one-dimensional ring; separate product-formula and source errors; no chiral 3+1 limit or fitted physical speed."
+    },
+    "defect_field_clock": {
+      "path": "model/defect_field_clock/clock.py",
+      "anchors": [
+        "def history",
+        "def infer_time",
+        "def infer_energy_gap"
+      ],
+      "boundary": "Numerically admitted source service and optional finite-shot confidence; no laboratory clock fit or absolute energy-offset inference."
+    },
+    "defect_field_interactions": {
+      "path": "model/defect_field_interactions/interaction.py",
+      "anchors": [
+        "def higgs_pairing",
+        "def pair_gate",
+        "def bare_component_chart"
+      ],
+      "boundary": "External quadratic Higgs drive with all sectors retained; no quantized dynamical gauge-Higgs theory or independent fitted-mass prediction."
+    },
+    "defect_field_joint": {
+      "path": "model/defect_field_bridge/joint.py",
+      "anchors": [
+        "def field_gate",
+        "def repair",
+        "def build"
+      ],
+      "boundary": "Bounded direct four-mode source experiment with explicit source errors; no full 1080-mode interacting-state execution or broad acceptance."
+    },
+    "defect_field_same_action_energy": {
+      "path": "model/defect_field_energy/energy.py",
+      "anchors": [
+        "def small_energy_oracle"
+      ],
+      "boundary": "Finite current/work identities and bounded source readout; no 3+1 Lorentz stress, geometric Ward limit or physical Einstein normalization."
+    },
+    "defect_field_same_action_modular": {
+      "path": "model/defect_field_modular/modular.py",
+      "anchors": [
+        "def prepare_reference",
+        "def source_recovery",
+        "def history_entropy",
+        "def exact_boundary_obstruction"
+      ],
+      "boundary": "Finite same-action/reference and observation join; no geometric cap kernel, area balance, null tomography, positive Newton normalization or EinsteinRegisterData."
     }
   },
   "attachments": [
@@ -2634,6 +2749,428 @@
       "proof_kind": "Explicit finite derivation and independent exact-symbolic or full-matrix/source controls; floating residuals are not outward hardware bounds.",
       "new_lean_inhabitant": false,
       "physical_identification": false
+    },
+    {
+      "id": "FA-28",
+      "title": "Protected native ordered-cover memory",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-03",
+        "CP-01"
+      ],
+      "reviewed_sources": [
+        "defect_protection"
+      ],
+      "interface": {
+        "state": "The binary H66 source with one explicitly coherent orientation qubit, including arbitrary joint input/reference states.",
+        "algebra": "All complete native C/E ordered-cover branches generate M66 direct_sum M66; the commutant is span{I,Q}.",
+        "operation": "Native endpoint repair followed by its state-dependent ordered-transport memory update, with every raw outcome, source padding and declared proper-code complement retained.",
+        "clock": "Finite native attempts and counted source services; no physical time or Hamiltonian energy is supplied by conservation of Q.",
+        "refinement": "Exact on the finite binary carrier; collision states, spatially localized source realization and scalable protection require separate joins."
+      },
+      "conclusion": "The complete native C/E ordered-cover lift on H66 with one coherent orientation bit preserves Q=I66 tensor X branchwise through every finite record-adaptive schedule. An odd closed exchange acts as X, while the all-seam branch algebra is M66 direct_sum M66 and its commutant is span{I,Q}. The classical 132-state ordered cover remains connected. The two sharp X sectors have identical source and committed-record marginals from the uniform source reference. Source-compiled feedback retains all raw outcomes and padding; computational dephasing or reset destroys the charge distinction. The explicit coherent memory law, rather than a localized source excitation, carries this protected charge.",
+      "remaining": [
+        "Embed the protected charge in a spatially localized source core under the specified complete repair/memory law.",
+        "Derive the same excitation's motion, action/energy and physical particle interpretation; the observer memory is not itself an identified particle."
+      ],
+      "witnesses": [
+        "model/defect_protection/protection.py",
+        "model/defect_protection/README.md"
+      ],
+      "countercontrols": [
+        "model/defect_protection/test_protection.py"
+      ],
+      "proof_kind": "Exact finite branch, matrix and rational identities with independent native controls; source floating execution has an explicit numerical admission boundary.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-29",
+      "title": "Same-carrier matter and collective-character capacity",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-05",
+        "CP-07"
+      ],
+      "reviewed_sources": [
+        "defect_identity"
+      ],
+      "interface": {
+        "state": "The same ordered-cover source and memory, a supplied untouched C^m fiber, and an invariant faithful fifteen-state exterior matter module.",
+        "algebra": "The full declared G action commutes with native branches. The m>=8 control identifies Q with a gauge involution; the m>=15 construction instead imposes Q=-I on one collective fifteen-label module.",
+        "operation": "Exact centrality, involution signatures, multiplicity bound and all-branch intertwining with the actual native maps; no additional physical source execution is asserted.",
+        "clock": "The inherited native attempt ordering; neither matter energies nor a physical propagation clock is established.",
+        "refinement": "Conditional collective-label capacities, not a universal fermionic memory bound. The later per-particle colored construction uses -SWAP and both native characters."
+      },
+      "conclusion": "On that same native carrier, a nontrivial SU(3) or SU(2) internal action cannot commute with every repair branch without additional multiplicity. A supplied untouched C^m fiber gives commutant M_m direct_sum M_m. For the faithful declared G=S(U(3) x U(2)) action on Lambda^2(C^5) plus Lambda^4(C^5), identifying the native charge with a nonidentity gauge involution forces central weak parity, with seven even and eight odd states. Thus m>=8; at m=8 an exact all-branch embedding leaves one even gauge-trivial line. This is an internal-grading control, not a uniformly negative character on one collective fifteen-label module. Requiring one collective fifteen-label module to lie wholly in the negative native character instead gives m>=15 and an explicit all-negative isometric embedding that intertwines every complete C/E branch and the full declared gauge action. The full positive fifteen-dimensional internal complement per source state remains retained. No element of the faithful declared gauge group acts as -I on the whole fifteen-state module; this uniform collective character is a separate factor. The extra fiber, matter fixture and gauge action are explicit admissible design inputs, with implementation and common measured-particle matching open.",
+      "remaining": [
+        "Implement the declared additional multiplicity fiber and faithful gauge/matter action within one complete process with common observable interfaces.",
+        "Join localization, transport, mass, physical spin/statistics and generations on the same source process."
+      ],
+      "witnesses": [
+        "model/defect_identity/identity.py",
+        "model/defect_identity/README.md"
+      ],
+      "countercontrols": [
+        "model/defect_identity/test_identity.py"
+      ],
+      "proof_kind": "Exact finite branch, matrix and rational identities with independent native controls; source floating execution has an explicit numerical admission boundary.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-30",
+      "title": "Same-defect repair cost and operator action",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-04"
+      ],
+      "reviewed_sources": [
+        "defect_energy"
+      ],
+      "interface": {
+        "state": "The same H66/orientation carrier, basis source preparations for full word instruments, and I66/66 tensor rho for reduced memory response.",
+        "algebra": "Output-supported source projectors and P_minus=(I-X)/2 give the exact full-branch action, including arbitrary untouched references.",
+        "operation": "Complete retained three- and seven-attempt native histories, exact operator action, matched compiled resource ledgers and continuing-source memory channels.",
+        "clock": "Native attempts, raw-branch costs and dimensionless repair action; a same-defect duration/rest-energy/momentum join is still needed for E_second(0)=c^2/E0.",
+        "refinement": "No momentum or Lorentz limit is introduced. Reduced memory nonunitarity/nonsemigroup behavior does not exclude full-process energy or Hamiltonian-plus-noise descriptions."
+      },
+      "conclusion": "The same lifted repair fixes the operator action A_h=pi sum_x p(x,h) |f_h(x)><f_h(x)| tensor (I-X)/2, with the complete subnormalized branch K_h=exp(-i A_h)(M_h tensor I)/sqrt(2). Two seven-move closed histories have identical complete raw-branch multisets and compiled costs (3561005 C pulses or 3561026 E pulses, including 27908 orientation-feedback pulses), yet their two versus one logical orientation toggles give relative action 0 versus pi modulo 2pi. Additive branch-only scalar costs therefore omit needed action information; the specified state-dependent operator action retains it. From I66/66 tensor rho, the one-attempt reduced memory channel is (1-26/495)rho+(26/495)X rho X; its two-attempt Z multiplier exceeds the one-attempt multiplier squared by 398/245025. These reduced-channel facts do not exclude a full-process Hamiltonian or a Hamiltonian part plus noise. Same-defect duration, rest energy E0, momentum and transport speed c must be joined so that E''(0)=c^2/E0 in a Lorentz-compatible completion.",
+      "remaining": [
+        "Derive same-defect rest energy, duration, momentum and propagation response while retaining the exact operator-valued repair action.",
+        "Establish E_second(0)=c^2/E0 and proper-time/stress premises on this carrier, without importing another field's dispersion."
+      ],
+      "witnesses": [
+        "model/defect_energy/energy.py",
+        "model/defect_energy/README.md"
+      ],
+      "countercontrols": [
+        "model/defect_energy/test_energy.py"
+      ],
+      "proof_kind": "Exact finite branch, matrix and rational identities with independent native controls; source floating execution has an explicit numerical admission boundary.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-31",
+      "title": "Same-process colored CAR exchange and field memory",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-01",
+        "CP-03",
+        "CP-05",
+        "CP-06"
+      ],
+      "reviewed_sources": [
+        "defect_field_bridge"
+      ],
+      "interface": {
+        "state": "Two hard-core occupied native ports, each with an explicit Spin2 x M15 x family3 internal fiber; complete source padding, references and pointer records are retained.",
+        "algebra": "Actual retained M15 current/Higgs intertwiners and CAR two-particle states; true exchange -SWAP is distinguished from global parity and collective-label character.",
+        "operation": "E=[I;-SWAP]/sqrt(2) attaches the actual ordered-cover native branches to the colored law, with compiled preparation, internal phases and complete readout.",
+        "clock": "Finite native attempts and supplied calibrated phase durations, with counted source resources; no native physical momentum is inferred.",
+        "refinement": "Exact finite CAR/branch identities and bounded source execution. The 48060 same-port collision states, other occupations, local gauge links and interacting continuum remain separate."
+      },
+      "conclusion": "The native ordered-cover process now has an exact colored two-particle CAR attachment. Each occupied port carries its own ninety-component Spin2 x M15 x family3 internal state, using the actual retained exterior basis, twelve currents and Higgs tensors. A crossing acts as -SWAP, not global Fock parity. The code E=[I;-SWAP]/sqrt(2) intertwines the existing orientation-memory source with every colored C/E branch. Independent bitstring CAR checks cover all branches at internal dimensions two and three. The hard-core two-particle domain has dimension 534600 and retains an explicit 48060-dimensional same-port collision complement outside this restricted law. Source-compiled preparation, record-controlled internal phases, a neutral-ancilla QND charge probe and complete pointer outputs give one continuing colored experiment with all native zero/abort slots and padding. Global-parity and fixed-negative collective-label encodings remain separate controls; neither is silently substituted for true two-particle exchange. Local gauge links, the collision law and a full interacting multiparticle continuum are not supplied by this attachment.",
+      "remaining": [
+        "The full-domain collision and other-occupation extension is now attached separately as FA-33; both explicit collision policies and remaining backaction remain to be compared with measurements.",
+        "Local dynamical gauge links, physical chiral 3+1 continuum and measured particle identification remain open."
+      ],
+      "witnesses": [
+        "model/defect_field_bridge/colored.py",
+        "model/defect_field_bridge/representation_results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_bridge/test_colored.py"
+      ],
+      "proof_kind": "Exact finite CAR and representation identities with independent controls; canonical/source numerical execution has explicit finite admission and calibrated inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-32",
+      "title": "Calibrated static quasiparticle and charged-action benchmark",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-04",
+        "CP-05",
+        "CP-06",
+        "CP-07"
+      ],
+      "reviewed_sources": [
+        "defect_field_benchmark"
+      ],
+      "interface": {
+        "state": "The full 180-direction Nambu carrier and its canonical 90-mode static quasiparticle chart, including six neutral zero annihilators and all conjugate partners.",
+        "algebra": "The retained chiral current/Higgs representation with calibrated Yukawas, vacuum and mixing; all anomalous blocks of the twelve current probes remain visible.",
+        "operation": "Canonical charge-resolved normal form, static conserved quasiparticle-number-two restriction, complete colored source dynamics and same-mass kinematic checks.",
+        "clock": "One explicitly supplied inverse-GeV phase duration and calibrated running action energies; no scalar native attempt cost is identified with absolute energy.",
+        "refinement": "Same-input recovery with zero independent physical comparisons. Running energies are not pole predictions; massless neutral modes, broken-current pair creation and native momentum identification remain outside this static sector."
+      },
+      "conclusion": "A specified static quasiparticle law joins that colored carrier to the retained chiral Higgs action with calibrated common-scale Yukawa, vacuum and mixing inputs. The canonical transform retains all 180 Nambu directions, 84 positive charged modes and six chosen neutral zero annihilators, including every conjugate and zero partner. An explicit twelve-port replication gives 1080 CAR modes; the common subtraction of eleven cell vacuum energies fixes the earlier single-cell offset convention. Its conserved quasiparticle-number-two restriction is distinct from the invalid bare-CAR-number-two truncation of Higgs pairing. Exact neutral-Higgs stabilizer rank three leaves a nine-dimensional color-plus-electric span; all twelve full current probes retain their anomalous blocks, so broken currents are not claimed to act within the restricted sector. The static action and charged energies are recovered from explicitly calibrated inputs, not independent mass predictions or physical pole determinations. The same mass kernel satisfies the supplied Weyl mass-shell identities; native port transport is not thereby identified with physical momentum. All six neutral modes remain massless in this law. New eligible physical comparisons added: zero.",
+      "remaining": [
+        "Finite propagation, common timing and external Higgs pair creation are now supplied by FA-34 through FA-37; neutral masses and quantized gauge-Higgs dynamics remain open.",
+        "Physical pole/matching and measured detector tests remain open; the calibrated inputs are not independent predictions."
+      ],
+      "witnesses": [
+        "model/defect_field_benchmark/benchmark.py",
+        "model/defect_field_benchmark/results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_benchmark/test_benchmark.py"
+      ],
+      "proof_kind": "Exact finite CAR and representation identities with independent controls; canonical/source numerical execution has explicit finite admission and calibrated inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-33",
+      "title": "Complete spatial CAR repair with explicit collision policies",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-01",
+        "CP-03",
+        "CP-06"
+      ],
+      "reviewed_sources": [
+        "defect_field_full_domain",
+        "defect_field_coherent_extension"
+      ],
+      "interface": {
+        "state": "All occupation sectors of the specified spatial quasiparticle CAR space, with arbitrary reference.",
+        "algebra": "Signed partial injections extend binary C/E repair with flagged or coherent collision holds; all padded slots remain.",
+        "operation": "Original binary transport and CAR signs, otherwise a flagged raw-eight hold or coherent raw-zero identity; bounded complete source dilations.",
+        "clock": "Native events have counted source resources; later physical field intervals use the separately calibrated common clock.",
+        "refinement": "Exact finite all-sector extension and small complete source witnesses; no full 1080-mode source execution or empirical compatibility claim."
+      },
+      "conclusion": "A specified full-domain repair extension acts on every occupation sector of the finite spatial quasiparticle CAR space. Binary endpoint occupations retain the original C/E balancing, internal transport and CAR sign; a nonbinary endpoint uses either an explicitly flagged collision hold or an explicitly coherent identity hold sharing raw zero. Each recorded map is a partial injection and every input occurs once per fair coin, proving complete trace preservation with arbitrary reference. The fixed-seam repair is also unital, with a faithful tracial stationary reference and trivial modular flow; record-conditioned controls require their own stationarity argument. All original two-particle hard-core columns are recovered. Complete small source dilations cover collision and spectator-crossing cases; an executed 1080-mode repair dilation is not claimed. The collision record in the flagged policy measurably dephases a vacuum-pair superposition. The coherent policy is exactly identity on the even-endpoint subspace and preserves its inverse-drive echo. This does not remove general repair backaction.",
+      "remaining": [
+        "Test the specified collision policy and remaining repair backaction against physical observations.",
+        "Implement larger composed histories and the physical 3+1 continuum without omitting sectors."
+      ],
+      "witnesses": [
+        "model/defect_field_bridge/full_domain.py",
+        "model/defect_field_bridge/full_domain_results.json",
+        "model/defect_field_bridge/coherent_extension_results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_bridge/test_full_domain.py",
+        "model/defect_field_bridge/test_coherent_extension.py"
+      ],
+      "proof_kind": "Exact finite algebra with independent complete-domain controls; actual source numerical witnesses have declared finite error admissions and calibrated design inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-34",
+      "title": "Complete finite-ring field propagation",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-04",
+        "CP-05",
+        "CP-06"
+      ],
+      "reviewed_sources": [
+        "defect_field_propagation"
+      ],
+      "interface": {
+        "state": "All 1080 spatial CAR modes and 2160 Nambu directions; independent pairing components remain complete.",
+        "algebra": "Central-difference ring kinetic term and the actual calibrated on-site Higgs pairing, with both kinetic zeros retained.",
+        "operation": "Source-compiled full local Fock gates, fermionic routing and specified symmetric product evolution; occupation/current readout.",
+        "clock": "All physical interval terms use one common tau times lambda_j, with a specified spacing and c=1 unit convention.",
+        "refinement": "Finite one-dimensional ring; separate product-formula and source errors; no chiral 3+1 limit or fitted physical speed."
+      },
+      "conclusion": "A specified twelve-native-port ring carries all 1080 CAR modes and 2160 Nambu directions, with the calibrated on-site pairing and a central-difference spin kinetic term. Its finite dispersion obeys E(k)^2=sin(k)^2/a^2+E(0)^2. All momenta, both kinetic zeros and same-port occupations remain. Closed components have at most 72 CAR modes; source-compiled local full-Fock gates and fermionic routing implement a specified symmetric product evolution, with separate source and product-formula errors and occupation/current readout. The spacing and c=1 units are design calibrations. This is finite one-dimensional propagation, not a chiral 3+1-dimensional continuum or a measured propagation-speed fit.",
+      "remaining": [
+        "Construct the common chiral 3+1 limit while handling the retained kinetic zeros.",
+        "Compare propagated same-object detector data with measured particles under declared units."
+      ],
+      "witnesses": [
+        "model/defect_field_propagation/propagation.py",
+        "model/defect_field_propagation/results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_propagation/test_propagation.py"
+      ],
+      "proof_kind": "Exact finite algebra with independent complete-domain controls; actual source numerical witnesses have declared finite error admissions and calibrated design inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-35",
+      "title": "Source-executed common clock and energy normalization",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-01",
+        "CP-02",
+        "CP-04"
+      ],
+      "reviewed_sources": [
+        "defect_field_clock"
+      ],
+      "interface": {
+        "state": "Two faithful clock hands, two retained purifiers, all four final clock pointers, and every bound parent field output.",
+        "algebra": "H_clock=Omega_ref Z/2 with Omega_ref=1/4 GeV; reference modular gap log(5); rational phase enclosures.",
+        "operation": "Complete source preparation, co-driven evolution and X/Y hand readout; inverse consumes ensemble probabilities and explicit errors.",
+        "clock": "tau_eff=sum(lambda_j delta_tau); one species-independent energy calibration, explicit phase window and hbar SI conversion.",
+        "refinement": "Numerically admitted source service and optional finite-shot confidence; no laboratory clock fit or absolute energy-offset inference."
+      },
+      "conclusion": "A common operational clock joins the retained native/field outputs. Two source-prepared faithful-reference hands retain their purifiers and all four final pointer outcomes. Their single calibration is Omega_ref=1/4 GeV; the entire field Hamiltonian and clock share lambda_j=1+j/4, so tau_eff=sum(lambda_j delta_tau). Clock and Ramsey ensemble probabilities give exact rational time and energy-gap intervals on explicit unaliased phase windows, without supplying the programmed duration or species energies to the inverse. Numerical source, conditioning, probability-grid and optional finite-shot errors are explicit. SI conversion uses hbar=h/(2 pi). Host runtime and native attempt counts are not physical time; a laboratory clock fit and absolute vacuum-energy zero are not inferred.",
+      "remaining": [
+        "Test the specified operational clock against laboratory timing and common detector data.",
+        "Extend the unaliased clock protocol to longer measured histories without silently selecting an alias."
+      ],
+      "witnesses": [
+        "model/defect_field_clock/clock.py",
+        "model/defect_field_clock/results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_clock/test_clock.py",
+        "model/defect_field_clock/test_packet.py"
+      ],
+      "proof_kind": "Exact finite algebra with independent complete-domain controls; actual source numerical witnesses have declared finite error admissions and calibrated design inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-36",
+      "title": "Channel-correct particle-changing Higgs drive",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-04",
+        "CP-06",
+        "CP-07"
+      ],
+      "reviewed_sources": [
+        "defect_field_interactions"
+      ],
+      "interface": {
+        "state": "Complete neutral-pair four-state Fock factors on the same spatial quasiparticle domain, including odd occupations and massless spectators.",
+        "algebra": "Actual channel-correct conjugate-Higgs tensors and canonical charge/energy chart; static limit recovers the supplied action.",
+        "operation": "Complete source pair creation/annihilation and CAR routing, followed by both full-domain collision policies and inverse-drive controls.",
+        "clock": "Every pair uses the same effective physical interval lambda_j times tau and the explicit common vacuum convention.",
+        "refinement": "External quadratic Higgs drive with all sectors retained; no quantized dynamical gauge-Higgs theory or independent fitted-mass prediction."
+      },
+      "conclusion": "The actual retained conjugate-Higgs tensors define an external H=(0,v exp(i phi)) drive with channel-correct opposite creation phases. A canonical common-action chart gives 42 neutral opposite-charge full-Fock pairs per site and six massless spectators, hence 504 pairs and 72 spectators on the same spatial domain. Complete four-state source gates and fermionic routing retain particle creation, annihilation and odd occupations, with the same native-current time multiplier and explicit vacuum convention. This is a quadratic external-field drive, not quantized gauge-Higgs dynamics. Subsequent full-domain repair retains its complete native record and exposes the policy-dependent inverse-drive echo: the flagged policy loses coherence, while the coherent hold preserves the even-endpoint drive subspace. General post-repair states are not assumed Gaussian.",
+      "remaining": [
+        "Add quantized gauge-Higgs dynamics and measured scattering/readout comparisons on the same carrier.",
+        "Include the declared neutral-mass extension and physical pole/matching analysis."
+      ],
+      "witnesses": [
+        "model/defect_field_interactions/interaction.py",
+        "model/defect_field_interactions/results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_interactions/test_interaction.py"
+      ],
+      "proof_kind": "Exact finite algebra with independent complete-domain controls; actual source numerical witnesses have declared finite error admissions and calibrated design inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-37",
+      "title": "One complete four-mode propagation interaction repair clock experiment",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-01",
+        "CP-02",
+        "CP-04",
+        "CP-06"
+      ],
+      "reviewed_sources": [
+        "defect_field_joint"
+      ],
+      "interface": {
+        "state": "One full four-mode Fock carrier with retained references, two complete native record layers and all final clock outcomes.",
+        "algebra": "The actual propagation, matched Higgs chart, complete collision repair and common clock act on one specified carrier.",
+        "operation": "Direct source-factor history contraction retains all sectors, raw/coin/clock records and zero branches; complete normalization is checked.",
+        "clock": "One co-driven operational clock spans both physical intervals; its inverse uses only reconstructed pointer probabilities.",
+        "refinement": "Bounded direct four-mode source experiment with explicit source errors; no full 1080-mode interacting-state execution or broad acceptance."
+      },
+      "conclusion": "A bounded direct source-factor witness composes actual four-mode propagation, the matched canonical Higgs drive, two full-domain native repairs and the common operational clock on one carrier. It retains every particle-number sector, both flagged and coherent collision policies, both fair coins, all padded raw records, every final clock outcome and untouched references; zero branches are not discarded. Source matrices and explicit error budgets certify complete normalization and record-only common-time recovery. This finite four-mode experiment composes selected source factors; omitted boundary hops mean it is not an invariant two-site restriction of the full ring. It is not an executed 1080-mode interacting state, a 3+1 continuum, or independent measured-spectrum acceptance.",
+      "remaining": [
+        "Scale the complete common process to the physical chiral 3+1 domain and measured detector comparisons.",
+        "Preserve calibrated-input provenance, collision disturbance and all unassigned physical sectors."
+      ],
+      "witnesses": [
+        "model/defect_field_bridge/joint.py",
+        "model/defect_field_bridge/joint_results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_bridge/test_joint.py"
+      ],
+      "proof_kind": "Exact finite algebra with independent complete-domain controls; actual source numerical witnesses have declared finite error admissions and calibrated design inputs.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-38",
+      "title": "Same-action finite energy currents and source work",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-04",
+        "CP-05",
+        "CP-09"
+      ],
+      "reviewed_sources": [
+        "defect_field_same_action_energy"
+      ],
+      "interface": {
+        "state": "Same full spatial CAR action and corrected four-mode source factors, with complete records and references.",
+        "algebra": "Local energy sum and J_xy=i[h_x,h_y] continuity include interaction, boundary and range-two terms.",
+        "operation": "Actual ordered source factors, switching-work accounting, complete repair energy transfer and grouped observable pointers.",
+        "clock": "One calibrated energy convention and shared co-driven action time; no source-pulse count is physical duration.",
+        "refinement": "Finite current/work identities and bounded source readout; no 3+1 Lorentz stress, geometric Ward limit or physical Einstein normalization."
+      },
+      "conclusion": "The same spatial field action now has a complete finite energy and work attachment. On-site Higgs terms plus half of each incident hopping bond define h_x with sum h_x=H; J_(x to y)=i[h_x,h_y] gives exact antisymmetric continuity, including range-two currents on the twelve-port ring. The two-site single-bond current can vanish without implying absent ring transport. Actual source controls implement the selected hopping/Higgs factors on the same corrected quasiparticle chart and common clock, with switching work and complete repair energy transfer recorded separately. Charge-compatible grouped source pointers and the stated negative controls read the relevant finite operators. Vacuum scalar conventions, calibrated parameters and physical units remain explicit. Finite energy continuity is not a symmetric Lorentz stress tensor, a geometric Ward limit or an Einstein equation.",
+      "remaining": [
+        "Construct the same-object symmetric Lorentz stress and its controlled 3+1 refinement.",
+        "Match the common energy/work/current readouts to physical detector observations without refitting calibrated inputs."
+      ],
+      "witnesses": [
+        "model/defect_field_energy/energy.py",
+        "model/defect_field_energy/results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_energy/test_energy.py"
+      ],
+      "proof_kind": "Exact finite operator and entropy identities with independent controls; bounded complete native source execution has explicit numerical admissions and declared calibration.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-39",
+      "title": "Same-action faithful reference and compatible modular observations",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-02",
+        "CP-09"
+      ],
+      "reviewed_sources": [
+        "defect_field_same_action_modular"
+      ],
+      "interface": {
+        "state": "Full16-state Gibbs reference and16-state purifier on the same field instrument; a new reference experiment, not the original localized input.",
+        "algebra": "Full quantum modular generator, faithful CAR reductions, compatible Petz observations and exact nonadditive-boundary obstruction.",
+        "operation": "Frozen emitted native purification/recovery words; complete quantum/CQ history entropy with trace and Bregman corrections, and separately retained abort family.",
+        "clock": "Declared beta=1 GeV^-1 reference; the existing common clock remains the operational time service and no full clock/reference stationarity is asserted.",
+        "refinement": "Finite same-action/reference and observation join; no geometric cap kernel, area balance, null tomography, positive Newton normalization or EinsteinRegisterData."
+      },
+      "conclusion": "A new faithful Gibbs-input experiment uses the same complete four-mode field instrument, leaving the original localized-input witness unchanged. At declared beta=1 GeV^-1 the full sixteen-state reference is prepared by the existing native source with its sixteen-dimensional purifier. A source-compiled four-input Petz recovery retains the sixteen-state field, four-state environment and all export failures. Full-Fock regional references are faithful and nested reference-preserving observations compose. Exact cross-boundary hopping norm squared four forbids a Gibbs-preserving site retraction for beta>0; compatible non-idempotent observations remain valid. Complete quantum relative-entropy and classical-quantum record balances hold for all four two-event C/E and collision-policy histories. Their entropy values concern the unnormalized continuing component with explicit trace corrections; separate abort weights, Grams and reconstructible prefix outputs are retained but their entropy is not silently included. The Bregman remainder subtracts epsilon Tr(delta). Driven reference stationarity, geometric modular kernels, generalized-entropy stationarity and an Einstein-register inhabitant are not inferred. No new eligible physical comparison is added.",
+      "remaining": [
+        "Identify a geometric cap modular charge and the bulk/edge/central split on the same state/action.",
+        "Construct generalized-entropy area stationarity, Lorentz/null stress and a controlled physical refinement; retain the proved retraction and feedback-stationarity boundaries."
+      ],
+      "witnesses": [
+        "model/defect_field_modular/modular.py",
+        "model/defect_field_modular/results.json"
+      ],
+      "countercontrols": [
+        "model/defect_field_modular/test_modular.py"
+      ],
+      "proof_kind": "Exact finite operator and entropy identities with independent controls; bounded complete native source execution has explicit numerical admissions and declared calibration.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
     }
   ],
   "cleanup": {
@@ -2673,7 +3210,7 @@
         "CP-04"
       ],
       "unfulfilled_acceptance": [
-        "Native topological protection, physical charge and Lorentz spin/statistics of the same excitation, with common transport, energy and observer clock.",
+        "Source-localized protecting charge and Lorentz spin/statistics of the same excitation, with common transport, energy and observer clock; the protected observer-memory sector alone is insufficient.",
         "Supplied electron/positron dictionary fails the declared finite dispersion benchmark; physical QED, Lorentz spin and native defect maps are not established."
       ]
     },
@@ -2743,7 +3280,22 @@
         "CP-02",
         "CP-03"
       ],
-      "unfulfilled_acceptance": "Full-Fock local energy/current and read work are now supplied, but native defect maintenance, physical rest-energy/clock normalization and gravitational stress remain unestablished."
+      "unfulfilled_acceptance": [
+        "Derive same-defect rest energy, duration, momentum and propagation response while retaining the exact operator-valued repair action.",
+        "Establish E_second(0)=c^2/E0 and proper-time/stress premises on this carrier, without importing another field's dispersion."
+      ]
+    },
+    "1139": {
+      "close_issue": false,
+      "required_predecessors": [
+        "CP-01",
+        "CP-13"
+      ],
+      "unaccepted_predecessors": [],
+      "unfulfilled_acceptance": [
+        "Embed the protected charge in a spatially localized source core under the specified complete repair/memory law.",
+        "Derive the same excitation's motion, action/energy and physical particle interpretation; the observer memory is not itself an identified particle."
+      ]
     }
   },
   "source_bindings": {
@@ -2760,8 +3312,8 @@
     "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e",
     "model/bound_pair/identity.py": "749a1ce10431e8a72b76b96c9568d7cbd0960a9f41e32c92498ba352d753a333",
     "model/bound_pair/mass.py": "45ab64c1b74d060e4ae380c9f5f5896ca7d1d7a84c18c022c9bd2e3d99735034",
-    "model/completion/finite_attachment_map.py": "36ce469c21f3347221ff147bea2baa2307b4e4d381093a1dd2a11259ea41c8f5",
-    "model/completion/test_finite_attachment_map.py": "f42294a1e80a2ebe6cd92cf53d76b6f2b9c7801a11ab017f1f8b1fb2064ab4f9",
+    "model/completion/finite_attachment_map.py": "08ac8a3c629da083aca0d5fe3e7b8ee9ae3c74aec4f64e8f750be173a2515ff0",
+    "model/completion/test_finite_attachment_map.py": "6f87ea39b3c77a4a6f963f61b7c5232d951545de15b4e0e5a271b0b23509f9bb",
     "model/field_regions/README.md": "5073a68fc7c604335ad9aeac76ea0fd509857a73fb088148e66e0764cd6005ae",
     "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
     "model/field_stress/README.md": "8e5b2d4bf9f49d782512c17c6ccda0b2e54d69255a5d169154ba53c6c5c6c213",
@@ -2864,7 +3416,108 @@
     "model/dimer_family/README.md": "ff03f4ad653eac8e66997cfe38bbd404c50c835dbcad41cf56377766cd90ef91",
     "model/dimer_family/__init__.py": "e868d536ae9bcc16a241dcb83ea273a2769f4e73e7b69d72e3c6420dbe09a421",
     "model/dimer_family/family.py": "9467aa337f3a28de7bb92ede385f08e411fbabf9925dcf97add06f706a4a069f",
-    "model/dimer_family/test_family.py": "c380290051c635040acee7d25ccdf51a45ae9afbf906f47e53eff98a3c8312a0"
+    "model/dimer_family/test_family.py": "c380290051c635040acee7d25ccdf51a45ae9afbf906f47e53eff98a3c8312a0",
+    "model/defect_protection/README.md": "f4f52d93979ea6c6d76d477f82c86a95d2742ecdc3d249d763883d866762953e",
+    "model/defect_protection/__init__.py": "e7d1e81ccd958edf6619c03efa8cd4144b06ec0bd840108466fbc97dab9c827c",
+    "model/defect_protection/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/defect_protection/packet.py": "e74658ba82f05dd4ba6d40f947090d493d2700267501995a9ea4c72b085284e5",
+    "model/defect_protection/protection.py": "9255f6ff64ff37a51c51dddcdf08e204d8a1e94dfa83c8e6bda6cf238804c9f7",
+    "model/defect_protection/service.py": "06b51c5c3b7a1c1d5330c60afbe07e72afdd0ee0923d542f66db9ea92b7cc021",
+    "model/defect_protection/test_protection.py": "ebfa8eb988e86c81a2677385b50b62445862274f98a848eb96ad74fbdf5e29e5",
+    "model/defect_identity/README.md": "8fd0685a2f9af78136c4754aa600c36d2a35dfac3db31b4483ba98163c092892",
+    "model/defect_identity/__init__.py": "2868ddc2c6c3bd4ab0164d62e16faeff4133a1f9dcfd29354aa9ad312500bc0f",
+    "model/defect_identity/identity.py": "36739be20bfad1d4aebf27e0c778b95b89e7931fa4aabbc57eb9712db2014e5d",
+    "model/defect_identity/results.json": "03be3cab3d6019a9b48d767602d95ccd46bcf7793bf350d80279d355ec482373",
+    "model/defect_identity/test_identity.py": "68fb4154a6e5abd658bcd65bb30ef7f63f459e134e69daef874d0718954e5978",
+    "model/defect_energy/README.md": "cc779de94036e0a2fdf763f7ec65005666e4e7a7270a1fda9661fa21316b0419",
+    "model/defect_energy/__init__.py": "7cfbd6967c555f33362a7fa4100128f0364cfa33c5c755deee6c87957e6441d1",
+    "model/defect_energy/__main__.py": "6fbb15ad74818f83202b15dd6690bab76388670b93e6cc759194da3ace77d87c",
+    "model/defect_energy/energy.py": "e672060776dd354a947094040f8f019e9a7813033395b45c920fb8feca2c6c34",
+    "model/defect_energy/results.json": "2bb89b8e8ce3570ec1171c6185f4fa57711237841e9e151935365f9ca3a48ab9",
+    "model/defect_energy/test_energy.py": "bce8123e6ee7ccf81a2cb91670562657ff7ce159ecfb30c062e74aec6421cf21",
+    "model/defect_protection/results.json": "64791835f07cd24229f637026febafabdbc105d9898efa6cdceabc206268b05a",
+    "model/defect_field_bridge/DYNAMICS.md": "568396940fb9bdb31cc8a6c3b48063bcd286a4030d6978800e19a23e56bf0683",
+    "model/defect_field_bridge/FULL_DOMAIN.md": "a416f2fb62b32183c75097cb5f23e4b5f4323fc46aadac50f4172053c2cfcf53",
+    "model/defect_field_bridge/REPRESENTATION.md": "b0761603880d31db31327f85d612dc20c6b7d51564f870a0b0e509c0bed0de49",
+    "model/defect_field_bridge/__init__.py": "3619b71e9d34ef2e25ca78b1418f9612438a19c2d18bfa61b286aa896f83ca9d",
+    "model/defect_field_bridge/bridge.py": "373dc082169ce0937878a23c9818e98def46cd118c319f2fadc9194b0b7e2174",
+    "model/defect_field_bridge/colored.py": "c0893ff0e6d1c8b70fbc4d4b4dcaa0f3740dba7f919144c8b020b4321ec792a3",
+    "model/defect_field_bridge/colored_results.json": "e9ba36ae197a47b6def2371e7a6127d94510eb706cc60184be5dae9027fc51d9",
+    "model/defect_field_bridge/dynamics.py": "75bd7b2e46af36703e416c9d279c123a8c7bb344daeb3034c69fa353aaca86c1",
+    "model/defect_field_bridge/dynamics_controls.json": "670fde172cb430b2a383f236d8c2f9fde436e125f12ff684ee8ec22dcb346a25",
+    "model/defect_field_bridge/dynamics_packet.py": "83b7f756a44a7b737892f58690088eeb7be8d8ff14bdf9f54a053251eccbe9f6",
+    "model/defect_field_bridge/dynamics_results.json": "5e3521846004bcd22210d30f8e3ffe82f2baaaaba71b060637ee00d7d1da4144",
+    "model/defect_field_bridge/dynamics_results.npz": "9aacbb27e224722b42671c22c1135a905ed261bacd2ff687b72707707b02c760",
+    "model/defect_field_bridge/full_domain.py": "7e131b9f73c7bc369f56dce91767bc1651be26bff76d087845bb64aab7ca13e7",
+    "model/defect_field_bridge/full_domain_results.json": "73f892bb59dca6dae76dbec9b78ed86198cfb0f4dcf2c15489f1f0446bdbc4f5",
+    "model/defect_field_bridge/representation_results.json": "d03314722b5d378eec424b006e07200b879c17004a50977402b154eef458bb3d",
+    "model/defect_field_bridge/test_bridge.py": "2db2a91139e5b72ed9003260ad9804c756ec981e3cba782e9e024cad60d4c134",
+    "model/defect_field_bridge/test_colored.py": "2b596bdfdd35e67b35b501438425622bef878f6c6736a50caedc195b862936d1",
+    "model/defect_field_bridge/test_dynamics.py": "aabe88ead534dc17da0e947459bfd19e5d9d24abe17fd6a849166077348df758",
+    "model/defect_field_bridge/test_full_domain.py": "e9b1fd33525aeaffbd4ed60dafb09ecb40224dadeacb3af5fd7ac020314157f7",
+    "model/defect_field_benchmark/README.md": "73ceb4e620deec3ab621c3d1da0f0325421add5c393aa3c60ba0d8f9856556db",
+    "model/defect_field_benchmark/__init__.py": "894c39a5071d8905dfd429ed9a6b5133b38997dcfad3bb161cfd37b202cd23f1",
+    "model/defect_field_benchmark/__main__.py": "abb0778dcfc132ad2927f44db319ac79a96edf76b5ffebc16024bf4974efbd39",
+    "model/defect_field_benchmark/benchmark.py": "95fc3e9aae65451060a803951853e755d9b5a2cb40da111bffb295e0b40935f2",
+    "model/defect_field_benchmark/quasiparticles.py": "5a4a9cd6f13ed5b82a93ab279d57701567a9b6bcab2cae57e58bb47812171ac0",
+    "model/defect_field_benchmark/readout.py": "46ccf63a8baf7fefd86d63aa941035f154466d4778ef9644d92eb457089d8f66",
+    "model/defect_field_benchmark/readout_results.json": "72d89af6d9f4aa3b2cb57d68076b5b28942b7a2031c3c71095190e2f0590d1c4",
+    "model/defect_field_benchmark/results.json": "ca7ed1298b004104cf0a88aae747e4cc5eb3fc61e73e8480381d574c4e123f52",
+    "model/defect_field_benchmark/test_benchmark.py": "eb89902fadc82d3991e62bae8962af18e63d649ee7d979893d5fe6caecf4ea8e",
+    "model/defect_field_benchmark/test_readout.py": "576adb9dbabc29abc50e78f09d757604e73ea22b575d5c27e40bf364f765f8ba",
+    "model/defect_field_bridge/coherent_extension.py": "b771fac729ae28f8c32e372787bab48b7acc02b06abf3e0c7d4dd9dc6fc06740",
+    "model/defect_field_bridge/test_coherent_extension.py": "fde6b1e48642938480b65744e9bed2cc60ca3f1e17fe44a8a370f31498ef4e71",
+    "model/defect_field_bridge/COHERENT_EXTENSION.md": "cd4fc7aadbc220fd48d23e145aec96b2ca3b1e507aabf867d9cd7d48e543de5b",
+    "model/defect_field_bridge/coherent_extension_results.json": "2b2b62910933ddc93a2215d18fee3165bba215e79e4fd24336786912df45f16b",
+    "model/defect_field_bridge/coherent_extension_results.npz": "4c13c44f2cf5b08494c07110cd944ce307c80a0538c0d03817e4f5065ae49b39",
+    "model/defect_field_propagation/README.md": "02e5e87dec4f669318fadc0458d93b22f3d8b8355f4bc5ca0504f2fcb9d2aa53",
+    "model/defect_field_propagation/__init__.py": "33aec4b5cf40f4c8d08774a5450e3b0a7bc62e4fdf8ef99aabeb2527d884a77a",
+    "model/defect_field_propagation/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/defect_field_propagation/packet.py": "7a92b3794a88ec2f05c98b5ff8f4acb46d0f868a534c4d4bdf3604b4980101b2",
+    "model/defect_field_propagation/propagation.py": "255757c7e4f49b75f37ab8faea82af842b13f4d57e7f5425318ffaf7bc561688",
+    "model/defect_field_propagation/results.json": "83ec43b4529036bdd38cec3403b870ab7d6ef427812bb2e1b9b4c55538d78b34",
+    "model/defect_field_propagation/results.npz": "7b95479661c043fd1d7d2a695935315ef395755ece14d93dc645aa6efde882a0",
+    "model/defect_field_propagation/test_propagation.py": "110ddf2ed78eea0068a1fc496dd0ca1f1290e49b13737055113807621aff82d2",
+    "model/defect_field_clock/README.md": "7f36b748a1f2055b454f94cfb6880f5195b7378f44e15491420f00206dfa103e",
+    "model/defect_field_clock/__init__.py": "fb8df9ec3a33d1e1cbb129568141a16829011a3ce54fb03ceb643889e543f8b9",
+    "model/defect_field_clock/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/defect_field_clock/clock.py": "4e8d4d954f93e59949002522fbae00e0cf759bb6a4281e6501682569deac39f2",
+    "model/defect_field_clock/packet.py": "79e8e417ddbcf66f4a71e88db00c86f0763da493fa61c44bb1ad89f957888912",
+    "model/defect_field_clock/results.json": "36387dc699e49dc7bc680b40fbe90052ad0b9010f60dd31b7acdcd8dc4c062a3",
+    "model/defect_field_clock/results.npz": "f72a0ec1425cc24f0695201c70374e2f412e4a4a27c88958335c385a449dabdd",
+    "model/defect_field_clock/test_clock.py": "9d1e7f95c8b98022fa1170a044bed54a0f5091d01192555f27bb051875ab87b5",
+    "model/defect_field_clock/test_packet.py": "c6078e9786eb83c16ab546a715db79ca584b807fd5da54411a871f8b6d98fe7c",
+    "model/defect_field_interactions/README.md": "e37dc3a9b671556efd5c89d21fc048683d9f84c985ab0ff35efe872408ea27ab",
+    "model/defect_field_interactions/__init__.py": "84440c83d8acc55be72a449fd6f59197e3facb956a9b728212b9ed39eb35fbbb",
+    "model/defect_field_interactions/interaction.py": "6485327385a3aa3bca3e5dd113eff2a061b1640d0101ac0bf6d302abf1b7a99d",
+    "model/defect_field_interactions/packet.py": "f74ad27de0c02d78e14096ebdba5676e1dfb9d286d8863bf54691ba42eab2421",
+    "model/defect_field_interactions/results.json": "47acd119bbf57485b3993e0c0eeafe80262e662e29ebe4e41a48fc6701b2d8f9",
+    "model/defect_field_interactions/results.npz": "7a42601383b3bf88d58d801e153387224203c348285a5e638dcd4ecf00ae1dcb",
+    "model/defect_field_interactions/test_interaction.py": "fdbb85c5313ff2401227a11889a68345032a9977eaf4bc924d391bc6cf4a38d2",
+    "model/defect_field_bridge/joint.py": "156a9a15dd45b8cb97dfa054fcdfc72926a9e802708a90ecc8e4589c6fee1702",
+    "model/defect_field_bridge/test_joint.py": "403bbf5a2bdd30d9e816f4978bf199c2e76a09dddd51bf5f48098434701aa14f",
+    "model/defect_field_bridge/JOINT.md": "f45735ab9c76e9aeffab0afebf0af09e519d754df4d2b8c42449b53e59b9ca8b",
+    "model/defect_field_bridge/joint_results.json": "c9b64491871a03061f620261790008d43497e87468ba69fc6b8e4bae4afd38f2",
+    "model/defect_field_bridge/joint_results.npz": "dda63a3a30ea3e989754a06bf57de8c60aeca67f027be18beee83bf9854f8253",
+    "model/defect_field_energy/README.md": "61c09f1ddfe1a13cdc64ae8b523de1967c7b0dcd1e9d34edad582219ca04598f",
+    "model/defect_field_energy/__init__.py": "147c75aa1dcf863573eaf1670d2fe89d1e155e596a3ae0eae410ae7288b52435",
+    "model/defect_field_energy/balance.py": "89e027a3fb7cfd29101c456dc94df7beef9d021c6fd75f9df2e37b01e28bc08d",
+    "model/defect_field_energy/energy.py": "bc9cc0331458844dd091a9ed16be3224392055084198d6cf9310374e93ce42a6",
+    "model/defect_field_energy/packet.py": "54ff96eea4230abe200a85b5bba124fd5b8e043b22f18aa1f28b74ab0f7f2f7d",
+    "model/defect_field_energy/readout.py": "ceea3a20a06f8d06694e1aedf8bb44fbff7b48995f1ae52a90619077e662584f",
+    "model/defect_field_energy/results.json": "9237faaf9c66acc13f6b8fc83656139fb1619f5a4be743dac1026a3941aa6455",
+    "model/defect_field_energy/results.npz": "54dbd164b55378c803abb028fbef00d382ac28d3b9e5fa583e6f55a77940d6cc",
+    "model/defect_field_energy/test_energy.py": "a9c594867ddf7103cff08bd6411af96b218a31af7d4f66d4ac48b32fbeeb599e",
+    "model/defect_field_modular/README.md": "812d0cf8843f22cff7ea0759e995893eca22af48a023d76b892613bbfc6e170c",
+    "model/defect_field_modular/__init__.py": "aad3200b84c942a82e49a16878cd141a1c41e773b5addd3c926ebdfea717412e",
+    "model/defect_field_modular/__main__.py": "dd1140ca6b5f917559b56fe6fed727abdd483f9e1dcf82a0a45af9f59c40b4e8",
+    "model/defect_field_modular/controls.py": "c48ea442ee692028e948963c73d1db8eb3fd7a6636e7673cf767279a6857ed86",
+    "model/defect_field_modular/modular.py": "f3a362ee694f158591d18dd5c08b1c99bc1483fe3d532064847502dbe21766dd",
+    "model/defect_field_modular/packet.py": "9f1b728debb5fbed6b4a424f7f60cedccff5e7ed3a1f099888f9b7e8ab3a367f",
+    "model/defect_field_modular/results.json": "1d1793b2216be81f7336a6d5457a21793a1278491ed4b118b24edc8523caee9f",
+    "model/defect_field_modular/results.npz": "dd68f02fe32c6a50ffc15ef3640151aaa68f5dfd9cdca398d32ab7209576681e",
+    "model/defect_field_modular/source_controls.npz": "d893634749ade81827cfbb110165565237d12524b4f39e84933241296cb06274",
+    "model/defect_field_modular/test_modular.py": "3bf88de8afffe6e77a7357ae7c0fc42368a1d6bbe96595b07c952b6cb12bb5e4"
   },
   "gate_acceptance_owner": "claims/completion_program.json",
   "predecessor_review": {

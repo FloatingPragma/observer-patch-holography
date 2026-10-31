@@ -1,0 +1,560 @@
+{
+  "schema": "oph.defect_field_bridge.representation.v1",
+  "source_sha256": {
+    "model/defect_field_bridge/bridge.py": "373dc082169ce0937878a23c9818e98def46cd118c319f2fadc9194b0b7e2174",
+    "model/defect_identity/identity.py": "36739be20bfad1d4aebf27e0c778b95b89e7931fa4aabbc57eb9712db2014e5d",
+    "model/defect_protection/protection.py": "9255f6ff64ff37a51c51dddcdf08e204d8a1e94dfa83c8e6bda6cf238804c9f7",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "code/a5_closure/super_tannakian_matter_lift_certificate.py": "f6f3ed3f6d9b9bcfe3fd3c23663e97cb17db512d54c06c008a41e7ef2cc6b1fa",
+    "code/a5_closure/port_current_inner_certificate.py": "8ac3f51d08155decc328ebb8c12909bf92f9a50313f14ebc0faf70c0d2513436",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4"
+  },
+  "matter_basis_permutation": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "same_source_current_intertwiners_checked": 12,
+  "same_Higgs_channels_checked": [
+    "charged_lepton",
+    "down",
+    "up"
+  ],
+  "chosen_spin_dimension": 2,
+  "chosen_family_dimension": 3,
+  "one_particle_dimension": 90,
+  "negative_one_particle_embedding_dimension": [
+    180,
+    90
+  ],
+  "statistics": {
+    "code": "E=[I;P]/sqrt(2), P=(-1)^N; Q E=E P",
+    "same_code_odd_field": "(Z_orientation tensor c_a) E = E c_a",
+    "same_code_even_operator": "(I_orientation tensor O_even) E = E O_even",
+    "native_branch_compression": "sum_x |f_h(x)><x| tensor P^p_h(x), times unchanged1/sqrt(2)",
+    "one_particle_restriction": "the fixed negative code of defect_identity, tensored with Spin2 and family3",
+    "vacuum": "even parity and positive native Q in this new correlated code",
+    "ninety_mode_particle_number_sectors": [
+      {
+        "N": 0,
+        "parity": 1,
+        "dimension": "1"
+      },
+      {
+        "N": 1,
+        "parity": -1,
+        "dimension": "90"
+      },
+      {
+        "N": 2,
+        "parity": 1,
+        "dimension": "4005"
+      },
+      {
+        "N": 3,
+        "parity": -1,
+        "dimension": "117480"
+      },
+      {
+        "N": 4,
+        "parity": 1,
+        "dimension": "2555190"
+      },
+      {
+        "N": 5,
+        "parity": -1,
+        "dimension": "43949268"
+      },
+      {
+        "N": 6,
+        "parity": 1,
+        "dimension": "622614630"
+      },
+      {
+        "N": 7,
+        "parity": -1,
+        "dimension": "7471375560"
+      },
+      {
+        "N": 8,
+        "parity": 1,
+        "dimension": "77515521435"
+      },
+      {
+        "N": 9,
+        "parity": -1,
+        "dimension": "706252528630"
+      },
+      {
+        "N": 10,
+        "parity": 1,
+        "dimension": "5720645481903"
+      },
+      {
+        "N": 11,
+        "parity": -1,
+        "dimension": "41604694413840"
+      },
+      {
+        "N": 12,
+        "parity": 1,
+        "dimension": "273897571557780"
+      },
+      {
+        "N": 13,
+        "parity": -1,
+        "dimension": "1643385429346680"
+      },
+      {
+        "N": 14,
+        "parity": 1,
+        "dimension": "9038619861406740"
+      },
+      {
+        "N": 15,
+        "parity": -1,
+        "dimension": "45795673964460816"
+      },
+      {
+        "N": 16,
+        "parity": 1,
+        "dimension": "214667221708410075"
+      },
+      {
+        "N": 17,
+        "parity": -1,
+        "dimension": "934433788613079150"
+      },
+      {
+        "N": 18,
+        "parity": 1,
+        "dimension": "3789648142708598775"
+      },
+      {
+        "N": 19,
+        "parity": -1,
+        "dimension": "14360771909211532200"
+      },
+      {
+        "N": 20,
+        "parity": 1,
+        "dimension": "50980740277700939310"
+      },
+      {
+        "N": 21,
+        "parity": -1,
+        "dimension": "169935800925669797700"
+      },
+      {
+        "N": 22,
+        "parity": 1,
+        "dimension": "532980466539600729150"
+      },
+      {
+        "N": 23,
+        "parity": -1,
+        "dimension": "1575768335856210851400"
+      },
+      {
+        "N": 24,
+        "parity": 1,
+        "dimension": "4399019937598588626825"
+      },
+      {
+        "N": 25,
+        "parity": -1,
+        "dimension": "11613412635260273974818"
+      },
+      {
+        "N": 26,
+        "parity": 1,
+        "dimension": "29033531588150684937045"
+      },
+      {
+        "N": 27,
+        "parity": -1,
+        "dimension": "68820223023764586517440"
+      },
+      {
+        "N": 28,
+        "parity": 1,
+        "dimension": "154845501803470319664240"
+      },
+      {
+        "N": 29,
+        "parity": -1,
+        "dimension": "331049003855695166178720"
+      },
+      {
+        "N": 30,
+        "parity": 1,
+        "dimension": "673132974506580171230064"
+      },
+      {
+        "N": 31,
+        "parity": -1,
+        "dimension": "1302838015174026137864640"
+      },
+      {
+        "N": 32,
+        "parity": 1,
+        "dimension": "2402107590477110691687930"
+      },
+      {
+        "N": 33,
+        "parity": -1,
+        "dimension": "4221886068111285458118180"
+      },
+      {
+        "N": 34,
+        "parity": 1,
+        "dimension": "7077867820068919738609890"
+      },
+      {
+        "N": 35,
+        "parity": -1,
+        "dimension": "11324588512110271581775824"
+      },
+      {
+        "N": 36,
+        "parity": 1,
+        "dimension": "17301454671279581583268620"
+      },
+      {
+        "N": 37,
+        "parity": -1,
+        "dimension": "25250771682408037986392040"
+      },
+      {
+        "N": 38,
+        "parity": 1,
+        "dimension": "35218181557042789823125740"
+      },
+      {
+        "N": 39,
+        "parity": -1,
+        "dimension": "46957575409390386430834320"
+      },
+      {
+        "N": 40,
+        "parity": 1,
+        "dimension": "59870908646972742699313758"
+      },
+      {
+        "N": 41,
+        "parity": -1,
+        "dimension": "73013303228015539877211900"
+      },
+      {
+        "N": 42,
+        "parity": 1,
+        "dimension": "85182187099351463190080550"
+      },
+      {
+        "N": 43,
+        "parity": -1,
+        "dimension": "95087092576020237979624800"
+      },
+      {
+        "N": 44,
+        "parity": 1,
+        "dimension": "101570303433476163296417400"
+      },
+      {
+        "N": 45,
+        "parity": -1,
+        "dimension": "103827421287553411369671120"
+      },
+      {
+        "N": 46,
+        "parity": 1,
+        "dimension": "101570303433476163296417400"
+      },
+      {
+        "N": 47,
+        "parity": -1,
+        "dimension": "95087092576020237979624800"
+      },
+      {
+        "N": 48,
+        "parity": 1,
+        "dimension": "85182187099351463190080550"
+      },
+      {
+        "N": 49,
+        "parity": -1,
+        "dimension": "73013303228015539877211900"
+      },
+      {
+        "N": 50,
+        "parity": 1,
+        "dimension": "59870908646972742699313758"
+      },
+      {
+        "N": 51,
+        "parity": -1,
+        "dimension": "46957575409390386430834320"
+      },
+      {
+        "N": 52,
+        "parity": 1,
+        "dimension": "35218181557042789823125740"
+      },
+      {
+        "N": 53,
+        "parity": -1,
+        "dimension": "25250771682408037986392040"
+      },
+      {
+        "N": 54,
+        "parity": 1,
+        "dimension": "17301454671279581583268620"
+      },
+      {
+        "N": 55,
+        "parity": -1,
+        "dimension": "11324588512110271581775824"
+      },
+      {
+        "N": 56,
+        "parity": 1,
+        "dimension": "7077867820068919738609890"
+      },
+      {
+        "N": 57,
+        "parity": -1,
+        "dimension": "4221886068111285458118180"
+      },
+      {
+        "N": 58,
+        "parity": 1,
+        "dimension": "2402107590477110691687930"
+      },
+      {
+        "N": 59,
+        "parity": -1,
+        "dimension": "1302838015174026137864640"
+      },
+      {
+        "N": 60,
+        "parity": 1,
+        "dimension": "673132974506580171230064"
+      },
+      {
+        "N": 61,
+        "parity": -1,
+        "dimension": "331049003855695166178720"
+      },
+      {
+        "N": 62,
+        "parity": 1,
+        "dimension": "154845501803470319664240"
+      },
+      {
+        "N": 63,
+        "parity": -1,
+        "dimension": "68820223023764586517440"
+      },
+      {
+        "N": 64,
+        "parity": 1,
+        "dimension": "29033531588150684937045"
+      },
+      {
+        "N": 65,
+        "parity": -1,
+        "dimension": "11613412635260273974818"
+      },
+      {
+        "N": 66,
+        "parity": 1,
+        "dimension": "4399019937598588626825"
+      },
+      {
+        "N": 67,
+        "parity": -1,
+        "dimension": "1575768335856210851400"
+      },
+      {
+        "N": 68,
+        "parity": 1,
+        "dimension": "532980466539600729150"
+      },
+      {
+        "N": 69,
+        "parity": -1,
+        "dimension": "169935800925669797700"
+      },
+      {
+        "N": 70,
+        "parity": 1,
+        "dimension": "50980740277700939310"
+      },
+      {
+        "N": 71,
+        "parity": -1,
+        "dimension": "14360771909211532200"
+      },
+      {
+        "N": 72,
+        "parity": 1,
+        "dimension": "3789648142708598775"
+      },
+      {
+        "N": 73,
+        "parity": -1,
+        "dimension": "934433788613079150"
+      },
+      {
+        "N": 74,
+        "parity": 1,
+        "dimension": "214667221708410075"
+      },
+      {
+        "N": 75,
+        "parity": -1,
+        "dimension": "45795673964460816"
+      },
+      {
+        "N": 76,
+        "parity": 1,
+        "dimension": "9038619861406740"
+      },
+      {
+        "N": 77,
+        "parity": -1,
+        "dimension": "1643385429346680"
+      },
+      {
+        "N": 78,
+        "parity": 1,
+        "dimension": "273897571557780"
+      },
+      {
+        "N": 79,
+        "parity": -1,
+        "dimension": "41604694413840"
+      },
+      {
+        "N": 80,
+        "parity": 1,
+        "dimension": "5720645481903"
+      },
+      {
+        "N": 81,
+        "parity": -1,
+        "dimension": "706252528630"
+      },
+      {
+        "N": 82,
+        "parity": 1,
+        "dimension": "77515521435"
+      },
+      {
+        "N": 83,
+        "parity": -1,
+        "dimension": "7471375560"
+      },
+      {
+        "N": 84,
+        "parity": 1,
+        "dimension": "622614630"
+      },
+      {
+        "N": 85,
+        "parity": -1,
+        "dimension": "43949268"
+      },
+      {
+        "N": 86,
+        "parity": 1,
+        "dimension": "2555190"
+      },
+      {
+        "N": 87,
+        "parity": -1,
+        "dimension": "117480"
+      },
+      {
+        "N": 88,
+        "parity": 1,
+        "dimension": "4005"
+      },
+      {
+        "N": 89,
+        "parity": -1,
+        "dimension": "90"
+      },
+      {
+        "N": 90,
+        "parity": 1,
+        "dimension": "1"
+      }
+    ],
+    "two_occupied_modes_control": {
+      "native_odd_loop_under_this_code": 1,
+      "actual_fermionic_mode_exchange": -1
+    },
+    "native_loop_identified_as_field_particle_exchange": false,
+    "fixed_chi_minus_equals_global_Fock_parity": false,
+    "warning": "This is a designed global-parity coupling. The map from native two-token exchange to exchange of two field particles remains unconstructed."
+  },
+  "complete_small_instrument": {
+    "C": {
+      "seam": [
+        0,
+        5
+      ],
+      "field_modes": 2,
+      "raw_slots": 8,
+      "zero_slots": 4,
+      "abort_slots": 2,
+      "full_dimension": 528,
+      "encoded_dimension": 264,
+      "all_branch_intertwiners_exact": true,
+      "trace_preserving_on_full_and_encoded_carriers": true
+    },
+    "E": {
+      "seam": [
+        0,
+        5
+      ],
+      "field_modes": 2,
+      "raw_slots": 16,
+      "zero_slots": 10,
+      "abort_slots": 6,
+      "full_dimension": 528,
+      "encoded_dimension": 264,
+      "all_branch_intertwiners_exact": true,
+      "trace_preserving_on_full_and_encoded_carriers": true
+    }
+  },
+  "design": "Same retained chiral matter representation, chosen Spin2 and family3; conditional even field unitaries on complete native-record branches.",
+  "general_complete_instrument_proof": "For unitary U_h, (K_h tensor U_h)^*(K_h tensor U_h)=K_h^*K_h tensor I. Summation retains every native slot and equals I. Even U_h preserve E.",
+  "reference_and_history": "Exact branch equality tensors with arbitrary references and composes under finite record-adaptive schedules; no successful-record renormalization.",
+  "not_claimed": [
+    "physical pair exchange from global parity",
+    "physical Lorentz or family identification from tensor dimensions",
+    "successful masses from the old trial Yukawa law",
+    "native Kraus second quantization is trace preserving"
+  ]
+}

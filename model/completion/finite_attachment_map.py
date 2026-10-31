@@ -16,7 +16,7 @@ PATH = Path('model/completion/finite_attachment_map.json')
 CLASSES = {'realized_on_claimed_domain','required_but_conditional',
            'alternative_branch','redundant','irrelevant_to_target','needs_correction'}
 INTERFACES = {'state','algebra','operation','clock','refinement'}
-REALIZED = {f'FA-{n:02d}' for n in range(1,8)} | {f'FA-{n:02d}' for n in range(13,28)}
+REALIZED = {f'FA-{n:02d}' for n in range(1,8)} | {f'FA-{n:02d}' for n in range(13,40)}
 
 
 def canonical_contract(row):
@@ -51,7 +51,7 @@ def validate(packet, root=ROOT):
     require(packet.get('gate_acceptance_owner') == 'claims/completion_program.json' and
             packet.get('physical_comparison_count_added')==0 and
             packet.get('canonical_premises_discharged')==[], 'scope promotion forbidden')
-    require(packet.get('selected_issues')==[1138,1140,1141,1142,1143,1147,1137], 'selected issue ownership changed')
+    require(packet.get('selected_issues')==[1138,1139,1140,1141,1142,1143,1147,1137], 'selected issue ownership changed')
     bindings=packet.get('source_bindings')
     require(isinstance(bindings,dict) and bindings,'missing source bindings')
     for name,expected in bindings.items():
@@ -86,7 +86,7 @@ def validate(packet, root=ROOT):
             snapshot.get('lean_module_count')==len(existing['lean_files']), 'navigation inventory mismatch')
     applications=packet.get('attachments',[])
     identifiers=[a.get('id') for a in applications]
-    require(len(identifiers)==len(set(identifiers)) and set(identifiers)=={f'FA-{n:02d}' for n in range(1,28)},
+    require(len(identifiers)==len(set(identifiers)) and set(identifiers)=={f'FA-{n:02d}' for n in range(1,40)},
             'missing or duplicate finite attachment')
     for a in applications:
         require(a.get('classification') in CLASSES,'unclassified finite attachment')
@@ -102,7 +102,7 @@ def validate(packet, root=ROOT):
     require(actual==REALIZED and packet.get('finite_obligations_realized')==len(REALIZED),
             'finite realization count or domain changed')
     review=packet.get('issue_closure_review',{})
-    require(set(review)=={'1138','1140','1141','1142','1143','1147','1137'},'missing issue closure review')
+    require(set(review)=={'1138','1139','1140','1141','1142','1143','1147','1137'},'missing issue closure review')
     for n,row in review.items():
         require(row.get('close_issue') is False, f'map cannot close its own issue: {n}')
         expected = predecessor_review(program, n)

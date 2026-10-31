@@ -41,6 +41,24 @@ ADDITIONAL_EVIDENCE_TESTS = (
 )
 
 
+# Pushes to main and pull requests run Ubuntu shards; the schedule adds the
+# Windows shards beside the Ubuntu full run; tags and manual dispatch run both.
+OS_EXPRESSION = (
+    "${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' "
+    "&& github.ref == 'refs/heads/main')) && '[\"ubuntu-latest\"]' || (github.event_name == 'schedule' "
+    "&& '[\"windows-latest\"]' || '[\"ubuntu-latest\",\"windows-latest\"]')) }}"
+)
+
+
+def _operating_systems(job, event, ref="refs/heads/main"):
+    assert job["strategy"]["matrix"]["os"] == OS_EXPRESSION, "unsupported OS matrix expression"
+    if event == "pull_request" or (event == "push" and ref == "refs/heads/main"):
+        return ["ubuntu-latest"]
+    if event == "schedule":
+        return ["windows-latest"]
+    return ["ubuntu-latest", "windows-latest"]
+
+
 def _workflow():
     # BaseLoader preserves GitHub's `on` key rather than YAML 1.1's boolean key.
     return yaml.load(WORKFLOW.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
@@ -98,7 +116,7 @@ def _evidence_dispatch(job, shard=None):
 
 def _assert_evidence_coverage(workflow, full, operating_system):
     job = workflow["jobs"]["mandatory-shards"]
-    assert operating_system in job["strategy"]["matrix"]["os"]
+    assert operating_system in _operating_systems(job, "workflow_dispatch")
     dispatched = [
         path for shard in _shards(job, full)
         for path in _evidence_dispatch(job, shard)
@@ -151,7 +169,7 @@ def test_workflow_matrix_dispatches_the_entire_selected_suite_once(
     monkeypatch, full, operating_system
 ):
     job = _workflow()["jobs"]["mandatory-shards"]
-    assert operating_system in job["strategy"]["matrix"]["os"]
+    assert operating_system in _operating_systems(job, "workflow_dispatch")
     assert _shards(job, full) == ([0] if full else list(range(10)))
     actual = []
     # These complete command groups exhausted the 30-minute Windows budget
@@ -195,11 +213,15 @@ def test_workflow_matrix_dispatches_the_entire_selected_suite_once(
 
 def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
     job = _workflow()["jobs"]["mandatory-shards"]
-    assert job["if"] == "github.event_name != 'schedule'"
+    assert "if" not in job
     assert job["runs-on"] == "${{ matrix.os }}"
     assert job["timeout-minutes"] == "30"
     assert job["strategy"]["fail-fast"] == "false"
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
+    assert _operating_systems(job, "push") == ["ubuntu-latest"]
+    assert _operating_systems(job, "pull_request") == ["ubuntu-latest"]
+    assert _operating_systems(job, "schedule") == ["windows-latest"]
+    assert _operating_systems(job, "push", "refs/tags/r2056") == ["ubuntu-latest", "windows-latest"]
+    assert _operating_systems(job, "workflow_dispatch") == ["ubuntu-latest", "windows-latest"]
     assert set(job["strategy"]["matrix"]) == {"os", "shard"}
     assert not job.get("continue-on-error")
     checkout = _step(job, "Checkout")
@@ -230,8 +252,8 @@ def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
 def test_historical_statuses_require_all_workers_even_after_failure_or_skip():
     job = _workflow()["jobs"]["mandatory"]
     assert job["name"] == "mandatory collection (${{ matrix.os }})"
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
-    assert job["if"] == "${{ always() && github.event_name != 'schedule' }}"
+    assert job["strategy"]["matrix"]["os"] == OS_EXPRESSION
+    assert job["if"] == "${{ always() }}"
     assert job["needs"] == ["mandatory-shards"]
     assert job["runs-on"] == "ubuntu-latest"
     assert int(job["timeout-minutes"]) <= 30
@@ -267,7 +289,7 @@ def test_actual_aggregate_python_only_accepts_exact_success(result):
 def test_nightly_full_and_manual_full_are_retained_without_path_filters():
     workflow = _workflow()
     triggers = workflow["on"]
-    assert triggers["push"] == {"branches": ["main"]}
+    assert triggers["push"] == {"branches": ["main"], "tags": ["r*"]}
     assert triggers["pull_request"] == ""
     assert triggers["schedule"] == [{"cron": "17 3 * * *"}]
     assert triggers["workflow_dispatch"]["inputs"]["full"]["type"] == "boolean"

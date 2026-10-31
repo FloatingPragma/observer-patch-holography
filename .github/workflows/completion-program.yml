@@ -57,6 +57,16 @@ on:
       - 'model/field_protocols/**'
       - 'model/dimer_family/**'
       - 'model/field_symmetry/**'
+      - 'model/defect_protection/**'
+      - 'model/defect_identity/**'
+      - 'model/defect_energy/**'
+      - 'model/defect_field_bridge/**'
+      - 'model/defect_field_benchmark/**'
+      - 'model/defect_field_interactions/**'
+      - 'model/defect_field_clock/**'
+      - 'model/defect_field_propagation/**'
+      - 'model/defect_field_modular/**'
+      - 'model/defect_field_energy/**'
       - '.github/workflows/completion-program.yml'
   pull_request:
     paths:
@@ -113,6 +123,16 @@ on:
       - 'model/field_protocols/**'
       - 'model/dimer_family/**'
       - 'model/field_symmetry/**'
+      - 'model/defect_protection/**'
+      - 'model/defect_identity/**'
+      - 'model/defect_energy/**'
+      - 'model/defect_field_bridge/**'
+      - 'model/defect_field_benchmark/**'
+      - 'model/defect_field_interactions/**'
+      - 'model/defect_field_clock/**'
+      - 'model/defect_field_propagation/**'
+      - 'model/defect_field_modular/**'
+      - 'model/defect_field_energy/**'
       - '.github/workflows/completion-program.yml'
   workflow_dispatch:
 
@@ -120,9 +140,11 @@ permissions:
   contents: read
 
 jobs:
-  program:
+  # These commands ran serially in one job of about 30 minutes; the same
+  # commands run here as parallel jobs.
+  program-contract:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 30
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -133,7 +155,52 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python tools/build_completion_program.py --check
-      - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy model/local_repair_family model/exchange_sector model/particle_screening model/active_code_energy model/screened_recovery model/conserved_sector_action model/screened_transport
+      - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy
+      - run: python -m model.completion.acceptance_audit --check
+      - run: python -m model.completion.program_class_v2 --check
+      - run: python -m model.completion.independent_program_review
+      - run: python -m model.completion.finite_attachment_map --check
+
+  program-sectors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q --durations=10 -W error model/exchange_sector model/particle_screening
+
+  program-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q --durations=10 -W error model/local_repair_family model/active_code_energy model/screened_recovery model/conserved_sector_action model/screened_transport
+
+  program-fields:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/moving_defect model/record_action model/particle_obstruction model/interacting_field
       - run: python -m model.moving_defect.experiment --check
       - run: python -m model.record_action.action --check
@@ -146,6 +213,19 @@ jobs:
       - run: python -m model.field_stress --check model/field_stress/results.json
       - run: python -m model.field_tastes --check model/field_tastes/results.json
       - run: python -m model.biased_reset --check model/biased_reset/results.json
+
+  program-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
       - run: python -m pytest -q -W error model/band_clock model/native_localization model/native_program
       - run: python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality
       - run: python -m pytest -q -W error model/energy_identifiability model/regional_modular model/band_clock_budget model/compiled_native_history
@@ -156,10 +236,6 @@ jobs:
       - run: python -m model.band_clock --check model/band_clock/results.json
       - run: python -m model.native_localization.experiment --check model/native_localization/results.json
       - run: python -m model.native_program.receipt --check model/native_program/results.json
-      - run: python -m model.completion.acceptance_audit --check
-      - run: python -m model.completion.program_class_v2 --check
-      - run: python -m model.completion.independent_program_review
-      - run: python -m model.completion.finite_attachment_map --check
 
   particle-services:
     runs-on: ubuntu-latest
@@ -180,3 +256,75 @@ jobs:
       - run: python -m model.flux_response --check model/flux_response/results.json
       - run: python -m model.particle_comparison.compare --check model/particle_comparison/results.json
       - run: python -m model.charged_dynamics.packet --check model/charged_dynamics/results.json
+
+  protected-defects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q --durations=10 -W error model/defect_protection model/defect_identity model/defect_energy
+      - run: python -m model.defect_protection --check
+      - run: python -m model.defect_identity.identity --check
+      - run: python -m model.defect_energy --check
+
+  native-field-readout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q --durations=10 -W error model/defect_field_bridge model/defect_field_benchmark
+      - run: python -m model.defect_field_bridge.bridge --check
+      - run: python -m model.defect_field_bridge.colored --check
+      - run: python -m model.defect_field_bridge.dynamics_packet --check
+      - run: python -m model.defect_field_benchmark --check
+      - run: python -m model.defect_field_benchmark.readout --check
+      - run: python -m model.defect_field_bridge.joint --check
+      - run: python -m model.defect_field_bridge.coherent_extension --check
+      - run: python -m model.defect_field_bridge.full_domain --check
+
+  native-field-dynamics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m model.defect_field_interactions.packet --check
+      - run: python -m model.defect_field_clock --check
+      - run: python -m model.defect_field_propagation --check
+      - run: python -m pytest -q --durations=10 -W error model/defect_field_propagation model/defect_field_clock model/defect_field_interactions
+
+  native-field-thermodynamics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m model.defect_field_modular --check
+      - run: python -m model.defect_field_energy.packet --check
+      - run: python -m pytest -q --durations=10 -W error model/defect_field_energy model/defect_field_modular

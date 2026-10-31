@@ -13,7 +13,7 @@ def packet():
 def test_complete_canonical_ownership_and_realized_finite_domains():
     result=validate(packet())
     assert result['canonical_premises']==84
-    assert result['finite_obligations_realized']==22
+    assert result['finite_obligations_realized']==34
     assert result['canonical_premises_discharged']==0
     assert result['gate_acceptance_owner']=='claims/completion_program.json'
 

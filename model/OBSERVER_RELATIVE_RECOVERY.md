@@ -1,5 +1,43 @@
 # Observer-relative time, fields and shared records
 
+The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits remain part of the result.
+
+The [complete collision repair](defect_field_bridge/FULL_DOMAIN.md), [finite ring propagation](defect_field_propagation/README.md), [common source clock](defect_field_clock/README.md), and [external Higgs drive](defect_field_interactions/README.md) extend this same designed field law. A [bounded direct common experiment](defect_field_bridge/joint.py) retains every four-mode occupation, native record and clock outcome. The finite one-dimensional domain, explicit collision-policy dependence, calibrated inputs and remaining physical 3+1/matched-particle obligations stay explicit.
+
+An exact conformal fixed point and a massive deformation are also distinct
+targets. In a flat-space vacuum representation with unbroken unitary
+dilations, the positive translation-energy spectrum is closed under every
+positive rescaling. If it contains an energy `E > 0`, a proposed gap
+`g > 0` is contradicted by the allowed rescaling `g/(2E)`, which produces
+energy `g/2`. This argument assumes the same vacuum representation and
+translation Hamiltonian throughout. A positive level spacing for the
+dilatation operator on a finite-radius cylinder is not that flat-space
+mass gap. A relevant deformation may introduce masses, but its deformed
+theory is not the exact fixed-point CFT. Any conformal limit, its
+deformation and the separate massive/massless sectors therefore need
+their own controlled maps; see the discussion of fixed points, massive
+flows and radial quantization in
+[Simmons-Duffin's CFT lectures](https://arxiv.org/abs/1602.07982).
+
+The [colored CAR bridge](defect_field_bridge/REPRESENTATION.md) gives each
+occupied native port its own internal state and realizes true two-particle
+exchange as minus SWAP, with complete source and pointer outputs. The
+[calibrated static field](defect_field_benchmark/README.md) supplies a common
+quasiparticle action and record readout with every calibration identified
+as an input. These finite constructions retain collision, broken-current,
+neutral-mass and native-spatial identification boundaries.
+
+The [protected ordered-cover construction](defect_protection/README.md) starts from
+native repair paths and an explicit coherent memory law. Its exact protected
+charge is carried by the joint source/memory system; a localized source
+particle remains to be constructed. The [same-carrier matter-capacity
+theorem](defect_identity/README.md) derives necessary additional multiplicity
+and a conditional faithful gauge embedding. The [repair-cost/action
+calculation](defect_energy/README.md) derives the actual operator path action,
+retains all outcomes and shows why equal scalar resource totals alone do
+not determine its memory response. The same excitation needs the
+duration, motion and rest-energy join that tests E=mc^2.
+
 The [matter construction](observer_particles/DERIVATION.md) supplies
 restricted finite connections to the particle and geometry theorem stacks:
 internal charge/Casimir decoding, exact interaction identities, conditional

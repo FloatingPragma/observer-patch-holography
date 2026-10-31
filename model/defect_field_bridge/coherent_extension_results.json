@@ -1,0 +1,179 @@
+{
+  "schema": "oph.coherent_collision_hold_extension.v1",
+  "design": "K_coin,raw0 = K_binary_coin,raw0 direct-sum I_nonbinary/sqrt(2); other raw maps zero on nonbinary endpoints",
+  "C_E_record_scope": "Existing binary labels unchanged; assigning raw0 to a nonbinary hold is an explicit new extension, including for E.",
+  "original_hard_core_colored_restriction_exact": true,
+  "full_spatial_domain": "all2^1080 states of the12-port90-flavor CAR space, with arbitrary reference",
+  "completeness_proof": "Binary outputs remain binary; nonbinary identity outputs are disjoint. Each enlarged branch remains injective; each input appears once per fair coin.",
+  "identity_subspace_proof": "Even endpoint occupancies are either both zero or include a nonbinary endpoint. Every admitted column belongs to raw0 with sign+1 for both coins, so the complete channel is identity on all coherences of this subspace.",
+  "coherent_hold_removes_all_repair_backaction": false,
+  "all_number_sectors_retained": true,
+  "unital_fair_coin_channel": true,
+  "bounded_exact_audits": [
+    {
+      "sites": 2,
+      "flavors": 2,
+      "law": "C",
+      "Fock_dimension": 16,
+      "all_number_sectors": 5,
+      "all_coin_raw_slots": 32,
+      "zero_slots": 28,
+      "even_endpoint_identity_subspace_dimension": 4
+    },
+    {
+      "sites": 2,
+      "flavors": 2,
+      "law": "E",
+      "Fock_dimension": 16,
+      "all_number_sectors": 5,
+      "all_coin_raw_slots": 32,
+      "zero_slots": 26,
+      "even_endpoint_identity_subspace_dimension": 4
+    },
+    {
+      "sites": 3,
+      "flavors": 1,
+      "law": "C",
+      "Fock_dimension": 8,
+      "all_number_sectors": 4,
+      "all_coin_raw_slots": 32,
+      "zero_slots": 28,
+      "even_endpoint_identity_subspace_dimension": 2
+    },
+    {
+      "sites": 3,
+      "flavors": 1,
+      "law": "E",
+      "Fock_dimension": 8,
+      "all_number_sectors": 4,
+      "all_coin_raw_slots": 32,
+      "zero_slots": 26,
+      "even_endpoint_identity_subspace_dimension": 2
+    },
+    {
+      "sites": 4,
+      "flavors": 2,
+      "law": "C",
+      "Fock_dimension": 256,
+      "all_number_sectors": 9,
+      "all_coin_raw_slots": 32,
+      "zero_slots": 28,
+      "even_endpoint_identity_subspace_dimension": 64
+    },
+    {
+      "sites": 4,
+      "flavors": 2,
+      "law": "E",
+      "Fock_dimension": 256,
+      "all_number_sectors": 9,
+      "all_coin_raw_slots": 32,
+      "zero_slots": 26,
+      "even_endpoint_identity_subspace_dimension": 64
+    }
+  ],
+  "bounded_source_dilations": [
+    {
+      "sites": 2,
+      "flavors": 2,
+      "law": "C",
+      "complete_source_input_columns": 16,
+      "all_source_output_addresses": 512,
+      "operator_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 40925,
+        "single_code_pulses": 30725,
+        "pair_code_pulses": 10200,
+        "identity_phase_pulses": 20,
+        "proper_code_load_events": 40925,
+        "proper_code_export_events": 40925,
+        "proper_code_service_events": 81850,
+        "proper_code_complement_outcome_slots": 143300
+      }
+    },
+    {
+      "sites": 2,
+      "flavors": 2,
+      "law": "E",
+      "complete_source_input_columns": 16,
+      "all_source_output_addresses": 512,
+      "operator_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 65497,
+        "single_code_pulses": 49177,
+        "pair_code_pulses": 16320,
+        "identity_phase_pulses": 32,
+        "proper_code_load_events": 65497,
+        "proper_code_export_events": 65497,
+        "proper_code_service_events": 130994,
+        "proper_code_complement_outcome_slots": 229348
+      }
+    },
+    {
+      "sites": 3,
+      "flavors": 1,
+      "law": "C",
+      "complete_source_input_columns": 8,
+      "all_source_output_addresses": 512,
+      "operator_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 42731,
+        "single_code_pulses": 32021,
+        "pair_code_pulses": 10710,
+        "identity_phase_pulses": 21,
+        "proper_code_load_events": 42731,
+        "proper_code_export_events": 42731,
+        "proper_code_service_events": 85462,
+        "proper_code_complement_outcome_slots": 149504
+      }
+    },
+    {
+      "sites": 3,
+      "flavors": 1,
+      "law": "E",
+      "complete_source_input_columns": 8,
+      "all_source_output_addresses": 512,
+      "operator_Frobenius_error_below": 2e-07,
+      "resources": {
+        "native_pulses": 67315,
+        "single_code_pulses": 50485,
+        "pair_code_pulses": 16830,
+        "identity_phase_pulses": 33,
+        "proper_code_load_events": 67315,
+        "proper_code_export_events": 67315,
+        "proper_code_service_events": 134630,
+        "proper_code_complement_outcome_slots": 235600
+      }
+    }
+  ],
+  "source_echo": {
+    "C": {
+      "return_probability": 0.9999999999975183
+    },
+    "E": {
+      "return_probability": 0.9999999999960438
+    }
+  },
+  "full_spatial_drive_control": {
+    "phase": 1.5707963267948966,
+    "duration_GeV_inverse": 0.002,
+    "current": 0,
+    "endpoint_vacuum_probability": 0.2433224395138795,
+    "flagged_hold_return_probability": 0.631766740114212,
+    "coherent_hold_return_probability_exact": 1,
+    "postmeasurement_Gaussian_assumption": false
+  },
+  "full_1080_mode_source_isometry_executed": false,
+  "source_scope": "Complete16- and8-input source dilations; full-domain extension proved algebraically. Four local source isometries and all echo outputs are retained.",
+  "physical_particle_identification_complete": false,
+  "source_sha256": {
+    "model/defect_field_bridge/coherent_extension.py": "b771fac729ae28f8c32e372787bab48b7acc02b06abf3e0c7d4dd9dc6fc06740",
+    "model/defect_field_bridge/test_coherent_extension.py": "fde6b1e48642938480b65744e9bed2cc60ca3f1e17fe44a8a370f31498ef4e71",
+    "model/defect_field_bridge/COHERENT_EXTENSION.md": "cd4fc7aadbc220fd48d23e145aec96b2ca3b1e507aabf867d9cd7d48e543de5b",
+    "model/defect_field_bridge/full_domain.py": "7e131b9f73c7bc369f56dce91767bc1651be26bff76d087845bb64aab7ca13e7",
+    "model/defect_field_interactions/interaction.py": "6485327385a3aa3bca3e5dd113eff2a061b1640d0101ac0bf6d302abf1b7a99d",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/record_code.py": "0359a77057cd38329bc696a1cc0566a1a8863f7cbf0a697312e4581cc5c10f7a",
+    "model/exchange_sector/statistics_service.py": "a0da5143bdb169b3531091ef16c347bbbe3327239a287170273468ab83a9a3af",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
+  }
+}

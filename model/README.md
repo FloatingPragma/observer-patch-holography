@@ -7,6 +7,29 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
+The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits remain part of the result.
+
+The [complete collision repair](defect_field_bridge/FULL_DOMAIN.md), [finite ring propagation](defect_field_propagation/README.md), [common source clock](defect_field_clock/README.md), and [external Higgs drive](defect_field_interactions/README.md) extend this same designed field law. A [bounded direct common experiment](defect_field_bridge/joint.py) retains every four-mode occupation, native record and clock outcome. The finite one-dimensional domain, explicit collision-policy dependence, calibrated inputs and remaining physical 3+1/matched-particle obligations stay explicit.
+
+The [colored CAR bridge](defect_field_bridge/REPRESENTATION.md) gives each
+occupied native port its own internal state and realizes true two-particle
+exchange as minus SWAP, with complete source and pointer outputs. The
+[calibrated static field](defect_field_benchmark/README.md) supplies a common
+quasiparticle action and record readout with every calibration identified
+as an input. These finite constructions retain collision, broken-current,
+neutral-mass and native-spatial identification boundaries.
+
+The [protected ordered-cover construction](defect_protection/README.md) starts from
+native repair paths and an explicit coherent memory law. Its exact protected
+charge is carried by the joint source/memory system; a localized source
+particle remains to be constructed. The [same-carrier matter-capacity
+theorem](defect_identity/README.md) derives necessary additional multiplicity
+and a conditional faithful gauge embedding. The [repair-cost/action
+calculation](defect_energy/README.md) derives the actual operator path action,
+retains all outcomes and shows why equal scalar resource totals alone do
+not determine its memory response. The same excitation needs the
+duration, motion and rest-energy join that tests E=mc^2.
+
 The complete finite field has [modular source histories](modular_flow/README.md),
 [all-sector energy and chemical-potential accounting](full_fock_energy/README.md),
 and [adaptive observations with every output retained](field_protocols/README.md).
