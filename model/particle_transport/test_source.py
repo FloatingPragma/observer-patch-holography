@@ -2,6 +2,7 @@
 from copy import deepcopy
 from fractions import Fraction
 import math
+import warnings
 
 import numpy as np
 import pytest
@@ -66,8 +67,13 @@ def test_full_encoder_other_sectors_are_identity_and_no_caller_state_substitutio
     with pytest.raises(TypeError):
         source.prepare("ground", state=target)
     prepared = source.prepare("ground")
-    with pytest.warns(DeprecationWarning, match="Setting the shape"):
+    # NumPy 2.3 permits this metadata mutation silently; 2.5 deprecates it.
+    # The contract is that mutating a returned array cannot poison later runs.
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", message="Setting the shape on a NumPy array has been deprecated",
+                                category=DeprecationWarning)
         prepared.state.shape = (4, 4)
+    assert prepared.state.shape == (4, 4)
     prepared.word[0]["angle"] = 1.234
     later = source.prepare("ground")
     assert later.state.shape == (16,) and later.error < 2e-11
