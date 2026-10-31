@@ -1210,6 +1210,13 @@
           "independent_check": "model/exchange_sector/test_presentation.py",
           "scope": "Exact noncommutative Tietze replay on the original native collision-free two-complex reduces235generators and495relators to <g|g^2>, with odd ordered-cover parity. No physical species, spin or sign selection.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "da1e535bacfb06cac84092abad11a7c4e811229fe30adb43eeab94322d49453d",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. The surviving eta ladder is a global supplied-Hamiltonian sector; it is not a boundary invariant of the all-seam C/E instrument.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -1415,6 +1422,13 @@
           "independent_check": "model/flux_response/test_response.py",
           "scope": "The periodic four-site Weyl/contact action with a supplied Peierls loop flux retains all 256 Fock states. Exact operator differentiation, CAR continuity and the nondegenerate-ground Hellmann-Feynman/Kubo identity bind persistent current and curvature; gauge redistribution leaves their totals invariant. Degenerate free/atomic controls reject the unique-ground formula.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "da1e535bacfb06cac84092abad11a7c4e811229fe30adb43eeab94322d49453d",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The same full action has exact eta ladder frequency U in H and zero frequency in K=H-U*N/2. The complete source pair-phase experiment distinguishes these generators without identifying either with native repair cost, physical energy or proper time.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -1531,6 +1545,13 @@
           "independent_check": "model/flux_response/test_response.py",
           "scope": "The periodic four-site Weyl/contact action with a supplied Peierls loop flux retains all 256 Fock states. Exact operator differentiation, CAR continuity and the nondegenerate-ground Hellmann-Feynman/Kubo identity bind persistent current and curvature; gauge redistribution leaves their totals invariant. Degenerate free/atomic controls reject the unique-ground formula.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "da1e535bacfb06cac84092abad11a7c4e811229fe30adb43eeab94322d49453d",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. A complete 256-state four-site plaquette history prepares a supplied even-charge coherent eta product, evolves it with the existing source words and reads all terminal occupation addresses after decoding. Every first-export failure and preparation/readout cost is retained. The ideal split is exact on this eta preparation; the arbitrary-input splitting bound and numerical primitive admission budget are separate. H rotates the pair phase at frequency U, whereas K=H-U*N/2 holds it fixed. The phase reference, action and Hamiltonian time remain supplied; no physical energy or clock calibration is inferred.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -1682,6 +1703,13 @@
           "independent_check": "model/field_protocols/test_protocol.py",
           "scope": "A two-read full-Fock source protocol selects the second signed evolution from the actual first record. All four joint records, each terminating export-failure map and arbitrary untouched references are retained. The rational ideal-word half-diamond bound is e_first+max(e_second_0,e_second_1), capped at one; numerical admission and deliberate leakage diagnostics remain distinct.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "da1e535bacfb06cac84092abad11a7c4e811229fe30adb43eeab94322d49453d",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. Full-carrier creation/annihilation Ward identities join particle and hole operator content on the same interacting action, without projecting tastes or supplying a chiral continuum.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -2481,6 +2509,24 @@
         "independent_check": "model/exchange_sector/test_statistics_packet.py",
         "scope": "The native collision-free two-particle path group is exactly Z/2. Its positive and negative flat lifts have complete C/E quantum instruments, an exact number-conserving CAR correspondence, and source-compiled phase readouts. The coherent controls and sign choice are explicit; physical spin, localized matter, species and mass are not identified.",
         "campaign_id": "native-exchange-statistics-20261029-v1"
+      }
+    },
+    {
+      "id": "OPH-FIELD-SYMMETRY-2026-10-31",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-03",
+        "CP-04",
+        "CP-05",
+        "CP-06"
+      ],
+      "contract": {
+        "path": "model/field_symmetry/contract.json",
+        "sha256": "d27996f5fc76cd6ef07673ce30ae16169be35cd26af5fd1be7df41dbd18b1c18",
+        "independent_check": "model/field_symmetry/test_packet.py",
+        "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. A complete 256-state four-site plaquette history prepares a supplied even-charge coherent eta product, evolves it with the existing source words and reads all terminal occupation addresses after decoding. Every first-export failure and preparation/readout cost is retained. The ideal split is exact on this eta preparation; the arbitrary-input splitting bound and numerical primitive admission budget are separate. H rotates the pair phase at frequency U, whereas K=H-U*N/2 holds it fixed. The phase reference, action and Hamiltonian time remain supplied; no physical energy or clock calibration is inferred.",
+        "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
       }
     }
   ],
