@@ -125,6 +125,17 @@ an incomplete bond, or a charge-preserving local potential need not obey this
 identity. Tests compare the literal source output with a separate complete
 Hamiltonian exponential, including negative time and refinement.
 
+The emitted evolution word is also checked on all 256 input columns against
+an independent CAR construction of the ideal Strang product. This binds the
+general-input split bound to the actual word: a hopping-free word or a wrong
+phase on singly occupied states can leave the eta readout unchanged and must
+still fail. If B is the primitive-composition budget for the evolution word,
+its successful operator error and full export-complement operator are each
+bounded by B. The receipt retains the conservative complete dilation budget
+2B, separately from the directly checked eta-history budget. For arbitrary
+inputs, the evolution error to H (or K) is bounded by that dilation budget
+plus the ideal Strang bound, within the stated numerical admission policy.
+
 For each distinct pulse the actual six-dimensional response, including its
 export complement, is checked against independent analytic primitive columns
 with numerical norm ceiling `delta=10^-11`. For L pulses, telescoping gives
@@ -133,8 +144,15 @@ The complete returned complex vector and all first-failure outputs must
 satisfy this budget and probability accounting; no success conditioning is
 used. These are numerical admission gates, not outward certificates for
 floating arithmetic or hardware. Retained raw residuals are observations;
-the fixed ceilings are the acceptance bounds. Replaying executes all sources
-again and checks every receipt field.
+the fixed ceilings are the acceptance bounds. The execute API returns the
+complex successful vector and each first-failure vector. The receipt stores
+all terminal probabilities and aggregate failure counts, mass and diagnostics;
+fresh replay reconstructs the individual failure outputs. Retained probabilities
+must themselves obey the complete amplitude budget, and their reported
+marginals must match the full terminal law on each marginal's own scale.
+Public replay uses a fresh interpreter and an empty bytecode-cache location,
+checks its complete source manifest before and after execution, and applies
+the fresh execution's ceilings to the retained evidence.
 
 ## Topology, locality and the remaining particle map
 
