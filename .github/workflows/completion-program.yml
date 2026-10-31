@@ -50,6 +50,7 @@ on:
       - 'model/particle_response/**'
       - 'model/contact_scattering/**'
       - 'model/particle_comparison/**'
+      - 'model/particle_transport/**'
       - '.github/workflows/completion-program.yml'
   pull_request:
     paths:
@@ -99,6 +100,7 @@ on:
       - 'model/particle_response/**'
       - 'model/contact_scattering/**'
       - 'model/particle_comparison/**'
+      - 'model/particle_transport/**'
       - '.github/workflows/completion-program.yml'
   workflow_dispatch:
 
@@ -159,5 +161,6 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison
+      - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison model/particle_transport
       - run: python -m model.particle_comparison.compare --check model/particle_comparison/results.json
+      - run: python -m model.particle_transport.packet --check model/particle_transport/results.json

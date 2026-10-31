@@ -49,6 +49,7 @@ These source-bound component campaigns record actual progress without accepting 
 - [OPH-INTEGRATION-BIASED-CODE-UNIVERSALITY-2026-10-29-v1](../model/biased_code_universality/campaign.json): Positive-coin classification transfer proves the fixed biased optimal asymptotic reset rate across arbitrary adaptive exact all-seam sharp-q1 codes. Separate clock-factor composition is operational; finite-horizon biased optimality and particle mass remain unproved. Owning gates: CP-01, CP-03, CP-13.
 - [OPH-COMMON-FIELD-INTERFACES-v1](../model/completion/component_interfaces.json): Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons. Owning gates: CP-01, CP-02, CP-03, CP-04, CP-05, CP-06, CP-09, CP-13, CP-08, CP-07, CP-11.
 - [native-exchange-statistics-20261029-v1](../model/exchange_sector/statistics_contract.json): The native collision-free two-particle path group is exactly Z/2. Its positive and negative flat lifts have complete C/E quantum instruments, an exact number-conserving CAR correspondence, and source-compiled phase readouts. The coherent controls and sign choice are explicit; physical spin, localized matter, species and mass are not identified. Owning gates: CP-01, CP-03, CP-05, CP-13.
+- [charged-particle-transport-20261031-v1](../model/particle_transport/contract.json): The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains. Owning gates: CP-05, CP-13.
 
 ## Next five parallel workstreams
 
@@ -381,6 +382,11 @@ Retained starting evidence:
 - [README.md](../model/contact_scattering/README.md)
 - [compare.py](../model/particle_comparison/compare.py)
 - [README.md](../model/particle_comparison/README.md)
+- [README.md](../model/particle_transport/README.md)
+- [algebra.py](../model/particle_transport/algebra.py)
+- [source.py](../model/particle_transport/source.py)
+- [detector.py](../model/particle_transport/detector.py)
+- [results.json](../model/particle_transport/results.json)
 
 Reviewed acceptance evidence:
 
@@ -436,6 +442,7 @@ Current component progress (not gate acceptance):
 - [spectrum.py](../model/particle_response/spectrum.py): Complete all-number Lehmann measures and source Ramsey readout distinguish a faithful thermal reference from a supplied pure half-filled ground. Exact dimer maps identify charge-one particle/hole doublets and charge-two singlets with nonzero residues, parity and internal spin; physical species, Lorentz spin, topological defects and absolute masses are not derived.
 - [scattering.py](../model/contact_scattering/scattering.py): The same Weyl/contact pair pole occurs in the exact complete two-fermion T matrix, with an optical identity and uniform fixed-broadening thermodynamic bounds. A separate complete source interaction echo has a rational positive signal bound. Fixed lattice spacing, model time and supplied preparations are explicit; no on-shell physical S matrix or chiral continuum is obtained.
 - [compare.py](../model/particle_comparison/compare.py): Exact current-source dimer spectroscopy excludes all 672 common-scale/common-chemical-potential three-lepton assignments to the declared broad ratio windows. A conditional electron-like/positron-like pair has equal gaps after one supplied electron calibration, with zero independently predicted absolute masses. The actual CODATA/ACT replay is retrospective and adds zero eligible CP11 comparisons.
+- [results.json](../model/particle_transport/results.json): The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.
 
 Earlier related work: [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033), [#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026), [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078).
 
@@ -685,6 +692,11 @@ Retained starting evidence:
 - [test_electromagnetism.py](../model/particle_comparison/test_electromagnetism.py)
 - [dispersion.py](../model/particle_response/dispersion.py)
 - [test_dispersion.py](../model/particle_response/test_dispersion.py)
+- [README.md](../model/particle_transport/README.md)
+- [algebra.py](../model/particle_transport/algebra.py)
+- [source.py](../model/particle_transport/source.py)
+- [detector.py](../model/particle_transport/detector.py)
+- [results.json](../model/particle_transport/results.json)
 
 Current component progress (not gate acceptance):
 
@@ -696,6 +708,7 @@ Current component progress (not gate acceptance):
 - [presentation.py](../model/exchange_sector/presentation.py): Exact noncommutative Tietze replay on the original native collision-free two-complex reduces235generators and495relators to <g|g^2>, with odd ordered-cover parity. No physical species, spin or sign selection.
 - [spectrum.py](../model/particle_response/spectrum.py): Complete all-number Lehmann measures and source Ramsey readout distinguish a faithful thermal reference from a supplied pure half-filled ground. Exact dimer maps identify charge-one particle/hole doublets and charge-two singlets with nonzero residues, parity and internal spin; physical species, Lorentz spin, topological defects and absolute masses are not derived.
 - [dictionary.py](../model/particle_comparison/dictionary.py): An executable sixteen-state benchmark supplies Q=e(N-2), S=hbar*S_internal and one measured electron energy scale, giving assigned Hamiltonian-time and lattice-length units. Complete candidate electric-current/dipole response obeys continuity and charge conjugation, but the pure-gauge open bond measures no magnetic moment and its bare contact kernel is not Coulomb exchange. A separately declared four-site periodic extension checks momentum, all number sectors, particle-hole residues and free doublers. Its charged poles fail the fixed dimer-mass/bare-speed lattice-Dirac benchmark and a same-volume rest-gap variant. Finite-volume shifts and a possible renormalized velocity remain distinct: two momentum-squared values cannot validate a fitted dispersion. This rejects only that supplied finite dictionary benchmark, not an OPH continuum; physical electron/positron identity and QED remain unestablished.
+- [results.json](../model/particle_transport/results.json): The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.
 
 Earlier related work: [#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026), [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078).
 

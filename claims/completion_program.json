@@ -339,7 +339,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -457,7 +457,12 @@
         "model/contact_scattering/scattering.py",
         "model/contact_scattering/README.md",
         "model/particle_comparison/compare.py",
-        "model/particle_comparison/README.md"
+        "model/particle_comparison/README.md",
+        "model/particle_transport/README.md",
+        "model/particle_transport/algebra.py",
+        "model/particle_transport/source.py",
+        "model/particle_transport/detector.py",
+        "model/particle_transport/results.json"
       ],
       "legacy_issues": [
         1033,
@@ -677,7 +682,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -807,6 +812,13 @@
           "independent_check": "model/particle_comparison/test_compare.py",
           "scope": "Exact current-source dimer spectroscopy excludes all 672 common-scale/common-chemical-potential three-lepton assignments to the declared broad ratio windows. A conditional electron-like/positron-like pair has equal gaps after one supplied electron calibration, with zero independently predicted absolute masses. The actual CODATA/ACT replay is retrospective and adds zero eligible CP11 comparisons.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/particle_transport/results.json",
+          "sha256": "265267039b453e8c9f255592c029557eafcbe384042fc20f631b9cd032626866",
+          "independent_check": "model/particle_transport/test_packet.py",
+          "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
+          "campaign_id": "charged-particle-transport-20261031-v1"
         }
       ]
     },
@@ -1157,7 +1169,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -1439,7 +1451,12 @@
         "model/particle_comparison/electromagnetism.py",
         "model/particle_comparison/test_electromagnetism.py",
         "model/particle_response/dispersion.py",
-        "model/particle_response/test_dispersion.py"
+        "model/particle_response/test_dispersion.py",
+        "model/particle_transport/README.md",
+        "model/particle_transport/algebra.py",
+        "model/particle_transport/source.py",
+        "model/particle_transport/detector.py",
+        "model/particle_transport/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -1464,7 +1481,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -1503,6 +1520,13 @@
           "independent_check": "model/particle_comparison/test_dictionary.py",
           "scope": "An executable sixteen-state benchmark supplies Q=e(N-2), S=hbar*S_internal and one measured electron energy scale, giving assigned Hamiltonian-time and lattice-length units. Complete candidate electric-current/dipole response obeys continuity and charge conjugation, but the pure-gauge open bond measures no magnetic moment and its bare contact kernel is not Coulomb exchange. A separately declared four-site periodic extension checks momentum, all number sectors, particle-hole residues and free doublers. Its charged poles fail the fixed dimer-mass/bare-speed lattice-Dirac benchmark and a same-volume rest-gap variant. Finite-volume shifts and a possible renormalized velocity remain distinct: two momentum-squared values cannot validate a fitted dispersion. This rejects only that supplied finite dictionary benchmark, not an OPH continuum; physical electron/positron identity and QED remain unestablished.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/particle_transport/results.json",
+          "sha256": "265267039b453e8c9f255592c029557eafcbe384042fc20f631b9cd032626866",
+          "independent_check": "model/particle_transport/test_packet.py",
+          "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
+          "campaign_id": "charged-particle-transport-20261031-v1"
         }
       ]
     },
@@ -2392,7 +2416,7 @@
       ],
       "contract": {
         "path": "model/biased_code_universality/campaign.json",
-        "sha256": "d6acab1583cb569de6c8d1e3f8a9db448d0d581cc5ba4ba132706f0252c88ecd",
+        "sha256": "1d12138553cd3056353fe9133740759bb0d9f50cdbb82ad668e0bef700ea38e6",
         "independent_check": "model/biased_code_universality/test_universality.py",
         "scope": "Positive-coin classification transfer proves the fixed biased optimal asymptotic reset rate across arbitrary adaptive exact all-seam sharp-q1 codes. Separate clock-factor composition is operational; finite-horizon biased optimality and particle mass remain unproved.",
         "campaign_id": "OPH-INTEGRATION-BIASED-CODE-UNIVERSALITY-2026-10-29-v1"
@@ -2417,7 +2441,7 @@
       ],
       "contract": {
         "path": "model/completion/component_interfaces.json",
-        "sha256": "a55680e690fbc21b335ab68ed8ac937916b3f01f6273fa386558bee87d86b57b",
+        "sha256": "f4ba0576bf0212b9a0892b5780b8f717fe68fa7e6bc132a9e62b366f7bebf9bd",
         "independent_check": "model/compiled_native_history/test_compiler.py",
         "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
         "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
@@ -2439,6 +2463,22 @@
         "independent_check": "model/exchange_sector/test_statistics_packet.py",
         "scope": "The native collision-free two-particle path group is exactly Z/2. Its positive and negative flat lifts have complete C/E quantum instruments, an exact number-conserving CAR correspondence, and source-compiled phase readouts. The coherent controls and sign choice are explicit; physical spin, localized matter, species and mass are not identified.",
         "campaign_id": "native-exchange-statistics-20261029-v1"
+      }
+    },
+    {
+      "id": "charged-particle-transport-20261031-v1",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-05",
+        "CP-13"
+      ],
+      "contract": {
+        "path": "model/particle_transport/contract.json",
+        "sha256": "65337a2188bfcf7f6268108a9c06cda8593880770831e658f1f6d71458142945",
+        "independent_check": "model/particle_transport/test_packet.py",
+        "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
+        "campaign_id": "charged-particle-transport-20261031-v1"
       }
     }
   ],
@@ -3100,7 +3140,7 @@
       },
       {
         "path": "model/particle_screening/mobile_results.json",
-        "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+        "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
         "independent_check": "model/particle_screening/test_mobile_packet.py",
         "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
         "campaign_id": "mobile-screened-memory-20261029-v1",

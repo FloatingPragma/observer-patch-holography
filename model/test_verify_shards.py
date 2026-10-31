@@ -457,7 +457,7 @@ def test_particle_services_and_actual_data_replay_remain_mandatory():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
     events = workflow.get('on', workflow.get(True))
     commands = [step['run'] for step in workflow['jobs']['particle-services']['steps'] if 'run' in step]
-    for package in ('reference_recovery', 'particle_response', 'contact_scattering', 'particle_comparison'):
+    for package in ('reference_recovery', 'particle_response', 'contact_scattering', 'particle_comparison', 'particle_transport'):
         for event in ('push', 'pull_request'):
             assert f'model/{package}/**' in events[event]['paths']
         assert any('python -m pytest' in c and f'model/{package}' in c for c in commands)
@@ -468,3 +468,17 @@ def test_particle_services_and_actual_data_replay_remain_mandatory():
     assert data['CP11']['eligible_physical_comparisons_added'] == 0
     assert not data['CP11']['OPH_universe_membership_confirmed']
     assert data['custody']['input_sha256']
+
+
+def test_same_candidate_transport_is_replayed_without_promoting_physical_identity():
+    module, receipt = 'model.particle_transport.packet', 'model/particle_transport/results.json'
+    assert (module, None, receipt) in verify.REPLAYS
+    workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
+    commands = [step['run'] for step in workflow['jobs']['particle-services']['steps'] if 'run' in step]
+    assert f'python -m {module} --check {receipt}' in commands
+    data = json.loads((verify.ROOT/receipt).read_text())
+    assert not data['physical_particle_identification']
+    assert not data['integrated_gate_accepted']
+    assert not data['native_topological_protection_established']
+    assert not data['failed_dispersion_benchmark_repaired']
+    assert data['physical_comparison_count_added'] == 0
