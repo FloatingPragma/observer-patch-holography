@@ -16,6 +16,18 @@ def flatten(groups):
     return tuple(replay for group in groups for replay in group)
 
 
+def completion_program_commands(workflow):
+    # These five workers jointly own completion-program coverage;
+    # unrelated jobs cannot mask loss.
+    program_jobs = ('program-contract', 'program-sectors', 'program-repair',
+                    'program-fields', 'program-native')
+    other_jobs = {'particle-services', 'protected-defects', 'native-field-readout',
+                  'native-field-dynamics', 'native-field-thermodynamics'}
+    assert set(workflow['jobs']) == set(program_jobs) | other_jobs
+    return [step['run'] for name in program_jobs
+            for step in workflow['jobs'][name]['steps'] if 'run' in step]
+
+
 @pytest.mark.parametrize('count', range(1, len(verify.replay_groups())+1))
 def test_shards_are_exhaustive_disjoint_and_keep_empirical_worker_atomic(count):
     shards = [verify.selected_replay_groups(index, count) for index in range(count)]
@@ -149,7 +161,7 @@ def test_completion_candidate_receipts_have_replay_custody_and_workflow_coverage
         assert 'model/screened_transport/**' in paths
         assert 'model/clock_defect_energy/**' in paths
         assert 'model/local_repair_family/**' in paths
-    commands = [step['run'] for step in workflow['jobs']['program']['steps'] if 'run' in step]
+    commands = completion_program_commands(workflow)
     pytest_commands = [command for command in commands if 'python -m pytest' in command]
     assert pytest_commands
     pytest_command = '\n'.join(pytest_commands)
@@ -183,7 +195,7 @@ def test_completion_candidate_receipts_have_replay_custody_and_workflow_coverage
 
 def test_full_band_and_native_localization_receipts_are_mandatory():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
-    commands = [step['run'] for step in workflow['jobs']['program']['steps'] if 'run' in step]
+    commands = completion_program_commands(workflow)
     events = workflow.get('on', workflow.get(True))
     for package, module in [('band_clock', 'model.band_clock'),
                             ('native_localization', 'model.native_localization.experiment'),
