@@ -7,12 +7,32 @@ status, and simulation custody aligned across the scientific surfaces.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
+import pytest
 import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DIVIDED_STEP_OWNER = "paper/observers_are_all_you_need.tex"
+DIVIDED_STEP_DERIVATIONS = (
+    (
+        "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+        "ChargeFixedInteraction",
+        r"At a declared nonzero step \(h\)",
+    ),
+    (
+        "OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+        "PortChargeMinimalCoupling",
+        r"At a declared nonzero step \(h\)",
+    ),
+    (
+        "OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+        "WorldlineHopTransport",
+        r"declared nonzero field step \(h\)",
+    ),
+)
 
 
 def _claims() -> dict[str, dict]:
@@ -30,6 +50,21 @@ def _text(relative_path: str) -> str:
 
 def _json(relative_path: str) -> dict:
     return json.loads((ROOT / relative_path).read_text(encoding="utf-8"))
+
+
+def _assert_divided_step_owner_premises(claims: dict[str, dict], owner: str) -> None:
+    paragraphs = re.split(r"\n\s*\n", owner)
+    for claim_id, module, qualifier in DIVIDED_STEP_DERIVATIONS:
+        claim = claims[claim_id]
+        assert claim["owner_paper"] == DIVIDED_STEP_OWNER, claim_id
+        assert DIVIDED_STEP_OWNER in claim["evidence"], claim_id
+        assert f"Lean/Geometry/{module}.lean" in claim["evidence"], claim_id
+        derivations = [
+            paragraph for paragraph in paragraphs
+            if rf"\texttt{{{module}}}" in paragraph
+        ]
+        assert len(derivations) == 1, claim_id
+        assert qualifier in " ".join(derivations[0].split()), claim_id
 
 
 def test_clock_claims_preserve_nonzero_and_live_route_scope() -> None:
@@ -99,11 +134,45 @@ def test_divided_step_charge_and_transport_claims_require_nonzero_h() -> None:
     ):
         assert token in transport_lean
 
-    flagship = _text("flagship/from_observer_consensus_to_standard_physics.tex")
-    observers = _text("paper/observers_are_all_you_need.tex")
-    assert "at a declared nonzero step $h$" in flagship
-    assert "At a declared nonzero step \\(h\\)" in observers
-    assert "declared nonzero field step \\(h\\)" in observers
+    _assert_divided_step_owner_premises(
+        claims, (ROOT / DIVIDED_STEP_OWNER).read_text(encoding="utf-8")
+    )
+
+
+@pytest.mark.parametrize("claim_id,module,qualifier", DIVIDED_STEP_DERIVATIONS)
+def test_divided_step_owner_rejects_missing_local_nonzero_premise(
+    claim_id: str, module: str, qualifier: str
+) -> None:
+    owner = (ROOT / DIVIDED_STEP_OWNER).read_text(encoding="utf-8")
+    paragraphs = re.split(r"\n\s*\n", owner)
+    matched = [p for p in paragraphs if rf"\texttt{{{module}}}" in p]
+    assert len(matched) == 1
+    paragraph = matched[0]
+    assert qualifier in " ".join(paragraph.split())
+    mutated = owner.replace(paragraph, paragraph.replace("nonzero", ""), 1)
+    # Other derivations retain their premises and cannot mask this omission.
+    assert "nonzero" in mutated
+    with pytest.raises(AssertionError, match=claim_id):
+        _assert_divided_step_owner_premises(_claims(), mutated)
+
+
+@pytest.mark.parametrize("claim_id,module,qualifier", DIVIDED_STEP_DERIVATIONS)
+@pytest.mark.parametrize("mutation", ("owner", "owner_evidence", "lean_evidence"))
+def test_divided_step_owner_rejects_broken_registry_binding(
+    claim_id: str, module: str, qualifier: str, mutation: str
+) -> None:
+    claims = _claims()
+    claim = claims[claim_id]
+    if mutation == "owner":
+        claim["owner_paper"] = "flagship/from_observer_consensus_to_standard_physics.tex"
+    elif mutation == "owner_evidence":
+        claim["evidence"].remove(DIVIDED_STEP_OWNER)
+    else:
+        claim["evidence"].remove(f"Lean/Geometry/{module}.lean")
+    with pytest.raises(AssertionError, match=claim_id):
+        _assert_divided_step_owner_premises(
+            claims, (ROOT / DIVIDED_STEP_OWNER).read_text(encoding="utf-8")
+        )
 
 
 def test_generic_mode_oscillator_keeps_lower_courant_and_nonzero_h() -> None:
