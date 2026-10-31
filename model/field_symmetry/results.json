@@ -58,15 +58,16 @@
     "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
     "model/field_stress/__init__.py": "89e3ba97dfe717d1cc21ba86a406a7c58e74eb4db402daaa835d2703bc32bf34",
     "model/field_stress/energy.py": "f44f67d25d9738230966dc4c9e64eecc2792f0bf07d33b4ca4ac5cb9db90cf72",
-    "model/field_symmetry/README.md": "a3160cdfb52e036770ded6d3bce4a709c38639013a3f19bcf1f875eda44a6784",
+    "model/field_symmetry/README.md": "0bd2211df959947eb9ce2dcfc65f2deadbe49a90e68c8b73df543d6b91474387",
     "model/field_symmetry/__init__.py": "5f2c249b87b7a2fca59ea8146cc5baa475ce58a2148a0dc8fec9d4ee4e49a122",
     "model/field_symmetry/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/field_symmetry/contract.json": "d27996f5fc76cd6ef07673ce30ae16169be35cd26af5fd1be7df41dbd18b1c18",
-    "model/field_symmetry/packet.py": "c9ec50a01736096e5118b7b1fe5b122cbe74ed1a858dcd11063b31f0d632c107",
-    "model/field_symmetry/readout.py": "f28c6acc86c4c243bb10d4245ebe49edd0a189b1b615bd44d046e6d11e984ea9",
+    "model/field_symmetry/packet.py": "a283a16670423e37d3b2722dca56226b2dbe64e1aee683fad6b16417be8b3b2a",
+    "model/field_symmetry/readout.py": "582b6b1cd9b0e4aad00fe9d20b0c9d246101f3e31a62721978b7262a7b7622a9",
     "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
-    "model/field_symmetry/test_packet.py": "aa8458c91f89c8a15e4538fc95c4d9eea9c2098d9a2a4cfd6be93a060c6d99bc",
-    "model/field_symmetry/test_readout.py": "32f70d5a8a51b2c2cfdc302f9831ae8e849c16bbc39e742cb167d881fa18e7d5",
+    "model/field_symmetry/test_custody.py": "a6228e9be74ff5a9e2e3d74ec033166e98f3b52b93ba498bbf21b3c25f5ea181",
+    "model/field_symmetry/test_packet.py": "a002b2ca41c73639f010f88198443f36016c0125544a0a8038d51c9494fa8ccf",
+    "model/field_symmetry/test_readout.py": "40b21943b76a946d9fc368e51836cc4778b11fafed300b79c4bef63dbf1280c9",
     "model/field_symmetry/test_symmetry.py": "06d67e81db255caf4786d5a211d45bacca35e26ebdb42a60d7977cbbb6e8343d",
     "model/field_symmetry/test_topology.py": "4ce6daf6dc5e29623d9b57697b94553ef2ec2eef4ef338c3bd34151ae73451f5",
     "model/field_thermal/__init__.py": "1cf22d9bda9bf4055a9702347799c51fb1ffdb447fabba1ab4a629ae0461b480",
@@ -512,6 +513,11 @@
   },
   "complete_source_experiments": [
     {
+      "full_field_word_input_columns": 256,
+      "full_field_word_success_error": 1.2791398320022939e-13,
+      "full_field_word_success_budget": "27/1249999973",
+      "full_field_word_complement_budget": "27/1249999973",
+      "full_field_word_dilation_budget": "54/1249999973",
       "plane": 0,
       "sides": [
         1,
@@ -792,6 +798,7 @@
       "complete_probability_residual": 2.3725466036239595e-13,
       "raw_primitive_residual": 1.3161793783512988e-15,
       "numerical_primitive_ceiling": "1/100000000000",
+      "numerical_probability_mass_ceiling": "2e-09",
       "numerical_dilation_budget": "277/12499999723",
       "state_specific_ideal_split_error": "0",
       "arbitrary_input_ideal_split_bound": "385/512",
@@ -819,6 +826,11 @@
       "floating_arithmetic_or_hardware_certified": false
     },
     {
+      "full_field_word_input_columns": 256,
+      "full_field_word_success_error": 1.2834633219068352e-13,
+      "full_field_word_success_budget": "27/1249999973",
+      "full_field_word_complement_budget": "27/1249999973",
+      "full_field_word_dilation_budget": "54/1249999973",
       "plane": 1,
       "sides": [
         2,
@@ -1099,6 +1111,7 @@
       "complete_probability_residual": 2.3869795029440866e-13,
       "raw_primitive_residual": 1.3161793783512988e-15,
       "numerical_primitive_ceiling": "1/100000000000",
+      "numerical_probability_mass_ceiling": "2e-09",
       "numerical_dilation_budget": "277/12499999723",
       "state_specific_ideal_split_error": "0",
       "arbitrary_input_ideal_split_bound": "385/512",
@@ -1126,6 +1139,11 @@
       "floating_arithmetic_or_hardware_certified": false
     },
     {
+      "full_field_word_input_columns": 256,
+      "full_field_word_success_error": 1.2789333838215271e-13,
+      "full_field_word_success_budget": "27/1249999973",
+      "full_field_word_complement_budget": "27/1249999973",
+      "full_field_word_dilation_budget": "54/1249999973",
       "plane": 2,
       "sides": [
         2,
@@ -1406,6 +1424,7 @@
       "complete_probability_residual": 2.369215934550084e-13,
       "raw_primitive_residual": 1.3161793783512988e-15,
       "numerical_primitive_ceiling": "1/100000000000",
+      "numerical_probability_mass_ceiling": "2e-09",
       "numerical_dilation_budget": "277/12499999723",
       "state_specific_ideal_split_error": "0",
       "arbitrary_input_ideal_split_bound": "385/512",
@@ -1433,6 +1452,11 @@
       "floating_arithmetic_or_hardware_certified": false
     },
     {
+      "full_field_word_input_columns": 256,
+      "full_field_word_success_error": 1.273111903765305e-13,
+      "full_field_word_success_budget": "17/781249983",
+      "full_field_word_complement_budget": "17/781249983",
+      "full_field_word_dilation_budget": "34/781249983",
       "plane": 0,
       "sides": [
         1,
@@ -1713,6 +1737,7 @@
       "complete_probability_residual": 2.3647750424515834e-13,
       "raw_primitive_residual": 1.3161793783512988e-15,
       "numerical_primitive_ceiling": "1/100000000000",
+      "numerical_probability_mass_ceiling": "2e-09",
       "numerical_dilation_budget": "279/12499999721",
       "state_specific_ideal_split_error": "0",
       "arbitrary_input_ideal_split_bound": "385/512",
@@ -1740,6 +1765,11 @@
       "floating_arithmetic_or_hardware_certified": false
     },
     {
+      "full_field_word_input_columns": 256,
+      "full_field_word_success_error": 1.2177551131508369e-13,
+      "full_field_word_success_budget": "27/1249999973",
+      "full_field_word_complement_budget": "27/1249999973",
+      "full_field_word_dilation_budget": "54/1249999973",
       "plane": 0,
       "sides": [
         1,
@@ -2020,6 +2050,7 @@
       "complete_probability_residual": 2.2959412149248237e-13,
       "raw_primitive_residual": 1.3161793783512988e-15,
       "numerical_primitive_ceiling": "1/100000000000",
+      "numerical_probability_mass_ceiling": "2e-09",
       "numerical_dilation_budget": "277/12499999723",
       "state_specific_ideal_split_error": "0",
       "arbitrary_input_ideal_split_bound": "1/512",
