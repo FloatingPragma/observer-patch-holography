@@ -48,6 +48,7 @@ on:
       - 'model/support_refinement/**'
       - 'model/reference_recovery/**'
       - 'model/particle_response/**'
+      - 'model/charged_dynamics/**'
       - 'model/contact_scattering/**'
       - 'model/particle_comparison/**'
       - 'model/modular_flow/**'
@@ -103,6 +104,7 @@ on:
       - 'model/support_refinement/**'
       - 'model/reference_recovery/**'
       - 'model/particle_response/**'
+      - 'model/charged_dynamics/**'
       - 'model/contact_scattering/**'
       - 'model/particle_comparison/**'
       - 'model/modular_flow/**'
@@ -171,9 +173,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison
+      - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison model/charged_dynamics
       - run: python -m pytest -q --durations=10 -W error model/modular_flow model/full_fock_energy model/flux_response model/field_protocols model/dimer_family
       - run: python -m pytest -q --durations=10 -W error model/field_symmetry
       - run: python -m model.field_symmetry --check model/field_symmetry/results.json
       - run: python -m model.flux_response --check model/flux_response/results.json
       - run: python -m model.particle_comparison.compare --check model/particle_comparison/results.json
+      - run: python -m model.charged_dynamics.packet --check model/charged_dynamics/results.json

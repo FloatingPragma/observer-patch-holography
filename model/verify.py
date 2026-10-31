@@ -305,6 +305,7 @@ REPLAYS = (
     ("model.exchange_sector.statistics_packet", None,
      "model/exchange_sector/statistics_results.json"),
     ("model.bound_pair", None, "model/bound_pair/results.json"),
+    ("model.charged_dynamics.packet", None, "model/charged_dynamics/results.json"),
     ("model.particle_clock", None, "model/particle_clock/results.json"),
     ("model.field_regions", None, "model/field_regions/results.json"),
     ("model.field_stress", None, "model/field_stress/results.json"),

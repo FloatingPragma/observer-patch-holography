@@ -198,6 +198,38 @@ def test_resource_certificate_accepts_equivalent_phase_costs_without_hiding_acco
         m.validate_report_replay(retained, alternate)
 
 
+@pytest.mark.parametrize('value', (-1e-300, float('nan'), float('inf'), -float('inf'), 1.01))
+def test_resource_replay_rejects_invalid_probability_before_tolerance(value):
+    retained = json.loads(Path(__file__).with_name('results.json').read_text())
+    changed = copy.deepcopy(retained)
+    changed['prepared_reference_readout']['first_export_abort_probability'] = value
+    with pytest.raises(ValueError, match='nonfinite|invalid replay probability'):
+        m.validate_report_replay(changed, retained)
+
+
+@pytest.mark.parametrize('value', (float('inf'), -float('inf')))
+def test_resource_replay_rejects_matching_nonfinite_error_diagnostics(value):
+    changed = json.loads(Path(__file__).with_name('results.json').read_text())
+    changed['full_algebra_certificate']['complete_dilation_operator_error'] = value
+    with pytest.raises(ValueError, match='nonfinite'):
+        m.validate_report_replay(changed, copy.deepcopy(changed))
+
+
+@pytest.mark.parametrize('path,value', ((('full_Fock_dimension',), 16.),
+    (('canonical_physical_premises_discharged',), False),
+    (('prepared_reference_readout', 'retained_pointer_bits'), True),
+    (('prepared_reference_readout', 'resources', 'native_pulses'), 11660.)))
+def test_resource_replay_preserves_strict_integer_and_boolean_types(path, value):
+    retained = json.loads(Path(__file__).with_name('results.json').read_text())
+    changed = copy.deepcopy(retained)
+    parent = changed
+    for key in path[:-1]:
+        parent = parent[key]
+    parent[path[-1]] = value
+    with pytest.raises(ValueError, match='type mismatch'):
+        m.validate_report_replay(changed, retained)
+
+
 @pytest.mark.parametrize('damage', ('pulse_count', 'understated_error', 'over_budget', 'under_cost'))
 def test_portable_resource_replay_rejects_regressions(damage):
     retained = json.loads(Path(__file__).with_name('results.json').read_text())

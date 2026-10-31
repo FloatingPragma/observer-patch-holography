@@ -97,7 +97,9 @@ Energy comparisons allow two eleven-decimal serialization units; group-weight
 comparisons allow the sum of the two lists' rounding budgets plus two units
 for floating reconstruction. No bound on individual basis-dependent residues
 is relaxed. Nonspectral fields, aggregate current/curvature, source hashes
-and claim flags remain exact comparisons. Tests rotate complete degenerate
+and claim flags remain exact comparisons, with exact JSON types and finite
+values required throughout. The CLI rejects duplicate keys at every depth.
+Tests rotate complete degenerate
 eigenspaces by random complex unitaries and reject shifted interlevel weight,
 changed energies or multiplicities, missing modes, nonfinite weights and
 scope promotion. The CLI uses this same verifier. Exact identities are distinguished from floating

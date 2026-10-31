@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "9d56a57c516b90b84957687e678e3417b5e70b2d5a821845f4fd61c7185ab1bd",
-      "claims/completion_program.json": "ef032f59d9b1c0ec49d9c4cbfbac908d6ffe756e354f27c318927b71dc72787e",
+      "claims/completion_program.json": "050498b9ea1d39495cc26bd6bd648befa48ea09e804206ceccf28372908ad5fb",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -55,13 +55,13 @@
         "independent_check": "model/completion/independent_program_review.py",
         "path": "model/completion/program_class_v2_review.json",
         "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-        "sha256": "60f522880e5956354b60fced53b948e9ad91c9a7f1cd55283b0a5dd3401fdd12"
+        "sha256": "cdf99419dec40640911adff6427e5b03dc451e1ac522faebb840d29fbc9b5220"
       },
       "adopted_class": {
         "independent_check": "model/completion/test_program_class_v2.py",
         "path": "model/completion/program_class_v2.json",
         "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-        "sha256": "8a206a872b8350fac6384eea4122ab9d8d83159a35c550ad647461e54c1fe450"
+        "sha256": "2d28e650a05b498d3282862c0412e5c47cca5dc7f932be70fe3147be4c02fd18"
       },
       "boundary_status": "FROZEN",
       "component_campaigns": [
@@ -432,7 +432,7 @@
             "independent_check": "model/compiled_native_history/test_compiler.py",
             "path": "model/completion/component_interfaces.json",
             "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
-            "sha256": "4a67a33e8d8bbdb0161337e7f7a7e7675bc0d122ed7eea4e04f9960664c02f50"
+            "sha256": "33920b6d1283969e00608313fe4c0de938d6ba009451ba2cf3062492cfd88727"
           },
           "id": "OPH-COMMON-FIELD-INTERFACES-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -466,6 +466,23 @@
             "CP-03",
             "CP-05",
             "CP-13"
+          ],
+          "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "charged-action-dynamics-20261031-v1",
+            "independent_check": "model/charged_dynamics/test_packet.py",
+            "path": "model/charged_dynamics/contract.json",
+            "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
+            "sha256": "af2a56e8af97c68dcfe986203d80950ca382b0db1417de64475dcbc67f286b24"
+          },
+          "id": "charged-action-dynamics-20261031-v1",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-03",
+            "CP-04",
+            "CP-05"
           ],
           "whole_program_frozen": false
         },
@@ -1092,7 +1109,7 @@
             "independent_check": "model/completion/test_finite_attachment_map.py",
             "path": "model/completion/finite_attachment_map.json",
             "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-            "sha256": "a8ecf6439eb4268b0eaca5a6ea64f69776b009e61f6ed45b256bf49146e3f5e2"
+            "sha256": "44c4937a7e557d62fade15c43c89b33f32876ef823bd8341282b8fca6c55dc6a"
           },
           {
             "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -1458,13 +1475,13 @@
               "independent_check": "model/completion/test_program_class_v2.py",
               "path": "model/completion/program_class_v2.json",
               "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-              "sha256": "8a206a872b8350fac6384eea4122ab9d8d83159a35c550ad647461e54c1fe450"
+              "sha256": "2d28e650a05b498d3282862c0412e5c47cca5dc7f932be70fe3147be4c02fd18"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "60f522880e5956354b60fced53b948e9ad91c9a7f1cd55283b0a5dd3401fdd12"
+              "sha256": "cdf99419dec40640911adff6427e5b03dc451e1ac522faebb840d29fbc9b5220"
             }
           ],
           "deliverable": "A versioned, content-bound class of admissible carrier/refinement, repair and memory laws, record instruments, resources, preparations, clocks and interpretation maps; one target and exposure record fixed before validation.",
@@ -1558,7 +1575,7 @@
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "60f522880e5956354b60fced53b948e9ad91c9a7f1cd55283b0a5dd3401fdd12"
+              "sha256": "cdf99419dec40640911adff6427e5b03dc451e1ac522faebb840d29fbc9b5220"
             }
           ],
           "deliverable": "One replayable native repair/memory process that prepares, acts, reads, retains records and continues on overlapping accessible regions, with every service and failure branch accounted.",
@@ -1730,13 +1747,13 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Complete 84-premise ownership/relevance review, 27 inspected finite attachments with 22 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.",
-              "sha256": "a8ecf6439eb4268b0eaca5a6ea64f69776b009e61f6ed45b256bf49146e3f5e2"
+              "sha256": "44c4937a7e557d62fade15c43c89b33f32876ef823bd8341282b8fca6c55dc6a"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "60f522880e5956354b60fced53b948e9ad91c9a7f1cd55283b0a5dd3401fdd12"
+              "sha256": "cdf99419dec40640911adff6427e5b03dc451e1ac522faebb840d29fbc9b5220"
             }
           ],
           "deliverable": "A theorem-to-model integration and relevance review in the existing premise map: each result needed by the completion chain has an owning gate and an explicit model-premise proof obligation; irrelevant branches leave the active path.",
@@ -1975,7 +1992,7 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-              "sha256": "a8ecf6439eb4268b0eaca5a6ea64f69776b009e61f6ed45b256bf49146e3f5e2"
+              "sha256": "44c4937a7e557d62fade15c43c89b33f32876ef823bd8341282b8fca6c55dc6a"
             },
             {
               "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -2358,7 +2375,7 @@
               "independent_check": "model/modular_flow/test_flow.py",
               "path": "model/modular_flow/flow.py",
               "scope": "On the same supplied faithful one/two-site full-Fock Gibbs reference, source words implement sigma_s(A)=rho^(is) A rho^(-is)=tau_{-beta*s}(A). Complete input columns, retained purifiers, all number-read outcomes and every export-failure map supply an arbitrary-reference implementation certificate and rational ideal-word splitting bound.",
-              "sha256": "33be5617716d7160ea8684c123a3a02ab6aabaf44886c559cb8e14ce14563578"
+              "sha256": "71a8f16174f288b4f42437ce0f330c72c0c01da47d3c529b8a43010fe88f3840"
             }
           ],
           "requires": [
@@ -2547,6 +2564,13 @@
               "path": "model/exchange_sector/presentation.py",
               "scope": "Exact noncommutative Tietze replay on the original native collision-free two-complex reduces235generators and495relators to <g|g^2>, with odd ordered-cover parity. No physical species, spin or sign selection.",
               "sha256": "220f4d9638cb445e2e3cfdf310fcf40d5f6e25a31525e0cea2020305d557bfb7"
+            },
+            {
+              "campaign_id": "charged-action-dynamics-20261031-v1",
+              "independent_check": "model/charged_dynamics/test_packet.py",
+              "path": "model/charged_dynamics/results.json",
+              "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
+              "sha256": "8ff7071fadbd5ca416e1289c192e51fe419e58d3d3b3777791ef2c4ac2554907"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -2758,7 +2782,14 @@
               "independent_check": "model/flux_response/test_response.py",
               "path": "model/flux_response/response.py",
               "scope": "The periodic four-site Weyl/contact action with a supplied Peierls loop flux retains all 256 Fock states. Exact operator differentiation, CAR continuity and the nondegenerate-ground Hellmann-Feynman/Kubo identity bind persistent current and curvature; gauge redistribution leaves their totals invariant. Degenerate free/atomic controls reject the unique-ground formula.",
-              "sha256": "425621f047636e5f54726fb6b7e2e81ada88b2259e2842e6ad20146ff1f10aff"
+              "sha256": "b65b8db73932a9feaf2b1c145b703d1362646e16ac24f6d235ae4ca2b8c4c360"
+            },
+            {
+              "campaign_id": "charged-action-dynamics-20261031-v1",
+              "independent_check": "model/charged_dynamics/test_packet.py",
+              "path": "model/charged_dynamics/results.json",
+              "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
+              "sha256": "8ff7071fadbd5ca416e1289c192e51fe419e58d3d3b3777791ef2c4ac2554907"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -2881,7 +2912,14 @@
               "independent_check": "model/flux_response/test_response.py",
               "path": "model/flux_response/response.py",
               "scope": "The periodic four-site Weyl/contact action with a supplied Peierls loop flux retains all 256 Fock states. Exact operator differentiation, CAR continuity and the nondegenerate-ground Hellmann-Feynman/Kubo identity bind persistent current and curvature; gauge redistribution leaves their totals invariant. Degenerate free/atomic controls reject the unique-ground formula.",
-              "sha256": "425621f047636e5f54726fb6b7e2e81ada88b2259e2842e6ad20146ff1f10aff"
+              "sha256": "b65b8db73932a9feaf2b1c145b703d1362646e16ac24f6d235ae4ca2b8c4c360"
+            },
+            {
+              "campaign_id": "charged-action-dynamics-20261031-v1",
+              "independent_check": "model/charged_dynamics/test_packet.py",
+              "path": "model/charged_dynamics/results.json",
+              "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
+              "sha256": "8ff7071fadbd5ca416e1289c192e51fe419e58d3d3b3777791ef2c4ac2554907"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",

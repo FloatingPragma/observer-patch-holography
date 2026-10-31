@@ -255,3 +255,61 @@ def test_cli_uses_the_same_basis_invariant_verifier(monkeypatch, tmp_path):
     with pytest.raises(SystemExit, match='deliberate verifier rejection'):
         response.main()
     assert len(calls) == 1
+
+
+@pytest.mark.parametrize('path,replacement', [
+    (('integrated_completion_gate_accepted',), 0),
+    (('dynamical_photon_or_physical_QED_identified',), 0.),
+    (('complete_Fock_dimension',), 256.),
+    (('atomic_control', 'ground_degeneracy'), 16.),
+    (('interacting_responses', 0, 'retained_spectral_entries'), 256.),
+    (('interacting_responses', 0, 'complete_gaps', 0), 0),
+    (('interacting_responses', 0, 'complete_current_weights', 0), 0),
+])
+def test_strict_replay_rejects_equal_valued_type_substitutions(path, replacement):
+    expected = json.loads(Path(__file__).with_name('results.json').read_text())
+    changed = copy.deepcopy(expected)
+    target = changed
+    for key in path[:-1]:
+        target = target[key]
+    assert type(target[path[-1]]) is not type(replacement)
+    assert target[path[-1]] == replacement
+    target[path[-1]] = replacement
+    with pytest.raises(ValueError, match='type'):
+        verify_receipt(expected, changed)
+
+
+@pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])
+def test_strict_replay_rejects_nonfinite_nonspectral_values_even_in_both_inputs(value):
+    packet = json.loads(Path(__file__).with_name('results.json').read_text())
+    packet['gauge_redistribution']['hamiltonian_residual'] = value
+    with pytest.raises(ValueError, match='nonfinite'):
+        verify_receipt(packet, packet)
+
+
+@pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])
+def test_strict_serialization_rejects_nonfinite_diagnostics(value):
+    with pytest.raises(ValueError, match='nonfinite'):
+        _json_value({'diagnostic': value})
+
+
+@pytest.mark.parametrize('location', ['root', 'nested'])
+def test_strict_cli_rejects_duplicate_keys(monkeypatch, tmp_path, location):
+    import sys
+    from . import response
+    packet = json.loads(Path(__file__).with_name('results.json').read_text())
+    document = json.dumps(packet)
+    if location == 'root':
+        document = '{"integrated_completion_gate_accepted":true,'+document[1:]
+    else:
+        needle = '"ground_degeneracy": 16'
+        assert needle in document
+        document = document.replace(needle, '"ground_degeneracy": 1, '+needle, 1)
+    # The permissive decoder would hide the first, contradictory value.
+    assert json.loads(document) == packet
+    receipt = tmp_path/'duplicate.json'
+    receipt.write_text(document, encoding='utf-8')
+    monkeypatch.setattr(response, 'report', lambda: packet)
+    monkeypatch.setattr(sys, 'argv', ['flux', '--check', str(receipt)])
+    with pytest.raises(SystemExit, match='duplicate'):
+        response.main()

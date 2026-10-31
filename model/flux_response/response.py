@@ -15,6 +15,8 @@ from pathlib import Path
 
 import numpy as np
 
+from tools import strict_json
+
 from ..full_fock_field.field import FullFock
 from ..reference_observation.observation import frozen
 
@@ -160,7 +162,8 @@ def report():
     atom = FluxRing(.4, speed=0.)
     root = Path(__file__).resolve().parents[2]
     source_files = ('model/flux_response/response.py', 'model/flux_response/README.md',
-                    'model/full_fock_field/field.py', 'model/reference_observation/observation.py')
+                    'model/full_fock_field/field.py', 'model/reference_observation/observation.py',
+                    'tools/strict_json.py')
     return dict(schema='oph.complete_finite_flux_response.v1',
         source_sha256={name: hashlib.sha256((root/name).read_bytes()).hexdigest()
                        for name in source_files},
@@ -190,6 +193,8 @@ def _json_value(value):
     if isinstance(value, (list, tuple)):
         return [_json_value(v) for v in value]
     if isinstance(value, float):
+        if not math.isfinite(value):
+            raise ValueError('nonfinite flux response diagnostic')
         return round(value, 11)+0.
     return value
 
@@ -228,6 +233,28 @@ def spectral_subspaces(row):
     return groups
 
 
+def _same_json_schema(expected, actual, path='root'):
+    """Validate exact JSON types/shape and finiteness before spectral replay."""
+    if type(expected) is not type(actual):
+        raise ValueError(f'flux receipt type mismatch at {path}')
+    if type(expected) is dict:
+        if (any(type(key) is not str for key in expected) or
+                expected.keys() != actual.keys()):
+            raise ValueError(f'flux receipt keys mismatch at {path}')
+        for key in expected:
+            _same_json_schema(expected[key], actual[key], f'{path}.{key}')
+    elif type(expected) is list:
+        if len(expected) != len(actual):
+            raise ValueError(f'flux receipt length mismatch at {path}')
+        for index, (a, b) in enumerate(zip(expected, actual, strict=True)):
+            _same_json_schema(a, b, f'{path}[{index}]')
+    elif type(expected) is float:
+        if not math.isfinite(expected) or not math.isfinite(actual):
+            raise ValueError(f'nonfinite flux receipt value at {path}')
+    elif type(expected) not in (str, bool, int, type(None)):
+        raise ValueError(f'unsupported flux receipt type at {path}')
+
+
 def verify_receipt(expected, actual):
     """Compare physical spectral measures, never a degenerate basis choice.
 
@@ -237,6 +264,7 @@ def verify_receipt(expected, actual):
     two serialization units for binary64 spectral reconstruction; this does
     not enlarge an eigenvector-residue tolerance to hide a basis change.
     """
+    _same_json_schema(expected, actual)
     left, right = copy.deepcopy(expected), copy.deepcopy(actual)
     try:
         if len(left['interacting_responses']) != len(right['interacting_responses']):
@@ -275,12 +303,12 @@ def main():
     rendered = json.dumps(result, indent=2, sort_keys=True, allow_nan=False)+'\n'
     if args.check:
         try:
-            verify_receipt(json.loads(args.check.read_text()), result)
+            verify_receipt(strict_json.load(args.check), result)
         except ValueError as error:
             raise SystemExit(str(error)) from error
         print('complete finite flux response replay passed')
     elif args.write:
-        with args.write.open('x') as output:
+        with args.write.open('x', encoding='utf-8', newline='\n') as output:
             output.write(rendered)
     else:
         print(rendered, end='')

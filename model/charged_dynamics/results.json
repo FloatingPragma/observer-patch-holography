@@ -1,0 +1,1517 @@
+{
+  "band_and_transfer": {
+    "exact_inertia_grid_rows": 65,
+    "exact_inertia_grid_sha256": "ebbb83da2a68c42b40dca0bdb27fd798c4c76b7e1d5e246a7c915f1d5162305f",
+    "path": {
+      "all_spin_multiplets_and_number_sectors_retained": true,
+      "charged_Sz_half_block_dimension": 24,
+      "charged_Sz_three_halves_block_dimension": 4,
+      "charged_complement_domain": "the same full N=3 or N=5 number sector",
+      "charged_complement_gap_uniform_lower": "1/256",
+      "charged_rank_in_each_of_N3_N5": 4,
+      "dyadic_energy_denominator": 65536,
+      "floating_eigenvalues_are_only_proposals": true,
+      "global_ground_excitation_gap_uniform_lower": "1/128",
+      "grid_intervals": 64,
+      "half_filled_Sz_one_block_dimension": 16,
+      "half_filled_Sz_zero_block_dimension": 36,
+      "half_filled_excitation_gap_uniform_lower": "1/128",
+      "half_filled_ground_rank": 1,
+      "middle_link_operator_norm_upper": "1/8",
+      "nearest_grid_gap_penalty": "1/512",
+      "other_number_sector_separation_lower": "1/8",
+      "other_number_sectors_lower_bound": "-15/8",
+      "parameter_interval": [
+        "0",
+        "1"
+      ],
+      "product_reference_variational_upper_bound": "-2"
+    },
+    "short_time_transfer": {
+      "arbitrary_internal_spin_and_untouched_reference": true,
+      "band_projection_or_postselection_used": false,
+      "duration": "4",
+      "link_norm_upper": "1/8",
+      "link_strength": "1",
+      "odd_Dyson_remainder_upper": "94121710753053010601437/4461737270453402075136000",
+      "opposite_bare_code_amplitude_lower": "34684966996800421517699455031/613207785239304221000466432000",
+      "opposite_bare_code_probability_lower": "1203046935569134451865228329800838612755461841394391210961/376023787878092647658959519655786319292819161558810624000000",
+      "projected_hopping_lower": "512311/26387904"
+    },
+    "structure": {
+      "N_at_most_3_generator_lower_bound": "-15/8",
+      "all_number_component_blocks": 25,
+      "exact_monomial_source_gauge_axes": 3,
+      "full_Fock_columns": 256,
+      "integer_SU2_commutators_checked": true,
+      "middle_link_commuting_spin_hops_each_norm_at_most": "1/16",
+      "middle_link_norm_upper": "1/8",
+      "nonnegative_contact_term_used": true,
+      "number_four_occupation_trial_variational_upper_bound": "-2",
+      "one_particle_hopping_norm_upper_all_links": "1/8",
+      "other_number_sectors_follow_by_particle_hole": true,
+      "particle_hole_full_generator_and_number_identity_checked": true,
+      "product_dimer_ground_variational_upper_bound": "-2"
+    }
+  },
+  "campaign_id": "charged-action-dynamics-20261031-v1",
+  "contract_sha256": "af2a56e8af97c68dcfe986203d80950ca382b0db1417de64475dcbc67f286b24",
+  "field_observables": {
+    "arbitrary_untouched_reference_columns": true,
+    "axes_checked": 3,
+    "bare_joining_coefficient": "(1+1/sqrt(17))/64 = hopping(1/16) times local CAR residue",
+    "canonical_polar_dressing": true,
+    "charge_conjugation_checked": true,
+    "charged_dynamics": {
+      "hole": {
+        "actual_block_charge_contrast": 0.0791310376,
+        "bare_overlap_eigenvalues": [
+          0.2704793225,
+          0.2704793225,
+          0.7514973527,
+          0.7514973527
+        ],
+        "charge_read_offband_operator_norm": 0.5014672726,
+        "current_amplitude": 0.0005113802,
+        "histories": [
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0,
+            "dressed_destination_weight": 0.0300698496,
+            "duration": 0.0,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": -1.0,
+            "left_marginal_to_coupled_ground_marginal": 0.9975728169,
+            "left_marginal_to_product_ground": 1.0,
+            "outward_left_CAR_current": 0.0,
+            "preparation": "bare",
+            "right_excess_number": 0.0,
+            "right_exterior_to_coupled_ground_marginal": 0.0716631406,
+            "right_exterior_to_product_ground": 0.0
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0022486188,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.9637470536,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0339976372,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                6.6904e-06,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0058515269,
+            "dressed_destination_weight": 0.0303710448,
+            "duration": 4.0,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": -0.9682376009,
+            "left_marginal_to_coupled_ground_marginal": 0.9652803736,
+            "left_marginal_to_product_ground": 0.9906385285,
+            "outward_left_CAR_current": -0.0157375549,
+            "preparation": "bare",
+            "right_excess_number": -0.0317623991,
+            "right_exterior_to_coupled_ground_marginal": 0.0653803888,
+            "right_exterior_to_product_ground": 0.0368226108
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0005785128,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.3930387463,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.6046630521,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0017196888,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.3189465899,
+            "dressed_destination_weight": 0.2554941688,
+            "duration": 121.5326028914,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": -0.3924760831,
+            "left_marginal_to_coupled_ground_marginal": 0.5752070677,
+            "left_marginal_to_product_ground": 0.6446150676,
+            "outward_left_CAR_current": -0.0217763156,
+            "preparation": "bare",
+            "right_excess_number": -0.6075239169,
+            "right_exterior_to_coupled_ground_marginal": 0.6752160803,
+            "right_exterior_to_product_ground": 0.742591892
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.000605843,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.1903144063,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.8083010194,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0007787314,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.7737897188,
+            "dressed_destination_weight": 0.4809184881,
+            "duration": 243.0652057829,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": -0.1907473609,
+            "left_marginal_to_coupled_ground_marginal": 0.1924390204,
+            "left_marginal_to_product_ground": 0.2232870285,
+            "outward_left_CAR_current": 0.0252617915,
+            "preparation": "bare",
+            "right_excess_number": -0.8092526391,
+            "right_exterior_to_coupled_ground_marginal": 0.8389457561,
+            "right_exterior_to_product_ground": 0.9064480634
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                8.09784e-05,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.5403082763,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.4587060311,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0009047142,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0300698496,
+            "dressed_destination_weight": 0.0,
+            "duration": 0.0,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": -0.5395655188,
+            "left_marginal_to_coupled_ground_marginal": 0.9012026183,
+            "left_marginal_to_product_ground": 0.969634006,
+            "outward_left_CAR_current": 0.0,
+            "preparation": "dressed",
+            "right_excess_number": -0.4604344812,
+            "right_exterior_to_coupled_ground_marginal": 0.4578333578,
+            "right_exterior_to_product_ground": 0.4968718994
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                8.15287e-05,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.5402537608,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.4587605466,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0009041639,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0303710448,
+            "dressed_destination_weight": 0.000668063,
+            "duration": 4.0,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": -0.5395126543,
+            "left_marginal_to_coupled_ground_marginal": 0.9008865148,
+            "left_marginal_to_product_ground": 0.9693178113,
+            "outward_left_CAR_current": -2.64264e-05,
+            "preparation": "dressed",
+            "right_excess_number": -0.4604873457,
+            "right_exterior_to_coupled_ground_marginal": 0.4578846661,
+            "right_exterior_to_product_ground": 0.4971870345
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0004928463,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.4995071537,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.4995071537,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0004928463,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.2554941688,
+            "dressed_destination_weight": 0.5,
+            "duration": 121.5326028914,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": -0.5,
+            "left_marginal_to_coupled_ground_marginal": 0.6649306257,
+            "left_marginal_to_product_ground": 0.7330749085,
+            "outward_left_CAR_current": -0.0005113802,
+            "preparation": "dressed",
+            "right_excess_number": -0.5,
+            "right_exterior_to_coupled_ground_marginal": 0.6649306257,
+            "right_exterior_to_product_ground": 0.7330749085
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0009047142,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.4587060311,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.5403082763,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                8.09784e-05,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.4809184881,
+            "dressed_destination_weight": 1.0,
+            "duration": 243.0652057829,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": -0.4604344812,
+            "left_marginal_to_coupled_ground_marginal": 0.4578333578,
+            "left_marginal_to_product_ground": 0.4968718994,
+            "outward_left_CAR_current": 0.0,
+            "preparation": "dressed",
+            "right_excess_number": -0.5395655188,
+            "right_exterior_to_coupled_ground_marginal": 0.9012026183,
+            "right_exterior_to_product_ground": 0.969634006
+          }
+        ],
+        "hopping": 0.0064624483,
+        "transfer_time": 243.0652057829
+      },
+      "particle": {
+        "actual_block_charge_contrast": 0.0791310376,
+        "bare_overlap_eigenvalues": [
+          0.2704793225,
+          0.2704793225,
+          0.7514973527,
+          0.7514973527
+        ],
+        "charge_read_offband_operator_norm": 0.5014672726,
+        "current_amplitude": 0.0005113802,
+        "histories": [
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0,
+            "dressed_destination_weight": 0.0300698496,
+            "duration": 0.0,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": 1.0,
+            "left_marginal_to_coupled_ground_marginal": 0.9975728169,
+            "left_marginal_to_product_ground": 1.0,
+            "outward_left_CAR_current": 0.0,
+            "preparation": "bare",
+            "right_excess_number": 0.0,
+            "right_exterior_to_coupled_ground_marginal": 0.0716631406,
+            "right_exterior_to_product_ground": 0.0
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                6.6904e-06
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0339976372,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.9637470536,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0022486188,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0058515269,
+            "dressed_destination_weight": 0.0303710448,
+            "duration": 4.0,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": 0.9682376009,
+            "left_marginal_to_coupled_ground_marginal": 0.9652803736,
+            "left_marginal_to_product_ground": 0.9906385285,
+            "outward_left_CAR_current": 0.0157375549,
+            "preparation": "bare",
+            "right_excess_number": 0.0317623991,
+            "right_exterior_to_coupled_ground_marginal": 0.0653803888,
+            "right_exterior_to_product_ground": 0.0368226108
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0017196888
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.6046630521,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.3930387463,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0005785128,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.3189465899,
+            "dressed_destination_weight": 0.2554941688,
+            "duration": 121.5326028914,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": 0.3924760831,
+            "left_marginal_to_coupled_ground_marginal": 0.5752070677,
+            "left_marginal_to_product_ground": 0.6446150676,
+            "outward_left_CAR_current": 0.0217763156,
+            "preparation": "bare",
+            "right_excess_number": 0.6075239169,
+            "right_exterior_to_coupled_ground_marginal": 0.6752160803,
+            "right_exterior_to_product_ground": 0.742591892
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0007787314
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.8083010194,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.1903144063,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.000605843,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.7737897188,
+            "dressed_destination_weight": 0.4809184881,
+            "duration": 243.0652057828,
+            "invariant_band_weight": 0.5109883376,
+            "left_excess_number": 0.1907473609,
+            "left_marginal_to_coupled_ground_marginal": 0.1924390204,
+            "left_marginal_to_product_ground": 0.2232870285,
+            "outward_left_CAR_current": -0.0252617915,
+            "preparation": "bare",
+            "right_excess_number": 0.8092526391,
+            "right_exterior_to_coupled_ground_marginal": 0.8389457561,
+            "right_exterior_to_product_ground": 0.9064480634
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0009047142
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.4587060311,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.5403082763,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                8.09784e-05,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0300698496,
+            "dressed_destination_weight": 0.0,
+            "duration": 0.0,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": 0.5395655188,
+            "left_marginal_to_coupled_ground_marginal": 0.9012026183,
+            "left_marginal_to_product_ground": 0.969634006,
+            "outward_left_CAR_current": 0.0,
+            "preparation": "dressed",
+            "right_excess_number": 0.4604344812,
+            "right_exterior_to_coupled_ground_marginal": 0.4578333578,
+            "right_exterior_to_product_ground": 0.4968718994
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0009041639
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.4587605466,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.5402537608,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                8.15287e-05,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.0303710448,
+            "dressed_destination_weight": 0.000668063,
+            "duration": 4.0,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": 0.5395126543,
+            "left_marginal_to_coupled_ground_marginal": 0.9008865148,
+            "left_marginal_to_product_ground": 0.9693178113,
+            "outward_left_CAR_current": 2.64264e-05,
+            "preparation": "dressed",
+            "right_excess_number": 0.4604873457,
+            "right_exterior_to_coupled_ground_marginal": 0.4578846661,
+            "right_exterior_to_product_ground": 0.4971870345
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0004928463
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.4995071537,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.4995071537,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0004928463,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.2554941688,
+            "dressed_destination_weight": 0.5,
+            "duration": 121.5326028914,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": 0.5,
+            "left_marginal_to_coupled_ground_marginal": 0.6649306257,
+            "left_marginal_to_product_ground": 0.7330749085,
+            "outward_left_CAR_current": 0.0005113802,
+            "preparation": "dressed",
+            "right_excess_number": 0.5,
+            "right_exterior_to_coupled_ground_marginal": 0.6649306257,
+            "right_exterior_to_product_ground": 0.7330749085
+          },
+          {
+            "all25_block_number_probabilities": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                8.09784e-05
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.5403082763,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.4587060311,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0009047142,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bare_destination_weight": 0.4809184881,
+            "dressed_destination_weight": 1.0,
+            "duration": 243.0652057828,
+            "invariant_band_weight": 1.0,
+            "left_excess_number": 0.4604344812,
+            "left_marginal_to_coupled_ground_marginal": 0.4578333578,
+            "left_marginal_to_product_ground": 0.4968718994,
+            "outward_left_CAR_current": 0.0,
+            "preparation": "dressed",
+            "right_excess_number": 0.5395655188,
+            "right_exterior_to_coupled_ground_marginal": 0.9012026183,
+            "right_exterior_to_product_ground": 0.969634006
+          }
+        ],
+        "hopping": 0.0064624483,
+        "transfer_time": 243.0652057828
+      }
+    },
+    "charged_internal_input_dimension": 2,
+    "complete_Fock_dimension": 256,
+    "complete_occupation_records_per_history": 256,
+    "complete_unrounded_state_and_measure_arrays_available": true,
+    "coupled_ground_response": {
+      "addition_band_weights": [
+        0.114747193,
+        0.114747193,
+        0.2423581117,
+        0.2423581117,
+        0.2423581117,
+        0.2423581117,
+        0.114747193,
+        0.114747193
+      ],
+      "addition_complement_weights": [
+        0.385252807,
+        0.385252807,
+        0.2576418883,
+        0.2576418883,
+        0.2576418883,
+        0.2576418883,
+        0.385252807,
+        0.385252807
+      ],
+      "addition_total_weights": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "all_CAR_sum_rules_and_moments_through_order2_checked": true,
+      "band_residue_renormalization_applied": false,
+      "charged_band_gaps": [
+        0.4157172068,
+        0.4157172068,
+        0.4286421034,
+        0.4286421034
+      ],
+      "first_frequency_moments": [
+        [
+          0.2500547327,
+          0.2500547327
+        ],
+        [
+          0.2500547327,
+          0.2500547327
+        ],
+        [
+          0.2502151881,
+          0.2502151881
+        ],
+        [
+          0.2502151881,
+          0.2502151881
+        ],
+        [
+          0.2502151881,
+          0.2502151881
+        ],
+        [
+          0.2502151881,
+          0.2502151881
+        ],
+        [
+          0.2500547327,
+          0.2500547327
+        ],
+        [
+          0.2500547327,
+          0.2500547327
+        ]
+      ],
+      "ground_energy": -2.0364147301,
+      "local_modes": 8,
+      "rank_per_charged_band": 4,
+      "removal_band_weights": [
+        0.114747193,
+        0.114747193,
+        0.2423581117,
+        0.2423581117,
+        0.2423581117,
+        0.2423581117,
+        0.114747193,
+        0.114747193
+      ],
+      "removal_complement_weights": [
+        0.385252807,
+        0.385252807,
+        0.2576418883,
+        0.2576418883,
+        0.2576418883,
+        0.2576418883,
+        0.385252807,
+        0.385252807
+      ],
+      "removal_total_weights": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "retained_final_states_per_mode": 256
+    },
+    "dressed_band_implies_strict_localized_charge": false,
+    "initial_product_dimer_state_is_stationary": false,
+    "native_repair_or_topological_protection": false,
+    "numerical_observable_admission": "Frobenius residual <= 3e-10",
+    "physical_charge_current_continuity_checked": true,
+    "physical_electron_identification": false,
+    "scope": "UNCHANGED_UNIFORM_FOUR_SITE_CHARGED_FIELD_OBSERVABLES"
+  },
+  "integrated_gate_accepted": false,
+  "nontrivial_topological_defect_assigned": false,
+  "physical_comparison_count_added": 0,
+  "physical_electron_identification": false,
+  "schema": "oph.charged_action_dynamics.receipt.v1",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "source_bindings": {
+    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/charged_dynamics/README.md": "7dcd2ef88c63d6070532a8297fbcac96ce43d9ca230a4f9a1002ca860ce02f6e",
+    "model/charged_dynamics/__init__.py": "033656c3825354d047fdc141bbc2b12e80f31a81f7b4134b6224f7f7708d92f1",
+    "model/charged_dynamics/certification.py": "db44c4ead94184b9834d573c5ec330e51b9546a1e194915f612f6e9c7408e7e5",
+    "model/charged_dynamics/chain.py": "f36bed4a46af04c41c93c6d2b3d976630b2dc7ba261b2017c948c21e5f02fc8b",
+    "model/charged_dynamics/contract.json": "af2a56e8af97c68dcfe986203d80950ca382b0db1417de64475dcbc67f286b24",
+    "model/charged_dynamics/observables.py": "691f64fadef1a279a16caa6184332a76d9e62cd59d252d9fb8a23c124ba91292",
+    "model/charged_dynamics/packet.py": "6ea5438a33ac3678d127647ef701105f11b92c117ab2b6d7c259727a56823aaf",
+    "model/charged_dynamics/source.py": "74fa207eccaa8da8b1c92fdf347b6f8860ee25b1aaf4fa7b56975c0d6cc75abb",
+    "model/charged_dynamics/test_certification.py": "bbe867733bddb696db30adb7943fa5789915cdb6666809b66b9c969cc6c78b17",
+    "model/charged_dynamics/test_chain.py": "294629ffdf2071fa9c0c1838e5a0aa6d113b1d3d6d0ef51624746fcb6b847be9",
+    "model/charged_dynamics/test_observables.py": "81623b52c6022dd81087022a0b0908885d241c2345dcd3ddfad50d0872b3d2a3",
+    "model/charged_dynamics/test_packet.py": "e715bd33246423e2d4c3f376ce73de769ff1e9dba9159a249143bccf11907e0d",
+    "model/charged_dynamics/test_source.py": "863b7c7923dded3f7d1606a60f64c86b666c7e7b1d0688d5dec683947fb18f63",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/chiral_candidate/__init__.py": "10a17df74de08c2eb6e84954e825d30997cfa3c1f7d22e1e144491621a09b977",
+    "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade",
+    "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
+    "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "model/common_source/mass_response/__init__.py": "848f40bd5231002e7ac5e28ac9cab27481d47bab0f363c9f39c31f14b2656a7e",
+    "model/common_source/mass_response/model.py": "1ffdf1a680763d52d0841636aee3dc05a51a16487a5770b2e7208dcb3dbdaacf",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/occupation.py": "b9a42851ad8891a524c087ff1e3331323dbf9c8d3c38c3a5cf88b0128eb433b9",
+    "model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/common_source/spatial.py": "873fa595f93ab8bc228d60bc46480acda2e5ea86fb0952db2d023670d1d36733",
+    "model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+    "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/field_regions/__init__.py": "695fca56b85459b4b7196e439c4e9485d888431f1df0334289d0c49ca54419ea",
+    "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
+    "model/field_thermal/__init__.py": "1cf22d9bda9bf4055a9702347799c51fb1ffdb447fabba1ab4a629ae0461b480",
+    "model/field_thermal/thermal.py": "79279646ac75e1ed7254003435c650f37ab259f8ca5133fe683a2f8b8a9ffcd9",
+    "model/full_fock_field/__init__.py": "72004e140b0027d10517e53abc04bc56164e10b665fd5adf0f64294fe0e2515f",
+    "model/full_fock_field/bounds.py": "7a90b91236c7a27c62da7db222f7e7928b683f027a8b77af22d74bbd6224431c",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/full_fock_field/local_simulation.py": "3a8a221cd988f9c8741610c7f1bb4cbc114607bedd311981dfd9543c821a62e9",
+    "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+    "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+    "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+    "model/interacting_field/__init__.py": "a6ae40bc514b34efa189518937850fd35173e0e9fb1aa590987e91d8c1af26cf",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/interacting_field/source.py": "39735bf7a86e3fa309b2a3d01c3e64b146be8d2f280445731c146b984f73e5be",
+    "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+    "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+    "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+    "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+    "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+    "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+    "model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+    "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+    "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+    "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
+    "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
+    "model/particle_response/spectrum.py": "1e8932166a0038d5343835cedb3a4fed1a348ced8f263c23545c3433f6b344d8",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+    "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/reference_observation/__init__.py": "432bf96c6222f4daac7c102f27c33d6eb212c417c894ad27999bd806eca3373f",
+    "model/reference_observation/observation.py": "bfa8f88bdb13d256f9e61d2156bf7d3238ca98a970d39c0f664174bcaa0c6df6",
+    "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+    "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/replay_empirical.py": "e366d89e359fc6c55436ace4b69c53b2c3e7ecaa14f5e6ccef546a684661f7d5",
+    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "model/verify.py": "92e3e7c9ba55ebc0a932e49fe7c64f6c179e0c083075ea7c3a13446a3b68ebbf",
+    "requirements.txt": "f116bec13d89a098f6523a26eede8280021585a32ec3294fc3f7174d6cd0ec09",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "source_history": {
+    "carrier": "complete eight-mode Fock space, dimension 256",
+    "encoder_complete_instrument_gate": "1/10000000",
+    "encoder_control_canonicalization": {
+      "all_pulse_and_service_requests_retained": true,
+      "decimal_places": 12,
+      "empty_pivot_threshold": "1e-12",
+      "original_full_target_admission_unchanged": true,
+      "quantum_outputs_clipped_or_normalized": false
+    },
+    "failure_archive": "owned immutable local primitives, input, literal remaps, and prefix replay",
+    "fresh_native_control_data_sha256": {
+      "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+      "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053"
+    },
+    "initial_reference": "supplied pure ground in each decoupled dimer; one charged input",
+    "initial_reference_is_coupled_ground": false,
+    "local_complete_instrument_gate": "1/10000000000",
+    "maximum_executed_reference_columns_in_complete_readout": 16,
+    "native_passive_protection_or_topological_defect_claimed": false,
+    "physical_hardware_error_or_clock_calibration_included": false,
+    "preparation_accepts_unknown_internal_qubit_and_untouched_reference": true,
+    "preparation_seed_occupation_supplied_by_counted_X_CNOT_apparatus": true,
+    "probability_experiment_input_squared_norm_gate": "1e-12",
+    "read_refinements_are_separate_experiments": true,
+    "rows": [
+      {
+        "all_number_sectors_and_export_failures_retained": true,
+        "axis": 0,
+        "block_number_bins": [
+          5.366184397045547e-51,
+          9.344092487367493e-28,
+          2.523981111248433e-25,
+          0.002248547344964071,
+          1.0163085661243046e-26,
+          1.6857103472115628e-26,
+          2.2910022085658536e-23,
+          0.9637472534800813,
+          1.95791186246751e-23,
+          4.857649387605398e-24,
+          5.288136672126964e-25,
+          0.033997509202456144,
+          3.2250503736785945e-23,
+          7.60530346295744e-25,
+          5.308977581330164e-29,
+          6.689942618578043e-06,
+          4.546280731863466e-25,
+          1.6585883158193696e-23,
+          2.551292862689337e-25,
+          8.433679609978341e-47,
+          6.628832952346192e-29,
+          4.321411005686039e-26,
+          3.9569719722189786e-24,
+          8.33999666449563e-47,
+          2.1463160948281926e-47
+        ],
+        "candidate_location_probabilities": null,
+        "complete_output_probability": 0.9999999999701201,
+        "conditional_numerical_source_Stinespring_upper": "3319/2499996681",
+        "conditional_positive_candidate_transfer_probability_lower": null,
+        "duration": "4",
+        "fresh_numerical_output_checks_passed": true,
+        "ideal_split_operator_and_half_diamond_upper": "841/1572864",
+        "initialization_resources": {
+          "field_work_bits": 8,
+          "fresh_pointer_blank_bits": 8,
+          "maximum_live_count_excludes_untouched_reference_and_six_level_processor": true,
+          "maximum_live_work_bits": 16,
+          "physical_blank_preparation_cost_known": false,
+          "supplied_field_blank_bits": 7,
+          "supplied_unknown_internal_qubits": 1
+        },
+        "kind": "hole",
+        "numerical_mass_and_preparation_gate": "1e-7",
+        "numerical_propagation_is_outward_certificate": false,
+        "raw_occupation_outcomes": 256,
+        "read_basis": "occupation",
+        "resources": {
+          "identity_phase_pulses": 20489,
+          "integrated_processor_norm_upper": 394669.00204259984,
+          "native_pulses": 283877,
+          "pair_code_pulses": 46933,
+          "proper_code_export_events": 283877,
+          "proper_code_load_events": 283877,
+          "proper_code_service_events": 567754,
+          "single_code_pulses": 236944,
+          "zero_angle_requests": 938
+        },
+        "retained_export_failure_mass_freshly_included": true,
+        "split_steps": 256
+      },
+      {
+        "all_number_sectors_and_export_failures_retained": true,
+        "axis": 0,
+        "block_number_bins": [
+          6.594231483247095e-27,
+          1.698681848695925e-25,
+          4.894953419666896e-25,
+          0.0022485473449594677,
+          2.062174418168691e-26,
+          1.5809411812136778e-27,
+          2.2815875552822972e-24,
+          0.9637472534781834,
+          6.598052066900518e-23,
+          1.1723041288038312e-23,
+          5.303220114136651e-25,
+          0.03399750920239068,
+          3.190124635123542e-23,
+          2.894289947086456e-24,
+          2.1234529992223833e-25,
+          6.689942618565162e-06,
+          7.305101009635885e-25,
+          5.564625577602656e-23,
+          2.637366654780208e-25,
+          2.1157423928193056e-34,
+          1.046536801949316e-28,
+          4.069246999294879e-26,
+          1.1387720512291118e-23,
+          7.111204725341193e-32,
+          1.316627098591172e-46
+        ],
+        "candidate_location_probabilities": [
+          0.9630193290394603,
+          0.005851474139659821,
+          0.031129196789031956
+        ],
+        "complete_output_probability": 0.999999999968152,
+        "conditional_numerical_source_Stinespring_upper": "3819/2499996181",
+        "conditional_positive_candidate_transfer_probability_lower": "7377134882327438279185264373479094914820853411674197751835622918089258733321/2350141494069333732765906628418599802443207309094631890998690360395300864000000",
+        "duration": "4",
+        "fresh_numerical_output_checks_passed": true,
+        "ideal_split_operator_and_half_diamond_upper": "841/1572864",
+        "initialization_resources": {
+          "field_work_bits": 8,
+          "fresh_pointer_blank_bits": 8,
+          "maximum_live_count_excludes_untouched_reference_and_six_level_processor": true,
+          "maximum_live_work_bits": 16,
+          "physical_blank_preparation_cost_known": false,
+          "supplied_field_blank_bits": 7,
+          "supplied_unknown_internal_qubits": 1
+        },
+        "kind": "hole",
+        "numerical_mass_and_preparation_gate": "1e-7",
+        "numerical_propagation_is_outward_certificate": false,
+        "raw_occupation_outcomes": 256,
+        "read_basis": "candidate",
+        "resources": {
+          "identity_phase_pulses": 20495,
+          "integrated_processor_norm_upper": 435385.53413912543,
+          "native_pulses": 307625,
+          "pair_code_pulses": 52897,
+          "proper_code_export_events": 307625,
+          "proper_code_load_events": 307625,
+          "proper_code_service_events": 615250,
+          "single_code_pulses": 254728,
+          "zero_angle_requests": 1876
+        },
+        "retained_export_failure_mass_freshly_included": true,
+        "split_steps": 256
+      },
+      {
+        "all_number_sectors_and_export_failures_retained": true,
+        "axis": 0,
+        "block_number_bins": [
+          1.2779285083133805e-51,
+          1.9200112121892558e-48,
+          6.906066091214263e-26,
+          3.277278936868431e-25,
+          2.726139532326214e-29,
+          7.866040610585811e-49,
+          4.452747515924638e-27,
+          6.264419140860806e-23,
+          3.369841728110935e-25,
+          6.689942618891804e-06,
+          9.26570881694425e-31,
+          1.0458872625525528e-24,
+          3.4010721396318434e-23,
+          0.03399750920268864,
+          2.9384878390715955e-25,
+          1.5348530840000195e-26,
+          2.2270393469326827e-23,
+          0.9637472534802829,
+          1.8240998305284688e-23,
+          4.9411722633832836e-24,
+          3.2970578793622184e-26,
+          0.0022485473449098898,
+          5.00272293529093e-24,
+          1.5441599808156507e-25,
+          2.2756995697158313e-47
+        ],
+        "candidate_location_probabilities": null,
+        "complete_output_probability": 0.9999999999705004,
+        "conditional_numerical_source_Stinespring_upper": "6639/4999993361",
+        "conditional_positive_candidate_transfer_probability_lower": null,
+        "duration": "4",
+        "fresh_numerical_output_checks_passed": true,
+        "ideal_split_operator_and_half_diamond_upper": "841/1572864",
+        "initialization_resources": {
+          "field_work_bits": 8,
+          "fresh_pointer_blank_bits": 8,
+          "maximum_live_count_excludes_untouched_reference_and_six_level_processor": true,
+          "maximum_live_work_bits": 16,
+          "physical_blank_preparation_cost_known": false,
+          "supplied_field_blank_bits": 7,
+          "supplied_unknown_internal_qubits": 1
+        },
+        "kind": "particle",
+        "numerical_mass_and_preparation_gate": "1e-7",
+        "numerical_propagation_is_outward_certificate": false,
+        "raw_occupation_outcomes": 256,
+        "read_basis": "occupation",
+        "resources": {
+          "identity_phase_pulses": 20491,
+          "integrated_processor_norm_upper": 394675.285227907,
+          "native_pulses": 283881,
+          "pair_code_pulses": 46933,
+          "proper_code_export_events": 283881,
+          "proper_code_load_events": 283881,
+          "proper_code_service_events": 567762,
+          "single_code_pulses": 236948,
+          "zero_angle_requests": 938
+        },
+        "retained_export_failure_mass_freshly_included": true,
+        "split_steps": 256
+      },
+      {
+        "all_number_sectors_and_export_failures_retained": true,
+        "axis": 0,
+        "block_number_bins": [
+          5.087635396590109e-49,
+          7.883150488576671e-32,
+          2.584637294570796e-25,
+          3.075478352876619e-25,
+          2.1825168782462868e-29,
+          2.3454175564266355e-34,
+          3.93011906232083e-26,
+          2.3399681530128556e-22,
+          9.191076961865218e-25,
+          6.689942618879381e-06,
+          4.597076132220102e-26,
+          1.5237479432955924e-24,
+          9.062317887134052e-23,
+          0.03399750920262308,
+          3.2301173132591604e-25,
+          2.813842203363516e-28,
+          1.747565076820447e-24,
+          0.9637472534784879,
+          6.450612554141322e-23,
+          1.1512377564284647e-23,
+          3.66649073524399e-26,
+          0.0022485473449057086,
+          1.2827046903725736e-23,
+          4.609641655025728e-25,
+          4.398856994730315e-27
+        ],
+        "candidate_location_probabilities": [
+          0.9630193290397946,
+          0.005851474139657746,
+          0.031129196789183165
+        ],
+        "complete_output_probability": 0.9999999999686355,
+        "conditional_numerical_source_Stinespring_upper": "7639/4999992361",
+        "conditional_positive_candidate_transfer_probability_lower": "3563402886949851501749277101799345581185898282713828802593496226876016201/1135196953570474918101450000085277418082302599311428062408523890294784000000",
+        "duration": "4",
+        "fresh_numerical_output_checks_passed": true,
+        "ideal_split_operator_and_half_diamond_upper": "841/1572864",
+        "initialization_resources": {
+          "field_work_bits": 8,
+          "fresh_pointer_blank_bits": 8,
+          "maximum_live_count_excludes_untouched_reference_and_six_level_processor": true,
+          "maximum_live_work_bits": 16,
+          "physical_blank_preparation_cost_known": false,
+          "supplied_field_blank_bits": 7,
+          "supplied_unknown_internal_qubits": 1
+        },
+        "kind": "particle",
+        "numerical_mass_and_preparation_gate": "1e-7",
+        "numerical_propagation_is_outward_certificate": false,
+        "raw_occupation_outcomes": 256,
+        "read_basis": "candidate",
+        "resources": {
+          "identity_phase_pulses": 20497,
+          "integrated_processor_norm_upper": 435391.8173244326,
+          "native_pulses": 307629,
+          "pair_code_pulses": 52897,
+          "proper_code_export_events": 307629,
+          "proper_code_load_events": 307629,
+          "proper_code_service_events": 615258,
+          "single_code_pulses": 254732,
+          "zero_angle_requests": 1876
+        },
+        "retained_export_failure_mass_freshly_included": true,
+        "split_steps": 256
+      }
+    ],
+    "schema": "oph.charged_dynamics.source.v1"
+  }
+}

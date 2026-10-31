@@ -89,6 +89,12 @@ def validate_report_replay(retained, current):
     def compare(a, b, path=()):
         if type(a) is not type(b):
             raise ValueError(f'replay type mismatch at {path}')
+        if isinstance(a, float):
+            if not all(math.isfinite(x) for x in (a, b)):
+                raise ValueError(f'nonfinite replay value at {path}')
+            if any(isinstance(key, str) and 'probabilit' in key for key in path):
+                if any(x < 0 or x > 1+NUMERICAL_ALLOWANCE for x in (a, b)):
+                    raise ValueError(f'invalid replay probability at {path}')
         if isinstance(a, dict):
             if set(a) != set(b):
                 raise ValueError(f'replay keys changed at {path}')

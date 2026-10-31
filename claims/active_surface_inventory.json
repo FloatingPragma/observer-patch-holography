@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 760,
+  "surface_count": 761,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1462,6 +1462,11 @@
     },
     {
       "path": "model/characteristic_constraints/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/charged_dynamics/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
