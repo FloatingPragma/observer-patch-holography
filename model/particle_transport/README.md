@@ -185,6 +185,13 @@ The underlying encoded processor pulses are not identified with microscopic
 CAR operations. Input particles and an unknown dual-rail internal state are
 counted supplied resources, not generated from an empty vacuum for free.
 
+The bounded encoder fixes cancellation-sized components at `2^-44`, uses
+one convention for real-axis phases, and sets emitted angles within that
+threshold to literal zero while retaining every pulse slot. Full operator
+and reference checks still enforce the original admission bounds. This
+makes the executed request counts reproducible across numerical libraries;
+it does not discard small measured residues or select a spectral subspace.
+
 Full sixteen-column source executions check each encoder with every export
 complement. The ground encoder costs 4,168 pulses and each charged encoder
 1,642. The block route costs 416 pulses, or 1,216 when controlled by a

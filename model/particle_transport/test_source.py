@@ -244,3 +244,67 @@ def test_stable_resource_record_keeps_integer_costs_and_admits_diagnostics():
     resources["maximum_numerical_valid_code_leakage"] = float("nan")
     with pytest.raises(ArithmeticError, match="diagnostics"):
         source._counts(resources)
+
+
+@pytest.mark.parametrize("kind", ["ground", "hole", "particle"])
+@pytest.mark.parametrize("axis", [0, 1, 2])
+def test_encoder_roundoff_has_canonical_zero_requests_and_full_matrix(kind, axis, monkeypatch):
+    original = source._targets
+    _, _, expected, word = source._encoder(kind, axis)
+    zero_pattern = tuple(event["angle"] == 0 for event in word)
+    resources = source._counts(compiler.resources(word))
+    random = np.random.default_rng(514+axis)
+    number = source.SEEDS[kind][0].bit_count()
+    def perturbed(request_kind, request_axis):
+        value = original(request_kind, request_axis).copy()
+        selected = np.array([j.bit_count() == number for j in range(16)])
+        # Change real/imaginary cancellation residues inside the same number
+        # sector without replacing the independently requested target.
+        noise = random.uniform(-1, 1, value[selected].shape)+1j*random.uniform(
+            -1, 1, value[selected].shape)
+        value[selected] += np.finfo(float).eps*noise
+        return value
+    monkeypatch.setattr(source, "_targets", perturbed)
+    for _ in range(3):
+        initial, requested, _, emitted = source._encoder(kind, axis)
+        assert len(emitted) == (4168 if kind == "ground" else 1642)
+        assert tuple(event["angle"] == 0 for event in emitted) == zero_pattern
+        assert source._counts(compiler.resources(emitted)) == resources
+        actual = compiler.execute(emitted, 4)
+        np.testing.assert_allclose(actual, expected, atol=2e-11, rtol=0)
+        np.testing.assert_allclose(actual@initial, requested, atol=2e-11, rtol=0)
+
+
+def test_encoder_canonicalizes_actual_walsh_requests_without_removing_services(monkeypatch):
+    _, _, expected, baseline = source._encoder("ground", 0)
+    original = compiler.compile_diagonal
+    def noisy(phases):
+        word = original(phases)
+        for index, event in enumerate(word):
+            if event["angle"] == 0:
+                event["angle"] = (-1)**index*np.finfo(float).eps
+        return word
+    monkeypatch.setattr(compiler, "compile_diagonal", noisy)
+    _, _, _, emitted = source._encoder("ground", 0)
+    assert emitted == baseline
+    assert len(emitted) == 4168
+    np.testing.assert_allclose(compiler.execute(emitted, 4), expected, atol=2e-11, rtol=0)
+
+
+def test_encoder_preserves_a_resolved_target_phase_above_roundoff(monkeypatch):
+    original = source._targets
+    before = original("ground", 0)
+    phase = 1e-8
+    def shifted(kind, axis):
+        return np.exp(1j*phase)*original(kind, axis)
+    monkeypatch.setattr(source, "_targets", shifted)
+    initial, requested, target, word = source._encoder("ground", 0)
+    actual = compiler.execute(word, 4)
+    np.testing.assert_allclose(actual, target, atol=2e-11, rtol=0)
+    np.testing.assert_allclose(actual@initial, requested, atol=2e-11, rtol=0)
+    assert np.linalg.norm(actual@initial-before) > phase/2
+
+
+@pytest.mark.parametrize("imaginary", [0., -0., 1e-16, -1e-16])
+def test_negative_real_phase_uses_the_same_positive_pi_convention(imaginary):
+    assert source._phase(complex(-1., imaginary)) == math.pi

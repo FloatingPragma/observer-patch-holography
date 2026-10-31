@@ -35,7 +35,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 0,
           "reservoir_occupation": 0,
@@ -71,7 +71,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 0,
           "reservoir_occupation": 0,
@@ -107,7 +107,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 1,
           "reservoir_occupation": 0,
@@ -143,7 +143,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 1,
           "reservoir_occupation": 0,
@@ -179,7 +179,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 0,
           "reservoir_occupation": 1,
@@ -215,7 +215,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 0,
           "reservoir_occupation": 1,
@@ -251,7 +251,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 1,
           "reservoir_occupation": 1,
@@ -287,7 +287,7 @@
             "proper_code_load_events": 4168,
             "proper_code_service_events": 8336,
             "single_code_pulses": 3096,
-            "zero_angle_requests": 56
+            "zero_angle_requests": 184
           },
           "reflection_phase_in_pi": 1,
           "reservoir_occupation": 1,
@@ -364,7 +364,7 @@
         "proper_code_load_events": 58464,
         "proper_code_service_events": 116928,
         "single_code_pulses": 45664,
-        "zero_angle_requests": 456
+        "zero_angle_requests": 1480
       }
     },
     "operator_contract": {
@@ -628,17 +628,17 @@
     "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
     "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
     "model/particle_response/spectrum.py": "1e8932166a0038d5343835cedb3a4fed1a348ced8f263c23545c3433f6b344d8",
-    "model/particle_transport/README.md": "2293f1c61ebe984c5943d0b665b93a4b5d09063e7d31a7e34404ef71c6c73007",
+    "model/particle_transport/README.md": "fa432d067da3c3e8f09178f8174179a989b4d4386dce1bd86a12a6eec81a946b",
     "model/particle_transport/__init__.py": "72d1d79cd783a3934c24027ba8082741ca60bee98013322b9ca3cca12b15f01a",
     "model/particle_transport/algebra.py": "f3e6796a21ac7e6b3d17e7688c6ab414317d102c900b44a78096b2a5a6f0fdd2",
     "model/particle_transport/contract.json": "0bd9312e4af744dfb18e3ba43757d047f354be271661671564af364b9be173cc",
     "model/particle_transport/detector.py": "67fad20adf9c425a32abb3791ceed3c60580ad440b08e60379cc87c901cc319c",
     "model/particle_transport/packet.py": "8f175168e6461f651dbef9ba90756e8578a019b622110ed40690bfa731433304",
-    "model/particle_transport/source.py": "f864f1969ebf940701add412d2c31f58cc88b0cb0d8b609a1fc8377725f1c54d",
+    "model/particle_transport/source.py": "fa495f75469b66814fcedcf4905b199401a44bbf0677b91ac758b493ab248c3c",
     "model/particle_transport/test_algebra.py": "0ff6cd2b9ffc892e6bf12a2a3e6cff787cb0e1f1fdbdac5cf2e24a4e35c8b3a5",
     "model/particle_transport/test_detector.py": "12289a443168a85c9d09ac3e5f314d741a985edd725096f155d0d8cc622bea08",
     "model/particle_transport/test_packet.py": "bef43814777164a4c32d0af2c1aed10bd14e0c71559c3a106d7250acae17e650",
-    "model/particle_transport/test_source.py": "83e5cfd2138f887de80d3ec77270f82b2fd43f2b82b4eb216d98665dda2523c3",
+    "model/particle_transport/test_source.py": "23021fa683f0af1a1dd2abfed850c45380a4c9f91a1dfc63f3c0b9977496178e",
     "model/particle_transport/test_transport_composition.py": "9983825988e95bb6e54b88b4902eef086d9b08fabc8e4ee37ce5e4ca495018e0",
     "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
     "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
@@ -711,7 +711,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 3394,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 112
+          "zero_angle_requests": 176
         },
         "supplied_occupation_register_bits": 8,
         "which_path_control": false
@@ -741,7 +741,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 3394,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 80
+          "zero_angle_requests": 112
         },
         "supplied_occupation_register_bits": 8,
         "which_path_control": false
@@ -761,7 +761,7 @@
         "resources": {
           "identity_phase_pulses": 66,
           "initialization_storage_readout_physical_costs_included": false,
-          "integrated_processor_norm_upper_integer": 16336,
+          "integrated_processor_norm_upper_integer": 16330,
           "maximum_work_qubits": 9,
           "native_pulses": 9562,
           "pair_code_pulses": 2400,
@@ -771,7 +771,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 7162,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 112
+          "zero_angle_requests": 368
         },
         "supplied_occupation_register_bits": 8,
         "which_path_control": false
@@ -801,7 +801,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 3394,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 112
+          "zero_angle_requests": 176
         },
         "supplied_occupation_register_bits": 8,
         "which_path_control": false
@@ -831,7 +831,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 3394,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 112
+          "zero_angle_requests": 176
         },
         "supplied_occupation_register_bits": 8,
         "which_path_control": true
@@ -856,7 +856,7 @@
         "resources": {
           "identity_phase_pulses": 16,
           "initialization_storage_readout_physical_costs_included": false,
-          "integrated_processor_norm_upper_integer": 7220,
+          "integrated_processor_norm_upper_integer": 7217,
           "maximum_work_qubits": 4,
           "native_pulses": 4168,
           "pair_code_pulses": 1072,
@@ -866,7 +866,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 3096,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 56
+          "zero_angle_requests": 184
         },
         "supplied_occupation_register_bits": 4
       },
@@ -893,7 +893,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 1212,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 56
+          "zero_angle_requests": 88
         },
         "supplied_occupation_register_bits": 4
       },
@@ -920,7 +920,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 1212,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 40
+          "zero_angle_requests": 56
         },
         "supplied_occupation_register_bits": 4
       }
@@ -944,7 +944,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 2662,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 128
+          "zero_angle_requests": 192
         },
         "unknown_internal_state_and_reference_preserved": true
       },
@@ -966,7 +966,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 2662,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 96
+          "zero_angle_requests": 128
         },
         "unknown_internal_state_and_reference_preserved": true
       }
@@ -1005,7 +1005,7 @@
         "resources": {
           "identity_phase_pulses": 72,
           "initialization_storage_readout_physical_costs_included": false,
-          "integrated_processor_norm_upper_integer": 17014,
+          "integrated_processor_norm_upper_integer": 17011,
           "maximum_work_qubits": 9,
           "native_pulses": 9846,
           "pair_code_pulses": 2524,
@@ -1015,7 +1015,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 7322,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 240
+          "zero_angle_requests": 464
         },
         "supplied_occupation_register_bits": 8,
         "unknown_input_dimension": 2
@@ -1034,7 +1034,7 @@
         "resources": {
           "identity_phase_pulses": 72,
           "initialization_storage_readout_physical_costs_included": false,
-          "integrated_processor_norm_upper_integer": 17024,
+          "integrated_processor_norm_upper_integer": 17021,
           "maximum_work_qubits": 9,
           "native_pulses": 9846,
           "pair_code_pulses": 2524,
@@ -1044,7 +1044,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 7322,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 192
+          "zero_angle_requests": 368
         },
         "supplied_occupation_register_bits": 8,
         "unknown_input_dimension": 2
@@ -1060,7 +1060,7 @@
         "resources": {
           "identity_phase_pulses": 55,
           "initialization_storage_readout_physical_costs_included": false,
-          "integrated_processor_norm_upper_integer": 10660,
+          "integrated_processor_norm_upper_integer": 10657,
           "maximum_work_qubits": 8,
           "native_pulses": 6226,
           "pair_code_pulses": 1566,
@@ -1070,7 +1070,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 4660,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 112
+          "zero_angle_requests": 272
         },
         "supplied_occupation_register_bits": 8,
         "unknown_input_dimension": 2
@@ -1083,7 +1083,7 @@
         "resources": {
           "identity_phase_pulses": 55,
           "initialization_storage_readout_physical_costs_included": false,
-          "integrated_processor_norm_upper_integer": 10664,
+          "integrated_processor_norm_upper_integer": 10660,
           "maximum_work_qubits": 8,
           "native_pulses": 6226,
           "pair_code_pulses": 1566,
@@ -1093,7 +1093,7 @@
           "service_failure_outcomes_retained": true,
           "single_code_pulses": 4660,
           "valid_code_failure_probability_in_exact_arithmetic": 0,
-          "zero_angle_requests": 96
+          "zero_angle_requests": 240
         },
         "supplied_occupation_register_bits": 8,
         "unknown_input_dimension": 2

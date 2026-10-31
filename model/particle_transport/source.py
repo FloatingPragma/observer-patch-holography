@@ -21,6 +21,11 @@ from ..field_thermal.thermal import execute_with_exports, failure_probability
 
 ADMISSION = 1e-7
 SEEDS = {"ground": (3,), "hole": (1, 2), "particle": (7, 11)}
+# Internal arithmetic convention, not a caller-selected support or spectral
+# threshold. It is below the existing 2e-11 full-unitary and 3e-11 elimination
+# checks. The unchanged full source-matrix/column admission still applies
+# against the requested target after this arithmetic convention is applied.
+_ELIMINATION_ZERO = 2.**-44
 
 
 def _frozen(value):
@@ -88,6 +93,29 @@ def _targets(kind, axis):
     return np.asarray(algebra.candidate_columns(kind, axis), complex)
 
 
+def _canonical_residual(value):
+    """Remove cancellation-sized real/imaginary components and signed zeros."""
+    result = np.array(value, dtype=complex, copy=True)
+    result.real[np.abs(result.real) <= _ELIMINATION_ZERO] = 0.
+    result.imag[np.abs(result.imag) <= _ELIMINATION_ZERO] = 0.
+    return result
+
+
+def _canonical_angle(angle):
+    """Canonicalize roundoff near integer multiples of pi/2."""
+    quarter = round(angle/(math.pi/2))
+    exact = quarter*(math.pi/2)
+    return exact if abs(angle-exact) <= _ELIMINATION_ZERO else angle
+
+
+def _phase(value):
+    # A negative real entry has phase +pi, never a platform-dependent choice
+    # of +/-pi from an imaginary cancellation residue or a negative zero.
+    real = 0. if abs(value.real) <= _ELIMINATION_ZERO else float(value.real)
+    imag = 0. if abs(value.imag) <= _ELIMINATION_ZERO else float(value.imag)
+    return _canonical_angle(math.atan2(imag, real)) if real or imag else 0.
+
+
 def _encoder(kind, axis):
     target = _targets(kind, axis)
     seeds = SEEDS[kind]
@@ -105,6 +133,7 @@ def _encoder(kind, axis):
         for _ in range(2):
             for previous in columns:
                 value -= previous*np.vdot(previous, value)
+        value = _canonical_residual(value)
         norm = float(np.linalg.norm(value))
         if norm > 1e-11:
             columns.append(value/norm)
@@ -115,22 +144,27 @@ def _encoder(kind, axis):
     unitary[:, ordering] = np.column_stack(columns)
     if np.linalg.norm(unitary.conj().T@unitary-np.eye(16), 2) > 2e-11:
         raise ArithmeticError("full encoder is not unitary")
-    residual = unitary.copy()
+    residual = _canonical_residual(unitary)
     eliminations = []
     for column_position, pivot in enumerate(addresses[:-1]):
         for row in reversed(addresses[column_position+1:]):
+            residual = _canonical_residual(residual)
             x, y = residual[pivot, pivot], residual[row, pivot]
-            phase_x = math.atan2(x.imag, x.real) if x != 0 else 0.
-            phase_y = math.atan2(y.imag, y.real) if y != 0 else 0.
+            phase_x, phase_y = _phase(x), _phase(y)
             residual[pivot] *= np.exp(-1j*phase_x)
             residual[row] *= np.exp(-1j*phase_y)
-            angle = math.atan2(abs(y), abs(x)) if x != 0 or y != 0 else 0.
+            angle = _canonical_angle(math.atan2(abs(y), abs(x))) if x != 0 or y != 0 else 0.
             cosine, sine = math.cos(angle), math.sin(angle)
             old = residual[[pivot, row]].copy()
             residual[pivot] = cosine*old[0]+sine*old[1]
             residual[row] = -sine*old[0]+cosine*old[1]
+            # These two entries have exact algebraic values. Re-evaluating
+            # their phase from floating cancellation would choose an arbitrary
+            # future phase on an empty pivot and change zero-angle requests.
+            residual[pivot, pivot] = math.hypot(abs(x), abs(y))
+            residual[row, pivot] = 0.
             eliminations.append((pivot, row, angle, phase_x, phase_y))
-    phases = np.angle(np.diag(residual))
+    phases = np.array([_phase(value) for value in np.diag(residual)])
     if np.linalg.norm(residual-np.diag(np.exp(1j*phases)), 2) > 3e-11:
         raise ArithmeticError("number-preserving elimination failed")
     word = compiler.compile_diagonal(phases)
@@ -139,6 +173,17 @@ def _encoder(kind, axis):
         phases = np.zeros(16)
         phases[first], phases[second] = phase_x, phase_y
         word += compiler.compile_diagonal(phases)
+    # Walsh summation can leave tiny nonzero coefficients even after the
+    # elimination phases have been fixed. Canonicalize the actual emitted
+    # angles, retaining every pulse/service slot and counting these literal
+    # requests. The angle-L1 change is at most len(word)*this threshold, below
+    # one hundredth of ADMISSION on this fixed domain. This is an angle budget,
+    # not a bound on full native generators; full matrix admission is separate.
+    if len(word)*_ELIMINATION_ZERO >= ADMISSION/100:
+        raise ArithmeticError("encoder angle canonicalization exceeds its fixed angle budget")
+    for event in word:
+        if abs(event["angle"]) <= _ELIMINATION_ZERO:
+            event["angle"] = 0.
     initial = np.eye(16, dtype=complex)[:, seeds]
     return initial, target, unitary, word
 
