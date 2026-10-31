@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "d951aa0f3ff1c065129b256094c06fdc8f4f6bc158d90272fe2e550783ce2305",
-      "claims/completion_program.json": "2bc4fb13220bf4dffc24b29c3b128f1562a1d3e49ca4337e6e8484817053e80c",
+      "claims/completion_program.json": "5944846986bcefbdb06d015928c7e36bc76d57e4cc2226c3d4aeaa242de38ce1",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -733,7 +733,7 @@
             "independent_check": "model/completion/test_theorem_map.py",
             "path": "model/completion/theorem_map.json",
             "scope": "Eleven actual theorem/model mappings with twelve source bindings; fixed-mixture stationarity is distinguished from correlated adaptive scheduling, and all downstream physical premises remain explicit.",
-            "sha256": "e0bdc133677e7795a561e08f06c08b02717a1244614e11537247f65bccffcc7a"
+            "sha256": "12db32c565d3233da6879b96c532745474e0d9410d7c18bf10c5614f0fb936ab"
           },
           {
             "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
@@ -2020,7 +2020,7 @@
               "independent_check": "model/completion/test_theorem_map.py",
               "path": "model/completion/theorem_map.json",
               "scope": "Eleven actual theorem/model mappings with twelve source bindings; fixed-mixture stationarity is distinguished from correlated adaptive scheduling, and all downstream physical premises remain explicit.",
-              "sha256": "e0bdc133677e7795a561e08f06c08b02717a1244614e11537247f65bccffcc7a"
+              "sha256": "12db32c565d3233da6879b96c532745474e0d9410d7c18bf10c5614f0fb936ab"
             },
             {
               "campaign_id": "OPH-FINITE-THEOREM-JOINS-2026-10-28-v1",
