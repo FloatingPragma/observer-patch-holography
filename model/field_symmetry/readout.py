@@ -20,6 +20,38 @@ PULSE_CEILING = F(1, 10**11)
 OUTPUT_CEILING = 2e-9
 
 
+def _duration(value):
+    """Check exact scalar storage before arithmetic, then detach it."""
+    if type(value) is int:
+        value = F(value)
+    elif type(value) is F:
+        numerator, denominator = value.numerator, value.denominator
+        if (type(numerator) is not int or type(denominator) is not int
+                or denominator <= 0 or math.gcd(numerator, denominator) != 1):
+            raise ValueError('canonical integer Fraction storage required')
+        value = F(numerator, denominator)
+    else:
+        raise ValueError('bounded exact duration required')
+    if abs(value) > 2:
+        raise ValueError('bounded exact duration required')
+    return value
+
+
+def _output(value, shape):
+    """Use trusted complex arithmetic for every complete output block.
+
+    Subclasses can override the acceptance calculations; integer or narrow
+    floating Gram products can erase an inadmissible failure probability.
+    """
+    if (type(value) is not np.ndarray or value.shape != shape
+            or value.dtype.kind not in 'fc'):
+        raise ArithmeticError('complete source output must be a plain floating array')
+    value = np.asarray(value, dtype=complex)
+    if not np.isfinite(value).all():
+        raise ArithmeticError('complete source output must be finite')
+    return value
+
+
 def geometry(plane=0, interaction=1.):
     if type(plane) is not int or plane not in (0, 1, 2):
         raise ValueError('integer plane index zero, one or two required')
@@ -118,12 +150,73 @@ def split_tower_contract(g):
     return bonds
 
 
+def _ideal_strang(g, duration, steps, centered):
+    """Complete CAR product, independent of emitted words and source routing."""
+    space = field.FullFock(g.modes)
+    ladders = [space.annihilator(mode) for mode in range(g.modes)]
+    half = float(duration)/(2*steps)
+    factors = []
+    for group in g.groups:
+        for p, q, z in group:
+            term = z*(ladders[p].conj().T@ladders[q])
+            h = term+term.conj().T
+            magnitude = abs(z)
+            # H^3=|z|^2 H. Stable cosine-minus-one avoids subtracting
+            # nearly equal numbers for small, but nonzero, durations.
+            first = -1j*math.sin(half*magnitude)/magnitude
+            second = -2*(math.sin(half*magnitude/2)/magnitude)**2
+            factors.append((h, h@h, first, second))
+    contacts = sum(((space.addresses >> (2*x)) & 1)*
+                   ((space.addresses >> (2*x+1)) & 1) for x in range(g.volume))
+    onsite = np.exp(-2j*half*g.interaction*contacts)
+    result = np.eye(space.dimension, dtype=complex)
+    for _ in range(steps):
+        for h, square, first, second in factors:
+            result = result+first*(h@result)+second*(square@result)
+        result = onsite[:, None]*result
+        for h, square, first, second in reversed(factors):
+            result = result+first*(h@result)+second*(square@result)
+    if centered:
+        number = np.array([int(address).bit_count() for address in space.addresses])
+        result = np.exp(.5j*g.interaction*float(duration)*number)[:, None]*result
+    return result
+
+
+def _field_word_admission(word, g, duration, steps, centered):
+    """Bind every successful input column to the declared ideal Strang word.
+
+    This replay uses the same public primitive provider as the complete
+    export archive. The primitive dilation bound separately bounds its
+    entire failure operator, including arbitrary untouched references.
+    """
+    bound, _ = pulse_budget(word)
+    size = 1 << g.modes
+    actual = np.eye(size, dtype=complex)
+    for event in compiler._validate(word, g.modes):
+        response = _output(compiler.native_pulse(event['kind'], event['angle']), (6, 6))
+        dimension = 1 << len(event['targets'])
+        actual = compiler._apply(actual, response[:dimension, :dimension], event['targets'], g.modes)
+    target = _ideal_strang(g, duration, steps, centered)
+    error = float(np.linalg.norm(actual-target, 2))
+    if not math.isfinite(error) or error > float(bound):
+        raise ArithmeticError('complete emitted field word differs from the declared Strang action')
+    # The independent success and failure bounds give sqrt(2)*bound for
+    # the full dilation. Retain the conservative rational upper bound 2B.
+    return {
+        'full_field_word_input_columns': size,
+        'full_field_word_success_error': error,
+        'full_field_word_success_budget': str(bound),
+        'full_field_word_complement_budget': str(bound),
+        'full_field_word_dilation_budget': str(2*bound),
+    }
+
+
 def execute(plane=0, *, centered=False, interaction=1., duration=F(1), steps=1):
     """Literal source execution on all 256 states, retaining every failure."""
     if type(centered) is not bool:
         raise ValueError('explicit Boolean centered-generator choice required')
-    if (type(duration) not in (int, F) or abs(duration) > 2
-            or type(steps) is not int or not 1 <= steps <= 4):
+    duration = _duration(duration)
+    if type(steps) is not int or not 1 <= steps <= 4:
         raise ValueError('bounded exact duration and integer split count required')
     g = geometry(plane, interaction)
     split_tower_contract(g)
@@ -136,22 +229,22 @@ def execute(plane=0, *, centered=False, interaction=1., duration=F(1), steps=1):
                           compiler.pulse('Z', -angle, [mode])]
     word = prep+evolution+compiler.inverse(prep)
     budget, primitive_error = pulse_budget(word)
+    field_word = _field_word_admission(evolution, g, duration, steps, centered)
     initial = np.zeros(1 << g.modes, complex); initial[0] = 1
     actual, failures = execute_with_exports(word, g.modes, initial)
-    if (type(failures) is not tuple or len(failures) != len(word)
-            or actual.shape != initial.shape or not np.isfinite(actual).all()):
+    if type(failures) is not tuple or len(failures) != len(word):
         raise ArithmeticError('complete source output inventory changed')
+    actual = _output(actual, initial.shape)
+    checked_failures = []
     for event, outputs in zip(word, failures, strict=True):
         d = 1 << len(event['targets'])
         if type(outputs) is not tuple or len(outputs) != 6-d:
             raise ArithmeticError('export complement outcome omitted')
-        for output in outputs:
-            if (type(output) is not np.ndarray or output.shape != (len(initial)//d,)
-                    or not np.isfinite(output).all()):
-                raise ArithmeticError('export complement output malformed')
+        checked_failures.append(tuple(_output(output, (len(initial)//d,)) for output in outputs))
+    failures = tuple(checked_failures)
     phi = 0. if centered else -g.interaction*float(duration)
     # Decode the exact product directly, without the producer's compiler.
-    target = np.zeros_like(actual)
+    target = np.zeros(len(initial), dtype=complex)
     a, b = (1+np.exp(1j*phi))/2, (np.exp(1j*phi)-1)/2
     for subset in range(1 << g.volume):
         address, coefficient = 0, 1.+0j
@@ -173,6 +266,7 @@ def execute(plane=0, *, centered=False, interaction=1., duration=F(1), steps=1):
                           for x in range(g.volume)]
     general_split = split_bound(g.sides, duration, steps, F(g.speed), F(g.interaction), refined=True)
     summary = {
+        **field_word,
         'plane': plane, 'sides': list(g.sides), 'generator': 'K=H-U*N/2' if centered else 'H',
         'interaction': g.interaction, 'duration': str(duration), 'steps': steps,
         'terminal_probabilities': probabilities.tolist(), 'read_one_probabilities': read_probabilities,
@@ -180,6 +274,7 @@ def execute(plane=0, *, centered=False, interaction=1., duration=F(1), steps=1):
         'first_export_failure_probability': lost, 'complete_output_error': error,
         'complete_probability_residual': abs(mass-1), 'raw_primitive_residual': primitive_error,
         'numerical_primitive_ceiling': str(PULSE_CEILING),
+        'numerical_probability_mass_ceiling': str(OUTPUT_CEILING),
         'numerical_dilation_budget': str(budget),
         'state_specific_ideal_split_error': '0',
         'arbitrary_input_ideal_split_bound': str(general_split),
@@ -194,6 +289,7 @@ def execute(plane=0, *, centered=False, interaction=1., duration=F(1), steps=1):
 
 def independent_evolution(plane=0, duration=F(1)):
     """Complete Hamiltonian oracle for the eta state; no split-word shortcut."""
+    duration = _duration(duration)
     g = geometry(plane)
     space = field.FullFock(g.modes)
     actual = expm_multiply(-1j*float(duration)*space.hamiltonian(g), tower_state(g))
