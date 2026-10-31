@@ -14,7 +14,7 @@ import numpy as np
 from scipy.linalg import expm
 
 from ..field_thermal.thermal import execute_with_exports, failure_probability
-from ..full_fock_field.field import FullFock
+from ..full_fock_field.field import FieldGeometry, FullFock
 from ..full_fock_field.local_simulation import split_bound
 from ..observer.source_scalar import compiler
 from ..particle_response import dimer, source as spectroscopy
@@ -47,23 +47,80 @@ def _bit(value, name):
 
 
 def _admit(spectrum):
-    if (not isinstance(spectrum, FieldSpectrum) or spectrum.dimension != 16
-            or spectrum.geometry.volume != 2 or spectrum.geometry.speed != .125
-            or spectrum.geometry.interaction != 1.
-            or spectrum.reference_kind != 'ground' or spectrum.chemical_potential != .5):
+    """Bind the complete mutable input, then return an owned canonical model.
+
+    A selected ground-state read cannot detect changes in dark Fock sectors.
+    Metadata and its observed correlator therefore cannot authenticate the
+    supplied generator, spectral arrays or occupation chart. Eigenvector phases
+    and changes of basis inside a fixed number/energy eigenspace remain valid.
+    """
+    if type(spectrum) is not FieldSpectrum or type(spectrum.geometry) is not FieldGeometry:
         raise ValueError('the existing canonical pure half-filled dimer required')
-    axis = spectrum.geometry.sides.index(2)
-    if (np.linalg.norm(spectrum.reference@spectrum.reference-spectrum.reference, 2) > 2e-11
-            or np.linalg.norm((spectrum.number-2*np.eye(16))@spectrum.reference, 2) > 2e-11):
-        raise ArithmeticError('detector reference is not the declared pure number-two state')
-    return axis
+    geometry = spectrum.geometry
+    if (type(geometry.sides) is not tuple or len(geometry.sides) != 3
+            or any(type(length) is not int for length in geometry.sides)
+            or sorted(geometry.sides) != [1, 1, 2]
+            or type(geometry.speed) is not float or geometry.speed != .125
+            or type(geometry.interaction) is not float or geometry.interaction != 1.
+            or type(spectrum.dimension) is not int or spectrum.dimension != 16
+            or spectrum.reference_kind != 'ground' or type(spectrum.reference_kind) is not str
+            or type(spectrum.chemical_potential) is not float or spectrum.chemical_potential != .5
+            or type(spectrum.beta) not in (int, float) or not math.isfinite(spectrum.beta)
+            or spectrum.beta <= 0):
+        raise ValueError('the existing canonical pure half-filled dimer required')
+    axis = geometry.sides.index(2)
+    canonical = dimer.setup(FieldGeometry(geometry.sides))
+
+    def array(value, shape):
+        if np.ma.isMaskedArray(value):
+            raise ArithmeticError('finite complete canonical spectral arrays required')
+        raw = np.asarray(value)
+        if raw.shape != shape or raw.dtype.kind not in 'iufc' or not np.isfinite(raw).all():
+            raise ArithmeticError('finite complete canonical spectral arrays required')
+        return np.array(raw, dtype=complex, copy=True)
+
+    if (type(spectrum.space) is not FullFock
+            or set(vars(spectrum.space)) != {'modes', 'dimension', 'addresses'}
+            or type(spectrum.space.modes) is not int or spectrum.space.modes != 4
+            or type(spectrum.space.dimension) is not int or spectrum.space.dimension != 16
+            or not np.array_equal(array(spectrum.space.addresses, (16,)), np.arange(16))
+            or any(name in vars(spectrum) for name in ('probe', 'measure', 'certify'))):
+        raise ArithmeticError('canonical full-Fock chart and spectrum methods required')
+    for name in ('hamiltonian', 'generator', 'number', 'numbers', 'weights'):
+        expected = np.asarray(getattr(canonical, name))
+        if not np.array_equal(array(getattr(spectrum, name), expected.shape), expected):
+            raise ArithmeticError('complete canonical generator, number and ground weights required')
+    vectors = array(spectrum.vectors, (16, 16))
+    energies = array(spectrum.energies, (16,))
+    sectors = array(spectrum.sectors, (16,))
+    reference = array(spectrum.reference, (16, 16))
+    root = array(spectrum.reference_root, (16, 16))
+    if (np.count_nonzero(energies.imag) or np.count_nonzero(sectors.imag)
+            or not np.array_equal(sectors.real, np.round(sectors.real))
+            or min(sectors.real) < 0 or max(sectors.real) > 4):
+        raise ArithmeticError('real canonical energies and integer number sectors required')
+    residuals = (np.linalg.norm(vectors.conj().T@vectors-np.eye(16)),
+        np.linalg.norm(canonical.generator@vectors-vectors*energies),
+        np.linalg.norm(canonical.number@vectors-vectors*sectors),
+        np.linalg.norm(reference-canonical.reference),
+        np.linalg.norm(root-canonical.reference_root),
+        np.linalg.norm(np.outer(vectors[:, 0], vectors[:, 0].conj())-reference),
+        abs(energies[0]-canonical.energies[0]))
+    if any(not math.isfinite(value) or value > 2e-11 for value in residuals):
+        raise ArithmeticError('complete canonical eigensystem and pure ground reference required')
+    return axis, canonical
 
 
 def _duration(duration, steps):
-    if (type(duration) not in (int, F) or abs(duration) > 1
-            or type(steps) is not int or not 1 <= steps <= 16):
+    if type(duration) not in (int, F) or type(steps) is not int or not 1 <= steps <= 16:
         raise ValueError('exact duration of absolute value at most one and one through sixteen steps required')
-    return F(duration), steps
+    numerator, denominator = (duration, 1) if type(duration) is int else (duration.numerator, duration.denominator)
+    if type(numerator) is not int or type(denominator) is not int or denominator <= 0:
+        raise ValueError('exact duration requires integer numerator and positive integer denominator')
+    canonical = F(numerator, denominator)
+    if abs(canonical) > 1:
+        raise ValueError('exact duration of absolute value at most one and one through sixteen steps required')
+    return canonical, steps
 
 
 def reflection(index=0, phase=0):
@@ -201,7 +258,7 @@ def operator_certificate():
 def correlator(spectrum, index=0, reservoir=1, phase=0, quadrature=0,
                duration=F(1, 4), steps=4):
     """A fresh complete Ramsey setting; public callers cannot replace preparation."""
-    axis = _admit(spectrum)
+    axis, spectrum = _admit(spectrum)
     index = _index(index)
     reservoir, phase, quadrature = (_bit(value, name) for value, name in
         ((reservoir, 'reservoir occupation'), (phase, 'reflection phase'), (quadrature, 'quadrature')))
@@ -263,7 +320,7 @@ def correlator(spectrum, index=0, reservoir=1, phase=0, quadrature=0,
 def readout(spectrum=None, index=0, duration=F(1, 4), steps=4):
     """Eight complete settings reconstruct both current charged Green functions."""
     spectrum = dimer.setup() if spectrum is None else spectrum
-    axis = _admit(spectrum); index = _index(index)
+    axis, spectrum = _admit(spectrum); index = _index(index)
     duration, steps = _duration(duration, steps)
     correlations, records = {}, []
     totals = dict.fromkeys(COUNT_KEYS, 0)

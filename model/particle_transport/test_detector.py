@@ -205,3 +205,97 @@ def test_strict_mode_domain_before_any_execution(bad):
 def test_detector_domain_guards(key, value):
     with pytest.raises(ValueError):
         d.correlator(dimer.setup(), **{key: value})
+
+
+@pytest.mark.parametrize('duration', (F(0), F(1, 4)))
+@pytest.mark.parametrize('damage', ('generator', 'hamiltonian', 'energies', 'vectors',
+    'sectors', 'number', 'numbers', 'weights', 'reference_root', 'space_order', 'method'))
+def test_canonical_model_is_bound_before_a_possibly_blind_source_read(monkeypatch, duration, damage):
+    spectrum = dimer.setup()
+    if damage in ('generator', 'hamiltonian', 'number'):
+        matrix = np.array(getattr(spectrum, damage), copy=True)
+        matrix[0, 0] += 100
+        setattr(spectrum, damage, matrix)
+    elif damage in ('energies', 'sectors'):
+        values = np.array(getattr(spectrum, damage), copy=True)
+        values[np.flatnonzero(spectrum.sectors == 0)[0]] += 1
+        setattr(spectrum, damage, values)
+    elif damage == 'vectors':
+        vectors = np.array(spectrum.vectors, copy=True)
+        vectors[:, np.flatnonzero(spectrum.sectors == 0)[0]] *= 2
+        spectrum.vectors = vectors
+    elif damage == 'numbers':
+        spectrum.numbers = np.array(spectrum.numbers, copy=True)
+        spectrum.numbers[0] = 4
+    elif damage == 'weights':
+        spectrum.weights = np.array(spectrum.weights, copy=True)
+        spectrum.weights[np.flatnonzero(spectrum.sectors == 0)[0]] = 1
+    elif damage == 'reference_root':
+        spectrum.reference_root = -spectrum.reference_root
+    elif damage == 'space_order':
+        spectrum.space.addresses = spectrum.space.addresses[::-1].copy()
+    else:
+        spectrum.measure = lambda *args: None
+    def forbidden_execution(*args, **kwargs):
+        raise AssertionError('an altered canonical model reached source execution')
+    monkeypatch.setattr(d.source, 'prepare', forbidden_execution)
+    with pytest.raises(ArithmeticError, match='canonical'):
+        d.correlator(spectrum, duration=duration)
+    with pytest.raises(ArithmeticError, match='canonical'):
+        d.readout(spectrum, duration=duration)
+
+
+@pytest.mark.parametrize('axis', range(3))
+def test_valid_phase_and_degenerate_basis_charts_survive_complete_model_validation(axis):
+    sides = [1, 1, 1]; sides[axis] = 2
+    spectrum = dimer.setup(FieldGeometry(tuple(sides)))
+    vectors = np.array(spectrum.vectors, copy=True)*np.exp(1j*np.arange(16)/7)
+    candidates = np.flatnonzero((spectrum.sectors == 1)
+        & (abs(spectrum.energies-(spectrum.energies[0]+np.sqrt(17)/8-1/16)) < 1e-12))
+    assert len(candidates) == 2
+    vectors[:, candidates] = vectors[:, candidates]@np.array([[1, 1j], [1j, 1]])/np.sqrt(2)
+    spectrum.vectors = vectors
+    admitted_axis, owned = d._admit(spectrum)
+    assert admitted_axis == axis and owned is not spectrum and owned.space is not spectrum.space
+    assert not np.shares_memory(owned.generator, spectrum.generator)
+    row = d.correlator(spectrum, index=3, reservoir=0, phase=1, quadrature=1,
+                       duration=F(-1, 3), steps=2)
+    assert abs(row['complete_probability']-1) < 2e-9
+    assert row['complete_vector_error'] < float(F(row['ideal_operator_error_bound']))+4e-9
+
+
+@pytest.mark.parametrize('name', ('generator', 'vectors', 'energies', 'reference', 'sectors'))
+def test_canonical_input_rejects_masked_or_nonfinite_spectral_data(name):
+    for masked in (False, True):
+        spectrum = dimer.setup()
+        value = np.array(getattr(spectrum, name), dtype=complex, copy=True)
+        if masked:
+            value = np.ma.array(value, mask=False)
+        else:
+            value.flat[-1] = np.nan
+        setattr(spectrum, name, value)
+        with pytest.raises(ArithmeticError, match='canonical'):
+            d._admit(spectrum)
+
+
+@pytest.mark.parametrize('numerator,denominator', ((0, 0), (1, -4), (True, 4),
+    (1, False), (.5, 4), (1, 4.), (3, 1)))
+def test_malformed_fraction_storage_is_rejected_before_source_execution(monkeypatch, numerator, denominator):
+    duration = F(1, 4)
+    duration._numerator, duration._denominator = numerator, denominator
+    def forbidden_execution(*args, **kwargs):
+        raise AssertionError('malformed duration reached a source preparation')
+    monkeypatch.setattr(d.source, 'prepare', forbidden_execution)
+    with pytest.raises(ValueError, match='duration'):
+        d.correlator(dimer.setup(), duration=duration)
+
+
+def test_valid_fraction_components_are_canonicalized_without_aliasing():
+    duration = F(1, 4)
+    duration._numerator, duration._denominator = 2, 8
+    canonical, steps = d._duration(duration, 2)
+    assert (canonical.numerator, canonical.denominator, steps) == (1, 4, 2)
+    assert canonical is not duration
+    assert (duration.numerator, duration.denominator) == (2, 8)
+    duration._numerator = 100
+    assert canonical == F(1, 4)

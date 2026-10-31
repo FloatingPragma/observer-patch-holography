@@ -1,5 +1,6 @@
 """Independent full-carrier and hostile controls for supplied candidate transport."""
 from copy import deepcopy
+from fractions import Fraction
 import math
 
 import numpy as np
@@ -103,6 +104,24 @@ def test_transport_unknown_complex_spin_entangled_reference_and_exterior(kind):
     assert result["first_failure_kraus_slots"] > 0
 
 
+@pytest.mark.parametrize("damage", ("nan", "infinity", "masked", "shape", "complex_energy", "shifted_energy"))
+def test_transport_rejects_invalid_or_reassigned_same_candidate_generator(monkeypatch, damage):
+    generator = np.array(algebra.pair_generator(), copy=True)
+    if damage == "nan":
+        generator[0, 0] = np.nan
+    elif damage == "infinity":
+        generator[0, 0] = np.inf
+    elif damage == "masked":
+        generator = np.ma.array(generator, mask=False)
+    elif damage == "shape":
+        generator = generator[:16, :16]
+    else:
+        generator += (.01j if damage == "complex_energy" else .01)*np.eye(256)
+    monkeypatch.setattr(algebra, "pair_generator", lambda axis=0: generator)
+    with pytest.raises(ArithmeticError, match="same candidate energy"):
+        source.transport("hole")
+
+
 @pytest.mark.parametrize("kind,ordinary,dephase,expected", [
     ("hole", False, False, [0, 1]), ("particle", False, False, [0, 1]),
     ("ground", False, False, [1, 0]), ("hole", True, False, [1, 0]),
@@ -170,6 +189,56 @@ def test_certificate_binds_emitted_route_instead_of_only_known_witness(monkeypat
     monkeypatch.setattr(source, "block_swap_word", corrupted)
     with pytest.raises(ArithmeticError, match="full-Fock route"):
         source._swap_certificate()
+
+
+def test_controlled_route_is_a_literal_remap_including_scalar_export_locations():
+    local = source.controlled_fswap_word(0, 1, 2, bits=2)
+    for left in range(7):
+        actual = source.controlled_fswap_word(left, left+1, 8, bits=8)
+        assert actual == compiler.remap(local, [left, left+1, 8])
+
+
+def test_scalar_target_equivalence_cannot_replace_complete_instrument_remapping(monkeypatch):
+    original = source.block_swap_word
+
+    def redirected(*, controlled=False, ordinary=False):
+        word = deepcopy(original(controlled=controlled, ordinary=ordinary))
+        if controlled:
+            for event in word:
+                if event["kind"] == "I":
+                    event["targets"] = [0]
+        return word
+
+    # I has the same ideal action at every location, but the failed export
+    # discards a different work axis. The complete local-map proof requires
+    # its literal remapping, even when the success target remains unchanged.
+    monkeypatch.setattr(source, "block_swap_word", redirected)
+    with pytest.raises(ArithmeticError, match="remap of its complete local instrument"):
+        source._swap_certificate()
+
+
+def test_near_isometry_composition_uses_norm_growth_even_with_local_gram_gate():
+    epsilon = Fraction(1, 10000000)
+    real, imag = 5*epsilon/13, 12*epsilon/13
+    assert real*real+imag*imag == epsilon*epsilon
+    assert 2*real+epsilon*epsilon < epsilon
+    # V=U(I+eta|vac><vac|) has Frobenius error epsilon and Gram error below
+    # epsilon for a vacuum-fixing FSWAP U. Sixteen aligned local maps exceed
+    # the additive16epsilon claim. This is a counterexample to deriving that
+    # bound from local admissions, not an injected physical source model.
+    product_real, product_imag = Fraction(1), Fraction(0)
+    for _ in range(16):
+        product_real, product_imag = (product_real*(1+real)-product_imag*imag,
+                                     product_real*imag+product_imag*(1+real))
+    squared_error = (product_real-1)**2+product_imag**2
+    assert squared_error > (16*epsilon)**2
+    exact_bound = (1+epsilon)**16-1
+    ceiling = Fraction(800001, 500000000000)
+    assert squared_error <= exact_bound**2 <= ceiling**2
+    report = source._swap_certificate()
+    assert report["global_complete_route_Stinespring_composition_bound"] == str(ceiling)
+    assert report["global_complete_route_composition_formula"] == "(1+1/10000000)^16-1"
+    assert report["complete_local_word_remapping_checked"] is True
 
 
 @pytest.mark.parametrize("kind", ["hole", "particle"])

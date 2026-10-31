@@ -62,6 +62,27 @@ def test_nonfinite_and_wrong_numerical_types_reject(bad):
         packet.compare({'probability': bad}, {'probability': 0.0})
 
 
+@pytest.mark.parametrize('field', ['preparation_abort_probability', 'continuation_abort_probability'])
+@pytest.mark.parametrize('bad', [-1e-10, -5e-324])
+def test_replay_tolerance_does_not_accept_negative_retained_outcomes(field, bad):
+    # The retained display rounds these tiny abort observations to zero.
+    # Closeness to that valid display must not admit a negative probability.
+    actual = strict_json.load(packet.OUTPUT)
+    changed = deepcopy(actual)
+    records = changed['number_conserving_detector']['complete_source_readout']['complete_records']
+    assert records[0][field] == 0.0
+    records[0][field] = bad
+    with pytest.raises(ValueError, match='outcome probability'):
+        packet.compare(changed, actual)
+    packet.compare(actual, actual)
+
+
+@pytest.mark.parametrize('actual,bad', [(0., -1e-10), (1., 1.+1e-10)])
+def test_pointer_probability_domain_is_stricter_than_replay_distance(actual, bad):
+    with pytest.raises(ValueError, match='outcome probability'):
+        packet.compare({'pointer_probabilities': [bad]}, {'pointer_probabilities': [actual]})
+
+
 @pytest.mark.parametrize('bad', [{}, {'a': [1, 2]}, {'a': [1], 'extra': 0}, {'a': [True]}])
 def test_missing_extra_and_wrong_typed_payloads_reject(bad):
     with pytest.raises(ValueError):

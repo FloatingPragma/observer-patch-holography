@@ -21,7 +21,9 @@ protection by C/E, or electromagnetic/Lorentz particle identification.
 """
 from __future__ import annotations
 
+import ast
 import math
+from itertools import combinations
 import numpy as np
 
 from ..particle_response import dimer
@@ -282,6 +284,95 @@ def _residual(value):
     return float(np.linalg.norm(value))
 
 
+def _native_dictionary_chart():
+    """Independently bind the consumed port chart and all proper rotations.
+
+    Read the literal faces from the pinned source bytes, not the mutable loaded
+    carrier. A directed edge determines the image of its oriented triangle;
+    propagating across adjacent triangles determines the full port map. The
+    sixty directed-edge images reconstruct the proper group without the
+    carrier's graph-automorphism enumerator or cached rotation catalogue.
+    """
+    from ..common_source import slow_geometry
+    from ..exchange_sector import statistics
+    from ..observer import native
+
+    slow_geometry.source.cache_clear()
+    carrier = slow_geometry.source()
+    path = slow_geometry.ARCHIVE/'oph_fpe/dynamics/self_readback_repair_closure.py'
+    tree = ast.parse(path.read_text(encoding='utf-8'))
+    declarations = [node.value for node in tree.body if isinstance(node, ast.Assign)
+                    and any(isinstance(target, ast.Name) and target.id == 'ORIENTED_BASE_FACES'
+                            for target in node.targets)]
+    if len(declarations) != 1:
+        raise ArithmeticError("unique pinned native face declaration required")
+    faces = ast.literal_eval(declarations[0])
+
+    def integer_rows(value, width, length):
+        return (type(value) is tuple and len(value) == length
+                and all(type(row) is tuple and len(row) == width
+                        and all(type(item) is int for item in row) for row in value))
+
+    if (not integer_rows(faces, 3, 20)
+            or any(len(set(face)) != 3 or not set(face) <= set(range(12)) for face in faces)
+            or len({frozenset(face) for face in faces}) != 20):
+        raise ArithmeticError("complete pinned native face chart required")
+    third = {(face[j], face[(j+1) % 3]): face[(j+2) % 3]
+             for face in faces for j in range(3)}
+    seams = tuple(sorted({tuple(sorted(edge)) for edge in third}))
+    if (len(third) != 60 or len(seams) != 30
+            or any((b, a) not in third for a, b in third)
+            or any(sum(p in edge for edge in seams) != 5 for p in range(12))):
+        raise ArithmeticError("pinned native oriented seam incidence changed")
+    live_faces, live_seams = carrier.oriented_faces(), carrier.seams()
+    if (not integer_rows(live_faces, 3, 20) or live_faces != faces
+            or not integer_rows(live_seams, 2, 30) or live_seams != seams
+            or not integer_rows(statistics.SEAMS, 2, 30) or statistics.SEAMS != seams):
+        raise ArithmeticError("runtime native face/seam chart differs from pinned source")
+
+    reconstructed = set()
+    first, second = faces[0][:2]
+    for target_edge in third:
+        image = {first: target_edge[0], second: target_edge[1]}
+        while True:
+            before = len(image)
+            for (a, b), c in third.items():
+                if a not in image or b not in image:
+                    continue
+                target = third.get((image[a], image[b]))
+                if target is None or (c in image and image[c] != target):
+                    raise ArithmeticError("oriented face propagation is inconsistent")
+                if c not in image:
+                    if target in image.values():
+                        raise ArithmeticError("oriented face propagation is not injective")
+                    image[c] = target
+            if len(image) == before:
+                break
+        if set(image) != set(range(12)) or set(image.values()) != set(range(12)):
+            raise ArithmeticError("oriented faces did not determine every port image")
+        reconstructed.add(tuple(image[p] for p in range(12)))
+    if len(reconstructed) != 60:
+        raise ArithmeticError("oriented faces did not reconstruct sixty proper rotations")
+    rotations = carrier.rotations()
+    if (not integer_rows(rotations, 12, 60) or len(set(rotations)) != 60
+            or set(rotations) != reconstructed):
+        raise ArithmeticError("complete distinct proper native rotation catalogue required")
+
+    states = tuple(sorted(tuple(int(j in pair) for j in range(12))
+                          for pair in combinations(range(12), 2)))
+    pairs = tuple(tuple(j for j, occupied in enumerate(state) if occupied) for state in states)
+    live_states = native.states(binary=True)
+    index = {pair: j for j, pair in enumerate(pairs)}
+    if (not integer_rows(live_states, 12, 66) or live_states != states
+            or not integer_rows(statistics.STATES, 12, 66) or statistics.STATES != states
+            or not integer_rows(statistics.PAIRS, 2, 66) or statistics.PAIRS != pairs
+            or type(statistics.INDEX) is not dict or statistics.INDEX != index
+            or any(type(value) is not int for value in statistics.INDEX.values())
+            or not integer_rows(tuple(statistics.INDEX), 2, 66)):
+        raise ArithmeticError("native binary state/pair/index chart changed")
+    return rotations
+
+
 def native_intertwiner_certificate():
     """Exact finite dictionary to the existing negative H66 instruments.
 
@@ -298,9 +389,9 @@ def native_intertwiner_certificate():
     flag.  Completeness is on im(W); no full-Fock extension is asserted.
     """
     from ..exchange_sector import statistics
-    from ..common_source import slow_geometry
     from ..observer.source_discrimination import circuit
 
+    rotations = _native_dictionary_chart()
     pair_index = {pair: j for j, pair in enumerate(statistics.PAIRS)}
     if len(pair_index) != 66:
         raise ArithmeticError("native embedded pair carrier changed")
@@ -313,6 +404,23 @@ def native_intertwiner_certificate():
             transposition[a], transposition[b] = b, a
             transposition = tuple(transposition)
             for coin in (0, 1):
+                # Reconstruct all admitted records on the full native local
+                # carrier, including collision inputs outside the binary image.
+                # The branch builder uses circuit.record_values too; comparing
+                # it only with that shared decoder would not bind abort slots.
+                decoder = {}
+                for left, right in ((0, 0), (0, 1), (1, 0), (0, 2), (1, 1), (2, 0)):
+                    difference, parity = left-right, (left+right) % 2
+                    current = (difference-(2*coin-1)*parity)//2
+                    raw = {0: 0, 1: 1, -1: 2}[current]
+                    if law == "E":
+                        raw += 4*parity
+                    decoder[raw] = current if law == "C" else difference
+                live_decoder = circuit.record_values(law, coin)
+                if (type(live_decoder) is not dict or live_decoder != decoder
+                        or any(type(key) is not int or type(value) is not int
+                               for key, value in live_decoder.items())):
+                    raise ArithmeticError("complete integer native record decoder changed")
                 expected = {raw: [] for raw in range(4 if law == "C" else 8)}
                 for i, pair in enumerate(statistics.PAIRS):
                     at_a, at_b = a in pair, b in pair
@@ -336,13 +444,24 @@ def native_intertwiner_certificate():
                     expected[raw].append((i, pair_index[target_pair], phase))
                 for raw, rows in expected.items():
                     branch = statistics.branch(law, seam, coin, raw, -1)
+                    if (type(branch) is not statistics.SignedBranch
+                            or type(branch.law) is not str
+                            or type(branch.seam) is not tuple or len(branch.seam) != 2
+                            or any(type(port) is not int for port in branch.seam)
+                            or type(branch.coin) is not int or type(branch.raw) is not int
+                            or type(branch.abort) is not bool
+                            or any(type(column) is not tuple for column in
+                                   (branch.inputs, branch.outputs, branch.signs))
+                            or any(type(value) is not int or not 0 <= value < 66
+                                   for column in (branch.inputs, branch.outputs) for value in column)
+                            or any(type(sign) is not int or sign not in (-1, 1) for sign in branch.signs)):
+                        raise ArithmeticError("strict integer native signed branch fields required")
                     actual = list(zip(branch.inputs, branch.outputs, branch.signs, strict=True))
-                    if (actual != rows or branch.abort != (raw not in circuit.record_values(law, coin))
+                    if (actual != rows or branch.abort != (raw not in decoder)
                             or (branch.law, branch.seam, branch.coin, branch.raw) != (law, seam, coin, raw)):
                         raise ArithmeticError("same-dimer embedding fails a complete native signed branch")
                     raw_slots += 1
                     support_columns += len(rows)
-    rotations = tuple(tuple(map(int, p)) for p in slow_geometry.source().rotations())
     rotation_columns = 0
     for permutation in rotations:
         images, phases = statistics.rotation_action(permutation, -1)

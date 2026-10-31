@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / 'results.json'
 CAMPAIGN = 'charged-particle-transport-20261031-v1'
 # The frozen contract is checked separately from mutable source custody.
-CONTRACT_SHA256 = '0bd9312e4af744dfb18e3ba43757d047f354be271661671564af364b9be173cc'
+CONTRACT_SHA256 = '65337a2188bfcf7f6268108a9c06cda8593880770831e658f1f6d71458142945'
 REPLAY_ATOL = 2e-10
 
 
@@ -98,6 +98,11 @@ def compare(expected, actual, path='receipt'):
         if (not math.isfinite(expected) or not math.isfinite(actual)
                 or abs(expected-actual) > REPLAY_ATOL):
             raise ValueError(f'{path}: numerical replay changed')
+        field = path.rsplit('.', 1)[-1]
+        if (field in ('preparation_abort_probability', 'continuation_abort_probability')
+                or field.startswith('pointer_probabilities[')):
+            if not 0 <= expected <= 1 or not 0 <= actual <= 1:
+                raise ValueError(f'{path}: outcome probability outside [0, 1]')
     elif type(actual) not in (str, int, bool, type(None)) or expected != actual:
         raise ValueError(f'{path}: receipt value changed')
 

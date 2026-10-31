@@ -7,6 +7,7 @@ asserted to be physical CAR operations. No passive native protection is claimed.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from fractions import Fraction
 import itertools
 import math
 from types import MappingProxyType
@@ -19,7 +20,8 @@ from ..common_source.chiral_candidate import gaussian_source as gaussian
 from ..field_thermal.thermal import execute_with_exports, failure_probability
 
 
-ADMISSION = 1e-7
+LOCAL_STINESPRING_ADMISSION = Fraction(1, 10000000)
+ADMISSION = float(LOCAL_STINESPRING_ADMISSION)
 SEEDS = {"ground": (3,), "hole": (1, 2), "particle": (7, 11)}
 # Internal arithmetic convention, not a caller-selected support or spectral
 # threshold. It is below the existing 2e-11 full-unitary and 3e-11 elimination
@@ -278,14 +280,16 @@ def controlled_fswap_word(left, right, pointer, bits=8):
             or not 0 <= left < right < bits or right != left+1
             or type(pointer) is not int or not bits <= pointer <= 8):
         raise ValueError("adjacent field modes and separate bounded pointer required")
+    # Build the complete three-bit instrument once in a local chart, then
+    # remap every pulse, including scalar I pulses. Building a padded Pauli
+    # string directly would put its all-I requests on global bit zero;
+    # those have the same ideal scalar but different export complements.
     word = []
     for pauli, angle in (("XX", -math.pi/4), ("YY", -math.pi/4),
                          ("II", math.pi/4), ("ZI", -math.pi/4),
                          ("II", math.pi/4), ("IZ", -math.pi/4)):
-        label = ["I"]*bits
-        label[left], label[right] = pauli
-        word += controlled_pauli_rotation("".join(label), angle, pointer)
-    return word
+        word += controlled_pauli_rotation(pauli, angle, 2)
+    return compiler.remap(word, [left, right, pointer])
 
 
 def _ordinary_swap_word(left, right, pointer, bits):
@@ -356,10 +360,18 @@ def transport(kind="hole", axis=0):
     _gram(actual, failures)
     if np.linalg.norm(algebra.block_swap()@prepared_target-target) > 2e-11:
         raise ArithmeticError("graded transport phase changed against an even ground exterior")
-    generator = np.asarray(algebra.pair_generator(axis))
-    energy = np.trace(prepared_target.conj().T@generator@prepared_target)/2
-    if max(np.linalg.norm(generator@prepared_target-energy*prepared_target),
-           np.linalg.norm(generator@target-energy*target)) > 2e-10:
+    raw_generator = algebra.pair_generator(axis)
+    generator = np.asarray(raw_generator)
+    if (np.ma.isMaskedArray(raw_generator) or generator.shape != (256, 256)
+            or generator.dtype.kind not in "iufc" or not np.isfinite(generator).all()):
+        raise ArithmeticError("finite full-Fock generator required for the same candidate energy")
+    # Bind the energy to the existing reference/gap, rather than accepting
+    # any common (possibly complex or nonfinite) eigenvalue of the two states.
+    energy = 2*algebra.GROUND_ENERGY+algebra.candidate_gap(kind)
+    residuals = (np.linalg.norm(generator-generator.conj().T),
+                 np.linalg.norm(generator@prepared_target-energy*prepared_target),
+                 np.linalg.norm(generator@target-energy*target))
+    if any(not math.isfinite(float(value)) or value > 2e-10 for value in residuals):
         raise ArithmeticError("transport did not preserve the same candidate energy")
     return dict(state=_frozen(actual), target=_frozen(target), initial=_frozen(initial),
                 prepared_target=_frozen(prepared_target), failures=failures,
@@ -545,7 +557,7 @@ def certificate():
                 preparations=preparations, transports=transports, exchange_reads=reads,
                 presence_reads=presence_reads, transport_and_readout=joined_reads,
                 swap_source=swap_certificate,
-                source_numerical_Stinespring_Frobenius_admission="1/10000000",
+                source_numerical_Stinespring_Frobenius_admission=str(LOCAL_STINESPRING_ADMISSION),
                 full_preparation_columns_and_all_abort_Kraus_columns_checked=True,
                 transport_unknown_spin_reference_columns_checked=True,
                 number_preserving_completed_field_operations=True,
@@ -579,8 +591,29 @@ def _swap_certificate():
     full_target = np.asarray(algebra.block_swap())
     full_controlled = np.eye(512, dtype=complex); full_controlled[256:, 256:] = full_target
     counted = {}
+    # Each numerical complete map has norm at most 1+epsilon, rather than
+    # being assumed an exact isometry. Extend terminated records by identity;
+    # the same bound holds on that direct sum. Telescoping the sixteen maps
+    # gives (1+epsilon)^16-1. The small rational ceiling keeps the receipt
+    # compact without rounding a floating exponential downwards.
+    exact_composition_bound = (1+LOCAL_STINESPRING_ADMISSION)**16-1
+    composition_ceiling = Fraction(800001, 500000000000)
+    if exact_composition_bound > composition_ceiling:
+        raise ArithmeticError("complete route composition exceeds its exact rational ceiling")
+    # Independent literal route census, not a comparison of scalar target
+    # matrices only. This binds the local exported Kraus instruments used by
+    # the composition bound to every emitted route pulse.
+    route = (3, 2, 1, 0, 4, 3, 2, 1, 5, 4, 3, 2, 6, 5, 4, 3)
+    local_words = {False: gaussian.local_word("fswap"),
+                   True: controlled_fswap_word(0, 1, 2, bits=2)}
     for bits, target, controlled in ((8, full_target, False), (9, full_controlled, True)):
         word = block_swap_word(controlled=controlled)
+        expected_word = []
+        for left in route:
+            targets = [left, left+1, 8] if controlled else [left, left+1]
+            expected_word += compiler.remap(local_words[controlled], targets)
+        if word != expected_word:
+            raise ArithmeticError("emitted full-Fock route is not a remap of its complete local instrument")
         counted[controlled] = compiler.resources(word)["native_pulses"]
         actual = compiler.execute(word, bits)
         if not np.isfinite(actual).all() or np.linalg.norm(actual-target) > ADMISSION:
@@ -591,7 +624,9 @@ def _swap_certificate():
                 global_full_Fock_columns=256, controlled_global_columns=512,
                 all_local_source_export_complements_retained=True,
                 full_emitted_route_checked_against_independent_permutation=True,
-                global_complete_route_Stinespring_composition_bound="16/10000000",
-                global_success_Frobenius_admission="1/10000000",
-                individual_local_complete_Stinespring_admission="1/10000000",
+                complete_local_word_remapping_checked=True,
+                global_complete_route_Stinespring_composition_bound=str(composition_ceiling),
+                global_complete_route_composition_formula="(1+1/10000000)^16-1",
+                global_success_Frobenius_admission=str(LOCAL_STINESPRING_ADMISSION),
+                individual_local_complete_Stinespring_admission=str(LOCAL_STINESPRING_ADMISSION),
                 arbitrary_untouched_reference_extension=True)

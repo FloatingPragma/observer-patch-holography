@@ -218,9 +218,12 @@ first-export Kraus slots. It uses eight initialized field-register bits
 and one neutral pointer; no free spectral projector is inserted.
 
 Each displayed complete history is checked with Stinespring Frobenius error
-at most `1e-7`. A separate bound `16e-7` composes the sixteen local complete
-FSWAP admissions for arbitrary route inputs and references; the complete
-global success matrix is also checked directly. These are fixed numerical
+at most `1e-7`. Every emitted FSWAP is a literal wire remapping of the
+certified local word, including its scalar pulses and export records.
+For sixteen local complete admissions with `epsilon=1e-7`, the bound
+`(1+epsilon)^16-1 < 800001/500000000000` includes numerical norm growth
+and applies to arbitrary route inputs and references. The complete global
+success matrix is also checked directly. These are fixed numerical
 implementation admissions, with no hardware noise or passive lifetime claim.
 
 ## Number-conserving charged spectroscopy

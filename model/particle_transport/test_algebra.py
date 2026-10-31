@@ -317,3 +317,131 @@ def test_same_candidate_certificate_and_no_passive_protection_claim():
     assert result["neutral_current_pair_exchange_parity"] == -1
     assert result["number_read_lower_doublet_survival"] == .75
     assert result["passive_topological_protection"] is False
+
+
+@pytest.mark.parametrize("corruption", ["duplicate", "improper", "nongeometry", "bool", "float"])
+def test_native_dictionary_rejects_corrupted_warm_rotation_catalogue(monkeypatch, corruption):
+    from ..common_source import slow_geometry
+    carrier = slow_geometry.source()
+    original = tuple(carrier.rotations())
+    rows = list(original)
+    if corruption == "duplicate":
+        rows = [tuple(range(12))]*60
+    elif corruption == "improper":
+        # Antipodal inversion preserves all edges but reverses face orientation.
+        replacement = tuple(carrier.antipode())
+        assert replacement not in set(original)
+        rows[0] = replacement
+    elif corruption == "nongeometry":
+        replacement = (1, 0, *range(2, 12))
+        assert replacement not in set(original)
+        rows[0] = replacement
+    else:
+        row = list(rows[0])
+        index = row.index(0)
+        row[index] = False if corruption == "bool" else 0.0
+        rows[0] = tuple(row)
+    monkeypatch.setattr(carrier, "rotations", lambda: tuple(rows))
+    with pytest.raises(ArithmeticError, match="proper native rotation catalogue"):
+        a.native_intertwiner_certificate()
+
+
+def test_native_dictionary_accepts_all_proper_rotations_in_any_iteration_order(monkeypatch):
+    from ..common_source import slow_geometry
+    carrier = slow_geometry.source()
+    expected = a.native_intertwiner_certificate()
+    rotations = tuple(reversed(carrier.rotations()))
+    monkeypatch.setattr(carrier, "rotations", lambda: rotations)
+    assert a.native_intertwiner_certificate() == expected
+
+
+@pytest.mark.parametrize("field", ["faces", "seams"])
+def test_native_dictionary_binds_warm_face_and_seam_chart(monkeypatch, field):
+    from ..common_source import slow_geometry
+    carrier = slow_geometry.source()
+    if field == "faces":
+        changed = tuple((a, c, b) for a, b, c in carrier.oriented_faces())
+        monkeypatch.setattr(carrier, "oriented_faces", lambda: changed)
+    else:
+        changed = tuple(reversed(carrier.seams()))
+        monkeypatch.setattr(carrier, "seams", lambda: changed)
+    with pytest.raises(ArithmeticError, match="face/seam chart"):
+        a.native_intertwiner_certificate()
+
+
+@pytest.mark.parametrize("field", ["native_states", "states", "pairs", "index", "coherent_reorder"])
+def test_native_dictionary_binds_literal_integer_state_chart(monkeypatch, field):
+    from ..exchange_sector import statistics
+    from ..observer import native
+    if field == "coherent_reorder":
+        states = tuple(reversed(statistics.STATES))
+        pairs = tuple(reversed(statistics.PAIRS))
+        monkeypatch.setattr(statistics, "STATES", states)
+        monkeypatch.setattr(statistics, "PAIRS", pairs)
+        monkeypatch.setattr(statistics, "INDEX", {pair: i for i, pair in enumerate(pairs)})
+    elif field == "index":
+        index = dict(statistics.INDEX)
+        index[statistics.PAIRS[0]] = False
+        monkeypatch.setattr(statistics, "INDEX", index)
+    elif field == "pairs":
+        pairs = list(statistics.PAIRS)
+        pairs[0] = tuple(float(port) for port in pairs[0])
+        monkeypatch.setattr(statistics, "PAIRS", tuple(pairs))
+    else:
+        states = list(statistics.STATES)
+        states[0] = tuple(bool(value) for value in states[0])
+        if field == "native_states":
+            monkeypatch.setattr(native, "states", lambda binary=False: tuple(states))
+        else:
+            monkeypatch.setattr(statistics, "STATES", tuple(states))
+    with pytest.raises(ArithmeticError, match="binary state/pair/index chart"):
+        a.native_intertwiner_certificate()
+
+
+@pytest.mark.parametrize("field", ["coin", "raw", "abort", "law", "seam", "inputs", "outputs", "signs"])
+def test_native_dictionary_rejects_equal_valued_wrong_branch_types(monkeypatch, field):
+    from ..exchange_sector import statistics
+    original = statistics.branch
+
+    class StringAlias(str):
+        pass
+
+    def changed(*args):
+        branch = original(*args)
+        value = getattr(branch, field)
+        if field == "coin":
+            wrong = bool(value)
+        elif field == "raw":
+            wrong = float(value)
+        elif field == "abort":
+            wrong = int(value)
+        elif field == "law":
+            wrong = StringAlias(value)
+        else:
+            wrong = tuple(float(item) for item in value)
+        return replace(branch, **{field: wrong})
+
+    monkeypatch.setattr(statistics, "branch", changed)
+    with pytest.raises(ArithmeticError, match="strict integer native signed branch"):
+        a.native_intertwiner_certificate()
+
+
+@pytest.mark.parametrize("corruption", ["admit_empty", "wrong_contrast", "bool_key"])
+def test_native_dictionary_independently_binds_shared_record_decoder(monkeypatch, corruption):
+    from ..observer.source_discrimination import circuit
+    original = circuit.record_values
+
+    def changed(law, coin):
+        decoder = dict(original(law, coin))
+        if corruption == "admit_empty":
+            decoder[3] = 0
+        elif corruption == "wrong_contrast":
+            decoder[0] = 2
+        else:
+            value = decoder.pop(0)
+            decoder[False] = value
+        return decoder
+
+    monkeypatch.setattr(circuit, "record_values", changed)
+    with pytest.raises(ArithmeticError, match="integer native record decoder"):
+        a.native_intertwiner_certificate()
