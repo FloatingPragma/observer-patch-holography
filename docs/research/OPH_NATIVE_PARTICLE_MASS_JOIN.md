@@ -25,7 +25,7 @@ predicted normalized difference is zero and satisfies the explicitly
 conditional PDG positronium bound. **No absolute particle mass is independently
 predicted.** CAR number charge and an internal doublet have not been identified
 with electromagnetic charge and Lorentz spin. A physical vacuum, continuum
-dispersion, protected transport and a same-excitation topological-defect map
+dispersion, autonomous native protection and a same-excitation topological-defect map
 are still missing. The two-site frequencies alone cannot supply those maps.
 The [executable dictionary](../../model/particle_comparison/dictionary.py)
 supplies their conditional SI operators and a common time/length conversion.
@@ -43,6 +43,35 @@ arbitrary common chemical-potential shift and positive energy scale. This
 rejects that finite mass attachment, not the full OPH proposal. The fixed
 alpha/ACT data replay is also retrospective and supplies no universe-membership
 test. The complete physical comparison gate remains open.
+
+## Same-candidate transport and number-conserving reads
+
+The [charged-particle transport construction](../../model/particle_transport/README.md)
+uses these same dimer ground and charged doublets. A complete graded block
+swap transports an unknown internal state, including its reference, between
+two identical separated dimers and restores the vacated ground exterior.
+Source words prepare the states from counted fixed-occupation inputs and
+execute both transport and an exchange interferometer with complete pointer
+and export-failure records. Ordinary swaps and which-path records supply
+distinct controls. This is coherent supplied transport; the generator is
+the sum of the two dimer generators, not the uniform four-site lattice.
+
+An explicit isometry places two identical odd candidate columns among twelve
+even ground blocks. Graded block permutations reproduce every movement,
+rotation and complete C/E record branch of the existing negative H66 lift
+on this 66-dimensional image. Multiplication gives the corresponding
+finite-history intertwiner. This is a formal 48-mode embedding, not a
+48-mode source execution or a native protecting invariant.
+
+Neutral inter-dimer transfer has a complete three-band particle-hole response
+with analytically fixed weights. A supplied occupied or empty reservoir and
+number-conserving reflection probes recover the same addition/removal Green
+functions through eight complete source readouts. The subtraction combines
+record probabilities without postselection. Preparation, source controls,
+reservoir charge, neutral pointers and Hamiltonian model time remain declared
+resources. A local number read already disturbs the charged lower band.
+The failed dispersion benchmark and physical-particle identification gates
+therefore remain unchanged.
 
 ## Native memory and energy conditions
 
