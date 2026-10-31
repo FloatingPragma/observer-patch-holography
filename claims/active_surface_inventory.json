@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 761,
+  "surface_count": 762,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1882,6 +1882,11 @@
     },
     {
       "path": "model/field_stress/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_symmetry/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
