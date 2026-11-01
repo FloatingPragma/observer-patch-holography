@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "d951aa0f3ff1c065129b256094c06fdc8f4f6bc158d90272fe2e550783ce2305",
-      "claims/completion_program.json": "4d5c224ebe844c42fac8970f9763af461e018aadcc2f13662dd04f0dd8c33cec",
+      "claims/completion_program.json": "87e13b7335ab61f131a8ede5f2a2020b9caf814233f1e59023b28919dc9f5d9e",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -432,7 +432,7 @@
             "independent_check": "model/compiled_native_history/test_compiler.py",
             "path": "model/completion/component_interfaces.json",
             "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
-            "sha256": "bf64a7f127705b8f4ada0e5a3942e22cb70ec0194fb0a13d76f78a67fec6b71f"
+            "sha256": "b3dbcdec2021618257528e6f69745c298b0586742490a56d8321cbd68ebedcf8"
           },
           "id": "OPH-COMMON-FIELD-INTERFACES-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -482,6 +482,22 @@
           "supports": [
             "CP-03",
             "CP-04",
+            "CP-05"
+          ],
+          "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "native-many-particle-statistics-20261031-v1",
+            "independent_check": "model/exchange_sector/test_many_body_packet.py",
+            "path": "model/exchange_sector/many_body_contract.json",
+            "scope": "The fixed twelve-port binary carrier has a complete integral first-homology and scalar flat-character catalogue over every occupation number zero through twelve. The declared one-particle face fillings and disjoint-move squares give cyclic H1 of order 2(N-1) for N=2 through 10, free rank nineteen at N=11, and trivial H1 at N=0, 1 and 12. Exact integer presentations and every local exchange generator are checked. Requiring local exchange holonomy to survive insertion of fixed spectators leaves exactly two scalar families, with common sign plus or minus, up to vertex gauge. This compatibility is explicit and selects neither sign. Both choices extend the existing complete C/E endpoint law to all 4096 binary occupations with fair coins and every raw, zero and abort slot. The negative choice agrees with even CAR transport; the positive choice is the hard-core occupation control. Restricted spectator insertion intertwines the same native branches on its avoiding subcomplex. Particle-hole complement preserves the movement graph but not the declared face fillings. No nonabelian many-particle classification, continuum equivalence, localized protected core, Lorentz spin, physical species or mass is established. A bounded source observer compiles the same binary endpoint rule on four active native ports and checks all sixteen input columns. A fixed-total-two preparation, complete C/E repair and phase readout distinguish the two supplied coherent lifts; a retained which-path pointer removes that interference in the terminal classical law. Every raw record, terminal address and first failed proper-code export is retained in the fresh execution. The complete source-map amplitude budget, preparation/read pulses, blank work bits and detection addresses are counted. This executes a bounded four-mode observer, not all 4096 source input columns or a calibrated physical apparatus.",
+            "sha256": "ca959087e9578610ec993623926f3e526cdec984ecc236923a94416d6266c49c"
+          },
+          "id": "native-many-particle-statistics-20261031-v1",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-03",
             "CP-05"
           ],
           "whole_program_frozen": false
@@ -2916,7 +2932,14 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "8ff7071fadbd5ca416e1289c192e51fe419e58d3d3b3777791ef2c4ac2554907"
+              "sha256": "e132a5aa974d1b19772c948ff2f8281c16e906616236024dbb53c99cfde0f32f"
+            },
+            {
+              "campaign_id": "native-many-particle-statistics-20261031-v1",
+              "independent_check": "model/exchange_sector/test_many_body_packet.py",
+              "path": "model/exchange_sector/many_body_results.json",
+              "scope": "The fixed twelve-port binary carrier has a complete integral first-homology and scalar flat-character catalogue over every occupation number zero through twelve. The declared one-particle face fillings and disjoint-move squares give cyclic H1 of order 2(N-1) for N=2 through 10, free rank nineteen at N=11, and trivial H1 at N=0, 1 and 12. Exact integer presentations and every local exchange generator are checked. Requiring local exchange holonomy to survive insertion of fixed spectators leaves exactly two scalar families, with common sign plus or minus, up to vertex gauge. This compatibility is explicit and selects neither sign. Both choices extend the existing complete C/E endpoint law to all 4096 binary occupations with fair coins and every raw, zero and abort slot. The negative choice agrees with even CAR transport; the positive choice is the hard-core occupation control. Restricted spectator insertion intertwines the same native branches on its avoiding subcomplex. Particle-hole complement preserves the movement graph but not the declared face fillings. No nonabelian many-particle classification, continuum equivalence, localized protected core, Lorentz spin, physical species or mass is established.",
+              "sha256": "ef22adb0763a456c964a21bfdd1191d432bd8f133d05c4a267210ac0d7583081"
             }
           ],
           "requires": [
@@ -3231,7 +3254,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "8ff7071fadbd5ca416e1289c192e51fe419e58d3d3b3777791ef2c4ac2554907"
+              "sha256": "e132a5aa974d1b19772c948ff2f8281c16e906616236024dbb53c99cfde0f32f"
             }
           ],
           "requires": [
@@ -3452,7 +3475,14 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "8ff7071fadbd5ca416e1289c192e51fe419e58d3d3b3777791ef2c4ac2554907"
+              "sha256": "e132a5aa974d1b19772c948ff2f8281c16e906616236024dbb53c99cfde0f32f"
+            },
+            {
+              "campaign_id": "native-many-particle-statistics-20261031-v1",
+              "independent_check": "model/exchange_sector/test_many_body_packet.py",
+              "path": "model/exchange_sector/many_body_results.json",
+              "scope": "The fixed twelve-port binary carrier has a complete integral first-homology and scalar flat-character catalogue over every occupation number zero through twelve. The declared one-particle face fillings and disjoint-move squares give cyclic H1 of order 2(N-1) for N=2 through 10, free rank nineteen at N=11, and trivial H1 at N=0, 1 and 12. Exact integer presentations and every local exchange generator are checked. Requiring local exchange holonomy to survive insertion of fixed spectators leaves exactly two scalar families, with common sign plus or minus, up to vertex gauge. This compatibility is explicit and selects neither sign. Both choices extend the existing complete C/E endpoint law to all 4096 binary occupations with fair coins and every raw, zero and abort slot. The negative choice agrees with even CAR transport; the positive choice is the hard-core occupation control. Restricted spectator insertion intertwines the same native branches on its avoiding subcomplex. Particle-hole complement preserves the movement graph but not the declared face fillings. No nonabelian many-particle classification, continuum equivalence, localized protected core, Lorentz spin, physical species or mass is established. A bounded source observer compiles the same binary endpoint rule on four active native ports and checks all sixteen input columns. A fixed-total-two preparation, complete C/E repair and phase readout distinguish the two supplied coherent lifts; a retained which-path pointer removes that interference in the terminal classical law. Every raw record, terminal address and first failed proper-code export is retained in the fresh execution. The complete source-map amplitude budget, preparation/read pulses, blank work bits and detection addresses are counted. This executes a bounded four-mode observer, not all 4096 source input columns or a calibrated physical apparatus.",
+              "sha256": "ef22adb0763a456c964a21bfdd1191d432bd8f133d05c4a267210ac0d7583081"
             }
           ],
           "requires": [

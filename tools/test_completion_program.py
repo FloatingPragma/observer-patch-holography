@@ -38,7 +38,9 @@ def fixture_root(tmp_path):
         target.write_text("Independent fixture evidence: " + name + "\n")
     for campaign in source.get("component_campaigns", []):
         name = campaign["contract"]["path"]
-        (tmp_path / name).write_text((program.ROOT / name).read_text())
+        # A later campaign may also be an earlier contract's bound dependency.
+        # Preserve its authoritative bytes, including line endings.
+        (tmp_path / name).write_bytes((program.ROOT / name).read_bytes())
         contract = json.loads((tmp_path/name).read_text())
         if contract.get('schema') == 'oph.integration_simplification.v1':
             for dependency in contract['source_bindings']:

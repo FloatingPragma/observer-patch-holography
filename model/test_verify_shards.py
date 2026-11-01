@@ -94,6 +94,7 @@ def test_every_new_research_receipt_has_a_canonical_replay():
         ('model.clock_defect_energy.shared_event_clock.run', None, 'model/clock_defect_energy/shared_event_clock/results.json'),
         ('model.screened_transport.transport', None, 'model/screened_transport/transport_results.json'),
         ('model.exchange_sector.statistics_packet', None, 'model/exchange_sector/statistics_results.json'),
+        ('model.exchange_sector.many_body_packet', None, 'model/exchange_sector/many_body_results.json'),
         ('model.particle_screening.mobile_packet', None, 'model/particle_screening/mobile_results.json'),
     }.issubset(verify.REPLAYS)
 
