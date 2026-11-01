@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "d951aa0f3ff1c065129b256094c06fdc8f4f6bc158d90272fe2e550783ce2305",
-      "claims/completion_program.json": "4ff4e53d9728ef92d02b47d115beafb264df3bab99878621a6b9bfd7c95d60ba",
+      "claims/completion_program.json": "ae57f648bb45eddcbbbcbc01bc4738945d56b8fcbfd8d44e99b381e3439983ee",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -415,7 +415,7 @@
             "independent_check": "model/biased_code_universality/test_universality.py",
             "path": "model/biased_code_universality/campaign.json",
             "scope": "Positive-coin classification transfer proves the fixed biased optimal asymptotic reset rate across arbitrary adaptive exact all-seam sharp-q1 codes. Separate clock-factor composition is operational; finite-horizon biased optimality and particle mass remain unproved.",
-            "sha256": "1d12138553cd3056353fe9133740759bb0d9f50cdbb82ad668e0bef700ea38e6"
+            "sha256": "c00268aca46316ecfee8b05f43cbed08260f4ae003a6fd801f17548733618ff9"
           },
           "id": "OPH-INTEGRATION-BIASED-CODE-UNIVERSALITY-2026-10-29-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -533,6 +533,22 @@
             "CP-04",
             "CP-05",
             "CP-06"
+          ],
+          "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1",
+            "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+            "path": "model/native_fixed_algebra/occupation_contract.json",
+            "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+            "sha256": "3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67"
+          },
+          "id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-03",
+            "CP-05"
           ],
           "whole_program_frozen": false
         }
@@ -677,7 +693,8 @@
               "gauged_field",
               "exchange_statistics",
               "signed_native",
-              "native_presentation"
+              "native_presentation",
+              "native_occupation_protection"
             ],
             "gate": "CP-03",
             "issue": 1139,
@@ -1189,7 +1206,7 @@
             "independent_check": "model/particle_screening/test_mobile_packet.py",
             "path": "model/particle_screening/mobile_results.json",
             "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
-            "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776"
+            "sha256": "06a1ed5fa6c6dc9c2598832e96a827fd751d5c4698b89944ed3906a142c27806"
           },
           {
             "campaign_id": "OPH-INTEGRATION-PAIR-CYCLIC-CONTROL-2026-10-29-v1",
@@ -1374,6 +1391,14 @@
             "path": "model/particle_comparison/dictionary.py",
             "scope": "An executable sixteen-state benchmark supplies Q=e(N-2), S=hbar*S_internal and one measured electron energy scale, giving assigned Hamiltonian-time and lattice-length units. Complete candidate electric-current/dipole response obeys continuity and charge conjugation, but the pure-gauge open bond measures no magnetic moment and its bare contact kernel is not Coulomb exchange. A separately declared four-site periodic extension checks momentum, all number sectors, particle-hole residues and free doublers. Its charged poles fail the fixed dimer-mass/bare-speed lattice-Dirac benchmark and a same-volume rest-gap variant. Finite-volume shifts and a possible renormalized velocity remain distinct: two momentum-squared values cannot validate a fitted dispersion. This rejects only that supplied finite dictionary benchmark, not an OPH continuum; physical electron/positron identity and QED remain unestablished.",
             "sha256": "a1f72f68d8379cb2c55bdab706dace43903aff2eccb6ec838402e492c99bc327"
+          },
+          {
+            "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1",
+            "id": "native_occupation_protection",
+            "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+            "path": "model/native_fixed_algebra/occupation_results.json",
+            "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+            "sha256": "5d6f89854db3cf1720f50e6c862091291a79904ac9d3b0d3e9d42c9f248a52e4"
           }
         ],
         "id": "OPH-COMPLETION-NEXT-WAVE-2026-10-30-v12",
@@ -1401,7 +1426,8 @@
               "gauged_field",
               "native_presentation",
               "bound_pair",
-              "particle_applicability"
+              "particle_applicability",
+              "native_occupation_protection"
             ],
             "gate": "CP-05",
             "issue": 1141,
@@ -1775,7 +1801,7 @@
               "independent_check": "model/particle_screening/test_mobile_packet.py",
               "path": "model/particle_screening/mobile_results.json",
               "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
-              "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776"
+              "sha256": "06a1ed5fa6c6dc9c2598832e96a827fd751d5c4698b89944ed3906a142c27806"
             },
             {
               "campaign_id": "OPH-INTEGRATION-RECOVERY-ELISION-2026-10-29-v1",
@@ -2253,7 +2279,7 @@
               "independent_check": "model/particle_screening/test_mobile_packet.py",
               "path": "model/particle_screening/mobile_results.json",
               "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
-              "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776"
+              "sha256": "06a1ed5fa6c6dc9c2598832e96a827fd751d5c4698b89944ed3906a142c27806"
             },
             {
               "campaign_id": "OPH-INTEGRATION-PAIR-CYCLIC-CONTROL-2026-10-29-v1",
@@ -2805,7 +2831,9 @@
             "model/defect_field_bridge/test_coherent_extension.py",
             "model/defect_field_bridge/COHERENT_EXTENSION.md",
             "model/defect_field_bridge/coherent_extension_results.json",
-            "model/defect_field_bridge/coherent_extension_results.npz"
+            "model/defect_field_bridge/coherent_extension_results.npz",
+            "model/native_fixed_algebra/OCCUPATION.md",
+            "model/native_fixed_algebra/occupation_results.json"
           ],
           "id": "CP-03",
           "issue": 1139,
@@ -2908,7 +2936,7 @@
               "independent_check": "model/particle_screening/test_mobile_packet.py",
               "path": "model/particle_screening/mobile_results.json",
               "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
-              "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776"
+              "sha256": "06a1ed5fa6c6dc9c2598832e96a827fd751d5c4698b89944ed3906a142c27806"
             },
             {
               "campaign_id": "OPH-INTEGRATION-RECOVERY-ELISION-2026-10-29-v1",
@@ -2978,7 +3006,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "4032c046502b1aadedce30748156ac43104da7e290978d851d7b859ed56ea8ae"
+              "sha256": "148a65cdd270b9edf22a39bf1b23a6b0deaef8df8fca33213a36d71ec6adb49e"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -2993,6 +3021,13 @@
               "path": "model/field_symmetry/results.json",
               "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. The surviving eta ladder is a global supplied-Hamiltonian sector; it is not a boundary invariant of the all-seam C/E instrument.",
               "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1",
+              "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+              "path": "model/native_fixed_algebra/occupation_results.json",
+              "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+              "sha256": "5d6f89854db3cf1720f50e6c862091291a79904ac9d3b0d3e9d42c9f248a52e4"
             }
           ],
           "requires": [
@@ -3307,7 +3342,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "4032c046502b1aadedce30748156ac43104da7e290978d851d7b859ed56ea8ae"
+              "sha256": "148a65cdd270b9edf22a39bf1b23a6b0deaef8df8fca33213a36d71ec6adb49e"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -3415,7 +3450,9 @@
             "model/particle_transport/algebra.py",
             "model/particle_transport/source.py",
             "model/particle_transport/detector.py",
-            "model/particle_transport/results.json"
+            "model/particle_transport/results.json",
+            "model/native_fixed_algebra/OCCUPATION.md",
+            "model/native_fixed_algebra/occupation_results.json"
           ],
           "id": "CP-05",
           "issue": 1141,
@@ -3449,7 +3486,7 @@
               "independent_check": "model/particle_screening/test_mobile_packet.py",
               "path": "model/particle_screening/mobile_results.json",
               "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
-              "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776"
+              "sha256": "06a1ed5fa6c6dc9c2598832e96a827fd751d5c4698b89944ed3906a142c27806"
             },
             {
               "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1",
@@ -3540,7 +3577,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "4032c046502b1aadedce30748156ac43104da7e290978d851d7b859ed56ea8ae"
+              "sha256": "148a65cdd270b9edf22a39bf1b23a6b0deaef8df8fca33213a36d71ec6adb49e"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -3562,6 +3599,13 @@
               "path": "model/field_symmetry/results.json",
               "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. A complete 256-state four-site plaquette history prepares a supplied even-charge coherent eta product, evolves it with the existing source words and reads all terminal occupation addresses after decoding. Every first-export failure and preparation/readout cost is retained. The ideal split is exact on this eta preparation; the arbitrary-input splitting bound and numerical primitive admission budget are separate. H rotates the pair phase at frequency U, whereas K=H-U*N/2 holds it fixed. The phase reference, action and Hamiltonian time remain supplied; no physical energy or clock calibration is inferred.",
               "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1",
+              "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+              "path": "model/native_fixed_algebra/occupation_results.json",
+              "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+              "sha256": "5d6f89854db3cf1720f50e6c862091291a79904ac9d3b0d3e9d42c9f248a52e4"
             }
           ],
           "requires": [

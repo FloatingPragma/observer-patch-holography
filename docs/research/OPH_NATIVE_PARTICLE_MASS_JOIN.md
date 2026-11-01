@@ -381,6 +381,30 @@ The current native catalogue is:
 | Relational source/core overlap `q` | Conserved under simultaneous current transport | A relational sector, not a source-only charge |
 | Sharp `q=2` edge pair | Mean native-edge first exit 15 attempts | No protected edge bond or measured decay law |
 | Mobile sharp `q=1` qubit | Exact active correction, 60 admissible cores, optimal resets | A transported quantum memory; rotations act trivially on its logical qubit |
+| Complete binary occupation carrier | Fixed algebra `C^11 direct_sum M_2(empty,full)` for either C/E law and exchange character | Global number charges and a distance-one global qubit; no local protected source charge |
+
+The [complete occupation classification](../../model/native_fixed_algebra/OCCUPATION.md)
+exhausts passive source-only conservation on all 4096 binary configurations.
+Actual native effects separate every configuration except empty/full, and
+signed native transport generates every matrix unit within each intermediate
+number sector. The only nontrivial quantum multiplicity is therefore the
+global empty/full span. Every proper-port-local fixed observable is scalar;
+a one-port phase acts as a logical error, while an unread occupation
+measurement dephases the memory. For a
+fixed positive all-seam selector, the complete stationary-state family and
+its limiting channel are also determined, without assigning a physical
+clock or convergence rate.
+
+The adopted V2 program fixes total number and forbids cross-number coherence,
+so the extremal qubit is a separate component probe, not an admitted V2
+observer. A complete twelve-occupation-bit source execution preserves the
+extremal code under native repair, while a complementary six-occupation code
+loses coherence to the retained native records. All preparation, readout,
+complementary outputs and resource budgets are included. The classification
+does not exclude moving particles carrying a global charge, active recovery,
+relational source/controller invariants, or refinement protection. It
+separates the exchange-path invariant from passive local state protection;
+neither alone establishes physical particle identity.
 
 None supplies the missing joint localization, coherent statistics, matched
 rest/kinetic action and detector response required to name a physical species.
