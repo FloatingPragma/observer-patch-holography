@@ -232,13 +232,16 @@ def verify_witness(numerator, trial, factor):
     separation = EXCITED_LOWER-rayleigh
     infidelity = variance/separation**2
     temple = rayleigh-variance/separation
-    return {'trial_rayleigh': rayleigh, 'gram_residual': error,
+    checked = {'trial_rayleigh': rayleigh, 'gram_residual': error,
             'trial_residual_variance': variance,
             'trial_ground_infidelity_upper': infidelity,
             'Temple_ground_energy_lower': temple,
             'ground_energy_strict_upper': GROUND_UPPER,
             'excited_energy_strict_lower': EXCITED_LOWER,
             'neutral_gap_strict_lower': GAP_LOWER}
+    # Fraction's internal slots are writable. No returned diagnostic or bound
+    # may alias the proof constants or another invocation's values.
+    return {name: F(value.numerator, value.denominator) for name, value in checked.items()}
 
 
 @lru_cache(maxsize=1)

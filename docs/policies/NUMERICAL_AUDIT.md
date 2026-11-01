@@ -253,6 +253,12 @@ not a domain argument.
   an interval bound or proof of a zero. An exact certificate must establish
   the property of the supplied matrix, without silently projecting it onto
   a preferred state family.
+  A correct symmetry or nullspace does not authenticate primitive coefficients:
+  rescaled and nonuniform links can preserve both. Check the declared source
+  entries independently, and test altered link strengths as well as wrong axes.
+  Before sparse conversion, challenge duplicate-entry cancellation, conversion
+  overrides and masked or subclassed index buffers; a cached canonical-format
+  flag is not an exact check of the stored matrix.
   A compiled permutation implementing its supplied target does not establish
   the intended logical action. Bind every emitted routing, syndrome and
   feedback word to independently specified input/output slots and wire order;

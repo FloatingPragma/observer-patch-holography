@@ -61,7 +61,11 @@ zero hopping every onsite field would anticommute.
 `FieldGeometry.single_h()` at $c=1/8$. Exact rational conversion of its binary
 matrix entries verifies all four anticommutators and computes rank 28 for the
 complete real onsite linear system formed directly from that source matrix.
-The tests reject a Hermitian source link with a wrong Pauli axis. The source
+It independently checks every declared cube link and its exact coefficient:
+the same mass nullspace alone would also admit incorrect link strengths.
+The fixed provider's canonical complex128 CSR storage is checked before
+conversion, so masks, conversion overrides, wider scalars and duplicate-entry
+rounding cannot hide a different source. The source
 anchor also verifies the existing hidden-frame matrices, rather than importing
 the mass basis as a premise about those matrices.
 

@@ -16,12 +16,103 @@ def test_all_four_full_balanced_blocks_certify_the_global_ground():
     assert result['numerical_eigenvalue_admission'] is False
 
 
+def test_public_certificate_mutations_cannot_poison_the_cached_proof():
+    result = g.certificate()
+    result['global_ground_dimension'] = 1
+    result['Gram_blocks'][0]['exact_integer_Gram_verified'] = False
+    result['Gram_blocks'][1]['residual_strict_upper'] = F(1, 2)
+    result['Gram_blocks'][1]['residual_strict_upper']._denominator = -1
+    result['Gram_blocks'].pop()
+    fresh = g.certificate()
+    assert fresh['global_ground_dimension'] == 5
+    assert len(fresh['Gram_blocks']) == 4
+    assert all(row['exact_integer_Gram_verified'] is True for row in fresh['Gram_blocks'])
+    assert all(row['residual_strict_upper'] == '1/512' for row in fresh['Gram_blocks'])
+
+
 def test_exact_scalar_gram_does_not_require_cholesky_or_full_rank():
     h = sparse.csr_matrix(np.zeros((2, 2), dtype=np.int64))
     q = np.zeros((2, 2), dtype=np.int64)
     assert g.verify_gram(h, q, F(1)) == F(27, 64)
     q[0, 0] = 1 << 19
     assert g.verify_gram(h, q, F(1)) == F(27, 64)
+
+
+@pytest.mark.parametrize('base', [sparse.csr_matrix, sparse.coo_matrix])
+def test_sparse_subclass_cannot_hide_original_negative_source_entries(base):
+    class HiddenSource(base):
+        def tocoo(self, copy=False):
+            return sparse.coo_matrix((1, 1), dtype=np.int64)
+    h = HiddenSource([[-16]], dtype=np.int64)
+    q = g.propose_gram(sparse.csr_matrix([[0]], dtype=np.int64))
+    assert int(h.toarray()[0, 0]) == -16
+    assert -F(1)+F(27, 64) < 0  # The actual shifted source is not PSD.
+    with pytest.raises(ValueError, match='standard.*sparse'):
+        g.verify_gram(h, q)
+
+
+def test_native_sparse_instance_cannot_shadow_its_conversion_method():
+    h = sparse.csr_matrix([[-16]], dtype=np.int64)
+    h.tocoo = lambda copy=False: sparse.coo_matrix((1, 1), dtype=np.int64)
+    q = g.propose_gram(sparse.csr_matrix([[0]], dtype=np.int64))
+    assert int(h.data[0]) == -16
+    with pytest.raises(ValueError, match='native sparse storage'):
+        g.verify_gram(h, q)
+
+
+@pytest.mark.parametrize('form', ['coo', 'bsr'])
+def test_sparse_stored_array_subclass_cannot_erase_original_entries(form):
+    class HiddenEntries(np.ndarray):
+        def copy(self, *args, **kwargs):
+            return np.zeros(self.shape, dtype=np.int64)
+    h = sparse.csr_matrix([[-16]], dtype=np.int64).asformat(form)
+    h.data = h.data.view(HiddenEntries)
+    assert int(np.asarray(h.data).flat[0]) == -16
+    q = g.propose_gram(sparse.csr_matrix([[0]], dtype=np.int64))
+    with pytest.raises(ValueError, match='native sparse storage'):
+        g.verify_gram(h, q)
+
+
+def test_dok_stored_dictionary_cannot_hide_original_entries():
+    class HiddenEntries(dict):
+        def items(self): return {}.items()
+        def keys(self): return {}.keys()
+        def values(self): return {}.values()
+        def __len__(self): return 0
+    h = sparse.dok_matrix([[-16]], dtype=np.int64)
+    h._dict = HiddenEntries(h._dict)
+    assert dict.__getitem__(h._dict, (0, 0)) == -16
+    q = g.propose_gram(sparse.csr_matrix([[0]], dtype=np.int64))
+    with pytest.raises(ValueError, match='native sparse storage'):
+        g.verify_gram(h, q)
+
+
+def test_dok_stored_integer_subclass_cannot_change_conversion_value():
+    class HiddenInteger(int):
+        def __int__(self): return 0
+    h = sparse.dok_matrix([[-16]], dtype=np.int64)
+    h._dict[(0, 0)] = HiddenInteger(-16)
+    assert int.__int__(h._dict[(0, 0)]) == -16
+    q = g.propose_gram(sparse.csr_matrix([[0]], dtype=np.int64))
+    with pytest.raises(ValueError, match='native sparse storage'):
+        g.verify_gram(h, q)
+
+
+@pytest.mark.parametrize('numerator,denominator', [(1, -1), (1, 0), (True, 1), (1, True)])
+def test_malformed_fraction_ceiling_cannot_bypass_exact_residual_admission(numerator, denominator):
+    ceiling = F(1)
+    ceiling._numerator, ceiling._denominator = numerator, denominator
+    with pytest.raises(ValueError, match='positive exact rational'):
+        g.verify_gram(sparse.csr_matrix([[0]], dtype=np.int64),
+                      np.zeros((1, 1), dtype=np.int64), ceiling)
+
+
+def test_positive_nonreduced_fraction_ceiling_is_detached_and_canonicalized():
+    ceiling = F(1)
+    ceiling._numerator, ceiling._denominator = 2, 4
+    h, q = sparse.csr_matrix([[0]], dtype=np.int64), np.zeros((1, 1), dtype=np.int64)
+    assert g.verify_gram(h, q, ceiling) == g.verify_gram(h, q, F(1, 2)) == F(27, 64)
+    assert (ceiling.numerator, ceiling.denominator) == (2, 4)
 
 
 @pytest.mark.parametrize('argument', ['numerator', 'factor'])
@@ -123,10 +214,11 @@ def test_unsigned_source_values_cannot_silently_narrow(form):
         g.verify_gram(h, np.zeros((1, 1), dtype=np.int64))
 
 
+@pytest.mark.parametrize('kind', ['matrix', 'array'])
 @pytest.mark.parametrize('form', ['dense', 'csr', 'csc', 'coo', 'dia', 'bsr', 'lil', 'dok'])
-def test_safe_unsigned_integer_formats_preserve_the_exact_numerator(form):
+def test_safe_unsigned_integer_formats_preserve_the_exact_numerator(form, kind):
     original = np.array([[3]], dtype=np.uint64)
-    h = original if form == 'dense' else sparse.coo_matrix(original).asformat(form)
+    h = original if form == 'dense' else getattr(sparse, f'{form}_{kind}')(original)
     assert g.verify_gram(h, np.zeros((1, 1), dtype=np.int64), F(1)) == F(39, 64)
 
 

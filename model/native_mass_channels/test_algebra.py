@@ -30,7 +30,9 @@ def test_exhaustive_edges_against_original_open_cube_hopping():
     assert h*wrong+wrong*h != s.zeros(16)
     report = a.exhaustion_certificate()
     assert (report['real_unknowns'], report['constraint_rank'], report['solution_dimension']) == (32, 28, 4)
-    assert a.source_anchor_certificate()['actual_source_constraint_rank'] == 28
+    anchor = a.source_anchor_certificate()
+    assert anchor['actual_source_constraint_rank'] == 28
+    assert anchor['all_declared_source_links_exact'] is True
 
 
 def test_source_anchor_rejects_wrong_hopping_axis(monkeypatch):
@@ -45,6 +47,149 @@ def test_source_anchor_rejects_wrong_hopping_axis(monkeypatch):
 
     monkeypatch.setattr(FieldGeometry, 'single_h', changed)
     with pytest.raises(ArithmeticError, match='actual source'):
+        a.source_anchor_certificate()
+
+
+@pytest.mark.parametrize('fault', ['uniform_scale', 'one_edge'])
+def test_source_anchor_rejects_wrong_weights_with_unchanged_mass_nullspace(monkeypatch, fault):
+    """The same four masses and rank do not authenticate the source speed."""
+    from scipy import sparse
+    original = FieldGeometry.single_h
+
+    def changed(geometry):
+        h = original(geometry).toarray()
+        if fault == 'uniform_scale':
+            h *= 2
+        else:
+            # Double one actual x link and its adjoint; every mass still
+            # anticommutes, although this is no longer the declared hopping.
+            h[0:2, 8:10] *= 2
+            h[8:10, 0:2] *= 2
+        assert np.array_equal(h, h.conj().T)
+        source = exact(h)
+        for index in range(4):
+            mass = s.diag(*(a.onsite_basis(x)[index] for x in geometry.sites))
+            assert source*mass+mass*source == s.zeros(16)
+        return sparse.csr_matrix(h)
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', changed)
+    with pytest.raises(ArithmeticError, match='actual source'):
+        a.source_anchor_certificate()
+
+
+def test_source_anchor_rejects_sparse_subclass_that_hides_its_entries(monkeypatch):
+    from scipy import sparse
+    original = FieldGeometry.single_h
+
+    class HiddenEntries(sparse.csr_matrix):
+        def toarray(self, *args, **kwargs):
+            return original(FieldGeometry((2, 2, 2))).toarray()
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', lambda geometry: HiddenEntries(2*original(geometry)))
+    with pytest.raises(ValueError, match='canonical complex128'):
+        a.source_anchor_certificate()
+
+
+def test_source_anchor_rejects_sparse_instance_conversion_shadow(monkeypatch):
+    original = FieldGeometry.single_h
+
+    def changed(geometry):
+        raw = 2*original(geometry)
+        raw.toarray = lambda *args, **kwargs: original(geometry).toarray()
+        return raw
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', changed)
+    with pytest.raises(ValueError, match='canonical complex128'):
+        a.source_anchor_certificate()
+
+
+def test_source_anchor_rejects_wide_nonzero_entry_before_binary64_narrowing(monkeypatch):
+    from scipy import sparse
+    if np.finfo(np.longdouble).smallest_subnormal >= np.finfo(np.float64).smallest_subnormal:
+        pytest.skip('platform longdouble has no wider exponent range')
+    original = FieldGeometry.single_h
+
+    def changed(geometry):
+        h = original(geometry).toarray().astype(np.clongdouble)
+        tiny = np.longdouble('1e-400')
+        assert tiny != 0 and float(tiny) == 0
+        assert h[0, 6] == h[6, 0] == 0
+        h[0, 6] = h[6, 0] = tiny
+        return sparse.csr_matrix(h)
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', changed)
+    with pytest.raises(ValueError, match='canonical complex128'):
+        a.source_anchor_certificate()
+
+
+@pytest.mark.parametrize('storage', ['data', 'indices', 'indptr'])
+def test_source_anchor_rejects_masked_sparse_storage(monkeypatch, storage):
+    original = FieldGeometry.single_h
+
+    def changed(geometry):
+        h = original(geometry)
+        values = getattr(h, storage)
+        setattr(h, storage, np.ma.array(values, mask=np.ones(values.shape, dtype=bool)))
+        return h
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', changed)
+    with pytest.raises(ValueError, match='canonical complex128'):
+        a.source_anchor_certificate()
+
+
+@pytest.mark.parametrize('storage', ['indices', 'indptr'])
+def test_source_anchor_rejects_nonbase_sparse_index_buffers(monkeypatch, storage):
+    original = FieldGeometry.single_h
+
+    class UnownedArray(np.ndarray):
+        pass
+
+    def changed(geometry):
+        h = original(geometry)
+        setattr(h, storage, getattr(h, storage).view(UnownedArray))
+        return h
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', changed)
+    with pytest.raises(ValueError, match='canonical complex128'):
+        a.source_anchor_certificate()
+
+
+@pytest.mark.parametrize('forged_canonical_flag', [False, True])
+def test_source_anchor_rejects_duplicate_roundoff_before_dense_conversion(monkeypatch, forged_canonical_flag):
+    from scipy import sparse
+    original = FieldGeometry.single_h
+
+    def changed(geometry):
+        h = original(geometry)
+        stop = h.indptr[1]
+        extra = [1e100, 1., -1e100]
+        assert sum((F.from_float(value) for value in extra), F(0)) == 1
+        raw = sparse.csr_matrix((np.insert(h.data, stop, extra),
+                                np.insert(h.indices, stop, [6, 6, 6]),
+                                h.indptr+np.r_[0, np.full(16, 3)]), shape=h.shape)
+        assert raw.toarray()[0, 6] == 0  # The hidden exact extra matrix entry is one.
+        if forged_canonical_flag:
+            raw.has_canonical_format = True
+        return raw
+
+    monkeypatch.setattr(FieldGeometry, 'single_h', changed)
+    with pytest.raises(ValueError, match='canonical complex128'):
+        a.source_anchor_certificate()
+
+
+@pytest.mark.parametrize('masked', [False, True])
+def test_source_anchor_rejects_nonbase_hidden_frame_arrays(monkeypatch, masked):
+    from ..field_symmetry import symmetry
+
+    class UnownedArray(np.ndarray):
+        pass
+
+    def changed(site, axis):
+        matrix = hidden_spin_matrix(site, axis)
+        return np.ma.array(matrix, mask=False) if masked else matrix.view(UnownedArray)
+
+    monkeypatch.setattr(symmetry, 'hidden_spin_matrix', changed)
+    with pytest.raises(ValueError, match='canonical complex128'):
         a.source_anchor_certificate()
 
 

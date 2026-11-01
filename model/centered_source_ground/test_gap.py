@@ -84,6 +84,51 @@ def test_a_second_low_energy_direction_defeats_rank_one_certificate():
         gap.verify_witness(doubled, p, q)
 
 
+def test_sparse_subclass_cannot_hide_a_second_low_energy_direction():
+    h, p, q = small_witness()
+    class HiddenSecondGround(sparse.csr_matrix):
+        def tocoo(self, copy=False):
+            return h.tocoo(copy=copy)
+    doubled = HiddenSecondGround(np.diag([-2, -2]).astype(np.int64))
+    assert np.array_equal(doubled.toarray(), np.diag([-2, -2]))
+    with pytest.raises(ValueError, match='standard.*sparse'):
+        gap.verify_witness(doubled, p, q)
+
+
+def test_returned_fraction_bound_cannot_relax_a_later_ground_admission():
+    h, p, q = small_witness()
+    value = gap.verify_witness(h, p, q)
+    zero = sparse.csr_matrix(np.zeros((2, 2), dtype=np.int64))
+    p0, q0 = gap.propose_witness(zero)
+    original = (gap.GROUND_UPPER.numerator, gap.GROUND_UPPER.denominator)
+    value['ground_energy_strict_upper']._numerator = 0
+    value['ground_energy_strict_upper']._denominator = 1
+    try:
+        # This source has two exactly degenerate centered eigenvalues -4.
+        with pytest.raises(ArithmeticError, match='Rayleigh'):
+            gap.verify_witness(zero, p0, q0)
+    finally:
+        # Also leave a deliberately unfixed implementation clean after failure.
+        gap.GROUND_UPPER._numerator, gap.GROUND_UPPER._denominator = original
+
+
+def test_every_returned_fraction_is_detached_from_later_checks_and_proof_constants():
+    h, p, q = small_witness()
+    value = gap.verify_witness(h, p, q)
+    expected = {name: F(bound.numerator, bound.denominator) for name, bound in value.items()}
+    names = ('GROUND_UPPER', 'EXCITED_LOWER', 'GAP_LOWER')
+    original = {name: (getattr(gap, name).numerator, getattr(gap, name).denominator) for name in names}
+    try:
+        for bound in value.values():
+            bound._numerator = 17
+            bound._denominator = 19
+        assert gap.verify_witness(h, p, q) == expected
+        assert all(getattr(gap, name) == F(*parts) for name, parts in original.items())
+    finally:
+        for name, parts in original.items():
+            getattr(gap, name)._numerator, getattr(gap, name)._denominator = parts
+
+
 def test_exact_Temple_and_fidelity_bounds_cover_a_mixed_trial():
     h, _, _ = small_witness()
     p = np.array([1 << gap.TRIAL_BITS, 1 << (gap.TRIAL_BITS-3)], dtype=np.int64)

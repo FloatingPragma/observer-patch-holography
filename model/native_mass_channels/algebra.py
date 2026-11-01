@@ -89,17 +89,63 @@ def exhaustion_certificate():
 
 def source_anchor_certificate():
     """Reconstruct the actual open-cube one-body action, without eigentolerances."""
+    import numpy as np
+    from scipy import sparse
+
     from ..field_symmetry.symmetry import hidden_spin_matrix
     from ..full_fock_field.field import FieldGeometry
 
     def exact(matrix):
+        # This fixed provider declares binary64 components. Refuse masks,
+        # subclasses and wider values before any conversion could erase them.
+        if (type(matrix) is not np.ndarray or matrix.dtype != np.dtype('complex128')
+                or not np.isfinite(matrix).all()):
+            raise ValueError('canonical complex128 source arrays required')
         return s.ImmutableMatrix([[s.Rational(float(z.real))+s.I*s.Rational(float(z.imag))
                                    for z in row] for row in matrix])
 
     geometry = FieldGeometry((2, 2, 2), speed=.125, interaction=1.)
-    h = exact(geometry.single_h().toarray())
-    if h != h.H or h.shape != (16, 16):
+    raw = geometry.single_h()
+    if (type(raw) is not sparse.csr_matrix
+            or any(callable(value) for value in vars(raw).values())
+            or raw.shape != (16, 16)
+            or type(raw.data) is not np.ndarray or raw.data.dtype != np.dtype('complex128')
+            or raw.data.ndim != 1
+            or any(type(values) is not np.ndarray or values.ndim != 1
+                   or values.dtype not in (np.dtype('int32'), np.dtype('int64'))
+                   for values in (raw.indices, raw.indptr))
+            or not np.isfinite(raw.data).all()):
+        raise ValueError('canonical complex128 source CSR matrix required')
+    # Do not trust mutable SciPy canonical-format flags. Duplicate entries can
+    # cancel only after binary64 rounding in toarray(), concealing a nonzero
+    # exact source entry. The declared provider emits strictly ordered CSR.
+    if (len(raw.indptr) != 17 or len(raw.indices) != len(raw.data)
+            or raw.indptr[0] != 0 or raw.indptr[-1] != len(raw.data)
+            or np.any(raw.indptr[1:] < raw.indptr[:-1])
+            or np.any(raw.indices < 0) or np.any(raw.indices >= 16)):
+        raise ValueError('canonical complex128 source CSR structure required')
+    for row in range(16):
+        columns = raw.indices[int(raw.indptr[row]):int(raw.indptr[row+1])]
+        if np.any(columns[1:] <= columns[:-1]):
+            raise ValueError('canonical complex128 source CSR rows required')
+    h = exact(raw.toarray())
+    if geometry.sites != SITES or h != h.H or h.shape != (16, 16):
         raise ArithmeticError('source one-body domain changed')
+    # The mass nullspace alone is unchanged by arbitrary nonzero link weights.
+    # Bind the spectrum's declared speed and uniform lattice to every primitive
+    # matrix entry, independently of FieldGeometry.groups/single_h.
+    expected = s.zeros(16)
+    for site, x in enumerate(SITES):
+        for axis in range(3):
+            if x[axis] == 1:
+                continue
+            y = tuple(v+int(j == axis) for j, v in enumerate(x))
+            other = SITES.index(y)
+            link = s.I*SIGMA[axis]/16
+            expected[2*site:2*site+2, 2*other:2*other+2] = link
+            expected[2*other:2*other+2, 2*site:2*site+2] = link.H
+    if h != expected:
+        raise ArithmeticError('actual source hopping differs from the declared cube links')
     for a in range(4):
         mass = s.diag(*(onsite_basis(x)[a] for x in geometry.sites))
         if h*mass+mass*h != s.zeros(16):
@@ -120,6 +166,7 @@ def source_anchor_certificate():
                 raise ArithmeticError('source hidden-frame Neel identity changed')
     return {'source': 'full_fock_field.field.FieldGeometry.single_h',
             'sides': [2, 2, 2], 'speed': '1/8', 'one_body_dimension': 16,
+            'all_declared_source_links_exact': True,
             'real_onsite_unknowns': 32, 'actual_source_constraint_rank': rank,
             'all_four_anticommutators_zero': True, 'source_hidden_frame_identity': True,
             'numeric_eigensolver_used': False}
