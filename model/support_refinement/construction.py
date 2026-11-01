@@ -14,7 +14,7 @@ SOURCE_SHA256 = MappingProxyType({
     'code/source_selection_model/geometry.py': 'de47ae19dd4ae1677d0cefb0163513f2f1f6d24dfb4dd0264506d0b17fceb843',
     'Lean/ObserverPatchHolography/CoreAxioms.lean': 'addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4',
     'code/a5_closure/verify_port_gram_support_attachment_independent.py': '771a3ca9838ee46dc4a129c4c1a44459ecf3d66e27c27eacfc41bc78980fb733',
-    'code/m1_source_realization/receipt.json': 'a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff',
+    'code/m1_source_realization/receipt.json': 'cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49',
 })
 GEOMETRY, CORE, SEARCH, RECEIPT = SOURCE_SHA256
 

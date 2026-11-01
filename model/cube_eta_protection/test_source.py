@@ -1,10 +1,12 @@
 """Native fixed-number target, retained aborts and independent source error."""
+from dataclasses import replace
 from fractions import Fraction as F
 
 import numpy as np
 import pytest
 
 from ..observer.source_scalar import compiler
+from ..reference_observation.observation import frozen
 from . import source
 
 
@@ -34,6 +36,19 @@ def test_exact_source_precision_includes_tree_and_actual_literal_controls():
     assert value['signed_amplitude_tree_nodes_checked'] == 255
     assert value['native_field_wait_or_full_detector_executed_here'] is False
     assert value['charge_postselection_used'] is False
+
+
+def test_wrong_relative_phase_fails_despite_preserved_norm(monkeypatch):
+    tree, copied, phased = source.runs()
+    altered = phased.success.copy()
+    address = 3 | (3 << 2) | (3 << 4)
+    assert abs(altered[address, 0]) > .1
+    altered[address, 0] *= np.exp(1j*1e-6)
+    assert abs(np.vdot(altered, altered)-np.vdot(phased.success, phased.success)) < 1e-15
+    corrupted = replace(phased, success=frozen(altered))
+    monkeypatch.setattr(source, 'runs', lambda: (tree, copied, corrupted))
+    with pytest.raises(ArithmeticError, match='native cube preparation/phase'):
+        source.report()
 
 
 def test_complete_cube_executor_retains_a_nonzero_source_failure(monkeypatch):

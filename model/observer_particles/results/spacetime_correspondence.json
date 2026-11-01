@@ -2,7 +2,7 @@
   "status": "PASS_SAME_HISTORY_NATIVE_FIELD_CLOCK_AND_CONDITIONAL_LORENTZIAN_PRODUCT_CORRESPONDENCE",
   "producer_sha256": "bddb55e565bcc4d3184ba03ace39eaf21615212a058d745999eb7e7fb5859529",
   "source_sha256": {
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
@@ -43,7 +43,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_particles/evidence_contract.py": "2925e22820e59c8610610ae430a42fb46460341dcb6153447d287c025b69ec4f",
     "model/observer_particles/spacetime_correspondence.py": "bddb55e565bcc4d3184ba03ace39eaf21615212a058d745999eb7e7fb5859529",
@@ -82,7 +82,7 @@
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
   },
   "artifacts": {
-    "spacetime_correspondence_arrays.npz": "899e222d0e97723ef9176bd0c0cdb34da5db4e782210df7d4d54f2f0edea82ad"
+    "spacetime_correspondence_arrays.npz": "aacc87dc4aed0aec088ec8b4e3221adbeb7029aa0c9b315831c278761316474a"
   },
   "empirical_inputs": [],
   "finite_product_domain": {
@@ -441,13 +441,13 @@
       ],
       "source_step_word_pulses_per_code": 2,
       "source_step_angle_error_upper": "1/17592186044416",
-      "single_code_unitary_error": 0.0014879466858669617,
+      "single_code_unitary_error": 0.001487946685866962,
       "two_axis_product_formula_error_upper": 0.0014884944718615456,
       "two_axis_pulse_synthesis_error_upper": 5.684341886080802e-14,
       "split_order_unitary_difference": 0.002975345661775169,
       "wrong_parallel_axis_gap_error": 1.0919208970728942,
-      "preparation_reduced_state_error": 1.944691874560881e-14,
-      "finite_split_state_stationarity_defect": 0.001330960140311656,
+      "preparation_reduced_state_error": 1.9446918745608812e-14,
+      "finite_split_state_stationarity_defect": 0.0013309601403116563,
       "finite_split_modular_action_error_on_Paulis": 0.0029743178464636294,
       "modular_parameter_used": -0.03984095364447979,
       "polarization_common_beta_modular_allowance": 3.5739733999773e-15,
@@ -697,7 +697,7 @@
       "two_axis_pulse_synthesis_error_upper": 1.1368683772161603e-13,
       "split_order_unitary_difference": 0.002975345661775169,
       "wrong_parallel_axis_gap_error": 1.0919208970728942,
-      "preparation_reduced_state_error": 1.944691874560881e-14,
+      "preparation_reduced_state_error": 1.9446918745608812e-14,
       "finite_split_state_stationarity_defect": 0.0026575134562933323,
       "finite_split_modular_action_error_on_Paulis": 0.005926942564014558,
       "modular_parameter_used": -0.07968190728895957,
@@ -943,14 +943,14 @@
       ],
       "source_step_word_pulses_per_code": 2,
       "source_step_angle_error_upper": "1/17592186044416",
-      "single_code_unitary_error": 0.025643275257919353,
+      "single_code_unitary_error": 0.02564327525791935,
       "two_axis_product_formula_error_upper": 0.03721236179653864,
       "two_axis_pulse_synthesis_error_upper": 1.4210854715202004e-12,
       "split_order_unitary_difference": 0.002975345661775169,
       "wrong_parallel_axis_gap_error": 1.0919208970728942,
-      "preparation_reduced_state_error": 1.944691874560881e-14,
+      "preparation_reduced_state_error": 1.9446918745608812e-14,
       "finite_split_state_stationarity_defect": 0.02293856650952081,
-      "finite_split_modular_action_error_on_Paulis": 0.05077833164846227,
+      "finite_split_modular_action_error_on_Paulis": 0.05077833164846228,
       "modular_parameter_used": -0.9960238411119947,
       "polarization_common_beta_modular_allowance": 8.93493349994325e-14,
       "source_preparation_modular_allowance": 4.642056735986342e-13,
@@ -2705,20 +2705,20 @@
   },
   "low_angular_mode_source_control": {
     "actual_source_operator": "full240 native Laplacian from source_green.matrices(0)",
-    "lowest_nonzero_eigenvalue_numerical": 0.044142530698999954,
+    "lowest_nonzero_eigenvalue_numerical": 0.04414253069899989,
     "used_dyadic_native_eigenvalue": "6212508900225/140737488355328",
-    "eigenpair_residual_numerical": 4.613933285704111e-15,
+    "eigenpair_residual_numerical": 6.534477315278108e-15,
     "membership_is_a_numerical_diagnostic": true,
-    "cell_average_weight_numerical": 0.9963505764995562,
-    "internal_weight_bound_at_numeric_eigenvalue": 0.01597091764184175,
+    "cell_average_weight_numerical": 0.9963505764995558,
+    "internal_weight_bound_at_numeric_eigenvalue": 0.015970917641841727,
     "first_nonzero_spectrum_numerical": [
-      0.044142530698999954,
-      0.04454204318798279,
-      0.04455234276680239,
-      0.11688649101172091,
-      0.11896350888664026,
-      0.11896350888664461,
-      0.11899188401262516
+      0.04414253069899989,
+      0.04454204318797926,
+      0.04455234276680285,
+      0.11688649101172119,
+      0.11896350888664173,
+      0.11896350888664343,
+      0.11899188401262598
     ],
     "radial_dictionary": {
       "native_eigenvalue": "6212508900225/140737488355328",
@@ -3071,7 +3071,7 @@
         ],
         "source_step_word_pulses_per_code": 2,
         "source_step_angle_error_upper": "1/17592186044416",
-        "single_code_unitary_error": 0.0001276095798495123,
+        "single_code_unitary_error": 0.00012760957984951228,
         "two_axis_product_formula_error_upper": 0.00012762301282973762,
         "two_axis_pulse_synthesis_error_upper": 5.684341886080802e-14,
         "split_order_unitary_difference": 0.00025520572695975194,
@@ -3328,7 +3328,7 @@
         "split_order_unitary_difference": 0.00025520572695975194,
         "wrong_parallel_axis_gap_error": 0.19575029668331112,
         "preparation_reduced_state_error": 1.498150265613899e-14,
-        "finite_split_state_stationarity_defect": 0.00016540650162116748,
+        "finite_split_state_stationarity_defect": 0.0001654065016211675,
         "finite_split_modular_action_error_on_Paulis": 0.0005101841613484322,
         "modular_parameter_used": -0.07968190728895957,
         "polarization_common_beta_modular_allowance": 1.36235619702105e-15,
@@ -3580,7 +3580,7 @@
         "wrong_parallel_axis_gap_error": 0.19575029668331112,
         "preparation_reduced_state_error": 1.498150265613899e-14,
         "finite_split_state_stationarity_defect": 0.001870688520738695,
-        "finite_split_modular_action_error_on_Paulis": 0.0057449446576276035,
+        "finite_split_modular_action_error_on_Paulis": 0.005744944657627603,
         "modular_parameter_used": -0.9960238411119947,
         "polarization_common_beta_modular_allowance": 1.7029452462763126e-14,
         "source_preparation_modular_allowance": 1.3930670509914615e-13,
@@ -3671,8 +3671,8 @@
           0.04943473389114237
         ],
         "ideal_joint_generator_ordered_expectation": [
-          0.9099115621568937,
-          0.05067338138341644
+          0.9099115621568942,
+          0.0506733813834165
         ],
         "complete_signed_kick_system_reference_probabilities": [
           [
