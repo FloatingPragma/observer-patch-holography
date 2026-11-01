@@ -179,7 +179,7 @@ python -m pytest -q code/quantum_information code/collar_alignment code/geometry
 ```
 
 The existing finite-quantum-information workflow runs the full second command
-on both Windows and Linux. The focused controls include the exact frame and
+on Linux. The focused controls include the exact frame and
 cubic obstruction, worst-case noise, Lorentz covariance modulo the metric,
 ray rescaling and permutation, deficient and nearly collapsed designs,
 extreme units, cancellation, and malformed inputs. The extended-exponent

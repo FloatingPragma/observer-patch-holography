@@ -319,7 +319,7 @@ OPENBLAS_NUM_THREADS=1 python -m pytest -q code/geometry/test_null_net_receipts.
 OPENBLAS_NUM_THREADS=1 PYTHONPATH=code python -m pytest -q code/quantum_information code/collar_alignment code/geometry code/maxent -W error
 ```
 
-The existing Linux/Windows finite-geometry and quantum-information workflows
+The existing Linux finite-geometry and quantum-information workflows
 run these tests. They include complex Fourier projectors, independent
 spectral evolution, exact permutation and Pauli controls, an invisible
 commutator, exact tail sums, separate quadrature, adversarial empty/zero/

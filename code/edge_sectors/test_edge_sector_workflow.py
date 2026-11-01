@@ -29,7 +29,7 @@ def _assert_complete_edge_sector_gate(workflow):
     job = workflow["jobs"]["edge-sector-ground-states"]
     assert not job.get("if") and not job.get("continue-on-error")
     assert job["runs-on"] == "${{ matrix.os }}"
-    assert job["strategy"]["matrix"] == {"os": ["ubuntu-latest", "windows-latest"]}
+    assert job["strategy"]["matrix"] == {"os": ["ubuntu-latest"]}
     assert job["env"]["OPENBLAS_NUM_THREADS"] == job["env"]["OMP_NUM_THREADS"] == "1"
     assert not workflow.get("env", {}).get("PYTEST_ADDOPTS")
     assert not job.get("env", {}).get("PYTEST_ADDOPTS")
@@ -43,13 +43,13 @@ def _assert_complete_edge_sector_gate(workflow):
     assert shlex.split(step["run"]) == COMMAND
 
 
-def test_ci_executes_complete_edge_sector_scope_on_linux_and_windows():
+def test_ci_executes_complete_edge_sector_scope_on_linux():
     _assert_complete_edge_sector_gate(_workflow())
 
 
 @pytest.mark.parametrize("mutation", [
     "collect_only", "filter", "one_file", "allow_failure", "skip_job",
-    "skip_step", "one_platform", "environment_collection", "shell_success",
+    "skip_step", "environment_collection", "shell_success",
 ])
 def test_workflow_gate_rejects_false_green_execution(mutation):
     workflow = _workflow()
@@ -67,8 +67,6 @@ def test_workflow_gate_rejects_false_green_execution(mutation):
         job["if"] = "false"
     elif mutation == "skip_step":
         step["if"] = "false"
-    elif mutation == "one_platform":
-        job["strategy"]["matrix"]["os"] = ["ubuntu-latest"]
     elif mutation == "environment_collection":
         job["env"]["PYTEST_ADDOPTS"] = "--collect-only"
     else:

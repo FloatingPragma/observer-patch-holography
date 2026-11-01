@@ -190,7 +190,7 @@ Substantive quantities use relative-only tolerance; absolute allowances apply
 only to specified zero diagnostics and scale with the fresh calculation.
 Replay is not an independent interacting solver. Independence comes from the
 original-input high-precision, full-configuration, analytic near-free and
-positive Perron-iteration controls in the tests. Ubuntu and Windows CI execute
+positive Perron-iteration controls in the tests. Ubuntu CI executes
 these controls and the full grid, rather than merely collecting the tests.
 
 This is a finite-grid diagnostic on a toy gauge system (`physical_clay_receipt:

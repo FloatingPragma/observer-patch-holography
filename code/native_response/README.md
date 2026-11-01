@@ -526,7 +526,7 @@ modified channel. Uniform address refresh inserts no such quantum read.
 ## Reproduction and scope
 
 Run `python -m pytest -q -W error code/native_response` from the repository
-root with the pinned requirements. CI runs this on Linux and Windows in the
+root with the pinned requirements. CI runs this on Linux in the
 existing finite quantum-information job. The tests bind the source chart,
 compare independent Kraus and source formulas, recover the existing Gram,
 check full-shell overlap counts, retain the simpler controls, and replay

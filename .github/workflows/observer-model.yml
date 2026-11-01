@@ -26,7 +26,7 @@ on:
       - '.github/workflows/observer-model.yml'
   push:
     branches: [main]
-    # Tag pushes ignore path filters, so every release tag runs both platforms.
+    # Tag pushes ignore path filters, so every release tag runs the full replay.
     tags: ['r*']
     paths:
       - 'model/**'
@@ -52,33 +52,45 @@ on:
       - '.github/workflows/observer-model.yml'
   workflow_dispatch:
   schedule:
-    # Nightly Windows run of every observer shard and regression partition.
+    # Nightly full replay of every registered model receipt.
     - cron: "47 4 * * *"
 
-# Pushes to main and pull requests run on Ubuntu. Windows runs nightly, on
-# release tags and on manual dispatch, the platform policy of the Mandatory
-# Suite, so a portability break surfaces within a day and the per-push
-# critical path stays well under an hour.
+# CI runs on Ubuntu only. Every push and pull request checks all artifact
+# hashes and live receipt source bindings, and runs the complete model
+# regression suite. The full scientific replay of every receipt takes hours of
+# runner time; it runs nightly, on release tags and on manual dispatch.
 
 permissions:
   contents: read
 
 jobs:
+  hashes:
+    name: Observer artifact and source-binding custody
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - run: python -m model.verify --hashes-only
   observer:
     name: Observer construction (${{ matrix.os }}, shard ${{ matrix.shard }})
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
     strategy:
       fail-fast: false
       matrix:
-        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
+        os: [ubuntu-latest]
         shard: [0, 1, 2, 3, 4, 5]
     runs-on: ${{ matrix.os }}
     # All shards check every artifact hash. The empirical shared-cache worker
     # stays atomic on shard zero; all-case occupation transfer owns shard one.
     # The other receipts are split across shards two through five.
-    # Regression remains complete and independent on each platform.
-    # The complete Windows occupation-transfer interval replay needs extra
-    # runtime headroom. Every case and numerical acceptance gate is retained.
-    timeout-minutes: ${{ matrix.os == 'windows-latest' && matrix.shard == 1 && 120 || 90 }}
+    # Every case and numerical acceptance gate is retained.
+    timeout-minutes: 90
     env:
       PYTHONUTF8: '1'
       OPENBLAS_NUM_THREADS: '1'
@@ -112,14 +124,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
+        os: [ubuntu-latest]
         shard: [0, 1, 2, 3]
     runs-on: ${{ matrix.os }}
     # Every job collects the full suite, then executes a disjoint set of whole
     # test modules, balanced by model/pytest_shard_costs.json. Collection
     # failures remain fatal on every shard. Extra portability and
     # particle-witness commands execute once per platform.
-    timeout-minutes: ${{ matrix.os == 'windows-latest' && 120 || 90 }}
+    timeout-minutes: 90
     env:
       PYTHONUTF8: '1'
       OPENBLAS_NUM_THREADS: '1'

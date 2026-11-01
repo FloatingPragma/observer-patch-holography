@@ -47,8 +47,8 @@ scales with the full history: the producer uses 24-byte cells and the verifier
 The receipts' peak resident memory values describe the recorded producer
 runs, not the combined regeneration pipeline or physical patch memory.
 
-The `Source Read Routing` workflow runs Python controls on Linux and Windows,
-fresh q3 production and packing on Linux, and four separate complete
+The `Source Read Routing` workflow runs Python controls, fresh q3
+production and packing on Linux, and four separate complete
 production regeneration/replay jobs. A missing phase, changed event, extra
 suffix, failed producer, resource discrepancy or checksum mismatch fails.
 

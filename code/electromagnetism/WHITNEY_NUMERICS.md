@@ -286,7 +286,7 @@ squared projection norm. The controls include
 complex scalar centers and momenta, nonunit width and hbar, interference,
 near Bessel zeros, rotation, coordinate permutations, normalization
 compensation, caller precision contexts and valid/reporting-range pairs.
-The controls run with warnings treated as errors on Windows and Linux.
+The controls run with warnings treated as errors on Linux.
 Their numerical integrations are independent diagnostics, not certified
 interval enclosures.
 
@@ -398,6 +398,6 @@ Fourier coefficients, scalar integrals and known special cases. They challenge
 signs, phase, normalization, precision budgets and refusal boundaries rather
 than treating agreement between two rounded calculations as a proof.
 
-The dedicated workflows run the numerical controls on Linux and Windows.
+The dedicated workflows run the numerical controls on Linux.
 Their scope is the declared finite computation. A passing numerical replay
 supplies neither an interval enclosure nor a physical apparatus error budget.

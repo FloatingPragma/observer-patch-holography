@@ -219,7 +219,7 @@ def test_ci_enforces_audit_on_dependency_changes():
         for path in codec.PIN_PATHS + (".github/workflows/lean-ci.yml", ".gitattributes"):
             assert any(fnmatchcase(path, pattern) for pattern in dedicated["on"][event]["paths"])
     job = dedicated["jobs"]["controls"]
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
+    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
     assert "python -m pytest -q code/source_reusable_bus" in [s.get("run") for s in job["steps"]]
 
 

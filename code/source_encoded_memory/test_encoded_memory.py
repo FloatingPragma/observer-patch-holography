@@ -286,7 +286,7 @@ def test_no_hidden_untested_theorems_and_downstream_audit():
 def test_dedicated_ci_covers_receipts_and_every_input():
     path = codec.ROOT/".github/workflows/source-encoded-memory.yml"
     workflow = yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
-    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
+    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
     commands = [step.get("run", "") for step in workflow["jobs"]["controls"]["steps"]]
     assert "python -m pytest -q code/source_encoded_memory" in commands
     from fnmatch import fnmatchcase

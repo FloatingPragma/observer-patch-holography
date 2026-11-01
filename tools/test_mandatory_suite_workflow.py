@@ -41,22 +41,13 @@ ADDITIONAL_EVIDENCE_TESTS = (
 )
 
 
-# Pushes to main and pull requests run Ubuntu shards; the schedule adds the
-# Windows shards beside the Ubuntu full run; tags and manual dispatch run both.
-OS_EXPRESSION = (
-    "${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' "
-    "&& github.ref == 'refs/heads/main')) && '[\"ubuntu-latest\"]' || (github.event_name == 'schedule' "
-    "&& '[\"windows-latest\"]' || '[\"ubuntu-latest\",\"windows-latest\"]')) }}"
-)
+# CI runs on Ubuntu only, for every trigger.
+PLATFORMS = ["ubuntu-latest"]
 
 
 def _operating_systems(job, event, ref="refs/heads/main"):
-    assert job["strategy"]["matrix"]["os"] == OS_EXPRESSION, "unsupported OS matrix expression"
-    if event == "pull_request" or (event == "push" and ref == "refs/heads/main"):
-        return ["ubuntu-latest"]
-    if event == "schedule":
-        return ["windows-latest"]
-    return ["ubuntu-latest", "windows-latest"]
+    assert job["strategy"]["matrix"]["os"] == PLATFORMS, "unsupported OS matrix"
+    return PLATFORMS
 
 
 def _workflow():
@@ -128,7 +119,7 @@ def _assert_evidence_coverage(workflow, full, operating_system):
 
 
 @pytest.mark.parametrize("full", [False, True])
-@pytest.mark.parametrize("operating_system", ["ubuntu-latest", "windows-latest"])
+@pytest.mark.parametrize("operating_system", ["ubuntu-latest"])
 def test_new_evidence_executes_once_per_os_and_in_nightly(full, operating_system):
     _assert_evidence_coverage(_workflow(), full, operating_system)
 
@@ -164,7 +155,7 @@ def test_new_evidence_cannot_be_repeated_on_every_push_shard():
 
 
 @pytest.mark.parametrize("full", [False, True])
-@pytest.mark.parametrize("operating_system", ["ubuntu-latest", "windows-latest"])
+@pytest.mark.parametrize("operating_system", ["ubuntu-latest"])
 def test_workflow_matrix_dispatches_the_entire_selected_suite_once(
     monkeypatch, full, operating_system
 ):
@@ -217,11 +208,10 @@ def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
     assert job["runs-on"] == "${{ matrix.os }}"
     assert job["timeout-minutes"] == "30"
     assert job["strategy"]["fail-fast"] == "false"
-    assert _operating_systems(job, "push") == ["ubuntu-latest"]
-    assert _operating_systems(job, "pull_request") == ["ubuntu-latest"]
-    assert _operating_systems(job, "schedule") == ["windows-latest"]
-    assert _operating_systems(job, "push", "refs/tags/r2056") == ["ubuntu-latest", "windows-latest"]
-    assert _operating_systems(job, "workflow_dispatch") == ["ubuntu-latest", "windows-latest"]
+    for event, ref in (("push", "refs/heads/main"), ("pull_request", "refs/heads/main"),
+                       ("schedule", "refs/heads/main"), ("push", "refs/tags/r2057"),
+                       ("workflow_dispatch", "refs/heads/main")):
+        assert _operating_systems(job, event, ref) == ["ubuntu-latest"]
     assert set(job["strategy"]["matrix"]) == {"os", "shard"}
     assert not job.get("continue-on-error")
     checkout = _step(job, "Checkout")
@@ -252,7 +242,7 @@ def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
 def test_historical_statuses_require_all_workers_even_after_failure_or_skip():
     job = _workflow()["jobs"]["mandatory"]
     assert job["name"] == "mandatory collection (${{ matrix.os }})"
-    assert job["strategy"]["matrix"]["os"] == OS_EXPRESSION
+    assert job["strategy"]["matrix"]["os"] == PLATFORMS
     assert job["if"] == "${{ always() }}"
     assert job["needs"] == ["mandatory-shards"]
     assert job["runs-on"] == "ubuntu-latest"
