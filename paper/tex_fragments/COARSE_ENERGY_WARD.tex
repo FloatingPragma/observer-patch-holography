@@ -1,0 +1,53 @@
+\paragraph{Exact energy Ward cells under coarse-graining.}
+The same complete-Fock Weyl/contact action supplies a conserved energy
+column on its standard three-dimensional lattice.  With the declared
+half-bond convention $H=\sum_x h_x$, its range-two currents are
+$J_{xy}=i[h_x,h_y]$.  Distributing each current equally over all shortest
+nearest-neighbour paths preserves its incidence $\delta_x-\delta_y$:
+intermediate vertices cancel on every path.  The resulting oriented face
+current $F_{x,i}$ therefore satisfies
+$\dot h_x+\sum_i(F_{x,i}-F_{x-e_i,i})=0$ exactly.
+The rational Clifford certificate checks the actual $3\times3\times3$
+action at $c=1/8,U=1$: all 351 site pairs, 81 nonzero currents, 54 faces
+and 27 local equations, on the complete 54-mode algebra.  Its coverage of
+all $2^{54}$ Fock states is a symbolic operator identity, not execution of
+that many amplitudes.  Independent complete small-Fock matrices attach
+all three hopping axes and the interaction to the existing source action.
+
+For a finite time cell, the exact flux is
+$I_{x,i}(n)=\int_{t_n}^{t_{n+1}}F_{x,i}(t)\,dt$.  Hence
+\[
+ h_x(t_{n+1})-h_x(t_n)
+ +\sum_{i=1}^{3}\bigl(I_{x,i}(n)-I_{x-e_i,i}(n)\bigr)=0.
+\]
+For any normalized input and untouched reference, setting
+$T_{00}(n,x)=\langle h_x(t_n)\rangle$ and
+$T_{i0}(n,x)=\langle I_{x-e_i,i}(n)\rangle$ supplies the $j=0$
+forward-difference Ward column of the finite tensor interface.
+These are cell energy and integrated flux, not pointwise continuum stress.
+Summing spatial blocks cancels internal faces, so
+$D_{\rm coarse}P_{\rm faces}=P_{\rm sites}D_{\rm fine}$.
+Successive block maps compose exactly; successive time cells telescope.
+All 27 rectangular width choices, including ragged blocks, pass the exact
+source certificate.  Generic finite-sum divergence, continuity, block
+composition and time telescoping are also Lean-checked; the concrete CAR
+source binding remains the exact rational certificate.
+
+The existing local source bounds control the approximation uniformly in
+ambient volume.  With $A=U+3c$, one has $\|h_x\|\leq A$ and
+$\|F_{x,i}\|\leq B=14A^2$: a face receives absolute shortest-path weight
+at most seven.  Its support fits a radius-three cube.  If $L_h,L_F$ are
+the existing normalized locality tails and $\epsilon$ is the patch
+unitary error, an endpoint energy error is at most
+$A\min(2,L_h+2\epsilon)$ and an integrated-face error at most
+$tB\min(2,L_F+2\epsilon)$.  Replacing the integral by $m$ midpoint
+samples adds the explicit bound
+$t^2B\,343(U+6c)/(2m)$; endpoint sampling is not exact.
+A cell residual is bounded by two endpoint errors plus six face errors,
+with supplied readout errors added separately.  The receipt evaluates
+these resource bounds without claiming to execute the large sample count.
+Input preparation, hardware errors and controller/failure-space energy
+remain separate.  This closes a finite same-action energy-column
+attachment, not the three momentum columns, a symmetric Lorentz tensor,
+geometric modular weights, area stationarity, a continuum scaling theorem
+or the full Einstein premise register.

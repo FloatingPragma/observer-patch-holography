@@ -1,0 +1,113 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-RESOLVED-SPECTRUM-RELATIVISTIC-SECTOR-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Resolve all eight source-accessible cube response weights, construct the original-action eight-valley massless relativistic limit, and attach finite model flavor and energy labels to a compiled momentum/occupation detector.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. The finite protected detector response and the growing-lattice relativistic construction retain distinct state domains; their identity and external physical species are not assumed.",
+  "source_law_changed": false,
+  "retrospective_diagnostic_comparison_added": true,
+  "eligible_physical_comparison_count_added": 0,
+  "physical_comparison_count_scope": "Existing completion-gate eligible comparisons; the new PDG mismatch diagnostic is retrospective and adds no accepted physical comparison.",
+  "component_results": [
+    {
+      "id": "resolved_particle_spectrum",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "The original cube source word admits an exact eta-preserving36-state singlet acceleration. At all sixteen time/phase settings, exact dyadic powers plus complete native-word errors give systematic probability error below8.568121e-6. Simulated surrogate counts recover all eight source-supported weights with conditional error below0.000258393828; every interval is positive and contains its independent exact residue.",
+      "evidence": [
+        "model/resolved_particle_spectrum/README.md",
+        "model/resolved_particle_spectrum/__init__.py",
+        "model/resolved_particle_spectrum/__main__.py",
+        "model/resolved_particle_spectrum/budgets.py",
+        "model/resolved_particle_spectrum/certified_power.py",
+        "model/resolved_particle_spectrum/contract.json",
+        "model/resolved_particle_spectrum/experiment.py",
+        "model/resolved_particle_spectrum/factorization.py",
+        "model/resolved_particle_spectrum/inversion.py",
+        "model/resolved_particle_spectrum/packet.py",
+        "model/resolved_particle_spectrum/results.json",
+        "model/resolved_particle_spectrum/test_certified_power.py",
+        "model/resolved_particle_spectrum/test_experiment.py",
+        "model/resolved_particle_spectrum/test_factorization.py",
+        "model/resolved_particle_spectrum/test_inversion.py",
+        "model/resolved_particle_spectrum/test_packet.py",
+        "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex"
+      ],
+      "remaining": [
+        "Raw multi-billion native words and their individual failure weights are not executed. Counts come from a certified surrogate law, not exact native samples. Unknown spectral support, physical species, relativistic masses, growing-volume particles and completed QFT/Einstein dynamics are not established."
+      ]
+    },
+    {
+      "id": "relativistic_sector_audit",
+      "issues": [
+        1142,
+        1143,
+        1145
+      ],
+      "result": "The original nonnegative-contact Weyl family at c=v/a has an explicit simultaneous eight-valley continuum-to-lattice Fock isometry. On fixed N<=Nmax and |p_j|<=Lambda, the full unprojected source evolution differs from free massless Weyl evolution by at most min(2,|t|[Nmax v a^2 Lambda^3/2+U(a) floor(Nmax/2) sqrt(8(a Lambda/pi)^3)]). This tends to zero for U(a)=o(a^-3/2), with all eight valleys and all outgoing states retained. The limiting energies are plus/minus v|p| and all continuum masses are zero. The single-particle contact vanishes for every coupling.",
+      "evidence": [
+        "model/relativistic_sector_audit/README.md",
+        "model/relativistic_sector_audit/__init__.py",
+        "model/relativistic_sector_audit/__main__.py",
+        "model/relativistic_sector_audit/packet.py",
+        "model/relativistic_sector_audit/results.json",
+        "model/relativistic_sector_audit/sector.py",
+        "model/relativistic_sector_audit/test_sector.py",
+        "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex"
+      ],
+      "remaining": [
+        "Nontrivial interacting relativistic continuum and finite-density limit",
+        "Positive-energy interacting vacuum and antiparticle representation",
+        "Massive relativistic sectors and physical species/current dictionary",
+        "Independent physical units and detector/protection attachment",
+        "Symmetric local stress, geometric Einstein premises and Einstein dynamics"
+      ]
+    },
+    {
+      "id": "particle_species_detector",
+      "issues": [
+        1139,
+        1142,
+        1143
+      ],
+      "result": "A constructive physical-CAR-mode Fourier and occupation detector identifies eight operational Weyl flavors with both signed energy branches on the original periodic 8^3 Weyl/contact lattice. Exact Gaussian-integer algebra proves sixteen orthonormal source eigenmodes with energies plus/minus sqrt(2)/16 and nonzero directional current. A complete native word of 65,822,721 formal pulses has preparation-and-readout error below 8.31e-9, so every specified prepared family member is identified with unconditional probability at least 1-8.31e-9 after the original-H model-law continuation. The full 1024-row ideal Gaussian comparison is executed and every single-particle output is retained; a literal 2^1024-row native state is not executed. The fixed periodic refinement has zero continuum masses. Retrospective physical comparisons reject direct mass/spin-preserving identifications with the charged leptons, photon, and an entirely massless three-neutrino spectrum without fitting units.",
+      "evidence": [
+        "model/particle_species_detector/README.md",
+        "model/particle_species_detector/__init__.py",
+        "model/particle_species_detector/__main__.py",
+        "model/particle_species_detector/comparison.py",
+        "model/particle_species_detector/detector.py",
+        "model/particle_species_detector/native_fft.py",
+        "model/particle_species_detector/packet.py",
+        "model/particle_species_detector/physical_targets.json",
+        "model/particle_species_detector/results.json",
+        "model/particle_species_detector/test_comparison.py",
+        "model/particle_species_detector/test_detector.py",
+        "model/particle_species_detector/test_native_fft.py",
+        "model/particle_species_detector/test_packet.py",
+        "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex"
+      ],
+      "remaining": [
+        "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary",
+        "A nontrivial interacting relativistic continuum at finite density and massive relativistic modes",
+        "Physical electric/gauge charges, physical spin identification and independently justified units",
+        "Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated",
+        "Protection of these modes under the repaired spatial process; no transfer of the protected cube result",
+        "Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics",
+        "Independent physical predictions beyond the present retrospective no-fit comparison"
+      ]
+    }
+  ],
+  "quantifier_boundary": "Known-support finite detector reconstruction, bounded-momentum finite-particle convergence to a free massless limit, and scoped internal momentum/energy/flavor detection. No arbitrary-spectrum recovery, positive-energy interacting vacuum, massive relativistic species, physical units or Einstein dynamics is thereby constructed."
+}

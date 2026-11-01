@@ -1,0 +1,123 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-COMMON-ACTION-PREMISES-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Close common-action finite protection, reference and Ward premises, and decide the controlled contact-continuum route without promoting model domains to physical completion.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted model inputs. Their mathematical consequences and agreement with nature require distinct evidence.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "common_field_spin",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "On the unchanged six-site Weyl/contact chain, the joined field and all 156 complete lifted repair outcomes preserve the same hidden SU2 spin factors. The N=4 spin-one sector has multiplicity 105 and dimension 315. Complete interleaved field/repair histories retain the spin/reference marginal despite leakage from the smaller localized carrier. A complete 4096-state number/spin census and all local probe residues give same-reference charged and neutral finite responses. Numerical energies and factorization residuals have explicit admission bounds, separate from exact local symmetry proofs. Repair changes the joined field energy, so protected spin does not establish a stationary mass pole. Undressed block translations align all hidden spin axes exactly when their three coordinate parities agree; transverse dimer shifts can fail. No physical species, Lorentz spin, mass fit or localized three-dimensional invariant is established.",
+      "evidence": [
+        "model/common_spin_protection/README.md",
+        "model/common_spin_protection/__init__.py",
+        "model/common_spin_protection/__main__.py",
+        "model/common_spin_protection/contract.json",
+        "model/common_spin_protection/history.py",
+        "model/common_spin_protection/packet.py",
+        "model/common_spin_protection/results.json",
+        "model/common_spin_protection/spectrum.py",
+        "model/common_spin_protection/spin.py",
+        "model/common_spin_protection/test_history.py",
+        "model/common_spin_protection/test_packet.py",
+        "model/common_spin_protection/test_spectrum.py",
+        "model/common_spin_protection/test_spin.py"
+      ],
+      "remaining": [
+        "Construct a localized three-dimensional common-field invariant and a protected physical energy/current response; retain the alignment criterion and the repair energy-transfer control."
+      ]
+    },
+    {
+      "id": "prepared_plaquette_reference",
+      "issues": [
+        1138,
+        1145
+      ],
+      "result": "The complete 256-state Weyl/contact plaquette at beta=1/32 now has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
+      "evidence": [
+        "model/plaquette_reference/README.md",
+        "model/plaquette_reference/__init__.py",
+        "model/plaquette_reference/__main__.py",
+        "model/plaquette_reference/contract.json",
+        "model/plaquette_reference/packet.py",
+        "model/plaquette_reference/preparation.py",
+        "model/plaquette_reference/results.json",
+        "model/plaquette_reference/test_preparation.py"
+      ],
+      "remaining": [
+        "Extend the prepared reference and clock to the continuing physical field with scalable preparation, common units and geometric modular/stress attachments."
+      ]
+    },
+    {
+      "id": "contact_continuum_boundary",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "For the same K=0 Weyl/contact two-body scattering family with fixed model energy zero, c=v/a and any finite U(a)>=0, an exact principal-value argument proves Re g_c(E+i0)<=-E/(16c^2) for 0<E<=c/2. All eight nodes give ||S(E)-I||<=min(2,128E/(45c),8UE^2/(45c^3)). Scattering therefore becomes uniformly transparent on every fixed positive-energy window, even for diverging repulsion. An isolated above-band pair, when present, escapes beyond 2 sqrt(3) v/a. This excludes that contact scaling route to nontrivial positive-energy continuum scattering and a finite-energy above-band pair. It leaves the fixed-spacing theorem intact and does not cover negative energies, filled or shifted vacua, added interactions, nonzero total momentum, many-body limits or the whole OPH class.",
+      "evidence": [
+        "model/contact_continuum/README.md",
+        "model/contact_continuum/__init__.py",
+        "model/contact_continuum/__main__.py",
+        "model/contact_continuum/continuum.py",
+        "model/contact_continuum/packet.py",
+        "model/contact_continuum/results.json",
+        "model/contact_continuum/test_continuum.py"
+      ],
+      "remaining": [
+        "Construct and justify a physical vacuum and interaction/refinement mechanism outside this excluded fixed-zero repulsive contact scaling family."
+      ]
+    },
+    {
+      "id": "coarse_energy_ward",
+      "issues": [
+        1145
+      ],
+      "result": "Exact rational Clifford algebra attaches the original full-Fock Weyl/contact energy to nearest-face currents on a three-dimensional box. The 27-site certificate retains all 351 pairs, 81 nonzero currents, 54 faces and 27 Ward equations without a number projection. Integrated time-cell flux satisfies the finite energy-column divergence equation; an endpoint-current substitution fails. Spatial block maps cancel internal flux and compose, while time blocks telescope. Lean proves the generic finite aggregation identities; concrete CAR identities have independent exact and full-matrix checks. Existing locality/source splitting and explicit midpoint estimates give conditional finite-readout bounds, with supplied preparation and measurement/hardware errors separate. The three momentum columns, symmetric Lorentz stress and all geometric Einstein premises remain open.",
+      "evidence": [
+        "model/coarse_energy_ward/README.md",
+        "model/coarse_energy_ward/__init__.py",
+        "model/coarse_energy_ward/__main__.py",
+        "model/coarse_energy_ward/packet.py",
+        "model/coarse_energy_ward/results.json",
+        "model/coarse_energy_ward/test_ward.py",
+        "model/coarse_energy_ward/ward.py",
+        "Lean/QFT/CoarseEnergyWard.lean"
+      ],
+      "remaining": [
+        "Supply the remaining momentum columns and common Lorentz stress, geometric modular kernel, entropy-area stationarity and Newton normalization under controlled physical coarse-graining."
+      ]
+    }
+  ],
+  "obstruction_review": {
+    "decision": "SCOPED_CONTACT_SCALING_CLASS_EXCLUDED",
+    "target": "CP-06 nontrivial positive-energy continuum scattering and finite-energy above-band pair",
+    "family": "Same K=0 contact fiber, fixed energy zero, c=v/a with fixed v>0, every finite U(a)>=0",
+    "mandatory_premise": "The proposed route must have nonidentity limiting scattering on a positive-energy window.",
+    "coverage": "Exact uniform bound, independently checked principal-value argument; not a finite grid search.",
+    "surviving_routes": [
+      "filled or shifted physical vacuum",
+      "additional interactions/counterterms",
+      "negative-energy or other-momentum domains requiring their own proof",
+      "other admissible OPH constructions"
+    ],
+    "consequence": "Stop treating repulsive-U retuning alone as the continuum completion of this fixed-zero contact candidate.",
+    "whole_program_falsified": false
+  },
+  "quantifier_boundary": "The chain protection, plaquette source reference and three-dimensional energy-column certificate have distinct retained domains. They do not establish a localized three-dimensional particle, a stable repaired mass pole, a physical vacuum or a full Lorentz/Einstein stress tensor."
+}

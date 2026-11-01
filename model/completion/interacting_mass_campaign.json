@@ -1,0 +1,101 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-INTERACTING-VACUUM-MASS-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1142,
+    1143
+  ],
+  "objective": "Construct a certified interacting ground reference and charged response on the actual three-dimensional cube, a source-bound one-dimensional charge gap, and controlled relativistic quasiparticle masses along an explicit coupling trajectory through the original chain parameters.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. The cube ground theorem, the canonical chain charge gap and the chosen running-family relativistic limit retain distinct domains. The coupling continuation and centered reference are explicit inputs. An anchored constructed mass is not a unique physical mass prediction.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "interacting_vacuum",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The unchanged open 2x2x2 Weyl/contact action at c=1/8,U=1 has exact global ground energy -sqrt3/4 and precisely one five-dimensional N4 hidden-spin S2 multiplet. Every N!=4 lies more than 7/1024 above it. Original local CAR probes have exact positive addition/removal lines and a positive interacting residual measure; the N3+N4+N5 sum is passively preserved by the declared complete repair service.",
+      "evidence": [
+        "model/interacting_vacuum/README.md",
+        "model/interacting_vacuum/__init__.py",
+        "model/interacting_vacuum/__main__.py",
+        "model/interacting_vacuum/charged.py",
+        "model/interacting_vacuum/global_ground.py",
+        "model/interacting_vacuum/ground.py",
+        "model/interacting_vacuum/packet.py",
+        "model/interacting_vacuum/results.json",
+        "model/interacting_vacuum/test_charged.py",
+        "model/interacting_vacuum/test_global_ground.py",
+        "model/interacting_vacuum/test_ground.py",
+        "model/interacting_vacuum/test_packet.py",
+        "paper/tex_fragments/INTERACTING_VACUUM.tex"
+      ],
+      "remaining": [
+        "Native preparation and complete detector execution for the new global ground",
+        "Complete resolution of the down-addition residual spectral measure",
+        "Controlled growing-volume interacting vacuum and stable relativistic massive poles",
+        "Physical charge/spin/species dictionary and independently fixed energy/length units",
+        "Active stabilization beyond passive outside-service identity, if required",
+        "Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics"
+      ]
+    },
+    {
+      "id": "mass_generation_audit",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The original periodic Weyl/contact chain with c=1/8,U=1 is exactly unitarily equivalent to Hubbard t=1/16,U=1. In its half-filled canonical thermodynamic ground sector the charge gap lies in an exact rational interval of width below1.67e-25 around0.7715517157380375. Original mu=0 removal cost is negative, so this reference is not the original grand-canonical vacuum. Fixed-U velocity-preserving refinement sends the gap to zero; a proved running-coupling threshold condition requires a chosen additional threshold scale.",
+      "evidence": [
+        "model/mass_generation_audit/README.md",
+        "model/mass_generation_audit/__init__.py",
+        "model/mass_generation_audit/__main__.py",
+        "model/mass_generation_audit/chain.py",
+        "model/mass_generation_audit/gap.py",
+        "model/mass_generation_audit/packet.py",
+        "model/mass_generation_audit/results.json",
+        "model/mass_generation_audit/scaling.py",
+        "model/mass_generation_audit/test_mass_generation.py",
+        "model/mass_generation_audit/test_packet.py",
+        "paper/tex_fragments/MASS_GENERATION_AUDIT.tex"
+      ],
+      "remaining": [
+        "Native preparation and complete-repair preservation of the half-filled many-body ground reference.",
+        "Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold.",
+        "Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary."
+      ]
+    },
+    {
+      "id": "hubbard_relativistic_sector",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
+      "evidence": [
+        "model/hubbard_relativistic_sector/README.md",
+        "model/hubbard_relativistic_sector/__init__.py",
+        "model/hubbard_relativistic_sector/__main__.py",
+        "model/hubbard_relativistic_sector/diagnostics.py",
+        "model/hubbard_relativistic_sector/dispersion.py",
+        "model/hubbard_relativistic_sector/packet.py",
+        "model/hubbard_relativistic_sector/results.json",
+        "model/hubbard_relativistic_sector/source.py",
+        "model/hubbard_relativistic_sector/test_dispersion.py",
+        "model/hubbard_relativistic_sector/test_packet.py",
+        "paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex"
+      ],
+      "remaining": [
+        "A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass.",
+        "Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches.",
+        "Common physical units and an actual measured-species correspondence."
+      ]
+    }
+  ],
+  "quantifier_boundary": "A finite interacting vacuum and its algebraically derived charged response, a source-bound one-dimensional canonical charge threshold, and a controlled 1+1-dimensional quasiparticle mass shell along a chosen running family. Other families through the same bare point can select different masses. No controlled massive interacting 3+1 continuum, physical species, calibrated units or Einstein dynamics is thereby established."
+}

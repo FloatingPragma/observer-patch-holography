@@ -6,6 +6,7 @@ from contextlib import redirect_stderr, redirect_stdout
 from copy import deepcopy
 import io
 import json
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -59,6 +60,15 @@ class ModelTheoremMapTests(unittest.TestCase):
     def errors(self, data=None):
         return builder.validate(self.data if data is None else data,
                                 self.premises, self.claims, self.root)
+
+    def test_unstaged_lean_source_is_inventoried_but_ignored_build_tree_is_not(self):
+        subprocess.run(['git','init','-q',str(self.root)],check=True)
+        (self.root/'Lean').mkdir()
+        (self.root/'Lean'/'Fresh.lean').write_text('theorem fresh : True := trivial\n')
+        (self.root/'.gitignore').write_text('Lean/generated/\n')
+        (self.root/'Lean'/'generated').mkdir()
+        (self.root/'Lean'/'generated'/'Ignored.lean').write_text('theorem ignored : True := trivial\n')
+        self.assertEqual(builder.lean_inventory(self.root),{'Lean/Fresh.lean':1})
 
     def reject(self, mutate, expected):
         data = deepcopy(self.data)

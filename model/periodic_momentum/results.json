@@ -1,0 +1,158 @@
+{
+  "all_branch_locality": {
+    "approximant_domain": "any sum of operators supported on site sets of torus diameter<=R, full-Fock operator norm",
+    "arbitrary_branch_quantitative_lower_claimed": false,
+    "constant_remainder_mod_L": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "higher_body_terms_in_a_local_density_are_included": true,
+    "integer_coefficient": "2*m+L*n_m, n_m arbitrary integers",
+    "no_number_preserving_Hermitian_log_has_finite_range_on_a_longer_prime_ring": true,
+    "odd_prime_period_checks": [
+      3,
+      5,
+      7,
+      11,
+      17,
+      31,
+      97
+    ],
+    "prime_root_minimal_polynomial": "1+z+...+z^(L-1)",
+    "principal_kernel_absolute_value": "pi/(L*sin(pi*r/L)), 1<=r<=floor(L/2)",
+    "principal_operator_error_lower": "1/(R+1), for integer R>=0 and L>2*(R+1)",
+    "spin_block_dimension": 2
+  },
+  "all_pass": true,
+  "complete_ring_exact": {
+    "CAR_modes": 8,
+    "Umklapp_pairs": {
+      "additive_Q_in_pi_units": [
+        "1",
+        "-1"
+      ],
+      "conserved_P_in_pi_units": "1",
+      "final": [
+        -1,
+        -1
+      ],
+      "initial": [
+        1,
+        1
+      ]
+    },
+    "additive_log_commutator_matrix_element_in_pi_units": "1/2",
+    "all_Fock_columns_checked": 256,
+    "alternate_minus_pi_log_is_also_conserved": true,
+    "contact_pair_matrix_element": "1/4",
+    "exact_spectral_ranks": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "exact_winding_spectrum_multiplicities": {
+      "-1": 4,
+      "0": 152,
+      "1": 100
+    },
+    "full_Fock_dimension": 256,
+    "ideal_adjacent_FSWAP_count": 12,
+    "ideal_word_is_not_literal_pulse_error_certificate": true,
+    "minus_one_eigenvalue_uses_plus_pi": true,
+    "open_boundary_translation_commutator_HS_squared": "2",
+    "original_periodic_source_matrix_equal": true,
+    "principal_momentum_labels_in_pi_units": [
+      "0",
+      "1/2",
+      "1",
+      "-1/2"
+    ],
+    "sites": 4,
+    "source_operator_sha256": "1571cf25b9ffc6295006a53c20d12a0c387161d1ba8d9000e9225bfc1cc21303",
+    "ungraded_translation_commutator_HS_squared": "4",
+    "winding_identity": "dGamma(log(t)/i) = P + 2*pi*W",
+    "winding_minimal_polynomial": "W^3-W=0",
+    "zero_momentum_pair_to_outside_smooth_sector_matrix_element": "1/4"
+  },
+  "controlled_smooth_sector": {
+    "bounds": {
+      "evolved_sine_error_upper": "1903/33600",
+      "initial_sine_error": "1/192",
+      "interacting_sector_leakage_upper": "1/100"
+    },
+    "general_evolved_bound": "Nmax*kappa^3/6 + (pi+Nmax)*leakage_bound",
+    "general_initial_bound": "Nmax*kappa^3/6, provided Nmax*kappa<pi",
+    "general_leakage_bound": "min(1, abs(t)*U*floor(Nmax/2))",
+    "individual_momentum_cutoff": "1/4",
+    "interacting_sector_is_invariant": false,
+    "interaction": "1",
+    "maximum_number": 2,
+    "model_duration": "1/100",
+    "not_a_finite_density_or_continuum_limit": true,
+    "uniform_in_volume_at_fixed_Nmax": true
+  },
+  "domain": {
+    "action": "same local Weyl hopping and onsite contact, declared periodic boundary",
+    "all_number_sectors_and_untouched_references": true,
+    "interaction": "1",
+    "physical_momentum_or_duration_identified": false,
+    "principal_branch": "Arg in (-pi,pi], with +pi at -1",
+    "speed": "1/8"
+  },
+  "gates": [
+    "CP-09"
+  ],
+  "issues": [
+    1145
+  ],
+  "schema": "oph.periodic_momentum.v1",
+  "scope": {
+    "algebraic_tails_and_selected_low_energy_continuum_limits_excluded": false,
+    "closed": "three conserved global periodic lattice momenta, exact contact winding, and all-branch finite-range obstruction on odd-prime rings",
+    "no_local_Einstein_momentum_column_accepted": true,
+    "remaining": [
+      "Local conserved momentum/stress densities or a controlled selected-state continuum replacement.",
+      "A common physical time/chart, symmetric Lorentz stress tensor and its scaling law.",
+      "Geometric modular weights, entropy/area stationarity, Newton normalization and an Einstein-register inhabitant."
+    ]
+  },
+  "source_sha256": {
+    "Lean/QFT/PeriodicMomentum.lean": "140d4116b69bd777afa59ce4dc7f850a659f9d89f28f835993c830251eaeef69",
+    "model/bound_pair/protection.py": "99affa2080d03d5526122b97e0b75b6cdc1dd114116eedcacdf094287a2f0db1",
+    "model/coarse_energy_ward/ward.py": "3f12fbd49882512a5d64e4d2d6c9d546e1f79099b1074d8096b465395d9b8edc",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/lattice_momentum_balance/momentum.py": "92c1a5ab8b51d006bf350420b51e504580cf0b441a001fc12c8ab4bdf174d21b",
+    "model/particle_response/dispersion.py": "519b95af7691e9a3990d4e4f555dfbe63856fd8959444858e1c8fdcbd376c628",
+    "model/periodic_momentum/README.md": "62028f231779e811090a1b2144d228017047a03e91cb3e02210e08c8e22ab4b3",
+    "model/periodic_momentum/momentum.py": "f94e72cd4a49dc6d621adfa6ac6f4cdd2afa1999183ea766a2fbd2688db019b9",
+    "model/periodic_momentum/packet.py": "40d9d9e90beaf4dcd81f50e9d6554873985388e3f8fdd87da03915da65d3cf31",
+    "model/periodic_momentum/test_momentum.py": "657cdb22ccb62f9d31b1ae99a7701934c9560a1c99c448d0abbe7c7dc36588a6"
+  },
+  "three_dimensional_exact": {
+    "CAR_modes": 54,
+    "action_majorana_terms": 406,
+    "action_sha256": "0dd5e03ff0b0fd7bf9cac4d633bb0bbdcaa051fb6e6e66d82fa42dfe2028ddf5",
+    "commuting_translation_pairs": 9,
+    "complete_Fock_coverage_is_symbolic_not_state_execution": true,
+    "exact_translation_covariances": 9,
+    "full_Fock_dimension": 18014398509481984,
+    "periodic_sides": [
+      3,
+      3,
+      3
+    ],
+    "three_conserved_principal_spectral_logs": true,
+    "translation_orders": [
+      3,
+      3,
+      3
+    ]
+  }
+}

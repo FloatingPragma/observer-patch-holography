@@ -1,0 +1,34 @@
+{
+  "schema": "oph.modular_clock_comparison.contract.v1",
+  "id": "OPH-MODULAR-CLOCK-COMPARISON-2026-11-01",
+  "issues": [1138],
+  "completion_gates": ["CP-02", "CP-13"],
+  "source_paths": [
+    "model/full_fock_field/field.py",
+    "model/field_thermal/thermal.py",
+    "model/modular_flow/flow.py",
+    "model/reference_recovery/recovery.py",
+    "model/observer/source_scalar/compiler.py"
+  ],
+  "proof_paths": [
+    "Lean/QFT/ModularClockComparison.lean",
+    "model/modular_clock_comparison/intervals.py",
+    "model/modular_clock_comparison/comparison.py"
+  ],
+  "fixed_nonresonance_domain": {
+    "spatial_sites": [2, 1, 1],
+    "full_Fock_dimension": 16,
+    "speed": "1/8",
+    "interaction": "1",
+    "beta": "1",
+    "chemical_potential": "0",
+    "regional_modes": [[0, 1], [2, 3]],
+    "clock_parameter_map": "same modular parameter; no regional rescaling"
+  },
+  "finite_result": "Source-operated relative modular clock comparisons, transitive and time-cocycle identities, and exact all-linear-map nonresonance classification on the actual full-Fock Gibbs dimer.",
+  "retained_inputs": ["field action", "Gibbs reference and preparation", "coherent source services", "initialized work bits", "dimensionless modular parameter"],
+  "retained_outputs": ["all sixteen source columns", "all occupation sectors", "arbitrary untouched references", "every first export failure", "correction disturbance"],
+  "integrated_gate_accepted": false,
+  "physical_clock_calibration_established": false,
+  "physical_Einstein_premises_established": false
+}

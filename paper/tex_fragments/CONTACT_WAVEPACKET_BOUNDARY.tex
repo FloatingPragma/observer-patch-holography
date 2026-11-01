@@ -1,0 +1,46 @@
+\paragraph{Negative-energy resonances do not rescue fixed packets.}
+The same zero-total-momentum contact action admits a stronger statement on
+both signs of energy. Write $a_1(x)=\operatorname{Re}g_1(x+i0)$ and let
+$M\geq1/12$ be the inverse second moment of its complete eight-node contact
+measure. Differentiating the explicit principal-value monomial expansion,
+with its uniformly convergent differentiated series, gives
+\[
+ a_1'(x)\leq-\frac1{12}
+ +\frac{x^2(3-x^2/4)}{18(1-x^2)(1-x^2/4)^2}
+ \leq-\frac{154157}{2143260}<-\frac1{16},
+ \qquad |x|\leq\frac14.
+\]
+The exterior spectral contribution has nonpositive derivative; the value
+at zero follows by continuity. For $E_{\max}\leq c/4$, set
+$A_c(E)=c^2a_c(E)$ and $B_c(E)=\pi c^2\rho_c(E)$. Then
+$A_c'\leq-1/16$ and $B_c\leq w=16E_{\max}^2/(63\pi c)$.
+For any nonzero real contact $U$, put $\tau=c^2/U$. The same rank-one
+scattering formula and the substitution $y=\tau-A_c(E)$ give
+\[
+ \int_{-E_{\max}}^{E_{\max}}|S(E)-1|^2\,dE
+ \leq 16\int_{\mathbb R}\frac{4w^2}{y^2+w^2}\,dy
+ =\frac{1024E_{\max}^2}{63c}.
+\]
+The $U=0$ case is immediate. This bound is uniform over all real $U$,
+including every repulsive scaling of the original source law. It does not
+replace that law by an attractive interaction.
+
+Multiplying the cyclic ac amplitude by $\sqrt{\rho_c}$ identifies its
+energy representation with Lebesgue measure. Extend its scattering
+multiplier by one outside the band. A fixed packet with support in the
+stated window and $|f|^2\leq D$ then has squared error at most
+$1024D E_{\max}^2/(63c)$. Density of bounded compactly supported packets
+and $\|S-I\|\leq2$ prove strong convergence to identity for every fixed
+$L^2$ packet when $c=v/a\to\infty$, with arbitrary $U(a)$.
+The reducing dark ac channels are already identities; point spectrum stays
+outside the incoming scattering domain.
+
+This conclusion is not convergence in operator norm. For fixed $E_0<0$,
+$a_c(E_0)>0$ and the exact tuning $U_c=1/a_c(E_0)$ keeps $S(E_0)=-1$;
+continuity gives essential norm distance two on a window containing $E_0$.
+Its resonant energy set narrows. Packets whose bandwidth shrinks with the
+spacing are not fixed inputs. The exact bound and independent on-shell
+quadrature are retained in \path{model/contact_wavepacket/README.md}.
+A physical momentum-space identification, filled vacuum, diverging energy
+recentering, additional interactions, nonzero total momentum and a
+many-body continuum remain separate constructions.

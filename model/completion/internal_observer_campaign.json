@@ -1,0 +1,50 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-INTERNAL-OBSERVER-READOUT-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1139,
+    1143
+  ],
+  "objective": "Attach the protected cube excitation sector to actual internal observer pointer records and quantify the finite spectral-identification limit.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. Internal source/detector identification is separate from external physical species, units and continuum identification.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "protected_particle_readout",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "A subsequent seventeen-bit native Ramsey construction attaches the fixed-number protected cube response to complete internal-observer pointer records. It prepares the actual eta reference, controls the local number phase, executes the unchanged full-Fock field word through two segments with complete C/E repairs, and exports both pointer quadratures. Local contraction composes every literal source pulse and retains its first-failure maps; no number or spectral projection is used in the executed field. Exact source-control and all-input Strang estimates bound each pointer probability, independently checked against the original Hamiltonian and the eight-line spectral measure. Seeded simulated counts use the unconditional pointer-zero event, with all other outputs retained in its complement. The second quadrature also separates the interacting response from the matched ideal free-action prediction, whose corresponding probability is exactly one half by bipartite parity. This identifies the source-accessible neutral response within the computed universe, not all protected states or a vacuum particle species. A separate rational Vandermonde certificate makes the eight source-specified weights identifiable from sixteen sufficiently accurate settings, but its long-time sampling and precision schedule is not executed. Absolute energy origin, external units, physical species and the relativistic field limit remain unassigned.",
+      "evidence": [
+        "model/protected_particle_readout/README.md",
+        "model/protected_particle_readout/__init__.py",
+        "model/protected_particle_readout/__main__.py",
+        "model/protected_particle_readout/bounds.py",
+        "model/protected_particle_readout/circuits.py",
+        "model/protected_particle_readout/conftest.py",
+        "model/protected_particle_readout/contract.json",
+        "model/protected_particle_readout/execute.py",
+        "model/protected_particle_readout/experiment.py",
+        "model/protected_particle_readout/identification.py",
+        "model/protected_particle_readout/packet.py",
+        "model/protected_particle_readout/results.json",
+        "model/protected_particle_readout/results.npz",
+        "model/protected_particle_readout/test_bounds.py",
+        "model/protected_particle_readout/test_execute.py",
+        "model/protected_particle_readout/test_experiment.py",
+        "model/protected_particle_readout/test_identification.py",
+        "model/protected_particle_readout/test_packet.py",
+        "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex"
+      ],
+      "remaining": [
+        "Extend the measured finite response to controlled growing-volume propagation and a physical vacuum, gauge/spin/detector and unit dictionary; execute any claimed full-spectrum reconstruction with its complete precision and sampling budget."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Complete finite source execution and declared model-clock readout; prospective full eight-line resolution retains its independent accuracy and sampling premises. No integrated physical completion gate accepted."
+}

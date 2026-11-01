@@ -14,8 +14,11 @@ limit, and executes a finite-time interaction read with an untouched
 reference. The parameter t is Hamiltonian model time; z=E+i eta is its
 complex frequency and eta>0 is a declared broadening. The action, lattice
 spacing, input preparation and physical clock dictionary are supplied.
-No particle species, physical mass, chiral spatial continuum or physical
-cross section is assigned.
+The subsequent [on-shell theorem](ONSHELL.md) constructs complete
+two-fermion lattice wave operators and a unitary scattering matrix. An
+exact rational certificate bounds its eight-node contact threshold; the
+interacting density reaches zero energy. No particle species, physical mass,
+chiral spatial continuum or physical cross section is assigned.
 
 ## Complete contact response
 

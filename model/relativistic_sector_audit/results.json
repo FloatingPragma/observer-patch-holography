@@ -1,0 +1,519 @@
+{
+  "all_pass": true,
+  "domain": {
+    "action": "H_a=dGamma[-(v/a) sigma.sin(k)]+U(a)D on the unchanged infinite lattice",
+    "calculator_domain": "exact rational positive a,Lambda,v; a Lambda<=1; Nmax<=4096",
+    "declared_scaling": "c=v/a, v>0 fixed, finite U(a)>=0",
+    "momentum_domain": "eight disjoint nu+a[-Lambda,Lambda]^3; a Lambda<pi/2",
+    "no_energy_shift_or_time_reversal": true,
+    "no_projection_during_evolution": true,
+    "state_domain": "all N<=Nmax in initial spin-complete eight-valley band, arbitrary untouched references"
+  },
+  "finite_two_particle_contact_control": {
+    "all_N2_states_retained": 8128,
+    "compiled_native_word_executed": false,
+    "contact_bound_is_sharp_on_this_state": true,
+    "contact_norm_squared": "1/8",
+    "contact_on_N0_and_N1": "exactly zero for every U",
+    "duration": "1/8",
+    "exact_band_fraction": "1/8",
+    "floating_diagnostic_tolerance": 1e-12,
+    "full_N2_evolution_error_diagnostic": 0.044164059791951635,
+    "initial_free_energy": "0",
+    "initial_spatial_band_modes": 8,
+    "initial_state_norm_squared": "1",
+    "normalization_error_diagnostic": 6.661338147750939e-16,
+    "one_particle_original_energy_below_vacuum": "-1/8",
+    "outside_band_contact_norm_squared": "7/64",
+    "rigorous_vector_error_upper": "6219777023951/140737488355328",
+    "sides": [
+      4,
+      4,
+      4
+    ],
+    "vacuum_lowering_changes_number_and_parity": true,
+    "vacuum_original_energy": "0"
+  },
+  "gates": [
+    "CP-06",
+    "CP-07",
+    "CP-09"
+  ],
+  "issues": [
+    1142,
+    1143,
+    1145
+  ],
+  "physical_boundary": {
+    "critical_pair_scaling_covered": false,
+    "existing_negative_branch_retained": true,
+    "finite_density_limit_constructed": false,
+    "full_Fock_uniform_limit_constructed": false,
+    "independently_predicted_SI_masses": 0,
+    "massive_relativistic_sector_constructed": false,
+    "new_native_preparation_or_detector_execution": false,
+    "physical_Einstein_dynamics_constructed": false,
+    "physical_species_assignments": 0,
+    "positive_energy_interacting_vacuum_constructed": false,
+    "protected_cube_repair_invariance_transferred": false,
+    "protected_cube_response_lines_identified_with_valleys": false,
+    "source_action_or_readout_laws_inferred_from_uniqueness": false
+  },
+  "rational_convergence_examples": [
+    {
+      "band_fraction_lower": "3719870657707091933630558753781031071457360304978475081586437244956654914372955015161574240081207865512564980033552429902526919216361105734721015754638931727149072456877744477177664703016457449110998710693096925065206001204766510027332682475258681815141467791899230029739181194579643639322078481877176746837887488794649470946751534938812255859375/7381717684978877386604047197884615209377452928112707497659405081248384138674945005610219083204915249643934122165073985295872654351127604658579578405279605327725235676637503210838603208333298552460325579581475880800937708240478939408194512018060504495671380692752661175036826408972334831478607936934075872174192467589563844230339198281319305970679808",
+      "band_fraction_upper": "161567925660304643017362434530224868383399288408149194583329869809169740139408511095558829408910434816736838387785610038657660733170279811469931651060286201533746735662525254103028470974274049107275590241393717207921309813958205108716593542341866405060408419817635255432694450446160509065198843357294099706811772720893571886335848830640316009521484375/320615667563873201811698333110888797609357681075194345947590683250964951984540899743123171198177477866015226591915547269350596957072260268545594173013731035981597835886581060732883835367048397725011310209266293128431033750286958892516708945903038097279449856958679432310372180216847840888229361979131019449446025479625923792779552437196014574488020996096",
+      "complete_vector_error_upper": "23013952266201758599957/604462909807314587353088",
+      "contact_on_band_norm_upper": "13569219300462468172565/604462909807314587353088",
+      "cutoff": "1",
+      "duration": "1",
+      "free_generator_error_upper": "1/64",
+      "half_trace_distance_upper": "23013952266201758599957/604462909807314587353088",
+      "interaction": "1",
+      "maximum_number": 2,
+      "one_particle_mass_shell_defect_magnitude_upper": "1/64",
+      "one_particle_projector_error_upper": "1/384",
+      "spacing": "1/8",
+      "speed": "1"
+    },
+    {
+      "band_fraction_lower": "3719870657707091933630558753781031071457360304978475081586437244956654914372955015161574240081207865512564980033552429902526919216361105734721015754638931727149072456877744477177664703016457449110998710693096925065206001204766510027332682475258681815141467791899230029739181194579643639322078481877176746837887488794649470946751534938812255859375/59053741479831019092832377583076921675019623424901659981275240649987073109399560044881752665639321997151472977320591882366981234809020837268636627242236842621801885413100025686708825666666388419682604636651807046407501665923831515265556096144484035965371045542021289400294611271778678651828863495472606977393539740716510753842713586250554447765438464",
+      "band_fraction_upper": "161567925660304643017362434530224868383399288408149194583329869809169740139408511095558829408910434816736838387785610038657660733170279811469931651060286201533746735662525254103028470974274049107275590241393717207921309813958205108716593542341866405060408419817635255432694450446160509065198843357294099706811772720893571886335848830640316009521484375/2564925340510985614493586664887110380874861448601554767580725466007719615876327197944985369585419822928121812735324378154804775656578082148364753384109848287852782687092648485863070682936387181800090481674130345027448270002295671140133671567224304778235598855669435458482977441734782727105834895833048155595568203837007390342236419497568116595904167968768",
+      "complete_vector_error_upper": "14317253465634037163067/1208925819614629174706176",
+      "contact_on_band_norm_upper": "9594886982764391949371/1208925819614629174706176",
+      "cutoff": "1",
+      "duration": "1",
+      "free_generator_error_upper": "1/256",
+      "half_trace_distance_upper": "14317253465634037163067/1208925819614629174706176",
+      "interaction": "1",
+      "maximum_number": 2,
+      "one_particle_mass_shell_defect_magnitude_upper": "1/256",
+      "one_particle_projector_error_upper": "1/1536",
+      "spacing": "1/16",
+      "speed": "1"
+    },
+    {
+      "band_fraction_lower": "3719870657707091933630558753781031071457360304978475081586437244956654914372955015161574240081207865512564980033552429902526919216361105734721015754638931727149072456877744477177664703016457449110998710693096925065206001204766510027332682475258681815141467791899230029739181194579643639322078481877176746837887488794649470946751534938812255859375/472429931838648152742659020664615373400156987399213279850201925199896584875196480359054021325114575977211783818564735058935849878472166698149093017937894740974415083304800205493670605333331107357460837093214456371260013327390652122124448769155872287722968364336170315202356890174229429214630907963780855819148317925732086030741708690004435582123507712",
+      "band_fraction_upper": "161567925660304643017362434530224868383399288408149194583329869809169740139408511095558829408910434816736838387785610038657660733170279811469931651060286201533746735662525254103028470974274049107275590241393717207921309813958205108716593542341866405060408419817635255432694450446160509065198843357294099706811772720893571886335848830640316009521484375/20519402724087884915948693319096883046998891588812438140645803728061756927010617583559882956683358583424974501882595025238438205252624657186918027072878786302822261496741187886904565463491097454400723853393042760219586160018365369121069372537794438225884790845355483667863819533878261816846679166664385244764545630696059122737891355980544932767233343750144",
+      "complete_vector_error_upper": "2286448222916514173283/604462909807314587353088",
+      "contact_on_band_norm_upper": "1696152412557808521571/604462909807314587353088",
+      "cutoff": "1",
+      "duration": "1",
+      "free_generator_error_upper": "1/1024",
+      "half_trace_distance_upper": "2286448222916514173283/604462909807314587353088",
+      "interaction": "1",
+      "maximum_number": 2,
+      "one_particle_mass_shell_defect_magnitude_upper": "1/1024",
+      "one_particle_projector_error_upper": "1/6144",
+      "spacing": "1/32",
+      "speed": "1"
+    },
+    {
+      "band_fraction_lower": "3719870657707091933630558753781031071457360304978475081586437244956654914372955015161574240081207865512564980033552429902526919216361105734721015754638931727149072456877744477177664703016457449110998710693096925065206001204766510027332682475258681815141467791899230029739181194579643639322078481877176746837887488794649470946751534938812255859375/3779439454709185221941272165316922987201255899193706238801615401599172679001571842872432170600916607817694270548517880471486799027777333585192744143503157927795320666438401643949364842666648858859686696745715650970080106619125216976995590153246978301783746914689362521618855121393835433717047263710246846553186543405856688245933669520035484656988061696",
+      "band_fraction_upper": "161567925660304643017362434530224868383399288408149194583329869809169740139408511095558829408910434816736838387785610038657660733170279811469931651060286201533746735662525254103028470974274049107275590241393717207921309813958205108716593542341866405060408419817635255432694450446160509065198843357294099706811772720893571886335848830640316009521484375/164155221792703079327589546552775064375991132710499505125166429824494055416084940668479063653466868667399796015060760201907505642020997257495344216583030290422578091973929503095236523707928779635205790827144342081756689280146922952968554980302355505807078326762843869342910556271026094534773433333315081958116365045568472981903130847844359462137866750001152",
+      "complete_vector_error_upper": "186813597253112727441/151115727451828646838272",
+      "contact_on_band_norm_upper": "149920109105693624209/151115727451828646838272",
+      "cutoff": "1",
+      "duration": "1",
+      "free_generator_error_upper": "1/4096",
+      "half_trace_distance_upper": "186813597253112727441/151115727451828646838272",
+      "interaction": "1",
+      "maximum_number": 2,
+      "one_particle_mass_shell_defect_magnitude_upper": "1/4096",
+      "one_particle_projector_error_upper": "1/24576",
+      "spacing": "1/64",
+      "speed": "1"
+    },
+    {
+      "band_fraction_lower": "3719870657707091933630558753781031071457360304978475081586437244956654914372955015161574240081207865512564980033552429902526919216361105734721015754638931727149072456877744477177664703016457449110998710693096925065206001204766510027332682475258681815141467791899230029739181194579643639322078481877176746837887488794649470946751534938812255859375/30235515637673481775530177322535383897610047193549649910412923212793381432012574742979457364807332862541554164388143043771894392222218668681541953148025263422362565331507213151594918741333190870877493573965725207760640852953001735815964721225975826414269975317514900172950840971150683469736378109681974772425492347246853505967469356160283877255904493568",
+      "band_fraction_upper": "161567925660304643017362434530224868383399288408149194583329869809169740139408511095558829408910434816736838387785610038657660733170279811469931651060286201533746735662525254103028470974274049107275590241393717207921309813958205108716593542341866405060408419817635255432694450446160509065198843357294099706811772720893571886335848830640316009521484375/1313241774341624634620716372422200515007929061683996041001331438595952443328679525347832509227734949339198368120486081615260045136167978059962753732664242323380624735791436024761892189663430237081646326617154736654053514241175383623748439842418844046456626614102750954743284450168208756278187466666520655664930920364547783855225046782754875697102934000009216",
+      "complete_vector_error_upper": "497825079434290336857/1208925819614629174706176",
+      "contact_on_band_norm_upper": "424038103139452130393/1208925819614629174706176",
+      "cutoff": "1",
+      "duration": "1",
+      "free_generator_error_upper": "1/16384",
+      "half_trace_distance_upper": "497825079434290336857/1208925819614629174706176",
+      "interaction": "1",
+      "maximum_number": 2,
+      "one_particle_mass_shell_defect_magnitude_upper": "1/16384",
+      "one_particle_projector_error_upper": "1/98304",
+      "spacing": "1/128",
+      "speed": "1"
+    }
+  ],
+  "relativistic_algebra": {
+    "exclusion_scope": "a constant 2x2 Hermitian mass anticommuting with all three kinetic Pauli matrices; not a many-body mass theorem",
+    "massive_term_added": false,
+    "metric_signature": [
+      1,
+      -1,
+      -1,
+      -1
+    ],
+    "opposite_chirality_Dirac_pair_Clifford_checks": 16,
+    "single_two_component_constant_anticommuting_mass_dimension": 0,
+    "valley_pairing_selects_physical_Dirac_species": false
+  },
+  "reported_example_vector_error_upper": "1237/1000000",
+  "schema": "oph.relativistic_sector_audit.v1",
+  "source_sha256": {
+    "model/coarse_energy_ward/ward.py": "3f12fbd49882512a5d64e4d2d6c9d546e1f79099b1074d8096b465395d9b8edc",
+    "model/contact_scattering/onshell.py": "7f6746ab4c0a8f1b69f7fe538e01354c7fc3ec239f7b66065238692f2b0b384c",
+    "model/dilute_momentum_ward/README.md": "944f4523d33e4cabe35d25b7bc58900250facad20df927a10efc2d9b65c05992",
+    "model/dilute_momentum_ward/ward.py": "6ecc2d9078b587d326c38c680b7cf84c29bd5d22e1e53cff7689da84392cc9c9",
+    "model/interacting_field/DERIVATION.md": "5c468158ff261cb1b014b00846f63061396aaf962e9fcff09d3f7b325208acf2",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/lattice_momentum_balance/momentum.py": "92c1a5ab8b51d006bf350420b51e504580cf0b441a001fc12c8ab4bdf174d21b",
+    "model/periodic_momentum/momentum.py": "f94e72cd4a49dc6d621adfa6ac6f4cdd2afa1999183ea766a2fbd2688db019b9",
+    "model/relativistic_sector_audit/README.md": "dff81aa9e635599c543c527f8e53dd87efad0dd35dc30a003fc6c567e7c2bd0e",
+    "model/relativistic_sector_audit/__init__.py": "b66b976b7be7fe8d1726ddb5154e9642d8053bc7237cbb4b640a71b0c5eccced",
+    "model/relativistic_sector_audit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/relativistic_sector_audit/packet.py": "0597426103114e4abaf9e010f813d7338b250526a6c2fda8ba44c22ca22932e9",
+    "model/relativistic_sector_audit/sector.py": "ac31d955f58b3ab727f2853a06a404fd51ed1e349d3e1110edc044d2660cd5c4",
+    "model/relativistic_sector_audit/test_sector.py": "46ad27f55e79fa84d45dd7f118bcd9b7ff0206e7d758f9767e93ac80ec8e1e3e",
+    "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex": "2a91e434b1ec7b5dad9cfdd4c9bec5ff24f4fa95e08884fc5c4b9bd5c73abc21"
+  },
+  "source_unit_energy_table": [
+    {
+      "absolute_dispersion_error_upper": "0",
+      "all_eight_valleys": true,
+      "continuum_energy_squared": "0",
+      "continuum_mass": "0",
+      "continuum_negative_energy_interval": [
+        "0",
+        "0"
+      ],
+      "continuum_positive_energy_display": 0.0,
+      "continuum_positive_energy_interval": [
+        "0",
+        "0"
+      ],
+      "lattice_mass_shell_defect_interval": [
+        "0",
+        "0"
+      ],
+      "lattice_negative_energy_interval": [
+        "0",
+        "0"
+      ],
+      "lattice_positive_energy_display": 0.0,
+      "lattice_positive_energy_interval": [
+        "0",
+        "0"
+      ],
+      "momentum": [
+        "0",
+        "0",
+        "0"
+      ],
+      "spacing": "1/64",
+      "speed": "1",
+      "zero_energy_degenerate_spin_space": true
+    },
+    {
+      "absolute_dispersion_error_upper": "1/24576",
+      "all_eight_valleys": true,
+      "continuum_energy_squared": "1",
+      "continuum_mass": "0",
+      "continuum_negative_energy_interval": [
+        "-1",
+        "-1"
+      ],
+      "continuum_positive_energy_display": 1.0,
+      "continuum_positive_energy_interval": [
+        "1",
+        "1"
+      ],
+      "lattice_mass_shell_defect_interval": [
+        "-1/12288",
+        "0"
+      ],
+      "lattice_negative_energy_interval": [
+        "-302219157224393935595833/302231454903657293676544",
+        "-1208876628897575742383331/1208925819614629174706176"
+      ],
+      "lattice_positive_energy_display": 0.9999593103925358,
+      "lattice_positive_energy_interval": [
+        "1208876628897575742383331/1208925819614629174706176",
+        "302219157224393935595833/302231454903657293676544"
+      ],
+      "momentum": [
+        "1",
+        "0",
+        "0"
+      ],
+      "spacing": "1/64",
+      "speed": "1",
+      "zero_energy_degenerate_spin_space": false
+    },
+    {
+      "absolute_dispersion_error_upper": "1/12288",
+      "all_eight_valleys": true,
+      "continuum_energy_squared": "2",
+      "continuum_mass": "0",
+      "continuum_negative_energy_interval": [
+        "-427419822500504607534271/302231454903657293676544",
+        "-1709679290002018430137083/1208925819614629174706176"
+      ],
+      "continuum_positive_energy_display": 1.4142135623730951,
+      "continuum_positive_energy_interval": [
+        "1709679290002018430137083/1208925819614629174706176",
+        "427419822500504607534271/302231454903657293676544"
+      ],
+      "lattice_mass_shell_defect_interval": [
+        "-1/6144",
+        "0"
+      ],
+      "lattice_negative_energy_interval": [
+        "-213701215477852326081811/151115727451828646838272",
+        "-1709609723822818608654487/1208925819614629174706176"
+      ],
+      "lattice_positive_energy_display": 1.4141560185783715,
+      "lattice_positive_energy_interval": [
+        "1709609723822818608654487/1208925819614629174706176",
+        "213701215477852326081811/151115727451828646838272"
+      ],
+      "momentum": [
+        "1",
+        "1",
+        "0"
+      ],
+      "spacing": "1/64",
+      "speed": "1",
+      "zero_energy_degenerate_spin_space": false
+    },
+    {
+      "absolute_dispersion_error_upper": "1/8192",
+      "all_eight_valleys": true,
+      "continuum_energy_squared": "3",
+      "continuum_mass": "0",
+      "continuum_negative_energy_interval": [
+        "-2093920942154385339393397/1208925819614629174706176",
+        "-523480235538596334848349/302231454903657293676544"
+      ],
+      "continuum_positive_energy_display": 1.7320508075688772,
+      "continuum_positive_energy_interval": [
+        "523480235538596334848349/302231454903657293676544",
+        "2093920942154385339393397/1208925819614629174706176"
+      ],
+      "lattice_mass_shell_defect_interval": [
+        "-1/4096",
+        "0"
+      ],
+      "lattice_negative_energy_interval": [
+        "-2093835741333188049794509/1208925819614629174706176",
+        "-523458935333297012448627/302231454903657293676544"
+      ],
+      "lattice_positive_energy_display": 1.7319803311014093,
+      "lattice_positive_energy_interval": [
+        "523458935333297012448627/302231454903657293676544",
+        "2093835741333188049794509/1208925819614629174706176"
+      ],
+      "momentum": [
+        "1",
+        "1",
+        "1"
+      ],
+      "spacing": "1/64",
+      "speed": "1",
+      "zero_energy_degenerate_spin_space": false
+    }
+  ],
+  "source_valleys": {
+    "CAR_modes": 128,
+    "all_discrete_momenta_retained": true,
+    "exact_Fourier_columns_checked": 128,
+    "finite_torus_sides": [
+      4,
+      4,
+      4
+    ],
+    "negative_chirality_count": 4,
+    "original_H_no_scalar_shift_or_time_reversal": true,
+    "positive_chirality_count": 4,
+    "projector_at_exact_node": "undefined; rank-two energy degeneracy retained",
+    "valleys": [
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": -1,
+        "linear_symbol_axis_signs": [
+          -1,
+          -1,
+          -1
+        ],
+        "negative_energy_helicity": "1/2",
+        "pi_coordinates": [
+          0,
+          0,
+          0
+        ],
+        "positive_energy_helicity": "-1/2",
+        "proper_spin_frame_signs": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": 1,
+        "linear_symbol_axis_signs": [
+          -1,
+          -1,
+          1
+        ],
+        "negative_energy_helicity": "-1/2",
+        "pi_coordinates": [
+          0,
+          0,
+          1
+        ],
+        "positive_energy_helicity": "1/2",
+        "proper_spin_frame_signs": [
+          -1,
+          -1,
+          1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": 1,
+        "linear_symbol_axis_signs": [
+          -1,
+          1,
+          -1
+        ],
+        "negative_energy_helicity": "-1/2",
+        "pi_coordinates": [
+          0,
+          1,
+          0
+        ],
+        "positive_energy_helicity": "1/2",
+        "proper_spin_frame_signs": [
+          -1,
+          1,
+          -1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": -1,
+        "linear_symbol_axis_signs": [
+          -1,
+          1,
+          1
+        ],
+        "negative_energy_helicity": "1/2",
+        "pi_coordinates": [
+          0,
+          1,
+          1
+        ],
+        "positive_energy_helicity": "-1/2",
+        "proper_spin_frame_signs": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": 1,
+        "linear_symbol_axis_signs": [
+          1,
+          -1,
+          -1
+        ],
+        "negative_energy_helicity": "-1/2",
+        "pi_coordinates": [
+          1,
+          0,
+          0
+        ],
+        "positive_energy_helicity": "1/2",
+        "proper_spin_frame_signs": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": -1,
+        "linear_symbol_axis_signs": [
+          1,
+          -1,
+          1
+        ],
+        "negative_energy_helicity": "1/2",
+        "pi_coordinates": [
+          1,
+          0,
+          1
+        ],
+        "positive_energy_helicity": "-1/2",
+        "proper_spin_frame_signs": [
+          -1,
+          1,
+          -1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": -1,
+        "linear_symbol_axis_signs": [
+          1,
+          1,
+          -1
+        ],
+        "negative_energy_helicity": "1/2",
+        "pi_coordinates": [
+          1,
+          1,
+          0
+        ],
+        "positive_energy_helicity": "-1/2",
+        "proper_spin_frame_signs": [
+          -1,
+          -1,
+          1
+        ]
+      },
+      {
+        "continuum_mass": "0",
+        "jacobian_chirality": 1,
+        "linear_symbol_axis_signs": [
+          1,
+          1,
+          1
+        ],
+        "negative_energy_helicity": "-1/2",
+        "pi_coordinates": [
+          1,
+          1,
+          1
+        ],
+        "positive_energy_helicity": "1/2",
+        "proper_spin_frame_signs": [
+          1,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "theorem": {
+    "Fock_embedding": "direct sum of wedge^n W_a for 0<=n<=Nmax",
+    "N0_N1": "contact identically zero for every finite U(a)",
+    "contact_bound": "||D Omega||<=floor(Nmax/2)*sqrt(f), countable positive-form proof",
+    "contact_fraction": "f=8(a Lambda/pi)^3 in infinite-lattice Haar measure",
+    "continuum_generator": "dGamma(direct sum_nu -v sigma.diag((-1)^nu) p)",
+    "coupling_limit_domain": "U(a)=o(a^(-3/2)); Nmax,Lambda,v and compact time interval fixed",
+    "full_dynamical_error": "min(2,abs(t)*(Nmax*v*a^2*Lambda^3/2+abs(U)*floor(Nmax/2)*sqrt(f)))",
+    "limiting_interaction": "free on the proved domain",
+    "limiting_mass": "0 in all eight valleys",
+    "one_particle_embedding": "(W_a f)(nu+a p)=a^(-3/2)f_nu(p), zero outside eight patches",
+    "projector_error": "a^2 Lambda^2/6 away from p=0"
+  }
+}

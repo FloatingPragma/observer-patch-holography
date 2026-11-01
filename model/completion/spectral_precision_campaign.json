@@ -1,0 +1,127 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-SPECTRAL-PRECISION-PREMISES-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Classify repaired spectral response, prove literal reference precision, close all-energy fixed-packet scattering and source momentum balances on their explicit domains.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. Their mathematical consequences and physical matching retain separate evidence.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "repair_spectral_sectors",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "The unchanged six-site N=4 spin-one multiplicity decomposes into a 90-dimensional repair-active eta-one sector and a 15-dimensional repair-transparent eta-two sector. Exact algebraic projectors, a valid finite-prime cyclic-rank witness and the native complete repair corner classify the active joint algebra as M90 tensor I3. The dark sector has exact eta-raised free two-particle spectral evolution and retains nonconstant energy coherences through complete outside repair outcomes. Two-annihilator probes from an eta-singlet ground have zero dark-sector component, so the protected energies are not the earlier bright particle poles. Exact complete-repair field-energy transfer identities and all 90-by-90 active energy transitions retain the active spectral disturbance. These are fixed-chain, fixed-sector results, not localized three-dimensional particles or physical masses.",
+      "evidence": [
+        "model/repair_spectral_sectors/README.md",
+        "model/repair_spectral_sectors/__init__.py",
+        "model/repair_spectral_sectors/__main__.py",
+        "model/repair_spectral_sectors/algebra.py",
+        "model/repair_spectral_sectors/contract.json",
+        "model/repair_spectral_sectors/packet.py",
+        "model/repair_spectral_sectors/response.py",
+        "model/repair_spectral_sectors/results.json",
+        "model/repair_spectral_sectors/test_algebra.py",
+        "model/repair_spectral_sectors/test_packet.py",
+        "model/repair_spectral_sectors/test_response.py"
+      ],
+      "remaining": [
+        "Construct a localized three-dimensional physical particle dictionary and accessible probes for protected spectral evolution, with controlled energy/current and common units."
+      ]
+    },
+    {
+      "id": "certified_reference",
+      "issues": [
+        1138,
+        1145
+      ],
+      "result": "Independent dyadic interval arithmetic certifies the literal binary64 control words of the same complete 256-state plaquette preparation and its original-action continuation. Exact polynomial column norms, tree rotations, Walsh coefficients, fixed-angle gates and the twelve Q(sqrt(5)) source controls are bounded, including leakage and every retained export failure. Orthogonal-record composition bounds the probability preparation plus the worst conditional branch on the admitted initialized input; continuation has a separate all-input source bound. This replaces the former mathematical execution admission with a proved finite source-specification error and propagates it into the normalized regional logarithm and P8 remainder. Physical hardware accuracy, initial preparation services, scalable thermodynamic reference and physical clock/geometry remain open.",
+      "evidence": [
+        "model/certified_reference/README.md",
+        "model/certified_reference/__init__.py",
+        "model/certified_reference/__main__.py",
+        "model/certified_reference/certificate.py",
+        "model/certified_reference/continuation.py",
+        "model/certified_reference/contract.json",
+        "model/certified_reference/design_check.py",
+        "model/certified_reference/interval.py",
+        "model/certified_reference/packet.py",
+        "model/certified_reference/results.json",
+        "model/certified_reference/source.py",
+        "model/certified_reference/test_certificate.py"
+      ],
+      "remaining": [
+        "Scale the certified reference and continuing clock under explicit preparation/readout/hardware contracts and derive the physical modular/geometric identification."
+      ]
+    },
+    {
+      "id": "contact_wavepacket",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "At K=0 and fixed model energy zero, the full eight-node contact measure obeys a1prime<=-1/16 for |E/c|<=1/4. For c=v/a and every real finite U(a), the integral of |S(E)-1| squared over [-Emax,Emax] is at most 1024 Emax squared/(63c). In the explicitly stated Lebesgue-energy-normalized ac representation this proves strong convergence to identity for every fixed L2 packet, uniformly over couplings on bounded packet classes. The native repulsive family is included without changing its law. Exact tuning U=1/a_c(E0) at fixed negative E0 keeps S(E0)=-1 and essential operator-norm distance two; shrinking packets and point spectrum are not discarded. The result does not establish physical momentum-space convergence, a filled-vacuum or many-body limit, or whole-program falsification.",
+      "evidence": [
+        "model/contact_wavepacket/README.md",
+        "model/contact_wavepacket/__init__.py",
+        "model/contact_wavepacket/__main__.py",
+        "model/contact_wavepacket/continuum.py",
+        "model/contact_wavepacket/packet.py",
+        "model/contact_wavepacket/results.json",
+        "model/contact_wavepacket/test_continuum.py"
+      ],
+      "remaining": [
+        "Construct a justified physical vacuum and interaction/refinement mechanism outside fixed-zero K=0 contact fixed-packet transparency, with a physical detector comparison map."
+      ]
+    },
+    {
+      "id": "lattice_momentum_balance",
+      "issues": [
+        1145
+      ],
+      "result": "The unchanged open Weyl/contact action has three central-difference kinetic momentum densities, nearest-face stresses and explicit quartic contact forces. Exact complete-CAR calculations on the 27-site box check all 81 local balances and all 27 rectangular blockings per column. Time-integrated stress and force give exact finite-cell balance; the force survives coarse-graining. Its total three-direction Gram matrix is (9/4)I at U=1, so it cannot be absorbed into a closed internal divergence. Restricting any conserved number-preserving quadratic charge first to N=1 and then N=2 proves that fixed nonzero-contact quadratic charges are onsite; the connected action leaves only number and hidden spin. Higher-body or emergent physical momenta remain open. Lean proves generic forced aggregation and the nonzero-total-force obstruction, not an interacting conserved Lorentz tensor.",
+      "evidence": [
+        "model/lattice_momentum_balance/README.md",
+        "model/lattice_momentum_balance/__init__.py",
+        "model/lattice_momentum_balance/__main__.py",
+        "model/lattice_momentum_balance/momentum.py",
+        "model/lattice_momentum_balance/packet.py",
+        "model/lattice_momentum_balance/results.json",
+        "model/lattice_momentum_balance/test_momentum.py",
+        "Lean/QFT/LatticeMomentumBalance.lean"
+      ],
+      "remaining": [
+        "Derive appropriate conserved physical momentum/stress beyond the excluded quadratic candidates, then supply Lorentz symmetry, geometric modular weights, entropy-area stationarity and Newton normalization."
+      ]
+    }
+  ],
+  "obstruction_review": {
+    "decision": "SCOPED_FIXED_PACKET_CONTACT_CLASS_EXCLUDED",
+    "target": "CP-06 nonidentity fixed-energy-packet continuum scattering",
+    "family": "Same K=0 contact fiber and energy zero, c=v/a, every finite real U(a), explicitly energy-normalized fixed ac packets",
+    "mandatory_premise": "A proposed interacting continuum route must retain nonidentity scattering on its declared fixed packet comparison.",
+    "coverage": "Exact integrated bound and dense-packet strong limit, with narrow tuned resonances explicitly retained.",
+    "surviving_routes": [
+      "filled physical vacuum",
+      "diverging energy recentering",
+      "additional interactions",
+      "nonzero total-momentum scaling",
+      "different physically justified packet comparison",
+      "other OPH constructions"
+    ],
+    "consequence": "Retuning contact alone cannot provide nonidentity limiting scattering under this fixed-packet comparison; do not relabel a narrowing resonance as such a limit.",
+    "whole_program_falsified": false
+  },
+  "quantifier_boundary": "Repair spectral classification is on a fixed chain sector; certified preparation assumes its initialized source; momentum columns are forced; the scattering limit has an explicit ac spectral comparison. These results do not compose into physical completion without additional maps."
+}

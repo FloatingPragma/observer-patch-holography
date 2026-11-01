@@ -1,0 +1,147 @@
+{
+  "all_pass": true,
+  "analytic_theorem": {
+    "block_bound": "sum of constituent site bounds, internal kinetic faces cancel",
+    "initial_interaction_norm_upper": "U*floor(Nmax/2)*sqrt(f)",
+    "local_cell_defect_upper": "min(U*T,4*U*f*T+U^2*floor(Nmax/2)*sqrt(f)*T^2/2)",
+    "local_force_initial_norm_upper": "min(U,4*U*f)",
+    "projected_contact_bound": "Omega D Omega <= f*floor(Nmax/2)",
+    "two_particle_momentum_error_upper": "kappa^3/3+4*kappa*min(1,T*U*sqrt(f)), 2*kappa<pi",
+    "zero_or_one_particle_interaction_force": "exactly zero"
+  },
+  "domain": {
+    "action": "unchanged periodic complete-Fock Weyl/contact action",
+    "arbitrary_untouched_references": true,
+    "band_projector_is_not_applied_during_evolution": true,
+    "initial_state_domain": "spin-complete band B and N<=Nmax",
+    "interaction": "1",
+    "physical_time_or_momentum_identified": false,
+    "speed": "1/8"
+  },
+  "exact_local_attachment": {
+    "CAR_modes": 54,
+    "full_Fock_dimension": 18014398509481984,
+    "geometric_oriented_faces": 81,
+    "local_Ward_identities": 81,
+    "nonzero_stress_faces_per_column": [
+      81,
+      81,
+      81
+    ],
+    "rectangular_coarse_partitions_per_column": 27,
+    "sides": [
+      3,
+      3,
+      3
+    ],
+    "source_force_sha256": "5f057796c5d3450cc9fca124e423897b470ca803341362aeb7a57310dc8b7748"
+  },
+  "exact_two_particle_force_and_contact": {
+    "band_N2_dimension": 6,
+    "band_momenta": [
+      0,
+      1
+    ],
+    "complete_four_total_momentum_sectors": true,
+    "contact_principal_angles_squared": [
+      "1/4",
+      "1/2",
+      "1/4",
+      "0"
+    ],
+    "escape_squared_per_K": [
+      "3/16",
+      "1/4",
+      "3/16",
+      "0"
+    ],
+    "force_norm_formula": "sqrt(2)*U*abs(sin(K_j/2))",
+    "force_norm_squared_in_U_squared_units": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "full_N2_dimension": 28,
+    "nonzero_force_rank_per_nonzero_sector": 2,
+    "sites": 4
+  },
+  "finite_band_example": {
+    "Nmax": 2,
+    "analytic_resource_example_not_large_state_execution": true,
+    "band_fraction": "27/262144",
+    "band_modes_without_spin": 27,
+    "band_side_labels": [
+      -1,
+      0,
+      1
+    ],
+    "block_sites": 8,
+    "bounds": {
+      "coarse_block_defect_upper": "589005109513/562949953421312",
+      "evolved_band_leakage_upper": "357076875529/281474976710656",
+      "interaction_on_initial_band_norm_upper": "357076875529/35184372088832",
+      "interval_end_after_preparation": "1/8",
+      "interval_start_after_preparation": "0",
+      "local_Ward_cell_defect_upper": "589005109513/4503599627370496",
+      "previous_leakage_upper": "1/8",
+      "rescaled_by_cutoff_momentum_error_upper": "85750527442987/10344205394116608",
+      "sqrt_fraction_upper": "357076875529/35184372088832",
+      "two_particle_local_momentum_error_upper": "943255801872857/1158551004141060096"
+    },
+    "cutoff_upper": "11/112 > pi/32",
+    "duration": "1/8",
+    "exact_max_initial_escape_squared": "7077159/68719476736",
+    "maximum_contact_angle_squared": "27/262144",
+    "nonzero_contact_K_sectors": 125,
+    "sides": [
+      64,
+      64,
+      64
+    ],
+    "spatial_volume": 262144
+  },
+  "finite_cell_diagnostic": {
+    "N2_dimension": 120,
+    "complete_forced_cell_identity_residual": 4.937810628195808e-16,
+    "diagnostic_tolerance": 1e-12,
+    "duration": 0.5,
+    "exact_initial_collision_norm_squared": "1/8",
+    "exact_initial_escape_norm_squared": "7/64",
+    "floating_diagnostic_is_not_the_proof": true,
+    "initial_band": "both particles at momentum zero",
+    "rigorous_local_cell_bound": "41404149112783/140737488355328",
+    "sites": 8,
+    "unforced_cell_defect_norm": 0.04372816730788258
+  },
+  "gates": [
+    "CP-09"
+  ],
+  "issues": [
+    1145
+  ],
+  "schema": "oph.dilute_momentum_ward.v1",
+  "scope": {
+    "closed": "state-dependent local momentum Ward defects with exact coarse aggregation and collision-suppressed leakage",
+    "critical_band_edge_scaling_covered": false,
+    "critical_scaling_boundary": "f=O(a^3), U=O(a^-2) makes U*sqrt(f)=O(a^-1/2); this bound does not control that limit",
+    "fixed_U_fixed_time_dilute_long_wavelength_error_tends_to_zero": true,
+    "remaining": [
+      "finite-density or critically scaled interacting local stress limit",
+      "symmetric Lorentz stress, geometric modular weights and Einstein-register inhabitant",
+      "preparation/readout and physical time/unit identification"
+    ]
+  },
+  "source_sha256": {
+    "Lean/QFT/DiluteMomentumWard.lean": "7bd8c61616df99cc91f4c7677088a4c2808b5f370c6d88bb365b9cb9ba165786",
+    "model/coarse_energy_ward/ward.py": "3f12fbd49882512a5d64e4d2d6c9d546e1f79099b1074d8096b465395d9b8edc",
+    "model/dilute_momentum_ward/README.md": "944f4523d33e4cabe35d25b7bc58900250facad20df927a10efc2d9b65c05992",
+    "model/dilute_momentum_ward/packet.py": "72a8a66faa427f203a251681643372d9d752cae0dd0b4068d3bf517a60341abf",
+    "model/dilute_momentum_ward/test_ward.py": "a7d17f2a6b356e94cf05d99ea69188b0549c6cfd936aa7194900452384e1e387",
+    "model/dilute_momentum_ward/ward.py": "6ecc2d9078b587d326c38c680b7cf84c29bd5d22e1e53cff7689da84392cc9c9",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/lattice_momentum_balance/momentum.py": "92c1a5ab8b51d006bf350420b51e504580cf0b441a001fc12c8ab4bdf174d21b",
+    "model/periodic_momentum/momentum.py": "f94e72cd4a49dc6d621adfa6ac6f4cdd2afa1999183ea766a2fbd2688db019b9"
+  }
+}

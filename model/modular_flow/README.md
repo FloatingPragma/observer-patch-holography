@@ -162,6 +162,16 @@ intact. Implementing the global automorphism therefore does not supply
 geometric modular diamonds, a common physical clock, arbitrary regional
 modular covariance, a continuum limit or the Einstein premises.
 
+The [relative clock construction](../modular_clock_comparison/README.md)
+implements an explicit comparison on this same interacting reference:
+the inverse global word followed by the actual regional modular word.
+These complete operations obey a time-cocycle and transitive comparison
+law, while retaining their disturbance of global correlations. An exact
+spectral certificate excludes transmission of a moving regional clock by
+any uncorrected same-parameter linear intertwiner on this fixed dimer.
+The implemented correction is a finite operational alternative; it leaves
+physical clock and geometric calibration open.
+
 The tracial control sets this same action to zero and gives identity
 modular evolution. A nonzero interacting action gives nontrivial evolution
 of an occupation observable. Independent logarithms of the full density

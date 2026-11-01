@@ -1,0 +1,124 @@
+\paragraph{Interacting edge scattering and a moving bound pair.}
+The same two-body source family now has a controlled moving bound band.
+Set $c_a=\sqrt3/a^2$ and retain the repulsive coupling
+\[
+ U_a^{-1}=\frac{a^2W_0}{2}-\frac{a^3\gamma}{\pi},\qquad
+ W_0=\left\langle\frac1{\sum_j\cos^2k_j}\right\rangle,
+ \qquad \gamma>0.
+\]
+The normalized full-torus integral satisfies $2/3\leq W_0<5$;
+$a\gamma\leq1$ makes the coupling positive.  The single global
+comparison is $J_a=6/a^2-H_a$, explicitly shifting energy and reversing
+time.  Neither $\gamma$ nor this clock/energy choice is inferred from
+physical data.
+
+At zero total momentum the threshold estimate is
+\[
+ \left|\frac{g_0(6/a^2+z)-a^2W_0/2}{a^3}
+       +\frac{\sqrt z}{\pi}\right|\leq19a|z|
+\]
+for real $|a^2z|\leq1/8$, using the upper boundary square root;
+the exterior constant improves to $11$.  Coarea for all eight valleys,
+an inner ball of radius $1/2$ and its complementary measure give the
+respective Green remainders $18\eta$ and $36|\eta|$ before rescaling.
+Thus, for $0\leq s\leq S$, $a^2S\leq1/8$ and $836aS\leq7\gamma$,
+\[
+ S_J(s)\longrightarrow\frac{\gamma-i\sqrt s}{\gamma+i\sqrt s},
+ \qquad
+ \sup_{[0,S]}|S_J-S_{J,\mathrm{lim}}|
+       \leq\frac{1672aS}{7\gamma}.
+\]
+This is the earlier nonidentity scalar contact-channel limit; its
+orthogonal free channels remain present.  Lattice contact renormalization
+is an established mechanism, not a new particle identification; compare
+\href{https://arxiv.org/abs/1912.04425}{Koerber--Berkowitz--Luu (2019)}
+and \href{https://arxiv.org/abs/cond-mat/0605196}{Winkler et al.\ (2006)}.
+
+\paragraph{Nonzero total momentum has a controlled pole.}
+Write $K=aP$, $q=k-K/2$, $d_j=\sin q_j\cos(K_j/2)$,
+$e_j=\cos q_j\sin(K_j/2)$ and $R^2=\sum_j\cos^2(K_j/2)$.
+For $|K_j|\leq\pi/2$, concavity gives the exact complete free edge
+$B_a(K)=2c_aR$, attained at all eight $q_j=\pm\pi/2$.
+The four-spin singlet resolvent is
+\[
+ G_K(q,E)=
+ \frac{E(E^2-4c_a^2e^2)}
+ {E^4-4c_a^2(d^2+e^2)E^2+16c_a^4(d\cdot e)^2}.
+\]
+At $E=B_a(K)+z$, put $t=E/(2c_a)$,
+$\eta=t^2-R^2$ and $V=\sum_j\cos K_j\cos^2q_j$.  Equivalently,
+\[
+ g_K(E)=\frac{t}{2c_a}
+ \left\langle\frac{1-e^2/t^2}{V+\eta+(d\cdot e)^2/t^2}\right\rangle.
+\]
+Let $\kappa=\max|K_j|\leq1/2$ and $h=a^2z\leq1/8$, with $z\geq0$.
+Writing $Q=\sum_j\cos^2q_j$, the denominator lies between
+$(1-\kappa^2/2)(Q+h+h^2/12)$ and $Q+h+h^2/12$;
+$e^2\leq\kappa^2Q/4$ and $(d\cdot e)^2/t^2\leq e^2$.
+The complete-torus integral and prefactor therefore give
+\[
+ |g_K(B_a(K)+z)-g_0(6/a^2+z)|\leq3a^2\kappa^2.
+\]
+Combining this with the exterior threshold estimate proves
+\[
+ \left|\frac{g_K(B_a(K)+z)-a^2W_0/2}{a^3}
+             +\frac{\sqrt z}{\pi}\right|
+       \leq a(11z+3P_{\max}^2),\qquad |P_j|\leq P_{\max}.
+\]
+Under $256a(\gamma^2+P_{\max}^2)\leq\gamma$, the pole denominator
+has opposite signs at $z=\gamma^2/4$ and $z=4\gamma^2$.
+Strict monotonicity of the exterior Stieltjes transform supplies exactly
+one upper pole $E_a(K)=B_a(K)+\delta_a(K)$, uniformly on that momentum cube:
+\[
+ \frac{\gamma^2}{4}\leq\delta_a(K)\leq4\gamma^2,
+ \qquad
+ |\delta_a(K)-\gamma^2|
+       \leq\frac{22}{7}a\gamma(132\gamma^2+9P_{\max}^2).
+\]
+This does not invoke the older, stronger sufficient condition $U>B_a$.
+
+\paragraph{An explicit bound-band wavepacket comparison.}
+The same global $J_a$ has bound energy
+$\epsilon_a(P)=6/a^2-B_a(aP)-\delta_a(aP)$.  Rationalizing $B_a$ and
+bounding the sine remainder gives
+\[
+ \sup_{|P_j|\leq P_{\max}}
+ \left|\epsilon_a(P)-\left(\frac{|P|^2}{4}-\gamma^2\right)\right|
+ \leq\mathcal E_a
+ :=\frac{a^2P_{\max}^4}{4}
+   +\frac{22}{7}a\gamma(132\gamma^2+9P_{\max}^2).
+\]
+In particular, subtracting $B_a(K)$ separately at each momentum would
+incorrectly remove the center-of-mass kinetic term.
+
+Let $R_K=(E_a(K)-H_{0,K})^{-1}$ and
+$\psi_{a,K}=R_Kd/\langle d,R_K^2d\rangle^{1/2}$.
+Its positive contact overlap fixes its phase, and the pole equation
+makes it a normalized, measurable, exchange-antisymmetric eigenvector.
+With consistent measures $dK/(2\pi)^3$ and $dP/(2\pi)^3$, the formula
+\[
+ (W_af)(K,k)=a^{-3/2}f(K/a)\psi_{a,K}(k)
+\]
+defines an isometry on packets supported in the stated cube.  Its range
+reduces the two-body source action; the remaining source states are
+retained.  If $h_{\mathrm{pair}}$ multiplies by
+$|P|^2/4-\gamma^2$, then for arbitrary untouched references,
+\[
+ \|e^{-itJ_a}W_a-W_ae^{-it h_{\mathrm{pair}}}\|
+       \leq\min\{2,|t|\mathcal E_a\}.
+\]
+This proves coherent moving-pair propagation with an explicit rational
+spacing schedule.  The limiting inertial mass is twice that of a single
+free edge in these model coordinates; neither an SI mass nor a relativistic rest energy is
+identified.  The exact bounds, independent four-spin and torus checks,
+and wrong-subtraction/time-orientation controls are retained in
+\path{model/moving_bound_pair/README.md}.
+
+The result concerns one composite sector.  Nonzero-$K$ on-shell
+scattering, a physical vacuum/detector map, many-pair interactions,
+relativistic massive/massless sectors and Einstein dynamics remain
+separate.  The earlier fixed-zero $c=v/a$ result also remains valid:
+$\int_{-M}^{M}|S-I|^2dE\leq1024M^2/(63c)$ for arbitrary real finite
+$U(a)$ and $M\leq c/4$, so every fixed energy-normalized packet becomes
+transparent while tuned shrinking resonances can persist.  Its scaling
+and energy comparison differ explicitly from the bound-band construction.

@@ -1,0 +1,156 @@
+{
+  "schema": "oph.band_edge_contact.v1",
+  "issues": [
+    1142,
+    1143
+  ],
+  "source_bindings": {
+    "model/band_edge_contact/limit.py": "2b090dc5beae2b739be24acfb913982b774ef86beaddfb30b0bc9ff6abfb6bce",
+    "model/band_edge_contact/packet.py": "a79d6ac5affbab54fd935aafa7c199f6bc69db683d157c3304cde08552a0fa85",
+    "model/band_edge_contact/test_limit.py": "a96f3484b118e419aa9b0e3dd49d0df153c8bbf4954d1d793f08deee87bd6d36",
+    "model/band_edge_contact/README.md": "fb5f0d508e19c97f03b47337bfb13cbfc398b23a9373a78947bc8dbcecce71bc",
+    "model/contact_wavepacket/continuum.py": "af6b33c89c4f1e680ede1040079740a2e11b48c6182c0e45c3854345a28219a6",
+    "model/contact_continuum/continuum.py": "1bc9d51d98e7022016a5290b334da06f6e979eb9bc5cf4562a0ff60c7c9fec07",
+    "model/contact_scattering/onshell.py": "7f6746ab4c0a8f1b69f7fe538e01354c7fc3ec239f7b66065238692f2b0b384c",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e",
+    "paper/tex_fragments/BAND_EDGE_CONTACT.tex": "e1a40c04af47ceb9d33d7323093d06dec0188409f785131862c4f1a65086ab8c"
+  },
+  "all_pass": true,
+  "threshold_certificate": {
+    "ball_radius": "1/2",
+    "shell_radius_squared_max": "1/8",
+    "angular_coefficients_upper": 1,
+    "W0_lower": "2/3",
+    "W0_upper": 5,
+    "outside_W_remainder_coefficient": "154/9",
+    "inside_W_remainder_coefficient": "6568/189",
+    "outside_scaled_green_coefficient": "14963/1536",
+    "inside_scaled_green_coefficient": "443/24",
+    "uniform_scaled_green_coefficient": 19,
+    "edge_valleys": 8
+  },
+  "scattering_schedule": {
+    "spacing_upper": "7/1672000",
+    "tolerance": "1/1000",
+    "spacing": "7/1672000",
+    "gamma": "1",
+    "energy_cap": "1",
+    "green_error_upper": "7/88000",
+    "denominator_modulus_lower_after_a3": "7/44",
+    "uniform_scattering_error_upper": "1/1000",
+    "coupling_positive": true,
+    "all_edge_valleys": 8,
+    "source_phase": "(gamma+i*sqrt(s))/(gamma-i*sqrt(s))",
+    "reflected_phase": "(gamma-i*sqrt(s))/(gamma+i*sqrt(s))"
+  },
+  "scattering_rows": [
+    {
+      "spacing": "1/256",
+      "gamma": "1",
+      "energy_cap": "1",
+      "green_error_upper": "19/256",
+      "denominator_modulus_lower_after_a3": "7/44",
+      "uniform_scattering_error_upper": "209/224",
+      "coupling_positive": true,
+      "all_edge_valleys": 8,
+      "source_phase": "(gamma+i*sqrt(s))/(gamma-i*sqrt(s))",
+      "reflected_phase": "(gamma-i*sqrt(s))/(gamma+i*sqrt(s))"
+    },
+    {
+      "spacing": "1/1024",
+      "gamma": "1",
+      "energy_cap": "1",
+      "green_error_upper": "19/1024",
+      "denominator_modulus_lower_after_a3": "7/44",
+      "uniform_scattering_error_upper": "209/896",
+      "coupling_positive": true,
+      "all_edge_valleys": 8,
+      "source_phase": "(gamma+i*sqrt(s))/(gamma-i*sqrt(s))",
+      "reflected_phase": "(gamma-i*sqrt(s))/(gamma+i*sqrt(s))"
+    },
+    {
+      "spacing": "1/4096",
+      "gamma": "1",
+      "energy_cap": "1",
+      "green_error_upper": "19/4096",
+      "denominator_modulus_lower_after_a3": "7/44",
+      "uniform_scattering_error_upper": "209/3584",
+      "coupling_positive": true,
+      "all_edge_valleys": 8,
+      "source_phase": "(gamma+i*sqrt(s))/(gamma-i*sqrt(s))",
+      "reflected_phase": "(gamma-i*sqrt(s))/(gamma+i*sqrt(s))"
+    }
+  ],
+  "pole_rows": [
+    {
+      "spacing": "1/256",
+      "gamma": "1",
+      "unique_above_band_pole": true,
+      "pole_offset_lower": "1/4",
+      "pole_offset_upper": "4",
+      "pole_offset_limit": "1",
+      "pole_offset_error_upper": "627/224",
+      "reflected_bound_energy_limit": "-1",
+      "original_energy": "6/a^2 + pole_offset",
+      "physical_rest_mass_inferred": false
+    },
+    {
+      "spacing": "1/1024",
+      "gamma": "1",
+      "unique_above_band_pole": true,
+      "pole_offset_lower": "1/4",
+      "pole_offset_upper": "4",
+      "pole_offset_limit": "1",
+      "pole_offset_error_upper": "627/896",
+      "reflected_bound_energy_limit": "-1",
+      "original_energy": "6/a^2 + pole_offset",
+      "physical_rest_mass_inferred": false
+    },
+    {
+      "spacing": "1/4096",
+      "gamma": "1",
+      "unique_above_band_pole": true,
+      "pole_offset_lower": "1/4",
+      "pole_offset_upper": "4",
+      "pole_offset_limit": "1",
+      "pole_offset_error_upper": "627/3584",
+      "reflected_bound_energy_limit": "-1",
+      "original_energy": "6/a^2 + pole_offset",
+      "physical_rest_mass_inferred": false
+    }
+  ],
+  "dispersion_example": {
+    "limit_energy": "5014/11025",
+    "absolute_error_upper": "16926571/186701760000",
+    "all_edge_valleys": 8
+  },
+  "quantified_domain": {
+    "total_momentum": [
+      0,
+      0,
+      0
+    ],
+    "spatial_dimensions": 3,
+    "free_speed": "sqrt(3)/a^2",
+    "energy_edge": "B=6/a^2",
+    "inverse_contact": "a^2 W0/2-a^3 gamma/pi, W0=<1/sum cos(k_j)^2>",
+    "gamma": "declared fixed positive renormalized parameter",
+    "comparison": "J=B-H; explicit energy shift and reversed Hamiltonian time",
+    "scattering_representation": "cyclic contact ac energy representation, compact shifted energy intervals",
+    "all_edge_valleys_retained": true,
+    "orthogonal_free_channels_retained": true
+  },
+  "verdict": "CONTROLLED_NONIDENTITY_BAND_EDGE_SCATTERING_AND_BOUND_POLE",
+  "physical_particle_identifications_added": 0,
+  "physical_clock_claimed": false,
+  "norm_resolvent_limit_claimed": false,
+  "many_body_QFT_limit_claimed": false,
+  "remaining": [
+    "physical vacuum and time/energy interpretation",
+    "nonzero total momentum",
+    "many-body stability and field limit",
+    "massive/massless relativistic sectors",
+    "physical detector comparison and units"
+  ]
+}

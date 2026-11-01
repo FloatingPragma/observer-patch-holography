@@ -1,0 +1,24 @@
+{
+  "schema": "oph.particle_species_detector.physical_targets.v1",
+  "edition": "PDG 2025 fixed comparison baseline",
+  "accessed_on": "2026-11-01",
+  "citation": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update",
+  "comparison_status": "retrospective; target values do not enter the source law, detector or mass calculation",
+  "charged_leptons": [
+    {"name": "electron", "mass_MeV_c2": "0.51099895000", "reported_uncertainty_MeV_c2": "0.00000000015", "spin": "1/2", "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-electron.pdf", "pdf_page": 1},
+    {"name": "muon", "mass_MeV_c2": "105.6583755", "reported_uncertainty_MeV_c2": "0.0000023", "spin": "1/2", "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-muon.pdf", "pdf_page": 1},
+    {"name": "tau", "mass_MeV_c2": "1776.93", "reported_uncertainty_MeV_c2": "0.09", "spin": "1/2", "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-tau.pdf", "pdf_page": 1}
+  ],
+  "photon": {"spin": "1", "massless_target": true, "mass_empirically_proved_exactly_zero": false, "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-photon.pdf", "pdf_page": 1},
+  "neutrino_splittings": {
+    "source": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
+    "pdf_page": 37,
+    "table": "14.7, first global analysis, normal ordering, without SK-ATM and IC24",
+    "interpretation": "Selected published three-neutrino fit, not a new fit or an exact mathematical bound; other columns also exclude zero splittings.",
+    "entries": [
+      {"name": "delta_m21_squared", "unit": "eV^2/c^4", "best_fit": "0.0000749", "reported_three_sigma_range": ["0.0000692", "0.0000805"]},
+      {"name": "delta_m32_squared", "unit": "eV^2/c^4", "best_fit": "0.002459", "reported_three_sigma_range": ["0.002388", "0.002531"]}
+    ],
+    "absolute_neutrino_masses_determined_by_these_splittings": false
+  }
+}

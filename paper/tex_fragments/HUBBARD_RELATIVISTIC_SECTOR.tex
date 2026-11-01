@@ -1,0 +1,71 @@
+\paragraph{A controlled relativistic charge mass on an explicit running family.}
+The preceding charge gap can be promoted to a relativistic dispersion
+\emph{in one spatial dimension on a specified coupling trajectory}.
+The source-bound half-filled Hubbard reference and centered generator
+$K=H-(U/2)N$ remain explicit.  The staggered particle--hole map
+$d_{x,\downarrow}\mapsto(-1)^x d^\dagger_{x,\downarrow}$, with
+$d_{x,\uparrow}$ unchanged, preserves hopping and reverses the centered
+interaction.  A complete 256-state CAR witness checks this duality and
+the translation identity $PTP^\dagger=-(-1)^{N_\downarrow}T$.
+Consequently the attractive spin dispersion becomes the repulsive charge
+dispersion, with the appropriate momentum-carrier shift.  Here $p$ is
+relative to that low-energy branch; the onsite source frame also carries
+its specified uniform internal rotation.  The even-ring SO(4) selection
+rules are retained: an elementary thermodynamic quasiparticle is not
+automatically an isolated finite-ring state or a local-CAR pole.
+
+Writing $A=2\pi t/U$, $\theta=A\sin k$, $|k|<\pi/2$, and $v=2ta$,
+the imported
+\href{https://arxiv.org/html/cond-mat/9410043}{exact dressed dispersion}
+has the source-normalized form
+\[
+ E=\frac{8t}\pi\sum_{\substack{m\ge1\\m\ {m odd}}}
+    \frac{K_1(mA)}m\cosh(m\theta),\qquad
+ vp=\frac{8t}\pi\sum_{\substack{m\ge1\\m\ {m odd}}}
+    \frac{K_0(mA)}m\sinh(m\theta).
+\]
+On $a(A)=4v e^{-A}/[M\sqrt{2\pi A}]$, $t=v/(2a)$,
+$U=\pi v/(aA)$, the leading Bessel coefficient is exactly $M$.
+For $A\ge1$ and $|\theta|\le\Theta<A$, put
+\[
+ q=e^{-2(A-\Theta)},\qquad
+ r_E=\frac{1+3/(8A)}{1-q}-1,\qquad
+ r_p=\max\{1/(8A),q/(1-q)\}.
+\]
+The Gamma-integral tangent bounds
+$1-1/(8z)\le K_0(z)/b(z)\le1$ and
+$1\le K_1(z)/b(z)\le1+3/(8z)$, with
+$b(z)=\sqrt{\pi/(2z)}e^{-z}$, and the positive odd-mode tail prove
+\[
+ |E/M-\cosh\theta|\le r_E\cosh\Theta,\qquad
+ |vp/M-\sinh\theta|\le r_p\sinh\Theta,
+\]
+\[
+ \left|(E^2-v^2p^2)/M^2-1\right|
+ \le\cosh^2\Theta(2r_E+r_E^2)
+   +\sinh^2\Theta(2r_p+r_p^2)\ \longrightarrow\ 0.
+\]
+At $\Theta=1$, the last bound is below $0.034$ for $A=64$ and
+$0.017$ for $A=128$.  Thus the limiting charge-doublet dispersion has
+$E=M\cosh\theta$, $p=(M/v)\sinh\theta$, and the calculated rest mass
+is $m=M/v^2$.  Exact rational finite-parameter enclosures and independent
+Bessel/integral controls are retained in
+\texttt{model/hubbard\_relativistic\_sector/results.json}.
+
+For a concrete trajectory through the original point, take
+$A_0=\pi/8$, $v=1/8$ and $M_0=e^{-\pi/8}/\pi$.
+Then $a(A_0)=1$, $t(A_0)=1/16$, $U(A_0)=1$, and
+\[
+ M_0=0.2149329913552644\ldots,\qquad
+ m_0=\frac{64e^{-\pi/8}}\pi=13.75571144673692\ldots
+ \quad\hbox{in model mass units}.
+\]
+This is the mass of the \emph{chosen running trajectory}, not a unique
+mass selected by the original bare point.  Indeed, for any $M>0$,
+multiplying $a_M(A)$ by
+$1+(M/M_0-1)e^{-(A-A_0)}$ gives the same starting point and limiting
+rest energy $M$.  The initial lattice half-gap is different, and the
+fixed-$U$ continuum family has zero limiting charge mass.  No native
+ground preparation, repair-invariant charged pole, $3+1$-dimensional
+massive species, or empirical particle-mass identification follows from
+this one-dimensional result.

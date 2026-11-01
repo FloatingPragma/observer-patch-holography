@@ -1,0 +1,145 @@
+\paragraph{A detector identifies the model's propagating Weyl flavors.}
+The massless sector now has a concrete model-particle readout.  On the
+periodic $8^3$ lattice at $c=1/8$, retain all 1,024 physical CAR modes of
+the original Weyl/contact action.  For each $b\in\{0,1\}^3$, choose
+momentum labels $\ell_b=(4b_x,4b_y,4b_z+1)$, with $k_b=\pi\ell_b/4$.
+For component eigenvalue $r=\pm1$ of $\sigma_z$, the normalized mode is
+\[
+ \psi_{b,r}(x,s)=\frac{e^{ik_b\cdot x}}{\sqrt{512}}
+                 \delta_{s,(1-r)/2},\qquad
+ H\psi_{b,r}=E_{b,r}\psi_{b,r},\qquad
+ E_{b,r}=-r(-1)^{b_z}\frac{\sqrt2}{16}.
+\]
+The contact term is exactly zero on the entire one-particle sector for
+every supplied $U\ge0$.  These sixteen modes are orthonormal, checked
+in Gaussian integers with amplitudes $(A+\sqrt2 B)/32$.
+Their rank-one projectors satisfy $H\Pi_{b,r}=E_{b,r}\Pi_{b,r}$;
+the remaining one-particle projector commutes with $H$.
+Thus a label gives an actual source-generator energy, not a fitted
+interpretation of a peak.  All modes have $N=1$, odd CAR parity and
+fermionic exchange statistics from the supplied CAR algebra.
+
+The operational species are eight Weyl flavors indexed by measured
+valley momentum.  Their common energy magnitude is
+$\sqrt2/16\simeq0.0883883476483$ in original model units; it alone does
+not distinguish the flavors.  With
+$\chi_b=-(-1)^{b_x+b_y+b_z}$, the positive-energy branch has cone helicity
+$\chi_b/2$ and the negative branch has the opposite helicity.
+\begin{center}
+\begin{tabular}{c c c c}
+flavor $b$ & momentum labels $\ell_b$ & positive-branch component
+          & positive cone helicity\\\hline
+000 & $(0,0,1)$ & 1 & $-1/2$\\
+001 & $(0,0,5)$ & 0 & $+1/2$\\
+010 & $(0,4,1)$ & 1 & $+1/2$\\
+011 & $(0,4,5)$ & 0 & $-1/2$\\
+100 & $(4,0,1)$ & 1 & $+1/2$\\
+101 & $(4,0,5)$ & 0 & $-1/2$\\
+110 & $(4,4,1)$ & 1 & $-1/2$\\
+111 & $(4,4,5)$ & 0 & $+1/2$
+\end{tabular}
+\end{center}
+Here helicity uses the explicit proper valley frame
+$R_b=-\chi_b\operatorname{diag}((-1)^{b_j})$; it is
+$(-1)^{b_x+b_y}r/2$ on this family.  The raw detector measures momentum
+and CAR component, so bare $\sigma_z/2$ is not silently identified with
+this cone spin or with physical particle spin.  The total directional
+current $J_z(k)=-c\cos k_z\,\sigma_z$ has eigenvalue $E_{b,r}$ here,
+with nonzero current $\pm\sqrt2/8192$ on every forward z bond.
+Current is stationary on these selected modes; $[H,J_z]\ne0$ at generic
+momenta.  The witness is propagating flux, even for a uniform-density
+plane wave.
+
+\paragraph{The Fourier readout is compiled with complete native errors.}
+The detector applies the fermionic extension of
+$F[k,x]=e^{-2\pi i k\cdot x/8}/\sqrt{512}$ separately to each component,
+then copies all 1,024 occupations to fresh pointers.  Its output includes
+every binary occupation string, the vacuum, all other one-particle
+addresses, multiple occupations and every export abort.  On the chosen
+sixteen effects it measures the energies above; the other 1,008
+one-particle records remain present without that energy assignment.
+On higher-number inputs these same records measure mode occupations,
+not the total interacting energy.
+
+An explicit three-axis FFT uses 4,608 two-mode butterflies and 768
+bit-reversal transpositions.  Each butterfly is a mode phase followed by
+the native hopping word with coefficient $-i$ and duration $\pi/4$.
+All nonadjacent operations use graded FSWAP routes, including their
+double-occupation sign.  Exact arithmetic in
+$\mathbb Z[\zeta_8]/(\zeta_8^4+1)$ proves the 64 entries and 64 Gram
+sums of the one-axis transform; tensoring gives the full mode map.
+One transform requests 1,260,800 adjacent FSWAPs and 32,909,824 native
+pulses.  Native excitation from the vacuum, inverse-transform
+preparation, forward-transform readout and all occupation pointers total
+65,822,721 formal pulses.  Original-$H$ propagation is a separate
+specified model-law service, not an uncounted synthesized field word.
+
+The complete literal-source error for preparation and detection is
+\[
+ \epsilon_{\rm source}<8.31\times10^{-9}.
+\]
+The estimate retains all first-export failures and is valid with untouched
+references.  It does not assume that literal native maps are exactly
+Gaussian or number preserving.  Unitary original-$H$ propagation on the
+full Fock space does not amplify preparation error.  Therefore, at every
+model time, a prepared catalog member produces its correct native label
+with unconditional probability at least $1-\epsilon_{\rm source}$;
+all wrong, outside, vacuum, multiple-occupation and abort outputs together
+have probability at most $\epsilon_{\rm source}$.
+
+The replay executes the ideal Gaussian comparison on all 1,024
+one-particle rows and all sixteen inputs.  At time eight its complete
+output-vector discrepancy from the exact spectral prediction is about
+$1.94\times10^{-15}$, separate from the rigorous native bound.
+A seeded 65,536-record illustration retains all sixteen label counts
+and every zero outside count for the exact uniform input mixture.
+These are model-simulated counts, not a literal $2^{1024}$-row native
+execution or laboratory data.  No survival normalization is used.
+
+\paragraph{Mass readout and comparison with measured particles.}
+For the periodic family $L=8\cdot2^m$, $a=2^{-m}$ and
+$c=(1/8)/a$, the model period stays eight and the momentum offset stays
+$p_z=\pi/4$.  The exact branch energies satisfy
+\[
+ E_\pm(a)=\pm\frac{\sin(a\pi/4)}{8a}
+       \longrightarrow\pm\frac{\pi}{32},
+ \qquad m_{\rm continuum}=0.
+\]
+This is a direct finite-torus consequence of the original spectrum.
+The finite-spacing mass-shell defect is a regulator correction, not
+a tachyonic mass.  No SI scale is assigned.
+
+A separate retrospective comparison uses fixed PDG 2025 targets, which
+never enter the source or detector calculation:
+\begin{center}
+\begin{tabular}{c r c}
+physical target & measured mass in $\mathrm{MeV}/c^2$
+                & present continuum mass\\\hline
+electron & $0.51099895000\pm0.00000000015$ & 0\\
+muon & $105.6583755\pm0.0000023$ & 0\\
+tau & $1776.93\pm0.09$ & 0
+\end{tabular}
+\end{center}
+No common positive unit conversion maps zero to these positive masses;
+equal finite-momentum energies are not a rest-mass hierarchy.\footnote{PDG
+2025 listings:
+\url{https://pdg.lbl.gov/2025/listings/rpp2025-list-electron.pdf};
+\url{https://pdg.lbl.gov/2025/listings/rpp2025-list-muon.pdf};
+\url{https://pdg.lbl.gov/2025/listings/rpp2025-list-tau.pdf}.}
+The photon has spin one, so direct spin-preserving identification with
+these cone-helicity-$1/2$ modes also fails.  Three such massless flavors
+give zero mass-squared differences, outside the nonzero ranges of the
+specified three-neutrino fit in PDG Table 14.7.\footnote{The photon
+listing is \url{https://pdg.lbl.gov/2025/listings/rpp2025-list-photon.pdf}.
+The selected normal-ordering fit gives
+$\Delta m_{21}^2\in[6.92,8.05]\times10^{-5}\,\mathrm{eV}^2/c^4$ and
+$\Delta m_{32}^2\in[2.388,2.531]\times10^{-3}\,\mathrm{eV}^2/c^4$;
+these are reported $3\sigma$ fit ranges, not exact bounds:
+\url{https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf}.}
+A single massless neutrino or a composite photon in another sector is
+not excluded.  The model's Weyl flavors are now operationally identified;
+direct identifications with measured physical species remain zero.
+The empty reference is not a ground state, and the negative branch is
+retained rather than renamed as a physical antiparticle.  Interacting
+vacuum stability, mass generation, physical charges and the empirical
+dictionary remain additional work.

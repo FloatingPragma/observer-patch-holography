@@ -1,0 +1,148 @@
+{
+  "schema": "oph.contact_wavepacket_continuum.v1",
+  "issues": [
+    1142,
+    1143
+  ],
+  "source_bindings": {
+    "model/contact_wavepacket/continuum.py": "af6b33c89c4f1e680ede1040079740a2e11b48c6182c0e45c3854345a28219a6",
+    "model/contact_wavepacket/packet.py": "0b942a64349905a9939009a910ae9a0d3589f394b2dc3d0aa3fe850cf6c6b2c9",
+    "model/contact_wavepacket/test_continuum.py": "fd249073decf239b2a3944ddc5e91c6c8da5affa5b73277d345f5a8c583cb48a",
+    "model/contact_wavepacket/README.md": "b92ae7420388104f4a39ca3c4424a6ea30c33617da897f73c3b8e722ccb75285",
+    "model/contact_continuum/continuum.py": "1bc9d51d98e7022016a5290b334da06f6e979eb9bc5cf4562a0ff60c7c9fec07",
+    "model/contact_continuum/README.md": "49714ba73687eb5a4e19df2d98aaaeee2f80ae74fdfbc0a858d9df00d4efb7b0",
+    "model/contact_scattering/onshell.py": "7f6746ab4c0a8f1b69f7fe538e01354c7fc3ec239f7b66065238692f2b0b384c",
+    "model/contact_scattering/ONSHELL.md": "bf71471796b3f5c2dbe8c3c161f260ffacc2e21e8c70ba013d5e86f47beaae45",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e"
+  },
+  "all_pass": true,
+  "slope_certificate": {
+    "scaled_energy_radius": "1/4",
+    "inverse_second_moment_lower": "1/12",
+    "positive_derivative_correction_upper": "6112/535815",
+    "negative_slope_magnitude_lower": "154157/2143260",
+    "rounded_slope_magnitude_lower": "1/16",
+    "all_nodes": 8
+  },
+  "window_rows": [
+    {
+      "spacing": "1/4",
+      "energy_cap": "1/8",
+      "speed": "1/2",
+      "integrated_squared_scattering_bound": "32/63",
+      "all_real_contact_couplings": true,
+      "packet_squared_error_bound": "128/63",
+      "exceptional_energy_measure_upper": "1/4"
+    },
+    {
+      "spacing": "1/16",
+      "energy_cap": "1/8",
+      "speed": "2",
+      "integrated_squared_scattering_bound": "8/63",
+      "all_real_contact_couplings": true,
+      "packet_squared_error_bound": "32/63",
+      "exceptional_energy_measure_upper": "1/4"
+    },
+    {
+      "spacing": "1/64",
+      "energy_cap": "1/8",
+      "speed": "8",
+      "integrated_squared_scattering_bound": "2/63",
+      "all_real_contact_couplings": true,
+      "packet_squared_error_bound": "8/63",
+      "exceptional_energy_measure_upper": "8/63"
+    },
+    {
+      "spacing": "1/256",
+      "energy_cap": "1/8",
+      "speed": "32",
+      "integrated_squared_scattering_bound": "1/126",
+      "all_real_contact_couplings": true,
+      "packet_squared_error_bound": "2/63",
+      "exceptional_energy_measure_upper": "2/63"
+    },
+    {
+      "spacing": "1/1024",
+      "energy_cap": "1/8",
+      "speed": "128",
+      "integrated_squared_scattering_bound": "1/504",
+      "all_real_contact_couplings": true,
+      "packet_squared_error_bound": "1/126",
+      "exceptional_energy_measure_upper": "1/126"
+    }
+  ],
+  "packet_schedule": {
+    "spacing_upper": "63/512000",
+    "velocity": "1/8",
+    "squared_error_tolerance": "1/1000",
+    "packet_squared_error_bound": "1/1000"
+  },
+  "retained_resonance_diagnostic": [
+    {
+      "speed": 1.0,
+      "resonance_energy": -0.0625,
+      "repulsive_U_diagnostic": 63.29651271123393,
+      "U_over_c_squared_diagnostic": 63.29651271123393,
+      "peak_scattering_distance": 2.0,
+      "off_resonance_energy": -0.03125,
+      "off_resonance_distance": 0.019674364545671008
+    },
+    {
+      "speed": 4.0,
+      "resonance_energy": -0.0625,
+      "repulsive_U_diagnostic": 1012.9227590620676,
+      "U_over_c_squared_diagnostic": 63.307672441379225,
+      "peak_scattering_distance": 2.0,
+      "off_resonance_energy": -0.03125,
+      "off_resonance_distance": 0.004919768844931293
+    },
+    {
+      "speed": 16.0,
+      "resonance_energy": -0.0625,
+      "repulsive_U_diagnostic": 16206.942686263576,
+      "U_over_c_squared_diagnostic": 63.30836986821709,
+      "peak_scattering_distance": 2.0,
+      "off_resonance_energy": -0.03125,
+      "off_resonance_distance": 0.0012299606143668916
+    },
+    {
+      "speed": 64.0,
+      "resonance_energy": -0.0625,
+      "repulsive_U_diagnostic": 259311.26152058682,
+      "U_over_c_squared_diagnostic": 63.30841345717452,
+      "peak_scattering_distance": 2.0,
+      "off_resonance_energy": -0.03125,
+      "off_resonance_distance": 0.0003074904411420974
+    }
+  ],
+  "quantified_domain": {
+    "K": [
+      0,
+      0,
+      0
+    ],
+    "reference": "unchanged model energy zero",
+    "speed": "c=v/a, fixed v>0",
+    "energy_window": "[-Emax,Emax], Emax<=c/4",
+    "coupling": "all finite real U(a); native repulsive source is a subclass",
+    "input": "fixed L2 Lebesgue-energy-normalized contact-ac packet",
+    "uniform_rate": "bounded compact support and bounded squared amplitude D",
+    "comparison_map": "cyclic ac density square-root normalization; multiplier extended by identity outside band",
+    "all_eight_nodes_retained": true,
+    "point_spectrum_outside_ac_domain_retained": true
+  },
+  "verdict": "STRONG_FIXED_PACKET_TRANSPARENCY_WITH_TUNABLE_SHRINKING_RESONANCES",
+  "operator_norm_convergence_on_both_energy_signs": false,
+  "pointwise_convergence_for_every_tuned_coupling": false,
+  "physical_momentum_space_comparison_proved": false,
+  "many_body_interacting_continuum_claimed": false,
+  "physical_identifications_added": 0,
+  "remaining": [
+    "filled vacuum and additional interactions",
+    "diverging energy recentering",
+    "nonzero total-momentum scaling",
+    "many-body/gauge/chiral completion",
+    "source and detector packets with a controlled physical interpretation"
+  ]
+}
