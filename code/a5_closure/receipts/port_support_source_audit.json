@@ -1,12 +1,12 @@
 {
-  "base": "31e1506c30114e37b45f6858d0029a8ff0b89db5",
-  "base_tree": "e4f04a8ec27139f28c1a957a2e59cb6e2016f5ed",
+  "base": "83113a9cc33d82a56c84a8634445c8edd1e599a2",
+  "base_tree": "8a9f87e254c2f290c36e501a1d38963d1d7f9f85",
   "common_sphere": "REALIZED_SPHERE_COMPARISON_MISSING",
   "historical_drift": {
     "code/m1_source_realization/receipt.json": {
       "classification": "BASELINE_PIN_DRIFT",
       "frozen_sha256": "1e43a903910966ec15602cbfdd07cea3c4af8dfde152225d874d2e0a7453ead1",
-      "live_sha256": "daf763bc2ff2854803a9c9043317ca0182f1a903e2c9f06c0fbbf7cf26cea570"
+      "live_sha256": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49"
     },
     "code/source_selection_model/DERIVATION.md": {
       "classification": "BASELINE_PIN_DRIFT",
@@ -15,8 +15,8 @@
     }
   },
   "implementation_sha256": {
-    "code/a5_closure/port_support_source_audit.py": "e1eaabcbb650e8d70545554f7614ab16936bc461f41dc694d0e096565efeb7c3",
-    "code/a5_closure/verify_port_support_source_audit.py": "590bbe073fdec272b7599e88d14331d3b09b95910c87a11bb4ec6f7c68a15f73"
+    "code/a5_closure/port_support_source_audit.py": "d540a1307c6770af4bfc47a1ba17e1137a7b2460c8325aebc627be1a43dc8cb6",
+    "code/a5_closure/verify_port_support_source_audit.py": "09ba043d84d8ef94332e4e2560588d9156b0a85253f02e87ee2d0547fdf69398"
   },
   "local_refinement": "No local incidence tower supplied by ScreenCarrierMapCandidate; support automorphism audit only.",
   "native_support_refinement": [
@@ -2032,9 +2032,9 @@
       "sha256": "b7986b78adfa2d0f407fb5150f2188ae84cd3ef96cc425d41c56323823fb0a36"
     },
     "code/m1_source_realization/receipt.json": {
-      "base_blob": "9f37d3762a1d3275433e482e3aaeab5c13e783eb",
-      "git_blob": "9f37d3762a1d3275433e482e3aaeab5c13e783eb",
-      "sha256": "daf763bc2ff2854803a9c9043317ca0182f1a903e2c9f06c0fbbf7cf26cea570"
+      "base_blob": "4f35ab541175160efb8602c7c7d0e42770367857",
+      "git_blob": "4f35ab541175160efb8602c7c7d0e42770367857",
+      "sha256": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49"
     },
     "code/m1_source_realization/topology.py": {
       "base_blob": "8eeb1c9dd5fd26838b2f011b82b4a4d987d4807b",

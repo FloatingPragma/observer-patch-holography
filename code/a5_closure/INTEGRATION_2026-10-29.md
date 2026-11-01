@@ -31,14 +31,14 @@ the subsequent immutable commits containing their reviewed current receipts.
 The original Galois drift diagnostic retains its original source label and
 diff hash; integration does not erase that older unresolved provenance check.
 
-On 2026-11-01 the source-realization receipt was rebuilt for the dependency
-and action upgrades, with unchanged topology and floating diagnostics moving
-by at most 3.3e-16. The source pin and the port-support base advanced to
-`31e1506c30114e37b45f6858d0029a8ff0b89db5`, where every other pinned input is
-byte identical. The C12 prerequisite pin advanced to `2a96056fc`
-(`2a96056fc2b3f3afc05bb4e16ba30b23d0fddfc5`) and the coherent
-native-access prerequisite pin to `2da8c4b09dca49b622b9b5454ebc1a4e91e7cc3c`.
-Each refreshed receipt differs from its predecessor only in custody fields.
+On 2026-11-01 the source-realization receipt was rebuilt twice: for the
+dependency and action upgrades, and for the move of CI to Ubuntu only, which
+changed the workflow file it binds. Its topology is unchanged and its
+floating diagnostics move by at most 3.3e-16. The source pin and the
+port-support base advanced to `83113a9cc33d82a56c84a8634445c8edd1e599a2`, where every other pinned input is byte
+identical. The C12 prerequisite pin advanced to `e5a59e228540703224f9d1dcc2c32e6d25de87d4` and the coherent
+native-access prerequisite pin to `564a0b6eb13332e02f27c07e4870a660e52efea6`. Each refreshed receipt differs from
+its predecessor only in custody fields.
 
 Each refreshed receipt is compared with its original after removing only
 source/prerequisite/implementation custody fields. Every mathematical result,
