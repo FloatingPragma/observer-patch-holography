@@ -21,6 +21,12 @@ def test_centered_reference_cannot_be_reported_as_the_old_one(receipt):
     with pytest.raises(ValueError):packet.validate(wrong)
     for key, changed in (('full_centered_gap_strict_lower', '1/64'),
                          ('balanced_N8_dimension', 588),
+                         ('ground_hidden_spin', 1),
+                         ('full_ground_multiplicity', 3),
+                         ('spin_raising_target_dimension', 4900),
+                         ('full_source_SU2_and_spin_frame_checked', False),
+                         ('normalized_trial_spin_squared_expectation_strict_upper', '2'),
+                         ('imported_Lieb_theorem_used_for_gap_or_uniqueness', True),
                          ('thermodynamic_gap_proved', True),
                          ('relativistic_mass_identified', True)):
         wrong=deepcopy(value);wrong['finite_gap'][key]=changed
@@ -38,6 +44,8 @@ def test_centered_reference_cannot_be_reported_as_the_old_one(receipt):
     ('selection','joint_singlet_isotypic_dimension',1),
     ('selection','internal_spin_is_physical_Lorentz_spin',True),
     ('selection','every_isotypic_copy_reachable_claimed',True),
+    ('selection','exact_ground_certificate_used',False),
+    ('selection','numerical_eigenvalue_or_residual_used_for_admission',True),
     ('complete_repair','native_raw_slots_retained',119),
     ('complete_repair','every_outside_map_identity_on_entire_domain',False),
     ('complete_repair','nontrivial_native_defect_record_obtained',True),

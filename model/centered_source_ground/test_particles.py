@@ -35,7 +35,8 @@ def test_complete_source_sector_current_and_record_counts(proved):
 
 def test_no_gap_preparation_mass_or_full_reachability_is_inferred(proved):
     assert proved['selection']['every_isotypic_copy_reachable_claimed'] is False
-    assert proved['selection']['ground_vector_or_numerical_spectrum_used'] is False
+    assert proved['selection']['numerical_eigenvalue_or_residual_used_for_admission'] is False
+    assert proved['selection']['exact_ground_certificate_used'] is True
     assert proved['complete_repair']['new_native_preparation_or_detector_executed'] is False
     assert proved['new_gap_or_particle_mass_claimed'] is False
     assert proved['physical_species_identified'] is False

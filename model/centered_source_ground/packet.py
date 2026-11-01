@@ -44,6 +44,11 @@ def validate(value):
     if (finite['full_Fock_dimension'] != 65536 or finite['balanced_N8_dimension'] != 4900
             or finite['full_centered_gap_strict_lower'] != '1/128'
             or finite['Gram_residual_strict_upper'] != '1/512'
+            or finite['normalized_trial_spin_squared_expectation_strict_upper'] != '1'
+            or finite['spin_raising_target_dimension'] != 3136
+            or finite['full_source_SU2_and_spin_frame_checked'] is not True
+            or finite['ground_hidden_spin'] != 0 or finite['full_ground_multiplicity'] != 1
+            or finite['imported_Lieb_theorem_used_for_gap_or_uniqueness'] is not False
             or finite['integer_proposals_recomputed_and_verified'] is not True):
         raise ValueError('complete finite centered gap certificate changed')
     for key in ('numerical_eigenvalue_or_residual_used_for_admission',
@@ -65,6 +70,8 @@ def validate(value):
             or selection['charged_joint_irrep_multiplicity'] != 1344
             or selection['charged_joint_isotypic_dimension'] != 5376
             or selection['full_K_cyclic_response_inclusion'] is not True
+            or selection['exact_ground_certificate_used'] is not True
+            or selection['numerical_eigenvalue_or_residual_used_for_admission'] is not False
             or selection['every_isotypic_copy_reachable_claimed'] is not False
             or selection['internal_spin_is_physical_Lorentz_spin'] is not False
             or repair['full_number_sectors'] != [7, 9]
@@ -131,7 +138,7 @@ def _produce():
            'finite_gap':gap.certificate(),'charged_particles':particles.certificate(),
            'dimer':dimer.certificate(),'bounds':bounds.certificate(),
            'source_bindings':pins,
-           'proof_scope':'New charge-clock and new ground. Exact full-source symmetry, imported all-N lower bound and Lieb theorem with checked finite hypotheses, rational rank-one Gram proof of a full finite gap, certified trial-state error, complete charged-sector and current identities, full-CAR one-site faithfulness, dimer readout and centered thermodynamic construction. Floating eigensolvers only propose integer witnesses; they do not determine admission. No physical particle, topological protection or thermodynamic mass is inferred.'}
+           'proof_scope':'New charge-clock and new ground. Exact full-source symmetry and imported all-N lower bound; rational rank-one Gram, variance and spin proof of a unique singlet and full finite gap, independent of the separately retained Lieb theorem crosscheck. Certified trial-state error, complete charged-sector and current identities, full-CAR one-site faithfulness, dimer readout and centered thermodynamic construction. Floating eigensolvers only propose integer witnesses; they do not determine admission. No physical particle, topological protection or thermodynamic mass is inferred.'}
     validate(value)
     if source_bindings()!=pins:raise ValueError('source changed during replay')
     return value

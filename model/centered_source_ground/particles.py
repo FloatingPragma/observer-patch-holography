@@ -1,6 +1,6 @@
 """Exact charge-conjugate one-fermion response of the centered cube.
 
-The imported full-ground theorem gives a unique N=8, S=0 ground g of
+The exact rank-one, variance and spin certificate gives a unique N=8, S=0 ground g of
 K=H-N/2.  Since K commutes with eta_+ and eta_-, uniqueness forces both
 ladders to annihilate g; otherwise they give a ground at N=10 or N=6.
 Thus g has (S,eta)=(0,0).  The checked CAR tensor identities imply
@@ -45,7 +45,7 @@ from ..cube_eta_protection import cube as source, repair
 from ..field_stress.energy import GaussianInteger as GI, commutator, sum_exact
 from ..field_symmetry import symmetry
 from ..interacting_vacuum import ground
-from . import cube
+from . import gap
 
 
 DIMENSION = 1 << 16
@@ -148,10 +148,11 @@ def selection_certificate():
                     (spin_plus.adjoint()-spin_plus).times_i(), spin_z_twice)
     for actual, hidden in zip(ops.spin_twice, hidden_spins, strict=True):
         _zero(ops.frame@actual@ops.frame.adjoint()-hidden, 'physical spin frame mismatch')
-    premises = cube.lieb_premises(); bounds = cube.sector_bounds()
-    if (premises['ground_multiplicity'] != 1 or premises['ground_hidden_spin'] != 0
-            or bounds['centered_global_ground_number'] != 8):
-        raise ArithmeticError('the imported actual-ground hypotheses changed')
+    reference = gap.certificate()
+    if (reference['full_ground_multiplicity'] != 1 or reference['ground_hidden_spin'] != 0
+            or reference['full_source_SU2_and_spin_frame_checked'] is not True
+            or reference['imported_Lieb_theorem_used_for_gap_or_uniqueness'] is not False):
+        raise ArithmeticError('the exact actual-ground certificate changed')
     rows = {(row['twice_spin'], row['twice_eta']): row['multiplicity']
             for row in symmetry.irrep_multiplicities(8)}
     return {'full_Fock_dimension': DIMENSION, 'exact_CAR_tensor_identities': checked,
@@ -162,8 +163,9 @@ def selection_certificate():
             'charge_branch_isotypic_dimension': 2*rows[1, 1],
             'full_K_cyclic_response_inclusion': True,
             'every_isotypic_copy_reachable_claimed': False,
-            'ground_vector_or_numerical_spectrum_used': False,
-            'ground_uniqueness_input': 'imported Lieb theorem with the existing exact cube hypotheses and full-charge ground bound',
+            'numerical_eigenvalue_or_residual_used_for_admission': False,
+            'exact_ground_certificate_used': True,
+            'ground_uniqueness_input': 'exact balanced rank-one, variance and spin certificate with the full-charge ground bound',
             'internal_spin_is_physical_Lorentz_spin': False}
 
 

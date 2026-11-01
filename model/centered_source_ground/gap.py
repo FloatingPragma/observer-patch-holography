@@ -6,12 +6,14 @@ No proposal array, eigensolver residual or observed gap is a retained premise.
 """
 from fractions import Fraction as F
 from functools import lru_cache
+from itertools import combinations
 
 import numpy as np
-from scipy import linalg
+from scipy import linalg, sparse
 from scipy.sparse.linalg import eigsh
 
 from ..interacting_vacuum import global_ground
+from ..field_stress.energy import GaussianInteger as GI
 from . import cube
 
 
@@ -26,6 +28,8 @@ INFIDELITY_CEILING = F(1, 10**6)
 GROUND_ENCLOSURE_LOWER = -F(206203, 50000)
 GROUND_ENCLOSURE_UPPER = -F(82481, 20000)
 INTMAX = int(np.iinfo(np.int64).max)
+DIMENSION = 1 << 16
+SPIN_EXPECTATION_CEILING = F(1)
 
 
 def _integer_array(value, shape, label):
@@ -48,6 +52,96 @@ def _source(numerator):
 
 def _maximum(array):
     return max(abs(int(array.min())), abs(int(array.max())))
+
+
+def _spin_indices(up):
+    # The source orders fixed-number addresses by occupied-mode combinations,
+    # which differs from increasing bitmask order.
+    return np.asarray([sum(1 << j for j in occupied) for occupied in combinations(range(16), 8)
+                       if sum(j % 2 == 0 for j in occupied) == up],
+                      dtype=np.int64)
+
+
+def spin_raising_matrix(indices):
+    """Exact S+ from the complete ordered N8, Sz0 basis to Sz1.
+
+    In the interleaved hidden CAR ordering, annihilating the occupied down
+    mode and creating the adjacent empty up mode gives the same parity
+    twice, hence coefficient +1. No spin projection of the trial is made.
+    """
+    columns = _integer_array(indices, (4900,), 'balanced source addresses')
+    if not np.array_equal(columns, _spin_indices(4)):
+        raise ValueError('complete canonical balanced source address order required')
+    targets = _spin_indices(5)
+    row_of = {int(mask): row for row, mask in enumerate(targets)}
+    rows, cols = [], []
+    for col, value in enumerate(columns):
+        mask = int(value)
+        for site in range(8):
+            if (mask >> (2*site)) & 3 == 2:
+                rows.append(row_of[mask ^ (3 << (2*site))])
+                cols.append(col)
+    matrix = sparse.csr_matrix((np.ones(len(rows), dtype=np.int64), (rows, cols)),
+                               shape=(3136, 4900))
+    return matrix, targets
+
+
+def trial_spin_expectation(trial, indices=None):
+    """Exact <S^2>=||S+ p||^2/||p||^2 on the full balanced basis."""
+    if indices is None:
+        indices = global_ground.balanced_indices(8)
+    raising, _ = spin_raising_matrix(indices)
+    p = _integer_array(trial, (4900,), 'balanced trial')
+    # At most eight unit entries can contribute to any output address.
+    # Norms are accumulated over Python integers, never fixed-width squares.
+    if 8*_maximum(p) > INTMAX:
+        raise OverflowError('integer spin-raising accumulation could overflow')
+    norm = sum(int(x)**2 for x in p)
+    if not norm:
+        raise ValueError('nonzero balanced trial required')
+    raised = raising@p
+    return F(sum(int(x)**2 for x in raised), norm)
+
+
+def _verify_spin_source(numerator, indices):
+    """Bind the CAR ladder to the exact full source, frame and SU(2)."""
+    restricted, targets = spin_raising_matrix(indices)
+    rows, cols = [], []
+    for mask in range(DIMENSION):
+        for site in range(8):
+            if (mask >> (2*site)) & 3 == 2:
+                rows.append(mask ^ (3 << (2*site)))
+                cols.append(mask)
+    plus = sparse.csr_matrix((np.ones(len(rows), dtype=np.int64), (rows, cols)),
+                            shape=(DIMENSION, DIMENSION))
+    twice_z = sparse.diags([2*(mask & 0x5555).bit_count()-mask.bit_count()
+                           for mask in range(DIMENSION)], dtype=np.int64, format='csr')
+    ops = global_ground.cube.operators()
+    if ops.scale != 16 or ops.hubbard_H.imag.nnz:
+        raise ArithmeticError('exact real hidden-frame numerator16H required')
+    h = _source(ops.hubbard_H.real)
+    if h.shape != (DIMENSION, DIMENSION):
+        raise ArithmeticError('complete full-CAR source shape changed')
+    maxh = max((abs(int(x)) for x in h.data), default=0)
+    if 2*DIMENSION*max(16, maxh)**2 > INTMAX:
+        raise OverflowError('full-source spin commutator could overflow')
+    if ((plus@plus.T-plus.T@plus-twice_z).nnz or
+            (twice_z@plus-plus@twice_z-2*plus).nnz or
+            (h@plus-plus@h).nnz or (h@twice_z-twice_z@h).nnz):
+        raise ArithmeticError('exact full-source hidden SU2 identity failed')
+    block = _source(numerator)
+    if ((plus[targets][:, indices]-restricted).nnz or block.shape != restricted.shape[1:]*2 or
+            (h[indices][:, indices] != block).nnz):
+        raise ArithmeticError('spin ladder and source block use different ordered addresses')
+    hidden = (GI.from_exact(plus+plus.T), GI.from_exact(plus.T-plus).times_i(),
+              GI.from_exact(twice_z))
+    identity = GI.from_exact(sparse.eye(DIMENSION, dtype=np.int64, format='csr'))
+    if (not (ops.frame@ops.frame.adjoint()-identity).is_zero() or
+            not (ops.frame@ops.H@ops.frame.adjoint()-ops.hubbard_H).is_zero()):
+        raise ArithmeticError('full source hidden frame changed')
+    for actual, expected in zip(ops.spin_twice, hidden, strict=True):
+        if not (ops.frame@actual@ops.frame.adjoint()-expected).is_zero():
+            raise ArithmeticError('CAR ladder differs from the actual source spin frame')
 
 
 def propose_witness(numerator):
@@ -152,24 +246,28 @@ def _certificate_items():
     """Cache immutable scalar claims after the complete source check."""
     original = global_ground.certificate()
     symmetry = cube.source_symmetry()
-    lieb = cube.lieb_premises()
     sectors = cube.sector_bounds()
     if (original['full_Fock_dimension'] != 65536 or
             original['global_ground_energy'] != '-sqrt(3)/4' or
             symmetry['exact_K_transform'] != 'PH(H-N/2)=H-N/2' or
-            lieb['ground_hidden_spin'] != 0 or lieb['ground_multiplicity'] != 1 or
             sectors['centered_global_ground_number'] != 8 or
             F(sectors['charged_sector_gap_strict_rational_floor']) != F(1, 8)):
         raise ArithmeticError('full-source sector or spin premises changed')
     h = global_ground.source_block(8)
     if h.shape != (4900, 4900):
         raise ArithmeticError('complete balanced N8 source block changed')
+    indices = global_ground.balanced_indices(8)
+    _verify_spin_source(h, indices)
     trial, factor = propose_witness(h)
     checked = verify_witness(h, trial, factor)
+    spin_expectation = trial_spin_expectation(trial, indices)
     if (checked['trial_ground_infidelity_upper'] >= INFIDELITY_CEILING or
             checked['Temple_ground_energy_lower'] <= GROUND_ENCLOSURE_LOWER or
             checked['trial_rayleigh'] >= GROUND_ENCLOSURE_UPPER):
         raise ArithmeticError('exact ground-vector approximation misses its fixed bounds')
+    if (spin_expectation >= SPIN_EXPECTATION_CEILING or
+            not SPIN_EXPECTATION_CEILING < 2*(1-INFIDELITY_CEILING)):
+        raise ArithmeticError('exact trial spin expectation does not exclude a nonsinglet ground')
     if not 0 < GAP_LOWER < F(1, 8):
         raise ArithmeticError('neutral and charged gap comparison failed')
     result = {
@@ -191,6 +289,16 @@ def _certificate_items():
         'normalized_trial_ground_infidelity_strict_upper': str(INFIDELITY_CEILING),
         'normalized_trial_ground_half_trace_distance_strict_upper': '1/1000',
         'bounded_observable_expectation_error_strict_factor': '1/500',
+        'normalized_trial_spin_squared_expectation_strict_upper': str(SPIN_EXPECTATION_CEILING),
+        'spin_raising_target_dimension': 3136,
+        'full_source_SU2_and_spin_frame_checked': True,
+        'ground_hidden_spin': 0,
+        'full_ground_multiplicity': 1,
+        'imported_Lieb_theorem_used_for_gap_or_uniqueness': False,
+        'singlet_ground_proof':
+            'The unique balanced ground is an S^2 eigenvector. At N8 its spin is integer. '
+            'If S>=1, trial overlap>1-1/1000000 implies <S^2>>2(1-1/1000000)>1, '
+            'contradicting the exact ||S+ p||^2/||p||^2<1 on the same unprojected trial.',
         'ground_approximation_proof':
             'For rho=<p,Kp>/<p,p>, sigma^2=||(K-rho)p||^2/<p,p> and B=-1053/256, '
             'excited weight<=sigma^2/(B-rho)^2 and E0>=rho-sigma^2/(B-rho). '
@@ -198,7 +306,7 @@ def _certificate_items():
         'native_ground_preparation_executed': False,
         'balanced_sector_completeness':
             'At N8 every hidden-spin irrep has integer spin and contains Sz=0. '
-            'The imported Lieb theorem fixes the unique ground spin to zero; '
+            'Rank-one minmax and the exact trial spin bound prove the unique ground is a singlet; '
             'all other full N8 energies therefore occur in the balanced block above its ground.',
         'rank_one_minmax':
             'A positive rank-one correction makes K+1053/256 I strictly positive; '
