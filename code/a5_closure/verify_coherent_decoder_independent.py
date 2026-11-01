@@ -11,7 +11,7 @@ from verify_galois_port_frame_independent import ZERO, scalar, sub, mul, div, to
 ROOT = Path(__file__).resolve().parents[2]
 BASELINE = 'eee3b6a2e0051e88d53053b5af1defbc0fb86988'
 # Reviewed exact-value-preserving source update; retain the work baseline.
-SOURCE_COMMIT = '3f650db7a625f0df66495bdaea4332861507f5d4'
+SOURCE_COMMIT = '31e1506c30114e37b45f6858d0029a8ff0b89db5'
 REFERENCE = ROOT/'code/a5_closure/receipts/coherent_decoder_probe.json'
 m = old.m
 PATHS = sorted(set(old.INPUTS + [
