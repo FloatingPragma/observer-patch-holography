@@ -385,7 +385,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -639,7 +639,12 @@
         "model/defect_field_modular/results.json",
         "model/defect_field_modular/results.npz",
         "model/defect_field_modular/source_controls.npz",
-        "model/defect_field_modular/test_modular.py"
+        "model/defect_field_modular/test_modular.py",
+        "model/particle_transport/README.md",
+        "model/particle_transport/algebra.py",
+        "model/particle_transport/source.py",
+        "model/particle_transport/detector.py",
+        "model/particle_transport/results.json"
       ],
       "legacy_issues": [
         1033,
@@ -859,7 +864,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -1073,6 +1078,13 @@
           "independent_check": "model/defect_field_modular/test_modular.py",
           "scope": "A new faithful Gibbs-input experiment uses the same complete four-mode field instrument, leaving the original localized-input witness unchanged. At declared beta=1 GeV^-1 the full sixteen-state reference is prepared by the existing native source with its sixteen-dimensional purifier. A source-compiled four-input Petz recovery retains the sixteen-state field, four-state environment and all export failures. Full-Fock regional references are faithful and nested reference-preserving observations compose. Exact cross-boundary hopping norm squared four forbids a Gibbs-preserving site retraction for beta>0; compatible non-idempotent observations remain valid. Complete quantum relative-entropy and classical-quantum record balances hold for all four two-event C/E and collision-policy histories. Their entropy values concern the unnormalized continuing component with explicit trace corrections; separate abort weights, Grams and reconstructible prefix outputs are retained but their entropy is not silently included. The Bregman remainder subtracts epsilon Tr(delta). Driven reference stationarity, geometric modular kernels, generalized-entropy stationarity and an Einstein-register inhabitant are not inferred. No new eligible physical comparison is added.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/particle_transport/results.json",
+          "sha256": "265267039b453e8c9f255592c029557eafcbe384042fc20f631b9cd032626866",
+          "independent_check": "model/particle_transport/test_packet.py",
+          "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
+          "campaign_id": "charged-particle-transport-20261031-v1"
         }
       ]
     },
@@ -1507,7 +1519,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -1577,7 +1589,7 @@
         },
         {
           "path": "model/charged_dynamics/results.json",
-          "sha256": "e132a5aa974d1b19772c948ff2f8281c16e906616236024dbb53c99cfde0f32f",
+          "sha256": "9741e272252a48cdae61ef8124e1bc1beb6c4958665958f71d84e03e839d5db3",
           "independent_check": "model/charged_dynamics/test_packet.py",
           "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
           "campaign_id": "charged-action-dynamics-20261031-v1"
@@ -1899,7 +1911,7 @@
         },
         {
           "path": "model/charged_dynamics/results.json",
-          "sha256": "e132a5aa974d1b19772c948ff2f8281c16e906616236024dbb53c99cfde0f32f",
+          "sha256": "9741e272252a48cdae61ef8124e1bc1beb6c4958665958f71d84e03e839d5db3",
           "independent_check": "model/charged_dynamics/test_packet.py",
           "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
           "campaign_id": "charged-action-dynamics-20261031-v1"
@@ -2004,7 +2016,12 @@
         "model/defect_field_energy/readout.py",
         "model/defect_field_energy/results.json",
         "model/defect_field_energy/results.npz",
-        "model/defect_field_energy/test_energy.py"
+        "model/defect_field_energy/test_energy.py",
+        "model/particle_transport/README.md",
+        "model/particle_transport/algebra.py",
+        "model/particle_transport/source.py",
+        "model/particle_transport/detector.py",
+        "model/particle_transport/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -2029,7 +2046,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+          "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -2120,7 +2137,7 @@
         },
         {
           "path": "model/charged_dynamics/results.json",
-          "sha256": "e132a5aa974d1b19772c948ff2f8281c16e906616236024dbb53c99cfde0f32f",
+          "sha256": "9741e272252a48cdae61ef8124e1bc1beb6c4958665958f71d84e03e839d5db3",
           "independent_check": "model/charged_dynamics/test_packet.py",
           "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
           "campaign_id": "charged-action-dynamics-20261031-v1"
@@ -2131,6 +2148,13 @@
           "independent_check": "model/exchange_sector/test_many_body_packet.py",
           "scope": "The fixed twelve-port binary carrier has a complete integral first-homology and scalar flat-character catalogue over every occupation number zero through twelve. The declared one-particle face fillings and disjoint-move squares give cyclic H1 of order 2(N-1) for N=2 through 10, free rank nineteen at N=11, and trivial H1 at N=0, 1 and 12. Exact integer presentations and every local exchange generator are checked. Requiring local exchange holonomy to survive insertion of fixed spectators leaves exactly two scalar families, with common sign plus or minus, up to vertex gauge. This compatibility is explicit and selects neither sign. Both choices extend the existing complete C/E endpoint law to all 4096 binary occupations with fair coins and every raw, zero and abort slot. The negative choice agrees with even CAR transport; the positive choice is the hard-core occupation control. Restricted spectator insertion intertwines the same native branches on its avoiding subcomplex. Particle-hole complement preserves the movement graph but not the declared face fillings. No nonabelian many-particle classification, continuum equivalence, localized protected core, Lorentz spin, physical species or mass is established. A bounded source observer compiles the same binary endpoint rule on four active native ports and checks all sixteen input columns. A fixed-total-two preparation, complete C/E repair and phase readout distinguish the two supplied coherent lifts; a retained which-path pointer removes that interference in the terminal classical law. Every raw record, terminal address and first failed proper-code export is retained in the fresh execution. The complete source-map amplitude budget, preparation/read pulses, blank work bits and detection addresses are counted. This executes a bounded four-mode observer, not all 4096 source input columns or a calibrated physical apparatus.",
           "campaign_id": "native-many-particle-statistics-20261031-v1"
+        },
+        {
+          "path": "model/particle_transport/results.json",
+          "sha256": "265267039b453e8c9f255592c029557eafcbe384042fc20f631b9cd032626866",
+          "independent_check": "model/particle_transport/test_packet.py",
+          "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
+          "campaign_id": "charged-particle-transport-20261031-v1"
         }
       ]
     },
@@ -3206,7 +3230,7 @@
       ],
       "contract": {
         "path": "model/biased_code_universality/campaign.json",
-        "sha256": "d6acab1583cb569de6c8d1e3f8a9db448d0d581cc5ba4ba132706f0252c88ecd",
+        "sha256": "1d12138553cd3056353fe9133740759bb0d9f50cdbb82ad668e0bef700ea38e6",
         "independent_check": "model/biased_code_universality/test_universality.py",
         "scope": "Positive-coin classification transfer proves the fixed biased optimal asymptotic reset rate across arbitrary adaptive exact all-seam sharp-q1 codes. Separate clock-factor composition is operational; finite-horizon biased optimality and particle mass remain unproved.",
         "campaign_id": "OPH-INTEGRATION-BIASED-CODE-UNIVERSALITY-2026-10-29-v1"
@@ -3286,6 +3310,22 @@
         "independent_check": "model/exchange_sector/test_many_body_packet.py",
         "scope": "The fixed twelve-port binary carrier has a complete integral first-homology and scalar flat-character catalogue over every occupation number zero through twelve. The declared one-particle face fillings and disjoint-move squares give cyclic H1 of order 2(N-1) for N=2 through 10, free rank nineteen at N=11, and trivial H1 at N=0, 1 and 12. Exact integer presentations and every local exchange generator are checked. Requiring local exchange holonomy to survive insertion of fixed spectators leaves exactly two scalar families, with common sign plus or minus, up to vertex gauge. This compatibility is explicit and selects neither sign. Both choices extend the existing complete C/E endpoint law to all 4096 binary occupations with fair coins and every raw, zero and abort slot. The negative choice agrees with even CAR transport; the positive choice is the hard-core occupation control. Restricted spectator insertion intertwines the same native branches on its avoiding subcomplex. Particle-hole complement preserves the movement graph but not the declared face fillings. No nonabelian many-particle classification, continuum equivalence, localized protected core, Lorentz spin, physical species or mass is established. A bounded source observer compiles the same binary endpoint rule on four active native ports and checks all sixteen input columns. A fixed-total-two preparation, complete C/E repair and phase readout distinguish the two supplied coherent lifts; a retained which-path pointer removes that interference in the terminal classical law. Every raw record, terminal address and first failed proper-code export is retained in the fresh execution. The complete source-map amplitude budget, preparation/read pulses, blank work bits and detection addresses are counted. This executes a bounded four-mode observer, not all 4096 source input columns or a calibrated physical apparatus.",
         "campaign_id": "native-many-particle-statistics-20261031-v1"
+      }
+    },
+    {
+      "id": "charged-particle-transport-20261031-v1",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-05",
+        "CP-13"
+      ],
+      "contract": {
+        "path": "model/particle_transport/contract.json",
+        "sha256": "65337a2188bfcf7f6268108a9c06cda8593880770831e658f1f6d71458142945",
+        "independent_check": "model/particle_transport/test_packet.py",
+        "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
+        "campaign_id": "charged-particle-transport-20261031-v1"
       }
     }
   ],
@@ -3947,7 +3987,7 @@
       },
       {
         "path": "model/particle_screening/mobile_results.json",
-        "sha256": "55306d00b699af399f5081507f83704e555228ec741d720b59d6bb4d3a90d879",
+        "sha256": "46a4534bdb4d95254d601b68574603e0821c83150329f3edb8a05c477c81d776",
         "independent_check": "model/particle_screening/test_mobile_packet.py",
         "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
         "campaign_id": "mobile-screened-memory-20261029-v1",
