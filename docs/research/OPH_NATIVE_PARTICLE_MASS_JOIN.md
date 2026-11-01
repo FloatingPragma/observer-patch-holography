@@ -406,6 +406,16 @@ relational source/controller invariants, or refinement protection. It
 separates the exchange-path invariant from passive local state protection;
 neither alone establishes physical particle identity.
 
+This classification concerns the bare twelve-port, one-bit-per-port all-seam
+law. The [charged internal factor](../../model/charged_defect/README.md),
+[common spin factor](../../model/common_spin_protection/README.md) and
+[protected cube sector](../../model/cube_eta_protection/README.md) use distinct
+field-block instruments, with internal states or a retained outside projector.
+Their positive protection results do not contradict the bare-law catalogue.
+Even the spin field's matching 4096-state dimension does not identify its
+factorization or instrument with that law; no general exclusion of passive
+field protection follows.
+
 None supplies the missing joint localization, coherent statistics, matched
 rest/kinetic action and detector response required to name a physical species.
 Internal Standard Model representation labels remain separate from these

@@ -1,0 +1,126 @@
+\paragraph{A protected interacting sector on the original three-dimensional cube.}
+The source-bound \texttt{cube\_eta\_protection} packet retains the original
+open $2\times2\times2$ Weyl/contact action, $c=1/8$, $U=1$, on all
+$2^{16}=65\,536$ occupation states. In the physical onsite basis define
+\[
+ \eta^+=\sum_x(-1)^{x_1+x_2+x_3}
+ c^\dagger_{x\uparrow}c^\dagger_{x\downarrow},\qquad
+ \eta^-=(\eta^+)^\dagger,\qquad \eta_z=(N-8)/2.
+\]
+Onsite singlets are invariant under each supplied $i\sigma_i$ link;
+the bipartite signs cancel the hopping commutator. Thus
+$[H,\eta^+]=U\eta^+$, checked exactly on the complete field action.
+For $X=\eta^+|_{N=4}:\mathcal H_4\to\mathcal H_6$,
+\[
+ X^\dagger X=(\eta^-|_{N=4})^\dagger(\eta^-|_{N=4})+4I,
+ \qquad H_6X=X(H_4+U I).
+\]
+Consequently $X$ is injective and its polar isometry intertwines the
+full interacting four-particle parent with a protected candidate of
+dimension $\binom{16}{4}=1820$. Its range is precisely the
+$\eta\geq2$ subspace at $N=6$.
+
+The executed repair domain is a finite four-block service: the four
+$x_1$-directed dimers, native ports $(0,1,5,7)$, and all five inherited
+seams $(0,1),(0,5),(0,7),(1,5),(1,7)$. Two blocks carry the unchanged
+lower-hole doublet and two the unchanged dimer ground. This gives a
+24-dimensional $N=6$ support $P$. Its physical columns are expanded
+exactly as $A+\sqrt{17}B$, with integer Gaussian matrices $A,B$;
+$\eta^-A=\eta^-B=0$, so the support has $\eta=1$.
+The columns are also bound to the consumed normalized analytic
+dictionary: its exact normalization is $n=136-32\sqrt{17}$, with
+$(A+\sqrt{17}B)^\dagger(A+\sqrt{17}B)=n^2I$. Every native C/E coin and raw slot is checked against its
+actual graded whole-block permutation. With the complete outside
+outcome $Q=I-P$, all 130 slots are retained: 120 native and ten outside
+over the ten seam/law choices. Orthogonality gives
+\[
+ PX=0,\qquad L_rX=0\quad(r\text{ native}),\qquad QX=X.
+\]
+Every admitted complete repair is therefore exactly the identity on
+this sector, including arbitrary reference cross terms; interleaved
+field evolution remains unitary and interacting. This mechanism
+requires no alignment of the transverse dimer spin frames. It does
+not assert a twelve-block execution, arbitrary repair invariance, or
+maximality of the protected subspace.
+
+\paragraph{Exact interacting spectral census and a local fixed-number probe.}
+Let $v=\eta^+|0\rangle$, $v^\dagger v=8$, and
+$\Pi_3=I-vv^\dagger/8$ on the 120-dimensional $N=2$ space.
+For $T=(\eta^+)^2|_{N=2}$,
+\[
+ T^\dagger T=60I+24vv^\dagger,\qquad
+ H_6T=T(H_2+2U I).
+\]
+Hence $T/\sqrt{60}$ is isometric on the rank-119 $\eta=3$ parent.
+The hidden-spin census is 35 singlets and 84 triplet states; this is
+neither Lorentz-spin identification nor a family count. Exact integer
+characteristic polynomials in the actual onsite Hubbard frame give,
+with $z=16(E_{N=6}-2)$,
+\begin{align*}
+ p_{119}(z)&=z^{57}(z^2-12)^{21}q(z)c_{64}(z)^3c_{128}(z)^3,\\
+ q(z)&=z^2-16z-12,\qquad
+ c_a(z)=z^3-16z^2-12z+a.
+\end{align*}
+These are eleven distinct energies: multiplicity 57 at zero, 21 at
+each $\pm\sqrt{12}$, one at each quadratic root and three at each
+of the six cubic roots. The last twenty states have contact-shifted
+energies. Squarefreeness, coprimality and rational root isolation are
+exact; approximate displayed response weights are separate diagnostics.
+
+The $N=6$ reference and one-site density probe are
+\[
+ |R\rangle=\frac{(\eta^+)^3|0\rangle}{\sqrt{2016}},\qquad
+ H|R\rangle=3|R\rangle,\qquad
+ |s\rangle=\frac{4n_0-3}{\sqrt{15}}|R\rangle .
+\]
+Here $\langle n_0\rangle_R=3/4$, $\operatorname{Var}_R(n_0)=15/16$;
+$|s\rangle$ is an $\eta=3$ singlet with mean energy 3 and variance
+$3/112$. Its normalized two-particle parent is
+$(8|\uparrow\downarrow\rangle_0-v)/\sqrt{56}$.
+The exact parent Krylov Gram determinant is
+$1488395072912184839188800532906554156908544>0$.
+Together with the annihilator $q c_{64}c_{128}$ this proves positive
+response weight at all eight interacting energies and zero weight at
+the three free-energy values.
+
+The local number-preserving phase $F_0=e^{i\pi n_0/2}$ satisfies
+\[
+ F_0|R\rangle=\frac{|R\rangle-\sqrt{15}|s\rangle}{4},\qquad
+ \operatorname{Tr}_0(F_0|R\rangle\langle R|F_0^\dagger)
+ =\operatorname{Tr}_0|R\rangle\langle R| .
+\]
+Thus the entire exterior reduced state is unchanged initially, while
+the global pure-state trace distance is $\sqrt{15}/4$ and the disturbed
+state has energy variance $45/1792$. This is a finite local unitary
+disturbance of an entangled reference, not yet a boundary charge or
+an asymptotic localized particle. Both components remain protected.
+A fixed-$N=6$ pointer Ramsey construction using controlled $F_0$,
+common field evolution and controlled $F_0^\dagger$ has
+\[
+ C(t)=\langle R|F_0^\dagger e^{-it(H-3)}F_0|R\rangle
+ =\frac1{16}+\frac{15}{16}\sum_{j=1}^{8}
+ w_j e^{-it(z_j/16-1)},\qquad w_j>0,\quad\sum_jw_j=1.
+\]
+No vacuum/charged-sector phase reference is needed in this protocol.
+The specified $H$ and reference energy fix the frequency origin;
+these finite spectral gaps are not physical masses.
+
+\paragraph{Native preparation and the remaining detector premise.}
+The actual source prepares the 56 signed three-doublon amplitudes
+using an eight-bit, 5379-pulse amplitude tree on the even modes, with
+the odd modes blank. Eight native CNOT words copy into the odd modes
+in 24 pulses, followed by the three-pulse one-site phase including
+its scalar phase. The compact tree evaluation is an exact spectator
+blank isometry; all 65\,536 rows are retained for copying and the
+phase. The independent exact trigonometric and literal-port
+certificate bounds the complete source-state error by
+$8.48\times10^{-13}$, including every source export. All 130 following
+repair records are retained without success normalization.
+The native seventeen-bit time-dependent detector and native field
+continuation are not executed here: the fixed-number response above
+is analytic, while the reference preparation and local kick are
+executed. Hardware precision, growing-volume localization, deformed
+excitation transport, a continuum limit and empirical species
+identification remain open. The earlier small-carrier leakage and
+transverse hidden-spin obstruction remain valid; the larger eta
+sector supplies a different common protection mechanism.

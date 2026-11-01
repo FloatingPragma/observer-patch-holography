@@ -1,0 +1,40 @@
+\paragraph{Source preparation of the complete plaquette reference.}
+The full $256$-state Weyl/contact plaquette at $c=1/8$, $U=1$ and
+$\beta=1/32$ admits a finite source-prepared ensemble without an imported
+thermal oracle. Set $H_c=H-I$ and
+$Q_8=\sum_{k=0}^{8}(-H_c/64)^k/k!$. The exact onsite frame makes the
+action real. The existing native amplitude compiler prepares the column
+weights $p_j=\|Q_8e_j\|^2/\operatorname{Tr}Q_8^2$; complete source
+readout retains every $j=0,\ldots,255$, and the conditional source word
+prepares $Q_8e_j/\|Q_8e_j\|$ before undoing the onsite frame. Every
+proper-code export failure and all classical records remain outputs.
+The ideal field marginal is $\rho_Q=Q_8^2/\operatorname{Tr}Q_8^2$; the
+retained classical extension is not a thermofield purification, and
+individual record-conditioned states are not asserted to be Gibbs.
+
+The unchanged action satisfies $\|H_c\|\leq3$. Put $q=3/64$ and
+$r=q^9/[9!(1-q)]$. The exponential remainder and normalized-vector
+inequality give
+\[
+ \|Q_8-e^{-H_c/64}\|\leq r,\qquad
+ \|\rho_Q-\rho_\beta\|_1\leq\frac{4r}{1-q}.
+\]
+Complete signed CAR restriction preserves this trace bound. A rational
+common regional lower eigenvalue bound $m>1/20$ then yields a modular
+operator error below $3\times10^{-16}$. This adds to the previously
+certified eighth-order regional logarithm remainder. The absolute
+comparison retains the normalization scalar
+$\log\operatorname{Tr}_A(Ee^{-\beta H_c})I$; it disappears only on
+trace-zero entropy tangents. All conditional words and a continuation of
+the original action at modular parameter $s=1/2$ are source-executed,
+with complete outputs retained. Floating execution residuals are reported
+separately from the exact ideal-word and Taylor theorems.
+Writing $\delta=4r/(1-q)$, and conditional on a declared complete-output
+tolerance $\epsilon=2\times10^{-11}$,
+the portable regional bound adds
+$(\delta+(2+\epsilon)\epsilon)/(m-(2+\epsilon)\epsilon)$ to the
+exact logarithm remainder, giving a total below $2.71\times10^{-9}$;
+the tolerance is not a theorem of hardware precision. Initialization,
+conditional scheduling, readout, memory, temperature and analog precision
+remain explicit simulator services. No continuum limit, physical clock,
+geometric cap identification or Einstein normalization follows.

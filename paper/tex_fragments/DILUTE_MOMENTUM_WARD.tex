@@ -1,0 +1,71 @@
+\paragraph{A collision-suppressed local Ward bound.}
+The same periodic Weyl/contact action supplies a controlled local
+approximation beyond its nonlocal conserved momentum.  Let $B$ be a
+spin-complete set of spatial Fourier modes, $f=|B|/V$, and let $\Omega$
+restrict the initial state to that band and $N\leq N_{\max}$.
+Write $D=\sum_xn_{x\uparrow}n_{x\downarrow}$ and
+$d=\lfloor N_{\max}/2\rfloor$.  Band annihilators have norm $\sqrt f$,
+so $\Omega D\Omega\leq f\min(N_\uparrow,N_\downarrow)\leq fd$.
+Since $D^2\leq dD$ on this number sector,
+\[
+ \|UD\Omega\|\leq Ud\sqrt f,\qquad
+ \|(I-\Omega)e^{-itH}\Omega\|
+      \leq\min\{1,|t|Ud\sqrt f\}.
+\]
+The second bound uses free invariance of $\Omega$ and Duhamel's formula;
+the full interacting action is never projected.  For two particles,
+the exact contact principal angles are
+$\lambda_K=|B\cap(K-B)|/V$, giving escape norm squared
+$\max_K\lambda_K(1-\lambda_K)$ before multiplication by $U^2$.
+Thus projecting the outgoing contact back into $B$ would miss its
+leading square-root leakage.
+
+Let $s_j(x)$ be the local sine-momentum density.  Write $\Pi_{xy,j}$
+for the antisymmetric kinetic stress across a nearest-neighbor face.
+The exact identity is
+$i[H,s_j(x)]+\sum_y\Pi_{xy,j}=F_j(x)$, with
+$F_j(x)=i[UD,s_j(x)]$.  Normal ordering its quartic contact terms gives
+$\|F_j(x)\|\leq U$ and $\|F_j(x)\Omega\|\leq4Uf$.
+For preparation at zero and $0\leq t_0\leq t_1$, the actual integrated
+Ward residual therefore obeys
+\[
+ \begin{aligned}
+ &\left\|\left[s_j(x,t_1)-s_j(x,t_0)+
+       \sum_y\int_{t_0}^{t_1}\Pi_{xy,j}(t)\,dt\right]\Omega\right\|
+ \\
+ &\quad\leq\min\!\left\{U(t_1-t_0),\,
+ 4Uf(t_1-t_0)+\frac{U^2d\sqrt f}{2}(t_1^2-t_0^2)\right\}.
+ \end{aligned}
+\]
+The preparation clock is not restarted in later cells.  Spatial blocks
+cancel their internal faces and sum the site bounds; time cells telescope.
+The complete 54-mode $3^3$ source certificate checks all 81 local
+equations, 81 kinetic faces per column and 27 rectangular coarse
+partitions per column.  Finite-sum transport of the errors is also
+Lean-checked.  This is symbolic full-Fock coverage, not execution of all
+its amplitudes.
+
+The two-particle total sine momentum has multiplier
+$2\sin(K_j/2)\cos(k_j-K_j/2)$.  The uniform contact vector gives the
+sharp complete-fiber force norm
+$\|i[UD,S_j]\|=\sqrt2U|\sin(K_j/2)|$.
+If initially $|k_j|\leq\kappa$ and $2\kappa<\pi$, total momentum stays
+within $|K_j|\leq2\kappa$ even after relative-momentum scattering.
+Combining this conserved domain with the sine remainder gives
+\[
+ \|(P_j-S_j)e^{-itH}\Omega\|
+ \leq\frac{\kappa^3}{3}
+       +4\kappa\min\{1,|t|U\sqrt f\}.
+\]
+For a $64^3$ counting example with $B=\{-1,0,1\}^3$, $N_{\max}=2$,
+$U=1$ and $t=1/8$, the certified leakage is below $0.00127$, the local
+Ward defect below $0.000132$, and the momentum error after division by
+$\kappa$ below $0.0083$.  The separate eight-site exact-Hamiltonian
+diagnostic retains a nonzero unforced local defect, so the contact force
+has not been discarded.  These are fixed-number dilute bounds.  The
+critical band-edge scaling $f\sim a^3$, $U\sim a^{-2}$ instead makes
+$U\sqrt f\sim a^{-1/2}$, for which this estimate supplies no vanishing
+leakage.  A finite-density or critically scaled local stress limit,
+Lorentz symmetry, physical units and the remaining Einstein premises
+remain separate.  Proofs, finite domains and replay are in
+\path{model/dilute_momentum_ward/README.md}.

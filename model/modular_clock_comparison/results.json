@@ -1,0 +1,222 @@
+{
+  "canonical_physical_premises_discharged": 0,
+  "cocycle_identity_numerical_residual": 2.9893669801409088e-16,
+  "finite_premises_closed": [
+    "actual full and reduced faithful reference",
+    "complete source implementation of relative modular corrections",
+    "arbitrary-input/reference complete-channel comparison",
+    "transitive comparison and time-cocycle identities",
+    "exact common-parameter modular nonresonance classification"
+  ],
+  "frequency_certificate": {
+    "every_covariant_linear_map_has_centralizer_range": true,
+    "frequency_pair_checks": 243,
+    "global_energy_intervals": [
+      [
+        "-1/16",
+        "-1/16"
+      ],
+      [
+        "1/16",
+        "1/16"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "15/16",
+        "15/16"
+      ],
+      [
+        "17/16",
+        "17/16"
+      ],
+      [
+        "1",
+        "1"
+      ],
+      [
+        "2",
+        "2"
+      ],
+      [
+        "-15388203202207568727676231997/1000000000000000000000000000000",
+        "-3847050800551892181919057999/250000000000000000000000000000"
+      ],
+      [
+        "253847050800551892181919057999/250000000000000000000000000000",
+        "1015388203202207568727676231997/1000000000000000000000000000000"
+      ]
+    ],
+    "minimum_frequency_separation_lower": "31472641877584586658903223/250000000000000000000000000000",
+    "nontrivial_regional_clock_transmission_by_an_intertwiner": false,
+    "other_references_parameters_or_clock_rescalings_excluded": false,
+    "positive_regional_frequency_intervals": [
+      [
+        "125890567510338346635612893/1000000000000000000000000000000",
+        "125890567510338346635613169/1000000000000000000000000000000"
+      ],
+      [
+        "199764366908574260198904017449/200000000000000000000000000000",
+        "499410917271435650497260043753/500000000000000000000000000000"
+      ],
+      [
+        "499473862555190819670577850097/500000000000000000000000000000",
+        "998947725110381639341155700469/1000000000000000000000000000000"
+      ]
+    ],
+    "regional_centralizer_complex_dimension": 6,
+    "regional_probability_intervals": [
+      [
+        "296910792556065081506626357861/1000000000000000000000000000000",
+        "2969107925560650815066263579/10000000000000000000000000000"
+      ],
+      [
+        "59374683328115444520860769757/200000000000000000000000000000",
+        "296873416640577222604303848821/1000000000000000000000000000000"
+      ],
+      [
+        "59374683328115444520860769757/200000000000000000000000000000",
+        "296873416640577222604303848821/1000000000000000000000000000000"
+      ],
+      [
+        "54671187081390236642382972253/500000000000000000000000000000",
+        "2733559354069511832119148613/25000000000000000000000000000"
+      ]
+    ],
+    "scope": "EXACT_DEFAULT_DIMER_BETA1_MU0_COMMON_PARAMETER",
+    "simple_strict_separation_lower": "1/10000",
+    "spectral_attachment": {
+      "actual_source_denominator": 16,
+      "characteristic_polynomial": "x**4*(x - 2)*(x - 1)*(16*x - 17)**2*(16*x - 15)**2*(16*x - 1)**2*(16*x + 1)**2*(64*x**2 - 64*x - 1)/274877906944",
+      "complete_Fock_dimension": 16,
+      "distinct_global_energy_levels": 9,
+      "eigenvectors_or_floating_degeneracy_groups_used": false,
+      "exact_partial_trace_moment_degrees": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "exact_source_Hermiticity_verified": true,
+      "regional_site_moment_checks": 18,
+      "regional_spectral_weights_proved_by_Vandermonde": true
+    }
+  },
+  "law": "same full-Fock Weyl/contact dimer, speed=1/8, U=1, beta=1, mu=0",
+  "passive_regional_covariance_or_Einstein_premises_established": false,
+  "physical_time_or_energy_calibration_established": false,
+  "regional_composition_numerical_residual": 1.2436911502366464e-16,
+  "schema": "oph.modular_clock_comparison.v1",
+  "scope": "FINITE_SOURCE_CLOCK_COCYCLE_AND_EXACT_REGIONAL_NONRESONANCE",
+  "source_clock_comparisons": [
+    {
+      "all_number_sectors_retained": true,
+      "common_reference_half_trace_disturbance": 0.004440111893175498,
+      "complete_dilation_operator_error": 2.028188722790388e-05,
+      "complete_input_Gram_residual": 2.810195067950352e-13,
+      "failure_Gram_operator_norm": 1.0527807360117351e-29,
+      "first_export_failure_slots_retained": 2826,
+      "ideal_split_operator_bound": "11/32768",
+      "input_basis_columns": 16,
+      "modular_parameter": "1/2",
+      "origin": "global",
+      "postselection_or_reference_reset_applied": false,
+      "resources": {
+        "identity_phase_pulses": 225,
+        "initialization_storage_readout_physical_costs_included": false,
+        "integrated_processor_norm_upper": 3834.305011242103,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 2826,
+        "pair_code_pulses": 450,
+        "proper_code_export_events": 2826,
+        "proper_code_load_events": 2826,
+        "proper_code_service_events": 5652,
+        "service_failure_outcomes_retained": true,
+        "single_code_pulses": 2376,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "zero_angle_requests": 0
+      },
+      "target": "site0"
+    },
+    {
+      "all_number_sectors_retained": true,
+      "common_reference_half_trace_disturbance": 0.004440111893175499,
+      "complete_dilation_operator_error": 2.028188722792555e-05,
+      "complete_input_Gram_residual": 2.814295224287669e-13,
+      "failure_Gram_operator_norm": 1.0506045966886928e-29,
+      "first_export_failure_slots_retained": 2826,
+      "ideal_split_operator_bound": "11/32768",
+      "input_basis_columns": 16,
+      "modular_parameter": "1/2",
+      "origin": "global",
+      "postselection_or_reference_reset_applied": false,
+      "resources": {
+        "identity_phase_pulses": 225,
+        "initialization_storage_readout_physical_costs_included": false,
+        "integrated_processor_norm_upper": 3834.305011242103,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 2826,
+        "pair_code_pulses": 450,
+        "proper_code_export_events": 2826,
+        "proper_code_load_events": 2826,
+        "proper_code_service_events": 5652,
+        "service_failure_outcomes_retained": true,
+        "single_code_pulses": 2376,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "zero_angle_requests": 0
+      },
+      "target": "site1"
+    },
+    {
+      "all_number_sectors_retained": true,
+      "common_reference_half_trace_disturbance": 0.00733040081720444,
+      "complete_dilation_operator_error": 1.5473121138750866e-15,
+      "complete_input_Gram_residual": 2.8921460202010694e-15,
+      "failure_Gram_operator_norm": 2.0174638594323973e-31,
+      "first_export_failure_slots_retained": 20,
+      "ideal_split_operator_bound": "0",
+      "input_basis_columns": 16,
+      "modular_parameter": "1/2",
+      "origin": "site0",
+      "postselection_or_reference_reset_applied": false,
+      "resources": {
+        "identity_phase_pulses": 2,
+        "initialization_storage_readout_physical_costs_included": false,
+        "integrated_processor_norm_upper": 26.131688953828725,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_work_qubits": 4,
+        "native_pulses": 20,
+        "pair_code_pulses": 4,
+        "proper_code_export_events": 20,
+        "proper_code_load_events": 20,
+        "proper_code_service_events": 40,
+        "service_failure_outcomes_retained": true,
+        "single_code_pulses": 16,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "zero_angle_requests": 0
+      },
+      "target": "site1"
+    }
+  ],
+  "source_sha256": {
+    "Lean/QFT/ModularClockComparison.lean": "e9ea518b35bdd8ac09f87b90bfa27bdc8ef5b6d6a4f0583bea7f4541dd21644c",
+    "model/field_thermal/thermal.py": "79279646ac75e1ed7254003435c650f37ab259f8ca5133fe683a2f8b8a9ffcd9",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/modular_clock_comparison/__main__.py": "d58d496e4a99fc2ab9b422186c6cec3aa7319c11622245eaa08ab0870d53a873",
+    "model/modular_clock_comparison/comparison.py": "8b4952efb3cc09fda350df742ac9cee75e907ea75bbe19feccfb94aea415bd95",
+    "model/modular_clock_comparison/contract.json": "42e0a3b34e33879821356e2fd9da4da7715e3c1489fa9c1e1b074c88ef6fbd27",
+    "model/modular_clock_comparison/intervals.py": "f94f7e2eadcb3675ede8e956242fb436c893f18b891ed8d99da2549a5f70436c",
+    "model/modular_flow/flow.py": "71a8f16174f288b4f42437ce0f330c72c0c01da47d3c529b8a43010fe88f3840",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b"
+  }
+}

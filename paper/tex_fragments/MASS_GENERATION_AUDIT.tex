@@ -1,0 +1,65 @@
+\paragraph{An interaction-generated charge scale in the original one-dimensional law.}
+There is a positive many-body charge threshold without inserting a Dirac
+mass.  On the unchanged periodic Weyl/contact geometry $(L,1,1)$,
+$L=4m$, the onsite frame $G_x=(-1)^x(i\sigma_x)^x$ satisfies
+$G_x(i\sigma_x)G_{x+1}^\dagger=-I$ and has period four.  Its CAR lift
+fixes local doublons, so the original action is exactly the repulsive
+Hubbard chain with $t=c/2=1/16$ and $U=1$.  Four exact local frame
+identities, source-matrix checks through $L=16$, and an independent
+256-state full-Fock witness bind this join.  Unlike the earlier
+logarithmic-reference alternative Hamiltonian, no coupling is reassigned.
+
+For the \emph{half-filled canonical ground sector}, the imported
+\href{https://arxiv.org/html/cond-mat/0207529}{Lieb--Wu charge-gap theorem}
+gives
+\[
+ \Delta_c=\lim_{L\to\infty}
+ [E_L(L+1)+E_L(L-1)-2E_L(L)]
+ =U-4t+8t\sum_{k\ge1}{1/2\choose k}
+       (2t/U)^{2k-1}\eta(2k-1).
+\]
+Here the series is used only for $2t/U<1$.  Twelve binomial terms and
+96-term rational Euler bounds for each Dirichlet eta value enclose
+$\Delta_c=0.7715517157380375\ldots$ with width below $1.67\,10^{-25}$.
+The binomial tail is bounded by
+$8t|{1/2\choose K+1}|(2t/U)^{2K+1}/[1-(2t/U)^2]$;
+the nonnegative Euler coefficients give tail $2^{-96}$.
+Floating quadrature is an independent check only.
+
+Particle--hole symmetry fixes the charge costs for the original $H$:
+\[
+ E_+=\frac{U+\Delta_c}{2}=0.885775857869\ldots,\qquad
+ E_-=\frac{\Delta_c-U}{2}=-0.114224142131\ldots .
+\]
+Thus half filling is a specified canonical reference, not the original
+$\mu=0$ grand-canonical vacuum.  The symmetric threshold
+$\Delta_c/2=0.3857758578690188\ldots$ uses the explicitly centered
+$K=H-(U/2)N$; $\Delta_c$ itself is invariant under any common $-\mu N$.
+The spin sector remains gapless, contact still vanishes in the
+one-particle sector, and no preparation or complete-repair preservation
+of this many-body reference is established by the gap theorem.
+
+\paragraph{The fixed-interaction continuum boundary.}
+The equivalent positive integral
+\href{https://arxiv.org/html/cond-mat/9911281}{for the charge gap} and
+the elementary $K_1$ integral bounds imply, for every $t,U>0$,
+\[
+ \Delta_0\le\Delta_c\le
+ \Delta_0\frac{1+3/(8A)}{1-e^{-2A}},\qquad
+ A=\frac{2\pi t}{U},\qquad
+ \Delta_0=\frac8\pi\sqrt{Ut}\,e^{-A}.
+\]
+Consequently fixed $U$ with $t=v/(2a)$ has
+$\Delta_c\to0$ as $a\to0$: this lattice gap does not itself supply a
+nonzero continuum mass.  A sufficient additional running family is
+\[
+ a(A)=\frac{4v e^{-A}}{M\sqrt{2\pi A}},\qquad
+ t(A)=\frac{v}{2a(A)},\qquad U(A)=\frac{\pi v}{a(A)A},
+\]
+for a \emph{chosen} $M,v>0$.  It gives $\Delta_0/2=M$ exactly and
+$1\le\Delta_c/(2M)\le[1+3/(8A)]/[1-e^{-2A}]\to1$.
+This is a quantitative charge-threshold limit, not a derivation of $M$
+from the fixed source, a complete relativistic scaling theory, or a
+$3+1$-dimensional massive species.  The receipt
+\texttt{model/mass\_generation\_audit/results.json} keeps these reference,
+coupling-family, and dimensional premises explicit.

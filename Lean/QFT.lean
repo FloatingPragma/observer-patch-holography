@@ -60,6 +60,13 @@ import QFT.SourceHistoryExpectationNet
 import QFT.SourceClockCandidate
 import QFT.EnlargedTargetRecordEmbedding
 import QFT.SourceRecurrenceClock
+import QFT.ModularClockComparison
+import QFT.CoarseEnergyWard
+import QFT.LatticeMomentumBalance
+import QFT.PeriodicMomentum
+import QFT.ContinuingReference
+import QFT.AdaptiveReference
+import QFT.DiluteMomentumWard
 
 /-!
 # OPH construction QFT umbrella

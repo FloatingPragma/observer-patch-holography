@@ -200,9 +200,9 @@ def test_next_wave_uses_five_existing_owners_without_acceptance_promotion(fixtur
     data, hypothesis = program.load_program(fixture_root)
     wave = data["next_wave"]
     assert {(row["gate"], row["issue"]) for row in wave["owners"]} == {
-        ("CP-02", 1138), ("CP-05", 1141), ("CP-06", 1142), ("CP-07", 1143), ("CP-11", 1147)}
+        ("CP-02", 1138), ("CP-03", 1139), ("CP-06", 1142), ("CP-07", 1143), ("CP-09", 1145)}
     assert {row["gate"] for row in wave["embedded_reviews"]} == {
-        "CP-00", "CP-01", "CP-03", "CP-04", "CP-08", "CP-09", "CP-12", "CP-13"}
+        "CP-00", "CP-01", "CP-04", "CP-05", "CP-08", "CP-11", "CP-12", "CP-13"}
     assert not wave["changes_frozen_campaign"]
     assert not wave["successor_class_frozen"]
     assert wave["physical_comparison_count_added"] == 0

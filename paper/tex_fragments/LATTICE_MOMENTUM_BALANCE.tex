@@ -1,0 +1,57 @@
+\paragraph{Three momentum balances retain the contact force.}
+The same open-box Weyl/contact action now supplies three nonzero kinetic
+momentum columns, with explicit face stresses and interaction forces.
+Let $D_j$ be the Hermitian central difference, with forward coefficient
+$-i/2$, and $Q_x$ the one-particle site projector.  The actual free symbol is
+$h_0=-c\sum_j\sigma_jD_j$; Cartesian factorization gives
+$[h_0,D_j]=0$ even on the finite open box.  Define
+$p_j(x)=d\Gamma(\{Q_x,D_j\}/2)$ and
+$A_{xy}=Q_xh_0Q_y-Q_yh_0Q_x$.  The Hermitian antisymmetric face stress
+$\Pi_{xy,j}=(i/2)d\Gamma(\{A_{xy},D_j\})$ obeys
+\[
+ i[H,p_j(x)]+\sum_y\Pi_{xy,j}=f_j(x),\qquad
+ f_j(x)=i[U\sum_z n_{z0}n_{z1},p_j(x)].
+\]
+The anticommutators here are one-particle operations before the CAR lift.
+On a forward axis-$j$ bond, its full contact force is
+\[
+ F_{xy}=\frac U2\sum_s(n_{x\bar s}-n_{y\bar s})
+       (c_{xs}^{\dagger}c_{ys}+c_{ys}^{\dagger}c_{xs});
+\]
+each endpoint receives half with the same sign.  Thus this term is not
+silently treated as an internal conservative flux.  Exact Clifford
+arithmetic on the complete 54-mode, $3\times3\times3$ source checks all
+81 local balances, 54 kinetic faces per column and 27 rectangular block
+partitions per column.  Integrated time cells preserve the force integral;
+spatial blocks sum the forces and cancel their internal kinetic faces.
+The forced block identity and the impossibility of absorbing a nonzero
+total force into closed internal flux are also Lean-checked.
+
+The total-force normalized Hilbert--Schmidt Gram is exactly
+$\delta_{ij}U^2E_i/8$, where $E_i$ counts axis-$i$ edges.  At $c=1/8,U=1$
+on this box it is $(9/4)I_3$, excluding conservation of every nonzero
+linear combination of these kinetic momenta.  There is also a complete
+quadratic classification at fixed $c,U>0$.  If
+$[H,d\Gamma(q)]=0$, its one-particle restriction forces $[h_0,q]=0$,
+so the contact commutator must vanish separately.  A two-particle matrix
+element from one fermion at each of two sites to a doublon isolates each
+intersite coefficient of $q$, forcing all of them to zero.  Connected
+Pauli bonds then transport one Hermitian $2\times2$ root matrix.
+The conserved homogeneous number-preserving quadratic space is precisely
+total number plus the three existing hidden-spin generators, with a scalar
+identity allowed separately.  The certificate isolates all 2,808 offsite
+coefficients and checks the transported generators; this excludes a
+quadratic correction retaining intersite momentum, not higher-body or
+anomalous constructions.
+
+The previous local source bounds apply with momentum norm at most one,
+kinetic face norm at most $2c$, and force norm at most $U$.  Their supports
+have radius/site bounds $(1,3)$, $(2,6)$ and $(1,3)$.  A norm-$B$
+observable on at most $s$ sites has midpoint integral error at most
+$t^2Bs(U+6c)/(2m)$ for $m$ samples, in addition to the stated spatial-buffer
+and source-unitary errors.  A cell budget adds two momentum endpoints,
+six kinetic faces and the force integral.  Preparation, readout accuracy,
+hardware and failure-space energy remain separate.  These are exact
+forced lattice balances for declared central-difference observables, not
+physical momentum, a symmetric Lorentz stress tensor, vanishing interacting
+Ward columns or an Einstein-register inhabitant.

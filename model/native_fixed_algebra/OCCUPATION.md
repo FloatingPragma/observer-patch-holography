@@ -35,6 +35,17 @@ It also does not exclude controlled lifetimes, active correction, charges
 in a joint source/controller/history algebra, a different carrier or a
 refining limit.
 
+The classified law has one binary occupation per native port and its complete
+all-seam endpoint instruments. The [charged-doublet construction](../charged_defect/README.md)
+retains internal states and graded whole-block transport;
+[common spin protection](../common_spin_protection/README.md) and
+[cube eta protection](../cube_eta_protection/README.md) use field-block
+instruments with a spectral support and a retained outside projector.
+Their protected internal factors and repair-transparent sectors are compatible
+with this theorem. The six-site spin field also has 4096 states, but equal
+dimension does not identify its port factorization or repair instrument with
+the bare binary law. This catalogue does not classify those field-block laws.
+
 ## Actual branches and a finite constructive proof
 
 [`occupation.py`](occupation.py) uses the actual signed partial injections

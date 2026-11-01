@@ -132,7 +132,7 @@ def report():
                 'prior_plus_two_requests_load_export_calls_upper': prior['complete_supplied_realization_load_export_calls_upper']+2*total_pulses},
             'training_or_preparation_reexecuted': False,
             'CP02_accepted': False, 'physical_time_energy_or_field_gravity_join': False,
-            'source_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}}
+            'source_sha256': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}}
 
 
 def main():
@@ -153,7 +153,7 @@ def main():
         if retained != result:
             raise ArithmeticError('regional receipt differs from independent replay')
     if args.write:
-        OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+        OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n', encoding='utf-8', newline='\n')
     print(json.dumps({'status': result['status'], 'regions': [x['ports'] for x in result['regions']],
                       'pulses': [x['resources']['native_pulses'] for x in result['regions']]}, sort_keys=True))
 

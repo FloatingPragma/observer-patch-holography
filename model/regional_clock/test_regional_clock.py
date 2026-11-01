@@ -1,10 +1,14 @@
 from fractions import Fraction as F
+import hashlib
+import json
 import math
+import sys
 
 import numpy as np
 import pytest
 
 from . import actuator as a, independent as ind
+from . import verify
 from .verify import retained_weights
 from ..local_repair_family import modular_clock, learned_flow
 from ..native_program import interpreter
@@ -214,3 +218,24 @@ def test_finite_prepared_closeness_is_not_exact_regional_invariance():
 @pytest.mark.parametrize('ports', [(7, 1), (1, 1), (True, 7), (1, 12)])
 def test_invalid_region_is_rejected_before_execution(ports):
     assert a.prepare_request(TRUE, ports)['status'] == 'COMPILER_STOP'
+
+
+def test_live_receipt_uses_portable_source_paths():
+    bindings = verify.report()['source_sha256']
+    assert 'model/completion/program_class_v2.json' in bindings
+    assert 'model/regional_clock/test_regional_clock.py' in bindings
+    assert all('\\' not in path and not path.startswith('/') for path in bindings)
+    assert all(hashlib.sha256((verify.ROOT/path).read_bytes()).hexdigest() == digest
+               for path, digest in bindings.items())
+
+
+def test_receipt_writer_uses_utf8_and_lf(tmp_path, monkeypatch):
+    output = tmp_path/'results.json'
+    value = {'status': 'SOURCE_BOUND_REGIONAL_CLOCK_IMPLEMENTED', 'regions': []}
+    monkeypatch.setattr(verify, 'OUTPUT', output)
+    monkeypatch.setattr(verify, 'report', lambda: value)
+    monkeypatch.setattr(sys, 'argv', ['regional-clock', '--write'])
+    verify.main()
+    raw = output.read_bytes()
+    assert b'\r' not in raw and raw.endswith(b'\n')
+    assert json.loads(raw.decode('utf-8')) == value

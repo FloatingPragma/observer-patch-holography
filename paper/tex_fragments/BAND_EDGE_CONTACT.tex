@@ -1,0 +1,82 @@
+\paragraph{An interacting band-edge limit with explicit errors.}
+The full eight-valley $K=0$ Weyl/contact family has a positive continuum
+scattering result after a declared change of comparison. Set
+$c_a=\sqrt3/a^2$, $B_a=6/a^2$ and $J_a=B_a-H_a$. This shifts the diverging
+upper edge and reverses Hamiltonian time, so $S_J=S_H^*$.
+It is not a physical vacuum or clock identification. Near each
+$k_j=\pm\pi/2+ap_j$, the free edge deficit converges to $|p|^2$, with error
+at most $a^2[\sum_jp_j^4+(\sum_jp_j^2)^2]/3$.
+
+Write $C(k)=\sum_j\cos^2 k_j$ and $W(\eta)=\langle(C+\eta)^{-1}\rangle$
+for the normalized full-torus average. Then $2/3\leq W_0=W(0)<5$ and
+\[
+ g_a(B_a+z)=\frac{a^2}{2}\left(1+\frac{a^2z}{6}\right)
+ W\left(a^2z+\frac{a^4z^2}{12}\right).
+\]
+The substitution $q_j=\cos k_j$ retains all preimages and gives measure
+$\pi^{-3}\prod_j(1-q_j^2)^{-1/2}d^3q$. On $|q|\leq1/2$, its Jacobian
+minus one lies between zero and $|q|^2$. The spherical mean has expansion
+$A(t)=\sum_n A_nt^n$ with $A_0=1$ and $0\leq A_n\leq1$.
+Exact ball integration, a geometric-series principal-value bound and
+the exterior bound $C\geq1/4$ give
+\[
+ \left|W(\eta)-W_0+\frac2\pi\sqrt\eta\right|\leq18\eta
+ \quad(\eta\geq0),\qquad
+ \left|W(-t+i0)-W_0+\frac{2i}\pi\sqrt t\right|\leq36t
+ \quad(0\leq t\leq1/8).
+\]
+In particular, with the upper-half-plane square root,
+\[
+ \left|\frac{g_a(B_a+z)-a^2W_0/2}{a^3}
+          +\frac{\sqrt z}{\pi}\right|\leq19a|z|,
+ \qquad |a^2z|\leq1/8.
+\]
+The principal-value estimate is analytic; finite imaginary broadening
+and numerical quadrature are not used as a proof.
+
+Choose the repulsive coupling by the exact source-integral prescription
+\[
+ U_a^{-1}=\frac{a^2W_0}{2}-\frac{a^3\gamma}{\pi},\qquad
+ \gamma>0,\quad a\gamma\leq1.
+\]
+Here $\gamma$ is an explicit model parameter, not a measured mass or a
+derived constant of nature. For $0\leq s\leq S$, $a^2S\leq1/8$ and
+$836aS\leq7\gamma$, the rank-one stationary formula gives
+\[
+ S_H(B_a-s)\longrightarrow\frac{\gamma+i\sqrt s}{\gamma-i\sqrt s},
+ \qquad
+ S_J(s)\longrightarrow\frac{\gamma-i\sqrt s}{\gamma+i\sqrt s},
+ \qquad
+ \sup_{[0,S]}|S-S_{\rm limit}|\leq\frac{1672aS}{7\gamma}.
+\]
+This controls all normalized compact-window packets in the declared
+cyclic contact ac energy representation, in operator norm. The
+orthogonal free channels remain present. A full momentum-space
+comparison or many-body field limit is not inferred.
+
+Strict monotonicity of $g_a(E)$ above the band gives exactly one pole
+$E_a=B_a+\delta_a$. If $a\gamma\leq1/256$, the same estimate proves
+\[
+ \frac{\gamma^2}{4}\leq\delta_a\leq4\gamma^2,
+ \qquad |\delta_a-\gamma^2|\leq\frac{5016}{7}a\gamma^3.
+\]
+Thus the reflected bound energy tends to $-\gamma^2$; the original
+energy diverges as $6/a^2+\delta_a$. Neither is identified with a physical
+rest mass. The proof, exact error schedules, independent full-torus
+checks, and missing-countertuning and reversed-time controls are in
+\path{model/band_edge_contact/README.md}. Lattice contact renormalization
+and repulsively bound pairs are established mechanisms; compare
+\href{https://arxiv.org/abs/1912.04425}{Koerber--Berkowitz--Luu (2019)}
+and \href{https://arxiv.org/abs/cond-mat/0605196}{Winkler et al.\ (2006)}.
+The new attachment is the quantitative full-valley calculation for this
+source family.
+
+\paragraph{The unchanged-zero obstruction remains.}
+At fixed model energy zero with $c=v/a$, the distinct earlier theorem
+still gives $\int_{-M}^{M}|S-I|^2dE\leq1024M^2/(63c)$ for every real
+finite $U(a)$ and $M\leq c/4$. Hence every fixed energy-normalized ac
+packet becomes transparent, even though tuned shrinking resonances
+retain operator-norm distance two. The band-edge result explicitly
+uses a different scaling and diverging energy comparison. Neither
+theorem supplies nonzero-total-momentum control, a stable many-body
+vacuum, relativistic massive/massless sectors, or a physical detector map.

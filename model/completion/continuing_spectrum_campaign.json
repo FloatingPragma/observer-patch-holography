@@ -1,0 +1,130 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-CONTINUING-SPECTRUM-PREMISES-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Reach protected spectra with native readout, scale an exactly stationary source reference, control interacting band-edge scattering, and separate conserved periodic momentum from local stress.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. Every reference, scaling, boundary condition and comparison is declared; mathematical consequences are not silently identified with physical observables.",
+  "source_law_changed": false,
+  "comparison_changes": [
+    "Band-edge family uses c=sqrt(3)/a^2, critical U(a), and reflected/recentered J=6/a^2-H.",
+    "Conserved translation momenta use explicitly periodic geometry.",
+    "Stationary source result requires complete unital operations and record-independent schedules."
+  ],
+  "component_results": [
+    {
+      "id": "dark_spectral_source",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "An explicit thirteen-bit native source prepares an eta-raised dark state and reads its protected spectral evolution through two Ramsey phases. All fifteen exact Slater weights are positive and reach all thirteen distinct dark energies. The protocol retains complete source exports, every repair record and abort, and uses the original uncentered field energy across vacuum and N=4 sectors. Literal control errors and product-formula errors have separate certified bounds. The coherent charge reference is a supplied source resource; the result is finite protected spectroscopy, not a localized three-dimensional physical particle or measured rest mass.",
+      "evidence": [
+        "model/dark_spectral_source/README.md",
+        "model/dark_spectral_source/__init__.py",
+        "model/dark_spectral_source/__main__.py",
+        "model/dark_spectral_source/circuits.py",
+        "model/dark_spectral_source/contract.json",
+        "model/dark_spectral_source/exact.py",
+        "model/dark_spectral_source/execute.py",
+        "model/dark_spectral_source/experiment.py",
+        "model/dark_spectral_source/packet.py",
+        "model/dark_spectral_source/results.json",
+        "model/dark_spectral_source/test_experiment.py",
+        "model/dark_spectral_source/test_packet.py",
+        "model/dark_spectral_source/test_source.py"
+      ],
+      "remaining": [
+        "Construct localized three-dimensional carriers and a physically justified source/detector and charge-phase reference, with common units and controlled refinement."
+      ]
+    },
+    {
+      "id": "continuing_reference",
+      "issues": [
+        1138,
+        1145
+      ],
+      "result": "Repeating one identical literal native pulse and complete dephasing export prepares the faithful nontracial successful weight a^M(b/a)^N exactly. Its actual rounded controls determine a,b; number conservation and complete unital repair make this weight stationary on every declared finite geometry under record-independent schedules. Abort blocks remain separate and bypass the continuing process. Regional logarithm errors depend on regional size, not total volume. A complete native feedback counterexample shows why record-adaptive schedules require an additional premise. Exact common-reference classification on the six-site N=4 spin-one sector gives an active modular-energy separation at least |beta|sqrt(13/48). This is an accessible number clock and finite-family stationary reference, not an interacting Gibbs clock or gravitational modular identification.",
+      "evidence": [
+        "model/continuing_reference/README.md",
+        "model/continuing_reference/__init__.py",
+        "model/continuing_reference/__main__.py",
+        "model/continuing_reference/algebra.py",
+        "model/continuing_reference/contract.json",
+        "model/continuing_reference/packet.py",
+        "model/continuing_reference/preparation.py",
+        "model/continuing_reference/results.json",
+        "model/continuing_reference/test_reference.py",
+        "Lean/QFT/ContinuingReference.lean"
+      ],
+      "remaining": [
+        "Supply a physical continuing reference and modular/energy/geometry identification beyond the stationary charge clock, retaining scheduler, hardware and regional limit contracts."
+      ]
+    },
+    {
+      "id": "band_edge_contact",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The unchanged K=0 Weyl/contact family has a nonidentity two-body band-edge scattering limit when c=sqrt(3)/a^2 and inverse U=a^2 W0/2-a^3 gamma/pi, with exact source integral W0 and declared gamma>0. The explicit comparison J=6/a^2-H shifts energy and reverses time. Full eight-valley coarea estimates give a uniform compact-window scattering error at most 1672 a S/(7 gamma), subject to the stated spacing bounds, and a unique upper bound-pole offset converging to gamma^2 with error at most 5016 a gamma^3/7. All other free channels and the original diverging source energy are retained. This is a controlled scalar contact-channel limit, not a norm-resolvent, many-body, relativistic or physical-mass theorem. The different fixed-zero c=v/a transparency result remains valid.",
+      "evidence": [
+        "model/band_edge_contact/README.md",
+        "model/band_edge_contact/__init__.py",
+        "model/band_edge_contact/__main__.py",
+        "model/band_edge_contact/limit.py",
+        "model/band_edge_contact/packet.py",
+        "model/band_edge_contact/results.json",
+        "model/band_edge_contact/test_limit.py"
+      ],
+      "remaining": [
+        "Construct a stable physical vacuum and full many-body interacting limit with nonzero total momentum, appropriate relativistic massive/massless sectors, physical detector map and time/energy units."
+      ]
+    },
+    {
+      "id": "periodic_momentum",
+      "issues": [
+        1145
+      ],
+      "result": "On declared periodic geometries, graded translations of the unchanged local Weyl/contact action commute with the full interacting Hamiltonian. Their Hermitian spectral logarithms give exact conserved global momenta. They differ from additive one-body logarithms by many-body winding operators; explicit contact Umklapp terms prevent the latter from being conserved. On odd prime rings every number-preserving Hermitian translation logarithm has a nonzero one-particle spin-trace kernel at every nonzero separation, excluding an exact finite-range density. A quantitative principal-log approximation obstruction concerns the full state space. On an initially smooth sector with N<=Nmax and Nmax*kappa<pi, the local sine momentum has error at most Nmax*kappa^3/6 plus (pi+Nmax)*min(1,abs(t)*U*floor(Nmax/2)) after time t. This includes contact leakage and is uniform in volume at fixed Nmax; an invariant interacting projection and physical stress limit remain open. Thus global lattice translation conservation is established without claiming the local Lorentz stress or Einstein dynamics.",
+      "evidence": [
+        "model/periodic_momentum/README.md",
+        "model/periodic_momentum/__init__.py",
+        "model/periodic_momentum/__main__.py",
+        "model/periodic_momentum/momentum.py",
+        "model/periodic_momentum/packet.py",
+        "model/periodic_momentum/results.json",
+        "model/periodic_momentum/test_momentum.py",
+        "Lean/QFT/PeriodicMomentum.lean"
+      ],
+      "remaining": [
+        "Derive controlled local emergent stress on the relevant physical states, Lorentz symmetry, geometric modular weights, entropy-area stationarity and Newton normalization."
+      ]
+    }
+  ],
+  "obstruction_review": {
+    "decision": "SCOPED_POSITIVE_ROUTE_AND_RETAINED_OBSTRUCTIONS",
+    "target": "CP-06/CP-09 comparison and locality premises",
+    "family": "Fixed-zero K=0 packet transparency remains; a distinct recentered band-edge contact comparison has controlled nonidentity scattering. Periodic translations supply conserved global logs with an explicit finite-range obstruction.",
+    "mandatory_premise": "A physical completion must justify its vacuum, energy/time and packet maps and supply the appropriate local conserved stress.",
+    "coverage": "Exact finite-source and parameter-family results on their stated domains, not a composed physical QFT or Einstein theorem.",
+    "surviving_routes": [
+      "controlled nonzero-total-momentum and many-body band-edge extension",
+      "other physical vacuum and interaction choices",
+      "low-energy local stress with quantified projection errors",
+      "other OPH constructions"
+    ],
+    "consequence": "Neither fixed-zero transparency nor global-log nonlocality excludes these surviving routes; the positive two-body result does not accept the integrated field gate.",
+    "whole_program_falsified": false
+  },
+  "quantifier_boundary": "The four results use different declared references, geometries and comparisons. Their individual proofs do not establish the missing physical joins."
+}

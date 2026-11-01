@@ -52,15 +52,17 @@ def lean_inventory(root: Path) -> dict[str, int]:
     """Enumerate public source declarations, not proof validity or finite scope.
 
     Use the same comment stripping and declaration grammar as the existing
-    theorem-count gate. Git coverage excludes dependency/build trees; fixture
-    roots without a Git repository use their own Lean directory.
+    theorem-count gate. Git coverage includes new workspace sources before
+    staging, but excludes ignored dependency/build trees; fixture roots
+    without a Git repository use their own Lean directory.
     """
     root = Path(root).resolve()
     try:
-        result = subprocess.run(["git", "-C", str(root), "ls-files", "-z", "--", "Lean"],
+        result = subprocess.run(["git", "-C", str(root), "ls-files", "-z",
+                                 "--cached", "--others", "--exclude-standard", "--", "Lean"],
                                 check=True, capture_output=True)
-        paths = [root / item.decode() for item in result.stdout.split(b"\0")
-                 if item.endswith(b".lean")]
+        paths = {root / item.decode() for item in result.stdout.split(b"\0")
+                 if item.endswith(b".lean")}
     except (OSError, subprocess.CalledProcessError):
         paths = list((root / "Lean").rglob("*.lean"))
     return {path.relative_to(root).as_posix(): len(DECL_RE.findall(strip_comments(

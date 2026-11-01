@@ -1,0 +1,130 @@
+\paragraph{A controlled massless relativistic sector of the unchanged action.}
+The same Weyl/contact family admits a simultaneous eight-valley continuum
+comparison on every fixed finite-particle momentum domain.  Set
+\[
+ H_a=d\Gamma(h_a)+U(a)D,\qquad
+ h_a(k)=-\frac va\sum_{j=1}^3\sigma_j\sin k_j,
+ \qquad D=\sum_x n_{x\uparrow}n_{x\downarrow},
+\]
+with fixed $v>0$ and finite $U(a)\ge0$.  This declares the scaling $c=v/a$;
+it adds no mass term, energy subtraction or time reversal.  For
+$\nu=\pi b$, $b\in\{0,1\}^3$, let $C=[-\Lambda,\Lambda]^3$ and
+$a\Lambda<\pi/2$.  With both Fourier measures normalized by $(2\pi)^{-3}$,
+\[
+ (W_af)(\nu+ap)=a^{-3/2}f_b(p),\qquad
+ W_a:\bigoplus_b L^2(C,\mathbb C^2)\longrightarrow
+ L^2(\mathbb T^3,\mathbb C^2)
+\]
+is an isometry, with zero output outside the eight disjoint patches.
+There is no additional factor $1/\sqrt8$.  Its exterior powers give an
+isometry $W_a^{\le N}$ on all particle numbers through a fixed $N$, with
+the vacuum and every valley retained.
+
+Writing $s_j=(-1)^{b_j}$ and $\chi_b=-s_1s_2s_3$, the limiting blocks are
+\[
+ h_b(p)=-v\sum_j s_j\sigma_jp_j,
+ \qquad E_\pm(p)=\pm v|p|,
+ \qquad E^2-v^2|p|^2=0.
+\]
+All eight continuum masses are zero.  Four blocks have each chirality.
+The proper frame $R_b=-\chi_b\operatorname{diag}(s)$ has a constant
+$SU(2)$ lift and spin $S_{b,j}=R_{b,jj}\sigma_j/2$, so
+$h_b=2\chi_bv S_b\cdot p$.  The positive-energy helicity is $\chi_b/2$;
+the negative-energy helicity is $-\chi_b/2$.  At $p=0$ the two spin states
+are degenerate and helicity is undefined.  In these frames an opposite
+pair has $\alpha_j=\operatorname{diag}(-\sigma_j,\sigma_j)$.
+With off-diagonal identity $\beta$, the matrices
+$\gamma=(\beta,\beta\alpha_1,\beta\alpha_2,\beta\alpha_3)$ satisfy the
+Clifford relations for signature $(1,-1,-1,-1)$, checked exactly.
+Thus the limiting differential equation is massless Weyl/Dirac in
+coordinate $x^0=vt$, not merely a fitted linear dispersion.\footnote{For
+the standard Weyl equation and helicity convention, see D.~Tong,
+\emph{Quantum Field Theory}, Sections 4.4 and 4.7,
+\url{https://www.damtp.cam.ac.uk/user/tong/qft/qfthtml/S4.html}.}
+The fixed cutoff and the lattice regulator are not Lorentz invariant;
+neither the valley pairing nor this spin frame selects physical species.
+
+\paragraph{The full interacting evolution has an explicit comparison bound.}
+The sine remainder gives, uniformly on $C$,
+\[
+ \|h_a(\nu+ap)-h_b(p)\|
+ \le\frac{va^2}{6}\sum_j|p_j|^3
+ \le\frac{va^2\Lambda^3}{2}.
+\]
+For $a\Lambda\le1$ and $p\ne0$, both spectral-projector errors are at
+most $a^2\Lambda^2/6$.  The squared-energy defect lies between
+$-v^2a^2\sum_jp_j^4/3$ and zero.  No projector at the degenerate node
+is assigned.
+
+Let $\Omega_a$ project onto the initial Fock band and
+$d=\lfloor N/2\rfloor$.  On the infinite lattice the site-diagonal band
+weight is exactly $f_a=8(a\Lambda/\pi)^3$.  The positive countable
+partial sums defining $D$ are bounded by $d$, hence converge strongly
+and satisfy $D^2\le dD$.  On band states each annihilation has norm at
+most $\sqrt{f_a}$ and preserves the band for the remaining particles.
+Summing its squared norms gives
+$\Omega_aD\Omega_a\le f_a d$, separately on each up/down number sector,
+and therefore $\|D\Omega_a\|\le d\sqrt{f_a}$.
+This proves the infinite-volume attachment of the finite dilute-band
+estimate without substituting a continuum fraction for a finite count.
+
+Duhamel's formula now yields
+\[
+ \begin{split}
+ \big\|e^{-itH_a}W_a^{\le N}
+       -W_a^{\le N}e^{-itd\Gamma(h_{\rm W})}\big\|
+ &\le\min\{2,|t|\epsilon_a\},\\
+ \epsilon_a&=\frac{Nva^2\Lambda^3}{2}
+       +|U(a)|d\sqrt{8(a\Lambda/\pi)^3}.
+ \end{split}
+\]
+The left evolution is the full source Hamiltonian: no band projection is
+inserted and every outgoing contact state remains present.  The estimate
+also holds with arbitrary untouched references; it bounds half trace
+distance and individual probability errors, capped by one.
+For fixed $N,\Lambda,v$ and bounded times it tends to zero whenever
+$U(a)=o(a^{-3/2})$.  At $N\le1$ the contact is exactly zero for every
+$U(a)$.  Thus the proved limit is free; the critical pair scaling
+$U\sim a^{-2}$ and finite-density limits are outside this conclusion.
+For $N=2$, $\Lambda=v=U=t=1$ and $a=1/64$, the complete-vector bound
+is less than $0.001237$ and the projector bound is $1/24576$.
+
+The finite source check retains all 128 one-particle Fourier columns on
+a periodic $4^3$ cube.  An eight-valley two-particle state there has exact
+$\|D\psi\|^2=1/8$ and
+$\|(1-\Omega)D\psi\|^2=7/64$, so the contact escape is real.
+Propagation on all 8,128 two-particle states at $t=1/8$ gives a numerical
+vector difference about $0.0441641$, below the rigorous
+$\sqrt{1/8}/8$.  These matrix diagnostics and exact source identities
+do not constitute an additional native preparation or detector execution.
+
+\paragraph{Resulting energies and the physical boundary.}
+At $v=1$, $a=1/64$, every valley has the following energies; both signs
+are retained, and only their common positive magnitude is displayed.
+The receipt gives rational enclosures for the rounded lattice values.
+\begin{center}
+\begin{tabular}{c r c c}
+$p$ & lattice $|E_a|$ & continuum $|E|$ & continuum mass\\\hline
+$(0,0,0)$ & $0$ & $0$ & $0$\\
+$(1,0,0)$ & $0.999959310393$ & $1$ & $0$\\
+$(1,1,0)$ & $1.414156018578$ & $\sqrt2$ & $0$\\
+$(1,1,1)$ & $1.731980331101$ & $\sqrt3$ & $0$
+\end{tabular}
+\end{center}
+These are original-generator model energies, without an SI calibration.
+The finite-spacing mass-shell defect is a regulator error, not a
+tachyonic mass.  This growing-lattice branch is distinct from the protected
+eight-site cube: neither its repair invariance nor the identity of its
+eight response lines is transferred to the valleys.
+The empty Fock state is not a ground state: already at finite spacing,
+a one-particle mode at $(\pi/2,0,0)$ has energy $-c$, with zero contact
+for every $U$.  This compares different number sectors; it is not a
+number-preserving extraction protocol from the empty sector.  A filled
+vacuum, its interacting stability and a physical antiparticle dictionary
+remain unconstructed.  A single $2\times2$ constant Hermitian mass
+anticommuting with all three kinetic Pauli matrices is exactly zero;
+this limited obstruction does not exclude valley coupling or many-body
+mass generation.  The package \texttt{model/relativistic\_sector\_audit}
+therefore adds a controlled massless relativistic dynamical sector,
+not massive physical species, a photon assignment, an interacting
+relativistic vacuum theory or Einstein dynamics.

@@ -1,0 +1,38 @@
+\paragraph{A uniform contact-continuum exclusion.}
+Nontrivial lattice scattering does not persist automatically when spacing
+vanishes. Keep the same model energy zero, set $c=v/a$ with fixed $v>0$,
+and allow any nonnegative repulsion $U(a)$. At $K=0$, the complete contact
+measure for $c=1$ is an even probability measure supported in
+$[-\sqrt{12},\sqrt{12}]$, with no dark zero-energy point mass.
+Its inverse second moment $M=\int t^{-2}\,d\mu(t)$ is finite and
+$M\ge1/12$. For $0<x\le1/2$, split its principal-value transform at
+$|t|=1$. The exterior correction to $a_1(x)/x+M$ is nonpositive.
+Inside, the exact eight-node density and
+\[
+ \operatorname{PV}\int_0^1\frac{t^{2n}}{x^2-t^2}\,dt
+ \le x^{2n}\frac{\operatorname{atanh}x}{x}
+\]
+bound the positive correction by $8/405$. Consequently
+$a_1(x)/x\le-103/1620<-1/16$. Scaling gives
+\[
+ a_c(E)\le-\frac{E}{16c^2},\qquad
+ \rho_c(E)\le\frac{4E^2}{15\pi^2c^3},\qquad 0<E\le c/2.
+\]
+Since $1-Ua_c\ge\max(1,U|a_c|)$, the same scattering operator obeys
+\[
+ \|S(E)-I\|\le
+ \min\!\left(2,\frac{128E}{45c},\frac{8UE^2}{45c^3}\right).
+\]
+In particular, on every fixed window $0<E\le E_{\max}$ the middle
+bound tends to zero uniformly over all choices of $U(a)\ge0$.
+Every isolated above-band pair, when present, has
+$E_{\rm pair}>2\sqrt3\,v/a$ and leaves that bounded energy window.
+All eight kinetic nodes remain: their linear-symbol error is at most
+$va^2\sum_j|p_j|^3/6$. Thus retuning only this repulsive contact cannot
+supply the requested interacting positive-energy continuum sector and a
+finite-energy version of its above-band pair. The exclusion fixes the
+energy zero, total momentum and interaction family; it does not cover a
+filled or shifted vacuum, negative-energy resonances, added interactions,
+or many-body continuum limits. The exact rational certificate and
+independent principal-value controls are in
+\path{model/contact_continuum/README.md}.

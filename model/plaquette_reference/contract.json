@@ -1,0 +1,16 @@
+{
+  "schema": "oph.plaquette_reference.contract.v1",
+  "id": "OPH-PLAQUETTE-REFERENCE-2026-11-01",
+  "issues": [1138, 1145],
+  "completion_gates": ["CP-02", "CP-09"],
+  "action": "Original full-Fock Weyl/contact H on (2,2,1), c=1/8, U=1",
+  "inverse_temperature": "1/32",
+  "prepared_reference": "Q8^2/Tr(Q8^2), Q8=sum_{k=0}^8[-(H-I)/64]^k/k!",
+  "complete_ensemble": "All 256 column records; no conditioning, rejection or success normalization in the field marginal",
+  "source_operations": ["native probability amplitude word", "eight complete local source readouts", "reversible record-dependent blanking", "native real-column amplitude word", "native inverse onsite frame"],
+  "analytical_result": "Exact same-action ideal finite word; rational Gibbs trace-norm and modular error bounds",
+  "numerical_result": "Every source pulse and every complete export/readout outcome is executed; numerical residuals are admission diagnostics",
+  "retained_services": ["initialized eight-bit register", "source code load/export", "complete readout", "classical conditional scheduler", "analogue precision", "eight-bit record memory"],
+  "thermofield_purification_claimed": false,
+  "physical_clock_or_Einstein_gate_accepted": false
+}

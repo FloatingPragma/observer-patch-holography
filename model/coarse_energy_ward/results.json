@@ -1,0 +1,97 @@
+{
+  "all_pass": true,
+  "domain": {
+    "CAR_modes": 54,
+    "Hamiltonian_model_time_only": true,
+    "action": "unchanged complete-Fock Weyl/contact H; c=1/8, U=1",
+    "basis": "exact rational faithful Clifford monomials",
+    "full_Fock_dimension": 18014398509481984,
+    "geometry": [
+      3,
+      3,
+      3
+    ],
+    "number_projection": false,
+    "spatial_sites": 27,
+    "state_or_Gibbs_assumption": false
+  },
+  "exact": {
+    "action_sha256": "58210e337ddcf9aa6b35ecca7571e9e595ee8265a74aaabbee224f16e0734c5d",
+    "action_terms": 298,
+    "all_shortest_paths_equally_weighted": true,
+    "block_divergence_commutes_exactly": true,
+    "finite_cell_flux_is_time_integrated": true,
+    "local_Ward_equations": 27,
+    "nearest_neighbor_faces": 54,
+    "nonzero_energy_current_pairs": 81,
+    "rectangular_block_partitions": 27,
+    "routed_current_Majorana_degrees": [
+      2,
+      4
+    ],
+    "unordered_pairs_checked": 351
+  },
+  "gates": [
+    "CP-09"
+  ],
+  "independent_numerical_replay": {
+    "cell_identity_operator_residual": 4.576273906406184e-15,
+    "duration": 0.75,
+    "endpoint_sample_counterexample_norm": 0.023572261344351673,
+    "floating_admission": 1e-12,
+    "full_Fock_dimension": 64,
+    "numerics_are_not_the_exact_certificate": true,
+    "time_composition_operator_residual": 2.6989093257824213e-17
+  },
+  "issues": [
+    1145
+  ],
+  "schema": "oph.coarse_energy_ward.v1",
+  "scope": {
+    "closed": "nearest-face energy Ward column and its exact finite spatial/time block composition on the supplied action",
+    "no_full_Einstein_Ward_or_Einstein_gate_accepted": true,
+    "remaining": [
+      "The other three momentum columns and a symmetric Lorentz stress tensor.",
+      "Geometric modular cap weights, proper clock/length and same-action continuum scaling.",
+      "Area normalization, generalized-entropy stationarity, positive Newton scale and all Einstein G1-G6 premises.",
+      "Actual source preparation and readout of the stated arbitrary local input; controller/failure-space energy."
+    ]
+  },
+  "source_readout_bound": {
+    "ambient_volume_independent": true,
+    "analytic_patch_sides": [
+      37,
+      37,
+      37
+    ],
+    "bound_is_separate_from_the_27_site_symbolic_instance": true,
+    "duration": "1/8",
+    "errors_exact": {
+      "cell_Ward_residual_bound": "50930034508830414979663225257/63116068074393111520870400000000000000",
+      "energy_endpoint_error": "25126348734842538274009767/6643796639409801212723200000000000000",
+      "integrated_face_error": "237120645023162853911497/1779822572736820019200000000000000",
+      "local_energy_norm": "11/8",
+      "midpoint_quadrature_error": "2033647/16384000000000000",
+      "routed_face_norm": "847/32",
+      "source_unitary_error": "18025623/13107200000000000000"
+    },
+    "midpoint_samples": 1000000000000,
+    "numerical_hardware_state_preparation_and_readout_errors_not_included": true,
+    "patch_reference_restriction_supplied": true,
+    "radius": 18,
+    "split_steps": 10000000
+  },
+  "source_sha256": {
+    "Lean/QFT/CoarseEnergyWard.lean": "b4528a425cfad5bc1a34c127023916e9de4d4b3b6d854abf9b2614709d07fa43",
+    "model/coarse_energy_ward/README.md": "c831e3890a5641b4dbb1a0bb50ae1ecb2656be51b7c5c60535dd4e2bf35d1396",
+    "model/coarse_energy_ward/packet.py": "452e06fc523670b61efe6db609a684cd65866bf9e6343e6df9c7238cfde03016",
+    "model/coarse_energy_ward/test_ward.py": "79b28c22df5997b67c690def3c802d170606cad08d813bb0cfd1b7ae22fb493c",
+    "model/coarse_energy_ward/ward.py": "3f12fbd49882512a5d64e4d2d6c9d546e1f79099b1074d8096b465395d9b8edc",
+    "model/field_stress/energy.py": "f44f67d25d9738230966dc4c9e64eecc2792f0bf07d33b4ca4ac5cb9db90cf72",
+    "model/full_fock_energy/energy.py": "68ea4848938b011ddd2ff6e20557f3820b6d5db6bb64117f8ab64ddd10da3c6f",
+    "model/full_fock_field/bounds.py": "7a90b91236c7a27c62da7db222f7e7928b683f027a8b77af22d74bbd6224431c",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/full_fock_field/local_simulation.py": "3a8a221cd988f9c8741610c7f1bb4cbc114607bedd311981dfd9543c821a62e9",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-FIELD-PARTICLE-PREMISE-CLOSURE-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Close actual finite theorem premises and extend particle/field research on specified source laws; retain every incompatible-domain and physical-identification boundary.",
+  "specification_policy": "Simulator, observer, scheduler, repair and memory implementations are permitted readable model inputs. Their uniqueness is not required. A theorem must prove consequences on its specified carrier; reading the implementation does not establish that it describes nature.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "regional_clock_comparison",
+      "issues": [
+        1138
+      ],
+      "result": "On the same complete sixteen-state Weyl/contact Gibbs dimer, relative modular unitaries give transitive and time-cocycle clock comparisons. At parameter one half the global-to-regional source correction uses 2826 pulses and ideal operator error at most 11/32768; the interregional comparison uses twenty pulses. All input/reference columns and export failures remain. An exact characteristic polynomial, nine partial-trace moments and rational function bounds separate all 243 local/global frequency comparisons by more than 1/10000. Every uncorrected same-parameter linear intertwiner therefore has stationary range of dimension at most six. The active correction has explicit reference disturbance; it does not identify physical duration.",
+      "evidence": [
+        "model/modular_clock_comparison/comparison.py",
+        "model/modular_clock_comparison/test_comparison.py",
+        "model/modular_clock_comparison/README.md",
+        "model/modular_clock_comparison/results.json",
+        "Lean/QFT/ModularClockComparison.lean",
+        "model/modular_clock_comparison/intervals.py"
+      ],
+      "remaining": [
+        "Same-process scalable continuing reference, physical clock/energy normalization and geometric modular attachment."
+      ]
+    },
+    {
+      "id": "charged_defect_algebra",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "The two-identical-doublet 264-state carrier splits exactly into the 66-state positive-lift singlet and negative-lift transport tensored with a three-state internal triplet. All 720 raw C/E slots and 31680 internal input columns are retained. Effect separation, a connected tree and an odd loop give the full branch commutant M1 plus M3, establishing maximal passive qutrit protection for the specified lifted service. A complete Fock extension retains its outside-sector outcome. The unchanged decoupled dimer action gives the singlet and all three triplet states the same gap 2(sqrt(17)/8-1/16) and charge plus or minus two. It therefore supplies no three distinct masses. On the four charged-pair columns of two adjacent dimers, the uniform four-site field has leakage operator L*L=(3 P_singlet+P_triplet)/512 and squared Frobenius leakage 3/256. This excludes protection on that local carrier under the joined field, not every spatial superposition or geometry, and does not establish protection under bare H66.",
+      "evidence": [
+        "model/charged_defect/branches.py",
+        "model/charged_defect/test_branches.py",
+        "model/charged_defect/README.md",
+        "model/charged_defect/results.json",
+        "model/charged_defect/dictionary.py",
+        "model/charged_defect/test_dictionary.py",
+        "model/charged_defect/packet.py",
+        "model/charged_defect/contract.json"
+      ],
+      "remaining": [
+        "Protected propagation under the common interacting field law, localized boundary/topological invariant and physical species/mass/clock dictionary."
+      ]
+    },
+    {
+      "id": "lattice_onshell_threshold",
+      "issues": [
+        1142
+      ],
+      "result": "The same physical antisymmetric Weyl/contact fiber has a bounded self-adjoint free operator and a norm-U rank-one perturbation. The trace-class theorem gives complete wave operators on the absolutely continuous subspaces and a unitary nontrivial on-shell lattice scattering operator. At K=0 all eight nodes give rho_0(E)=E^2 A((E/2c)^2)/(4 pi^2 c^3), with exact positive coefficients A_n at most one and rational remainder. For every fixed finite U, rho_U(E) has the same quadratic zero-energy threshold. Dark point states and the isolated pair remain. This is fixed-spacing two-body scattering, not many-body chiral-continuum completeness or a physical massless particle.",
+      "evidence": [
+        "model/contact_scattering/onshell.py",
+        "model/contact_scattering/test_onshell.py",
+        "model/contact_scattering/ONSHELL.md",
+        "model/contact_scattering/onshell_results.json"
+      ],
+      "remaining": [
+        "Common physical vacuum, source asymptotic detector/clock map, dynamical gauge sectors, taste/chiral control and interacting physical refinement."
+      ]
+    },
+    {
+      "id": "regional_modular_expansion",
+      "issues": [
+        1145
+      ],
+      "result": "Exact normalized signed CAR moments of the complete 256-state Weyl/contact plaquette construct the degree-eight polynomial P8 for -log X_A on its sixteen-state regional algebra, where X_A is the unnormalized reduced Gibbs weight. The noncommuting log majorant, exact norm bound B=3 and beta=1/32 give operator error below 1.917e-9. The normalized modular generator K_A is approximated by P8 plus the exact scalar log(Tr_A X_A) I; the scalar cancels for every trace-zero entropy tangent, leaving the same error coefficient times trace norm. The first nonscalar boundary correction is cubic and does not commute with local energy. A rational witness proves distance greater than 2.7e-8 from bare beta H_A plus any scalar. Removing crossing bonds removes all nonscalar corrections. The Gibbs state is specified, not source-prepared here; geometric G1--G6 remain open.",
+      "evidence": [
+        "model/regional_modular_expansion/expansion.py",
+        "model/regional_modular_expansion/test_expansion.py",
+        "model/regional_modular_expansion/README.md",
+        "model/regional_modular_expansion/results.json",
+        "model/regional_modular_expansion/packet.py"
+      ],
+      "remaining": [
+        "Plaquette reference preparation, geometric modular kernel and common Lorentz stress, entropy/area stationarity, positive Newton normalization and controlled common refinement."
+      ]
+    }
+  ],
+  "quantifier_boundary": "The campaign labels bounded component work; the contact result includes an analytic fixed-spacing infinite-volume two-body theorem. It is not a finite numerical extrapolation. The Gibbs dimer, plaquette, charged-block service and physical continuum remain explicitly different domains."
+}

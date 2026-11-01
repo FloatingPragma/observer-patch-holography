@@ -1,0 +1,23 @@
+{
+  "schema": "oph.common_spin_protection.contract.v1",
+  "campaign_id": "common-field-spin-protection-20261101-v1",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "owner_issues": [1139, 1143],
+  "related_issues": [1140, 1141, 1142],
+  "whole_program_frozen": false,
+  "integrated_gate_accepted": false,
+  "native_family_changed": false,
+  "physical_comparison_count_added": 0,
+  "action": "Unchanged full-Fock six-site open-chain Weyl/contact field, c=1/8, U=1, K=H-N/2; existing complete three-dimer charged repair with every raw coin/outcome and Q=I-P, without replacing either law.",
+  "carrier": "Every one of the 4096 Fock states; full number/spin decomposition. The explicit protected N=4 spin-one sector is multiplicity 105 times spin dimension 3. The old nine-dimensional localized triplet carrier is a proper subspace, not assumed invariant.",
+  "references": "Existing product dimer ground for the localized input; separately, the joined six-site half-filled singlet ground for finite spectral comparisons. Neither pure reference is faithful or physically selected by this packet.",
+  "exact_proof": "Same hidden-spin algebra commutes with joined H and every complete repair Kraus operator, by integer local projector/swap premises and the identical two-site chain frame. Highest-weight ladders give common multiplicity-times-spin factorization and complete-output preservation of arbitrary spin/reference marginals.",
+  "numerical_checks": "All 156 complete repair outcomes, 468 spin commutators, all charge/spin energies, complete local probe weights, and one 153-outcome interleaved history, checked under stated numerical residual admissions rather than outward intervals.",
+  "boundaries": [
+    "The old small carrier still leaks; protected information can occupy the full spin sector and need not remain localized.",
+    "Complete repair disturbs the joined Hamiltonian energy. Its finite spectral poles are not established stationary particles of the repair process.",
+    "The charge-one probes take the unchanged repair's outside outcome only.",
+    "The exact block alignment criterion is delta_0=delta_1=delta_2 modulo 2. Transverse identical-dimer placement on the cube violates it; no dressed law or new cube candidate is introduced.",
+    "No Lorentz spin, generation count, continuum mass gap, physical species, absolute mass, hardware result or native pulse execution is claimed."
+  ]
+}

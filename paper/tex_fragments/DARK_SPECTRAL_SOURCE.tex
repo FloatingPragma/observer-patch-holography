@@ -1,0 +1,101 @@
+\paragraph{Common protection and a native dark-sector detector.}
+On the unchanged six-site Weyl/contact chain, $c=1/8$, $U=1$, let
+$K=H-N/2$ and $d_x=(i\sigma_x)^x c_x$, $x=0,\ldots,5$, where
+$\sigma_x$ is Pauli X.  The hidden spin
+$S_a=\tfrac12\sum_xd_x^*\sigma_a d_x$ commutes with $H$ and every
+complete existing C/E Kraus operator, including $Q=I-P$: dimer
+references are singlets, charged supports are doublets, and graded
+block swaps have aligned frames.  Hence the spin/reference marginal
+survives arbitrary complete histories, including initial correlations
+with multiplicity.  The small localized carrier still leaks under $H$.
+
+At $N=4,S=1$, the exact spin--eta decomposition separates 90 active
+and 15 dark multiplicities, with
+$\eta_+=\sum_x(-1)^xd_{x\uparrow}^*d_{x\downarrow}^*$ and
+$\eta_z=(N-6)/2$.  The actual repair corner lies in eta one.  Its
+effects and movements generate its three-position matrix algebra;
+the integer $16K$ and analytic $\mathbb Z[\sqrt{17}]$ seeds have a
+nonzero $90\times90$ Krylov minor under $\sqrt{17}\mapsto44$ modulo
+101.  The exact representation count gives the matching upper bound,
+so the active joint algebra is $M_{90}\otimes I_3$ and its commutant
+$I_{90}\otimes M_3$.  There is no nonconstant jointly conserved
+multiplicity-energy observable there.  The eta-two columns
+$D|x,y\rangle=\eta_+|x\uparrow,y\uparrow\rangle/2$ instead satisfy
+$D^*D=I_{15}$ and $D^*KD=A_{\rm pair}/16-I$, where $A_{\rm pair}$
+is the second exterior lift of the open-chain adjacency.  Every native
+repair outcome annihilates them and $Q$ is identity.  Their thirteen
+distinct energies give dark commutant $M_9\oplus12M_3$; the common
+commutant on this declared number/spin sector has dimension 198.
+
+The former missing source/detector attachment is now concrete.
+The state $D|0,1\rangle$ has just four Hubbard-frame occupation
+amplitudes, $\tfrac12(1,-1,1,-1)$ at addresses $53,197,773,3077$.
+Three balanced two-bit splits, four copied pair occupations, fixed
+phases and the inverse onsite frame prepare it with 292 native pulses.
+All operations use the existing twelve-port, six-level processor and
+complete two/four-dimensional code exports.  There is no generic
+amplitude tree, target-matrix primitive or charge postselection.
+Scalar phases are retained before controlling the circuit:
+\[
+ C e^{i\theta P}=e^{i\theta P/2}e^{-i\theta PZ_{\rm pointer}/2}.
+\]
+With one pointer bit, 807 pulses prepare the coherent vacuum/dark
+Ramsey input.  Both field branches and their cross terms survive the
+complete repair through $Q$.  Controlled inverse preparation, a phase
+$\phi$ and a balanced pointer readout retain the entire uncomputed
+field and give
+\[
+ P_0(\phi,t)=\frac{1+\operatorname{Re}(e^{i\phi}C_H(t))}{2},\qquad
+ C_H(t)=\sum_{1\le p<q\le6}w_{pq}e^{-itE^H_{pq}},\quad P_1=1-P_0,
+\]
+where, writing $a_p=p\pi/7$,
+\[
+ E^H_{pq}=1+\frac{\cos a_p+\cos a_q}{8},\qquad
+ w_{pq}=\frac{16}{49}\sin^2a_p\sin^2a_q(\cos a_q-\cos a_p)^2>0.
+\]
+Exterior-power Parseval gives $\sum w_{pq}=1$; exact Hamiltonian moments
+give mean one and nonzero variance $1/256$.  All fifteen mode
+pairs and thirteen exact energy groups are retained; the three pairs
+$p+q=7$ share energy one.  The reference is the original $H$, with
+vacuum energy zero and $H=K+2$ on $N=4$.  An independent two-by-two
+Slater determinant verifies $C_H$.  Simple pair removal from an
+eta-singlet ground still cannot reach eta two: this preparation is a
+different, explicitly implemented source operation.
+
+At $t=1/2$, two original-field segments, complete E/C/E repairs and
+one analyzer use 8,336 native pulses.  The protocol stops on the first
+source abort or native repair record and retains that output; its
+continuing branch is never normalized.  All forty native repair
+records, every source-export failure and both pointer values plus four
+pointer aborts remain in the complete instrument.  Independent exact
+source-control bounds and the full-Fock Strang estimate give complete
+output error below $0.007215$; the source-only contribution is below
+$1.048\times10^{-12}$.  Separate numerical diagnostics give about
+$2.753\times10^{-7}$ and pointer-zero probabilities
+$0.938577077511$ and $0.739595749433$ at phases zero and $\pi/2$,
+against analytic values $0.938577079690$ and $0.739595750623$.
+These are mathematical source-specification and finite detector results,
+not hardware precision or a thirteen-frequency empirical fit.  The
+initialized registers, coherent encoding, load/export, memory, readout
+and number-phase reference remain specified services.  The vacuum/$N=4$
+superposition preserves fermion parity; physical charge coherence is
+not derived.
+
+\paragraph{Energy and geometric limits remain.}
+For any complete repair, the field-energy transfer is
+$W=\sum_rL_r^*KL_r-K
+=\tfrac12\sum_r(L_r^*[K,L_r]+[L_r^*,K]L_r)$.
+Unitality additionally gives
+$\operatorname{Tr}(KW)=-\tfrac12\sum_r\|[K,L_r]\|_{\rm HS}^2$.
+On the original two-dimer carrier the full instrument is the pinching
+$\{P,I-P\}$, with $\|W\|_{\rm HS}^2=3/128$ and maximum absolute
+transfer $\sqrt6/32$, of either sign.  The active-sector complete
+energy transition law remains disturbed; source access to the dark
+sector does not repair that conclusion or define a positive rest mass.
+In three dimensions, coordinate-identified block frames align exactly
+when $\delta_0\equiv\delta_1\equiv\delta_2\pmod2$.
+Even-sided tilings remain a conditional route; the unchanged transverse
+dimer placement fails, with commutator Gram matrix
+$\operatorname{diag}(64,32,32)$.  No localized three-dimensional
+candidate, Lorentz spin, physical species, mass calibration or
+interacting continuum is inferred from this finite source/detector.

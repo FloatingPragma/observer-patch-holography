@@ -1,0 +1,76 @@
+\paragraph{Conserved periodic momentum and its locality boundary.}
+On a declared periodic box, the same local Weyl/contact action has exact
+graded translations $T_i=\Gamma(t_i)$: they permute creation operators with
+the full occupation-permutation signs, satisfy $T_i^{L_i}=I$, commute with
+one another and commute with $H$.  For
+$\zeta=e^{2\pi i/L}$ and the integer representative
+$b(j)\in(-L/2,L/2]$, put
+\[
+ \Pi_j=\frac1L\sum_{r=0}^{L-1}\zeta^{-jr}T^r,
+ \qquad P=\frac{2\pi}{L}\sum_{j=0}^{L-1}b(j)\Pi_j.
+\]
+These complete orthogonal projectors give a Hermitian conserved momentum
+$P$, with $e^{iP}=T$ and $\|P\|\leq\pi$.  The branch uses $+\pi$ at $-1$;
+subtracting $2\pi\Pi_{L/2}$ gives the distinct $-\pi$ convention on even
+rings.  Exact Clifford arithmetic checks all three translations on the
+complete 54-mode $3\times3\times3$ torus.  On the existing four-site
+periodic source, all 256 Fock states and four rank-64 projectors are retained.
+This is global lattice conservation under a supplied periodic boundary,
+not a new symmetry of the previous open box.
+
+The logarithm is nonquadratic.  If $p$ is the same one-particle logarithm,
+then on momentum occupations
+\[
+ Q=d\Gamma(p)=P+2\pi W,
+ \qquad W=\frac{\sum_{\rm occupied}b(j)-b(\sum_{\rm occupied}j)}L\in\mathbb Z.
+\]
+On the four-site ring $W=-1,0,1$ have multiplicities $4,152,100$ and
+$W^3-W=0$.  The opposite-spin pairs with labels $(1,1)$ and $(-1,-1)$
+both have $P=\pi$, whereas $Q=\pi,-\pi$.  Their exact contact matrix
+element is $U/4$, and
+$\langle\mathrm{out}|[H,Q]|\mathrm{in}\rangle=\pi U/2$.
+Thus the contact transfers additive momentum by $2\pi$ while preserving
+the conserved crystal momentum; $[H,Q]=2\pi[H,W]$ retains the winding term.
+The vacuum and one-particle restriction fix any proposed scalar-plus-quadratic
+formula for $P$ to $Q$, while the filled ring has $P=0,Q=2\pi$.
+
+There is an all-branch locality obstruction on an odd-prime ring.
+Any number-preserving Hermitian logarithm of $T$ restricts to a logarithm
+of $t$; its two-dimensional spin block at momentum $j$ has trace
+$(2\pi/L)(2j+Ln_j)$ with arbitrary integers $n_j$.  Vanishing of a
+nonzero-separation spin-trace kernel would make
+$\sum_j(2j+Ln_j)z^j$ divisible by
+$\Phi_L(z)=1+\cdots+z^{L-1}$.  Its coefficients would all be equal,
+contradicting their distinct residues $2j\bmod L$.  A sum of arbitrary
+many-body densities supported in sets of graph diameter at most $R$ has
+zero one-particle matrix elements between sites farther than $R$.
+Consequently no choice of these logarithm branches yields a uniformly
+finite-range density.  For the principal branch, the stronger bound is
+\[
+ |p_{xy}|=\frac{\pi}{L\sin(\pi r/L)},\qquad
+ \|P-A_R\|\geq\frac1{R+1},\quad L>2(R+1),
+\]
+where $r$ is the positive site separation up to $L/2$ and $A_R$ is any
+range-$R$ density sum.  This is a full-Fock norm bound; the same numerical
+lower bound is not asserted for arbitrary branches or restricted states.
+
+An initially smooth sector nevertheless has a controlled local
+approximation.  Let $\Omega$ retain $N\leq N_{\max}$ and
+$|k_j|\leq\kappa$ for every occupied momentum, with $N_{\max}\kappa<\pi$.
+For the nearest-neighbor quadratic $S_j=d\Gamma(\sin p_j)$,
+\[
+ \|(P_j-S_j)\Omega\|\leq\delta:=\frac{N_{\max}\kappa^3}{6},\qquad
+ \|(P_j-S_j)e^{-itH}\Omega\|
+ \leq\delta+(\pi+N_{\max})
+       \min\{1,|t|U\lfloor N_{\max}/2\rfloor\}.
+\]
+The second bound uses free invariance of $\Omega$ and a Duhamel contact
+leakage estimate; it is uniform in volume at fixed $N_{\max}$.
+The four-site zero-momentum pair couples with matrix element $U/4$ to
+$(1,-1)$ outside a cutoff below $\pi/2$, so interaction leakage cannot be
+deleted.  The bounds do not establish a finite-density or continuum limit.
+These results close global periodic momentum conservation while leaving
+local conserved Ward columns, a symmetric Lorentz stress tensor, physical
+time and the Einstein-register construction open.  The exact receipt,
+branch proof and independent negative controls are retained in
+\path{model/periodic_momentum/README.md}.

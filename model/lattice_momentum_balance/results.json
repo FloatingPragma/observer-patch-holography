@@ -1,0 +1,119 @@
+{
+  "all_pass": true,
+  "domain": {
+    "CAR_modes": 54,
+    "action": "unchanged open complete-Fock Weyl/contact H",
+    "arbitrary_states_and_untouched_references": true,
+    "full_Fock_dimension": 18014398509481984,
+    "geometry": [
+      3,
+      3,
+      3
+    ],
+    "interaction": "1",
+    "momentum_convention": "dGamma(D_j), central difference at model spacing one",
+    "number_projection": false,
+    "physical_momentum_or_time_identified": false,
+    "speed": "1/8"
+  },
+  "exact": {
+    "force_Gram_normalized_HS": [
+      [
+        "9/4",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "9/4",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "9/4"
+      ]
+    ],
+    "force_is_quartic_Majorana": true,
+    "general_force_Gram": "delta_ij U^2 E_i/8, E_i the number of axis-i spatial edges",
+    "kinetic_stress_faces_per_column": [
+      54,
+      54,
+      54
+    ],
+    "kinetic_stress_is_quadratic": true,
+    "local_forced_Ward_equations": 81,
+    "nonzero_momentum_columns": 3,
+    "rectangular_partitions_per_column": 27,
+    "source_operator_payload_sha256": "ca9426f295dcae500353426d0c7da4a3b87a6335f658cb0bbb5ace3e5b67d1fc",
+    "total_force_operator_norm_lower_each_axis": "3/2"
+  },
+  "gates": [
+    "CP-09"
+  ],
+  "independent_numerical_replay": {
+    "duration": 0.75,
+    "floating_admission": 1e-12,
+    "forced_balance_residual": 1.844930951904547e-15,
+    "full_Fock_dimension": 64,
+    "numerics_are_not_the_operator_certificate": true,
+    "omitted_force_residual": 0.4485633041092065,
+    "point_force_sample_residual": 0.16976203751515187
+  },
+  "issues": [
+    1145
+  ],
+  "quadratic_classification": {
+    "additive_identity_allowed_separately": true,
+    "basis": "total number and the three existing onsite-frame hidden-spin charges",
+    "conserved_homogeneous_number_preserving_quadratic_real_dimension": 4,
+    "exact_doublon_witness_sha256": "a495217daa253abe24350c9fed8186e29aaea9e05db65170d70f785c5f3de7f3",
+    "fixed_positive_U_no_go": true,
+    "higher_body_or_anomalous_dressings_excluded": false,
+    "offsite_coefficients_isolated": 2808,
+    "proof": "N=1 restriction forces [h0,q]=0; N=2 doublon transitions force all intersite q coefficients zero; connected Pauli bonds transport one root 2x2 matrix"
+  },
+  "schema": "oph.lattice_momentum_balance.v1",
+  "scope": {
+    "closed": "three exact kinetic momentum/face-stress/contact-force columns, their finite cell and block composition, and the complete quadratic conservation class",
+    "no_conserved_interacting_Ward_or_Einstein_gate_accepted": true,
+    "remaining": [
+      "An interacting conserved momentum with any needed higher-body dressing and a symmetric Lorentz stress tensor.",
+      "Physical chart/time and a controlled continuum mapping of source energy and all stress columns.",
+      "Geometric modular kernels, entropy/area stationarity, Newton normalization and an Einstein-register inhabitant."
+    ]
+  },
+  "source_bound": {
+    "analytic_patch_sides": [
+      37,
+      37,
+      37
+    ],
+    "duration": "1/8",
+    "errors_exact": {
+      "forced_cell_residual_bound": "156876225172338082197241895883/24043900038024070588845260800000000000000",
+      "integrated_force_error": "196866900152361234052782069/511572341234554693379686400000000000000",
+      "integrated_stress_face_error": "1073712342740125315506063/10085528539439626924851200000000000000",
+      "momentum_endpoint_error": "175884440843912701707130869/63946542654319336672460800000000000000",
+      "source_unitary_error": "18025623/13107200000000000000"
+    },
+    "input_readout_hardware_and_failure_energy_remain_separate": true,
+    "midpoint_samples": 1000000000000,
+    "radius": 18,
+    "resource_bounds_are_not_source_execution": true,
+    "split_steps": 10000000
+  },
+  "source_sha256": {
+    "Lean/QFT/CoarseEnergyWard.lean": "b4528a425cfad5bc1a34c127023916e9de4d4b3b6d854abf9b2614709d07fa43",
+    "Lean/QFT/LatticeMomentumBalance.lean": "0c530905266cbef2538edbee8f4ef1b65a018d5ed813be22ac24cefb6089fcba",
+    "model/coarse_energy_ward/ward.py": "3f12fbd49882512a5d64e4d2d6c9d546e1f79099b1074d8096b465395d9b8edc",
+    "model/full_fock_field/bounds.py": "7a90b91236c7a27c62da7db222f7e7928b683f027a8b77af22d74bbd6224431c",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/full_fock_field/local_simulation.py": "3a8a221cd988f9c8741610c7f1bb4cbc114607bedd311981dfd9543c821a62e9",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/lattice_momentum_balance/README.md": "d3cb690a29dbea2066e451cf8dc162322603c2df43ee7283281a2503d931a837",
+    "model/lattice_momentum_balance/momentum.py": "92c1a5ab8b51d006bf350420b51e504580cf0b441a001fc12c8ab4bdf174d21b",
+    "model/lattice_momentum_balance/packet.py": "097bf1618b92a87603c638553bafa56977b52164cb3038d2844ac970d69531d4",
+    "model/lattice_momentum_balance/test_momentum.py": "c8a213eea7927782fede4f5da7a8abed7ab0c8d8decabb065d6774687ee21052"
+  }
+}

@@ -1,5 +1,38 @@
 # OPH Claim Registry
 
+The [three-dimensional and moving-particle work](../docs/THREE_DIMENSIONAL_PROGRESS_2026-11-01.md)
+adds five scoped results across five issues: an interacting protected cube
+sector, balanced adaptive references, controlled moving bound pairs and
+local momentum Ward error bounds, and model energy/mass extraction with
+exact physical-identification tests. The Weyl/contact claim, premise notes
+and completion registry retain every carrier, scheduler, state and
+comparison condition. Earlier exclusions retain their stated domains.
+Physical identification and eligible empirical counts are unchanged.
+
+The subsequent [internal-observer readout](../docs/INTERNAL_PARTICLE_MEASUREMENT_2026-11-01.md)
+attaches the protected cube's accessible neutral response to complete native
+pointer records. Its finite model identification is distinct from external
+particle species, and its prospective eight-line resolution schedule retains
+the required accuracy and independent-sampling premises.
+The [subsequent spectrum and relativistic extension](../docs/RESOLVED_SPECTRUM_AND_RELATIVISTIC_SECTOR_2026-11-01.md)
+closes that known-support reconstruction premise with certified accelerated
+emulation and gives a separate eight-valley massless finite-particle limit.
+A compiled Fourier/occupation detector additionally identifies finite model
+flavors and energies. Its retrospective PDG comparison rejects the stated
+direct physical identifications without fitting a unit scale. Carrier,
+vacuum, interaction and physical-identification boundaries remain explicit;
+no canonical premise or eligible physical comparison is promoted.
+
+The [interacting-reference and mass extension](../docs/INTERACTING_VACUUM_AND_RELATIVISTIC_MASS_2026-11-01.md)
+adds an exact global cube ground, positive ground-referenced charged
+response, a source-bound canonical chain charge gap, and controlled
+one-dimensional relativistic quasiparticle masses along an explicit coupling
+trajectory. The latter can pass through the original parameters but is not
+uniquely selected by them. The finite ground, centered thermodynamic reference,
+chosen refinement and physical particle correspondence retain separate scopes.
+These are additional attachments to the existing Weyl/contact claim; no
+physical identification, canonical discharge or integrated completion is added.
+
 The papers are the standalone source for their theorems, assumptions,
 falsifiers and claim boundaries. Executed constructions may instead name a
 self-contained protocol record as their owner. This directory contains the

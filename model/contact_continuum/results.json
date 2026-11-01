@@ -1,0 +1,182 @@
+{
+  "schema": "oph.repulsive_contact_continuum.v1",
+  "issues": [
+    1142,
+    1143
+  ],
+  "source_bindings": {
+    "model/contact_continuum/continuum.py": "1bc9d51d98e7022016a5290b334da06f6e979eb9bc5cf4562a0ff60c7c9fec07",
+    "model/contact_continuum/packet.py": "65f91e8ef142df0dd4fad64a568cf5273d75f9ed41cc7cbc85289387bc9abe9b",
+    "model/contact_continuum/test_continuum.py": "e83d78a7f8e1c34e7d71cfcd3565d50d1b59233f7fc428708df9fe3e476f9ff0",
+    "model/contact_continuum/README.md": "49714ba73687eb5a4e19df2d98aaaeee2f80ae74fdfbc0a858d9df00d4efb7b0",
+    "model/contact_scattering/onshell.py": "7f6746ab4c0a8f1b69f7fe538e01354c7fc3ec239f7b66065238692f2b0b384c",
+    "model/contact_scattering/ONSHELL.md": "bf71471796b3f5c2dbe8c3c161f260ffacc2e21e8c70ba013d5e86f47beaae45",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e"
+  },
+  "sign_certificate": {
+    "ratio_upper": "1/2",
+    "inverse_moment_lower": "1/12",
+    "positive_correction_upper": "8/405",
+    "negative_slope_magnitude_lower": "103/1620",
+    "rounded_negative_slope_magnitude_lower": "1/16",
+    "all_nodes": 8,
+    "contact_measure_mass": "1"
+  },
+  "scaling_rows": [
+    {
+      "spacing": "1",
+      "speed": "1/8",
+      "fixed_U_one": {
+        "universal_repulsive_bound": "16/45",
+        "specified_repulsion_bound": "1/45",
+        "combined_bound": "1/45",
+        "principal_green_upper": "-1/16",
+        "density_upper": "1/270"
+      },
+      "diverging_U_a_to_minus_ten": {
+        "universal_repulsive_bound": "16/45",
+        "specified_repulsion_bound": "1/45",
+        "combined_bound": "1/45",
+        "principal_green_upper": "-1/16",
+        "density_upper": "1/270"
+      }
+    },
+    {
+      "spacing": "1/2",
+      "speed": "1/4",
+      "fixed_U_one": {
+        "universal_repulsive_bound": "8/45",
+        "specified_repulsion_bound": "1/360",
+        "combined_bound": "1/360",
+        "principal_green_upper": "-1/64",
+        "density_upper": "1/2160"
+      },
+      "diverging_U_a_to_minus_ten": {
+        "universal_repulsive_bound": "8/45",
+        "specified_repulsion_bound": "128/45",
+        "combined_bound": "8/45",
+        "principal_green_upper": "-1/64",
+        "density_upper": "1/2160"
+      }
+    },
+    {
+      "spacing": "1/4",
+      "speed": "1/2",
+      "fixed_U_one": {
+        "universal_repulsive_bound": "4/45",
+        "specified_repulsion_bound": "1/2880",
+        "combined_bound": "1/2880",
+        "principal_green_upper": "-1/256",
+        "density_upper": "1/17280"
+      },
+      "diverging_U_a_to_minus_ten": {
+        "universal_repulsive_bound": "4/45",
+        "specified_repulsion_bound": "16384/45",
+        "combined_bound": "4/45",
+        "principal_green_upper": "-1/256",
+        "density_upper": "1/17280"
+      }
+    },
+    {
+      "spacing": "1/16",
+      "speed": "2",
+      "fixed_U_one": {
+        "universal_repulsive_bound": "1/45",
+        "specified_repulsion_bound": "1/184320",
+        "combined_bound": "1/184320",
+        "principal_green_upper": "-1/4096",
+        "density_upper": "1/1105920"
+      },
+      "diverging_U_a_to_minus_ten": {
+        "universal_repulsive_bound": "1/45",
+        "specified_repulsion_bound": "268435456/45",
+        "combined_bound": "1/45",
+        "principal_green_upper": "-1/4096",
+        "density_upper": "1/1105920"
+      }
+    },
+    {
+      "spacing": "1/64",
+      "speed": "8",
+      "fixed_U_one": {
+        "universal_repulsive_bound": "1/180",
+        "specified_repulsion_bound": "1/11796480",
+        "combined_bound": "1/11796480",
+        "principal_green_upper": "-1/65536",
+        "density_upper": "1/70778880"
+      },
+      "diverging_U_a_to_minus_ten": {
+        "universal_repulsive_bound": "1/180",
+        "specified_repulsion_bound": "4398046511104/45",
+        "combined_bound": "1/180",
+        "principal_green_upper": "-1/65536",
+        "density_upper": "1/70778880"
+      }
+    }
+  ],
+  "uniform_window": {
+    "spacing_upper": "9/12800",
+    "energy_cap": "1/16",
+    "velocity": "1/8",
+    "all_repulsive_U": true,
+    "error_upper": "1/1000"
+  },
+  "kinetic_example": {
+    "momentum": [
+      "1/2",
+      "-2/3",
+      "3/4"
+    ],
+    "spacing": "1/32",
+    "all_eight_nodes_error": "1457/84934656"
+  },
+  "broadened_diagnostic_not_boundary_value": [
+    {
+      "energy": 0.125,
+      "eta": 0.5,
+      "speed": 1.0,
+      "green_real": -0.021113863353620425,
+      "green_imaginary": -0.10687757373227857
+    },
+    {
+      "energy": 0.25,
+      "eta": 0.5,
+      "speed": 1.0,
+      "green_real": -0.04214819390732583,
+      "green_imaginary": -0.11080004129234045
+    },
+    {
+      "energy": 0.5,
+      "eta": 0.5,
+      "speed": 1.0,
+      "green_real": -0.08360525136093908,
+      "green_imaginary": -0.12682394893302512
+    }
+  ],
+  "verdict": "POSITIVE_ENERGY_CONTACT_SCATTERING_IS_UNIFORMLY_TRANSPARENT_AS_SPACING_VANISHES",
+  "quantified_domain": {
+    "total_momentum": [
+      0,
+      0,
+      0
+    ],
+    "energy": "0<E<=Emax, same model zero",
+    "kinetic_scaling": "c=v/a, fixed v>0",
+    "contact_scaling": "every finite U(a)>=0",
+    "energy_ratio": "E/c<=1/2",
+    "all_eight_Weyl_nodes_retained": true,
+    "S_domain": "absolutely continuous two-body scattering subspace"
+  },
+  "above_band_pair": "if present, E_pair>2 sqrt(3) v/a, so it escapes every bounded positive-energy window",
+  "exclusions_not_claimed": [
+    "negative-energy resonances",
+    "filled or shifted physical vacuum",
+    "nonzero total-momentum scaling",
+    "added interactions or counterterms",
+    "many-body continuum",
+    "whole OPH realization class"
+  ],
+  "physical_particle_identifications_added": 0,
+  "physical_gate_accepted": false
+}

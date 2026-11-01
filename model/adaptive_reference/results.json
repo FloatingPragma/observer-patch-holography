@@ -1,0 +1,857 @@
+{
+  "all_pass": true,
+  "arbitrary_feedback_covered": false,
+  "canonical_physical_premises_discharged": [],
+  "charge_clock_source_bound": {
+    "all_clock_export_failures_retained": true,
+    "centered_modular_generator": "gamma*N, with vacuum phase fixed to zero",
+    "clock_word_sha256": "d541f47a2aca85ffaf7b8d5a10b18be88b30dfa370a01fb8a02f87f0502b0d0e",
+    "complete_all_input_isometry_error": "36842258468530884705070673483543380191332957956207009266711059373727010704192221187398791471433826220479917374721980447247696604711540440224449589488805695237290235123841368233408330403172659566953235291382593786373890532797305084691953648162062918084116936463926524658397378583921755981929548483989254869811551/1358876362646858436224002796925544554692616751105915397364939429453186281796700413674260069400968504477679090922320116946964181036650506218282917748048410807308815635676942438841176366105174873584161060582497926951754028482158488364721556373373315532807188579179780561550772187911196691796154816816088072580658332103081984000",
+    "global_reference_normalization_phase_omitted_only_from_the_automorphism": true,
+    "modes": 12,
+    "modular_parameter": "1",
+    "per_mode_full_source_control_error": "108502287390934595433760629824285/730750818665451459101842416358141509827966271488",
+    "per_mode_scalar_and_reference_error": "34421057864506797163740433467257190822649716883083554305058422050931532824763176704033092635663583116021031623701099206441425183086259838287586222953842016963577654109344169264008857455118431470584444926053319971615353809284536839304824041906850212123939690517121254937967642148619102186156703072627834131251551/16306516351762301234688033563106534656311401013270984768379273153438235381560404964091120832811622053732149091067841403363570172439806074619395012976580929687705787628123309266094116393262098483009932726989975123421048341785901860376658676480479786393686262950157366738609266254934360301553857801793056870967899985236983808000",
+    "source_pulses": 24
+  },
+  "complete_balance": {
+    "CQ_algebra": "direct_sum_4 M3 for the finite mixing check; full field uses direct_sum_4 M_(2^M)",
+    "arbitrary_finite_selector_family": "(c,d)->(d+f(c,r) mod q,c) on q^2 classical working states",
+    "arbitrary_quantum_field_inputs_and_untouched_references": true,
+    "coherent_quantum_controller_source_execution_claimed": false,
+    "complete_and_unital_exact_integer_check": true,
+    "general_incoming_row_identity": "sum_r L_r^(v) L_r^(v)* = I at every output(u,v)",
+    "joint_population_numerator_over2": [
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "outgoing_column_identity": "sum_r L_r^(c)* L_r^(c) = I at every input(c,d)"
+  },
+  "complete_positive_history": {
+    "all_zero_words_accessible_with_branch": true,
+    "exact_output_population": [
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12",
+      "1/12"
+    ],
+    "formal_record_words_per_initial_state": "17^8",
+    "full_history_channel_forgets_initial_information": false,
+    "initial_memory_and_field_basis_recovered_from_final_state_and_history": true,
+    "positive_basis_histories": 3072,
+    "ticks": 8
+  },
+  "continuing_reference": {
+    "Hamiltonian_extension": "separate unitary layers selected by the current working memory, using arbitrary real durations and original number-preserving H, before or after the complete repair-plus-memory update; stationary state theorem only",
+    "abort_archive": "each globally aborted branch emits a distinct bypass symbol and freezes field and working memory at every tick",
+    "actual_literal_source_success_reference": "sigma_M=diag(a,b)^tensor M=a^M exp(gamma N), gamma=log(b/a)",
+    "arbitrary_feedback_policies_are_covered": false,
+    "arbitrary_finite_complete_histories_preserve_marginal": true,
+    "complete_record_covariance": "(exp(i t gamma N) tensor I_memory tensor I_record) V = V (exp(i t gamma N) tensor I_memory)",
+    "faithful_algebra": "full proper finite-Fock field algebra tensor classical four-state controller algebra",
+    "full_growing_history_is_stationary": false,
+    "modular_automorphism": "Ad exp(i t gamma N), identical in every classical controller sector",
+    "modular_generator_on_success_algebra": "-gamma N-M log(a)+log(4), controller-central scalar retained",
+    "new_physical_energy_temperature_clock_identification": false,
+    "no_success_normalization": true,
+    "premises": [
+      "complete selected repair: sum L*L=sum LL*=I",
+      "every selected L commutes with N",
+      "field Hamiltonian H commutes with N",
+      "two-register update (c,d)->(d XOR f(r),c)",
+      "independent exact native-balanced controller seed",
+      "all source-export abort sectors are frozen with their controller states"
+    ],
+    "proof": "at output(u,v), sum_r L_r^(v) sigma_M L_r^(v)*/4=sigma_M/4",
+    "simultaneous_record_conditioned_branch_state_stationarity": false,
+    "source_abort_mass": "1-(a+b)^M, retained outside the all-proper field block",
+    "stationary_field_controller_success_block": "Omega=sigma_M tensor I4/4, trace=(a+b)^M",
+    "traced_for_stationarity": "seed records, successful source occupation readouts, and appended native records"
+  },
+  "controller": {
+    "all_68_memory_record_pairs_checked": true,
+    "complete_record_slots": 17,
+    "controller_reads_field_loads_or_hidden_state": false,
+    "forward": "(c,d),r -> (d XOR (coin XOR (raw mod2)),c); outside uses f=0",
+    "incoming_selector_at_output_u_v": "v for every retained record",
+    "inverse_given_record": "(u,v),r -> (v,u XOR f(r))",
+    "supplied_classical_controller_law_not_quantum_source_compilation": true,
+    "working_bits": 2,
+    "working_memory_erasure_or_reset_per_tick": false,
+    "working_states": 4
+  },
+  "exact_native_seed": {
+    "exact_native_coin_probability": "1/2",
+    "full_C_raw_slots_per_event_including_zero": 8,
+    "full_two_event_raw_archive_slots": 64,
+    "input": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "input_status": "declared deterministic native simulator basis initialization",
+    "interacting_field_preparation_of_seed_spectator_claimed": false,
+    "native_events": 2,
+    "nonzero_two_event_archive_slots": 4,
+    "seam": [
+      0,
+      1
+    ],
+    "seed_angle_or_floating_tolerance_assumed": false,
+    "seed_records_retained_and_correlated_with_working_memory": true,
+    "spectator_unchanged_on_every_branch": true,
+    "uniform_memory": [
+      {
+        "memory": [
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "seed_records": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "memory": [
+          0,
+          1
+        ],
+        "probability": "1/4",
+        "seed_records": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "memory": [
+          1,
+          0
+        ],
+        "probability": "1/4",
+        "seed_records": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "memory": [
+          1,
+          1
+        ],
+        "probability": "1/4",
+        "seed_records": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  "finite_quantum_mixing": {
+    "Hilbert_space_population_dimension": 12,
+    "all_off_diagonal_field_inputs_included": true,
+    "arbitrary_reference_trace_error": "||Phi^n(rho)-I12/12 tensor rho_R||1 <= (61/64)^floor(n/8) ||rho-I12/12 tensor rho_R||1",
+    "depolarizing_weight": "3/64",
+    "domain": "repair-only invariant three-position highest-spin corner with two classical controller bits",
+    "full_Fock_or_interleaved_H_mixing_claimed": false,
+    "minimum_rank_one_path_count": 1,
+    "minorization": "Phi^8-(3/64)D is completely positive, D(X)=Tr(X) I12/12 on the CQ algebra",
+    "nontrivial_spectrum_radius_upper": "(61/64)^(1/8)",
+    "path_denominator": 256,
+    "quantum_algebra_dimension": 36,
+    "rank_one_path_counts": [
+      [
+        39,
+        13,
+        3,
+        39,
+        8,
+        18,
+        35,
+        4,
+        21,
+        28,
+        4,
+        42
+      ],
+      [
+        13,
+        23,
+        28,
+        13,
+        30,
+        25,
+        12,
+        28,
+        23,
+        22,
+        28,
+        11
+      ],
+      [
+        3,
+        28,
+        46,
+        3,
+        39,
+        21,
+        4,
+        42,
+        14,
+        11,
+        42,
+        1
+      ],
+      [
+        35,
+        12,
+        4,
+        35,
+        8,
+        16,
+        35,
+        8,
+        25,
+        30,
+        8,
+        40
+      ],
+      [
+        4,
+        28,
+        42,
+        4,
+        35,
+        21,
+        8,
+        40,
+        18,
+        13,
+        40,
+        3
+      ],
+      [
+        21,
+        23,
+        14,
+        21,
+        16,
+        25,
+        25,
+        18,
+        29,
+        25,
+        18,
+        21
+      ],
+      [
+        39,
+        13,
+        3,
+        39,
+        8,
+        18,
+        35,
+        4,
+        21,
+        28,
+        4,
+        42
+      ],
+      [
+        8,
+        30,
+        39,
+        8,
+        34,
+        25,
+        8,
+        35,
+        16,
+        12,
+        35,
+        4
+      ],
+      [
+        18,
+        25,
+        21,
+        18,
+        25,
+        29,
+        16,
+        21,
+        25,
+        23,
+        21,
+        14
+      ],
+      [
+        28,
+        22,
+        11,
+        28,
+        12,
+        23,
+        30,
+        13,
+        25,
+        23,
+        13,
+        28
+      ],
+      [
+        4,
+        28,
+        42,
+        4,
+        35,
+        21,
+        8,
+        40,
+        18,
+        13,
+        40,
+        3
+      ],
+      [
+        42,
+        11,
+        1,
+        42,
+        4,
+        14,
+        40,
+        3,
+        21,
+        28,
+        3,
+        47
+      ]
+    ],
+    "remaining_CPTP_weight": "61/64",
+    "ticks": 8,
+    "unique_faithful_stationary_state": "I12/12"
+  },
+  "full_growing_archive_stationary": false,
+  "gates": [
+    "CP-02"
+  ],
+  "integrated_gate_accepted": false,
+  "issues": [
+    1138
+  ],
+  "literal_field_reference": {
+    "a_lower": "8343699359066042367621680104117739891963645191370628953185893757647622747648107386879393211359/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+    "a_upper": "8343699359066067651089426975331886003369983889540720812025368803463468860013146910174998092833/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+    "all_six_dephasing_export_records_retained": true,
+    "angle_error": "10489601747271194458690141128321/91343852333181432387730302044767688728495783936",
+    "b_lower": "25031098077198152386332787183567365787297274272281978718397156318758714355309361683933784515551/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+    "b_upper": "25031098077198177669800534054781511898703612970452070577236631364574560467674401207229389397025/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+    "complete_one_mode_isometry_error": "34599301295406906025461765567889/182687704666362864775460604089535377456991567872",
+    "each_valid_probability_error": "12641733873435607073055703169349085045929419737522907923056182519761647802440737/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+    "exact_valid_weights_need_not_sum_to_one": true,
+    "full_source_port_error": "13620097800864517108081483311247/182687704666362864775460604089535377456991567872",
+    "gamma_definition": "log(b/a), a=|[exp(sum c_p D_p)]00|^2, b=|[exp(sum c_p D_p)]10|^2",
+    "gamma_lower": "17914539249413503257247979256863771785367222403449093343763893270924153489699616343245554828914417182987711170399341680672373160703290028574184173403755663203000855626142961490172371182343165111588485281673344242300446019200549914625540725212322340271124778517287963331590694628032195046534192498709829866148375268527795404449/16306516351762301234688033563106534656311401013270984768379273153438235381560404964091120832811622053732149091067841403363570172439806074619395012976580929687705787628123309266094116393262098483009932726989975123421048341785901860376658676480479786393686262950157366738609266254934360301553857801793056870967899985236983808000",
+    "gamma_minus_log3_absolute_bound": "421915307269072927223173121735454930758512002659717430999543715725107778106871216162168216026106555445409081292931439632984598173693239126004946824036503100489345263645132670/208851956983437469563017847154648467155584782687711103110524282804887402178655747841695055795813618076326687209465748491870850301515367821177623493359913701058759041208993680730701965343809",
+    "gamma_upper": "1728753037568409422100572428199408143229360992442343537015146780012391750137581351719120572729673261103454023361695051413272808912369546353660612319906580359466872248247226010806313008053362686700732699965712295242321982679186962155437228355336487061035157548684673057318158725504266171112403356907145717341265641145173707114141/1573578827945062069147395238839780594334050197780650030148599859306789714320579079034793160366321528185152387288046695424584521640441286200771618752240059714863608506113899344178082231949792503610458508154532599410131164982339529526347562280366299386990724374690185890275794193601165769099947277873029988048402348575368937472000",
+    "literal_controls": [
+      "4218260400674905/18014398509481984",
+      "-4218260400674905/18014398509481984",
+      "4218260400674905/18014398509481984",
+      "-4218260400674905/18014398509481984",
+      "0",
+      "0",
+      "0",
+      "0",
+      "5214056602029681/36028797018963968",
+      "5214056602029681/36028797018963968",
+      "-5214056602029681/36028797018963968",
+      "-5214056602029681/36028797018963968"
+    ],
+    "literal_controls_sha256": "7b760b4d4bb868ada1967eabc0b81f3229d589e2eddcb616a018120f6542dc55",
+    "one_mode_abort_probability_upper": "1197111650130346005372570709285653667241146388702137850667916321/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+    "word": [
+      {
+        "angle": -1.0471975511965976,
+        "kind": "Y",
+        "targets": [
+          0
+        ]
+      }
+    ]
+  },
+  "native_attachment": {
+    "all_E_corner_records_rank_at_most_one": true,
+    "complete_alphabet": [
+      [
+        "native",
+        0,
+        0
+      ],
+      [
+        "native",
+        0,
+        1
+      ],
+      [
+        "native",
+        0,
+        2
+      ],
+      [
+        "native",
+        0,
+        3
+      ],
+      [
+        "native",
+        0,
+        4
+      ],
+      [
+        "native",
+        0,
+        5
+      ],
+      [
+        "native",
+        0,
+        6
+      ],
+      [
+        "native",
+        0,
+        7
+      ],
+      [
+        "native",
+        1,
+        0
+      ],
+      [
+        "native",
+        1,
+        1
+      ],
+      [
+        "native",
+        1,
+        2
+      ],
+      [
+        "native",
+        1,
+        3
+      ],
+      [
+        "native",
+        1,
+        4
+      ],
+      [
+        "native",
+        1,
+        5
+      ],
+      [
+        "native",
+        1,
+        6
+      ],
+      [
+        "native",
+        1,
+        7
+      ],
+      [
+        "outside"
+      ]
+    ],
+    "corner": "three positions, two identical highest-spin charged defects on ports0,1,5",
+    "full_Fock_extension": "L_native on P plus Q=I-P; Q retained at unit amplitude",
+    "joined_H_evolution_preserves_this_corner": false,
+    "selected_instruments": [
+      {
+        "full_charged_dimension": 264,
+        "independent_signed_corner_columns_bound": true,
+        "input_and_output_column_counts": 2,
+        "law": "C",
+        "native_seam": [
+          0,
+          1
+        ],
+        "positive_raw_slots": 4,
+        "selector": 0
+      },
+      {
+        "full_charged_dimension": 264,
+        "independent_signed_corner_columns_bound": true,
+        "input_and_output_column_counts": 2,
+        "law": "E",
+        "native_seam": [
+          0,
+          5
+        ],
+        "positive_raw_slots": 6,
+        "selector": 1
+      }
+    ],
+    "zero_C_padding_is_not_an_extra_process": true
+  },
+  "negative_controls": {
+    "all_raw_records_or_outside_removed_is_not_the_declared_channel": true,
+    "complete_one_bit_output_row_numerators_over2": [
+      3,
+      1,
+      2,
+      1,
+      3,
+      2
+    ],
+    "fixed_zero_working_memory_is_not_uniform_stationary_input": true,
+    "mere_recordwise_reversibility_does_not_imply_joint_unitality": true,
+    "one_bit_map_reversible_for_each_fixed_record": true,
+    "one_bit_rule": "c -> c XOR f(r), same selector c and same complete raw outcomes",
+    "uniform_input_trace_distance_after_one_tick": "1/6"
+  },
+  "resource_rows": [
+    {
+      "appended_proper_repair_record_words": "17^0",
+      "compiled_per_tick_errors": "add 2 sum_j epsilon_j in complete-output trace norm for complete isometry errors epsilon_j; no hardware error assumed zero",
+      "conditional_XOR_and_swap_updates": 0,
+      "controller_quantum_pulse_compilation_claimed": false,
+      "field_preparation_export_records": "6^4",
+      "field_preparation_native_source_pulses": 4,
+      "finite_corner_arbitrary_input_mixing_bound": "2*(61/64)^0",
+      "global_abort_archive": "one repeated bypass word; all initial local abort labels retained",
+      "literal_field_preparation_complete_trace_error": "34599301295406906025461765567889/22835963083295358096932575511191922182123945984",
+      "local_bound_uniform_in_total_modes_and_ideal_adaptive_history_length": true,
+      "local_order": "trace complete outside outputs, then project the local proper code",
+      "local_reference_log_error": "50566935493742428292222812677396340183717678950091631692224730079046591209762948/8343699359066042367621680104117739891963645191370628953185893757647622747648107386879393211359",
+      "maximum_tick_record_alphabet_with_abort_bypass": 18,
+      "mixing_bound_applies_to_full_export_history": false,
+      "modes": 4,
+      "native_balanced_seed_events": 2,
+      "native_seed_or_memory_rounding_error": 0,
+      "record_storage_bits_upper": 6,
+      "record_storage_is_unbounded_as_ticks_increases": true,
+      "same_trace_error_after_any_ideal_balanced_adaptive_history": "34599301295406906025461765567889/22835963083295358096932575511191922182123945984",
+      "seed_archive_formal_raw_words": 64,
+      "ticks": 0,
+      "working_controller_bits": 2
+    },
+    {
+      "appended_proper_repair_record_words": "17^8",
+      "compiled_per_tick_errors": "add 2 sum_j epsilon_j in complete-output trace norm for complete isometry errors epsilon_j; no hardware error assumed zero",
+      "conditional_XOR_and_swap_updates": 8,
+      "controller_quantum_pulse_compilation_claimed": false,
+      "field_preparation_export_records": "6^12",
+      "field_preparation_native_source_pulses": 12,
+      "finite_corner_arbitrary_input_mixing_bound": "2*(61/64)^1",
+      "global_abort_archive": "one repeated bypass word; all initial local abort labels retained",
+      "literal_field_preparation_complete_trace_error": "103797903886220718076385296703667/22835963083295358096932575511191922182123945984",
+      "local_bound_uniform_in_total_modes_and_ideal_adaptive_history_length": true,
+      "local_order": "trace complete outside outputs, then project the local proper code",
+      "local_reference_log_error": "50566935493742428292222812677396340183717678950091631692224730079046591209762948/8343699359066042367621680104117739891963645191370628953185893757647622747648107386879393211359",
+      "maximum_tick_record_alphabet_with_abort_bypass": 18,
+      "mixing_bound_applies_to_full_export_history": false,
+      "modes": 12,
+      "native_balanced_seed_events": 2,
+      "native_seed_or_memory_rounding_error": 0,
+      "record_storage_bits_upper": 46,
+      "record_storage_is_unbounded_as_ticks_increases": true,
+      "same_trace_error_after_any_ideal_balanced_adaptive_history": "103797903886220718076385296703667/22835963083295358096932575511191922182123945984",
+      "seed_archive_formal_raw_words": 64,
+      "ticks": 8,
+      "working_controller_bits": 2
+    },
+    {
+      "appended_proper_repair_record_words": "17^1000",
+      "compiled_per_tick_errors": "add 2 sum_j epsilon_j in complete-output trace norm for complete isometry errors epsilon_j; no hardware error assumed zero",
+      "conditional_XOR_and_swap_updates": 1000,
+      "controller_quantum_pulse_compilation_claimed": false,
+      "field_preparation_export_records": "6^48",
+      "field_preparation_native_source_pulses": 48,
+      "finite_corner_arbitrary_input_mixing_bound": "2*(61/64)^125",
+      "global_abort_archive": "one repeated bypass word; all initial local abort labels retained",
+      "literal_field_preparation_complete_trace_error": "103797903886220718076385296703667/5708990770823839524233143877797980545530986496",
+      "local_bound_uniform_in_total_modes_and_ideal_adaptive_history_length": true,
+      "local_order": "trace complete outside outputs, then project the local proper code",
+      "local_reference_log_error": "50566935493742428292222812677396340183717678950091631692224730079046591209762948/8343699359066042367621680104117739891963645191370628953185893757647622747648107386879393211359",
+      "maximum_tick_record_alphabet_with_abort_bypass": 18,
+      "mixing_bound_applies_to_full_export_history": false,
+      "modes": 48,
+      "native_balanced_seed_events": 2,
+      "native_seed_or_memory_rounding_error": 0,
+      "record_storage_bits_upper": 5006,
+      "record_storage_is_unbounded_as_ticks_increases": true,
+      "same_trace_error_after_any_ideal_balanced_adaptive_history": "103797903886220718076385296703667/5708990770823839524233143877797980545530986496",
+      "seed_archive_formal_raw_words": 64,
+      "ticks": 1000,
+      "working_controller_bits": 2
+    },
+    {
+      "appended_proper_repair_record_words": "17^1000000",
+      "compiled_per_tick_errors": "add 2 sum_j epsilon_j in complete-output trace norm for complete isometry errors epsilon_j; no hardware error assumed zero",
+      "conditional_XOR_and_swap_updates": 1000000,
+      "controller_quantum_pulse_compilation_claimed": false,
+      "field_preparation_export_records": "6^10000",
+      "field_preparation_native_source_pulses": 10000,
+      "finite_corner_arbitrary_input_mixing_bound": "2*(61/64)^125000",
+      "global_abort_archive": "one repeated bypass word; all initial local abort labels retained",
+      "literal_field_preparation_complete_trace_error": "21624563309629316265913603479930625/5708990770823839524233143877797980545530986496",
+      "local_bound_uniform_in_total_modes_and_ideal_adaptive_history_length": true,
+      "local_order": "trace complete outside outputs, then project the local proper code",
+      "local_reference_log_error": "50566935493742428292222812677396340183717678950091631692224730079046591209762948/8343699359066042367621680104117739891963645191370628953185893757647622747648107386879393211359",
+      "maximum_tick_record_alphabet_with_abort_bypass": 18,
+      "mixing_bound_applies_to_full_export_history": false,
+      "modes": 10000,
+      "native_balanced_seed_events": 2,
+      "native_seed_or_memory_rounding_error": 0,
+      "record_storage_bits_upper": 5000006,
+      "record_storage_is_unbounded_as_ticks_increases": true,
+      "same_trace_error_after_any_ideal_balanced_adaptive_history": "21624563309629316265913603479930625/5708990770823839524233143877797980545530986496",
+      "seed_archive_formal_raw_words": 64,
+      "ticks": 1000000,
+      "working_controller_bits": 2
+    }
+  ],
+  "schema": "oph.adaptive_reference.v1",
+  "scope": "balanced adaptive classical memory and complete native repair with stationary field/controller marginal",
+  "source_or_repair_law_changed": false,
+  "source_sha256": {
+    "Lean/QFT/AdaptiveReference.lean": "9fe1949842d5190e9dda73e0fccfa62a9eb17b42af3703edc8766bc2e4a80c16",
+    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "model/adaptive_reference/README.md": "c2b863dea44b4c4aa99b84c3707d3635c256417c693c1564fc664b680e388008",
+    "model/adaptive_reference/__init__.py": "26f6bb5856520363ff7a91425caff1080b90d34fcde66bc27402de612dadbb7b",
+    "model/adaptive_reference/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/adaptive_reference/contract.json": "f873cb6f07acc7c825b123293486f78279d834de6798fbb10745db6e696c5727",
+    "model/adaptive_reference/controller.py": "07287f6cb300df4216b64dde83e7cd339eb9203ceae1fd82ccc3f8f487f32ffc",
+    "model/adaptive_reference/history.py": "0cb385f12df1d30f0988f683d462682ebca91057fa2ea0eff41cb3c4fc4c0d33",
+    "model/adaptive_reference/instrument.py": "2c0ce03762f9c4dedf58e903cc6ee936ea967bc4e50ccfbf91806389af527e71",
+    "model/adaptive_reference/packet.py": "12c1fe5f2706222a77f421991da42de8f5f98a42e8872ad04a3bbc3f2617f758",
+    "model/adaptive_reference/test_reference.py": "5055afcebb19bcc5f853df512a0c6844f02a10580d28a66d40c15deed16e4d92",
+    "model/certified_reference/interval.py": "9309359ad336ca95c478499fa12cb66389809ffb0104ff3e6ec64623cf032bb1",
+    "model/certified_reference/source.py": "f01634916ee9a2cc82c29521f240ddf9ae889eadd67227202c2d7de3cb9078c4",
+    "model/charged_defect/branches.py": "397cf75b246edc910377f050f27f79e555adef5b8f9aa789fde47ace3df4e6e6",
+    "model/charged_defect/dictionary.py": "bf159cb68a429b4b993810d667067aab51f619afebbf1f2fb03cc4f2d27c3541",
+    "model/continuing_reference/algebra.py": "5f6ae7aa5d105deed1eba4336b212d29507490d96316a2ae9ae895b9ad269efe",
+    "model/continuing_reference/preparation.py": "c220c4d876b6996e6d663a50b90c23ae6707e2d7c08d14d4badff8048512e3ee",
+    "model/continuing_reference/results.json": "3c68d635e41e5110e5a31b8688870452b96abb16dcf1a7dfe8137a5bf7fa899d",
+    "model/exchange_sector/statistics.py": "9bbfd1384e7e9800e010b5123591da85c23d6b114d8093f28606deb32e3214e5",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/particle_transport/algebra.py": "3b3d4d77a4b8e7f9ac9bb6f700a52b1cb52e2c4f5f092752329223e9400ba4d9",
+    "paper/tex_fragments/ADAPTIVE_REFERENCE.tex": "a016fe7ed902e75cf0e425cad77e956bd1b2037766c364e17aec321267e6343d"
+  }
+}
