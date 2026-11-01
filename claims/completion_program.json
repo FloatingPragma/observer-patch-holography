@@ -1589,7 +1589,7 @@
         },
         {
           "path": "model/charged_dynamics/results.json",
-          "sha256": "9741e272252a48cdae61ef8124e1bc1beb6c4958665958f71d84e03e839d5db3",
+          "sha256": "4032c046502b1aadedce30748156ac43104da7e290978d851d7b859ed56ea8ae",
           "independent_check": "model/charged_dynamics/test_packet.py",
           "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
           "campaign_id": "charged-action-dynamics-20261031-v1"
@@ -1600,6 +1600,13 @@
           "independent_check": "model/exchange_sector/test_many_body_packet.py",
           "scope": "The fixed twelve-port binary carrier has a complete integral first-homology and scalar flat-character catalogue over every occupation number zero through twelve. The declared one-particle face fillings and disjoint-move squares give cyclic H1 of order 2(N-1) for N=2 through 10, free rank nineteen at N=11, and trivial H1 at N=0, 1 and 12. Exact integer presentations and every local exchange generator are checked. Requiring local exchange holonomy to survive insertion of fixed spectators leaves exactly two scalar families, with common sign plus or minus, up to vertex gauge. This compatibility is explicit and selects neither sign. Both choices extend the existing complete C/E endpoint law to all 4096 binary occupations with fair coins and every raw, zero and abort slot. The negative choice agrees with even CAR transport; the positive choice is the hard-core occupation control. Restricted spectator insertion intertwines the same native branches on its avoiding subcomplex. Particle-hole complement preserves the movement graph but not the declared face fillings. No nonabelian many-particle classification, continuum equivalence, localized protected core, Lorentz spin, physical species or mass is established.",
           "campaign_id": "native-many-particle-statistics-20261031-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. The surviving eta ladder is a global supplied-Hamiltonian sector; it is not a boundary invariant of the all-seam C/E instrument.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -1911,10 +1918,17 @@
         },
         {
           "path": "model/charged_dynamics/results.json",
-          "sha256": "9741e272252a48cdae61ef8124e1bc1beb6c4958665958f71d84e03e839d5db3",
+          "sha256": "4032c046502b1aadedce30748156ac43104da7e290978d851d7b859ed56ea8ae",
           "independent_check": "model/charged_dynamics/test_packet.py",
           "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
           "campaign_id": "charged-action-dynamics-20261031-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The same full action has exact eta ladder frequency U in H and zero frequency in K=H-U*N/2. The complete source pair-phase experiment distinguishes these generators without identifying either with native repair cost, physical energy or proper time.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -2137,7 +2151,7 @@
         },
         {
           "path": "model/charged_dynamics/results.json",
-          "sha256": "9741e272252a48cdae61ef8124e1bc1beb6c4958665958f71d84e03e839d5db3",
+          "sha256": "4032c046502b1aadedce30748156ac43104da7e290978d851d7b859ed56ea8ae",
           "independent_check": "model/charged_dynamics/test_packet.py",
           "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
           "campaign_id": "charged-action-dynamics-20261031-v1"
@@ -2155,6 +2169,13 @@
           "independent_check": "model/particle_transport/test_packet.py",
           "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
           "campaign_id": "charged-particle-transport-20261031-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. A complete 256-state four-site plaquette history prepares a supplied even-charge coherent eta product, evolves it with the existing source words and reads all terminal occupation addresses after decoding. Every first-export failure and preparation/readout cost is retained. The ideal split is exact on this eta preparation; the arbitrary-input splitting bound and numerical primitive admission budget are separate. H rotates the pair phase at frequency U, whereas K=H-U*N/2 holds it fixed. The phase reference, action and Hamiltonian time remain supplied; no physical energy or clock calibration is inferred.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -2402,6 +2423,13 @@
           "independent_check": "model/defect_field_bridge/test_joint.py",
           "scope": "A bounded direct source-factor witness composes actual four-mode propagation, the matched canonical Higgs drive, two full-domain native repairs and the common operational clock on one carrier. It retains every particle-number sector, both flagged and coherent collision policies, both fair coins, all padded raw records, every final clock outcome and untouched references; zero branches are not discarded. Source matrices and explicit error budgets certify complete normalization and record-only common-time recovery. This finite four-mode experiment composes selected source factors; omitted boundary hops mean it is not an invariant two-site restriction of the full ring. It is not an executed 1080-mode interacting state, a 3+1 continuum, or independent measured-spectrum acceptance.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
+        },
+        {
+          "path": "model/field_symmetry/results.json",
+          "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e",
+          "independent_check": "model/field_symmetry/test_packet.py",
+          "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. Full-carrier creation/annihilation Ward identities join particle and hole operator content on the same interacting action, without projecting tastes or supplying a chiral continuum.",
+          "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
         }
       ]
     },
@@ -3326,6 +3354,24 @@
         "independent_check": "model/particle_transport/test_packet.py",
         "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
         "campaign_id": "charged-particle-transport-20261031-v1"
+      }
+    },
+    {
+      "id": "OPH-FIELD-SYMMETRY-2026-10-31",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-03",
+        "CP-04",
+        "CP-05",
+        "CP-06"
+      ],
+      "contract": {
+        "path": "model/field_symmetry/contract.json",
+        "sha256": "d27996f5fc76cd6ef07673ce30ae16169be35cd26af5fd1be7df41dbd18b1c18",
+        "independent_check": "model/field_symmetry/test_packet.py",
+        "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. A complete 256-state four-site plaquette history prepares a supplied even-charge coherent eta product, evolves it with the existing source words and reads all terminal occupation addresses after decoding. Every first-export failure and preparation/readout cost is retained. The ideal split is exact on this eta preparation; the arbitrary-input splitting bound and numerical primitive admission budget are separate. H rotates the pair phase at frequency U, whereas K=H-U*N/2 holds it fixed. The phase reference, action and Hamiltonian time remain supplied; no physical energy or clock calibration is inferred.",
+        "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31"
       }
     }
   ],

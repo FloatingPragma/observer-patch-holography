@@ -315,6 +315,7 @@ REPLAYS = (
     ("model.support_refinement", None, "model/support_refinement/results.json"),
     ("model.particle_comparison.compare", None, "model/particle_comparison/results.json"),
     ("model.particle_transport.packet", None, "model/particle_transport/results.json"),
+    ("model.field_symmetry", None, "model/field_symmetry/results.json"),
     ("model.biased_reset", None, "model/biased_reset/results.json"),
     ("model.band_clock", None, "model/band_clock/results.json"),
     ("model.band_clock_budget", None, "model/band_clock_budget/results.json"),
