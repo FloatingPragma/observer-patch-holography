@@ -31,11 +31,11 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_particles/evidence_contract.py": "2925e22820e59c8610610ae430a42fb46460341dcb6153447d287c025b69ec4f",
-    "model/observer_particles/results/spacetime_correspondence.json": "627d7e43f9de9d477e6971c2351326250e25b36466b71a1e3278a8b1bc430f90",
-    "model/observer_particles/results/spacetime_correspondence_arrays.npz": "899e222d0e97723ef9176bd0c0cdb34da5db4e782210df7d4d54f2f0edea82ad",
+    "model/observer_particles/results/spacetime_correspondence.json": "e6c5a1d141d102fa5a7dbae79b5e4c2b482b52b6820944f6e424bf3865b72b6a",
+    "model/observer_particles/results/spacetime_correspondence_arrays.npz": "aacc87dc4aed0aec088ec8b4e3221adbeb7029aa0c9b315831c278761316474a",
     "model/observer_particles/shared_spatial_matter.py": "b527d396b1a113377af6b17de05073d511f5f7fc199e3e37dd4ca8b294aeee43",
     "model/observer_particles/spacetime_correspondence.py": "bddb55e565bcc4d3184ba03ace39eaf21615212a058d745999eb7e7fb5859529",
     "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
@@ -51,7 +51,7 @@
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
   },
   "artifacts": {
-    "shared_spatial_matter_arrays.npz": "19621b76cd85e999c5048aa17692f315e833abc684fd8b676b46afe36319c724"
+    "shared_spatial_matter_arrays.npz": "dc18ff66017819ee048af33f8d967a0065ea941ba6007af4711d7066914f0a1f"
   },
   "empirical_mass_inputs": [],
   "geometry": {
@@ -77,7 +77,7 @@
       "quadratic_series_entry": "-5611/84672000",
       "absolute_tail_upper": "1/2304225",
       "certified_absolute_nonlocal_entry_lower": "1165019/17696448000",
-      "numerical_full_entry": -6.626774761284149e-05
+      "numerical_full_entry": -6.626774761291456e-05
     },
     "locality_scope": "D0 is nearest incidence-bond local; this particular Bwave factor changes that support atfinitecap. On bounded angular bands the correction tends toidentity asQ grows. No other local factorization is ruled out.",
     "Bwave_is_exact_Floquet_square_of_executed_two_axis_word": false,
@@ -101,7 +101,7 @@
         "incident_count": 0,
         "observer_time": 0.0,
         "complete_number_readout_probability_sum": 1.0,
-        "scalar_to_fermion_propagator_identity_error": 1.5543122344752192e-15,
+        "scalar_to_fermion_propagator_identity_error": 1.4432899320127035e-15,
         "node_probability": 1.0,
         "edge_probability": 0.0,
         "return_probability": 1.0,
@@ -111,7 +111,7 @@
         "incident_count": 1,
         "observer_time": 0.03984095364447979,
         "complete_number_readout_probability_sum": 1.0000000000000002,
-        "scalar_to_fermion_propagator_identity_error": 1.3322676295501878e-15,
+        "scalar_to_fermion_propagator_identity_error": 1.1102230246251565e-15,
         "node_probability": 0.9795374426347847,
         "edge_probability": 0.020462557365215482,
         "return_probability": 0.9795142955279127,
@@ -121,7 +121,7 @@
         "incident_count": 2,
         "observer_time": 0.07968190728895957,
         "complete_number_readout_probability_sum": 0.9999999999999998,
-        "scalar_to_fermion_propagator_identity_error": 1.5543122344752192e-15,
+        "scalar_to_fermion_propagator_identity_error": 7.771561172376096e-16,
         "node_probability": 0.9201874681527014,
         "edge_probability": 0.07981253184729836,
         "return_probability": 0.9198246355548368,
@@ -131,7 +131,7 @@
         "incident_count": 25,
         "observer_time": 0.9960238411119947,
         "complete_number_readout_probability_sum": 1.0000000000000004,
-        "scalar_to_fermion_propagator_identity_error": 7.771561172376096e-16,
+        "scalar_to_fermion_propagator_identity_error": 4.440892098500626e-16,
         "node_probability": 0.4661995523389015,
         "edge_probability": 0.5338004476610991,
         "return_probability": 0.35804463995628766,
@@ -143,7 +143,7 @@
         "incident_count": 0,
         "observer_time": 0.0,
         "complete_number_readout_probability_sum": 1.0,
-        "scalar_to_fermion_propagator_identity_error": 1.5543122344752192e-15,
+        "scalar_to_fermion_propagator_identity_error": 1.4432899320127035e-15,
         "node_probability": 1.0,
         "edge_probability": 0.0,
         "return_probability": 1.0,
@@ -153,7 +153,7 @@
         "incident_count": 1,
         "observer_time": 0.03984095364447979,
         "complete_number_readout_probability_sum": 1.0,
-        "scalar_to_fermion_propagator_identity_error": 1.5543122344752192e-15,
+        "scalar_to_fermion_propagator_identity_error": 1.4432899320127035e-15,
         "node_probability": 0.9795312308966687,
         "edge_probability": 0.020468769103331307,
         "return_probability": 0.9795080768697124,
@@ -163,21 +163,21 @@
         "incident_count": 2,
         "observer_time": 0.07968190728895957,
         "complete_number_readout_probability_sum": 1.0,
-        "scalar_to_fermion_propagator_identity_error": 1.2212453270876722e-15,
+        "scalar_to_fermion_propagator_identity_error": 7.771561172376096e-16,
         "node_probability": 0.9201637445121879,
-        "edge_probability": 0.07983625548781217,
+        "edge_probability": 0.07983625548781219,
         "return_probability": 0.9198008056210966,
         "off_initial_mode_probability": 0.08019919437890344
       },
       {
         "incident_count": 25,
         "observer_time": 0.9960238411119947,
-        "complete_number_readout_probability_sum": 1.0000000000000009,
-        "scalar_to_fermion_propagator_identity_error": 1.2212453270876722e-15,
-        "node_probability": 0.46621904648328627,
-        "edge_probability": 0.5337809535167146,
-        "return_probability": 0.35787745544370453,
-        "off_initial_mode_probability": 0.6421225445562955
+        "complete_number_readout_probability_sum": 1.0000000000000002,
+        "scalar_to_fermion_propagator_identity_error": 7.771561172376096e-16,
+        "node_probability": 0.4662190464832859,
+        "edge_probability": 0.5337809535167144,
+        "return_probability": 0.35787745544370414,
+        "off_initial_mode_probability": 0.6421225445562959
       }
     ],
     "exact_identity": "U_D(t) on nodeinput f has nodecos(t sqrtB)f and edge -i C sin(t sqrtB)/sqrtB f",
@@ -187,7 +187,7 @@
     "actual_two_axis_scalar_word_exactly_intertwined": false,
     "inherited_two_axis_split_controls": {
       "1": {
-        "single_code_unitary_error": 0.0014879466858669617,
+        "single_code_unitary_error": 0.001487946685866962,
         "two_axis_product_formula_error_upper": 0.0014884944718615456,
         "two_axis_pulse_synthesis_error_upper": 5.684341886080802e-14,
         "finite_split_clock_is_exact_target_modular_flow": false
@@ -199,7 +199,7 @@
         "finite_split_clock_is_exact_target_modular_flow": false
       },
       "25": {
-        "single_code_unitary_error": 0.025643275257919353,
+        "single_code_unitary_error": 0.02564327525791935,
         "two_axis_product_formula_error_upper": 0.03721236179653864,
         "two_axis_pulse_synthesis_error_upper": 1.4210854715202004e-12,
         "finite_split_clock_is_exact_target_modular_flow": false
@@ -225,7 +225,7 @@
     "finite_angular_factor_preserves_same_kernel": true,
     "one_time_unit_persistence_errors": [
       0.0,
-      3.966076021586291e-17
+      2.964512254036111e-17
     ],
     "node_modes": 720,
     "edge_modes": 2850,
@@ -254,14 +254,14 @@
       ],
       "local_edge_qubits": 8,
       "source_pulses": 136,
-      "whole_local_unitary_error": 1.42397973162876e-14
+      "whole_local_unitary_error": 1.4239797316287604e-14
     },
     "independent_full_CAR_mode_pair_checks": 16,
     "spectator_sign_source_checks": [
       {
         "actual_incidence_coefficient": -2,
         "source_pulses": 46,
-        "full16_occupation_column_error": 4.3939428459027614e-15
+        "full16_occupation_column_error": 4.393942845902761e-15
       },
       {
         "actual_incidence_coefficient": -1,
@@ -271,12 +271,12 @@
       {
         "actual_incidence_coefficient": 1,
         "source_pulses": 46,
-        "full16_occupation_column_error": 4.186761796628018e-15
+        "full16_occupation_column_error": 4.186761796628017e-15
       },
       {
         "actual_incidence_coefficient": 2,
         "source_pulses": 46,
-        "full16_occupation_column_error": 4.2318746264054936e-15
+        "full16_occupation_column_error": 4.231874626405493e-15
       }
     ],
     "complete_number_instrument_checked": true,

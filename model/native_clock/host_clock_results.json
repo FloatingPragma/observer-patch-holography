@@ -2,18 +2,18 @@
   "calibration": {
     "block": 0,
     "clock_port": 2,
-    "host_duration_ns": 32356500,
+    "host_duration_ns": 45033045,
     "local_tick_count": 1767,
-    "nanoseconds_per_local_tick": "10785500/589",
+    "nanoseconds_per_local_tick": "15011015/589",
     "other_clock_and_later_blocks_used_in_fit": false,
     "run": "baseline"
   },
   "clock_metadata": {
     "adjustable": false,
     "api": "time.perf_counter_ns",
-    "implementation": "mach_absolute_time()",
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
     "monotonic": true,
-    "reported_resolution_seconds": 4.166666666666666e-08,
+    "reported_resolution_seconds": 1e-09,
     "traceable_accuracy_bound_supplied": false
   },
   "declared_native_rate_envelope": {
@@ -27,63 +27,63 @@
       "block": 1,
       "clock_port": 3,
       "engineering_verdict": "within_tolerance",
-      "observed_host_duration_ns": 31219000,
-      "predicted_host_duration_ns": "17299942000/589",
-      "relative_error": "1088049/17299942",
+      "observed_host_duration_ns": 45779978,
+      "predicted_host_duration_ns": "24077668060/589",
+      "relative_error": "1443369491/12038834030",
       "run": "baseline"
     },
     {
       "block": 2,
       "clock_port": 3,
       "engineering_verdict": "within_tolerance",
-      "observed_host_duration_ns": 31731250,
-      "predicted_host_duration_ns": "18270637000/589",
-      "relative_error": "1676277/73082548",
+      "observed_host_duration_ns": 47960271,
+      "predicted_host_duration_ns": "25428659410/589",
+      "relative_error": "2819940209/25428659410",
       "run": "baseline"
     },
     {
       "block": 3,
       "clock_port": 3,
       "engineering_verdict": "within_tolerance",
-      "observed_host_duration_ns": 31413375,
-      "predicted_host_duration_ns": "17170516000/589",
-      "relative_error": "10655695/137364128",
+      "observed_host_duration_ns": 45141222,
+      "predicted_host_duration_ns": "23897535880/589",
+      "relative_error": "1345321939/11948767940",
       "run": "baseline"
     },
     {
       "block": 0,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 245831792,
-      "predicted_host_duration_ns": "16911664000/589",
-      "relative_error": "7992703843/1056979000",
+      "observed_host_duration_ns": 338992320,
+      "predicted_host_duration_ns": "23537271520/589",
+      "relative_error": "1100807531/147107947",
       "run": "host_work_control"
     },
     {
       "block": 1,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 858038917,
-      "predicted_host_duration_ns": "17299942000/589",
-      "relative_error": "13191485949/467566000",
+      "observed_host_duration_ns": 346113663,
+      "predicted_host_duration_ns": "24077668060/589",
+      "relative_error": "179783279447/24077668060",
       "run": "host_work_control"
     },
     {
       "block": 2,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 450908750,
-      "predicted_host_duration_ns": "18270637000/589",
-      "relative_error": "989258467/73082548",
+      "observed_host_duration_ns": 348872605,
+      "predicted_host_duration_ns": "25428659410/589",
+      "relative_error": "36011460987/5085731882",
       "run": "host_work_control"
     },
     {
       "block": 3,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 380260458,
-      "predicted_host_duration_ns": "17170516000/589",
-      "relative_error": "103401446881/8585258000",
+      "observed_host_duration_ns": 350056523,
+      "predicted_host_duration_ns": "23897535880/589",
+      "relative_error": "182285756167/23897535880",
       "run": "host_work_control"
     }
   ],
@@ -134,7 +134,7 @@
         {
           "block": 0,
           "complete": true,
-          "host_duration_ns": 32356500,
+          "host_duration_ns": 45033045,
           "local_counts": [
             1760,
             1588,
@@ -155,7 +155,7 @@
         {
           "block": 1,
           "complete": true,
-          "host_duration_ns": 31219000,
+          "host_duration_ns": 45779978,
           "local_counts": [
             1771,
             1704,
@@ -176,7 +176,7 @@
         {
           "block": 2,
           "complete": true,
-          "host_duration_ns": 31731250,
+          "host_duration_ns": 47960271,
           "local_counts": [
             1608,
             1618,
@@ -197,7 +197,7 @@
         {
           "block": 3,
           "complete": true,
-          "host_duration_ns": 31413375,
+          "host_duration_ns": 45141222,
           "local_counts": [
             1743,
             1689,
@@ -244,7 +244,7 @@
         {
           "block": 0,
           "complete": true,
-          "host_duration_ns": 245831792,
+          "host_duration_ns": 338992320,
           "local_counts": [
             1760,
             1588,
@@ -265,7 +265,7 @@
         {
           "block": 1,
           "complete": true,
-          "host_duration_ns": 858038917,
+          "host_duration_ns": 346113663,
           "local_counts": [
             1771,
             1704,
@@ -286,7 +286,7 @@
         {
           "block": 2,
           "complete": true,
-          "host_duration_ns": 450908750,
+          "host_duration_ns": 348872605,
           "local_counts": [
             1608,
             1618,
@@ -307,7 +307,7 @@
         {
           "block": 3,
           "complete": true,
-          "host_duration_ns": 380260458,
+          "host_duration_ns": 350056523,
           "local_counts": [
             1743,
             1689,
@@ -335,7 +335,7 @@
       "seeded_source_addresses_and_work_sink_replayed": true
     }
   ],
-  "raw_records_canonical_sha256": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f",
+  "raw_records_canonical_sha256": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
   "replay_integrity_passed": true,
   "schema": "oph.native_host_clock_attachment.v1",
   "scope": {
@@ -371,16 +371,16 @@
     "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "timing_control": {
     "control_rejected_in_every_measured_block": true,
     "control_to_baseline_duration_ratios_by_block": [
-      "61457948/8089125",
-      "858038917/31219000",
-      "360727/25385",
-      "42251162/3490375"
+      "22599488/3002203",
+      "346113663/45779978",
+      "348872605/47960271",
+      "350056523/45141222"
     ],
     "same_complete_native_records": true,
     "timing_tolerance_is_a_confidence_interval": false
