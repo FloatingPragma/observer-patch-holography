@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_BINDINGS = {
     'model/local_repair_family/local_bias.py': '4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755',
     'model/local_repair_family/modular_clock.py': 'e66cdb06b13d2e4d66495ce8f4ccfae1bd96828c8265bdbb22c5be071bf71d8a',
-    'model/local_repair_family/record_clock_results.json': '2f0b5b895ce1ac7c6455cf4bff6faf1d37bb25ded0208d2df66212e8b0cdc1da',
+    'model/local_repair_family/record_clock_results.json': 'ac5c90623c5311f5de9965b12e4ef732888fc0ceac65a1d695fdb8ab6be6192b',
     'model/bound_pair/fiber.py': 'a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e',
     'model/bound_pair/protection.py': '99affa2080d03d5526122b97e0b75b6cdc1dd114116eedcacdf094287a2f0db1',
     'model/particle_clock/results.json': '114cf1b49b1b80b21edebabf9d2258b81432c4a35d1409ab613ac0e0402700bb',

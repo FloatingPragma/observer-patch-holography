@@ -40,8 +40,10 @@ states and rejects actual support violations.
    cancellation-prone formula when those are the operations under test.
 4. Inventory the complete owning-receipt closure, exposure pins and signed
    contract references before replaying descendants. Enumerate all stale
-   inputs together. Renew a signed digest when an authenticated reference
-   changes; do not preserve the old digest by excluding fields from its
+   inputs together, including executable hash literals, alternate hash maps,
+   directory-relative manifests and derived receipt digests. Renew a signed
+   digest when an authenticated reference changes; do not preserve the old
+   digest by excluding fields from its
    checker. Check the exact consumed data when an older whole-file pin
    differs, and distinguish scientific replay from audited metadata equivalence.
 
