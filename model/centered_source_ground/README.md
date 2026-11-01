@@ -16,7 +16,7 @@ every other charge sector exceeds `1/8` model energy unit at `c=1/8,U=1`.
 The reference approximation has certified infidelity below `10^-6`.
 These finite source energies do not identify relativistic masses.
 
-The original action and all earlier receipts remain unchanged. The
+The original action and earlier scientific results remain unchanged. The
 subtraction is an explicitly recorded comparison dynamics, motivated by
 the necessary CPT centering in
 [continuum_cpt_constraint](../continuum_cpt_constraint/README.md).
