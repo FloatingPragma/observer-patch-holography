@@ -300,8 +300,8 @@ def mass_order_certificate():
         _zero(commutator(total_spin[a], hidden[b+1])-_times(hidden[c+1], 2j),
               'staggered mass spin vector does not transform under the actual spin')
     return {'classified_onsite_mass_channels_bound': 4,
-            'physical_channels': ['(-1)^(x0+x1+x2) I', '(-1)^x0 sigma0', '(-1)^x1 sigma1', '(-1)^x2 sigma2'],
-            'hidden_frame_channels': 'eta_x times (I,sigma0,sigma1,sigma2)',
+            'physical_channels': ['(-1)^(x1+x2+x3) I', '(-1)^x1 sigma1', '(-1)^x2 sigma2', '(-1)^x3 sigma3'],
+            'hidden_frame_channels': 'eta_x times (I,sigma1,sigma2,sigma3)',
             'centered_local_order_definition': 'c_x* B_x c_x-Tr(B_x)/2; the scalar is eta_x(N_x-1)',
             'uncentered_scalar_local_expectation': 'eta_x; its full balanced-cube sum is zero',
             'actual_unique_ground_order_expectations': ['0', '0', '0', '0'],
