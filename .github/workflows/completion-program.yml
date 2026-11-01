@@ -38,6 +38,7 @@ on:
       - 'model/biased_code_universality/**'
       - 'model/energy_identifiability/**'
       - 'model/regional_modular/**'
+      - 'model/regional_clock/**'
       - 'model/band_clock_budget/**'
       - 'model/compiled_native_history/**'
       - 'model/reference_observation/**'
@@ -103,6 +104,7 @@ on:
       - 'model/biased_code_universality/**'
       - 'model/energy_identifiability/**'
       - 'model/regional_modular/**'
+      - 'model/regional_clock/**'
       - 'model/band_clock_budget/**'
       - 'model/compiled_native_history/**'
       - 'model/reference_observation/**'
@@ -227,6 +229,8 @@ jobs:
       - run: python -m pytest -q -W error model/band_clock model/native_localization model/native_program
       - run: python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality
       - run: python -m pytest -q -W error model/energy_identifiability model/regional_modular model/band_clock_budget model/compiled_native_history
+      - run: python -m pytest -q -W error model/regional_clock
+      - run: python -m model.regional_clock.verify --check
       - run: python -m pytest -q -W error model/reference_observation model/native_fixed_algebra model/gauged_field model/full_fock_field
       - run: python -m pytest -q -W error model/field_thermal model/support_refinement
       - run: python -m model.support_refinement --check model/support_refinement/results.json
