@@ -26,6 +26,8 @@ on:
       - '.github/workflows/observer-model.yml'
   push:
     branches: [main]
+    # Tag pushes ignore path filters, so every release tag runs both platforms.
+    tags: ['r*']
     paths:
       - 'model/**'
       - 'code/P_derivation/**'
@@ -49,6 +51,14 @@ on:
       - 'paper/tex_fragments/OBSERVERS_N_CLOSURE_PRO5.tex'
       - '.github/workflows/observer-model.yml'
   workflow_dispatch:
+  schedule:
+    # Nightly Windows run of every observer shard and regression partition.
+    - cron: "47 4 * * *"
+
+# Pushes to main and pull requests run on Ubuntu. Windows runs nightly, on
+# release tags and on manual dispatch, the platform policy of the Mandatory
+# Suite, so a portability break surfaces within a day and the per-push
+# critical path stays well under an hour.
 
 permissions:
   contents: read
@@ -59,7 +69,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
         shard: [0, 1, 2, 3, 4, 5]
     runs-on: ${{ matrix.os }}
     # All shards check every artifact hash. The empirical shared-cache worker
@@ -102,12 +112,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        shard: [0, 1, 2]
+        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
+        shard: [0, 1, 2, 3]
     runs-on: ${{ matrix.os }}
     # Every job collects the full suite, then executes a disjoint set of whole
-    # test modules. Collection failures remain fatal on every shard. Extra
-    # portability and particle-witness commands execute once per platform.
+    # test modules, balanced by model/pytest_shard_costs.json. Collection
+    # failures remain fatal on every shard. Extra portability and
+    # particle-witness commands execute once per platform.
     timeout-minutes: ${{ matrix.os == 'windows-latest' && 120 || 90 }}
     env:
       PYTHONUTF8: '1'
@@ -140,7 +151,7 @@ jobs:
           ):
               subprocess.run([sys.executable, "-m", f"model.{package}.{name}",
                               "--check", f"model/{package}/{name}_results.json"], check=True)
-      - run: python -m pytest -q -W error -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 3 model
+      - run: python -m pytest -q -W error -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 model
       - if: matrix.shard == 0
         run: python -B model/observer_particles/run.py --verify-only
       - if: matrix.shard == 0

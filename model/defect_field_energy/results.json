@@ -1,0 +1,3651 @@
+{
+  "schema": "oph.defect_field_energy.same_carrier_balance.v1",
+  "source_sha256": {
+    "model/defect_field_energy/energy.py": "bc9cc0331458844dd091a9ed16be3224392055084198d6cf9310374e93ce42a6",
+    "model/defect_field_energy/balance.py": "89e027a3fb7cfd29101c456dc94df7beef9d021c6fd75f9df2e37b01e28bc08d",
+    "model/defect_field_energy/readout.py": "ceea3a20a06f8d06694e1aedf8bb44fbff7b48995f1ae52a90619077e662584f",
+    "model/defect_field_energy/packet.py": "54ff96eea4230abe200a85b5bba124fd5b8e043b22f18aa1f28b74ab0f7f2f7d",
+    "model/defect_field_energy/test_energy.py": "a9c594867ddf7103cff08bd6411af96b218a31af7d4f66d4ac48b32fbeeb599e",
+    "model/defect_field_energy/README.md": "61c09f1ddfe1a13cdc64ae8b523de1967c7b0dcd1e9d34edad582219ca04598f",
+    "model/defect_field_bridge/joint.py": "156a9a15dd45b8cb97dfa054fcdfc72926a9e802708a90ecc8e4589c6fee1702",
+    "model/defect_field_bridge/full_domain.py": "7e131b9f73c7bc369f56dce91767bc1651be26bff76d087845bb64aab7ca13e7",
+    "model/defect_field_bridge/coherent_extension.py": "b771fac729ae28f8c32e372787bab48b7acc02b06abf3e0c7d4dd9dc6fc06740",
+    "model/defect_field_interactions/interaction.py": "6485327385a3aa3bca3e5dd113eff2a061b1640d0101ac0bf6d302abf1b7a99d",
+    "model/defect_field_propagation/propagation.py": "255757c7e4f49b75f37ab8faea82af842b13f4d57e7f5425318ffaf7bc561688",
+    "model/defect_field_benchmark/quasiparticles.py": "5a4a9cd6f13ed5b82a93ab279d57701567a9b6bcab2cae57e58bb47812171ac0",
+    "model/common_source/calibrated_matter.py": "472eeba2ea6e3916a38a8cce1b933977c8f31f8bbb897fbe9dd2c508067cdf0e",
+    "model/common_source/calibrated_matter_parameters.json": "2e48d4199d48e9c9d4520d060f68043a4ff569cd87fdad6990ae5bc7b99539f8",
+    "model/defect_field_clock/clock.py": "4e8d4d954f93e59949002522fbae00e0cf759bb6a4281e6501682569deac39f2",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade"
+  },
+  "continuity": {
+    "component_rows": [
+      {
+        "internal_component": [
+          0,
+          66
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          0,
+          66
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          1,
+          67
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          1,
+          67
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          2,
+          68
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          2,
+          68
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          3,
+          60
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          3,
+          60
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          4,
+          61
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          4,
+          61
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          5,
+          62
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          5,
+          62
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          6,
+          57
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          6,
+          57
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          7,
+          58
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          7,
+          58
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          8,
+          59
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          8,
+          59
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          9,
+          10,
+          11,
+          87,
+          88,
+          89
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          9,
+          10,
+          11,
+          87,
+          88,
+          89
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          12,
+          51
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          12,
+          51
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          13,
+          52
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          13,
+          52
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          14,
+          53
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          14,
+          53
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          15,
+          48
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          15,
+          48
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          16,
+          49
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          16,
+          49
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          17,
+          50
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          17,
+          50
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          18,
+          19,
+          20,
+          84,
+          85,
+          86
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          18,
+          19,
+          20,
+          84,
+          85,
+          86
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          21,
+          45
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          21,
+          45
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          22,
+          46
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          22,
+          46
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          23,
+          47
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          23,
+          47
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          24,
+          25,
+          26,
+          81,
+          82,
+          83
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          24,
+          25,
+          26,
+          81,
+          82,
+          83
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          27,
+          78
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          27,
+          78
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          28,
+          79
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          28,
+          79
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          29,
+          80
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          29,
+          80
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          30
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          30
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          31
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          31
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          32
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          32
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          33,
+          72
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          33,
+          72
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          34,
+          73
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          34,
+          73
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          35,
+          74
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          35,
+          74
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 24,
+        "Nambu_directions": 48,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          36,
+          37,
+          38,
+          69,
+          70,
+          71
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          36,
+          37,
+          38,
+          69,
+          70,
+          71
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          39,
+          40,
+          41,
+          63,
+          64,
+          65
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          39,
+          40,
+          41,
+          63,
+          64,
+          65
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          42,
+          43,
+          44,
+          54,
+          55,
+          56
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          42,
+          43,
+          44,
+          54,
+          55,
+          56
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 72,
+        "Nambu_directions": 144,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          75
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          75
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          76
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          76
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          77
+        ],
+        "phase": 0.0,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      },
+      {
+        "internal_component": [
+          77
+        ],
+        "phase": 1.5707963267948966,
+        "spatial_CAR_modes": 12,
+        "Nambu_directions": 24,
+        "local_energies": 12,
+        "oriented_range_at_most_two_current_slots": 48,
+        "all_other_current_slots_zero_by_disjoint_support": true,
+        "identity_absolute_matrix_guard": 2e-09
+      }
+    ],
+    "total_CAR_modes": 1080,
+    "complete_centered_quadratic_identity": "[F(A),F(B)]=F([A,B]), F(B)=Psi\u2020 B Psi/2",
+    "normal_order_scalar": "F(B)+c=c\u2020 h c+(c\u2020 Delta c\u2020+h.c.)/2+c-Tr(h)/2",
+    "local_energy": "all onsite Higgs pairing plus one half of each incident kinetic bond and the stated scalar share",
+    "current_convention": "J[y,x]=F(i[B_y,B_x]), current from y to x",
+    "work_power": "dot(phi) F(partial_phi B_x); fixed reference has zero derivative",
+    "global_balance": "d<H>/dt_eff=dot(phi)<partial_phi H> under the simultaneous Hamiltonian",
+    "actual_ordered_product_equals_simultaneous_exponential": false,
+    "bare_propagation_reference_scalar": 0,
+    "optional_common_static_reference_scalar": 11487.312700613904,
+    "common_reference_phase_source_resources": {
+      "native_pulses": 1,
+      "single_code_pulses": 1,
+      "pair_code_pulses": 0,
+      "zero_angle_requests": 0,
+      "identity_phase_pulses": 1,
+      "proper_code_load_events": 1,
+      "proper_code_export_events": 1,
+      "proper_code_service_events": 2,
+      "integrated_processor_norm_upper": 11487.312700613904,
+      "maximum_work_qubits": 1,
+      "maximum_numerical_valid_code_leakage": 0.0,
+      "service_failure_outcomes_retained": true,
+      "valid_code_failure_probability_in_exact_arithmetic": 0,
+      "initialization_storage_readout_physical_costs_included": false
+    }
+  },
+  "grouped_neutral_pointer_definitions": [
+    {
+      "tag": "pointer0",
+      "kind": "number",
+      "modes": [
+        0
+      ],
+      "coefficient": [
+        0.000487788762347831,
+        0.0
+      ],
+      "coefficient_symbolic": "m",
+      "eigenvalues": [
+        0.0,
+        0.000487788762347831,
+        0.0,
+        0.0
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 3,
+        "single_code_pulses": 2,
+        "pair_code_pulses": 1,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 0,
+        "proper_code_load_events": 3,
+        "proper_code_export_events": 3,
+        "proper_code_service_events": 6,
+        "integrated_processor_norm_upper": 6.283185307179586,
+        "maximum_work_qubits": 5,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer1",
+      "kind": "pairing",
+      "modes": [
+        0,
+        3
+      ],
+      "coefficient": [
+        -0.5,
+        0.0
+      ],
+      "coefficient_symbolic": "-1/2",
+      "eigenvalues": [
+        -0.5,
+        0.0,
+        0.0,
+        0.4999999999999999
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 134,
+        "single_code_pulses": 104,
+        "pair_code_pulses": 30,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 8,
+        "proper_code_load_events": 134,
+        "proper_code_export_events": 134,
+        "proper_code_service_events": 268,
+        "integrated_processor_norm_upper": 221.4822820780804,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer2",
+      "kind": "number",
+      "modes": [
+        1
+      ],
+      "coefficient": [
+        0.000487788762347831,
+        0.0
+      ],
+      "coefficient_symbolic": "m",
+      "eigenvalues": [
+        0.0,
+        0.000487788762347831,
+        0.0,
+        0.0
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 3,
+        "single_code_pulses": 2,
+        "pair_code_pulses": 1,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 0,
+        "proper_code_load_events": 3,
+        "proper_code_export_events": 3,
+        "proper_code_service_events": 6,
+        "integrated_processor_norm_upper": 6.283185307179586,
+        "maximum_work_qubits": 5,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer3",
+      "kind": "pairing",
+      "modes": [
+        1,
+        2
+      ],
+      "coefficient": [
+        -0.5,
+        0.0
+      ],
+      "coefficient_symbolic": "-1/2",
+      "eigenvalues": [
+        -0.5,
+        -0.0,
+        -0.0,
+        0.4999999999999999
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 58,
+        "single_code_pulses": 48,
+        "pair_code_pulses": 10,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 4,
+        "proper_code_load_events": 58,
+        "proper_code_export_events": 58,
+        "proper_code_service_events": 116,
+        "integrated_processor_norm_upper": 83.25220532012952,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer4",
+      "kind": "number",
+      "modes": [
+        2
+      ],
+      "coefficient": [
+        0.000487788762347831,
+        0.0
+      ],
+      "coefficient_symbolic": "m",
+      "eigenvalues": [
+        0.0,
+        0.000487788762347831,
+        0.0,
+        0.0
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 3,
+        "single_code_pulses": 2,
+        "pair_code_pulses": 1,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 0,
+        "proper_code_load_events": 3,
+        "proper_code_export_events": 3,
+        "proper_code_service_events": 6,
+        "integrated_processor_norm_upper": 6.283185307179586,
+        "maximum_work_qubits": 5,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer5",
+      "kind": "number",
+      "modes": [
+        3
+      ],
+      "coefficient": [
+        0.000487788762347831,
+        0.0
+      ],
+      "coefficient_symbolic": "m",
+      "eigenvalues": [
+        0.0,
+        0.000487788762347831,
+        0.0,
+        0.0
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 3,
+        "single_code_pulses": 2,
+        "pair_code_pulses": 1,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 0,
+        "proper_code_load_events": 3,
+        "proper_code_export_events": 3,
+        "proper_code_service_events": 6,
+        "integrated_processor_norm_upper": 6.283185307179586,
+        "maximum_work_qubits": 5,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer6",
+      "kind": "pairing",
+      "modes": [
+        0,
+        3
+      ],
+      "coefficient": [
+        -0.25,
+        0.0
+      ],
+      "coefficient_symbolic": "-1/4",
+      "eigenvalues": [
+        -0.25,
+        0.0,
+        0.0,
+        0.24999999999999994
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 134,
+        "single_code_pulses": 104,
+        "pair_code_pulses": 30,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 8,
+        "proper_code_load_events": 134,
+        "proper_code_export_events": 134,
+        "proper_code_service_events": 268,
+        "integrated_processor_norm_upper": 221.4822820780804,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer7",
+      "kind": "pairing",
+      "modes": [
+        1,
+        2
+      ],
+      "coefficient": [
+        -0.25,
+        0.0
+      ],
+      "coefficient_symbolic": "-1/4",
+      "eigenvalues": [
+        -0.25,
+        -0.0,
+        -0.0,
+        0.24999999999999994
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 58,
+        "single_code_pulses": 48,
+        "pair_code_pulses": 10,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 4,
+        "proper_code_load_events": 58,
+        "proper_code_export_events": 58,
+        "proper_code_service_events": 116,
+        "integrated_processor_norm_upper": 83.25220532012952,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer8",
+      "kind": "pairing",
+      "modes": [
+        0,
+        1
+      ],
+      "coefficient": [
+        0.000487788762347831,
+        0.0
+      ],
+      "coefficient_symbolic": "m",
+      "eigenvalues": [
+        -0.0004877887623478309,
+        0.0,
+        0.0,
+        0.00048778876234783087
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 58,
+        "single_code_pulses": 48,
+        "pair_code_pulses": 10,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 4,
+        "proper_code_load_events": 58,
+        "proper_code_export_events": 58,
+        "proper_code_service_events": 116,
+        "integrated_processor_norm_upper": 83.25220532012952,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer9",
+      "kind": "pairing",
+      "modes": [
+        2,
+        3
+      ],
+      "coefficient": [
+        0.000487788762347831,
+        0.0
+      ],
+      "coefficient_symbolic": "m",
+      "eigenvalues": [
+        -0.0004877887623478309,
+        0.0,
+        0.0,
+        0.00048778876234783087
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 58,
+        "single_code_pulses": 48,
+        "pair_code_pulses": 10,
+        "zero_angle_requests": 0,
+        "identity_phase_pulses": 4,
+        "proper_code_load_events": 58,
+        "proper_code_export_events": 58,
+        "proper_code_service_events": 116,
+        "integrated_processor_norm_upper": 83.25220532012952,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer10",
+      "kind": "hopping",
+      "modes": [
+        0,
+        2
+      ],
+      "coefficient": [
+        0.0,
+        -0.0625
+      ],
+      "coefficient_symbolic": "-I/16",
+      "eigenvalues": [
+        0.0,
+        0.0625,
+        -0.062499999999999986,
+        0.0
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 96,
+        "single_code_pulses": 76,
+        "pair_code_pulses": 20,
+        "zero_angle_requests": 8,
+        "identity_phase_pulses": 6,
+        "proper_code_load_events": 96,
+        "proper_code_export_events": 96,
+        "proper_code_service_events": 192,
+        "integrated_processor_norm_upper": 146.08405839192537,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    },
+    {
+      "tag": "pointer11",
+      "kind": "hopping",
+      "modes": [
+        1,
+        3
+      ],
+      "coefficient": [
+        0.0,
+        -0.0625
+      ],
+      "coefficient_symbolic": "-I/16",
+      "eigenvalues": [
+        0.0,
+        0.0625,
+        -0.062499999999999986,
+        0.0
+      ],
+      "full_source_input_columns": 64,
+      "outcomes": 4,
+      "each_field_Kraus_commutes_with_Q": true,
+      "source_resources": {
+        "native_pulses": 96,
+        "single_code_pulses": 76,
+        "pair_code_pulses": 20,
+        "zero_angle_requests": 8,
+        "identity_phase_pulses": 6,
+        "proper_code_load_events": 96,
+        "proper_code_export_events": 96,
+        "proper_code_service_events": 192,
+        "integrated_processor_norm_upper": 146.08405839192537,
+        "maximum_work_qubits": 6,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "service_failure_outcomes_retained": true,
+        "valid_code_failure_probability_in_exact_arithmetic": 0,
+        "initialization_storage_readout_physical_costs_included": false
+      }
+    }
+  ],
+  "exact_quadratic_observable_decomposition": {
+    "H": {
+      "constant": -0.000975577524695662,
+      "constant_symbolic": "-2*m",
+      "terms": [
+        {
+          "kind": "number",
+          "modes": [
+            0
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "pairing",
+          "modes": [
+            0,
+            3
+          ],
+          "coefficient": [
+            -0.5,
+            0.0
+          ],
+          "coefficient_symbolic": "-1/2"
+        },
+        {
+          "kind": "number",
+          "modes": [
+            1
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "pairing",
+          "modes": [
+            1,
+            2
+          ],
+          "coefficient": [
+            -0.5,
+            0.0
+          ],
+          "coefficient_symbolic": "-1/2"
+        },
+        {
+          "kind": "number",
+          "modes": [
+            2
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "number",
+          "modes": [
+            3
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        }
+      ]
+    },
+    "h0": {
+      "constant": -0.000487788762347831,
+      "constant_symbolic": "-m",
+      "terms": [
+        {
+          "kind": "number",
+          "modes": [
+            0
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "pairing",
+          "modes": [
+            0,
+            3
+          ],
+          "coefficient": [
+            -0.25,
+            0.0
+          ],
+          "coefficient_symbolic": "-1/4"
+        },
+        {
+          "kind": "number",
+          "modes": [
+            1
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "pairing",
+          "modes": [
+            1,
+            2
+          ],
+          "coefficient": [
+            -0.25,
+            0.0
+          ],
+          "coefficient_symbolic": "-1/4"
+        }
+      ]
+    },
+    "h1": {
+      "constant": -0.000487788762347831,
+      "constant_symbolic": "-m",
+      "terms": [
+        {
+          "kind": "pairing",
+          "modes": [
+            0,
+            3
+          ],
+          "coefficient": [
+            -0.25,
+            0.0
+          ],
+          "coefficient_symbolic": "-1/4"
+        },
+        {
+          "kind": "pairing",
+          "modes": [
+            1,
+            2
+          ],
+          "coefficient": [
+            -0.25,
+            0.0
+          ],
+          "coefficient_symbolic": "-1/4"
+        },
+        {
+          "kind": "number",
+          "modes": [
+            2
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "number",
+          "modes": [
+            3
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        }
+      ]
+    },
+    "J0to1": {
+      "constant": 0.0,
+      "constant_symbolic": "0",
+      "terms": []
+    },
+    "drive_power_per_phase_rate": {
+      "constant": 0.0,
+      "constant_symbolic": "0",
+      "terms": [
+        {
+          "kind": "pairing",
+          "modes": [
+            0,
+            1
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        },
+        {
+          "kind": "pairing",
+          "modes": [
+            2,
+            3
+          ],
+          "coefficient": [
+            0.000487788762347831,
+            0.0
+          ],
+          "coefficient_symbolic": "m"
+        }
+      ]
+    },
+    "ring_J0to2": {
+      "constant": 0.0,
+      "constant_symbolic": "0",
+      "terms": [
+        {
+          "kind": "hopping",
+          "modes": [
+            0,
+            2
+          ],
+          "coefficient": [
+            0.0,
+            -0.0625
+          ],
+          "coefficient_symbolic": "-I/16"
+        },
+        {
+          "kind": "hopping",
+          "modes": [
+            1,
+            3
+          ],
+          "coefficient": [
+            0.0,
+            -0.0625
+          ],
+          "coefficient_symbolic": "-I/16"
+        }
+      ]
+    }
+  },
+  "separate_preparations_required_for_noncommuting_readout_groups": true,
+  "initial_neutral_probe_source_resources": {
+    "current": {
+      "native_pulses": 36290,
+      "single_code_pulses": 26210,
+      "pair_code_pulses": 10080,
+      "zero_angle_requests": 32,
+      "identity_phase_pulses": 1,
+      "proper_code_load_events": 36290,
+      "proper_code_export_events": 36290,
+      "proper_code_service_events": 72580,
+      "integrated_processor_norm_upper": 66599.40806161342,
+      "maximum_work_qubits": 6,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "service_failure_outcomes_retained": true,
+      "valid_code_failure_probability_in_exact_arithmetic": 0,
+      "initialization_storage_readout_physical_costs_included": false
+    },
+    "repair_sensitive": {
+      "native_pulses": 36288,
+      "single_code_pulses": 26208,
+      "pair_code_pulses": 10080,
+      "zero_angle_requests": 32,
+      "identity_phase_pulses": 0,
+      "proper_code_load_events": 36288,
+      "proper_code_export_events": 36288,
+      "proper_code_service_events": 72576,
+      "integrated_processor_norm_upper": 66597.83726528662,
+      "maximum_work_qubits": 6,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "service_failure_outcomes_retained": true,
+      "valid_code_failure_probability_in_exact_arithmetic": 0,
+      "initialization_storage_readout_physical_costs_included": false
+    }
+  },
+  "source_measurements": [
+    {
+      "state": "current",
+      "reference_columns": 4,
+      "observables": {
+        "H": {
+          "source_readout": -0.0004877887623577845,
+          "direct_full_operator": -0.00048778876235653945,
+          "numerical_readout_error_bound": 8.01560924039513e-07
+        },
+        "h0": {
+          "source_readout": -0.00024389438117888512,
+          "direct_full_operator": -0.0002438943811782626,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "h1": {
+          "source_readout": -0.00024389438117889938,
+          "direct_full_operator": -0.00024389438117827686,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "J0to1": {
+          "source_readout": 0.0,
+          "direct_full_operator": 5.82778326519457e-34,
+          "numerical_readout_error_bound": 2e-10
+        },
+        "drive_power_per_phase_rate": {
+          "source_readout": -1.2346352239178682e-17,
+          "direct_full_operator": -1.1485282372282706e-17,
+          "numerical_readout_error_bound": 7.804620197565295e-10
+        },
+        "ring_J0to2": {
+          "source_readout": 0.06249999999988459,
+          "direct_full_operator": 0.0624999999998848,
+          "numerical_readout_error_bound": 1e-07
+        }
+      }
+    },
+    {
+      "state": "repair_sensitive",
+      "reference_columns": 4,
+      "observables": {
+        "H": {
+          "source_readout": -0.4999999999990836,
+          "direct_full_operator": -0.4999999999990844,
+          "numerical_readout_error_bound": 8.01560924039513e-07
+        },
+        "h0": {
+          "source_readout": -0.24975610561836833,
+          "direct_full_operator": -0.24975610561836875,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "h1": {
+          "source_readout": -0.2502438943807153,
+          "direct_full_operator": -0.25024389438071565,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "J0to1": {
+          "source_readout": 0.0,
+          "direct_full_operator": 1.021285839797817e-33,
+          "numerical_readout_error_bound": 2e-10
+        },
+        "drive_power_per_phase_rate": {
+          "source_readout": -1.927169361592984e-17,
+          "direct_full_operator": -1.833597479373989e-17,
+          "numerical_readout_error_bound": 7.804620197565295e-10
+        },
+        "ring_J0to2": {
+          "source_readout": 4.701100619897147e-16,
+          "direct_full_operator": 3.5214886562293567e-16,
+          "numerical_readout_error_bound": 1e-07
+        }
+      }
+    },
+    {
+      "state": "coherent_C",
+      "reference_columns": 128,
+      "observables": {
+        "H": {
+          "source_readout": -0.24999999999914738,
+          "direct_full_operator": -0.2499999999991473,
+          "numerical_readout_error_bound": 8.01560924039513e-07
+        },
+        "h0": {
+          "source_readout": -0.12487805280898713,
+          "direct_full_operator": -0.12487805280898709,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "h1": {
+          "source_readout": -0.12512194719016026,
+          "direct_full_operator": -0.12512194719016023,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "J0to1": {
+          "source_readout": 0.0,
+          "direct_full_operator": 2.2304110294769547e-33,
+          "numerical_readout_error_bound": 2e-10
+        },
+        "drive_power_per_phase_rate": {
+          "source_readout": 1.7862230791698686e-17,
+          "direct_full_operator": 1.8853525596557846e-17,
+          "numerical_readout_error_bound": 7.804620197565295e-10
+        },
+        "ring_J0to2": {
+          "source_readout": -3.238728729648699e-15,
+          "direct_full_operator": -3.3475318337609932e-15,
+          "numerical_readout_error_bound": 1e-07
+        }
+      }
+    },
+    {
+      "state": "coherent_E",
+      "reference_columns": 128,
+      "observables": {
+        "H": {
+          "source_readout": -1.4559160084123834e-13,
+          "direct_full_operator": -1.4456908977249108e-13,
+          "numerical_readout_error_bound": 8.01560924039513e-07
+        },
+        "h0": {
+          "source_readout": 0.00012194719051355647,
+          "direct_full_operator": 0.00012194719051406778,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "h1": {
+          "source_readout": -0.0001219471906591481,
+          "direct_full_operator": -0.00012194719065863687,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "J0to1": {
+          "source_readout": 0.0,
+          "direct_full_operator": -3.48516807900317e-36,
+          "numerical_readout_error_bound": 2e-10
+        },
+        "drive_power_per_phase_rate": {
+          "source_readout": 1.282069068964109e-17,
+          "direct_full_operator": 1.3837451477081289e-17,
+          "numerical_readout_error_bound": 7.804620197565295e-10
+        },
+        "ring_J0to2": {
+          "source_readout": 1.196959198423997e-16,
+          "direct_full_operator": 3.3089723817460315e-17,
+          "numerical_readout_error_bound": 1e-07
+        }
+      }
+    },
+    {
+      "state": "flagged_C",
+      "reference_columns": 128,
+      "observables": {
+        "H": {
+          "source_readout": -1.0496860542233422e-13,
+          "direct_full_operator": -1.039413780740128e-13,
+          "numerical_readout_error_bound": 8.01560924039513e-07
+        },
+        "h0": {
+          "source_readout": 0.0001219471905339534,
+          "direct_full_operator": 0.0001219471905344671,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "h1": {
+          "source_readout": -0.00012194719063892204,
+          "direct_full_operator": -0.00012194719063840846,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "J0to1": {
+          "source_readout": 0.0,
+          "direct_full_operator": 1.1698188778737541e-33,
+          "numerical_readout_error_bound": 2e-10
+        },
+        "drive_power_per_phase_rate": {
+          "source_readout": -1.271227047239254e-17,
+          "direct_full_operator": -1.170573662802029e-17,
+          "numerical_readout_error_bound": 7.804620197565295e-10
+        },
+        "ring_J0to2": {
+          "source_readout": -9.192299699201101e-15,
+          "direct_full_operator": -9.279856186206635e-15,
+          "numerical_readout_error_bound": 1e-07
+        }
+      }
+    },
+    {
+      "state": "flagged_E",
+      "reference_columns": 128,
+      "observables": {
+        "H": {
+          "source_readout": -3.896286505239432e-14,
+          "direct_full_operator": -3.790796344368023e-14,
+          "numerical_readout_error_bound": 8.01560924039513e-07
+        },
+        "h0": {
+          "source_readout": 0.00012194719056674247,
+          "direct_full_operator": 0.00012194719056727,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "h1": {
+          "source_readout": -0.00012194719060570534,
+          "direct_full_operator": -0.00012194719060517793,
+          "numerical_readout_error_bound": 4.007804620197565e-07
+        },
+        "J0to1": {
+          "source_readout": 0.0,
+          "direct_full_operator": -2.1989826005962337e-36,
+          "numerical_readout_error_bound": 2e-10
+        },
+        "drive_power_per_phase_rate": {
+          "source_readout": -1.5395670849294163e-17,
+          "direct_full_operator": -1.4426348571376782e-17,
+          "numerical_readout_error_bound": 7.804620197565295e-10
+        },
+        "ring_J0to2": {
+          "source_readout": 1.196959198423997e-16,
+          "direct_full_operator": 3.306772604419346e-17,
+          "numerical_readout_error_bound": 1e-07
+        }
+      }
+    }
+  ],
+  "repair_energy_transfers": [
+    {
+      "policy": "coherent",
+      "law": "C",
+      "energy_transfer_on_sensitive_source_state": 0.2499999999999371,
+      "adjoint_energy_defect_norm": 0.25000000000044953,
+      "complete_native_records": 32,
+      "native_records_retained_as_reference_columns": 128
+    },
+    {
+      "policy": "coherent",
+      "law": "E",
+      "energy_transfer_on_sensitive_source_state": 0.49999999999893985,
+      "adjoint_energy_defect_norm": 0.4999999999999069,
+      "complete_native_records": 32,
+      "native_records_retained_as_reference_columns": 128
+    },
+    {
+      "policy": "flagged",
+      "law": "C",
+      "energy_transfer_on_sensitive_source_state": 0.4999999999989805,
+      "adjoint_energy_defect_norm": 0.7071067811861437,
+      "complete_native_records": 32,
+      "native_records_retained_as_reference_columns": 128
+    },
+    {
+      "policy": "flagged",
+      "law": "E",
+      "energy_transfer_on_sensitive_source_state": 0.4999999999990465,
+      "adjoint_energy_defect_norm": 0.7071067811859655,
+      "complete_native_records": 32,
+      "native_records_retained_as_reference_columns": 128
+    }
+  ],
+  "actual_ordered_control_balances": [
+    {
+      "policy": "coherent",
+      "law": "C",
+      "current": 0,
+      "effective_duration": 1.0,
+      "control_interpolation": "two equal proper-time subintervals; twice each selected generator reproduces the declared ordered factors; clock advances once",
+      "switching_work": [
+        0.0004877887623478082,
+        3.340867793113505e-16,
+        -0.0002635532676546166
+      ],
+      "segment_energy_drift": [
+        -3.764898080845794e-16,
+        -1.1400247873240123e-18
+      ],
+      "reference_energy_change_before_repair": 0.00022423549469314803,
+      "complete_repair_energy_transfer": -3.463707727753562e-13,
+      "total_reference_energy_change": 0.00022423549434677726,
+      "complete_native_records": [
+        {
+          "coin": 0,
+          "raw": 0,
+          "probability": 0.30746224390543436,
+          "energy_contribution": -3.785888036671379e-05,
+          "local_energy_contributions": [
+            -6.588831705838519e-05,
+            2.8029436691671395e-05
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 1,
+          "probability": 0.19253775609349227,
+          "energy_contribution": -9.391775375008743e-05,
+          "local_energy_contributions": [
+            -9.39177537500803e-05,
+            -7.138022886809276e-18
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 2,
+          "probability": 1.7265160766127135e-26,
+          "energy_contribution": 8.979885094754923e-28,
+          "local_energy_contributions": [
+            4.4523871612244345e-28,
+            4.527497933530489e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 3,
+          "probability": 1.0406033296192018e-26,
+          "energy_contribution": -5.076074975376889e-30,
+          "local_energy_contributions": [
+            -5.07600063207198e-30,
+            -7.4343304908927e-35
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 4,
+          "probability": 7.884839777077141e-26,
+          "energy_contribution": 4.2836003887266346e-27,
+          "local_energy_contributions": [
+            2.124643352276789e-27,
+            2.1589570364498457e-27
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 5,
+          "probability": 5.332111843342385e-26,
+          "energy_contribution": -2.601686533283694e-29,
+          "local_energy_contributions": [
+            -2.6013144158828395e-29,
+            -3.721174008545816e-33
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 6,
+          "probability": 3.404104511898216e-36,
+          "energy_contribution": -8.581107915228524e-40,
+          "local_energy_contributions": [
+            -8.834607546560717e-40,
+            2.534996313321909e-41
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 7,
+          "probability": 5.0267346636641725e-39,
+          "energy_contribution": -2.4519846800749427e-42,
+          "local_energy_contributions": [
+            -2.4519846801573148e-42,
+            8.237223019037891e-53
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 8,
+          "probability": 2.99371284473579e-25,
+          "energy_contribution": 1.899316875650226e-26,
+          "local_energy_contributions": [
+            9.431394376398884e-27,
+            9.561774380103376e-27
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 9,
+          "probability": 2.1418305394485075e-25,
+          "energy_contribution": -1.044628776223162e-28,
+          "local_energy_contributions": [
+            -1.0446947956343838e-28,
+            6.60194112218702e-33
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 10,
+          "probability": 1.096511286064552e-36,
+          "energy_contribution": -1.445407881627226e-41,
+          "local_energy_contributions": [
+            -1.9267478468009737e-40,
+            1.782207058638252e-40
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 11,
+          "probability": 3.240281440224847e-37,
+          "energy_contribution": -1.5805728733809777e-40,
+          "local_energy_contributions": [
+            -1.5805728733834516e-40,
+            2.4740255091119062e-52
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 12,
+          "probability": 1.0939586589715462e-49,
+          "energy_contribution": 7.072572754584199e-51,
+          "local_energy_contributions": [
+            3.5134457780668867e-51,
+            3.559126976517312e-51
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 13,
+          "probability": 5.744817505599039e-50,
+          "energy_contribution": -2.802586333892101e-53,
+          "local_energy_contributions": [
+            -2.802421459133344e-53,
+            -1.648747587570295e-57
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 14,
+          "probability": 1.8965384099931607e-57,
+          "energy_contribution": 1.6325741721029337e-60,
+          "local_energy_contributions": [
+            8.222776849344349e-61,
+            8.102964871684994e-61
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 15,
+          "probability": 2.9141640718940025e-59,
+          "energy_contribution": -1.42150497041463e-62,
+          "local_energy_contributions": [
+            -1.4215007142358765e-62,
+            -4.256178753666864e-68
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 0,
+          "probability": 0.3074622439054808,
+          "energy_contribution": -3.7858880134101575e-05,
+          "local_energy_contributions": [
+            2.8029436807989324e-05,
+            -6.58883169420909e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 1,
+          "probability": 4.851054227846684e-27,
+          "energy_contribution": 2.751198214728213e-28,
+          "local_energy_contributions": [
+            1.3734185880288641e-28,
+            1.3777796266993487e-28
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 2,
+          "probability": 0.19253775609348273,
+          "energy_contribution": -9.391775375007154e-05,
+          "local_energy_contributions": [
+            -1.5172403461213642e-18,
+            -9.391775375007001e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 3,
+          "probability": 2.5681495291663984e-28,
+          "energy_contribution": -1.2488835700880294e-31,
+          "local_energy_contributions": [
+            1.8748722999704085e-34,
+            -1.2507584423879997e-31
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 4,
+          "probability": 7.952078565851974e-26,
+          "energy_contribution": 6.201319451425332e-27,
+          "local_energy_contributions": [
+            3.098470224585667e-27,
+            3.1028492268396663e-27
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 5,
+          "probability": 4.4589122249348756e-32,
+          "energy_contribution": 2.1126925880459445e-34,
+          "local_energy_contributions": [
+            1.0375981492089902e-34,
+            1.0750944388369536e-34
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 6,
+          "probability": 3.0643266485672324e-27,
+          "energy_contribution": -1.4960804054651426e-30,
+          "local_energy_contributions": [
+            -6.667478390172617e-34,
+            -1.4954136576261249e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 7,
+          "probability": 3.621402297315083e-54,
+          "energy_contribution": -1.753394465307753e-57,
+          "local_energy_contributions": [
+            6.238796640172697e-60,
+            -1.7596332619479258e-57
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 8,
+          "probability": 2.9668094733680586e-25,
+          "energy_contribution": 2.6479430261366873e-26,
+          "local_energy_contributions": [
+            1.32308794478745e-26,
+            1.324855081349238e-26
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 9,
+          "probability": 1.5897113984281726e-32,
+          "energy_contribution": 1.2035856671125412e-33,
+          "local_energy_contributions": [
+            6.029007382752793e-34,
+            6.006849288372617e-34
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 10,
+          "probability": 1.3437838838746234e-26,
+          "energy_contribution": -6.554818778896362e-30,
+          "local_energy_contributions": [
+            1.346744236647326e-36,
+            -6.5548201256406e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 11,
+          "probability": 1.5926471248626704e-53,
+          "energy_contribution": -7.946767413229575e-57,
+          "local_energy_contributions": [
+            -9.020439558153516e-59,
+            -7.856563017648039e-57
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 12,
+          "probability": 1.573567110903844e-49,
+          "energy_contribution": 1.0867663714909142e-50,
+          "local_energy_contributions": [
+            5.412359939008681e-51,
+            5.455303775900462e-51
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 13,
+          "probability": 5.507778876123942e-56,
+          "energy_contribution": 1.593230007461007e-57,
+          "local_energy_contributions": [
+            7.911081798217824e-58,
+            8.021218276392237e-58
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 14,
+          "probability": 1.9854831499436808e-52,
+          "energy_contribution": -9.652279215654756e-56,
+          "local_energy_contributions": [
+            1.6182857399095624e-58,
+            -9.668462073053853e-56
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 15,
+          "probability": 8.443921071533745e-65,
+          "energy_contribution": 1.1325365401155766e-65,
+          "local_energy_contributions": [
+            5.644850432927456e-66,
+            5.680514968228311e-66
+          ]
+        }
+      ],
+      "repair_transfer_assigned_to_heat_or_controller_work": false,
+      "preparation_resources": {
+        "source_qubits": 7,
+        "all_preparation_addresses": 128,
+        "resources": {
+          "native_pulses": 2307,
+          "single_code_pulses": 1665,
+          "pair_code_pulses": 642,
+          "zero_angle_requests": 45,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 2307,
+          "proper_code_export_events": 2307,
+          "proper_code_service_events": 4614,
+          "integrated_processor_norm_upper": 4238.793887856028,
+          "maximum_work_qubits": 7,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      },
+      "segment_resources": [
+        {
+          "native_pulses": 260,
+          "single_code_pulses": 220,
+          "pair_code_pulses": 40,
+          "zero_angle_requests": 8,
+          "identity_phase_pulses": 12,
+          "proper_code_load_events": 260,
+          "proper_code_export_events": 260,
+          "proper_code_service_events": 520,
+          "integrated_processor_norm_upper": 346.57519189487726,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        },
+        {
+          "native_pulses": 92,
+          "single_code_pulses": 76,
+          "pair_code_pulses": 16,
+          "zero_angle_requests": 0,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 92,
+          "proper_code_export_events": 92,
+          "proper_code_service_events": 184,
+          "integrated_processor_norm_upper": 128.80627437470622,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      ],
+      "repair_resources": {
+        "native_pulses": 40925,
+        "single_code_pulses": 30725,
+        "pair_code_pulses": 10200,
+        "identity_phase_pulses": 20,
+        "proper_code_load_events": 40925,
+        "proper_code_export_events": 40925,
+        "proper_code_service_events": 81850,
+        "proper_code_complement_outcome_slots": 143300
+      }
+    },
+    {
+      "policy": "coherent",
+      "law": "E",
+      "current": 0,
+      "effective_duration": 1.0,
+      "control_interpolation": "two equal proper-time subintervals; twice each selected generator reproduces the declared ordered factors; clock advances once",
+      "switching_work": [
+        0.0004877887623478082,
+        3.340867793113505e-16,
+        -0.0002635532676546166
+      ],
+      "segment_energy_drift": [
+        -3.764898080845794e-16,
+        -1.1400247873240123e-18
+      ],
+      "reference_energy_change_before_repair": 0.00022423549469314803,
+      "complete_repair_energy_transfer": 4.256317520656694e-14,
+      "total_reference_energy_change": 0.0002242354947357112,
+      "complete_native_records": [
+        {
+          "coin": 0,
+          "raw": 0,
+          "probability": 0.11492448781180957,
+          "energy_contribution": 5.605887374305616e-05,
+          "local_energy_contributions": [
+            2.802943687152915e-05,
+            2.8029436871527024e-05
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 1,
+          "probability": 7.960380081802398e-26,
+          "energy_contribution": 5.468435710502846e-28,
+          "local_energy_contributions": [
+            2.544709948409069e-28,
+            2.923725762093777e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 2,
+          "probability": 2.3316508041009147e-26,
+          "energy_contribution": 2.5651182147332747e-27,
+          "local_energy_contributions": [
+            1.2784815204037987e-27,
+            1.2866366943294757e-27
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 3,
+          "probability": 4.844671573932556e-28,
+          "energy_contribution": -2.3625999521726984e-31,
+          "local_energy_contributions": [
+            -2.362886817877098e-31,
+            2.8686570439906967e-35
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 4,
+          "probability": 0.1925377560932537,
+          "energy_contribution": -9.391775379152359e-05,
+          "local_energy_contributions": [
+            -9.391775377074018e-05,
+            -2.0783424739847753e-14
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 5,
+          "probability": 0.19253775609333829,
+          "energy_contribution": -9.391775375000743e-05,
+          "local_energy_contributions": [
+            -9.391775375000272e-05,
+            -4.695343300102755e-18
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 6,
+          "probability": 1.0861253391117923e-26,
+          "energy_contribution": -1.0875912981652726e-29,
+          "local_energy_contributions": [
+            -7.971527662872784e-30,
+            -2.9043853187799413e-30
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 7,
+          "probability": 4.3180201407194294e-26,
+          "energy_contribution": -2.1063313643996895e-29,
+          "local_energy_contributions": [
+            -2.1063058419794384e-29,
+            -2.552242025086239e-34
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 8,
+          "probability": 2.5351924094095823e-25,
+          "energy_contribution": 3.630340299923225e-26,
+          "local_energy_contributions": [
+            1.8110183852720654e-26,
+            1.8193219146511593e-26
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 9,
+          "probability": 1.5894094440338726e-27,
+          "energy_contribution": -7.745972221510192e-31,
+          "local_energy_contributions": [
+            -7.749466422830497e-31,
+            3.494201320305431e-34
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 10,
+          "probability": 2.1333784166505627e-36,
+          "energy_contribution": 1.0409664438477242e-39,
+          "local_energy_contributions": [
+            3.2810499074763346e-40,
+            7.128614531000908e-40
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 11,
+          "probability": 3.176413083431151e-51,
+          "energy_contribution": -1.5481955146310056e-54,
+          "local_energy_contributions": [
+            -1.5488045760625824e-54,
+            6.0906143157600665e-58
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 12,
+          "probability": 1.346163544903696e-25,
+          "energy_contribution": -4.8697242606114474e-29,
+          "local_energy_contributions": [
+            -5.718079376567495e-29,
+            8.483551159560483e-30
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 13,
+          "probability": 5.320380834376018e-25,
+          "energy_contribution": -2.5952217884415203e-28,
+          "local_energy_contributions": [
+            -2.5952217967470333e-28,
+            8.30551228721503e-37
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 14,
+          "probability": 2.7945053551334835e-34,
+          "energy_contribution": -1.3631282999565734e-37,
+          "local_energy_contributions": [
+            -1.3631283042557605e-37,
+            4.299187270519308e-46
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 15,
+          "probability": 3.892162126684087e-36,
+          "energy_contribution": -1.8985529466357322e-39,
+          "local_energy_contributions": [
+            -1.898552946634032e-39,
+            -1.699957616041863e-51
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 0,
+          "probability": 0.11492448781181107,
+          "energy_contribution": 5.605887371124579e-05,
+          "local_energy_contributions": [
+            2.802943685562285e-05,
+            2.802943685562294e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 1,
+          "probability": 1.0842347617785072e-26,
+          "energy_contribution": 8.88341109178312e-28,
+          "local_energy_contributions": [
+            4.428385062085711e-28,
+            4.455026029697407e-28
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 2,
+          "probability": 7.334844589409288e-26,
+          "energy_contribution": 4.510876679286174e-27,
+          "local_energy_contributions": [
+            2.2501490375266992e-27,
+            2.260727641759475e-27
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 3,
+          "probability": 1.2240222648658413e-28,
+          "energy_contribution": -5.869102020548815e-32,
+          "local_energy_contributions": [
+            5.00879705200591e-34,
+            -5.919189991068875e-32
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 4,
+          "probability": 0.19253775609323312,
+          "energy_contribution": -9.391775377486191e-05,
+          "local_energy_contributions": [
+            -1.2457590817659486e-14,
+            -9.391775376240432e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 5,
+          "probability": 8.754783965150005e-27,
+          "energy_contribution": -1.8769441003474133e-29,
+          "local_energy_contributions": [
+            -9.604878572666875e-30,
+            -9.164562430807258e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 6,
+          "probability": 0.19253775609322235,
+          "energy_contribution": -9.391775374994945e-05,
+          "local_energy_contributions": [
+            -3.9686619636378306e-18,
+            -9.391775374994548e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 7,
+          "probability": 9.012888134279099e-28,
+          "energy_contribution": -4.396342844351809e-31,
+          "local_energy_contributions": [
+            -2.1749639775484847e-37,
+            -4.396340669387832e-31
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 8,
+          "probability": 5.8950518213589335e-25,
+          "energy_contribution": 5.196305992018433e-26,
+          "local_energy_contributions": [
+            2.589830293600779e-26,
+            2.6064756984176544e-26
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 9,
+          "probability": 6.358845595853903e-32,
+          "energy_contribution": 4.8143426677836536e-33,
+          "local_energy_contributions": [
+            2.4116029527648405e-33,
+            2.402739715018814e-33
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 10,
+          "probability": 1.5891743361201784e-27,
+          "energy_contribution": -7.7516447749534e-31,
+          "local_energy_contributions": [
+            -2.1538403439192506e-36,
+            -7.751623236549961e-31
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 11,
+          "probability": 5.5166817787748795e-53,
+          "energy_contribution": -2.9069478462320303e-56,
+          "local_energy_contributions": [
+            -1.0901206094742107e-57,
+            -2.7979357852846086e-56
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 12,
+          "probability": 1.0233931512313937e-25,
+          "energy_contribution": -4.3376580050039574e-29,
+          "local_energy_contributions": [
+            3.271691745244066e-30,
+            -4.664827179528365e-29
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 13,
+          "probability": 1.624526196772952e-50,
+          "energy_contribution": -1.3535569649382117e-53,
+          "local_energy_contributions": [
+            -9.740495971026326e-54,
+            -3.7950736783557893e-54
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 14,
+          "probability": 2.5732925596599835e-26,
+          "energy_contribution": -1.255223094555099e-29,
+          "local_energy_contributions": [
+            4.913772283670242e-37,
+            -1.2552231436928218e-29
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 15,
+          "probability": 1.1106969527520922e-52,
+          "energy_contribution": -5.414838556278611e-56,
+          "local_energy_contributions": [
+            1.478649880653799e-59,
+            -5.416317206159266e-56
+          ]
+        }
+      ],
+      "repair_transfer_assigned_to_heat_or_controller_work": false,
+      "preparation_resources": {
+        "source_qubits": 7,
+        "all_preparation_addresses": 128,
+        "resources": {
+          "native_pulses": 2307,
+          "single_code_pulses": 1665,
+          "pair_code_pulses": 642,
+          "zero_angle_requests": 45,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 2307,
+          "proper_code_export_events": 2307,
+          "proper_code_service_events": 4614,
+          "integrated_processor_norm_upper": 4238.793887856028,
+          "maximum_work_qubits": 7,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      },
+      "segment_resources": [
+        {
+          "native_pulses": 260,
+          "single_code_pulses": 220,
+          "pair_code_pulses": 40,
+          "zero_angle_requests": 8,
+          "identity_phase_pulses": 12,
+          "proper_code_load_events": 260,
+          "proper_code_export_events": 260,
+          "proper_code_service_events": 520,
+          "integrated_processor_norm_upper": 346.57519189487726,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        },
+        {
+          "native_pulses": 92,
+          "single_code_pulses": 76,
+          "pair_code_pulses": 16,
+          "zero_angle_requests": 0,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 92,
+          "proper_code_export_events": 92,
+          "proper_code_service_events": 184,
+          "integrated_processor_norm_upper": 128.80627437470622,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      ],
+      "repair_resources": {
+        "native_pulses": 65497,
+        "single_code_pulses": 49177,
+        "pair_code_pulses": 16320,
+        "identity_phase_pulses": 32,
+        "proper_code_load_events": 65497,
+        "proper_code_export_events": 65497,
+        "proper_code_service_events": 130994,
+        "proper_code_complement_outcome_slots": 229348
+      }
+    },
+    {
+      "policy": "flagged",
+      "law": "C",
+      "current": 0,
+      "effective_duration": 1.0,
+      "control_interpolation": "two equal proper-time subintervals; twice each selected generator reproduces the declared ordered factors; clock advances once",
+      "switching_work": [
+        0.0004877887623478082,
+        3.340867793113505e-16,
+        -0.0002635532676546166
+      ],
+      "segment_energy_drift": [
+        -3.764898080845794e-16,
+        -1.1400247873240123e-18
+      ],
+      "reference_energy_change_before_repair": 0.00022423549469314803,
+      "complete_repair_energy_transfer": 1.8120693747597505e-13,
+      "total_reference_energy_change": 0.00022423549487435497,
+      "complete_native_records": [
+        {
+          "coin": 0,
+          "raw": 0,
+          "probability": 0.19253775609312512,
+          "energy_contribution": -9.391775382206923e-05,
+          "local_energy_contributions": [
+            -9.391775378598166e-05,
+            -3.608758972966889e-14
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 1,
+          "probability": 0.19253775609314946,
+          "energy_contribution": -9.391775374992234e-05,
+          "local_energy_contributions": [
+            -9.391775374991414e-05,
+            -8.204432707095974e-18
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 2,
+          "probability": 4.852592067421187e-26,
+          "energy_contribution": -8.59746432167364e-28,
+          "local_energy_contributions": [
+            -4.4092675075390645e-28,
+            -4.188196814134572e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 3,
+          "probability": 3.2401789455021403e-26,
+          "energy_contribution": -1.5805372488276963e-29,
+          "local_energy_contributions": [
+            -1.5805290725267456e-29,
+            -8.176300950817695e-35
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 4,
+          "probability": 2.0375361731683355e-25,
+          "energy_contribution": -6.382101652020385e-27,
+          "local_energy_contributions": [
+            -3.238900888449701e-27,
+            -3.1432007635706844e-27
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 5,
+          "probability": 1.5793525487586813e-25,
+          "energy_contribution": -7.705162809424998e-29,
+          "local_energy_contributions": [
+            -7.704532560920841e-29,
+            -6.302485041557798e-33
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 6,
+          "probability": 2.581669043908338e-36,
+          "energy_contribution": -1.2591699959014246e-39,
+          "local_energy_contributions": [
+            -1.2592395718105886e-39,
+            6.95759091640336e-44
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 7,
+          "probability": 5.0267258225951653e-39,
+          "energy_contribution": -2.451980367383725e-42,
+          "local_energy_contributions": [
+            -2.4519803675246516e-42,
+            1.4092672003226874e-52
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 8,
+          "probability": 0.11492448781187438,
+          "energy_contribution": 5.6058873799998555e-05,
+          "local_energy_contributions": [
+            2.8029436900002422e-05,
+            2.8029436899996137e-05
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 9,
+          "probability": 2.1845304452710983e-25,
+          "energy_contribution": -1.099915495304689e-28,
+          "local_energy_contributions": [
+            -1.0697244819372013e-28,
+            -3.0191013367487877e-30
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 10,
+          "probability": 1.582435676665218e-26,
+          "energy_contribution": 3.158068012859782e-29,
+          "local_energy_contributions": [
+            1.689922642825963e-29,
+            1.468145370033819e-29
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 11,
+          "probability": 3.342889276507733e-32,
+          "energy_contribution": -1.6317826487365807e-35,
+          "local_energy_contributions": [
+            -1.6311966236087574e-35,
+            -5.8602512782329394e-39
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 12,
+          "probability": 6.959983394061299e-26,
+          "energy_contribution": 5.624536435699015e-29,
+          "local_energy_contributions": [
+            3.291203951740673e-29,
+            2.3333324839583416e-29
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 13,
+          "probability": 2.653573919643333e-32,
+          "energy_contribution": -1.294383537950216e-35,
+          "local_energy_contributions": [
+            -1.29438353800576e-35,
+            5.5543883353642164e-46
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 14,
+          "probability": 8.224352014804684e-37,
+          "energy_contribution": 4.011746706649101e-40,
+          "local_energy_contributions": [
+            3.758365904125793e-40,
+            2.5338080252330895e-41
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 15,
+          "probability": 2.9046143705500456e-56,
+          "energy_contribution": -1.4175650649157469e-59,
+          "local_energy_contributions": [
+            -1.41717462430404e-59,
+            -3.904406117066526e-63
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 0,
+          "probability": 0.1925377560931801,
+          "energy_contribution": -9.391775379300061e-05,
+          "local_energy_contributions": [
+            -2.1539858664722764e-14,
+            -9.391775377146075e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 1,
+          "probability": 2.3406839353305006e-26,
+          "energy_contribution": -3.867997460296978e-28,
+          "local_energy_contributions": [
+            -1.9221600778794884e-28,
+            -1.9458373824174906e-28
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 2,
+          "probability": 0.19253775609315069,
+          "energy_contribution": -9.391775374989009e-05,
+          "local_energy_contributions": [
+            8.228263042443337e-18,
+            -9.391775374989831e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 3,
+          "probability": 2.0770804245626593e-27,
+          "energy_contribution": -1.0124806034828927e-30,
+          "local_energy_contributions": [
+            3.4388477230445972e-34,
+            -1.0128244882551974e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 4,
+          "probability": 3.8184964813190665e-25,
+          "energy_contribution": -8.135241014558293e-27,
+          "local_energy_contributions": [
+            -4.039177011888572e-27,
+            -4.096064002669725e-27
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 5,
+          "probability": 4.458912226918234e-32,
+          "energy_contribution": 2.1126925110877605e-34,
+          "local_energy_contributions": [
+            1.037598110822404e-34,
+            1.0750944002653564e-34
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 6,
+          "probability": 2.846971787344915e-26,
+          "energy_contribution": -1.3887200989612666e-29,
+          "local_energy_contributions": [
+            5.1313610165989233e-36,
+            -1.388720612097368e-29
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 7,
+          "probability": 2.9077569373529205e-52,
+          "energy_contribution": -1.409596213003108e-55,
+          "local_energy_contributions": [
+            4.372603699861852e-58,
+            -1.41396881670297e-55
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 8,
+          "probability": 0.11492448781180768,
+          "energy_contribution": 5.605887384148704e-05,
+          "local_energy_contributions": [
+            2.802943692074567e-05,
+            2.8029436920741383e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 9,
+          "probability": 4.490621697176033e-28,
+          "energy_contribution": 4.279362127464032e-31,
+          "local_energy_contributions": [
+            3.102629817531465e-31,
+            1.176732309932567e-31
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 10,
+          "probability": 1.4977041283443636e-26,
+          "energy_contribution": 6.127585764140146e-31,
+          "local_energy_contributions": [
+            3.904538445552338e-30,
+            -3.291779869138323e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 11,
+          "probability": 5.468466609818572e-33,
+          "energy_contribution": -2.6649460337353198e-36,
+          "local_energy_contributions": [
+            1.2552629042603118e-39,
+            -2.6662012966395806e-36
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 12,
+          "probability": 6.570455543389768e-27,
+          "energy_contribution": 4.6943676212724405e-30,
+          "local_energy_contributions": [
+            3.7370400690866955e-30,
+            9.573275521857445e-31
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 13,
+          "probability": 4.410051343829122e-53,
+          "energy_contribution": 8.631665973202858e-55,
+          "local_energy_contributions": [
+            4.421928127907822e-55,
+            4.2097378452950354e-55
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 14,
+          "probability": 5.871444444520616e-32,
+          "energy_contribution": -2.73554627994751e-35,
+          "local_energy_contributions": [
+            6.423916941962421e-37,
+            -2.799785449367134e-35
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 15,
+          "probability": 1.1240514156293289e-57,
+          "energy_contribution": -8.91451645559372e-61,
+          "local_energy_contributions": [
+            -1.715788697310684e-61,
+            -7.198727758283035e-61
+          ]
+        }
+      ],
+      "repair_transfer_assigned_to_heat_or_controller_work": false,
+      "preparation_resources": {
+        "source_qubits": 7,
+        "all_preparation_addresses": 128,
+        "resources": {
+          "native_pulses": 2307,
+          "single_code_pulses": 1665,
+          "pair_code_pulses": 642,
+          "zero_angle_requests": 45,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 2307,
+          "proper_code_export_events": 2307,
+          "proper_code_service_events": 4614,
+          "integrated_processor_norm_upper": 4238.793887856028,
+          "maximum_work_qubits": 7,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      },
+      "segment_resources": [
+        {
+          "native_pulses": 260,
+          "single_code_pulses": 220,
+          "pair_code_pulses": 40,
+          "zero_angle_requests": 8,
+          "identity_phase_pulses": 12,
+          "proper_code_load_events": 260,
+          "proper_code_export_events": 260,
+          "proper_code_service_events": 520,
+          "integrated_processor_norm_upper": 346.57519189487726,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        },
+        {
+          "native_pulses": 92,
+          "single_code_pulses": 76,
+          "pair_code_pulses": 16,
+          "zero_angle_requests": 0,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 92,
+          "proper_code_export_events": 92,
+          "proper_code_service_events": 184,
+          "integrated_processor_norm_upper": 128.80627437470622,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      ],
+      "repair_resources": {
+        "native_pulses": 69635,
+        "single_code_pulses": 52295,
+        "pair_code_pulses": 17340,
+        "identity_phase_pulses": 34,
+        "proper_code_load_events": 69635,
+        "proper_code_export_events": 69635,
+        "proper_code_service_events": 139270,
+        "proper_code_complement_outcome_slots": 243860
+      }
+    },
+    {
+      "policy": "flagged",
+      "law": "E",
+      "current": 0,
+      "effective_duration": 1.0,
+      "control_interpolation": "two equal proper-time subintervals; twice each selected generator reproduces the declared ordered factors; clock advances once",
+      "switching_work": [
+        0.0004877887623478082,
+        3.340867793113505e-16,
+        -0.0002635532676546166
+      ],
+      "segment_energy_drift": [
+        -3.764898080845794e-16,
+        -1.1400247873240123e-18
+      ],
+      "reference_energy_change_before_repair": 0.00022423549469314803,
+      "complete_repair_energy_transfer": 1.8932837068941222e-13,
+      "total_reference_energy_change": 0.0002242354948824764,
+      "complete_native_records": [
+        {
+          "coin": 0,
+          "raw": 0,
+          "probability": 3.747295328696048e-25,
+          "energy_contribution": -2.0600801427150028e-27,
+          "local_energy_contributions": [
+            -1.0952144534778832e-27,
+            -9.648656892371218e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 1,
+          "probability": 1.9843386529042186e-25,
+          "energy_contribution": 1.1388201249195222e-28,
+          "local_energy_contributions": [
+            8.738127454332315e-30,
+            1.0514388503761986e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 2,
+          "probability": 2.2485117975271994e-26,
+          "energy_contribution": 1.3116415280153535e-27,
+          "local_energy_contributions": [
+            6.5145114534051495e-28,
+            6.601903826748386e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 3,
+          "probability": 4.844671581875908e-28,
+          "energy_contribution": -2.3623046476283916e-31,
+          "local_energy_contributions": [
+            -2.362739164958393e-31,
+            4.3451733000154566e-35
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 4,
+          "probability": 0.19253775609291204,
+          "energy_contribution": -9.391775379796292e-05,
+          "local_energy_contributions": [
+            -9.391775377387652e-05,
+            -2.4086415374545658e-14
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 5,
+          "probability": 0.19253775609299803,
+          "energy_contribution": -9.391775374984143e-05,
+          "local_energy_contributions": [
+            -9.391775374983673e-05,
+            -4.695315146703326e-18
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 6,
+          "probability": 3.744562924463157e-26,
+          "energy_contribution": -2.845223198986331e-29,
+          "local_energy_contributions": [
+            -2.2953790433055832e-29,
+            -5.498441556807482e-30
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 7,
+          "probability": 8.125669286374764e-26,
+          "energy_contribution": -3.963659828613715e-29,
+          "local_energy_contributions": [
+            -3.963634306193446e-29,
+            -2.5522420267605925e-34
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 8,
+          "probability": 0.11492448781170764,
+          "energy_contribution": 5.6058873767460584e-05,
+          "local_energy_contributions": [
+            2.802943688373372e-05,
+            2.802943688372685e-05
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 9,
+          "probability": 8.117684435861493e-27,
+          "energy_contribution": -9.44439059872865e-30,
+          "local_energy_contributions": [
+            -4.669781366175738e-30,
+            -4.774609232552913e-30
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 10,
+          "probability": 2.2460052839200354e-26,
+          "energy_contribution": 1.0941300153497719e-29,
+          "local_energy_contributions": [
+            6.924084483039914e-30,
+            4.017215670457807e-30
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 11,
+          "probability": 5.841821961240059e-37,
+          "energy_contribution": 2.8495750169276404e-40,
+          "local_energy_contributions": [
+            2.644874457584566e-40,
+            2.0470055934307485e-41
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 12,
+          "probability": 2.1116820366366625e-25,
+          "energy_contribution": 1.0171093562682647e-27,
+          "local_energy_contributions": [
+            4.808189704406109e-28,
+            5.362903858276538e-28
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 13,
+          "probability": 5.325837869794297e-25,
+          "energy_contribution": -2.5979147667158237e-28,
+          "local_energy_contributions": [
+            -2.59789934099503e-28,
+            -1.5425720793748587e-33
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 14,
+          "probability": 1.1091778910464236e-31,
+          "energy_contribution": 1.5875696060654873e-34,
+          "local_energy_contributions": [
+            6.056179401953174e-35,
+            9.8195166587017e-35
+          ]
+        },
+        {
+          "coin": 0,
+          "raw": 15,
+          "probability": 3.3427658797383674e-32,
+          "energy_contribution": -1.6305636312957027e-35,
+          "local_energy_contributions": [
+            -1.6305636312959197e-35,
+            2.1704823527162954e-48
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 0,
+          "probability": 3.707493480895063e-25,
+          "energy_contribution": 2.5685965738873413e-27,
+          "local_energy_contributions": [
+            1.3283887776986857e-27,
+            1.24020779618866e-27
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 1,
+          "probability": 2.4883334277549094e-26,
+          "energy_contribution": 2.9704014507019164e-28,
+          "local_energy_contributions": [
+            1.4672892556882019e-28,
+            1.503112195013719e-28
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 2,
+          "probability": 1.7027148732946517e-25,
+          "energy_contribution": 2.045957582674975e-27,
+          "local_energy_contributions": [
+            1.0233835367714629e-27,
+            1.0225740459035119e-27
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 3,
+          "probability": 1.2240222623900335e-28,
+          "energy_contribution": -5.868485084503099e-32,
+          "local_energy_contributions": [
+            5.0396432504832245e-34,
+            -5.91888151700793e-32
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 4,
+          "probability": 0.19253775609290527,
+          "energy_contribution": -9.391775383105972e-05,
+          "local_energy_contributions": [
+            -4.063646395110077e-14,
+            -9.391775379042327e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 5,
+          "probability": 1.7771031363599292e-26,
+          "energy_contribution": -3.166167881215331e-29,
+          "local_energy_contributions": [
+            -1.530213244495337e-29,
+            -1.635954636719994e-29
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 6,
+          "probability": 0.19253775609288704,
+          "energy_contribution": -9.391775374978587e-05,
+          "local_energy_contributions": [
+            -3.9687818561979535e-18,
+            -9.391775374978188e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 7,
+          "probability": 3.546911523507812e-27,
+          "energy_contribution": -1.7301393118245127e-30,
+          "local_energy_contributions": [
+            -2.1749646868453557e-37,
+            -1.730139094328044e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 8,
+          "probability": 0.11492448781164397,
+          "energy_contribution": 5.605887389591421e-05,
+          "local_energy_contributions": [
+            2.802943694795948e-05,
+            2.802943694795473e-05
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 9,
+          "probability": 6.082825127560539e-28,
+          "energy_contribution": 4.8284761579390906e-30,
+          "local_energy_contributions": [
+            2.5494393555676653e-30,
+            2.2790368023714253e-30
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 10,
+          "probability": 3.388674541956301e-27,
+          "energy_contribution": 1.3516827213190843e-30,
+          "local_energy_contributions": [
+            1.4475066959125029e-30,
+            -9.582397459341926e-32
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 11,
+          "probability": 1.1725576419772486e-38,
+          "energy_contribution": 5.7196048923113474e-42,
+          "local_energy_contributions": [
+            5.7196046509635395e-42,
+            2.4134780765814327e-49
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 12,
+          "probability": 1.0946062988506288e-25,
+          "energy_contribution": 7.137895900264378e-27,
+          "local_energy_contributions": [
+            3.5954317983460006e-27,
+            3.5424641019183785e-27
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 13,
+          "probability": 3.9745834648540527e-32,
+          "energy_contribution": -2.3390796557592702e-35,
+          "local_energy_contributions": [
+            -1.8722118672260487e-35,
+            -4.6686778853322155e-36
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 14,
+          "probability": 2.578641398278474e-26,
+          "energy_contribution": -1.2586116878960539e-29,
+          "local_energy_contributions": [
+            -3.897015509080541e-33,
+            -1.2582219863451459e-29
+          ]
+        },
+        {
+          "coin": 1,
+          "raw": 15,
+          "probability": 5.468463676982069e-33,
+          "energy_contribution": -2.667455128939002e-36,
+          "local_energy_contributions": [
+            7.543198687280109e-50,
+            -2.6674551289390777e-36
+          ]
+        }
+      ],
+      "repair_transfer_assigned_to_heat_or_controller_work": false,
+      "preparation_resources": {
+        "source_qubits": 7,
+        "all_preparation_addresses": 128,
+        "resources": {
+          "native_pulses": 2307,
+          "single_code_pulses": 1665,
+          "pair_code_pulses": 642,
+          "zero_angle_requests": 45,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 2307,
+          "proper_code_export_events": 2307,
+          "proper_code_service_events": 4614,
+          "integrated_processor_norm_upper": 4238.793887856028,
+          "maximum_work_qubits": 7,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      },
+      "segment_resources": [
+        {
+          "native_pulses": 260,
+          "single_code_pulses": 220,
+          "pair_code_pulses": 40,
+          "zero_angle_requests": 8,
+          "identity_phase_pulses": 12,
+          "proper_code_load_events": 260,
+          "proper_code_export_events": 260,
+          "proper_code_service_events": 520,
+          "integrated_processor_norm_upper": 346.57519189487726,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        },
+        {
+          "native_pulses": 92,
+          "single_code_pulses": 76,
+          "pair_code_pulses": 16,
+          "zero_angle_requests": 0,
+          "identity_phase_pulses": 0,
+          "proper_code_load_events": 92,
+          "proper_code_export_events": 92,
+          "proper_code_service_events": 184,
+          "integrated_processor_norm_upper": 128.80627437470622,
+          "maximum_work_qubits": 4,
+          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "service_failure_outcomes_retained": true,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "initialization_storage_readout_physical_costs_included": false
+        }
+      ],
+      "repair_resources": {
+        "native_pulses": 94207,
+        "single_code_pulses": 70747,
+        "pair_code_pulses": 23460,
+        "identity_phase_pulses": 46,
+        "proper_code_load_events": 94207,
+        "proper_code_export_events": 94207,
+        "proper_code_service_events": 188414,
+        "proper_code_complement_outcome_slots": 329908
+      }
+    }
+  ],
+  "small_two_site_mutual_current": "exactly zero for this allocation; no nonzero flow claimed",
+  "nonzero_ring_current": "J_0to2 on the actual12-ring, its complete four-endpoint-mode CAR operator, not a projected state",
+  "kinetic_rest_consistency": "Same supplied ring symbol E(k)^2=sin(k)^2/a^2+E0^2: E_second(k=0)=1/(a^2 E0); for p=k/a and c=1, E_second(p=0)=1/E0. This is the analytic symbol, not a continuum limit inferred from12 samples.",
+  "physical_scope": [
+    "all-sector finite energy balance for the specified1080-mode ring and Higgs action",
+    "explicit switching work for a declared interpolation of the executed ordered factors",
+    "complete repair energy transfer, without assuming a hidden thermodynamic controller",
+    "charge-preserving grouped readout on the selected finite source factor"
+  ],
+  "not_claimed": [
+    "independent mass prediction",
+    "a3+1-dimensional conserved stress tensor",
+    "Einstein dynamics or a continuum limit",
+    "physical detector shots or hardware precision"
+  ]
+}

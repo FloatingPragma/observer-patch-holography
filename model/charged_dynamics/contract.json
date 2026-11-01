@@ -1,0 +1,28 @@
+{
+  "schema": "oph.charged_action_dynamics.contract.v1",
+  "campaign_id": "charged-action-dynamics-20261031-v1",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "integrated_gate_accepted": false,
+  "native_family_changed": false,
+  "physical_comparison_count_added": 0,
+  "carrier": "Complete eight-mode, 256-dimensional Fock space of four open sites; both internal components and every occupation sector are retained.",
+  "action": "The existing Weyl nearest-neighbour hopping with c=1/8 and onsite contact U=1. The conserved-number generator is K=H-N/2. The uniform endpoint has every bond unchanged.",
+  "continuation": "K(lambda)=K(0)+lambda V, 0<=lambda<=1, joins two existing dimers through their actual middle hopping bond. Lambda is an auxiliary spectral-continuation parameter, not a fitted physical coupling. The physical endpoint is lambda=1.",
+  "candidates": "Existing lower hole and particle internal doublets, with charges N-4=-1 and +1. Each rank-four continued band includes both block locations. Its isolation is within the complete conserved N=3 or N=5 sector; other sectors remain in the full model.",
+  "references": "The product of two isolated dimer grounds prepares the local excitation experiment. The unique coupled four-site ground defines the stationary addition/removal measures. These references are not identified.",
+  "dynamics": "Uniform-endpoint Hamiltonian evolution; projected hopping, physical block-number currents and complete occupation readouts are derived from the same K. Polar band coordinates do not redefine physical charge or discard the band complement.",
+  "source_history": "Prepare an unknown charged internal doublet on the first dimer and the ground on the second; evolve for model duration 4 with 256 symmetric split steps; perform a complete occupation or candidate-basis terminal refinement. Keep all first-export failure maps and every terminal outcome without postselection.",
+  "source_services": [
+    "The existing native pulse compiler, coherent control, blank source registers and complete record export.",
+    "A supplied uniform Weyl/contact action and Hamiltonian model duration. Source pulse counts do not establish a physical second or a native C/E maintenance energy.",
+    "Floating source execution is checked against fixed admission gates; analytic split and transfer bounds are kept separate from numerical implementation diagnostics."
+  ],
+  "separate_obligations": [
+    "Hamiltonian band isolation and conserved CAR number do not prove passive protection under every native C/E repair branch or a nontrivial topological invariant.",
+    "The polar-dressed band has a computed small block-charge contrast; a logical band swap is not transport of a perfectly localized unit charge.",
+    "The complete coupled-ground response retains all charged poles and residues, including the band complement. No spectral residue is renormalized to make a particle identity.",
+    "The existing failed fixed-dictionary finite Lorentz-dispersion benchmark remains in force. This open four-site dynamics is not a replacement fit to that periodic benchmark.",
+    "Continuing native reference, spatial/Lorentz spin, common clock, electromagnetic matching, chiral continuum and physical electron/positron identification remain separate joins."
+  ]
+}

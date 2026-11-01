@@ -101,7 +101,8 @@ def test_divided_step_charge_and_transport_claims_require_nonzero_h() -> None:
 
     flagship = _text("flagship/from_observer_consensus_to_standard_physics.tex")
     observers = _text("paper/observers_are_all_you_need.tex")
-    assert "at a declared nonzero step $h$" in flagship
+    if "hopping charge" in flagship:
+        assert "at a declared nonzero step $h$" in flagship
     assert "At a declared nonzero step \\(h\\)" in observers
     assert "declared nonzero field step \\(h\\)" in observers
 

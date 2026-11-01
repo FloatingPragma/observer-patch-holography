@@ -1417,9 +1417,9 @@ y = x + j(unit_b − unit_a).
 The load is conserved. Its quantum current instrument has Kraus operators
 `L_(c,j)=(1/sqrt(2)) Σ_(x:j(x,c)=j) |y(x,c)><x|`.
 The record is `(c,j)`. C is one member of the admissible family in the
-[record-law classification](record_laws/README.md). Keeping the pre-repair
-contrast instead gives E, dropping the coin gives C0, and recording both
-endpoint loads gives T. All of them have identical classical transitions.
+[record-law classification](record_laws/README.md). Adding a seam-parity readout gives E; a distinct coherent current-only
+instrument gives C0; recording both endpoint loads gives T. Classically
+discarding a recorded coin leaves C unchanged and does not give C0. All of them have identical classical transitions.
 The classical rule fixes the diagonal of every member and none of its
 coherences.
 

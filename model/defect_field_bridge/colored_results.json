@@ -1,0 +1,62 @@
+{
+  "oracle_dimension": 3,
+  "native": {
+    "C": {
+      "all_seams": 30,
+      "raw_slots": 240,
+      "abort_slots": 60,
+      "zero_slots": 120,
+      "independently_checked_active_columns": 35640,
+      "all_column_effect_sums": "2 before unchanged Kraus factor1/sqrt(2)",
+      "closed_odd_exchange_internal_action": "-SWAP"
+    },
+    "E": {
+      "all_seams": 30,
+      "raw_slots": 480,
+      "abort_slots": 180,
+      "zero_slots": 300,
+      "independently_checked_active_columns": 35640,
+      "all_column_effect_sums": "2 before unchanged Kraus factor1/sqrt(2)",
+      "closed_odd_exchange_internal_action": "-SWAP"
+    }
+  },
+  "target_dimensions": {
+    "internal_per_particle": 90,
+    "ports": 12,
+    "one_particle_modes": 1080,
+    "native_hard_core_two_particle_dimension": 534600,
+    "full_CAR_two_particle_dimension": 582660,
+    "same_port_collision_complement_dimension": 48060
+  },
+  "general_law": "K_h=(1/sqrt(2)) sum_x |f_h(x)><x| tensor (-SWAP)^(p_h(x))",
+  "CAR_embedding": "|{x<y};a,b> -> c^dagger_(x,a) c^dagger_(y,b)|vacuum>",
+  "general_sign_proof": "A hop across the occupied spectator crosses one creation operator, producing minus and reversing the two internal slots; a noncrossing hop produces neither.",
+  "gauge_compatibility": "SWAP (rho(g) tensor rho(g))=(rho(g) tensor rho(g)) SWAP for every common/global single-particle internal action.",
+  "identical_internal_states_exchange": "-1",
+  "ordered_cover_code": {
+    "isometry": "E=[I;-SWAP]/sqrt(2)",
+    "identity": "X_orientation E = E (-SWAP)",
+    "native_branch_join": "The actual ordered-cover K_h tensor I compressed by E is exactly K_h^colored, on every source column.",
+    "natural_added_fiber_dimension": "d^2",
+    "negative_exchange_multiplicity": "dim Sym^2(V)=d(d+1)/2",
+    "positive_exchange_multiplicity": "dim Lambda^2(V)=d(d-1)/2",
+    "target_negative_dimension": 4095,
+    "target_positive_dimension": 4005,
+    "full_orientation_plus_fiber_at_d90": 16200,
+    "interpretation": "Both native characters occur for identical fermions with internal states. Fixed chi=- is the symmetric-internal channel, not the whole two-particle module."
+  },
+  "global_Fock_parity_on_this_N2_domain": "+1; distinct from the true exchange operation",
+  "domain": "Hard-core per-port two-particle sector only. Same-port collision states are counted, not silently deleted from a claimed full Fock law.",
+  "not_claimed": [
+    "law on collision states or other particle-number sectors",
+    "site-local gauge covariance without the required link transports",
+    "interacting measured particle spectrum",
+    "spacetime continuum or Lorentz spin-statistics theorem"
+  ],
+  "schema": "oph.defect_field_bridge.colored_exchange.v1",
+  "source_sha256": {
+    "model/defect_field_bridge/colored.py": "c0893ff0e6d1c8b70fbc4d4b4dcaa0f3740dba7f919144c8b020b4321ec792a3",
+    "model/defect_protection/protection.py": "9255f6ff64ff37a51c51dddcdf08e204d8a1e94dfa83c8e6bda6cf238804c9f7",
+    "model/exchange_sector/statistics.py": "9bbfd1384e7e9800e010b5123591da85c23d6b114d8093f28606deb32e3214e5"
+  }
+}

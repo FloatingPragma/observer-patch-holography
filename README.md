@@ -8,7 +8,29 @@
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
 [![Runnable observer model](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml)
 
-Observer Patch Holography (OPH) proposes that physics is what bounded
+## Mission
+
+The mission of Observer Patch Holography (OPH) is to create a consistent and
+complete, formal and rigorous theory of reality. That theory has no starting
+point: it is a closed loop, and it has to meet four conditions.
+
+1. **Consistent.** The loop closes. Its fixed point exists, constructed
+   explicitly and machine-checked, and a theory with a model contains no
+   contradiction.
+2. **Rigid.** Every dimensionless quantity is forced. One measured value sets
+   the units and nothing else.
+3. **Complete**, in the sense
+   [Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777) gave
+   the word in 1935. Every element of physical reality has a counterpart in
+   the theory, and every measured quantity is derived.
+4. **Correct.** Derived values agree with measurement, and new predictions are
+   frozen before they are tested.
+
+OPH does not claim to be the only theory with these properties.
+
+## The idea
+
+OPH proposes that physics is what bounded
 observers can establish together. Finite observers compare records on shared
 boundaries, repair their disagreements, and treat as real whatever survives
 every comparison. Three problems that resist a classical account motivate the

@@ -23,10 +23,16 @@ name: Mandatory Suite
 # tools/run_mandatory_suite.py run in the nightly mandatory-full job below
 # (and on demand via workflow_dispatch with full=true), keeping the per-push
 # gate fast without dropping any step from daily enforcement.
+#
+# Pushes to main and pull requests run the standard shards on Ubuntu. The
+# Windows shards run nightly (beside the Ubuntu full run), on release tags and
+# on manual dispatch, so a platform break surfaces within a day while the
+# per-push job count stays within the runner pool.
 
 on:
   push:
     branches: [main]
+    tags: ['r*']
   pull_request:
   workflow_dispatch:
     inputs:
@@ -44,14 +50,13 @@ permissions:
 
 jobs:
   mandatory-shards:
-    if: github.event_name != 'schedule'
     name: mandatory shard (${{ matrix.os }}, ${{ matrix.shard }})
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
         # Manual full=true preserves one unsharded full run on each OS.
         # Ten partitions separate the long A1-A3 certificate campaign from
         # the fingerprint suite while retaining the 30-minute worker ceiling.
@@ -102,14 +107,14 @@ jobs:
   # matrix to succeed; failed, cancelled, or skipped workers cannot pass.
   mandatory:
     name: mandatory collection (${{ matrix.os }})
-    if: ${{ always() && github.event_name != 'schedule' }}
+    if: ${{ always() }}
     needs: [mandatory-shards]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
     steps:
       - name: Require every mandatory worker to succeed
         shell: python

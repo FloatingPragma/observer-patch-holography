@@ -38,8 +38,8 @@ def fixture_root(tmp_path):
         target.write_text("Independent fixture evidence: " + name + "\n")
     for campaign in source.get("component_campaigns", []):
         name = campaign["contract"]["path"]
-        # A contract can also be a later campaign's source-bound input. Preserve
-        # its exact bytes on Windows instead of changing LF to CRLF here.
+        # A later campaign may also be an earlier contract's bound dependency.
+        # Preserve its authoritative bytes, including line endings.
         (tmp_path / name).write_bytes((program.ROOT / name).read_bytes())
         contract = json.loads((tmp_path/name).read_text())
         if contract.get('schema') == 'oph.integration_simplification.v1':

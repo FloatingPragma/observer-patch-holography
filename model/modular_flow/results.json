@@ -1,0 +1,107 @@
+{
+  "schema": "oph.complete_field_modular_flow.v1",
+  "scope": "FINITE_SOURCE_OPERATED_FULL_FOCK_MODULAR_HISTORIES",
+  "geometry": [
+    2,
+    1,
+    1
+  ],
+  "full_Fock_dimension": 16,
+  "declared_beta": "1",
+  "conventions": {
+    "modular": "sigma_s(A)=rho^(is) A rho^(-is)",
+    "Heisenberg": "tau_t(A)=exp(itH) A exp(-itH)",
+    "common_parameter_map": "t=-beta*s"
+  },
+  "full_algebra_certificate": {
+    "dimensionless_modular_parameter": "1/4",
+    "Hamiltonian_model_duration": "-1/4",
+    "ideal_split_operator_bound": "11/65536",
+    "complete_dilation_operator_error": 1.022445744142909e-05,
+    "abort_Gram_operator_norm": 5.2422521722242696e-30,
+    "resources": {
+      "native_pulses": 1408,
+      "single_code_pulses": 1184,
+      "pair_code_pulses": 224,
+      "zero_angle_requests": 0,
+      "identity_phase_pulses": 112,
+      "proper_code_load_events": 1408,
+      "proper_code_export_events": 1408,
+      "proper_code_service_events": 2816,
+      "integrated_processor_norm_upper": 1910.619583382594,
+      "maximum_work_qubits": 4,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "service_failure_outcomes_retained": true,
+      "valid_code_failure_probability_in_exact_arithmetic": 0,
+      "initialization_storage_readout_physical_costs_included": false
+    },
+    "all_input_columns_and_arbitrary_references_covered": true
+  },
+  "complete_read_history": {
+    "retained_binary_reads": 2,
+    "read_mode": 0,
+    "ideal_complete_history_bound": "99/4194304",
+    "complete_dilation_operator_error": 1.2032430772604803e-06,
+    "resources": {
+      "native_pulses": 2822,
+      "single_code_pulses": 2372,
+      "pair_code_pulses": 450,
+      "zero_angle_requests": 0,
+      "identity_phase_pulses": 224,
+      "proper_code_load_events": 2822,
+      "proper_code_export_events": 2822,
+      "proper_code_service_events": 5644,
+      "integrated_processor_norm_upper": 3833.141474879548,
+      "maximum_work_qubits": 6,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "service_failure_outcomes_retained": true,
+      "valid_code_failure_probability_in_exact_arithmetic": 0,
+      "initialization_storage_readout_physical_costs_included": false
+    },
+    "initialized_record_bits": 2,
+    "history_outcomes": 4,
+    "postselection_applied": false
+  },
+  "prepared_reference_readout": {
+    "ideal_split_operator_bound": "11/65536",
+    "complete_preparation_and_readout_error": 3.56023208471884e-06,
+    "pointer_probabilities": [
+      0.593784209196309,
+      0.4062157908031137
+    ],
+    "first_export_abort_probability": 4.150937437495799e-29,
+    "complete_probability": 0.9999999999994227,
+    "nonselective_read_reference_disturbance": 0.029000642098066926,
+    "resources": {
+      "native_pulses": 11660,
+      "single_code_pulses": 8359,
+      "pair_code_pulses": 3301,
+      "zero_angle_requests": 0,
+      "identity_phase_pulses": 113,
+      "proper_code_load_events": 11660,
+      "proper_code_export_events": 11660,
+      "proper_code_service_events": 23320,
+      "integrated_processor_norm_upper": 21675.17375156573,
+      "maximum_work_qubits": 9,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "service_failure_outcomes_retained": true,
+      "valid_code_failure_probability_in_exact_arithmetic": 0,
+      "initialization_storage_readout_physical_costs_included": false
+    },
+    "preparation_resource_certificate": {
+      "scheme": "fixed-scaffold-plus-Walsh-Parseval-v1",
+      "preparation_work_bits": 8,
+      "fixed_scaffold_pi_coefficient": "12559/2",
+      "variable_angle_sum_pi_coefficient_upper": "35",
+      "processor_norm_upper_rational": "138919/7",
+      "measured_preparation_processor_norm_upper": 19758.270982875958
+    },
+    "initialized_work_bits": 9,
+    "retained_purifier_bits": 4,
+    "retained_pointer_bits": 1,
+    "postselection_or_success_normalization_applied": false
+  },
+  "physical_clock_calibration_or_regional_modular_covariance_claimed": false,
+  "canonical_physical_premises_discharged": 0,
+  "floating_residuals_are_outward_certificates": false
+}

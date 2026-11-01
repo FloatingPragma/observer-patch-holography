@@ -8,7 +8,30 @@
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
 [![Runnable observer model](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml)
 
-L’Holographie des parcelles d’observateur (OPH) propose que la physique est
+## Mission
+
+La mission de l’Holographie des parcelles d’observateur (OPH) est de
+construire une théorie de la réalité cohérente et complète, formelle et
+rigoureuse. Cette théorie n’a pas de point de départ : c’est une boucle
+fermée, et elle doit remplir quatre conditions.
+
+1. **Cohérente.** La boucle se referme. Son point fixe existe, construit
+   explicitement et vérifié par machine, et une théorie qui possède un modèle
+   ne contient aucune contradiction.
+2. **Rigide.** Toute grandeur sans dimension est imposée. Une seule valeur
+   mesurée fixe les unités, et rien d’autre.
+3. **Complète**, au sens
+   qu’[Einstein, Podolsky et Rosen](https://doi.org/10.1103/PhysRev.47.777)
+   ont donné à ce mot en 1935. Chaque élément de la réalité physique a une
+   contrepartie dans la théorie, et chaque grandeur mesurée est dérivée.
+4. **Correcte.** Les valeurs dérivées concordent avec la mesure, et les
+   nouvelles prédictions sont figées avant d’être testées.
+
+OPH ne prétend pas être la seule théorie dotée de ces propriétés.
+
+## L’idée
+
+OPH propose que la physique est
 ce que des observateurs bornés peuvent établir ensemble. Des observateurs
 finis comparent leurs registres sur des frontières partagées, réparent leurs
 désaccords et tiennent pour réel ce qui résiste à toutes les comparaisons.

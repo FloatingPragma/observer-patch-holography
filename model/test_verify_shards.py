@@ -16,6 +16,13 @@ def flatten(groups):
     return tuple(replay for group in groups for replay in group)
 
 
+def program_commands(workflow):
+    """Run commands of the completion-program jobs, which split one program across parallel jobs."""
+    jobs = [job for name, job in workflow['jobs'].items() if name.startswith('program-')]
+    assert jobs
+    return [step['run'] for job in jobs for step in job['steps'] if 'run' in step]
+
+
 @pytest.mark.parametrize('count', range(1, len(verify.replay_groups())+1))
 def test_shards_are_exhaustive_disjoint_and_keep_empirical_worker_atomic(count):
     shards = [verify.selected_replay_groups(index, count) for index in range(count)]
@@ -87,6 +94,7 @@ def test_every_new_research_receipt_has_a_canonical_replay():
         ('model.clock_defect_energy.shared_event_clock.run', None, 'model/clock_defect_energy/shared_event_clock/results.json'),
         ('model.screened_transport.transport', None, 'model/screened_transport/transport_results.json'),
         ('model.exchange_sector.statistics_packet', None, 'model/exchange_sector/statistics_results.json'),
+        ('model.exchange_sector.many_body_packet', None, 'model/exchange_sector/many_body_results.json'),
         ('model.particle_screening.mobile_packet', None, 'model/particle_screening/mobile_results.json'),
     }.issubset(verify.REPLAYS)
 
@@ -149,7 +157,7 @@ def test_completion_candidate_receipts_have_replay_custody_and_workflow_coverage
         assert 'model/screened_transport/**' in paths
         assert 'model/clock_defect_energy/**' in paths
         assert 'model/local_repair_family/**' in paths
-    commands = [step['run'] for step in workflow['jobs']['program']['steps'] if 'run' in step]
+    commands = program_commands(workflow)
     pytest_commands = [command for command in commands if 'python -m pytest' in command]
     assert pytest_commands
     pytest_command = '\n'.join(pytest_commands)
@@ -183,7 +191,7 @@ def test_completion_candidate_receipts_have_replay_custody_and_workflow_coverage
 
 def test_full_band_and_native_localization_receipts_are_mandatory():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
-    commands = [step['run'] for step in workflow['jobs']['program']['steps'] if 'run' in step]
+    commands = program_commands(workflow)
     events = workflow.get('on', workflow.get(True))
     for package, module in [('band_clock', 'model.band_clock'),
                             ('native_localization', 'model.native_localization.experiment'),
@@ -404,7 +412,14 @@ def test_compressed_receipt_requires_outer_manifest_coverage(monkeypatch, tmp_pa
 def test_ci_covers_all_six_shards_both_platforms_and_complete_regression():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/observer-model.yml').read_text())
     observer, regression = (workflow['jobs'][key] for key in ('observer', 'regression'))
-    assert observer['strategy']['matrix']['os'] == ['ubuntu-latest', 'windows-latest']
+    # Windows follows the Mandatory Suite policy: nightly, release tags and dispatch.
+    mandatory = yaml.safe_load((verify.ROOT/'.github/workflows/mandatory-suite.yml').read_text())
+    platforms = mandatory['jobs']['mandatory-shards']['strategy']['matrix']['os']
+    assert 'windows-latest' in platforms and 'ubuntu-latest' in platforms
+    events = workflow.get('on', workflow.get(True))
+    assert events['push']['tags'] == ['r*']
+    assert events['schedule'] and 'workflow_dispatch' in events
+    assert observer['strategy']['matrix']['os'] == platforms
     assert observer['strategy']['matrix']['shard'] == [0,1,2,3,4,5]
     assert observer['timeout-minutes'] == (
         "${{ matrix.os == 'windows-latest' && matrix.shard == 1 && 120 || 90 }}")
@@ -412,13 +427,13 @@ def test_ci_covers_all_six_shards_both_platforms_and_complete_regression():
                for step in observer['steps'])
     scalar = [step for step in observer['steps'] if 'verify_source_scalar_time_refinement.py' in step.get('run','')]
     assert len(scalar) == 1 and scalar[0]['if'] == 'matrix.shard == 2'
-    assert regression['strategy']['matrix']['os'] == ['ubuntu-latest', 'windows-latest']
-    assert regression['strategy']['matrix']['shard'] == [0,1,2]
+    assert regression['strategy']['matrix']['os'] == platforms
+    assert regression['strategy']['matrix']['shard'] == [0,1,2,3]
     commands = [step for step in regression['steps'] if 'run' in step]
     pytest_steps = [step for step in commands if 'python -m pytest' in step['run']]
     assert len(pytest_steps) == 1 and 'if' not in pytest_steps[0]
     assert pytest_steps[0]['run'] == ('python -m pytest -q -W error -p model.pytest_shards '
-        '--model-shard-index ${{ matrix.shard }} --model-shard-count 3 model')
+        '--model-shard-index ${{ matrix.shard }} --model-shard-count 4 model')
     extra = [step for step in commands if 'model.common_source.repair_field_attachment' in step['run']
              or 'native_staggered_field' in step['run'] or 'observer_particles/run.py' in step['run']]
     assert len(extra) == 4

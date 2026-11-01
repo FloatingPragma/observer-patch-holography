@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 756,
+  "surface_count": 778,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1466,6 +1466,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/charged_dynamics/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/clock_defect_energy/CLOCK_COUNT_INFERENCE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1806,6 +1811,81 @@
       "allowlisted": false
     },
     {
+      "path": "model/defect_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_benchmark/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_bridge/COHERENT_EXTENSION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_bridge/DYNAMICS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_bridge/FULL_DOMAIN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_bridge/JOINT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_bridge/REPRESENTATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_interactions/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_modular/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_field_propagation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_identity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/dimer_family/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/empirical_diagnostics/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1817,6 +1897,11 @@
     },
     {
       "path": "model/event_circulation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/exchange_sector/MANY_BODY.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1861,6 +1946,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/field_protocols/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/field_regions/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1877,6 +1967,16 @@
     },
     {
       "path": "model/field_thermal/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/flux_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/full_fock_energy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1957,6 +2057,11 @@
     },
     {
       "path": "model/measurement_bounds/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/modular_flow/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2322,6 +2427,11 @@
     },
     {
       "path": "model/reference_recovery/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/regional_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

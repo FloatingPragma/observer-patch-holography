@@ -1,0 +1,1451 @@
+{
+  "schema": "oph.defect_identity.v1",
+  "arithmetic": "exact rational complex matrices; no numerical eigenspace thresholds",
+  "source_sha256": {
+    "model/defect_identity/identity.py": "36739be20bfad1d4aebf27e0c778b95b89e7931fa4aabbc57eb9712db2014e5d",
+    "model/defect_protection/protection.py": "9255f6ff64ff37a51c51dddcdf08e204d8a1e94dfa83c8e6bda6cf238804c9f7",
+    "code/a5_closure/super_tannakian_matter_lift_certificate.py": "f6f3ed3f6d9b9bcfe3fd3c23663e97cb17db512d54c06c008a41e7ef2cc6b1fa",
+    "code/a5_closure/manifests/super_tannakian_matter_reference.json": "cb627653c332996adcec8f9d501299e0fcb272958b346316946b613253040c59"
+  },
+  "group_convention": {
+    "group": "G=S(U(3) x U(2)) isomorphic to (SU(3) x SU(2) x U(1))/Z6",
+    "cover_map": "(A,B,z) -> (z^-2 A,z^3 B)",
+    "kernel_generator": "(exp(2*pi*i/3) I3,-I2,exp(pi*i/3))",
+    "hypercharge": "q=6Y; q(one-body)=(-2,-2,-2,3,3)",
+    "conditional": "This is the faithful image of the specified matter design. Relating it to the physical global form remains an identification question."
+  },
+  "matter": {
+    "dimension": 15,
+    "basis_subsets": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        3,
+        4
+      ],
+      [
+        0,
+        2,
+        3,
+        4
+      ],
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "representative": "Lambda^2(C^5) plus Lambda^4(C^5); even-minus-vacuum",
+    "conjugate_representative_not_excluded": true,
+    "q_weights": [
+      -4,
+      -4,
+      1,
+      1,
+      -4,
+      1,
+      1,
+      1,
+      1,
+      6,
+      -3,
+      -3,
+      2,
+      2,
+      2
+    ],
+    "generator_rank": 12,
+    "generator_sha256": "5909420521d914021c65b27b4662916d117ff0244becb7f14bc497a48eeb1ce9",
+    "group_faithfulness": {
+      "identity": "g^T H Lambda^4(g) H^-1 = det(g) I5",
+      "generic_matrix_variables": 25,
+      "exact_polynomial_entries_checked": 25,
+      "H_volume_pairing": [
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "conclusion_on_det_one": "Lambda^4(g)=I implies g^T=I, hence g=I; the full matter action is group-faithful"
+    }
+  },
+  "all_involution_conjugacy_classes": [
+    {
+      "negative_color": 0,
+      "negative_weak": 0,
+      "one_body_signs": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "matter_signs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "plus": 15,
+      "minus": 0,
+      "central": true,
+      "blocks": {
+        "u_c": {
+          "plus": 3,
+          "minus": 0
+        },
+        "Q": {
+          "plus": 6,
+          "minus": 0
+        },
+        "e_c": {
+          "plus": 1,
+          "minus": 0
+        },
+        "L": {
+          "plus": 2,
+          "minus": 0
+        },
+        "d_c": {
+          "plus": 3,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "negative_color": 0,
+      "negative_weak": 2,
+      "one_body_signs": [
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "matter_signs": [
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "plus": 7,
+      "minus": 8,
+      "central": true,
+      "blocks": {
+        "u_c": {
+          "plus": 3,
+          "minus": 0
+        },
+        "Q": {
+          "plus": 0,
+          "minus": 6
+        },
+        "e_c": {
+          "plus": 1,
+          "minus": 0
+        },
+        "L": {
+          "plus": 0,
+          "minus": 2
+        },
+        "d_c": {
+          "plus": 3,
+          "minus": 0
+        }
+      }
+    },
+    {
+      "negative_color": 1,
+      "negative_weak": 1,
+      "one_body_signs": [
+        -1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "matter_signs": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "plus": 7,
+      "minus": 8,
+      "central": false,
+      "blocks": {
+        "u_c": {
+          "plus": 1,
+          "minus": 2
+        },
+        "Q": {
+          "plus": 3,
+          "minus": 3
+        },
+        "e_c": {
+          "plus": 0,
+          "minus": 1
+        },
+        "L": {
+          "plus": 1,
+          "minus": 1
+        },
+        "d_c": {
+          "plus": 2,
+          "minus": 1
+        }
+      }
+    },
+    {
+      "negative_color": 2,
+      "negative_weak": 0,
+      "one_body_signs": [
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "matter_signs": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "plus": 7,
+      "minus": 8,
+      "central": false,
+      "blocks": {
+        "u_c": {
+          "plus": 1,
+          "minus": 2
+        },
+        "Q": {
+          "plus": 2,
+          "minus": 4
+        },
+        "e_c": {
+          "plus": 1,
+          "minus": 0
+        },
+        "L": {
+          "plus": 2,
+          "minus": 0
+        },
+        "d_c": {
+          "plus": 1,
+          "minus": 2
+        }
+      }
+    },
+    {
+      "negative_color": 2,
+      "negative_weak": 2,
+      "one_body_signs": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "matter_signs": [
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "plus": 7,
+      "minus": 8,
+      "central": false,
+      "blocks": {
+        "u_c": {
+          "plus": 1,
+          "minus": 2
+        },
+        "Q": {
+          "plus": 4,
+          "minus": 2
+        },
+        "e_c": {
+          "plus": 1,
+          "minus": 0
+        },
+        "L": {
+          "plus": 0,
+          "minus": 2
+        },
+        "d_c": {
+          "plus": 1,
+          "minus": 2
+        }
+      }
+    },
+    {
+      "negative_color": 3,
+      "negative_weak": 1,
+      "one_body_signs": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "matter_signs": [
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "plus": 7,
+      "minus": 8,
+      "central": false,
+      "blocks": {
+        "u_c": {
+          "plus": 3,
+          "minus": 0
+        },
+        "Q": {
+          "plus": 3,
+          "minus": 3
+        },
+        "e_c": {
+          "plus": 0,
+          "minus": 1
+        },
+        "L": {
+          "plus": 1,
+          "minus": 1
+        },
+        "d_c": {
+          "plus": 0,
+          "minus": 3
+        }
+      }
+    }
+  ],
+  "only_nonidentity_central_class": [
+    0,
+    2
+  ],
+  "centrality_reason": "A commuting internal G action must commute with Q; if Q restricts to rho(J), faithful rho forces J central.",
+  "internal_gauge_uniform_fermion_parity": {
+    "exists": false,
+    "proof": "rho(g)=-I15 would imply rho(g^2)=I; global faithfulness gives g^2=I. All six involution classes have minus dimension 0 or 8, never 15.",
+    "weak_parity_is_uniform_negative_character": false,
+    "weak_parity_exchange_assignment": "seven positive and eight negative native exchange characters; incompatible with an imposed uniformly negative collective fifteen-label encoding"
+  },
+  "native": {
+    "C": {
+      "raw_maps_sha256": "2f21dada266be3e0a8f99a2f7f18289659f25fd7b5cbefdea1d3bab063fa26e9",
+      "commutant_complex_dimension": 2,
+      "odd_closed_native_history": {
+        "initial_pair": [
+          0,
+          11
+        ],
+        "history": [
+          [
+            "C",
+            [
+              0,
+              5
+            ],
+            0,
+            1
+          ],
+          [
+            "C",
+            [
+              0,
+              11
+            ],
+            1,
+            2
+          ],
+          [
+            "C",
+            [
+              5,
+              11
+            ],
+            0,
+            1
+          ]
+        ],
+        "source_history_rank": 1,
+        "orientation_action": "X",
+        "probability_on_initial_pair": "1/8",
+        "character_on_X_plus": 1,
+        "character_on_X_minus": -1
+      }
+    },
+    "E": {
+      "raw_maps_sha256": "e5eda2c64723069b5551f7b055dd89d6213ecab387c470f8ceb32e0d29d3fa7f",
+      "commutant_complex_dimension": 2,
+      "odd_closed_native_history": {
+        "initial_pair": [
+          0,
+          11
+        ],
+        "history": [
+          [
+            "E",
+            [
+              0,
+              5
+            ],
+            0,
+            5
+          ],
+          [
+            "E",
+            [
+              0,
+              11
+            ],
+            1,
+            6
+          ],
+          [
+            "E",
+            [
+              5,
+              11
+            ],
+            0,
+            5
+          ]
+        ],
+        "source_history_rank": 1,
+        "orientation_action": "X",
+        "probability_on_initial_pair": "1/8",
+        "character_on_X_plus": 1,
+        "character_on_X_minus": -1
+      }
+    }
+  },
+  "unextended_obstruction": "Native commutant C direct_sum C is abelian; no nontrivial su(3) or su(2) action commutes with every complete native branch.",
+  "spectator_extension": {
+    "scope": "internal weak-grading control only; not a uniformly negative collective-label encoding or a full per-particle exchange construction",
+    "supplied_additional_factor": "C^m, untouched by every native branch",
+    "commutant": "M_m(C) direct_sum M_m(C)",
+    "necessary_capacity_for_nonidentity_gauge_involution": "m >= max(7,8) = 8",
+    "minimal_feasible_m_for_this_declared_extension": 8,
+    "native_extended_dimension": 1056,
+    "source_times_matter_dimension": 990,
+    "W_sqrt2_times_isometry": [
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "exact_gram_W_star_W": "2 I15",
+    "exact_intertwiner": "X_memory W = W rho(I3,-I2)",
+    "all_144_Lie_brackets_preserved": true,
+    "group_extension": "rho_ext(g)=(W rho(g) W*)/2 + (I16-W W*/2)",
+    "complement": "one even gauge-trivial line in this chosen minimal construction; no particle identity asserted",
+    "fiber_and_gauge_action_status": "explicit permitted design; no uniqueness or natural-selection principle is required",
+    "implementation_status": "exact algebraic extension of every native branch; execution and resource accounting for the added fiber remain to be supplied"
+  },
+  "complete_branch_checks": {
+    "C": {
+      "raw_slots": 240,
+      "all_source_and_matter_columns": 237600,
+      "zero_slots_retained": 120,
+      "abort_slots_retained": 60,
+      "complete_native_branch_intertwining": true
+    },
+    "E": {
+      "raw_slots": 480,
+      "all_source_and_matter_columns": 475200,
+      "zero_slots_retained": 300,
+      "abort_slots_retained": 180,
+      "complete_native_branch_intertwining": true
+    }
+  },
+  "uniform_negative_character_extension": {
+    "required_character_on_all_collective_labels": -1,
+    "matter_exchange_signature": [
+      0,
+      15
+    ],
+    "necessary_capacity": "m >= 15 when one collective fifteen-label module is required to lie entirely in the negative memory sector",
+    "chosen_m": 15,
+    "native_extended_dimension": 1980,
+    "source_times_matter_dimension": 990,
+    "W_sqrt2_times_isometry": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ]
+    ],
+    "exact_gram_W_star_W": "2 I15",
+    "exact_exchange_intertwiner": "X_memory W = -W",
+    "full_group_action": "I2 tensor rho(g)",
+    "statistics_action": "Z2 factor commuting with G; Q is not identified with an internal gauge element",
+    "all_12_gauge_generators_intertwined": true,
+    "all_144_Lie_brackets_preserved": true,
+    "positive_exchange_sector": "an unused second copy of the same internal module; excluded by the chosen negative-sector encoding",
+    "initialization": "prepare the ordering qubit as |-> from |0> by H then Z and tensor the internal state; unitary design choice, not postselection",
+    "full_carrier_retained": "both fifteen-dimensional exchange sectors remain in C2 tensor C15; native branches and gauge operations preserve each sector",
+    "complete_branch_checks": {
+      "C": {
+        "raw_slots": 240,
+        "all_source_and_matter_columns": 237600,
+        "zero_slots_retained": 120,
+        "abort_slots_retained": 60,
+        "complete_native_branch_intertwining": true
+      },
+      "E": {
+        "raw_slots": 480,
+        "all_source_and_matter_columns": 475200,
+        "zero_slots_retained": 300,
+        "abort_slots_retained": 180,
+        "complete_native_branch_intertwining": true
+      }
+    },
+    "design_status": "explicit permitted observer-memory design; no uniqueness principle is needed",
+    "scope": "one collective internal module on the native two-token configuration carrier; not a universal fermionic memory bound. Per-particle internal labels require the colored -SWAP construction, which uses both characters."
+  },
+  "quantifiers": [
+    "Both supplied native C/E ordered-cover instruments, with all zero and abort slots retained.",
+    "Every finite history and adaptive choice of these branches; arbitrary untouched reference, by exact branch intertwining.",
+    "Internal transformations commute with each fixed complete branch, not merely an averaged channel or relabeled family.",
+    "The additional C^m fiber is supplied, and the retained 15D matter subspace is invariant under a faithful action of the declared G.",
+    "For the internal-grading subtheorem only, the native deck involution is identified with the image of a nonidentity J in G; its mixed signature excludes a uniformly negative collective encoding.",
+    "For the uniform-character design, Q=-I on one collective fifteen-label module; the chosen spectator has dimension fifteen. This is not the full two-particle internal space."
+  ],
+  "not_discharged": [
+    "execution, complete failures, resources and memory-noise control for the specified extra fiber and gauge operations",
+    "same-excitation localization, propagation, particle pole, mass, spin or statistics observables",
+    "empirical identification of the specified matter representation and global gauge image",
+    "actual observer memory protection against laws that fail to commute with X",
+    "full multiparticle fifteen-species Fock space and Lorentz spin-statistics connection",
+    "three generations or neutrino identity"
+  ],
+  "physical_identification": false
+}

@@ -7,6 +7,39 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
+The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits remain part of the result.
+
+The [complete collision repair](defect_field_bridge/FULL_DOMAIN.md), [finite ring propagation](defect_field_propagation/README.md), [common source clock](defect_field_clock/README.md), and [external Higgs drive](defect_field_interactions/README.md) extend this same designed field law. A [bounded direct common experiment](defect_field_bridge/joint.py) retains every four-mode occupation, native record and clock outcome. The finite one-dimensional domain, explicit collision-policy dependence, calibrated inputs and remaining physical 3+1/matched-particle obligations stay explicit.
+
+The [colored CAR bridge](defect_field_bridge/REPRESENTATION.md) gives each
+occupied native port its own internal state and realizes true two-particle
+exchange as minus SWAP, with complete source and pointer outputs. The
+[calibrated static field](defect_field_benchmark/README.md) supplies a common
+quasiparticle action and record readout with every calibration identified
+as an input. These finite constructions retain collision, broken-current,
+neutral-mass and native-spatial identification boundaries.
+
+The [protected ordered-cover construction](defect_protection/README.md) starts from
+native repair paths and an explicit coherent memory law. Its exact protected
+charge is carried by the joint source/memory system; a localized source
+particle remains to be constructed. The [same-carrier matter-capacity
+theorem](defect_identity/README.md) derives necessary additional multiplicity
+and a conditional faithful gauge embedding. The [repair-cost/action
+calculation](defect_energy/README.md) derives the actual operator path action,
+retains all outcomes and shows why equal scalar resource totals alone do
+not determine its memory response. The same excitation needs the
+duration, motion and rest-energy join that tests E=mc^2.
+
+The complete finite field has [modular source histories](modular_flow/README.md),
+[all-sector energy and chemical-potential accounting](full_fock_energy/README.md),
+and [adaptive observations with every output retained](field_protocols/README.md).
+The [periodic loop response](flux_response/README.md) tests the same local
+action on a separate finite ring. An [exact parameter-family test](dimer_family/README.md)
+excludes the centered repulsive two-site linear mass dictionary: its two
+charge-one doublets cannot supply three lepton generations. These results
+retain the supplied action, reference, source services and physical matching
+obligations.
+
 The [first bounded completion campaign](completion/README.md) executes a
 continuing C/E observer with explicit memory export and a delayed-mixture
 control. For the repair-only endpoints, an exact stationary source/current-sign
@@ -52,7 +85,7 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 | Owner | Current construction and remaining join |
 | --- | --- |
 | [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Compiled reference recovery](reference_recovery/README.md) implements the bounded Petz adjoint and occupation observations on the complete interacting field, with retained environments and every export outcome. Common native full-field reference selection and physical clock calibration are unestablished. |
-| [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141) | [Particle response](particle_response/README.md) constructs charge −1 and +1 doublets about one half-filled ground, with explicit symmetry, probe residues and complete source spectroscopy. They are conditional electron/positron-like candidates; electromagnetic charge, Lorentz spin, transport and topological-defect identification are unestablished. |
+| [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141) | [Particle response](particle_response/README.md) constructs charge −1 and +1 doublets about one half-filled ground, with explicit symmetry, probe residues and complete source spectroscopy. [Uniform-action dynamics](charged_dynamics/README.md) derives their hopping and current, proves a charged-band gap throughout dimer joining, and source-executes complete finite transport/read histories. Dressing substantially delocalizes charge; electromagnetic matching, Lorentz spin, native protection and physical particle identity remain unestablished. |
 | [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Contact response](contact_scattering/README.md) connects the existing pair pole to the exact two-fermion T operator, bounds fixed-broadening volume errors and source-executes a nonzero interaction echo. A physical on-shell scattering map and chiral spatial continuum are unestablished. |
 | [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Mass comparison](particle_comparison/README.md) declares two equal-gap candidates and a common electron calibration. Their zero mass difference meets a conditional experimental bound; neither absolute mass is independently predicted. An exact exclusion rules out fitting all three charged leptons from this dimer's transition frequencies, even with a shared offset and scale. |
 | [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | [Actual-data replay](particle_comparison/README.md) checks the fixed alpha/ACT comparisons and the conditional particle mass equality. All targets are retrospective; the packet adds no eligible integrated physical comparison and does not confirm an OPH universe. |

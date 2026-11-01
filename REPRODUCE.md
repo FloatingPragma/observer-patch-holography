@@ -109,8 +109,9 @@ conditional software tests; the scalar action, Born readout and model-time
 convention are supplied, and independent physical comparison is separate.
 
 The [Runnable observer model workflow](.github/workflows/observer-model.yml)
-runs the verifier and model regressions on Linux and Windows for changes to
-the model and its source dependencies. It also executes the following
+runs the verifier and model regressions on Linux for changes to the model and
+its source dependencies, and on Windows nightly, on release tags and on manual
+dispatch. It also executes the following
 standalone source-field and particle checks in the model environment:
 
 ```sh

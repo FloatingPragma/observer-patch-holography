@@ -1,0 +1,420 @@
+{
+  "schema": "oph.defect_field_benchmark.static_charged_quasiparticles.v1",
+  "role": "specified executable calibrated matter law; same-input recovery, not held-out particle prediction",
+  "source_sha256": {
+    "model/defect_field_benchmark/quasiparticles.py": "5a4a9cd6f13ed5b82a93ab279d57701567a9b6bcab2cae57e58bb47812171ac0",
+    "model/defect_field_benchmark/benchmark.py": "95fc3e9aae65451060a803951853e755d9b5a2cb40da111bffb295e0b40935f2",
+    "model/common_source/calibrated_matter.py": "472eeba2ea6e3916a38a8cce1b933977c8f31f8bbb897fbe9dd2c508067cdf0e",
+    "model/common_source/calibrated_matter_parameters.json": "2e48d4199d48e9c9d4520d060f68043a4ff569cd87fdad6990ae5bc7b99539f8",
+    "model/common_source/calibrated_matching.py": "f85ec313fc2893c8f6803dd8017ebd3ef0caf44a9cfca55d5490be71bbd58107",
+    "model/common_source/calibrated_matching_results.json": "915f295e33da5114a3f092db64d3f8079fc087591fc79328d2bcb159a996253a",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/defect_field_bridge/colored.py": "c0893ff0e6d1c8b70fbc4d4b4dcaa0f3740dba7f919144c8b020b4321ec792a3",
+    "Lean/Geometry/InternalEnergyInertia.lean": "48a468bbb8e397abdf512005a87b923f393bf96cc8535b18b03ed42e98d0eb04"
+  },
+  "domain": {
+    "original_annihilators": 90,
+    "all_Nambu_directions": 180,
+    "positive_charged_quasiparticles": 84,
+    "neutral_zero_quasiparticles": 6,
+    "neutral_zero_particle_hole_directions": 12,
+    "zero_half_convention": [
+      30,
+      31,
+      32,
+      75,
+      76,
+      77
+    ],
+    "spatial_extension_ports": 12,
+    "spatial_extension_CAR_modes": 1080,
+    "colored_sector_is_original_Fock90_sector": false,
+    "static_occupation_number": 2,
+    "per_port_hard_core_colored_dimension": 534600,
+    "same_port_CAR_collision_complement_dimension": 48060
+  },
+  "canonical_action": {
+    "particle_hole": "C(u,v)=(conjugate(v),conjugate(u))",
+    "full_basis": "[W,CW]",
+    "normal_form": "H=E_vac+sum_a E_a gamma_a^dagger gamma_a",
+    "vacuum_offset_GeV": -1044.301154601264,
+    "electric_charge": "Q=sum_a q_a gamma_a^dagger gamma_a; neutral vacuum",
+    "all_CAR_action_and_charge_columns_checked": true,
+    "degenerate_chart_is_physical_selection": false,
+    "operator_absolute_residual_guard": 2e-10,
+    "CAR_charge_absolute_residual_guard": 2e-11
+  },
+  "calibration": {
+    "scheme_scale": {
+      "scheme": "MSbar Standard Model",
+      "mu": "M_Z",
+      "reference_MZ_GeV": "91.1876",
+      "reference_mass_convention": "LEP-only Breit-Wigner Z input of the pinned SMDR1.3 reference, not an asserted tree-level action pole",
+      "matching_reexecuted_here": true
+    },
+    "input_role": "empirical_calibration_sanity_check_not_parameter_derivation",
+    "all_nine_Yukawas_v_and_CKM_are_inputs": true,
+    "source": {
+      "authors": "Stephen P. Martin and David G. Robertson",
+      "title": "Standard Model parameters in the tadpole-free pure MSbar scheme",
+      "url": "https://github.com/davidgrobertson/SMDR",
+      "paper": "https://arxiv.org/abs/1907.02500",
+      "version": "1.3",
+      "commit": "5c4dd92c918cadb7f91ad3795694f8398b5c287a",
+      "calibration_inputs": "benchmark_data/ReferenceModel.dat; uncertainties and measurement conventions from src/smdr_pdg.h",
+      "Z_selection": "LEP-only reference; this is not a current all-data fit",
+      "metadata": "Pinned PDG2025 reference inputs; top pole extraction, hadronic alpha input and perturbative matching remain empirical/theory premises."
+    },
+    "new_independent_mass_predictions": 0,
+    "running_action_energies_are_pole_masses": false,
+    "external_matching_is_native_interacting_evolution": false,
+    "empirical_fit_uncertainties_propagated_here": false
+  },
+  "charged_energy_blocks": [
+    {
+      "channel": "up",
+      "family_order": 0,
+      "electric_charge_sixths": -4,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.0012359411566124987,
+      "independent_y_times_v_over_sqrt2_GeV": 0.0012359411566124987
+    },
+    {
+      "channel": "up",
+      "family_order": 1,
+      "electric_charge_sixths": -4,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.6242499655172185,
+      "independent_y_times_v_over_sqrt2_GeV": 0.6242499655172186
+    },
+    {
+      "channel": "up",
+      "family_order": 2,
+      "electric_charge_sixths": -4,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 169.88959799289776,
+      "independent_y_times_v_over_sqrt2_GeV": 169.88959799289776
+    },
+    {
+      "channel": "up",
+      "family_order": 0,
+      "electric_charge_sixths": 4,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.0012359411566124987,
+      "independent_y_times_v_over_sqrt2_GeV": 0.0012359411566124987
+    },
+    {
+      "channel": "up",
+      "family_order": 1,
+      "electric_charge_sixths": 4,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.6242499655172185,
+      "independent_y_times_v_over_sqrt2_GeV": 0.6242499655172186
+    },
+    {
+      "channel": "up",
+      "family_order": 2,
+      "electric_charge_sixths": 4,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 169.88959799289776,
+      "independent_y_times_v_over_sqrt2_GeV": 169.88959799289776
+    },
+    {
+      "channel": "down",
+      "family_order": 0,
+      "electric_charge_sixths": -2,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.0027017666465743817,
+      "independent_y_times_v_over_sqrt2_GeV": 0.0027017666465740547
+    },
+    {
+      "channel": "down",
+      "family_order": 1,
+      "electric_charge_sixths": -2,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.053747985146411374,
+      "independent_y_times_v_over_sqrt2_GeV": 0.053747985146411374
+    },
+    {
+      "channel": "down",
+      "family_order": 2,
+      "electric_charge_sixths": -2,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 2.862404952855039,
+      "independent_y_times_v_over_sqrt2_GeV": 2.862404952855039
+    },
+    {
+      "channel": "down",
+      "family_order": 0,
+      "electric_charge_sixths": 2,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.0027017666465740955,
+      "independent_y_times_v_over_sqrt2_GeV": 0.0027017666465740547
+    },
+    {
+      "channel": "down",
+      "family_order": 1,
+      "electric_charge_sixths": 2,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 0.05374798514641151,
+      "independent_y_times_v_over_sqrt2_GeV": 0.053747985146411374
+    },
+    {
+      "channel": "down",
+      "family_order": 2,
+      "electric_charge_sixths": 2,
+      "multiplicity": 6,
+      "diagonalized_energy_GeV": 2.862404952855039,
+      "independent_y_times_v_over_sqrt2_GeV": 2.862404952855039
+    },
+    {
+      "channel": "charged_lepton",
+      "family_order": 0,
+      "electric_charge_sixths": -6,
+      "multiplicity": 2,
+      "diagonalized_energy_GeV": 0.000487788762347831,
+      "independent_y_times_v_over_sqrt2_GeV": 0.000487788762347831
+    },
+    {
+      "channel": "charged_lepton",
+      "family_order": 1,
+      "electric_charge_sixths": -6,
+      "multiplicity": 2,
+      "diagonalized_energy_GeV": 0.10275975698370234,
+      "independent_y_times_v_over_sqrt2_GeV": 0.10275975698370234
+    },
+    {
+      "channel": "charged_lepton",
+      "family_order": 2,
+      "electric_charge_sixths": -6,
+      "multiplicity": 2,
+      "diagonalized_energy_GeV": 1.7455139422269061,
+      "independent_y_times_v_over_sqrt2_GeV": 1.7455139422269061
+    },
+    {
+      "channel": "charged_lepton",
+      "family_order": 0,
+      "electric_charge_sixths": 6,
+      "multiplicity": 2,
+      "diagonalized_energy_GeV": 0.000487788762347831,
+      "independent_y_times_v_over_sqrt2_GeV": 0.000487788762347831
+    },
+    {
+      "channel": "charged_lepton",
+      "family_order": 1,
+      "electric_charge_sixths": 6,
+      "multiplicity": 2,
+      "diagonalized_energy_GeV": 0.10275975698370234,
+      "independent_y_times_v_over_sqrt2_GeV": 0.10275975698370234
+    },
+    {
+      "channel": "charged_lepton",
+      "family_order": 2,
+      "electric_charge_sixths": 6,
+      "multiplicity": 2,
+      "diagonalized_energy_GeV": 1.7455139422269061,
+      "independent_y_times_v_over_sqrt2_GeV": 1.7455139422269061
+    }
+  ],
+  "currents": {
+    "all_12_full_180_by_180_Nambu_probes_retained_by_API": true,
+    "primitive_basis_anomalous_block_norms": [
+      1.7721808598447446,
+      1.2321873962719834,
+      1.7721808598447477,
+      1.2321873962719851,
+      1.549539937166887,
+      1.5495399371668823,
+      1.5495399371668865,
+      1.5495399371668843,
+      0.9492491858701729,
+      0.9492491858701505,
+      1.8777843371578122,
+      1.8777843371577834
+    ],
+    "exact_neutral_Higgs_orbit_rank": 3,
+    "exact_unbroken_span_dimension": 9,
+    "unbroken_span": "color su(3) plus electric u(1)",
+    "unbroken_source_basis_coefficients": [
+      [
+        "1/(1 - sqrt(5))",
+        "sqrt(5)/(-1 + sqrt(5))",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-(2 - sqrt(5))/(-1 + sqrt(5))",
+        "1/(-1 + sqrt(5))",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-(7 - 3*sqrt(5))/(-2 + 2*sqrt(5))",
+        "-(5 - sqrt(5))/(-2 + 2*sqrt(5))",
+        "0",
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-(-5 + 3*sqrt(5))/(-2 + 2*sqrt(5))",
+        "-(-7 + sqrt(5))/(-2 + 2*sqrt(5))",
+        "0",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1/(1 - sqrt(5))",
+        "1/(-1 + sqrt(5))",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-(2 - sqrt(5))/(-1 + sqrt(5))",
+        "-(2 - sqrt(5))/(-1 + sqrt(5))",
+        "0",
+        "0",
+        "-1/2 + sqrt(5)/2",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-(-3 + sqrt(5))/(-1 + sqrt(5))",
+        "-1",
+        "0",
+        "0",
+        "1/2 - sqrt(5)/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-(4 - sqrt(5))/(-1 + sqrt(5))",
+        "sqrt(5)/(-1 + sqrt(5))",
+        "0",
+        "0",
+        "-1/2 + sqrt(5)/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "-1",
+        "-(-3 + sqrt(5))/(-1 + sqrt(5))",
+        "0",
+        "0",
+        "1/2 - sqrt(5)/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "broken_anomalous_map_nonzero_singular_values": [
+      3.3455674494864236,
+      2.879547892899279,
+      2.8795478928992786
+    ],
+    "broken_probe_pair_blocks_dropped": false,
+    "all_12_currents_act_inside_static_Nqp2": false
+  },
+  "same_object_repair_action": {
+    "native_branch": "K_h=(1/sqrt(2)) sum_x |f_h(x)><x| tensor (-SWAP)^p(x,h) (U_h tensor U_h)",
+    "internal_phase_action": "U_h=exp[-i tau(1+j_h/4) (diag(E)+E_vac/2)+i kappa j_h diag(q)]",
+    "common_clock": "one supplied tau in inverse GeV for every color, hbar=1",
+    "scheduler_rule": "the chosen positive factor 1+j_h/4 rescales the entire static action",
+    "spatial_action": "12 copies of the internal cell give H_spatial=12 E_vac+sum_(x,a) E_a n_(x,a)",
+    "chosen_common_reference_subtraction": "-11 E_vac times identity, giving one global E_vac in the compiled sector",
+    "exchange_action": "pi times the +1 eigenspace projector of SWAP gives exp(-i A)=-SWAP",
+    "action_is_derived_from_scalar_attempt_or_pulse_counts": false,
+    "common_global_phase_is_absolute_energy_measurement": false
+  },
+  "same_charge_Ramsey_chart": {
+    "first": 0,
+    "second": 2,
+    "opposite_charge_partner": 84,
+    "electric_charge_sixths": -6,
+    "gap_GeV": 0.10227196822135451,
+    "initial_total_charge": 0,
+    "common_electric_phase_cancels": true,
+    "electric_charge_inferred_by_Ramsey_marginal": false,
+    "separate_charge_probe": "companion neutral QND pointer gives p0=(1-sin(q))/2",
+    "absolute_common_offset_observed": false
+  },
+  "same_mass_kinematic_constraint": {
+    "same_mass_kernel_and_all_180_directions": true,
+    "kinetic_anticommutator_and_Clifford_identities_checked": true,
+    "supplied_speed_c": 1,
+    "energy_squared": "E(p)^2=E(0)^2+c^2|p|^2",
+    "charged_inertial_curvature": "d^2 E/dp_i^2 at 0 = c^2/E(0); m=E(0)/c^2",
+    "momentum_pair_convention": "Nambu particle p, conjugate hole -p; lower block -h(-p).T",
+    "native_port_transport_is_this_momentum": false,
+    "finite_momentum_source_execution": false,
+    "rest_quasiparticle_basis_or_zero_half_continues_to_finite_p": false
+  },
+  "remaining_physical_joins": [
+    "Measured charged masses enter through a replayed common-scale empirical calibration, rather than arising from repair counts.",
+    "The compiled rest dynamics and hard-core true exchange must be read through the companion complete native/field instrument receipt.",
+    "Bare pairing does not preserve physical N=2; only the static Bogoliubov quasiparticle N=2 is used here.",
+    "All six neutral modes are massless here; measured neutrino oscillations require the existing optional Weinberg law and its own canonical join.",
+    "Broken electroweak and time-dependent Higgs probes can change quasiparticle number and require a larger process domain.",
+    "Same-port collisions, other occupation sectors, local gauge link dynamics and interacting poles are not supplied by this hard-core static law.",
+    "Native spatial transport is not yet identified with the momentum and speed in the checked Weyl symbol."
+  ]
+}

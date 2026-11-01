@@ -1,0 +1,129 @@
+{
+  "schema": "oph.defect_field_benchmark.source_gap_readout.v1",
+  "source_sha256": {
+    "model/defect_field_benchmark/readout.py": "46ccf63a8baf7fefd86d63aa941035f154466d4778ef9644d92eb457089d8f66",
+    "model/defect_field_bridge/dynamics_results.json": "5e3521846004bcd22210d30f8e3ffe82f2baaaaba71b060637ee00d7d1da4144",
+    "model/defect_field_bridge/dynamics_results.npz": "9aacbb27e224722b42671c22c1135a905ed261bacd2ff687b72707707b02c760",
+    "model/defect_field_bridge/dynamics_controls.json": "670fde172cb430b2a383f236d8c2f9fde436e125f12ff684ee8ec22dcb346a25",
+    "model/defect_field_bridge/dynamics.py": "75bd7b2e46af36703e416c9d279c123a8c7bb344daeb3034c69fa353aaca86c1",
+    "model/defect_field_bridge/dynamics_packet.py": "83b7f756a44a7b737892f58690088eeb7be8d8ff14bdf9f54a053251eccbe9f6",
+    "model/defect_field_benchmark/quasiparticles.py": "5a4a9cd6f13ed5b82a93ab279d57701567a9b6bcab2cae57e58bb47812171ac0"
+  },
+  "all_native_raw_slots_retained_in_source_arrays": 24,
+  "zero_ideal_native_slots_validated_without_conditioning": 20,
+  "inherited_probability_TV_error_added_before_conditioning": 4.600020700060719e-06,
+  "nonzero_rows": [
+    {
+      "law": "C",
+      "coin": 0,
+      "raw": 1,
+      "native_current": 1,
+      "native_joint_weight": 0.5,
+      "conditioning": "divide the retained joint pointer probability by exact native weight",
+      "observed_conditional_probability": 0.9959197975995064,
+      "conditional_probability_error_bound": 9.600041400121437e-06,
+      "effective_duration_GeV_inverse": 1.25,
+      "separate_neutral_charge_pointer_zero_probability": 0.9207354923895962,
+      "central_gap_GeV": 0.10227196819511106,
+      "interval_GeV": [
+        0.10215141889556108,
+        0.10239237634192815
+      ],
+      "alias_assumption": "0 <= duration*gap <= pi",
+      "error_type": "bounded numerical source-execution error, not sampling uncertainty",
+      "central_charge": -0.9999999999468739,
+      "charge_interval": [
+        -1.000035536745303,
+        -0.99996446511513
+      ],
+      "charge_window": "|q|<=pi/2; all seven model charges lie in [-1,1]",
+      "probe_law": "p0=(1-sin(q))/2; specified unit phase and pi/2 quadrature"
+    },
+    {
+      "law": "C",
+      "coin": 1,
+      "raw": 0,
+      "native_current": 0,
+      "native_joint_weight": 0.5,
+      "conditioning": "divide the retained joint pointer probability by exact native weight",
+      "observed_conditional_probability": 0.9973873895433761,
+      "conditional_probability_error_bound": 9.600041400121437e-06,
+      "effective_duration_GeV_inverse": 1.0,
+      "separate_neutral_charge_pointer_zero_probability": 0.920735492388229,
+      "central_gap_GeV": 0.10227196833409387,
+      "interval_GeV": [
+        0.10208373250182275,
+        0.1024598595507009
+      ],
+      "alias_assumption": "0 <= duration*gap <= pi",
+      "error_type": "bounded numerical source-execution error, not sampling uncertainty",
+      "central_charge": -0.9999999999418133,
+      "charge_interval": [
+        -1.0000355367402423,
+        -0.9999644651100696
+      ],
+      "charge_window": "|q|<=pi/2; all seven model charges lie in [-1,1]",
+      "probe_law": "p0=(1-sin(q))/2; specified unit phase and pi/2 quadrature"
+    },
+    {
+      "law": "E",
+      "coin": 0,
+      "raw": 5,
+      "native_current": 1,
+      "native_joint_weight": 0.5,
+      "conditioning": "divide the retained joint pointer probability by exact native weight",
+      "observed_conditional_probability": 0.9959197975994747,
+      "conditional_probability_error_bound": 9.600041400121437e-06,
+      "effective_duration_GeV_inverse": 1.25,
+      "separate_neutral_charge_pointer_zero_probability": 0.9207354923895669,
+      "central_gap_GeV": 0.10227196819550873,
+      "interval_GeV": [
+        0.1021514188959592,
+        0.10239237634232534
+      ],
+      "alias_assumption": "0 <= duration*gap <= pi",
+      "error_type": "bounded numerical source-execution error, not sampling uncertainty",
+      "central_charge": -0.9999999999467654,
+      "charge_interval": [
+        -1.0000355367451947,
+        -0.9999644651150216
+      ],
+      "charge_window": "|q|<=pi/2; all seven model charges lie in [-1,1]",
+      "probe_law": "p0=(1-sin(q))/2; specified unit phase and pi/2 quadrature"
+    },
+    {
+      "law": "E",
+      "coin": 1,
+      "raw": 4,
+      "native_current": 0,
+      "native_joint_weight": 0.5,
+      "conditioning": "divide the retained joint pointer probability by exact native weight",
+      "observed_conditional_probability": 0.9973873895433591,
+      "conditional_probability_error_bound": 9.600041400121437e-06,
+      "effective_duration_GeV_inverse": 1.0,
+      "separate_neutral_charge_pointer_zero_probability": 0.9207354923882134,
+      "central_gap_GeV": 0.10227196833442402,
+      "interval_GeV": [
+        0.10208373250215351,
+        0.10245985955103046
+      ],
+      "alias_assumption": "0 <= duration*gap <= pi",
+      "error_type": "bounded numerical source-execution error, not sampling uncertainty",
+      "central_charge": -0.9999999999417554,
+      "charge_interval": [
+        -1.0000355367401843,
+        -0.9999644651100117
+      ],
+      "charge_window": "|q|<=pi/2; all seven model charges lie in [-1,1]",
+      "probe_law": "p0=(1-sin(q))/2; specified unit phase and pi/2 quadrature"
+    }
+  ],
+  "programmed_gap_GeV_for_comparison_only": 0.10227196799999999,
+  "unquantized_action_gap_GeV_for_comparison_only": 0.10227196822135451,
+  "gap_used_to_choose_inverse_alias": false,
+  "common_energy_offset_measured": false,
+  "common_electric_phase_cancels_on_neutral_pair": true,
+  "charge_recovered_from_separate_QND_pointer": true,
+  "physical_detector_sampling_performed": false,
+  "meaning": "complete floating source amplitudes recover the calibrated internal gap in the declared clock and first-lobe window"
+}
