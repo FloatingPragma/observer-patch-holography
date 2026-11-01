@@ -97,6 +97,7 @@ PINNED_GITHUB_EVIDENCE = re.compile(
 EVIDENCE_MEDIA_BY_SUFFIX = {
     ".lean": "machine_checked_proof",
     ".py": "executed_program",
+    ".cpp": "executed_program",
     ".json": "emitted_record",
     ".npz": "emitted_record",
     ".tex": "paper_prose",
