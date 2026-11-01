@@ -24,13 +24,52 @@ def test_exact_scalar_gram_does_not_require_cholesky_or_full_rank():
     assert g.verify_gram(h, q, F(1)) == F(27, 64)
 
 
-def test_corrupted_factor_is_rejected_by_integer_residual():
+@pytest.mark.parametrize('argument', ['numerator', 'factor'])
+def test_masked_inputs_cannot_silently_become_complete_certificates(argument):
+    h = np.zeros((1, 1), dtype=np.int64)
+    q = np.zeros((1, 1), dtype=np.int64)
+    if argument == 'numerator':
+        h = np.ma.array(h, mask=True)
+    else:
+        q = np.ma.array(q, mask=True)
+    with pytest.raises(ValueError, match='unmasked'):
+        g.verify_gram(h, q, F(1))
+
+
+@pytest.mark.parametrize('form', ['csr', 'csc', 'coo', 'bsr'])
+def test_sparse_stored_masks_are_rejected_before_format_conversion(form):
+    h = sparse.csr_matrix([[3]], dtype=np.int64).asformat(form)
+    h.data = np.ma.array(h.data, mask=True)
+    with pytest.raises(ValueError, match='unmasked'):
+        g.verify_gram(h, np.zeros((1, 1), dtype=np.int64), F(1))
+    assert np.ma.isMaskedArray(h.data) and np.all(h.data.mask)
+
+
+@pytest.mark.parametrize('order', ['C', 'F'])
+def test_corrupted_factor_is_rejected_by_integer_residual(order):
     h = sparse.csr_matrix(np.eye(2, dtype=np.int64))
-    q = g.propose_gram(h)
+    q = np.array(g.propose_gram(h), order=order)
     assert g.verify_gram(h, q) < g.CEILING
     q[0, 0] += 10000
     with pytest.raises(ArithmeticError, match='residual'):
         g.verify_gram(h, q)
+
+
+@pytest.mark.parametrize('order', ['C', 'F'])
+def test_integer_gram_layout_preserves_exact_scalar_residual_and_input(order):
+    h = np.array([[0, 1, -2], [1, 3, 1], [-2, 1, -4]], dtype=np.int64)
+    q = np.array([[1 << 19, 2, -3], [4, -(1 << 18), 6],
+                  [7, 8, 1 << 17]], dtype=np.int64, order=order)
+    before = q.copy()
+    # A scalar rational oracle neither calls matmul nor reuses the verifier.
+    expected = max(sum(abs(F(int(h[i, j]), 16)+(g.SHIFT if i == j else 0)-
+                           sum(F(int(q[i, k])*int(q[j, k]), 1 << (2*g.BITS))
+                               for k in range(3))) for j in range(3))
+                   for i in range(3))
+    assert g.verify_gram(sparse.csr_matrix(h), q, F(1)) == expected
+    assert np.array_equal(q, before)
+    assert q.flags.c_contiguous == (order == 'C')
+    assert q.flags.f_contiguous == (order == 'F')
 
 
 def test_duplicate_sparse_entries_are_canonicalized_before_exact_addition():
@@ -40,9 +79,68 @@ def test_duplicate_sparse_entries_are_canonicalized_before_exact_addition():
     assert g.verify_gram(h, q) == g.verify_gram(canonical, q)
 
 
-def test_integer_overflow_and_nonhermitian_inputs_are_rejected():
+def _duplicates(values, dtype, form):
+    data = np.asarray(values, dtype=dtype)
+    indices = np.zeros(len(data), dtype=np.int32)
+    if form == 'csr':
+        return sparse.csr_matrix((data, indices, np.array([0, len(data)], dtype=np.int32)), shape=(1, 1))
+    return sparse.coo_matrix((data, (indices, indices)), shape=(1, 1))
+
+
+@pytest.mark.parametrize('form', ['csr', 'coo'])
+def test_duplicate_source_sum_cannot_wrap_to_a_false_ground_certificate(form):
+    h = _duplicates([-(1 << 62)]*4, np.int64, form)
+    q = g.propose_gram(sparse.csr_matrix([[0]], dtype=np.int64))
+    # The mathematical numerator is -2**64; fixed-width coalescing made it0.
+    with pytest.raises(OverflowError, match='source numerator sum'):
+        g.verify_gram(h, q)
+    assert h.nnz == 4 and all(int(value) == -(1 << 62) for value in h.data)
+
+
+@pytest.mark.parametrize('form', ['csr', 'coo'])
+@pytest.mark.parametrize('dtype,value', [(np.int8, -64), (np.uint8, 64)])
+def test_narrow_integer_duplicates_are_summed_without_dtype_wrap(form, dtype, value):
+    h = _duplicates([value]*4, dtype, form)
+    q = np.zeros((1, 1), dtype=np.int64)
+    expected = abs(F(4*value, 16)+g.SHIFT)
+    assert g.verify_gram(h, q, F(20)) == expected
+    assert h.dtype == np.dtype(dtype) and h.nnz == 4
+    assert all(int(entry) == value for entry in h.data)
+
+
+@pytest.mark.parametrize('form', ['csr', 'coo'])
+def test_large_duplicate_cancellation_remains_exact_and_admissible(form):
+    h = _duplicates([-(1 << 62)]*4+[(1 << 62)]*4, np.int64, form)
+    assert g.verify_gram(h, np.zeros((1, 1), dtype=np.int64), F(1)) == g.SHIFT
+    assert h.nnz == 8
+
+
+@pytest.mark.parametrize('form', ['dense', 'csr', 'coo'])
+def test_unsigned_source_values_cannot_silently_narrow(form):
+    h = (np.array([[1 << 63]], dtype=np.uint64) if form == 'dense'
+         else _duplicates([1 << 63], np.uint64, form))
+    with pytest.raises(OverflowError, match='source numerator sum'):
+        g.verify_gram(h, np.zeros((1, 1), dtype=np.int64))
+
+
+@pytest.mark.parametrize('form', ['dense', 'csr', 'csc', 'coo', 'dia', 'bsr', 'lil', 'dok'])
+def test_safe_unsigned_integer_formats_preserve_the_exact_numerator(form):
+    original = np.array([[3]], dtype=np.uint64)
+    h = original if form == 'dense' else sparse.coo_matrix(original).asformat(form)
+    assert g.verify_gram(h, np.zeros((1, 1), dtype=np.int64), F(1)) == F(39, 64)
+
+
+def test_source_range_is_checked_before_fixed_width_symmetry_subtraction():
+    h = np.array([[0, 1 << 62], [-(1 << 62), 0]], dtype=np.int64)
+    with pytest.raises(OverflowError, match='accumulation or residual'):
+        g.verify_gram(h, np.zeros((2, 2), dtype=np.int64))
+
+
+@pytest.mark.parametrize('order', ['C', 'F'])
+def test_integer_overflow_and_nonhermitian_inputs_are_rejected(order):
     with pytest.raises(OverflowError):
-        g.verify_gram(sparse.eye(2, dtype=np.int64), np.full((2, 2), 1 << 40, dtype=np.int64))
+        g.verify_gram(sparse.eye(2, dtype=np.int64),
+                      np.full((2, 2), 1 << 40, dtype=np.int64, order=order))
     with pytest.raises(ValueError, match='symmetric'):
         g.verify_gram(sparse.csr_matrix([[0, 1], [0, 0]], dtype=np.int64), np.zeros((2, 2), dtype=np.int64))
     with pytest.raises(ValueError):

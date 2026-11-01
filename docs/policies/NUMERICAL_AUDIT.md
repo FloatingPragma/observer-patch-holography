@@ -137,6 +137,10 @@ not a domain argument.
   Boolean types or missingness; validating the coerced array is too late.
   Reject unsupported integer matrix arithmetic before Gram products: signed
   and unsigned overflow can turn a huge leakage amplitude into a zero norm.
+  Sparse conversion and duplicate coalescing also perform arithmetic. Check
+  original entry types and sum duplicates over exact integers before narrowing;
+  test CSR/COO duplicates and narrow signed and unsigned dtypes that can
+  overflow during summation, including large exactly cancelling entries.
   Array subclasses can override `copy`, `nonzero` and indexing while retaining
   ordinary numeric entries. A matrix certificate must reject such subclasses
   or detach them to a trusted base representation before inspecting support
@@ -214,6 +218,10 @@ not a domain argument.
   results and acceptance bounds stay unchanged. Frozen dataclasses can expose
   writable instance dictionaries; `deepcopy(Fraction)` aliases the
   original rational. Detach nested values as well as their containers.
+  Read-only NumPy buffers can expose mutable shape and dtype metadata.
+  Challenge both the returned array and its base chain, then replay retained
+  failure branches. Store immutable bytes and shape/dtype descriptions when
+  an archive must survive mutations of public array views.
   Include shared numerical-provider caches in this test. A compiler and its
   verifier can agree on the same poisoned logarithm or square-root endpoint.
   Copying a corrupted value does not restore proof authority. Recompute from
@@ -227,6 +235,9 @@ not a domain argument.
   certificate. Matching supplied receipts or matching hashes do not prove
   execution. Retain wrong terminal populations with correct record marginals
   and valid-shaped invented stream hashes as rejection controls.
+  A fresh interpreter can load stale bytecode even when bytecode writes are
+  disabled. Test with an importable poisoned cache whose timestamp and source
+  size match; source-bound replay must use the current source bytes.
   Trace changed shared helpers through aggregate dependency digests as well
   as explicit source maps. Regenerate every affected consumer from its
   producer; direct source-map checks do not cover opaque aggregate hashes.

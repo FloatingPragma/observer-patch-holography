@@ -51,6 +51,32 @@ def propose_gram(numerator, bits=BITS):
     return q.astype(np.int64)
 
 
+def _integer_numerator(numerator):
+    """Coalesce original integer entries over Z before creating int64 CSR."""
+    if (np.ma.isMaskedArray(numerator) or
+            (sparse.issparse(numerator) and np.ma.isMaskedArray(getattr(numerator, 'data', None)))):
+        raise ValueError('unmasked integer H numerator required')
+    original = numerator if sparse.issparse(numerator) else np.asarray(numerator)
+    if (original.ndim != 2 or original.shape[0] != original.shape[1]
+            or original.dtype.kind not in 'iu'):
+        raise ValueError('square integer H numerator required')
+    # COO exposes stored entries without summing duplicates. In particular,
+    # converting COO straight to CSR, or astype on a sparse matrix, can first
+    # coalesce in a fixed-width dtype and silently overflow.
+    entries = original.tocoo(copy=True) if sparse.issparse(original) else sparse.coo_matrix(original)
+    totals = {}
+    for row, column, value in zip(entries.row, entries.col, entries.data, strict=True):
+        key = int(row), int(column)
+        totals[key] = totals.get(key, 0)+int(value)
+    if any(abs(value) > INTMAX for value in totals.values()):
+        raise OverflowError('exact source numerator sum exceeds the int64 domain')
+    nonzero = [(row, column, value) for (row, column), value in totals.items() if value]
+    rows = [row for row, _, _ in nonzero]
+    columns = [column for _, column, _ in nonzero]
+    data = np.asarray([value for _, _, value in nonzero], dtype=np.int64)
+    return sparse.csr_matrix((data, (rows, columns)), shape=original.shape)
+
+
 def verify_gram(numerator, q, ceiling=CEILING):
     """Exact PSD+residual decomposition; returns the rational residual norm.
 
@@ -59,23 +85,26 @@ def verify_gram(numerator, q, ceiling=CEILING):
     bounded before their integer reduction.  The matrix need not have full
     rank and Q need not be triangular.
     """
-    h = sparse.csr_matrix(numerator, copy=True)
-    h.sum_duplicates()
-    h.eliminate_zeros()
+    h = _integer_numerator(numerator)
+    if np.ma.isMaskedArray(q):
+        raise ValueError('unmasked integer Gram factor required')
     q = np.asarray(q)
     if (h.shape[0] != h.shape[1] or q.shape != h.shape or
             h.dtype.kind not in 'iu' or q.dtype != np.dtype(np.int64)):
         raise ValueError('square integer H numerator and int64 Gram factor required')
     if not isinstance(ceiling, F) or ceiling <= 0:
         raise ValueError('positive exact rational residual ceiling required')
-    if (h-h.T).nnz:
-        raise ValueError('symmetric source Hamiltonian required')
     n = len(q)
     maxq = max((abs(int(x)) for x in (q.min(), q.max())), default=0)
     maxh = max((abs(int(x)) for x in h.data), default=0)
     factor, shift = 1 << (2*BITS-4), 27*(1 << (2*BITS-6))
     if n*maxq**2+factor*maxh+shift > INTMAX:
         raise OverflowError('integer Gram accumulation or residual could overflow')
+    if (h-h.T).nnz:
+        raise ValueError('symmetric source Hamiltonian required')
+    # Preserve every checked integer; contiguous rows avoid strided integer
+    # dot products when the numerical proposer returns a Fortran-order factor.
+    q = np.ascontiguousarray(q)
     residual = q@q.T
     residual *= -1
     residual[np.diag_indices(n)] += shift
