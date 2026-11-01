@@ -45,8 +45,8 @@
       "status": "PROPOSED_NOT_ESTABLISHED"
     },
     "parents": {
-      "claims/claim_registry.yaml": "1e06a7f60fe7b05efc84e03d38489f9fbb33c00d4d035e78ef011fd2fba92b17",
-      "claims/completion_program.json": "5aad8daab944f21b15ed9de5a1c6735460a7c74068a971eb4922a0e150162399",
+      "claims/claim_registry.yaml": "0084f360e97e360207eb9c7c2b2ac75f55bfc6dc7f0e76ca13ae2272345d9aa8",
+      "claims/completion_program.json": "c85d7b76e112b96b7cb9b895c9163fc0ad3815fe9bbf4f71d8fcf1376d141b47",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -55,13 +55,13 @@
         "independent_check": "model/completion/independent_program_review.py",
         "path": "model/completion/program_class_v2_review.json",
         "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-        "sha256": "f2283de9991a43f590b61785202f57a973f0fcfcbd4fc02d0d8e768a2bd49a4f"
+        "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
       },
       "adopted_class": {
         "independent_check": "model/completion/test_program_class_v2.py",
         "path": "model/completion/program_class_v2.json",
         "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-        "sha256": "874ee395de469f873b8cd3a032c1521e65fd484b77f38cbbf85ad306bb91a032"
+        "sha256": "b37870876beee9c490d6ae3da545a98c6fe3875404b94cfb7e8cbec0e7f9ec26"
       },
       "boundary_status": "FROZEN",
       "component_campaigns": [
@@ -432,7 +432,7 @@
             "independent_check": "model/compiled_native_history/test_compiler.py",
             "path": "model/completion/component_interfaces.json",
             "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
-            "sha256": "b8e69c37d229d71c4729fbeb64fa9b0d032f02457ac4ce896eef1331fe7c8300"
+            "sha256": "6524a5b28655b112ae7873922c2b23181cc6c82e7e277bca1b7c02c6bff95b6a"
           },
           "id": "OPH-COMMON-FIELD-INTERFACES-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -692,6 +692,25 @@
             "CP-12"
           ],
           "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+            "independent_check": "model/completion/test_finite_attachment_map.py",
+            "path": "model/completion/ground_response_campaign.json",
+            "scope": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack.",
+            "sha256": "11383b9d22ddcf0b0a68af0ec3cf66b8465d71a00c7d03cc2d2acc3476c7048c"
+          },
+          "id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-02",
+            "CP-06",
+            "CP-07",
+            "CP-08",
+            "CP-09"
+          ],
+          "whole_program_frozen": false
         }
       ],
       "continuing_issues": {
@@ -917,7 +936,7 @@
             "independent_check": "model/completion/test_theorem_map.py",
             "path": "model/completion/theorem_map.json",
             "scope": "Eleven actual theorem/model mappings with twelve source bindings; fixed-mixture stationarity is distinguished from correlated adaptive scheduling, and all downstream physical premises remain explicit.",
-            "sha256": "12db32c565d3233da6879b96c532745474e0d9410d7c18bf10c5614f0fb936ab"
+            "sha256": "d6c1138600a403a50c7065394ce8807d7e87c16561a656f41bc0badaf946b1ee"
           },
           {
             "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
@@ -1293,7 +1312,7 @@
             "independent_check": "model/completion/test_finite_attachment_map.py",
             "path": "model/completion/finite_attachment_map.json",
             "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-            "sha256": "4a1d32cc30ac83a70e736a6182efd4fe656b237e019e03e8863c11acab04dee3"
+            "sha256": "104ab0fd60955b4bf259126ec63c53beb061f9c01f9b651d4472541c67d1c821"
           },
           {
             "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -1750,21 +1769,38 @@
             "path": "model/hubbard_relativistic_sector/results.json",
             "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
             "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b"
+          },
+          {
+            "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+            "id": "thermodynamic_ground",
+            "independent_check": "model/thermodynamic_ground/test_local.py",
+            "path": "model/thermodynamic_ground/results.json",
+            "scope": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+            "sha256": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e"
+          },
+          {
+            "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+            "id": "retarded_matter_response",
+            "independent_check": "model/retarded_matter_response/test_response.py",
+            "path": "model/retarded_matter_response/results.json",
+            "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+            "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
           }
         ],
-        "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-01-v20",
+        "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-01-v21",
         "owners": [
           {
             "deliverable": "Derive physical clock/energy/geometry matching while preserving the full adaptive source and archive contracts.",
             "evidence": [
-              "adaptive_reference"
+              "adaptive_reference",
+              "thermodynamic_ground"
             ],
             "gate": "CP-02",
             "issue": 1138,
-            "join_condition": "Derive physical clock/energy/geometry matching and controlled continuing-region limits, retaining initialization, classical-memory and full archive/resource contracts.",
-            "may_start_now": "Use balanced native feedback with a stationary finite controller on its explicitly certified domain.",
+            "join_condition": "Derive physical clock/energy/geometry matching and controlled continuing-region limits, retaining initialization, classical-memory and full archive/resource contracts. Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum.",
+            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
             "title": "Join balanced adaptive references to physical clocks",
-            "why_now": "A reversible two-register classical controller selects complete native repairs and updates its next selector from their actual records. Exact native coin initialization supplies the uniform controller reference. Incoming-row balance preserves the actual nontracial number-weighted field reference jointly with the controller, including separate retained source-abort bypass sectors. The growing archive remains explicit and is not stationary. On a separately declared repair-only three-position quantum corner, the eight-tick channel has a 3/64 depolarizing minorization and a reference-stable trace contraction of (61/64)^floor(n/8). A one-register reversible control fails balance. This closes a finite adaptive-scheduler premise, not a physical energy or gravitational modular-clock identification."
+            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
           },
           {
             "deliverable": "Extend the cube eta sector and local disturbance to a controlled family with a boundary invariant and physical detector map.",
@@ -1789,14 +1825,16 @@
               "particle_species_detector",
               "interacting_vacuum",
               "mass_generation_audit",
-              "hubbard_relativistic_sector"
+              "hubbard_relativistic_sector",
+              "thermodynamic_ground",
+              "retarded_matter_response"
             ],
             "gate": "CP-06",
             "issue": 1142,
-            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison Native preparation and complete detector execution for the new global ground Complete resolution of the down-addition residual spectral measure Controlled growing-volume interacting vacuum and stable relativistic massive poles Physical charge/spin/species dictionary and independently fixed energy/length units Active stabilization beyond passive outside-service identity, if required Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics Native preparation and complete-repair preservation of the half-filled many-body ground reference. Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold. Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary. A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass. Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches. Common physical units and an actual measured-species correspondence.",
-            "may_start_now": "Extend the certified interacting reference and its algebraically derived charged response through a controlled common spatial refinement.",
+            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison Native preparation and complete detector execution for the new global ground Complete resolution of the down-addition residual spectral measure Controlled growing-volume interacting vacuum and stable relativistic massive poles Physical charge/spin/species dictionary and independently fixed energy/length units Active stabilization beyond passive outside-service identity, if required Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics Native preparation and complete-repair preservation of the half-filled many-body ground reference. Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold. Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary. A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass. Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches. Common physical units and an actual measured-species correspondence. Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum. Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure. Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad. Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed. Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors. Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and an independently tested spectrum.",
+            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
             "title": "Extend the controlled moving pair to an interacting field",
-            "why_now": "Construct a certified interacting ground reference and charged response on the actual three-dimensional cube, a source-bound one-dimensional charge gap, and controlled relativistic quasiparticle masses along an explicit coupling trajectory through the original chain parameters."
+            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
           },
           {
             "deliverable": "Derive particle identities and common physical units from the protected three-dimensional spectral construction.",
@@ -1809,27 +1847,31 @@
               "particle_species_detector",
               "interacting_vacuum",
               "mass_generation_audit",
-              "hubbard_relativistic_sector"
+              "hubbard_relativistic_sector",
+              "thermodynamic_ground",
+              "retarded_matter_response"
             ],
             "gate": "CP-07",
             "issue": 1143,
-            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison Native preparation and complete detector execution for the new global ground Complete resolution of the down-addition residual spectral measure Controlled growing-volume interacting vacuum and stable relativistic massive poles Physical charge/spin/species dictionary and independently fixed energy/length units Active stabilization beyond passive outside-service identity, if required Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics Native preparation and complete-repair preservation of the half-filled many-body ground reference. Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold. Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary. A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass. Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches. Common physical units and an actual measured-species correspondence.",
-            "may_start_now": "Extend the certified interacting reference and its algebraically derived charged response through a controlled common spatial refinement.",
+            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison Native preparation and complete detector execution for the new global ground Complete resolution of the down-addition residual spectral measure Controlled growing-volume interacting vacuum and stable relativistic massive poles Physical charge/spin/species dictionary and independently fixed energy/length units Active stabilization beyond passive outside-service identity, if required Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics Native preparation and complete-repair preservation of the half-filled many-body ground reference. Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold. Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary. A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass. Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches. Common physical units and an actual measured-species correspondence. Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum. Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure. Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad. Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed. Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors. Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and an independently tested spectrum.",
+            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
             "title": "Join the interacting protected spectrum to physical identity",
-            "why_now": "Construct a certified interacting ground reference and charged response on the actual three-dimensional cube, a source-bound one-dimensional charge gap, and controlled relativistic quasiparticle masses along an explicit coupling trajectory through the original chain parameters."
+            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
           },
           {
             "deliverable": "Extend the dilute local Ward result to the required density/scaling domain and supply the geometric Einstein premises.",
             "evidence": [
               "dilute_momentum_ward",
-              "relativistic_sector_audit"
+              "relativistic_sector_audit",
+              "thermodynamic_ground",
+              "retarded_matter_response"
             ],
             "gate": "CP-09",
             "issue": 1145,
-            "join_condition": "Nontrivial interacting relativistic continuum and finite-density limit Positive-energy interacting vacuum and antiparticle representation Massive relativistic sectors and physical species/current dictionary Independent physical units and detector/protection attachment Symmetric local stress, geometric Einstein premises and Einstein dynamics",
-            "may_start_now": "Join the resolved finite detector response and controlled massless finite-particle construction on an explicitly common growing carrier and reference.",
+            "join_condition": "Nontrivial interacting relativistic continuum and finite-density limit Positive-energy interacting vacuum and antiparticle representation Massive relativistic sectors and physical species/current dictionary Independent physical units and detector/protection attachment Symmetric local stress, geometric Einstein premises and Einstein dynamics Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum. Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure. Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad. Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed. Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors. Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and an independently tested spectrum.",
+            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
             "title": "Control local stress in the relevant interacting regime",
-            "why_now": "Resolve all eight source-accessible cube response weights, construct the original-action eight-valley massless relativistic limit, and attach finite model flavor and energy labels to a compiled momentum/occupation detector."
+            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
           }
         ],
         "physical_comparison_count_added": 0,
@@ -1882,13 +1924,13 @@
               "independent_check": "model/completion/test_program_class_v2.py",
               "path": "model/completion/program_class_v2.json",
               "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-              "sha256": "874ee395de469f873b8cd3a032c1521e65fd484b77f38cbbf85ad306bb91a032"
+              "sha256": "b37870876beee9c490d6ae3da545a98c6fe3875404b94cfb7e8cbec0e7f9ec26"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "f2283de9991a43f590b61785202f57a973f0fcfcbd4fc02d0d8e768a2bd49a4f"
+              "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
             }
           ],
           "deliverable": "A versioned, content-bound class of admissible carrier/refinement, repair and memory laws, record instruments, resources, preparations, clocks and interpretation maps; one target and exposure record fixed before validation.",
@@ -1982,7 +2024,7 @@
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "f2283de9991a43f590b61785202f57a973f0fcfcbd4fc02d0d8e768a2bd49a4f"
+              "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
             }
           ],
           "deliverable": "One replayable native repair/memory process that prepares, acts, reads, retains records and continues on overlapping accessible regions, with every service and failure branch accounted.",
@@ -2235,13 +2277,13 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Complete 84-premise ownership/relevance review, 39 inspected finite attachments with 34 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.",
-              "sha256": "4a1d32cc30ac83a70e736a6182efd4fe656b237e019e03e8863c11acab04dee3"
+              "sha256": "104ab0fd60955b4bf259126ec63c53beb061f9c01f9b651d4472541c67d1c821"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "f2283de9991a43f590b61785202f57a973f0fcfcbd4fc02d0d8e768a2bd49a4f"
+              "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
             }
           ],
           "deliverable": "A theorem-to-model integration and relevance review in the existing premise map: each result needed by the completion chain has an owning gate and an explicit model-premise proof obligation; irrelevant branches leave the active path.",
@@ -2432,7 +2474,7 @@
               "independent_check": "model/completion/test_theorem_map.py",
               "path": "model/completion/theorem_map.json",
               "scope": "Eleven actual theorem/model mappings with twelve source bindings; fixed-mixture stationarity is distinguished from correlated adaptive scheduling, and all downstream physical premises remain explicit.",
-              "sha256": "12db32c565d3233da6879b96c532745474e0d9410d7c18bf10c5614f0fb936ab"
+              "sha256": "d6c1138600a403a50c7065394ce8807d7e87c16561a656f41bc0badaf946b1ee"
             },
             {
               "campaign_id": "OPH-FINITE-THEOREM-JOINS-2026-10-28-v1",
@@ -2586,7 +2628,7 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-              "sha256": "4a1d32cc30ac83a70e736a6182efd4fe656b237e019e03e8863c11acab04dee3"
+              "sha256": "104ab0fd60955b4bf259126ec63c53beb061f9c01f9b651d4472541c67d1c821"
             },
             {
               "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -3146,6 +3188,14 @@
               "path": "model/adaptive_reference/results.json",
               "scope": "A reversible two-register classical controller selects complete native repairs and updates its next selector from their actual records. Exact native coin initialization supplies the uniform controller reference. Incoming-row balance preserves the actual nontracial number-weighted field reference jointly with the controller, including separate retained source-abort bypass sectors. The growing archive remains explicit and is not stationary. On a separately declared repair-only three-position quantum corner, the eight-tick channel has a 3/64 depolarizing minorization and a reference-stable trace contraction of (61/64)^floor(n/8). A one-register reversible control fails balance. This closes a finite adaptive-scheduler premise, not a physical energy or gravitational modular-clock identification.",
               "sha256": "3b38e27094165e50a35e467aa391b90565eae65a94bdc0b9acabffad344488b0"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "thermodynamic_ground",
+              "independent_check": "model/thermodynamic_ground/test_local.py",
+              "path": "model/thermodynamic_ground/results.json",
+              "scope": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+              "sha256": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e"
             }
           ],
           "requires": [
@@ -3393,7 +3443,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "67ce47826dfe405bbbd5c90e9c7f417a270b53e6ca80efda0ad1d1e39581dbb3"
+              "sha256": "db30a5291818d597b5627cb5aa8779ded2182f4fde1c8e4939facded7bcb8052"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -3786,7 +3836,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "67ce47826dfe405bbbd5c90e9c7f417a270b53e6ca80efda0ad1d1e39581dbb3"
+              "sha256": "db30a5291818d597b5627cb5aa8779ded2182f4fde1c8e4939facded7bcb8052"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -4019,7 +4069,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "67ce47826dfe405bbbd5c90e9c7f417a270b53e6ca80efda0ad1d1e39581dbb3"
+              "sha256": "db30a5291818d597b5627cb5aa8779ded2182f4fde1c8e4939facded7bcb8052"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -4374,6 +4424,22 @@
               "path": "model/hubbard_relativistic_sector/results.json",
               "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
               "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "thermodynamic_ground",
+              "independent_check": "model/thermodynamic_ground/test_local.py",
+              "path": "model/thermodynamic_ground/results.json",
+              "scope": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+              "sha256": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "retarded_matter_response",
+              "independent_check": "model/retarded_matter_response/test_response.py",
+              "path": "model/retarded_matter_response/results.json",
+              "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+              "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
             }
           ],
           "requires": [
@@ -4643,6 +4709,22 @@
               "path": "model/hubbard_relativistic_sector/results.json",
               "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
               "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "thermodynamic_ground",
+              "independent_check": "model/thermodynamic_ground/test_local.py",
+              "path": "model/thermodynamic_ground/results.json",
+              "scope": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+              "sha256": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "retarded_matter_response",
+              "independent_check": "model/retarded_matter_response/test_response.py",
+              "path": "model/retarded_matter_response/results.json",
+              "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+              "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
             }
           ],
           "requires": [
@@ -4701,6 +4783,14 @@
               "path": "model/full_fock_field/local_simulation.py",
               "scope": "Overlapping CAR supports give an extensive Strang coefficient and integrated factorial locality tail. Nested backward buffers bound complete local histories with arbitrary references and exact source schedules, independently of ambient volume; initial restriction, action, readout and model clock remain supplied.",
               "sha256": "3a8a221cd988f9c8741610c7f1bb4cbc114607bedd311981dfd9543c821a62e9"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "retarded_matter_response",
+              "independent_check": "model/retarded_matter_response/test_response.py",
+              "path": "model/retarded_matter_response/results.json",
+              "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+              "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
             }
           ],
           "requires": [
@@ -4882,6 +4972,22 @@
               "path": "model/relativistic_sector_audit/results.json",
               "scope": "The original nonnegative-contact Weyl family at c=v/a has an explicit simultaneous eight-valley continuum-to-lattice Fock isometry. On fixed N<=Nmax and |p_j|<=Lambda, the full unprojected source evolution differs from free massless Weyl evolution by at most min(2,|t|[Nmax v a^2 Lambda^3/2+U(a) floor(Nmax/2) sqrt(8(a Lambda/pi)^3)]). This tends to zero for U(a)=o(a^-3/2), with all eight valleys and all outgoing states retained. The limiting energies are plus/minus v|p| and all continuum masses are zero. The single-particle contact vanishes for every coupling.",
               "sha256": "d108b639d6ffda0c5c146fd9a80f7bcb77475fd13b859b142557882ca6e3a9fb"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "thermodynamic_ground",
+              "independent_check": "model/thermodynamic_ground/test_local.py",
+              "path": "model/thermodynamic_ground/results.json",
+              "scope": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+              "sha256": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e"
+            },
+            {
+              "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+              "id": "retarded_matter_response",
+              "independent_check": "model/retarded_matter_response/test_response.py",
+              "path": "model/retarded_matter_response/results.json",
+              "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+              "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
             }
           ],
           "requires": [

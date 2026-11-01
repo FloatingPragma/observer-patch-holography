@@ -1,0 +1,161 @@
+\paragraph{Exact matter response before a geometric identification.}
+The unchanged open $2\times2\times2$ Weyl/contact cube at
+$c=1/8$, $U=1$ now supplies a state-dependent retarded response, including
+its exact eliminated-state memory.  In the existing onsite hidden-spin
+frame, write $h=A/16$, where $A$ is the real signed cube adjacency and
+$A^2=3I$.  The retained full-Fock ground theorem gives the normalized
+highest-weight reference $G$, with four occupied negative-band up orbitals,
+$E_G=-\sqrt3/4$, and a strict gap $\delta=7/1024$ to every different
+particle-number sector.  The second exact stationary reference is
+$G_+=\sqrt2\,c_{0\uparrow}^{\dagger}G$, of energy $-3\sqrt3/16$.
+No chemical potential, fitted mass, or new geometry law is inserted.
+Physical CAR responses are obtained by the existing onsite unitary frame;
+hidden spin is not assigned a physical Lorentz or electric-charge meaning.
+
+For either reference $\psi$ of energy $E$, the complete eight-site
+fermionic response, for $\operatorname{Im}z>0$, is
+\begin{align*}
+\mathcal G_{xy}(z)
+ &=-i\int_0^\infty e^{izt}
+       \langle\{c_x(t),c_y^\dagger\}\rangle_\psi\,dt\\
+ &=\langle c_x[z-(H-E)]^{-1}c_y^\dagger\rangle_\psi
+   +\langle c_y^\dagger[z+(H-E)]^{-1}c_x\rangle_\psi.
+\end{align*}
+There is an exact isometric dilation
+\begin{align*}
+V_y&=c_y^\dagger\psi\oplus\overline{c_y\psi},
+ &V^\dagger V&=I,\\
+L&=(H_{N+1}-E)\oplus-\overline{(H_{N-1}-E)},
+ &\mathcal G(z)&=V^\dagger(z-L)^{-1}V.
+\end{align*}
+The conjugate removal space fixes the matrix indices; the present source
+arrays happen to be real.  With $P=VV^\dagger$, $Q=I-P$, define
+$M_1=V^\dagger LV$, $W=QLV$ and
+$B=QLQ|_{\operatorname{ran}Q}$.  Exact block elimination gives
+\[
+\mathcal G(z)=\bigl[zI-M_1-\Sigma(z)\bigr]^{-1},
+\qquad
+\Sigma(z)=W^\dagger(z-B)^{-1}W,
+\qquad W^\dagger W=M_2-M_1^2.
+\]
+Both $L$ and $B$ are self-adjoint; consequently
+$-\operatorname{Im}\mathcal G(z)>0$ and
+$-\operatorname{Im}\Sigma(z)\geq0$ in the upper half-plane.
+The eight observed columns do not replace the source Hilbert space:
+their exact complement remains in the memory kernel.
+
+\paragraph{A computed change of response at fixed microscopic geometry.}
+For the up channel of both references, the full cyclic identity $LV=Vh$
+gives $\mathcal G_\uparrow(z)=(z-h)^{-1}$ and $W=0$.
+For $G$, the up dilation retains all 56 addition and 56 removal states.
+The ground down channel has no removal component and retains all 560 states
+with $N_\uparrow=4$, $N_\downarrow=1$.  Exact arithmetic over
+$\mathbb Q(\sqrt3)$ gives
+\[
+M_{1,\downarrow}=h+\tfrac12 I,
+\qquad W_\downarrow^\dagger W_\downarrow=\tfrac14 I.
+\]
+Thus a static Hartree term alone does not reproduce this interacting
+response.  Indeed $W_x=(n_{x\uparrow}-1/2)c_{x\downarrow}^\dagger G$;
+orthogonal down locations and up occupation variance $1/4$ give the
+displayed Gram matrix directly.
+
+For $G_+$, the down channel retains its entire 448-state invariant block.
+In lexicographic order of the eight cube sites, its exact matrices are
+\begin{align*}
+M_{1,\downarrow}^{+}-h
+ &=\operatorname{diag}(1,\tfrac23,\tfrac23,\tfrac12,
+                          \tfrac23,\tfrac12,\tfrac12,\tfrac12),\\
+(W_\downarrow^{+})^\dagger W_\downarrow^{+}
+ &=\operatorname{diag}(0,\tfrac29,\tfrac29,\tfrac14,
+                          \tfrac29,\tfrac14,\tfrac14,\tfrac14).
+\end{align*}
+The first-moment change is exactly the added orbital density,
+$(1/2,1/6,1/6,0,1/6,0,0,0)$.  Removing the contact term in the explicit
+$U=0$ control removes both this Hartree term and the ground down memory,
+giving $(z-h)^{-1}$.  That comparison does not declare $G$ a full free-Fock
+ground.  The excited reference receives no positive-gap assertion.
+
+\paragraph{The complete local charged spectral measure.}
+For the original physical origin probe $v=c_{0\downarrow}^\dagger G$,
+the retained calculation now resolves all 78 distinct positive spectral
+lines, including the previously unresolved weight $4/5$.
+A monic degree-78 polynomial $p$ over $\mathbb Q(\sqrt3)$ is admitted by
+the exact source equation $p(16H)v=0$.  A nonzero $78\times78$ Hankel
+determinant modulo 97, with $\sqrt3\mapsto10$, proves the matching cyclic
+rank lower bound.  Exact moments determine a numerator $q$ such that
+\[
+ \langle v,(z-16H)^{-1}v\rangle
+       =\frac{q(z)}{1296\,p(z)}.
+\]
+The denominator 1296 is the squared norm of the inherited integer state
+numerator.  Modular reconstruction and a numerical eigensolver only
+propose coefficients and brackets.  Integer annihilation and rank checks,
+78 disjoint strict sign changes, and outward 1024-bit interval arithmetic
+certify every root and its strictly positive residue
+$q(x)/(1296p'(x))$.  Each charged gap is $(x+4\sqrt3)/16$.
+
+The smallest gap is approximately $0.029950938342053226$, with weight
+$0.3130113772155167$; the largest is approximately $1.8360744654423855$,
+with weight $2.711810625844545\times10^{-10}$.
+The receipt retains every gap and weight in rational intervals rounded
+outward to 24 decimal places.  Polynomial substitution proves that the
+two lines $\sqrt3/16$ and $1+\sqrt3/16$ each have total weight exactly
+$1/10$.  The remaining 76 lines have total weight $4/5$, leaving zero
+unresolved weight for this local probe.  This is the complete local cyclic
+measure, not the entire 560-state spectrum, a native detector execution,
+an infinite-volume pole theorem, or a relativistic mass assignment.
+
+\paragraph{Controlled low-frequency coefficients.}
+For the interacting ground down channel, put $K=H_{4,1}-E_G$.
+The full-ground certificate gives $K>\delta I$.  Moreover, $D\leq1$ in
+this block, the kinetic norm is at most $5\lambda$, and
+$-E_G=4\lambda$, with $\lambda=\sqrt3/16$; hence
+$K\leq1+9\lambda<2$.  The same bounds hold for its compression $B$.
+For $|z|\leq r<\delta$ the exact memory has the convergent expansion
+\begin{align*}
+\Sigma(z)&=-\sum_{n=0}^{p}z^n C_n+R_p(z),
+ &C_n&=W^\dagger B^{-n-1}W\geq0,\\
+\|R_p(z)\|&\leq
+ \frac{r^{p+1}}{4\delta^{p+1}(\delta-r)}.
+\end{align*}
+These are finite gapped frequency coefficients, not a spatial derivative
+expansion or a relativistic cone.  All retarded moments $M_0,\ldots,M_4$
+are also computed exactly; the corresponding large-frequency remainder is
+$2^{p+1}/[R^{p+1}(R-2)]$ for $|z|\geq R>2$.
+
+The static response is computed with an exact residual certificate.
+For $C=V^\dagger K^{-1}V=-\mathcal G_\downarrow(0)$,
+\begin{align*}
+\|C-(12.9058381883I-4.9026412320A)\|&<10^{-7},\\
+\|\Sigma(0)-(-0.3633623064I-0.0105943755A)\|&<10^{-6}.
+\end{align*}
+A numerical solve only proposes a matrix with denominator $2^{40}$.
+Integer arithmetic encloses its full $\mathbb Q(\sqrt3)$ residual;
+division by the proved $\delta$ bounds the solution error.  The exact
+isometry then bounds $C$, and $C>I/2$ bounds its inverse.
+An independent rational inverse residual certifies
+$\Sigma(0)=C^{-1}-M_1$.  No numerical tolerance admits the theorem, and
+exact equality to an affine adjacency polynomial is not inferred.
+
+\paragraph{The existing geometry interface and its remaining join.}
+The same-action thermodynamic-ground construction separately supplies
+analytic local responses along its ground subsequence on compact subsets
+of $\operatorname{Im}z>0$.  The cube calculation does not supply a rate of
+convergence to that state, and its finite gap is not transferred to infinite
+volume.  The existing \texttt{wave\_density\_metric} constructor takes a
+complete local action density $\mathcal C=\mu\operatorname{diag}(-w,a)$,
+with $\mu,w>0$ and $a>0$, and recovers
+$g=\sqrt{-\det\mathcal C}\,\mathcal C^{-1}$.
+The existing \texttt{source\_tetrad} interface in the common matter join then
+constructs the common coframe and the scalar, Weyl, Dirac and Maxwell
+principal-symbol identities for its supplied density.
+The present result supplies an actual matter-dependent inverse response
+from which such coefficients must be derived.  It does not substitute a
+Hartree diagonal for a spatial principal symbol, identify the cube with the
+distinct screen source, or complete the common action-normalization join.
+Fixed microscopic geometry is compatible with this emergent-response
+route; a new fundamental metric register is not required.  Common local
+limits, modular and area response, full stress, and the same-family
+Einstein balance premises remain to be proved.  No new physical species,
+native response detector, or completed G1--G6 premise is claimed.

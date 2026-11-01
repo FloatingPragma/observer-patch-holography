@@ -98,6 +98,15 @@ adds retrospective mismatch diagnostics, while the
 adds a finite ground and a specified massive continuation. Neither supplies
 a successful physical identification or an eligible prospective comparison.
 
+The [ground and response extension](../docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
+now supplies an [infinite-volume original-action ground](thermodynamic_ground/README.md)
+with positive GNS energy, nonzero density and finite-volume energy-density
+brackets. Its local retarded response converges in the upper half-plane.
+The [exact finite matter response](retarded_matter_response/README.md)
+also derives a state-dependent self-energy and controlled low-frequency
+expansion on the grounded cube. The geometry target remains the existing
+common-symbol and Einstein theorem stack, with its shared-state premises.
+
 The [port/support incidence audit](../code/a5_closure/port_support_source_audit.md)
 retains all sixty oriented relative seed maps. A fixed support mark leaves
 C5 freedom; it does not select a carrier-local port frame. Midpoint

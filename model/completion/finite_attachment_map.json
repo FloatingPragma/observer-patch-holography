@@ -16,12 +16,12 @@
   "canonical_registry": "tracking/premise_register.json",
   "physical_comparison_count_added": 0,
   "canonical_premises_discharged": [],
-  "finite_obligations_realized": 62,
-  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 67 explicit finite theorem/model attachments, 62 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged.",
+  "finite_obligations_realized": 64,
+  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 69 explicit finite theorem/model attachments, 64 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged.",
   "existing_navigation_coverage": {
     "claim_count": 346,
     "lean_module_count": 669,
-    "contract_coverage_sha256": "c4731a660320c00ae0842f42ffcf5cade40a5cd7e1711c5260e1e1b9901fd241",
+    "contract_coverage_sha256": "6b74d3a501a5f97fff202e6ec344d80da84bdfd4d855086a93a5d2c769853e6e",
     "note": "Existing typed coverage retained without changing scientific entailment or claim-consumer edges."
   },
   "canonical_ownership": [
@@ -2072,6 +2072,20 @@
         "def uniform_bounds("
       ],
       "boundary": "A=2pi*t/U goes to infinity with a=4v exp(-A)/(M sqrt(2pi A)),t=v/(2a),U=pi*v/(aA). This running family is additional input. The anchored member M0=exp(-pi/8)/pi passes through original parameters; fixed-U continuation instead has zero limiting mass."
+    },
+    "thermodynamic_ground": {
+      "path": "model/thermodynamic_ground/local.py",
+      "anchors": [
+        "def existence_certificate("
+      ],
+      "boundary": "Growing volume at fixed finite lattice spacing and fixed c,U. No a->0 limit, uniform gap, selected ground functional, state-convergence rate, repair-law invariance or physical gauge/species interpretation."
+    },
+    "retarded_matter_response": {
+      "path": "model/retarded_matter_response/response.py",
+      "anchors": [
+        "def certificate("
+      ],
+      "boundary": "Exact finite cube response and a controlled frequency disk from its charged gap. The separate same-action thermodynamic theorem supplies upper-half-plane convergence along a ground subsequence, without computed state convergence, a transferred finite gap or a spatial continuum limit."
     }
   },
   "attachments": [
@@ -4672,6 +4686,120 @@
       "proof_kind": "Exact source identities, integer and rational certificates and explicitly imported ground/threshold theorems; numerical spectral displays are separate. No new Lean theorem or external physical identification.",
       "new_lean_inhabitant": false,
       "physical_identification": false
+    },
+    {
+      "id": "FA-68",
+      "title": "Original-action finite-density thermodynamic ground and positive-energy interacting representation",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-02",
+        "CP-06",
+        "CP-07",
+        "CP-09"
+      ],
+      "reviewed_sources": [
+        "thermodynamic_ground"
+      ],
+      "interface": {
+        "state": "All particle numbers and odd local CAR probes in the original zero-chemical-potential three-dimensional field; finite full-ground projectors are spatially averaged before a weak-star subsequence. No half-filled sector is selected.",
+        "algebra": "Full quasi-local CAR algebra with two modes/site, its complete finite matrix subalgebras and a nonzero unital GNS representation; statefunctional faithfulness is not assumed.",
+        "operation": "Finite local derivation stabilization, state-uniform thermodynamic dynamics bounds, positive finite spectral measures and compactness prove infinite ground existence. Exact cube tiling and particle-hole identities bound density. Compact-time correlation convergence and an exact Laplace-tail bound supply upper-half-plane local retarded convergence; the unknown state-convergence discrepancy remains explicit. Exact intertile bond counting supplies the thermodynamic ground-energy density and conditional finite-volume brackets.",
+        "clock": "Original Hamiltonian model time; U_t=exp(itL_omega),L_omega>=0, without source chemical-potential insertion or physical clock calibration.",
+        "refinement": "Growing volume at fixed finite lattice spacing and fixed c,U. No a->0 limit, uniform gap, selected ground functional, state-convergence rate, repair-law invariance or physical gauge/species interpretation."
+      },
+      "conclusion": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+      "remaining": [
+        "Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs.",
+        "Establish its continuing invariance under the actual complete repair/controller process.",
+        "Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors.",
+        "Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and independently tested spectrum."
+      ],
+      "witnesses": [
+        "model/thermodynamic_ground/README.md",
+        "model/thermodynamic_ground/__init__.py",
+        "model/thermodynamic_ground/__main__.py",
+        "model/thermodynamic_ground/energy.py",
+        "model/thermodynamic_ground/filled_sea.py",
+        "model/thermodynamic_ground/local.py",
+        "model/thermodynamic_ground/packet.py",
+        "model/thermodynamic_ground/results.json",
+        "model/thermodynamic_ground/retarded.py",
+        "model/thermodynamic_ground/test_energy.py",
+        "model/thermodynamic_ground/test_filled_sea.py",
+        "model/thermodynamic_ground/test_local.py",
+        "model/thermodynamic_ground/test_packet.py",
+        "model/thermodynamic_ground/test_retarded.py",
+        "model/thermodynamic_ground/volume.py",
+        "paper/tex_fragments/THERMODYNAMIC_GROUND.tex"
+      ],
+      "countercontrols": [
+        "model/thermodynamic_ground/test_local.py",
+        "model/thermodynamic_ground/test_filled_sea.py",
+        "model/thermodynamic_ground/test_packet.py",
+        "model/thermodynamic_ground/test_retarded.py",
+        "model/thermodynamic_ground/test_energy.py"
+      ],
+      "proof_kind": "Self-contained compactness, finite-spectrum and GNS/Stone proof plus exact source Clifford/Q(sqrt3) identities and rational boundary bounds; standard finite-dimensional spectral theory and functional analysis are stated explicitly. No computed infinite state or new Lean theorem.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-69",
+      "title": "Exact original-action retarded matter response, Schur memory and certified low-frequency coefficients",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-06",
+        "CP-07",
+        "CP-08",
+        "CP-09"
+      ],
+      "reviewed_sources": [
+        "retarded_matter_response"
+      ],
+      "interface": {
+        "state": "The explicit normalized highest-weight N4 global cube ground G and the stationary excited state sqrt(2)c_0up^dagger G. Their complete hidden-spin invariant charged sectors are retained; the reference energies are original-H eigenvalues. No native state preparation or detector execution is asserted.",
+        "algebra": "Original 16-mode CAR algebra and all 65,536 Fock states, represented in the already proved onsite hidden-spin frame. Eight observed CAR columns are embedded isometrically in complete invariant addition/conjugate-removal spaces, with their exact complement retained in the memory kernel.",
+        "operation": "Exact Q(sqrt(3)) source restrictions, CAR isometry, five matrix moments, cyclic closure and memory Gram identities; exact resolvent Schur elimination; degree-78 vector annihilation, matching modular Hankel rank and all 78 outward root/residue enclosures; rational low- and large-frequency remainders; a numerical static-solve proposal admitted only after exact integer residual, square-root enclosure and inverse perturbation checks. Prior full-ground and thermodynamic-response source hashes are verified.",
+        "clock": "Original Hamiltonian model time and Laplace frequency z, with Im z>0 for the retarded response. No chemical-potential insertion, new clock calibration or physical-unit fit.",
+        "refinement": "Exact finite cube response and a controlled frequency disk from its charged gap. The separate same-action thermodynamic theorem supplies upper-half-plane convergence along a ground subsequence, without computed state convergence, a transferred finite gap or a spatial continuum limit."
+      },
+      "conclusion": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+      "remaining": [
+        "Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure.",
+        "Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad.",
+        "Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed.",
+        "Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors.",
+        "Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and an independently tested spectrum."
+      ],
+      "witnesses": [
+        "model/retarded_matter_response/README.md",
+        "model/retarded_matter_response/__init__.py",
+        "model/retarded_matter_response/__main__.py",
+        "model/retarded_matter_response/bounds.py",
+        "model/retarded_matter_response/packet.py",
+        "model/retarded_matter_response/response.py",
+        "model/retarded_matter_response/results.json",
+        "model/retarded_matter_response/spectrum.py",
+        "model/retarded_matter_response/static.py",
+        "model/retarded_matter_response/test_bounds.py",
+        "model/retarded_matter_response/test_packet.py",
+        "model/retarded_matter_response/test_response.py",
+        "model/retarded_matter_response/test_spectrum.py",
+        "model/retarded_matter_response/test_static.py",
+        "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex"
+      ],
+      "countercontrols": [
+        "model/retarded_matter_response/test_response.py",
+        "model/retarded_matter_response/test_bounds.py",
+        "model/retarded_matter_response/test_static.py",
+        "model/retarded_matter_response/test_spectrum.py",
+        "model/retarded_matter_response/test_packet.py"
+      ],
+      "proof_kind": "Exact full-source quadratic-field matrix identities, self-contained retarded dilation and Schur-complement proof, authenticated prior global charged-gap certificate, and integer-residual admission of computed static coefficients. No new Lean theorem, common metric, computed infinite state or native response history.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
     }
   ],
   "cleanup": {
@@ -4698,7 +4826,12 @@
       "unaccepted_predecessors": [],
       "unfulfilled_acceptance": [
         "Supply a physical continuing reference and modular/energy/geometry identification beyond the stationary charge clock, retaining scheduler, hardware and regional limit contracts.",
-        "Derive physical clock/energy/geometry matching and controlled continuing-region limits, retaining initialization, classical-memory and full archive/resource contracts."
+        "Derive physical clock/energy/geometry matching and controlled continuing-region limits, retaining initialization, classical-memory and full archive/resource contracts.",
+        "Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs.",
+        "Establish its continuing invariance under the actual complete repair/controller process.",
+        "Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors.",
+        "Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and independently tested spectrum."
       ]
     },
     "1141": {
@@ -4754,7 +4887,18 @@
         "Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary.",
         "A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass.",
         "Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches.",
-        "Common physical units and an actual measured-species correspondence."
+        "Common physical units and an actual measured-species correspondence.",
+        "Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs.",
+        "Establish its continuing invariance under the actual complete repair/controller process.",
+        "Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors.",
+        "Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and independently tested spectrum.",
+        "Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure.",
+        "Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad.",
+        "Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed.",
+        "Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors.",
+        "Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and an independently tested spectrum."
       ]
     },
     "1143": {
@@ -4796,7 +4940,18 @@
         "Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary.",
         "A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass.",
         "Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches.",
-        "Common physical units and an actual measured-species correspondence."
+        "Common physical units and an actual measured-species correspondence.",
+        "Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs.",
+        "Establish its continuing invariance under the actual complete repair/controller process.",
+        "Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors.",
+        "Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and independently tested spectrum.",
+        "Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure.",
+        "Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad.",
+        "Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed.",
+        "Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors.",
+        "Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and an independently tested spectrum."
       ]
     },
     "1147": {
@@ -4880,7 +5035,18 @@
         "Positive-energy interacting vacuum and antiparticle representation",
         "Massive relativistic sectors and physical species/current dictionary",
         "Independent physical units and detector/protection attachment",
-        "Symmetric local stress, geometric Einstein premises and Einstein dynamics"
+        "Symmetric local stress, geometric Einstein premises and Einstein dynamics",
+        "Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs.",
+        "Establish its continuing invariance under the actual complete repair/controller process.",
+        "Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors.",
+        "Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and independently tested spectrum.",
+        "Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure.",
+        "Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad.",
+        "Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed.",
+        "Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors.",
+        "Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and an independently tested spectrum."
       ]
     }
   },
@@ -4898,8 +5064,8 @@
     "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e",
     "model/bound_pair/identity.py": "749a1ce10431e8a72b76b96c9568d7cbd0960a9f41e32c92498ba352d753a333",
     "model/bound_pair/mass.py": "45ab64c1b74d060e4ae380c9f5f5896ca7d1d7a84c18c022c9bd2e3d99735034",
-    "model/completion/finite_attachment_map.py": "7c1e28f9259c60e5167c5ae8d80dd06c3a77fe10bfed79f6f4eb36ad3cac7dd7",
-    "model/completion/test_finite_attachment_map.py": "231f1cd7bf28806742c90ff3d2e20604c085b5be681787f255194bac3e112a70",
+    "model/completion/finite_attachment_map.py": "072eb3c11850ebfe8301afd1f47763ec92291c24e6ccbc939894777f24ac9689",
+    "model/completion/test_finite_attachment_map.py": "a8c6793d00c35045f5b3f77788acc4a8c5e5bbf03dd0545b4c90cb15f9cde6ee",
     "model/field_regions/README.md": "5073a68fc7c604335ad9aeac76ea0fd509857a73fb088148e66e0764cd6005ae",
     "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
     "model/field_stress/README.md": "8e5b2d4bf9f49d782512c17c6ccda0b2e54d69255a5d169154ba53c6c5c6c213",
@@ -5381,7 +5547,38 @@
     "model/hubbard_relativistic_sector/source.py": "4f25f7ae137a77901d2b7556240ef8ea3b52c4989e54e9a3b654c72028830d59",
     "model/hubbard_relativistic_sector/test_dispersion.py": "c185eac123f8ab27f9ad801a5239686835e5292527e4ffcac3e5fa29f091f4bd",
     "model/hubbard_relativistic_sector/test_packet.py": "bbe169b6cf034ba906ab9273fa8aa145c6f0409544880b7c7c05a7cb84227edc",
-    "paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex": "69532842bb4e488d028c961657224edb8f03454c7048a800edfa55853905b09d"
+    "paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex": "69532842bb4e488d028c961657224edb8f03454c7048a800edfa55853905b09d",
+    "model/thermodynamic_ground/README.md": "4aef082ed60ab0c3b20664a7f53a8aac2b8f290fea8e78980e197245ac6c252f",
+    "model/thermodynamic_ground/__init__.py": "792fad5f071609e68d7ffd27a3b50082ce7ccb578d8217b99c57b363b56c784a",
+    "model/thermodynamic_ground/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/thermodynamic_ground/energy.py": "8abfa61ba45f7268b7c76d8f2d8c8f8950f37f2e42e75d81f860ef7d8c5cc874",
+    "model/thermodynamic_ground/filled_sea.py": "d1a0954a1d7f9276cec5e374c0ec7ae15ea3c7823ebdaee9e2d3aa77d73a04a0",
+    "model/thermodynamic_ground/local.py": "f073ce36de65621870e4fc50482745f7865b42ae18df7b2b222e3a22456c8151",
+    "model/thermodynamic_ground/packet.py": "819cdda47d1122f79334dea0b0564d588f0294592b9ba4d3080df3e6e56c2473",
+    "model/thermodynamic_ground/results.json": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e",
+    "model/thermodynamic_ground/retarded.py": "f2718c043e2d3e6658170698e9ab74e51abff6d9751111e6c0375310e3e6f35e",
+    "model/thermodynamic_ground/test_energy.py": "97e2395e4bf4c39f8a12f811bca7f97381c6da55bbe87891695a8eda9ef01f5a",
+    "model/thermodynamic_ground/test_filled_sea.py": "865c3539c042342e87f422b70bc99b7671fd525e922052a2cfddf90da42c6d77",
+    "model/thermodynamic_ground/test_local.py": "6747cc98e8079c98cf12f354dba11ca7826687e6dad149812149aac831bd47b6",
+    "model/thermodynamic_ground/test_packet.py": "859c8409ec5d1c0300b90cab7c3a3e9fc16e6671b45ed46badcb725b08c40034",
+    "model/thermodynamic_ground/test_retarded.py": "67d9b89ef37b23c2b2bab55e3e6a48a88b589e4709fa214293365aeaa4be5a89",
+    "model/thermodynamic_ground/volume.py": "64bea39518a352dd8fdda4772b9ee03e5ad324a7189d207be1ca8e0724079c76",
+    "paper/tex_fragments/THERMODYNAMIC_GROUND.tex": "f7d1241c12a5bc9d64d5724ccb7f99fb3b3508304b5db273a7a6f65d64797236",
+    "model/retarded_matter_response/README.md": "b9471be496a71b8ec77c0ba3dcaf9aa6906f69520a882e3a0cd014e126802311",
+    "model/retarded_matter_response/__init__.py": "07bccb6b5b6a1d6ead391d8a73b210eeaaf2f697325a43363d42ce2b6ea6320e",
+    "model/retarded_matter_response/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/retarded_matter_response/bounds.py": "0336eff791b73ab47ab199812dcaf635953c308d7b6311810b5dff630ffd1564",
+    "model/retarded_matter_response/packet.py": "128a990107f33716c6dd10b73d2fd7b49be2836840fd759044b838c0594c8c29",
+    "model/retarded_matter_response/response.py": "d089523d9073a8ffa7f59c5ddcacea818b37fe46dd5040ed726b840b5bd0eaed",
+    "model/retarded_matter_response/results.json": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc",
+    "model/retarded_matter_response/spectrum.py": "33ac9456c12023a6e9f23c099fb77a958826ceb24f76e65ad1f94e7020b92e9e",
+    "model/retarded_matter_response/static.py": "a97e3ab0d16762d0737a6aff385f08fac9922066d3797e8e8ce27b933859e985",
+    "model/retarded_matter_response/test_bounds.py": "029011ef731b8253ac838d734846dda97a467f4a27b9414388f4750fe6cfa5c3",
+    "model/retarded_matter_response/test_packet.py": "88d632bb83213d54ac88c282e8f7de6102c5e7af1abd1d48ac8ff8a07dbb6689",
+    "model/retarded_matter_response/test_response.py": "31c4990c7e36d64ed0315e7b18a9acd8aac53444fa8a3f0b987fd4adab0043aa",
+    "model/retarded_matter_response/test_spectrum.py": "92b8571ef4a9da446f0050fdfd0a3f56c7d156f704b9e709a991530dc14a8c8f",
+    "model/retarded_matter_response/test_static.py": "c2d205a456ab08e622c4d7b9425c635906b51416a84e076d168dcead82140426",
+    "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex": "7bf8196c12a67bd4289b8232295793eee3be8e7d5c3b4b837e76f07de1899878"
   },
   "gate_acceptance_owner": "claims/completion_program.json",
   "predecessor_review": {

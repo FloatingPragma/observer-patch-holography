@@ -1,0 +1,121 @@
+\paragraph{An original-action infinite-volume ground representation at fixed spacing.}
+The full three-dimensional Weyl/contact action now admits a
+translation-invariant, gauge-invariant ground state at its original
+zero chemical potential, without choosing a particle-number sector.
+This is a compactness existence theorem, not a computed or natively
+prepared state.  Keep fixed finite $c>0$, $U>0$ and the complete
+quasi-local CAR algebra with two modes per site.  The previously proved
+full-Fock locality estimate supplies the strongly continuous dynamics
+$\tau_t$.  On each even-sided cube $\Lambda_L$ of side $2L$, take the
+normalized projector onto the absolute minimum of $H_{\Lambda_L}$,
+extend this even state by the exterior vacuum, and average its translates
+over all sites of $\Lambda_L$.  A diagonal subsequence of the bounded
+local matrix entries defines a state $\omega$; positivity, normalization
+and CAR compatibility pass to the limit.  The vanishing
+boundary-to-volume ratio makes $\omega$ translation invariant.
+
+For a local $A$, including an odd charged probe, the local derivation
+$[H,A]$ contains only interaction terms touching its support.  Whenever
+the support and its nearest neighbors lie inside the box,
+\[
+ \omega_L\!\left(A^*[H,A]\right)
+ =\operatorname{Tr}\rho_L A^*(H_{\Lambda_L}-E_L)A\ge0.
+\]
+Bad translates occupy a vanishing fraction.  Their real-part lower
+defect and imaginary magnitude are each bounded by
+$2\|A\|^2|\operatorname{supp}A|(U+6c)$, so
+$\omega(A^*[H,A])\ge0$ in the limit.  This uses the full ground
+minimum and would fail for a merely canonical ground with an
+unrestricted charged probe.
+
+For a radius-$R$ buffer, let $B_R(t)$ denote the existing
+volume-uniform local-dynamics boundary bound.  Comparing both finite
+and infinite dynamics to this intermediate cube gives, for $\|A\|\le1$,
+\[
+ \bigl|\nu_L(\tau_t(A))-\nu_L(A)\bigr|
+ \le \min\!\left\{2,\,2B_R(t)
+       +2\left[1-(1-R/L)^3\right]\right\}.
+\]
+First $L\to\infty$, then $R\to\infty$, establishes stationarity.
+The same comparison applies to two-point correlations.  Every finite
+full-ground correlation has a positive spectral measure supported on
+$[0,\infty)$; compact-time convergence and bounded correlations pass
+all Schwartz Fourier tests supported on negative energies to the limit.
+The GNS implementation therefore satisfies
+\[
+ U_t\pi(A)\Omega=\pi(\tau_t(A))\Omega,
+ \qquad U_t=e^{itL_\omega},\qquad
+ L_\omega\ge0,\quad L_\omega\Omega=0.
+\]
+The generator measures excitation energy in this representation;
+no chemical potential has been inserted into the source action.
+
+The state can be chosen at nonzero density.  Tiling each even box by
+the already certified four-particle cube vector gives contact zero,
+energy $-2\sqrt3 c$ per eight-site tile, and zero expectation for every
+cross-tile hopping.  Hence $E_L/|\Lambda_L|\le-\sqrt3 c/4$.
+Cartesian difference operators commute and the Pauli mixed terms
+cancel, giving $h^2\le3c^2I$ and $H\ge-\sqrt3 cN$.
+Thus every such full ground has density at least $1/4$.
+The exact real-bipartite particle--hole identity
+$E(2V-N)=E(N)+U(V-N)$ excludes $N>V$ from an absolute minimum when
+$U>0$.  Spatial averaging before the subsequence passes both bounds:
+\[
+ \frac14\le\omega(n_{0\uparrow}+n_{0\downarrow})\le1.
+\]
+Half-filling and a particular density are not assumed or concluded.
+The original ground energy per site also has a limit $e_\infty$.
+For every even cube side $\ell$, tiling larger boxes gives the
+computable bracket, conditional on its finite full-ground energy,
+\[
+ \frac{E_\ell}{\ell^3}-\frac{3c}{\ell}
+ \le e_\infty\le\frac{E_\ell}{\ell^3},
+ \qquad -\sqrt3 c\le e_\infty\le-\frac{\sqrt3 c}{4}.
+\]
+The lower surface term counts intertile hopping norms; a product of
+gauge-invariant tile grounds gives the upper bound.  Untiled boundary
+terms vanish per volume, and the bracket width tends to zero.
+For the constructed averaged ground, $\omega(h_0)=e_\infty$, where
+$h_0$ assigns half of each incident bond to the origin.  This supplies
+an energy-density observable, not a state-convergence rate or rest mass.
+
+The contact interaction remains represented:
+\[
+ [H_U-H_0,a_0^*a_2]
+   =U a_0^*a_2(n_1-n_3)\ne0.
+\]
+Every unital GNS representation is injective on each full local matrix
+algebra, so this quartic operator cannot disappear in representation.
+This faithfulness of the representation does not assert faithfulness
+of the ground-state functional.  The claim is a nonzero represented
+interaction derivation, not a scattering or connected-vacuum-correlator
+theorem.
+
+An exact source countercontrol prevents simply substituting the free
+filled sea.  For a pure Slater projector with $P_{xx}=I_2/2$,
+\[
+ \operatorname{Var}(D)
+   =\frac V{16}+\sum_{x\ne y}|\det P_{xy}|^2\ge\frac V{16}.
+\]
+If it is also a kinetic eigenstate, its interacting energy variance is
+$U^2\operatorname{Var}(D)>0$.  On the original cube, the complete
+3844-term negative-band filling has $N=8$, $\langle D\rangle=2$ and
+$\operatorname{Var}(H)=2/3$ at $U=1$.  The exact checks and proof are
+retained in \texttt{model/thermodynamic\_ground/results.json}.
+For local CAR probes, the same subsequence also supplies the analytic
+retarded response
+\[
+ G_{AB}(z)=-i\int_0^\infty e^{izt}
+       \omega(\{\tau_t(A),B^*\})\,dt,\qquad \operatorname{Im}z>0.
+\]
+Each time tail after $T$ is at most
+$2\|A\|\|B\|e^{-\eta T}/\eta$ for $\operatorname{Im}z\ge\eta>0$.
+Compact-time locality and weak-star convergence, followed by this tail
+bound, give uniform convergence on compact subsets of the upper
+half-plane.  The unknown finite-state convergence error is retained;
+no real-axis pole, local inverse or metric is inferred.
+The result closes fixed-spacing ground-state existence and the
+positive-energy representation for the actual interacting lattice.
+It supplies no selected ground functional, convergence rate, native
+preparation, repair stationarity, uniform gap, Lorentz continuum,
+physical particle assignment or Einstein dynamics.

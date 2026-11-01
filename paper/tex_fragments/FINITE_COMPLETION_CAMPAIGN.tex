@@ -498,11 +498,24 @@ controlled relativistic limit along an explicitly chosen coupling family.
 {\input{tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex}}
 {\input{../paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex}}
 
+The original three-dimensional action also permits a growing-volume
+ground construction at fixed spacing. This closes ground-state existence
+and positive excitation energy without selecting the one-dimensional
+canonical reference or its coupling continuation. Its local response is
+then connected to the existing geometry theorem interfaces.
+
+\IfFileExists{tex_fragments/THERMODYNAMIC_GROUND.tex}
+{\input{tex_fragments/THERMODYNAMIC_GROUND.tex}}
+{\input{../paper/tex_fragments/THERMODYNAMIC_GROUND.tex}}
+
+\IfFileExists{tex_fragments/RETARDED_MATTER_RESPONSE.tex}
+{\input{tex_fragments/RETARDED_MATTER_RESPONSE.tex}}
+{\input{../paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex}}
+
 \paragraph{Other finite interfaces.}
-Separate Weyl/contact benchmarks give finite-range CAR commutator bounds
-and local history estimates uniform in volume, yielding norm-Cauchy
-thermodynamic dynamics at fixed lattice spacing. They do not establish a chiral spatial
-continuum. For partition expectations $E_c$ and positive rates,
+The full-CAR locality bounds used above control dynamics at fixed
+lattice spacing; a chiral spatial continuum remains a further limit.
+For partition expectations $E_c$ and positive rates,
 \[
  L=\sum_c\gamma_c(E_c-I),\qquad
  \operatorname{Tr}(X^*LX)=-\sum_c\gamma_c\|X-E_cX\|_{\rm HS}^2

@@ -33,6 +33,15 @@ chosen refinement and physical particle correspondence retain separate scopes.
 These are additional attachments to the existing Weyl/contact claim; no
 physical identification, canonical discharge or integrated completion is added.
 
+The [ground and response extension](../docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
+closes original-action ground-state existence and positive GNS energy on the
+infinite three-dimensional lattice at fixed spacing. It also establishes
+energy-density brackets, upper-half-plane local response convergence and
+exact matter-dependent finite response. These supply further inputs to the
+existing geometry stack. A selected native ground, common low-energy
+geometric symbol, interacting chiral continuum and physical species still
+require their stated joins; the integrated gate statuses are preserved.
+
 The papers are the standalone source for their theorems, assumptions,
 falsifiers and claim boundaries. Executed constructions may instead name a
 self-contained protocol record as their owner. This directory contains the

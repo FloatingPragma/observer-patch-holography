@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 779,
+  "surface_count": 847,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -81,6 +81,16 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/ADAPTIVE_REFERENCE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/BAND_EDGE_CONTACT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/CARTAN_SCALAR_READOUT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -96,7 +106,27 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/CERTIFIED_REFERENCE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CHARGED_DEFECT_PROTECTED_ALGEBRA.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/COARSE_ENERGY_WARD.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/COMMON_FIELD_SPIN_PROTECTION.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -121,7 +151,32 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/CONTACT_CONTINUUM_BOUNDARY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CONTACT_WAVEPACKET_BOUNDARY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CONTINUING_REFERENCE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CUBE_ETA_PROTECTION.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/DARK_SPECTRAL_SOURCE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -132,6 +187,11 @@
     },
     {
       "path": "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/DILUTE_MOMENTUM_WARD.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -216,7 +276,27 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/INTERACTING_REGIONAL_MODULAR_EXPANSION.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/INTERACTING_VACUUM.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/INTERPRETATION_CONVENTIONS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/LATTICE_MOMENTUM_BALANCE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -247,6 +327,21 @@
     },
     {
       "path": "paper/tex_fragments/MASSIVE_OPERATIONAL_CLOCKS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/MASS_GENERATION_AUDIT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/MODULAR_CLOCK_COMPARISON.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/MOVING_BOUND_PAIR.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -331,6 +426,16 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/PARTICLE_IDENTIFICATION.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -346,7 +451,17 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/PERIODIC_MOMENTUM.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PLAQUETTE_REFERENCE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -516,6 +631,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/PROTECTED_RECORD_MEMORY.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -546,7 +666,27 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/REPAIR_MATTER_AND_INTERACTION_READOUT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/REPAIR_SPECTRAL_SECTORS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -712,6 +852,11 @@
     },
     {
       "path": "paper/tex_fragments/STRICT_ONE_LOOP_WZ_POLE_MAP_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/THERMODYNAMIC_GROUND.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -1111,6 +1256,11 @@
       "allowlisted": false
     },
     {
+      "path": "docs/COMMON_ACTION_PROGRESS_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/COMMON_OBJECTIONS.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
@@ -1131,7 +1281,17 @@
       "allowlisted": false
     },
     {
+      "path": "docs/COMPLETION_PROGRESS_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/COMPLETION_PUSH_2026-10-29.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/CONTINUING_SPECTRUM_PROGRESS_2026-11-01.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },
@@ -1154,6 +1314,21 @@
       "path": "docs/FROZEN_PREDICTION_LADDER.md",
       "glob": "docs/**/*.md",
       "allowlisted": true
+    },
+    {
+      "path": "docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/INTERACTING_VACUUM_AND_RELATIVISTIC_MASS_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/INTERNAL_PARTICLE_MEASUREMENT_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
     },
     {
       "path": "docs/INTERPRETATION_AND_TERMS.md",
@@ -1197,6 +1372,21 @@
     },
     {
       "path": "docs/README.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/RESOLVED_SPECTRUM_AND_RELATIVISTIC_SECTOR_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/SPECTRAL_PRECISION_PROGRESS_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/THREE_DIMENSIONAL_PROGRESS_2026-11-01.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },
@@ -1376,6 +1566,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/adaptive_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/anharmonic_observations/DERIVATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1426,6 +1621,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/band_edge_contact/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/biased_code_universality/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1461,7 +1661,17 @@
       "allowlisted": false
     },
     {
+      "path": "model/certified_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/characteristic_constraints/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/charged_defect/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1557,6 +1767,11 @@
     },
     {
       "path": "model/closed_prediction_protocol/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/coarse_energy_ward/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1746,6 +1961,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/common_spin_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/compiled_clock_history/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1796,7 +2016,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/contact_continuum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/contact_scattering/ONSHELL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/contact_scattering/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/contact_wavepacket/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/continuing_reference/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1807,6 +2047,16 @@
     },
     {
       "path": "model/coupled_reconstruction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/cube_eta_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/dark_spectral_source/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1877,6 +2127,11 @@
     },
     {
       "path": "model/defect_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/dilute_momentum_ward/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2001,6 +2256,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/hubbard_relativistic_sector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/identifiability_checks/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2036,12 +2296,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/interacting_vacuum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/joint_clock_process/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/laboratory_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lattice_momentum_balance/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2061,12 +2331,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/mass_generation_audit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/measurement_bounds/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/modular_clock_comparison/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/modular_flow/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/moving_bound_pair/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2326,6 +2611,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_identification/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_obstruction/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2341,7 +2631,17 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_species_detector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_transport/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/periodic_momentum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2352,6 +2652,11 @@
     },
     {
       "path": "model/physical_space_time/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/plaquette_reference/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2387,6 +2692,11 @@
     },
     {
       "path": "model/primitive_observer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_particle_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2446,6 +2756,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/regional_modular_expansion/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/relational_event_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2471,6 +2786,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/relativistic_sector_audit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/repair_action_audit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2482,6 +2802,21 @@
     },
     {
       "path": "model/repair_scheduler/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/repair_spectral_sectors/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/resolved_particle_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/retarded_matter_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2547,6 +2882,11 @@
     },
     {
       "path": "model/support_refinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/thermodynamic_ground/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

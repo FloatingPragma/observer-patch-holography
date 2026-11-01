@@ -1,0 +1,89 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-THERMODYNAMIC-GROUND-RESPONSE-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. The growing-volume ground construction is at fixed spacing and is not a prepared or selected state. Finite response moments and Schur memory are derived from the unchanged cube action. Existing geometric and Einstein theorems retain their common-symbol, modular, stress and normalization premises.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "thermodynamic_ground",
+      "issues": [
+        1138,
+        1142,
+        1143,
+        1145
+      ],
+      "result": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
+      "evidence": [
+        "model/thermodynamic_ground/README.md",
+        "model/thermodynamic_ground/__init__.py",
+        "model/thermodynamic_ground/__main__.py",
+        "model/thermodynamic_ground/energy.py",
+        "model/thermodynamic_ground/filled_sea.py",
+        "model/thermodynamic_ground/local.py",
+        "model/thermodynamic_ground/packet.py",
+        "model/thermodynamic_ground/results.json",
+        "model/thermodynamic_ground/retarded.py",
+        "model/thermodynamic_ground/test_energy.py",
+        "model/thermodynamic_ground/test_filled_sea.py",
+        "model/thermodynamic_ground/test_local.py",
+        "model/thermodynamic_ground/test_packet.py",
+        "model/thermodynamic_ground/test_retarded.py",
+        "model/thermodynamic_ground/volume.py",
+        "paper/tex_fragments/THERMODYNAMIC_GROUND.tex"
+      ],
+      "remaining": [
+        "Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs.",
+        "Establish its continuing invariance under the actual complete repair/controller process.",
+        "Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors.",
+        "Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and independently tested spectrum."
+      ]
+    },
+    {
+      "id": "retarded_matter_response",
+      "issues": [
+        1142,
+        1143,
+        1145
+      ],
+      "result": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
+      "evidence": [
+        "model/retarded_matter_response/README.md",
+        "model/retarded_matter_response/__init__.py",
+        "model/retarded_matter_response/__main__.py",
+        "model/retarded_matter_response/bounds.py",
+        "model/retarded_matter_response/packet.py",
+        "model/retarded_matter_response/response.py",
+        "model/retarded_matter_response/results.json",
+        "model/retarded_matter_response/spectrum.py",
+        "model/retarded_matter_response/static.py",
+        "model/retarded_matter_response/test_bounds.py",
+        "model/retarded_matter_response/test_packet.py",
+        "model/retarded_matter_response/test_response.py",
+        "model/retarded_matter_response/test_spectrum.py",
+        "model/retarded_matter_response/test_static.py",
+        "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex"
+      ],
+      "remaining": [
+        "Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure.",
+        "Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad.",
+        "Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed.",
+        "Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors.",
+        "Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics.",
+        "Establish physical particle quantum numbers, measured units and an independently tested spectrum."
+      ]
+    }
+  ],
+  "quantifier_boundary": "A positive-energy, finite-density thermodynamic ground representation at fixed lattice spacing and upper-half-plane local response convergence, together with exact state-dependent retarded response on the finite grounded cube. Neither limit exchange to real-axis poles nor a common low-energy Lorentz symbol is assumed. The interacting chiral 3+1 continuum, physical species and masses, and Einstein coarse-graining remain unclosed."
+}

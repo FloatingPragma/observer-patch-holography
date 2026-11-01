@@ -344,6 +344,8 @@ REPLAYS = (
     ("model.interacting_vacuum", None, "model/interacting_vacuum/results.json"),
     ("model.mass_generation_audit", None, "model/mass_generation_audit/results.json"),
     ("model.hubbard_relativistic_sector", None, "model/hubbard_relativistic_sector/results.json"),
+    ("model.thermodynamic_ground", None, "model/thermodynamic_ground/results.json"),
+    ("model.retarded_matter_response", None, "model/retarded_matter_response/results.json"),
     ("model.biased_reset", None, "model/biased_reset/results.json"),
     ("model.band_clock", None, "model/band_clock/results.json"),
     ("model.band_clock_budget", None, "model/band_clock_budget/results.json"),

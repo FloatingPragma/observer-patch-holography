@@ -1,5 +1,10 @@
 # An interacting reference and a controlled relativistic mass construction
 
+The subsequent [ground and response extension](GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
+establishes infinite-volume ground existence at fixed spacing, convergent
+energy-density bounds and exact matter-dependent response. The calculations
+below retain their finite-cube and specified-chain domains.
+
 The particle work now separates three calculations that have different
 answers: the ground of the original three-dimensional cube, the charge gap
 of its one-dimensional restriction, and a relativistic limit along an

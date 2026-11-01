@@ -112,6 +112,11 @@ proof shows that the whole class of laws cannot work.
   mass along a specified one-dimensional coupling continuation. The original
   parameters do not select that continuation or a unique mass. Measured
   species and a three-dimensional interacting relativistic vacuum remain open.
+  The [grounded field and geometry response](docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
+  now establish an original-action infinite-lattice ground with positive
+  excitation energy, convergent energy-density bounds and exact
+  matter-dependent propagation response on the cube. The response is being
+  attached to the existing geometry theorem interfaces.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12700 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.
