@@ -33,9 +33,12 @@ locality, distinct from the earlier graded CAR representation.
 `core.py` checks `K_local W = W K_cover` for every native raw slot, every
 seam and all 132 columns. The on-site label swap S exchanges A and B and
 fixes 0. Its product Q over all ports restricts to the deck involution
-`I66 tensor X`. Each complete Kraus map commutes with Q. Consequently Q and
-its two sharp sectors are conserved under any finite classical adaptive
-sequence of admitted repairs. The exchange loop retains its existing Z2
+`I66 tensor X`. Each complete Kraus map commutes with Q. Every individual
+branch therefore preserves each sharp Q sector. The complete instrument,
+with all histories retained, conserves the charge expectation under any
+finite classical adaptive sequence of admitted repairs. A normalized
+selected history can have a different expectation. The exchange loop retains
+its existing Z2
 character; distinguishable labels and this symmetry do not derive fermionic
 statistics or spatial spin.
 
@@ -91,9 +94,14 @@ each unnormalized history contrast has nonnegative coefficients, and each
 has zero trace. The native tape distributions of rho and sigma agree exactly.
 The compared controllers use the same native-record-only policy; they do
 not choose later actions using the differing preparation archives.
+For an adaptive policy the comparison reference is the output of that same
+policy on sigma; it need not remain the tracial state.
 Tape plus a fixed exterior generally ceases to agree once both labels can
 leave the initial core. Conditioning on a selected history is not used to
-normalize the claimed global conservation or locality.
+normalize the claimed global conservation or locality. For example, on the
+two-port core `(0,1)`, the E event with coin `0` and raw record `0` has
+probability `23/66` and conditional charge `epsilon/46`, compared with the
+initial `epsilon/66`. Summing over all records conserves the initial value.
 
 For C=`(0,1)`, the exact normalized contrast partitions are:
 
@@ -124,8 +132,9 @@ Outside access, correlated initial ancillas, postselection and sector escape
 are outside this contract. `optimality.py` checks the supporting matrix
 elements for all 4096 port subsets.
 
-There is also an exact obstruction for **any** sharp Q state, regardless of
-its occupation marginal. Let B be the exterior and measure its projector
+There is also an exact obstruction for **any** sharp Q state on the
+one-A/one-B carrier, regardless of its occupation marginal. Let B be the
+exterior and measure its projector
 onto two occupied ports with the opposite exchange character. This event
 has zero probability in that sharp sector, but probability
 `choose(|B|,2)/132` in sigma. Thus
@@ -138,7 +147,11 @@ D(rho_sharp restricted to B, sigma restricted to B)
 The uniform sharp state `(I+Q)/132` attains the bound. For a two-port core,
 the minimum is `15/44`; it cannot be repaired by redistributing occupation
 probabilities. This explains precisely why the localized preparation is
-not a localized sharply charged particle.
+not a localized sharply charged particle. The carrier restriction is
+essential: with extra or missing labels, correlated core and exterior exchange
+characters can combine to give a globally sharp state with the reference
+exterior. The ambient-tensor countercontrol in `test_optimality.py` exhibits
+this failure outside the theorem's domain.
 
 ## Scope, implementation and remaining joins
 
@@ -148,7 +161,11 @@ input columns, including arbitrary reference entanglement. Preparation,
 native repair and charge readout have explicit retained records, source
 complements, resource counts and numerical admission ceilings in
 [`results.json`](results.json). These ceilings are execution checks, not
-outward rounding certificates or hardware error rates. A short composed
+outward rounding certificates or hardware error rates. Every labelled
+six-outcome measurement map is checked on its full input and output space,
+including its poststate and zero slots, up to an independent Kraus phase.
+The composed error budget includes the permitted phase-modulus roundoff.
+A short composed
 history tests actual states and coherences, not only record probabilities.
 The moving execution uses three ports `(0,1,5)`, prepares on `(0,1)`, applies
 C or E on `(0,5)` and reads on `(1,5)`. All 64 ambient dual-rail rows remain.
@@ -162,6 +179,16 @@ explicit inputs, not a derivation of a vacuum or a cost-free reset.
 The terminal detailed readout is destructive: global charge preservation is
 not asserted after it. Port locality of the effective stencil does not
 establish spatial locality of the supplied processor's pulse hardware.
+
+The classical archive reserves three bits per six-outcome measurement and
+one selector bit: 55 bits for the eighteen-read C-then-E experiment, or 40
+bits for a thirteen-read moving experiment. A separate terminal-source
+address stores zero for success or the stage, pulse and complement slot of
+the first failure. This requires 20 bits for C-then-E, 18 for moving C and
+19 for moving E, giving complete logical archive bounds of 75, 58 and 59
+bits. After failure, unexecuted measurement slots are zero-padded. The
+preceding records select the conditional preparation word, whose frozen
+prefix reconstructs every failure output, including zero-weight slots.
 
 Label dephasing at an initially occupied core port preserves native occupation records but destroys
 the contrast: protection depends on label-blind service. The global tracial

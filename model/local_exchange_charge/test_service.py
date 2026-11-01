@@ -1,6 +1,7 @@
 """Independent complete-column, preparation and native-history checks."""
 from itertools import product
 from dataclasses import replace
+from fractions import Fraction
 import warnings
 
 import numpy as np
@@ -179,6 +180,88 @@ def test_physical_native_readout_includes_every_noncode_zero_slot():
     assert not np.any(s.repair_record_kraus('C', (4, 1, 0, 0, 0)))
 
 
+@pytest.mark.parametrize('mutation', ('code_labels', 'complement_labels',
+                                    'code_poststate', 'complement_poststate'))
+def test_labelled_measurement_contract_checks_effects_and_complete_poststates(monkeypatch, mutation):
+    original = s.compiler.transfer_kraus
+    maps = original(2, coherent=False)
+    damaged = [matrix.copy() for matrix in maps]
+    if mutation == 'code_labels':
+        damaged[0], damaged[1] = damaged[1], damaged[0]
+    elif mutation == 'complement_labels':
+        damaged[2], damaged[3] = damaged[3], damaged[2]
+    elif mutation == 'code_poststate':
+        damaged[0][0, 0] = 0
+        damaged[0][1, 0] = 1
+    else:
+        damaged[2][2, 2] = 0
+        damaged[2][0, 2] = 1
+    # Each mutation passed the former total-completeness/noncode-zero check.
+    np.testing.assert_array_equal(sum(k.conj().T@k for k in damaged), np.eye(6))
+    assert all(not np.any(k[:, :2]) for k in damaged[2:])
+    monkeypatch.setattr(s.compiler, 'transfer_kraus',
+                        lambda d, coherent=True: damaged if d == 2 and not coherent else original(d, coherent))
+    calls = (lambda: s.measurement_certificate(),
+             lambda: s.preparation_kraus(record(0), 0),
+             lambda: s.preparation_failure_effect(),
+             lambda: s.readout_kraus(record(0)),
+             lambda: s.readout_value(record(s.BA)),
+             lambda: s.repair_kraus('C'),
+             lambda: s.repair_record_kraus('C', (0, 0, 0, 0, 0)),
+             # Even an admitted zero-output address must verify its source.
+             lambda: s.repair_record_kraus('C', (4, 0, 0, 0, 0)))
+    for call in calls:
+        with pytest.raises(ArithmeticError, match='labelled source measurement'):
+            call()
+
+
+def test_independent_unit_kraus_phases_preserve_the_classical_instrument(monkeypatch):
+    original = s.compiler.transfer_kraus
+    maps = original(2, coherent=False)
+    phases = (1, -1, 1j, -1j, np.exp(.37j), np.exp(-.91j))
+    phased = [phase*matrix for phase, matrix in zip(phases, maps, strict=True)]
+    before_read = s.readout_kraus(record(s.BA))
+    before_prep = s.preparation_kraus(record(s.AB), 0)
+    monkeypatch.setattr(s.compiler, 'transfer_kraus',
+                        lambda d, coherent=True: phased if d == 2 and not coherent else original(d, coherent))
+    result = s.measurement_certificate(5)
+    assert result['labelled_full_3_by_6_maps_checked'] == 6
+    assert result['independent_unit_Kraus_phases_equivalent']
+    # The public classical Kraus maps use a fixed phase representative.
+    np.testing.assert_array_equal(s.readout_kraus(record(s.BA)), before_read)
+    np.testing.assert_array_equal(s.preparation_kraus(record(s.AB), 0), before_prep)
+    assert not np.any(s.repair_record_kraus('C', (4, 1, 0, 0, 0)))
+
+
+@pytest.mark.parametrize('mutation', ('wrong_shape', 'masked', 'nan', 'boolean',
+                                    'subclass', 'wrong_modulus', 'extra_entry', 'longdouble'))
+def test_measurement_maps_reject_malformed_or_noncontract_numeric_inputs(monkeypatch, mutation):
+    class ArraySubclass(np.ndarray):
+        pass
+    original = s.compiler.transfer_kraus
+    maps = original(2, coherent=False)
+    if mutation == 'wrong_shape':
+        maps[0] = np.zeros((6, 3))
+    elif mutation == 'masked':
+        maps[0] = np.ma.array(maps[0], mask=False)
+    elif mutation == 'nan':
+        maps[0][0, 0] = np.nan
+    elif mutation == 'boolean':
+        maps[0] = maps[0].astype(bool)
+    elif mutation == 'subclass':
+        maps[0] = maps[0].view(ArraySubclass)
+    elif mutation == 'wrong_modulus':
+        maps[0][0, 0] = 1.001
+    elif mutation == 'longdouble':
+        maps[0] = maps[0].real.astype(np.longdouble)
+    else:
+        maps[0][1, 1] = 1e-30
+    monkeypatch.setattr(s.compiler, 'transfer_kraus',
+                        lambda d, coherent=True: maps if d == 2 and not coherent else original(d, coherent))
+    with pytest.raises(ArithmeticError, match='measurement'):
+        s.measurement_certificate()
+
+
 @pytest.mark.parametrize('law,raw', [('C', 2), ('E', 6)])
 def test_moving_poststate_preserves_unread_unknown_label_and_reference(law, raw):
     actual = s.moving_amplitude(law, record(0), 0, (1, raw), record(0), np.eye(64))
@@ -239,3 +322,104 @@ def test_probability_invisible_unread_label_phase_is_rejected(monkeypatch):
 def test_malformed_local_service_inputs_fail_closed(call):
     with pytest.raises(ValueError):
         call()
+
+
+@pytest.mark.parametrize('value', [np.array([[2**53+1]], dtype=np.int64),
+                                  np.array([[-(2**53+1)]], dtype=np.int64),
+                                  np.array([[np.iinfo(np.uint64).max]], dtype=np.uint64),
+                                  np.array([[1]], dtype=np.longdouble),
+                                  np.array([[np.finfo(np.longdouble).max]], dtype=np.longdouble),
+                                  np.array([[1]], dtype=np.clongdouble)])
+def test_source_array_rejects_inputs_that_cannot_be_admitted_without_narrowing(value):
+    with pytest.raises(ValueError):
+        s._array(value)
+    matrix = np.zeros((16, 16), dtype=value.dtype)
+    matrix[0, 0] = value[0, 0]
+    with pytest.raises(ValueError):
+        s.on_three_ports(matrix, (0, 1))
+
+
+def test_source_array_exact_binary64_integer_boundary_and_detached_output():
+    value = np.array([[-2**53, 2**53]], dtype=np.int64)
+    output = s._array(value)
+    assert [int(x.real) for x in output[0]] == [-2**53, 2**53]
+    output[0, 0] = 0
+    assert value[0, 0] == -2**53
+    class ArraySubclass(np.ndarray):
+        pass
+    for invalid in (value.view(ArraySubclass), [[1]], np.array([[True]])):
+        with pytest.raises(ValueError):
+            s._array(invalid)
+
+
+@pytest.mark.parametrize('moving', [False, True])
+def test_arbitrary_reference_amplitudes_require_at_least_one_column(moving):
+    with pytest.raises(ValueError):
+        if moving:
+            s.moving_amplitude('C', record(0), 0, (0, 0), record(0), np.zeros((64, 0)))
+        else:
+            s.history_amplitude(record(0), 0, (0, 0), (0, 0), record(0), np.zeros((16, 0)))
+
+
+def test_compositional_budget_covers_admitted_phase_moduli_for_all_eighteen_reads(monkeypatch):
+    original = s.compiler.transfer_kraus
+    maps = [(1+s.MEASUREMENT_PHASE_ROUNDOFF)*matrix for matrix in original(2, coherent=False)]
+    monkeypatch.setattr(s.compiler, 'transfer_kraus',
+                        lambda d, coherent=True: maps if d == 2 and not coherent else original(d, coherent))
+    s.measurement_certificate()
+    result = s.history_error_certificate()
+    epsilon = Fraction.from_float(float(s.ADMISSION))
+    delta = Fraction.from_float(float(s.MEASUREMENT_PHASE_ROUNDOFF))
+    # Independent product: prep, C, E, analyzer plus 4+5+5+4 source reads.
+    amplitude = (1+epsilon)**4*(1+delta)**(4+5+5+4)-1
+    assert result['maximum_source_measurements'] == 18
+    upper = Fraction(result['rational_amplitude_upper_bound'])
+    assert (1+epsilon)**4-1 < amplitude <= upper
+    probability = Fraction(result['rational_probability_upper_bound'])
+    assert amplitude*(2+amplitude) <= upper*(2+upper) == probability
+    assert probability < Fraction.from_float(s.HISTORY_ADMISSION)
+
+
+def test_first_failure_archive_is_a_complete_bijection_and_reconstructs_prefix_outputs():
+    runs = (s.preparation_run(s.AB, 0), s.analyzer_run())
+    # Exhaust an actual two-stage path, including zero-weight complements.
+    expected = [(stage, event, complement) for stage, run in enumerate(runs)
+                for event, (_, _, targets) in enumerate(run.word)
+                for complement in range(6-(1 << len(targets)))]
+    addresses = [s.first_failure_address(runs, *label) for label in expected]
+    assert addresses == list(range(1, len(expected)+1))
+    assert [s.decode_first_failure(runs, address) for address in addresses] == expected
+    assert s.decode_first_failure(runs, 0) is None
+    for stage, run in enumerate(runs):
+        for arity in (1, 2):
+            event = next(index for index, (_, _, targets) in enumerate(run.word) if len(targets) == arity)
+            branches = run.failure(event)
+            assert len(branches) == 6-2**arity
+            for complement, branch in enumerate(branches):
+                address = s.first_failure_address(runs, stage, event, complement)
+                decoded_stage, decoded_event, decoded_complement = s.decode_first_failure(runs, address)
+                np.testing.assert_array_equal(runs[decoded_stage].failure(decoded_event)[decoded_complement], branch)
+    for wrong in (-1, len(expected)+1, True, 1.0):
+        with pytest.raises(ValueError):
+            s.decode_first_failure(runs, wrong)
+
+
+def test_complete_classical_archive_counts_every_literal_stage_complement():
+    preparations = [s.preparation_run(mask, selector) for mask, selector in product((s.AB, s.BA), range(2))]
+    # Independent arity census of actual emitted words, including padding.
+    slots = lambda run: sum(4 if len(targets) == 1 else 2 for _, _, targets in run.word)
+    prep = max(preparations, key=slots)
+    analysis, c, e = s.analyzer_run(), s.repair_run('C'), s.repair_run('E')
+    for runs, measurements, expected_bits in (((prep, c, e, analysis), 18, 75),
+                                                ((prep, c, analysis), 13, 58),
+                                                ((prep, e, analysis), 13, 59)):
+        result = s.first_failure_archive(runs)
+        count = 1+sum(slots(run) for run in runs)
+        bits = result['first_failure_address_bits']
+        assert result['success_plus_first_failure_addresses'] == count
+        assert 2**(bits-1) < count <= 2**bits
+        assert 3*measurements+1+bits == expected_bits
+        final = runs[-1]
+        label = (len(runs)-1, len(final.word)-1, (6-2**len(final.word[-1][2]))-1)
+        assert s.first_failure_address(runs, *label) == count-1
+        assert s.decode_first_failure(runs, count-1) == label

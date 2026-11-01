@@ -1875,7 +1875,7 @@
     "modular_energy_excess": "0: -log(I132/132) is scalar on the admitted sector",
     "preparation_domain": "deterministic core-local CPTP map, independent ancilla, tracial sector input, endpoint one-A/one-B support",
     "proof": "Exterior basis diagonality survives a local channel. Only exterior-vacuum Q matrix elements remain; their probability is fixed by locality. The exterior opposite-character projector annihilates every globally sharp state and has reference probability rank/132. Both bounds are attained.",
-    "sharp_domain": "any density matrix supported in one global Q eigenspace, without a fixed occupation marginal",
+    "sharp_domain": "any density matrix on the one-A/one-B H132 carrier supported in one global Q eigenspace, without a fixed occupation marginal",
     "sharp_local_particle_claimed": false
   },
   "physical_comparison_count_added": 0,
@@ -2026,17 +2026,17 @@
     "model/interacting_field/source.py": "39735bf7a86e3fa309b2a3d01c3e64b146be8d2f280445731c146b984f73e5be",
     "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
     "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
-    "model/local_exchange_charge/README.md": "5a8dbb59618dbee0bdc6ca67f949d8c166136b88c38b383e403edf047e2ba886",
+    "model/local_exchange_charge/README.md": "ff1225e0739d276ea3b787e5e2efe63ac44b817411eca26af2aac154dda27551",
     "model/local_exchange_charge/__init__.py": "d35435cbc52819bd86662a3e76b5830c59bd761c644d25992cdaa3d437cff525",
     "model/local_exchange_charge/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/local_exchange_charge/core.py": "25542d112e8e272332dd6e9f9eb5098a4d00511ebd5845d887db1468b1e1ed93",
-    "model/local_exchange_charge/optimality.py": "4ba33c044600fdacc40b6605c08b98e7e5f413a6347119dbce4d464b6c170cdf",
+    "model/local_exchange_charge/optimality.py": "4324e1354a34507f1e310c05fc472fd5783de7878cd64afc86a37b1574be5d27",
     "model/local_exchange_charge/packet.py": "55de66ab93837080b2a63ac8c65e89f75eaa36391708091b2a7400618772fadc",
-    "model/local_exchange_charge/service.py": "6c2e3e43062b30ce42779def31f633d0dd8f83fed245b7756befc604202509cb",
-    "model/local_exchange_charge/test_core.py": "748e180acde3eeea1f23afaabfd5d9fbfe329c6475e4a24d5895c23e5535dbc3",
-    "model/local_exchange_charge/test_optimality.py": "e26e148fe0f1e4924813e939496bd1577d64734696176139b8fec2dde4459da5",
+    "model/local_exchange_charge/service.py": "e5d82cb4f0a5c20e1ff60b095909ec305ade986bd0e2f1816b64cc1f64a57945",
+    "model/local_exchange_charge/test_core.py": "10630ea84b8e944daf4559fd8dde71ab1c9db6565e3ce8ecc334503f0fe90f93",
+    "model/local_exchange_charge/test_optimality.py": "d417cd36ea3b1331cb3750a3d536bb83bc233ab0ead799c6da7814501271eef7",
     "model/local_exchange_charge/test_packet.py": "6471153bd5ed20e65af6280983b354c4271e89824367a3894dc7c11acc6cb1cf",
-    "model/local_exchange_charge/test_service.py": "b4326cb26acb2d955c9624a3a73aff5d1a31890d6a4b5e855eda13b9c2bc87e8",
+    "model/local_exchange_charge/test_service.py": "91ac4e286146c1f1be5f218e18b1d0839d191cab1999421a4daec5650fb06af1",
     "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
     "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
     "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
@@ -2092,7 +2092,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
     "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
@@ -2158,7 +2158,17 @@
       "proper_code_service_events": 228,
       "single_code_pulses": 84
     },
-    "complete_history_error_composition": "four complete local dilation errors <=2e-7 give amplitude error <=(1+2e-7)^4-1; probability error <=e(2+e)<2e-6",
+    "complete_history_error_composition": {
+      "amplitude_formula": "(1+epsilon)^4*(1+delta)^18-1",
+      "applies_to_normalized_inputs_with_arbitrary_references": true,
+      "maximum_complete_local_dilations": 4,
+      "maximum_source_measurements": 18,
+      "per_dilation_amplitude_ceiling": 2e-07,
+      "per_measurement_phase_modulus_ceiling": 1.7763568394002505e-15,
+      "rational_amplitude_upper_bound": "801/1000000000",
+      "rational_ceiling_verified": true,
+      "rational_probability_upper_bound": "1602000641601/1000000000000000000"
+    },
     "complete_history_probability_error_admission": 2e-06,
     "complete_normalization_error_below": 2e-06,
     "complete_terminal_poststates_individually_reconstructible": true,
@@ -2169,10 +2179,17 @@
     ],
     "end_to_end_blank_coin_record_qubit_initializations": 10,
     "end_to_end_complete_C_E_readout_slots": 1327104,
+    "end_to_end_complete_classical_archive_bits": 75,
     "end_to_end_longest_native_pulse_count": 164074,
+    "end_to_end_measurement_record_selector_archive_bits": 55,
     "end_to_end_physical_C_E_readout_slots": 78364164096,
     "end_to_end_readout_load_and_export_events_each": 18,
-    "end_to_end_record_archive_bits_including_preparation_selector": 55,
+    "end_to_end_source_first_failure_archive": {
+      "first_failure_address_bits": 20,
+      "retained_source_first_failure_slots": 574576,
+      "success_address": 0,
+      "success_plus_first_failure_addresses": 574577
+    },
     "floating_admission_is_outward_or_hardware_proof": false,
     "full_twelve_port_source_array_executed": false,
     "global_charge_protection_after_terminal_readout_claimed": false,
@@ -2180,16 +2197,23 @@
     "local_operator_certificate_covers_arbitrary_untouched_references": true,
     "measurement": {
       "complete_raw_slots": 1296,
+      "independent_unit_Kraus_phases_equivalent": true,
+      "labelled_full_3_by_6_maps_checked": 6,
       "local_qubit_readouts": 4,
       "native_readout_export_events": 4,
       "native_readout_load_events": 4,
       "retained_noncode_zero_slots": 1280,
+      "unit_phase_modulus_roundoff_ceiling": 1.7763568394002505e-15,
       "valid_code_slots": 16
     },
     "measurement_is_terminal_demolition": true,
     "moving_witness": {
       "ambient_rows_retained": 64,
       "blank_coin_record_qubit_initializations": 5,
+      "complete_classical_archive_bits_by_law": {
+        "C": 58,
+        "E": 59
+      },
       "complete_coin_raw_readout_slots_per_law": 41472,
       "complete_physical_native_readout_slots_per_law": 10077696,
       "complete_probability_error_admission": 2e-06,
@@ -2230,6 +2254,7 @@
         }
       },
       "measurement_load_and_export_events_each": 13,
+      "measurement_record_selector_archive_bits": 40,
       "native_seam": [
         0,
         5
@@ -2243,13 +2268,26 @@
         1,
         5
       ],
-      "record_archive_bits_including_preparation_selector": 40,
       "reference_exact_charge_probabilities": [
         "1/132",
         "1/132",
         "65/66"
       ],
       "sector_projection_used": false,
+      "source_first_failure_archive_by_law": {
+        "C": {
+          "first_failure_address_bits": 18,
+          "retained_source_first_failure_slots": 244668,
+          "success_address": 0,
+          "success_plus_first_failure_addresses": 244669
+        },
+        "E": {
+          "first_failure_address_bits": 19,
+          "retained_source_first_failure_slots": 330716,
+          "success_address": 0,
+          "success_plus_first_failure_addresses": 330717
+        }
+      },
       "source_first_failure_mass_below": 1e-20,
       "transported_charge_expectation": "1/264"
     },
@@ -2282,7 +2320,7 @@
       "selector": "supplied independent classical mixture",
       "selector_preparation_physical_cost_calibrated": false
     },
-    "record_archive_format": "each six-outcome measurement stored as an integer0..5; three bits suffice per value",
+    "record_archive_format": "fixed measurement slots use three bits per integer0..5 plus one selector bit; unwritten suffix slots are zero-padded after terminal failure",
     "reference_exact_charge_probabilities": [
       "1/132",
       "1/132",
@@ -2311,10 +2349,13 @@
         },
         "record_readout": {
           "complete_raw_slots": 7776,
+          "independent_unit_Kraus_phases_equivalent": true,
+          "labelled_full_3_by_6_maps_checked": 6,
           "local_qubit_readouts": 5,
           "native_readout_export_events": 5,
           "native_readout_load_events": 5,
           "retained_noncode_zero_slots": 7744,
+          "unit_phase_modulus_roundoff_ceiling": 1.7763568394002505e-15,
           "valid_code_slots": 32
         },
         "retained_first_failure_slots": 243860
@@ -2340,10 +2381,13 @@
         },
         "record_readout": {
           "complete_raw_slots": 7776,
+          "independent_unit_Kraus_phases_equivalent": true,
+          "labelled_full_3_by_6_maps_checked": 6,
           "local_qubit_readouts": 5,
           "native_readout_export_events": 5,
           "native_readout_load_events": 5,
           "retained_noncode_zero_slots": 7744,
+          "unit_phase_modulus_roundoff_ceiling": 1.7763568394002505e-15,
           "valid_code_slots": 32
         },
         "retained_first_failure_slots": 329908
@@ -2352,6 +2396,7 @@
     "reused_six_level_native_processor_additional": true,
     "schema": "oph.local_exchange_charge.source.v1",
     "source_failures_are_terminal": true,
+    "source_first_failure_archive_format": "additional integer: zero for success, otherwise one plus the cumulative stage/pulse/complement index; literal prefixes reconstruct every retained ambient branch",
     "source_first_failure_mass_below": 1e-20,
     "success_conditioning_used": false
   },

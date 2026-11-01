@@ -7,6 +7,7 @@ nonunital, recorded local channel; its archive is traced before the native
 history comparison.  Numerical admissions are not hardware certificates.
 """
 from functools import lru_cache
+from fractions import Fraction
 from itertools import product
 from types import MappingProxyType
 import math
@@ -25,6 +26,7 @@ AB, BA = 9, 6
 READOUT_RECORDS = tuple(product(range(6), repeat=4))
 ADMISSION = full.SOURCE_BOUND
 HISTORY_ADMISSION = 2e-6
+MEASUREMENT_PHASE_ROUNDOFF = 8*np.finfo(np.float64).eps
 
 
 def _admit(value, ceiling, label):
@@ -55,16 +57,55 @@ def _native_record(record):
 
 
 def _array(value):
-    if np.ma.isMaskedArray(value):
-        raise ValueError('masked source amplitudes are not admitted')
-    raw = np.asarray(value)
-    if raw.dtype.kind not in 'iufc' or not np.isfinite(raw).all():
-        raise ValueError('finite numeric source amplitudes required')
-    with np.errstate(over='ignore', invalid='ignore'):
-        result = np.array(raw, dtype=complex, copy=True)
+    # The evaluated service uses binary64 arithmetic.  Do not silently alter
+    # integer amplitudes or narrow extended-precision inputs before checking.
+    numeric = (np.int8, np.int16, np.int32, np.int64, np.uint8, np.uint16,
+               np.uint32, np.uint64, np.float16, np.float32, np.float64,
+               np.complex64, np.complex128)
+    if (type(value) is not np.ndarray or value.dtype.type not in numeric
+            or not np.isfinite(value).all()):
+        raise ValueError('finite plain standard-precision numeric source amplitudes required')
+    if value.dtype.kind in 'iu' and (np.any(value > 2**53)
+            or (value.dtype.kind == 'i' and np.any(value < -(2**53)))):
+        raise ValueError('integer source amplitudes must lie in the exact binary64 range')
+    result = np.array(value, dtype=np.complex128, copy=True)
     if not np.isfinite(result).all():
         raise ValueError('source amplitudes must stay finite after conversion')
     return result
+
+
+def _measurement_contract():
+    """Bind every labelled source export, including its complete poststate.
+
+    The declared transfer service has one nonzero matrix entry per outcome:
+    |j><j| for code labels0,1, and |failure><j| for labels2..5. Independent
+    unit Kraus phases disappear upon classical commitment. Off-support
+    entries must be literal zeros; the modulus check allows only the stated
+    binary64 roundoff in representing an otherwise irrelevant unit phase.
+    This is deliberately uncached so public read/preparation calls cannot
+    reuse an admission after the underlying transfer service changes.
+    """
+    maps = compiler.transfer_kraus(2, coherent=False)
+    if type(maps) not in (tuple, list) or len(maps) != 6:
+        raise ArithmeticError('six labelled source measurement maps required')
+    for label, matrix in enumerate(maps):
+        try:
+            value = _array(matrix)
+        except ValueError as exc:
+            raise ArithmeticError('finite plain3x6 labelled source measurement maps required') from exc
+        if value.shape != (3, 6):
+            raise ArithmeticError('finite plain3x6 labelled source measurement maps required')
+        row = label if label < 2 else 2
+        phase = complex(value[row, label])
+        if np.count_nonzero(value) != 1 or phase == 0:
+            raise ArithmeticError('labelled source measurement changed its effect or poststate')
+        # Exact arithmetic on the admitted binary64 components makes the
+        # modulus ceiling valid even at the floating square-root boundary.
+        delta = Fraction.from_float(MEASUREMENT_PHASE_ROUNDOFF)
+        norm_squared = Fraction.from_float(phase.real)**2+Fraction.from_float(phase.imag)**2
+        if not (1-delta)**2 <= norm_squared <= (1+delta)**2:
+            raise ArithmeticError('labelled source measurement unit phase exceeded its admission')
+    return maps
 
 
 def _public_run(run):
@@ -143,6 +184,8 @@ def _repair_run(law):
 
 def repair_kraus(law):
     """All 32 coin/raw slots, including every collision and padded zero slot."""
+    _law(law)
+    _measurement_contract()
     rows = repair_run(law).success.reshape(16, 2, 16, 16)
     return {(coin, raw): rows[raw, coin] for coin, raw in product(range(2), range(16))}
 
@@ -166,6 +209,7 @@ def _repair_grid(law):
 def repair_record_kraus(law, record):
     """All 6^5 native measurement records of coin and four raw qubits."""
     _law(law)
+    _measurement_contract()
     if (type(record) is not tuple or len(record) != 5 or
             any(type(x) is not int or not 0 <= x < 6 for x in record)):
         raise ValueError('five complete six-outcome native readout records required')
@@ -210,17 +254,17 @@ def _record_mask(record):
 def measurement_certificate(bits=4):
     if type(bits) is not int or not 1 <= bits <= 5:
         raise ValueError('one through five measured code qubits required')
-    maps = compiler.transfer_kraus(2, coherent=False)
-    if (len(maps) != 6 or not np.array_equal(sum(k.conj().T@k for k in maps), np.eye(6))):
-        raise ArithmeticError('complete six-outcome source readout changed')
-    if any(np.any(m[:, :2]) for m in maps[2:]):
-        raise ArithmeticError('noncode readout outcome ceased to be a retained zero')
+    _measurement_contract()
     return {'local_qubit_readouts': bits, 'native_readout_load_events': bits,
             'native_readout_export_events': bits, 'complete_raw_slots': 6**bits,
-            'valid_code_slots': 2**bits, 'retained_noncode_zero_slots': 6**bits-2**bits}
+            'valid_code_slots': 2**bits, 'retained_noncode_zero_slots': 6**bits-2**bits,
+            'labelled_full_3_by_6_maps_checked': 6,
+            'independent_unit_Kraus_phases_equivalent': True,
+            'unit_phase_modulus_roundoff_ceiling': MEASUREMENT_PHASE_ROUNDOFF}
 
 
 def readout_kraus(record):
+    _measurement_contract()
     mask = _record_mask(record)
     result = np.zeros((16, 16), complex)
     if mask is not None:
@@ -229,6 +273,7 @@ def readout_kraus(record):
 
 
 def readout_value(record):
+    _measurement_contract()
     mask = _record_mask(record)
     return 1 if mask == BA else -1 if mask == AB else 0
 
@@ -265,6 +310,7 @@ def preparation_kraus(record, selector, *, reference=False):
     record/selector slots exist, including noncode zeros.  No unitary
     preparation from the central uniform state is asserted.
     """
+    _measurement_contract()
     weights = _selector_weights(reference)
     if type(selector) is not int or selector not in (0, 1):
         raise ValueError('exact binary selector required')
@@ -277,6 +323,7 @@ def preparation_kraus(record, selector, *, reference=False):
 
 
 def preparation_failure_effect(*, reference=False):
+    _measurement_contract()
     result = np.zeros((16, 16), complex)
     for mask, selector in product((AB, BA), range(2)):
         result[mask, mask] += _selector_weights(reference)[selector]*preparation_run(mask, selector).failure_probability
@@ -306,7 +353,7 @@ def prepared_density(*, reference=False):
 def history_amplitude(preparation_record, selector, first, second, final, columns, *, reference=False):
     """An individually addressable complete successful history; never normalize."""
     value = _array(columns)
-    if value.ndim != 2 or value.shape[0] != 16 or not np.isfinite(value).all():
+    if value.ndim != 2 or value.shape[0] != 16 or value.shape[1] < 1:
         raise ValueError('complete four-bit arbitrary-reference columns required')
     _native_record(first); _native_record(second)
     return (readout_kraus(final)@_repair_grid('E')[second]@_repair_grid('C')[first]
@@ -440,7 +487,7 @@ def moving_amplitude(law, preparation_record, selector, native_record, final_rec
                      columns, *, reference=False):
     """Actual full 64-row post-measurement output for any retained history."""
     value = _array(columns)
-    if value.ndim != 2 or value.shape[0] != 64 or not np.isfinite(value).all():
+    if value.ndim != 2 or value.shape[0] != 64 or value.shape[1] < 1:
         raise ValueError('complete six-bit arbitrary-reference columns required')
     _law(law); _native_record(native_record)
     prep = _embed_checked(preparation_kraus(preparation_record, selector, reference=reference), (0, 1))
@@ -453,6 +500,78 @@ def _resources(run):
     word = [compiler.pulse(kind, angle, targets) for kind, angle, targets in run.word]
     actual = compiler.resources(word)
     return source._failure_account({key: actual[key] for key in source.COUNT_KEYS})
+
+
+def _failure_counts(runs):
+    if type(runs) is not tuple or not runs or any(type(run) is not CompleteRun for run in runs):
+        raise ValueError('a nonempty tuple of literal complete source runs required')
+    counts = tuple(tuple(6-(1 << len(targets)) for _, _, targets in run.word) for run in runs)
+    if any(count not in (2, 4) for stage in counts for count in stage):
+        raise ValueError('one- or two-qubit source export events required')
+    return counts
+
+
+def first_failure_address(runs, stage, event, complement):
+    """Encode a terminal source failure; zero is reserved for full success.
+
+    Stage order and the conditional preparation word are fixed by the already
+    stored measurement/selector records.  Every zero-weight complement has an
+    address.  This classical code does not discard its ambient quantum output.
+    """
+    counts = _failure_counts(runs)
+    if (any(type(x) is not int for x in (stage, event, complement))
+            or not 0 <= stage < len(counts) or not 0 <= event < len(counts[stage])
+            or not 0 <= complement < counts[stage][event]):
+        raise ValueError('an existing stage, pulse and complement required')
+    return 1+sum(sum(row) for row in counts[:stage])+sum(counts[stage][:event])+complement
+
+
+def decode_first_failure(runs, address):
+    """Return (stage,event,complement), or None for success, without postselection.
+
+    The corresponding complete ambient branch is reconstructed by
+    runs[stage].failure(event)[complement] and its preceding history maps.
+    """
+    counts = _failure_counts(runs)
+    if type(address) is not int or not 0 <= address <= sum(map(sum, counts)):
+        raise ValueError('an existing exact first-failure archive address required')
+    if address == 0:
+        return None
+    offset = address-1
+    for stage, row in enumerate(counts):
+        for event, count in enumerate(row):
+            if offset < count:
+                return stage, event, offset
+            offset -= count
+    raise ArithmeticError('unreachable first-failure archive address')
+
+
+def first_failure_archive(runs):
+    counts = _failure_counts(runs)
+    slots = sum(map(sum, counts))
+    return {'retained_source_first_failure_slots': slots,
+            'success_plus_first_failure_addresses': 1+slots,
+            'first_failure_address_bits': slots.bit_length(),
+            'success_address': 0}
+
+
+def history_error_certificate():
+    """Exact rational ceiling for every admitted local map and phase gauge."""
+    epsilon = Fraction.from_float(float(ADMISSION))
+    delta = Fraction.from_float(float(MEASUREMENT_PHASE_ROUNDOFF))
+    amplitude = (1+epsilon)**4*(1+delta)**18-1
+    outward = Fraction(801, 10**9)
+    probability = outward*(2+outward)
+    if amplitude > outward or probability >= Fraction.from_float(float(HISTORY_ADMISSION)):
+        raise ArithmeticError('complete-history compositional admission exceeded')
+    return {'maximum_complete_local_dilations': 4, 'maximum_source_measurements': 18,
+            'per_dilation_amplitude_ceiling': ADMISSION,
+            'per_measurement_phase_modulus_ceiling': MEASUREMENT_PHASE_ROUNDOFF,
+            'amplitude_formula': '(1+epsilon)^4*(1+delta)^18-1',
+            'rational_amplitude_upper_bound': str(outward),
+            'rational_probability_upper_bound': str(probability),
+            'rational_ceiling_verified': True,
+            'applies_to_normalized_inputs_with_arbitrary_references': True}
 
 
 def certificate():
@@ -476,8 +595,13 @@ def certificate():
     for row in (defect, reference, *moving.values(), *moving_reference.values()):
         _admit(sum(row['source_first_failure_mass'].values()), 1e-20, 'complete history export leakage')
     max_prep = max(len(preparation_run(m, s).word) for m, s in product((AB, BA), range(2)))
-    prep_resources = _resources(preparation_run(AB, 0))
-    analysis_resources = _resources(analyzer_run())
+    longest_prep = max((preparation_run(m, s) for m, s in product((AB, BA), range(2))),
+                       key=lambda run: sum(_failure_counts((run,))[0]))
+    prep_resources = _resources(longest_prep)
+    analysis = analyzer_run()
+    analysis_resources = _resources(analysis)
+    archives = {'C_E': first_failure_archive((longest_prep, repair_run('C'), repair_run('E'), analysis)),
+                **{law: first_failure_archive((longest_prep, repair_run(law), analysis)) for law in ('C', 'E')}}
     return {'schema': 'oph.local_exchange_charge.source.v1',
             'ambient_dual_rail_data_bits': 4, 'repair_work_bits': 9,
             'moving_witness_maximum_simultaneous_logical_bits': 11,
@@ -506,10 +630,13 @@ def certificate():
             'end_to_end_readout_load_and_export_events_each': 18,
             'end_to_end_blank_coin_record_qubit_initializations': 10,
             'input_uniform_reference_and_selector_are_supplied_initializations': True,
-            'record_archive_format': 'each six-outcome measurement stored as an integer0..5; three bits suffice per value',
-            'end_to_end_record_archive_bits_including_preparation_selector': 55,
+            'record_archive_format': 'fixed measurement slots use three bits per integer0..5 plus one selector bit; unwritten suffix slots are zero-padded after terminal failure',
+            'source_first_failure_archive_format': 'additional integer: zero for success, otherwise one plus the cumulative stage/pulse/complement index; literal prefixes reconstruct every retained ambient branch',
+            'end_to_end_measurement_record_selector_archive_bits': 55,
+            'end_to_end_source_first_failure_archive': archives['C_E'],
+            'end_to_end_complete_classical_archive_bits': 55+archives['C_E']['first_failure_address_bits'],
             'complete_history_probability_error_admission': HISTORY_ADMISSION,
-            'complete_history_error_composition': 'four complete local dilation errors <=2e-7 give amplitude error <=(1+2e-7)^4-1; probability error <=e(2+e)<2e-6',
+            'complete_history_error_composition': history_error_certificate(),
             'defect_exact_charge_probabilities': ['1/88', '1/264', '65/66'],
             'reference_exact_charge_probabilities': ['1/132', '1/132', '65/66'],
             'source_first_failure_mass_below': 1e-20,
@@ -521,7 +648,10 @@ def certificate():
                                'complete_physical_native_readout_slots_per_law': 6**9,
                                'measurement_load_and_export_events_each': 13,
                                'blank_coin_record_qubit_initializations': 5,
-                               'record_archive_bits_including_preparation_selector': 40,
+                               'measurement_record_selector_archive_bits': 40,
+                               'source_first_failure_archive_by_law': {law: archives[law] for law in ('C', 'E')},
+                               'complete_classical_archive_bits_by_law': {
+                                   law: 40+archives[law]['first_failure_address_bits'] for law in ('C', 'E')},
                                'longest_pulse_resources_by_law': {
                                    law: source._failure_account(source._add(prep_resources, repairs[law]['pulse_resources'], analysis_resources))
                                    for law in ('C', 'E')},

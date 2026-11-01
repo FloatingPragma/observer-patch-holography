@@ -67,6 +67,43 @@ def test_local_preparation_attains_ceiling_and_has_unchanged_full_exterior():
     assert 0 < charge < 1
 
 
+def test_sharp_exterior_obstruction_requires_the_one_A_one_B_carrier():
+    # Split the literal tensor space into port 0 and its eleven-port exterior.
+    # Its reference marginal has 132 distinct basis states, each with weight
+    # 1/132: 110 both-outside configurations and 22 single-label ones.
+    exterior = tuple(range(1, 12))
+    states = tuple(permutations(range(12), 2))
+    configs = [tuple(1 if x == a else 2 if x == b else 0 for x in exterior)
+               for a, b in states]
+    basis = sorted(set(configs))
+    assert len(basis) == 132
+    index = {value: i for i, value in enumerate(basis)}
+    flip = [index[tuple(3 - x if x else 0 for x in value)] for value in basis]
+    assert [flip[flip[i]] for i in range(132)] == list(range(132))
+    swap = np.eye(132)[flip]
+    plus, minus = (np.eye(132) + swap) / 2, (np.eye(132) - swap) / 2
+    vacuum = np.diag([1., 0., 0.])
+    core_minus = np.array([[0., 0., 0.], [0., .5, -.5], [0., -.5, .5]])
+    # Matching core/exterior character projectors are paired to make Q=+1.
+    # Unlike H132, this ambient state permits extra and missing labels.
+    rho = (np.kron(vacuum, plus) + np.kron(core_minus, minus)) / 132
+    global_flip = [132 * (0, 2, 1)[a] + flip[b]
+                   for a in range(3) for b in range(132)]
+    np.testing.assert_array_equal(rho[global_flip], rho)
+    assert np.trace(rho) == pytest.approx(1)
+    reduced = np.trace(rho.reshape(3, 132, 3, 132), axis1=0, axis2=2)
+    sigma_exterior = _partial_trace(np.eye(132) / 132, exterior)
+    np.testing.assert_array_equal(reduced, sigma_exterior)
+    # Thus its exterior distance is zero although the H132 lower bound is
+    # 55/132. Check explicitly that the state violates that bound's carrier.
+    admitted = [132 * a + i for a in range(3) for i, value in enumerate(basis)
+                if int(a == 1) + value.count(1) == 1
+                and int(a == 2) + value.count(2) == 1]
+    sector_probability = np.diag(rho)[admitted].sum()
+    assert sector_probability == pytest.approx(121 / 264)
+    assert Fraction(optimality.bounds((0,))['sharp_sector_min_exterior_trace_distance']) == Fraction(55, 132)
+
+
 def test_all_subsets_and_extreme_cores():
     value = optimality.certificate()
     assert value['all_port_subsets_checked'] == 4096
@@ -77,3 +114,4 @@ def test_all_subsets_and_extreme_cores():
     assert rows[2]['sharp_sector_min_exterior_trace_distance'] == '15/44'
     assert rows[12]['local_preparation_max_abs_charge'] == '1'
     assert rows[12]['sharp_sector_min_exterior_trace_distance'] == '0'
+    assert 'one-A/one-B H132 carrier' in value['sharp_domain']

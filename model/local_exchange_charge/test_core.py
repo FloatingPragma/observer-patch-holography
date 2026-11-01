@@ -257,6 +257,80 @@ def test_actual_odd_exchange_acts_on_two_labels_and_not_an_added_chosen_phase():
         assert final[pair] == F(1, 8) and sum(final) == F(1, 8)
 
 
+def test_conditional_charge_changes_while_complete_charge_and_sharp_sectors_are_preserved():
+    epsilon = F(1, 2)
+    initial_charge = epsilon / 66
+    pair = core.PAIRS.index(core.CORE)
+    rho = core.density_matrix(core.initial_coefficients(), epsilon)
+    flip = np.r_[np.arange(66, 132), np.arange(66)]
+    q = np.eye(132)[flip]
+    sharp = (np.eye(132) + q) / 132
+    total_probability, total_charge = F(0), F(0)
+    for coin, raw in product(range(2), range(8)):
+        # Count exact input columns of an independently generated branch.
+        pairs = independent_branch("E", core.CORE, coin, raw)
+        inputs = {i for i, _ in pairs}
+        probability = F(len(pairs), 264)
+        charge = epsilon * sum(i in inputs for i in (pair, pair + 66)) / 264
+        total_probability += probability
+        total_charge += charge
+        output = matrix_branch(rho, "E", core.CORE, coin, raw)
+        assert np.trace(output).real == pytest.approx(float(probability), abs=1e-15)
+        assert np.trace(q @ output).real == pytest.approx(float(charge), abs=1e-15)
+        # A sharp state stays in its sharp sector even after conditioning.
+        sharp_output = matrix_branch(sharp, "E", core.CORE, coin, raw)
+        np.testing.assert_array_equal(sharp_output[flip], sharp_output)
+        if (coin, raw) == (0, 0):
+            assert probability == F(23, 66)
+            assert charge == epsilon / 132
+            assert charge / probability == epsilon / 46
+            assert charge / probability != initial_charge
+    assert total_probability == 1
+    assert total_charge == initial_charge
+
+
+def test_record_adaptive_complete_comparison_uses_the_evolved_reference():
+    initial = core.initial_coefficients()
+    pair = core.PAIRS.index(core.CORE)
+    population = [F(0)] * 132
+    total_contrast, tape_probability = F(0), F(0)
+    slots = 0
+    for coin1, raw1 in product(range(2), range(8)):
+        first = independent_branch("E", (0, 1), coin1, raw1)
+        # The same record-only policy acts on both compared inputs.
+        seam = (0, 5) if raw1 == 0 else (1, 7)
+        for coin2, raw2 in product(range(2), range(4)):
+            second = dict(independent_branch("C", seam, coin2, raw2))
+            paths = {a: second[b] for a, b in first if b in second}
+            for target in paths.values():
+                population[target] += F(1, 528)
+            tape_probability += F(len(paths), 528)
+            expected = [F(0)] * 66
+            if pair in paths:
+                # Both orientations survive together and have distinct outputs,
+                # so this perturbation contributes zero to the tape trace.
+                assert paths[pair + 66] == (paths[pair] + 66) % 132
+                expected[paths[pair] % 66] = F(1, 4)
+            else:
+                assert pair + 66 not in paths
+            history = (("E", (0, 1), coin1, raw1),
+                       ("C", seam, coin2, raw2))
+            actual = core.history_transport(initial, history)
+            assert actual == tuple(expected)
+            total_contrast += sum(actual)
+            slots += 1
+    assert slots == 128
+    assert tape_probability == sum(population) == 1
+    assert total_contrast == 1
+    # Charge and retained-history distance survive, while feedback moves the
+    # reference away from the uniform state used before the first repair.
+    assert total_contrast / 66 == F(1, 66)
+    assert total_contrast / 132 == F(1, 132)
+    assert min(population) == F(1, 264)
+    assert max(population) == F(1, 88)
+    assert population != [F(1, 132)] * 132
+
+
 def test_local_label_phase_and_dephasing_break_the_charge_while_tape_stays_blind():
     rho = core.density_matrix(core.initial_coefficients())
     q = np.zeros((132, 132), complex)

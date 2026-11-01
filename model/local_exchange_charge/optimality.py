@@ -85,7 +85,7 @@ def certificate():
         'all_port_subsets_checked': checked,
         'bounds_by_core_size': by_size,
         'preparation_domain': 'deterministic core-local CPTP map, independent ancilla, tracial sector input, endpoint one-A/one-B support',
-        'sharp_domain': 'any density matrix supported in one global Q eigenspace, without a fixed occupation marginal',
+        'sharp_domain': 'any density matrix on the one-A/one-B H132 carrier supported in one global Q eigenspace, without a fixed occupation marginal',
         'proof': 'Exterior basis diagonality survives a local channel. Only exterior-vacuum Q matrix elements remain; their probability is fixed by locality. The exterior opposite-character projector annihilates every globally sharp state and has reference probability rank/132. Both bounds are attained.',
         'full_qutrit_faithfulness_claimed': False,
         'sharp_local_particle_claimed': False,
