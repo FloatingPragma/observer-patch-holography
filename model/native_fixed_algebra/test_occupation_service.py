@@ -3,6 +3,7 @@ from dataclasses import replace
 from fractions import Fraction
 import math
 from types import MappingProxyType
+import warnings
 
 import numpy as np
 import pytest
@@ -177,12 +178,12 @@ def test_archive_rejects_mutable_backing_even_when_values_and_readonly_flags_mat
     initial = np.eye(2, dtype=complex)
     run = s.execute_complete(word, 1, initial)
     target = s._ideal_pulse(word[0])[:2]
-    if field == 'primitive':
-        entries = tuple((key, _mutable_snapshot(value, kind)) for key, value in run.primitives.items())
-        forged = replace(run, primitives=s._FrozenPrimitives(entries))
-    else:
-        forged = replace(run, **{field: _mutable_snapshot(getattr(run, field), kind)})
     with pytest.raises(ValueError, match='immutable bytes-backed'):
+        if field == 'primitive':
+            entries = tuple((key, _mutable_snapshot(value, kind)) for key, value in run.primitives.items())
+            forged = replace(run, primitives=s._FrozenPrimitives(entries))
+        else:
+            forged = replace(run, **{field: _mutable_snapshot(getattr(run, field), kind)})
         s.admit(forged, target, word=word, bits=1, initial=initial)
 
 
@@ -202,6 +203,107 @@ def test_archive_rejects_mapping_proxy_with_caller_retained_mutable_dictionary()
             array.flags.writeable = True
     with pytest.raises((AttributeError, TypeError)):
         run.primitives.entries = ()
+
+
+def test_archive_envelope_has_no_mutable_instance_dictionary():
+    word = [compiler.pulse('Y', .2, [0])]
+    initial = np.eye(2, dtype=complex)
+    run = s.execute_complete(word, 1, initial)
+    target = s._ideal_pulse(word[0])[:2]
+    s.admit(run, target, word=word, bits=1, initial=initial)
+    assert not hasattr(run, '__dict__')
+    with pytest.raises((AttributeError, TypeError)):
+        run.initial = frozen(2*initial)
+    # The earlier shared frozen dataclass still has a mutable envelope and
+    # cannot be passed off as this independently bounded archive.
+    legacy = s.recovery.CompleteRun(run.word, run.bits, run.initial, run.primitives,
+                                   run.success, run.failure_weights, run.failure_gram)
+    assert hasattr(legacy, '__dict__')
+    with pytest.raises(ValueError, match='literal complete source archive'):
+        s.admit(legacy, target, word=word, bits=1, initial=initial)
+
+
+@pytest.mark.parametrize('field', ['initial', 'success', 'failure_weights', 'failure_gram',
+                                  'primitive', 'primitive_entry'])
+def test_public_array_metadata_and_base_mutations_do_not_change_archive(field):
+    word = [compiler.pulse('Y', .2, [0])]
+    initial = np.eye(2, dtype=complex)
+    run = s.execute_complete(word, 1, initial)
+    target = s._ideal_pulse(word[0])[:2]
+    def exposed():
+        if field == 'primitive':
+            return run.primitives['Y', .2]
+        if field == 'primitive_entry':
+            return run.primitives.entries[0][1]
+        return getattr(run, field)
+    original = exposed().copy()
+    output = exposed()
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore', DeprecationWarning)
+        output.shape = (output.size,)
+        output.dtype = np.uint8
+        if type(output.base) is np.ndarray:
+            output.base.shape = (1, output.base.size)
+            output.base.dtype = np.uint8
+    assert exposed().shape == original.shape
+    assert exposed().dtype == original.dtype
+    assert np.array_equal(exposed(), original)
+    s.admit(run, target, word=word, bits=1, initial=initial)
+
+
+def test_unrepresentable_input_gram_is_refused_before_execution():
+    with pytest.raises(ValueError, match='reference Gram'):
+        s.execute_complete([], 1, 1e200*np.eye(2, dtype=complex))
+    # Finite, unnormalized linear input is not rejected merely for its scale.
+    initial = 1e100*np.eye(2, dtype=complex)
+    run = s.execute_complete([], 1, initial)
+    error, bound = s.admit(run, initial, word=[], bits=1, initial=initial)
+    assert error == 0 and bound == 0
+    assert np.array_equal(run.success, initial)
+
+
+@pytest.mark.parametrize('dtype', [np.float32, np.float64, np.longdouble, np.clongdouble])
+def test_exactly_representable_input_and_target_values_are_preserved(dtype):
+    initial = np.array([[1., .5], [0., -.25]], dtype=dtype)
+    original = initial.copy()
+    run = s.execute_complete([], 1, initial)
+    assert s.admit(run, initial, word=[], bits=1, initial=initial) == (0., Fraction(0))
+    assert run.initial.dtype == np.complex128
+    assert np.array_equal(run.initial.real, original)
+    assert np.array_equal(initial, original)
+
+
+@pytest.mark.skipif(np.finfo(np.longdouble).nmant <= np.finfo(np.float64).nmant,
+                    reason='platform longdouble has no extra mantissa precision')
+@pytest.mark.parametrize('dtype', [np.longdouble, np.clongdouble])
+@pytest.mark.parametrize('field', ['initial', 'target'])
+def test_wider_precision_values_cannot_be_silently_rounded(dtype, field):
+    initial = np.eye(2, dtype=complex)
+    wider = np.eye(2, dtype=dtype)
+    wider[0, 0] = np.nextafter(np.longdouble(1), np.longdouble(2))
+    assert wider[0, 0] != 1
+    with pytest.raises(ValueError, match=f'{field} requires a value-preserving complex128'):
+        if field == 'initial':
+            s.execute_complete([], 1, wider)
+        else:
+            run = s.execute_complete([], 1, initial)
+            s.admit(run, wider, word=[], bits=1, initial=initial)
+
+
+@pytest.mark.skipif(np.finfo(np.longdouble).minexp >= -1074,
+                    reason='platform longdouble has no exponent range below binary64 subnormals')
+@pytest.mark.parametrize('field', ['initial', 'target'])
+def test_wider_nonzero_values_cannot_be_silently_erased(field):
+    initial = np.eye(2, dtype=complex)
+    wider = np.eye(2, dtype=np.longdouble)
+    wider[0, 1] = np.longdouble('1e-400')
+    assert wider[0, 1] > 0
+    with pytest.raises(ValueError, match=f'{field} requires a value-preserving complex128'):
+        if field == 'initial':
+            s.execute_complete([], 1, wider)
+        else:
+            run = s.execute_complete([], 1, initial)
+            s.admit(run, wider, word=[], bits=1, initial=initial)
 
 
 @pytest.mark.parametrize('bits,columns', [(0, 1), (18, 1), (True, 1), (1, 0), (1, 3)])

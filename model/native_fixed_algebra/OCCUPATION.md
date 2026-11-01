@@ -329,6 +329,11 @@ occupations are explicit. No successful-output conditioning, restart or
 renormalization is used. Literal immutable primitive and input archives
 reconstruct every failed prefix, including complex off-diagonal reference
 information; aggregate failure weight is not substituted for those outputs.
+The archive keeps immutable payloads and shape/type descriptions; public
+arrays are fresh views, so changing their metadata cannot change later
+reconstruction. Input and target columns must convert to complex128 without
+value loss, and reference Gram matrices must remain finite. Unsupported
+precision or overflow is refused before it can become a successful admission.
 
 The owned replay starts a fresh isolated Python process with an empty bytecode
 cache, binds its complete source and data closure before and after execution,

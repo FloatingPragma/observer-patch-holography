@@ -1,6 +1,11 @@
 """The public catalogue verifier must execute sources and reject changed evidence."""
 from copy import deepcopy
+import importlib.util
 import json
+import os
+import py_compile
+import subprocess
+import sys
 from types import SimpleNamespace
 
 import pytest
@@ -71,6 +76,44 @@ def test_owned_replay_cannot_read_parent_modules_or_existing_bytecode(monkeypatc
         return SimpleNamespace(stdout=json.dumps(replay))
     monkeypatch.setattr(packet.subprocess, 'run', worker)
     packet.compare(packet.report(), replay)
+
+
+def test_owned_worker_flags_bypass_valid_poisoned_timestamp_bytecode(tmp_path, monkeypatch):
+    """Exercise real imports while keeping every poisoned byte outside the repo."""
+    source = packet.ROOT/'model/native_fixed_algebra/occupation.py'
+    stat = source.stat()
+    poison_prefix, fresh_prefix = tmp_path/'old-cache', tmp_path/'fresh-cache'
+    poison_prefix.mkdir()
+    fresh_prefix.mkdir()
+    with monkeypatch.context() as context:
+        context.setattr(sys, 'pycache_prefix', str(poison_prefix))
+        destination = packet.Path(importlib.util.cache_from_source(str(source)))
+    assert destination.resolve().is_relative_to(poison_prefix.resolve())
+    destination.parent.mkdir(parents=True)
+    # Matching the original file size and timestamp makes this an accepted
+    # cache candidate, rather than a malformed .pyc Python would reject anyway.
+    payload = b"SCHEMA='POISONED_OLD_BYTECODE'\n"
+    assert len(payload) < stat.st_size
+    poison_source = tmp_path/'poison.py'
+    poison_source.write_bytes(payload+b'#'*(stat.st_size-len(payload)))
+    os.utime(poison_source, (stat.st_atime, stat.st_mtime))
+    py_compile.compile(str(poison_source), cfile=str(destination), dfile=str(source),
+                       doraise=True, invalidation_mode=py_compile.PycInvalidationMode.TIMESTAMP)
+    body = ('import sys;sys.path.insert(0,'+repr(str(packet.ROOT))+');'
+            'from model.native_fixed_algebra import occupation;print(occupation.SCHEMA)')
+    environment = dict(os.environ, PYTHONPYCACHEPREFIX=str(poison_prefix),
+                       OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1')
+
+    def imported_schema(flags):
+        return subprocess.run([sys.executable, *flags, '-c', body],
+                              cwd=packet.ROOT, env=environment, check=True,
+                              capture_output=True, text=True, encoding='utf-8',
+                              timeout=60).stdout.strip()
+
+    assert imported_schema(['-B']) == 'POISONED_OLD_BYTECODE'
+    assert imported_schema(['-I', '-B', '-W', 'error', '-X', 'utf8', '-X',
+                            'pycache_prefix='+str(fresh_prefix)]) == occupation.SCHEMA
+    assert occupation.SCHEMA != 'POISONED_OLD_BYTECODE'
 
 
 def test_source_change_during_execution_is_rejected(monkeypatch, replay):

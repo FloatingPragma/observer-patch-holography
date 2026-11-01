@@ -7,6 +7,8 @@ uses six supplied particles and number-preserving preparation macros.
 
 The bounded executor retains the same lazy, literal first-export-failure
 archive as reference_recovery, without enlarging that predecessor's domain.
+Original input and target values must be exactly representable in complex128;
+conversion that loses a nonzero value or precision is refused.
 """
 from __future__ import annotations
 
@@ -38,9 +40,38 @@ SIX_RIGHT = SIX_LEFT ^ (1 << 0) ^ (1 << 5)
 
 
 @dataclass(frozen=True, slots=True)
+class _ArraySnapshot:
+    """Immutable payload and metadata, with no persistent public ndarray."""
+    data: bytes
+    dtype: str
+    shape: tuple
+
+    @classmethod
+    def capture(cls, value):
+        _immutable_array(value)
+        return cls(value.tobytes(), value.dtype.str, tuple(value.shape))
+
+    def array(self):
+        return np.frombuffer(self.data, dtype=self.dtype).reshape(self.shape)
+
+
+@dataclass(frozen=True, slots=True)
 class _FrozenPrimitives(Mapping):
     """Tuple-owned catalogue: no caller-held dictionary can change a prefix."""
     entries: tuple
+
+    def __post_init__(self):
+        entries = object.__getattribute__(self, 'entries')
+        if type(entries) is not tuple or any(type(entry) is not tuple or len(entry) != 2 for entry in entries):
+            raise ValueError('immutable source primitive entries required')
+        object.__setattr__(self, 'entries', tuple((key, _ArraySnapshot.capture(value))
+                                                 for key, value in entries))
+
+    def __getattribute__(self, name):
+        value = object.__getattribute__(self, name)
+        if name == 'entries':
+            return tuple((key, snapshot.array()) for key, snapshot in value)
+        return value
 
     def __getitem__(self, key):
         for candidate, value in self.entries:
@@ -55,6 +86,29 @@ class _FrozenPrimitives(Mapping):
         return len(self.entries)
 
 
+@dataclass(frozen=True, slots=True)
+class CompleteRun:
+    """Local immutable envelope; each array access returns fresh metadata."""
+    word: tuple
+    bits: int
+    initial: object
+    primitives: object
+    success: object
+    failure_weights: object
+    failure_gram: object
+
+    def __post_init__(self):
+        for name in ('initial', 'success', 'failure_weights', 'failure_gram'):
+            object.__setattr__(self, name, _ArraySnapshot.capture(object.__getattribute__(self, name)))
+
+    def __getattribute__(self, name):
+        value = object.__getattribute__(self, name)
+        return value.array() if type(value) is _ArraySnapshot else value
+
+    failure = recovery.CompleteRun.failure
+    failure_probability = recovery.CompleteRun.failure_probability
+
+
 def _immutable_array(value):
     """Accept the bytes-backed snapshots emitted by frozen(), not flags alone."""
     current = value
@@ -66,6 +120,19 @@ def _immutable_array(value):
         current = current.base
     if type(current) is not bytes:
         raise ValueError('immutable bytes-backed source archive arrays required')
+
+
+def _complex_copy(value, label):
+    """Detach the original values without silently narrowing their precision."""
+    with np.errstate(over='ignore', under='ignore', invalid='ignore'):
+        # On Windows np.array(..., dtype=complex128) can preserve the distinct
+        # clongdouble type when its storage width happens to equal complex128.
+        detached = np.empty(value.shape, dtype=np.complex128)
+        detached[:] = value
+        restored = (detached.real if value.dtype.kind == 'f' else detached).astype(value.dtype)
+    if not np.isfinite(detached).all() or not np.array_equal(restored, value):
+        raise ValueError(f'{label} requires a value-preserving complex128 representation')
+    return detached
 
 
 def _domain(law, character):
@@ -152,7 +219,12 @@ def _input(word, bits, initial):
     tape = compiler._validate(word, bits)
     if len(tape) > MAX_PULSES:
         raise ValueError('source word exceeds bounded pulse domain')
-    return tape, np.array(initial, dtype=complex, copy=True)
+    detached = _complex_copy(initial, 'initial')
+    with np.errstate(over='ignore', invalid='ignore'):
+        gram = detached.conj().T@detached
+    if not np.isfinite(gram).all():
+        raise ValueError('initial reference Gram exceeds the finite numerical domain')
+    return tape, detached
 
 
 def execute_complete(word, bits, initial):
@@ -172,18 +244,21 @@ def execute_complete(word, bits, initial):
             weights[i, slot] = np.vdot(branch, branch).real
         d = 1 << len(targets)
         state = compiler._apply(state, full[:d, :d], targets, bits)
+    with np.errstate(over='ignore', invalid='ignore'):
+        balance = state.conj().T@state+gram-initial.conj().T@initial
     if (not np.isfinite(state).all() or not np.isfinite(gram).all()
-            or np.linalg.norm(state.conj().T@state+gram-initial.conj().T@initial, 2) > 1e-8):
+            or not np.isfinite(weights).all() or not np.isfinite(balance).all()
+            or np.linalg.norm(balance, 2) > 1e-8):
         raise ArithmeticError('complete source/reference probability accounting failed')
-    return recovery.CompleteRun(word, bits, frozen(initial), _FrozenPrimitives(tuple(sorted(primitives.items()))),
-                                frozen(state), frozen(weights), frozen(gram))
+    return CompleteRun(word, bits, frozen(initial), _FrozenPrimitives(tuple(sorted(primitives.items()))),
+                       frozen(state), frozen(weights), frozen(gram))
 
 
 def admit(run, target, *, word, bits, initial):
     """Bind every output and failure prefix to the requested complete history."""
     tape, initial = _input(word, bits, initial)
     expected = tuple((e['kind'], e['angle'], tuple(e['targets'])) for e in tape)
-    if (type(run) is not recovery.CompleteRun or type(run.bits) is not int or run.bits != bits
+    if (type(run) is not CompleteRun or type(run.bits) is not int or run.bits != bits
             or type(run.word) is not tuple
             or any(type(e) is not tuple or len(e) != 3 or type(e[0]) is not str
                    or type(e[1]) is not float or not math.isfinite(e[1])
@@ -216,6 +291,7 @@ def admit(run, target, *, word, bits, initial):
     if (type(target) is not np.ndarray or target.shape != initial.shape
             or target.dtype.kind not in 'fc' or not np.isfinite(target).all()):
         raise ValueError('finite target on every output address required')
+    target = _complex_copy(target, 'target')
     bound, _ = pulse_budget(tape)
     error = float(np.linalg.norm(run.success-target, 2))+math.sqrt(max(0., float(np.linalg.norm(run.failure_gram, 2))))
     if not math.isfinite(error) or error > float(bound):
