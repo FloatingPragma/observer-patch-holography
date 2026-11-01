@@ -18,7 +18,7 @@ from model.predictions import inverse_clock, prepared_clock
 
 BASELINE = '343ea42c64fb783c84c9fb4e461aa3c8ce054107'
 # Current prerequisite receipt; historical work baseline remains above.
-PRIOR_COMMIT = '4007436ae34456ccf26fd4e9df5e00f1f4c038fa'
+PRIOR_COMMIT = '2a96056fc2b3f3afc05bb4e16ba30b23d0fddfc5'
 SOURCE_COMMIT = prior.SOURCE_COMMIT
 INPUTS = sorted(set(prior.INPUTS + [
     'model/observer/native.py', 'model/observer/quantum_mixing.py',
