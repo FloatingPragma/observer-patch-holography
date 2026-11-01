@@ -22,7 +22,7 @@ from model.observer.source_scalar import compiler
 BASELINE = 'a44330802c726037f88356f9f62044184ed429a5'
 HISTORICAL_SOURCE_COMMIT = '53e365b248a4611bb911e75d7afae0f52bfd8675'
 # Reviewed integration: detached Fraction returns only; see INTEGRATION_2026-10-29.md.
-SOURCE_COMMIT = '31e1506c30114e37b45f6858d0029a8ff0b89db5'
+SOURCE_COMMIT = '83113a9cc33d82a56c84a8634445c8edd1e599a2'
 REFERENCE = ROOT/'code/a5_closure/receipts/proper_code_attachment_probe.json'
 COMPILER = 'model/observer/source_scalar/compiler.py'
 INPUTS = sorted(set(marked.INPUTS + [
