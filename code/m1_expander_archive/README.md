@@ -71,6 +71,6 @@ python -m pytest -q code/m1_expander_archive
 ```
 
 The dedicated workflow performs the same replay and hostile controls on
-Linux and Windows. The receipt also recursively verifies the noisy-records,
+Linux. The receipt also recursively verifies the noisy-records,
 fixed-noise and source evidence. The compact receipt stores no raw
 fault tapes; every experiment is regenerated from these scripts.

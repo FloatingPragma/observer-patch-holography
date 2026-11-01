@@ -15,7 +15,7 @@ name: Mandatory Suite
 # The two long-running exact-arithmetic certificate suites (#566 port-current,
 # #314 matter-lift) used to run here on every push; they now live in
 # certificate-suites.yml, which re-runs them only when their inputs under
-# code/a5_closure/ change and on a nightly full-platform schedule.
+# code/a5_closure/ change and on a nightly schedule.
 #
 # The per-push job runs the standard suite: every register validation,
 # certificate check, independent replay, and fast mutation gate. The five
@@ -24,10 +24,8 @@ name: Mandatory Suite
 # (and on demand via workflow_dispatch with full=true), keeping the per-push
 # gate fast without dropping any step from daily enforcement.
 #
-# Pushes to main and pull requests run the standard shards on Ubuntu. The
-# Windows shards run nightly (beside the Ubuntu full run), on release tags and
-# on manual dispatch, so a platform break surfaces within a day while the
-# per-push job count stays within the runner pool.
+# CI runs on Ubuntu only. Pushes, pull requests, release tags, manual dispatch
+# and the nightly schedule run the standard shards.
 
 on:
   push:
@@ -56,7 +54,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
+        os: [ubuntu-latest]
         # Manual full=true preserves one unsharded full run on each OS.
         # Ten partitions separate the long A1-A3 certificate campaign from
         # the fingerprint suite while retaining the 30-minute worker ceiling.
@@ -114,7 +112,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ${{ fromJSON((github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && '["ubuntu-latest"]' || (github.event_name == 'schedule' && '["windows-latest"]' || '["ubuntu-latest","windows-latest"]')) }}
+        os: [ubuntu-latest]
     steps:
       - name: Require every mandatory worker to succeed
         shell: python

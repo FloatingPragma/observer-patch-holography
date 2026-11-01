@@ -83,7 +83,7 @@ independently reconstructs the stencil with integer inequalities, executes
 outgoing graph updates (the producer gathers incoming parents), recounts cut
 pairs, checks moments and actual unstable Fourier modes, and executes every
 route with charged repeats and a boundary-tube check. It does not import the
-producer. Both Linux and Windows run the hostile controls in CI.
+producer. CI runs the hostile controls on Linux.
 
 The reference contains 298 routes (including repeated catalog targets), 2215
 charged route steps and six complete small graphs. The six baselines and

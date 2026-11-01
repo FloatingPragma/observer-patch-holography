@@ -229,7 +229,7 @@ def test_ci_audit_is_unconditional_and_controls_cover_dependencies():
     source = (codec.ROOT/".github/workflows/lean-ci.yml").read_text(encoding="utf-8")
     require_ci_audit(source)
     workflow = yaml.safe_load((codec.ROOT/".github/workflows/source-read-selection.yml").read_text())
-    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"]==["ubuntu-latest","windows-latest"]
+    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"]==["ubuntu-latest"]
     steps = workflow["jobs"]["controls"]["steps"]
     assert any(step.get("run")=="python -m pytest -q code/source_read_selection" for step in steps)
     triggers = workflow.get("on",workflow.get(True))

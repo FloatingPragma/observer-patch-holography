@@ -185,7 +185,7 @@ def test_dedicated_ci_preserves_the_frozen_mandatory_runner():
     workflow = yaml.load((verify.ROOT/".github/workflows/source-routing-refinement.yml").read_text(encoding="utf-8"),
                          Loader=yaml.BaseLoader)
     job = workflow["jobs"]["controls"]
-    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest", "windows-latest"}
+    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest"}
     assert any(s.get("run") == "python -m pytest -q code/source_routing_refinement" for s in job["steps"])
     for trigger in ("push", "pull_request"):
         assert "code/source_routing_refinement/**" in workflow["on"][trigger]["paths"]

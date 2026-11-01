@@ -554,5 +554,5 @@ PYTHONPATH=code OPENBLAS_NUM_THREADS=1 python -m pytest -q \
   code/quantum_information code/geometry code/collar_alignment code/maxent
 ~~~
 
-The dedicated finite-quantum-information workflow runs these tests on both
-Linux and Windows.
+The dedicated finite-quantum-information workflow runs these tests on
+Linux.

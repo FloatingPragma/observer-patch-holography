@@ -178,7 +178,7 @@ lake build Geometry.SourceReusableBusAxiomAudit
 
 Intentional regeneration uses `build.py`, followed by
 `verify.py --write-receipt`. Both generated artifacts must match their bytes
-on Windows and Linux. Dedicated CI executes the controls on both platforms;
+on Windows and Linux. Dedicated CI executes the controls on Linux;
 Lean CI explicitly includes the downstream audit for dependency-only changes.
 Adversarial controls maximize signed error at each of the three reads using
 exact backward coefficient maps, perturb idle registers, and verify the

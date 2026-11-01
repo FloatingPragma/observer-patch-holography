@@ -261,7 +261,7 @@ through the full modular-moment test, bypassing its shortcuts.
   source remain in place; this work does not select #1025's model or satisfy
   #1026's start gate.
 - The existing finite-quantum-information workflow collects the new tests
-  on Linux and Windows. The byte-frozen mandatory runner is unchanged.
+  on Linux. The byte-frozen mandatory runner is unchanged.
 
 ## Reproduction and independent checks
 

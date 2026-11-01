@@ -96,7 +96,7 @@ The independent verifier imports no producer. It pins all twenty input files
 separately, recomputes all 25 chain/combined summaries with centered Decimal
 moments, and checks the four Gaussian diagnostics through elimination and an
 independent `erfc` evaluation. It requires the full default receipt. CI runs
-small complete fixtures and corrupt-evidence controls on Linux and Windows;
+small complete fixtures and corrupt-evidence controls on Linux;
 the public-chain replay uses the explicit download command above.
 
 The review of this implementation found that numerical replay alone accepted

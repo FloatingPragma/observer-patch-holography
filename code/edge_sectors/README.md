@@ -167,7 +167,7 @@ each probability and comparison component separately, the entire printed
 S3 table, real command-line output, malformed data, genuine zero/negative
 fitted-time boundaries and explicit precision refusals. Isolated bad
 implementations must fail scientific assertions. The finite-gauge workflow
-runs the entire package on Linux and Windows; its tests reject omitted,
+runs the entire package on Linux; its tests reject omitted,
 collection-only, filtered or ignored-failure dispatch.
 
 Ordinary Z2/Z3/Z5 values retain their declared model and agree with independent

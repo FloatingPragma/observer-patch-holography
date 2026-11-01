@@ -168,7 +168,7 @@ python code/source_encoded_memory/verify.py --write-receipt
 python -m pytest -q code/source_encoded_memory
 ```
 
-The package tests replay the controls on Linux and Windows and check that
+The package tests replay the controls on Linux and check that
 the Lean CI target list names the axiom-audit module; the guard reads
 executable shell words, so a commented-out target is rejected. Additional
 test-time controls cover three-cell revisits, unrelated records, premature

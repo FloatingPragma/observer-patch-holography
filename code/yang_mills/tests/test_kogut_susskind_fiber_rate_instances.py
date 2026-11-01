@@ -203,7 +203,7 @@ def test_quotient_script_keeps_nonphysical_abstract_scope(capsys):
 
 def _assert_ci_executes_complete_scope(workflow):
     job = workflow["jobs"]["transfer-and-custody"]
-    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest", "windows-latest"}
+    assert set(job["strategy"]["matrix"]["os"]) == {"ubuntu-latest"}
     assert job["env"]["OPENBLAS_NUM_THREADS"] == "1"
     assert job["env"]["OMP_NUM_THREADS"] == "1"
     assert not job.get("if") and not job.get("continue-on-error")

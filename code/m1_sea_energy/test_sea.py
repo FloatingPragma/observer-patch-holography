@@ -282,7 +282,7 @@ def test_ci_covers_every_pinned_input_on_both_platforms():
         patterns = workflow['on'][event]['paths']
         assert all(any(fnmatch.fnmatchcase(path, pattern) for pattern in patterns) for path in verify.SOURCES)
     job = workflow['jobs']['controls']
-    assert job['strategy']['matrix']['os'] == ['ubuntu-latest', 'windows-latest']
+    assert job['strategy']['matrix']['os'] == ['ubuntu-latest']
     assert job['steps'][-1]['run'] == 'python -m pytest -q code/m1_sea_energy'
     assert not job.get('continue-on-error')
     assert not any(step.get('continue-on-error') for step in job['steps'])

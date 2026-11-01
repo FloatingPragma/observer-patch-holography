@@ -142,7 +142,7 @@ escaping mass, zeroed decoder errors, an always-accepting verifier, omitted
 normalization, greedy assignment or ignored invalid rows outside the code. Each
 is caught by an ordinary assertion or a missing required exception, not by
 an import or collection failure. CI executes these controls and the entire
-capacity directory on both Linux and Windows.
+capacity directory on Linux.
 
 The subsequent maintainer-style audit also compares the actual minimax error
 against flat decoder enumeration for 125 pairs of three-input, four-output

@@ -32,7 +32,7 @@ PYTHONPATH=code python -m m1_noisy_records.verify
 python -m pytest -q code/m1_noisy_records
 ```
 
-PowerShell: set `$env:PYTHONPATH='code'` first. CI replays on Linux and Windows.
+PowerShell: set `$env:PYTHONPATH='code'` first. CI replays on Linux.
 `independent.py` reconstructs embedded gates and compares against independently
 formed branch projectors. `instrument_check.py` reconstructs the complete
 native transfer maps without importing the producer's Kraus operators.

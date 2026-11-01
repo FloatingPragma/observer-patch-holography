@@ -72,4 +72,4 @@ obstructions, exact channel support and composition, and population
 arithmetic. Full axiom-model membership, complete quantum instruments,
 Umegaki minimization and geometric mesh convergence are analytic arguments;
 they are not purported Lean results. CI runs the finite evidence and hostile
-tests on Linux and Windows, with Lean checked by its separate workflow.
+tests on Linux, with Lean checked by its separate workflow.

@@ -415,25 +415,27 @@ def test_compressed_receipt_requires_outer_manifest_coverage(monkeypatch, tmp_pa
     assert verify.verify_artifacts() == 2
 
 
-def test_ci_covers_all_six_shards_both_platforms_and_complete_regression():
+def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/observer-model.yml').read_text())
-    observer, regression = (workflow['jobs'][key] for key in ('observer', 'regression'))
-    # Windows follows the Mandatory Suite policy: nightly, release tags and dispatch.
-    mandatory = yaml.safe_load((verify.ROOT/'.github/workflows/mandatory-suite.yml').read_text())
-    platforms = mandatory['jobs']['mandatory-shards']['strategy']['matrix']['os']
-    assert 'windows-latest' in platforms and 'ubuntu-latest' in platforms
+    hashes, observer, regression = (workflow['jobs'][key] for key in ('hashes', 'observer', 'regression'))
     events = workflow.get('on', workflow.get(True))
     assert events['push']['tags'] == ['r*']
     assert events['schedule'] and 'workflow_dispatch' in events
-    assert observer['strategy']['matrix']['os'] == platforms
+    # Every push checks custody and runs the complete regression suite; the
+    # hours-long scientific replay runs nightly, on tags and on dispatch.
+    assert 'if' not in hashes and 'if' not in regression
+    assert hashes['runs-on'] == 'ubuntu-latest'
+    assert any(step.get('run') == 'python -m model.verify --hashes-only' for step in hashes['steps'])
+    assert observer['if'] == ("github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' "
+                              "|| startsWith(github.ref, 'refs/tags/')")
+    assert observer['strategy']['matrix']['os'] == ['ubuntu-latest']
     assert observer['strategy']['matrix']['shard'] == [0,1,2,3,4,5]
-    assert observer['timeout-minutes'] == (
-        "${{ matrix.os == 'windows-latest' && matrix.shard == 1 && 120 || 90 }}")
+    assert observer['timeout-minutes'] == 90
     assert any(step.get('run') == 'python -m model.verify --shard-index ${{ matrix.shard }} --shard-count 6'
                for step in observer['steps'])
     scalar = [step for step in observer['steps'] if 'verify_source_scalar_time_refinement.py' in step.get('run','')]
     assert len(scalar) == 1 and scalar[0]['if'] == 'matrix.shard == 2'
-    assert regression['strategy']['matrix']['os'] == platforms
+    assert regression['strategy']['matrix']['os'] == ['ubuntu-latest']
     assert regression['strategy']['matrix']['shard'] == [0,1,2,3]
     commands = [step for step in regression['steps'] if 'run' in step]
     pytest_steps = [step for step in commands if 'python -m pytest' in step['run']]

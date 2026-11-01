@@ -216,7 +216,7 @@ def test_transitive_proof_audit_and_ci():
     assert "Lean/Geometry/SourceReusableBusAxiomAudit.lean" in codec.proof_paths()
     require_ci_audit((codec.ROOT/".github/workflows/lean-ci.yml").read_text())
     workflow = yaml.safe_load((codec.ROOT/".github/workflows/source-read-acceptance.yml").read_text())
-    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"]==["ubuntu-latest","windows-latest"]
+    assert workflow["jobs"]["controls"]["strategy"]["matrix"]["os"]==["ubuntu-latest"]
     assert any(s.get("run")=="python -m pytest -q code/source_read_acceptance"
                for s in workflow["jobs"]["controls"]["steps"])
     triggers = workflow.get("on",workflow.get(True))

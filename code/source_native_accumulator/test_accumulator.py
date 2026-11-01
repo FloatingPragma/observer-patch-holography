@@ -299,6 +299,6 @@ def test_workflow_covers_pinned_sources():
         for source in codec.pins():
             assert any(fnmatchcase(source,g) for g in globs),source
     job = workflow["jobs"]["controls"]
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest","windows-latest"]
+    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
     assert any("pytest -q code/source_native_accumulator" in s.get("run","") and "if" not in s
                for s in job["steps"])

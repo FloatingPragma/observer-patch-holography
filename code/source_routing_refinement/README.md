@@ -224,7 +224,7 @@ all axioms except `propext`, `Classical.choice`, and `Quot.sound`, with expected
 failures for `sorryAx` and compiler-trusted reduction. Python controls enforce
 coverage of every theorem; they do not substitute for running Lean.
 
-The Python checks run in the dedicated Linux/Windows
+The Python checks run in the dedicated Linux
 `source-routing-refinement.yml` workflow. Lean CI imports the axiom audit via
 `Geometry.lean`. The mandatory runner remains byte-identical to its registered
 source freeze; this work does not refresh or weaken that separate freeze.

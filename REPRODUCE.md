@@ -109,9 +109,10 @@ conditional software tests; the scalar action, Born readout and model-time
 convention are supplied, and independent physical comparison is separate.
 
 The [Runnable observer model workflow](.github/workflows/observer-model.yml)
-runs the verifier and model regressions on Linux for changes to the model and
-its source dependencies, and on Windows nightly, on release tags and on manual
-dispatch. It also executes the following
+checks every model artifact hash and receipt source binding and runs the model
+regressions on each change to the model and its source dependencies. The full
+replay of every receipt runs nightly, on release tags and on manual dispatch.
+It also executes the following
 standalone source-field and particle checks in the model environment:
 
 ```sh
@@ -170,7 +171,7 @@ and the legacy `nodes` argument is validated and has no effect. The
 [Whitney numerical methods](code/electromagnetism/WHITNEY_NUMERICS.md)
 gives the evaluator, its numerical contract, the independent replay and the
 receipt regeneration commands. The dedicated neutral-packet workflow
-executes these controls on Linux and Windows.
+executes these controls on Linux.
 
 ## Native observer dynamics and retained large-run statistics
 
@@ -241,7 +242,7 @@ The [contract and scope](code/source_passive_memory/README.md) distinguish
 native pair-mean executions from equal-image proof witnesses and supplied
 preparations. These controls do not derive that lane's first milestone
 (labelled M1 in its package) or a physical energy or clock.
-The dedicated workflow runs on Windows and Linux; the frozen mandatory
+The dedicated workflow runs on Linux; the frozen mandatory
 runner is unchanged.
 
 ## Source-lane routing and live storage
@@ -256,7 +257,7 @@ cd Lean
 lake build Geometry.SourceRoutingRefinementAxiomAudit
 ```
 
-The Python controls run in the dedicated Linux/Windows
+The Python controls run in the dedicated Linux
 `source-routing-refinement.yml` workflow; the source-frozen mandatory runner
 is preserved byte for byte. See
 [the derivation and scope](code/source_routing_refinement/README.md): the

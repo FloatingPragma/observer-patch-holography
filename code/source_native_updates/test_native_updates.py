@@ -298,7 +298,7 @@ def test_ci_dependency_coverage():
         for path in codec.PINS+(".github/workflows/lean-ci.yml",".gitattributes"):
             assert any(fnmatchcase(path,pattern) for pattern in workflow["on"][event]["paths"])
     job = workflow["jobs"]["controls"]
-    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest","windows-latest"]
+    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest"]
     assert "if" not in job and "continue-on-error" not in job
     commands = [s for s in job["steps"] if s.get("run") == "python -m pytest -q code/source_native_updates"]
     assert len(commands) == 1 and "if" not in commands[0] and "continue-on-error" not in commands[0]

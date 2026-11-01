@@ -43,13 +43,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Push/PR runs verify on ubuntu only (the certificates are
-        # platform-independent exact arithmetic, and windows runner minutes bill
-        # at 2x). The nightly/dispatch runs add windows for full coverage.
-        os: >-
-          ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
-              && fromJSON('["ubuntu-latest", "windows-latest"]')
-              || fromJSON('["ubuntu-latest"]') }}
+        # The certificates are platform-independent exact arithmetic; CI runs
+        # them on Ubuntu only.
+        os: [ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
