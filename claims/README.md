@@ -39,7 +39,7 @@ infinite three-dimensional lattice at fixed spacing. It also establishes
 energy-density brackets, upper-half-plane local response convergence and
 exact matter-dependent finite response. These supply further inputs to the
 existing geometry stack. A selected native ground, common low-energy
-geometric symbol, interacting chiral continuum and physical species still
+geometric symbol, interacting chiral continuum and physical species
 require their stated joins; the integrated gate statuses are preserved.
 
 The [native ground and spatial-response extension](../docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
@@ -58,7 +58,7 @@ retaining all eight valleys and the full finite-spacing dynamics. It adds
 exact whole-ground spin selection, complete finite-resolution energy POVMs
 and microscopic ground/continuum first-moment constraints. The zero-coupling
 continuation is a controlled free field; surviving interacting Lorentz
-dynamics, physical species and the joint Einstein premises remain open.
+dynamics, physical species and the joint Einstein premises are not established.
 
 The [native detector and centered-ground extension](../docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
 adds complete native finite-clock detection, a same-ground regional modular

@@ -97,7 +97,7 @@ proof shows that the whole class of laws cannot work.
   physical calibration requirements explicit. The
   [results and remaining joins](docs/THREE_DIMENSIONAL_PROGRESS_2026-11-01.md)
   distinguish these theorems from the physical QFT and Einstein dynamics
-  still to be derived.
+  to be derived.
   An [internal observer readout](docs/INTERNAL_PARTICLE_MEASUREMENT_2026-11-01.md)
   attaches the protected cube response to complete native pointer records,
   with explicit source and evolution errors.
@@ -113,19 +113,19 @@ proof shows that the whole class of laws cannot work.
   parameters do not select that continuation or a unique mass. Measured
   species and a three-dimensional interacting relativistic vacuum remain open.
   The [grounded field and geometry response](docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
-  now establish an original-action infinite-lattice ground with positive
+  establishes an original-action infinite-lattice ground with positive
   excitation energy, convergent energy-density bounds and exact
   matter-dependent propagation response on the cube. The
   [native ground readout and spatial response](docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
-  prepare that finite ground through observer controls and construct
+  prepares that finite ground through observer controls and constructs
   non-Gaussian field correlations and a time-reflection-positive Euclidean
   hierarchy on the infinite ground. Its response has nonzero interaction
   memory and a spatially local inverse away from real frequencies. The complete visible finite charged
   spectrum fails the proposed direct identification with the charged
   lepton hierarchy. The [continuum field and spectral readout](docs/CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
-  now construct all eight continuum valleys with positive energy and
-  finite propagation, resolve the complete finite ground family, and
-  provide positive finite-resolution energy measurements. Surviving
+  constructs all eight continuum valleys with positive energy and
+  finite propagation, resolves the complete finite ground family, and
+  provides positive finite-resolution energy measurements. Surviving
   continuum interaction and the physical field and geometry joins remain open.
   The [native detector and centered-ground construction](docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
   adds a complete native phase-clock readout, exact regional modular data,

@@ -9,7 +9,7 @@ The readable simulator specification, observer and scheduler implementation,
 repair law and memory law are admitted model inputs. Their consequences
 must be proved; implementation uniqueness is not a prerequisite. Agreement
 with nature and compatibility of the particle, field and gravity
-constructions still require their own evidence.
+constructions require their own evidence.
 
 | Issue | Completed result in this pass | Remaining physical join |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ have new Lean proofs; the concrete operator and rational source attachments
 have separate exact and numerical checks.
 
 No canonical physical premise, full completion gate or measured particle
-mass is newly established. No eligible empirical comparison is added.
+mass is established. No eligible empirical comparison is added.
 The accepted CP-00/01/13 foundations and frozen executable class remain
 unchanged. Block protection cannot be combined with uniform field dynamics,
 and dimer preparation cannot be relabeled as plaquette preparation.

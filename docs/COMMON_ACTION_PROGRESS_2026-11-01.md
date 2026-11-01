@@ -6,7 +6,7 @@ This continuation retains the five highest-leverage owners from the
 interacting fields and the Einstein premises. The work uses the readable
 simulator, observer, scheduler, repair and memory specifications as admitted
 model inputs. It proves consequences of those inputs without assuming
-that a supplied model already describes nature.
+that a supplied model describes nature.
 
 | Issue | New result | What remains |
 | --- | --- | --- |
@@ -14,7 +14,7 @@ that a supplied model already describes nature.
 | [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | [Common spin protection](../model/common_spin_protection/README.md) gives a larger six-site factor preserved by both joined field evolution and complete block repair. The former localized carrier may leak while its spin/reference marginal survives. | Localized invariant, compatible three-dimensional dictionary and protection of the relevant energy response under repair. |
 | [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Controlled contact-continuum exclusion](../model/contact_continuum/README.md) proves positive-energy two-body scattering becomes transparent as c=v/a grows, uniformly over every repulsive U(a), at K=0 and the same energy zero. | A justified physical vacuum and interaction/refinement construction outside the excluded family, with gauge and chiral/taste control. |
 | [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | The same six-site field has a complete all-number/spin spectrum and full local probe residues. Charged and neutral responses share one action and reference. | Physical identity and units, stable response through repair, controlled volume/refinement dependence, and independent comparisons. |
-| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Coarse energy Ward cells](../model/coarse_energy_ward/README.md) route actual currents to lattice faces and preserve the exact energy conservation column under spatial and temporal aggregation. The newly prepared plaquette supplies the earlier finite modular reference with explicit error. | Momentum columns, symmetric Lorentz stress, geometric modular weights, entropy-area stationarity, Newton normalization and a controlled Einstein limit. |
+| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Coarse energy Ward cells](../model/coarse_energy_ward/README.md) route actual currents to lattice faces and preserve the exact energy conservation column under spatial and temporal aggregation. The prepared plaquette supplies the earlier finite modular reference with explicit error. | Momentum columns, symmetric Lorentz stress, geometric modular weights, entropy-area stationarity, Newton normalization and a controlled Einstein limit. |
 
 ## Protection and the particle search
 
@@ -44,14 +44,14 @@ energies, not measured masses or a fitted generation assignment.
 The higher-dimensional obstruction is explicit. Undressed translations
 preserve all hidden spin axes exactly when their three coordinate parities
 agree. Even-sided block tilings satisfy this criterion; transverse dimer
-shifts can fail it. A different block dictionary would still need its own
+shifts can fail it. A different block dictionary would need its own
 spectral projectors, reference and source attachment. It is not silently
 substituted for the checked finite chain construction.
 
 ## The reference and modular error
 
 The source prepares column probabilities and then each column of the exact
-degree-eight polynomial of exp[-(H-I)/64], in the already derived real
+degree-eight polynomial of exp[-(H-I)/64], in the derived real
 onsite frame. Every column is nonzero. Native readout, record-conditioned
 blanking, column preparation and inverse frame are all executed, with at
 most 10,855 pulses on one trajectory. Enumerating all branches is a host

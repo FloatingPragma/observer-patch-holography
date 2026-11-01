@@ -1,7 +1,7 @@
 # Native energy measurement and the centered continuum limit
 
 The [continuum field construction](CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
-now has a more precise reference-state choice. A signed-energy symmetry
+has a more precise reference-state choice. A signed-energy symmetry
 constraint identifies a necessary charge-clock correction for the stated
 canonical field dictionary. Requiring particle-hole invariance derives
 that correction directly from the source and supplies a new ground.
@@ -10,7 +10,7 @@ filled and separated from every other charge sector. Its one-site states
 are faithful on the complete local algebra. A complete native finite-clock detector
 and an exact regional modular construction also extend the original
 ground's operational and entropy results. A further uniform spectral
-estimate now determines the centered bounded-coupling continuum: its
+estimate determines the centered bounded-coupling continuum: its
 entire canonical fermion hierarchy is free and massless.
 
 These constructions preserve the distinction between the original and
@@ -59,7 +59,7 @@ dynamics bounds then construct a centered thermodynamic ground. It has
 positive GNS energy and exactly one fermion per site in expectation.
 The same physical-smearing argument constructs its own eight-valley
 continuum net. The averaged addition/removal symmetry and zero first
-moment are now obtained on this new reference.
+moment are obtained on this new reference.
 
 ## Exact finite checks and energy readouts
 
@@ -100,7 +100,7 @@ rho_site = diag(d,1/2-d,1/2-d,d),
 K_site = -log(1/2-d) I + log((1/2-d)/d) (N_site-1)^2.
 ```
 
-All four eigenvalues are strictly positive. The entropy first law now
+All four eigenvalues are strictly positive. The entropy first law
 holds for every one-site density variation, with relative-entropy
 remainder at most `7500 epsilon^2 ||delta||_HS^2/(1-epsilon)` along
 `rho_site+epsilon delta`, `delta=sigma-rho_site`, `0<=epsilon<1`. This
@@ -136,7 +136,7 @@ nodes. A native occupation-copy and Majorana operation implement both
 Two clock qubits then control original-action evolution for times one
 and two. Their positive Fourier transform produces the complete
 four-outcome Fejer energy POVM, including coherent histories through
-time three. All 78 previously certified positive energy lines contribute;
+time three. All 78 earlier certified positive energy lines contribute;
 four broad bins do not individually resolve those lines.
 
 The implementation retains every field row, selector record, charge
@@ -213,7 +213,7 @@ microscopic degree of freedom is inserted. The new family does not inherit a con
 on the enlarged representation merely from its equal-time algebra.
 
 The [centered free-limit theorem](../model/continuum_free_limit/README.md)
-now resolves the physical-energy question for `0<=U(a)<=Umax` and
+resolves the physical-energy question for `0<=U(a)<=Umax` and
 `c(a)=v/a`. Rescale time by `1/c` and write `u=U/c`. An exact graded
 anticommutator expansion cancels its degree-six term; every remaining
 term contains a connecting free propagator. Combining its absolute
@@ -238,7 +238,7 @@ vanishing time-integrated contact force on both particle and hole
 vacuum vectors. It also proves that the entire initial-time state is
 the free filled sea. Finally, a compact-support Fourier argument proves
 cyclicity of the free vacuum for fields outside any bounded region.
-Together with the already established finite propagation, that upgrades
+Together with the established finite propagation, that upgrades
 the vacuum-vector result to operator equality on the full limiting
 canonical field space. No Lorentz symmetry is assumed in this step.
 Thus the complete hierarchy, rather than only a two-point function,
@@ -287,6 +287,6 @@ entropy derivative and cannot use that supported first law.
 The existing Einstein theorem stack remains the consumer of these
 matter and entropy data. Its common geometric modular kernel, local
 Lorentz stress, area stationarity, null matching, scaling tails and
-independent normalization are still required. The finite central term
+independent normalization are required. The finite central term
 has not been renamed as a geometric edge, nor has the energy pairing
 been assumed to be a diamond charge.

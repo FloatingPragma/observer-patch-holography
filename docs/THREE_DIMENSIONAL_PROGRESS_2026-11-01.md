@@ -1,6 +1,6 @@
 # Three-dimensional protected spectra, moving pairs and physical identification
 
-The new constructions do **not yet identify OPH's modes with nature's
+The new constructions do **not identify OPH's modes with nature's
 particles**. They supply a protected interacting sector on an actual
 three-dimensional cube, a local fixed-number probe, controlled moving-pair
 propagation, an adaptive stationary reference and local momentum error
@@ -12,7 +12,7 @@ They connect the most developed source constructions to the main missing
 reference, particle, field and gravity interfaces. The
 [previous pass](CONTINUING_SPECTRUM_PROGRESS_2026-11-01.md) remains historical.
 Readable simulator, observer, scheduler, repair and memory laws are admitted
-inputs; their consequences must still be proved and physically matched.
+inputs; their consequences must be proved and physically matched.
 
 | Issue | New evidence | Remaining physical join |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ The fixed-number reference `R=(eta+)^3|vac>/sqrt(2016)` has N=6 and H energy
 weight 15/16. Its inelastic component has strictly positive weight at each
 of eight interacting energies. The full seven-site exterior reduced state
 is exactly unchanged initially. This gives a finite local disturbance of
-an entangled reference, not yet a topological boundary charge or an
+an entangled reference, not a topological boundary charge or an
 asymptotic physical particle.
 
 Native source words prepare the signed 56-component reference and local
@@ -174,13 +174,13 @@ M_pair = 2 hbar^2/(Eunit Lunit^2) = 2 hbar Tunit/Lunit^2,
 E_binding = Eunit gamma^2.
 ```
 
-An arbitrary energy offset does not change this inertial mass, but it
-prevents extracting an absolute rest energy from the binding offset.
+The inertial mass is independent of an arbitrary energy offset. Extracting
+an absolute rest energy from the binding offset requires fixing that offset.
 The earlier 0.25 GeV field/clock design scale and the dimer's assigned
 electron-mass calibration do not establish units for this cube or pair
 family. Reusing them would be an additional assumption, not a prediction.
 
-## Physical identification is still a separate test
+## Physical identification is a separate test
 
 A finite protected spectral line is not automatically a particle mass.
 The current local cube probe preserves number and CAR grading, its chosen

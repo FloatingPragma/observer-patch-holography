@@ -5,7 +5,7 @@ establishes infinite-volume ground existence at fixed spacing, convergent
 energy-density bounds and exact matter-dependent response. The calculations
 below retain their finite-cube and specified-chain domains.
 
-The particle work now separates three calculations that have different
+The particle work separates three calculations that have different
 answers: the ground of the original three-dimensional cube, the charge gap
 of its one-dimensional restriction, and a relativistic limit along an
 explicitly constructed coupling trajectory. The first two use the original
@@ -94,7 +94,7 @@ The [Hubbard relativistic construction](../model/hubbard_relativistic_sector/REA
 uses exact thermodynamic quasiparticle energy and momentum formulas,
 with the repulsive/attractive transformation and normalization stated
 explicitly. The source is [Melzer's Hubbard scaling analysis](https://arxiv.org/html/cond-mat/9410043),
-not an assumption that a nonzero gap is already relativistic.
+not an assumption that a nonzero gap is relativistic.
 
 Write `A=2πt/U`, let `M>0` denote a limiting rest **energy**, and choose
 
@@ -124,7 +124,7 @@ error in `(E²−v²p²)/M²` is below `0.034` at `A=64` and below `0.017`
 at `A=128`, and tends to zero. Rational Bessel enclosures and an explicit
 series-tail bound certify these errors.
 The theorem concerns thermodynamic quasiparticle branches of the centered
-half-filled theory. The finite-ring sector selection rules still apply;
+half-filled theory. The finite-ring sector selection rules apply;
 an isolated native one-particle detector pole is not inferred. The
 one-dimensional field theory is not a three-dimensional particle sector.
 
@@ -160,8 +160,8 @@ missing refinement law.
 
 ## What has closed, and what has not
 
-The finite cube now has an exact global interacting ground and positive
-charged spectral data. The source-bound chain now has a certified
+The finite cube has an exact global interacting ground and positive
+charged spectral data. The source-bound chain has a certified
 interaction-generated charge gap. A declared running-coupling continuation
 has a controlled relativistic mass shell, so its rest mass is calculated
 rather than guessed from a finite gap.

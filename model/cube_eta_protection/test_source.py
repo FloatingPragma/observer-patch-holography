@@ -10,8 +10,12 @@ from . import source
 
 def test_compact_native_tree_copy_and_local_phase_with_all_failures():
     value = source.report()
-    assert value['native_preparation_error'] < 2e-13
-    assert value['complete_preparation_and_phase_error'] < 2e-13
+    # Compare the diagnostic with the independently proved complete-source
+    # ceiling, rather than a tighter platform-specific observed residual.
+    proved = F(source.certificate()['complete_source_state_error_bound'])
+    assert proved < F(848, 10**15)
+    assert value['native_preparation_error'] < float(proved)
+    assert value['complete_preparation_and_phase_error'] < float(proved)
     assert [r['pulses'] for r in value['source_records']] == [5379, 24, 3]
     assert len(value['all130_following_repair_records']) == 130
     assert value['complete_output_probability'] == pytest.approx(1, abs=1e-12)

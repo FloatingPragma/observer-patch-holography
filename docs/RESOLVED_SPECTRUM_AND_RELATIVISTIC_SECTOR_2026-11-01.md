@@ -12,7 +12,7 @@ from simulated pointer counts. The
 [relativistic construction](../model/relativistic_sector_audit/README.md)
 gives an explicit eight-valley massless Weyl limit of the original action,
 with error bounds for the full interacting evolution on finite-particle
-initial domains. A compiled momentum/occupation detector now identifies sixteen signed
+initial domains. A compiled momentum/occupation detector identifies sixteen signed
 model modes on a periodic lattice. These constructions retain distinct
 carriers and approximation domains. A retrospective comparison finds no
 direct match of the new massless flavors to the charged leptons, photon or
@@ -34,7 +34,7 @@ No remote issue is closed or updated by this local work.
 
 The original cube Hamiltonian fixes the eight frequency intervals. On that
 known support, both pointer quadratures at times `0,39,78,...,273` determine
-the unknown weights. The inference takes counts, not the previously derived
+the unknown weights. The inference takes counts, not the earlier derived
 weights, as input. A rational Lagrange inverse is independently certified
 against the true frequency intervals. Its infinity norm is below two and
 its residual below `10^-18`.
@@ -139,7 +139,7 @@ exactly for every allowed coupling. The proved limiting interaction is
 therefore free. The critically tuned moving-pair scaling `U~a^(-2)` is
 outside this estimate.
 
-## The detector now identifies internal particle flavors
+## The detector identifies internal particle flavors
 
 The [compiled model-particle detector](../model/particle_species_detector/README.md)
 measures momentum and spin occupation on the original periodic `8^3`
@@ -231,15 +231,15 @@ values, source URLs and the computed comparisons are retained in
 [physical_targets.json](../model/particle_species_detector/physical_targets.json)
 and the detector receipt.
 
-## Physical identification still to construct
+## Physical identification to construct
 
 The empty Fock reference is not a ground state because the original
 one-particle action has negative energies. A stable physical vacuum and
 its particle/antiparticle representation remain unconstructed here.
-The new branch now has its own momentum/occupation detector; it is not
+The new branch has its own momentum/occupation detector; it is not
 yet attached to the protected cube's five-seam repair service or its
 neutral-response detector. Electric charge, gauge representation,
-physical spin and a common physical clock and units still need a common
+physical spin and a common physical clock and units need a common
 identification. There is no new assignment to an electron, neutrino,
 photon or other observed species.
 
@@ -269,7 +269,7 @@ contact contribution vanish.
 
 The next calculation must first construct a stable interacting reference
 for the original action and determine its excitation spectrum. That may
-reveal a massive phase already present in the law; the present result
+reveal a massive phase present in the law; the present result
 does not decide this. It is premature to assert that the microscopic law
 must be changed. If no suitable phase exists on a controlled domain, an
 additional term must be justified by the simulator or repair/memory law,

@@ -4,7 +4,7 @@ The [continuum-field and spectral-readout extension](CONTINUUM_FIELD_AND_SPECTRA
 continues this construction with a common spacing limit, complete finite
 ground-family spin selection and positive finite-resolution energy POVMs.
 
-The original cube ground can now be prepared through the declared native
+The original cube ground can be prepared through the declared native
 observer service, and its charged response can be read by a complete
 interferometer. The full eight-site response has an exact matrix spectral
 resolution. On the infinite lattice, the original ground has provably
@@ -15,7 +15,7 @@ complex frequencies separated from the real axis.
 These results extend the [ground and response construction](GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md).
 They close specific preparation, matrix-spectrum and spatial-response
 inputs. The physical particle dictionary, interacting chiral 3+1 continuum
-and joint Einstein premises remain open.
+and joint Einstein premises are not established.
 
 ## Preparing and reading the finite ground
 
@@ -93,7 +93,7 @@ pair. At least one relative error is at least approximately
 
 This rejects the explicit proposal to treat the finite visible gaps as
 those particle rest energies. It does not assume that a finite gap is
-already a relativistic rest mass, and it does not exclude other sectors,
+a relativistic rest mass, and it does not exclude other sectors,
 an appropriate continuum limit or OPH as a whole. No physical species has
 been assigned by fitting these values.
 
@@ -120,7 +120,7 @@ than merely retaining a nonzero quartic operator in a faithful
 representation. Two-point memory alone does not rule out descriptions
 using additional modes or anomalous pairing blocks.
 
-A stronger four-point result now does distinguish the full field. Put
+A stronger four-point result does distinguish the full field. Put
 `a(t)=tau_t(c_xsigma)` and center its anticommutator with the original
 creation operator:
 
@@ -147,7 +147,7 @@ The witness excludes that representation of these observables. It
 establishes interaction at fixed spacing; it supplies no scattering or
 continuum limit by itself.
 
-The same positive-energy generator now constructs every ordered local
+The same positive-energy generator constructs every ordered local
 imaginary-time correlation. All orders use the same ground and the same
 finite-volume subsequence. Positive-time words define Hilbert-space
 vectors; reflecting and adjoining a second word gives their Gram matrix,
@@ -173,7 +173,7 @@ response on the actual interacting infinite ground. Its frequency domain
 stays above the real axis, and the estimates deteriorate as `eta` tends to
 zero. Controlled real-frequency spectral measures and the appropriate
 thresholds, resonances or poles, a common hyperbolic symbol across the
-matter sectors and action normalization are still required before that
+matter sectors and action normalization are required before that
 response can define the physical metric.
 
 The same-family modular, stress, area-response, coarse-graining and

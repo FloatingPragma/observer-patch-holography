@@ -151,7 +151,9 @@ def test_independent_full_action_horner_and_wrong_polynomial():
 def test_all_record_trajectory_bounds_and_modular_consequence(proved):
     assert len(proved['conditional_records']) == 256
     assert proved['all_conditional_tree_nodes'] == 65535
-    assert proved['unique_literal_pulse_controls'] == 7612
+    # Exact integer tree inputs fix the literal control catalogue across
+    # platforms; floating normalization must not create extra near-duplicates.
+    assert proved['unique_literal_pulse_controls'] == 7563
     assert proved['complete_preparation_output_error'] < F(17, 10**13)
     assert proved['complete_preparation_output_error'] < p.EXECUTION_ADMISSION
     assert proved['complete_preparation_output_error'] == (

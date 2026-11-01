@@ -5,13 +5,13 @@ This extension is followed by the
 which adds a complete native phase clock and resolves the charge-clock
 and reference choice left open here.
 
-The original Weyl/contact family now has a spatial continuum construction:
+The original Weyl/contact family has a spatial continuum construction:
 all eight valleys, bounded smeared CAR fields, their complete multi-time
 correlations, continuous space and time translations, positive energy and
 finite propagation speed. This advances beyond the previous
 [fixed-spacing field construction](NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md).
 It is a common subsequential limit under an explicit bounded-contact
-refinement. It does not yet prove that a nonzero interaction survives that
+refinement. It does not prove that a nonzero interaction survives that
 limit or supply the physical Standard Model and Einstein identifications.
 
 ## The continuum construction
@@ -43,7 +43,7 @@ windows. It does not remove the positive imaginary-frequency restriction.
 
 There is a controlled special case: if the contact strength tends to
 zero, the full-CAR dynamics converge to the eight free massless Weyl
-fields. This statement now uses the positive-energy ground representation,
+fields. This statement uses the positive-energy ground representation,
 rather than the earlier empty-Fock finite-particle comparison. It gives a
 free massless control, not a proof of the required interacting massive and
 massless particle theory.
@@ -51,7 +51,7 @@ massless particle theory.
 ## The complete finite ground family
 
 The [spin-resolved spectrum](../model/spin_resolved_spectrum/README.md)
-now covers all five vectors in the exact spin-two ground space and all
+covers all five vectors in the exact spin-two ground space and all
 sixteen linear creator modes. Every such preparation has addition support
 within the same 78 positive frequencies. The line `sqrt(3)/16` has total
 hidden spin `5/2`; the other 77 lines have total hidden spin `3/2`.
@@ -82,8 +82,8 @@ energy lines remain the same.
 
 Consequently ground polarization, coherent superposition and linear probe
 choice cannot rescue the rejected finite-gap charged-lepton dictionary.
-They do not introduce a new energy beyond the previously certified
-envelope. This statement still leaves nonlinear probes, other reference
+They do not introduce a new energy beyond the earlier certified
+envelope. This statement leaves nonlinear probes, other reference
 states and continuum particles open.
 
 ## A complete energy measurement with a resolution bound
@@ -92,7 +92,7 @@ The [spectral readout](../model/spectral_readout/README.md) constructs a
 positive, complete finite-resolution POVM directly from the spectral
 measure. Its Fejer filters use finitely many characteristic-function
 samples and retain every clock outcome. The proof separates resolution,
-aliasing, native-control errors, statistical errors and the still-unknown
+aliasing, native-control errors, statistical errors and the unknown
 finite-to-infinite ground-state discrepancy.
 
 For the existing 78-line finite source at time step one, the calculated
@@ -108,7 +108,7 @@ At 16 outcomes, the leading readout centers are zero and `3pi/8`, with
 probabilities about `0.483266606026` and `0.358720295560`. These are filter
 bins, not asserted particle energies. In particular a bin centered at
 zero does not establish a massless particle. The higher-time samples are
-source calculations; the previously executed native experiment supplies
+source calculations; the earlier executed native experiment supplies
 the first harmonic only.
 
 Exact infinite-ground sum rules also give a local signed-energy mean in

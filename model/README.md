@@ -85,10 +85,10 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 | Owner | Current construction and remaining join |
 | --- | --- |
 | [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Balanced adaptive reference](adaptive_reference/README.md) preserves the joint field/controller state under genuine record-dependent repairs. The finite repair-corner mixing theorem traces the retained archive; physical clock and geometry remain open. |
-| [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | [Cube eta protection](cube_eta_protection/README.md) gives a protected interacting sector and a one-site disturbance with unchanged initial exterior on the actual 3D cube. Growing-volume and boundary-invariant constructions remain open. |
+| [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | [Cube eta protection](cube_eta_protection/README.md) gives a protected interacting sector and a one-site disturbance with unchanged initial exterior on the actual 3D cube. Growing-volume and boundary-invariant constructions are not established. |
 | [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Moving bound pair](moving_bound_pair/README.md) extends the band-edge construction to nonzero total momentum with an explicit bound-packet propagator comparison. The [interacting cube ground](interacting_vacuum/README.md) supplies an exact finite reference. A [source-bound chain gap](mass_generation_audit/README.md) and [controlled relativistic continuation](hubbard_relativistic_sector/README.md) provide a one-dimensional massive quasiparticle branch under explicit canonical-reference and running-coupling conditions. The interacting physical three-dimensional field remains open. |
-| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | The [energy and identity audit](particle_identification/README.md) extracts cube energies, moving-pair inertial mass and binding energy. The [native observer readout](protected_particle_readout/README.md) attaches the accessible protected response to pointer records with error bounds. [Certified long-time reconstruction](resolved_particle_spectrum/README.md) resolves all eight weights on the source support. The separate [eight-valley construction](relativistic_sector_audit/README.md) supplies a controlled massless finite-particle limit. A [compiled Fourier detector](particle_species_detector/README.md) measures finite model flavors and energies; its retrospective PDG comparison finds no direct physical match. [Ground-referenced charged energies](interacting_vacuum/README.md) are now positive, and a [chosen chain continuation](hubbard_relativistic_sector/README.md) yields calculated relativistic quasiparticle masses. Their physical identification, unique refinement law and common protected-detector join remain open. |
-| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Dilute local Ward bounds](dilute_momentum_ward/README.md) retain contact leakage in local time cells and spatial blocks. The critical-scaling stress tensor and geometric Einstein premises remain open. |
+| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | The [energy and identity audit](particle_identification/README.md) extracts cube energies, moving-pair inertial mass and binding energy. The [native observer readout](protected_particle_readout/README.md) attaches the accessible protected response to pointer records with error bounds. [Certified long-time reconstruction](resolved_particle_spectrum/README.md) resolves all eight weights on the source support. The separate [eight-valley construction](relativistic_sector_audit/README.md) supplies a controlled massless finite-particle limit. A [compiled Fourier detector](particle_species_detector/README.md) measures finite model flavors and energies; its retrospective PDG comparison finds no direct physical match. [Ground-referenced charged energies](interacting_vacuum/README.md) are positive, and a [chosen chain continuation](hubbard_relativistic_sector/README.md) yields calculated relativistic quasiparticle masses. Their physical identification, unique refinement law and common protected-detector join remain open. |
+| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Dilute local Ward bounds](dilute_momentum_ward/README.md) retain contact leakage in local time cells and spatial blocks. The critical-scaling stress tensor and geometric Einstein premises are not established. |
 
 The [earlier particle transport](charged_dynamics/README.md) and
 [actual-data replay](particle_comparison/README.md) retain their own
@@ -99,7 +99,7 @@ adds a finite ground and a specified massive continuation. Neither supplies
 a successful physical identification or an eligible prospective comparison.
 
 The [ground and response extension](../docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
-now supplies an [infinite-volume original-action ground](thermodynamic_ground/README.md)
+supplies an [infinite-volume original-action ground](thermodynamic_ground/README.md)
 with positive GNS energy, nonzero density and finite-volume energy-density
 brackets. Its local retarded response converges in the upper half-plane.
 The [exact finite matter response](retarded_matter_response/README.md)
@@ -108,7 +108,7 @@ expansion on the grounded cube. The geometry target remains the existing
 common-symbol and Einstein theorem stack, with its shared-state premises.
 
 The [native ground and spatial-response extension](../docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
-now connects that finite ground to a complete observer preparation and
+connects that finite ground to a complete observer preparation and
 charged readout. It resolves the entire eight-site matrix response and
 constructs a non-Gaussian infinite-ground field and its ordered Euclidean
 hierarchy with time-reflection positivity. Its spatial inverse response
@@ -938,7 +938,8 @@ python3 -m model.observer run --trials 10000 --seed 42
 
 The sequential sample run is a software model with its declared preparation
 and controller. A Python invocation is not assigned a physical duration.
-For quantum constructions and the full verification suite:
+For quantum constructions and the full verification suite, use Python 3.12
+or newer:
 
 ```sh
 python3 -m venv .venv-model

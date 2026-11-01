@@ -14,6 +14,7 @@ import sys
 import tempfile
 
 from tools import strict_json
+from ..completion.program_class_v2 import reviewed_contract_digest
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,12 +22,27 @@ HERE = Path(__file__).resolve().parent
 OUTPUT = HERE/'occupation_results.json'
 CAMPAIGN = 'OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1'
 CONTRACT_SHA256 = '3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67'
+CLASS_CONTRACT_SHA256 = '9e753015cfcd1251790f4ca1550325e1c6005b3ecbc4809040509c2bde5b25f2'
 FALSE_KEYS = frozenset(('physical_particle_identification', 'integrated_gate_accepted',
                        'program_class_changed', 'cross_number_cat_admitted_by_v2',
                        'localized_topological_defect_constructed'))
 RESULT_KEYS = frozenset(('schema', 'campaign_id', 'scope', 'contract_sha256',
                         'algebra_and_protection', 'source_observer', 'source_sha256',
-                        'physical_comparison_count_added')) | FALSE_KEYS
+                        'program_class_contract_sha256', 'physical_comparison_count_added')) | FALSE_KEYS
+
+
+def class_contract_digest():
+    """Pin every V2 class clause, excluding its self-referential adoption signature.
+
+    The outer completion gate still validates adoption independently.  Its
+    review can bind this finite receipt without making a hash cycle through
+    V2's own pointer back to that review.
+    """
+    value = strict_json.load(ROOT/'model/completion/program_class_v2.json')
+    actual = reviewed_contract_digest(value)
+    if actual != CLASS_CONTRACT_SHA256:
+        raise ValueError('the reviewed fixed-number V2 class contract changed')
+    return actual
 
 
 def source_bindings():
@@ -36,8 +52,7 @@ def source_bindings():
     names.update(p.relative_to(ROOT).as_posix() for pattern in
                  ('occupation*.py', 'test_occupation*.py') for p in HERE.glob(pattern))
     names.update(('model/native_fixed_algebra/OCCUPATION.md',
-                  'model/native_fixed_algebra/occupation_contract.json',
-                  'model/completion/program_class_v2.json'))
+                  'model/native_fixed_algebra/occupation_contract.json'))
     pending, visited = list(names), set()
 
     def add(module):
@@ -77,16 +92,18 @@ def source_bindings():
 def _report():
     from . import occupation, occupation_service
     before = source_bindings()
+    class_digest = class_contract_digest()
     if before['model/native_fixed_algebra/occupation_contract.json'] != CONTRACT_SHA256:
         raise ValueError('occupation-protection contract changed')
     result = {'schema': 'oph.native_occupation_protection.receipt.v1',
               'campaign_id': CAMPAIGN, 'scope': 'FINITE_COMPONENT_FAMILY',
               'contract_sha256': CONTRACT_SHA256,
+              'program_class_contract_sha256': class_digest,
               'algebra_and_protection': occupation.certificate(),
               'source_observer': occupation_service.certificate(),
               'physical_comparison_count_added': 0,
               **{key: False for key in FALSE_KEYS}, 'source_sha256': before}
-    if source_bindings() != before:
+    if source_bindings() != before or class_contract_digest() != class_digest:
         raise RuntimeError('occupation sources changed during owned execution')
     return result
 
@@ -213,6 +230,7 @@ def validate_components(result):
 
 def report():
     before = source_bindings()
+    class_digest = class_contract_digest()
     command = ('import sys,json; sys.path.insert(0,'+repr(str(ROOT))+'); '
                'from model.native_fixed_algebra.occupation_packet import _report; '
                'print(json.dumps(_report(),sort_keys=True,allow_nan=False))')
@@ -224,7 +242,9 @@ def report():
                              text=True, encoding='utf-8', timeout=900)
     result = strict_json.loads(run.stdout)
     if (type(result) is not dict or set(result) != RESULT_KEYS
-            or result.get('source_sha256') != before or source_bindings() != before):
+            or result.get('source_sha256') != before or source_bindings() != before
+            or result.get('program_class_contract_sha256') != class_digest
+            or class_contract_digest() != class_digest):
         raise RuntimeError('fresh occupation replay and current source custody disagree')
     if (result['schema'] != 'oph.native_occupation_protection.receipt.v1'
             or result['campaign_id'] != CAMPAIGN or result['contract_sha256'] != CONTRACT_SHA256

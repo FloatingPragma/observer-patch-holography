@@ -13,13 +13,24 @@ powers compute every coefficient of `Q8`, without an eigenbasis oracle.
 For column `j`, set `p_j=||Q8[:,j]||^2/Tr(Q8^2)` and
 `v_j=Q8[:,j]/||Q8[:,j]||`. The source executes:
 
-1. Prepare the eight-bit probability amplitudes `sqrt(p_j)` with the existing
-   native amplitude compiler.
+1. Prepare the eight-bit probability amplitudes `sqrt(p_j)` with the complete
+   native amplitude-tree schedule.
 2. Read all eight bits through the existing complete two-dimensional-code
    dephasing export, retaining all 256 records and every abort outcome.
 3. For each record, reversibly map `|j>` to blank using native `X` pulses
    and the compensating phase; source-prepare the real column `v_j`.
 4. Execute the inverse onsite frame with native Pauli words.
+
+The literal tree is derived directly from the exact integer polynomial
+columns and squared weights. Common integer factors are cancelled before
+angle evaluation in a private 192-bit `mpmath` context; Walsh sums of the
+represented angles are exact rational sums before conversion to binary64.
+Thus BLAS norm reductions and host `atan2` implementations cannot alter
+the retained word hashes or the number of distinct pulse controls.
+All zero-angle requests remain. This is a reproducible angle construction,
+not a claim of correct rounding: the independent `certified_reference`
+interval checks still bound every actual emitted angle and integrated
+source control against the exact integer target.
 
 The unconditioned field density is `Q8^2/Tr(Q8^2)` in the original Weyl
 frame. Its extension retains a **classical column record**. It is not a

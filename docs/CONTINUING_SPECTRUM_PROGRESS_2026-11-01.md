@@ -95,7 +95,7 @@ is exactly one upper bound pole B_a+delta_a, and for a gamma<=1/256,
 ```
 
 Thus the reflected bound energy approaches -gamma^2. The original energy
-still diverges; no physical rest mass is inferred. Exact coarea and
+diverges; no physical rest mass is inferred. Exact coarea and
 principal-value bounds, rather than finite-broadening quadrature, prove the
 limit. Independent torus and on-shell diagnostics check the implementation.
 Missing-countertuning and reversed-time controls catch the two principal
@@ -118,7 +118,7 @@ momentum by 2 pi.
 On an odd prime ring, every number-preserving Hermitian logarithm of
 translation has a nonzero one-particle spin-trace kernel at every nonzero
 separation. Prime cyclotomic irreducibility proves this for arbitrary
-integer branches, not merely a finite search. The principal logarithm has
+integer branches, with no finite-search restriction. The principal logarithm has
 full-space distance at least 1/(R+1) from every density sum of range R when
 L>2(R+1), even allowing higher-body local corrections.
 
@@ -126,7 +126,7 @@ There is a positive restricted result: on an initially smooth sector with
 N<=Nmax and Nmax kappa<pi, the local sine momentum differs by at most
 Nmax kappa^3/6. Finite-time evolution adds a bound for contact-induced
 leakage. The estimate is uniform in volume at fixed Nmax, not at fixed
-density. Global conservation and this approximation do not yet provide
+density. Global conservation and this approximation do not provide
 the local symmetric Lorentz stress needed for Einstein dynamics.
 
 ## Ledger and paper disposition
@@ -134,7 +134,7 @@ the local symmetric Lorentz stress needed for Einstein dynamics.
 FA-52 through FA-55 bring the map to **50 realized scoped attachments among
 55 reviewed domains**. All 84 canonical physical-premise dispositions remain
 unchanged. No new eligible physical comparison or species identification
-is claimed. Only the previously accepted finite gates CP-00, CP-01 and
+is claimed. Only the earlier accepted finite gates CP-00, CP-01 and
 CP-13 remain accepted; the whole-program decision remains NOT_DECIDED.
 
 The flagship and seven companion papers replace the earlier spectral,

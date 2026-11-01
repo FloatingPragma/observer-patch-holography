@@ -1359,7 +1359,7 @@
           "path": "model/plaquette_reference/results.json",
           "sha256": "769de0a1b2c13a6ed4f6f4e6d2acb4739330e0e73c8503ff8e5d0aea303b2c6a",
           "independent_check": "model/plaquette_reference/test_preparation.py",
-          "scope": "The complete 256-state Weyl/contact plaquette at beta=1/32 now has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
+          "scope": "The complete 256-state Weyl/contact plaquette at beta=1/32 has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
           "campaign_id": "OPH-COMMON-ACTION-PREMISES-2026-11-01"
         },
         {
@@ -1512,7 +1512,9 @@
         "model/defect_field_bridge/test_coherent_extension.py",
         "model/defect_field_bridge/COHERENT_EXTENSION.md",
         "model/defect_field_bridge/coherent_extension_results.json",
-        "model/defect_field_bridge/coherent_extension_results.npz"
+        "model/defect_field_bridge/coherent_extension_results.npz",
+        "model/native_fixed_algebra/OCCUPATION.md",
+        "model/native_fixed_algebra/occupation_results.json"
       ],
       "legacy_issues": [
         1026,
@@ -1783,6 +1785,13 @@
           "independent_check": "model/native_spectral_detector/test_preparation.py",
           "scope": "On the unchanged original zero-chemical-potential cube, a finite fifteen-word spin quadrature and native selector prepare the invariant ground reference P_ground/5 with complete state error below 1e-9. A complete native charge instrument retains both c-dagger and c branches. The executed two-bit phase clock applies controlled original-action histories through model time three and realizes all four positive Fejer energy effects, retaining all 78 positive source lines in its binned law. All 262144 quantum rows and 30 classical selector/charge columns are propagated without a number, spectral or amplitude projection. The longest complete history has 612666 source pulses and certified total-variation error below 3/100. All 3240 joint selector/tag/clock slots, selector stops and every first-export failure are retained. Four broad bins do not separately identify 78 lines or measured physical particles.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "path": "model/native_fixed_algebra/occupation_results.json",
+          "sha256": "94f6a971c331e573753d3ae1aef943763179e1c46ee116d7cb570b0f62dd90a8",
+          "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+          "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+          "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
         }
       ]
     },
@@ -2219,7 +2228,9 @@
         "model/particle_transport/algebra.py",
         "model/particle_transport/source.py",
         "model/particle_transport/detector.py",
-        "model/particle_transport/results.json"
+        "model/particle_transport/results.json",
+        "model/native_fixed_algebra/OCCUPATION.md",
+        "model/native_fixed_algebra/occupation_results.json"
       ],
       "legacy_issues": [
         1026,
@@ -2400,6 +2411,13 @@
           "independent_check": "model/continuum_free_limit/test_bounds.py",
           "scope": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "path": "model/native_fixed_algebra/occupation_results.json",
+          "sha256": "94f6a971c331e573753d3ae1aef943763179e1c46ee116d7cb570b0f62dd90a8",
+          "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+          "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+          "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
         }
       ]
     },
@@ -2692,7 +2710,7 @@
           "path": "model/moving_bound_pair/results.json",
           "sha256": "ee56f76754f7d988c62b22cf5be316b2e47755a90bbe92d3436eb988c51a8380",
           "independent_check": "model/moving_bound_pair/test_limit.py",
-          "scope": "The same critically tuned Weyl/contact family now has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
+          "scope": "The same critically tuned Weyl/contact family has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
           "campaign_id": "OPH-THREE-DIMENSIONAL-PREMISES-2026-11-01"
         },
         {
@@ -2732,7 +2750,7 @@
           "path": "model/hubbard_relativistic_sector/results.json",
           "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b",
           "independent_check": "model/hubbard_relativistic_sector/test_dispersion.py",
-          "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
+          "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
           "campaign_id": "OPH-INTERACTING-VACUUM-MASS-2026-11-01"
         },
         {
@@ -3047,7 +3065,7 @@
           "path": "model/moving_bound_pair/results.json",
           "sha256": "ee56f76754f7d988c62b22cf5be316b2e47755a90bbe92d3436eb988c51a8380",
           "independent_check": "model/moving_bound_pair/test_limit.py",
-          "scope": "The same critically tuned Weyl/contact family now has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
+          "scope": "The same critically tuned Weyl/contact family has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
           "campaign_id": "OPH-THREE-DIMENSIONAL-PREMISES-2026-11-01"
         },
         {
@@ -3111,7 +3129,7 @@
           "path": "model/hubbard_relativistic_sector/results.json",
           "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b",
           "independent_check": "model/hubbard_relativistic_sector/test_dispersion.py",
-          "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
+          "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
           "campaign_id": "OPH-INTERACTING-VACUUM-MASS-2026-11-01"
         },
         {
@@ -3447,7 +3465,7 @@
           "path": "model/plaquette_reference/results.json",
           "sha256": "769de0a1b2c13a6ed4f6f4e6d2acb4739330e0e73c8503ff8e5d0aea303b2c6a",
           "independent_check": "model/plaquette_reference/test_preparation.py",
-          "scope": "The complete 256-state Weyl/contact plaquette at beta=1/32 now has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
+          "scope": "The complete 256-state Weyl/contact plaquette at beta=1/32 has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
           "campaign_id": "OPH-COMMON-ACTION-PREMISES-2026-11-01"
         },
         {
@@ -3455,7 +3473,7 @@
           "path": "model/coarse_energy_ward/results.json",
           "sha256": "d7d9ff0b96d3682ff7462ccb45711034c48b0068bf9f88452391c0459e21df99",
           "independent_check": "model/coarse_energy_ward/test_ward.py",
-          "scope": "Exact rational Clifford algebra attaches the original full-Fock Weyl/contact energy to nearest-face currents on a three-dimensional box. The 27-site certificate retains all 351 pairs, 81 nonzero currents, 54 faces and 27 Ward equations without a number projection. Integrated time-cell flux satisfies the finite energy-column divergence equation; an endpoint-current substitution fails. Spatial block maps cancel internal flux and compose, while time blocks telescope. Lean proves the generic finite aggregation identities; concrete CAR identities have independent exact and full-matrix checks. Existing locality/source splitting and explicit midpoint estimates give conditional finite-readout bounds, with supplied preparation and measurement/hardware errors separate. The three momentum columns, symmetric Lorentz stress and all geometric Einstein premises remain open.",
+          "scope": "Exact rational Clifford algebra attaches the original full-Fock Weyl/contact energy to nearest-face currents on a three-dimensional box. The 27-site certificate retains all 351 pairs, 81 nonzero currents, 54 faces and 27 Ward equations without a number projection. Integrated time-cell flux satisfies the finite energy-column divergence equation; an endpoint-current substitution fails. Spatial block maps cancel internal flux and compose, while time blocks telescope. Lean proves the generic finite aggregation identities; concrete CAR identities have independent exact and full-matrix checks. Existing locality/source splitting and explicit midpoint estimates give conditional finite-readout bounds, with supplied preparation and measurement/hardware errors separate. The three momentum columns, symmetric Lorentz stress and all geometric Einstein premises are not established.",
           "campaign_id": "OPH-COMMON-ACTION-PREMISES-2026-11-01"
         },
         {
@@ -3786,7 +3804,7 @@
           "path": "model/moving_bound_pair/results.json",
           "sha256": "ee56f76754f7d988c62b22cf5be316b2e47755a90bbe92d3436eb988c51a8380",
           "independent_check": "model/moving_bound_pair/test_limit.py",
-          "scope": "The same critically tuned Weyl/contact family now has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
+          "scope": "The same critically tuned Weyl/contact family has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
           "campaign_id": "OPH-THREE-DIMENSIONAL-PREMISES-2026-11-01"
         },
         {
@@ -3842,7 +3860,7 @@
           "path": "model/hubbard_relativistic_sector/results.json",
           "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b",
           "independent_check": "model/hubbard_relativistic_sector/test_dispersion.py",
-          "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
+          "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
           "campaign_id": "OPH-INTERACTING-VACUUM-MASS-2026-11-01"
         }
       ]
@@ -4581,6 +4599,22 @@
         "scope": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
         "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
       }
+    },
+    {
+      "id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-03",
+        "CP-05"
+      ],
+      "contract": {
+        "path": "model/native_fixed_algebra/occupation_contract.json",
+        "sha256": "3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67",
+        "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+        "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+        "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
+      }
     }
   ],
   "next_wave": {
@@ -4647,7 +4681,8 @@
           "particle_species_detector",
           "ground_spectral_source",
           "spectral_readout",
-          "native_spectral_detector"
+          "native_spectral_detector",
+          "native_occupation_protection"
         ]
       },
       {
@@ -4657,7 +4692,7 @@
         "why_now": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
         "deliverable": "Determine the nonzero-coupling continuum correlations, real-frequency spectrum and common relativistic dynamics.",
         "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
-        "join_condition": "Construct and control a source-selected coupling trajectory or action that retains nonzero continuum interaction. The centered bounded-U, c=v/a branch is now proved to have a free massless eight-valley hierarchy, so it cannot supply the required interacting massive endpoint. For a different trajectory, rederive the ground, time/locality control, Lorentz dynamics, real-frequency sectors and any required scattering instead of reusing bounded-coupling estimates outside their domain.",
+        "join_condition": "Construct and control a source-selected coupling trajectory or action that retains nonzero continuum interaction. The centered bounded-U, c=v/a branch is proved to have a free massless eight-valley hierarchy, so it cannot supply the required interacting massive endpoint. For a different trajectory, rederive the ground, time/locality control, Lorentz dynamics, real-frequency sectors and any required scattering instead of reusing bounded-coupling estimates outside their domain.",
         "evidence": [
           "moving_bound_pair",
           "relativistic_sector_audit",
@@ -4817,7 +4852,8 @@
           "gauged_field",
           "native_presentation",
           "bound_pair",
-          "particle_applicability"
+          "particle_applicability",
+          "native_occupation_protection"
         ]
       },
       {
@@ -5514,7 +5550,7 @@
         "path": "model/plaquette_reference/results.json",
         "sha256": "769de0a1b2c13a6ed4f6f4e6d2acb4739330e0e73c8503ff8e5d0aea303b2c6a",
         "independent_check": "model/plaquette_reference/test_preparation.py",
-        "scope": "The complete 256-state Weyl/contact plaquette at beta=1/32 now has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
+        "scope": "The complete 256-state Weyl/contact plaquette at beta=1/32 has a source-executed polynomial Gibbs ensemble. Exact integer powers of H-I determine every column probability and state; native preparation, complete readout, conditional blanking and inverse frame retain all 256 records and 4827140 failure slots. One trajectory uses at most 10855 pulses. The ideal regional log differs from the Gibbs log by less than 2.611e-16. Combined with the eighth-order regional expansion, the portable bound is below 2.705e-9 conditional on the declared complete-output execution admission 2e-11; the ideal rational theorem and tighter floating diagnostics remain distinct. The actually executed field block stays subnormalized with its abort complement separate. The original action continues every record at modular parameter one half, with explicit splitting error. No thermofield purification, physical clock, geometric modular law or continuum reference is inferred.",
         "campaign_id": "OPH-COMMON-ACTION-PREMISES-2026-11-01"
       },
       {
@@ -5530,7 +5566,7 @@
         "path": "model/coarse_energy_ward/results.json",
         "sha256": "d7d9ff0b96d3682ff7462ccb45711034c48b0068bf9f88452391c0459e21df99",
         "independent_check": "model/coarse_energy_ward/test_ward.py",
-        "scope": "Exact rational Clifford algebra attaches the original full-Fock Weyl/contact energy to nearest-face currents on a three-dimensional box. The 27-site certificate retains all 351 pairs, 81 nonzero currents, 54 faces and 27 Ward equations without a number projection. Integrated time-cell flux satisfies the finite energy-column divergence equation; an endpoint-current substitution fails. Spatial block maps cancel internal flux and compose, while time blocks telescope. Lean proves the generic finite aggregation identities; concrete CAR identities have independent exact and full-matrix checks. Existing locality/source splitting and explicit midpoint estimates give conditional finite-readout bounds, with supplied preparation and measurement/hardware errors separate. The three momentum columns, symmetric Lorentz stress and all geometric Einstein premises remain open.",
+        "scope": "Exact rational Clifford algebra attaches the original full-Fock Weyl/contact energy to nearest-face currents on a three-dimensional box. The 27-site certificate retains all 351 pairs, 81 nonzero currents, 54 faces and 27 Ward equations without a number projection. Integrated time-cell flux satisfies the finite energy-column divergence equation; an endpoint-current substitution fails. Spatial block maps cancel internal flux and compose, while time blocks telescope. Lean proves the generic finite aggregation identities; concrete CAR identities have independent exact and full-matrix checks. Existing locality/source splitting and explicit midpoint estimates give conditional finite-readout bounds, with supplied preparation and measurement/hardware errors separate. The three momentum columns, symmetric Lorentz stress and all geometric Einstein premises are not established.",
         "campaign_id": "OPH-COMMON-ACTION-PREMISES-2026-11-01"
       },
       {
@@ -5618,7 +5654,7 @@
         "path": "model/moving_bound_pair/results.json",
         "sha256": "ee56f76754f7d988c62b22cf5be316b2e47755a90bbe92d3436eb988c51a8380",
         "independent_check": "model/moving_bound_pair/test_limit.py",
-        "scope": "The same critically tuned Weyl/contact family now has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
+        "scope": "The same critically tuned Weyl/contact family has a unique upper two-body bound pole for K=aP on every fixed bounded three-momentum cube, under an explicit rational spacing condition. The exact four-spin resolvent and full-valley estimate control its offset uniformly. One global reflected comparison J=6/a^2-H gives band energy approaching |P|^2/4-gamma^2 with error at most a^2 Pmax^4/4+(22/7)a gamma(132gamma^2+9Pmax^2). An explicit normalized-resolvent fiber isometry then controls complete bound-packet propagation, including arbitrary untouched references. The different momentum-dependent edge is used only in the proof and is not subtracted from the Hamiltonian. This is a nonrelativistic one-composite sector, not a many-body QFT, nonzero-K on-shell scattering theorem or physical rest-mass assignment.",
         "campaign_id": "OPH-THREE-DIMENSIONAL-PREMISES-2026-11-01"
       },
       {
@@ -5690,7 +5726,7 @@
         "path": "model/hubbard_relativistic_sector/results.json",
         "sha256": "9931c64473fdbf3a65fcd87cffecc412df1b9cb337e97f0296a2d005de59d50b",
         "independent_check": "model/hubbard_relativistic_sector/test_dispersion.py",
-        "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with newly certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
+        "scope": "The unchanged-law Hubbard chain has an imported exact thermodynamic charge dispersion with certified uniform finite-A energy, momentum and mass-shell errors. Along the declared running family E tends to M cosh(theta), p to (M/v)sinh(theta), and rest mass is M/v^2. A chosen trajectory through the original a=1,c=1/8,U=1 point has exact limiting mass64 exp(-pi/8)/pi. An explicit counterfamily through the same point realizes every M>0, so the trajectory and mass are not uniquely selected by the fixed source.",
         "campaign_id": "OPH-INTERACTING-VACUUM-MASS-2026-11-01"
       },
       {
@@ -5812,6 +5848,14 @@
         "independent_check": "model/continuum_free_limit/test_bounds.py",
         "scope": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
         "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+      },
+      {
+        "id": "native_occupation_protection",
+        "path": "model/native_fixed_algebra/occupation_results.json",
+        "sha256": "94f6a971c331e573753d3ae1aef943763179e1c46ee116d7cb570b0f62dd90a8",
+        "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
+        "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
+        "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
       }
     ]
   },

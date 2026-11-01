@@ -2,7 +2,7 @@
 
 This report records the first one-time native readout. The
 [subsequent extension](RESOLVED_SPECTRUM_AND_RELATIVISTIC_SECTOR_2026-11-01.md)
-now resolves all eight source-supported weights through certified long-time
+resolves all eight source-supported weights through certified long-time
 emulation and separately constructs a massless relativistic limit. The
 prospective statements below describe this earlier packet's scope.
 
@@ -55,7 +55,7 @@ p_zero(phi,t) = [1 + Re(exp(i phi) C(t))]/2.
 The eight energies and positive weights are the
 [same exact spectral values](../model/particle_identification/README.md)
 derived from the original Hamiltonian. Their relation to pointer records
-is now a specified source/detector map. It can be checked independently
+is a specified source/detector map. It can be checked independently
 through the field matrix, the spectral measure and the native circuit.
 
 At t=1, the ideal probabilities are approximately 0.9942494663 for phi=0

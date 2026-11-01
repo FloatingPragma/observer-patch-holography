@@ -16,8 +16,8 @@
   "canonical_registry": "tracking/premise_register.json",
   "physical_comparison_count_added": 0,
   "canonical_premises_discharged": [],
-  "finite_obligations_realized": 77,
-  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 82 explicit finite theorem/model attachments, 77 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged.",
+  "finite_obligations_realized": 78,
+  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 83 explicit finite theorem/model attachments, 78 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged.",
   "existing_navigation_coverage": {
     "claim_count": 346,
     "lean_module_count": 669,
@@ -2177,6 +2177,13 @@
         "def theorem("
       ],
       "boundary": "a->0 at fixed v>0 and bounded nonnegative U(a); all eight valleys retained. The composite low-energy escape estimate is uniform over normalized lattice smearings, including every physical wavepacket. No unbounded-coupling trajectory is decided."
+    },
+    "native_occupation_protection": {
+      "path": "model/native_fixed_algebra/occupation_packet.py",
+      "anchors": [
+        "def report("
+      ],
+      "boundary": "The executed and certified component has twelve native ports. The connected-graph algebra argument has a conditional finite-family extension; no physical continuum, autonomous phase reference, protected localized particle or refinement theorem is supplied."
     }
   },
   "attachments": [
@@ -5565,6 +5572,50 @@
       "proof_kind": "Self-contained analytic full-hierarchy theorem from frozen centered source inputs; exact rational uniform bounds and complete-Fock countercontrols. No external renormalization theorem, no scalar-response-only promotion, no removal of Weyl valleys, no physical-species or Einstein completion.",
       "new_lean_inhabitant": false,
       "physical_identification": false
+    },
+    {
+      "id": "FA-83",
+      "title": "Complete native binary-occupation protection algebra and its executed boundary",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-03",
+        "CP-05"
+      ],
+      "reviewed_sources": [
+        "native_occupation_protection"
+      ],
+      "interface": {
+        "state": "Every input density and arbitrary reference on the complete 4096-state binary occupation component. Faithful product references establish the channel theorem; sector populations remain initial data. Cross-number extremal preparation is a separately declared component probe, not an admitted fixed-total V2 observer.",
+        "algebra": "The bare one-bit-per-port native endpoint law: full matrix blocks of dimensions binomial(12,N), N=1,...,11, and a scalar action on the two-dimensional empty/full span. Its commutant is C^11 direct_sum M_2. Distinct field-block factors and outside-projector repair instruments are not identified with this carrier.",
+        "operation": "Exact complete raw C/E partial injections, effect projectors and a signed transport forest over all thirty seams; faithful-reference and peripheral-spectrum arguments. The complete proper-code source realization at seam (0,5) checks all 4096 inputs by a 64-column active comparison plus spectator extension, and executes sixteen preparation/repair/readout histories with every output and first failure retained.",
+        "clock": "No physical clock, energy, decay rate or calibrated lifetime follows. Stationary-channel convergence is for a fixed positive selector and fixed endpoint weights. Finite classical record-adaptive preservation of the extremal code does not imply joint feedback mixing.",
+        "refinement": "The executed and certified component has twelve native ports. The connected-graph algebra argument has a conditional finite-family extension; no physical continuum, autonomous phase reference, protected localized particle or refinement theorem is supplied."
+      },
+      "conclusion": "On the original twelve-port binary occupation carrier, either complete C/E law and either fixed exchange character generate the direct sum of the full matrix algebra in every intermediate number sector and one scalar identity on the empty/full span. The fixed algebra is C^11 direct_sum M_2(empty,full). Exact moving effects and signed transport prove the classification; a faithful weighted reference and positive diagonal Kraus-span witness give the full stationary family and fixed-selector limiting channel. Every proper-port-local fixed observable is scalar. The only nontrivial passive quantum multiplicity is the global distance-one empty/full code, whose cross-number coherence is excluded by fixed-total V2. Sixteen complete source histories execute its preservation, local phase/pointer errors and a fixed-six-number dephasing control.",
+      "remaining": [
+        "Join a permitted protected field carrier to reference-compatible localization, charge, spin/statistics and the same physical detector and dynamical action; the bare binary classification does not classify the separate field-block instruments.",
+        "Construct any needed cross-number phase apparatus and continuing memory/controller law within the selected observer program; the extremal code itself is outside fixed-total V2 and has distance one.",
+        "Supply the interacting physical continuum, massive and massless sectors, common clock and independent units; no species or physical mass is inferred by this finite protection theorem."
+      ],
+      "witnesses": [
+        "model/native_fixed_algebra/OCCUPATION.md",
+        "model/native_fixed_algebra/occupation.py",
+        "model/native_fixed_algebra/occupation_contract.json",
+        "model/native_fixed_algebra/occupation_packet.py",
+        "model/native_fixed_algebra/occupation_results.json",
+        "model/native_fixed_algebra/occupation_service.py",
+        "model/native_fixed_algebra/test_occupation.py",
+        "model/native_fixed_algebra/test_occupation_packet.py",
+        "model/native_fixed_algebra/test_occupation_service.py"
+      ],
+      "countercontrols": [
+        "model/native_fixed_algebra/test_occupation.py",
+        "model/native_fixed_algebra/test_occupation_service.py",
+        "model/native_fixed_algebra/test_occupation_packet.py"
+      ],
+      "proof_kind": "Exact finite constructive generated-algebra, faithful-reference and Kraus-span proof with independent signed endpoint witnesses; bounded numerical complete-source execution and adversarial replay tests. Numerical admissions are not interval or hardware certificates. No V2 admission, physical species or broader field-protection exclusion.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
     }
   ],
   "cleanup": {
@@ -6419,7 +6470,16 @@
     "model/continuum_free_limit/test_algebra.py": "256b960abcb3572e23d22326fa4751aa06c9fcd2c16ba491780e60fb1e9e0b15",
     "model/continuum_free_limit/test_bounds.py": "9729dfe52631e4623f0bca9c81f4ac525b57f3683fdc91c48294b49d278b8dae",
     "model/continuum_free_limit/test_packet.py": "7a04a28249bf151767b2806966be93ad08abd4587e9e3926b43dedaea2127441",
-    "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex": "c4b0e0502142817672a6f6ef1c659252af602ef3fb35d41b1936a6465bd8853c"
+    "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex": "c4b0e0502142817672a6f6ef1c659252af602ef3fb35d41b1936a6465bd8853c",
+    "model/native_fixed_algebra/OCCUPATION.md": "a4d7435426631e144aac7109d5e431c42373ba3be08acfb6bb67d351d4cacf2f",
+    "model/native_fixed_algebra/occupation.py": "7f6eaa090a9f92380b21badd958f17ca9a54b1da2166782582a5d97a1149224a",
+    "model/native_fixed_algebra/occupation_contract.json": "3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67",
+    "model/native_fixed_algebra/occupation_packet.py": "fa7abf943d615aeedb78ac158e957bf6fd3c3f82f983339ad6befb5a6bb0e97a",
+    "model/native_fixed_algebra/occupation_results.json": "94f6a971c331e573753d3ae1aef943763179e1c46ee116d7cb570b0f62dd90a8",
+    "model/native_fixed_algebra/occupation_service.py": "45bad3dbf98484094ab9c5c82acd27f0f6bc9ff09f0a963b198312ce30dd2af6",
+    "model/native_fixed_algebra/test_occupation.py": "8eb4e1213bb12ecfcf6ee96654ab7f2800ddc8c4332c3fffcdd11dc6db0b315b",
+    "model/native_fixed_algebra/test_occupation_packet.py": "df84126bc74a9dc4d6c649f0c808b19de551c7fefbb79dddf09e9c98628605a0",
+    "model/native_fixed_algebra/test_occupation_service.py": "90f5f99433aee2418211935b57b965265224dc6775910ae7208c5ec70920b729"
   },
   "gate_acceptance_owner": "claims/completion_program.json",
   "predecessor_review": {

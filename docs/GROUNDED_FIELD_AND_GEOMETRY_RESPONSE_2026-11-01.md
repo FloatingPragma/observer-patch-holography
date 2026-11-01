@@ -5,7 +5,7 @@ adds finite ground preparation and charged readout, the full matrix
 spectrum and spatial inverse-response control on the infinite ground.
 The earlier results below retain their original proof and validation scope.
 
-The original three-dimensional Weyl/contact action now has a proved
+The original three-dimensional Weyl/contact action has a proved
 infinite-volume ground representation with positive excitation energy.
 The construction keeps its original zero chemical potential and all
 particle-number sectors. Its ground energy density has a convergent
@@ -14,7 +14,7 @@ also gives an exact matter-dependent propagation response, which connects
 the particle calculation to the existing geometry theorem interfaces.
 
 These results extend the [finite ground and relativistic mass calculation](INTERACTING_VACUUM_AND_RELATIVISTIC_MASS_2026-11-01.md).
-They close particular ground and response premises. They do not yet supply
+They close particular ground and response premises. They do not supply
 the controlled interacting chiral 3+1-dimensional continuum or a match to
 measured particle species.
 
@@ -23,7 +23,7 @@ measured particle species.
 The [ground construction](../model/thermodynamic_ground/README.md) uses the
 complete ground projector of each finite open box, extends it by an
 exterior vacuum, averages its spatial translates, and takes a weak-star
-subsequence. The local dynamics estimates already proved for the full CAR
+subsequence. The local dynamics estimates proved for the full CAR
 algebra control the boundary terms, including odd charged probes.
 
 The limiting state is translation invariant and gauge invariant. Its GNS
@@ -115,7 +115,7 @@ convergence on compact subsets of the upper half-plane. This convergence
 does not license exchanging the infinite-volume limit with a real-axis
 pole limit.
 
-The local down-addition spectrum above the finite ground is now fully
+The local down-addition spectrum above the finite ground is fully
 resolved: **78 distinct positive energy lines, with zero unresolved probe
 weight**. Exact polynomial annihilation and a matching cyclic-rank witness
 establish the complete support. Integer interval arithmetic isolates every
@@ -133,8 +133,8 @@ Some of the strongest lines are:
 | 1.08963895147 | 0.148656969335 |
 | 1.10825317547 | exactly 1/10 |
 
-The previously isolated symmetry contributions at `sqrt(3)/16` and
-`1+sqrt(3)/16` are now proved to be their entire respective line weights.
+The earlier isolated symmetry contributions at `sqrt(3)/16` and
+`1+sqrt(3)/16` are proved to be their entire respective line weights.
 The other 76 lines carry exactly `4/5` in total. The highest visible energy
 is approximately `1.83607446544239`. The lowest visible line is a property
 of this local probe; it is not asserted to be the minimum of every state
@@ -166,7 +166,7 @@ been substituted for that attachment.
 
 ## Particle masses and physical identification
 
-The previously calculated finite cube excitation energies and the massive
+The earlier calculated finite cube excitation energies and the massive
 one-dimensional continuation keep their stated domains. The latter's
 anchored rest energy `exp(-pi/8)/pi` and rest mass `64 exp(-pi/8)/pi` are
 properties of a chosen continuation; other continuations through the same
@@ -187,7 +187,7 @@ The two packages pass 76 focused tests and fresh receipt replays. The
 integration suite passes 492 tests and 22 subtests; the checks covering the
 reported CI failures pass another 123 tests. Independent review preserves
 all 84 canonical premise dispositions, 346 claim classifications, prior
-attachment rows and frozen comparison contracts. The finite map now has
+attachment rows and frozen comparison contracts. The finite map has
 64 realized scoped attachments among 69 reviewed domains, with no new
 physical identification or integrated completion gate accepted.
 

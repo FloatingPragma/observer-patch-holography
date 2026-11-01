@@ -12,6 +12,7 @@ from functools import lru_cache
 import hashlib
 import math
 
+import mpmath
 import numpy as np
 from scipy import sparse
 
@@ -154,9 +155,70 @@ def inverse_frame_word():
     return compiler.inverse(word)
 
 
+def integer_amplitude_word(values, *, probability=False):
+    """Compile exact integer amplitudes or squared weights reproducibly.
+
+    The normalization cancels from every conditional angle.  Form subtree
+    weights with integers, evaluate angles in a private fixed-precision
+    context, then form Walsh coefficients as exact sums of the represented
+    binary64 angles.  This avoids BLAS norm and host-libm choices changing
+    literal source words.  The independent interval certifier still checks
+    every emitted angle; this construction does not assert correct rounding.
+    All zero rotations and the original fixed tree schedule are retained.
+    """
+    if (type(values) not in (tuple, list) or type(probability) is not bool
+            or any(type(value) is not int for value in values)):
+        raise ValueError('exact integer amplitude or squared-weight data required')
+    size = len(values)
+    bits = (size-1).bit_length()
+    if not 7 <= bits <= 12 or size != 1 << bits or not any(values):
+        raise ValueError('a complete nonzero seven through twelve bit tree required')
+    if probability and min(values) < 0:
+        raise ValueError('squared weights must be nonnegative')
+    divisor = math.gcd(*values)
+    values = tuple(value//divisor for value in values)
+    weights = values if probability else tuple(value*value for value in values)
+    prefix = [0]
+    for value in weights:
+        prefix.append(prefix[-1]+value)
+    context = mpmath.mp.clone()
+    context.prec = 192
+    word = []
+    for target in reversed(range(bits)):
+        controls = bits-target-1
+        angles = []
+        for index in range(1 << controls):
+            start, half = index*(1 << (target+1)), 1 << target
+            if target == 0 and not probability:
+                a, b = values[start:start+2]
+                divisor = math.gcd(a, b)
+                x, y = ((context.mpf(a//divisor), context.mpf(b//divisor))
+                        if divisor else (context.mpf(0), context.mpf(0)))
+            else:
+                a = prefix[start+half]-prefix[start]
+                b = prefix[start+2*half]-prefix[start+half]
+                total = a+b
+                x, y = ((context.sqrt(context.mpf(a)/total),
+                         context.sqrt(context.mpf(b)/total))
+                        if total else (context.mpf(0), context.mpf(0)))
+            angles.append(F(float(-context.atan2(y, x))) if x or y else F())
+        for mask in range(1 << controls):
+            coefficient = sum((angle*(-1)**((index & mask).bit_count())
+                               for index, angle in enumerate(angles)), F())/(1 << controls)
+            label = ['I']*bits
+            label[target] = 'Y'
+            for control in range(controls):
+                if mask >> control & 1:
+                    label[target+1+control] = 'Z'
+            word += compiler.pauli_rotation(label, float(coefficient))
+    if len(word) != 3*((bits-1)*(1 << bits)+1):
+        raise ArithmeticError('the complete fixed amplitude-tree schedule changed')
+    return word
+
+
 def probability_word(data=None):
     data = design() if data is None else data
-    return compiler.compile_real_state(np.sqrt(data.probabilities()))
+    return integer_amplitude_word(data.column_norm_squared, probability=True)
 
 
 def conditional_word(index, data=None):
@@ -166,7 +228,7 @@ def conditional_word(index, data=None):
     # A reversible record-conditioned blanking of |j>, with its phase paid.
     word = [compiler.pulse('X', math.pi/2, [bit]) for bit in range(MODES) if index >> bit & 1]
     word += [compiler.pulse('I', -math.pi*index.bit_count()/2, [0])]
-    return word+compiler.compile_real_state(data.column(index))+inverse_frame_word()
+    return word+integer_amplitude_word([row[index] for row in data.numerator])+inverse_frame_word()
 
 
 @dataclass(frozen=True)

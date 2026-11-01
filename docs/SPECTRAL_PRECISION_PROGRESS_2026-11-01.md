@@ -49,7 +49,7 @@ state-dependent; it is not assigned as a universal positive rest mass.
 The classification has a fixed chain and charge/spin domain. It neither
 establishes localization in three dimensions nor predicts a measured mass.
 
-## A precision premise is now proved
+## A precision premise is proved
 
 The previous complete plaquette reference used an admitted 2e-11 execution
 tolerance. A new independent checker proves the error of its literal

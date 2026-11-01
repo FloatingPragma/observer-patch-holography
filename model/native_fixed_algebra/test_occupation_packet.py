@@ -130,13 +130,43 @@ def test_source_change_during_execution_is_rejected(monkeypatch, replay):
 
 
 def test_custody_covers_the_fixed_number_contract_and_new_sources(replay):
-    for path in ('model/completion/program_class_v2.json',
+    for path in ('model/completion/program_class_v2.py',
                  'model/native_fixed_algebra/occupation.py',
                  'model/native_fixed_algebra/occupation_service.py',
                  'model/native_fixed_algebra/occupation_packet.py',
                  'model/native_fixed_algebra/occupation_contract.json'):
         assert path in replay['source_sha256']
+    assert 'model/completion/program_class_v2.json' not in replay['source_sha256']
+    assert replay['program_class_contract_sha256'] == packet.CLASS_CONTRACT_SHA256
+    assert packet.class_contract_digest() == packet.CLASS_CONTRACT_SHA256
     assert all('\\' not in path for path in replay['source_sha256'])
+
+
+@pytest.mark.parametrize('key', sorted(set(strict_json.load(
+    packet.ROOT/'model/completion/program_class_v2.json'))-{'adoption'}))
+def test_every_non_adoption_class_clause_remains_pinned(monkeypatch, key):
+    value = strict_json.load(packet.ROOT/'model/completion/program_class_v2.json')
+    value[key] = {'changed_class_clause': True}
+    monkeypatch.setattr(packet.strict_json, 'load', lambda _: value)
+    with pytest.raises(ValueError, match='fixed-number V2 class contract'):
+        packet.class_contract_digest()
+
+
+def test_new_class_clause_cannot_evade_the_semantic_pin(monkeypatch):
+    value = strict_json.load(packet.ROOT/'model/completion/program_class_v2.json')
+    value['additional_class_clause'] = 'arbitrary total number now allowed'
+    monkeypatch.setattr(packet.strict_json, 'load', lambda _: value)
+    with pytest.raises(ValueError, match='fixed-number V2 class contract'):
+        packet.class_contract_digest()
+
+
+def test_independent_adoption_refresh_does_not_make_receipt_hash_recursive(monkeypatch):
+    value = strict_json.load(packet.ROOT/'model/completion/program_class_v2.json')
+    value['adoption']['independent_review']['sha256'] = 'f'*64
+    monkeypatch.setattr(packet.strict_json, 'load', lambda _: value)
+    # This is only the class-clause pin: the outer adoption checker must still
+    # authenticate any replacement independent review before accepting it.
+    assert packet.class_contract_digest() == packet.CLASS_CONTRACT_SHA256
 
 
 @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])

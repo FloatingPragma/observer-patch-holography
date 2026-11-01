@@ -48,6 +48,60 @@ def test_rational_tail_and_faithfulness_without_float_cancellation():
     assert result['full_minimum_weight'] > F(1, 400)
 
 
+@pytest.mark.parametrize('probability', [False, True])
+def test_integer_tree_scaling_and_host_rounding_independence(monkeypatch, probability):
+    values = [(j % 7)-3 for j in range(128)]
+    if probability:
+        values = [value*value for value in values]
+    expected = p.integer_amplitude_word(values, probability=probability)
+    def forbidden(*args, **kwargs):
+        raise AssertionError('an exact-data tree must not use host norm/atan2')
+    with monkeypatch.context() as context:
+        context.setattr(np.linalg, 'norm', forbidden)
+        context.setattr(math, 'atan2', forbidden)
+        with mp.workdps(5):
+            actual = p.integer_amplitude_word([value*(10**100+7) for value in values],
+                                              probability=probability)
+    assert actual == expected
+    assert len(actual) == 3*(6*128+1)
+
+
+@pytest.mark.parametrize('probability', [False, True])
+def test_integer_tree_retains_signed_target_and_all_zero_subtrees(probability):
+    from ..certified_reference import certificate
+    values = [0]*128
+    values[2], values[99] = (9, 16) if probability else (-3, 4)
+    word = p.integer_amplitude_word(values, probability=probability)
+    proof = certificate.amplitude_certificate(word, values, probability=probability, bits=7)
+    assert proof['offset'] == len(word)
+    assert proof['checked_conditional_nodes'] == 127
+    assert proof['tree_error'] < F(1, 10**13)
+    state = np.zeros((128, 1), complex)
+    state[0] = 1
+    paulis = {'X': np.array([[0, 1], [1, 0]]),
+              'Y': np.array([[0, -1j], [1j, 0]]),
+              'Z': np.diag([1, -1]), 'I': np.eye(2)}
+    paulis['H'] = (paulis['X']+paulis['Z'])/math.sqrt(2)
+    for event in word:
+        kind, angle = event['kind'], event['angle']
+        gate = (np.diag([np.exp(1j*angle)]*3+[1]) if kind == 'J' else
+                math.cos(angle)*np.eye(2)+1j*math.sin(angle)*paulis[kind])
+        state = compiler._apply(state, gate, event['targets'], 7)
+    expected = np.sqrt(values) if probability else np.array(values)
+    expected = expected/5
+    assert np.linalg.norm(state[:, 0]-expected) < 1e-12
+    assert any(event['angle'] == 0 for event in word)
+
+
+@pytest.mark.parametrize('values,probability', [
+    ([0]*128, False), ([1]*127, False), ([1.0]*128, False),
+    ([True]*128, False), ([-1]*128, True), ([1]*128, 1),
+])
+def test_integer_tree_rejects_changed_exact_data_domain(values, probability):
+    with pytest.raises(ValueError):
+        p.integer_amplitude_word(values, probability=probability)
+
+
 @pytest.mark.parametrize('site', p.GEOMETRY.sites)
 def test_native_onsite_frame_all_four_occupations(site):
     actual = compiler.execute(p.onsite_word(site), 2)

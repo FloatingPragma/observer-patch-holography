@@ -354,6 +354,13 @@ is still retained and checked. The retained JSON contains no platform-specific
 residual floors. Full numerical outputs remain available through
 `experiment(..., return_run=True)`.
 
+The V2 class is pinned by its existing `reviewed_contract_digest`, which
+includes every non-adoption clause, and by the validator source. Its separate
+adoption signature is checked by the outer completion gate. Excluding that
+signature from this receipt prevents a recursive hash when the independent
+adoption review records the occupation result; changing any class clause,
+including the fixed-total-number admission, is still rejected.
+
 ```sh
 python -m model.native_fixed_algebra.occupation_packet --check
 python -m pytest -q -W error model/native_fixed_algebra
