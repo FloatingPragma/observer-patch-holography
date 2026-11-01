@@ -79,8 +79,106 @@ def _native_sparse_storage(value):
         raise ValueError('native sparse storage scalars required')
 
 
+def _native_sparse_entries(value):
+    """Validate native storage and yield its addressed entries without casts.
+
+    Compressed tail capacity and DIA padding are not matrix entries. Duplicate
+    COO/compressed entries are legitimate and are summed over Z by the caller.
+    """
+    def refuse():
+        raise ValueError('consistent native sparse integer storage required')
+
+    def integer(item):
+        if (type(item) not in _NATIVE_SPARSE_SCALARS or
+                item is None or isinstance(item, (bool, np.bool_))):
+            refuse()
+        return int(item)
+
+    def array(item, rank, kinds='iu'):
+        if type(item) is not np.ndarray or item.ndim != rank or item.dtype.kind not in kinds:
+            refuse()
+        return item
+
+    shape = value.shape
+    if type(shape) is not tuple or len(shape) != 2:
+        refuse()
+    rows, columns = map(integer, shape)
+    if rows < 0 or columns < 0:
+        refuse()
+
+    def index(item, size):
+        result = integer(item)
+        if not 0 <= result < size:
+            refuse()
+        return result
+
+    form = value.format
+    if form == 'coo':
+        data = array(value.data, 1)
+        if type(value.coords) is not tuple or len(value.coords) != 2:
+            refuse()
+        row, column = (array(item, 1) for item in value.coords)
+        if len(row) != len(data) or len(column) != len(data):
+            refuse()
+        for r, c, entry in zip(row, column, data, strict=True):
+            yield index(r, rows), index(c, columns), int(entry)
+    elif form in ('csr', 'csc', 'bsr'):
+        data = array(value.data, 3 if form == 'bsr' else 1)
+        indices, pointers = array(value.indices, 1), array(value.indptr, 1)
+        height, width = data.shape[1:] if form == 'bsr' else (1, 1)
+        if height <= 0 or width <= 0:
+            refuse()
+        # BSR permits an incomplete bottom/right fringe representing zeros.
+        major, minor = ((columns, rows) if form == 'csc'
+                        else (rows//height, columns//width))
+        if len(pointers) != major+1 or len(indices) != len(data):
+            refuse()
+        positions = [int(item) for item in pointers]
+        if (positions[0] != 0 or positions[-1] > len(data) or
+                any(a > b for a, b in zip(positions, positions[1:]))):
+            refuse()
+        for outer, (start, stop) in enumerate(zip(positions, positions[1:])):
+            for slot in range(start, stop):
+                inner = index(indices[slot], minor)
+                if form == 'bsr':
+                    for r in range(height):
+                        for c in range(width):
+                            yield outer*height+r, inner*width+c, int(data[slot, r, c])
+                elif form == 'csc':
+                    yield inner, outer, int(data[slot])
+                else:
+                    yield outer, inner, int(data[slot])
+    elif form == 'dia':
+        data, offsets = array(value.data, 2), array(value.offsets, 1)
+        diagonal_offsets = [int(item) for item in offsets]
+        if len(data) != len(offsets) or len(set(diagonal_offsets)) != len(offsets):
+            refuse()
+        for diagonal, offset in enumerate(diagonal_offsets):
+            for c in range(max(0, offset), min(columns, data.shape[1], rows+offset)):
+                yield c-offset, c, int(data[diagonal, c])
+    elif form == 'lil':
+        row_indices, row_values = array(value.rows, 1, 'O'), array(value.data, 1, 'O')
+        if len(row_indices) != rows or len(row_values) != rows:
+            refuse()
+        for r, (indices, entries) in enumerate(zip(row_indices, row_values, strict=True)):
+            if type(indices) is not list or type(entries) is not list or len(indices) != len(entries):
+                refuse()
+            for c, entry in zip(indices, entries, strict=True):
+                c = index(c, columns)
+                yield r, c, integer(entry)
+    elif form == 'dok':
+        if type(value._dict) is not dict:
+            refuse()
+        for key, entry in value._dict.items():
+            if type(key) is not tuple or len(key) != 2:
+                refuse()
+            yield index(key[0], rows), index(key[1], columns), integer(entry)
+    else:
+        refuse()
+
+
 def _integer_numerator(numerator):
-    """Coalesce original integer entries over Z before creating int64 CSR."""
+    """Coalesce original addressed integer entries over Z into int64 CSR."""
     if sparse.issparse(numerator) and type(numerator) not in _STANDARD_SPARSE_TYPES:
         # A subclass can hide original entries by overriding format conversion.
         # Refuse it before dispatching any sparse method or reading its data.
@@ -97,12 +195,16 @@ def _integer_numerator(numerator):
     if (original.ndim != 2 or original.shape[0] != original.shape[1]
             or original.dtype.kind not in 'iu'):
         raise ValueError('square integer H numerator required')
-    # COO exposes stored entries without summing duplicates. In particular,
-    # converting COO straight to CSR, or astype on a sparse matrix, can first
-    # coalesce in a fixed-width dtype and silently overflow.
-    entries = original.tocoo(copy=True) if sparse.issparse(original) else sparse.coo_matrix(original)
+    # Native conversion may truncate malformed indices, prune inconsistent
+    # buffers or coalesce duplicates in a narrow dtype. Read validated native
+    # storage directly; dense conversion only receives a base integer ndarray.
+    if sparse.issparse(original):
+        entries = _native_sparse_entries(original)
+    else:
+        dense_entries = sparse.coo_matrix(original)
+        entries = zip(dense_entries.row, dense_entries.col, dense_entries.data, strict=True)
     totals = {}
-    for row, column, value in zip(entries.row, entries.col, entries.data, strict=True):
+    for row, column, value in entries:
         key = int(row), int(column)
         totals[key] = totals.get(key, 0)+int(value)
     if any(abs(value) > INTMAX for value in totals.values()):

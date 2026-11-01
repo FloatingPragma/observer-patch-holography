@@ -98,6 +98,156 @@ def test_dok_stored_integer_subclass_cannot_change_conversion_value():
         g.verify_gram(h, q)
 
 
+@pytest.mark.parametrize('form', ['coo', 'dia'])
+@pytest.mark.parametrize('kind', ['matrix', 'array'])
+@pytest.mark.parametrize('dtype', [np.float64, np.float32, np.complex128, np.bool_])
+def test_noninteger_sparse_coordinates_are_refused_before_conversion(form, kind, dtype):
+    h = getattr(sparse, f'{form}_{kind}')(np.zeros((2, 2), dtype=np.int64))
+    if form == 'coo':
+        h.coords = (np.array([.5], dtype=dtype), np.array([0], dtype=dtype))
+        h.data = np.array([0], dtype=np.int64)
+    else:
+        h.offsets = np.array([.5], dtype=dtype)
+        h.data = np.zeros((1, 2), dtype=np.int64)
+    with pytest.raises(ValueError, match='native sparse'):
+        g.verify_gram(h, np.zeros((2, 2), dtype=np.int64), F(1))
+
+
+def _scalar_residual(h, q):
+    n = len(h)
+    return max(sum(abs(F(int(h[i, j]), 16)+(F(27, 64) if i == j else 0)-
+                       sum(F(int(q[i, k])*int(q[j, k]), 1 << 40)
+                           for k in range(n))) for j in range(n))
+               for i in range(n))
+
+
+@pytest.mark.parametrize('kind', ['matrix', 'array'])
+@pytest.mark.parametrize('form', ['coo', 'csr', 'csc', 'bsr', 'dia', 'lil', 'dok'])
+def test_all_native_sparse_formats_match_independent_rational_oracle(form, kind):
+    dense = np.array([[2, -1, 0], [-1, 3, 1], [0, 1, -2]], dtype=np.int64)
+    q = np.array([[1 << 18, 3, -2], [7, 1 << 17, 0], [0, 5, 1 << 16]], dtype=np.int64)
+    h = getattr(sparse, f'{form}_{kind}')(dense)
+    assert g.verify_gram(h, q, F(2)) == _scalar_residual(dense, q)
+    assert np.array_equal(h.toarray(), dense)
+
+
+@pytest.mark.parametrize('form', ['csr', 'csc', 'bsr'])
+@pytest.mark.parametrize('buffer', ['indices', 'indptr'])
+@pytest.mark.parametrize('dtype', [np.float64, np.complex128, np.bool_])
+def test_compressed_coordinate_and_pointer_dtypes_are_checked(form, buffer, dtype):
+    h = sparse.eye(2, dtype=np.int64, format=form)
+    setattr(h, buffer, getattr(h, buffer).astype(dtype))
+    with pytest.raises(ValueError, match='native sparse'):
+        g.verify_gram(h, np.zeros((2, 2), dtype=np.int64), F(1))
+
+
+@pytest.mark.parametrize('form', ['csr', 'csc', 'bsr'])
+@pytest.mark.parametrize('damage', ['negative_index', 'outside_index', 'nonzero_start',
+                                  'decreasing', 'outside_end', 'short_pointer',
+                                  'unequal_buffers', 'rank', 'unsigned_endpoint'])
+def test_compressed_malformed_addressed_structure_is_refused(form, damage):
+    h = sparse.eye(2, dtype=np.int64, format=form)
+    if damage == 'negative_index': h.indices[0] = -1
+    elif damage == 'outside_index': h.indices[0] = 2
+    elif damage == 'nonzero_start': h.indptr[0] = 1
+    elif damage == 'decreasing': h.indptr[:] = [0, 2, 1]
+    elif damage == 'outside_end': h.indptr[-1] = 3
+    elif damage == 'short_pointer': h.indptr = h.indptr[:-1]
+    elif damage == 'unequal_buffers': h.indices = h.indices[:-1]
+    elif damage == 'rank': h.indices = h.indices.reshape(1, -1)
+    elif damage == 'unsigned_endpoint': h.indptr = np.array([0, 1, 1 << 63], dtype=np.uint64)
+    with pytest.raises(ValueError, match='native sparse'):
+        g.verify_gram(h, np.zeros((2, 2), dtype=np.int64), F(1))
+
+
+@pytest.mark.parametrize('form', ['csr', 'csc', 'bsr'])
+@pytest.mark.parametrize('kind', ['matrix', 'array'])
+def test_compressed_duplicates_unsorted_entries_and_unused_capacity_are_preserved(form, kind):
+    dense = np.array([[2, 1], [1, 3]], dtype=np.int64)
+    data = np.array([1, 1, 1, 3, 1, -(1 << 63), 1 << 62], dtype=np.int64)
+    indices = np.array([1, 0, 0, 1, 0, -9, 999], dtype=np.int64)
+    # Assign the tail after construction: SciPy constructors may prune capacity.
+    constructor = getattr(sparse, f'{form}_{kind}')
+    h = constructor(dense)
+    h.data = data[:, None, None] if form == 'bsr' else data
+    h.indices, h.indptr = indices, np.array([0, 3, 5], dtype=np.int64)
+    before = h.data.copy()
+    q = np.zeros((2, 2), dtype=np.int64)
+    assert g.verify_gram(h, q, F(2)) == _scalar_residual(dense, q)
+    assert np.array_equal(h.data, before) and len(h.indices) == 7
+
+
+@pytest.mark.parametrize('kind', ['matrix', 'array'])
+def test_bsr_incomplete_fringe_is_a_valid_zero_extension(kind):
+    h = getattr(sparse, f'bsr_{kind}')((np.array([[[2, 1], [1, 3]]], dtype=np.int64),
+                                      np.array([0]), np.array([0, 1])), shape=(3, 3))
+    dense = np.array([[2, 1, 0], [1, 3, 0], [0, 0, 0]], dtype=np.int64)
+    q = np.zeros((3, 3), dtype=np.int64)
+    assert np.array_equal(h.toarray(), dense)
+    assert g.verify_gram(h, q, F(2)) == _scalar_residual(dense, q)
+
+
+@pytest.mark.parametrize('damage', ['data_rank', 'zero_height', 'zero_width'])
+def test_invalid_bsr_block_storage_is_refused(damage):
+    h = sparse.bsr_matrix(np.eye(2, dtype=np.int64))
+    h.data = np.zeros({'data_rank': (2, 1), 'zero_height': (2, 0, 1),
+                       'zero_width': (2, 1, 0)}[damage], dtype=np.int64)
+    with pytest.raises(ValueError, match='native sparse'):
+        g.verify_gram(h, np.zeros((2, 2), dtype=np.int64), F(1))
+
+
+@pytest.mark.parametrize('form,damage', [('coo', 'length'), ('coo', 'rank'),
+                                      ('coo', 'negative'), ('coo', 'outside'),
+                                      ('dia', 'duplicate'), ('dia', 'length'),
+                                      ('dia', 'rank'), ('lil', 'length'),
+                                      ('lil', 'outside'), ('lil', 'outer_length'),
+                                      ('dok', 'outside'), ('dok', 'key_length'),
+                                      ('dok', 'none')])
+def test_other_native_malformed_storage_is_refused(form, damage):
+    h = sparse.eye(2, dtype=np.int64, format=form)
+    if form == 'coo':
+        row, col = h.coords
+        if damage == 'length': row = row[:-1]
+        elif damage == 'rank': row = row.reshape(1, -1)
+        elif damage == 'negative': row[0] = -1
+        elif damage == 'outside': col[0] = 2
+        h.coords = row, col
+    elif form == 'dia':
+        if damage == 'duplicate':
+            h.offsets = np.array([0, 0]); h.data = np.ones((2, 2), dtype=np.int64)
+        elif damage == 'length': h.data = np.zeros((2, 2), dtype=np.int64)
+        elif damage == 'rank': h.offsets = h.offsets.reshape(1, -1)
+    elif form == 'lil':
+        if damage == 'length': h.data[0] = []
+        elif damage == 'outside': h.rows[0] = [2]
+        elif damage == 'outer_length': h.rows = h.rows[:-1]
+    else:
+        h._dict = {({'outside': (2, 0), 'key_length': (0,), 'none': (None, 0)}[damage]): 0}
+    with pytest.raises(ValueError, match='native sparse'):
+        g.verify_gram(h, np.zeros((2, 2), dtype=np.int64), F(1))
+
+
+def test_dia_padding_and_empty_diagonals_are_not_matrix_entries():
+    ignored = -(1 << 63)
+    h = sparse.dia_matrix((3, 3), dtype=np.int64)
+    h.offsets = np.array([-1, 0, 1, 1 << 62], dtype=np.int64)
+    h.data = np.array([[1, 1, ignored, ignored, ignored],
+                       [2, 3, 4, ignored, ignored],
+                       [ignored, 1, 1, ignored, ignored],
+                       [ignored]*5], dtype=np.int64)
+    dense = np.array([[2, 1, 0], [1, 3, 1], [0, 1, 4]], dtype=np.int64)
+    q = np.zeros((3, 3), dtype=np.int64)
+    assert g.verify_gram(h, q, F(2)) == _scalar_residual(dense, q)
+
+
+def test_lil_unsorted_duplicate_entries_are_summed_over_integers():
+    h = sparse.lil_matrix((3, 3), dtype=np.int64)
+    h.rows[0], h.data[0] = [2, 0, 2], [1 << 62, 2, -(1 << 62)]
+    dense = np.diag(np.array([2, 0, 0], dtype=np.int64))
+    q = np.zeros((3, 3), dtype=np.int64)
+    assert g.verify_gram(h, q, F(1)) == _scalar_residual(dense, q)
+
+
 @pytest.mark.parametrize('numerator,denominator', [(1, -1), (1, 0), (True, 1), (1, True)])
 def test_malformed_fraction_ceiling_cannot_bypass_exact_residual_admission(numerator, denominator):
     ceiling = F(1)
