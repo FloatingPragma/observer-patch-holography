@@ -1,0 +1,122 @@
+\paragraph{An all-valley positive-energy continuum field net.}
+There is now a spacing-limit construction beyond fixed-lattice response.
+Take $c(a)=v/a$, fixed $v>0$, and $0\leq U(a)\leq U_{\max}<\infty$.
+At each spacing retain the full original Weyl/contact dynamics and a
+translation-invariant full ground.  On centered cells
+$C_{a,n}=a(n+[-1/2,1/2)^3)$ define
+\[
+ (J_af)(n)=a^{-3/2}\int_{C_{a,n}}f(x)\,dx,
+ \qquad P_a=J_a^*J_a.
+\]
+Cellwise Cauchy--Schwarz and coordinate averaging give
+$\|J_a\|\leq1$ and
+$\|P_af-f\|\leq a\sum_j\|\partial_jf\|$ for $f\in H^1$.
+Thus $P_a\to I$ strongly.  For every $b\in\{0,1\}^3$ set
+$M_bu(n)=(-1)^{b\cdot n}u(n)$ and
+$C_{a,b}(f)=c(M_bJ_af)$, with the conventional antilinear annihilator.
+All eight valleys evolve under the original full Hamiltonian.
+Writing $D_{a,j}f=[f(\cdot+ae_j)-f(\cdot-ae_j)]/(2a)$ gives
+\[
+ h_aM_bJ_af=M_bJ_a\!\left[iv\sum_j(-1)^{b_j}\sigma_jD_{a,j}f\right],
+ \qquad \|h_aM_bJ_af\|\leq v\sum_j\|\partial_jf\|.
+\]
+For $b\ne d$, shifting one lattice step in a coordinate where they
+differ reverses the cross-valley pairing.  Subtracting the shifted
+pairing proves
+\[
+ |\langle M_bJ_af,M_dJ_ag\rangle|
+ \leq\frac a2\left(\|\partial_jf\|\|g\|
+                         +\|f\|\|\partial_jg\|\right).
+\]
+The limiting equal-time fields therefore have the full continuum CAR
+over $L^2(\mathbb R^3;\mathbb C^2)\otimes\mathbb C^8$.
+
+The necessary time estimate holds in the full CAR operator norm.
+For $B(u)=\sum_{x\sigma}\overline{u_{x\sigma}}
+n_{x\bar\sigma}c_{x\sigma}$, the onsite anticommutator is positive and
+obeys $\{B(u_x),B(u_x)^*\}\leq\|u_x\|^2I$.
+Different-site odd anticommutators vanish, hence $\|B(u)\|\leq\|u\|$.
+The exact contact commutator consequently gives
+\[
+ \|\tau_{a,t}(C_{a,b}(f))-\tau_{a,s}(C_{a,b}(f))\|
+ \leq |t-s|\left(v\sum_j\|\partial_jf\|+U_{\max}\|f\|\right).
+\]
+This avoids an extensive interaction-norm estimate.
+
+A diagonal subsequence of spacings makes every word in a countable
+dense set of smooth smears, rational times and all eight valleys
+converge simultaneously.  The displayed time and norm estimates extend
+the limits to all $L^2$ smears and real times.  Polynomial positivity,
+norm bounds and the CAR pass to the limit and construct bounded fields
+in one GNS representation.  Common time shifts are strongly continuous.
+Nearest \emph{even} lattice translations approximate every physical
+translation while keeping all valley phases equal to one, so continuous
+spatial translations also act on the limiting net.  For every multi-time
+polynomial $X$, the correlations
+$\omega_a(X_a^*\tau_{a,t}(X_a))$ have nonnegative energy support and
+converge uniformly on compact time intervals.  Testing against smooth
+negative-energy spectral functions and using dominated convergence
+therefore proves a nonnegative generator on the entire limiting GNS
+space, not only on linear-field vectors.
+
+Graded locality also survives with an explicit bound.  Suppose $f$ is
+supported in $[-r,r]^3$, $g$ outside $[-R,R]^3$, and put
+$\delta=(R-r)/2-48vT>0$.  For
+$0<a\leq\min\{1,(R-r)/8\}$ and $|t|\leq T$, the original full-CAR
+bound, with lattice radii $\lceil r/a\rceil+1$ and
+$\lfloor R/a\rfloor-1$, yields
+\begin{align*}
+ \|\{\tau_{a,t}(C_{a,b}(f)),C_{a,d}(g)^\#\}\|
+ &\leq192vT(2r+5)^3(2R+1)^2\|f\|\|g\|
+                          a^{-6}e^{-\delta/a}\\
+ &\leq192\cdot7!vT(2r+5)^3(2R+1)^2\|f\|\|g\|
+                          \frac{a}{\delta^7}.
+\end{align*}
+Here $\#$ allows an adjoint or no adjoint.
+Inserting this norm estimate between arbitrary polynomial vectors makes
+the limiting anticommutator the zero operator.  A finite partition of
+unity extends the result to separated compact supports.  The continuum
+net thus has exact graded locality at sup-norm distance greater than
+$96v|t-s|$.  This is a conservative propagation cone, not a Lorentz metric.
+
+There is a further uniform response bound on every physical momentum
+window $|p|\leq P$ around any retained valley.  These windows reduce the
+translation-invariant response and have kinetic norm at most $vP$.
+The exact Schur formula gives
+\[
+ \|\mathcal G_a(z)^{-1}\|_{P}
+ \leq |z|+vP+\frac{U_{\max}}2
+                   +\frac{U_{\max}^2}{4\operatorname{Im}z},
+ \qquad
+ -\operatorname{Im}\mathcal G_a(z)
+ \geq\frac{\operatorname{Im}z}{(|z|+vP+U_{\max})^2}I_P.
+\]
+These bounds are uniform in spacing away from real frequency.  The
+cell-average map differs from the exact band isometry by at most
+$a^2P^2/24$, so the two conventions have the same limiting correlations.
+Weak convergence alone does not allow interchanging the inverse and limit.
+
+\paragraph{A norm-controlled free limit and the remaining interacting step.}
+A Duhamel comparison with the free lattice evolution uses only
+$\|B(u)\|\leq\|u\|$ and gives an error at most $|U(a)t|\|u\|$.
+The central-difference remainder then gives, for $f\in H^3$ and
+$h_b=iv\sum_j(-1)^{b_j}\sigma_j\partial_j$,
+\[
+ \|\tau_{a,t}(C_{a,b}(f))-C_{a,b}(e^{it h_b}f)\|
+ \leq|t|\left(U(a)\|f\|
+             +\frac{va^2}{6}\sum_j\|\partial_j^3f\|\right).
+\]
+If $U(a)\to0$, the limiting dynamics is exactly the free eight-valley
+Weyl dynamics.  Positive energy forces positive-band annihilators and
+negative-band creators to annihilate the ground.  The one-particle
+zero-energy kernel is zero in $L^2$; spectral-band approximation and the
+CAR recurrence therefore uniquely determine the filled-sea quasifree
+state and all its moments.  This is a controlled free continuum, not the
+required interacting one.
+
+For bounded positive limiting $U$, the construction still gives the full
+positive-energy continuum field net, but it has not proved that a connected
+interaction survives, selected a unique limiting state, or derived Lorentz
+covariance.  Its propagation cone and positive energy supply no common
+physical stress, geometric modular flow, renormalized area stationarity
+or completed G1--G6 Einstein package.

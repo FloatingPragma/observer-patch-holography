@@ -1,0 +1,102 @@
+\paragraph{Native preparation of the same ground and its charged response.}
+The original cube ground and its local charged spectral measure now have
+an explicit native source preparation and readout.  The exact
+highest-weight ground $G$, with $N=4$ and $E_G=-\sqrt3/4$, has 62 nonzero
+hidden-up occupation amplitudes $(a+b\sqrt3)/36$, where $a,b$ are integers
+and $ab=0$.  Its squared amplitudes are therefore exact integers divided
+by 1296.  These source-derived weights and signs determine an eight-bit
+binary amplitude tree; no fitted spectrum or unknown-state oracle is used.
+The existing compiler emits 5,379 literal native pulses.  An independent
+rational interval check consumes every event, inverts the Walsh layers,
+and verifies the sine and cosine of each conditional rotation against
+the exact signed square-root ratios.  Disjoint control blocks give a
+maximum error per level, and telescoping the levels and complete native
+load/export maps bounds the full initialized preparation, including aborts.
+
+Eight blank down modes are included by an exact isometric embedding into
+all 65,536 Fock rows.  A further 184 native pulses apply the inverse
+onsite frame.  Each local frame word is checked on its full four-state
+Fock space, including vacuum and doublon phases, using
+$e^{is\pi P/4}=(I+isP)/\sqrt2$ and Gaussian-integer products.
+Its literal-angle and native-instrument errors are separately enclosed.
+The resulting complete preparation-state error is below $10^{-10}$;
+the retained exact bound is approximately $8.67\times10^{-13}$.
+
+At the origin the hidden and original frames coincide, and the down
+mode is empty in $G$.  Thus
+\[
+\gamma_1=Z_0X_1=c_1+c_1^\dagger,
+\qquad \gamma_1G=c_1^\dagger G,
+\qquad \|\gamma_1G\|=1.
+\]
+The Jordan--Wigner sign is essential: replacing $Z_0X_1$ by $X_1$
+produces an orthogonal probe because the exact up occupation is $1/2$.
+This unitary creation preserves the entire initial exterior CAR state:
+disjoint even observables commute, and exterior odd expectations vanish
+in both definite-parity states.  The origin-down occupation changes from
+zero to one and total number from four to five.  Its mean added energy
+is $1/2$ with variance $67/256$; this is a localized initial defect with a
+conserved number flag, not a persistent localization or mass-eigenstate
+claim.
+A 27-pulse pointer word prepares
+$(|0\rangle G+|1\rangle\gamma_1G)/\sqrt2$.
+Its controlled Majorana is the product of commuting Pauli rotations in
+$\exp[i\pi(I-Z_{\rm pointer})(I-\gamma_1)/4]$.
+This explicitly supplied native qubit service maintains a phase relation
+between the $N=4$ and $N=5$ arms; it does not derive a physical
+fermion-parity reference from passive repair.
+
+Both arms evolve under the same original Hamiltonian.  With a second
+controlled Majorana and pointer analyzer of phase $\phi$,
+\begin{align*}
+C(t)&=\langle\gamma_1G,e^{-it(H-E_G)}\gamma_1G\rangle,\\
+P_0(\phi,t)&=\tfrac12\left[1+\operatorname{Re}
+                         (e^{i\phi}C(t))\right].
+\end{align*}
+The ground-energy phase is supplied by the evolving reference arm;
+no separate scalar offset is inserted into the source law.
+The two executed settings have $t=1$ and $\phi=0,\pi/2$.
+Each setting uses two half-time segments, each with 32 symmetric
+splitting steps and 337,920 native pulses, followed by a 29-pulse
+analyzer.  Including its ground preparation and pointer, a complete
+setting uses 681,459 pulses on the full 17-bit field/pointer register.
+
+\paragraph{Protection and complete output accounting.}
+The five C repair seams follow the first time segment, and the five E
+seams follow the second.  The complete repair theorem acts as identity
+on $N4\oplus N5$, including cross-number coherences: all native branches
+vanish there, and the outside branch is identity.  This is passive
+protection during the waits.  Preparation and control words are not
+claimed to remain in this subspace at every intermediate pulse.
+The final inverse Majorana can create an $N=6$ component after the
+charged particle has moved; no repair is applied after that analyzer.
+
+Every source first-export failure is retained as its own terminal
+record.  The numerical execution also retains all 130 repair outcome
+slots, including off-subspace outputs from control error, and all six
+final pointer outcomes.  A native repair outcome terminates with that
+record; continuation uses the outside branch without renormalization.
+The lossless archive retains the prepared full ground, both full final
+states and every first-failure weight table.  Individual failure vectors
+remain addressable from their actual source prefixes.
+
+\paragraph{Connection to the resolved spectrum.}
+All field and pointer words are consumed against the exact source
+templates.  Their complete operator errors, the preparation error and
+the full-Fock Strang errors of both time segments give a complete output
+error below $3/5000$ for either setting.  Contractivity through the
+complete repair and readout channels preserves the telescoping bound.
+The same bound controls each unconditioned pointer probability.
+Independently, the 78 certified spectral intervals evaluate
+\[
+C(t)=\sum_{j=1}^{78}w_j e^{-i\Delta E_jt}
+\]
+with rational sine and cosine enclosures.  Adding the source error gives
+certified pointer intervals, checked against the literal execution and
+an independent exponential of the original Hamiltonian.  The
+$\pi/2$ outcome is separated from $1/2$; the $U=0$ comparator has the
+purely real response $\cos(\sqrt3t/16)$.  Zero-time native runs check the
+analyzers as well.  These two settings measure the charged characteristic
+function.  They do not independently resolve all 78 lines, select an
+autonomous ground, prepare a thermodynamic vacuum, establish laboratory
+units, or turn finite energy gaps into relativistic particle masses.

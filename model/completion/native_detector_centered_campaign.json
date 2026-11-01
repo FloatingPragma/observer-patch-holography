@@ -1,0 +1,204 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws remain admitted inputs. The original source and its finite native detector are preserved. A separately declared charge clock H-(U/2)N and its newly constructed ground are derived from source particle-hole symmetry; neither the original ground nor its energies are silently reinterpreted. The centered bounded-contact continuum retains all eight valleys; uniform finite-energy escape of its composite force yields a free massless fermion hierarchy, not the required interacting physical endpoint.",
+  "original_source_law_changed": false,
+  "explicit_alternative_charge_clock_added": "H-(U/2)N with its own ground",
+  "component_results": [
+    {
+      "id": "native_spectral_detector",
+      "issues": [
+        1138,
+        1139,
+        1142,
+        1143
+      ],
+      "result": "On the unchanged original zero-chemical-potential cube, a finite fifteen-word spin quadrature and native selector prepare the invariant ground reference P_ground/5 with complete state error below 1e-9. A complete native charge instrument retains both c-dagger and c branches. The executed two-bit phase clock applies controlled original-action histories through model time three and realizes all four positive Fejer energy effects, retaining all 78 positive source lines in its binned law. All 262144 quantum rows and 30 classical selector/charge columns are propagated without a number, spectral or amplitude projection. The longest complete history has 612666 source pulses and certified total-variation error below 3/100. All 3240 joint selector/tag/clock slots, selector stops and every first-export failure are retained. Four broad bins do not separately identify 78 lines or measured physical particles.",
+      "evidence": [
+        "model/native_spectral_detector/README.md",
+        "model/native_spectral_detector/__init__.py",
+        "model/native_spectral_detector/__main__.py",
+        "model/native_spectral_detector/bounds.py",
+        "model/native_spectral_detector/circuits.py",
+        "model/native_spectral_detector/conftest.py",
+        "model/native_spectral_detector/contract.cpp",
+        "model/native_spectral_detector/contraction.py",
+        "model/native_spectral_detector/execution.py",
+        "model/native_spectral_detector/experiment.py",
+        "model/native_spectral_detector/packet.py",
+        "model/native_spectral_detector/preparation.py",
+        "model/native_spectral_detector/results.json",
+        "model/native_spectral_detector/results.npz",
+        "model/native_spectral_detector/results.state-0.npz",
+        "model/native_spectral_detector/results.state-1.npz",
+        "model/native_spectral_detector/results.state-2.npz",
+        "model/native_spectral_detector/results.state-3.npz",
+        "model/native_spectral_detector/results.state-4.npz",
+        "model/native_spectral_detector/test_circuits.py",
+        "model/native_spectral_detector/test_execution.py",
+        "model/native_spectral_detector/test_experiment.py",
+        "model/native_spectral_detector/test_packet.py",
+        "model/native_spectral_detector/test_preparation.py",
+        "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex"
+      ],
+      "remaining": [
+        "Execute controlled higher-resolution or complete matrix spectroscopy where separate spectral lines or all spatial/spin coherences must be measured.",
+        "Construct native preparation and detector readout for any explicitly changed centered reference rather than reusing the original ground state.",
+        "Supply numerical infinite-ground state errors and real-frequency continuum control on one common state, clock and observable family.",
+        "Identify physical Lorentz spin, charges, detector observables, common units and relativistic dispersion before assigning measured species or rest masses.",
+        "Realize surviving continuum interactions and the same-family geometric modular, stress, area and Einstein-balance requirements."
+      ]
+    },
+    {
+      "id": "continuum_cpt_constraint",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "For every bounded-contact continuum subsequence with U(a)->U0, the signed response averaged over all sixteen canonical components of a real even normalized packet has mean U0/2 and second moment at most C=v^2||gradient phi||^2+U0^2/2. A vacuum antiunitary preserving the same positive generator and mapping this multiplet unitarily to its adjoints forces addition/removal trace measures equal. Thus that precise CPT dictionary is excluded for U0>0. Its reflection asymmetry obeys TV>=U0^2/(4C) and W1>=U0, with an explicit bounded clipped-energy witness. Scalar charge-clock centering kappa=U0/2 is necessary but does not establish a ground or a relativistic theory.",
+      "evidence": [
+        "model/continuum_cpt_constraint/README.md",
+        "model/continuum_cpt_constraint/__init__.py",
+        "model/continuum_cpt_constraint/__main__.py",
+        "model/continuum_cpt_constraint/algebra.py",
+        "model/continuum_cpt_constraint/bounds.py",
+        "model/continuum_cpt_constraint/packet.py",
+        "model/continuum_cpt_constraint/results.json",
+        "model/continuum_cpt_constraint/test_constraint.py",
+        "model/continuum_cpt_constraint/test_packet.py",
+        "paper/tex_fragments/CONTINUUM_CPT_CONSTRAINT.tex"
+      ],
+      "remaining": [
+        "Derive the actual relativistic symmetry action on the physical fields, including any CPT theorem hypotheses, before applying this conditional dictionary constraint to a physical candidate.",
+        "If changing the charged clock or reference, prove positivity, select the resulting ground and recompute its response; the necessary centering alone does not do so.",
+        "Determine whether the nonzero-coupling continuum has surviving interactions and its relevant real-frequency spectral sectors.",
+        "Derive physical particle quantum numbers, detector maps and independently calibrated masses while retaining all additional valleys absent a controlled removal mechanism.",
+        "Construct the same-family stress, modular, geometric and Einstein-balance premises."
+      ]
+    },
+    {
+      "id": "continuum_composite_channel",
+      "issues": [
+        1142,
+        1145
+      ],
+      "result": "For the unchanged Weyl/contact action, d_sigma=(2 n_opposite-1)c_sigma is an exact onsite-unitary image of the original CAR field, and [H,c(u)]=-c((h+U/2)u)-(U/2)d(u). Under c=v/a with bounded nonnegative U, the same-ground occupation-defect estimate and free covariance trace identity give an explicit vanishing bound for spatially smeared mixed normal and anomalous CAR defects. A uniform finite-degree Dyson approximation, proved by Bernstein bounds on contact and one-body unitary orbits, makes these defects vanish on every finite-time polynomial GNS context. Adjoining equal-time composite smearings on a common subsequence constructs two algebraically independent copies of the complete eight-valley continuum CAR family without adding microscopic modes. The original positive-energy cyclic representation is retained; no time-continuous positive-energy dynamics is claimed on the enlarged composite representation, and the bounded-frequency survival of this force channel remains unresolved.",
+      "evidence": [
+        "model/continuum_composite_channel/README.md",
+        "model/continuum_composite_channel/__init__.py",
+        "model/continuum_composite_channel/__main__.py",
+        "model/continuum_composite_channel/algebra.py",
+        "model/continuum_composite_channel/bounds.py",
+        "model/continuum_composite_channel/packet.py",
+        "model/continuum_composite_channel/results.json",
+        "model/continuum_composite_channel/test_algebra.py",
+        "model/continuum_composite_channel/test_bounds.py",
+        "model/continuum_composite_channel/test_dynamics.py",
+        "model/continuum_composite_channel/test_packet.py",
+        "paper/tex_fragments/CONTINUUM_COMPOSITE_CHANNEL.tex"
+      ],
+      "remaining": [
+        "Determine whether the resolved composite channel has nonzero bounded-frequency spectral weight in the physical spacing limit, or whether its weight escapes to infinite energy.",
+        "Prove the appropriate limiting dynamical equation instead of interchanging time differentiation and spacing limits; neither Hartree/free closure nor interacting survival follows from the equal-time CAR theorem.",
+        "Construct the required Lorentz-covariant physical fields, appropriate spectral measures or thresholds, massive and massless sectors, and independent physical-unit calibration.",
+        "Supply the same-family Lorentz stress, geometric cap modular flow, null matching, area stationarity and physical normalization consumed by the existing Einstein theorem."
+      ]
+    },
+    {
+      "id": "ground_regional_modular",
+      "issues": [
+        1145
+      ],
+      "result": "The invariant full N4 particle ground P_ground/5 has a complete regional spectrum obtained by spin-twirling its polarized Slater restriction: each occupied natural-orbital subset I has eigenvalue w_I/(|I|+1), multiplicity |I|+1, and the entire orthogonal kernel is retained. Exact signed CAR traces verify all eight single sites and all 28 site pairs. Every adjacent pair has rank 8 in dimension 16 and supported modular generator K_R=log(6)I+16log(2+sqrt(3))H_R+log(N_R+1). This gives the entropy first law for every supported trace-zero variation, with central correction only on the number-preserving algebra and relative-entropy remainder at most 24 epsilon^2 ||delta||_HS^2/(1-epsilon). Outside-support disturbances have a singular entropy derivative. No geometric cap, physical clock normalization or Einstein premise completion is inferred.",
+      "evidence": [
+        "model/ground_regional_modular/README.md",
+        "model/ground_regional_modular/__init__.py",
+        "model/ground_regional_modular/__main__.py",
+        "model/ground_regional_modular/packet.py",
+        "model/ground_regional_modular/regional.py",
+        "model/ground_regional_modular/results.json",
+        "model/ground_regional_modular/test_packet.py",
+        "model/ground_regional_modular/test_regional.py",
+        "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex"
+      ],
+      "remaining": [
+        "Realize the geometric cap or diamond modular kernel and common stress interpretation on the actual continuum state.",
+        "Control local faithfulness or the appropriate support and singular entropy variations for the physical detector and refinement family.",
+        "Supply the same-state area/edge stationarity, null matching, curvature, scaling tails and independent Newton normalization required by the existing Einstein theorem stack.",
+        "Establish surviving continuum interactions, the physical particle dictionary and relativistic masses on the same calibrated observer and field construction."
+      ]
+    },
+    {
+      "id": "centered_source_ground",
+      "issues": [
+        1142,
+        1143,
+        1145
+      ],
+      "result": "Requiring particle-hole invariance uniquely fixes K=H-(U/2)N on the full bipartite Weyl/contact Fock algebra. On the actual U=1,c=1/8 cube, the previous N4 ground is not a K-ground: the imported all-number bound and exact particle-hole symmetry prove that every centered global ground has N8. Exact finite source hypotheses and the explicitly imported Lieb theorem then prove uniqueness and hidden spin zero. A four-dimer trial gives -4-sqrt(3)/4<=E_K<=-2-sqrt(17)/2 and a gap to every other charge sector strictly larger than 1/8. The actual cube one-site density diag(d,1/2-d,1/2-d,d) obeys 1/15000<d<1/8, with a full-CAR modular operator, entropy first law and controlled relative-entropy remainder. Exact complete dimer addition/removal energies and weights are calculated. A new particle-hole invariant thermodynamic ground and centered continuum net have zero averaged signed first moment. Pull-through gives centered occupation defect D<=min(2,11(U/c)^2/8), and a separate original-clock bound D<=min(2,11(U/c)^2/4).",
+      "evidence": [
+        "model/centered_source_ground/README.md",
+        "model/centered_source_ground/__init__.py",
+        "model/centered_source_ground/__main__.py",
+        "model/centered_source_ground/bounds.py",
+        "model/centered_source_ground/cube.py",
+        "model/centered_source_ground/dimer.py",
+        "model/centered_source_ground/faithfulness.py",
+        "model/centered_source_ground/packet.py",
+        "model/centered_source_ground/results.json",
+        "model/centered_source_ground/test_faithfulness.py",
+        "model/centered_source_ground/test_ground.py",
+        "model/centered_source_ground/test_packet.py",
+        "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex"
+      ],
+      "remaining": [
+        "Construct native preparation and complete readout of the new centered ground where operational execution is claimed.",
+        "Resolve the required neutral spectrum quantitatively and implement the unique centered N8 ground; finite uniqueness does not supply a certified neutral-gap value or thermodynamic uniqueness.",
+        "Determine surviving continuum interaction and the appropriate massive and massless relativistic sectors in the new reference.",
+        "Derive physical field, spin, charge, detector and clock/unit identifications and test measured species independently.",
+        "Realize the same-state stress, geometric, area and Einstein-balance premises; the actual finite one-site modular operator is calculated but its geometric identification and limiting faithfulness remain open."
+      ]
+    },
+    {
+      "id": "continuum_free_limit",
+      "issues": [
+        1142,
+        1143,
+        1145
+      ],
+      "result": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
+      "evidence": [
+        "model/continuum_free_limit/README.md",
+        "model/continuum_free_limit/__init__.py",
+        "model/continuum_free_limit/__main__.py",
+        "model/continuum_free_limit/algebra.py",
+        "model/continuum_free_limit/bounds.py",
+        "model/continuum_free_limit/packet.py",
+        "model/continuum_free_limit/results.json",
+        "model/continuum_free_limit/test_algebra.py",
+        "model/continuum_free_limit/test_bounds.py",
+        "model/continuum_free_limit/test_packet.py",
+        "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex"
+      ],
+      "remaining": [
+        "Choose and justify a different coupling/refinement trajectory or microscopic construction that retains nonzero finite-energy interactions and supplies massive sectors; the centered bounded-U trajectory is now rigorously free.",
+        "Construct native preparation and complete measurements of the selected centered or growing-volume reference with the same continuing repair, memory and controller laws.",
+        "Identify physical spin, gauge, charge and detector observables, calibrate common units independently, and test measured particle species and mass ratios.",
+        "Supply the common matter stress, geometric modular kernel, area response, null balance and normalization required by the existing Einstein theorem stack."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Complete finite native readout and same-ground regional modular data; an equal-time continuum composite CAR channel; a conditional same-field CPT obstruction for the original clock; and an explicit symmetry-derived centered source ground with exact half-filling, checked Lieb uniqueness premises and quantitative one-site faithfulness. For the stated canonical charged-field dictionary, the centered bounded-coupling limit is a controlled free massless eight-valley fermion theory. A nonzero interacting physical endpoint requires a different justified trajectory or action. Measured particle species, calibrated massive sectors and the common Einstein premises are not inferred."
+}

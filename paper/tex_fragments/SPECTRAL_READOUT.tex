@@ -1,0 +1,63 @@
+\paragraph{Complete finite-resolution energy readout.}
+For a unit one-particle probe $f$, the same ground defines the probability
+measure on signed addition and removal energies
+\[
+ \mu_f(B)=\langle Vf,1_B(L)Vf\rangle.
+\]
+The complete Kraus pair $c(f)^\dagger,c(f)$ labels addition
+and removal; each branch has a nonnegative physical excitation energy.
+Only the response-frequency variable assigns a minus sign to removal.
+The exact identities $LV=Vh+UJ$ and
+$V^*J=J^*J=rI$ give the operator moments
+\[
+ M_0=I,\qquad M_1=h+UrI,\qquad
+ M_2=h^2+2Urh+U^2rI.
+\]
+The second-moment identity is a quadratic-form statement and does not
+require $Vf\in\operatorname{Dom}L^2$.
+For a local mode at $c=1/8,U=1$, the mean lies in $[1/8,1/2]$, the second
+moment in $[19/128,67/128]$, and the variance in $[17/128,35/128]$.
+Thus $\mu_f(|E|\ge R)\le67/(128R^2)$.
+More generally, $\|hf\|\le K$ gives a second moment at most
+$K^2+UK+U^2/2$, useful for uniformly controlled physical smearing.
+
+Choose $M\ge2$ and $\tau>0$.  The positive effects
+\[
+ K_k(E)=\left|\frac1M\sum_{j=0}^{M-1}
+ e^{-ij(\tau E-2\pi k/M)}\right|^2,\qquad
+ q_k=\int K_k(E)\,d\mu_f(E),\quad 0\le k<M,
+\]
+sum exactly to one by finite Fourier orthogonality.  Writing
+$\phi_f(t)=\int e^{-itE}\,d\mu_f(E)$, their complete probabilities are
+\[
+ q_k=\frac1M+\frac2M\sum_{n=1}^{M-1}
+ \left(1-\frac nM\right)\operatorname{Re}
+ \bigl(e^{2\pi ikn/M}\phi_f(n\tau)\bigr).
+\]
+The principal energy centers are modulo $2\pi/\tau$ and are readout bins,
+not asserted eigenvalues.  For $0<\tau\Delta\le3$, circular error has
+probability at most $\min\{1,10/(M\tau^2\Delta^2)\}$, improved to
+$22/(7M\tau\Delta-44)$ when its denominator is positive.  This follows
+by summing the two inverse-square grid tails.  A second-moment bound $C$
+adds an alias term at most $C/(3/\tau-\Delta)^2$.  Consequently the
+probability of a real energy error at least $\Delta$ is controlled,
+without a pointwise spectral density or an isolated-pole assumption.
+
+The complete frozen 78-line cube measure now gives certified distributions
+for $M=8,16,64$ at $\tau=1$.  At $\Delta=1/2$, direct positive-kernel
+and Fourier interval calculations bound the respective error probabilities
+by $0.100284517428$, $0.055193158232$, and $0.020209031434$.
+All outcomes are retained.  The previously executed native time-one
+quadratures check the first harmonic; higher harmonics here are source
+calculations, not new native long-time or finite-shot measurements.
+
+Along the existing full-ground subsequence, the finite positive spectral
+measures converge weakly.  The uniform fixed-spacing spatial kernel bound
+also promotes entrywise convergence to strong convergence of the
+compressed resolvents on the common one-particle space.  No identification
+of the varying GNS Hilbert spaces is assumed.  An explicit finite readout
+error adds the local-dynamics, native-control, and statistical errors to
+the still-unspecified finite-ground state discrepancy; the last term is
+never set to zero.  Sharp interval probabilities require zero limiting
+mass at their endpoints.  These results do not supply physical particle
+identifications, relativistic rest masses, or an interacting continuum.

@@ -1,0 +1,119 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Prepare the certified finite ground and measure its charged response with complete native records, resolve the full finite matrix response, and construct non-Gaussian real-time and reflection-positive ordered imaginary-time field correlations, nonzero interaction memory and spatially local inverse response on the original infinite-lattice ground.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws are admitted inputs. Native ground preparation uses amplitudes derived from the original action and explicitly specified observer controls, with all outcomes and resources retained. Finite matrix response and infinite-ground locality have distinct domains; a complex-frequency analytic symbol does not supply a common real Lorentz metric.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "ground_spectral_source",
+      "issues": [
+        1138,
+        1139,
+        1142,
+        1143
+      ],
+      "result": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+      "evidence": [
+        "model/ground_spectral_source/README.md",
+        "model/ground_spectral_source/__init__.py",
+        "model/ground_spectral_source/__main__.py",
+        "model/ground_spectral_source/bounds.py",
+        "model/ground_spectral_source/circuits.py",
+        "model/ground_spectral_source/conftest.py",
+        "model/ground_spectral_source/experiment.py",
+        "model/ground_spectral_source/packet.py",
+        "model/ground_spectral_source/preparation.py",
+        "model/ground_spectral_source/results.json",
+        "model/ground_spectral_source/results.npz",
+        "model/ground_spectral_source/test_bounds.py",
+        "model/ground_spectral_source/test_experiment.py",
+        "model/ground_spectral_source/test_packet.py",
+        "model/ground_spectral_source/test_preparation.py",
+        "paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex"
+      ],
+      "remaining": [
+        "Extend the prepared finite ground and protected charged process to a controlled growing-volume family and continuing observer/controller regime.",
+        "Establish full spectral resolution with native long-time records and explicit finite-shot errors where it is claimed, rather than source calculation alone.",
+        "Construct controlled interacting chiral 3+1-dimensional continuum dynamics and its massive and massless sectors on the same prepared family.",
+        "Derive common physical spin, charge, detector and clock/unit identifications and test the resulting particle spectrum independently.",
+        "Realize the joint modular, stress, entropy and coarse-graining premises of the existing Einstein theorem stack on the same family."
+      ]
+    },
+    {
+      "id": "matrix_spectral_response",
+      "issues": [
+        1142,
+        1143,
+        1145
+      ],
+      "result": "For the original grounded three-dimensional cube at c=1/8 and U=1, the degree-78 source polynomial annihilates all eight hidden-frame down-addition columns, and all required matrix moments lie exactly in span(I,A). The full response therefore has an exact rational matrix formula. Every one of its 78 residues is a positive rank-four band projector, giving an observed reducing cyclic space of dimension 312 inside the full 560-state charged sector. The inverse response and Schur memory are exactly onsite plus the signed cube adjacency. The certified common support gives a controlled cyclic frequency disk |z|<299/10000, and static coefficients are computed exactly over Q(sqrt(3)). These are finite cube identities, not a spatial continuum, a bound on the remaining 248 source states, a physical species assignment or Einstein dynamics. The complete visible finite-gap dictionary also fails the fixed PDG2025 electron/muon and electron/tau ratios under every common positive unit factor, with exact minimax relative-error lower bounds; this rejects only that stated finite-gap-as-rest-energy identification.",
+      "evidence": [
+        "model/matrix_spectral_response/README.md",
+        "model/matrix_spectral_response/__init__.py",
+        "model/matrix_spectral_response/__main__.py",
+        "model/matrix_spectral_response/identification.py",
+        "model/matrix_spectral_response/matrix.py",
+        "model/matrix_spectral_response/packet.py",
+        "model/matrix_spectral_response/results.json",
+        "model/matrix_spectral_response/test_identification.py",
+        "model/matrix_spectral_response/test_matrix.py",
+        "model/matrix_spectral_response/test_packet.py",
+        "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex"
+      ],
+      "remaining": [
+        "Attach the full matrix response and its spectral projectors to complete native preparation, readout and resource contracts where that operational identification is claimed.",
+        "Control the selected infinite-volume ground response and its real-axis spectral structure under the actual spatial refinement.",
+        "Construct a controlled interacting chiral 3+1-dimensional continuum with massive and massless relativistic sectors on the same observables.",
+        "Derive common low-energy matter coefficients and action normalization before applying the existing geometric and Einstein theorem interfaces.",
+        "Establish physical spin and charge quantum numbers, calibrated units and an independently tested particle spectrum."
+      ]
+    },
+    {
+      "id": "retarded_spatial_locality",
+      "issues": [
+        1138,
+        1142,
+        1145
+      ],
+      "result": "For the original zero-chemical-potential three-dimensional Weyl/contact action, the existing translation-averaged full-ground state inherits hidden SU(2), has exact response-memory Gram U^2 r(1-r) I with 1/8<=r<=1/2, and has a nonzero connected four-point witness: omega(D(t)^dagger D(t))>=U^2 t^2/64 for 0<|t|<=U/(16M), M=9c^2+12cU+U^2. Here D centers the local unequal-time CAR anticommutator. This excludes a linear-field realization by quadratic CAR evolution, including pairing and auxiliary modes. Its positive-energy GNS representation constructs every ordered Euclidean correlation and a positive time-reflection Gram kernel; the same finite-ground subsequence converges to this hierarchy through bounded Poisson-semigroup integrals. On every domain Im z>=eta>0 and |z|<=Z, the spatial Green operator is uniformly invertible, with explicit exponential locality for it, its inverse and Schur memory, and controlled spatial/frequency Taylor expansions. These are fixed-spacing field constructions, not a spatial continuum, real mass shells, physical species or an Einstein completion.",
+      "evidence": [
+        "model/retarded_spatial_locality/README.md",
+        "model/retarded_spatial_locality/__init__.py",
+        "model/retarded_spatial_locality/__main__.py",
+        "model/retarded_spatial_locality/algebra.py",
+        "model/retarded_spatial_locality/bounds.py",
+        "model/retarded_spatial_locality/connected.py",
+        "model/retarded_spatial_locality/euclidean.py",
+        "model/retarded_spatial_locality/packet.py",
+        "model/retarded_spatial_locality/results.json",
+        "model/retarded_spatial_locality/test_algebra.py",
+        "model/retarded_spatial_locality/test_bounds.py",
+        "model/retarded_spatial_locality/test_connected.py",
+        "model/retarded_spatial_locality/test_euclidean.py",
+        "model/retarded_spatial_locality/test_packet.py",
+        "paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex"
+      ],
+      "remaining": [
+        "Control the eta-to-zero boundary of the infinite-ground response and derive the appropriate real-frequency spectral measures, thresholds or poles/resonances, and local low-energy principal symbol.",
+        "Compute or otherwise select the required infinite-volume ground functional and its response coefficients, with a controlled native preparation or continuation when claimed.",
+        "Show that the relevant matter channels share a real action density, principal symbol and normalization before applying the existing wave_density_metric and source_tetrad interfaces.",
+        "Construct the interacting chiral 3+1-dimensional continuum with the required massive and massless sectors under the actual source refinement law.",
+        "Realize the same-family modular, area, stress, entropy and coarse-graining hypotheses of the existing Einstein theorem stack.",
+        "Establish physical particle quantum numbers, calibrated common units and independently tested masses and energies."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Complete finite ground preparation and bounded native charged interferometry, the exact 78-line full matrix spectral measure on its 312-dimensional observed cyclic space, and non-Gaussian field correlations, a positive-energy ordered Euclidean hierarchy and nonzero retarded interaction memory with controlled complex-frequency spatial locality on the original infinite ground. No native reconstruction of all 78 lines, thermodynamic preparation, real-axis pole limit, interacting chiral 3+1 continuum, measured species or Einstein completion is inferred."
+}

@@ -1,5 +1,10 @@
 # An interacting ground, energy density and matter response
 
+The subsequent [native ground and spatial-response extension](NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
+adds finite ground preparation and charged readout, the full matrix
+spectrum and spatial inverse-response control on the infinite ground.
+The earlier results below retain their original proof and validation scope.
+
 The original three-dimensional Weyl/contact action now has a proved
 infinite-volume ground representation with positive excitation energy.
 The construction keeps its original zero chemical potential and all

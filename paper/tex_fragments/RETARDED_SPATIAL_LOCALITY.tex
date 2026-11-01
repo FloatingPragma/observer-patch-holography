@@ -1,0 +1,223 @@
+\paragraph{A local inverse response on the interacting infinite ground.}
+The original zero-chemical-potential Weyl/contact action on $\mathbb Z^3$
+now admits a controlled spatial inverse response on the previously
+constructed thermodynamic ground, at fixed spacing and away from real
+frequency.  This does not extrapolate the special two-eigenvalue cube
+identity.  Let $\omega$ be the translation-averaged full-ground limit,
+$L_\omega$ its positive GNS generator, and
+\[
+L=L_\omega\oplus-\overline{L_\omega},\qquad
+V_{x\sigma}=c_{x\sigma}^\dagger\Omega
+                 \oplus\overline{c_{x\sigma}\Omega}.
+\]
+The CAR give an isometry $V$ from
+$\ell^2(\mathbb Z^3;\mathbb C^2)$.  Define $J$ in the same way from
+$b_{x\sigma}=n_{x\bar\sigma}c_{x\sigma}$ and write
+$\rho_x{}_{\sigma\tau}=\omega(c_{x\tau}^\dagger c_{x\sigma})$.
+Exact onsite CAR identities, with vanishing different-site
+anticommutators, give
+\begin{align*}
+R&=\bigoplus_x\bigl(\operatorname{tr}(\rho_x)I-\rho_x\bigr),
+ &V^\dagger J&=J^\dagger V=J^\dagger J=R,\\
+LV&=Vh+UJ,
+ &0&\leq R\leq I,\quad \|LV\|\leq\sqrt3c+U.
+\end{align*}
+Finite-support approximants and closedness of $L$ extend the last
+identity to the entire one-particle input space.  With $P=VV^\dagger$,
+$Q=I-P$, the bounded off-diagonal coupling is $W=QLV=U(J-VR)$.
+Subtracting $WV^\dagger+VW^\dagger$ from $L$ proves self-adjointness
+of its compressed complement $T=QLQ|_{Q\operatorname{Dom}L}$.
+The exact infinite-space Schur identity is therefore
+\begin{align*}
+\mathcal G(z)&=V^\dagger(z-L)^{-1}V
+          =[zI-h-UR-\Sigma(z)]^{-1},\\
+\Sigma(z)&=W^\dagger(z-T)^{-1}W,
+ &W^\dagger W&=U^2(R-R^2).
+\end{align*}
+In particular $\|\Sigma(z)\|\leq U^2/(4\operatorname{Im}z)$.
+
+This ground has strictly nonzero memory for $U>0$.  The source hidden-spin
+frame obeys $R_{x+t}=\pm R_tR_x$, so translations normalize its global
+$\mathrm{SU}(2)$ symmetry.  Every full-box ground projector and the
+exterior vacuum are invariant; translated averages and weak-star limits
+retain the symmetry.  Hence $\rho_x=rI$, with the earlier density theorem
+giving $1/8\leq r\leq1/2$, and
+\[
+ \frac{7U^2}{64}I\leq W^\dagger W
+       =U^2r(1-r)I\leq\frac{U^2}{4}I.
+\]
+The spectral theorem gives $iy\Sigma(iy)\to W^\dagger W$ strongly as
+$y\to\infty$.  Thus the same-mode response cannot be that of a
+number-conserving static quadratic Hamiltonian with zero memory.
+Neither a scattering theorem
+nor faithfulness of the local ground-state density matrices follows.
+
+\paragraph{A quantitative connected four-point witness.}
+The same ground has a non-Gaussian multi-time field, a stronger statement
+than nonzero two-point memory.  Fix $a=c_{x\sigma}$ and
+$n=n_{x\bar\sigma}$, and set
+\[
+ A(t)=\{\tau_t(a),a^\dagger\},\qquad
+ D(t)=A(t)-\omega(A(t))I,\qquad
+ F(t)=\omega(D(t)^\dagger D(t)).
+\]
+The local commutator gives $D(0)=0$ and
+$D'(0)=-iU(n-rI)$.  Since $n^2=n$,
+$F(t)/t^2\to U^2r(1-r)\geq7U^2/64$.
+An explicit remainder uses
+$M=9c^2+12cU+U^2$ and $\delta=[H,\cdot]$:
+\[
+ \|\delta^2(a)\|
+ \leq3c(3c+U)+U(6c+3c+U)=M,
+ \qquad \|D(t)+itU(n-rI)\|\leq2Mt^2.
+\]
+Thus, for $U>0$,
+\[
+ F(t)\geq\frac{U^2t^2}{64}>0,
+ \qquad 0<|t|\leq\frac{U}{16M}.
+\]
+For odd zero-mean operators define the connected fermionic function
+\begin{align*}
+ \kappa_4(B_1,B_2,B_3,B_4)
+ &=\omega(B_1B_2B_3B_4)
+   -\omega(B_1B_2)\omega(B_3B_4)\\
+ &\quad+\omega(B_1B_3)\omega(B_2B_4)
+   -\omega(B_1B_4)\omega(B_2B_3).
+\end{align*}
+With $(B_1,B_2,B_3,B_4)=(a,\tau_t(a)^\dagger,\tau_t(a),a^\dagger)$,
+$F(t)$ is the sum of $\kappa_4$ on words $1234,1243,2134,2143$.
+All crossed contractions, including anomalous ones, cancel pairwise.
+At least one connected function therefore has magnitude
+$U^2t^2/256$ or greater on the displayed interval.  This excludes a
+quasifree representation of the complete multi-time field by linear
+fermionic fields, including pairing and auxiliary Gaussian modes.
+Indeed any quadratic evolution on an enlarged CAR algebra preserves
+linearity of an observed mode, making its anticommutator scalar and
+$D(t)=0$ in every reference state.  Thus even a non-Gaussian reference
+cannot realize this witness through such a linear quadratic embedding.
+It does not exclude nonlinear encodings or establish continuum scattering.
+
+\paragraph{The full ordered Euclidean hierarchy.}
+The same positive ground generator $L_\omega\geq0$ defines, for ordered
+real times $s_1\leq\cdots\leq s_n$ and bounded local CAR operators,
+\[
+ S(A_1,s_1;\ldots;A_n,s_n)
+ =\langle\Omega,A_1e^{-(s_2-s_1)L_\omega}A_2\cdots
+                   e^{-(s_n-s_{n-1})L_\omega}A_n\Omega\rangle,
+ \qquad |S|\leq\prod_j\|A_j\|.
+\]
+Every finite approximant uses one common translated full-ground state
+and its positive generator $H_\Lambda-E_\Lambda$ for the whole word,
+with zero exterior Hamiltonian, before averaging over translations.
+For each positive gap the spectral theorem gives
+\[
+ e^{-sL}=\int_{\mathbb R}\frac{s}{\pi(s^2+t^2)}e^{itL}\,dt,
+ \qquad L\geq0.
+\]
+The product integral is dominated by $\prod_j\|A_j\|$.
+Its real-time integrand is the expectation of
+$A_1\tau_{t_1}(A_2)\tau_{t_1+t_2}(A_3)\cdots$.
+Local-dynamics bounds, telescoping the product, and the same
+weak-star ground subsequence give uniform convergence on compact time
+boxes.  The omitted product-measure tail is at most
+$\sum_j2s_j/(\pi T_j)$, capped by one; a finite-versus-limit comparison
+costs twice this tail times the product of operator norms.  Dominated
+convergence therefore supplies every ordered Euclidean $n$-point limit
+on this one ground, without another subsequence or a state-convergence rate.
+Zero gaps are handled by the identity operator.
+
+For a positive-time word $F=(A_1,t_1;\ldots;A_n,t_n)$ define
+\[
+ \Psi_F=e^{-t_1L_\omega}A_1e^{-(t_2-t_1)L_\omega}A_2\cdots
+                      e^{-(t_n-t_{n-1})L_\omega}A_n\Omega.
+\]
+The reflected list is
+$(A_n^*,-t_n;\ldots;A_1^*,-t_1)$, in that order.
+Concatenation with a second positive-time word gives
+$S(\theta F,G)=\langle\Psi_F,\Psi_G\rangle$; hence every reflected
+correlation matrix is positive semidefinite.  No CAR factors are
+reordered.  Exact rational two-mode controls check the Gram identity,
+all 31 principal minors of a five-word example, and a negative odd-word
+cross entry.  This proves ordered time-reflection positivity at fixed
+spacing.  It does not establish $O(4)$ covariance, bosonic permutation
+symmetry, a spatial continuum, or the full relativistic Euclidean axioms.
+
+\paragraph{Uniform inverse and spatial decay bounds.}
+Fix $\operatorname{Im}z\geq\eta>0$, $|z|\leq Z$, with $Z\geq\eta$.
+For a unit vector $v=Vf$, Cauchy--Schwarz applied to
+$\langle(\bar z-L)v,(z-L)^{-1}v\rangle=1$ yields
+\[
+ -\operatorname{Im}\mathcal G(z)\geq B_0^{-1}I,
+ \qquad
+ \|\mathcal G(z)^{-1}\|\leq B_0,
+ \qquad B_0=\frac{(Z+2c+U)^2}{\eta}.
+\]
+Both $\mathcal G$ and its adjoint are bounded below; its range is
+therefore closed and dense, which proves surjectivity in infinite volume.
+No determinant or finite-volume gap is used.
+
+Let $d=\|x-y\|_\infty$.  The original graded locality bound gives
+\begin{align*}
+ \|\mathcal G_{xy}(z)\|&\leq A(1+d)^2e^{-2\mu d},\\
+ \mu&=\min\{1/8,\eta/(384c)\},
+ &A&=192c/\eta^2+8/\eta.
+\end{align*}
+For $d\geq2$, approximate the evolved odd operator in the radius
+$d-1$ cube, whose anticommutator with the remote mode is zero.
+Split the Laplace integral at $(d-1)/(192c)$ and use the previous
+full-CAR boundary estimate on the first part and the uniform norm bound
+on its tail.  This proves the displayed constants without assuming
+spatial clustering of $\omega$.
+
+Put $q=(1+\mu)^{-1}$ and
+$T_n(q)=\sum_{d\geq1}d^nq^d$.  These are rational functions with
+positive Eulerian coefficients.  Define
+\begin{align*}
+ \widehat S&=24T_5(q)+48T_4(q)+26T_3(q)+4T_2(q)+2T_1(q),\\
+ \alpha&=\min\{\mu,(2B_0A\widehat S)^{-1}\}>0.
+\end{align*}
+For any bounded real one-Lipschitz function $f$, the block Schur test gives
+\[
+ \|e^{\alpha f}\mathcal G e^{-\alpha f}-\mathcal G\|
+       \leq\alpha A\widehat S\leq(2B_0)^{-1}.
+\]
+A Neumann series bounds the conjugated inverse by $2B_0$.
+Choosing $f(u)=\min\{\|u-y\|_\infty,R\}$ with $R\geq d$ proves
+\begin{align*}
+ \|(\mathcal G^{-1})_{xy}(z)\|&\leq2B_0e^{-\alpha d},\\
+ \|\Sigma_{xy}(z)\|&\leq(Z+U+2B_0+2c)e^{-\alpha d}.
+\end{align*}
+Only bounded weights were used.  The constants are conservative bounds,
+not estimates of a physical correlation length.
+
+\paragraph{The controlled spatial symbol and its geometric boundary.}
+Translation invariance and exponential summability give an analytic
+two-by-two inverse-response symbol $K(k,z)$ for
+$\|\operatorname{Im}k\|_1<\alpha$.
+For real momentum increment $p$, its total-degree-$n$ Taylor remainder
+is bounded by
+\[
+ \frac{2B_0\|p\|_1^{n+1}}{(n+1)!}
+ \sum_{x\in\mathbb Z^3}\|x\|_\infty^{n+1}
+                       e^{-\alpha\|x\|_\infty}.
+\]
+The shell count $24d^2+2$ and the same rational $T_n$ functions give
+explicit upper bounds on this convergent sum.  A frequency circle of
+radius $\eta/2$ gives, for $|w|<\eta/2$, the additional remainder
+$B_* (2|w|/\eta)^{n+1}/(1-2|w|/\eta)$, where $B_*$ is the above
+inverse bound evaluated at $(\eta/2,Z+\eta/2)$.
+
+These estimates supply actual local spatial coefficients on the
+interacting infinite ground, with a controlled complex-frequency
+domain.  They do not compute the ground functional or those coefficients,
+and deteriorate as $\eta\to0$.  A real hyperbolic principal symbol,
+common matter coefficients and full action normalization are still
+required before applying the existing \texttt{wave\_density\_metric}
+and \texttt{source\_tetrad} interfaces.  The joint modular, area,
+stress and Einstein balance requirements remain separate.
+
+For a refinement $c=v/a$ at fixed $v,U,Z,\eta>0$, the retained estimates
+have $\alpha=O(a^9)$ and therefore physical momentum width
+$\alpha/a=O(a^8)$; the connected-witness time window is $O(a^2)$.
+These shrinking bounds do not prove uniform continuum control or a
+no-go theorem for the action.

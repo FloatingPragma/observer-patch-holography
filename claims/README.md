@@ -42,6 +42,36 @@ existing geometry stack. A selected native ground, common low-energy
 geometric symbol, interacting chiral continuum and physical species still
 require their stated joins; the integrated gate statuses are preserved.
 
+The [native ground and spatial-response extension](../docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
+adds complete finite ground preparation and charged interferometry, a full
+matrix spectral resolution on its observed cyclic space, and a proof of
+non-Gaussian infinite-ground field correlations, a time-reflection-positive
+Euclidean hierarchy and nonzero interaction memory with controlled spatial
+inverse locality at positive imaginary frequency. The direct finite-gap lepton
+dictionary is rejected with an exact scale-independent error bound. These
+results retain the difference between native readout, a source spectrum,
+real-frequency relativistic particles and a common geometric action.
+
+The [continuum-field extension](../docs/CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
+constructs a positive-energy continuum net on a common spacing subsequence,
+retaining all eight valleys and the full finite-spacing dynamics. It adds
+exact whole-ground spin selection, complete finite-resolution energy POVMs
+and microscopic ground/continuum first-moment constraints. The zero-coupling
+continuation is a controlled free field; surviving interacting Lorentz
+dynamics, physical species and the joint Einstein premises remain open.
+
+The [native detector and centered-ground extension](../docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
+adds complete native finite-clock detection, a same-ground regional modular
+generator, a resolved composite CAR channel and a conditional CPT
+constraint. The symmetry-derived centered clock has a separately
+constructed ground, with checked finite uniqueness, exact charged-sector
+bounds, full one-site faithfulness and stronger occupation estimates.
+The two references and their spectra are recorded
+separately. The subsequent uniform spectral theorem proves that the
+centered bounded-coupling continuum is free and massless at every valley,
+excluding that trajectory from the required interacting massive endpoint.
+No physical species or Einstein gate is accepted from these results.
+
 The papers are the standalone source for their theorems, assumptions,
 falsifiers and claim boundaries. Executed constructions may instead name a
 self-contained protocol record as their owner. This directory contains the

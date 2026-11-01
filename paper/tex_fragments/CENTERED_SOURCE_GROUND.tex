@@ -1,0 +1,138 @@
+\paragraph{Deriving a centered clock and constructing its new ground.}
+The CPT obstruction motivates a separate, explicitly changed charge
+clock. On a bipartite Weyl lattice with $V$ sites, the one-particle
+antiunitary $J=\eta(i\sigma_y)\mathcal K$, where
+$\eta_x=(-1)^{x_1+x_2+x_3}$ and $\mathcal K$ is conjugation, anticommutes
+with the hopping. Its canonical particle-hole transform satisfies
+\[
+ \mathcal P(N)=2V-N,\qquad
+ \mathcal P(H)=H+U(V-N),\qquad
+ \mathcal P(H-\kappa N)-(H-\kappa N)=(U-2\kappa)(V-N).
+\]
+Thus $K=H-UN/2$ is the unique scalar charge centering invariant on the
+full Fock algebra. This changes charged dynamics; the original Hamiltonian
+and its earlier ground are not silently replaced.
+
+The actual cube gives a rigorous changed-reference test. Its retained
+all-number theorem states $H\ge-\sqrt3/4$. The old $N=4$ ground has
+centered energy $-2-\sqrt3/4>-4$, while a singly occupied $N=8$ product
+state has expectation $-4$. Moreover, for $N\le7$,
+$K\ge-7/2-\sqrt3/4>-4$, and particle-hole symmetry transfers this
+bound to $N\ge9$. Every new global centered ground therefore has
+exactly eight particles. A product of four exact dimer grounds on a
+perfect matching improves the variational bound: inter-dimer hopping
+expectations vanish because each factor has fixed charge. Hence
+\[
+ -4-\frac{\sqrt3}{4}\le E_K\le-2-\frac{\sqrt{17}}2,
+ \qquad
+ \inf\operatorname{spec}(K|_{N\ne8})-E_K
+ \ge\frac{\sqrt{17}}2-\frac{\sqrt3}4-\frac32>\frac18.
+\]
+These are exact full-sector bounds, not relativistic rest masses.
+
+We additionally import Lieb's repulsive Hubbard ground-spin theorem,
+in the form of Theorem~1, printed p.~8, of his
+\href{https://arxiv.org/pdf/cond-mat/9311033}{1993 review}; see also the
+\href{https://doi.org/10.1103/PhysRevLett.62.1201}{1989 result} and its
+\href{https://doi.org/10.1103/PhysRevLett.62.1927.5}{erratum}.
+The actual hidden-frame hopping is real, spin independent and connected,
+with a balanced bipartition of four plus four sites and strictly positive
+onsite repulsion. These finite hypotheses are checked from the source;
+the theorem allows mixed real hopping signs. Together with the separately
+proved $N=8$ ground sector, it gives a unique global centered cube ground
+with hidden spin zero. The review's centered interaction convention
+differs from $K$ only by the constant $2$. No quantitative neutral gap,
+physical spin dictionary or thermodynamic uniqueness follows here.
+
+The actual cube also has a faithful full-CAR one-site state. Write
+$K=T+D-4$ on $N=8$. The source identity $A^2=3I$ gives
+$\|T\|=\sqrt3/2$. If $P_0$ projects onto the 256 singly occupied
+configurations, every nonzero hopping leaves this subspace, so
+$P_0TP_0=0$. The source's signed vertex flips are transitive. Set
+$p=\omega(1-P_0)\le\omega(D)$ and
+$\delta=\sqrt{17}/2-2>3/50$. The block Cauchy--Schwarz estimate gives
+\[
+ |\omega(T)|\le2\|T\|\sqrt{p(1-p)}+\|T\|p
+ \le3\|T\|\sqrt{\omega(D)},\qquad
+ \omega(T)+\omega(D)\le-\delta.
+\]
+Thus the common site doublon expectation $d=\omega(D)/8$ satisfies
+$d\ge\delta^2/54>1/15000$, while
+$d\le(\|T\|-\delta)/8<1/8$. Gauge, hidden-spin and particle-hole
+invariance determine the complete one-site state and its modular operator:
+\[
+ \rho_x=\operatorname{diag}(d,\tfrac12-d,\tfrac12-d,d),\qquad
+ K_x=-\log(\tfrac12-d)I+
+ \log\!\left(\frac{\tfrac12-d}{d}\right)(N_x-1)^2.
+\]
+In particular, $\lambda_{\min}(\rho_x)>1/15000$ and
+$\|K_x\|<\log15000$. For every same-site density $\sigma$, put
+$\Delta=\sigma-\rho_x$ and $\rho_\epsilon=\rho_x+\epsilon\Delta$.
+The full-site entropy first law and remainder are
+\[
+ \left.\frac{dS(\rho_\epsilon)}{d\epsilon}\right|_0
+ =\operatorname{Tr}(\Delta K_x),\qquad
+ 0\le D(\rho_\epsilon\Vert\rho_x)
+ \le\frac{7500\epsilon^2}{1-\epsilon}\|\Delta\|_{\rm HS}^2,
+ \quad 0\le\epsilon<1.
+\]
+This finite result uses no fitted ground vector and covers noncommuting
+variations. It is not an infinite-ground faithfulness theorem or an
+identification of the modular operator with a geometric charge.
+
+For a dimer with hopping $t>0$, let $s=\sqrt{U^2+16t^2}$. Its unique
+full-Fock centered ground is a singlet/doublon superposition with energy
+$-(U+s)/2$. Its one-site density is
+\[
+ \rho_{\rm site}=\operatorname{diag}
+ (d,\tfrac12-d,\tfrac12-d,d),\qquad d=(1-U/s)/4>0.
+\]
+Thus this changed reference is faithful on the full local CAR algebra.
+For a fixed local spin, both addition and removal have energies and weights
+\[
+ g_\pm=s/2\pm t,\qquad w_\pm=(1\mp4t/s)/4.
+\]
+Each charge branch has total weight $1/2$; zero weights are retained.
+At the actual bond parameters $U=1,t=1/16$, the positive energies are
+$(2\sqrt{17}\pm1)/16$, and the signed second moment is $65/256$.
+
+Normalized full centered-ground projectors, with a tracial exterior,
+are particle-hole, gauge and hidden-spin invariant. Translation averaging
+and the existing boundary/volume and local-dynamics estimates give a
+new infinite-volume ground with positive centered GNS energy and exactly
+one particle per site in expectation. The old unshifted state is not reused. The exact
+canonical composite $d=(2n_{\rm opposite}-1)c$ gives
+\[
+ [K,c(f)]=-c(hf)-(U/2)d(f),\qquad \|d(f)\|=\|f\|.
+\]
+Consequently the same all-word compactness construction supplies a centered
+eight-valley continuum net. Its moment identities are
+$M_1=h$, $M_2=h^2+U^2/4$; only the corresponding second-moment upper
+bound is passed to the continuum. Particle-hole symmetry pairs the
+complementary valleys and equates averaged addition/removal measures.
+This resolves the earlier first-moment obstruction, without establishing
+full spacetime CPT or Lorentz covariance.
+
+There is also a stronger microscopic occupation bound. On a positive
+kinetic band with $\epsilon\ge\delta>0$, the GNS maps
+$Cf=c(P_+f)\Omega$, $Df=d(P_+f)\Omega$ obey
+$LC+C\epsilon=-(U/2)D$. Integrating
+$e^{-tL}Ce^{-t\epsilon}$ and using $L\ge0$, $\|D\|\le1$ gives
+$\|C\|\le U/(2\delta)$. Translation invariance, arbitrary measurable
+band windows and rational thresholds yield
+$w(k)\le U^2/(2c^2\sum_j\sin^2k_j)$, including the negative-band
+hole estimate. Folding into the node cells and integrating over a
+circumscribed ball gives
+\[
+ \int\frac{d^3k}{(2\pi)^3\sum_j\sin^2k_j}
+ \le\frac{\pi\sqrt3}{2}<\frac{11}{4},\qquad
+ D\le\min\{2,11(U/c)^2/8\}.
+\]
+The same argument on the original uncentered ground uses
+$\|B\Omega\|\le\sqrt r$ and $r\le1/2$, giving the separate bound
+$D\le\min\{2,11(U/c)^2/4\}$. Neither bound is uniform on a normalized
+packet in a shrinking momentum region. Native preparation of the new
+ground, surviving continuum interactions, measured particle identities
+and the common geometric Einstein premises remain further requirements.
+The exact source checks and proofs are in
+\texttt{model/centered\_source\_ground}.

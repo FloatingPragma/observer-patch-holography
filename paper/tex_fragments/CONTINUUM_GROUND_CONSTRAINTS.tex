@@ -1,0 +1,57 @@
+\paragraph{Ground occupation and energy constraints under refinement.}
+The original zero-chemical-potential ground satisfies a useful uniform
+constraint before any continuum particle identification. With normalized
+Brillouin measure, let $\rho(k)$ be its one-body covariance and $P_\pm(k)$
+the spectral projectors of the original Weyl hopping. The free filled sea
+has onsite covariance $I/2$ and double occupation $1/4$. Its finite-box
+restrictions give the variational bound
+\[
+ 0\le e_{\rm kin}-e_{\rm free}+Ud=e_U-e_{\rm free}\le U/4,
+ \qquad d=\omega(n_\uparrow n_\downarrow).
+\]
+Here $e_{\rm free}=-c\int\sqrt{\sum_j\sin^2 k_j}$; no free reference is
+substituted for the interacting state. Set
+\[
+ w(k)=\operatorname{tr}(P_+\rho)+\operatorname{tr}(P_-(I-\rho)),
+ \qquad D=\int w(k).
+\]
+Then $0\le w\le2$ and the kinetic excess is
+$c\int\sqrt{\sum_j\sin^2 k_j}\,w(k)$. The region with
+$\sqrt{\sum_j\sin^2 k_j}\le\delta$ has normalized volume at most
+$\delta^3$ for $0<\delta\le1$, since
+$2\arcsin\delta/\pi\le\delta$. Splitting this integral proves
+\[
+ D\le\min\{2,2\delta^3+U/(4c\delta)\},\qquad |n-1|\le D.
+\]
+For $U\le24c$, choosing $\delta=(U/(24c))^{1/4}$ gives
+$D\le8(U/(24c))^{3/4}$. Thus the density tends to one per site,
+and the per-spin density $r$ tends to $1/2$, when $U/c\to0$.
+At $v=1/8$, $U=1$, $a=1/65536$, $c=v/a$ and $\delta=1/16$,
+the exact bound is $1023/1024\le n\le1$.
+
+The same defect controls every fixed microscopic local word.
+The free-sea annihilation parts $c(P_+f)$ and $c^\dagger(P_-f)$ of a
+unit site-basis field have interacting GNS norm at most $\sqrt D$.
+Moving the first annihilation part to the right by CAR gives the free
+Wick recursion, with two boundary errors at most $\sqrt D$. Hence for
+an even word of length $m$,
+\[
+ |\omega(A_1\cdots A_m)-\omega_{\rm free}(A_1\cdots A_m)|
+ \le C_m\sqrt D,\qquad C_0=0,\quad C_m=2+(m-1)C_{m-2}.
+\]
+In particular $C_4=8$ and $d\to1/4$. This controls fixed microscopic
+local observables; shrinking momentum pockets can still carry a full
+normalized continuum packet, so no Gaussian continuum conclusion follows.
+
+For cell-averaged physical $H^1$ packets and $c=v/a$, bounded
+$U(a)\to U_0$ fixes the first spectral moment to
+$\langle f,h_{\rm W}f\rangle+(U_0/2)\|f\|^2$ in every weak spectral
+limit. The uniform second-moment bound supplies the required first-moment
+tail control. The scalar term is retained without a chemical-potential
+shift. Second moments need not pass: the positive measures
+$(1-n^{-2})\delta_0+n^{-2}\delta_n$ converge weakly to $\delta_0$
+while their variances tend to one. Thus even a nonzero memory Gram need
+not survive the limiting response. These constraints supply ground and
+energy inputs, not relativistic rest masses or an Einstein balance.
+The proof and exact controls are in
+\texttt{model/continuum\_ground\_constraints}.

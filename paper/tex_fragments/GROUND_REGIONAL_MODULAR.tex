@@ -1,0 +1,80 @@
+\paragraph{Regional modular data on the full particle ground.}
+
+The invariant finite reference $\rho_G=P_G/5$ now supplies regional
+modular data on the same ground used for the particle spectrum.
+In the hidden spin frame, its highest-weight vector is the Slater
+determinant of four negative spatial orbitals, with projector
+$P_-=(I-A/\sqrt3)/2$. Averaging a common spin rotation yields $\rho_G$.
+For a region $R$, let $\lambda_j$ be the eigenvalues of the spatial
+compression $(P_-)_R$. The Slater Schmidt decomposition and the spin
+average give, for every occupied natural-orbital subset $I$,
+\begin{equation}
+ w_I=\prod_{j\in I}\lambda_j\prod_{j\notin I}(1-\lambda_j),
+ \qquad
+ \rho_{R,I}=\frac{w_I}{|I|+1}P_{\mathrm{sym},I}.
+\end{equation}
+Here $P_{\mathrm{sym},I}$ projects onto the symmetric spin space of
+dimension $|I|+1$; all other states have zero weight. Indeed phase
+integration deletes unequal spin counts, and the remaining diagonal
+integral is
+$\binom{k}{l}\int_0^1t^{k-l}(1-t)^l\,dt=1/(k+1)$.
+Thus, retaining the complete kernel,
+\begin{equation}
+ S(\rho_R)=\sum_j h_2(\lambda_j)+\sum_I w_I\log(|I|+1).
+\end{equation}
+For $0<\lambda_j<1$ the modular generator on the positive support is
+\begin{equation}
+ K_R=-\sum_j\log(1-\lambda_j)I
+ +\sum_j\log\frac{1-\lambda_j}{\lambda_j}N_j+\log(N_R+1).
+\end{equation}
+Endpoint occupations are handled as fixed blocks, without taking
+logarithms of zero. This is a support identity, not a full-CAR
+faithfulness claim.
+
+Every adjacent two-site region has positive spectrum
+\begin{equation}
+ \left\{\frac16\ [1],\quad
+ \frac{2-\sqrt3}{12}\ [2],\quad
+ \frac{2+\sqrt3}{12}\ [2],\quad
+ \frac1{18}\ [3]\right\},
+\end{equation}
+where brackets denote multiplicities. Its eight other eigenvalues are
+zero. The support consists of the vacuum, the four one-particle states,
+and the three two-particle triplet states. With $H_R$ the actual internal
+regional Hamiltonian, whose contact term vanishes on this support,
+\begin{equation}
+ K_R=\log6\,I+\beta_R H_R+\log(N_R+1),
+ \qquad \beta_R=16\log(2+\sqrt3).
+\end{equation}
+Exact signed CAR traces of all five source ground vectors verify this
+identity on all twelve cube bonds; the sixteen nonadjacent pairs give
+$K_R=\log4\,I+\log(N_R+1)$ instead. The same local spin-frame change
+conjugates the density, support and Hamiltonian back to the original
+source coordinates.
+
+For every Hermitian trace-zero variation $\delta$ within the positive
+support, including noncommuting variations,
+\begin{equation}
+ DS_{\rho_R}(\delta)=\beta_R\operatorname{Tr}(\delta H_R)
+                  +\operatorname{Tr}\bigl(\delta\log(N_R+1)\bigr).
+\end{equation}
+The second term is central on the supported number-preserving algebra,
+not on the full CAR algebra. Since
+$\lambda_{\min}^+=(2-\sqrt3)/12>1/48$, for
+$\delta=\sigma-\rho_R$ with $\sigma$ supported there and
+$0\le\epsilon<1$,
+\begin{equation}
+ 0\le D(\rho_R+\epsilon\delta\Vert\rho_R)
+ \le\frac{24\epsilon^2\|\delta\|_{\mathrm{HS}}^2}{1-\epsilon}.
+\end{equation}
+In contrast, a density $\sigma_\perp$ in the orthogonal kernel
+obeys the full-state identity
+$S((1-\epsilon)\rho_R+\epsilon\sigma_\perp)
+=(1-\epsilon)S(\rho_R)+\epsilon S(\sigma_\perp)+h_2(\epsilon)$,
+whose derivative diverges at zero. The kernel is therefore retained in
+the operational domain; no supported first law is applied to such a
+disturbance. These are same-ground finite modular and entropy inputs.
+Identifying their central term with a geometric edge, their energy
+pairing with a diamond charge, or their coefficient with a physical
+clock still requires the existing Einstein theorem's common geometric
+and scaling premises.

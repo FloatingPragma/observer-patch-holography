@@ -1,0 +1,118 @@
+\paragraph{The centered bounded-contact limit is a free field theory.}
+The preceding centered construction admits a stronger conclusion.
+For $c(a)=v/a$, fixed $v>0$ and $0\le U(a)\le U_{\max}<\infty$, every
+retained continuum net of the canonical charged fields is the free
+eight-valley Weyl vacuum net. This determines the full field hierarchy,
+not only a two-point approximation. Its particles and holes have
+$E(p)=v|p|$ and zero rest masses. These modes are not identified with
+measured species; the bounded-contact branch does not supply the
+required interacting theory or its massive sectors.
+
+The proof begins with the exact canonical composite
+$d=(2n_{\rm opposite}-1)c$ and the centered occupation bound
+$\Delta\le11u^2/8$, where $u=U/c$. At microscopic time $s/c$, write
+$F_c(s;f)=\omega(\{\tau_{s/c}(d(f)),d(f)^*\})$, and let $F_0$ denote
+the free filled-sea response at normalized hopping speed one.
+A degree-$m$ CAR polynomial has centered onsite interaction frequencies
+in $[-m/2,m/2]$. Bernstein's bound and Duhamel give the degree-three
+dynamical error. For the state error, the cubic/cubic anticommutator
+has nine single contractions leaving degree-four words; the two
+cubic/linear terms leave degree-two words. Their local Wick errors
+are at most $8\sqrt\Delta$ and $2\sqrt\Delta$. Absolute row and
+column sums of the free propagator are at most $e^{3|s|}$, and the
+contracted factor retains the Schur kernel joining the two smearing
+indices. Consequently, uniformly over all lattice smearings,
+\[
+ |F_c(s;f)-F_0(s;f)|\le
+ \bigl(3u|s|+312\sqrt\Delta\,e^{9|s|}\bigr)\|f\|^2.
+\]
+No divergent $\|f\|_1^2$ estimate is used.
+
+The free onsite spin covariance is $I_2/2$, so normal ordering gives
+$d=2\mathopen{:}n_{\rm opposite}c\mathclose{:}$ with no linear
+component. It creates three positive-energy excitations, whose total
+energy is the sum of three values
+$e(k)=(\sum_j\sin^2k_j)^{1/2}$. The spin and antisymmetrization bounds
+give coefficient sixteen per charge branch. Two independent internal
+momenta must have $e(k)\le\epsilon$; each such set has normalized
+volume at most $\epsilon^3$. Thus the complete signed free measure obeys
+\[
+ \mu_{0,f}([-\epsilon,\epsilon])\le32\epsilon^6\|f\|^2.
+\]
+All eight nodes and both positive physical excitation branches are
+retained. Negative response frequency labels removal, not a negative
+ground excitation energy.
+
+Gaussian smoothing now bounds the actual centered composite weight
+in any fixed physical energy window:
+\[
+ \mu_{c,f}([-R,R])\le \eta_c(R)^2\|f\|^2,
+\]
+\[
+ \eta_c(R)^2\le\min\!\left\{1,
+ e^{R^2/(2c^2\epsilon^2)}
+ \left(1536\epsilon^6+\frac{3u}{\epsilon}
+       +624\sqrt\Delta\,e^{81/(2\epsilon^2)}\right)\right\}.
+\]
+First send $a\to0$ at fixed $\epsilon$, then $\epsilon\to0$.
+This gives $\eta_c(R)\to0$ uniformly in unit smearings. The composite
+retains its equal-time CAR norm while its ground spectral weight
+escapes every finite energy interval.
+
+The next steps use both charge branches in the positive ground GNS
+space. For the annihilation map $Af=c(f)\Omega$ and composite map
+$Df=d(f)\Omega$, the source equation is
+$LA+Ah=-(U/2)D$, with conjugate input space understood.
+On $h\ge\delta>0$, integration against the two contraction semigroups
+gives, after splitting output energies at $R$,
+\[
+ \|\mathbf1_{[0,R]}(L)A\|\le\frac{U_{\max}\eta_c(R)}{2\delta},
+ \qquad
+ \|\mathbf1_{(R,\infty)}(L)A\|
+ \le\frac{U_{\max}}{2(R+\delta)}.
+\]
+The negative-band creator has the same bound. Taking the two limits
+and using the CAR determines the entire initial-time state as the
+pure free filled sea. On a general bounded kinetic window
+$\|h\|\le P$, Duhamel followed by integration by parts above $R$ gives
+\[
+ \|[C_a(f,t)-C_a(e^{ith_a}f,0)]\Omega_a\|
+ \le\frac{U_{\max}}2
+ \left(|t|\eta_c(R)+\frac{2+|t|P}{R}\right)\|f\|.
+\]
+The adjoint difference satisfies the same estimate. Passing to the
+continuum therefore gives both vacuum identities for the free Weyl
+generator $h_b=i v\sum_j(-1)^{b_j}\sigma_j\partial_j$.
+
+Vacuum identities alone would not prove a free hierarchy. Here spatial
+locality supplies the missing implication. The free filled-sea vacuum
+is cyclic for the initial CAR algebra outside any bounded spatial
+region. Indeed, a vector in either Weyl energy band orthogonal to all
+outside test functions would have compact support. Its Fourier transform
+would be entire, but the band equation at fixed nonzero transverse
+momentum contains $\sqrt{z^2+r^2}$. Continuation around one of its
+simple branch points reverses that square root while the entire vector
+and polynomial Weyl matrix remain single-valued, forcing the vector
+to vanish. This proves density of the projected outside test functions
+in both bands, separately in every valley. Their particle and hole
+creation vectors span the one-particle space; Wick recursion then
+spans all finite exterior products.
+
+For compact smooth $f$, let
+$A_b(t,f)=C_b(f,t)-C_b(e^{ith_b}f,0)$. The retained finite propagation
+cone and free Weyl finite propagation localize both terms inside one
+bounded enlargement of the support. Graded locality and
+$A_b(t,f)\Omega=A_b(t,f)^*\Omega=0$ make both differences vanish on
+the dense outside-polynomial vacuum vectors. The initial CAR cyclic
+space therefore reduces every time field, with free action. Full
+all-time GNS cyclicity makes it the entire Hilbert space. Thus
+$A_b(t,f)=0$ as an operator and the complete canonical charged-field
+hierarchy is free. No Lorentz axiom or external renormalization theorem
+was assumed in this argument.
+
+This excludes a surviving interaction and positive rest masses on the
+stated centered bounded-$U$ branch. It does not decide unbounded coupling
+trajectories, different field scalings, physical species identifications
+or the common gauge and Einstein requirements. The full proof, exact
+bound calculators and countercontrols are in
+\texttt{model/continuum\_free\_limit}.

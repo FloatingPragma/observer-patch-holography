@@ -1,0 +1,137 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout.",
+  "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws remain admitted inputs. The continuum branch explicitly takes c=v/a and bounded contact strength, retains the full source dynamics and all eight valleys, and distinguishes a subsequential continuum net from a uniquely selected interacting Lorentz field. Finite energy POVM outputs and hidden total-spin sectors are not physical particle identifications.",
+  "source_law_changed": false,
+  "component_results": [
+    {
+      "id": "spin_resolved_spectrum",
+      "issues": [
+        1142,
+        1143,
+        1145
+      ],
+      "result": "On the unchanged original cube, all sixteen linear CAR creation modes acting on every vector in the complete five-dimensional N4 ground space generate the same 78 positive energy lines. Exact source spin ladders identify the lambda=sqrt(3)/16 line as reachable total hidden spin 5/2 and the other 77 as total hidden spin 3/2. The full N5 reachable range has dimension 1256 of 4368, with the 3112-dimensional dark complement classified by internal spin. All annihilator probes reach sixteen N3 states at positive removal cost lambda. The invariant reference P_ground/5 has an exact full matrix retarded response with 79 signed poles and a 632-dimensional minimal mixed-state cyclic realization; complete spatial and spin coherences, all line weights and the first moment h+I/4 are retained. Every mixed-reference positive line has nonzero weight. No ground choice or linear single-CAR probe escapes the previous finite common-scale charged-lepton ratio rejection. These are internal total spins and finite excitation energies, not particle Lorentz spins, physical species or relativistic masses.",
+      "evidence": [
+        "model/spin_resolved_spectrum/README.md",
+        "model/spin_resolved_spectrum/__init__.py",
+        "model/spin_resolved_spectrum/__main__.py",
+        "model/spin_resolved_spectrum/packet.py",
+        "model/spin_resolved_spectrum/results.json",
+        "model/spin_resolved_spectrum/spectrum.py",
+        "model/spin_resolved_spectrum/spin.py",
+        "model/spin_resolved_spectrum/test_packet.py",
+        "model/spin_resolved_spectrum/test_spectrum.py",
+        "model/spin_resolved_spectrum/test_spin.py",
+        "paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex"
+      ],
+      "remaining": [
+        "Construct the native preparation and complete matrix readout for the invariant full-ground reference wherever that operational identification is claimed.",
+        "Derive the relevant real-frequency spectral structure and surviving interactions under the actual infinite-volume and spatial-refinement limits.",
+        "Establish physical Lorentz spin, gauge charges and detector observables rather than identifying total hidden spin with intrinsic particle spin.",
+        "Prove the relativistic dispersion and common energy normalization needed to interpret excitation energies as particle rest masses.",
+        "Identify measured species with independently tested quantum numbers and mass ratios outside the excluded finite single-CAR gap dictionary."
+      ]
+    },
+    {
+      "id": "spectral_readout",
+      "issues": [
+        1138,
+        1139,
+        1142,
+        1143
+      ],
+      "result": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+      "evidence": [
+        "model/spectral_readout/README.md",
+        "model/spectral_readout/__init__.py",
+        "model/spectral_readout/__main__.py",
+        "model/spectral_readout/energy.py",
+        "model/spectral_readout/finite.py",
+        "model/spectral_readout/kernels.py",
+        "model/spectral_readout/packet.py",
+        "model/spectral_readout/results.json",
+        "model/spectral_readout/test_packet.py",
+        "model/spectral_readout/test_readout.py",
+        "paper/tex_fragments/SPECTRAL_READOUT.tex"
+      ],
+      "remaining": [
+        "Provide a numerical bound on finite-ground state discrepancy or prepare the desired limiting state before claiming numerical infinite-ground energy values.",
+        "Execute complete native long-time or multi-clock energy readout, including all outcomes and finite-shot errors, where such a measurement is claimed.",
+        "Control real-frequency poles or thresholds, relativistic dispersion and the massive and massless sectors on one interacting continuum family.",
+        "Derive common physical spin, charge, detector and clock/unit identifications before assigning measured particle species or rest masses.",
+        "Realize the same-family geometric action normalization, modular, area, stress and Einstein-balance premises."
+      ]
+    },
+    {
+      "id": "continuum_field_net",
+      "issues": [
+        1138,
+        1142,
+        1145
+      ],
+      "result": "For the original zero-chemical-potential Weyl/contact action under c(a)=v/a with fixed v>0 and uniformly bounded nonnegative U(a), cell-average smearing constructs all eight Weyl valleys jointly. Every spacing sequence tending to zero has a common subsequence on which the complete multi-time field hierarchy converges. Its GNS representation has bounded continuum CAR fields, strongly continuous space and time translations, nonnegative energy on every polynomial vector, and exact graded locality at sup-norm separation greater than 96v times the time difference. The proof supplies explicit cell, valley-overlap, time-Lipschitz and O(a) causal-tail bounds. Exact Schur identities give spacing-uniform inverse-response bounds on fixed physical momentum windows away from real frequency. A separate full-CAR Duhamel estimate proves a unique free eight-valley filled-sea continuum when U(a) tends to zero. Surviving interaction at bounded positive U, Lorentz covariance, physical species and Einstein dynamics are not proved.",
+      "evidence": [
+        "model/continuum_field_net/README.md",
+        "model/continuum_field_net/__init__.py",
+        "model/continuum_field_net/__main__.py",
+        "model/continuum_field_net/algebra.py",
+        "model/continuum_field_net/bounds.py",
+        "model/continuum_field_net/cells.py",
+        "model/continuum_field_net/packet.py",
+        "model/continuum_field_net/results.json",
+        "model/continuum_field_net/test_algebra.py",
+        "model/continuum_field_net/test_bounds.py",
+        "model/continuum_field_net/test_cells.py",
+        "model/continuum_field_net/test_packet.py",
+        "model/continuum_field_net/valleys.py",
+        "paper/tex_fragments/CONTINUUM_FIELD_NET.tex"
+      ],
+      "remaining": [
+        "Prove that nonzero connected interactions survive the macroscopic spacing limit at an appropriate nonvanishing coupling trajectory.",
+        "Establish the needed Lorentz covariance, common real-frequency structure and energy/action normalization on the same field net.",
+        "Determine the appropriate spectral measures, thresholds, poles or resonances and identify the massive and massless physical sectors.",
+        "Construct the same-family stress, geometric modular, area-stationarity, curvature and scale data required by G1-G6 of the existing Einstein theorem.",
+        "Derive physical species and masses in common independently calibrated units, retaining every additional lattice valley unless a controlled removal mechanism is proved."
+      ]
+    },
+    {
+      "id": "continuum_ground_constraints",
+      "issues": [
+        1142,
+        1145
+      ],
+      "result": "For the original translation-invariant full-ground state, the free filled sea gives 0<=e_kin-e_free+U*d<=U/4 and d<=1/4. Its kinetic occupation defect obeys D<=min(2,2 delta^3+U/(4c delta)) for every 0<delta<=1, hence D<=8(U/(24c))^(3/4) when U<=24c. Thus n->1 and r->1/2 as U/c->0. A CAR normal-ordering recursion bounds every fixed microscopic local even word by C_m sqrt(D) from its free-sea value, with C_0=0 and C_m=2+(m-1)C_(m-2), implying d->1/4. Along c=v/a and bounded U(a)->U0, the first energy moment of every fixed physical smooth packet converges to its Weyl kinetic moment plus (U0/2)||f||^2. Exact positive-measure and momentum-concentration controls show why neither the second-moment memory Gram nor microscopic Gaussianity can automatically be transferred to the macroscopic continuum.",
+      "evidence": [
+        "model/continuum_ground_constraints/README.md",
+        "model/continuum_ground_constraints/__init__.py",
+        "model/continuum_ground_constraints/__main__.py",
+        "model/continuum_ground_constraints/bounds.py",
+        "model/continuum_ground_constraints/packet.py",
+        "model/continuum_ground_constraints/results.json",
+        "model/continuum_ground_constraints/test_bounds.py",
+        "model/continuum_ground_constraints/test_packet.py",
+        "paper/tex_fragments/CONTINUUM_GROUND_CONSTRAINTS.tex"
+      ],
+      "remaining": [
+        "Determine whether the actual source has nonzero macroscopic connected correlations under the selected refinement, with uniform control rather than microscopic witnesses.",
+        "Construct Lorentz covariance and the appropriate real-frequency spectral thresholds, resonances or particles on the same limiting state and observables.",
+        "Derive physical species, common units, masses and detector/current assignments independently of finite-gap relabeling.",
+        "Realize common matter action, stress, modular, area and coarse-graining premises of the existing Einstein theorem stack."
+      ]
+    }
+  ],
+  "quantifier_boundary": "A positive-energy eight-valley continuum field net under the stated bounded-contact scaling, finite-resolution spectral measures, exact whole-ground spin selection and microscopic ground constraints. Neither surviving interacting Lorentz dynamics, a physical Standard Model spectrum, calibrated relativistic masses nor common Einstein premises is inferred."
+}

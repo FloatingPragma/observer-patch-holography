@@ -45,8 +45,8 @@
       "status": "PROPOSED_NOT_ESTABLISHED"
     },
     "parents": {
-      "claims/claim_registry.yaml": "0084f360e97e360207eb9c7c2b2ac75f55bfc6dc7f0e76ca13ae2272345d9aa8",
-      "claims/completion_program.json": "c85d7b76e112b96b7cb9b895c9163fc0ad3815fe9bbf4f71d8fcf1376d141b47",
+      "claims/claim_registry.yaml": "87460437b591f363ac2133120ec112f55e9fd82e41534bd54610338572bd35d9",
+      "claims/completion_program.json": "0e8b1e977c6cb135adb0372d371d6805c2b306de9fb6e433e2cc64e904e63488",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -55,13 +55,13 @@
         "independent_check": "model/completion/independent_program_review.py",
         "path": "model/completion/program_class_v2_review.json",
         "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-        "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
+        "sha256": "cf75ba735957f89499b4d98fb1e732ae31685d03d1f36ad53eb50935417d38e2"
       },
       "adopted_class": {
         "independent_check": "model/completion/test_program_class_v2.py",
         "path": "model/completion/program_class_v2.json",
         "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-        "sha256": "b37870876beee9c490d6ae3da545a98c6fe3875404b94cfb7e8cbec0e7f9ec26"
+        "sha256": "ec9d9842ecafd74a64009259008b357cfc845c01b33e48653a05dc71b92b9749"
       },
       "boundary_status": "FROZEN",
       "component_campaigns": [
@@ -432,7 +432,7 @@
             "independent_check": "model/compiled_native_history/test_compiler.py",
             "path": "model/completion/component_interfaces.json",
             "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
-            "sha256": "6524a5b28655b112ae7873922c2b23181cc6c82e7e277bca1b7c02c6bff95b6a"
+            "sha256": "5ccda187d68f6e3bf4d62e1230cda0cfe76be50310126165fe5b513496b7acda"
           },
           "id": "OPH-COMMON-FIELD-INTERFACES-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -705,6 +705,48 @@
           "scope": "FINITE_COMPONENT_FAMILY",
           "supports": [
             "CP-02",
+            "CP-06",
+            "CP-07",
+            "CP-08",
+            "CP-09"
+          ],
+          "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+            "independent_check": "model/completion/test_finite_attachment_map.py",
+            "path": "model/completion/native_ground_spatial_campaign.json",
+            "scope": "Prepare the certified finite ground and measure its charged response with complete native records, resolve the full finite matrix response, and construct non-Gaussian real-time and reflection-positive ordered imaginary-time field correlations, nonzero interaction memory and spatially local inverse response on the original infinite-lattice ground.",
+            "sha256": "a220f1f956918db1d97651b962035afe368e81df7f5243561d5c9d83bfe6abde"
+          },
+          "id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-02",
+            "CP-03",
+            "CP-05",
+            "CP-06",
+            "CP-07",
+            "CP-08",
+            "CP-09"
+          ],
+          "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+            "independent_check": "model/completion/test_finite_attachment_map.py",
+            "path": "model/completion/continuum_field_campaign.json",
+            "scope": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout.",
+            "sha256": "f7fd154f99dd54acf3212091847d81cb46b8a40943ea3fc9a9b759e803138679"
+          },
+          "id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-02",
+            "CP-03",
+            "CP-05",
             "CP-06",
             "CP-07",
             "CP-08",
@@ -1312,7 +1354,7 @@
             "independent_check": "model/completion/test_finite_attachment_map.py",
             "path": "model/completion/finite_attachment_map.json",
             "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-            "sha256": "104ab0fd60955b4bf259126ec63c53beb061f9c01f9b651d4472541c67d1c821"
+            "sha256": "6b52bc375792fe19e11ccd4a598edd9ebd551f5b2a08a44d590e6b4163e0ad1c"
           },
           {
             "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -1785,40 +1827,102 @@
             "path": "model/retarded_matter_response/results.json",
             "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
             "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
+          },
+          {
+            "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+            "id": "ground_spectral_source",
+            "independent_check": "model/ground_spectral_source/test_preparation.py",
+            "path": "model/ground_spectral_source/results.json",
+            "scope": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+            "sha256": "70c9c20eeffbd1dbe7f00f54acb9d9f37dfa525b52ca3e3d06ad330b8bd18446"
+          },
+          {
+            "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+            "id": "matrix_spectral_response",
+            "independent_check": "model/matrix_spectral_response/test_matrix.py",
+            "path": "model/matrix_spectral_response/results.json",
+            "scope": "For the original grounded three-dimensional cube at c=1/8 and U=1, the degree-78 source polynomial annihilates all eight hidden-frame down-addition columns, and all required matrix moments lie exactly in span(I,A). The full response therefore has an exact rational matrix formula. Every one of its 78 residues is a positive rank-four band projector, giving an observed reducing cyclic space of dimension 312 inside the full 560-state charged sector. The inverse response and Schur memory are exactly onsite plus the signed cube adjacency. The certified common support gives a controlled cyclic frequency disk |z|<299/10000, and static coefficients are computed exactly over Q(sqrt(3)). These are finite cube identities, not a spatial continuum, a bound on the remaining 248 source states, a physical species assignment or Einstein dynamics. The complete visible finite-gap dictionary also fails the fixed PDG2025 electron/muon and electron/tau ratios under every common positive unit factor, with exact minimax relative-error lower bounds; this rejects only that stated finite-gap-as-rest-energy identification.",
+            "sha256": "6edc1a9677caff576e1828ab28ff53a79b6d6819ec97df64ec78366395dee019"
+          },
+          {
+            "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+            "id": "retarded_spatial_locality",
+            "independent_check": "model/retarded_spatial_locality/test_algebra.py",
+            "path": "model/retarded_spatial_locality/results.json",
+            "scope": "For the original zero-chemical-potential three-dimensional Weyl/contact action, the existing translation-averaged full-ground state inherits hidden SU(2), has exact response-memory Gram U^2 r(1-r) I with 1/8<=r<=1/2, and has a nonzero connected four-point witness: omega(D(t)^dagger D(t))>=U^2 t^2/64 for 0<|t|<=U/(16M), M=9c^2+12cU+U^2. Here D centers the local unequal-time CAR anticommutator. This excludes a linear-field realization by quadratic CAR evolution, including pairing and auxiliary modes. Its positive-energy GNS representation constructs every ordered Euclidean correlation and a positive time-reflection Gram kernel; the same finite-ground subsequence converges to this hierarchy through bounded Poisson-semigroup integrals. On every domain Im z>=eta>0 and |z|<=Z, the spatial Green operator is uniformly invertible, with explicit exponential locality for it, its inverse and Schur memory, and controlled spatial/frequency Taylor expansions. These are fixed-spacing field constructions, not a spatial continuum, real mass shells, physical species or an Einstein completion.",
+            "sha256": "f08e5baf881061887a19633d709be8a1ba409b2f746791da6162c9fe30b43643"
+          },
+          {
+            "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+            "id": "spin_resolved_spectrum",
+            "independent_check": "model/spin_resolved_spectrum/test_spin.py",
+            "path": "model/spin_resolved_spectrum/results.json",
+            "scope": "On the unchanged original cube, all sixteen linear CAR creation modes acting on every vector in the complete five-dimensional N4 ground space generate the same 78 positive energy lines. Exact source spin ladders identify the lambda=sqrt(3)/16 line as reachable total hidden spin 5/2 and the other 77 as total hidden spin 3/2. The full N5 reachable range has dimension 1256 of 4368, with the 3112-dimensional dark complement classified by internal spin. All annihilator probes reach sixteen N3 states at positive removal cost lambda. The invariant reference P_ground/5 has an exact full matrix retarded response with 79 signed poles and a 632-dimensional minimal mixed-state cyclic realization; complete spatial and spin coherences, all line weights and the first moment h+I/4 are retained. Every mixed-reference positive line has nonzero weight. No ground choice or linear single-CAR probe escapes the previous finite common-scale charged-lepton ratio rejection. These are internal total spins and finite excitation energies, not particle Lorentz spins, physical species or relativistic masses.",
+            "sha256": "466ad053f2758473874931fcf82b5aa71cd06d18f72179dc4f340a586789babd"
+          },
+          {
+            "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+            "id": "spectral_readout",
+            "independent_check": "model/spectral_readout/test_readout.py",
+            "path": "model/spectral_readout/results.json",
+            "scope": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+            "sha256": "a40a5a760ba1dc4ccf749a2e6fddc0b0752e204cb9947aa881e7241b34c03fc2"
+          },
+          {
+            "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+            "id": "continuum_field_net",
+            "independent_check": "model/continuum_field_net/test_algebra.py",
+            "path": "model/continuum_field_net/results.json",
+            "scope": "For the original zero-chemical-potential Weyl/contact action under c(a)=v/a with fixed v>0 and uniformly bounded nonnegative U(a), cell-average smearing constructs all eight Weyl valleys jointly. Every spacing sequence tending to zero has a common subsequence on which the complete multi-time field hierarchy converges. Its GNS representation has bounded continuum CAR fields, strongly continuous space and time translations, nonnegative energy on every polynomial vector, and exact graded locality at sup-norm separation greater than 96v times the time difference. The proof supplies explicit cell, valley-overlap, time-Lipschitz and O(a) causal-tail bounds. Exact Schur identities give spacing-uniform inverse-response bounds on fixed physical momentum windows away from real frequency. A separate full-CAR Duhamel estimate proves a unique free eight-valley filled-sea continuum when U(a) tends to zero. Surviving interaction at bounded positive U, Lorentz covariance, physical species and Einstein dynamics are not proved.",
+            "sha256": "139f4d43f314ee398201c002e22d6d7d8d5feef37436d1231e89ce544482a698"
+          },
+          {
+            "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+            "id": "continuum_ground_constraints",
+            "independent_check": "model/continuum_ground_constraints/test_bounds.py",
+            "path": "model/continuum_ground_constraints/results.json",
+            "scope": "For the original translation-invariant full-ground state, the free filled sea gives 0<=e_kin-e_free+U*d<=U/4 and d<=1/4. Its kinetic occupation defect obeys D<=min(2,2 delta^3+U/(4c delta)) for every 0<delta<=1, hence D<=8(U/(24c))^(3/4) when U<=24c. Thus n->1 and r->1/2 as U/c->0. A CAR normal-ordering recursion bounds every fixed microscopic local even word by C_m sqrt(D) from its free-sea value, with C_0=0 and C_m=2+(m-1)C_(m-2), implying d->1/4. Along c=v/a and bounded U(a)->U0, the first energy moment of every fixed physical smooth packet converges to its Weyl kinetic moment plus (U0/2)||f||^2. Exact positive-measure and momentum-concentration controls show why neither the second-moment memory Gram nor microscopic Gaussianity can automatically be transferred to the macroscopic continuum.",
+            "sha256": "3f1616d690de5573a09126f8dd5de3333d9957c1da609b43543770b887aef3fb"
           }
         ],
-        "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-01-v21",
+        "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-01-v23",
         "owners": [
           {
-            "deliverable": "Derive physical clock/energy/geometry matching while preserving the full adaptive source and archive contracts.",
+            "deliverable": "Attach the prepared ground and complete energy readout to a continuing observer, clock, memory and repair implementation.",
             "evidence": [
               "adaptive_reference",
-              "thermodynamic_ground"
+              "thermodynamic_ground",
+              "ground_spectral_source",
+              "retarded_spatial_locality",
+              "spectral_readout",
+              "continuum_field_net"
             ],
             "gate": "CP-02",
             "issue": 1138,
-            "join_condition": "Derive physical clock/energy/geometry matching and controlled continuing-region limits, retaining initialization, classical-memory and full archive/resource contracts. Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum.",
-            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
-            "title": "Join balanced adaptive references to physical clocks",
-            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
+            "join_condition": "Extend native preparation and complete-outcome detection beyond the finite source, with numerical state-error and finite-shot bounds. Prove continuing observer, memory, repair and controller invariance on the same growing-volume and spacing family. Identify its clock with the physical field evolution and calibrate common units; a separately specified model-law service remains explicit wherever native synthesis is absent.",
+            "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
+            "title": "Continue the native observer and controller through the field refinement",
+            "why_now": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout."
           },
           {
-            "deliverable": "Extend the cube eta sector and local disturbance to a controlled family with a boundary invariant and physical detector map.",
+            "deliverable": "Extend the finite protected charged process and construct its boundary invariant and detector map through controlled volume and spacing limits.",
             "evidence": [
               "cube_eta_protection",
               "protected_particle_readout",
               "resolved_particle_spectrum",
-              "particle_species_detector"
+              "particle_species_detector",
+              "ground_spectral_source",
+              "spectral_readout"
             ],
             "gate": "CP-03",
             "issue": 1139,
-            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison",
-            "may_start_now": "Join the resolved finite detector response and controlled massless finite-particle construction on an explicitly common growing carrier and reference.",
-            "title": "Refine the protected three-dimensional local probe",
-            "why_now": "Resolve all eight source-accessible cube response weights, construct the original-action eight-valley massless relativistic limit, and attach finite model flavor and energy labels to a compiled momentum/occupation detector."
+            "join_condition": "Construct the required boundary invariant and prove that it and protection survive the actual repaired spatial refinement. Join the full ground-family spectrum and complete energy POVM to native detector histories, including all outcomes and finite-shot errors. Establish the physical spin, charge, detector and clock maps on the same family; finite cube protection and hidden total spin alone do not supply these identifications.",
+            "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
+            "title": "Extend protected probes to the common continuum family",
+            "why_now": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout."
           },
           {
-            "deliverable": "Control many-pair stability and interactions, nonzero-momentum scattering, and the physical vacuum/clock comparison.",
+            "deliverable": "Determine the nonzero-coupling continuum correlations, real-frequency spectrum and common relativistic dynamics.",
             "evidence": [
               "moving_bound_pair",
               "relativistic_sector_audit",
@@ -1827,17 +1931,24 @@
               "mass_generation_audit",
               "hubbard_relativistic_sector",
               "thermodynamic_ground",
-              "retarded_matter_response"
+              "retarded_matter_response",
+              "ground_spectral_source",
+              "matrix_spectral_response",
+              "retarded_spatial_locality",
+              "spin_resolved_spectrum",
+              "spectral_readout",
+              "continuum_field_net",
+              "continuum_ground_constraints"
             ],
             "gate": "CP-06",
             "issue": 1142,
-            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison Native preparation and complete detector execution for the new global ground Complete resolution of the down-addition residual spectral measure Controlled growing-volume interacting vacuum and stable relativistic massive poles Physical charge/spin/species dictionary and independently fixed energy/length units Active stabilization beyond passive outside-service identity, if required Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics Native preparation and complete-repair preservation of the half-filled many-body ground reference. Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold. Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary. A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass. Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches. Common physical units and an actual measured-species correspondence. Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum. Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure. Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad. Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed. Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors. Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and an independently tested spectrum.",
-            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
-            "title": "Extend the controlled moving pair to an interacting field",
-            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
+            "join_condition": "Prove that connected interactions survive the macroscopic limit on an appropriate source-selected coupling trajectory. Control the limiting ground functional, real-frequency thresholds, poles or resonances and any required scattering; establish Lorentz covariance and the massive and massless sectors. Supply common action normalization, physical units and native ground preparation/readout with continuing repair invariance wherever claimed. The bounded-contact subsequential net and the free U-to-zero control are already constructed; they do not establish the interacting physical endpoint.",
+            "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
+            "title": "Establish surviving interactions and relativistic sectors in the continuum net",
+            "why_now": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout."
           },
           {
-            "deliverable": "Derive particle identities and common physical units from the protected three-dimensional spectral construction.",
+            "deliverable": "Derive intrinsic spin, gauge charges, relativistic dispersion and common physical mass units for the observable sectors.",
             "evidence": [
               "cube_eta_protection",
               "particle_identification",
@@ -1849,29 +1960,38 @@
               "mass_generation_audit",
               "hubbard_relativistic_sector",
               "thermodynamic_ground",
-              "retarded_matter_response"
+              "retarded_matter_response",
+              "ground_spectral_source",
+              "matrix_spectral_response",
+              "spin_resolved_spectrum",
+              "spectral_readout"
             ],
             "gate": "CP-07",
             "issue": 1143,
-            "join_condition": "A physical vacuum and stable interacting positive-energy representation, including an antiparticle dictionary A nontrivial interacting relativistic continuum at finite density and massive relativistic modes Physical electric/gauge charges, physical spin identification and independently justified units Native synthesis of the original-H continuation if the separately specified model-law service is to be eliminated Protection of these modes under the repaired spatial process; no transfer of the protected cube result Local symmetric Lorentz stress, geometric modular and coarse-graining premises, and Einstein dynamics Independent physical predictions beyond the present retrospective no-fit comparison Native preparation and complete detector execution for the new global ground Complete resolution of the down-addition residual spectral measure Controlled growing-volume interacting vacuum and stable relativistic massive poles Physical charge/spin/species dictionary and independently fixed energy/length units Active stabilization beyond passive outside-service identity, if required Common-source geometric stress, modular and coarse-graining premises for Einstein dynamics Native preparation and complete-repair preservation of the half-filled many-body ground reference. Controlled massive relativistic dispersion and full interacting continuum theory beyond the charge threshold. Three-dimensional extension with source-selected nonzero mass scale and physical species/units dictionary. A source-selected three-dimensional refinement and stable reference with nonzero relativistic mass. Native preparation and local-CAR detector pole or permitted multiparticle access for these thermodynamic charge branches. Common physical units and an actual measured-species correspondence. Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum. Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure. Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad. Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed. Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors. Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and an independently tested spectrum.",
-            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
-            "title": "Join the interacting protected spectrum to physical identity",
-            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
+            "join_condition": "Use the same continuum ground, fields and detector observables to derive physical quantum numbers and relativistic dispersion, and fix a common energy/length calibration independently of species fitting. Identify measured species and test their mass ratios and other predictions. Realize native complete matrix and long-time energy readout with finite-shot and state-preparation bounds where measured outputs are claimed. The finite full-ground addition spectrum is resolved and its single-CAR charged-lepton gap dictionary remains excluded; no ground polarization or probe relabeling changes that conclusion.",
+            "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
+            "title": "Identify physical particles from the limiting field and detector spectrum",
+            "why_now": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout."
           },
           {
-            "deliverable": "Extend the dilute local Ward result to the required density/scaling domain and supply the geometric Einstein premises.",
+            "deliverable": "Supply common matter coefficients, action normalization and the same-state geometric and stress premises.",
             "evidence": [
               "dilute_momentum_ward",
               "relativistic_sector_audit",
               "thermodynamic_ground",
-              "retarded_matter_response"
+              "retarded_matter_response",
+              "matrix_spectral_response",
+              "retarded_spatial_locality",
+              "spin_resolved_spectrum",
+              "continuum_field_net",
+              "continuum_ground_constraints"
             ],
             "gate": "CP-09",
             "issue": 1145,
-            "join_condition": "Nontrivial interacting relativistic continuum and finite-density limit Positive-energy interacting vacuum and antiparticle representation Massive relativistic sectors and physical species/current dictionary Independent physical units and detector/protection attachment Symmetric local stress, geometric Einstein premises and Einstein dynamics Compute or otherwise identify a specific thermodynamic ground functional and a native preparation/readout with complete outputs. Establish its continuing invariance under the actual complete repair/controller process. Construct controlled interacting finite-density3+1 continuum dynamics with relativistic massive and massless sectors. Derive local stress, geometric modular and coarse-graining premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and independently tested spectrum. Compute or control the source-selected infinite-volume ground response and its real-axis spectral structure. Derive a local spatial and low-energy inverse-response symbol, complete action density and common coefficients across the relevant matter channels before applying wave_density_metric and source_tetrad. Establish native ground preparation and complete-outcome response measurement, together with continuing repair/controller invariance where claimed. Construct controlled interacting finite-density 3+1-dimensional continuum dynamics with massive and massless relativistic sectors. Prove the same-family modular, area-response, stress, coarse-graining and null-balance premises sufficient for Einstein dynamics. Establish physical particle quantum numbers, measured units and an independently tested spectrum.",
-            "may_start_now": "Construct the local low-energy response and its common geometry/stress interface on the original interacting ground, retaining the actual repair and refinement laws.",
-            "title": "Control local stress in the relevant interacting regime",
-            "why_now": "Construct an original-action positive-energy ground representation on the infinite three-dimensional lattice, and derive its controlled local response interface and exact finite interacting response inputs for the existing geometry theorem stack."
+            "join_condition": "Control the real-frequency low-energy matter symbol and show that the relevant channels share the hyperbolic geometry, action density and normalization required by wave_density_metric and source_tetrad. Construct the local symmetric Lorentz stress and the same-family modular, area-stationarity, entropy, curvature, scale and coarse-graining data required by G1-G6. Verify the Einstein balance on that family. The finite propagation bound and positive-energy continuum CAR net do not by themselves discharge these geometric premises.",
+            "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
+            "title": "Attach the continuum matter net to the existing Einstein theorem stack",
+            "why_now": "Construct the full eight-valley continuum field net from the original ground family, constrain its ground and energy moments, resolve all finite ground-spin sectors, and supply a complete positive finite-resolution energy readout."
           }
         ],
         "physical_comparison_count_added": 0,
@@ -1924,13 +2044,13 @@
               "independent_check": "model/completion/test_program_class_v2.py",
               "path": "model/completion/program_class_v2.json",
               "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-              "sha256": "b37870876beee9c490d6ae3da545a98c6fe3875404b94cfb7e8cbec0e7f9ec26"
+              "sha256": "ec9d9842ecafd74a64009259008b357cfc845c01b33e48653a05dc71b92b9749"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
+              "sha256": "cf75ba735957f89499b4d98fb1e732ae31685d03d1f36ad53eb50935417d38e2"
             }
           ],
           "deliverable": "A versioned, content-bound class of admissible carrier/refinement, repair and memory laws, record instruments, resources, preparations, clocks and interpretation maps; one target and exposure record fixed before validation.",
@@ -2024,7 +2144,7 @@
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
+              "sha256": "cf75ba735957f89499b4d98fb1e732ae31685d03d1f36ad53eb50935417d38e2"
             }
           ],
           "deliverable": "One replayable native repair/memory process that prepares, acts, reads, retains records and continues on overlapping accessible regions, with every service and failure branch accounted.",
@@ -2277,13 +2397,13 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Complete 84-premise ownership/relevance review, 39 inspected finite attachments with 34 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.",
-              "sha256": "104ab0fd60955b4bf259126ec63c53beb061f9c01f9b651d4472541c67d1c821"
+              "sha256": "6b52bc375792fe19e11ccd4a598edd9ebd551f5b2a08a44d590e6b4163e0ad1c"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "200e6713b8ce69dfb3fca655752520fab531449cb91ad3cfd2ed5dcae968812f"
+              "sha256": "cf75ba735957f89499b4d98fb1e732ae31685d03d1f36ad53eb50935417d38e2"
             }
           ],
           "deliverable": "A theorem-to-model integration and relevance review in the existing premise map: each result needed by the completion chain has an owning gate and an explicit model-premise proof obligation; irrelevant branches leave the active path.",
@@ -2628,7 +2748,7 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-              "sha256": "104ab0fd60955b4bf259126ec63c53beb061f9c01f9b651d4472541c67d1c821"
+              "sha256": "6b52bc375792fe19e11ccd4a598edd9ebd551f5b2a08a44d590e6b4163e0ad1c"
             },
             {
               "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -3196,6 +3316,38 @@
               "path": "model/thermodynamic_ground/results.json",
               "scope": "For the original three-dimensional Weyl/contact action at fixed c>0, U>0 and zero chemical potential, spatially averaged full-Fock finite-box grounds have a translation- and gauge-invariant weak-star ground-state limit with density 1/4<=rho<=1. Its GNS generator is positive and the nonzero local quartic interaction remains represented faithfully. Exact local source checks, boundary bounds and a filled free sea variance of 2/3 are retained. The same ground subsequence yields analytic local retarded responses uniformly on compact subsets of the upper half-plane, with explicit time-tail bounds. This proves state existence at fixed spacing, not computed or native preparation, repair stationarity, real-axis poles, a Lorentz continuum or a physical species assignment. Its ground energy density exists, equals the local energy expectation, and lies in certified finite-box brackets of surface width 3c/ell.",
               "sha256": "6a0e96496fd649f41cb7ef73dd1dc79b28f62b4c449c04fe9a8f22f72e3a5b0e"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "ground_spectral_source",
+              "independent_check": "model/ground_spectral_source/test_preparation.py",
+              "path": "model/ground_spectral_source/results.json",
+              "scope": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+              "sha256": "70c9c20eeffbd1dbe7f00f54acb9d9f37dfa525b52ca3e3d06ad330b8bd18446"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "retarded_spatial_locality",
+              "independent_check": "model/retarded_spatial_locality/test_algebra.py",
+              "path": "model/retarded_spatial_locality/results.json",
+              "scope": "For the original zero-chemical-potential three-dimensional Weyl/contact action, the existing translation-averaged full-ground state inherits hidden SU(2), has exact response-memory Gram U^2 r(1-r) I with 1/8<=r<=1/2, and has a nonzero connected four-point witness: omega(D(t)^dagger D(t))>=U^2 t^2/64 for 0<|t|<=U/(16M), M=9c^2+12cU+U^2. Here D centers the local unequal-time CAR anticommutator. This excludes a linear-field realization by quadratic CAR evolution, including pairing and auxiliary modes. Its positive-energy GNS representation constructs every ordered Euclidean correlation and a positive time-reflection Gram kernel; the same finite-ground subsequence converges to this hierarchy through bounded Poisson-semigroup integrals. On every domain Im z>=eta>0 and |z|<=Z, the spatial Green operator is uniformly invertible, with explicit exponential locality for it, its inverse and Schur memory, and controlled spatial/frequency Taylor expansions. These are fixed-spacing field constructions, not a spatial continuum, real mass shells, physical species or an Einstein completion.",
+              "sha256": "f08e5baf881061887a19633d709be8a1ba409b2f746791da6162c9fe30b43643"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spectral_readout",
+              "independent_check": "model/spectral_readout/test_readout.py",
+              "path": "model/spectral_readout/results.json",
+              "scope": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+              "sha256": "a40a5a760ba1dc4ccf749a2e6fddc0b0752e204cb9947aa881e7241b34c03fc2"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_field_net",
+              "independent_check": "model/continuum_field_net/test_algebra.py",
+              "path": "model/continuum_field_net/results.json",
+              "scope": "For the original zero-chemical-potential Weyl/contact action under c(a)=v/a with fixed v>0 and uniformly bounded nonnegative U(a), cell-average smearing constructs all eight Weyl valleys jointly. Every spacing sequence tending to zero has a common subsequence on which the complete multi-time field hierarchy converges. Its GNS representation has bounded continuum CAR fields, strongly continuous space and time translations, nonnegative energy on every polynomial vector, and exact graded locality at sup-norm separation greater than 96v times the time difference. The proof supplies explicit cell, valley-overlap, time-Lipschitz and O(a) causal-tail bounds. Exact Schur identities give spacing-uniform inverse-response bounds on fixed physical momentum windows away from real frequency. A separate full-CAR Duhamel estimate proves a unique free eight-valley filled-sea continuum when U(a) tends to zero. Surviving interaction at bounded positive U, Lorentz covariance, physical species and Einstein dynamics are not proved.",
+              "sha256": "139f4d43f314ee398201c002e22d6d7d8d5feef37436d1231e89ce544482a698"
             }
           ],
           "requires": [
@@ -3443,7 +3595,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "db30a5291818d597b5627cb5aa8779ded2182f4fde1c8e4939facded7bcb8052"
+              "sha256": "3d7aba9f9a252a4b0ecab26ecddb8686dc912afefa1a0e51ab6ec7874200f8ad"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -3522,6 +3674,22 @@
               "path": "model/particle_species_detector/results.json",
               "scope": "A constructive physical-CAR-mode Fourier and occupation detector identifies eight operational Weyl flavors with both signed energy branches on the original periodic 8^3 Weyl/contact lattice. Exact Gaussian-integer algebra proves sixteen orthonormal source eigenmodes with energies plus/minus sqrt(2)/16 and nonzero directional current. A complete native word of 65,822,721 formal pulses has preparation-and-readout error below 8.31e-9, so every specified prepared family member is identified with unconditional probability at least 1-8.31e-9 after the original-H model-law continuation. The full 1024-row ideal Gaussian comparison is executed and every single-particle output is retained; a literal 2^1024-row native state is not executed. The fixed periodic refinement has zero continuum masses. Retrospective physical comparisons reject direct mass/spin-preserving identifications with the charged leptons, photon, and an entirely massless three-neutrino spectrum without fitting units.",
               "sha256": "f22850132b3aa627235079b0c806df913f2dc50e11516e20378077286939140b"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "ground_spectral_source",
+              "independent_check": "model/ground_spectral_source/test_preparation.py",
+              "path": "model/ground_spectral_source/results.json",
+              "scope": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+              "sha256": "70c9c20eeffbd1dbe7f00f54acb9d9f37dfa525b52ca3e3d06ad330b8bd18446"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spectral_readout",
+              "independent_check": "model/spectral_readout/test_readout.py",
+              "path": "model/spectral_readout/results.json",
+              "scope": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+              "sha256": "a40a5a760ba1dc4ccf749a2e6fddc0b0752e204cb9947aa881e7241b34c03fc2"
             }
           ],
           "requires": [
@@ -3836,7 +4004,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "db30a5291818d597b5627cb5aa8779ded2182f4fde1c8e4939facded7bcb8052"
+              "sha256": "3d7aba9f9a252a4b0ecab26ecddb8686dc912afefa1a0e51ab6ec7874200f8ad"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -4069,7 +4237,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "db30a5291818d597b5627cb5aa8779ded2182f4fde1c8e4939facded7bcb8052"
+              "sha256": "3d7aba9f9a252a4b0ecab26ecddb8686dc912afefa1a0e51ab6ec7874200f8ad"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -4091,6 +4259,22 @@
               "path": "model/field_symmetry/results.json",
               "scope": "The unchanged open-box Weyl/contact field is exactly related by an onsite SU(2) frame to real pi-flux Hubbard hopping. Its hidden spin and eta algebras commute; [H,eta_plus]=U*eta_plus and [H-U*N/2,eta_plus]=0. Exact complete-Fock Ward identities and multiplet counts retain every number sector. The eta tower exists on every finite open box. These are internal supplied-action symmetries, not Lorentz spin, native repair protection, localized defects or physical species. A complete 256-state four-site plaquette history prepares a supplied even-charge coherent eta product, evolves it with the existing source words and reads all terminal occupation addresses after decoding. Every first-export failure and preparation/readout cost is retained. The ideal split is exact on this eta preparation; the arbitrary-input splitting bound and numerical primitive admission budget are separate. H rotates the pair phase at frequency U, whereas K=H-U*N/2 holds it fixed. The phase reference, action and Hamiltonian time remain supplied; no physical energy or clock calibration is inferred.",
               "sha256": "e55cb24b5496542225e53767eb65b85df0fa30a796e14a602fcb3739a4dbad0e"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "ground_spectral_source",
+              "independent_check": "model/ground_spectral_source/test_preparation.py",
+              "path": "model/ground_spectral_source/results.json",
+              "scope": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+              "sha256": "70c9c20eeffbd1dbe7f00f54acb9d9f37dfa525b52ca3e3d06ad330b8bd18446"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spectral_readout",
+              "independent_check": "model/spectral_readout/test_readout.py",
+              "path": "model/spectral_readout/results.json",
+              "scope": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+              "sha256": "a40a5a760ba1dc4ccf749a2e6fddc0b0752e204cb9947aa881e7241b34c03fc2"
             }
           ],
           "requires": [
@@ -4440,6 +4624,62 @@
               "path": "model/retarded_matter_response/results.json",
               "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
               "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "ground_spectral_source",
+              "independent_check": "model/ground_spectral_source/test_preparation.py",
+              "path": "model/ground_spectral_source/results.json",
+              "scope": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+              "sha256": "70c9c20eeffbd1dbe7f00f54acb9d9f37dfa525b52ca3e3d06ad330b8bd18446"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "matrix_spectral_response",
+              "independent_check": "model/matrix_spectral_response/test_matrix.py",
+              "path": "model/matrix_spectral_response/results.json",
+              "scope": "For the original grounded three-dimensional cube at c=1/8 and U=1, the degree-78 source polynomial annihilates all eight hidden-frame down-addition columns, and all required matrix moments lie exactly in span(I,A). The full response therefore has an exact rational matrix formula. Every one of its 78 residues is a positive rank-four band projector, giving an observed reducing cyclic space of dimension 312 inside the full 560-state charged sector. The inverse response and Schur memory are exactly onsite plus the signed cube adjacency. The certified common support gives a controlled cyclic frequency disk |z|<299/10000, and static coefficients are computed exactly over Q(sqrt(3)). These are finite cube identities, not a spatial continuum, a bound on the remaining 248 source states, a physical species assignment or Einstein dynamics. The complete visible finite-gap dictionary also fails the fixed PDG2025 electron/muon and electron/tau ratios under every common positive unit factor, with exact minimax relative-error lower bounds; this rejects only that stated finite-gap-as-rest-energy identification.",
+              "sha256": "6edc1a9677caff576e1828ab28ff53a79b6d6819ec97df64ec78366395dee019"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "retarded_spatial_locality",
+              "independent_check": "model/retarded_spatial_locality/test_algebra.py",
+              "path": "model/retarded_spatial_locality/results.json",
+              "scope": "For the original zero-chemical-potential three-dimensional Weyl/contact action, the existing translation-averaged full-ground state inherits hidden SU(2), has exact response-memory Gram U^2 r(1-r) I with 1/8<=r<=1/2, and has a nonzero connected four-point witness: omega(D(t)^dagger D(t))>=U^2 t^2/64 for 0<|t|<=U/(16M), M=9c^2+12cU+U^2. Here D centers the local unequal-time CAR anticommutator. This excludes a linear-field realization by quadratic CAR evolution, including pairing and auxiliary modes. Its positive-energy GNS representation constructs every ordered Euclidean correlation and a positive time-reflection Gram kernel; the same finite-ground subsequence converges to this hierarchy through bounded Poisson-semigroup integrals. On every domain Im z>=eta>0 and |z|<=Z, the spatial Green operator is uniformly invertible, with explicit exponential locality for it, its inverse and Schur memory, and controlled spatial/frequency Taylor expansions. These are fixed-spacing field constructions, not a spatial continuum, real mass shells, physical species or an Einstein completion.",
+              "sha256": "f08e5baf881061887a19633d709be8a1ba409b2f746791da6162c9fe30b43643"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spin_resolved_spectrum",
+              "independent_check": "model/spin_resolved_spectrum/test_spin.py",
+              "path": "model/spin_resolved_spectrum/results.json",
+              "scope": "On the unchanged original cube, all sixteen linear CAR creation modes acting on every vector in the complete five-dimensional N4 ground space generate the same 78 positive energy lines. Exact source spin ladders identify the lambda=sqrt(3)/16 line as reachable total hidden spin 5/2 and the other 77 as total hidden spin 3/2. The full N5 reachable range has dimension 1256 of 4368, with the 3112-dimensional dark complement classified by internal spin. All annihilator probes reach sixteen N3 states at positive removal cost lambda. The invariant reference P_ground/5 has an exact full matrix retarded response with 79 signed poles and a 632-dimensional minimal mixed-state cyclic realization; complete spatial and spin coherences, all line weights and the first moment h+I/4 are retained. Every mixed-reference positive line has nonzero weight. No ground choice or linear single-CAR probe escapes the previous finite common-scale charged-lepton ratio rejection. These are internal total spins and finite excitation energies, not particle Lorentz spins, physical species or relativistic masses.",
+              "sha256": "466ad053f2758473874931fcf82b5aa71cd06d18f72179dc4f340a586789babd"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spectral_readout",
+              "independent_check": "model/spectral_readout/test_readout.py",
+              "path": "model/spectral_readout/results.json",
+              "scope": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+              "sha256": "a40a5a760ba1dc4ccf749a2e6fddc0b0752e204cb9947aa881e7241b34c03fc2"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_field_net",
+              "independent_check": "model/continuum_field_net/test_algebra.py",
+              "path": "model/continuum_field_net/results.json",
+              "scope": "For the original zero-chemical-potential Weyl/contact action under c(a)=v/a with fixed v>0 and uniformly bounded nonnegative U(a), cell-average smearing constructs all eight Weyl valleys jointly. Every spacing sequence tending to zero has a common subsequence on which the complete multi-time field hierarchy converges. Its GNS representation has bounded continuum CAR fields, strongly continuous space and time translations, nonnegative energy on every polynomial vector, and exact graded locality at sup-norm separation greater than 96v times the time difference. The proof supplies explicit cell, valley-overlap, time-Lipschitz and O(a) causal-tail bounds. Exact Schur identities give spacing-uniform inverse-response bounds on fixed physical momentum windows away from real frequency. A separate full-CAR Duhamel estimate proves a unique free eight-valley filled-sea continuum when U(a) tends to zero. Surviving interaction at bounded positive U, Lorentz covariance, physical species and Einstein dynamics are not proved.",
+              "sha256": "139f4d43f314ee398201c002e22d6d7d8d5feef37436d1231e89ce544482a698"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_ground_constraints",
+              "independent_check": "model/continuum_ground_constraints/test_bounds.py",
+              "path": "model/continuum_ground_constraints/results.json",
+              "scope": "For the original translation-invariant full-ground state, the free filled sea gives 0<=e_kin-e_free+U*d<=U/4 and d<=1/4. Its kinetic occupation defect obeys D<=min(2,2 delta^3+U/(4c delta)) for every 0<delta<=1, hence D<=8(U/(24c))^(3/4) when U<=24c. Thus n->1 and r->1/2 as U/c->0. A CAR normal-ordering recursion bounds every fixed microscopic local even word by C_m sqrt(D) from its free-sea value, with C_0=0 and C_m=2+(m-1)C_(m-2), implying d->1/4. Along c=v/a and bounded U(a)->U0, the first energy moment of every fixed physical smooth packet converges to its Weyl kinetic moment plus (U0/2)||f||^2. Exact positive-measure and momentum-concentration controls show why neither the second-moment memory Gram nor microscopic Gaussianity can automatically be transferred to the macroscopic continuum.",
+              "sha256": "3f1616d690de5573a09126f8dd5de3333d9957c1da609b43543770b887aef3fb"
             }
           ],
           "requires": [
@@ -4725,6 +4965,38 @@
               "path": "model/retarded_matter_response/results.json",
               "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
               "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "ground_spectral_source",
+              "independent_check": "model/ground_spectral_source/test_preparation.py",
+              "path": "model/ground_spectral_source/results.json",
+              "scope": "On the unchanged c=1/8, U=1 three-dimensional cube, declared native qubit services prepare the exact source-derived ground G from a blank register with certified complete-state error below 1e-10. An origin-supported Majorana creates a normalized N5 defect whose ideal initial exterior CAR state equals that of the N4 ground. The full 17-bit source executes two charged Ramsey settings at model time one, retaining all export failures, all 130 scheduled repair outcomes and all six pointer outcomes; complete probability errors against the original ground spectral response are below 3/5000. The ideal N4+N5 number flag is passively protected during the scheduled waits; no repair is applied after the final analyzer. The two settings read the charged characteristic function rather than independently resolving all 78 lines or assigning physical masses.",
+              "sha256": "70c9c20eeffbd1dbe7f00f54acb9d9f37dfa525b52ca3e3d06ad330b8bd18446"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "matrix_spectral_response",
+              "independent_check": "model/matrix_spectral_response/test_matrix.py",
+              "path": "model/matrix_spectral_response/results.json",
+              "scope": "For the original grounded three-dimensional cube at c=1/8 and U=1, the degree-78 source polynomial annihilates all eight hidden-frame down-addition columns, and all required matrix moments lie exactly in span(I,A). The full response therefore has an exact rational matrix formula. Every one of its 78 residues is a positive rank-four band projector, giving an observed reducing cyclic space of dimension 312 inside the full 560-state charged sector. The inverse response and Schur memory are exactly onsite plus the signed cube adjacency. The certified common support gives a controlled cyclic frequency disk |z|<299/10000, and static coefficients are computed exactly over Q(sqrt(3)). These are finite cube identities, not a spatial continuum, a bound on the remaining 248 source states, a physical species assignment or Einstein dynamics. The complete visible finite-gap dictionary also fails the fixed PDG2025 electron/muon and electron/tau ratios under every common positive unit factor, with exact minimax relative-error lower bounds; this rejects only that stated finite-gap-as-rest-energy identification.",
+              "sha256": "6edc1a9677caff576e1828ab28ff53a79b6d6819ec97df64ec78366395dee019"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spin_resolved_spectrum",
+              "independent_check": "model/spin_resolved_spectrum/test_spin.py",
+              "path": "model/spin_resolved_spectrum/results.json",
+              "scope": "On the unchanged original cube, all sixteen linear CAR creation modes acting on every vector in the complete five-dimensional N4 ground space generate the same 78 positive energy lines. Exact source spin ladders identify the lambda=sqrt(3)/16 line as reachable total hidden spin 5/2 and the other 77 as total hidden spin 3/2. The full N5 reachable range has dimension 1256 of 4368, with the 3112-dimensional dark complement classified by internal spin. All annihilator probes reach sixteen N3 states at positive removal cost lambda. The invariant reference P_ground/5 has an exact full matrix retarded response with 79 signed poles and a 632-dimensional minimal mixed-state cyclic realization; complete spatial and spin coherences, all line weights and the first moment h+I/4 are retained. Every mixed-reference positive line has nonzero weight. No ground choice or linear single-CAR probe escapes the previous finite common-scale charged-lepton ratio rejection. These are internal total spins and finite excitation energies, not particle Lorentz spins, physical species or relativistic masses.",
+              "sha256": "466ad053f2758473874931fcf82b5aa71cd06d18f72179dc4f340a586789babd"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spectral_readout",
+              "independent_check": "model/spectral_readout/test_readout.py",
+              "path": "model/spectral_readout/results.json",
+              "scope": "The original signed addition/removal response admits a complete positive Fejer energy POVM at every finite outcome count. All outcomes for M=8,16,64 at model time step one are computed from the authenticated 78-line cube measure with outward rational intervals and independently checked squared-kernel sums. At resolution one half, actual joint readout error is at most 0.100284517428, 0.055193158232 and 0.020209031434, respectively. Exact infinite-ground spectral sum rules give controlled energy tails, while the existing ground subsequence gives weak spectral and strong compressed-resolvent convergence at fixed spacing. Unknown finite-ground state discrepancy remains an explicit uncomputed input.",
+              "sha256": "a40a5a760ba1dc4ccf749a2e6fddc0b0752e204cb9947aa881e7241b34c03fc2"
             }
           ],
           "requires": [
@@ -4791,6 +5063,46 @@
               "path": "model/retarded_matter_response/results.json",
               "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
               "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "matrix_spectral_response",
+              "independent_check": "model/matrix_spectral_response/test_matrix.py",
+              "path": "model/matrix_spectral_response/results.json",
+              "scope": "For the original grounded three-dimensional cube at c=1/8 and U=1, the degree-78 source polynomial annihilates all eight hidden-frame down-addition columns, and all required matrix moments lie exactly in span(I,A). The full response therefore has an exact rational matrix formula. Every one of its 78 residues is a positive rank-four band projector, giving an observed reducing cyclic space of dimension 312 inside the full 560-state charged sector. The inverse response and Schur memory are exactly onsite plus the signed cube adjacency. The certified common support gives a controlled cyclic frequency disk |z|<299/10000, and static coefficients are computed exactly over Q(sqrt(3)). These are finite cube identities, not a spatial continuum, a bound on the remaining 248 source states, a physical species assignment or Einstein dynamics. The complete visible finite-gap dictionary also fails the fixed PDG2025 electron/muon and electron/tau ratios under every common positive unit factor, with exact minimax relative-error lower bounds; this rejects only that stated finite-gap-as-rest-energy identification.",
+              "sha256": "6edc1a9677caff576e1828ab28ff53a79b6d6819ec97df64ec78366395dee019"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "retarded_spatial_locality",
+              "independent_check": "model/retarded_spatial_locality/test_algebra.py",
+              "path": "model/retarded_spatial_locality/results.json",
+              "scope": "For the original zero-chemical-potential three-dimensional Weyl/contact action, the existing translation-averaged full-ground state inherits hidden SU(2), has exact response-memory Gram U^2 r(1-r) I with 1/8<=r<=1/2, and has a nonzero connected four-point witness: omega(D(t)^dagger D(t))>=U^2 t^2/64 for 0<|t|<=U/(16M), M=9c^2+12cU+U^2. Here D centers the local unequal-time CAR anticommutator. This excludes a linear-field realization by quadratic CAR evolution, including pairing and auxiliary modes. Its positive-energy GNS representation constructs every ordered Euclidean correlation and a positive time-reflection Gram kernel; the same finite-ground subsequence converges to this hierarchy through bounded Poisson-semigroup integrals. On every domain Im z>=eta>0 and |z|<=Z, the spatial Green operator is uniformly invertible, with explicit exponential locality for it, its inverse and Schur memory, and controlled spatial/frequency Taylor expansions. These are fixed-spacing field constructions, not a spatial continuum, real mass shells, physical species or an Einstein completion.",
+              "sha256": "f08e5baf881061887a19633d709be8a1ba409b2f746791da6162c9fe30b43643"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spin_resolved_spectrum",
+              "independent_check": "model/spin_resolved_spectrum/test_spin.py",
+              "path": "model/spin_resolved_spectrum/results.json",
+              "scope": "On the unchanged original cube, all sixteen linear CAR creation modes acting on every vector in the complete five-dimensional N4 ground space generate the same 78 positive energy lines. Exact source spin ladders identify the lambda=sqrt(3)/16 line as reachable total hidden spin 5/2 and the other 77 as total hidden spin 3/2. The full N5 reachable range has dimension 1256 of 4368, with the 3112-dimensional dark complement classified by internal spin. All annihilator probes reach sixteen N3 states at positive removal cost lambda. The invariant reference P_ground/5 has an exact full matrix retarded response with 79 signed poles and a 632-dimensional minimal mixed-state cyclic realization; complete spatial and spin coherences, all line weights and the first moment h+I/4 are retained. Every mixed-reference positive line has nonzero weight. No ground choice or linear single-CAR probe escapes the previous finite common-scale charged-lepton ratio rejection. These are internal total spins and finite excitation energies, not particle Lorentz spins, physical species or relativistic masses.",
+              "sha256": "466ad053f2758473874931fcf82b5aa71cd06d18f72179dc4f340a586789babd"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_field_net",
+              "independent_check": "model/continuum_field_net/test_algebra.py",
+              "path": "model/continuum_field_net/results.json",
+              "scope": "For the original zero-chemical-potential Weyl/contact action under c(a)=v/a with fixed v>0 and uniformly bounded nonnegative U(a), cell-average smearing constructs all eight Weyl valleys jointly. Every spacing sequence tending to zero has a common subsequence on which the complete multi-time field hierarchy converges. Its GNS representation has bounded continuum CAR fields, strongly continuous space and time translations, nonnegative energy on every polynomial vector, and exact graded locality at sup-norm separation greater than 96v times the time difference. The proof supplies explicit cell, valley-overlap, time-Lipschitz and O(a) causal-tail bounds. Exact Schur identities give spacing-uniform inverse-response bounds on fixed physical momentum windows away from real frequency. A separate full-CAR Duhamel estimate proves a unique free eight-valley filled-sea continuum when U(a) tends to zero. Surviving interaction at bounded positive U, Lorentz covariance, physical species and Einstein dynamics are not proved.",
+              "sha256": "139f4d43f314ee398201c002e22d6d7d8d5feef37436d1231e89ce544482a698"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_ground_constraints",
+              "independent_check": "model/continuum_ground_constraints/test_bounds.py",
+              "path": "model/continuum_ground_constraints/results.json",
+              "scope": "For the original translation-invariant full-ground state, the free filled sea gives 0<=e_kin-e_free+U*d<=U/4 and d<=1/4. Its kinetic occupation defect obeys D<=min(2,2 delta^3+U/(4c delta)) for every 0<delta<=1, hence D<=8(U/(24c))^(3/4) when U<=24c. Thus n->1 and r->1/2 as U/c->0. A CAR normal-ordering recursion bounds every fixed microscopic local even word by C_m sqrt(D) from its free-sea value, with C_0=0 and C_m=2+(m-1)C_(m-2), implying d->1/4. Along c=v/a and bounded U(a)->U0, the first energy moment of every fixed physical smooth packet converges to its Weyl kinetic moment plus (U0/2)||f||^2. Exact positive-measure and momentum-concentration controls show why neither the second-moment memory Gram nor microscopic Gaussianity can automatically be transferred to the macroscopic continuum.",
+              "sha256": "3f1616d690de5573a09126f8dd5de3333d9957c1da609b43543770b887aef3fb"
             }
           ],
           "requires": [
@@ -4988,6 +5300,46 @@
               "path": "model/retarded_matter_response/results.json",
               "scope": "For the unchanged three-dimensional cube at c=1/8 and U=1, the proved full-Fock ground and its exact up-charged stationary reference have complete eight-site addition/removal resolvent dilations. Both up channels obey the exact free cyclic identity. The ground down channel has M1=h+I/2 and memory Gram I/4; the excited down channel has an explicitly computed inhomogeneous density shift and memory Gram. All 78 positive lines and weights of the original local down-addition probe are resolved by exact cyclic-rank, polynomial and interval-residue certificates, leaving zero unresolved probe weight. The authenticated charged gap gives a convergent finite-frequency Schur expansion on |z|<7/1024. Exact residual certificates compute the static response within 1e-7 and its memory within 1e-6. This supplies source-dependent inverse-response data to the existing geometric-matter interface, without identifying a Hartree term as a common metric or completing Einstein premises.",
               "sha256": "f70570eece6ed884891aef62cac90f36a4e7ae6aaf1bdd0b37fd255a33e3f0fc"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "matrix_spectral_response",
+              "independent_check": "model/matrix_spectral_response/test_matrix.py",
+              "path": "model/matrix_spectral_response/results.json",
+              "scope": "For the original grounded three-dimensional cube at c=1/8 and U=1, the degree-78 source polynomial annihilates all eight hidden-frame down-addition columns, and all required matrix moments lie exactly in span(I,A). The full response therefore has an exact rational matrix formula. Every one of its 78 residues is a positive rank-four band projector, giving an observed reducing cyclic space of dimension 312 inside the full 560-state charged sector. The inverse response and Schur memory are exactly onsite plus the signed cube adjacency. The certified common support gives a controlled cyclic frequency disk |z|<299/10000, and static coefficients are computed exactly over Q(sqrt(3)). These are finite cube identities, not a spatial continuum, a bound on the remaining 248 source states, a physical species assignment or Einstein dynamics. The complete visible finite-gap dictionary also fails the fixed PDG2025 electron/muon and electron/tau ratios under every common positive unit factor, with exact minimax relative-error lower bounds; this rejects only that stated finite-gap-as-rest-energy identification.",
+              "sha256": "6edc1a9677caff576e1828ab28ff53a79b6d6819ec97df64ec78366395dee019"
+            },
+            {
+              "campaign_id": "OPH-NATIVE-GROUND-SPATIAL-RESPONSE-2026-11-01",
+              "id": "retarded_spatial_locality",
+              "independent_check": "model/retarded_spatial_locality/test_algebra.py",
+              "path": "model/retarded_spatial_locality/results.json",
+              "scope": "For the original zero-chemical-potential three-dimensional Weyl/contact action, the existing translation-averaged full-ground state inherits hidden SU(2), has exact response-memory Gram U^2 r(1-r) I with 1/8<=r<=1/2, and has a nonzero connected four-point witness: omega(D(t)^dagger D(t))>=U^2 t^2/64 for 0<|t|<=U/(16M), M=9c^2+12cU+U^2. Here D centers the local unequal-time CAR anticommutator. This excludes a linear-field realization by quadratic CAR evolution, including pairing and auxiliary modes. Its positive-energy GNS representation constructs every ordered Euclidean correlation and a positive time-reflection Gram kernel; the same finite-ground subsequence converges to this hierarchy through bounded Poisson-semigroup integrals. On every domain Im z>=eta>0 and |z|<=Z, the spatial Green operator is uniformly invertible, with explicit exponential locality for it, its inverse and Schur memory, and controlled spatial/frequency Taylor expansions. These are fixed-spacing field constructions, not a spatial continuum, real mass shells, physical species or an Einstein completion.",
+              "sha256": "f08e5baf881061887a19633d709be8a1ba409b2f746791da6162c9fe30b43643"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "spin_resolved_spectrum",
+              "independent_check": "model/spin_resolved_spectrum/test_spin.py",
+              "path": "model/spin_resolved_spectrum/results.json",
+              "scope": "On the unchanged original cube, all sixteen linear CAR creation modes acting on every vector in the complete five-dimensional N4 ground space generate the same 78 positive energy lines. Exact source spin ladders identify the lambda=sqrt(3)/16 line as reachable total hidden spin 5/2 and the other 77 as total hidden spin 3/2. The full N5 reachable range has dimension 1256 of 4368, with the 3112-dimensional dark complement classified by internal spin. All annihilator probes reach sixteen N3 states at positive removal cost lambda. The invariant reference P_ground/5 has an exact full matrix retarded response with 79 signed poles and a 632-dimensional minimal mixed-state cyclic realization; complete spatial and spin coherences, all line weights and the first moment h+I/4 are retained. Every mixed-reference positive line has nonzero weight. No ground choice or linear single-CAR probe escapes the previous finite common-scale charged-lepton ratio rejection. These are internal total spins and finite excitation energies, not particle Lorentz spins, physical species or relativistic masses.",
+              "sha256": "466ad053f2758473874931fcf82b5aa71cd06d18f72179dc4f340a586789babd"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_field_net",
+              "independent_check": "model/continuum_field_net/test_algebra.py",
+              "path": "model/continuum_field_net/results.json",
+              "scope": "For the original zero-chemical-potential Weyl/contact action under c(a)=v/a with fixed v>0 and uniformly bounded nonnegative U(a), cell-average smearing constructs all eight Weyl valleys jointly. Every spacing sequence tending to zero has a common subsequence on which the complete multi-time field hierarchy converges. Its GNS representation has bounded continuum CAR fields, strongly continuous space and time translations, nonnegative energy on every polynomial vector, and exact graded locality at sup-norm separation greater than 96v times the time difference. The proof supplies explicit cell, valley-overlap, time-Lipschitz and O(a) causal-tail bounds. Exact Schur identities give spacing-uniform inverse-response bounds on fixed physical momentum windows away from real frequency. A separate full-CAR Duhamel estimate proves a unique free eight-valley filled-sea continuum when U(a) tends to zero. Surviving interaction at bounded positive U, Lorentz covariance, physical species and Einstein dynamics are not proved.",
+              "sha256": "139f4d43f314ee398201c002e22d6d7d8d5feef37436d1231e89ce544482a698"
+            },
+            {
+              "campaign_id": "OPH-CONTINUUM-FIELD-SPECTRAL-2026-11-01",
+              "id": "continuum_ground_constraints",
+              "independent_check": "model/continuum_ground_constraints/test_bounds.py",
+              "path": "model/continuum_ground_constraints/results.json",
+              "scope": "For the original translation-invariant full-ground state, the free filled sea gives 0<=e_kin-e_free+U*d<=U/4 and d<=1/4. Its kinetic occupation defect obeys D<=min(2,2 delta^3+U/(4c delta)) for every 0<delta<=1, hence D<=8(U/(24c))^(3/4) when U<=24c. Thus n->1 and r->1/2 as U/c->0. A CAR normal-ordering recursion bounds every fixed microscopic local even word by C_m sqrt(D) from its free-sea value, with C_0=0 and C_m=2+(m-1)C_(m-2), implying d->1/4. Along c=v/a and bounded U(a)->U0, the first energy moment of every fixed physical smooth packet converges to its Weyl kinetic moment plus (U0/2)||f||^2. Exact positive-measure and momentum-concentration controls show why neither the second-moment memory Gram nor microscopic Gaussianity can automatically be transferred to the macroscopic continuum.",
+              "sha256": "3f1616d690de5573a09126f8dd5de3333d9957c1da609b43543770b887aef3fb"
             }
           ],
           "requires": [

@@ -16,7 +16,7 @@ PATH = Path('model/completion/finite_attachment_map.json')
 CLASSES = {'realized_on_claimed_domain','required_but_conditional',
            'alternative_branch','redundant','irrelevant_to_target','needs_correction'}
 INTERFACES = {'state','algebra','operation','clock','refinement'}
-REALIZED = {f'FA-{n:02d}' for n in range(1,8)} | {f'FA-{n:02d}' for n in range(13,70)}
+REALIZED = {f'FA-{n:02d}' for n in range(1,8)} | {f'FA-{n:02d}' for n in range(13,83)}
 
 
 def canonical_contract(row):
@@ -86,7 +86,7 @@ def validate(packet, root=ROOT):
             snapshot.get('lean_module_count')==len(existing['lean_files']), 'navigation inventory mismatch')
     applications=packet.get('attachments',[])
     identifiers=[a.get('id') for a in applications]
-    require(len(identifiers)==len(set(identifiers)) and set(identifiers)=={f'FA-{n:02d}' for n in range(1,70)},
+    require(len(identifiers)==len(set(identifiers)) and set(identifiers)=={f'FA-{n:02d}' for n in range(1,83)},
             'missing or duplicate finite attachment')
     for a in applications:
         require(a.get('classification') in CLASSES,'unclassified finite attachment')

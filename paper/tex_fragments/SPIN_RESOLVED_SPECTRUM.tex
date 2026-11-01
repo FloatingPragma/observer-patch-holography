@@ -1,0 +1,88 @@
+\paragraph{The full ground-family spectrum and its internal spin.}
+The complete five-dimensional $N=4$ ground space closes a remaining
+finite spectral ambiguity.  Work in the exact hidden-spin frame, with
+$G_0$ its spin-two highest-weight ground, $\lambda=\sqrt3/16$, and
+$V_{\uparrow,x}=c_{x\uparrow}^\dagger G_0$,
+$V_{\downarrow,x}=c_{x\downarrow}^\dagger G_0$.
+The actual $56\times560$ raising matrix $T=S_+$ obeys
+\[
+ TV_\downarrow=V_\uparrow,\qquad TT^\dagger=5I,
+ \qquad H_{5,0}T=TH_{4,1}.
+\]
+The full spatial Gram is $V_\uparrow^\dagger V_\uparrow=P_+$, and
+$(H-E_G)V_\uparrow=\lambda V_\uparrow$.  At magnetic weight $3/2$,
+\[
+ V_{\rm high}=T^\dagger V_\uparrow/5,\qquad
+ V_{\rm low}=V_\downarrow-V_{\rm high},\qquad
+ TV_{\rm low}=0,\qquad
+ V_{\rm high}^\dagger V_{\rm high}=P_+/5.
+\]
+The retained residue at $\lambda$ is exactly $P_+/5$.
+Positivity therefore leaves no low-spin contribution at that line:
+it has total hidden spin $5/2$, while the other 77 visible lines
+have total hidden spin $3/2$.
+
+This conclusion covers every ground vector.  Put
+$G_k=S_-^kG_0$, with $\|G_k\|^2=k!4!/(4-k)!$, $0\leq k\leq4$.
+Exact occupation-space CAR give, for every site,
+\begin{align*}
+ c_\downarrow^\dagger G_k
+ &=S_-^{k+1}V_\uparrow/5+S_-^kV_{\rm low},\\
+ c_\uparrow^\dagger G_k
+ &=(5-k)S_-^kV_\uparrow/5-kS_-^{k-1}V_{\rm low}.
+\end{align*}
+The second term vanishes at $k=0$.  All eighty creator columns are
+checked on the original source; the Hamiltonian commutes with every
+ladder.  No coherent ground superposition or linear CAR probe can
+introduce another addition frequency.
+
+The full $N=5$ space has spin multiplicities $56,504,1008$ at
+$S=5/2,3/2,1/2$, respectively.  Four reachable copies occur at
+$\lambda$, and four at each of the other 77 lines.  Thus the complete
+reachable dimension is
+\[
+ 4\cdot6+77\cdot4\cdot4=1256
+ \quad\hbox{inside}\quad \binom{16}{5}=4368.
+\]
+The dark complement has dimensions $312,784,2016$ in those three spin
+sectors.  These are dimensions of source subspaces, not full energy
+degeneracies; their dark eigenvalues remain uncomputed.
+All annihilator probes similarly generate sixteen $N=3$, spin-$3/2$
+states with positive removal cost $\lambda$, leaving 544 dark dimensions.
+
+\paragraph{The invariant mixed-reference energy readout.}
+For $\rho_G=P_G/5$, the exact addition and retarded matrices are
+\begin{align*}
+ \overline{\mathcal G}_{\rm add}(z)
+ &=\frac12\left[\mathcal G_\downarrow(z)
+                   +\frac{P_+}{z-\lambda}\right]\otimes I_2,\\
+ \overline{\mathcal G}_{\rm ret}(z)
+ &=\frac12\left[\mathcal G_\downarrow(z)
+                   +\frac{P_+}{z-\lambda}
+                   +\frac{P_-}{z+\lambda}\right]\otimes I_2.
+\end{align*}
+At each site and fixed spin, the addition line $\lambda$ has weight
+$3/10$, and each other line has half its previous weight.
+The total addition weight is $3/4$; conditional weights are therefore
+$2/5$ at $\lambda$ and $2w_i/3$ elsewhere.  Removal has weight $1/4$
+at the signed retarded pole $-\lambda$.  All 78 positive lines survive.
+The 79 signed poles have rank-eight residues, giving a minimal
+mixed-state response realization of dimension 632.  This realization
+keeps sixteen observed columns and differs from the physical reachable
+range that keeps all five ground inputs distinct.
+
+Direct full-source Gram matrices verify every spin and spatial entry
+of the zeroth and first moments, including
+\[
+ \overline M_{0,\rm ret}=I_{16},\qquad
+ \overline M_{1,\rm ret}=(A\otimes I_2)/16+I_{16}/4.
+\]
+The actual physical-frame block is $g_{xy}R_x^\dagger R_y$;
+intersite spin coherence is retained, while local blocks are scalar.
+The same positive-energy envelope and finite charged-lepton ratio
+exclusion now hold for every ground choice and linear single-CAR probe.
+These total internal spins include the spin-two background.  They do
+not identify intrinsic particle or Lorentz spin, a measured species, or
+a relativistic mass.  The result does not exclude composite probes or a
+continuum spectrum, and does not execute native preparation or complete
+finite-shot spectroscopy of the mixed reference.

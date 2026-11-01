@@ -1,0 +1,99 @@
+\paragraph{A resolved canonical contact-force channel.}
+The bounded-contact refinement also resolves a nonlinear operator in the
+original action. At each site set
+\[
+ b_\sigma=n_{\bar\sigma}c_\sigma,
+ \qquad d_\sigma=(2n_{\bar\sigma}-1)c_\sigma=2b_\sigma-c_\sigma.
+\]
+The onsite unitary $Z=I-2n_\uparrow n_\downarrow$ obeys
+$Zc_\sigma Z=-d_\sigma$, so $d$ is itself an exact CAR family, with
+$\|d(u)\|=\|u\|$. It is a composite of the original fields, not an added
+microscopic mode. The unchanged Hamiltonian satisfies
+\[
+ [H,c(u)]=-c((h+U/2)u)-(U/2)d(u).
+\]
+Thus retaining the scalar term does not justify dropping the composite.
+For $B(u)=\sum_{x,\sigma}\overline{u_{x\sigma}}b_{x\sigma}$, exact local
+algebra gives
+\[
+ \{B(u),c(v)^*\}=\{B(u),B(v)^*\}
+ =Q(u,v)=\sum_x\mathrm d\Gamma(q_x),
+ \qquad q_x=(u_x^*v_x)I-v_xu_x^*.
+\]
+Each $q_x$ has rank at most one and
+$\|q_x\|=\|q_x\|_{\rm HS}=\|u_x\|\|v_x\|$.
+The anomalous mixed anticommutator is the pair sum
+\[
+ P(u,v)=\{B(u),c(v)\}
+ =\sum_x\overline{u_{x\downarrow}v_{x\uparrow}
+                  -u_{x\uparrow}v_{x\downarrow}}
+                 c_{x\uparrow}c_{x\downarrow}.
+\]
+Let $D_a$ be the occupation defect above, $L=\|u\|\|v\|$, and
+$I_4=\sum_x\|u_x\|^2\|v_x\|^2$. The uniform four-field Wick comparison,
+$\omega_a(Q)=r_a\langle u,v\rangle$, and the free covariance identity
+$\operatorname{Var}_{\rm free}(\mathrm d\Gamma(q))
+ =\operatorname{Tr}[\Pi q^*(I-\Pi)q]\leq I_4$ imply
+\[
+ \omega_a(Y_a^*Y_a)
+ \leq4\bigl[I_4+(8\sqrt{D_a}+D_a/2)L^2\bigr]
+\]
+for either $Y_a=2Q-\langle u,v\rangle I$ or $Y_a=2P$.
+For $u=M_bJ_af$, $v=M_eJ_ag$ with bounded smooth compactly supported
+smears, $I_4\leq a^3\|f\|_\infty^2\|g\|^2$ and the coefficient
+supremum is at most $a^3\|f\|_\infty\|g\|_\infty$. These ground
+fluctuations therefore vanish.
+
+The passage is an operator statement on the full field hierarchy.
+A degree-$m$ CAR polynomial obeys
+$\|[\mathrm d\Gamma(q),A]\|\leq m\|q\|\|A\|$ for $q=q^*$:
+its one-body unitary orbit has frequencies in
+$[-m\|q\|,m\|q\|]$, and the Bernstein interpolation bound applies.
+The same argument gives
+$\|[\sum_x n_{x\uparrow}n_{x\downarrow},A]\|\leq m\|A\|$,
+with degree at most $m+2$ after the commutator. In the free interaction
+picture the order-$N$ Dyson remainder is consequently bounded by
+\[
+ \|A\|(2U_{\max}|s|)^N\frac{(m/2)_N}{N!}.
+\]
+This is uniform in spacing and volume. Divide $|t|\leq T$ into
+$K=\max(1,\lceil8U_{\max}T\rceil)$ intervals and choose $N=m+\ell$
+at each step. The resulting approximation has degree at most
+\[
+ M=3^K(m_{\rm initial}+\ell-1)-(\ell-1)
+\]
+and relative norm error at most $(1+2^{-\ell})^K-1$.
+The quadratic coefficient bound then proves
+$\|[Y_a,X_a]\|\to0$ for every finite-time field polynomial $X_a$;
+choosing $2^{-\ell}\leq a^3/(2K)$ gives an explicit
+$O(a^3\log(1/a))$ bound at fixed time. Therefore
+\[
+ \|Y_aX_a\Omega_a\|
+ \leq\|[Y_a,X_a]\|+\|X_a\|\,\|Y_a\Omega_a\|\longrightarrow0.
+\]
+The same argument covers initial composite fields, whose degree is three.
+
+Adjoining their equal-time smearings to the common subsequence constructs
+operators $D_b(f)$ alongside the original $C_b(f)$, with
+\[
+ \{D_b(f),D_e(g)^*\}=\delta_{be}\langle f,g\rangle I,
+ \qquad
+ \{D_b(f),C_e(g)^*\}=\{D_b(f),C_e(g)\}=0.
+\]
+Together with the original CAR and vanishing same-family anomalous
+anticommutators, these are two copies of the eight-valley CAR algebra.
+This is algebraic independence; the state is not asserted to factorize
+or obey Wick's rule. The original correlations and their cyclic
+positive-energy representation are preserved. Its continuous time
+action is not automatically extended to the entire enlarged GNS space:
+the composite derivative contains kinetic terms of order $1/a$.
+Thus the result resolves the contact-force channel but does not determine
+whether its bounded-frequency weight survives, escapes to infinite
+energy, or produces an interacting continuum. It supplies no physical
+species, Lorentz stress or geometric modular identification. A positive quadratic two-mode control makes this boundary explicit:
+for $h=\left(\begin{smallmatrix}E_0&\kappa\\\kappa&\Lambda\end{smallmatrix}\right)$,
+with $E_0\Lambda>\kappa^2$ and $\Lambda>E_0>0$, the memory Gram stays
+$\kappa^2$ but $\Sigma(z)=\kappa^2/(z-\Lambda)\to0$.
+The field error from free energy $E_0$ is at most
+$(2\kappa+\kappa^2|t|)/(\Lambda-E_0)$.
+The full proof and exact controls are in \texttt{model/continuum\_composite\_channel}.

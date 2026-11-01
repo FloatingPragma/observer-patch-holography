@@ -115,8 +115,26 @@ proof shows that the whole class of laws cannot work.
   The [grounded field and geometry response](docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
   now establish an original-action infinite-lattice ground with positive
   excitation energy, convergent energy-density bounds and exact
-  matter-dependent propagation response on the cube. The response is being
-  attached to the existing geometry theorem interfaces.
+  matter-dependent propagation response on the cube. The
+  [native ground readout and spatial response](docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
+  prepare that finite ground through observer controls and construct
+  non-Gaussian field correlations and a time-reflection-positive Euclidean
+  hierarchy on the infinite ground. Its response has nonzero interaction
+  memory and a spatially local inverse away from real frequencies. The complete visible finite charged
+  spectrum fails the proposed direct identification with the charged
+  lepton hierarchy. The [continuum field and spectral readout](docs/CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
+  now construct all eight continuum valleys with positive energy and
+  finite propagation, resolve the complete finite ground family, and
+  provide positive finite-resolution energy measurements. Surviving
+  continuum interaction and the physical field and geometry joins remain open.
+  The [native detector and centered-ground construction](docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
+  adds a complete native phase-clock readout, exact regional modular data,
+  and a symmetry-derived charge clock with its own unique half-filled
+  ground and faithful one-site states.
+  A uniform spectral estimate identifies its entire bounded-coupling
+  continuum hierarchy as free and massless. The required interacting
+  massive endpoint therefore needs a different justified trajectory;
+  finite charge gaps do not become physical rest masses.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12700 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.

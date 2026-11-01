@@ -107,6 +107,36 @@ also derives a state-dependent self-energy and controlled low-frequency
 expansion on the grounded cube. The geometry target remains the existing
 common-symbol and Einstein theorem stack, with its shared-state premises.
 
+The [native ground and spatial-response extension](../docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
+now connects that finite ground to a complete observer preparation and
+charged readout. It resolves the entire eight-site matrix response and
+constructs a non-Gaussian infinite-ground field and its ordered Euclidean
+hierarchy with time-reflection positivity. Its spatial inverse response
+has nonzero interaction memory and controlled locality at complex frequencies
+separated from the real axis. The direct assignment of finite charged gaps to the observed lepton
+hierarchy fails; no physical particle or Einstein gate is promoted.
+
+The [continuum field and spectral readout](../docs/CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
+extend this to a full eight-valley positive-energy continuum field net,
+exact spin resolution across the entire finite ground space, and complete
+positive energy measurements with finite resolution. The ground constraints
+fix microscopic occupation limits and continuum first energy moments.
+These results preserve the distinction between a continuum field net and a
+physically identified interacting Lorentz theory with Einstein dynamics.
+
+The [native detector and centered-ground construction](../docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
+extends the original reference with a complete native phase clock and
+exact regional modular data. It also resolves the continuum composite
+force algebra, derives a same-field CPT constraint, and constructs the
+distinct particle-hole invariant charge clock and ground. The centered
+cube has a unique half-filled ground with hidden spin zero, a charged gap
+and faithful one-site states. Exact finite spectra and quadratic
+occupation bounds retain their stated domains; old-ground readouts are
+not transferred to the new reference. The [uniform spectral escape
+theorem](continuum_free_limit/README.md) identifies the entire centered
+bounded-coupling continuum hierarchy as free and massless, so this
+trajectory cannot supply the required interacting massive endpoint.
+
 The [port/support incidence audit](../code/a5_closure/port_support_source_audit.md)
 retains all sixty oriented relative seed maps. A fixed support mark leaves
 C5 freedom; it does not select a carrier-local port frame. Midpoint

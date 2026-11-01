@@ -1,0 +1,67 @@
+\paragraph{A CPT constraint on the unchanged charged fields and clock.}
+For a real, even, unit scalar Schwartz packet $\phi$, average the signed
+addition/removal measure over all sixteen continuum field components.
+Writing this probability measure as $\nu_\phi$, spin trace cancels the
+Weyl first moment and its kinetic cross term. The exact finite-spacing
+sum rules, $r_a\to1/2$, and weak lower semicontinuity give
+\[
+ \int E\,d\nu_\phi(E)=\mu=U_0/2,\qquad
+ \int E^2\,d\nu_\phi(E)\le C_\phi
+ =v^2\|\nabla\phi\|^2+U_0^2/2.
+\]
+Only the second-moment inequality passes to the limit. Negative response
+frequency denotes removal; the two charge-tagged excitation energies
+are nonnegative with respect to the original positive GNS generator $L$.
+
+Suppose a proposed physical identification supplies an antiunitary
+$\Theta$ preserving the same ground and $L$, and mapping the sixteen
+smeared annihilators $A_s$ into their adjoints by a unitary matrix $Q$:
+\[
+ \Theta\Omega=\Omega,\qquad \Theta L\Theta^{-1}=L,\qquad
+ \Theta A_s\Theta^{-1}=\sum_t Q_{st}A_t^*.
+\]
+The real even packet is preserved by the spatial inversion and conjugation
+in the usual CPT action. For every spectral set $B$, antiunitarity and
+unitarity of $Q$ give
+\[
+ \sum_s\|P_L(B)A_s^*\Omega\|^2
+ =\sum_s\|P_L(B)A_s\Omega\|^2.
+\]
+Thus the averaged addition and removal measures agree, $\nu_\phi$ is
+reflection symmetric, and its first moment is zero. This precise
+same-field, same-ground, same-clock CPT identification is therefore
+impossible for $U_0>0$. No CPT theorem is applied without its hypotheses:
+this does not exclude Lorentz covariance alone or other field dictionaries.
+
+With $\nu_\phi^-$ the reflected measure and total variation defined as
+$\sup_B|\nu_\phi(B)-\nu_\phi^-(B)|$, Cauchy--Schwarz proves
+\[
+ \operatorname{TV}(\nu_\phi,\nu_\phi^-)
+ \ge\frac{\mu^2}{C_\phi},\qquad
+ W_1(\nu_\phi,\nu_\phi^-)\ge2\mu.
+\]
+There is a bounded odd witness: for $R=C_\phi/(2\mu)$, clipping $E$ to
+$[-R,R]$ gives $f_R$ with $|E-f_R(E)|\le E^2/(4R)$ and
+$\int f_R\,d\nu_\phi\ge\mu/2$. Gaussian packets of width $\ell$
+have $C_\phi=3v^2/(2\ell^2)+U_0^2/2$. At $v=1/8$, $U_0=1$ and
+$\ell=1$, the total-variation lower bound is $32/67$; broad packets make
+it tend to $1/2$. These are rigorous bounds, not computed infinite-ground
+spectra or executed native measurements.
+
+A scalar charged-field rephasing changes the generator to
+$L-\kappa Q_{\rm charge}$ and the signed first moment to $\mu-\kappa$.
+Consequently $\kappa=U_0/2$ is the unique necessary centering for this
+CPT condition. It is a change of charged dynamics, not an additive
+energy-origin change or a rest mass. Positivity on the old ground is
+not automatic: the empty two-mode ground of $H=n_0+3n_1$ has a centered
+response of zero mean at $\kappa=2$, while $H-2N$ has eigenvalues
+$0,-1,1,0$. The new reference and its ground property require proof.
+
+The free $U(a)\to0$ control has physical addition and removal energies
+$v|p|$, zero rest masses, and four Weyl chiralities of each sign. A
+massive Dirac control, $H_D=Z\otimes(\sigma\cdot p)+mX\otimes I$,
+has $H_D^2=(|p|^2+m^2)I$ and zero trace: its mass couples chiralities
+and does not create the scalar signed-energy shift. Exact full-CAR
+counterexamples and the conditional proof are retained in
+\texttt{model/continuum\_cpt\_constraint}; no physical species, interacting
+Lorentz completion or Einstein premise is thereby supplied.
