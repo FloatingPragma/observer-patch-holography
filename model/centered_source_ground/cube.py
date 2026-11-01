@@ -62,7 +62,7 @@ def sector_bounds():
             'Neel_only_gap_lower':'1/2-sqrt(3)/4',
             'Neel_only_gap_strict_rational_floor':str(gap_floor),
             'unique_N8_ground_proved_by_imported_Lieb':True,
-            'quantified_neutral_gap_proved':False,
+            'neutral_gap_from_charge_bounds':False,
             'thermodynamic_ground_uniqueness_proved':False,
             'old_N4_ground_remains_centered_ground':False}
 
