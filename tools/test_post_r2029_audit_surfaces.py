@@ -134,6 +134,9 @@ def test_divided_step_charge_and_transport_claims_require_nonzero_h() -> None:
     ):
         assert token in transport_lean
 
+    flagship = _text("flagship/from_observer_consensus_to_standard_physics.tex")
+    if "hopping charge" in flagship:
+        assert "at a declared nonzero step $h$" in flagship
     _assert_divided_step_owner_premises(
         claims, (ROOT / DIVIDED_STEP_OWNER).read_text(encoding="utf-8")
     )

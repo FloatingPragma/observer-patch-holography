@@ -99,6 +99,7 @@ def test_every_new_research_receipt_has_a_canonical_replay():
         ('model.clock_defect_energy.shared_event_clock.run', None, 'model/clock_defect_energy/shared_event_clock/results.json'),
         ('model.screened_transport.transport', None, 'model/screened_transport/transport_results.json'),
         ('model.exchange_sector.statistics_packet', None, 'model/exchange_sector/statistics_results.json'),
+        ('model.exchange_sector.many_body_packet', None, 'model/exchange_sector/many_body_results.json'),
         ('model.particle_screening.mobile_packet', None, 'model/particle_screening/mobile_results.json'),
     }.issubset(verify.REPLAYS)
 
@@ -416,7 +417,14 @@ def test_compressed_receipt_requires_outer_manifest_coverage(monkeypatch, tmp_pa
 def test_ci_covers_all_six_shards_both_platforms_and_complete_regression():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/observer-model.yml').read_text())
     observer, regression = (workflow['jobs'][key] for key in ('observer', 'regression'))
-    assert observer['strategy']['matrix']['os'] == ['ubuntu-latest', 'windows-latest']
+    # Windows follows the Mandatory Suite policy: nightly, release tags and dispatch.
+    mandatory = yaml.safe_load((verify.ROOT/'.github/workflows/mandatory-suite.yml').read_text())
+    platforms = mandatory['jobs']['mandatory-shards']['strategy']['matrix']['os']
+    assert 'windows-latest' in platforms and 'ubuntu-latest' in platforms
+    events = workflow.get('on', workflow.get(True))
+    assert events['push']['tags'] == ['r*']
+    assert events['schedule'] and 'workflow_dispatch' in events
+    assert observer['strategy']['matrix']['os'] == platforms
     assert observer['strategy']['matrix']['shard'] == [0,1,2,3,4,5]
     assert observer['timeout-minutes'] == (
         "${{ matrix.os == 'windows-latest' && matrix.shard == 1 && 120 || 90 }}")
@@ -424,13 +432,13 @@ def test_ci_covers_all_six_shards_both_platforms_and_complete_regression():
                for step in observer['steps'])
     scalar = [step for step in observer['steps'] if 'verify_source_scalar_time_refinement.py' in step.get('run','')]
     assert len(scalar) == 1 and scalar[0]['if'] == 'matrix.shard == 2'
-    assert regression['strategy']['matrix']['os'] == ['ubuntu-latest', 'windows-latest']
-    assert regression['strategy']['matrix']['shard'] == [0,1,2]
+    assert regression['strategy']['matrix']['os'] == platforms
+    assert regression['strategy']['matrix']['shard'] == [0,1,2,3]
     commands = [step for step in regression['steps'] if 'run' in step]
     pytest_steps = [step for step in commands if 'python -m pytest' in step['run']]
     assert len(pytest_steps) == 1 and 'if' not in pytest_steps[0]
     assert pytest_steps[0]['run'] == ('python -m pytest -q -W error -p model.pytest_shards '
-        '--model-shard-index ${{ matrix.shard }} --model-shard-count 3 model')
+        '--model-shard-index ${{ matrix.shard }} --model-shard-count 4 model')
     extra = [step for step in commands if 'model.common_source.repair_field_attachment' in step['run']
              or 'native_staggered_field' in step['run'] or 'observer_particles/run.py' in step['run']]
     assert len(extra) == 4
@@ -469,7 +477,7 @@ def test_particle_services_and_actual_data_replay_remain_mandatory():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
     events = workflow.get('on', workflow.get(True))
     commands = [step['run'] for step in workflow['jobs']['particle-services']['steps'] if 'run' in step]
-    for package in ('reference_recovery', 'particle_response', 'contact_scattering', 'particle_comparison'):
+    for package in ('reference_recovery', 'particle_response', 'contact_scattering', 'particle_comparison', 'particle_transport'):
         for event in ('push', 'pull_request'):
             assert f'model/{package}/**' in events[event]['paths']
         assert any('python -m pytest' in c and f'model/{package}' in c for c in commands)
@@ -480,3 +488,17 @@ def test_particle_services_and_actual_data_replay_remain_mandatory():
     assert data['CP11']['eligible_physical_comparisons_added'] == 0
     assert not data['CP11']['OPH_universe_membership_confirmed']
     assert data['custody']['input_sha256']
+
+
+def test_same_candidate_transport_is_replayed_without_promoting_physical_identity():
+    module, receipt = 'model.particle_transport.packet', 'model/particle_transport/results.json'
+    assert (module, None, receipt) in verify.REPLAYS
+    workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
+    commands = [step['run'] for step in workflow['jobs']['particle-services']['steps'] if 'run' in step]
+    assert f'python -m {module} --check {receipt}' in commands
+    data = json.loads((verify.ROOT/receipt).read_text())
+    assert not data['physical_particle_identification']
+    assert not data['integrated_gate_accepted']
+    assert not data['native_topological_protection_established']
+    assert not data['failed_dispersion_benchmark_repaired']
+    assert data['physical_comparison_count_added'] == 0

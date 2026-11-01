@@ -8,7 +8,7 @@ import sys
 
 import pytest
 
-from .pytest_shards import selected_modules
+from .pytest_shards import recorded_costs, selected_modules
 
 
 @pytest.mark.parametrize("count", range(1, 8))
@@ -19,6 +19,15 @@ def test_modules_are_exhaustive_disjoint_with_all_parametrizations(count):
     assert Counter(m for part in parts for m in part) == Counter(modules)
     assert Counter(node for part in parts for node in nodes if node[0] in part) == Counter(nodes)
     assert all(parts)
+
+
+def test_recorded_costs_balance_shards_without_changing_membership():
+    modules = [f"model/part{i}/test_example.py" for i in range(6)]
+    costs = dict(zip(modules, (50.0, 1.0, 1.0, 1.0, 1.0, 46.0)))
+    parts = [selected_modules(modules, index, 2, costs) for index in range(2)]
+    assert Counter(m for part in parts for m in part) == Counter(modules)
+    assert sorted(sum(costs[m] for m in part) for part in parts) == [50.0, 50.0]
+    assert recorded_costs() and all(path.startswith("model/") for path in recorded_costs())
 
 
 def test_new_modules_are_included_without_a_second_allowlist():

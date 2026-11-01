@@ -38,6 +38,7 @@ on:
       - 'model/biased_code_universality/**'
       - 'model/energy_identifiability/**'
       - 'model/regional_modular/**'
+      - 'model/regional_clock/**'
       - 'model/band_clock_budget/**'
       - 'model/compiled_native_history/**'
       - 'model/reference_observation/**'
@@ -51,6 +52,7 @@ on:
       - 'model/charged_dynamics/**'
       - 'model/contact_scattering/**'
       - 'model/particle_comparison/**'
+      - 'model/particle_transport/**'
       - 'model/modular_flow/**'
       - 'model/full_fock_energy/**'
       - 'model/flux_response/**'
@@ -104,6 +106,7 @@ on:
       - 'model/biased_code_universality/**'
       - 'model/energy_identifiability/**'
       - 'model/regional_modular/**'
+      - 'model/regional_clock/**'
       - 'model/band_clock_budget/**'
       - 'model/compiled_native_history/**'
       - 'model/reference_observation/**'
@@ -117,6 +120,7 @@ on:
       - 'model/charged_dynamics/**'
       - 'model/contact_scattering/**'
       - 'model/particle_comparison/**'
+      - 'model/particle_transport/**'
       - 'model/modular_flow/**'
       - 'model/full_fock_energy/**'
       - 'model/flux_response/**'
@@ -229,6 +233,8 @@ jobs:
       - run: python -m pytest -q -W error model/band_clock model/native_localization model/native_program
       - run: python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality
       - run: python -m pytest -q -W error model/energy_identifiability model/regional_modular model/band_clock_budget model/compiled_native_history
+      - run: python -m pytest -q -W error model/regional_clock
+      - run: python -m model.regional_clock.verify --check
       - run: python -m pytest -q -W error model/reference_observation model/native_fixed_algebra model/gauged_field model/full_fock_field
       - run: python -m pytest -q -W error model/field_thermal model/support_refinement
       - run: python -m model.support_refinement --check model/support_refinement/results.json
@@ -249,13 +255,14 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison model/charged_dynamics
+      - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison model/charged_dynamics model/particle_transport
       - run: python -m pytest -q --durations=10 -W error model/modular_flow model/full_fock_energy model/flux_response model/field_protocols model/dimer_family
       - run: python -m pytest -q --durations=10 -W error model/field_symmetry
       - run: python -m model.field_symmetry --check model/field_symmetry/results.json
       - run: python -m model.flux_response --check model/flux_response/results.json
       - run: python -m model.particle_comparison.compare --check model/particle_comparison/results.json
       - run: python -m model.charged_dynamics.packet --check model/charged_dynamics/results.json
+      - run: python -m model.particle_transport.packet --check model/particle_transport/results.json
 
   protected-defects:
     runs-on: ubuntu-latest

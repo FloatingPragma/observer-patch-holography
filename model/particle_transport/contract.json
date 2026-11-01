@@ -1,0 +1,36 @@
+{
+  "schema": "oph.charged_particle_transport.contract.v1",
+  "campaign_id": "charged-particle-transport-20261031-v1",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "integrated_gate_accepted": false,
+  "native_family_changed": false,
+  "physical_comparison_count_added": 0,
+  "base_commit": "1f14865fe560f5788a990a1b25884d6f91d12858",
+  "owner_issue": 1141,
+  "carrier": "One or two complete four-mode Fock dimers, the existing charged spectral subspaces, explicit auxiliary modes and neutral pointers, and arbitrary untouched references in the stated bounded evaluators. A separate symbolic twelve-dimer isometry compares its 66-dimensional two-candidate image with the native negative exchange lift; it is not a 48-mode source execution.",
+  "action": "The existing Weyl/contact dimer with coordinate speed 1/8, contact interaction 1 and K=H-N/2. Two-dimer experiments use the sum of two identical decoupled dimer generators. Inter-dimer transport uses separately supplied mode-swap controls; no joining-hopping evolution or perturbation bound is supplied.",
+  "reference": "The existing unique half-filled dimer ground, or its product on separated dimers. It is not a faithful full-algebra reference or a physically selected vacuum.",
+  "candidates": "The existing lowest N=1 hole and N=3 particle doublets, with gap sqrt(17)/8-1/16, plus the declared even-parity controls. No new mass or species assignment is fitted.",
+  "operations": [
+    "Explicit source preparation from counted fixed-occupation inputs.",
+    "Completed number-preserving fermionic mode swaps, their controlled versions, source-compiled dimer continuation and neutral pointer readout.",
+    "One complete prepare-transport-presence-read history using the same charged projector, with unknown internal/reference state preserved and no free spectral measurement.",
+    "A declared occupied or empty reservoir mode and number-preserving reflection probes for complete addition/removal correlations."
+  ],
+  "required_evidence": [
+    "Same-candidate energy, number, parity and internal-state transport with complete state/reference maps.",
+    "Graded exchange on the complete two-dimer carrier, with even and ordinary-swap controls and the reference phase retained.",
+    "Neutral-current particle-hole response on the same reference, retaining every spectral contribution.",
+    "An exact same-column representation dictionary for all native negative-lift movements, rotations and complete C/E record branches; no native protection is inherited.",
+    "Actual source execution, complete pointer and export-failure outputs, error budgets and counted preparation, routing and readout services.",
+    "Independent operator reconstructions, malformed-input rejection and replay/source-custody controls."
+  ],
+  "boundaries": [
+    "The completed logical operations conserve the declared field number; individual encoded processor pulses need not preserve that effective observable.",
+    "Coherent controls, field encoding, action, reference, initialization and Hamiltonian model time remain declared services or inputs.",
+    "Controlled block transport is not autonomous propagation under uniform native C/E repair or a proof of topological protection.",
+    "The existing failed finite dispersion benchmark is retained. Physical Lorentz spin, photons, electron/positron identity, mass prediction and a native protecting boundary invariant remain unestablished.",
+    "Numerical source residuals are fixed implementation admission checks, not interval proofs or physical hardware error bars."
+  ]
+}
