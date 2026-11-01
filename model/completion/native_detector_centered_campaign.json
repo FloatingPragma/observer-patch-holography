@@ -8,11 +8,12 @@
   "selected_issues": [
     1138,
     1139,
+    1141,
     1142,
     1143,
     1145
   ],
-  "objective": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
+  "objective": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force; quantify the finite centered gap and charged response and classify the complete onsite mass and texture family.",
   "specification_policy": "Readable simulator, observer, scheduler, repair and memory laws remain admitted inputs. The original source and its finite native detector are preserved. A separately declared charge clock H-(U/2)N and its newly constructed ground are derived from source particle-hole symmetry; neither the original ground nor its energies are silently reinterpreted. The centered bounded-contact continuum retains all eight valleys; uniform finite-energy escape of its composite force yields a free massless fermion hierarchy, not the required interacting physical endpoint.",
   "original_source_law_changed": false,
   "explicit_alternative_charge_clock_added": "H-(U/2)N with its own ground",
@@ -147,7 +148,7 @@
         1143,
         1145
       ],
-      "result": "Requiring particle-hole invariance uniquely fixes K=H-(U/2)N on the full bipartite Weyl/contact Fock algebra. On the actual U=1,c=1/8 cube, the previous N4 ground is not a K-ground: the imported all-number bound and exact particle-hole symmetry prove that every centered global ground has N8. Exact finite source hypotheses and the explicitly imported Lieb theorem then prove uniqueness and hidden spin zero. A four-dimer trial gives -4-sqrt(3)/4<=E_K<=-2-sqrt(17)/2 and a gap to every other charge sector strictly larger than 1/8. The actual cube one-site density diag(d,1/2-d,1/2-d,d) obeys 1/15000<d<1/8, with a full-CAR modular operator, entropy first law and controlled relative-entropy remainder. Exact complete dimer addition/removal energies and weights are calculated. A new particle-hole invariant thermodynamic ground and centered continuum net have zero averaged signed first moment. Pull-through gives centered occupation defect D<=min(2,11(U/c)^2/8), and a separate original-clock bound D<=min(2,11(U/c)^2/4).",
+      "result": "Requiring particle-hole invariance uniquely fixes K=H-(U/2)N on the full bipartite Weyl/contact Fock algebra. On the actual U=1,c=1/8 cube, the previous N4 ground is not a K-ground: the imported all-number bound and exact particle-hole symmetry prove that every centered global ground has N8. An exact balanced rank-one, variance and spin certificate proves uniqueness and hidden spin zero without importing Lieb; the checked Lieb theorem remains a separate crosscheck. A four-dimer trial gives -4-sqrt(3)/4<=E_K<=-2-sqrt(17)/2 and a gap to every other charge sector strictly larger than 1/8. The actual cube one-site density diag(d,1/2-d,1/2-d,d) obeys 1/15000<d<1/8, with a full-CAR modular operator, entropy first law and controlled relative-entropy remainder. Exact complete dimer addition/removal energies and weights are calculated. A new particle-hole invariant thermodynamic ground and centered continuum net have zero averaged signed first moment. Pull-through gives centered occupation defect D<=min(2,11(U/c)^2/8), and a separate original-clock bound D<=min(2,11(U/c)^2/4). The complete finite cube gap is strictly greater than 1/128, proved by an exact integer rank-one Gram certificate on the full 4900-row balanced block and the charged-sector bound. Its dyadic reference has certified infidelity below 1e-6. Every creator/annihilator response from the actual ground has hidden S=eta=1/2; exact particle-hole covariance relates the full positive matrix measures and reverses all twelve currents. On both full N7/N9 sectors (22880 columns), all 120 native raw slots vanish and each of the ten outside branches is identity; every slot of the ten complete instruments is retained. All four onsite mass-order expectations vanish in this finite ground.",
       "evidence": [
         "model/centered_source_ground/README.md",
         "model/centered_source_ground/__init__.py",
@@ -156,16 +157,20 @@
         "model/centered_source_ground/cube.py",
         "model/centered_source_ground/dimer.py",
         "model/centered_source_ground/faithfulness.py",
+        "model/centered_source_ground/gap.py",
         "model/centered_source_ground/packet.py",
+        "model/centered_source_ground/particles.py",
         "model/centered_source_ground/results.json",
         "model/centered_source_ground/test_faithfulness.py",
+        "model/centered_source_ground/test_gap.py",
         "model/centered_source_ground/test_ground.py",
         "model/centered_source_ground/test_packet.py",
+        "model/centered_source_ground/test_particles.py",
         "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex"
       ],
       "remaining": [
         "Construct native preparation and complete readout of the new centered ground where operational execution is claimed.",
-        "Resolve the required neutral spectrum quantitatively and implement the unique centered N8 ground; finite uniqueness does not supply a certified neutral-gap value or thermodynamic uniqueness.",
+        "Construct a native preparation word for the certified finite reference and its charged detector; an integer state certificate is not a source preparation. Quantify any thermodynamic gap separately.",
         "Determine surviving continuum interaction and the appropriate massive and massless relativistic sectors in the new reference.",
         "Derive physical field, spin, charge, detector and clock/unit identifications and test measured species independently.",
         "Realize the same-state stress, geometric, area and Einstein-balance premises; the actual finite one-site modular operator is calculated but its geometric identification and limiting faithfulness remain open."
@@ -198,7 +203,32 @@
         "Identify physical spin, gauge, charge and detector observables, calibrate common units independently, and test measured particle species and mass ratios.",
         "Supply the common matter stress, geometric modular kernel, area response, null balance and normalization required by the existing Einstein theorem stack."
       ]
+    },
+    {
+      "id": "native_mass_channels",
+      "issues": [
+        1139,
+        1141,
+        1142,
+        1143
+      ],
+      "result": "Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+      "evidence": [
+        "model/native_mass_channels/README.md",
+        "model/native_mass_channels/__init__.py",
+        "model/native_mass_channels/__main__.py",
+        "model/native_mass_channels/algebra.py",
+        "model/native_mass_channels/packet.py",
+        "model/native_mass_channels/results.json",
+        "model/native_mass_channels/test_algebra.py",
+        "model/native_mass_channels/test_packet.py"
+      ],
+      "remaining": [
+        "Derive and stabilize any proposed ordered field from the admitted interaction, reference and complete repair rather than supply its coefficients.",
+        "Prove a spatial defect Hamiltonian and its localized spectrum or index; a winding of onsite coefficients alone does not supply a fermion zero mode.",
+        "Join the resulting excitations to the common physical spin, charge, current, clock and unit dictionary, retaining all valleys unless a removal mechanism is proved."
+      ]
     }
   ],
-  "quantifier_boundary": "Complete finite native readout and same-ground regional modular data; an equal-time continuum composite CAR channel; a conditional same-field CPT obstruction for the original clock; and an explicit symmetry-derived centered source ground with exact half-filling, checked Lieb uniqueness premises and quantitative one-site faithfulness. For the stated canonical charged-field dictionary, the centered bounded-coupling limit is a controlled free massless eight-valley fermion theory. A nonzero interacting physical endpoint requires a different justified trajectory or action. Measured particle species, calibrated massive sectors and the common Einstein premises are not inferred."
+  "quantifier_boundary": "Complete finite native readout and same-ground regional modular data; an equal-time continuum composite CAR channel; a conditional same-field CPT obstruction for the original clock; and an explicit symmetry-derived centered source ground with exact half-filling, a directly certified unique singlet, full finite gap and quantitative one-site faithfulness. For the stated canonical charged-field dictionary, the centered bounded-coupling limit is a controlled free massless eight-valley fermion theory. A nonzero interacting physical endpoint requires a different justified trajectory or action. Measured particle species, calibrated massive sectors and the common Einstein premises are not inferred."
 }

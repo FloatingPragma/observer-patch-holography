@@ -38,6 +38,12 @@ states and rejects actual support violations.
    a damaged intermediate cannot validate its accuracy. An oracle
    must not reuse the producer's thermal states, support decisions or
    cancellation-prone formula when those are the operations under test.
+4. Inventory the complete owning-receipt closure, exposure pins and signed
+   contract references before replaying descendants. Enumerate all stale
+   inputs together. Renew a signed digest when an authenticated reference
+   changes; do not preserve the old digest by excluding fields from its
+   checker. Check the exact consumed data when an older whole-file pin
+   differs, and distinguish scientific replay from audited metadata equivalence.
 
 ## Challenge the domain and the formula
 

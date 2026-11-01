@@ -16,6 +16,18 @@ retaining narrow tuned resonances. The [earlier constructions](../docs/COMMON_AC
 retain their stated domains. Localized physical particles, scalable physical
 reference, an interacting chiral continuum and Einstein dynamics remain open.
 
+The [centered source ground](centered_source_ground/README.md) has a complete
+finite gap greater than `1/128` and a certified reference approximation with
+infidelity below `10^-6`. Exact spin and overlap bounds prove its unique singlet
+directly, independently of the retained Lieb theorem crosscheck. Its exact charged responses have hidden spin and eta
+`1/2`, particle-hole paired matrix measures and conserved currents; the complete
+native repair acts only through its identity outside branches on those sectors.
+The [onsite mass catalogue](native_mass_channels/README.md) exhausts the four
+anticommuting channels of the same hopping, retains all eight valleys, and
+classifies their restricted texture topology. All four order expectations
+vanish in the actual finite centered ground. The catalogue supplies neither
+spontaneous order nor a localized particle or repair-protection theorem.
+
 The [matter and common-field construction](observer_particles/DERIVATION.md)
 connects the native response matrices to a conditional fifteen-state internal
 matter representation, one-Higgs interaction tensors and compatible scalar,
