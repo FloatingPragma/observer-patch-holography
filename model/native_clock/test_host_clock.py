@@ -18,19 +18,96 @@ def result(raw):
     return h.analyse(raw)
 
 
-def test_retained_measured_capture_replays_every_source_event(result):
+def _raw_blocks(raw):
+    """Decode event counts and endpoint differences without the replay helper."""
+    seams = tuple(h.slow_geometry.source().seams())
+    runs = {}
+    for run in raw['runs']:
+        records = bytes.fromhex(run['records_hex'])
+        blocks = []
+        for start, end in zip(run['block_endpoints'], run['block_endpoints'][1:]):
+            counts = [0]*12
+            for code in records[start['attempts']:end['attempts']]:
+                if code % 3 != 1:
+                    left, right = seams[code//6]
+                    counts[left] += 1
+                    counts[right] += 1
+            blocks.append({'local_counts': counts,
+                           'host_duration_ns': end['elapsed_ns']-start['elapsed_ns']})
+        runs[run['name']] = blocks
+    return runs
+
+
+def test_retained_measured_capture_replays_every_source_event(raw, result):
     assert result['replay_integrity_passed']
     assert 'all_pass' not in result
     assert [r['native_attempts'] for r in result['native_record_replays']] == [264532, 264532]
     assert all(r['movements'] == 40000 and r['complete'] for r in result['native_record_replays'])
     assert all(r['seeded_source_addresses_and_work_sink_replayed'] for r in result['native_record_replays'])
-    assert result['calibration']['local_tick_count'] == 1767
-    assert result['calibration']['host_duration_ns'] == 32356500
-    assert not result['calibration']['other_clock_and_later_blocks_used_in_fit']
+    blocks = _raw_blocks(raw)
+    for run in result['native_record_replays']:
+        assert len(run['blocks']) == len(blocks[run['name']]) == 4
+        for reported, decoded in zip(run['blocks'], blocks[run['name']], strict=True):
+            assert reported['local_counts'] == decoded['local_counts']
+            assert reported['host_duration_ns'] == decoded['host_duration_ns']
+    calibration = blocks['baseline'][0]
+    count = calibration['local_counts'][2]
+    assert count == 1767
+    slope = F(calibration['host_duration_ns'], count)
+    assert result['calibration'] == {
+        'run': 'baseline', 'block': 0, 'clock_port': 2,
+        'local_tick_count': count, 'host_duration_ns': calibration['host_duration_ns'],
+        'nanoseconds_per_local_tick': str(slope),
+        'other_clock_and_later_blocks_used_in_fit': False,
+    }
+    # Host timing tolerance and the native count-rate envelope are distinct policies.
+    assert F(raw['policy']['relative_host_duration_tolerance']) == F(1, 4)
+    assert F(raw['policy']['native_rate_error']) == F(1, 12)
+    assert F(result['declared_native_rate_envelope']['absolute_error']) == F(1, 12)
+    expected_tests = []
+    for name, run_blocks in blocks.items():
+        for index, block in enumerate(run_blocks):
+            if name == 'baseline' and index == 0:
+                continue
+            prediction = slope*block['local_counts'][3]
+            error = abs(F(block['host_duration_ns'])-prediction)/prediction
+            expected_tests.append({
+                'run': name, 'block': index, 'clock_port': 3,
+                'observed_host_duration_ns': block['host_duration_ns'],
+                'predicted_host_duration_ns': str(prediction),
+                'relative_error': str(error),
+                'engineering_verdict': 'within_tolerance' if error <= F(1, 4) else 'reject',
+            })
+    assert result['held_out_clock_tests'] == expected_tests
     baseline = [t for t in result['held_out_clock_tests'] if t['run'] == 'baseline']
     assert [t['block'] for t in baseline] == [1, 2, 3]
     assert all(t['clock_port'] == 3 and t['engineering_verdict'] == 'within_tolerance' for t in baseline)
-    assert all(F(t['relative_error']) < F(1, 12) for t in baseline)
+
+
+@pytest.mark.parametrize('offset, verdict', [(F(1, 8), 'within_tolerance'), (F(1, 3), 'reject')])
+def test_host_timing_policy_is_distinct_from_native_rate_without_refitting(raw, result, offset, verdict):
+    blocks = _raw_blocks(raw)['baseline']
+    slope = F(blocks[0]['host_duration_ns'], blocks[0]['local_counts'][2])
+    prediction = slope*blocks[1]['local_counts'][3]
+    duration = int(prediction*(1+offset))
+    error = abs(F(duration)-prediction)/prediction
+    assert error > F(1, 12)
+    assert (error <= F(1, 4)) == (verdict == 'within_tolerance')
+    mutant = deepcopy(raw)
+    delta = duration-blocks[1]['host_duration_ns']
+    for endpoint in mutant['runs'][0]['block_endpoints'][2:]:
+        endpoint['elapsed_ns'] += delta
+    changed = h.analyse(mutant)
+    assert changed['calibration'] == result['calibration']
+    target = next(t for t in changed['held_out_clock_tests']
+                  if t['run'] == 'baseline' and t['block'] == 1)
+    assert target == {
+        'run': 'baseline', 'block': 1, 'clock_port': 3,
+        'observed_host_duration_ns': duration,
+        'predicted_host_duration_ns': str(prediction),
+        'relative_error': str(error), 'engineering_verdict': verdict,
+    }
+    assert changed['held_out_clock_tests'][1:] == result['held_out_clock_tests'][1:]
 
 
 def test_actual_host_workload_changes_duration_without_changing_native_records(result):

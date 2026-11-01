@@ -299,6 +299,10 @@ constant success, blanket refusal and missing validation when applicable;
 report surviving mutations and controls added because of them. A mutation
 count is not a completeness claim.
 
+Bind test results to retained input bytes as well as source code. Publishing
+a fresh capture invalidates earlier tests that consumed the replaced input;
+rerun those tests after publication, even when their code is unchanged.
+
 Before reporting readiness, fetch current main and inspect every published
 review and conversation thread on the affected PRs. Recheck the exact final
 heads, including any fixes made after approval. Combine overlapping open
