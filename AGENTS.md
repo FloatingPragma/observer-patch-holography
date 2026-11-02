@@ -20,6 +20,7 @@ The full rules are in the [docs index](docs/README.md#rules-for-this-directory).
   narrative. Prefer extending the owning paper or package README, because
   separate notes go stale.
 - Release papers do not cite files in `docs/`. Cite papers, Lean modules, code
-  packages and public preprints.
+  packages, machine registers and public preprints. The one exception is
+  `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`.
 - Code, receipts, reviews and registers bind code, Lean and receipts as
   evidence, never a note in `docs/`.

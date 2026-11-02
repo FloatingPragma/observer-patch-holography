@@ -40,7 +40,10 @@ physical universe has been reconstructed.
   Prefer extending the paper or the package README, because separate notes
   go stale.
 - Release papers do not cite files in `docs/`. They cite papers, Lean
-  modules, code packages and public preprints.
+  modules, code packages, machine registers and public preprints. The one
+  exception is `research/PUBLIC_DATA_PREDICTION_AUDIT.md`, which collects
+  retrospective public-data comparisons that no single code package
+  reproduces.
 - Code, receipts, reviews and registers bind code, Lean and receipts as
   evidence, never a note in `docs/`.
 - Implementation-specific mathematics belongs with its owning code. Preserve

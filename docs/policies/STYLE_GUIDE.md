@@ -28,7 +28,8 @@ states of the research.
   file, progress report, audit result, integration record or PR handoff is
   added anywhere under `docs/`; that history belongs in the GitHub pull
   request or issue. A `docs/research/` note states a current result its code
-  verifies, without history. Release papers do not cite `docs/` files, and
+  verifies, without history. Release papers do not cite `docs/` files
+  (the one exception is `docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md`), and
   code, receipts and registers do not bind them as evidence. The
   [docs index](../README.md#rules-for-this-directory) states the full rules.
   Preserve substantive proofs, counterexamples, evidence and source commitments
@@ -181,14 +182,13 @@ their scientific focus, and READMEs give the short positive case.
 
 - A technical surface that states the basis distinguishes the closure
   hypothesis, operational agreement, the executable specification and the
-  adopted state-selection and response-endogeneity principles, and cites
-  `docs/BASIS.md`. Internal realization motivates the latter principles;
+  adopted state-selection and response-endogeneity principles. Internal realization motivates the latter principles;
   closure alone does not entail an entropy minimizer or inner action on the
   connected response algebra. A surface that
   states a theorem premise A1, A2 or A3 pairs it with both forms in the same
   local context: one plain-language sentence, then the concise formal
   statement, then what the premise constrains, then what it does not imply,
-  then a citation to `docs/AXIOM_REFERENCE.md`. A surface that only consumes a
+  then a citation to `claims/axiom_registry.yaml`. A surface that only consumes a
   premise names the exact dependency and cites the reference. No surface
   counts A1-A3 as axioms of OPH or calls them its basis.
 - The symbol \(A_5\) names the alternating group on five letters, never an
