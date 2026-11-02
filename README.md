@@ -88,52 +88,16 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and
   the Einstein equation from null balance.
-- **Common-action finite constructions.** The original three-dimensional
-  cube has a protected interacting sector and a local spectral probe.
-  Balanced native feedback preserves a joint field/controller reference.
-  Moving bound pairs have a controlled continuum propagation law, and
-  local momentum balances have quantified dilute-state errors. Model
-  energies, binding energy and inertial mass are derived with their
-  physical calibration requirements explicit. The
-  [results and remaining joins](docs/THREE_DIMENSIONAL_PROGRESS_2026-11-01.md)
-  distinguish these theorems from the physical QFT and Einstein dynamics
-  to be derived.
-  An [internal observer readout](docs/INTERNAL_PARTICLE_MEASUREMENT_2026-11-01.md)
-  attaches the protected cube response to complete native pointer records,
-  with explicit source and evolution errors.
-  The [resolved spectrum and relativistic construction](docs/RESOLVED_SPECTRUM_AND_RELATIVISTIC_SECTOR_2026-11-01.md)
-  recover all eight weights on the specified response support and construct
-  an eight-valley massless Weyl limit with full outgoing-contact error
-  bounds. A compiled momentum/occupation detector identifies the finite
-  model modes and their energies; comparison with measured particles finds
-  no direct species match. The subsequent
-  [interacting ground and mass calculation](docs/INTERACTING_VACUUM_AND_RELATIVISTIC_MASS_2026-11-01.md)
-  certifies the cube's global ground and derives a relativistic charge-sector
-  mass along a specified one-dimensional coupling continuation. The original
-  parameters do not select that continuation or a unique mass. Measured
-  species and a three-dimensional interacting relativistic vacuum remain open.
-  The [grounded field and geometry response](docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
-  establishes an original-action infinite-lattice ground with positive
-  excitation energy, convergent energy-density bounds and exact
-  matter-dependent propagation response on the cube. The
-  [native ground readout and spatial response](docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
-  prepares that finite ground through observer controls and constructs
-  non-Gaussian field correlations and a time-reflection-positive Euclidean
-  hierarchy on the infinite ground. Its response has nonzero interaction
-  memory and a spatially local inverse away from real frequencies. The complete visible finite charged
-  spectrum fails the proposed direct identification with the charged
-  lepton hierarchy. The [continuum field and spectral readout](docs/CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
-  constructs all eight continuum valleys with positive energy and
-  finite propagation, resolves the complete finite ground family, and
-  provides positive finite-resolution energy measurements. Surviving
-  continuum interaction and the physical field and geometry joins remain open.
-  The [continuum field and entropy construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
-  gives a regular positive-energy spin field net, complete native joint
-  energy/symmetry observations, and an explicit limit from finite regional
-  entropy changes to the existing free-field stress response. The canonical
-  charged continuum is provably free for `U=o(c^(2/7))`. A sharp spin mass
-  shell, surviving continuum interaction, measured species and responsive
-  geometry retain their explicit remaining premises.
+- **Common-action constructions.** One original action on the
+  three-dimensional cube has a certified global ground, an infinite-lattice
+  ground with positive excitation energy, and a regular positive-energy
+  continuum spin field net with finite propagation. At zero coupling, finite
+  regional entropy changes converge to the free-field stress response used
+  by the Einstein derivation. The charged continuum is provably free for
+  `U=o(c^(2/7))`, with massless Weyl energies in all eight valleys. A sharp
+  mass shell, surviving continuum interaction, measured particle species and
+  responsive geometry remain open, with their premises stated in the
+  [continuum construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12700 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.
