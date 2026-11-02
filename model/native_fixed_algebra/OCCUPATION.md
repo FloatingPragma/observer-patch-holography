@@ -27,8 +27,8 @@ If all numbers are allowed only as a classical superselection sum, the fixed
 observable algebra is `span{P_0,...,P_12}`, of dimension thirteen. The
 off-diagonal extremal memory requires a separately admitted coherent apparatus.
 
-No proper-port-local observable is exactly fixed under the full admitted
-repair. This excludes a nontrivial **fixed local source charge** in this
+Every proper-port-local observable exactly fixed under the full admitted
+repair is scalar. This excludes a nontrivial **fixed local source charge** in this
 finite class. It does not exclude particles that move while carrying a
 global conserved charge: total occupation is exactly such a global charge.
 It also does not exclude controlled lifetimes, active correction, charges

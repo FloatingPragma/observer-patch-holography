@@ -1963,15 +1963,15 @@
     ],
     "new_timestamps_acquired": false,
     "previous_movement_clock_engineering_tolerance_changed": false,
-    "retained_raw_sha256": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+    "retained_raw_sha256": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f",
     "same_record_tape": true,
     "zero_error_counterfactual": {
       "baseline": {
         "calibration": {
           "bounded_away_from_zero_and_infinity": true,
           "feasible": true,
-          "seconds_per_attempt_lower": "9006609/13149400000000",
-          "seconds_per_attempt_upper": "9006609/13149400000000",
+          "seconds_per_attempt_lower": "5883/11954000000",
+          "seconds_per_attempt_upper": "5883/11954000000",
           "zero_rate_excluded": true
         },
         "calibration_ids": [
@@ -1993,36 +1993,36 @@
             "compatible_with_calibration": false,
             "id": "baseline_2",
             "observed_seconds": [
-              "90813023/1000000000",
-              "90813023/1000000000"
+              "127151/2000000",
+              "127151/2000000"
             ],
             "prediction_seconds": [
-              "118337835651/1314940000000",
-              "118337835651/1314940000000"
+              "77296737/1195400000",
+              "77296737/1195400000"
             ]
           },
           {
             "compatible_with_calibration": false,
             "id": "baseline_3",
             "observed_seconds": [
-              "69386647/500000000",
-              "69386647/500000000"
+              "381227/4000000",
+              "381227/4000000"
             ],
             "prediction_seconds": [
-              "1783677852969/13149400000000",
-              "1783677852969/13149400000000"
+              "1165075203/11954000000",
+              "1165075203/11954000000"
             ]
           },
           {
             "compatible_with_calibration": false,
             "id": "baseline_4",
             "observed_seconds": [
-              "45978629/250000000",
-              "45978629/250000000"
+              "1013761/8000000",
+              "1013761/8000000"
             ],
             "prediction_seconds": [
-              "595634072997/3287350000000",
-              "595634072997/3287350000000"
+              "389060439/2988500000",
+              "389060439/2988500000"
             ]
           }
         ],
@@ -2033,8 +2033,8 @@
         "calibration": {
           "bounded_away_from_zero_and_infinity": true,
           "feasible": true,
-          "seconds_per_attempt_lower": "9006609/13149400000000",
-          "seconds_per_attempt_upper": "9006609/13149400000000",
+          "seconds_per_attempt_lower": "5883/11954000000",
+          "seconds_per_attempt_upper": "5883/11954000000",
           "zero_rate_excluded": true
         },
         "calibration_ids": [
@@ -2057,48 +2057,48 @@
             "compatible_with_calibration": false,
             "id": "control_1",
             "observed_seconds": [
-              "1059351/3125000",
-              "1059351/3125000"
+              "15364487/62500000",
+              "15364487/62500000"
             ],
             "prediction_seconds": [
-              "9006609/200000000",
-              "9006609/200000000"
+              "64713/2000000",
+              "64713/2000000"
             ]
           },
           {
             "compatible_with_calibration": false,
             "id": "control_2",
             "observed_seconds": [
-              "685105983/1000000000",
-              "685105983/1000000000"
+              "1103870709/1000000000",
+              "1103870709/1000000000"
             ],
             "prediction_seconds": [
-              "118337835651/1314940000000",
-              "118337835651/1314940000000"
+              "77296737/1195400000",
+              "77296737/1195400000"
             ]
           },
           {
             "compatible_with_calibration": false,
             "id": "control_3",
             "observed_seconds": [
-              "258494647/250000000",
-              "258494647/250000000"
+              "1554779459/1000000000",
+              "1554779459/1000000000"
             ],
             "prediction_seconds": [
-              "1783677852969/13149400000000",
-              "1783677852969/13149400000000"
+              "1165075203/11954000000",
+              "1165075203/11954000000"
             ]
           },
           {
             "compatible_with_calibration": false,
             "id": "control_4",
             "observed_seconds": [
-              "1384035111/1000000000",
-              "1384035111/1000000000"
+              "1935039917/1000000000",
+              "1935039917/1000000000"
             ],
             "prediction_seconds": [
-              "595634072997/3287350000000",
-              "595634072997/3287350000000"
+              "389060439/2988500000",
+              "389060439/2988500000"
             ]
           }
         ],
@@ -2206,8 +2206,8 @@
     "model/native_clock/__main__.py": "fd617457b5aa34100620a8cdde5bb841cf7cf4bbd95d92716e6d8412095b112a",
     "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
     "model/native_clock/comparison.py": "594d32829d5d74df6cc38fd3e7166997526a65b3acc42b04da6ad2edfa731536",
-    "model/native_clock/host_clock.py": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
-    "model/native_clock/host_clock_records.json": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+    "model/native_clock/host_clock.py": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f",
+    "model/native_clock/host_clock_records.json": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f",
     "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
     "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
     "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",

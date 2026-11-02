@@ -12142,6 +12142,54 @@
           {
             "path": "paper/tex_fragments/SHELL_ENTROPY_RESPONSE.tex",
             "label": "Positive shell entropy Hessian and finite-amplitude lattice limit"
+          },
+          {
+            "path": "model/centered_source_ground/gap.py",
+            "label": "Direct exact centered singlet, full finite gap and certified reference approximation"
+          },
+          {
+            "path": "model/centered_source_ground/particles.py",
+            "label": "Complete centered charged response, current and repair identities"
+          },
+          {
+            "path": "model/centered_source_ground/test_gap.py",
+            "label": "Direct exact centered singlet, full finite gap and certified reference approximation"
+          },
+          {
+            "path": "model/centered_source_ground/test_particles.py",
+            "label": "Complete centered charged response, current and repair identities"
+          },
+          {
+            "path": "model/native_mass_channels/README.md",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/__init__.py",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/__main__.py",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/algebra.py",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/packet.py",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/results.json",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/test_algebra.py",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
+          },
+          {
+            "path": "model/native_mass_channels/test_packet.py",
+            "label": "Complete source-derived onsite mass family and restricted texture topology"
           }
         ],
         "assumptions": [
@@ -18059,14 +18107,6 @@
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
-            "path": "model/centered_source_ground/README.md",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
-            "path": "model/centered_source_ground/cube.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
             "path": "model/centered_source_ground/gap.py",
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
@@ -18075,27 +18115,11 @@
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
-            "path": "model/centered_source_ground/packet.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
             "path": "model/centered_source_ground/test_gap.py",
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
-            "path": "model/centered_source_ground/test_ground.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
             "path": "model/centered_source_ground/test_particles.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
-            "path": "model/centered_source_ground/test_packet.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
-            "path": "model/centered_source_ground/results.json",
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
@@ -22656,14 +22680,6 @@
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
-            "path": "model/centered_source_ground/README.md",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
-            "path": "model/centered_source_ground/cube.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
             "path": "model/centered_source_ground/gap.py",
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
@@ -22672,27 +22688,11 @@
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
-            "path": "model/centered_source_ground/packet.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
             "path": "model/centered_source_ground/test_gap.py",
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
-            "path": "model/centered_source_ground/test_ground.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
             "path": "model/centered_source_ground/test_particles.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
-            "path": "model/centered_source_ground/test_packet.py",
-            "label": "Direct centered-ground certificate and complete onsite mass catalogue"
-          },
-          {
-            "path": "model/centered_source_ground/results.json",
             "label": "Direct centered-ground certificate and complete onsite mass catalogue"
           },
           {
@@ -25430,14 +25430,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -25592,14 +25584,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -25692,14 +25676,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -25793,14 +25769,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -25975,14 +25943,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26074,14 +26034,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26283,14 +26235,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26382,14 +26326,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26479,14 +26415,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26576,14 +26504,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26676,14 +26596,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26825,14 +26737,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -26926,14 +26830,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27025,14 +26921,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27114,14 +27002,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27203,14 +27083,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27294,14 +27166,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27419,14 +27283,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27522,14 +27378,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27636,14 +27484,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27742,14 +27582,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27846,14 +27678,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -27960,14 +27784,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -28068,14 +27884,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -28171,14 +27979,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -28270,14 +28070,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -28376,14 +28168,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -28473,14 +28257,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -28578,14 +28354,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -28671,14 +28439,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -28766,14 +28526,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -28861,14 +28613,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -28956,14 +28700,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29055,14 +28791,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29163,14 +28891,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29258,14 +28978,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29353,14 +29065,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29449,14 +29153,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29553,14 +29249,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29684,14 +29372,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "additional_assumptions": {}
@@ -29846,14 +29526,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -29976,14 +29648,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -30125,14 +29789,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -30293,14 +29949,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -30384,14 +30032,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -30437,14 +30077,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -30567,14 +30199,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -30666,14 +30290,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -30776,14 +30392,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -30937,14 +30545,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -31087,14 +30687,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -31186,14 +30778,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -31327,14 +30911,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -31429,14 +31005,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -31570,14 +31138,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -31638,14 +31198,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ],
           "assumptions": [
@@ -31793,14 +31345,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -31890,14 +31434,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -32169,14 +31705,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -32274,14 +31802,6 @@
             {
               "path": "model/native_joint_spin_spectroscopy/packet.py",
               "anchor": "def theorem("
-            },
-            {
-              "path": "model/local_exchange_charge/core.py",
-              "anchor": "def intertwiner_certificate("
-            },
-            {
-              "path": "model/local_exchange_charge/optimality.py",
-              "anchor": "def bounds("
             }
           ]
         },
@@ -32645,14 +32165,6 @@
             {
               "path": "model/shrinking_modular_entropy/README.md",
               "anchor": "## 5. Actual finite entropy differences and the shrinking limit"
-            },
-            {
-              "path": "model/native_mass_channels/algebra.py",
-              "anchor": "def exhaustion_certificate("
-            },
-            {
-              "path": "model/centered_source_ground/particles.py",
-              "anchor": "def certificate("
             },
             {
               "path": "model/spin_canonical_energy/README.md",

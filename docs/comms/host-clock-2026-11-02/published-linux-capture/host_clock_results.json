@@ -1,0 +1,388 @@
+{
+  "calibration": {
+    "block": 0,
+    "clock_port": 2,
+    "host_duration_ns": 45033045,
+    "local_tick_count": 1767,
+    "nanoseconds_per_local_tick": "15011015/589",
+    "other_clock_and_later_blocks_used_in_fit": false,
+    "run": "baseline"
+  },
+  "clock_metadata": {
+    "adjustable": false,
+    "api": "time.perf_counter_ns",
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "reported_resolution_seconds": 1e-09,
+    "traceable_accuracy_bound_supplied": false
+  },
+  "declared_native_rate_envelope": {
+    "absolute_error": "1/12",
+    "four_block_union_bound_for_ideal_scheduler": "341343866250/9154987569841",
+    "per_block_failure_probability_upper_bound_for_ideal_scheduler": "170671933125/18309975139682",
+    "pseudorandom_sample_has_independent_randomness_certificate": false
+  },
+  "held_out_clock_tests": [
+    {
+      "block": 1,
+      "clock_port": 3,
+      "engineering_verdict": "within_tolerance",
+      "observed_host_duration_ns": 45779978,
+      "predicted_host_duration_ns": "24077668060/589",
+      "relative_error": "1443369491/12038834030",
+      "run": "baseline"
+    },
+    {
+      "block": 2,
+      "clock_port": 3,
+      "engineering_verdict": "within_tolerance",
+      "observed_host_duration_ns": 47960271,
+      "predicted_host_duration_ns": "25428659410/589",
+      "relative_error": "2819940209/25428659410",
+      "run": "baseline"
+    },
+    {
+      "block": 3,
+      "clock_port": 3,
+      "engineering_verdict": "within_tolerance",
+      "observed_host_duration_ns": 45141222,
+      "predicted_host_duration_ns": "23897535880/589",
+      "relative_error": "1345321939/11948767940",
+      "run": "baseline"
+    },
+    {
+      "block": 0,
+      "clock_port": 3,
+      "engineering_verdict": "reject",
+      "observed_host_duration_ns": 338992320,
+      "predicted_host_duration_ns": "23537271520/589",
+      "relative_error": "1100807531/147107947",
+      "run": "host_work_control"
+    },
+    {
+      "block": 1,
+      "clock_port": 3,
+      "engineering_verdict": "reject",
+      "observed_host_duration_ns": 346113663,
+      "predicted_host_duration_ns": "24077668060/589",
+      "relative_error": "179783279447/24077668060",
+      "run": "host_work_control"
+    },
+    {
+      "block": 2,
+      "clock_port": 3,
+      "engineering_verdict": "reject",
+      "observed_host_duration_ns": 348872605,
+      "predicted_host_duration_ns": "25428659410/589",
+      "relative_error": "36011460987/5085731882",
+      "run": "host_work_control"
+    },
+    {
+      "block": 3,
+      "clock_port": 3,
+      "engineering_verdict": "reject",
+      "observed_host_duration_ns": 350056523,
+      "predicted_host_duration_ns": "23897535880/589",
+      "relative_error": "182285756167/23897535880",
+      "run": "host_work_control"
+    }
+  ],
+  "native_rate_tests": [
+    {
+      "absolute_rate_deviation": "301/30000",
+      "block": 0,
+      "clock_port": 2,
+      "within_declared_native_rate_envelope": true
+    },
+    {
+      "absolute_rate_deviation": "47/7500",
+      "block": 1,
+      "clock_port": 3,
+      "within_declared_native_rate_envelope": true
+    },
+    {
+      "absolute_rate_deviation": "41/15000",
+      "block": 2,
+      "clock_port": 3,
+      "within_declared_native_rate_envelope": true
+    },
+    {
+      "absolute_rate_deviation": "14/1875",
+      "block": 3,
+      "clock_port": 3,
+      "within_declared_native_rate_envelope": true
+    }
+  ],
+  "native_record_replays": [
+    {
+      "all_native_currents_replayed": true,
+      "all_twelve_counts": [
+        6882,
+        6599,
+        6668,
+        6458,
+        6608,
+        6779,
+        6592,
+        6858,
+        6522,
+        6638,
+        6729,
+        6667
+      ],
+      "blocks": [
+        {
+          "block": 0,
+          "complete": true,
+          "host_duration_ns": 45033045,
+          "local_counts": [
+            1760,
+            1588,
+            1767,
+            1568,
+            1678,
+            1646,
+            1612,
+            1733,
+            1624,
+            1608,
+            1693,
+            1723
+          ],
+          "movements": 10000,
+          "native_attempts": 65747
+        },
+        {
+          "block": 1,
+          "complete": true,
+          "host_duration_ns": 45779978,
+          "local_counts": [
+            1771,
+            1704,
+            1674,
+            1604,
+            1656,
+            1750,
+            1632,
+            1681,
+            1556,
+            1578,
+            1696,
+            1698
+          ],
+          "movements": 10000,
+          "native_attempts": 65643
+        },
+        {
+          "block": 2,
+          "complete": true,
+          "host_duration_ns": 47960271,
+          "local_counts": [
+            1608,
+            1618,
+            1691,
+            1694,
+            1678,
+            1694,
+            1678,
+            1718,
+            1640,
+            1754,
+            1627,
+            1600
+          ],
+          "movements": 10000,
+          "native_attempts": 66651
+        },
+        {
+          "block": 3,
+          "complete": true,
+          "host_duration_ns": 45141222,
+          "local_counts": [
+            1743,
+            1689,
+            1536,
+            1592,
+            1596,
+            1689,
+            1670,
+            1726,
+            1702,
+            1698,
+            1713,
+            1646
+          ],
+          "movements": 10000,
+          "native_attempts": 66491
+        }
+      ],
+      "complete": true,
+      "host_work_iterations": 0,
+      "movements": 40000,
+      "name": "baseline",
+      "native_attempts": 264532,
+      "records_sha256": "11fd987f643286db2ec7a5395864429361ababdc130d076a63a71f4db66cff79",
+      "seeded_source_addresses_and_work_sink_replayed": true
+    },
+    {
+      "all_native_currents_replayed": true,
+      "all_twelve_counts": [
+        6882,
+        6599,
+        6668,
+        6458,
+        6608,
+        6779,
+        6592,
+        6858,
+        6522,
+        6638,
+        6729,
+        6667
+      ],
+      "blocks": [
+        {
+          "block": 0,
+          "complete": true,
+          "host_duration_ns": 338992320,
+          "local_counts": [
+            1760,
+            1588,
+            1767,
+            1568,
+            1678,
+            1646,
+            1612,
+            1733,
+            1624,
+            1608,
+            1693,
+            1723
+          ],
+          "movements": 10000,
+          "native_attempts": 65747
+        },
+        {
+          "block": 1,
+          "complete": true,
+          "host_duration_ns": 346113663,
+          "local_counts": [
+            1771,
+            1704,
+            1674,
+            1604,
+            1656,
+            1750,
+            1632,
+            1681,
+            1556,
+            1578,
+            1696,
+            1698
+          ],
+          "movements": 10000,
+          "native_attempts": 65643
+        },
+        {
+          "block": 2,
+          "complete": true,
+          "host_duration_ns": 348872605,
+          "local_counts": [
+            1608,
+            1618,
+            1691,
+            1694,
+            1678,
+            1694,
+            1678,
+            1718,
+            1640,
+            1754,
+            1627,
+            1600
+          ],
+          "movements": 10000,
+          "native_attempts": 66651
+        },
+        {
+          "block": 3,
+          "complete": true,
+          "host_duration_ns": 350056523,
+          "local_counts": [
+            1743,
+            1689,
+            1536,
+            1592,
+            1596,
+            1689,
+            1670,
+            1726,
+            1702,
+            1698,
+            1713,
+            1646
+          ],
+          "movements": 10000,
+          "native_attempts": 66491
+        }
+      ],
+      "complete": true,
+      "host_work_iterations": 64,
+      "movements": 40000,
+      "name": "host_work_control",
+      "native_attempts": 264532,
+      "records_sha256": "11fd987f643286db2ec7a5395864429361ababdc130d076a63a71f4db66cff79",
+      "seeded_source_addresses_and_work_sink_replayed": true
+    }
+  ],
+  "raw_records_canonical_sha256": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+  "replay_integrity_passed": true,
+  "schema": "oph.native_host_clock_attachment.v1",
+  "scope": {
+    "actual_native_execution_measured_by_host_clock": true,
+    "clock_resolution_is_an_accuracy_bound": false,
+    "empirical_confirmation_of_oph_as_physics": false,
+    "host_clock_traceable_lab_calibration_established": false,
+    "host_service_latency_or_rate_error_bounded": false,
+    "new_capture_requires_new_measurement": true,
+    "physical_proper_time_or_modular_phase_derived": false,
+    "replay_reproduces_timestamps": false
+  },
+  "sources": {
+    "Lean/Screen/RegionalContinuity.lean": "fa00c3aed6580174519e1d828ad81572d7ac7b759a3274dbc60e99761d76bd28",
+    "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+    "Lean/Time/ClockReadout.lean": "bbe0b9d99047a4de4e2bbc5cf01ec026bfa26e6fb63212702a5be8080053266d",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/native_clock/comparison.py": "594d32829d5d74df6cc38fd3e7166997526a65b3acc42b04da6ad2edfa731536",
+    "model/native_clock/host_clock.py": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "timing_control": {
+    "control_rejected_in_every_measured_block": true,
+    "control_to_baseline_duration_ratios_by_block": [
+      "22599488/3002203",
+      "346113663/45779978",
+      "348872605/47960271",
+      "350056523/45141222"
+    ],
+    "same_complete_native_records": true,
+    "timing_tolerance_is_a_confidence_interval": false
+  }
+}

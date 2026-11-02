@@ -14,7 +14,8 @@ def test_current_source_and_explicit_dependency_custody(receipt):
     assert receipt['all_pass'] == receipt['dependency_custody_pass']
     assert receipt['custody']['prior_full_source_replay'] is False
     assert receipt['custody']['historical_theorem_basis']['source_mismatches_at_that_commit'] == 0
-    assert receipt['custody']['prior_binding_count'] == 512
+    prior = packet.strict_json.load(packet.ROOT / packet.PRIOR)
+    assert receipt['custody']['prior_binding_count'] == len(prior['source_bindings'])
 
 
 @pytest.mark.parametrize('flag', [

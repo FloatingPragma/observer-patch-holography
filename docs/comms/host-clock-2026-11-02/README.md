@@ -27,3 +27,12 @@ reproduce or independently authenticate the measured timestamps. No new capture
 was performed, and neither canonical timing file was overwritten. Commands in
 the preserved report describe its historical source context; they should not be
 read as commands to replace the current canonical capture.
+
+The `published-linux-capture/` subdirectory preserves the exact raw tape and
+receipt from published commit `412165b0380914681ff96908bd6624d0f6a7607a`.
+Its baseline calibration block is 45.033045 ms. The current executable
+attachment uses the separately preserved, compatibility-checked historical
+Mac capture with a 32.3565 ms block; the original local communication
+capture above has a 31.185042 ms block. These are distinct recorded runs.
+Neither selecting a retained tape nor replaying its analyzer acquires new
+timestamps or establishes a physical energy calibration.

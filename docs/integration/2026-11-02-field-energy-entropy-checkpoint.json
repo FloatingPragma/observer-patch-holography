@@ -1,0 +1,2352 @@
+{
+  "schema": "oph.research_checkpoint.v1",
+  "date": "2026-11-02",
+  "published_base": "412165b0380914681ff96908bd6624d0f6a7607a",
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "scope": "Research checkpoint published at user request before broad CI completion. No claim of full repository validation or physical completion.",
+  "new_attachments": [
+    "FA-105",
+    "FA-106"
+  ],
+  "new_package_strict_tests_passed": 57,
+  "mass_table_strict_tests_passed": 20,
+  "mass_table": "model/completion/PARTICLE_MASS_TABLE.md",
+  "independent_integration_review": {
+    "baseline": "412165b0380914681ff96908bd6624d0f6a7607a",
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "all84canonical_rows_exact",
+        "pass": true
+      },
+      {
+        "name": "SM_coverage_exact",
+        "pass": true
+      },
+      {
+        "name": "gravity_rungs_exact",
+        "pass": true
+      },
+      {
+        "name": "group_RE-01_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-01_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-01_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-01_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-01_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-01_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-02_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-02_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-02_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-02_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-02_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-02_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-03_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-03_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-03_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-03_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-03_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-03_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-04_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-04_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-04_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-04_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-04_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-04_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-05_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-05_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-05_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-05_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-05_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-05_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-06_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-06_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-06_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-06_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-06_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-06_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-07_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-07_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-07_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-07_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-07_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-07_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-08_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-08_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-08_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-08_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-08_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-08_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-09_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-09_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-09_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-09_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-09_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-09_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-10_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-10_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-10_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-10_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-10_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-10_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-11_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-11_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-11_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-11_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-11_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-11_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-12_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-12_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-12_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-12_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-12_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-12_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-13_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-13_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-13_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-13_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-13_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-13_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-14_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-14_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-14_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-14_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-14_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-14_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-15_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-15_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-15_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-15_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-15_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-15_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-16_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-16_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-16_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-16_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-16_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-16_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-17_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-17_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-17_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-17_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-17_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-17_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-18_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-18_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-18_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-18_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-18_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-18_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-19_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-19_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-19_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-19_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-19_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-19_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-20_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-20_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-20_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-20_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-20_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-20_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-21_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-21_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-21_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-21_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-21_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-21_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-22_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-22_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-22_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-22_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-22_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-22_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-23_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-23_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-23_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-23_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-23_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-23_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-24_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-24_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-24_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-24_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-24_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-24_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-25_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-25_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-25_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-25_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-25_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-25_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-26_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-26_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-26_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-26_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-26_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-26_closure",
+        "pass": true
+      },
+      {
+        "name": "group_RE-27_id",
+        "pass": true
+      },
+      {
+        "name": "group_RE-27_status",
+        "pass": true
+      },
+      {
+        "name": "group_RE-27_premises",
+        "pass": true
+      },
+      {
+        "name": "group_RE-27_assumptions",
+        "pass": true
+      },
+      {
+        "name": "group_RE-27_scope",
+        "pass": true
+      },
+      {
+        "name": "group_RE-27_closure",
+        "pass": true
+      },
+      {
+        "name": "first104attachments_exact",
+        "pass": true
+      },
+      {
+        "name": "106unique_attachments",
+        "pass": true
+      },
+      {
+        "name": "canonical_ownership_exact",
+        "pass": true
+      },
+      {
+        "name": "101realized",
+        "pass": true
+      },
+      {
+        "name": "no_physical_comparisons",
+        "pass": true
+      },
+      {
+        "name": "no_canonical_discharges",
+        "pass": true
+      },
+      {
+        "name": "FA-105_no_physical_identification",
+        "pass": true
+      },
+      {
+        "name": "FA-105_scoped",
+        "pass": true
+      },
+      {
+        "name": "FA-106_no_physical_identification",
+        "pass": true
+      },
+      {
+        "name": "FA-106_scoped",
+        "pass": true
+      },
+      {
+        "name": "346claims_sameIDs",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SYN-FORMAL-BASIS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-OBS-PATCH-DEF",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CARRIER-PRESENTATION-INVARIANCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-UNIFIED-TYPED-SPINE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-D1",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-ADAPTIVE-REPAIR-STRATIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-CUMULATIVE-ATTEMPT-CAPACITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-CAPACITY-BOUNDED-PUBLIC-ENDPOINT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-SOURCE-DERIVED-EVENT-PRECEDENCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-ADAPTIVE-PUBLIC-ENDPOINT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-BFT-PREPARED-LOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-REFINEMENT-MODULI",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-PROTECTED-BEHAVIOR-PROFILE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-CROSS-SOURCE-ENDPOINT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-PORT-RESPONSE-COMPLETION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D2-COLLAR-RECOVERY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D5",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D3-CAP-H3",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D3-H3-LOCALIZATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D3H-GEOMETRY-PRODUCER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D4-NULLNET-STANDARDNESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-FINITE-LOCAL-DOMAIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D4C-LOCAL-STRESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D4D-ENTROPY-BRIDGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D5A-ABSOLUTE-EINSTEIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-E2E-BRANCH-ENTRY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-SOURCE-DIRECTION-EINSTEIN-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D6-CAPACITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D6-READBACK-NOGO",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D6-A5-FINITE-CONTROL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-D6-HORIZON-RECORD",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-DS-MU2-IDENTITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-DS-CAPACITY-TRANSFER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-DS-SHOCK-SIGN-ATTACHMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COSMO-SCREEN-SPECTRUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WZ-STRICT-1L-POLE-MAP",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-Q1-LOCAL-G6",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-Q3-BV-RESTORATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-Q4-OS-OBSERVABLE-SECTOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-Q4-RESONANCE-CONTINUATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-GALOIS-FRAME-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-A5-PRIMITIVE-PORT-SPIN6",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-POSITIVE-COSINE-FREQUENCY-CONTRACTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-TIME-ORDER-TYPE-LEDGER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-BOUNDED-OBSERVER-TIME-CALIBRATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONSENSUS-TOWER-INTERFACE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-PUBLICIZATION-DYNAMICS-FINITE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-QUANTUM-LIMITATION-SUITE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-BORN-FRAME-RANK-GAP",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-FOUR-LAW-PACKAGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-SOURCE-REALIZATION-AUDIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-LOCALITY-NOSIGNALLING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-A5-SEAM-CURRENT-EDGE30",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-PORT-CURRENT-INNER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GAUGE-D7-D9",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-REGISTER-CLEBSCH",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-YUKAWA-TWO-MODULUS-NONIDENTIFIABILITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-KOIDE-CIRCULANT-IDENTITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-A5-REAL-AXIS-CABIBBO-NOGO",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-W5-STABILISER-POTENTIAL-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-A5-SM-RECOGNITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GAUGE-KINETIC-HISTORY-BINDING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-ROUTE-IDENTIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GAUGE-EXTERIOR-SM-WITNESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-Q-PN-CLOSURE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-Q-N-RESERVE-CANDIDATES",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-HIER-EW",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-24-CLOCK-DETERMINANT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-DIMENSIONLESS-GAP",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-MODULAR-GEARING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-ALPHA-PIXEL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-CONT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EDGE-HEAT-KERNEL-FINITE-DIAGNOSTICS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-YM-GAP",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-STRING-SELECTOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-IBM-GENERATIVE-REPAIR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THINKING-PATCH",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-PARADISE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CANONICAL-LORENTZ-MODULE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-CAUSAL-OBSERVER-NET",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-TSIRELSON-SATURATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MECH-ENRICHMENT-CHARACTERIZATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-TRIPLE-CARRIER-JOIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-COFINAL-SPECTRAL-TAIL-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MECH-POLYNOMIAL-BOOST-SELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-FREE-EVOLUTION-PERSISTENCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-GLOBAL-FORM-CHARACTER-DESCENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-EVENT-POPULATION-CHART-INTERFACE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-FERMION-SECTOR-ASSEMBLY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-REST-FIBER-SHELL-TRANSPORT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-JOIN-RECORD-NET-MORPHISM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-OPERATOR-LAYER-MORPHISM-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COMPUTATION-FIXED-FEDERATION-PROGRESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COMPUTATION-FIXED-FEDERATION-ENDPOINT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COMPUTATION-FIXED-FEDERATION-EXECUTION-CLASSIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-SOURCE-PHASE-INSTRUMENT-OUTCOME-BRIDGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-SOURCE-PHASE-COMMON-PREPARATION-HULL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GR-EINSTEIN-BRANCH-INHABITANT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-COLIMIT-NORMED-COMPLETION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-COLLAR-SATURATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-PER-CUT-COMPOSITION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-SPARSE-DEFECT-MECHANISM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-COLLAR-PREMISE-DERIVATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-FINITE-CAP-GENERATOR-SPLIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DE-FIXED-CAPACITY-WLAW",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GW-INTEGER-K-COMB-TEMPLATE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CAL-SI-ANCHOR-IMPORT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-DISPERSION-ARMING-INTERFACE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SOURCE-CLOCK-CANDIDATE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-INS03-EXPORT-VALIDATOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-INS03-V2-REPLAY-GATE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-YM-FIBER-RATE-COMPARISON",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DM-ROTATION-CURVE-PROFILE-LIKELIHOOD",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-ENLARGED-TARGET-RECORD-EMBEDDING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-LOCAL-ENERGY-BALANCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-PORT-CHARGE-MINIMAL-COUPLING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-COMPOSITE-MOMENTUM-COVARIANCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-PROPER-TIME-INTERNAL-ACTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-CARRIER-MODE-OSCILLATORS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-GIBBS-REFERENCE-ENERGY-IDENTIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-MODULAR-ENERGY-ADDITIVITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-WORLDLINE-HOP-TRANSPORT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-THERMO-COLLAR-TEMPERATURE-READING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-CARRIER-MODE-EQUIVARIANCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-TRANSPORTED-CHARGE-FORCE-LAW",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-SEAM-STEP-SPEED-LIMIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-SOURCE-CLOCK-RATE-ALONG-WORLDLINES",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-GOLDEN-SECTOR-CHARACTERS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-PROPER-LENGTH-CLOCKED-CHAIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-GOLDEN-SECTOR-IRREDUCIBILITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GEOMETRY-TIMELIKE-CLASS-FORCE-LAW",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-CARRIER-EVOLUTION-FLOW",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-INSTRUMENT-SELECTION-BY-CERTAIN-STATES",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-SOURCED-FIELD-CONSISTENCY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-GOLDEN-SECTOR-COMPLEX-IRREDUCIBILITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-FIELD-SECTOR-ENERGY-INNER-PRODUCT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EM-CURL-SECTOR-EIGENBASIS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SEAM-MAXWELL-CONTINUUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SERIAL-MAXWELL-READOUT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONE-WHITNEY-BRIDGE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-MAXWELL-DYNAMICS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-RADIATIVE-QUANTUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-CHARGED-MATTER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-SPATIAL-CONSISTENCY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-INTERACTING-QUANTUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-CHARGED-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-REAL-CONTINUUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-CHARGED-INSTRUMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-EPHEMERIS-CLOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-QUANTUM-HISTORY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-MAGNETIC-CONTINUUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-QUANTUM-PACKET",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-CHARGED-ENCLOSURE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-RESTRICTION-NATURALITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QFT-EFFECTIVE-QUANTUM-COMPARISON",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCALAR-ACTION-CLOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCALAR-SPACE-TIME-DETECTOR-LIMIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COSMO-FLRW-RECORD-DENSITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-BH-CROSSING-READ-AREA-LAW",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COSMO-POSTDICTION-LEDGER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GOLDEN-SOURCE-QUADRATURE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCALAR-REGIONAL-COLLAR-RECONSTRUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SEAM-PATH-TOMOGRAPHY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CARTAN-SCALAR-CONTINUOUS-READOUT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-FEEDBACK-VERSION-TRANSPORT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCALAR-SEQUENTIAL-INSTRUMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-WORK-RESPONSE-NONIDENTIFIABILITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GOLDEN-SCALAR-METRIC-PRESSURE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-WHITNEY-MAXWELL-METRIC-PRESSURE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FERMION-HYPERCHARGE-SOURCE-CURRENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUANTUM-TRIPLE-OPERATOR-JOIN",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-FULL-FAMILY-READ-ROUTING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-ROUTING-STORAGE-AND-RAW-COUNT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-LOCAL-SINGLETON-PUBLICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-REUSABLE-ACCUMULATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-CONDITIONAL-STORED-PROGRAM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FEDERATION-LOG-GLUING-NONIDENTIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-TEMPORAL-NATIVE-RECOVERY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-CHECKPOINT-SELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-EVENTUAL-PUBLICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FINITE-A3-SUPPORT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-REGISTERED-SOURCE-READ-ALGEBRA",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SPIN-EXCHANGE-SELECTION-BOUNDARY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONDITIONAL-PAULI-SCALAR-Q-SELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-CONDITIONAL-PAULI-OPERATION-SELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SCALAR-SEAM-SOURCE-NONENTAILMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-RECORD-GLUING-M1-SUFFICIENCY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-RG-LOCAL-CLOCK-REDUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-RG-INFORMATION-RESOURCE-BOUND",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-SPARSE-CAUSAL-COUNT-REPLACEMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-CUT-OBSERVABLE-NONUNIVERSALITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-SPARSE-ACTION-AND-TICK-OBSTRUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-ENTROPY-PRESERVING-SPARSIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-MICROSCOPIC-CUT-OBSTRUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-VARIATIONAL-AREA-REPAIR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-UNIFORM-ACTION-SPECTRAL-THRESHOLD",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-GLOBAL-VACUUM-FIDELITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-SPARSE-QUANTUM-TICK-REPAIR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-POLYNOMIAL-VACUUM-OBSTRUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-SPLIT-SIGNAL-CLOCK-OBSTRUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-QUANTUM-VELOCITY-BUDGET",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-CHARGED-WEYL-SPECTRAL-LIMIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-FINITE-HAMILTONIAN-DELAY-OBSTRUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-COHERENT-VELOCITY-SEPARATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-FINITE-STENCIL-CLOCK-BOUND",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-MINIMAL-TETRAHEDRAL-TRANSPORT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COSMO-VACUUM-ENSEMBLE-CLASSIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COSMO-BOLTZMANN-TRANSPORT-REDUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SM-BARYON-DIMENSION-SIX-CENSUS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-REPAIR-HISTORY-SOURCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SETTLEMENT-SCALE-TRANSFER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-PORT-TRANSPORT-CONTROLS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-REFINEMENT-ABSOLUTE-INNOVATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-LAYERED-OBSERVER-CLOCK-CONTROLS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-GOLDEN-FIXED-MODE-FOURIER",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COMMON-BULK-LOG-COVARIANCE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-COMMON-HISTORY-FEEDBACK-PACKET",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-ACTION-MEASURE-IDENTIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-MASSIVE-FLIGHT-SPECTRUM",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-RESOLVED-LOCAL-READ-CONE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-M1-OBSERVABLE-MASS-CLOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-COHERENT-CODE-COMPLETION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-TWO-BASIS-A3-SELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-COMPILED-MASS-CLOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-LOCAL-FERMIONIC-REALIZATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-ENCODED-FERMION-CLOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-FERMIONIC-VACUUM-NOISE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-FIXED-RATE-PROTECTED-READS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-RAW-DECODED-NOISE-SEPARATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-NOISY-CONTROL-HISTORIES",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-LIVE-RECORD-PROTECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-NATIVE-LEAKAGE-REDUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-GENERAL-NOISE-REFINEMENT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-EXPANDER-LIVE-ARCHIVE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-FIXED-STRENGTH-PUBLIC-HISTORY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-SEA-GENERATOR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-LOCAL-SEA-LIMIT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-SEA-CLOCK",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-CONDITIONAL-FIXED-P-REPLAY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-TOP-CONDITIONAL-FIXED-P-CRITICALITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-SOURCE-W5-RESPONSE-CONSTRAINTS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-NATIVE-REPAIR-FLAVOR-CONSTRAINTS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-TOP-POSITIVE-CAPACITY-BAND",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-CONDITIONAL-RECORD-RENEWAL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-QUARK-EXTERIOR-HIGGS-RESPONSE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-EW-CONDITIONAL-SOURCE-VEV-MATCHING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-PAIRED-GRAVITY-NONIDENTIFICATION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MCKAY-INDEPENDENT-GOLDEN-FIELD-CONTROL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-DARK-SOURCE-DYNAMICS-LENSING",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-SOURCE-ADMISSIBLE-CLOCK-SPATIAL-NONSELECTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-INDEPENDENT-ALPHA-TAU-REPRODUCTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-FIXED-DISPERSION-FEASIBILITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-NATIVE-OBSERVER-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-OBSERVER-RECORD-CAPACITY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-P-RESPONSE-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-N4-LOCAL-TICK-CERTIFICATE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-SCALAR-RESPONSE-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-COMMON-SOURCE-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-SPATIAL-INTERACTION-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-CANONICAL-SCALAR-EXECUTION",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-SHARED-SCALAR-OBSERVATIONS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-PUBLISHED-OSCILLATOR-READOUT",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-COUPLED-INTERACTION-RECOVERY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-ANHARMONIC-TRANSFER-COMPARISON",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-OBSERVER-MATTER-INTERACTION-WITNESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-OBSERVER-COMMON-FIELD-WITNESS",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-OBSERVER-STATIC-PRODUCT-RESPONSE-CONTROL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-ENTANGLED-PAIR-ALPHA-CANDIDATE",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-NATIVE-FAMILY-RECORD-PROTOCOL",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-WEYL-CONTACT-FINITE-PAIR",
+        "pass": true
+      },
+      {
+        "name": "claim_contract_OPH-MODEL-NATIVE-LOCALIZED-COHERENCE",
+        "pass": true
+      },
+      {
+        "name": "14stages",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-00",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-01",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-13",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-02",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-03",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-04",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-05",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-06",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-07",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-08",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-09",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-10",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-11",
+        "pass": true
+      },
+      {
+        "name": "stage_contract_CP-12",
+        "pass": true
+      },
+      {
+        "name": "program_status",
+        "pass": true
+      },
+      {
+        "name": "program_boundary_status",
+        "pass": true
+      },
+      {
+        "name": "program_hypothesis",
+        "pass": true
+      },
+      {
+        "name": "program_scope",
+        "pass": true
+      },
+      {
+        "name": "program_decision",
+        "pass": true
+      },
+      {
+        "name": "program_whole_program_falsified",
+        "pass": true
+      },
+      {
+        "name": "program_state_policy",
+        "pass": true
+      },
+      {
+        "name": "program_stop_policy",
+        "pass": true
+      },
+      {
+        "name": "program_legacy_issue_policy",
+        "pass": true
+      },
+      {
+        "name": "program_foundations",
+        "pass": true
+      },
+      {
+        "name": "actual_V2class_core_exact",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/README.md",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/__init__.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/__main__.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/bounds.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/cube.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/dimer.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/faithfulness.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/gap.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/packet.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/particles.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/results.json",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/test_faithfulness.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/test_gap.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/test_ground.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/test_packet.py",
+        "pass": true
+      },
+      {
+        "name": "FA81_source_exact_model/centered_source_ground/test_particles.py",
+        "pass": true
+      },
+      {
+        "name": "published_fixed_algebra_packet_exact",
+        "pass": true
+      },
+      {
+        "name": "fixed_algebra_science_exact",
+        "pass": true
+      },
+      {
+        "name": "21paper_builds",
+        "pass": true
+      },
+      {
+        "name": "flagship53pages",
+        "pass": true
+      }
+    ],
+    "passed": 568,
+    "total": 568,
+    "deferred": [
+      "Current receipt hash integrity is intentionally deferred while root/reference refresh producers and global pins.",
+      "This is a scientific integration audit, not a claim that CI is green."
+    ],
+    "scope_review": {
+      "FA105": "Actual Stone vectors, positive/inverse moments, nonstatic gapless bands only; no sharp shell or interacting/Lorentz conclusion.",
+      "FA106": "U=0 natural exterior shells; finite-amplitude Araki entropy/Hessian convergence, no area/stationarity/Einstein conclusion.",
+      "mass_table": "Zero fixed measured-particle predictions; arbitrary externally supplied quadratic coefficients remain explicit.",
+      "FA81": "All published source files and complete receipt bytes preserved, including direct no-Lieb singlet/gap certificate and full charged response."
+    },
+    "repairs": {
+      "register_source_explosion": "/tmp/oph-integration-register-repair/report.json",
+      "FA87_test": "Read current prior source count instead of historical512;12targeted tests passed, producer refresh remains root-owned."
+    },
+    "paper_review": {
+      "path": "/tmp/oph-energy-entropy-paper-validation.json",
+      "sha256": "f69196cfbc02fe106473024498145ef2b546e8844d7abbaf0d0e56cf55920d00"
+    }
+  },
+  "replayed_current_receipts": [
+    "model/ballistic_free_boundary/results.json",
+    "model/biased_reset/results.json",
+    "model/centered_particle_spectrum/results.json",
+    "model/charged_dynamics/results.json",
+    "model/laboratory_clock/results.json",
+    "model/native_clock/host_clock_results.json",
+    "model/native_joint_spin_spectroscopy/results.json",
+    "model/native_ordered_ground/results.json",
+    "model/strong_coupling_refinement/results.json"
+  ],
+  "pending_receipt_review_or_replay": [
+    "model/centered_native_preparation/results.json",
+    "model/centered_neutral_spectrum/results.json",
+    "model/cubic_particle_channels/results.json",
+    "model/lattice_weyl_response/results.json",
+    "model/native_clock/clock_bridge_results.json",
+    "model/native_fixed_algebra/occupation_results.json",
+    "model/native_spin_observer/results.json",
+    "model/protected_spin_limit/results.json",
+    "model/spin_goldstone_sector/results.json",
+    "model/weyl_geometric_modular/results.json",
+    "model/weyl_gravity_response/results.json"
+  ],
+  "remaining_navigation_work": [
+    "Renew dependency hashes after the remaining actual source replays",
+    "Renew final completion and premise navigation manifests",
+    "Finish aggregate postdiction ledger regeneration"
+  ],
+  "ci_status": "Not asserted; user will handle CI",
+  "physical_species_identified": false,
+  "sharp_ordered_spin_mass_shell_proved": false,
+  "interacting_relativistic_continuum_completed": false,
+  "Einstein_matter_geometry_join_completed": false
+}
