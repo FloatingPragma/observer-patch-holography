@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 876,
+  "surface_count": 879,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1451,6 +1451,11 @@
       "allowlisted": false
     },
     {
+      "path": "docs/PR_AUDIT_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/README.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
@@ -2531,6 +2536,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_fixed_algebra/OCCUPATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_fixed_algebra/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2552,6 +2562,11 @@
     },
     {
       "path": "model/native_localization/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_mass_channels/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

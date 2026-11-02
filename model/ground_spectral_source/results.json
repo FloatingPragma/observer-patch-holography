@@ -20,8 +20,8 @@
     ],
     "arbitrary_reference_field_operator_error": true,
     "complete_native_state_and_probability_errors": [
-      "876698170672071670433034677467335267622115019/1461501637330902918203684832716283019655932542976",
-      "1712301114594523096174454205212237879433293/2854495385411919762116571938898990272765493248"
+      "438349085336054075770196603946396084527003981/730750818665451459101842416358141509827966271488",
+      "876698170672432306348679083494122695701738959/1461501637330902918203684832716283019655932542976"
     ],
     "field_duration": "1",
     "field_segment_operator_error": "30218910438005028585712374310361049/713623846352979940529142984724747568191373312",
@@ -68,7 +68,7 @@
     "hardware_or_host_floating_accuracy_proved": false,
     "initialized_blank_preparation_domain": true,
     "pointer_preparation_operator_error": "5754916932235261665294813437505183/1461501637330902918203684832716283019655932542976",
-    "preparation_complete_state_error": "1266669560248344142465371753804392845/1461501637330902918203684832716283019655932542976",
+    "preparation_complete_state_error": "316676510338925668222707163809071447/365375409332725729550921208179070754913983135744",
     "source_pulse_counts": {
       "analyzers": [
         29,
@@ -83,13 +83,13 @@
   "complete_record_archive": {
     "filename": "results.npz",
     "format": "lossless NumPy NPZ; no object arrays or pickle",
-    "sha256": "f5e543c87f0484b269bcfc1abdb7e1e61199c8a7e88f9171b8a0107666147aff"
+    "sha256": "5dc5e451841606d1a6ec6182e75a82dd942527c69326ed962af32b9dc4153371"
   },
   "executed_native_readout": {
     "all130_repair_outcome_slots": [
       {
         "law": "C",
-        "probability": 1.850735776052367e-28,
+        "probability": 8.044867398651102e-29,
         "record": [
           "native",
           0,
@@ -102,7 +102,7 @@
       },
       {
         "law": "C",
-        "probability": 5.387207435585514e-30,
+        "probability": 2.982081347439374e-31,
         "record": [
           "native",
           0,
@@ -141,7 +141,7 @@
       },
       {
         "law": "C",
-        "probability": 5.228767263588042e-29,
+        "probability": 4.8412239863445564e-29,
         "record": [
           "native",
           1,
@@ -167,7 +167,7 @@
       },
       {
         "law": "C",
-        "probability": 1.3817311240494185e-28,
+        "probability": 3.233464225780936e-29,
         "record": [
           "native",
           1,
@@ -193,7 +193,7 @@
       },
       {
         "law": "C",
-        "probability": 0.9999999999774876,
+        "probability": 0.9999999999639363,
         "record": [
           "outside"
         ],
@@ -204,7 +204,7 @@
       },
       {
         "law": "C",
-        "probability": 2.1549514105723706e-58,
+        "probability": 6.893417083939183e-59,
         "record": [
           "native",
           0,
@@ -217,7 +217,7 @@
       },
       {
         "law": "C",
-        "probability": 1.7231389361925305e-60,
+        "probability": 3.58654007174716e-61,
         "record": [
           "native",
           0,
@@ -256,7 +256,7 @@
       },
       {
         "law": "C",
-        "probability": 4.95913901298248e-59,
+        "probability": 1.725608791552839e-60,
         "record": [
           "native",
           1,
@@ -282,7 +282,7 @@
       },
       {
         "law": "C",
-        "probability": 1.676268898636048e-58,
+        "probability": 6.75672160550137e-59,
         "record": [
           "native",
           1,
@@ -308,7 +308,7 @@
       },
       {
         "law": "C",
-        "probability": 0.9999999999774876,
+        "probability": 0.9999999999639363,
         "record": [
           "outside"
         ],
@@ -319,7 +319,7 @@
       },
       {
         "law": "C",
-        "probability": 3.9025490550000474e-60,
+        "probability": 2.0982446367348843e-60,
         "record": [
           "native",
           0,
@@ -332,7 +332,7 @@
       },
       {
         "law": "C",
-        "probability": 8.51287004472516e-62,
+        "probability": 5.473759049399227e-62,
         "record": [
           "native",
           0,
@@ -371,7 +371,7 @@
       },
       {
         "law": "C",
-        "probability": 2.3357200129982686e-60,
+        "probability": 3.452854138588909e-61,
         "record": [
           "native",
           1,
@@ -397,7 +397,7 @@
       },
       {
         "law": "C",
-        "probability": 1.6519577424490318e-60,
+        "probability": 1.8076968133699854e-60,
         "record": [
           "native",
           1,
@@ -423,7 +423,7 @@
       },
       {
         "law": "C",
-        "probability": 0.9999999999774876,
+        "probability": 0.9999999999639363,
         "record": [
           "outside"
         ],
@@ -434,7 +434,7 @@
       },
       {
         "law": "C",
-        "probability": 8.40822459873367e-61,
+        "probability": 3.849207935148762e-61,
         "record": [
           "native",
           0,
@@ -447,7 +447,7 @@
       },
       {
         "law": "C",
-        "probability": 2.2127733202769486e-61,
+        "probability": 4.669489986345295e-61,
         "record": [
           "native",
           0,
@@ -486,7 +486,7 @@
       },
       {
         "law": "C",
-        "probability": 8.54730858660393e-61,
+        "probability": 6.307346292527303e-61,
         "record": [
           "native",
           1,
@@ -512,7 +512,7 @@
       },
       {
         "law": "C",
-        "probability": 2.0736893324066843e-61,
+        "probability": 2.2113516289667544e-61,
         "record": [
           "native",
           1,
@@ -538,7 +538,7 @@
       },
       {
         "law": "C",
-        "probability": 0.9999999999774876,
+        "probability": 0.9999999999639363,
         "record": [
           "outside"
         ],
@@ -549,7 +549,7 @@
       },
       {
         "law": "C",
-        "probability": 2.6540361647419505e-61,
+        "probability": 6.411549721999864e-61,
         "record": [
           "native",
           0,
@@ -562,7 +562,7 @@
       },
       {
         "law": "C",
-        "probability": 6.941109963679564e-61,
+        "probability": 1.2545177290386443e-61,
         "record": [
           "native",
           0,
@@ -601,7 +601,7 @@
       },
       {
         "law": "C",
-        "probability": 8.729656069848275e-61,
+        "probability": 5.505703784551673e-61,
         "record": [
           "native",
           1,
@@ -627,7 +627,7 @@
       },
       {
         "law": "C",
-        "probability": 8.654900585732389e-62,
+        "probability": 2.1603636664868364e-61,
         "record": [
           "native",
           1,
@@ -653,7 +653,7 @@
       },
       {
         "law": "C",
-        "probability": 0.9999999999774876,
+        "probability": 0.9999999999639363,
         "record": [
           "outside"
         ],
@@ -664,7 +664,7 @@
       },
       {
         "law": "E",
-        "probability": 5.409596834344535e-29,
+        "probability": 5.843293929500566e-29,
         "record": [
           "native",
           0,
@@ -716,7 +716,7 @@
       },
       {
         "law": "E",
-        "probability": 1.4438594564017203e-28,
+        "probability": 3.6250667210370974e-29,
         "record": [
           "native",
           0,
@@ -729,7 +729,7 @@
       },
       {
         "law": "E",
-        "probability": 6.739256788879685e-30,
+        "probability": 7.08242991619969e-31,
         "record": [
           "native",
           0,
@@ -768,7 +768,7 @@
       },
       {
         "law": "E",
-        "probability": 5.409596834344535e-29,
+        "probability": 5.843293929500566e-29,
         "record": [
           "native",
           1,
@@ -820,7 +820,7 @@
       },
       {
         "law": "E",
-        "probability": 6.739256788879683e-30,
+        "probability": 7.08242991619969e-31,
         "record": [
           "native",
           1,
@@ -846,7 +846,7 @@
       },
       {
         "law": "E",
-        "probability": 1.4438594564017205e-28,
+        "probability": 3.6250667210370985e-29,
         "record": [
           "native",
           1,
@@ -872,7 +872,7 @@
       },
       {
         "law": "E",
-        "probability": 0.9999999999555141,
+        "probability": 0.9999999999288166,
         "record": [
           "outside"
         ],
@@ -883,7 +883,7 @@
       },
       {
         "law": "E",
-        "probability": 8.40622097236103e-59,
+        "probability": 1.3430719735446057e-59,
         "record": [
           "native",
           0,
@@ -935,7 +935,7 @@
       },
       {
         "law": "E",
-        "probability": 8.937389339682694e-59,
+        "probability": 4.460199863142566e-59,
         "record": [
           "native",
           0,
@@ -948,7 +948,7 @@
       },
       {
         "law": "E",
-        "probability": 2.709337829306439e-60,
+        "probability": 2.243879167586739e-60,
         "record": [
           "native",
           0,
@@ -987,7 +987,7 @@
       },
       {
         "law": "E",
-        "probability": 8.40622097236103e-59,
+        "probability": 1.3430719735446057e-59,
         "record": [
           "native",
           1,
@@ -1039,7 +1039,7 @@
       },
       {
         "law": "E",
-        "probability": 2.709337829306438e-60,
+        "probability": 2.2438791675867395e-60,
         "record": [
           "native",
           1,
@@ -1065,7 +1065,7 @@
       },
       {
         "law": "E",
-        "probability": 8.937389339682694e-59,
+        "probability": 4.460199863142564e-59,
         "record": [
           "native",
           1,
@@ -1091,7 +1091,7 @@
       },
       {
         "law": "E",
-        "probability": 0.9999999999555141,
+        "probability": 0.9999999999288166,
         "record": [
           "outside"
         ],
@@ -1102,7 +1102,7 @@
       },
       {
         "law": "E",
-        "probability": 5.311753535200941e-60,
+        "probability": 1.8400849970610154e-60,
         "record": [
           "native",
           0,
@@ -1154,7 +1154,7 @@
       },
       {
         "law": "E",
-        "probability": 2.9727981842654926e-60,
+        "probability": 6.789330377490603e-60,
         "record": [
           "native",
           0,
@@ -1167,7 +1167,7 @@
       },
       {
         "law": "E",
-        "probability": 8.18797433473087e-62,
+        "probability": 7.044529857801342e-62,
         "record": [
           "native",
           0,
@@ -1206,7 +1206,7 @@
       },
       {
         "law": "E",
-        "probability": 5.311753535200941e-60,
+        "probability": 1.8400849970610154e-60,
         "record": [
           "native",
           1,
@@ -1258,7 +1258,7 @@
       },
       {
         "law": "E",
-        "probability": 8.18797433473087e-62,
+        "probability": 7.044529857801344e-62,
         "record": [
           "native",
           1,
@@ -1284,7 +1284,7 @@
       },
       {
         "law": "E",
-        "probability": 2.9727981842654926e-60,
+        "probability": 6.789330377490603e-60,
         "record": [
           "native",
           1,
@@ -1310,7 +1310,7 @@
       },
       {
         "law": "E",
-        "probability": 0.9999999999555141,
+        "probability": 0.9999999999288166,
         "record": [
           "outside"
         ],
@@ -1321,7 +1321,7 @@
       },
       {
         "law": "E",
-        "probability": 3.15337433331211e-61,
+        "probability": 1.1864357176872752e-60,
         "record": [
           "native",
           0,
@@ -1373,7 +1373,7 @@
       },
       {
         "law": "E",
-        "probability": 1.0934420381587029e-60,
+        "probability": 1.8920952223781267e-61,
         "record": [
           "native",
           0,
@@ -1386,7 +1386,7 @@
       },
       {
         "law": "E",
-        "probability": 1.5083140748125603e-60,
+        "probability": 1.4186506067600102e-60,
         "record": [
           "native",
           0,
@@ -1425,7 +1425,7 @@
       },
       {
         "law": "E",
-        "probability": 3.15337433331211e-61,
+        "probability": 1.1864357176872752e-60,
         "record": [
           "native",
           1,
@@ -1477,7 +1477,7 @@
       },
       {
         "law": "E",
-        "probability": 1.50831407481256e-60,
+        "probability": 1.4186506067600102e-60,
         "record": [
           "native",
           1,
@@ -1503,7 +1503,7 @@
       },
       {
         "law": "E",
-        "probability": 1.0934420381587027e-60,
+        "probability": 1.892095222378126e-61,
         "record": [
           "native",
           1,
@@ -1529,7 +1529,7 @@
       },
       {
         "law": "E",
-        "probability": 0.9999999999555141,
+        "probability": 0.9999999999288166,
         "record": [
           "outside"
         ],
@@ -1540,7 +1540,7 @@
       },
       {
         "law": "E",
-        "probability": 1.5237802416556017e-60,
+        "probability": 1.3937666856383394e-60,
         "record": [
           "native",
           0,
@@ -1592,7 +1592,7 @@
       },
       {
         "law": "E",
-        "probability": 1.0850115072842785e-60,
+        "probability": 1.137661908735786e-61,
         "record": [
           "native",
           0,
@@ -1605,7 +1605,7 @@
       },
       {
         "law": "E",
-        "probability": 3.2313186422595705e-61,
+        "probability": 5.9984268433495335e-61,
         "record": [
           "native",
           0,
@@ -1644,7 +1644,7 @@
       },
       {
         "law": "E",
-        "probability": 1.5237802416556017e-60,
+        "probability": 1.3937666856383394e-60,
         "record": [
           "native",
           1,
@@ -1696,7 +1696,7 @@
       },
       {
         "law": "E",
-        "probability": 3.23131864225957e-61,
+        "probability": 5.9984268433495335e-61,
         "record": [
           "native",
           1,
@@ -1722,7 +1722,7 @@
       },
       {
         "law": "E",
-        "probability": 1.0850115072842785e-60,
+        "probability": 1.1376619087357861e-61,
         "record": [
           "native",
           1,
@@ -1748,7 +1748,7 @@
       },
       {
         "law": "E",
-        "probability": 0.9999999999555141,
+        "probability": 0.9999999999288166,
         "record": [
           "outside"
         ],
@@ -1759,7 +1759,7 @@
       }
     ],
     "all78_lines_native_resolved": false,
-    "complete_ground_preparation_error_diagnostic": 1.3231973144528322e-13,
+    "complete_ground_preparation_error_diagnostic": 4.880529165785603e-13,
     "full17bit_charged_Ramsey_executed": true,
     "ground_preparation_executed": true,
     "ground_selected_by_passive_scheduler": false,
@@ -1769,12 +1769,12 @@
     "input_initialization": "16 field qubits and1 pointer blank; tree executes on8 modes with8 exact blank spectators",
     "native_qubit_parity_phase_reference_supplied": true,
     "physical_species_or_relativistic_mass_identified": false,
-    "repair_native_first_stop_mass": 7.913639116266386e-28,
+    "repair_native_first_stop_mass": 3.5227746323650307e-28,
     "settings": [
       {
         "all_six_pointer_probabilities": [
-          0.8849880740005236,
-          0.11501192595498808,
+          0.8849880739771139,
+          0.11501192595169968,
           0.0,
           0.0,
           0.0,
@@ -1782,9 +1782,9 @@
         ],
         "analyzer_source_records": {
           "failure_sum_admission": 1e-20,
-          "failure_sum_error_diagnostic": 0.0,
+          "failure_sum_error_diagnostic": 2.7369110631344083e-48,
           "failure_weight_array": "analyzer_0_failure_weights",
-          "first_failure_probability": 8.452931215213313e-32,
+          "first_failure_probability": 1.4409718118363305e-32,
           "native_abort_slots": 104,
           "padding_slots": 12,
           "per_rounded_entry_absolute_bound": 1e-40,
@@ -1793,9 +1793,9 @@
           "rounded_negative_diagnostic_total": 0.0,
           "stage": "analyzer_0"
         },
-        "complete_output_error_diagnostic": 2.013666196757929e-06,
-        "complete_probability": 0.9999999999555117,
-        "first_failure_and_repair_stop_mass": 2.410415827372908e-27,
+        "complete_output_error_diagnostic": 2.0136752344572365e-06,
+        "complete_probability": 0.9999999999288136,
+        "first_failure_and_repair_stop_mass": 6.989671173650376e-28,
         "independent_original_H_probabilities": [
           0.8849885912036037,
           0.11501140879639615,
@@ -1806,14 +1806,14 @@
         ],
         "phase_over_pi": "0",
         "unconditioned_pointer_zero_interval": [
-          "1292535576892564050304211942125187262882859325589/1461501637330902918203684832716283019655932542976",
-          "2588577946467816387290220890782768289353288385153/2923003274661805836407369665432566039311865085952"
+          "646267788446282006911552291797380902990713716323/730750818665451459101842416358141509827966271488",
+          "2588577946467816460252435607843619203156152171039/2923003274661805836407369665432566039311865085952"
         ]
       },
       {
         "all_six_pointer_probabilities": [
-          0.7053341583573907,
-          0.29466584159812087,
+          0.7053341583381343,
+          0.2946658415906792,
           0.0,
           0.0,
           0.0,
@@ -1821,9 +1821,9 @@
         ],
         "analyzer_source_records": {
           "failure_sum_admission": 1e-20,
-          "failure_sum_error_diagnostic": 2.1895288505075267e-47,
+          "failure_sum_error_diagnostic": 2.7369110631344083e-48,
           "failure_weight_array": "analyzer_1_failure_weights",
-          "first_failure_probability": 8.454493553778876e-32,
+          "first_failure_probability": 1.4941183427491314e-32,
           "native_abort_slots": 104,
           "padding_slots": 12,
           "per_rounded_entry_absolute_bound": 1e-40,
@@ -1832,11 +1832,11 @@
           "rounded_negative_diagnostic_total": 0.0,
           "stage": "analyzer_1"
         },
-        "complete_output_error_diagnostic": 2.013666196756901e-06,
-        "complete_probability": 0.9999999999555116,
-        "first_failure_and_repair_stop_mass": 2.410415842996294e-27,
+        "complete_output_error_diagnostic": 2.0136752345502017e-06,
+        "complete_probability": 0.9999999999288135,
+        "first_failure_and_repair_stop_mass": 6.989676488303467e-28,
         "independent_original_H_probabilities": [
-          0.7053332488047195,
+          0.7053332488047194,
           0.2946667511952805,
           0.0,
           0.0,
@@ -1845,8 +1845,8 @@
         ],
         "phase_over_pi": "1/2",
         "unconditioned_pointer_zero_interval": [
-          "2059937999642700378163647956362749542440888342603/2923003274661805836407369665432566039311865085952",
-          "1031722396162694980732347094246328257418459659819/1461501637330902918203684832716283019655932542976"
+          "2059937999642700305201433239301898628638024556717/2923003274661805836407369665432566039311865085952",
+          "515861198081347508606727226388376857159945776381/730750818665451459101842416358141509827966271488"
         ]
       }
     ],
@@ -1855,7 +1855,7 @@
         "failure_sum_admission": 0.0,
         "failure_sum_error_diagnostic": 0.0,
         "failure_weight_array": "ground_tree_failure_weights",
-        "first_failure_probability": 1.7702654448411807e-29,
+        "first_failure_probability": 3.375038460420291e-30,
         "native_abort_slots": 18440,
         "padding_slots": 3076,
         "per_rounded_entry_absolute_bound": 1e-40,
@@ -1866,9 +1866,9 @@
       },
       {
         "failure_sum_admission": 1e-20,
-        "failure_sum_error_diagnostic": 0.0,
+        "failure_sum_error_diagnostic": 1.0947644252537633e-47,
         "failure_weight_array": "ground_frame_failure_weights",
-        "first_failure_probability": 5.410851893389659e-31,
+        "first_failure_probability": 8.805026178472487e-32,
         "native_abort_slots": 672,
         "padding_slots": 64,
         "per_rounded_entry_absolute_bound": 1e-40,
@@ -1879,9 +1879,9 @@
       },
       {
         "failure_sum_admission": 1e-20,
-        "failure_sum_error_diagnostic": 3.28429327576129e-47,
+        "failure_sum_error_diagnostic": 2.7369110631344083e-48,
         "failure_weight_array": "charged_pointer_failure_weights",
-        "first_failure_probability": 9.84736582133737e-32,
+        "first_failure_probability": 1.523954537481228e-32,
         "native_abort_slots": 96,
         "padding_slots": 12,
         "per_rounded_entry_absolute_bound": 1e-40,
@@ -1892,9 +1892,9 @@
       },
       {
         "failure_sum_admission": 1e-20,
-        "failure_sum_error_diagnostic": 1.4349296274686127e-42,
+        "failure_sum_error_diagnostic": 3.587324068671532e-43,
         "failure_weight_array": "field_first_failure_weights",
-        "first_failure_probability": 7.999900375379443e-28,
+        "first_failure_probability": 1.715707787990022e-28,
         "native_abort_slots": 1247232,
         "padding_slots": 104448,
         "per_rounded_entry_absolute_bound": 1e-40,
@@ -1905,9 +1905,9 @@
       },
       {
         "failure_sum_admission": 1e-20,
-        "failure_sum_error_diagnostic": 8.96831017167883e-43,
+        "failure_sum_error_diagnostic": 3.587324068671532e-43,
         "failure_weight_array": "field_second_failure_weights",
-        "first_failure_probability": 8.006351356002088e-28,
+        "first_failure_probability": 1.7162613734383407e-28,
         "native_abort_slots": 1247232,
         "padding_slots": 104448,
         "per_rounded_entry_absolute_bound": 1e-40,
@@ -1921,27 +1921,27 @@
     "zero_time_native_control": [
       {
         "all_six_pointer_probabilities": [
-          0.9999999999997593,
-          3.6474367162817374e-31,
+          0.9999999999990179,
+          1.9144290496303868e-31,
           0.0,
           0.0,
           0.0,
           0.0
         ],
         "phase_over_pi": "0",
-        "pointer_first_failures": 1.9694731642674718e-31
+        "pointer_first_failures": 3.04790907496245e-32
       },
       {
         "all_six_pointer_probabilities": [
-          0.49999999999987965,
-          0.4999999999998793,
+          0.49999999999950906,
+          0.4999999999995089,
           0.0,
           0.0,
           0.0,
           0.0
         ],
         "phase_over_pi": "1/2",
-        "pointer_first_failures": 1.969907983224791e-31
+        "pointer_first_failures": 3.0749390122192243e-32
       }
     ]
   },
@@ -2027,7 +2027,7 @@
     "model/certified_reference/design_check.py": "3408c8d759eeff03c7cdc23920e5394a361c0fe9383df19fb2c756d2f56aa49f",
     "model/certified_reference/interval.py": "9309359ad336ca95c478499fa12cb66389809ffb0104ff3e6ec64623cf032bb1",
     "model/certified_reference/packet.py": "7ace8b745d8ef8a39ea44eb478fe742bf4a4c936b9e308f5c16401a07dc68209",
-    "model/certified_reference/results.json": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+    "model/certified_reference/results.json": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2",
     "model/certified_reference/source.py": "f01634916ee9a2cc82c29521f240ddf9ae889eadd67227202c2d7de3cb9078c4",
     "model/certified_reference/test_certificate.py": "ab04610588cebacad93c0348b55840f554e9420bdcf3ebe8a5b47c2aec60d661",
     "model/charged_defect/README.md": "bb859fc2581cbfbbed2d0a3e561545409946fbe13def5bfb44a56b2c4209562d",
@@ -2092,7 +2092,7 @@
     "model/common_spin_protection/contract.json": "9b3ff2d67929be8d43d1e0ad27514e0417c35f1d9be32d028714e5beb3dedf22",
     "model/common_spin_protection/history.py": "2a78b1f71a99a372bf391e6c9a533f1d1cbad565267fa6c8485db33d89527100",
     "model/common_spin_protection/packet.py": "bd0cdcf4d4eee2dd5e3ff60d0422892f0e9bb5ff14f870968bae94a840de8502",
-    "model/common_spin_protection/results.json": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+    "model/common_spin_protection/results.json": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49",
     "model/common_spin_protection/spectrum.py": "8e9dc3d520c61f72f4754904f13b8f309c6c2506a9099f857da4f1d6e05ebdee",
     "model/common_spin_protection/spin.py": "640bc07184b7104154a2ea4a8ed331f31cf83293bb7589f5ce4cb8d0347ea6e0",
     "model/common_spin_protection/test_history.py": "7b4b696b0ed02e39925523df8554103c25b3bb5b511d0077df2e14e93a2a8595",
@@ -2108,12 +2108,12 @@
     "model/cube_eta_protection/cube.py": "153956b76b23bb71fc5fd77d05ae0b0b3e6251e25510c841ec42a0fc98193505",
     "model/cube_eta_protection/packet.py": "42aa123034c78cb27fa71b5f240c654279c76717d33a92b063e711e8abc79421",
     "model/cube_eta_protection/repair.py": "2339f2d1a2c6e2aeef5a3451705e05812e9d0663c83a42e1afb224f23db501f4",
-    "model/cube_eta_protection/results.json": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+    "model/cube_eta_protection/results.json": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5",
     "model/cube_eta_protection/source.py": "28a4ff541d29d25e799d17aafef2bb24f3023ae04d79434918824a6efe504ba4",
     "model/cube_eta_protection/spectrum.py": "86c0c586c706476b48bf45b8c2681d3f840072eb595f9b79d3fb23c1948ae3ca",
     "model/cube_eta_protection/test_cube.py": "de9470820070a44befd8dbe937c9a43965f0a0411665bdd24f50d66af74f7725",
     "model/cube_eta_protection/test_packet.py": "06a09780496d317d38a3971811e2610c61b9b048aa71e3f8b12ade621dff5290",
-    "model/cube_eta_protection/test_source.py": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+    "model/cube_eta_protection/test_source.py": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9",
     "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
     "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
     "model/exchange_sector/__init__.py": "2d1f6b450fdd85b1428978ae345da7220ee09c2901fa2a8abb23940ae5108114",
@@ -2132,7 +2132,7 @@
     "model/field_symmetry/contract.json": "d27996f5fc76cd6ef07673ce30ae16169be35cd26af5fd1be7df41dbd18b1c18",
     "model/field_symmetry/packet.py": "a283a16670423e37d3b2722dca56226b2dbe64e1aee683fad6b16417be8b3b2a",
     "model/field_symmetry/readout.py": "582b6b1cd9b0e4aad00fe9d20b0c9d246101f3e31a62721978b7262a7b7622a9",
-    "model/field_symmetry/results.json": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+    "model/field_symmetry/results.json": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3",
     "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
     "model/field_symmetry/test_custody.py": "a6228e9be74ff5a9e2e3d74ec033166e98f3b52b93ba498bbf21b3c25f5ea181",
     "model/field_symmetry/test_packet.py": "a002b2ca41c73639f010f88198443f36016c0125544a0a8038d51c9494fa8ccf",
@@ -2172,7 +2172,7 @@
     "model/interacting_field/experiment.py": "f19fa085f5d77d65c5e73e118f47854c2b9f312ae4228a6aab213ff7c6e1303a",
     "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
     "model/interacting_field/replay.py": "e2f39d356aa8723ea79c213e6a4647eccc58f7995a2ffa2d07a7979758aacec5",
-    "model/interacting_field/results.json": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+    "model/interacting_field/results.json": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85",
     "model/interacting_field/source.py": "39735bf7a86e3fa309b2a3d01c3e64b146be8d2f280445731c146b984f73e5be",
     "model/interacting_field/test_field.py": "301175f2f55ab2d9c2b3331c75c2033ae56e4d9242e9a73a8d2d182502f09cb0",
     "model/interacting_field/test_receipt.py": "5f306a891ed3a1138b172e3564f76474e548031453aa98260f5da3ee01e075a8",
@@ -2181,14 +2181,14 @@
     "model/interacting_vacuum/__init__.py": "5466a1a93e7d8d31d32a698bbdb6a178ea71081f3844e3339723686af9fc1097",
     "model/interacting_vacuum/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/interacting_vacuum/charged.py": "22bc6c78b3fc272d941e35d2586a0d8d159a1d1abe8811d10131d8fbfeca2346",
-    "model/interacting_vacuum/global_ground.py": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+    "model/interacting_vacuum/global_ground.py": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866",
     "model/interacting_vacuum/ground.py": "98af19731f5f5e7d208953f58a778244b65a65d054b352e89f82cc1d4b81ce0d",
-    "model/interacting_vacuum/packet.py": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
-    "model/interacting_vacuum/results.json": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+    "model/interacting_vacuum/packet.py": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352",
+    "model/interacting_vacuum/results.json": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9",
     "model/interacting_vacuum/test_charged.py": "b01808066268fd8d81ee9f5de283ecffcd848435371f5de0efbb9d98c7d355b4",
-    "model/interacting_vacuum/test_global_ground.py": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+    "model/interacting_vacuum/test_global_ground.py": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33",
     "model/interacting_vacuum/test_ground.py": "669883eee9d555a2467afd96a3ce62ff9c74193aeaf5b59faee31d0e4045c7e6",
-    "model/interacting_vacuum/test_packet.py": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+    "model/interacting_vacuum/test_packet.py": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902",
     "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
     "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
     "model/local_repair_family/__init__.py": "66020f42442bef5fb6a1af13b74f96d9cc7fee99f0792216b6b0fbfa734450a9",
@@ -2287,7 +2287,7 @@
     "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
     "model/plaquette_reference/__init__.py": "bc4ed0c86e106836cb646eff21d583f5e466005e750adcdf0ae3e37c5245ad89",
     "model/plaquette_reference/preparation.py": "29985e7b79dc457cf00d06931bfa76e9e02ea45654803b938f2a3205fdf685ca",
-    "model/plaquette_reference/results.json": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+    "model/plaquette_reference/results.json": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485",
     "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
     "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
     "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
@@ -2328,7 +2328,7 @@
     "model/repair_spectral_sectors/contract.json": "9085cc3ac7a1eb22ad18eb9f99acc7f0f0ec8a3b77a4c4f72efb5e48a25f6afd",
     "model/repair_spectral_sectors/packet.py": "5e2a67dc47f3d086c20c2e2ac6c4e8abdc8a594b0296d2dd3934945ca0f578bb",
     "model/repair_spectral_sectors/response.py": "29d8da61bd698e4d1a15d5fc3e6181c24033f0ae48b9a5671b684a1f83afcd8a",
-    "model/repair_spectral_sectors/results.json": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+    "model/repair_spectral_sectors/results.json": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c",
     "model/repair_spectral_sectors/test_algebra.py": "4cd935fb0d4bc21294967359eda29ae4dd1c41b9c48d7d583a9a0d3fd5ceffce",
     "model/repair_spectral_sectors/test_packet.py": "3ab496882ce3a23a0e376a53b613a0c37be26864ddfae0c62365d1fb62d89482",
     "model/repair_spectral_sectors/test_response.py": "cc6776863558d85de13486c579f9786099a4a30ffa0bf81c5fd252035a6cda00",
@@ -2339,7 +2339,7 @@
     "model/retarded_matter_response/bounds.py": "0336eff791b73ab47ab199812dcaf635953c308d7b6311810b5dff630ffd1564",
     "model/retarded_matter_response/packet.py": "128a990107f33716c6dd10b73d2fd7b49be2836840fd759044b838c0594c8c29",
     "model/retarded_matter_response/response.py": "d089523d9073a8ffa7f59c5ddcacea818b37fe46dd5040ed726b840b5bd0eaed",
-    "model/retarded_matter_response/results.json": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+    "model/retarded_matter_response/results.json": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6",
     "model/retarded_matter_response/spectrum.py": "33ac9456c12023a6e9f23c099fb77a958826ceb24f76e65ad1f94e7020b92e9e",
     "model/retarded_matter_response/static.py": "a97e3ab0d16762d0737a6aff385f08fac9922066d3797e8e8ce27b933859e985",
     "model/retarded_matter_response/test_bounds.py": "029011ef731b8253ac838d734846dda97a467f4a27b9414388f4750fe6cfa5c3",
@@ -2362,7 +2362,7 @@
     "model/thermodynamic_ground/filled_sea.py": "d1a0954a1d7f9276cec5e374c0ec7ae15ea3c7823ebdaee9e2d3aa77d73a04a0",
     "model/thermodynamic_ground/local.py": "f073ce36de65621870e4fc50482745f7865b42ae18df7b2b222e3a22456c8151",
     "model/thermodynamic_ground/packet.py": "819cdda47d1122f79334dea0b0564d588f0294592b9ba4d3080df3e6e56c2473",
-    "model/thermodynamic_ground/results.json": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+    "model/thermodynamic_ground/results.json": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090",
     "model/thermodynamic_ground/retarded.py": "f2718c043e2d3e6658170698e9ab74e51abff6d9751111e6c0375310e3e6f35e",
     "model/thermodynamic_ground/test_energy.py": "97e2395e4bf4c39f8a12f811bca7f97381c6da55bbe87891695a8eda9ef01f5a",
     "model/thermodynamic_ground/test_filled_sea.py": "865c3539c042342e87f422b70bc99b7671fd525e922052a2cfddf90da42c6d77",
@@ -2387,8 +2387,8 @@
     "all_abort_outputs_retained": true,
     "amplitudes_from_exact_original_action_determinants": true,
     "complete_frame_error": "528924307999507971371355906502227/22835963083295358096932575511191922182123945984",
-    "complete_preparation_state_error": "1266669560248344142465371753804392845/1461501637330902918203684832716283019655932542976",
-    "complete_tree_error": "1232818404536375632297604975788250317/1461501637330902918203684832716283019655932542976",
+    "complete_preparation_state_error": "316676510338925668222707163809071447/365375409332725729550921208179070754913983135744",
+    "complete_tree_error": "308213721410933540680765469305035815/365375409332725729550921208179070754913983135744",
     "frame_pulses": 184,
     "ground_energy": "-sqrt(3)/4",
     "ground_number": 4,
@@ -2404,7 +2404,7 @@
     "signed_conditional_nodes_checked": 255,
     "squared_amplitude_denominator": 1296,
     "tree_pulses": 5379,
-    "tree_word_sha256": "7d2199366fabb8e2e06e7ccc51597664930c9e70c572a5c1ed76aa2192fbff3d"
+    "tree_word_sha256": "c5fbcdbb9513a966eab5f7149da133ad6e83fa77f993f4ea1458caabf297003b"
   },
   "spectral_probability_intervals": [
     {
@@ -2413,8 +2413,8 @@
         "2586824550126472243949354821427833618818044155115/2923003274661805836407369665432566039311865085952"
       ],
       "literal_complete_pointer_zero_interval": [
-        "1292535576892564050304211942125187262882859325589/1461501637330902918203684832716283019655932542976",
-        "2588577946467816387290220890782768289353288385153/2923003274661805836407369665432566039311865085952"
+        "646267788446282006911552291797380902990713716323/730750818665451459101842416358141509827966271488",
+        "2588577946467816460252435607843619203156152171039/2923003274661805836407369665432566039311865085952"
       ],
       "phase_over_pi": "0"
     },
@@ -2424,8 +2424,8 @@
         "1030845697992022584907105773693259591624189813803/1461501637330902918203684832716283019655932542976"
       ],
       "literal_complete_pointer_zero_interval": [
-        "2059937999642700378163647956362749542440888342603/2923003274661805836407369665432566039311865085952",
-        "1031722396162694980732347094246328257418459659819/1461501637330902918203684832716283019655932542976"
+        "2059937999642700305201433239301898628638024556717/2923003274661805836407369665432566039311865085952",
+        "515861198081347508606727226388376857159945776381/730750818665451459101842416358141509827966271488"
       ],
       "phase_over_pi": "1/2"
     }

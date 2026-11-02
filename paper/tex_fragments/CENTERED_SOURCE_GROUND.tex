@@ -30,8 +30,51 @@ expectations vanish because each factor has fixed charge. Hence
 \]
 These are exact full-sector bounds, not relativistic rest masses.
 
-We additionally import Lieb's repulsive Hubbard ground-spin theorem,
-in the form of Theorem~1, printed p.~8, of his
+An exact finite certificate proves uniqueness, hidden spin zero and the
+neutral gap directly. It first treats the complete 4900-dimensional
+$N=8,S_z=0$ block, without assuming a singlet. Dyadic proposals $v,Q$
+are checked by integer arithmetic:
+\[
+ \frac{\langle v,Kv\rangle}{\langle v,v\rangle}<-\frac{1055}{256},
+ \qquad K+\frac{2105}{512}I+vv^*=QQ^*+R,
+ \qquad \|R\|\le\|R\|_\infty<\frac1{512}.
+\]
+Set $B=-1053/256$ and $\rho=\langle v,Kv\rangle/\langle v,v\rangle$.
+Rank-one minmax and $\rho<B$ give a unique balanced ground $g$, with
+every other balanced energy greater than $B$. The exact variance
+$s^2=\|(K-\rho)v\|^2/\|v\|^2$ gives
+\[
+ 1-|\langle g,v/\|v\|\rangle|^2
+ \le\frac{s^2}{(B-\rho)^2}<10^{-6},
+ \qquad
+ \rho-\frac{s^2}{B-\rho}\le E_{\rm balanced}\le\rho.
+\]
+The full source CAR matrices check
+$[S_+,S_-]=2S_z$, $[2S_z,S_+]=2S_+$ and commutation with $K$.
+Exact frame conjugation binds all three spin operators in the physical
+frame and the Hamiltonian to these matrices. The independently reconstructed source
+basis order binds both the balanced Hamiltonian and the
+$4900\to3136$ spin-raising restriction. On the same unprojected trial,
+integer arithmetic verifies
+\[
+ \frac{\langle v,S^2v\rangle}{\|v\|^2}
+ =\frac{\|S_+v\|^2}{\|v\|^2}<1.
+\]
+Uniqueness in the balanced block and $[K,S^2]=0$ make $g$ a spin
+eigenvector. Every $N=8$ spin is integer. If its spin were positive,
+the certified ground weight and positivity of $S^2$ would force the
+trial expectation above $2(1-10^{-6})>1$. Hence $g$ is a singlet.
+Every integer-spin multiplet contains a balanced weight, so this ground
+is unique throughout $N=8$ and every other energy exceeds $B$.
+Subtracting the trial bound gives a neutral gap greater than $1/128$;
+the charged bound extends it to the full 65,536-state cube.
+The variance bound also certifies
+$-206203/50000<E_K<-82481/20000$, half trace distance below $1/1000$
+and bounded-observable error below $\|A\|/500$.
+Floating eigensolvers only propose the integer witnesses.
+
+As a separate ground-spin cross-check, the package imports Lieb's
+repulsive Hubbard theorem in the form of Theorem~1, printed p.~8, of his
 \href{https://arxiv.org/pdf/cond-mat/9311033}{1993 review}; see also the
 \href{https://doi.org/10.1103/PhysRevLett.62.1201}{1989 result} and its
 \href{https://doi.org/10.1103/PhysRevLett.62.1927.5}{erratum}.
@@ -39,10 +82,12 @@ The actual hidden-frame hopping is real, spin independent and connected,
 with a balanced bipartition of four plus four sites and strictly positive
 onsite repulsion. These finite hypotheses are checked from the source;
 the theorem allows mixed real hopping signs. Together with the separately
-proved $N=8$ ground sector, it gives a unique global centered cube ground
-with hidden spin zero. The review's centered interaction convention
-differs from $K$ only by the constant $2$. No quantitative neutral gap,
-physical spin dictionary or thermodynamic uniqueness follows here.
+proved $N=8$ ground sector, it independently gives a unique ground with
+hidden spin zero. The review's centered interaction convention differs
+from $K$ only by the constant $2$. This imported theorem remains part of
+the package, but is not an admission premise of the direct gap proof.
+Neither argument supplies a native preparation of the changed reference,
+a physical spin dictionary, a thermodynamic gap or a relativistic rest mass.
 
 The actual cube also has a faithful full-CAR one-site state. Write
 $K=T+D-4$ on $N=8$. The source identity $A^2=3I$ gives

@@ -1,3 +1,4 @@
+import json
 import sys
 
 import pytest
@@ -21,3 +22,18 @@ def test_receipt_binds_core_proofs_source_and_no_float_admission():
                  'paper/tex_fragments/INTERACTING_VACUUM.tex'):
         assert path in bindings
     assert packet.canonical({'a': True}) != packet.canonical({'a': 1})
+
+
+@pytest.mark.parametrize('worker', [False, True])
+def test_receipt_writers_use_portable_utf8_lf_bytes(tmp_path, monkeypatch, worker):
+    target = tmp_path/'receipt.json'
+    value = {'source_bindings': {}, 'marker': 'lambda: \u03bb'}
+    monkeypatch.setattr(packet, 'OUTPUT', target)
+    monkeypatch.setattr(packet, 'report', lambda: value)
+    monkeypatch.setattr(packet, '_produce', lambda: value)
+    arguments = ['--worker', str(target)] if worker else ['--write']
+    monkeypatch.setattr(sys, 'argv', ['interacting_vacuum', *arguments])
+    packet.main()
+    raw = target.read_bytes()
+    assert b'\r' not in raw and raw.endswith(b'\n')
+    assert json.loads(raw.decode('utf-8')) == value

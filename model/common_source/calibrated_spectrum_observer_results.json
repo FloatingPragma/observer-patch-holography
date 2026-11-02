@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "calibrated_spectrum_observer_results.npz",
-    "sha256": "e8e8589690bfb7cbdb72f26e1d189704b5c0165a5c0f94511725bb9d48748fc3"
+    "sha256": "ef13d71318fec3919aaed748fa1862e0ac85bd3a8a17ea95221198df25ef5c08"
   },
   "classification": "native implementation sanity check of a supplied empirically calibrated running action",
   "clock": {
@@ -36,16 +36,16 @@
       "application": "source-defined conjugation and mass-coordinate readout; conservative three complete frames charged per setting",
       "complete_frame_native_pulses": 816,
       "diagnostics": {
-        "CKM_source_operator_difference": 6.926256039301352e-15,
-        "CKM_source_unitarity_residual": 1.3518185037726499e-14,
-        "full90_mode_onebody_difference": 5.543881471917136e-15,
+        "CKM_source_operator_difference": 7.76695895545731e-15,
+        "CKM_source_unitarity_residual": 1.5433868895186466e-14,
+        "full90_mode_onebody_difference": 7.656043436449744e-15,
         "full_CKM_Fock_columns_executed": 8,
         "global_phase_removed_or_fitted": false,
         "numerical_operator_admission": 2e-10,
         "physical_native_service_error_certified": false,
         "polar_norm_or_probability_repair_applied": false,
-        "singlet_phase_source_difference": 4.440892098500626e-16,
-        "vacuum_phase_difference": 4.002966042486721e-15
+        "singlet_phase_source_difference": 2.491429137188931e-16,
+        "vacuum_phase_difference": 6.83035335636718e-15
       },
       "independent_source_weak_down_block_columns": 64,
       "mapping": {
@@ -327,12 +327,12 @@
       "mass_coordinate_outputs_are_literal_composed90_mode_binary_arrays": false,
       "three_frame_bounded_score_propagation_upper": "15833/549755813888",
       "weak_down_block_errors": {
-        "all_input_mass_source_target_difference": 2.098749522806647e-14,
-        "all_input_weak_source_target_difference": 3.0027724622814576e-14,
-        "frame_source_target_difference": 6.730925448545864e-15,
-        "inverse_frame_source_target_difference": 6.557869328288626e-15,
-        "literal_composition_difference": 3.2334287598808374e-15,
-        "weak_source_unitarity_residual": 5.777912513283717e-14
+        "all_input_mass_source_target_difference": 2.2611533542305168e-14,
+        "all_input_weak_source_target_difference": 3.7126279603984766e-14,
+        "frame_source_target_difference": 7.919918743851512e-15,
+        "inverse_frame_source_target_difference": 7.726350685881103e-15,
+        "literal_composition_difference": 3.736247482674706e-15,
+        "weak_source_unitarity_residual": 7.372734266591015e-14
       },
       "weak_down_block_level": 20,
       "weak_frame_admission_is_an_outward_analytic_or_physical_certificate": false,

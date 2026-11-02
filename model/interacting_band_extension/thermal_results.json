@@ -21,10 +21,10 @@
         "occupation_residual_upper": "4017/5000000",
         "path_rounding_upper": "1/10000000000",
         "probabilities_numerical": [
-          0.3075024998750499,
-          0.19941009579249022,
-          0.20277542020936826,
-          0.2903119841230928
+          0.3075024998750503,
+          0.19941009579249033,
+          0.20277542020936817,
+          0.29031198412309234
         ],
         "record_alphabet": [
           [
@@ -56,10 +56,10 @@
         "occupation_residual_upper": "9881/10000000",
         "path_rounding_upper": "1/10000000000",
         "probabilities_numerical": [
-          0.28689034683279463,
-          0.206197057499666,
-          0.19593728019682888,
-          0.3109753154707118
+          0.28689034683279496,
+          0.20619705749966585,
+          0.19593728019682877,
+          0.31097531547071217
         ],
         "record_alphabet": [
           [
@@ -136,8 +136,8 @@
     "directed_rounding_source_execution_certificate": false,
     "fixed_controller_histories": [
       {
-        "all_input_channel_completeness_residual_numerical": 2.679610108135201e-13,
-        "all_input_source_Kraus_comparison_residual_numerical": 3.300255657942124e-14,
+        "all_input_channel_completeness_residual_numerical": 1.8620786147061043e-13,
+        "all_input_source_Kraus_comparison_residual_numerical": 5.631455446216808e-14,
         "all_terminal_native_timeout_work_reference_outputs_retained": true,
         "arbitrary_unfinished_mid_service_output_bound_claimed": false,
         "complete_clock_field_prefix_law": [
@@ -145,7 +145,7 @@
             "field_bits": [],
             "incident_ticks": 0,
             "native_tape_weight": "25/36",
-            "probability": 0.6944444444395671,
+            "probability": 0.6944444444278873,
             "timeout": true
           },
           {
@@ -154,7 +154,7 @@
             ],
             "incident_ticks": 1,
             "native_tape_weight": "5/18",
-            "probability": 0.14080905431877216,
+            "probability": 0.14080905431625876,
             "timeout": true
           },
           {
@@ -163,7 +163,7 @@
             ],
             "incident_ticks": 1,
             "native_tape_weight": "5/18",
-            "probability": 0.13696872345720137,
+            "probability": 0.13696872345492384,
             "timeout": true
           },
           {
@@ -173,7 +173,7 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.008541736101357155,
+            "probability": 0.008541736101192991,
             "timeout": false
           },
           {
@@ -183,7 +183,7 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.005539169330527242,
+            "probability": 0.00553916933043402,
             "timeout": false
           },
           {
@@ -193,7 +193,7 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.005632650562805945,
+            "probability": 0.005632650562704378,
             "timeout": false
           },
           {
@@ -203,13 +203,13 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.008064221782921495,
+            "probability": 0.00806422178278928,
             "timeout": false
           }
         ],
         "complete_native_field_outputs": 4900,
         "complete_native_tapes": 3600,
-        "complete_prepared_work_reference_prefix_distance_numerical": 2.2202087151227816e-09,
+        "complete_prepared_work_reference_prefix_distance_numerical": 2.225628033281215e-09,
         "every_terminal_instruction_count_independently_checked": true,
         "feedback_kick": "1/4",
         "finite_source_budget_under_numerical_guards": {
@@ -236,8 +236,8 @@
         "valid_code_service_failure_probability_exact": "0"
       },
       {
-        "all_input_channel_completeness_residual_numerical": 2.6839939948521826e-13,
-        "all_input_source_Kraus_comparison_residual_numerical": 3.295251249169587e-14,
+        "all_input_channel_completeness_residual_numerical": 1.8665145718092824e-13,
+        "all_input_source_Kraus_comparison_residual_numerical": 5.2734259508646035e-14,
         "all_terminal_native_timeout_work_reference_outputs_retained": true,
         "arbitrary_unfinished_mid_service_output_bound_claimed": false,
         "complete_clock_field_prefix_law": [
@@ -245,7 +245,7 @@
             "field_bits": [],
             "incident_ticks": 0,
             "native_tape_weight": "25/36",
-            "probability": 0.6944444444395679,
+            "probability": 0.6944444444278873,
             "timeout": true
           },
           {
@@ -254,7 +254,7 @@
             ],
             "incident_ticks": 1,
             "native_tape_weight": "5/18",
-            "probability": 0.1369687234573344,
+            "probability": 0.13696872345490396,
             "timeout": true
           },
           {
@@ -263,7 +263,7 @@
             ],
             "incident_ticks": 1,
             "native_tape_weight": "5/18",
-            "probability": 0.14080905431864213,
+            "probability": 0.14080905431627216,
             "timeout": true
           },
           {
@@ -273,7 +273,7 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.007969176304221589,
+            "probability": 0.007969176304069635,
             "timeout": false
           },
           {
@@ -283,7 +283,7 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.005727696041519016,
+            "probability": 0.005727696041421653,
             "timeout": false
           },
           {
@@ -293,7 +293,7 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.005442702232267263,
+            "probability": 0.005442702232170033,
             "timeout": false
           },
           {
@@ -303,13 +303,13 @@
             ],
             "incident_ticks": 2,
             "native_tape_weight": "1/36",
-            "probability": 0.00863820319960437,
+            "probability": 0.008638203199458286,
             "timeout": false
           }
         ],
         "complete_native_field_outputs": 4900,
         "complete_native_tapes": 3600,
-        "complete_prepared_work_reference_prefix_distance_numerical": 2.2233746447872515e-09,
+        "complete_prepared_work_reference_prefix_distance_numerical": 2.2287826426638913e-09,
         "every_terminal_instruction_count_independently_checked": true,
         "feedback_kick": "1/4",
         "finite_source_budget_under_numerical_guards": {
@@ -339,13 +339,13 @@
     "guarded_local_operation_count": 772,
     "histories": [
       {
-        "complete_work_reference_record_distance_numerical": 1.2837114708022859e-08,
+        "complete_work_reference_record_distance_numerical": 1.2837253543661062e-08,
         "native_sign": -1,
         "probabilities": [
-          0.3075024996488562,
-          0.1994100958989795,
-          0.2027754202610156,
-          0.2903119841851753
+          0.30750249964293364,
+          0.19941009589561287,
+          0.20277542025735332,
+          0.29031198418040755
         ],
         "records": [
           [
@@ -367,13 +367,13 @@
         ]
       },
       {
-        "complete_work_reference_record_distance_numerical": 1.2950860930268492e-08,
+        "complete_work_reference_record_distance_numerical": 1.2950933920043703e-08,
         "native_sign": 1,
         "probabilities": [
-          0.2868903469519722,
-          0.20619705749468212,
-          0.19593728036161537,
-          0.31097531518574867
+          0.2868903469464896,
+          0.20619705749116665,
+          0.19593728035811406,
+          0.31097531518048716
         ],
         "records": [
           [
@@ -401,13 +401,13 @@
     "original_beta_one_quarter_benchmark_discharged": false,
     "physical_service_or_lab_time_certificate": false,
     "preparation": {
-      "ideal_minimum_density_eigenvalue": 1.9609047517438666e-52,
+      "ideal_minimum_density_eigenvalue": 1.9609047517440343e-52,
       "inverse_temperature": "4",
       "physical_preparation_error_certified": false,
       "preparation_source_word": "twelve_qubit_real_amplitude_tree",
       "purification_vector_error_guard": "1/1000000000",
-      "purification_vector_error_numerical": 4.297610345344855e-12,
-      "raw_norm_squared": 0.9999999999929763,
+      "purification_vector_error_numerical": 1.2052354495122535e-11,
+      "raw_norm_squared": 0.999999999976158,
       "reference_basis": "canonical_fixed_frequency_two_Hermite",
       "retained_reference_addresses": 64,
       "retained_work_addresses": 64,
@@ -415,7 +415,7 @@
         "identity_phase_pulses": 0,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": "277000",
-        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
         "maximum_work_qubits": 12,
         "native_pulses": 135171,
         "pair_code_pulses": 40962,

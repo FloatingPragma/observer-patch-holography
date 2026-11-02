@@ -78,7 +78,7 @@
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
   },
   "artifacts": {
-    "geometric_matter_join_arrays.npz": "ba5842ab78ecb8ca6b1f0923ba783c2479726b74bf8ecd754d3fbc06654ece37"
+    "geometric_matter_join_arrays.npz": "565ce3bb8fa6d6e676bd5a2543847815bb41e8e1e03f86f1e2a195bb0b0c52bb"
   },
   "empirical_inputs": [],
   "same_source_metric_and_clock": {
@@ -237,9 +237,9 @@
   },
   "native_Clifford_and_shared_symbols": {
     "native_basis_word_errors": [
-      2.4281174087033774e-16,
-      1.7938038903913487e-16,
-      2.4281174087033774e-16
+      3.664005454784526e-16,
+      3.566827076226514e-16,
+      3.664005454784526e-16
     ],
     "native_words_replayed": 3,
     "native_word_pulse_counts": [
@@ -416,16 +416,16 @@
     "same_lapse": 0.1550854221019267,
     "coframe_pullback_vs_direct_Hodge_errors": [
       1.3322676295501878e-15,
-      3.552713678800501e-15
+      2.6645352591003757e-15
     ],
     "scalar_vertex_modes": 13,
     "scalar_and_Maxwell_gradient_form_identity_error": 4.440892098500626e-16,
     "exact_incidence_curl_gradient_zero": true,
-    "metric_Maxwell_Ward_residual": 6.938893903907228e-16,
+    "metric_Maxwell_Ward_residual": 5.828670879282072e-16,
     "physical_Maxwell_modes": 30,
     "frequency_range": [
-      0.292446213706919,
-      1.2545532257277692
+      0.2924462137069197,
+      1.2545532257277685
     ],
     "same_clock_rescaling_spectrum_verified": true,
     "kinetic_matrix": "M1(h)/N",

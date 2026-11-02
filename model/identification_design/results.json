@@ -10,8 +10,8 @@
     "initial_calibration_has_two_invisible_action_directions": true,
     "native_reference_agreement": true
   },
-  "coherent_total_variation": 0.7071067811865464,
-  "committed_total_variation": 9.159339953157541e-16,
+  "coherent_total_variation": 0.7071067811865435,
+  "committed_total_variation": 3.608224830031759e-15,
   "derived": [
     "exact response rank and nullspace, retaining global-energy gauge",
     "minimum occupation additions within the declared nested family",
@@ -48,7 +48,7 @@
       0.0,
       0.0,
       0.0,
-      0.14644660940672646,
+      0.14644660940672655,
       0.0,
       0.0,
       0.0
@@ -64,34 +64,34 @@
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
   },
   "maximum_source_reference_probability_errors": [
-    1.6653345369377348e-15,
-    4.163336342344337e-16
+    5.551115123125783e-15,
+    1.6653345369377348e-15
   ],
   "native_coherent_trials": [
     {
       "B_coefficient": 0.0,
       "committed_before_read": false,
-      "complete_probability_mass": 0.9999999999999976,
+      "complete_probability_mass": 0.9999999999999928,
       "complete_read_probabilities": [
-        0.14644660940672544,
-        7.170024439223344e-34,
-        8.990427984597421e-32,
-        5.215854494854521e-66,
-        0.8535533905932721,
-        2.83690118323962e-35,
-        5.240005432850528e-31,
-        1.8460724090950743e-65
+        0.14644660940672458,
+        6.04720131189457e-31,
+        3.447841738720946e-32,
+        2.4024124910912272e-61,
+        0.8535533905932682,
+        4.448406790739809e-33,
+        4.627543266355241e-31,
+        4.940159437096682e-62
       ],
-      "full_phase_evolution_target_residual": 3.048103758828056e-15,
+      "full_phase_evolution_target_residual": 6.6470845203597244e-15,
       "joint_old_occupation_then_read_code": null,
       "model_time": 1.5707963267948966,
       "numerical_residual_is_certificate": false,
-      "outcome_zero_probability": 0.14644660940672544,
+      "outcome_zero_probability": 0.14644660940672458,
       "resources": {
         "identity_phase_pulses": 1,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 95.62222639363932,
-        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_numerical_valid_code_leakage": 7.087401473493869e-17,
         "maximum_work_qubits": 3,
         "native_pulses": 41,
         "pair_code_pulses": 10,
@@ -113,27 +113,27 @@
     {
       "B_coefficient": 1.0,
       "committed_before_read": false,
-      "complete_probability_mass": 0.9999999999999998,
+      "complete_probability_mass": 1.0,
       "complete_read_probabilities": [
-        0.853553390593273,
-        0.0,
-        1.0944709745067926e-31,
-        0.0,
-        0.14644660940672688,
-        0.0,
-        4.952800091868647e-31,
-        0.0
+        0.8535533905932717,
+        2.8273080441621456e-31,
+        1.037962171368366e-31,
+        2.0344478980762584e-61,
+        0.1464466094067282,
+        5.362406029081344e-31,
+        3.0059376304025912e-31,
+        7.882363999157419e-62
       ],
-      "full_phase_evolution_target_residual": 8.574550188059593e-15,
+      "full_phase_evolution_target_residual": 1.4772441462822818e-14,
       "joint_old_occupation_then_read_code": null,
       "model_time": 1.5707963267948966,
       "numerical_residual_is_certificate": false,
-      "outcome_zero_probability": 0.853553390593273,
+      "outcome_zero_probability": 0.8535533905932717,
       "resources": {
         "identity_phase_pulses": 1,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 150.60009783146072,
-        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_numerical_valid_code_leakage": 8.312251658224217e-17,
         "maximum_work_qubits": 3,
         "native_pulses": 41,
         "pair_code_pulses": 10,
@@ -157,108 +157,108 @@
     {
       "B_coefficient": 0.0,
       "committed_before_read": true,
-      "complete_probability_mass": 0.9999999999999977,
+      "complete_probability_mass": 0.9999999999999926,
       "complete_read_probabilities": [
-        0.49999999999999883,
-        3.7268572787736507e-34,
-        3.0695241156551353e-31,
-        1.1838289292902633e-65,
-        0.49999999999999883,
-        3.7268572787736507e-34,
-        3.0695241156551353e-31,
-        1.1838289292902633e-65
+        0.4999999999999962,
+        3.045842689900984e-31,
+        2.4861637201136673e-31,
+        1.448214217400447e-61,
+        0.49999999999999634,
+        3.045842689900985e-31,
+        2.4861637201136673e-31,
+        1.4482142174004476e-61
       ],
-      "full_phase_evolution_target_residual": 3.048103758828056e-15,
+      "full_phase_evolution_target_residual": 6.6470845203597244e-15,
       "joint_old_occupation_then_read_code": [
         [
-          0.24999999999999906,
+          0.2499999999999989,
           0.0,
           0.0,
           0.0,
-          0.24999999999999914,
-          0.0,
-          0.0,
-          0.0
-        ],
-        [
-          0.0,
-          1.863428639386826e-34,
-          0.0,
-          0.0,
-          0.0,
-          1.8634286393868266e-34,
-          0.0,
-          0.0
-        ],
-        [
-          0.0,
-          0.0,
-          1.5347620578275692e-31,
-          0.0,
-          0.0,
-          0.0,
-          1.5347620578275696e-31,
-          0.0
-        ],
-        [
-          0.0,
-          0.0,
-          0.0,
-          5.362827711696249e-66,
-          0.0,
-          0.0,
-          0.0,
-          5.362827711696251e-66
-        ],
-        [
-          0.24999999999999978,
-          0.0,
-          0.0,
-          0.0,
-          0.2499999999999997,
+          0.24999999999999897,
           0.0,
           0.0,
           0.0
         ],
         [
           0.0,
-          1.863428639386825e-34,
+          1.5943154772504887e-31,
           0.0,
           0.0,
           0.0,
-          1.8634286393868243e-34,
+          1.5943154772504893e-31,
           0.0,
           0.0
         ],
         [
           0.0,
           0.0,
-          1.5347620578275659e-31,
+          6.401251833384032e-32,
           0.0,
           0.0,
           0.0,
-          1.5347620578275654e-31,
+          6.401251833384034e-32,
           0.0
         ],
         [
           0.0,
           0.0,
           0.0,
-          6.475461581206384e-66,
+          1.2380652571328653e-61,
           0.0,
           0.0,
           0.0,
-          6.475461581206382e-66
+          1.2380652571328658e-61
+        ],
+        [
+          0.24999999999999734,
+          0.0,
+          0.0,
+          0.0,
+          0.24999999999999734,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.4515272126504955e-31,
+          0.0,
+          0.0,
+          0.0,
+          1.4515272126504955e-31,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.846038536775264e-31,
+          0.0,
+          0.0,
+          0.0,
+          1.846038536775264e-31,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          2.101489602675818e-62,
+          0.0,
+          0.0,
+          0.0,
+          2.101489602675818e-62
         ]
       ],
       "model_time": 1.5707963267948966,
       "numerical_residual_is_certificate": false,
-      "outcome_zero_probability": 0.49999999999999883,
+      "outcome_zero_probability": 0.4999999999999962,
       "resources": {
         "identity_phase_pulses": 1,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 95.62222639363932,
-        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_numerical_valid_code_leakage": 7.087401473493869e-17,
         "maximum_work_qubits": 3,
         "native_pulses": 41,
         "pair_code_pulses": 10,
@@ -280,108 +280,108 @@
     {
       "B_coefficient": 1.0,
       "committed_before_read": true,
-      "complete_probability_mass": 0.9999999999999996,
+      "complete_probability_mass": 0.9999999999999998,
       "complete_read_probabilities": [
-        0.4999999999999997,
-        0.0,
-        3.0236355331877187e-31,
-        0.0,
-        0.4999999999999998,
-        0.0,
-        3.0236355331877187e-31,
-        0.0
+        0.49999999999999983,
+        4.094857036621743e-31,
+        2.021949900885478e-31,
+        1.411342148996e-61,
+        0.49999999999999994,
+        4.094857036621744e-31,
+        2.0219499008854783e-31,
+        1.4113421489960003e-61
       ],
-      "full_phase_evolution_target_residual": 8.574550188059593e-15,
+      "full_phase_evolution_target_residual": 1.4772441462822818e-14,
       "joint_old_occupation_then_read_code": [
         [
-          0.2500000000000001,
+          0.2500000000000004,
           0.0,
           0.0,
           0.0,
-          0.2500000000000002,
-          0.0,
-          0.0,
-          0.0
-        ],
-        [
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
+          0.2500000000000005,
           0.0,
           0.0,
           0.0
         ],
         [
           0.0,
-          0.0,
-          1.5721257754618702e-31,
-          0.0,
-          0.0,
-          0.0,
-          1.5721257754618708e-31,
-          0.0
-        ],
-        [
+          3.4772037803527574e-31,
           0.0,
           0.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
-        [
-          0.2499999999999996,
-          0.0,
-          0.0,
-          0.0,
-          0.24999999999999953,
-          0.0,
+          3.4772037803527583e-31,
           0.0,
           0.0
         ],
         [
           0.0,
           0.0,
+          1.1532549546652088e-31,
           0.0,
           0.0,
           0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
-        [
-          0.0,
-          0.0,
-          1.4515097577258485e-31,
-          0.0,
-          0.0,
-          0.0,
-          1.451509757725848e-31,
+          1.1532549546652092e-31,
           0.0
         ],
         [
           0.0,
           0.0,
           0.0,
+          1.1700377598217055e-61,
           0.0,
           0.0,
+          0.0,
+          1.1700377598217059e-61
+        ],
+        [
+          0.24999999999999944,
+          0.0,
+          0.0,
+          0.0,
+          0.24999999999999944,
           0.0,
           0.0,
           0.0
+        ],
+        [
+          0.0,
+          6.176532562689859e-32,
+          0.0,
+          0.0,
+          0.0,
+          6.176532562689859e-32,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          8.686949462202689e-32,
+          0.0,
+          0.0,
+          0.0,
+          8.686949462202689e-32,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          2.413043891742944e-62,
+          0.0,
+          0.0,
+          0.0,
+          2.413043891742944e-62
         ]
       ],
       "model_time": 1.5707963267948966,
       "numerical_residual_is_certificate": false,
-      "outcome_zero_probability": 0.4999999999999997,
+      "outcome_zero_probability": 0.49999999999999983,
       "resources": {
         "identity_phase_pulses": 1,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 150.60009783146072,
-        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+        "maximum_numerical_valid_code_leakage": 8.312251658224217e-17,
         "maximum_work_qubits": 3,
         "native_pulses": 41,
         "pair_code_pulses": 10,
@@ -633,14 +633,14 @@
     "decision_rule": "choose the higher-probability candidate when the sample mean exceeds 1/2",
     "energy_difference": 1.0,
     "fresh_independent_trials": 19,
-    "ideal_binary_tv": 0.7071067811865475,
+    "ideal_binary_tv": 0.7071067811865476,
     "ideal_probabilities": [
-      0.14644660940672627,
+      0.1464466094067262,
       0.8535533905932737
     ],
     "model_time": 1.5707963267948966,
     "time_parameter": "supplied model coordinate",
-    "worst_case_one_hypothesis_error_upper": 0.008651695203120641
+    "worst_case_one_hypothesis_error_upper": 0.008651695203120627
   },
   "sampling_with_assumed_one_percent_probability_error": {
     "assumed_probability_error": 0.01,
@@ -648,14 +648,14 @@
     "decision_rule": "choose the higher-probability candidate when the sample mean exceeds 1/2",
     "energy_difference": 1.0,
     "fresh_independent_trials": 20,
-    "ideal_binary_tv": 0.7071067811865475,
+    "ideal_binary_tv": 0.7071067811865476,
     "ideal_probabilities": [
-      0.14644660940672627,
+      0.1464466094067262,
       0.8535533905932737
     ],
     "model_time": 1.5707963267948966,
     "time_parameter": "supplied model coordinate",
-    "worst_case_one_hypothesis_error_upper": 0.008904867091330102
+    "worst_case_one_hypothesis_error_upper": 0.008904867091330093
   },
   "schema": "oph.identification_design.v1",
   "scope": "component intervention design for supplied finite action candidates; no empirical observations or source-law selection",

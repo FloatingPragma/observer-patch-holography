@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "native_charged_spectrum_results.npz",
-    "sha256": "f139686b43e49348b673676065107dc3cc1c8937dda4f9602c6f2bc28bb6fe8c"
+    "sha256": "aef6328031f9e39a04ace14e4de80d2587991178ba31fcebd94dde1126bb7649"
   },
   "ascending_dimer_gap_ratio_intervals": [
     [
@@ -138,7 +138,7 @@
   "finite_charge_spectra": [
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 6.248400818676151e-05,
+      "addition_gap_diagnostic": 6.248400818675837e-05,
       "cells": 2,
       "charge_sectors": [
         {
@@ -156,7 +156,7 @@
         {
           "charge": 1,
           "dimension": 2,
-          "ground_energy": -6.248400818676151e-05,
+          "ground_energy": -6.248400818675837e-05,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/1024",
@@ -178,14 +178,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -6.248400818676151e-05,
+      "half_filled_ground_energy": -6.248400818675837e-05,
       "native_sector": 0,
-      "removal_gap_diagnostic": 6.248400818676151e-05,
+      "removal_gap_diagnostic": 6.248400818675837e-05,
       "second_order_charged_gap_exact": "1/16000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 2.0820922698562555e-05,
+      "addition_gap_diagnostic": 2.0820922698560427e-05,
       "cells": 4,
       "charge_sectors": [
         {
@@ -203,7 +203,7 @@
         {
           "charge": 1,
           "dimension": 4,
-          "ground_energy": -6.248400818675762e-05,
+          "ground_energy": -6.24840081867579e-05,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -215,7 +215,7 @@
         {
           "charge": 2,
           "dimension": 6,
-          "ground_energy": -8.330493088532018e-05,
+          "ground_energy": -8.330493088531833e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/4096",
@@ -227,7 +227,7 @@
         {
           "charge": 3,
           "dimension": 4,
-          "ground_energy": -6.248400818675762e-05,
+          "ground_energy": -6.24840081867579e-05,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -249,14 +249,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -8.330493088532018e-05,
+      "half_filled_ground_energy": -8.330493088531833e-05,
       "native_sector": 0,
-      "removal_gap_diagnostic": 2.0820922698562555e-05,
+      "removal_gap_diagnostic": 2.0820922698560427e-05,
       "second_order_charged_gap_exact": "1/48000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 1.247547778742256e-05,
+      "addition_gap_diagnostic": 1.2475477787219204e-05,
       "cells": 6,
       "charge_sectors": [
         {
@@ -286,7 +286,7 @@
         {
           "charge": 2,
           "dimension": 15,
-          "ground_energy": -9.993173098703641e-05,
+          "ground_energy": -9.993173098705137e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/9216",
@@ -298,7 +298,7 @@
         {
           "charge": 3,
           "dimension": 20,
-          "ground_energy": -0.00011240720877435028,
+          "ground_energy": -0.00011240720877429705,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/9216",
@@ -310,7 +310,7 @@
         {
           "charge": 4,
           "dimension": 15,
-          "ground_energy": -9.993173098692772e-05,
+          "ground_energy": -9.993173098707785e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/9216",
@@ -344,14 +344,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -0.00011240720877435028,
+      "half_filled_ground_energy": -0.00011240720877429705,
       "native_sector": 0,
-      "removal_gap_diagnostic": 1.2475477787313868e-05,
+      "removal_gap_diagnostic": 1.2475477787245686e-05,
       "second_order_charged_gap_exact": "1/80000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 8.897681587575123e-06,
+      "addition_gap_diagnostic": 8.897681587505572e-06,
       "cells": 8,
       "charge_sectors": [
         {
@@ -369,7 +369,7 @@
         {
           "charge": 1,
           "dimension": 8,
-          "ground_energy": -6.24840081867594e-05,
+          "ground_energy": -6.248400818675701e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -381,7 +381,7 @@
         {
           "charge": 2,
           "dimension": 28,
-          "ground_energy": -0.00010704367765075995,
+          "ground_energy": -0.0001070436776507984,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -393,7 +393,7 @@
         {
           "charge": 3,
           "dimension": 56,
-          "ground_energy": -0.00013375094139287338,
+          "ground_energy": -0.00013375094139293512,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -405,7 +405,7 @@
         {
           "charge": 4,
           "dimension": 70,
-          "ground_energy": -0.0001426486229804824,
+          "ground_energy": -0.00014264862298038223,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -417,7 +417,7 @@
         {
           "charge": 5,
           "dimension": 56,
-          "ground_energy": -0.00013375094139290728,
+          "ground_energy": -0.00013375094139287666,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -429,7 +429,7 @@
         {
           "charge": 6,
           "dimension": 28,
-          "ground_energy": -0.00010704367765072928,
+          "ground_energy": -0.00010704367765075381,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -441,7 +441,7 @@
         {
           "charge": 7,
           "dimension": 8,
-          "ground_energy": -6.24840081867594e-05,
+          "ground_energy": -6.248400818675701e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -463,14 +463,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -0.0001426486229804824,
+      "half_filled_ground_energy": -0.00014264862298038223,
       "native_sector": 0,
-      "removal_gap_diagnostic": 8.897681587609032e-06,
+      "removal_gap_diagnostic": 8.897681587447106e-06,
       "second_order_charged_gap_exact": "1/112000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 6.908005518138242e-06,
+      "addition_gap_diagnostic": 6.908005518166242e-06,
       "cells": 10,
       "charge_sectors": [
         {
@@ -488,7 +488,7 @@
         {
           "charge": 1,
           "dimension": 10,
-          "ground_energy": -6.248400818675023e-05,
+          "ground_energy": -6.248400818674629e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -500,7 +500,7 @@
         {
           "charge": 2,
           "dimension": 45,
-          "ground_energy": -0.00011098496687690003,
+          "ground_energy": -0.00011098496687695616,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -512,7 +512,7 @@
         {
           "charge": 3,
           "dimension": 120,
-          "ground_energy": -0.00014557657617238236,
+          "ground_energy": -0.00014557657617230376,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -524,7 +524,7 @@
         {
           "charge": 4,
           "dimension": 210,
-          "ground_energy": -0.00016631088581219565,
+          "ground_energy": -0.0001663108858121459,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -536,7 +536,7 @@
         {
           "charge": 5,
           "dimension": 252,
-          "ground_energy": -0.00017321889133030952,
+          "ground_energy": -0.00017321889133031725,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -548,7 +548,7 @@
         {
           "charge": 6,
           "dimension": 210,
-          "ground_energy": -0.00016631088581217128,
+          "ground_energy": -0.000166310885812151,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -560,7 +560,7 @@
         {
           "charge": 7,
           "dimension": 120,
-          "ground_energy": -0.0001455765761723474,
+          "ground_energy": -0.0001455765761723421,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -572,7 +572,7 @@
         {
           "charge": 8,
           "dimension": 45,
-          "ground_energy": -0.00011098496687689748,
+          "ground_energy": -0.0001109849668768945,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -584,7 +584,7 @@
         {
           "charge": 9,
           "dimension": 10,
-          "ground_energy": -6.248400818675023e-05,
+          "ground_energy": -6.248400818674629e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -606,14 +606,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -0.00017321889133030952,
+      "half_filled_ground_energy": -0.00017321889133031725,
       "native_sector": 0,
-      "removal_gap_diagnostic": 6.908005518113875e-06,
+      "removal_gap_diagnostic": 6.9080055181713375e-06,
       "second_order_charged_gap_exact": "1/144000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 3.9061875019988715e-06,
+      "addition_gap_diagnostic": 3.906187501998004e-06,
       "cells": 2,
       "charge_sectors": [
         {
@@ -631,7 +631,7 @@
         {
           "charge": 1,
           "dimension": 2,
-          "ground_energy": -3.9061875019988715e-06,
+          "ground_energy": -3.906187501998004e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/1024",
@@ -653,14 +653,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -3.9061875019988715e-06,
+      "half_filled_ground_energy": -3.906187501998004e-06,
       "native_sector": 1,
-      "removal_gap_diagnostic": 3.9061875019988715e-06,
+      "removal_gap_diagnostic": 3.906187501998004e-06,
       "second_order_charged_gap_exact": "1/256000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 1.302034730497399e-06,
+      "addition_gap_diagnostic": 1.302034730495416e-06,
       "cells": 4,
       "charge_sectors": [
         {
@@ -678,7 +678,7 @@
         {
           "charge": 1,
           "dimension": 4,
-          "ground_energy": -3.906187502005668e-06,
+          "ground_energy": -3.906187502006329e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -690,7 +690,7 @@
         {
           "charge": 2,
           "dimension": 6,
-          "ground_energy": -5.208222232503067e-06,
+          "ground_energy": -5.208222232501745e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -702,7 +702,7 @@
         {
           "charge": 3,
           "dimension": 4,
-          "ground_energy": -3.906187502005668e-06,
+          "ground_energy": -3.906187502006329e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -724,14 +724,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -5.208222232503067e-06,
+      "half_filled_ground_energy": -5.208222232501745e-06,
       "native_sector": 1,
-      "removal_gap_diagnostic": 1.302034730497399e-06,
+      "removal_gap_diagnostic": 1.302034730495416e-06,
       "second_order_charged_gap_exact": "1/768000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 7.811538359713932e-07,
+      "addition_gap_diagnostic": 7.811538360871301e-07,
       "cells": 6,
       "charge_sectors": [
         {
@@ -761,7 +761,7 @@
         {
           "charge": 2,
           "dimension": 15,
-          "ground_energy": -6.249732666248701e-06,
+          "ground_energy": -6.2497326662390625e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -773,7 +773,7 @@
         {
           "charge": 3,
           "dimension": 20,
-          "ground_energy": -7.030886502318541e-06,
+          "ground_energy": -7.030886502305926e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -785,7 +785,7 @@
         {
           "charge": 4,
           "dimension": 15,
-          "ground_energy": -6.249732666347148e-06,
+          "ground_energy": -6.2497326662187956e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -819,14 +819,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -7.030886502318541e-06,
+      "half_filled_ground_energy": -7.030886502305926e-06,
       "native_sector": 1,
-      "removal_gap_diagnostic": 7.811538360698405e-07,
+      "removal_gap_diagnostic": 7.811538360668632e-07,
       "second_order_charged_gap_exact": "1/1280000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 5.57914173031113e-07,
+      "addition_gap_diagnostic": 5.579141729264689e-07,
       "cells": 8,
       "charge_sectors": [
         {
@@ -844,7 +844,7 @@
         {
           "charge": 1,
           "dimension": 8,
-          "ground_energy": -3.906187502007523e-06,
+          "ground_energy": -3.9061875020078865e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -856,7 +856,7 @@
         {
           "charge": 2,
           "dimension": 28,
-          "ground_energy": -6.696039837157118e-06,
+          "ground_energy": -6.696039837171589e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -868,7 +868,7 @@
         {
           "charge": 3,
           "dimension": 56,
-          "ground_energy": -8.369838641835695e-06,
+          "ground_energy": -8.36983864186454e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -880,7 +880,7 @@
         {
           "charge": 4,
           "dimension": 70,
-          "ground_energy": -8.92775281483636e-06,
+          "ground_energy": -8.927752814810787e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -892,7 +892,7 @@
         {
           "charge": 5,
           "dimension": 56,
-          "ground_energy": -8.369838641805248e-06,
+          "ground_energy": -8.369838641884318e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -904,7 +904,7 @@
         {
           "charge": 6,
           "dimension": 28,
-          "ground_energy": -6.696039837289302e-06,
+          "ground_energy": -6.696039837165509e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "125/16384",
@@ -916,7 +916,7 @@
         {
           "charge": 7,
           "dimension": 8,
-          "ground_energy": -3.906187502007523e-06,
+          "ground_energy": -3.9061875020078865e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -938,14 +938,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -8.92775281483636e-06,
+      "half_filled_ground_energy": -8.927752814810787e-06,
       "native_sector": 1,
-      "removal_gap_diagnostic": 5.579141730006656e-07,
+      "removal_gap_diagnostic": 5.579141729462471e-07,
       "second_order_charged_gap_exact": "1/1792000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 4.338838290636036e-07,
+      "addition_gap_diagnostic": 4.338838290748166e-07,
       "cells": 10,
       "charge_sectors": [
         {
@@ -963,7 +963,7 @@
         {
           "charge": 1,
           "dimension": 10,
-          "ground_energy": -3.906187501999385e-06,
+          "ground_energy": -3.906187501999249e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -975,7 +975,7 @@
         {
           "charge": 2,
           "dimension": 45,
-          "ground_energy": -6.94394956016223e-06,
+          "ground_energy": -6.943949560210644e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -987,7 +987,7 @@
         {
           "charge": 3,
           "dimension": 120,
-          "ground_energy": -9.113574109687925e-06,
+          "ground_energy": -9.11357410975837e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -999,7 +999,7 @@
         {
           "charge": 4,
           "dimension": 210,
-          "ground_energy": -1.0415266671899247e-05,
+          "ground_energy": -1.0415266672018722e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1011,7 +1011,7 @@
         {
           "charge": 5,
           "dimension": 252,
-          "ground_energy": -1.0849150501078733e-05,
+          "ground_energy": -1.0849150501060193e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1023,7 +1023,7 @@
         {
           "charge": 6,
           "dimension": 210,
-          "ground_energy": -1.0415266672015129e-05,
+          "ground_energy": -1.0415266671985376e-05,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1035,7 +1035,7 @@
         {
           "charge": 7,
           "dimension": 120,
-          "ground_energy": -9.113574109823984e-06,
+          "ground_energy": -9.113574109771408e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1047,7 +1047,7 @@
         {
           "charge": 8,
           "dimension": 45,
-          "ground_energy": -6.943949560215645e-06,
+          "ground_energy": -6.943949560151325e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1059,7 +1059,7 @@
         {
           "charge": 9,
           "dimension": 10,
-          "ground_energy": -3.906187501999385e-06,
+          "ground_energy": -3.906187501999249e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1081,14 +1081,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -1.0849150501078733e-05,
+      "half_filled_ground_energy": -1.0849150501060193e-05,
       "native_sector": 1,
-      "removal_gap_diagnostic": 4.3388382917948616e-07,
+      "removal_gap_diagnostic": 4.338838290414706e-07,
       "second_order_charged_gap_exact": "1/2304000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 4.3402700618313003e-07,
+      "addition_gap_diagnostic": 4.3402700618255796e-07,
       "cells": 2,
       "charge_sectors": [
         {
@@ -1106,7 +1106,7 @@
         {
           "charge": 1,
           "dimension": 2,
-          "ground_energy": -4.3402700618313003e-07,
+          "ground_energy": -4.3402700618255796e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/1024",
@@ -1128,14 +1128,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -4.3402700618313003e-07,
+      "half_filled_ground_energy": -4.3402700618255796e-07,
       "native_sector": 2,
-      "removal_gap_diagnostic": 4.3402700618313003e-07,
+      "removal_gap_diagnostic": 4.3402700618255796e-07,
       "second_order_charged_gap_exact": "1/2304000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 1.4467532580213123e-07,
+      "addition_gap_diagnostic": 1.4467532581087838e-07,
       "cells": 4,
       "charge_sectors": [
         {
@@ -1153,7 +1153,7 @@
         {
           "charge": 1,
           "dimension": 4,
-          "ground_energy": -4.3402700617402103e-07,
+          "ground_energy": -4.340270061723588e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -1165,7 +1165,7 @@
         {
           "charge": 2,
           "dimension": 6,
-          "ground_energy": -5.787023319761523e-07,
+          "ground_energy": -5.787023319832372e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -1177,7 +1177,7 @@
         {
           "charge": 3,
           "dimension": 4,
-          "ground_energy": -4.3402700617402103e-07,
+          "ground_energy": -4.340270061723588e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/4096",
@@ -1199,14 +1199,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -5.787023319761523e-07,
+      "half_filled_ground_energy": -5.787023319832372e-07,
       "native_sector": 2,
-      "removal_gap_diagnostic": 1.4467532580213123e-07,
+      "removal_gap_diagnostic": 1.4467532581087838e-07,
       "second_order_charged_gap_exact": "1/6912000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 8.680436804198395e-08,
+      "addition_gap_diagnostic": 8.680436801121061e-08,
       "cells": 6,
       "charge_sectors": [
         {
@@ -1224,7 +1224,7 @@
         {
           "charge": 1,
           "dimension": 6,
-          "ground_energy": -4.34027006113169e-07,
+          "ground_energy": -4.340270061686802e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -1236,7 +1236,7 @@
         {
           "charge": 2,
           "dimension": 15,
-          "ground_energy": -6.944411435804885e-07,
+          "ground_energy": -6.944411436165576e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -1248,7 +1248,7 @@
         {
           "charge": 3,
           "dimension": 20,
-          "ground_energy": -7.812455116024425e-07,
+          "ground_energy": -7.812455115952251e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -1260,7 +1260,7 @@
         {
           "charge": 4,
           "dimension": 15,
-          "ground_energy": -6.944411435604585e-07,
+          "ground_energy": -6.944411435840145e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -1272,7 +1272,7 @@
         {
           "charge": 5,
           "dimension": 6,
-          "ground_energy": -4.34027006113169e-07,
+          "ground_energy": -4.340270061686802e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/9216",
@@ -1294,14 +1294,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -7.812455116024425e-07,
+      "half_filled_ground_energy": -7.812455115952251e-07,
       "native_sector": 2,
-      "removal_gap_diagnostic": 8.680436802195395e-08,
+      "removal_gap_diagnostic": 8.68043679786675e-08,
       "second_order_charged_gap_exact": "1/11520000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 6.200246699862712e-08,
+      "addition_gap_diagnostic": 6.200246719471175e-08,
       "cells": 8,
       "charge_sectors": [
         {
@@ -1319,7 +1319,7 @@
         {
           "charge": 1,
           "dimension": 8,
-          "ground_energy": -4.3402700617832566e-07,
+          "ground_energy": -4.340270061792023e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1331,7 +1331,7 @@
         {
           "charge": 2,
           "dimension": 28,
-          "ground_energy": -7.440428189299326e-07,
+          "ground_energy": -7.440428188747084e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1343,7 +1343,7 @@
         {
           "charge": 3,
           "dimension": 56,
-          "ground_energy": -9.300509156666569e-07,
+          "ground_energy": -9.300509155989268e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1355,7 +1355,7 @@
         {
           "charge": 4,
           "dimension": 70,
-          "ground_energy": -9.920533826589926e-07,
+          "ground_energy": -9.920533827430068e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1367,7 +1367,7 @@
         {
           "charge": 5,
           "dimension": 56,
-          "ground_energy": -9.300509156603654e-07,
+          "ground_energy": -9.30050915548295e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1379,7 +1379,7 @@
         {
           "charge": 6,
           "dimension": 28,
-          "ground_energy": -7.440428188467085e-07,
+          "ground_energy": -7.440428189180377e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1391,7 +1391,7 @@
         {
           "charge": 7,
           "dimension": 8,
-          "ground_energy": -4.3402700617832566e-07,
+          "ground_energy": -4.340270061792023e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "125/16384",
@@ -1413,14 +1413,14 @@
           }
         }
       ],
-      "half_filled_ground_energy": -9.920533826589926e-07,
+      "half_filled_ground_energy": -9.920533827430068e-07,
       "native_sector": 2,
-      "removal_gap_diagnostic": 6.200246699233568e-08,
+      "removal_gap_diagnostic": 6.200246714408004e-08,
       "second_order_charged_gap_exact": "1/16128000"
     },
     {
       "a_positive_thermodynamic_mass_is_certified": false,
-      "addition_gap_diagnostic": 4.8223530396652014e-08,
+      "addition_gap_diagnostic": 4.8223530443811844e-08,
       "cells": 10,
       "charge_sectors": [
         {
@@ -1438,7 +1438,7 @@
         {
           "charge": 1,
           "dimension": 10,
-          "ground_energy": -4.340270061818959e-07,
+          "ground_energy": -4.3402700618187393e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1450,7 +1450,7 @@
         {
           "charge": 2,
           "dimension": 45,
-          "ground_energy": -7.71598827032425e-07,
+          "ground_energy": -7.715988270540553e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1462,7 +1462,7 @@
         {
           "charge": 3,
           "dimension": 120,
-          "ground_energy": -1.0127190172191837e-06,
+          "ground_energy": -1.0127190173224734e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1474,7 +1474,7 @@
         {
           "charge": 4,
           "dimension": 210,
-          "ground_energy": -1.1573901159591504e-06,
+          "ground_energy": -1.1573901160764687e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1486,7 +1486,7 @@
         {
           "charge": 5,
           "dimension": 252,
-          "ground_energy": -1.2056136463525801e-06,
+          "ground_energy": -1.205613646345214e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1498,7 +1498,7 @@
         {
           "charge": 6,
           "dimension": 210,
-          "ground_energy": -1.157390115955928e-06,
+          "ground_energy": -1.1573901159014023e-06,
           "perturbative_certificate": {
             "admitted": false,
             "gap_lower": "5/1024",
@@ -1510,7 +1510,7 @@
         {
           "charge": 7,
           "dimension": 120,
-          "ground_energy": -1.0127190173494169e-06,
+          "ground_energy": -1.012719017273976e-06,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1522,7 +1522,7 @@
         {
           "charge": 8,
           "dimension": 45,
-          "ground_energy": -7.715988270485866e-07,
+          "ground_energy": -7.715988270449555e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1534,7 +1534,7 @@
         {
           "charge": 9,
           "dimension": 10,
-          "ground_energy": -4.340270061818959e-07,
+          "ground_energy": -4.3402700618187393e-07,
           "perturbative_certificate": {
             "admitted": true,
             "gap_lower": "5/1024",
@@ -1556,9 +1556,9 @@
           }
         }
       ],
-      "half_filled_ground_energy": -1.2056136463525801e-06,
+      "half_filled_ground_energy": -1.205613646345214e-06,
       "native_sector": 2,
-      "removal_gap_diagnostic": 4.822353039342969e-08,
+      "removal_gap_diagnostic": 4.822353026874538e-08,
       "second_order_charged_gap_exact": "1/20736000"
     }
   ],

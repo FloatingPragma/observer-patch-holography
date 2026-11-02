@@ -5,15 +5,18 @@ source fixes a unique scalar charge-clock centering: `K=H-(U/2)N`.
 This package constructs a **new** full ground for that explicitly changed
 charged dynamics. It does not assume that the old ground stays a ground.
 On the actual cube the old `N=4` ground fails that test, and the new
-global ground is proved to lie entirely in `N=8`. The explicitly imported
-Lieb theorem then proves this ground is unique and has hidden spin zero.
+global ground is proved to lie entirely in `N=8`. An exact integer
+certificate proves that it is unique and has hidden spin zero, using
+the source spin algebra and a certified trial overlap. The explicitly
+imported Lieb theorem supplies a separate ground-spin cross-check.
 Its actual one-site state is faithful on the complete four-state CAR
 algebra, with a certified least eigenvalue greater than `1/15000`.
-Its separation from
-every other charge sector is strictly larger than `1/8` model energy
-unit at `c=1/8,U=1`. These are finite charged gaps, not relativistic masses.
+The full finite gap is strictly larger than `1/128`; its separation from
+every other charge sector exceeds `1/8` model energy unit at `c=1/8,U=1`.
+The reference approximation has certified infidelity below `10^-6`.
+These finite source energies do not identify relativistic masses.
 
-The original action and all earlier receipts remain unchanged. The
+The original action and earlier scientific results remain unchanged. The
 subtraction is an explicitly recorded comparison dynamics, motivated by
 the necessary CPT centering in
 [continuum_cpt_constraint](../continuum_cpt_constraint/README.md).
@@ -106,9 +109,85 @@ An optional balanced-spin `N=8` Ritz calculation reports approximate
 energies and residuals as diagnostics; (1)--(2) are its independent
 admission bounds and do not depend on eigensolver success.
 
-## A unique hidden-spin-zero cube ground by an imported theorem
+## An exact full finite gap and a certified reference approximation
 
-We explicitly import Lieb's repulsive Hubbard ground-spin theorem;
+The complete centered cube has a unique ground and a gap **strictly greater
+than `1/128`** in the declared model energy units. The charge-sector bound
+above is `>1/8`; the new calculation covers the remaining neutral sector.
+The proof first treats the complete 4900-dimensional `N=8,S_z=0`
+block, without assuming a singlet or using Lieb's theorem. It then
+establishes spin zero and transfers the bound to every `N=8` spin sector.
+
+`gap.py` obtains a numerical proposal, rounds its trial vector and Gram
+factor to dyadic integers, and independently verifies the full matrix
+identity over integers. With dyadic trial `v` and factor `Q`, it verifies
+
+```
+<v,Kv>/<v,v> < -1055/256,
+K + 2105/512 I + vv* = QQ* + R,    ||R|| <= ||R||_infinity < 1/512.
+```
+
+Thus `K+1053/256 I+vv*` is strictly positive. A positive rank-one
+correction can remove at most one nonpositive eigenvalue, while the trial
+Rayleigh quotient lies below that threshold. Thus exactly one balanced
+eigenvalue lies below `B=-1053/256`, its ground vector `g` is unique up to
+phase, and every other balanced eigenvalue exceeds `B`.
+No observed eigensolver residual or reported numerical
+eigenvalue is used as an acceptance criterion. Sparse duplicate sums,
+every integer product and every row reduction are checked before overflow;
+all factor columns enter the proof. The large proposal arrays are
+recomputed, not stored as unexplained evidence.
+
+The same unprojected rational trial supplies a certified approximation to
+this balanced ground. Let `rho=<v,Kv>/<v,v>` and
+`s2=||(K-rho)v||^2/<v,v>`. Exact integer evaluation gives the variance
+`s2`. The balanced spectral bound implies
+
+```
+1-|<g,v/||v||>|^2 <= s2/(B-rho)^2 < 1/1000000,
+rho-s2/(B-rho) <= E_balanced <= rho.
+```
+
+The source spin algebra is checked independently on the complete Fock
+space: `[S_+,S_-]=2S_z`, `[2S_z,S_+]=2S_+`, and the Hamiltonian commutes
+with these generators. Exact frame conjugation matches all three spin
+operators in the physical frame and the Hamiltonian to this hidden-frame
+CAR construction.
+The balanced addresses are independently reconstructed in the source's
+combinations order; the rectangular `S_+` matrix from its 4900 states to
+the 3136 states with `S_z=1` is checked against the full operator and the
+Hamiltonian restriction against the same addresses.
+
+Since `S^2` commutes with the balanced Hamiltonian, its unique ground `g`
+has a definite spin. Direct integer evaluation of the same trial gives
+
+```
+<v,S^2 v>/<v,v> = ||S_+v||^2/||v||^2 < 1.
+```
+
+All spins at `N=8` are integers. Nonnegativity of `S^2` and the certified
+overlap would therefore give a trial expectation greater than
+`2(1-1/1000000)>1` if `g` had any spin `S>=1`. This contradiction proves
+`S=0`. Every integer-spin multiplet contains `S_z=0`; hence the balanced
+singlet is the unique ground of the complete `N=8` sector, and every
+other energy in that sector exceeds `B`. Subtracting the trial upper
+bound proves the neutral gap `>1/128`. The charge bound completes the
+proof on all 65,536 states, independently of the imported Lieb theorem.
+
+The replay certifies `-206203/50000 < E_ground < -82481/20000`, trial
+infidelity below `10^-6`, half trace distance below `1/1000`, and expectation
+error below `||A||/500` for every bounded observable `A`. This is a verified
+finite reference approximation; a native source word preparing this new
+ground is still required. It is not the already prepared old `N=4` ground.
+
+For any explicitly declared Hermitian perturbation with norm below `1/256`,
+minmax also preserves uniqueness and gives gap `>1/128-2||V||`. This finite
+spectral stability does not establish protection under the repair instrument,
+a topological invariant, a thermodynamic gap or a relativistic rest mass.
+
+## An independent imported ground-spin cross-check
+
+We also explicitly import Lieb's repulsive Hubbard ground-spin theorem;
 the package checks its finite hypotheses, not a new proof of the theorem.
 The primary statement is Theorem 1, printed page 8, of
 [Lieb's 1993 review](https://arxiv.org/pdf/cond-mat/9311033), following
@@ -124,11 +203,52 @@ connected and bipartite with four vertices in each part; every onsite
 repulsion is one. `lieb_premises()` checks these source hypotheses.
 The preceding full-Fock argument independently establishes half filling,
 `N=8`. The review's centered interaction convention adds only the scalar
-`UV/4=2` to our `K`, so it has the same eigenvectors. Consequently the
-actual global centered cube ground is **unique and has hidden spin zero**.
-Finite dimensionality then gives an unquantified positive neutral gap;
-no numerical lower bound for that gap, no physical spin identification,
-and no thermodynamic ground uniqueness is inferred.
+`UV/4=2` to our `K`, so it has the same eigenvectors. The theorem therefore
+independently gives a unique hidden-spin-zero ground. It is not an
+admission premise of the direct finite gap proof, but remains an explicit
+import elsewhere in the package. Neither argument identifies physical
+spin or establishes thermodynamic ground uniqueness.
+
+## Charged response, currents and the complete repair
+
+The unique centered ground is an `S=eta=0` singlet. Spin zero follows from
+the direct finite certificate; uniqueness and the commuting eta algebra
+force eta zero, since a nonzero eta multiplet would supply additional
+degenerate charge sectors. Exact full-Fock CAR commutators then place every
+linear creation/removal response, and its entire `K`-cyclic span, in
+`S=eta=1/2`. The complete joint singlet isotypic space has dimension 588,
+but the ground itself is unique. The charged joint isotypic space contains
+1344 copies of the four-dimensional representation; no claim is made that
+every copy is reachable by a linear probe. These are internal spin labels,
+not an identification with physical Lorentz spin.
+
+The actual particle-hole unitary preserves `K` and the ground. For every
+Borel excitation-energy set, it relates the complete addition and removal
+matrix measures, including off-diagonal probe coherences. In the physical
+onsite frame, `C c C*=F c*` gives `A(B)=F B(B) F*`, where the removal
+matrix is defined as `<g|c_i* P_B c_j|g>`; the retarded-response convention
+uses its transpose. All local positive addition/removal measures agree.
+All twelve oriented source bond currents reverse under the same unitary,
+and their eight exact continuity equations use the same centered charge.
+External Peierls links transform as `K(A)->K(-A)`; this does not fix their
+physical electromagnetic normalization.
+
+The full admitted cube repair has support only in its declared `N=6`
+embedding. Every native raw map is zero on the complete `N=7` and `N=9`
+sectors, and every outside map is the identity there. The check covers
+22,880 input columns and all 130 C/E seam/outcome slots; arbitrary quantum
+references and finite histories follow by the operator identities. These
+charged responses are therefore repair-transparent, but this repair alone
+produces no nontrivial particle record. Transparency is not a localized
+topological invariant or a completed detector implementation.
+
+The [complete onsite mass catalogue](../native_mass_channels/README.md)
+has four channels. Their actual finite-ground order expectations are all
+zero: the scalar staggered excess density is particle-hole odd, and the
+three hidden-frame Neel orders form a spin vector in a singlet. This
+allows nonzero fluctuations and the rigorously positive many-body gap.
+It prevents interpreting that gap as proof of a selected classical mass
+texture. The bounded-coupling continuum remains free and massless.
 
 ## Actual cube one-site faithfulness and its modular generator
 
@@ -356,7 +476,8 @@ moment. It does not identify that original ground with the centered one.
 The receipt binds the existing full-source ground bound, the new exact
 particle-hole matrix check, imported Lieb theorem hypotheses, actual
 cube one-site faithfulness and entropy estimates, the complete dimer
-calculation and the centered-state construction. It distinguishes proved sector bounds from
-optional Ritz diagnostics. Native preparation of this changed ground,
+calculation, complete finite gap and trial-state error, full charged selection
+and repair identities, and the centered-state construction. Floating proposals
+are independently checked by exact integer arithmetic. Native preparation of this changed ground,
 surviving continuum interactions, physical particle identities and masses,
 and the same-state geometric/modular/Einstein requirements remain open.

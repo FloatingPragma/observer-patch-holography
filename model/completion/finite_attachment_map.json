@@ -16,8 +16,8 @@
   "canonical_registry": "tracking/premise_register.json",
   "physical_comparison_count_added": 0,
   "canonical_premises_discharged": [],
-  "finite_obligations_realized": 97,
-  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 102 explicit finite theorem/model attachments, 97 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged. Direct checks of FA84-87 are separate from older broad receipt custody; see spectrum_refinement_geometry_campaign.json. FA88-91 close additional finite inputs and the specified fixed-spacing spin limit; current evidence is in native_neutral_spin_response_campaign.json. FA92-95 close order, gapless spectrum, native spin observation, free stress refinement and cubic-channel inputs; current evidence is in gapless_native_spatial_response_campaign.json. FA96-98 supply actual free regional modular limits, two-channel spectral scaling and native finite selected-ground preparation. FA99-102 supply the power-law charged free boundary, a regular continuum spin Weyl net, the actual finite entropy/stress shrinking join, and complete native joint spin spectroscopy.",
+  "finite_obligations_realized": 98,
+  "scope": "Exhaustive ownership/relevance navigation for all 84 canonical premise rows, with 103 explicit finite theorem/model attachments, 98 realized on their stated domains. The empirical comparison remains retrospective and ineligible for CP11 physical acceptance. This is not a fresh proof audit of every imported theorem or tracked Lean module; no canonical physical premise is discharged. Direct checks of FA84-87 are separate from older broad receipt custody; see spectrum_refinement_geometry_campaign.json. FA88-91 close additional finite inputs and the specified fixed-spacing spin limit; current evidence is in native_neutral_spin_response_campaign.json. FA92-95 close order, gapless spectrum, native spin observation, free stress refinement and cubic-channel inputs; current evidence is in gapless_native_spatial_response_campaign.json. FA96-98 supply actual free regional modular limits, two-channel spectral scaling and native finite selected-ground preparation. FA99-102 supply the power-law charged free boundary, a regular continuum spin Weyl net, the actual finite entropy/stress shrinking join, and complete native joint spin spectroscopy.",
   "existing_navigation_coverage": {
     "claim_count": 346,
     "lean_module_count": 669,
@@ -2317,6 +2317,29 @@
         "def theorem("
       ],
       "boundary": "Arbitrary finite clock/program accuracy uses the declared dyadic integrated-port source interface and the explicit finite splitting/rounding budgets. No low-momentum curve is inferred from open-cube reflection labels, and no effective infinite-ground marginal rate is asserted."
+    },
+    "centered_gap": {
+      "path": "model/centered_source_ground/gap.py",
+      "anchors": [
+        "def verify_witness("
+      ],
+      "boundary": "Finite 65536-state source gap and reference approximation only; no native preparation, thermodynamic mass or physical identification."
+    },
+    "centered_particles": {
+      "path": "model/centered_source_ground/particles.py",
+      "anchors": [
+        "def certificate("
+      ],
+      "boundary": "Hidden spin/eta and exact charged response on the centered cube; outside-only native repair does not produce a defect record or physical charge normalization."
+    },
+    "native_mass_channels": {
+      "path": "model/native_mass_channels/algebra.py",
+      "anchors": [
+        "def exhaustion_certificate(",
+        "def source_anchor_certificate(",
+        "def texture_degree("
+      ],
+      "boundary": "Derive and stabilize any proposed ordered field from the admitted interaction, reference and complete repair rather than supply its coefficients. Prove a spatial defect Hamiltonian and its localized spectrum or index; a winding of onsite coefficients alone does not supply a fermion zero mode."
     }
   },
   "attachments": [
@@ -5605,7 +5628,7 @@
     },
     {
       "id": "FA-81",
-      "title": "Particle-hole charge clock, unique centered cube ground and full-site faithfulness",
+      "title": "Centered cube ground, certified full gap and complete charged response",
       "classification": "realized_on_claimed_domain",
       "owners": [
         "CP-05",
@@ -5615,19 +5638,21 @@
         "CP-09"
       ],
       "reviewed_sources": [
-        "centered_source_ground"
+        "centered_source_ground",
+        "centered_gap",
+        "centered_particles"
       ],
       "interface": {
-        "state": "The unique hidden-spin-zero centered cube ground, with sharp N8, not the old unshifted N4 state. Its one-site density is faithful with least eigenvalue greater than 1/15000. Infinite-volume states come from full centered-ground projectors with particle-hole invariant tracial exterior and translation averaging; neither uniqueness nor the finite faithfulness bound is transferred to that limit.",
+        "state": "The unique hidden-spin-zero centered cube ground, with sharp N8, not the old unshifted N4 state. Its one-site density is faithful with least eigenvalue greater than 1/15000. Infinite-volume states come from full centered-ground projectors with particle-hole invariant tracial exterior and translation averaging; neither uniqueness nor the finite faithfulness bound is transferred to that limit. The finite full gap exceeds 1/128; a dyadic trial has ground infidelity below 1e-6.",
         "algebra": "Original full Weyl/contact CAR algebra, exact bipartite particle-hole automorphism, all65536 cube Fock states, and complete16-state dimer. The continuum construction retains all eight valleys.",
-        "operation": "Exact full-source signed bit-complement identity; imported all-N ground lower bound; variational matching-dimer upper bound; exact checks of the explicitly imported Lieb theorem hypotheses; signed vertex transitivity and all 256 singly occupied configurations; full-site modular/entropy bounds; complete symbolic dimer spectrum/local density; and semigroup pull-through on arbitrary measurable kinetic windows. Optional Ritz values are diagnostics and do not determine mathematical admission.",
+        "operation": "Exact full-source signed bit-complement identity; imported all-N ground lower bound; variational matching-dimer upper bound; exact checks of the explicitly imported Lieb theorem hypotheses; signed vertex transitivity and all 256 singly occupied configurations; full-site modular/entropy bounds; complete symbolic dimer spectrum/local density; and semigroup pull-through on arbitrary measurable kinetic windows. Optional Ritz values are diagnostics and do not determine mathematical admission. Exact integer rank-one Gram and variance certificates; complete spin/eta selection, PH-covariant matrix response, current and repair-sector identities. Trial eigensolvers propose witnesses only.",
         "clock": "Explicit comparison dynamics K=H-(U/2)N fixed by the stated particle-hole symmetry requirement. Earlier unshifted H receipts remain unchanged. Positivity is proved in the newly selected K-ground rather than transferred from the old state.",
         "refinement": "New centered finite-volume full-ground family and its invariant thermodynamic subsequence. Under c=v/a and bounded U(a), the prior uniform full-CAR argument gives a centered positive-energy continuum net; first moments pass and second moments retain only an upper bound. The occupation bound is microscopic and does not assert uniform convergence on shrinking momentum packets."
       },
-      "conclusion": "Requiring particle-hole invariance uniquely fixes K=H-(U/2)N on the full bipartite Weyl/contact Fock algebra. On the actual U=1,c=1/8 cube, the previous N4 ground is not a K-ground: the imported all-number bound and exact particle-hole symmetry prove that every centered global ground has N8. Exact finite source hypotheses and the explicitly imported Lieb theorem then prove uniqueness and hidden spin zero. A four-dimer trial gives -4-sqrt(3)/4<=E_K<=-2-sqrt(17)/2 and a gap to every other charge sector strictly larger than 1/8. The actual cube one-site density diag(d,1/2-d,1/2-d,d) obeys 1/15000<d<1/8, with a full-CAR modular operator, entropy first law and controlled relative-entropy remainder. Exact complete dimer addition/removal energies and weights are calculated. A new particle-hole invariant thermodynamic ground and centered continuum net have zero averaged signed first moment. Pull-through gives centered occupation defect D<=min(2,11(U/c)^2/8), and a separate original-clock bound D<=min(2,11(U/c)^2/4).",
+      "conclusion": "Requiring particle-hole invariance uniquely fixes K=H-(U/2)N on the full bipartite Weyl/contact Fock algebra. On the actual U=1,c=1/8 cube, the previous N4 ground is not a K-ground: the imported all-number bound and exact particle-hole symmetry prove that every centered global ground has N8. An exact balanced rank-one, variance and spin certificate proves uniqueness and hidden spin zero without importing Lieb; the checked Lieb theorem remains a separate crosscheck. A four-dimer trial gives -4-sqrt(3)/4<=E_K<=-2-sqrt(17)/2 and a gap to every other charge sector strictly larger than 1/8. The actual cube one-site density diag(d,1/2-d,1/2-d,d) obeys 1/15000<d<1/8, with a full-CAR modular operator, entropy first law and controlled relative-entropy remainder. Exact complete dimer addition/removal energies and weights are calculated. A new particle-hole invariant thermodynamic ground and centered continuum net have zero averaged signed first moment. Pull-through gives centered occupation defect D<=min(2,11(U/c)^2/8), and a separate original-clock bound D<=min(2,11(U/c)^2/4). The complete finite cube gap is strictly greater than 1/128, proved by an exact integer rank-one Gram certificate on the full 4900-row balanced block and the charged-sector bound. Its dyadic reference has certified infidelity below 1e-6. Every creator/annihilator response from the actual ground has hidden S=eta=1/2; exact particle-hole covariance relates the full positive matrix measures and reverses all twelve currents. On both full N7/N9 sectors (22880 columns), all 120 native raw slots vanish and each of the ten outside branches is identity; every slot of the ten complete instruments is retained. All four onsite mass-order expectations vanish in this finite ground.",
       "remaining": [
         "Construct native preparation and complete readout of the new centered ground where operational execution is claimed.",
-        "Resolve the required neutral spectrum quantitatively and implement the unique centered N8 ground; finite uniqueness does not supply a certified neutral-gap value or thermodynamic uniqueness.",
+        "Construct a native preparation word for the certified finite reference and its charged detector; an integer state certificate is not a source preparation. Quantify any thermodynamic gap separately.",
         "Determine surviving continuum interaction and the appropriate massive and massless relativistic sectors in the new reference.",
         "Derive physical field, spin, charge, detector and clock/unit identifications and test measured species independently.",
         "Realize the same-state stress, geometric, area and Einstein-balance premises; the actual finite one-site modular operator is calculated but its geometric identification and limiting faithfulness remain open."
@@ -5640,19 +5665,25 @@
         "model/centered_source_ground/cube.py",
         "model/centered_source_ground/dimer.py",
         "model/centered_source_ground/faithfulness.py",
+        "model/centered_source_ground/gap.py",
         "model/centered_source_ground/packet.py",
+        "model/centered_source_ground/particles.py",
         "model/centered_source_ground/results.json",
         "model/centered_source_ground/test_faithfulness.py",
+        "model/centered_source_ground/test_gap.py",
         "model/centered_source_ground/test_ground.py",
         "model/centered_source_ground/test_packet.py",
+        "model/centered_source_ground/test_particles.py",
         "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex"
       ],
       "countercontrols": [
+        "model/centered_source_ground/test_faithfulness.py",
+        "model/centered_source_ground/test_gap.py",
         "model/centered_source_ground/test_ground.py",
         "model/centered_source_ground/test_packet.py",
-        "model/centered_source_ground/test_faithfulness.py"
+        "model/centered_source_ground/test_particles.py"
       ],
-      "proof_kind": "Exact source particle-hole identity, existing all-number operator lower bound, finite variational sector proof, explicitly imported Lieb ground-spin theorem with exact source premise checks, finite full-site faithfulness and modular/entropy proof, symbolic full-dimer CAR/spectral calculation, and a new invariant ground/semigroup-window construction. No unproved old-ground positivity, physical mass identification or interacting Lorentz/Einstein completion.",
+      "proof_kind": "Exact source particle-hole identity, existing all-number operator lower bound, finite variational sector proof, explicitly imported Lieb ground-spin theorem with exact source premise checks, finite full-site faithfulness and modular/entropy proof, symbolic full-dimer CAR/spectral calculation, and a new invariant ground/semigroup-window construction. No unproved old-ground positivity, physical mass identification or interacting Lorentz/Einstein completion. Exact integer residual verification quantifies the full finite gap and reference error; full-Fock algebra and complete-instrument sector identities determine the charged response.",
       "new_lean_inhabitant": false,
       "physical_identification": false
     },
@@ -6657,6 +6688,51 @@
       "proof_kind": "Self-contained finite group/positive-instrument and polar-residual error proof, exact rational source certificates, full native six-level execution, strict scope/type/output mutation tests, and independent mathematical review.",
       "new_lean_inhabitant": false,
       "physical_identification": false
+    },
+    {
+      "id": "FA-103",
+      "title": "Complete onsite Weyl mass family and restricted texture topology",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-03",
+        "CP-05",
+        "CP-06",
+        "CP-07"
+      ],
+      "reviewed_sources": [
+        "native_mass_channels",
+        "centered_particles"
+      ],
+      "interface": {
+        "state": "Exact quadratic catalogue, with a separate join to the unique centered cube ground whose four order expectations are zero. No ordered reference is supplied by the catalogue.",
+        "algebra": "Full native Weyl one-body hopping, all four Hermitian onsite coordinates and all eight valleys in the 16-row folded symbol. No valley deletion or general-Hamiltonian classification.",
+        "operation": "Source-derived edge recursion and exact kernel rank; full Clifford identities, spectrum and Dirac multiplicities; coefficient-space retractions, constant-gap spin rotation and exact oriented degree of a nonvanishing piecewise-linear sphere texture.",
+        "clock": "The existing source hopping and declared model energy units. No physical mass calibration or change to repair is inferred.",
+        "refinement": "Algebraic extension to the connected cubic lattice and topology within the exhausted onsite-anticommuting family. A coefficient texture does not establish a gap or zero mode for its full spatial Hamiltonian."
+      },
+      "conclusion": "Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+      "remaining": [
+        "Derive and stabilize any proposed ordered field from the admitted interaction, reference and complete repair rather than supply its coefficients.",
+        "Prove a spatial defect Hamiltonian and its localized spectrum or index; a winding of onsite coefficients alone does not supply a fermion zero mode.",
+        "Join the resulting excitations to the common physical spin, charge, current, clock and unit dictionary, retaining all valleys unless a removal mechanism is proved."
+      ],
+      "witnesses": [
+        "model/native_mass_channels/README.md",
+        "model/native_mass_channels/__init__.py",
+        "model/native_mass_channels/__main__.py",
+        "model/native_mass_channels/algebra.py",
+        "model/native_mass_channels/packet.py",
+        "model/native_mass_channels/results.json",
+        "model/native_mass_channels/test_algebra.py",
+        "model/native_mass_channels/test_packet.py"
+      ],
+      "countercontrols": [
+        "model/native_mass_channels/test_algebra.py",
+        "model/native_mass_channels/test_packet.py"
+      ],
+      "proof_kind": "Exact rational/symbolic full-source algebra and constructive coefficient-space topology, with strict degenerate-texture and scope countercontrols; no physical-species or repair-protection identification.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
     }
   ],
   "cleanup": {
@@ -7245,7 +7321,7 @@
     "model/protected_particle_readout/identification.py": "241ed8ea39bd1b8cb5108bf65e52174a50001c688a486fb7d6fc689577faa7a2",
     "model/protected_particle_readout/packet.py": "326eed48c76648460668fc433da41ef132f549e6199201d5388233f4f7cca71f",
     "model/protected_particle_readout/results.json": "f26f82f4a65eb4533be2c59b9e1bf677039e01472b1ad0340b267e5c3b60c087",
-    "model/protected_particle_readout/results.npz": "fad31ca81f0d24c19dd113c7e73dad8cb9f1eaef29fdc6d534cad12a725c7be9",
+    "model/protected_particle_readout/results.npz": "1e9c9f6fd024032cae0ce63eef5f0adc1027ecf17eab479a95b59cde449116c8",
     "model/protected_particle_readout/test_bounds.py": "89896abe53f193f720943ae26d486413482c373798850e4effe7e5d57812c275",
     "model/protected_particle_readout/test_execute.py": "463568cd489d9683e04c98c4717914c61f434c6995492ab939323a6ecd48139a",
     "model/protected_particle_readout/test_experiment.py": "6969512fd8e7c7fc534d8aa4404876abe9235e2bebb2d18f0540c46895b84bc1",
@@ -7295,14 +7371,14 @@
     "model/interacting_vacuum/__init__.py": "5466a1a93e7d8d31d32a698bbdb6a178ea71081f3844e3339723686af9fc1097",
     "model/interacting_vacuum/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/interacting_vacuum/charged.py": "22bc6c78b3fc272d941e35d2586a0d8d159a1d1abe8811d10131d8fbfeca2346",
-    "model/interacting_vacuum/global_ground.py": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+    "model/interacting_vacuum/global_ground.py": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866",
     "model/interacting_vacuum/ground.py": "98af19731f5f5e7d208953f58a778244b65a65d054b352e89f82cc1d4b81ce0d",
-    "model/interacting_vacuum/packet.py": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+    "model/interacting_vacuum/packet.py": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352",
     "model/interacting_vacuum/results.json": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
     "model/interacting_vacuum/test_charged.py": "b01808066268fd8d81ee9f5de283ecffcd848435371f5de0efbb9d98c7d355b4",
-    "model/interacting_vacuum/test_global_ground.py": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+    "model/interacting_vacuum/test_global_ground.py": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33",
     "model/interacting_vacuum/test_ground.py": "669883eee9d555a2467afd96a3ce62ff9c74193aeaf5b59faee31d0e4045c7e6",
-    "model/interacting_vacuum/test_packet.py": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+    "model/interacting_vacuum/test_packet.py": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902",
     "paper/tex_fragments/INTERACTING_VACUUM.tex": "e54036b198b9544f7b82578e2a4cbc1c64994f2d6c4cf8df5ba49f2a7a474fad",
     "model/mass_generation_audit/README.md": "e69d723aa883e0db76f586aff870e0710ec7aa28bf641b3daa060bef237eb791",
     "model/mass_generation_audit/__init__.py": "2256d85385a066e95effcd81adc01de90cae0fc98297a0aa025b5c176791d404",
@@ -7367,7 +7443,7 @@
     "model/ground_spectral_source/packet.py": "17f5315cadfd6ccb019eeea5f41fa85be23ce26a7c0ffde6cc9fab02a9ee769c",
     "model/ground_spectral_source/preparation.py": "b156d7eef2ff0f4b029ebef845273abf83f1022d1602a7138e46ac038c9d54e1",
     "model/ground_spectral_source/results.json": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
-    "model/ground_spectral_source/results.npz": "f5e543c87f0484b269bcfc1abdb7e1e61199c8a7e88f9171b8a0107666147aff",
+    "model/ground_spectral_source/results.npz": "5dc5e451841606d1a6ec6182e75a82dd942527c69326ed962af32b9dc4153371",
     "model/ground_spectral_source/test_bounds.py": "b04be0d9be8b2146ed5941f18f08f5a28e3d49d6afeb52f885e62703756a9121",
     "model/ground_spectral_source/test_experiment.py": "80225690128bf4a63d45a40fe7312dfe77bccd1efc592a63fef4fe7063b84558",
     "model/ground_spectral_source/test_packet.py": "81bca56d77377135af1792e3bedae9e92cad0dee91a4d75ce4922f6d8028ba41",
@@ -7457,12 +7533,12 @@
     "model/native_spectral_detector/packet.py": "3e5a581232b149dac46dafc6806082b3e98d980bba26d64ba7a1c8713b765450",
     "model/native_spectral_detector/preparation.py": "69326a0362ba75793de5aee65e68ab178737647836c65dbba91ed8eaa3ea9482",
     "model/native_spectral_detector/results.json": "d6cbde7e45f9b551bc7d9d14863812583596cc64cff1f62d366d7520508776f4",
-    "model/native_spectral_detector/results.npz": "64ef8f8a184f57d037a1f1811156194008a461b3e2967f1e4486ed24be0a8920",
-    "model/native_spectral_detector/results.state-0.npz": "35363699d4162ba29a744667843334fc4da5743e6e4f4561c96cf4db30bd4ef4",
-    "model/native_spectral_detector/results.state-1.npz": "89131bcae7ae5e9efdffee798dcc6bbe56a1496683ef70ee3cb3f4398b108e6f",
-    "model/native_spectral_detector/results.state-2.npz": "919278e0923de6a220af994522a2c965fa9a6a4c45f75c452e71b0e6f8e607b0",
-    "model/native_spectral_detector/results.state-3.npz": "a8c0946b4fa7b0517679a31106509164224062c730fd4604e93b1893b3601e1d",
-    "model/native_spectral_detector/results.state-4.npz": "2e5cde0f8c89efee8e03159e4c11f3f167e8182b8ebb4e072e9f2226e2c8d99a",
+    "model/native_spectral_detector/results.npz": "1c03ec5a51d9fb637905b8eb8cde485672608ca0ed475f3f5112080267ead12b",
+    "model/native_spectral_detector/results.state-0.npz": "9dbc7a2b1379625cac2703fe2bef2f30fe9822082a0a1b21d95a693947a87f41",
+    "model/native_spectral_detector/results.state-1.npz": "5a318739a8937db140b4cb1d0b86439d56be13d311dd3ade91139bf9ab93798f",
+    "model/native_spectral_detector/results.state-2.npz": "a1beab23cb2b091abdccaae67b748cca5c6df572dd0c0de2b601ab68c0ed8730",
+    "model/native_spectral_detector/results.state-3.npz": "edf165433906358b0f3e8731c2a380296dadccd430df5cc83b7d90908ba58731",
+    "model/native_spectral_detector/results.state-4.npz": "9351e5a532a37d5c4e887fd9dfe8f54764a016443c817c5d34ce1817d562bd9d",
     "model/native_spectral_detector/test_circuits.py": "8c453631074bb7bf6fda182fd66555885c27e80e014b3dba4dfeb40f1c9d260b",
     "model/native_spectral_detector/test_execution.py": "e89abf0070073e227d315d99b38e16ee8f9f8a4bdc91ce7d54e6ac21ba855ed0",
     "model/native_spectral_detector/test_experiment.py": "27f7bddbd83b7d072632f401428ee00b60f7e036bffb0eca441d40bf31306972",
@@ -7500,18 +7576,18 @@
     "model/ground_regional_modular/test_packet.py": "75162a7879b43dfd4b0b8682d768cdbae9c9a1aec69e15bd4a502b472f0db7c6",
     "model/ground_regional_modular/test_regional.py": "c12b16384ee576b0296df32687d1493f432158bc0897e500d95baac813b28782",
     "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex": "39b47dc04f606ab9ce70ba94e3d68db21458f6900c4c85c398e56c3bfd24e77d",
-    "model/centered_source_ground/README.md": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+    "model/centered_source_ground/README.md": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059",
     "model/centered_source_ground/__init__.py": "bc6ede7c86f02898041d1cca67876e59a81f2fd024bf085bf752cf499b8147cf",
     "model/centered_source_ground/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/centered_source_ground/bounds.py": "c6f633a275fe6f4eea40d76cf9c2e6de78740299fc268893b6346f5a7c172208",
-    "model/centered_source_ground/cube.py": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+    "model/centered_source_ground/cube.py": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd",
     "model/centered_source_ground/dimer.py": "9fc71a83871f53cd6712f6b275915d5c13b554f799f53557abae360d652b24c9",
     "model/centered_source_ground/faithfulness.py": "14f2abc1602025340d1f8b1016c390da9bb20b3e6ed118c7bd004434510fc714",
-    "model/centered_source_ground/packet.py": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+    "model/centered_source_ground/packet.py": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab",
     "model/centered_source_ground/results.json": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
     "model/centered_source_ground/test_faithfulness.py": "5951c80d37959b82af7d133589258be1d7ae37b5c14fadc57145b884316dda14",
-    "model/centered_source_ground/test_ground.py": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
-    "model/centered_source_ground/test_packet.py": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+    "model/centered_source_ground/test_ground.py": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45",
+    "model/centered_source_ground/test_packet.py": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed",
     "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
     "model/continuum_free_limit/README.md": "a1b4114481aebd900d0e58e27e1494e1e3df937712aed68520ba3d7e44fc4472",
     "model/continuum_free_limit/__init__.py": "cbf8884230e9ed52baf3c34d8955bbab72c5c3732649717420b85fb145372f9b",
@@ -7524,10 +7600,10 @@
     "model/continuum_free_limit/test_bounds.py": "9729dfe52631e4623f0bca9c81f4ac525b57f3683fdc91c48294b49d278b8dae",
     "model/continuum_free_limit/test_packet.py": "7a04a28249bf151767b2806966be93ad08abd4587e9e3926b43dedaea2127441",
     "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex": "35c353f437268718ddac85b48c5dbbbdb6438b7445e0c771b134f6222d523d38",
-    "model/native_fixed_algebra/OCCUPATION.md": "a4d7435426631e144aac7109d5e431c42373ba3be08acfb6bb67d351d4cacf2f",
+    "model/native_fixed_algebra/OCCUPATION.md": "1109a355bee76f6dc6ff13e8505d00191d61bbdfa457df6b2db0e01577a344e2",
     "model/native_fixed_algebra/occupation.py": "7f6eaa090a9f92380b21badd958f17ca9a54b1da2166782582a5d97a1149224a",
     "model/native_fixed_algebra/occupation_contract.json": "3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67",
-    "model/native_fixed_algebra/occupation_packet.py": "fa7abf943d615aeedb78ac158e957bf6fd3c3f82f983339ad6befb5a6bb0e97a",
+    "model/native_fixed_algebra/occupation_packet.py": "97909e307518bf690848f8ac77f496a1db815dad9e404cc6a62e79bddb21946b",
     "model/native_fixed_algebra/occupation_results.json": "14cba258b89624dc3e12642bdff4edd430325688e2294c112c491b5374c696aa",
     "model/native_fixed_algebra/occupation_service.py": "45bad3dbf98484094ab9c5c82acd27f0f6bc9ff09f0a963b198312ce30dd2af6",
     "model/native_fixed_algebra/test_occupation.py": "8eb4e1213bb12ecfcf6ee96654ab7f2800ddc8c4332c3fffcdd11dc6db0b315b",
@@ -7759,7 +7835,19 @@
     "model/native_joint_spin_spectroscopy/spectral.py": "f7907c576e643c8ad5bd5b8c907eac742a8c93db5251b0cc4f771d3fa0905761",
     "model/native_joint_spin_spectroscopy/test_joint.py": "3f1fb882b13f1d74e81777cc9e1eb00974c4f405757e0bd758b0d0c3139199a1",
     "model/native_joint_spin_spectroscopy/test_packet.py": "86e555276fb69efb9cfed42f5e43b80d7146c3faa6acfe31a6d4a4df358c8cda",
-    "paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex": "0a79ac5b8caf3e4695a0f9652dfce8385881c10ef350753c1146b7915c4c278d"
+    "paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex": "0a79ac5b8caf3e4695a0f9652dfce8385881c10ef350753c1146b7915c4c278d",
+    "model/centered_source_ground/gap.py": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83",
+    "model/centered_source_ground/particles.py": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a",
+    "model/centered_source_ground/test_gap.py": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f",
+    "model/centered_source_ground/test_particles.py": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f",
+    "model/native_mass_channels/README.md": "4c5c6209316938e0a03b7b34489a0b3a3b7e7c52d53786cc0b6bae64cdd5848e",
+    "model/native_mass_channels/__init__.py": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e",
+    "model/native_mass_channels/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
+    "model/native_mass_channels/packet.py": "34225c6eb6d764f23a16f21fc34a4b8fec5a7a5c62652675e47a7a88c29a2860",
+    "model/native_mass_channels/results.json": "06fe651684c4504073d81a6938f28396146c607e07078e6e85c9ce82c04d604e",
+    "model/native_mass_channels/test_algebra.py": "92be3fc0be9e4bb56815b825dd1a9af546aed3a508e02b7436cd74b0ccd4cdc7",
+    "model/native_mass_channels/test_packet.py": "5ba26d5bfc67b950eb927d3622fcaa8744236bcbc72c737be6969a850f01fc8c"
   },
   "gate_acceptance_owner": "claims/completion_program.json",
   "predecessor_review": {

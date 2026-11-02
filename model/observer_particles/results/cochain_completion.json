@@ -9,11 +9,11 @@
     "model/observer_particles/cochain_completion.py": "867d80dd4c38798f35dd2a3e274f5b87dc98e33a2bcf1dabefb592ee29e3a4a6",
     "model/observer_particles/evidence_contract.py": "2925e22820e59c8610610ae430a42fb46460341dcb6153447d287c025b69ec4f",
     "model/observer_particles/geometric_matter_join.py": "c13322ca350271efa70cba1a2822e7eac318c2875f6bef711c0448dbd103be54",
-    "model/observer_particles/results/geometric_matter_join.json": "a99ea0dc0eae27f0f9f5b6bd93a251ab5aef17ee0e0251e85c57024c157f10f4",
-    "model/observer_particles/results/geometric_matter_join_arrays.npz": "ba5842ab78ecb8ca6b1f0923ba783c2479726b74bf8ecd754d3fbc06654ece37"
+    "model/observer_particles/results/geometric_matter_join.json": "c51c4a39da95f04e681c6aea937f0995fb9d9ece0f0f1d79ba93d691813c8dfb",
+    "model/observer_particles/results/geometric_matter_join_arrays.npz": "565ce3bb8fa6d6e676bd5a2543847815bb41e8e1e03f86f1e2a195bb0b0c52bb"
   },
   "artifacts": {
-    "cochain_completion_arrays.npz": "daa5c800b1e7891bef3f33fe156f0fb20588c720eace7a2f1711670b7ed195e2"
+    "cochain_completion_arrays.npz": "f3e46d980d4cc819d2e759630a6fbe10bb839aab87b9b487d77473db3b8446ec"
   },
   "empirical_inputs": [],
   "existing_domain": {
@@ -57,16 +57,16 @@
   "same_metric_action": {
     "Hodge_mass_eigenvalue_ranges": [
       [
-        0.03740695522162637,
+        0.03740695522162631,
         0.33834908851872336
       ],
       [
-        0.02617188670305555,
-        2.914203736258911
+        0.02617188670305564,
+        2.9142037362589095
       ],
       [
-        0.05738821216122897,
-        5.095279354082048
+        0.05738821216122916,
+        5.095279354082049
       ],
       [
         7.388818486093411,
@@ -76,9 +76,9 @@
     "top_form_mass_formula": "M3_tt=1/(sqrt(det h)*coordinate_volume_t)",
     "top_form_independent_pullback_error": 4.440892098500626e-15,
     "coordinate_generator": "D=N*(d_hat+d_hat^dagger), d_hat_k=M_(k+1)^(1/2)*d_k*M_k^(-1/2)",
-    "nilpotence_residual_after_whitening": 3.091526465597985e-13,
-    "square_degree_offdiagonal_error": 7.443628812053783e-15,
-    "inherited_scalar_action_block_error": 1.021405182655144e-14,
+    "nilpotence_residual_after_whitening": 1.364594697663811e-12,
+    "square_degree_offdiagonal_error": 3.282345634953883e-14,
+    "inherited_scalar_action_block_error": 7.105427357601002e-15,
     "scalar_comparison": "D^2|degree0 equals M_scalar^(-1/2) K_scalar M_scalar^(-1/2) from the independent retained action"
   },
   "full_spectrum": {
@@ -86,8 +86,8 @@
     "zero": 1,
     "positive": 62,
     "positive_energy_range": [
-      0.16285009815247858,
-      2.6300758127389505
+      0.16285009815247828,
+      2.6300758127389456
     ],
     "form_parity_even_dimension": 63,
     "form_parity_odd_dimension": 62,
@@ -97,44 +97,44 @@
     "scalar_constant_mode_thermal_caveat": "The natural scalar constant mode still needs an explicit zero-mode treatment for a trace-class scalar Gibbs reference."
   },
   "lifted_edge_mode": {
-    "truncated_generator_action_norm": 3.805868892968591e-15,
-    "full_generator_action_norm": 0.8834635379160535,
+    "truncated_generator_action_norm": 4.6603299076230956e-15,
+    "full_generator_action_norm": 0.8834635379160554,
     "complete_125_outcome_readouts": [
       {
         "comparison_incident_count": 1,
         "comparison_coordinate_time": 0.03984095364447979,
-        "complete_number_probability_sum": 1.0000000000000002,
+        "complete_number_probability_sum": 0.9999999999999998,
         "probabilities_by_form_degree": [
-          2.3923658823883288e-32,
-          0.9987617731426053,
-          0.001238226857394986,
-          1.6401604444297756e-35
+          3.4598768976869824e-32,
+          0.9987617731426047,
+          0.001238226857394991,
+          3.1283551736633477e-34
         ],
-        "state_change_norm": 0.03519563415675087
+        "state_change_norm": 0.03519563415675095
       },
       {
         "comparison_incident_count": 2,
         "comparison_coordinate_time": 0.07968190728895957,
-        "complete_number_probability_sum": 1.0,
+        "complete_number_probability_sum": 0.9999999999999997,
         "probabilities_by_form_degree": [
-          9.541211404452064e-32,
-          0.9950551782249455,
-          0.004944821775054904,
-          2.5496943509159994e-34
+          1.4892176465398215e-31,
+          0.9950551782249448,
+          0.00494482177505492,
+          5.022258615915701e-33
         ],
-        "state_change_norm": 0.07037689556651348
+        "state_change_norm": 0.07037689556651361
       },
       {
         "comparison_incident_count": 25,
         "comparison_coordinate_time": 0.9960238411119947,
-        "complete_number_probability_sum": 1.0000000000000002,
+        "complete_number_probability_sum": 0.9999999999999994,
         "probabilities_by_form_degree": [
-          5.672830412774526e-30,
-          0.45298423600861815,
-          0.5470157639913823,
-          4.587031115919075e-30
+          7.277817109387262e-30,
+          0.45298423600861626,
+          0.5470157639913832,
+          9.316397173001444e-29
         ],
-        "state_change_norm": 0.8431142098351997
+        "state_change_norm": 0.8431142098352009
       }
     ],
     "new_mass_potential_or_fitted_coefficient_inserted": false,

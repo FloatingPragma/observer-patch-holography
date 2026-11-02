@@ -107,11 +107,11 @@ def main():
     modes.add_argument('--worker', type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.worker:
-        args.worker.write_text(canonical(_produce()))
+        args.worker.write_text(canonical(_produce()), encoding='utf-8', newline='\n')
         return
     expected = strict_json.loads(args.check.read_text()) if args.check else None
     result = report()
-    if args.write: OUTPUT.write_text(canonical(result))
+    if args.write: OUTPUT.write_text(canonical(result), encoding='utf-8', newline='\n')
     if expected is not None and canonical(expected) != canonical(result):
         raise ValueError('exact receipt or source bindings changed')
     print(json.dumps({'all_pass': True, 'global_ground_energy': '-sqrt3/4',

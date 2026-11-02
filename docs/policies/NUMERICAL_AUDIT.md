@@ -38,6 +38,14 @@ states and rejects actual support violations.
    a damaged intermediate cannot validate its accuracy. An oracle
    must not reuse the producer's thermal states, support decisions or
    cancellation-prone formula when those are the operations under test.
+4. Inventory the complete owning-receipt closure, exposure pins and signed
+   contract references before replaying descendants. Enumerate all stale
+   inputs together, including executable hash literals, alternate hash maps,
+   directory-relative manifests and derived receipt digests. Renew a signed
+   digest when an authenticated reference changes; do not preserve the old
+   digest by excluding fields from its
+   checker. Check the exact consumed data when an older whole-file pin
+   differs, and distinguish scientific replay from audited metadata equivalence.
 
 ## Challenge the domain and the formula
 
@@ -137,6 +145,10 @@ not a domain argument.
   Boolean types or missingness; validating the coerced array is too late.
   Reject unsupported integer matrix arithmetic before Gram products: signed
   and unsigned overflow can turn a huge leakage amplitude into a zero norm.
+  Sparse conversion and duplicate coalescing also perform arithmetic. Check
+  original entry types and sum duplicates over exact integers before narrowing;
+  test CSR/COO duplicates and narrow signed and unsigned dtypes that can
+  overflow during summation, including large exactly cancelling entries.
   Array subclasses can override `copy`, `nonzero` and indexing while retaining
   ordinary numeric entries. A matrix certificate must reject such subclasses
   or detach them to a trusted base representation before inspecting support
@@ -214,6 +226,10 @@ not a domain argument.
   results and acceptance bounds stay unchanged. Frozen dataclasses can expose
   writable instance dictionaries; `deepcopy(Fraction)` aliases the
   original rational. Detach nested values as well as their containers.
+  Read-only NumPy buffers can expose mutable shape and dtype metadata.
+  Challenge both the returned array and its base chain, then replay retained
+  failure branches. Store immutable bytes and shape/dtype descriptions when
+  an archive must survive mutations of public array views.
   Include shared numerical-provider caches in this test. A compiler and its
   verifier can agree on the same poisoned logarithm or square-root endpoint.
   Copying a corrupted value does not restore proof authority. Recompute from
@@ -227,6 +243,9 @@ not a domain argument.
   certificate. Matching supplied receipts or matching hashes do not prove
   execution. Retain wrong terminal populations with correct record marginals
   and valid-shaped invented stream hashes as rejection controls.
+  A fresh interpreter can load stale bytecode even when bytecode writes are
+  disabled. Test with an importable poisoned cache whose timestamp and source
+  size match; source-bound replay must use the current source bytes.
   Trace changed shared helpers through aggregate dependency digests as well
   as explicit source maps. Regenerate every affected consumer from its
   producer; direct source-map checks do not cover opaque aggregate hashes.
@@ -234,6 +253,12 @@ not a domain argument.
   an interval bound or proof of a zero. An exact certificate must establish
   the property of the supplied matrix, without silently projecting it onto
   a preferred state family.
+  A correct symmetry or nullspace does not authenticate primitive coefficients:
+  rescaled and nonuniform links can preserve both. Check the declared source
+  entries independently, and test altered link strengths as well as wrong axes.
+  Before sparse conversion, challenge duplicate-entry cancellation, conversion
+  overrides and masked or subclassed index buffers; a cached canonical-format
+  flag is not an exact check of the stored matrix.
   A compiled permutation implementing its supplied target does not establish
   the intended logical action. Bind every emitted routing, syndrome and
   feedback word to independently specified input/output slots and wire order;
@@ -273,6 +298,10 @@ fail. Choose mutations from plausible failure mechanisms, including
 constant success, blanket refusal and missing validation when applicable;
 report surviving mutations and controls added because of them. A mutation
 count is not a completeness claim.
+
+Bind test results to retained input bytes as well as source code. Publishing
+a fresh capture invalidates earlier tests that consumed the replaced input;
+rerun those tests after publication, even when their code is unchanged.
 
 Before reporting readiness, fetch current main and inspect every published
 review and conversation thread on the affected PRs. Recheck the exact final

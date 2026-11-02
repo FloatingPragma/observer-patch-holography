@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "parameter_selection_results.npz",
-    "sha256": "252a5ceecbb1486d76aa9c0ac306648833f452d7aeea34a6899c3b402e96512e"
+    "sha256": "114616b4bc7e6464b0f701a3c1e8ee7616a736cde10690af3eb1157a9e0261eb"
   },
   "classification": "fixed corrected-native response obstruction and an unselected correlation-coupling candidate",
   "first_surviving_correlation": {
@@ -146,7 +146,7 @@
         ],
         "exact_branch_and_support_sha256": "3ca2edc1e5b1aa8faa3399a35b5520f0624e946876d1922b0c4cea2e5f4719c1",
         "full_logical_transfer_dimension": 36,
-        "logical_transfer_identity_error": 6.661338147750939e-16,
+        "logical_transfer_identity_error": 1.1102230246251565e-15,
         "maximum_branch_gram_error": 2.220446049250313e-16,
         "maximum_full66_recovery_operator_error": 5.23691153334427e-16,
         "native_raw_records_checked": 240,
@@ -277,7 +277,7 @@
         ],
         "exact_branch_and_support_sha256": "ca372a11fb36516a500447fe4404c612b8519b08859c7338e3348f7df5eeec05",
         "full_logical_transfer_dimension": 36,
-        "logical_transfer_identity_error": 5.551115123125783e-16,
+        "logical_transfer_identity_error": 6.661338147750939e-16,
         "maximum_branch_gram_error": 1.6653345369377348e-16,
         "maximum_full66_recovery_operator_error": 3.212940164695817e-16,
         "native_raw_records_checked": 480,
@@ -838,9 +838,9 @@
     "exact_all30_ideal_certificate_is_separate_from_two_seam_floating_execution": true,
     "executed_source_native_seams": {
       "C": {
-        "aggregate_gram_error": 8.987917390455103e-13,
+        "aggregate_gram_error": 5.821488547243631e-13,
         "all512_rows_and_six_reference_columns_retained": true,
-        "maximum_branch_operator_error": 1.519261166080794e-11,
+        "maximum_branch_operator_error": 3.638896296668281e-11,
         "maximum_record_recovery_native_pulses": 845648,
         "raw_branch_count": 8,
         "source_repair_resources": {
@@ -861,9 +861,9 @@
         ]
       },
       "E": {
-        "aggregate_gram_error": 1.3738377327179395e-12,
+        "aggregate_gram_error": 4.328570517223065e-13,
         "all512_rows_and_six_reference_columns_retained": true,
-        "maximum_branch_operator_error": 1.7997762131192932e-11,
+        "maximum_branch_operator_error": 3.9463708338473744e-11,
         "maximum_record_recovery_native_pulses": 745400,
         "raw_branch_count": 16,
         "source_repair_resources": {
@@ -894,7 +894,7 @@
       "identity_phase_pulses": 1,
       "initialization_storage_readout_physical_costs_included": false,
       "integrated_processor_norm_upper": 22531.506253764015,
-      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
       "maximum_work_qubits": 9,
       "native_pulses": 11270,
       "pair_code_pulses": 3586,
@@ -906,7 +906,7 @@
       "valid_code_failure_probability_in_exact_arithmetic": 0,
       "zero_angle_requests": 0
     },
-    "two_hop_source_operator_error": 2.0375180281797924e-11
+    "two_hop_source_operator_error": 4.948510129393414e-11
   },
   "symmetric_graph_control": {
     "actual_incidence_automorphisms": 120,
