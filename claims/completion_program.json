@@ -1562,7 +1562,17 @@
         "model/defect_field_bridge/coherent_extension_results.json",
         "model/defect_field_bridge/coherent_extension_results.npz",
         "model/native_fixed_algebra/OCCUPATION.md",
-        "model/native_fixed_algebra/occupation_results.json"
+        "model/native_fixed_algebra/occupation_results.json",
+        "model/local_exchange_charge/README.md",
+        "model/local_exchange_charge/core.py",
+        "model/local_exchange_charge/optimality.py",
+        "model/local_exchange_charge/service.py",
+        "model/local_exchange_charge/packet.py",
+        "model/local_exchange_charge/results.json",
+        "model/local_exchange_charge/test_core.py",
+        "model/local_exchange_charge/test_optimality.py",
+        "model/local_exchange_charge/test_service.py",
+        "model/local_exchange_charge/test_packet.py"
       ],
       "legacy_issues": [
         1026,
@@ -1920,6 +1930,13 @@
           "independent_check": "model/native_mass_channels/test_packet.py",
           "scope": "Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "path": "model/local_exchange_charge/results.json",
+          "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+          "independent_check": "model/local_exchange_charge/test_packet.py",
+          "scope": "The ordered-cover memory has an exact local qutrit realization with one A and one B, full 132-column raw-branch intertwiners and complete four-bit source dilations. A faithful sector state has a compact nonzero exchange-charge excess and exactly reference-matched exterior; the complete native instrument conserves its expectation with all histories retained, while individual branches preserve the sharp sectors; the same charge transports by the native pair kernel with exact regional trace distances, configuration-space flux and equal complete native tape laws against the same evolved reference after its preparation archive is traced. Adaptive feedback need not preserve traciality. A three-port complete-source witness moves and terminally reads that charge. Every deterministic core-local preparation with an independent blank obeys the sharp charge ceiling, while every globally sharp exchange sector obeys a universal exterior-distance lower bound. This is a coherent local-qutrit enlargement of the bare binary carrier, not a new admissibility decision. The excess spreads, the initial reference is tracial with zero modular-energy excess, and readout is terminal demolition. No bound particle, physical charge/spin/species, calibrated clock, refinement protection, canonical premise discharge or physical comparison is claimed.",
+          "campaign_id": "OPH-LOCAL-EXCHANGE-CHARGE-2026-11-01-v1"
         }
       ]
     },
@@ -2358,7 +2375,17 @@
         "model/particle_transport/detector.py",
         "model/particle_transport/results.json",
         "model/native_fixed_algebra/OCCUPATION.md",
-        "model/native_fixed_algebra/occupation_results.json"
+        "model/native_fixed_algebra/occupation_results.json",
+        "model/local_exchange_charge/README.md",
+        "model/local_exchange_charge/core.py",
+        "model/local_exchange_charge/optimality.py",
+        "model/local_exchange_charge/service.py",
+        "model/local_exchange_charge/packet.py",
+        "model/local_exchange_charge/results.json",
+        "model/local_exchange_charge/test_core.py",
+        "model/local_exchange_charge/test_optimality.py",
+        "model/local_exchange_charge/test_service.py",
+        "model/local_exchange_charge/test_packet.py"
       ],
       "legacy_issues": [
         1026,
@@ -2554,6 +2581,13 @@
           "independent_check": "model/native_mass_channels/test_packet.py",
           "scope": "Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "path": "model/local_exchange_charge/results.json",
+          "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+          "independent_check": "model/local_exchange_charge/test_packet.py",
+          "scope": "The ordered-cover memory has an exact local qutrit realization with one A and one B, full 132-column raw-branch intertwiners and complete four-bit source dilations. A faithful sector state has a compact nonzero exchange-charge excess and exactly reference-matched exterior; the complete native instrument conserves its expectation with all histories retained, while individual branches preserve the sharp sectors; the same charge transports by the native pair kernel with exact regional trace distances, configuration-space flux and equal complete native tape laws against the same evolved reference after its preparation archive is traced. Adaptive feedback need not preserve traciality. A three-port complete-source witness moves and terminally reads that charge. Every deterministic core-local preparation with an independent blank obeys the sharp charge ceiling, while every globally sharp exchange sector obeys a universal exterior-distance lower bound. This is a coherent local-qutrit enlargement of the bare binary carrier, not a new admissibility decision. The excess spreads, the initial reference is tracial with zero modular-energy excess, and readout is terminal demolition. No bound particle, physical charge/spin/species, calibrated clock, refinement protection, canonical premise discharge or physical comparison is claimed.",
+          "campaign_id": "OPH-LOCAL-EXCHANGE-CHARGE-2026-11-01-v1"
         }
       ]
     },
@@ -5075,6 +5109,22 @@
         "scope": "Construct a regular continuum spin field, strengthen the charged free-boundary theorem, derive an actual finite entropy/stress shrinking limit, and implement complete joint native spin spectroscopy.",
         "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
       }
+    },
+    {
+      "id": "OPH-LOCAL-EXCHANGE-CHARGE-2026-11-01-v1",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-03",
+        "CP-05"
+      ],
+      "contract": {
+        "path": "model/local_exchange_charge/results.json",
+        "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+        "independent_check": "model/local_exchange_charge/test_packet.py",
+        "scope": "The ordered-cover memory has an exact local qutrit realization with one A and one B, full 132-column raw-branch intertwiners and complete four-bit source dilations. A faithful sector state has a compact nonzero conserved exchange-charge excess and exactly reference-matched exterior; the same charge transports by the native pair kernel with exact regional trace distances, configuration-space flux and equal complete native tape laws after its preparation archive is traced. A three-port complete-source witness moves and terminally reads that charge. Every deterministic core-local preparation with an independent blank obeys the sharp charge ceiling, while every globally sharp exchange sector obeys a universal exterior-distance lower bound. This is a coherent local-qutrit enlargement of the bare binary carrier, not a new admissibility decision. The excess spreads, the reference is tracial with zero modular-energy excess, and readout is terminal demolition. No bound particle, physical charge/spin/species, calibrated clock, refinement protection, canonical premise discharge or physical comparison is claimed.",
+        "campaign_id": "OPH-LOCAL-EXCHANGE-CHARGE-2026-11-01-v1"
+      }
     }
   ],
   "next_wave": {
@@ -6520,6 +6570,14 @@
         "independent_check": "model/native_mass_channels/test_packet.py",
         "scope": "Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
         "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+      },
+      {
+        "id": "local_exchange_charge",
+        "path": "model/local_exchange_charge/results.json",
+        "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+        "independent_check": "model/local_exchange_charge/test_packet.py",
+        "scope": "The ordered-cover memory has an exact local qutrit realization with one A and one B, full 132-column raw-branch intertwiners and complete four-bit source dilations. A faithful sector state has a compact nonzero conserved exchange-charge excess and exactly reference-matched exterior; the same charge transports by the native pair kernel with exact regional trace distances, configuration-space flux and equal complete native tape laws after its preparation archive is traced. A three-port complete-source witness moves and terminally reads that charge. Every deterministic core-local preparation with an independent blank obeys the sharp charge ceiling, while every globally sharp exchange sector obeys a universal exterior-distance lower bound. This is a coherent local-qutrit enlargement of the bare binary carrier, not a new admissibility decision. The excess spreads, the reference is tracial with zero modular-energy excess, and readout is terminal demolition. No bound particle, physical charge/spin/species, calibrated clock, refinement protection, canonical premise discharge or physical comparison is claimed.",
+        "campaign_id": "OPH-LOCAL-EXCHANGE-CHARGE-2026-11-01-v1"
       }
     ]
   },
