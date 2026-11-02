@@ -49,3 +49,42 @@ def test_outcome_and_reference_tampering_rejected(retained):
     with pytest.raises(ValueError):packet.validate(value,changed)
     altered=deepcopy(value);altered['execution']['C_repair_choi']['quantum_reference_dimension']=16.
     with pytest.raises(ValueError):packet.validate(altered,arrays)
+
+
+def test_near_zero_host_diagnostic_is_compared_absolutely():
+    # Actual macOS/Linux recomputations from the same retained full array.
+    packet.compare({'complete_output_error_diagnostic':2.2471471556841873e-15},
+                   {'complete_output_error_diagnostic':2.2461137643882236e-15})
+    packet.compare({'normalization_residual':1.7319479184152442e-14},
+                   {'normalization_residual':1.6542323066914832e-14})
+    with pytest.raises(ValueError):
+        packet.compare({'normalization_residual':0.},
+                       {'normalization_residual':3*packet.REPLAY_ATOL})
+    with pytest.raises(ValueError,match='negative'):
+        packet.compare({'normalization_residual':0.}, {'normalization_residual':-1e-30})
+
+
+def test_failure_replay_uses_one_total_amplitude_budget():
+    zero=np.zeros((25,4),dtype=np.float64)
+    small=np.full_like(zero,(packet.REPLAY_ATOL/20)**2)
+    packet.compare_arrays(zero,small,'example_failure_weights')
+    # Each forged slot is individually below the amplitude tolerance; their
+    # combined norm exceeds it. A per-slot allclose would incorrectly accept.
+    distributed=np.full_like(zero,(packet.REPLAY_ATOL/5)**2)
+    with pytest.raises(ValueError,match='total failure amplitude'):
+        packet.compare_arrays(zero,distributed,'example_failure_weights')
+    with pytest.raises(ValueError):
+        packet.compare({'complete_first_failure_probability':0.},
+                       {'complete_first_failure_probability':float(distributed.sum())})
+
+
+def test_replay_tolerance_cannot_replace_source_certificate(retained):
+    value,arrays=retained
+    altered=deepcopy(value)
+    altered['native_error_certificates']['exchange_choi']['complete_isometry_error']='1'
+    with pytest.raises(ValueError,match='exact theorem'):
+        packet.validate(altered,arrays)
+    changed=dict(arrays);changed['exchange_choi_success']=arrays['exchange_choi_success'].copy()
+    changed['exchange_choi_success'][0,0]+=1e-4
+    with pytest.raises((ValueError,ArithmeticError)):
+        packet.validate(value,changed)

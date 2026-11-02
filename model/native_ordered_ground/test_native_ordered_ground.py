@@ -102,3 +102,32 @@ def test_native_record_strict_rejection():
     with pytest.raises(ValueError):packet.validate(bad,arrays)
     bad=deepcopy(arrays);bad['success']=bad['success'][:-1]
     with pytest.raises(ValueError):packet.validate(value,bad)
+
+
+def test_near_zero_host_diagnostic_is_compared_absolutely():
+    packet.compare({'normalization_residual':1.7319479184152442e-14},
+                   {'normalization_residual':1.6542323066914832e-14})
+    with pytest.raises(ValueError):
+        packet.compare({'normalization_residual':0.},
+                       {'normalization_residual':3*packet.REPLAY_ATOL})
+    with pytest.raises(ValueError,match='negative'):
+        packet.compare({'normalization_residual':0.}, {'normalization_residual':-1e-30})
+
+
+def test_failure_replay_budget_is_global_in_amplitude():
+    zero=np.zeros((25,4),dtype=np.float64)
+    packet.compare_arrays(zero,np.full_like(zero,(packet.REPLAY_ATOL/20)**2),'failure_weights')
+    distributed=np.full_like(zero,(packet.REPLAY_ATOL/5)**2)
+    with pytest.raises(ValueError,match='total failure amplitude'):
+        packet.compare_arrays(zero,distributed,'failure_weights')
+    with pytest.raises(ValueError):
+        packet.compare({'complete_first_failure_probability':0.},
+                       {'complete_first_failure_probability':float(distributed.sum())})
+
+
+def test_replay_agreement_does_not_authorize_a_wrong_target():
+    value,arrays=packet.read(packet.OUTPUT)
+    altered=dict(arrays);altered['success']=arrays['success'].copy()
+    altered['success'][0,0]+=1e-4
+    with pytest.raises(ValueError,match='certified source target'):
+        packet.validate(value,altered)

@@ -18,6 +18,7 @@ ROOT=Path(__file__).resolve().parents[2]
 OUTPUT=Path(__file__).with_name('results.json')
 PRIORS=('protected_spin_limit','centered_native_preparation')
 FRAGMENT='paper/tex_fragments/NATIVE_SPIN_OBSERVER.tex'
+REPLAY_ATOL=2e-11
 
 
 def canonical(value):return json.dumps(value,indent=2,sort_keys=True,allow_nan=False)+'\n'
@@ -67,8 +68,33 @@ def compare(expected,actual,path='receipt'):
         for j,(x,y) in enumerate(zip(expected,actual,strict=True)):compare(x,y,f'{path}[{j}]')
     elif type(actual) is float:
         if not math.isfinite(actual) or not math.isfinite(expected):raise ValueError(path+': nonfinite')
-        if abs(actual-expected)>min(2e-11,max(1e-40,abs(actual)*1e-7)):raise ValueError(path+': native diagnostic changed')
+        # Every floating field here is a norm, mass or probability. An absolute
+        # replay tolerance must not admit negative values near zero.
+        if min(actual,expected)<0:raise ValueError(path+': negative native diagnostic')
+        if path.rsplit('.',1)[-1] in ('complete_first_failure_probability','rounded_negative_mass'):
+            if abs(math.sqrt(actual)-math.sqrt(expected))>REPLAY_ATOL:
+                raise ValueError(path+': native failure amplitude changed')
+        elif abs(actual-expected)>REPLAY_ATOL:raise ValueError(path+': native diagnostic changed')
     elif type(actual) not in (str,int,bool,type(None)) or actual!=expected:raise ValueError(path+': value changed')
+
+
+def compare_arrays(retained,current,key):
+    """Compare every output; failure weights use a single total-amplitude budget.
+
+    This is host replay agreement, not a replacement for validate's independently
+    reconstructed target, exact source certificate, or probability checks.
+    """
+    if retained.shape!=current.shape or retained.dtype!=current.dtype:
+        raise ValueError('native replay array carrier changed: '+key)
+    if not np.isfinite(retained).all() or not np.isfinite(current).all():
+        raise ValueError('nonfinite native replay array: '+key)
+    if key.endswith('failure_weights'):
+        if np.min(retained,initial=0)<0 or np.min(current,initial=0)<0:
+            raise ValueError('negative native replay failure weight')
+        if np.linalg.norm(np.sqrt(retained)-np.sqrt(current))>REPLAY_ATOL:
+            raise ValueError('native replay total failure amplitude changed: '+key)
+    elif not np.allclose(retained,current,atol=REPLAY_ATOL,rtol=0):
+        raise ValueError('native replay array changed: '+key)
 
 
 def validate(value,arrays):
@@ -156,8 +182,7 @@ def main():
     if args.check:
         old,retained=read_pair(args.check);compare(old,value)
         for key,current in arrays.items():
-            atol,rtol=(1e-40,1e-7) if key.endswith('failure_weights') else (2e-11,0)
-            if not np.allclose(retained[key],current,atol=atol,rtol=rtol):raise ValueError('native replay array changed: '+key)
+            compare_arrays(retained[key],current,key)
     else:write_pair(args.worker or args.write,value,arrays)
     if not args.worker:print(canonical({k:value[k] for k in ('new_checks_pass','dependency_custody_pass','all_pass')}),end='')
 

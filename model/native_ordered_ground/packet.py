@@ -17,6 +17,7 @@ from . import experiment,source,angles
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
 OUTPUT=HERE/'results.json'
+REPLAY_ATOL=2e-11
 
 
 def canonical(x):return json.dumps(x,indent=2,sort_keys=True,allow_nan=False)+'\n'
@@ -32,8 +33,33 @@ def compare(expected,actual,path='receipt'):
         for i,(a,b) in enumerate(zip(expected,actual,strict=True)):compare(a,b,path+str(i))
     elif type(actual) is float:
         if not math.isfinite(actual) or not math.isfinite(expected):raise ValueError('nonfinite diagnostic')
-        if abs(actual-expected)>min(2e-11,max(1e-40,abs(actual)*1e-7)):raise ValueError(path+': diagnostic changed')
+        # All floating fields are norms, masses or probabilities; exact signed
+        # quantities are rational strings and never use this tolerance.
+        if min(actual,expected)<0:raise ValueError(path+': negative diagnostic')
+        if path.rsplit('.',1)[-1] in ('complete_first_failure_probability','rounded_negative_mass'):
+            if abs(math.sqrt(actual)-math.sqrt(expected))>REPLAY_ATOL:
+                raise ValueError(path+': failure amplitude changed')
+        elif abs(actual-expected)>REPLAY_ATOL:raise ValueError(path+': diagnostic changed')
     elif type(actual) not in (str,int,bool,type(None)) or expected!=actual:raise ValueError(path+': value changed')
+
+
+def compare_arrays(retained,current,key):
+    """Replay agreement only; validate independently checks the source target.
+
+    The failure budget is global in square-root weights, not per outcome. Thus
+    many individually tiny forged outcomes cannot evade the total error bound.
+    """
+    if retained.shape!=current.shape or retained.dtype!=current.dtype:
+        raise ValueError('native replay array carrier changed')
+    if not np.isfinite(retained).all() or not np.isfinite(current).all():
+        raise ValueError('nonfinite native replay array')
+    if key=='failure_weights':
+        if np.min(retained,initial=0)<0 or np.min(current,initial=0)<0:
+            raise ValueError('negative native replay failure weight')
+        if np.linalg.norm(np.sqrt(retained)-np.sqrt(current))>REPLAY_ATOL:
+            raise ValueError('cold total failure amplitude changed')
+    elif not np.allclose(retained,current,atol=REPLAY_ATOL,rtol=0):
+        raise ValueError('cold native array changed')
 
 
 def source_bindings():
@@ -170,7 +196,6 @@ def main():
     if args.check:
         old,retained=read(args.check);compare(old,value)
         for k in arrays:
-            atol,rtol=(1e-40,1e-7) if k=='failure_weights' else (2e-11,0)
-            if not np.allclose(arrays[k],retained[k],atol=atol,rtol=rtol):raise ValueError('cold native array changed')
+            compare_arrays(retained[k],arrays[k],k)
     else:write(args.worker or args.write,value,arrays)
     if not args.worker:print(canonical({'new_checks_pass':True,'all_pass':True}),end='')
