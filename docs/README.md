@@ -25,13 +25,26 @@ physical universe has been reconstructed.
 | [`research/`](research/) | Research notes, each verified by a code lane |
 | [`policies/`](policies/) | Data, hardware-evidence and writing policies |
 
-Keep this directory limited to shared references, scientific registers and
-cross-project research results. Maintain existing pages instead of adding
-individual run reports or duplicate status summaries. Implementation-specific
-mathematics belongs with its owning code. Editorial dates and migration
-narratives do not belong in maintained prose; scientific provenance stays
-with the evidence that requires it. Preserve valid links and source commitments
-when consolidating documents.
+## Rules for this directory
+
+- The root holds only the selected high-level programs, references and
+  ledgers listed on this page. Add a root document only when it is a new
+  program or ledger of that kind.
+- No file under `docs/` is a daily note, progress report, audit result,
+  integration record, PR handoff or status summary. File names and headings
+  carry no dates. Integration and review history belongs in the GitHub pull
+  request or issue.
+- Research results live in the papers, Lean library and code. A note in
+  `research/` is allowed only when it states a current result that its code
+  package verifies, without history, dated findings or progress narrative.
+  Prefer extending the paper or the package README, because separate notes
+  go stale.
+- Release papers do not cite files in `docs/`. They cite papers, Lean
+  modules, code packages and public preprints.
+- Code, receipts, reviews and registers bind code, Lean and receipts as
+  evidence, never a note in `docs/`.
+- Implementation-specific mathematics belongs with its owning code. Preserve
+  valid links and source commitments when consolidating documents.
 
 ## Three Reading Routes
 

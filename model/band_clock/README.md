@@ -37,7 +37,7 @@ The reference is defined from the supplied action. Neither a local repair law
 that selects it nor a source preparation of it is supplied here. Copying the
 native reference cannot remove this premise: its modular gaps are integer
 multiples of `log(25/8)`, whereas the moving band has noninteger energy gaps in
-the eta-calibrated units. The [acceptance audit](../../docs/COMPLETION_ACCEPTANCE_AUDIT_2026-10-29.md#what-the-exclusion-quantifies)
+the eta-calibrated units. The [acceptance audit](../completion/acceptance_audit.py)
 gives an exact spectral obstruction for every finite independent copy count. The present protocol uses the native records as a rate estimate
 for external source control; it does not identify native repair with unitary
 field motion.

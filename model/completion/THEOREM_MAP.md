@@ -6,8 +6,8 @@ binds eleven reviewed results to twelve existing source files, their inspected
 statement/proof anchors and SHA-256 hashes. These are scoped attachments to the
 existing [premise register](../../tracking/premise_register.json) and
 [generated premise map](../PREMISES.md), not a replacement scientific ledger.
-This is the 28 October component review. The subsequent
-[accepted finite map](../../docs/COMPLETION_ADOPTION_2026-10-29.md) resolves
+The
+[accepted finite map](finite_attachment_map.json) resolves
 CP-13's integration contract. CP-02 and the physical refinement/dictionary
 joins remain open; the earlier campaign's restricted service domain is
 preserved below.

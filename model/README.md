@@ -102,13 +102,13 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 
 The [earlier particle transport](charged_dynamics/README.md) and
 [actual-data replay](particle_comparison/README.md) retain their own
-contracts. The [spectrum and relativistic pass](../docs/RESOLVED_SPECTRUM_AND_RELATIVISTIC_SECTOR_2026-11-01.md)
+contracts. The spectrum and relativistic pass
 adds retrospective mismatch diagnostics, while the
-[interacting-reference and mass extension](../docs/INTERACTING_VACUUM_AND_RELATIVISTIC_MASS_2026-11-01.md)
+interacting-reference and mass extension
 adds a finite ground and a specified massive continuation. Neither supplies
 a successful physical identification or an eligible prospective comparison.
 
-The [ground and response extension](../docs/GROUNDED_FIELD_AND_GEOMETRY_RESPONSE_2026-11-01.md)
+The ground and response extension
 supplies an [infinite-volume original-action ground](thermodynamic_ground/README.md)
 with positive GNS energy, nonzero density and finite-volume energy-density
 brackets. Its local retarded response converges in the upper half-plane.
@@ -117,7 +117,7 @@ also derives a state-dependent self-energy and controlled low-frequency
 expansion on the grounded cube. The geometry target remains the existing
 common-symbol and Einstein theorem stack, with its shared-state premises.
 
-The [native ground and spatial-response extension](../docs/NATIVE_GROUND_AND_SPATIAL_RESPONSE_2026-11-01.md)
+The native ground and spatial-response extension
 connects that finite ground to a complete observer preparation and
 charged readout. It resolves the entire eight-site matrix response and
 constructs a non-Gaussian infinite-ground field and its ordered Euclidean
@@ -126,7 +126,7 @@ has nonzero interaction memory and controlled locality at complex frequencies
 separated from the real axis. The direct assignment of finite charged gaps to the observed lepton
 hierarchy fails; no physical particle or Einstein gate is promoted.
 
-The [continuum field and spectral readout](../docs/CONTINUUM_FIELD_AND_SPECTRAL_READOUT_2026-11-01.md)
+The continuum field and spectral readout
 extend this to a full eight-valley positive-energy continuum field net,
 exact spin resolution across the entire finite ground space, and complete
 positive energy measurements with finite resolution. The ground constraints
@@ -163,7 +163,7 @@ the clock and energy owners. Their bounded source implementation retains supplie
 and common rest/kinetic/stress normalization retain the
 [energy-identification conditions](energy_identifiability/README.md).
 
-The [accepted executable class and observer](../docs/COMPLETION_ADOPTION_2026-10-29.md)
+The [accepted executable class and observer](completion/program_class_v2.json)
 resolve the finite contracts of #1135 and #1136, including declared services,
 resource ceilings and the carrier/refinement boundary.
 The [theorem map](completion/THEOREM_MAP.md),
@@ -175,9 +175,6 @@ The [exact native-history evaluator](compiled_native_history/README.md),
 [energy identifiability](energy_identifiability/README.md) and
 [regional reference criteria](regional_modular/README.md) state the current
 finite construction and its remaining mass-attachment conditions.
-The [integration audit](../docs/MODEL_INTEGRATION_AUDIT_2026-10-29.md) records
-the exact contact reduction, recovery elision, all-code biased reset result
-and the limitations of composing a memory with a separate clock.
 The [SI dictionary](clock_defect_energy/SI_UNITS.md) attaches metres, seconds,
 joules and kilograms only under its explicit clock and energy-frequency inputs.
 

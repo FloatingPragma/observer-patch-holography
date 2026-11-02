@@ -45,7 +45,7 @@ The four selected tasks are [native defect protection (#1139)](https://github.co
 [an interacting chiral field (#1142)](https://github.com/FloatingPragma/observer-patch-holography/issues/1142),
 and [finite-theorem integration (#1137)](https://github.com/FloatingPragma/observer-patch-holography/issues/1137).
 The original acceptance criteria and predecessor requirements remain in force.
-The [independent V2 review](../docs/PROGRAM_CLASS_V2_INDEPENDENT_REVIEW_2026-10-29.md)
+The [independent V2 review](../model/completion/program_class_v2_review.json)
 accepts the executable class, counted finite observer and theorem map. The PR closes their issues on merge. Canonical physical
 premises and the particle, energy and chiral-field gates are not discharged.
 The previews include the complete-band rate transfer and direct native

@@ -7,13 +7,12 @@ One declared repair/memory process must supply the clocks, particle/energy
 interpretation and gravitational premises together; separate successful
 benchmarks do not discharge that joint requirement.
 
-The [spectral and precision continuation](../docs/SPECTRAL_PRECISION_PROGRESS_2026-11-01.md)
+The spectral and precision continuation
 classifies the repair-active and repair-transparent chain spectra, proves
 literal source-reference errors with exact intervals, and supplies all
 three kinetic momentum balances with their nonzero interaction forces.
 The all-energy contact result proves transparency for fixed packets while
-retaining narrow tuned resonances. The [earlier constructions](../docs/COMMON_ACTION_PROGRESS_2026-11-01.md)
-retain their stated domains. Localized physical particles, scalable physical
+retaining narrow tuned resonances. Localized physical particles, scalable physical
 reference, an interacting chiral continuum and Einstein dynamics remain open.
 
 The [centered source ground](centered_source_ground/README.md) has a complete

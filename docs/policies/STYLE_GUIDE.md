@@ -24,6 +24,13 @@ states of the research.
 - Keep `/docs` small: update the owning page, consolidate overlapping material,
   and place implementation-specific mathematics beside its code. Do not add
   individual run reports, duplicate status summaries or migration-only pages.
+  The root holds only high-level programs, references and ledgers. No dated
+  file, progress report, audit result, integration record or PR handoff is
+  added anywhere under `docs/`; that history belongs in the GitHub pull
+  request or issue. A `docs/research/` note states a current result its code
+  verifies, without history. Release papers do not cite `docs/` files, and
+  code, receipts and registers do not bind them as evidence. The
+  [docs index](../README.md#rules-for-this-directory) states the full rules.
   Preserve substantive proofs, counterexamples, evidence and source commitments
   when consolidating documents.
 - Scientific classifications such as conditional, unproved, refuted, or
