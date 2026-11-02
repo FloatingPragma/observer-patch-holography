@@ -61,6 +61,31 @@ The same physical-smearing argument constructs its own eight-valley
 continuum net. The averaged addition/removal symmetry and zero first
 moment are obtained on this new reference.
 
+The [centered finite certificate](../model/centered_source_ground/README.md#an-exact-full-finite-gap-and-a-certified-reference-approximation)
+also proves a full 65,536-state gap greater than `1/128` in model units.
+An exact rank-one Gram identity on the complete balanced `N=8` block
+supplies the neutral bound; the existing charged bound covers every other
+number sector. Integer Rayleigh and variance calculations certify an
+approximate ground with infidelity below `10^-6`. This does not execute a
+native preparation or turn the finite gap into a relativistic rest mass.
+
+Complete source identities place every linear charged response in
+`S=eta=1/2`, pair the full addition/removal matrix measures, and reverse
+the same twelve source currents. The complete repair is transparent on
+the whole `N=7` and `N=9` sectors: all native outcomes vanish and every
+outside outcome is retained. It supplies no informative defect record.
+
+The [onsite mass catalogue](../model/native_mass_channels/README.md)
+exhausts the four Hermitian onsite channels anticommuting with the actual
+Weyl hopping. Its three gapped coefficient components retain all eight
+valleys; spin-mass sign patterns can rotate continuously, while the
+spin-direction component admits integer winding of a continuous enclosing
+sphere. These are order-parameter invariants within that exact class,
+not protected particles under arbitrary source operations. All four order
+expectations vanish in the actual unique finite centered ground. Its
+positive many-body gap therefore does not prove selection of a classical
+mass pattern, and the bounded-coupling continuum remains massless.
+
 ## Exact finite checks and energy readouts
 
 On the actual cube at `c=1/8,U=1`, the old global operator bound
@@ -84,8 +109,13 @@ in each part, and strictly positive on-site coupling. Together with the
 proved half filling, these are the hypotheses of [Lieb's ground-state
 theorem](https://arxiv.org/pdf/cond-mat/9311033), Theorem 1. The centered
 cube therefore has a unique global ground with hidden spin zero. This
-imports a proved theorem with its model premises checked; it does not
-supply a quantitative neutral excitation gap or a relativistic mass.
+imported result is an independent crosscheck: the complete balanced
+block's exact rank-one certificate gives uniqueness and trial infidelity
+below `10^-6`; the same trial has exact spin-squared expectation below one.
+Every nonzero integer ground spin would force that expectation above
+`2(1-10^-6)`, a contradiction. Thus the direct finite proof establishes a
+unique singlet and the full gap `>1/128` without the imported spin theorem.
+Neither proof identifies a relativistic mass.
 
 The actual centered cube also has a faithful one-site state, without
 using a fitted eigenvector. Exact signed vertex symmetries make its local

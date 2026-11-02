@@ -6,6 +6,7 @@ Cholesky success flag, or nonzero-pivot assumption enters that proof.
 """
 from functools import lru_cache
 from fractions import Fraction as F
+import json
 
 import numpy as np
 from scipy import linalg, sparse
@@ -19,6 +20,12 @@ BITS = 20
 SHIFT = F(27, 64)
 CEILING = F(1, 512)
 INTMAX = np.iinfo(np.int64).max
+_STANDARD_SPARSE_TYPES = tuple(getattr(sparse, f'{form}_{kind}')
+                               for form in ('bsr', 'coo', 'csc', 'csr', 'dia', 'dok', 'lil')
+                               for kind in ('matrix', 'array'))
+_NATIVE_SPARSE_SCALARS = (int, bool, type(None), np.bool_, np.int8, np.uint8,
+                         np.int16, np.uint16, np.int32, np.uint32, np.int64,
+                         np.uint64, np.intp, np.uintp, np.longlong, np.ulonglong)
 
 
 def balanced_indices(number):
@@ -51,6 +58,164 @@ def propose_gram(numerator, bits=BITS):
     return q.astype(np.int64)
 
 
+def _native_sparse_storage(value):
+    """Refuse custom dispatch in native sparse buffers and containers."""
+    if callable(value):
+        raise ValueError('native sparse storage without method shadows required')
+    if isinstance(value, np.ndarray):
+        if type(value) is not np.ndarray:
+            raise ValueError('native sparse storage arrays required')
+        if value.dtype.hasobject:
+            for item in value.flat:
+                _native_sparse_storage(item)
+    elif isinstance(value, (tuple, list, dict)):
+        if type(value) not in (tuple, list, dict):
+            raise ValueError('native sparse storage containers required')
+        for item in value.items() if type(value) is dict else value:
+            _native_sparse_storage(item)
+    elif type(value) not in _NATIVE_SPARSE_SCALARS and not isinstance(value, np.dtype):
+        # DOK/LIL can retain Python objects before conversion. An int subclass
+        # may override __int__ and hide its original stored integer value.
+        raise ValueError('native sparse storage scalars required')
+
+
+def _native_sparse_entries(value):
+    """Validate native storage and yield its addressed entries without casts.
+
+    Compressed tail capacity and DIA padding are not matrix entries. Duplicate
+    COO/compressed entries are legitimate and are summed over Z by the caller.
+    """
+    def refuse():
+        raise ValueError('consistent native sparse integer storage required')
+
+    def integer(item):
+        if (type(item) not in _NATIVE_SPARSE_SCALARS or
+                item is None or isinstance(item, (bool, np.bool_))):
+            refuse()
+        return int(item)
+
+    def array(item, rank, kinds='iu'):
+        if type(item) is not np.ndarray or item.ndim != rank or item.dtype.kind not in kinds:
+            refuse()
+        return item
+
+    shape = value.shape
+    if type(shape) is not tuple or len(shape) != 2:
+        refuse()
+    rows, columns = map(integer, shape)
+    if rows < 0 or columns < 0:
+        refuse()
+
+    def index(item, size):
+        result = integer(item)
+        if not 0 <= result < size:
+            refuse()
+        return result
+
+    form = value.format
+    if form == 'coo':
+        data = array(value.data, 1)
+        if type(value.coords) is not tuple or len(value.coords) != 2:
+            refuse()
+        row, column = (array(item, 1) for item in value.coords)
+        if len(row) != len(data) or len(column) != len(data):
+            refuse()
+        for r, c, entry in zip(row, column, data, strict=True):
+            yield index(r, rows), index(c, columns), int(entry)
+    elif form in ('csr', 'csc', 'bsr'):
+        data = array(value.data, 3 if form == 'bsr' else 1)
+        indices, pointers = array(value.indices, 1), array(value.indptr, 1)
+        height, width = data.shape[1:] if form == 'bsr' else (1, 1)
+        if height <= 0 or width <= 0:
+            refuse()
+        # BSR permits an incomplete bottom/right fringe representing zeros.
+        major, minor = ((columns, rows) if form == 'csc'
+                        else (rows//height, columns//width))
+        if len(pointers) != major+1 or len(indices) != len(data):
+            refuse()
+        positions = [int(item) for item in pointers]
+        if (positions[0] != 0 or positions[-1] > len(data) or
+                any(a > b for a, b in zip(positions, positions[1:]))):
+            refuse()
+        for outer, (start, stop) in enumerate(zip(positions, positions[1:])):
+            for slot in range(start, stop):
+                inner = index(indices[slot], minor)
+                if form == 'bsr':
+                    for r in range(height):
+                        for c in range(width):
+                            yield outer*height+r, inner*width+c, int(data[slot, r, c])
+                elif form == 'csc':
+                    yield inner, outer, int(data[slot])
+                else:
+                    yield outer, inner, int(data[slot])
+    elif form == 'dia':
+        data, offsets = array(value.data, 2), array(value.offsets, 1)
+        diagonal_offsets = [int(item) for item in offsets]
+        if len(data) != len(offsets) or len(set(diagonal_offsets)) != len(offsets):
+            refuse()
+        for diagonal, offset in enumerate(diagonal_offsets):
+            for c in range(max(0, offset), min(columns, data.shape[1], rows+offset)):
+                yield c-offset, c, int(data[diagonal, c])
+    elif form == 'lil':
+        row_indices, row_values = array(value.rows, 1, 'O'), array(value.data, 1, 'O')
+        if len(row_indices) != rows or len(row_values) != rows:
+            refuse()
+        for r, (indices, entries) in enumerate(zip(row_indices, row_values, strict=True)):
+            if type(indices) is not list or type(entries) is not list or len(indices) != len(entries):
+                refuse()
+            for c, entry in zip(indices, entries, strict=True):
+                c = index(c, columns)
+                yield r, c, integer(entry)
+    elif form == 'dok':
+        if type(value._dict) is not dict:
+            refuse()
+        for key, entry in value._dict.items():
+            if type(key) is not tuple or len(key) != 2:
+                refuse()
+            yield index(key[0], rows), index(key[1], columns), integer(entry)
+    else:
+        refuse()
+
+
+def _integer_numerator(numerator):
+    """Coalesce original addressed integer entries over Z into int64 CSR."""
+    if sparse.issparse(numerator) and type(numerator) not in _STANDARD_SPARSE_TYPES:
+        # A subclass can hide original entries by overriding format conversion.
+        # Refuse it before dispatching any sparse method or reading its data.
+        raise ValueError('standard SciPy sparse matrix or array required')
+    if (np.ma.isMaskedArray(numerator) or
+            (sparse.issparse(numerator) and np.ma.isMaskedArray(getattr(numerator, 'data', None)))):
+        raise ValueError('unmasked integer H numerator required')
+    if sparse.issparse(numerator):
+        # Exact sparse classes still permit instance method replacement and
+        # subclassed stored buffers. Conversion must not dispatch through either.
+        for value in vars(numerator).values():
+            _native_sparse_storage(value)
+    original = numerator if sparse.issparse(numerator) else np.asarray(numerator)
+    if (original.ndim != 2 or original.shape[0] != original.shape[1]
+            or original.dtype.kind not in 'iu'):
+        raise ValueError('square integer H numerator required')
+    # Native conversion may truncate malformed indices, prune inconsistent
+    # buffers or coalesce duplicates in a narrow dtype. Read validated native
+    # storage directly; dense conversion only receives a base integer ndarray.
+    if sparse.issparse(original):
+        entries = _native_sparse_entries(original)
+    else:
+        dense_entries = sparse.coo_matrix(original)
+        entries = zip(dense_entries.row, dense_entries.col, dense_entries.data, strict=True)
+    totals = {}
+    for row, column, value in entries:
+        key = int(row), int(column)
+        totals[key] = totals.get(key, 0)+int(value)
+    if any(abs(value) > INTMAX for value in totals.values()):
+        raise OverflowError('exact source numerator sum exceeds the int64 domain')
+    nonzero = [(row, column, value) for (row, column), value in totals.items() if value]
+    rows = [row for row, _, _ in nonzero]
+    columns = [column for _, column, _ in nonzero]
+    data = np.asarray([value for _, _, value in nonzero], dtype=np.int64)
+    return sparse.csr_matrix((data, (rows, columns)), shape=original.shape)
+
+
 def verify_gram(numerator, q, ceiling=CEILING):
     """Exact PSD+residual decomposition; returns the rational residual norm.
 
@@ -59,23 +224,31 @@ def verify_gram(numerator, q, ceiling=CEILING):
     bounded before their integer reduction.  The matrix need not have full
     rank and Q need not be triangular.
     """
-    h = sparse.csr_matrix(numerator, copy=True)
-    h.sum_duplicates()
-    h.eliminate_zeros()
+    h = _integer_numerator(numerator)
+    if np.ma.isMaskedArray(q):
+        raise ValueError('unmasked integer Gram factor required')
     q = np.asarray(q)
     if (h.shape[0] != h.shape[1] or q.shape != h.shape or
             h.dtype.kind not in 'iu' or q.dtype != np.dtype(np.int64)):
         raise ValueError('square integer H numerator and int64 Gram factor required')
-    if not isinstance(ceiling, F) or ceiling <= 0:
+    if (type(ceiling) is not F or type(ceiling.numerator) is not int or
+            type(ceiling.denominator) is not int or
+            ceiling.numerator <= 0 or ceiling.denominator <= 0):
         raise ValueError('positive exact rational residual ceiling required')
-    if (h-h.T).nnz:
-        raise ValueError('symmetric source Hamiltonian required')
+    # Fraction slots are writable. Validate the original pair, then reduce a
+    # detached value before comparisons; malformed denominators reverse order.
+    ceiling = F(ceiling.numerator, ceiling.denominator)
     n = len(q)
     maxq = max((abs(int(x)) for x in (q.min(), q.max())), default=0)
     maxh = max((abs(int(x)) for x in h.data), default=0)
     factor, shift = 1 << (2*BITS-4), 27*(1 << (2*BITS-6))
     if n*maxq**2+factor*maxh+shift > INTMAX:
         raise OverflowError('integer Gram accumulation or residual could overflow')
+    if (h-h.T).nnz:
+        raise ValueError('symmetric source Hamiltonian required')
+    # Preserve every checked integer; contiguous rows avoid strided integer
+    # dot products when the numerical proposer returns a Fortran-order factor.
+    q = np.ascontiguousarray(q)
     residual = q@q.T
     residual *= -1
     residual[np.diag_indices(n)] += shift
@@ -92,8 +265,8 @@ def verify_gram(numerator, q, ceiling=CEILING):
 
 
 @lru_cache(maxsize=1)
-def certificate():
-    """Full65536-state ground proof; only four nontrivial Gram blocks needed."""
+def _certificate_json():
+    """Cache immutable claims after the full65536-state ground proof."""
     ground.certificate()
     ops = cube.operators()
     # Conserved exact hidden SU2 makes a balanced weight meet every spin irrep.
@@ -114,7 +287,7 @@ def certificate():
     # 7/1024 is a conservative certified full charged-sector gap.
     if F(3, 16) <= F(441, 1024)**2:
         raise ArithmeticError('rational square-root separation failed')
-    return {'original_action': 'H=dGamma(h)+D; c=1/8,U=1, open2x2x2 cube',
+    result = {'original_action': 'H=dGamma(h)+D; c=1/8,U=1, open2x2x2 cube',
             'full_Fock_dimension': 65536, 'energy_shift_or_chemical_potential': None,
             'global_ground_energy': '-sqrt(3)/4', 'global_ground_dimension': 5,
             'ground_particle_number': 4, 'ground_hidden_spin': '2',
@@ -131,3 +304,9 @@ def certificate():
             'all_ground_states_are_passive_for_this_finite_H': True,
             'unique_ground_claimed': False,
             'thermodynamic_or_relativistic_vacuum_claimed': False}
+    return json.dumps(result, allow_nan=False)
+
+
+def certificate():
+    """Return detached claims, including every nested Gram-block record."""
+    return json.loads(_certificate_json())
