@@ -13,6 +13,19 @@ def test_full_source_particle_hole_symmetry():
     assert result['all_matrix_entries_checked'] is True
 
 
+def test_source_symmetry_returns_detached_cached_claims():
+    result = cube.source_symmetry()
+    saved = dict(result)
+    result['full_Fock_dimension'] = 1
+    result['exact_K_transform'] = 'changed'
+    try:
+        assert cube.source_symmetry() == saved
+    finally:
+        # Keep the unfixed implementation clean when demonstrating failure.
+        result.clear()
+        result.update(saved)
+
+
 def test_exact_source_hypotheses_of_imported_Lieb_theorem():
     result=cube.lieb_premises()
     assert result['connected_vertices']==list(range(8))

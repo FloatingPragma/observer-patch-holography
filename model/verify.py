@@ -360,6 +360,7 @@ REPLAYS = (
     ("model.continuum_composite_channel", None, "model/continuum_composite_channel/results.json"),
     ("model.ground_regional_modular", None, "model/ground_regional_modular/results.json"),
     ("model.centered_source_ground", None, "model/centered_source_ground/results.json"),
+    ("model.native_mass_channels", None, "model/native_mass_channels/results.json"),
     ("model.continuum_free_limit", None, "model/continuum_free_limit/results.json"),
     ("model.biased_reset", None, "model/biased_reset/results.json"),
     ("model.band_clock", None, "model/band_clock/results.json"),

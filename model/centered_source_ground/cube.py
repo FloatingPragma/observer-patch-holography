@@ -10,7 +10,7 @@ from ..interacting_vacuum import ground, global_ground
 
 
 @lru_cache(maxsize=1)
-def source_symmetry():
+def _source_symmetry_items():
     ops=source.operators()
     if ops.scale!=16 or ops.hubbard_H.imag.nnz:
         raise ArithmeticError('expected the exact hidden-frame numerator16H')
@@ -34,10 +34,16 @@ def source_symmetry():
         raise ArithmeticError('centered Hamiltonian is not particle-hole invariant')
     if not np.array_equal(number[complement],16-number):
         raise ArithmeticError('number did not transform to16-N')
-    return {'full_Fock_dimension':len(masks),'source_scale':16,
+    result = {'full_Fock_dimension':len(masks),'source_scale':16,
             'exact_H_transform':'PH(H)=H+8-N',
             'exact_K_transform':'PH(H-N/2)=H-N/2',
             'all_matrix_entries_checked':True,'number_transform':'N ->16-N'}
+    return tuple(result.items())
+
+
+def source_symmetry():
+    """Return fresh scalar claims backed by the immutable exact-check cache."""
+    return dict(_source_symmetry_items())
 
 
 def sector_bounds():
@@ -62,7 +68,7 @@ def sector_bounds():
             'Neel_only_gap_lower':'1/2-sqrt(3)/4',
             'Neel_only_gap_strict_rational_floor':str(gap_floor),
             'unique_N8_ground_proved_by_imported_Lieb':True,
-            'quantified_neutral_gap_proved':False,
+            'neutral_gap_from_charge_bounds':False,
             'thermodynamic_ground_uniqueness_proved':False,
             'old_N4_ground_remains_centered_ground':False}
 
