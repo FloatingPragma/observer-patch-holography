@@ -1,0 +1,216 @@
+{
+  "energy_escape_controls": [
+    {
+      "escaping_first_moment": "1/16",
+      "first_moment": "1/8",
+      "high_energy": "3",
+      "high_mass": "1/48",
+      "inverse_moment_upper": "7/144",
+      "is_a_Heisenberg_ground_state_construction": false,
+      "low_continuous_mass": "1/24",
+      "total_mass": "1/16",
+      "weak_limit_has_a_positive_energy_atom": false
+    },
+    {
+      "escaping_first_moment": "1/16",
+      "first_moment": "1/8",
+      "high_energy": "16",
+      "high_mass": "1/256",
+      "inverse_moment_upper": "515/12288",
+      "is_a_Heisenberg_ground_state_construction": false,
+      "low_continuous_mass": "1/24",
+      "total_mass": "35/768",
+      "weak_limit_has_a_positive_energy_atom": false
+    },
+    {
+      "escaping_first_moment": "1/16",
+      "first_moment": "1/8",
+      "high_energy": "1024",
+      "high_mass": "1/16384",
+      "inverse_moment_upper": "2097155/50331648",
+      "is_a_Heisenberg_ground_state_construction": false,
+      "low_continuous_mass": "1/24",
+      "total_mass": "2051/49152",
+      "weak_limit_has_a_positive_energy_atom": false
+    }
+  ],
+  "exact_finite_checks": {
+    "all_axes_continuity": true,
+    "all_axes_staggered_torque": true,
+    "finite_controls_are_ordered_ground_scaling_data": false,
+    "four_site_ring_ground_energy": "-3",
+    "four_site_ring_kappa": "1/3",
+    "four_site_ring_spectral_lines": [
+      {
+        "current_inverse_moment": "1/6",
+        "lattice_factor": "2",
+        "lines": [
+          {
+            "current_weight": "0",
+            "energy": "0",
+            "spin_weight": "0"
+          },
+          {
+            "current_weight": "0",
+            "energy": "1",
+            "spin_weight": "0"
+          },
+          {
+            "current_weight": "1/3",
+            "energy": "2",
+            "spin_weight": "1/6"
+          },
+          {
+            "current_weight": "0",
+            "energy": "3",
+            "spin_weight": "0"
+          }
+        ],
+        "momentum": "pi/2"
+      },
+      {
+        "current_inverse_moment": "1/6",
+        "lattice_factor": "4",
+        "lines": [
+          {
+            "current_weight": "0",
+            "energy": "0",
+            "spin_weight": "0"
+          },
+          {
+            "current_weight": "1/6",
+            "energy": "1",
+            "spin_weight": "2/3"
+          },
+          {
+            "current_weight": "0",
+            "energy": "2",
+            "spin_weight": "0"
+          },
+          {
+            "current_weight": "0",
+            "energy": "3",
+            "spin_weight": "0"
+          }
+        ],
+        "momentum": "pi"
+      }
+    ],
+    "open_bond_twist": {
+      "bare_second_derivative": "1/2",
+      "ground_energy_curvature": "0",
+      "twice_inverse_current_moment": "1/2"
+    }
+  },
+  "fractional_tail_controls": [
+    {
+      "alpha": "1/2",
+      "cutoff": "4",
+      "fractional_tail_upper": "1/8"
+    },
+    {
+      "alpha": "1/2",
+      "cutoff": "256",
+      "fractional_tail_upper": "1/64"
+    },
+    {
+      "alpha": "1/2",
+      "cutoff": "65536",
+      "fractional_tail_upper": "1/1024"
+    },
+    {
+      "alpha": "2/3",
+      "cutoff": "8",
+      "fractional_tail_upper": "1/8"
+    },
+    {
+      "alpha": "2/3",
+      "cutoff": "4096",
+      "fractional_tail_upper": "1/64"
+    },
+    {
+      "alpha": "2/3",
+      "cutoff": "16777216",
+      "fractional_tail_upper": "1/1024"
+    },
+    {
+      "alpha": "3/4",
+      "cutoff": "16",
+      "fractional_tail_upper": "1/8"
+    },
+    {
+      "alpha": "3/4",
+      "cutoff": "65536",
+      "fractional_tail_upper": "1/64"
+    },
+    {
+      "alpha": "3/4",
+      "cutoff": "4294967296",
+      "fractional_tail_upper": "1/1024"
+    }
+  ],
+  "inherited_custody": {
+    "all_prior_producers_rerun_here": false,
+    "finite_controls_prove_infinite_ordered_state": false,
+    "kind": "current narrow mathematical source bindings; complete derivation in README"
+  },
+  "primary_sources": {
+    "current_sum_rule": "https://arxiv.org/pdf/cond-mat/9311020",
+    "inherited_susceptibility": "https://arxiv.org/html/2105.04970v2"
+  },
+  "schema": "oph.spin_current_spectrum.v1",
+  "soft_current_fractions": [
+    {
+      "field_band_lower": "1/8000000",
+      "field_band_upper": "24000000",
+      "field_weight_lower": "1/48000000",
+      "open_source_band_lower": "1/16000000",
+      "open_source_band_upper": "48000000",
+      "soft_current_fraction_lower": "1/96000000000000",
+      "soft_first_moment_lower": "1/384000000000000",
+      "total_first_moment_upper": "1/4",
+      "universal_fraction_lower": "1/96000000000000"
+    },
+    {
+      "field_band_lower": "1/16000000",
+      "field_band_upper": "12000000",
+      "field_weight_lower": "1/96000000",
+      "open_source_band_lower": "1/32000000",
+      "open_source_band_upper": "24000000",
+      "soft_current_fraction_lower": "1/96000000000000",
+      "soft_first_moment_lower": "1/1536000000000000",
+      "total_first_moment_upper": "1/16",
+      "universal_fraction_lower": "1/96000000000000"
+    }
+  ],
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_current_spectrum/__init__.py": "508f3ccf6ce92ca66c553e1c4bc80040fc1d214ea4f6aa54baacd7816a2d6993",
+    "model/spin_current_spectrum/__main__.py": "d9cd2f26aa0a3cf2cd2c7cd6bf705880236172022ee010501b6b024dcccdb912",
+    "model/spin_current_spectrum/algebra.py": "c29c0dcac869c6cefd72b593d354298954cc890b2bd175acf8c05e4fd428ac1f",
+    "model/spin_current_spectrum/bounds.py": "76de38fc46bb0249f62f65e37f3e68a22b2a132fd7ec4ab7eaacf8c5046b8838",
+    "model/spin_current_spectrum/packet.py": "bc1c18b2a9fcb311ef507ecabc13c4ad475f2c2a44c6a9f46bd71096f6701c19",
+    "model/spin_current_spectrum/test_current.py": "5810a4dbbf5b6d40e4cdb8bef6cb360f83b8209308875a1a799adfb45e15c731",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "paper/tex_fragments/SPIN_CURRENT_SPECTRUM.tex": "9bbf19c0cb4f4fb96d8b044fb25a5abda38d628de85c4dab4ae43e91392cfd5f",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem": {
+    "actual_ground_hard_current_tail_vanishes_proved": false,
+    "bare_twist_is_relaxed_stiffness": false,
+    "clock": "L_p=K/(Jp)",
+    "entire_response_concentration_necessary_for_any_sharp_subbranch": false,
+    "exact_current_continuity_and_field_torque": true,
+    "exact_current_inverse_moment": "J*kappa/2",
+    "first_energy_uniform_integrability_proved": false,
+    "fractional_energy_uniform_integrability_for_0_s_1": true,
+    "nonzero_soft_current_fraction": true,
+    "physical_species_or_particle_masses_identified": false,
+    "reference": "same infinitesimal-axis-1-staggered-field-selected zero-field ground",
+    "sharp_mass_shell_proved": false,
+    "source": "unchanged cubic spin-1/2 antiferromagnet; each bond counted once"
+  }
+}

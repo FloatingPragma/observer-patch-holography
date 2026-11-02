@@ -193,6 +193,11 @@ field vectors in the same history representation. Both have strictly positive
 spectral weight in bands proportional to arbitrarily small momentum, so the
 continuum is nonstatic and gapless. Neither a sharp relativistic pole nor an
 effective infinite-state preparation rate follows from these bounds.
+The [current sum rule](../spin_current_spectrum/README.md) identifies the
+remaining first-energy tail and proves fractional-energy tightness. The
+[filtered-packet instrument](../spin_packet_readout/README.md) has explicit
+success and error budgets, conditional on the stated input accuracy, with
+every rejection retained; its certified finite energies do not close that tail.
 
 The [mass and energy table](PARTICLE_MASS_TABLE.md) keeps four distinct
 calculations: zero rest energies of the canonical free continuum, the two
@@ -213,9 +218,12 @@ unbounded generators converge on matched graph-core inputs. The subsequent
 stress response. For its same shell states, the
 [finite-amplitude theorem](../shell_entropy_response/README.md) proves a positive
 entropy Hessian and uniform lattice convergence to regional Araki entropy.
-These remain free-source matter results on rest balls. Fixed-amplitude absolute
-convergence alone gives no `o(R^4)` nonlinear remainder. A joint boosted-region,
-area/edge entropy, stationarity and responsive metric join is still required.
+The [small-ball asymptotic](../small_ball_entropy_asymptotic/README.md) now
+computes the leading sixth-order relative-entropy coefficient and proves an
+`o(R^4)` nonlinear remainder at fixed shell scale, including fixed amplitudes
+and an explicit positive lattice mesh. These remain free-source matter results
+on rest balls. A joint boosted-region, area/edge entropy, stationarity and
+responsive metric join is still required.
 
 ## Support refinement
 

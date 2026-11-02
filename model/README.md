@@ -7,14 +7,15 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
-The [current completion campaign](completion/NATIVE_NEUTRAL_SPIN_RESPONSE.md)
-addresses the five reference, protection, field, particle and gravity issues.
-It certifies the full finite gap and neutral spectrum, executes a native
-centered-ground preparation and energy readout, constructs an interacting
-repaired spin limit at growing volume, and supplies nine independent finite
-Weyl stress/modular responses to the existing Einstein theorem stack.
-Its new proof checks and the pending custody of older receipts are reported
-separately; the physical species and joint Einstein requirements remain open.
+The [current construction summary](completion/CONTINUUM_FIELD_AND_ENTROPY.md)
+joins the finite gap and spectrum, native preparation and readout, gapless
+canonical spin fields, and free-source Weyl stress/modular responses.
+The latest proofs give an exact sixth-order small-ball entropy correction,
+explicit filtered-packet success and error budgets, and the current-correlation
+tail still needed for the first spin energy moment. The
+[mass and energy table](completion/PARTICLE_MASS_TABLE.md) retains all physical
+identification limits. Focused proof checks and broad repository validation
+are reported separately; physical species and joint Einstein realization remain open.
 
 The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits remain part of the result.
 

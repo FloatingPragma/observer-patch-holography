@@ -1,0 +1,107 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-SMALL-BALL-CURRENT-READOUT-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Close the fixed-amplitude free-sector small-ball entropy remainder, construct complete-output filtered spin-packet readout, and isolate the exact current spectral tail needed for the continuum energy form.",
+  "specification_policy": "Simulator, observer, scheduler, repair and memory laws are admitted explicit specifications. Physical identities, clocks and coefficients still require derivations.",
+  "component_results": [
+    {
+      "id": "small_ball_entropy_asymptotic",
+      "attachment": "FA-107",
+      "issues": [
+        1145
+      ],
+      "result": "On the exact U=0 eight-valley source, the same natural exterior-shell states have genuine regional modular exponential domains, a uniform O((R/L)^6) relative-entropy bound at fixed amplitude, and an exact leading nonlinear coefficient. For each original normalized directional shell, chi(0)/(R/L)^6 tends to 64 c_gamma^2/(35 pi^2) and D(theta)/(R/L)^6 tends uniformly on compact amplitude intervals to 32 c_gamma^2 theta^2/(35 pi^2). A common positive lattice mesh gives the same finite-density limits. All 81 observer-frame preparations have normalized finite-amplitude entropy response converging to the existing nine-direction matrix with O((R/L)^2) error. The nonlinear correction is o(R^4) at fixed L; no area or stationarity law is introduced.",
+      "evidence": [
+        "model/small_ball_entropy_asymptotic/README.md",
+        "model/small_ball_entropy_asymptotic/__init__.py",
+        "model/small_ball_entropy_asymptotic/__main__.py",
+        "model/small_ball_entropy_asymptotic/algebra.py",
+        "model/small_ball_entropy_asymptotic/bounds.py",
+        "model/small_ball_entropy_asymptotic/controls.py",
+        "model/small_ball_entropy_asymptotic/packet.py",
+        "model/small_ball_entropy_asymptotic/results.json",
+        "model/small_ball_entropy_asymptotic/test_asymptotic.py",
+        "paper/tex_fragments/SMALL_BALL_ENTROPY_ASYMPTOTIC.tex"
+      ],
+      "remaining": [
+        "Source-derived responsive area/edge identification, Newton normalization and generalized-entropy stationarity on the same geometry and matter family.",
+        "A sharply boosted finite lattice regional algebra and common geometric chart construction; the present frame changes are prepared states on rest balls.",
+        "A nonzero-U finite-amplitude entropy theorem and the required interacting relativistic particle sectors.",
+        "Native shell preparation and entropy readout with practical, complete-output resource and error bounds."
+      ]
+    },
+    {
+      "id": "spin_packet_readout",
+      "attachment": "FA-108",
+      "issues": [
+        1138,
+        1143
+      ],
+      "result": "The actual ordered-spin spectral packet admits an explicit compact energy filter, a computable band-limited spatial envelope and an all-output finite native approximation. Including both spatial and time LCU normalization, its success probability is at least m0^2 p^4/(96 Lambda^2 29^2), with explicit spatial/time cutoffs, source-read precision and conditional-state error. The unchanged complete 256-vector finite witness gives positive filtered success probabilities and certified conditional excitation energies; no new large native tape execution, effective infinite-ground preparation, sharp shell or physical species is claimed.",
+      "evidence": [
+        "model/spin_packet_readout/README.md",
+        "model/spin_packet_readout/__init__.py",
+        "model/spin_packet_readout/__main__.py",
+        "model/spin_packet_readout/bounds.py",
+        "model/spin_packet_readout/coefficients.py",
+        "model/spin_packet_readout/controls.py",
+        "model/spin_packet_readout/envelope.py",
+        "model/spin_packet_readout/filters.py",
+        "model/spin_packet_readout/finite.py",
+        "model/spin_packet_readout/packet.py",
+        "model/spin_packet_readout/results.json",
+        "model/spin_packet_readout/test_bounds.py",
+        "model/spin_packet_readout/test_coefficients.py",
+        "model/spin_packet_readout/test_controls.py",
+        "model/spin_packet_readout/test_filters.py",
+        "model/spin_packet_readout/test_packet.py",
+        "paper/tex_fragments/SPIN_PACKET_READOUT.tex"
+      ],
+      "remaining": [
+        "Prove an effective volume and field-selection modulus for a specified infinite ordered-state marginal; the finite positive-field ground has its own source-only preparation algorithm.",
+        "Establish a sharp shell, a dynamical equation and surviving interactions, without identifying the variational packet with a continuum Stone-field vector.",
+        "Derive physical species and calibrated relativistic masses, and join the source-derived area and stationarity premises of the Einstein stack."
+      ]
+    },
+    {
+      "id": "spin_current_spectrum",
+      "attachment": "FA-109",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "For the unchanged ordered cubic spin ground, exact continuity gives E^2 dnu_S=2e(k)dnu_j and the full longitudinal inverse-current moment J*kappa/2. The first-energy tail of the FA105 source packets is exactly a weighted current inverse-moment tail. At least m0^4/(192*kappa)>=m0^4/96 of the full weighted current response occurs in a fixed positive energy band proportional to momentum along the same field subsequence. Every fractional energy moment of order 0<s<1 is uniformly integrable; neither first-energy tightness nor a sharp shell is inferred.",
+      "evidence": [
+        "model/spin_current_spectrum/README.md",
+        "model/spin_current_spectrum/__init__.py",
+        "model/spin_current_spectrum/__main__.py",
+        "model/spin_current_spectrum/algebra.py",
+        "model/spin_current_spectrum/bounds.py",
+        "model/spin_current_spectrum/packet.py",
+        "model/spin_current_spectrum/results.json",
+        "model/spin_current_spectrum/test_current.py",
+        "paper/tex_fragments/SPIN_CURRENT_SPECTRUM.tex"
+      ],
+      "remaining": [
+        "A vanishing actual-ground weighted inverse-current hard-frequency tail, equivalent to first-energy uniform integrability for these source packets.",
+        "Control of any field-vector projection loss and a nonvanishing sharp subbranch or concentration theorem, including angular speed consistency.",
+        "Surviving connected interactions, Lorentz covariance, empirically calibrated particle masses and measured-species identification."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Free-sector matter entropy is o(R^4) at fixed shell scale L, or R^2/L^6 tending to zero. Source-derived area response and stationarity remain open. Native filtered readout is constructive but not efficient; its infinite ordered input still requires an effective preparation modulus. Current identities do not prove first-energy tightness, a sharp mass shell, physical species or a surviving interacting relativistic sector.",
+  "maintenance_policy": "Narrow producers, independent mathematical review and focused tests accompany these results. Repository-wide CI cleanup is deferred to the user.",
+  "review": "model/completion/small_ball_current_readout_review.json"
+}

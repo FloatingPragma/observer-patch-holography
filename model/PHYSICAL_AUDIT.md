@@ -7,6 +7,17 @@ law, state/reference, observer access, clock, energy and refinement domain
 across matter and gravity. A rejection applies to the tested candidate or
 proved program class, with the scope and coverage recorded explicitly.
 
+The [current field and entropy summary](completion/CONTINUUM_FIELD_AND_ENTROPY.md)
+records the stronger sector-specific results: a nonstatic gapless spin field,
+an exact current-spectrum reduction of its remaining first-energy tail,
+complete-output finite filtered readout, and a fixed-amplitude nonlinear entropy
+remainder of order `(R/L)^6` in the free sector. The last is `o(R^4)` at fixed
+shell scale `L`; it supplies a matter input to the existing Einstein theorem
+stack, without supplying responsive area, Newton normalization or stationarity.
+The [mass and energy table](completion/PARTICLE_MASS_TABLE.md) keeps these
+results separate from measured particle identities and calibrated rest masses,
+which remain open.
+
 The [matter and geometry witnesses](observer_particles/README.md) give exact
 internal charge decoding and one-Higgs invariant tensors, conditional shared
 spatial operators, a common pointwise metric dictionary and native entropy

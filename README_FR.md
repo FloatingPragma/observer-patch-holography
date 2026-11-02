@@ -76,6 +76,13 @@ de lois échoue.
 
 ## Points forts
 
+- **Résultats actuels et énergies.** Le [bilan de construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
+  réunit les champs continus, la lecture filtrée des excitations de spin et la
+  correction d’entropie à petite boule, d’ordre six à amplitude fixée dans le
+  secteur libre. La [table des masses et énergies](model/completion/PARTICLE_MASS_TABLE.md)
+  distingue les spectres finis et les masses quadratiques fournies comme
+  paramètres. L’identification aux particules mesurées, leurs masses physiques,
+  les interactions relativistes et la jonction complète matière-géométrie restent ouvertes.
 - **Un observateur qui fonctionne.** Un observateur à douze ports conserve ses
   registres et s’en sert pour choisir sa prochaine réparation. Des observateurs
   qui se chevauchent lisent une référence commune et son horloge, un processus

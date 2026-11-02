@@ -1,0 +1,98 @@
+{
+  "schema": "oph.scoped_completion_review.v1",
+  "as_of": "2026-11-02",
+  "base_commit": "056bf8c13",
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "scope": "FA107-109 and integration into current claim, premise, completion and paper surfaces. Historical proof receipts retain their original domains.",
+  "physical_species_identified": false,
+  "independently_calibrated_physical_masses": 0,
+  "interacting_relativistic_continuum_constructed": false,
+  "Einstein_matter_geometry_join_complete": false,
+  "canonical_premises_discharged": [],
+  "components": [
+    {
+      "attachment": "FA-107",
+      "package": "small_ball_entropy_asymptotic",
+      "independent_mathematical_and_code_review": "PASS",
+      "strict_tests_passed": 28,
+      "independent_strict_tests_passed": 28,
+      "cold_replay": "PASS",
+      "receipt": "model/small_ball_entropy_asymptotic/results.json",
+      "sha256": "c0296a5518228d15b8f9190cc4d93805c1e59b94d3ce62c49ab5cd154e3362ee",
+      "scope": "On the exact U=0 eight-valley source, the same natural exterior-shell states have genuine regional modular exponential domains, a uniform O((R/L)^6) relative-entropy bound at fixed amplitude, and an exact leading nonlinear coefficient. For each original normalized directional shell, chi(0)/(R/L)^6 tends to 64 c_gamma^2/(35 pi^2) and D(theta)/(R/L)^6 tends uniformly on compact amplitude intervals to 32 c_gamma^2 theta^2/(35 pi^2). A common positive lattice mesh gives the same finite-density limits. All 81 observer-frame preparations have normalized finite-amplitude entropy response converging to the existing nine-direction matrix with O((R/L)^2) error. The nonlinear correction is o(R^4) at fixed L; no area or stationarity law is introduced."
+    },
+    {
+      "attachment": "FA-108",
+      "package": "spin_packet_readout",
+      "independent_mathematical_and_code_review": "PASS",
+      "strict_tests_passed": 33,
+      "independent_strict_tests_passed": 33,
+      "cold_replay": "PASS",
+      "receipt": "model/spin_packet_readout/results.json",
+      "sha256": "7a20f69d7441a883db6f39dba6eb7f957e5dddb400d4f2b45ef2c38b65aafd3d",
+      "scope": "The actual ordered-spin spectral packet admits an explicit compact energy filter, a computable band-limited spatial envelope and an all-output finite native approximation. Including both spatial and time LCU normalization, its success probability is at least m0^2 p^4/(96 Lambda^2 29^2), with explicit spatial/time cutoffs, source-read precision and conditional-state error. The unchanged complete 256-vector finite witness gives positive filtered success probabilities and certified conditional excitation energies; no new large native tape execution, effective infinite-ground preparation, sharp shell or physical species is claimed."
+    },
+    {
+      "attachment": "FA-109",
+      "package": "spin_current_spectrum",
+      "independent_mathematical_and_code_review": "PASS",
+      "strict_tests_passed": 21,
+      "independent_strict_tests_passed": 21,
+      "cold_replay": "PASS",
+      "receipt": "model/spin_current_spectrum/results.json",
+      "sha256": "3387a80df00a1d65fb5d79d7be72dbff1ae435507671ef6b0e480bc6354959c3",
+      "scope": "For the unchanged ordered cubic spin ground, exact continuity gives E^2 dnu_S=2e(k)dnu_j and the full longitudinal inverse-current moment J*kappa/2. The first-energy tail of the FA105 source packets is exactly a weighted current inverse-moment tail. At least m0^4/(192*kappa)>=m0^4/96 of the full weighted current response occurs in a fixed positive energy band proportional to momentum along the same field subsequence. Every fractional energy moment of order 0<s<1 is uniformly integrable; neither first-energy tightness nor a sharp shell is inferred."
+    }
+  ],
+  "review_findings_resolved": [
+    "The fixed-amplitude little-o statement fixes L, or requires R^2/L^6 -> 0.",
+    "The common exact c_gamma coefficient applies to the original nine normalized directional shells; all81 frame preparations have the uniform bound.",
+    "Fractional source-vector convergence precedes the reducing projection to the actual continuum field representation.",
+    "The filter success includes the spatial LCU cost p^3, yielding a p^4 total lower bound.",
+    "Marginal input accuracy controls accessible outputs only; arbitrary retained references need a joint input bound.",
+    "Heisenberg filtering cancels scalar ground phases; the subsequent energy readout retains its own certified origin.",
+    "The explicit native resource estimate is finite but extremely large; no new long tape execution is asserted."
+  ],
+  "combined_tree_replay_and_CI": "Focused integration checks are recorded separately; repository-wide CI cleanup is deferred to the user.",
+  "combined_focused_regression": {
+    "passed": 102,
+    "warnings": "treated as errors",
+    "command": "python -W error -m pytest -q model/small_ball_entropy_asymptotic model/spin_packet_readout model/spin_current_spectrum tools/test_particle_mass_table.py",
+    "log_sha256": "8927c091431d7119793541eee1a86d2d7b4bdea1294ca918f56f3558e7536b46"
+  },
+  "registry_checks": [
+    "346 claim registry contracts validated",
+    "claim views match canonical registry",
+    "prior-work citations resolve and generated fragments match",
+    "607 local links on current public entry/status pages resolve"
+  ],
+  "paper_build": {
+    "compiled_pdfs": 21,
+    "warning_gates_passed": 21,
+    "changed_pdfs": 8,
+    "flagship_pages": 53,
+    "release_manifest_sha256": "5ce5d4e141d896c7cb5399bb246a521f7f00059917ddc58439c6505e12a9098e",
+    "visual_review": "PASS: 6 flagship and13 particle-paper pages; current hashes verified",
+    "book": "Current-evidence notice added to the book landing page; released narrative and PDF preserved."
+  },
+  "aggregate_receipts": {
+    "m1": {
+      "producer_and_independent_verifier": "PASS",
+      "receipt": "code/m1_necessity/receipt.json",
+      "sha256": "12a446593d3120e94a96da65bbd6018109e49f0448082f949cc80ce2591c80f4",
+      "only_source_digest_changed": true
+    },
+    "postdictions": {
+      "producer_and_independent_verifier": "PASS",
+      "receipt": "code/independent_postdictions/receipt.json",
+      "sha256": "9b1d4e4779e58f0de7ca2fa54d32da632cc45e47badf024ed77e4d1395aee537",
+      "only_source_digest_changed": true
+    }
+  }
+}

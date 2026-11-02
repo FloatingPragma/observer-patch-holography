@@ -93,7 +93,10 @@ proof shows that the whole class of laws cannot work.
   ground with positive excitation energy, and a regular positive-energy
   continuum spin field net with finite propagation. At zero coupling, finite
   regional entropy changes converge to the free-field stress response used
-  by the Einstein derivation. The charged continuum is provably free for
+  by the Einstein derivation, with a controlled fixed-amplitude small-ball
+  remainder. Filtered spin readout includes every rejection outcome; the
+  [mass and energy table](model/completion/PARTICLE_MASS_TABLE.md) records
+  the certified finite spectra. The charged continuum is provably free for
   `U=o(c^(2/7))`, with massless Weyl energies in all eight valleys. A sharp
   mass shell, surviving continuum interaction, measured particle species and
   responsive geometry remain open, with their premises stated in the

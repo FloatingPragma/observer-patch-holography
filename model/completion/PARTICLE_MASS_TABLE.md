@@ -50,6 +50,8 @@ Here J=1 and B/J=1/4 on the open eight-site cube. The [complete certified 256-st
 | 5 | [2.665699560833, 2.665699560855] | [2.440480595638, 2.440480595704] |
 | 6 | [2.729285256683, 2.729285256705] | [2.498694078944, 2.498694079012] |
 
+The [filtered spin-packet readout](../spin_packet_readout/README.md) additionally gives certified conditional excitation energies and success probabilities for this same finite reference, including all rejection outcomes. Its continuum packet construction has an explicit finite resource bound; it does not determine a relativistic rest mass.
+
 ## Reproduce
 
 ```sh

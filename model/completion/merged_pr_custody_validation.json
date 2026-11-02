@@ -1,0 +1,3993 @@
+{
+  "schema": "oph.merged_pr_custody_validation.v1",
+  "date": "2026-11-02",
+  "status": "PASS",
+  "scope": "Exactly20 declared live receipts: actual producers, independent cold checks, current source and complete output hashes; focused completion/class/navigation tests. This is not a full repository proof or CI replay.",
+  "source_bindings": {
+    "model/ballistic_free_boundary/results.json": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e",
+    "model/biased_reset/results.json": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed",
+    "model/centered_particle_spectrum/results.json": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c",
+    "model/charged_dynamics/results.json": "dc94999d655fd50ef094411133d1f92b7011946a780413f8c918e564fe4fff8c",
+    "model/laboratory_clock/results.json": "2cf9a2f283c6f5ecb4f6a9244033d1cc2373cba10ea73187c7c5ac1f43b9677b",
+    "model/native_clock/host_clock_results.json": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89",
+    "model/native_fixed_algebra/occupation_results.json": "012d41b6266db70ccc78c4638aac9cfcaaaf83af0f7df95f7a4263b66f13502d",
+    "model/native_joint_spin_spectroscopy/results.json": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac",
+    "model/native_ordered_ground/results.json": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85",
+    "model/strong_coupling_refinement/results.json": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085",
+    "model/weyl_geometric_modular/results.json": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197",
+    "model/centered_native_preparation/results.json": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a",
+    "model/centered_neutral_spectrum/results.json": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a",
+    "model/native_clock/clock_bridge_results.json": "c93cd49e8f792590c8b4aafac0cccf93095ef4589e08f2a4653e716d5ec259ed",
+    "model/protected_spin_limit/results.json": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e",
+    "model/weyl_gravity_response/results.json": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528",
+    "model/cubic_particle_channels/results.json": "4cfe97a45a6f312a736eac0f4fbb3e2ff91005ecc5c72b9baa669990a98d9844",
+    "model/lattice_weyl_response/results.json": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b",
+    "model/native_spin_observer/results.json": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729",
+    "model/spin_goldstone_sector/results.json": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50"
+  },
+  "receipt_count": 20,
+  "receipts": [
+    {
+      "receipt": "model/ballistic_free_boundary/results.json",
+      "module": "model.ballistic_free_boundary",
+      "before_sha256": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+      "sha256": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e",
+      "output_sha256": {
+        "model/ballistic_free_boundary/results.json": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.ballistic_free_boundary",
+            "--write"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.ballistic_free_boundary",
+            "--check"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        }
+      ]
+    },
+    {
+      "receipt": "model/biased_reset/results.json",
+      "module": "model.biased_reset",
+      "before_sha256": "99eb286d81a199b6350c0dad9ff0aeb87e29e8fb10289e5bfe884b555794257f",
+      "sha256": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed",
+      "output_sha256": {
+        "model/biased_reset/results.json": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.biased_reset",
+            "--write",
+            "/private/tmp/oph-biased-reset-final-refresh/candidate/model/biased_reset/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.biased_reset",
+            "--check",
+            "/private/tmp/oph-biased-reset-final-refresh/candidate/model/biased_reset/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "path": "root.source_bindings.model/completion/SAME_PROCESS_INTERFACES.md",
+          "old": "'98193e82848ec846a5565d91c20977e923cde9ce57f962b9644652a205960e50'",
+          "new": "'d2cae10efc10bd39e80aff573584b5f24b98b7257fe1d46d263eea0e14ee7b76'"
+        }
+      ]
+    },
+    {
+      "receipt": "model/centered_particle_spectrum/results.json",
+      "module": "model.centered_particle_spectrum",
+      "before_sha256": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+      "sha256": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c",
+      "output_sha256": {
+        "model/centered_particle_spectrum/results.json": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.centered_particle_spectrum",
+            "--write"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.centered_particle_spectrum",
+            "--check"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        }
+      ],
+      "reviewed_schema_normalization": "Rename old false quantified_neutral_gap_proved within inherited charge-bound arithmetic to false neutral_gap_from_charge_bounds, matching the reviewed centered_source_ground/cube.py and packet.py. This does not assert a charge-derived neutral gap."
+    },
+    {
+      "receipt": "model/charged_dynamics/results.json",
+      "module": "model.charged_dynamics.packet",
+      "before_sha256": "92a92d4a0e29f0633574ac05c66218953b36b1aabdf49c9926389e0fce4c05b4",
+      "sha256": "dc94999d655fd50ef094411133d1f92b7011946a780413f8c918e564fe4fff8c",
+      "output_sha256": {
+        "model/charged_dynamics/results.json": "dc94999d655fd50ef094411133d1f92b7011946a780413f8c918e564fe4fff8c"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.charged_dynamics.packet",
+            "--write",
+            "/private/tmp/oph-current-main-replay/charged_dynamics/candidate/model/charged_dynamics/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.charged_dynamics.packet",
+            "--check",
+            "/private/tmp/oph-current-main-replay/charged_dynamics/candidate/model/charged_dynamics/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/verify.py",
+          "old": "e68d23c9c2e5c48cb95cdfa9c8c5f77ace27d55adca97d98b08d47cf0acc403e",
+          "new": "2f83f6d976401bb4e0cfbbca6596c05585f1cd29d9839ec3106c25d5d5832d74"
+        }
+      ]
+    },
+    {
+      "receipt": "model/laboratory_clock/results.json",
+      "module": "model.laboratory_clock",
+      "before_sha256": "142a76f88bee65a7ba775395744c1998967191a9b54927fc24be553f1c5496c8",
+      "sha256": "2cf9a2f283c6f5ecb4f6a9244033d1cc2373cba10ea73187c7c5ac1f43b9677b",
+      "output_sha256": {
+        "model/laboratory_clock/results.json": "2cf9a2f283c6f5ecb4f6a9244033d1cc2373cba10ea73187c7c5ac1f43b9677b"
+      },
+      "scientific_payload_unchanged": false,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.laboratory_clock",
+            "--write",
+            "/private/tmp/oph-current-main-replay/laboratory_clock/candidate/model/laboratory_clock/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.laboratory_clock",
+            "--check",
+            "/private/tmp/oph-current-main-replay/laboratory_clock/candidate/model/laboratory_clock/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/host_clock_records.json",
+          "old": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+          "new": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/host_clock.py",
+          "old": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+          "new": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+        }
+      ]
+    },
+    {
+      "receipt": "model/native_clock/host_clock_results.json",
+      "module": "model.native_clock.host_clock",
+      "before_sha256": "c3b6d950d08cf03a9f543aba6ed8c9d8ee2218799ef01998bdbb513428057cef",
+      "sha256": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89",
+      "output_sha256": {
+        "model/native_clock/host_clock_results.json": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_clock.host_clock",
+            "--write",
+            "/private/tmp/oph-current-main-replay/native_clock/candidate/model/native_clock/host_clock_results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_clock.host_clock",
+            "--check",
+            "/private/tmp/oph-current-main-replay/native_clock/candidate/model/native_clock/host_clock_results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/historical_capture.py",
+          "old": null,
+          "new": "8b9489e346eb9095a13f86ea66da3d85cacd53b8bcc58b306937b3febc146802"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/historical/capture_requirements.txt",
+          "old": null,
+          "new": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/historical/capture_source.py.txt",
+          "old": null,
+          "new": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/HISTORICAL_CAPTURE_COMPATIBILITY.md",
+          "old": null,
+          "new": "a655f22b8edbe42a7498fae16394634dd40ef600e64cca7cb20bbc3097a87d0e"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/host_clock.py",
+          "old": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+          "new": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+        }
+      ]
+    },
+    {
+      "receipt": "model/native_fixed_algebra/occupation_results.json",
+      "module": "model.native_fixed_algebra.occupation_packet",
+      "before_sha256": "002f52ace4c9c150ea4b37d0bb3a0e8eab03d60ca88ba723f77ee1bf9fec8056",
+      "sha256": "012d41b6266db70ccc78c4638aac9cfcaaaf83af0f7df95f7a4263b66f13502d",
+      "output_sha256": {
+        "model/native_fixed_algebra/occupation_results.json": "012d41b6266db70ccc78c4638aac9cfcaaaf83af0f7df95f7a4263b66f13502d"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_fixed_algebra.occupation_packet",
+            "--write",
+            "/private/tmp/oph-current-main-replay/native_fixed_algebra/candidate/model/native_fixed_algebra/occupation_results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_fixed_algebra.occupation_packet",
+            "--check",
+            "/private/tmp/oph-current-main-replay/native_fixed_algebra/candidate/model/native_fixed_algebra/occupation_results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_sha256",
+          "path": "model/native_fixed_algebra/OCCUPATION.md",
+          "old": "a4d7435426631e144aac7109d5e431c42373ba3be08acfb6bb67d351d4cacf2f",
+          "new": "1109a355bee76f6dc6ff13e8505d00191d61bbdfa457df6b2db0e01577a344e2"
+        }
+      ]
+    },
+    {
+      "receipt": "model/native_joint_spin_spectroscopy/results.json",
+      "module": "model.native_joint_spin_spectroscopy",
+      "before_sha256": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+      "sha256": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac",
+      "output_sha256": {
+        "model/native_joint_spin_spectroscopy/results.json": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac",
+        "model/native_joint_spin_spectroscopy/results.npz": "91b5f9abb4312de1d29a400720014f6a75ab91b574cd95f7a1586d7cdfdcce50"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_joint_spin_spectroscopy",
+            "--write",
+            "/private/tmp/oph-current-main-replay/native_joint_spin_spectroscopy/candidate/model/native_joint_spin_spectroscopy/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_joint_spin_spectroscopy",
+            "--check",
+            "/private/tmp/oph-current-main-replay/native_joint_spin_spectroscopy/candidate/model/native_joint_spin_spectroscopy/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        }
+      ]
+    },
+    {
+      "receipt": "model/native_ordered_ground/results.json",
+      "module": "model.native_ordered_ground",
+      "before_sha256": "9fea45cdfa35ff148e9009a730a3e866615de823626b394fc4961694bb4eb6ae",
+      "sha256": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85",
+      "output_sha256": {
+        "model/native_ordered_ground/results.json": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85",
+        "model/native_ordered_ground/results.npz": "664a2223524c73d94d26f07a46ec1e89cee0e7cd8f4fa9b12812e5a703e75fb6"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_ordered_ground",
+            "--write",
+            "/private/tmp/oph-current-main-replay/native_ordered_ground/candidate/model/native_ordered_ground/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_ordered_ground",
+            "--check",
+            "/private/tmp/oph-current-main-replay/native_ordered_ground/candidate/model/native_ordered_ground/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_ordered_ground/packet.py",
+          "old": "527b48000a3e19c904e1dc09ed0a784f413cafab7a856ec3cfa6ab7c376fc7b5",
+          "new": "dbb446b4a21406fe094489226aa981220504d5e3f0e340fd149ede733dabad7b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_ordered_ground/test_native_ordered_ground.py",
+          "old": "3ca7a19f9a521a3b29ac1c5c632b70e388e69f621a3674e67cc3bb275de7a25c",
+          "new": "33864e20c0f17ace133cff46d4e0623679924c3385c36dc038bac238287e88dd"
+        }
+      ]
+    },
+    {
+      "receipt": "model/strong_coupling_refinement/results.json",
+      "module": "model.strong_coupling_refinement",
+      "before_sha256": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+      "sha256": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085",
+      "output_sha256": {
+        "model/strong_coupling_refinement/results.json": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.strong_coupling_refinement",
+            "--write",
+            "/private/tmp/oph-current-main-replay/strong_coupling_refinement/candidate/model/strong_coupling_refinement/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.strong_coupling_refinement",
+            "--check",
+            "/private/tmp/oph-current-main-replay/strong_coupling_refinement/candidate/model/strong_coupling_refinement/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_composite_channel/results.json",
+          "old": "fde426ced0523dd801670b4f2f780894227ece531e5a6ae6460b6a1646f9bb29",
+          "new": "342e5f2d8d9bc387d061a161e6e8094ba39731d48f668f61a2277bc55311d9ff"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_free_limit/results.json",
+          "old": "046a733012448e4d7a86b0a3f6871a9acd55e75299eb16976dc9dbf7ade8826f",
+          "new": "3f44bb9f5d8bda5201eb369c89be98831e341d72d8f64451ee35dc571b104a2a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        }
+      ]
+    },
+    {
+      "receipt": "model/weyl_geometric_modular/results.json",
+      "module": "model.weyl_geometric_modular",
+      "before_sha256": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
+      "sha256": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197",
+      "output_sha256": {
+        "model/weyl_geometric_modular/results.json": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.weyl_geometric_modular",
+            "--write",
+            "/private/tmp/oph-current-main-replay/weyl_geometric_modular/attempt_2/candidate/model/weyl_geometric_modular/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.weyl_geometric_modular",
+            "--check",
+            "/private/tmp/oph-current-main-replay/weyl_geometric_modular/attempt_2/candidate/model/weyl_geometric_modular/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/weyl_geometric_modular/tests/test_packet.py",
+          "old": "6378cd15a273c7f31b3a52b149811b131b773099b18b2efd3990b2059fff8a31",
+          "new": "28bd9c57135b42543b79d95705abbacdc9d5d9dbab9578584d4fbe91c4ed3222"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_free_limit/results.json",
+          "old": "046a733012448e4d7a86b0a3f6871a9acd55e75299eb16976dc9dbf7ade8826f",
+          "new": "3f44bb9f5d8bda5201eb369c89be98831e341d72d8f64451ee35dc571b104a2a"
+        }
+      ],
+      "reviewed_custody_count_change": {
+        "old": 512,
+        "new": 518,
+        "basis": "Actual current continuum_free_limit source bindings count. No theorem or gate changed."
+      }
+    },
+    {
+      "receipt": "model/centered_native_preparation/results.json",
+      "module": "model.centered_native_preparation",
+      "before_sha256": "2aaa729a899b516cae781519438ff4aba4b819f72b698dfeb150f2523e642b1a",
+      "sha256": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a",
+      "output_sha256": {
+        "model/centered_native_preparation/results.json": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a",
+        "model/centered_native_preparation/results.npz": "428fd698e0a1ae41e35bc9f98e0a8afe34c9c8060b8ce0591ca4ff4c057e65d5"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.centered_native_preparation",
+            "--write",
+            "/private/tmp/oph-current-main-replay/centered_native_preparation/candidate/model/centered_native_preparation/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.centered_native_preparation",
+            "--check",
+            "/private/tmp/oph-current-main-replay/centered_native_preparation/candidate/model/centered_native_preparation/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_particle_spectrum/results.json",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spin_resolved_spectrum/results.json",
+          "old": "950069d6616828800d13befc1022b5eae8335120923718a08845dc8329393d41",
+          "new": "2406ca517f9e721ed130a21309908aaaf019f79b6efda5114d7f040749cf68ef"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_spectral_detector/results.json",
+          "old": "d6cbde7e45f9b551bc7d9d14863812583596cc64cff1f62d366d7520508776f4",
+          "new": "7898a35657093a900357c69649d60f017f2eb76f689d1dc5096e9fff36f4a3f7"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/matrix_spectral_response/results.json",
+          "old": "36b487f93df3b1b61c136802c03642f9aa4a11ba28b698b8c91c888064740635",
+          "new": "7707f37bcaca9013c287942e2e97c9a97c77e6544d92c971a6d8ef4b3547889b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        }
+      ]
+    },
+    {
+      "receipt": "model/centered_neutral_spectrum/results.json",
+      "module": "model.centered_neutral_spectrum",
+      "before_sha256": "b22e218626ea8dffb9ece20b66f74ff5aee50767c57a1f3d2efb597d09453bcb",
+      "sha256": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a",
+      "output_sha256": {
+        "model/centered_neutral_spectrum/results.json": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.centered_neutral_spectrum",
+            "--write"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.centered_neutral_spectrum",
+            "--check"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_particle_spectrum/results.json",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        }
+      ],
+      "reviewed_schema_normalization": "Rename old false quantified_neutral_gap_proved within inherited charge-bound arithmetic to false neutral_gap_from_charge_bounds, matching the reviewed centered_source_ground/cube.py and packet.py. This does not assert a charge-derived neutral gap."
+    },
+    {
+      "receipt": "model/native_clock/clock_bridge_results.json",
+      "module": "model.native_clock.clock_bridge",
+      "before_sha256": "4ab8cd8231e8dad6797935321d59a4a861f00e884b7fe925f15a9bbbf7df6bd8",
+      "sha256": "c93cd49e8f792590c8b4aafac0cccf93095ef4589e08f2a4653e716d5ec259ed",
+      "output_sha256": {
+        "model/native_clock/clock_bridge_results.json": "c93cd49e8f792590c8b4aafac0cccf93095ef4589e08f2a4653e716d5ec259ed"
+      },
+      "scientific_payload_unchanged": false,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_clock.clock_bridge",
+            "--write",
+            "/private/tmp/oph-current-main-replay/native_clock/attempt_2/candidate/model/native_clock/clock_bridge_results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_clock.clock_bridge",
+            "--check",
+            "/private/tmp/oph-current-main-replay/native_clock/attempt_2/candidate/model/native_clock/clock_bridge_results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "reviewed_canonical_cold_check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_clock.clock_bridge",
+            "--check",
+            "model/native_clock/clock_bridge_results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/host_clock_records.json",
+          "old": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+          "new": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/host_clock_results.json",
+          "old": "2b97bcf85663027d3c2ae9167f2a2e878e6ccb0f9eda04b7ba7920546296b227",
+          "new": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89"
+        },
+        {
+          "map": "root.sources",
+          "path": "model/native_clock/host_clock.py",
+          "old": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+          "new": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+        }
+      ],
+      "native_mathematical_and_scope_fields_unchanged": true,
+      "retained_capture_timing_changes_independently_recomputed": true
+    },
+    {
+      "receipt": "model/protected_spin_limit/results.json",
+      "module": "model.protected_spin_limit",
+      "before_sha256": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+      "sha256": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e",
+      "output_sha256": {
+        "model/protected_spin_limit/results.json": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.protected_spin_limit",
+            "--write",
+            "/private/tmp/oph-current-main-replay/protected_spin_limit/candidate/model/protected_spin_limit/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.protected_spin_limit",
+            "--check",
+            "/private/tmp/oph-current-main-replay/protected_spin_limit/candidate/model/protected_spin_limit/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_composite_channel/results.json",
+          "old": "fde426ced0523dd801670b4f2f780894227ece531e5a6ae6460b6a1646f9bb29",
+          "new": "342e5f2d8d9bc387d061a161e6e8094ba39731d48f668f61a2277bc55311d9ff"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/strong_coupling_refinement/results.json",
+          "old": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+          "new": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_free_limit/results.json",
+          "old": "046a733012448e4d7a86b0a3f6871a9acd55e75299eb16976dc9dbf7ade8826f",
+          "new": "3f44bb9f5d8bda5201eb369c89be98831e341d72d8f64451ee35dc571b104a2a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        }
+      ]
+    },
+    {
+      "receipt": "model/weyl_gravity_response/results.json",
+      "module": "model.weyl_gravity_response",
+      "before_sha256": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
+      "sha256": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528",
+      "output_sha256": {
+        "model/weyl_gravity_response/results.json": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.weyl_gravity_response",
+            "--write",
+            "/private/tmp/oph-current-main-replay/weyl_gravity_response/candidate/model/weyl_gravity_response/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.weyl_gravity_response",
+            "--check",
+            "/private/tmp/oph-current-main-replay/weyl_gravity_response/candidate/model/weyl_gravity_response/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/weyl_geometric_modular/results.json",
+          "old": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
+          "new": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197"
+        }
+      ]
+    },
+    {
+      "receipt": "model/cubic_particle_channels/results.json",
+      "module": "model.cubic_particle_channels",
+      "before_sha256": "5d7d6d139e40d8398d17e9188e05a023e46e9ccb8418f224b67c36e15dc76ef0",
+      "sha256": "4cfe97a45a6f312a736eac0f4fbb3e2ff91005ecc5c72b9baa669990a98d9844",
+      "output_sha256": {
+        "model/cubic_particle_channels/results.json": "4cfe97a45a6f312a736eac0f4fbb3e2ff91005ecc5c72b9baa669990a98d9844"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.cubic_particle_channels",
+            "--write",
+            "/private/tmp/oph-current-main-replay/cubic_particle_channels/candidate/model/cubic_particle_channels/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.cubic_particle_channels",
+            "--check",
+            "/private/tmp/oph-current-main-replay/cubic_particle_channels/candidate/model/cubic_particle_channels/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_particle_spectrum/results.json",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_neutral_spectrum/results.json",
+          "old": "b22e218626ea8dffb9ece20b66f74ff5aee50767c57a1f3d2efb597d09453bcb",
+          "new": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        }
+      ]
+    },
+    {
+      "receipt": "model/lattice_weyl_response/results.json",
+      "module": "model.lattice_weyl_response",
+      "before_sha256": "8bc4e1ac2cdf54067ae40eda2330dc9bdcacf321a5e689498c12edc6c80b8c5a",
+      "sha256": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b",
+      "output_sha256": {
+        "model/lattice_weyl_response/results.json": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.lattice_weyl_response",
+            "--write",
+            "/private/tmp/oph-current-main-replay/lattice_weyl_response/candidate/model/lattice_weyl_response/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.lattice_weyl_response",
+            "--check",
+            "/private/tmp/oph-current-main-replay/lattice_weyl_response/candidate/model/lattice_weyl_response/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/weyl_gravity_response/results.json",
+          "old": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
+          "new": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528"
+        }
+      ]
+    },
+    {
+      "receipt": "model/native_spin_observer/results.json",
+      "module": "model.native_spin_observer",
+      "before_sha256": "e34b9d2afae78b6abf08b54607f4d8677825861dd87df86a489d187c63d938b6",
+      "sha256": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729",
+      "output_sha256": {
+        "model/native_spin_observer/results.json": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729",
+        "model/native_spin_observer/results.npz": "c1d78fa06c6af986ef0ff5fa3262c3866cb83f5a7f4d628f93998674b6ddc71d"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_spin_observer",
+            "--write",
+            "/private/tmp/oph-current-main-replay/native_spin_observer/candidate/model/native_spin_observer/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.native_spin_observer",
+            "--check",
+            "/private/tmp/oph-current-main-replay/native_spin_observer/candidate/model/native_spin_observer/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_particle_spectrum/results.json",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spin_resolved_spectrum/results.json",
+          "old": "950069d6616828800d13befc1022b5eae8335120923718a08845dc8329393d41",
+          "new": "2406ca517f9e721ed130a21309908aaaf019f79b6efda5114d7f040749cf68ef"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_composite_channel/results.json",
+          "old": "fde426ced0523dd801670b4f2f780894227ece531e5a6ae6460b6a1646f9bb29",
+          "new": "342e5f2d8d9bc387d061a161e6e8094ba39731d48f668f61a2277bc55311d9ff"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_spectral_detector/results.json",
+          "old": "d6cbde7e45f9b551bc7d9d14863812583596cc64cff1f62d366d7520508776f4",
+          "new": "7898a35657093a900357c69649d60f017f2eb76f689d1dc5096e9fff36f4a3f7"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/matrix_spectral_response/results.json",
+          "old": "36b487f93df3b1b61c136802c03642f9aa4a11ba28b698b8c91c888064740635",
+          "new": "7707f37bcaca9013c287942e2e97c9a97c77e6544d92c971a6d8ef4b3547889b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/strong_coupling_refinement/results.json",
+          "old": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+          "new": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_free_limit/results.json",
+          "old": "046a733012448e4d7a86b0a3f6871a9acd55e75299eb16976dc9dbf7ade8826f",
+          "new": "3f44bb9f5d8bda5201eb369c89be98831e341d72d8f64451ee35dc571b104a2a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_spin_observer/test_packet.py",
+          "old": "86a3bfe28d46742882d2c4a9a00b2eafda834703ecd623a846bc0f252bf3d616",
+          "new": "c3a9e128f3b49ea891b4c5ccbc52eb4c91b69c40e57cf845766e469b6b769f8b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_native_preparation/results.json",
+          "old": "2aaa729a899b516cae781519438ff4aba4b819f72b698dfeb150f2523e642b1a",
+          "new": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/protected_spin_limit/results.json",
+          "old": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+          "new": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_spin_observer/packet.py",
+          "old": "b1f1bf68d8bb5623d48fd839549a37dc482430c6c4a55cd81446018fb3e1afa4",
+          "new": "cc202dd900a0daba1a47f5b5b4e7b5d806a96a6f92e92118cfe9756bc1a65786"
+        }
+      ]
+    },
+    {
+      "receipt": "model/spin_goldstone_sector/results.json",
+      "module": "model.spin_goldstone_sector",
+      "before_sha256": "b5ffb39c7117a6f3afcd5b212b4309ac044d33d1d89ca4f85e7767a611570e8e",
+      "sha256": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50",
+      "output_sha256": {
+        "model/spin_goldstone_sector/results.json": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50"
+      },
+      "scientific_payload_unchanged": true,
+      "actual_producer_and_independent_cold_check_passed": true,
+      "all_current_source_bindings_match": true,
+      "retained_complete_output_hashes_match": true,
+      "commands": [
+        {
+          "operation": "write",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.spin_goldstone_sector",
+            "--write",
+            "/private/tmp/oph-current-main-replay/spin_goldstone_sector/candidate/model/spin_goldstone_sector/results.json"
+          ],
+          "returncode": 0
+        },
+        {
+          "operation": "check",
+          "argv": [
+            "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/.venv/bin/python",
+            "-W",
+            "error",
+            "-m",
+            "model.spin_goldstone_sector",
+            "--check",
+            "/private/tmp/oph-current-main-replay/spin_goldstone_sector/candidate/model/spin_goldstone_sector/results.json"
+          ],
+          "returncode": 0
+        }
+      ],
+      "source_changes": [
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/cube.py",
+          "old": "26a14420fec7ae993727346b509c052b3996e9f1b2a45c5be30910625cf6e0dd",
+          "new": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_composite_channel/results.json",
+          "old": "fde426ced0523dd801670b4f2f780894227ece531e5a6ae6460b6a1646f9bb29",
+          "new": "342e5f2d8d9bc387d061a161e6e8094ba39731d48f668f61a2277bc55311d9ff"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_ground_constraints/results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/thermodynamic_ground/results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/particles.py",
+          "old": null,
+          "new": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_field/results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_spatial_locality/results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_field_net/results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/gap.py",
+          "old": null,
+          "new": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/strong_coupling_refinement/results.json",
+          "old": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+          "new": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/README.md",
+          "old": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+          "new": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_packet.py",
+          "old": "98c140363b347ffb28c292f47b36c8fe4a9c1632514741a0bc1b1f4a2a13c6e3",
+          "new": "3f8b48bb13f2d8945b56e149176249ca83cc0c80bdeada9a1ebd97938eb4b1ed"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_free_limit/results.json",
+          "old": "046a733012448e4d7a86b0a3f6871a9acd55e75299eb16976dc9dbf7ade8826f",
+          "new": "3f44bb9f5d8bda5201eb369c89be98831e341d72d8f64451ee35dc571b104a2a"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/algebra.py",
+          "old": null,
+          "new": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_gap.py",
+          "old": null,
+          "new": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/ground_spectral_source/results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/common_spin_protection/results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/repair_spectral_sectors/results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/continuum_cpt_constraint/results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/certified_reference/results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/packet.py",
+          "old": "087fd3d54423a5afaac161c286bf7e04a74415c9b111e0fd8bd6baa6eb1a05f9",
+          "new": "4430d17fe9f55be60f7ca4dfee88561a2196e4b687e2c052fc30bb6260fa1aab"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/retarded_matter_response/results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/results.json",
+          "old": "fe1dd0fa533ab296fd5524fca1c42d1408f2eae3d796cb1eb36a69ea119281d9",
+          "new": "4b00fc541df8506e9af4a1b7da10f86fcc30441de4b5b81cc0ccdf78cb2158b1"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_particles.py",
+          "old": null,
+          "new": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/interacting_vacuum/test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/cube_eta_protection/test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/field_symmetry/results.json",
+          "old": "5e5262b10adec699db4a6ea968b708bae0cd379afc109b6d414dd3065c081a0f",
+          "new": "4607859d7609f3e7616c2048c14f4a72576d1d8285f60e1be3930c5124961dd3"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/plaquette_reference/results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/spectral_readout/results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/protected_spin_limit/results.json",
+          "old": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+          "new": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/native_mass_channels/__init__.py",
+          "old": null,
+          "new": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e"
+        },
+        {
+          "map": "root.source_bindings",
+          "path": "model/centered_source_ground/test_ground.py",
+          "old": "57f145cf19319aa0e8f9540d1623f3cb31c3936c18e236e765228e709dbeff03",
+          "new": "76dedd617528472fd2fc4ced3775c9594d47e147c9cedb0c4cc9ff9569a3ca45"
+        }
+      ]
+    }
+  ],
+  "compatibility_policy": "Source hashes alone do not establish numerical or mathematical equivalence. Every producer output was compared with preserved prior bytes. Explicitly reviewed inherited charge-bound key renamings and a prior-binding count update are recorded on their rows; all other nonprovenance payloads remain exact except the separately explained historical capture selection.",
+  "historical_host_capture_selection": {
+    "scope": "Current canonical retained-capture analysis, not a new timing measurement or timing-portability claim",
+    "before_sha256": "4ab8cd8231e8dad6797935321d59a4a861f00e884b7fe925f15a9bbbf7df6bd8",
+    "candidate_sha256": "c93cd49e8f792590c8b4aafac0cccf93095ef4589e08f2a4653e716d5ec259ed",
+    "capture_inputs": [
+      {
+        "label": "published_linux",
+        "raw_path": "docs/comms/host-clock-2026-11-02/published-linux-capture/host_clock_records.json",
+        "raw_sha256": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+        "analysis_path": "docs/comms/host-clock-2026-11-02/published-linux-capture/host_clock_results.json",
+        "analysis_sha256": "2b97bcf85663027d3c2ae9167f2a2e878e6ccb0f9eda04b7ba7920546296b227",
+        "clock_metadata": {
+          "adjustable": false,
+          "api": "time.perf_counter_ns",
+          "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+          "monotonic": true,
+          "reported_resolution_seconds": 1e-09,
+          "traceable_accuracy_bound_supplied": false
+        },
+        "calibration": {
+          "block": 0,
+          "clock_port": 2,
+          "host_duration_ns": 45033045,
+          "local_tick_count": 1767,
+          "nanoseconds_per_local_tick": "15011015/589",
+          "other_clock_and_later_blocks_used_in_fit": false,
+          "run": "baseline"
+        }
+      },
+      {
+        "label": "canonical_retained",
+        "raw_path": "model/native_clock/host_clock_records.json",
+        "raw_sha256": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f",
+        "analysis_path": "model/native_clock/host_clock_results.json",
+        "analysis_sha256": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89",
+        "clock_metadata": {
+          "adjustable": false,
+          "api": "time.perf_counter_ns",
+          "implementation": "mach_absolute_time()",
+          "monotonic": true,
+          "reported_resolution_seconds": 4.166666666666666e-08,
+          "traceable_accuracy_bound_supplied": false
+        },
+        "calibration": {
+          "block": 0,
+          "clock_port": 2,
+          "host_duration_ns": 32356500,
+          "local_tick_count": 1767,
+          "nanoseconds_per_local_tick": "10785500/589",
+          "other_clock_and_later_blocks_used_in_fit": false,
+          "run": "baseline"
+        }
+      }
+    ],
+    "exact_transitions": [
+      {
+        "pointer": "/sources/model~1native_clock~1host_clock.py",
+        "old": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+        "new": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+      },
+      {
+        "pointer": "/sources/model~1native_clock~1host_clock_records.json",
+        "old": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+        "new": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f"
+      },
+      {
+        "pointer": "/sources/model~1native_clock~1host_clock_results.json",
+        "old": "2b97bcf85663027d3c2ae9167f2a2e878e6ccb0f9eda04b7ba7920546296b227",
+        "new": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89"
+      },
+      {
+        "pointer": "/retained_host_attachment/calibration/host_duration_ns",
+        "old": 45033045,
+        "new": 32356500
+      },
+      {
+        "pointer": "/retained_host_attachment/calibration/nanoseconds_per_local_tick",
+        "old": "15011015/589",
+        "new": "10785500/589"
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/0/host_duration_ns",
+        "old": 45779978,
+        "new": 31219000
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/0/host_duration_interval_ns",
+        "old": [
+          "546325890925/25916",
+          "1883507107125/25916"
+        ],
+        "new": [
+          "8921324375/589",
+          "30757059375/589"
+        ]
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/1/host_duration_ns",
+        "old": 47960271,
+        "new": 31731250
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/1/host_duration_interval_ns",
+        "old": [
+          "538219942825/25916",
+          "169999744875/2356"
+        ],
+        "new": [
+          "8788956875/589",
+          "30536446875/589"
+        ]
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/2/host_duration_ns",
+        "old": 45141222,
+        "new": 31413375
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/2/host_duration_interval_ns",
+        "old": [
+          "49611404575/2356",
+          "5647519118375/77748"
+        ],
+        "new": [
+          "8911519375/589",
+          "92222153125/1767"
+        ]
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/3/host_duration_ns",
+        "old": 346113663,
+        "new": 858038917
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/3/host_duration_interval_ns",
+        "old": [
+          "546325890925/25916",
+          "1883507107125/25916"
+        ],
+        "new": [
+          "8921324375/589",
+          "30757059375/589"
+        ]
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/4/host_duration_ns",
+        "old": 348872605,
+        "new": 450908750
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/4/host_duration_interval_ns",
+        "old": [
+          "538219942825/25916",
+          "169999744875/2356"
+        ],
+        "new": [
+          "8788956875/589",
+          "30536446875/589"
+        ]
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/5/host_duration_ns",
+        "old": 350056523,
+        "new": 380260458
+      },
+      {
+        "pointer": "/retained_host_attachment/held_out_comparisons/5/host_duration_interval_ns",
+        "old": [
+          "49611404575/2356",
+          "5647519118375/77748"
+        ],
+        "new": [
+          "8911519375/589",
+          "92222153125/1767"
+        ]
+      }
+    ],
+    "all_other_math_and_scope_fields_identical": true,
+    "both_captures_retained_byte_identically": true,
+    "each_timing_interval_recomputed_from_actual_capture": true,
+    "fresh_owning_calculation_matches_exactly": true,
+    "targeted_tests": {
+      "count": 23,
+      "seconds": 3.52,
+      "status": "PASS",
+      "log": "/tmp/oph-clock-bridge-current-tests.log"
+    }
+  },
+  "class_and_reference_reconciliation": [
+    {
+      "path": "model/biased_code_universality/campaign.json",
+      "before_sha256": "3bf443a56f10800978ab16be8c5ed7f90e20cf4eb1ee2f834a1b888110bd824e",
+      "after_sha256": "aaf45dd3e1ed3cc1dda173fb4e120a43f547a37298388b21b0ca41fda8cf6734",
+      "field_changes": [
+        {
+          "pointer": "/source_bindings/model~1biased_reset~1results.json",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1SAME_PROCESS_INTERFACES.md",
+          "old": "e423d43043e17fedbedea55f7f6f7ca1b5c06a783e264dff69f481d1670f0da9",
+          "new": "d2cae10efc10bd39e80aff573584b5f24b98b7257fe1d46d263eea0e14ee7b76"
+        }
+      ]
+    },
+    {
+      "path": "model/recovery_elision/campaign.json",
+      "before_sha256": "69f23401ff8ae598573263e53994415d126ea2d42798ff66434a048da63358eb",
+      "after_sha256": "d769131b7b403c24469e52f9479cad8c8b5ccbd426689a3663ca5e6562d9b371",
+      "field_changes": [
+        {
+          "pointer": "/source_bindings/model~1biased_reset~1results.json",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1SAME_PROCESS_INTERFACES.md",
+          "old": "e423d43043e17fedbedea55f7f6f7ca1b5c06a783e264dff69f481d1670f0da9",
+          "new": "d2cae10efc10bd39e80aff573584b5f24b98b7257fe1d46d263eea0e14ee7b76"
+        }
+      ]
+    },
+    {
+      "path": "model/completion/component_interfaces.json",
+      "before_sha256": "470f5fc076e016e2246c20dea719d619c343dc1d7997d99f511bbe076f807883",
+      "after_sha256": "da68c187894ca5bbf681abb24178f577065022b9aff6962ecd2daddaba490683",
+      "field_changes": [
+        {
+          "pointer": "/source_bindings/model~1band_clock~1results.json",
+          "old": "37413ee0d77a31dbe74b7d6e9e3d7bdf87dde30f8d7795bb49a9cba72c8b2416",
+          "new": "de4ce3598b019bbcab773e145bf48deeeb8d0327531337bb1d1faeff65cb527a"
+        },
+        {
+          "pointer": "/source_bindings/model~1band_clock_budget~1results.json",
+          "old": "ef1abfd9ad70a561ffdadd9a8609f77f491a95e10f1a12e4f6230223087c58f1",
+          "new": "1c85e91e50803b41ae5246034d46d3027d4e42e9b2bc0d6e2685a334976828e9"
+        },
+        {
+          "pointer": "/source_bindings/model~1biased_reset~1results.json",
+          "old": "1d5092bb311995360eb4d096f5335478cf32dd2d2ada730ac97bda7be52ae6cd",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/source_bindings/model~1common_source~1chiral_candidate~1results.json",
+          "old": "6ccf2054eec1697c90cef315b0ae64dc1b04e254b05e41071f144c9a2acc014c",
+          "new": "4a440b7802543789a706434232663b213b39ba7fd317603b9b14de067a113662"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1SAME_PROCESS_INTERFACES.md",
+          "old": "d894b5059d8da12ffc3f239b8873c2b9ca9cb13e82d80bef4b8f439ee90ef119",
+          "new": "d2cae10efc10bd39e80aff573584b5f24b98b7257fe1d46d263eea0e14ee7b76"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1finite_attachment_map.py",
+          "old": "caf0902b209788a1c11e205066811553594895b5a28406c9e37781a373943861",
+          "new": "b6e48c898b5d73818d69bcd90f8b4270a61cf421707290f78a5c538785cc7daf"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1test_finite_attachment_map.py",
+          "old": "0ff2387711c271963a16750c368f59f2aa1bc3e72dc51dcd14ad1ba6ae9fac0c",
+          "new": "1f2577d4e13eb86cc49636b2735663591b89598a78eb04edae4e2cc5fd089eae"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_benchmark~1readout_results.json",
+          "old": "b8ee2cda8aee9950a4240f3af2e0d0cb47b4203d1a32a222cb7aa98708db81b6",
+          "new": "63d0aa656d8d1513df4be589b4a6e1d68028be473cc6cd167558780929acbad7"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_bridge~1joint_results.json",
+          "old": "0d1e87f6b30ffb23b14f9a740bb67a41694100630e2c21a726ed3b612ad83ca3",
+          "new": "db96711360793d59ffd40952e7cea35e238bad22c7aea5eb270da62fb6584010"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_clock~1results.json",
+          "old": "fcdb00f9e3873dad6c7ad8db27eadae1de399f3e17b8748ff1e3ebd689ac0af5",
+          "new": "1004bd405b7888097807073c55b603b4d38d7830d0f91bcdef014338ab466d41"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_modular~1results.json",
+          "old": "137a84e7559526193dff3c4f0140b787f521b784f08356a32bc6aaf09d8e5270",
+          "new": "8531d7dc85cdc7475e996cc17813182aed2992bbd113c8ff2c69fafc6090014c"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_propagation~1results.json",
+          "old": "ae1ad3dff1bc7cdd8b33fddd349edb56d655230d1a54e308b0a80fddfd3935fb",
+          "new": "3346c7692f6ab15be2b159ce641435f6eeca7e910f2e8a13716614405d32d55b"
+        },
+        {
+          "pointer": "/source_bindings/model~1field_regions~1results.json",
+          "old": "70c2931c006bb7212b2bed92aaf63b0ff78f620727c159f994fd879f36b5c90b",
+          "new": "7a5b063b96e6e33fce068fbad995f43d44910ccbc5e44c6d2442e6acabbe79f1"
+        },
+        {
+          "pointer": "/source_bindings/model~1interacting_field~1results.json",
+          "old": "de6438514764ce85fb4b7a83a9639c7286fb7aea46417ab4afa0d9e72479d6b1",
+          "new": "c94c3d63e8b2fee0c3539854cf87739e3eb4e8669fca67596c2c46d09e87ba85"
+        },
+        {
+          "pointer": "/source_bindings/model~1observer_particles~1results~1entangled_alpha.json",
+          "old": "a42b78e100aeef09218efd64b9569dafea3fb3cdeed4d12a9dfe5e6168490410",
+          "new": "1536bdceda74bb6849ecdb1a9840c681d7dc1dbb83b74e97720ec776112927f0"
+        },
+        {
+          "pointer": "/source_bindings/model~1particle_comparison~1results.json",
+          "old": "b1045a4602e2fd868d03cc7cb74fb9ef2c5d5139b833279f5f9041e935b99068",
+          "new": "f4598cfc378cdd4cdaafdfba44da27f8217635681743051fd056650dc4c3bf57"
+        },
+        {
+          "pointer": "/source_bindings/model~1scalar_observations~1experimental_readout~1executable_results.json",
+          "old": "3b9a1673ce4b1de0be9052b8976f296d890f9d91d7e2113c520f665e16ad2a6e",
+          "new": "5c605c4ec5d6762cdc190ac49c5d2139b8cc8286dbe89a3101e9783faa6eb73b"
+        }
+      ]
+    },
+    {
+      "path": "model/completion/theorem_map.json",
+      "before_sha256": "d6c1138600a403a50c7065394ce8807d7e87c16561a656f41bc0badaf946b1ee",
+      "after_sha256": "3ad1c27a6b0577c753f571f7cdd9a40941de0b3ebbf7bddfacf43500dc73e4f8",
+      "field_changes": [
+        {
+          "pointer": "/sources/construction/sha256",
+          "old": "f8c39f9af498acc1a52c6550cf68be70ceacf2be19d735b3abd9e5d41d9a17f5",
+          "new": "a2addaa33b729d8c8ae8f906d4ca72bfa4eb3d2a9aa39ac174ef62794c8f266d"
+        }
+      ]
+    },
+    {
+      "path": "model/completion/finite_attachment_map.json",
+      "before_sha256": "c0946f81b542cd51f45efae2eaa81fb1e43c2e2166922332c5805af2e5951758",
+      "after_sha256": "1ef4e23d88f73e4a3da7e76447cbdd40ddb377c6bb0da512fb508fc626aecae6",
+      "field_changes": [
+        {
+          "pointer": "/source_bindings/model~1adaptive_reference~1results.json",
+          "old": "2510f56cfe7685f235ae7adcd2c1040e8e17dbe9fdbf8106ea84d2e3a87c2df1",
+          "new": "fbe6bb80c25b371878b561e6ee6bc7d33e14d2a91f447f79443eed22dd85df68"
+        },
+        {
+          "pointer": "/source_bindings/model~1ballistic_free_boundary~1results.json",
+          "old": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+          "new": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e"
+        },
+        {
+          "pointer": "/source_bindings/model~1band_clock~1results.json",
+          "old": "37413ee0d77a31dbe74b7d6e9e3d7bdf87dde30f8d7795bb49a9cba72c8b2416",
+          "new": "de4ce3598b019bbcab773e145bf48deeeb8d0327531337bb1d1faeff65cb527a"
+        },
+        {
+          "pointer": "/source_bindings/model~1band_clock_budget~1results.json",
+          "old": "ef1abfd9ad70a561ffdadd9a8609f77f491a95e10f1a12e4f6230223087c58f1",
+          "new": "1c85e91e50803b41ae5246034d46d3027d4e42e9b2bc0d6e2685a334976828e9"
+        },
+        {
+          "pointer": "/source_bindings/model~1centered_native_preparation~1results.json",
+          "old": "2aaa729a899b516cae781519438ff4aba4b819f72b698dfeb150f2523e642b1a",
+          "new": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a"
+        },
+        {
+          "pointer": "/source_bindings/model~1centered_neutral_spectrum~1results.json",
+          "old": "b22e218626ea8dffb9ece20b66f74ff5aee50767c57a1f3d2efb597d09453bcb",
+          "new": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a"
+        },
+        {
+          "pointer": "/source_bindings/model~1centered_particle_spectrum~1results.json",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "pointer": "/source_bindings/model~1certified_reference~1results.json",
+          "old": "416841d275a2ea760946a63d131e1ead33b788c25d867101a719adc590100c1c",
+          "new": "153ca82b79eb5317bbfecd000e19ec2205c365b52abe53817ec6832ce8be24a2"
+        },
+        {
+          "pointer": "/source_bindings/model~1common_spin_protection~1results.json",
+          "old": "f260d76f842b02236533859bfdd9de4222e391bdcb0d75fff59f6facea32cf00",
+          "new": "bcf432381fd0363065aeb0e8a11c24f90dcc79ab7603c850a2c4d227fff18a49"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1finite_attachment_map.py",
+          "old": "c5f1a3970124a8f7d67e3ea53fe4db12988c9e5a56c54dfdb6d2a98e397d686e",
+          "new": "b6e48c898b5d73818d69bcd90f8b4270a61cf421707290f78a5c538785cc7daf"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1test_finite_attachment_map.py",
+          "old": "80eb98da65b6a45db6a36e1183f2c94b96e50012f629c98d267c35c608160ca8",
+          "new": "1f2577d4e13eb86cc49636b2735663591b89598a78eb04edae4e2cc5fd089eae"
+        },
+        {
+          "pointer": "/source_bindings/model~1continuing_reference~1results.json",
+          "old": "5fd95dc73e40d3e5ee71fd5f7639aeadeb8cc46c5a949e844967665b8d09b04e",
+          "new": "99782afe59f1ce9b85e6ac405480134f589053cb328dc101f8bdde73356ef4f3"
+        },
+        {
+          "pointer": "/source_bindings/model~1continuum_composite_channel~1results.json",
+          "old": "fde426ced0523dd801670b4f2f780894227ece531e5a6ae6460b6a1646f9bb29",
+          "new": "342e5f2d8d9bc387d061a161e6e8094ba39731d48f668f61a2277bc55311d9ff"
+        },
+        {
+          "pointer": "/source_bindings/model~1continuum_cpt_constraint~1results.json",
+          "old": "fd03e3e84ef69347159347cdea4194cba370596eb7132b65a62d39b6a1dc3b02",
+          "new": "af540a557f420ab102bd6070328cbe876e71947c5ddcc94175d864c30b6457cb"
+        },
+        {
+          "pointer": "/source_bindings/model~1continuum_field_net~1results.json",
+          "old": "ca13727fc4f15dcd97a4bce54c215731c96436217bbf2bb59e40439018eb0b07",
+          "new": "8e43d6079c8df24babd601e68337646fbf6c9b643fb1710cfded4c824f4f7281"
+        },
+        {
+          "pointer": "/source_bindings/model~1continuum_free_limit~1results.json",
+          "old": "046a733012448e4d7a86b0a3f6871a9acd55e75299eb16976dc9dbf7ade8826f",
+          "new": "3f44bb9f5d8bda5201eb369c89be98831e341d72d8f64451ee35dc571b104a2a"
+        },
+        {
+          "pointer": "/source_bindings/model~1continuum_ground_constraints~1results.json",
+          "old": "bc98380967a41ab6c2622f8519167b62d7fdfd1680c5ea7b421cefcfe522a9d5",
+          "new": "88d96c004e11d6e6625453dccc4f7ec65bde8700f43c4055bcd7873946f7ff17"
+        },
+        {
+          "pointer": "/source_bindings/model~1cube_eta_protection~1results.json",
+          "old": "2d38b73e9cb1e60d8c93fe46d9e943816a598bddaf49da986a7be9b3b7782915",
+          "new": "1c3be7ce301d0787e74dc31e2f2d4b23118eeb28a87985a5cddb6e376b634eb5"
+        },
+        {
+          "pointer": "/source_bindings/model~1cube_eta_protection~1test_source.py",
+          "old": "3fa46c201af6d9b83d02a7b2b85aa61dd6fc88762d898af95f58e5eaf49d9dc2",
+          "new": "e364ff28230c709c2d61f9f54b728145637a0e85fc8ebb2e616d30a38700e7e9"
+        },
+        {
+          "pointer": "/source_bindings/model~1cubic_particle_channels~1results.json",
+          "old": "5d7d6d139e40d8398d17e9188e05a023e46e9ccb8418f224b67c36e15dc76ef0",
+          "new": "4cfe97a45a6f312a736eac0f4fbb3e2ff91005ecc5c72b9baa669990a98d9844"
+        },
+        {
+          "pointer": "/source_bindings/model~1dark_spectral_source~1results.json",
+          "old": "8b224f0df438676d051b9554d17d28a6c106a6428941fbb0bf50c6c3dd7a6d92",
+          "new": "764b6fecd8da3ea1d03eb0057ba0c7fd42905e73a67b3c20e7f28ea088408ef2"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_benchmark~1readout_results.json",
+          "old": "b8ee2cda8aee9950a4240f3af2e0d0cb47b4203d1a32a222cb7aa98708db81b6",
+          "new": "63d0aa656d8d1513df4be589b4a6e1d68028be473cc6cd167558780929acbad7"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_bridge~1joint_results.json",
+          "old": "0d1e87f6b30ffb23b14f9a740bb67a41694100630e2c21a726ed3b612ad83ca3",
+          "new": "db96711360793d59ffd40952e7cea35e238bad22c7aea5eb270da62fb6584010"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_clock~1results.json",
+          "old": "fcdb00f9e3873dad6c7ad8db27eadae1de399f3e17b8748ff1e3ebd689ac0af5",
+          "new": "1004bd405b7888097807073c55b603b4d38d7830d0f91bcdef014338ab466d41"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_modular~1results.json",
+          "old": "137a84e7559526193dff3c4f0140b787f521b784f08356a32bc6aaf09d8e5270",
+          "new": "8531d7dc85cdc7475e996cc17813182aed2992bbd113c8ff2c69fafc6090014c"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_propagation~1results.json",
+          "old": "ae1ad3dff1bc7cdd8b33fddd349edb56d655230d1a54e308b0a80fddfd3935fb",
+          "new": "3346c7692f6ab15be2b159ce641435f6eeca7e910f2e8a13716614405d32d55b"
+        },
+        {
+          "pointer": "/source_bindings/model~1ground_regional_modular~1results.json",
+          "old": "5dfabcdb3fc237fe46681e7bf5bf9c3bd2734936253627281a15ac0e3495edbb",
+          "new": "04f75ca6c5259b39fd253162b91b7f1ddac23ab1f08c54e701244912551bd108"
+        },
+        {
+          "pointer": "/source_bindings/model~1ground_spectral_source~1results.json",
+          "old": "9880205dbd96875715ef1b0daae12f1dca06e70ec1aadb61021c94fedb87e8df",
+          "new": "105cf1414868f2ed2f76ca24cb38407160b5723de24c0e6ea40831a89e8c5595"
+        },
+        {
+          "pointer": "/source_bindings/model~1ground_spectral_source~1results.npz",
+          "old": "f5e543c87f0484b269bcfc1abdb7e1e61199c8a7e88f9171b8a0107666147aff",
+          "new": "5dc5e451841606d1a6ec6182e75a82dd942527c69326ed962af32b9dc4153371"
+        },
+        {
+          "pointer": "/source_bindings/model~1hubbard_relativistic_sector~1results.json",
+          "old": "b4b2d2a41a432f4c84536d536eacdd870bdd8e8d0198d39247cef2f5e4c1aa5c",
+          "new": "0bc12fb16e9ef17ab1ff055cd9e3e8bfbe44de54b939ab6bc0c72970c302624b"
+        },
+        {
+          "pointer": "/source_bindings/model~1interacting_vacuum~1global_ground.py",
+          "old": "6821c5a31ab7379e2692f0993780fb24e86c3d7a80eb00df1fabca408fb65cc9",
+          "new": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866"
+        },
+        {
+          "pointer": "/source_bindings/model~1interacting_vacuum~1packet.py",
+          "old": "2112dda1879e0993a3d4cdb736ebe01b070742da002e8e1eab748dc0e85a33f4",
+          "new": "a49a245ac6c2e9e1637bdc42d4a8f8f7b4ba28edfe1e0454db5276b839136352"
+        },
+        {
+          "pointer": "/source_bindings/model~1interacting_vacuum~1results.json",
+          "old": "5b7db7aa9dc51b549cd17fa288f50a0beb0df0418196697c916b90aac9de0074",
+          "new": "d9bf616a0dabf164607d7e3d7dce1f200b65e7a53e19d65611605417b2c5b1e9"
+        },
+        {
+          "pointer": "/source_bindings/model~1interacting_vacuum~1test_global_ground.py",
+          "old": "b38833629625c0ba95d3e118ed3cdcbf03f1f0db1608fe31e37bbddfc7195ebb",
+          "new": "086bddbc5282a2dc5a46dc5a661ab265d2e5fa1b85ab7b555e1a0affc0761b33"
+        },
+        {
+          "pointer": "/source_bindings/model~1interacting_vacuum~1test_packet.py",
+          "old": "86c059030d27966a4401b5fc624cfe6051bef697a9972e3c2998bf2856852740",
+          "new": "6abe73dca7fb63ae14bd6b1f1559554b2072b67076c1ecbb640e0cfb30dee902"
+        },
+        {
+          "pointer": "/source_bindings/model~1lattice_weyl_response~1results.json",
+          "old": "8bc4e1ac2cdf54067ae40eda2330dc9bdcacf321a5e689498c12edc6c80b8c5a",
+          "new": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b"
+        },
+        {
+          "pointer": "/source_bindings/model~1mass_generation_audit~1results.json",
+          "old": "c6c5a9947ac688b9d116f18391a1117b7a82a3941d4fe3d0367f4ecdcbbe3f65",
+          "new": "712f46a8e2bac224e93577313aa9dc452c2df4d4f5a5d69d1b6bd88da84c397e"
+        },
+        {
+          "pointer": "/source_bindings/model~1matrix_spectral_response~1results.json",
+          "old": "36b487f93df3b1b61c136802c03642f9aa4a11ba28b698b8c91c888064740635",
+          "new": "7707f37bcaca9013c287942e2e97c9a97c77e6544d92c971a6d8ef4b3547889b"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_fixed_algebra~1OCCUPATION.md",
+          "old": "a4d7435426631e144aac7109d5e431c42373ba3be08acfb6bb67d351d4cacf2f",
+          "new": "1109a355bee76f6dc6ff13e8505d00191d61bbdfa457df6b2db0e01577a344e2"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_fixed_algebra~1occupation_packet.py",
+          "old": "fa7abf943d615aeedb78ac158e957bf6fd3c3f82f983339ad6befb5a6bb0e97a",
+          "new": "97909e307518bf690848f8ac77f496a1db815dad9e404cc6a62e79bddb21946b"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_fixed_algebra~1occupation_results.json",
+          "old": "14cba258b89624dc3e12642bdff4edd430325688e2294c112c491b5374c696aa",
+          "new": "012d41b6266db70ccc78c4638aac9cfcaaaf83af0f7df95f7a4263b66f13502d"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_joint_spin_spectroscopy~1results.json",
+          "old": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+          "new": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_localization~1results.json",
+          "old": "6a29c4b232de47c8fdc702721a83ea76cfff03862e2e48a1c77775ecc80eaf73",
+          "new": "efb555d72f6857fc689b0c913f1eca80eb2f3e62af6abc8018e957bee48ef186"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_ordered_ground~1packet.py",
+          "old": "527b48000a3e19c904e1dc09ed0a784f413cafab7a856ec3cfa6ab7c376fc7b5",
+          "new": "dbb446b4a21406fe094489226aa981220504d5e3f0e340fd149ede733dabad7b"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_ordered_ground~1results.json",
+          "old": "9fea45cdfa35ff148e9009a730a3e866615de823626b394fc4961694bb4eb6ae",
+          "new": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_ordered_ground~1test_native_ordered_ground.py",
+          "old": "3ca7a19f9a521a3b29ac1c5c632b70e388e69f621a3674e67cc3bb275de7a25c",
+          "new": "33864e20c0f17ace133cff46d4e0623679924c3385c36dc038bac238287e88dd"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.json",
+          "old": "d6cbde7e45f9b551bc7d9d14863812583596cc64cff1f62d366d7520508776f4",
+          "new": "7898a35657093a900357c69649d60f017f2eb76f689d1dc5096e9fff36f4a3f7"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.npz",
+          "old": "64ef8f8a184f57d037a1f1811156194008a461b3e2967f1e4486ed24be0a8920",
+          "new": "1c03ec5a51d9fb637905b8eb8cde485672608ca0ed475f3f5112080267ead12b"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.state-0.npz",
+          "old": "35363699d4162ba29a744667843334fc4da5743e6e4f4561c96cf4db30bd4ef4",
+          "new": "9dbc7a2b1379625cac2703fe2bef2f30fe9822082a0a1b21d95a693947a87f41"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.state-1.npz",
+          "old": "89131bcae7ae5e9efdffee798dcc6bbe56a1496683ef70ee3cb3f4398b108e6f",
+          "new": "5a318739a8937db140b4cb1d0b86439d56be13d311dd3ade91139bf9ab93798f"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.state-2.npz",
+          "old": "919278e0923de6a220af994522a2c965fa9a6a4c45f75c452e71b0e6f8e607b0",
+          "new": "a1beab23cb2b091abdccaae67b748cca5c6df572dd0c0de2b601ab68c0ed8730"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.state-3.npz",
+          "old": "a8c0946b4fa7b0517679a31106509164224062c730fd4604e93b1893b3601e1d",
+          "new": "edf165433906358b0f3e8731c2a380296dadccd430df5cc83b7d90908ba58731"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spectral_detector~1results.state-4.npz",
+          "old": "2e5cde0f8c89efee8e03159e4c11f3f167e8182b8ebb4e072e9f2226e2c8d99a",
+          "new": "9351e5a532a37d5c4e887fd9dfe8f54764a016443c817c5d34ce1817d562bd9d"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spin_observer~1packet.py",
+          "old": "b1f1bf68d8bb5623d48fd839549a37dc482430c6c4a55cd81446018fb3e1afa4",
+          "new": "cc202dd900a0daba1a47f5b5b4e7b5d806a96a6f92e92118cfe9756bc1a65786"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spin_observer~1results.json",
+          "old": "e34b9d2afae78b6abf08b54607f4d8677825861dd87df86a489d187c63d938b6",
+          "new": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729"
+        },
+        {
+          "pointer": "/source_bindings/model~1native_spin_observer~1test_packet.py",
+          "old": "86a3bfe28d46742882d2c4a9a00b2eafda834703ecd623a846bc0f252bf3d616",
+          "new": "c3a9e128f3b49ea891b4c5ccbc52eb4c91b69c40e57cf845766e469b6b769f8b"
+        },
+        {
+          "pointer": "/source_bindings/model~1particle_comparison~1results.json",
+          "old": "b1045a4602e2fd868d03cc7cb74fb9ef2c5d5139b833279f5f9041e935b99068",
+          "new": "f4598cfc378cdd4cdaafdfba44da27f8217635681743051fd056650dc4c3bf57"
+        },
+        {
+          "pointer": "/source_bindings/model~1particle_identification~1results.json",
+          "old": "46a4cb99ca4a3512d859b7fdf266f791bd51dd2d53996872ab2ad2aa836e2192",
+          "new": "9b40dadc547ba3b14968e1986a9f7d29832924d818d8f1396e22ee1905b6617c"
+        },
+        {
+          "pointer": "/source_bindings/model~1plaquette_reference~1results.json",
+          "old": "133156f259521282424e3d7db37ae3e9273752add60e04e6fa7e565760503471",
+          "new": "0a64bfa28ef74203d506efc2969ab2e8efe131671cbce34767736debe72cc485"
+        },
+        {
+          "pointer": "/source_bindings/model~1protected_particle_readout~1results.json",
+          "old": "f26f82f4a65eb4533be2c59b9e1bf677039e01472b1ad0340b267e5c3b60c087",
+          "new": "99df3ee023250da6d757e9de447bfcd4386d340bb5d0d865d334c067a890c3b1"
+        },
+        {
+          "pointer": "/source_bindings/model~1protected_particle_readout~1results.npz",
+          "old": "fad31ca81f0d24c19dd113c7e73dad8cb9f1eaef29fdc6d534cad12a725c7be9",
+          "new": "1e9c9f6fd024032cae0ce63eef5f0adc1027ecf17eab479a95b59cde449116c8"
+        },
+        {
+          "pointer": "/source_bindings/model~1protected_spin_limit~1results.json",
+          "old": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+          "new": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+        },
+        {
+          "pointer": "/source_bindings/model~1repair_spectral_sectors~1results.json",
+          "old": "5d498713a92b9099812ca1deab422d760ee8bdf689b38f9f282c8b8c0602800e",
+          "new": "a24367b0450058b047b92549fb43fcf2eb9002742013f2c18273c24238615d9c"
+        },
+        {
+          "pointer": "/source_bindings/model~1resolved_particle_spectrum~1results.json",
+          "old": "393d92c37371fc0600528a5ad407278f68c995218bbafe7ccf8e7d6e2707004a",
+          "new": "5befb5b4ac95ae73e5ac6ed178eb3722a1c9db720ac246fd673f4403d25cf827"
+        },
+        {
+          "pointer": "/source_bindings/model~1retarded_matter_response~1results.json",
+          "old": "b6a0ceb6c0f3f57fbe65fbdcc53cec04313fd1c1aed35604369f877cb37791d5",
+          "new": "63b1f1d50e0d63da036b5d028370f6ce46a292e0c9d062a780be8cb430dc61f6"
+        },
+        {
+          "pointer": "/source_bindings/model~1retarded_spatial_locality~1results.json",
+          "old": "3f36550d4e7893d9636860ce46e0f29ca689856c5aec9af8969ee33d8ade8c68",
+          "new": "ecd0f4b3e00ecb850d16b9dfb39e1638a52a5d7bab6e1f63e394fcec8322990b"
+        },
+        {
+          "pointer": "/source_bindings/model~1spectral_readout~1results.json",
+          "old": "e773f14d9022cee25dfaa4fcac978809abfa0b18a8f826e3445c6ff2fdde315a",
+          "new": "0275acd3e3d67374d21eceeb00e4a44a732366590e107c4489ee7f30ddf96a13"
+        },
+        {
+          "pointer": "/source_bindings/model~1spin_goldstone_sector~1results.json",
+          "old": "b5ffb39c7117a6f3afcd5b212b4309ac044d33d1d89ca4f85e7767a611570e8e",
+          "new": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50"
+        },
+        {
+          "pointer": "/source_bindings/model~1spin_resolved_spectrum~1results.json",
+          "old": "950069d6616828800d13befc1022b5eae8335120923718a08845dc8329393d41",
+          "new": "2406ca517f9e721ed130a21309908aaaf019f79b6efda5114d7f040749cf68ef"
+        },
+        {
+          "pointer": "/source_bindings/model~1strong_coupling_refinement~1results.json",
+          "old": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+          "new": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+        },
+        {
+          "pointer": "/source_bindings/model~1thermodynamic_ground~1results.json",
+          "old": "f69cc53462135df5758266d7dfd6717db4958f13a5a2f9530d22518b3177ed6f",
+          "new": "1694517f92eac6262715ed9ca6d790f5c9d79afc5c1230037bbc413eaec31090"
+        },
+        {
+          "pointer": "/source_bindings/model~1weyl_geometric_modular~1results.json",
+          "old": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
+          "new": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197"
+        },
+        {
+          "pointer": "/source_bindings/model~1weyl_geometric_modular~1tests~1test_packet.py",
+          "old": "6378cd15a273c7f31b3a52b149811b131b773099b18b2efd3990b2059fff8a31",
+          "new": "28bd9c57135b42543b79d95705abbacdc9d5d9dbab9578584d4fbe91c4ed3222"
+        },
+        {
+          "pointer": "/source_bindings/model~1weyl_gravity_response~1results.json",
+          "old": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
+          "new": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528"
+        },
+        {
+          "pointer": "/source_bindings/paper~1tex_fragments~1CENTERED_SOURCE_GROUND.tex",
+          "old": "84b6b457c89c079fa792a9f1d3798e4d7ba7acb3cf8843d83bbd328cc13f7ebd",
+          "new": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077"
+        }
+      ]
+    },
+    {
+      "path": "model/completion/program_class_v2_review.json",
+      "before_sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472",
+      "after_sha256": "07db5207804708b7fd8313bd5ad2bc887f4c82165b67169469025bfc15e74729",
+      "field_changes": [
+        {
+          "pointer": "/current_custody_renewal",
+          "old": null,
+          "new": {
+            "date": "2026-11-02",
+            "historical_review": {
+              "path": "model/completion/historical/program_class_v2_review_before_current_research_20261102.json",
+              "sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472"
+            },
+            "historical_snapshot_metadata": "model/completion/historical/program_class_v2_review_before_current_research_20261102.metadata.json",
+            "contract_delta": {
+              "baseline": "412165b0380914681ff96908bd6624d0f6a7607a",
+              "changes": [],
+              "current_contract_digest": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+              "class_rules_changed": false,
+              "adoption_status_changed": false
+            },
+            "scope": "Renew the exact same finite class after source-reviewed receipt regeneration on published main412165b03. The current theorem map has109 reviewed domains and104 realized finite domains. No canonical physical premise, gate status, resource ceiling or source law is promoted.",
+            "source_review": "Every changed current receipt is produced and independently cold-checked; current source pins and complete archived outputs are validated. Historical packet snapshots retain their original bytes.",
+            "validation_record": "model/completion/merged_pr_custody_validation.json",
+            "validation_record_role": "Separate current validation record; no recursive hash in this class signature.",
+            "canonical_physical_premises_discharged": [],
+            "class_rules_changed": false,
+            "gate_statuses_changed": false
+          }
+        },
+        {
+          "pointer": "/historical_validation_notice",
+          "old": null,
+          "new": "The original review_date, checks, independent_channel_check and prior navigation/maintenance sections below retain their historical scope and counts. Current custody is renewed separately; those counts are not presented as fresh executions."
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1component_interfaces.json",
+          "old": "b391941bcafb861cf651b222e08788b4e033e6e14ff6bf3cc18b023356310e0d",
+          "new": "da68c187894ca5bbf681abb24178f577065022b9aff6962ecd2daddaba490683"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1finite_attachment_map.json",
+          "old": "32cb4cbee56647883c6a1b3099d3511c864b918e88ebc524852e27225813292e",
+          "new": "1ef4e23d88f73e4a3da7e76447cbdd40ddb377c6bb0da512fb508fc626aecae6"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1finite_attachment_map.py",
+          "old": "998e08b403962bd3bc6304d6fb2201b98d4f85b729a231e92fd8387b3cef4178",
+          "new": "b6e48c898b5d73818d69bcd90f8b4270a61cf421707290f78a5c538785cc7daf"
+        },
+        {
+          "pointer": "/source_bindings/model~1completion~1test_finite_attachment_map.py",
+          "old": "fecd06cdf78b5ee45746acbb386db94a0bed74c746b53530ac01fc6fcb081d6b",
+          "new": "1f2577d4e13eb86cc49636b2735663591b89598a78eb04edae4e2cc5fd089eae"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_modular~1results.npz",
+          "old": "dd68f02fe32c6a50ffc15ef3640151aaa68f5dfd9cdca398d32ab7209576681e",
+          "new": "d8b03726b3e3bb528e588875437abd49e469ec644b1ca9b3b7452cfe1d3deeb7"
+        },
+        {
+          "pointer": "/source_bindings/model~1defect_field_propagation~1results.npz",
+          "old": "7b95479661c043fd1d7d2a695935315ef395755ece14d93dc645aa6efde882a0",
+          "new": "07a56082abd3e974b1199ff2fea93959ea101b724741ccf22b1a78bfe5147502"
+        }
+      ]
+    },
+    {
+      "path": "model/completion/program_class_v2.json",
+      "before_sha256": "75b19c7de9425d13ee1948d1608d4bbb49a38e13546c487ff0d2beb03abbc446",
+      "after_sha256": "73c94e9154b2773a4e8692093ea7e6d09703c4e80dd2f45e15153a138929ccf6",
+      "field_changes": [
+        {
+          "pointer": "/adoption/independent_review/reviewed_contract_digest",
+          "old": "9e753015cfcd1251790f4ca1550325e1c6005b3ecbc4809040509c2bde5b25f2",
+          "new": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a"
+        },
+        {
+          "pointer": "/adoption/independent_review/sha256",
+          "old": "b53e451575d3ced2ec421de78223e1c6391835fe24c4188d91a4bdcb06fa6286",
+          "new": "07db5207804708b7fd8313bd5ad2bc887f4c82165b67169469025bfc15e74729"
+        }
+      ]
+    },
+    {
+      "path": "claims/completion_program.json",
+      "before_sha256": "0da22a574ea623cb68e3d7a5c6ae8fdd51f094b946d7abf7df0cda888ef7c302",
+      "after_sha256": "f5d80fc05e6639e899847c4976e52a02a85b730907ccd681f6e27db1ce586a5f",
+      "field_changes": [
+        {
+          "pointer": "/acceptance_review/sha256",
+          "old": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc",
+          "new": "07db5207804708b7fd8313bd5ad2bc887f4c82165b67169469025bfc15e74729"
+        },
+        {
+          "pointer": "/adopted_class/sha256",
+          "old": "16cc44dfa1dec94ef4d9855b6a2a6cd9be6a4bd1ba39dc52103ac1b6234bb715",
+          "new": "73c94e9154b2773a4e8692093ea7e6d09703c4e80dd2f45e15153a138929ccf6"
+        },
+        {
+          "pointer": "/component_campaigns/19/contract/sha256",
+          "old": "69f23401ff8ae598573263e53994415d126ea2d42798ff66434a048da63358eb",
+          "new": "d769131b7b403c24469e52f9479cad8c8b5ccbd426689a3663ca5e6562d9b371"
+        },
+        {
+          "pointer": "/component_campaigns/20/contract/sha256",
+          "old": "3bf443a56f10800978ab16be8c5ed7f90e20cf4eb1ee2f834a1b888110bd824e",
+          "new": "aaf45dd3e1ed3cc1dda173fb4e120a43f547a37298388b21b0ca41fda8cf6734"
+        },
+        {
+          "pointer": "/component_campaigns/21/contract/sha256",
+          "old": "470f5fc076e016e2246c20dea719d619c343dc1d7997d99f511bbe076f807883",
+          "new": "da68c187894ca5bbf681abb24178f577065022b9aff6962ecd2daddaba490683"
+        },
+        {
+          "pointer": "/component_campaigns/46/contract/sha256",
+          "old": "d9537faa2014e37ace3f57e316b6d326d94f5ebbfeedbae46d02784d980dea33",
+          "new": "241d169cfb0fc4df6773d34d037502c8f6d08e9c83ba8975b55437fc4d6fc4f5"
+        },
+        {
+          "pointer": "/component_campaigns/47/contract/sha256",
+          "old": "98ff96bb2eff8a63f08fa3ff2639918d520ae5eb32d7d20d2f997f68afc535b6",
+          "new": "a77ad63c00966f60678ab91780037148b2a5a75f8b7a1c7ce55c1018ec920036"
+        },
+        {
+          "pointer": "/next_wave/evidence/49/sha256",
+          "old": "c5db961a41cf4c58c733783c599092c6f579d643b0d59c86d1061f7463b9ab42",
+          "new": "1ef4e23d88f73e4a3da7e76447cbdd40ddb377c6bb0da512fb508fc626aecae6"
+        },
+        {
+          "pointer": "/next_wave/evidence/51/sha256",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/next_wave/evidence/124/sha256",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "pointer": "/next_wave/evidence/125/sha256",
+          "old": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+          "new": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+        },
+        {
+          "pointer": "/next_wave/evidence/126/sha256",
+          "old": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
+          "new": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197"
+        },
+        {
+          "pointer": "/next_wave/evidence/127/sha256",
+          "old": "b22e218626ea8dffb9ece20b66f74ff5aee50767c57a1f3d2efb597d09453bcb",
+          "new": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a"
+        },
+        {
+          "pointer": "/next_wave/evidence/128/sha256",
+          "old": "2aaa729a899b516cae781519438ff4aba4b819f72b698dfeb150f2523e642b1a",
+          "new": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a"
+        },
+        {
+          "pointer": "/next_wave/evidence/129/sha256",
+          "old": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+          "new": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+        },
+        {
+          "pointer": "/next_wave/evidence/130/sha256",
+          "old": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
+          "new": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528"
+        },
+        {
+          "pointer": "/next_wave/evidence/131/sha256",
+          "old": "b5ffb39c7117a6f3afcd5b212b4309ac044d33d1d89ca4f85e7767a611570e8e",
+          "new": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50"
+        },
+        {
+          "pointer": "/next_wave/evidence/132/sha256",
+          "old": "e34b9d2afae78b6abf08b54607f4d8677825861dd87df86a489d187c63d938b6",
+          "new": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729"
+        },
+        {
+          "pointer": "/next_wave/evidence/133/sha256",
+          "old": "8bc4e1ac2cdf54067ae40eda2330dc9bdcacf321a5e689498c12edc6c80b8c5a",
+          "new": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b"
+        },
+        {
+          "pointer": "/next_wave/evidence/134/sha256",
+          "old": "5d7d6d139e40d8398d17e9188e05a023e46e9ccb8418f224b67c36e15dc76ef0",
+          "new": "4cfe97a45a6f312a736eac0f4fbb3e2ff91005ecc5c72b9baa669990a98d9844"
+        },
+        {
+          "pointer": "/next_wave/evidence/137/sha256",
+          "old": "9fea45cdfa35ff148e9009a730a3e866615de823626b394fc4961694bb4eb6ae",
+          "new": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85"
+        },
+        {
+          "pointer": "/next_wave/evidence/139/sha256",
+          "old": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+          "new": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e"
+        },
+        {
+          "pointer": "/next_wave/evidence/142/sha256",
+          "old": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+          "new": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac"
+        },
+        {
+          "pointer": "/next_wave/evidence/147/sha256",
+          "old": "09b6061f5379ae1255e49b08108dda5dfddb538fff0243320b67a4f492099bfa",
+          "new": "045a181761e6d56da155acdbe1f6a982448f88ede4e662326a09286af5d1b5b6"
+        },
+        {
+          "pointer": "/stages/0/accepted_evidence/0/sha256",
+          "old": "16cc44dfa1dec94ef4d9855b6a2a6cd9be6a4bd1ba39dc52103ac1b6234bb715",
+          "new": "73c94e9154b2773a4e8692093ea7e6d09703c4e80dd2f45e15153a138929ccf6"
+        },
+        {
+          "pointer": "/stages/0/accepted_evidence/1/sha256",
+          "old": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc",
+          "new": "07db5207804708b7fd8313bd5ad2bc887f4c82165b67169469025bfc15e74729"
+        },
+        {
+          "pointer": "/stages/1/accepted_evidence/1/sha256",
+          "old": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc",
+          "new": "07db5207804708b7fd8313bd5ad2bc887f4c82165b67169469025bfc15e74729"
+        },
+        {
+          "pointer": "/stages/1/progress_evidence/10/sha256",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/stages/2/accepted_evidence/0/sha256",
+          "old": "57a1f3b182a822b07ffe3b9f1b4b251670439016e19f4b43516ecbca6b318b16",
+          "new": "1ef4e23d88f73e4a3da7e76447cbdd40ddb377c6bb0da512fb508fc626aecae6"
+        },
+        {
+          "pointer": "/stages/2/accepted_evidence/1/sha256",
+          "old": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc",
+          "new": "07db5207804708b7fd8313bd5ad2bc887f4c82165b67169469025bfc15e74729"
+        },
+        {
+          "pointer": "/stages/2/progress_evidence/22/sha256",
+          "old": "c5db961a41cf4c58c733783c599092c6f579d643b0d59c86d1061f7463b9ab42",
+          "new": "1ef4e23d88f73e4a3da7e76447cbdd40ddb377c6bb0da512fb508fc626aecae6"
+        },
+        {
+          "pointer": "/stages/2/progress_evidence/24/sha256",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/stages/3/progress_evidence/37/sha256",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "pointer": "/stages/3/progress_evidence/38/sha256",
+          "old": "2aaa729a899b516cae781519438ff4aba4b819f72b698dfeb150f2523e642b1a",
+          "new": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a"
+        },
+        {
+          "pointer": "/stages/3/progress_evidence/39/sha256",
+          "old": "e34b9d2afae78b6abf08b54607f4d8677825861dd87df86a489d187c63d938b6",
+          "new": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729"
+        },
+        {
+          "pointer": "/stages/3/progress_evidence/40/sha256",
+          "old": "9fea45cdfa35ff148e9009a730a3e866615de823626b394fc4961694bb4eb6ae",
+          "new": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85"
+        },
+        {
+          "pointer": "/stages/3/progress_evidence/41/sha256",
+          "old": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+          "new": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/10/sha256",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/22/sha256",
+          "old": "92a92d4a0e29f0633574ac05c66218953b36b1aabdf49c9926389e0fce4c05b4",
+          "new": "dc94999d655fd50ef094411133d1f92b7011946a780413f8c918e564fe4fff8c"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/38/sha256",
+          "old": "b22e218626ea8dffb9ece20b66f74ff5aee50767c57a1f3d2efb597d09453bcb",
+          "new": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/39/sha256",
+          "old": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+          "new": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/40/sha256",
+          "old": "b5ffb39c7117a6f3afcd5b212b4309ac044d33d1d89ca4f85e7767a611570e8e",
+          "new": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/41/sha256",
+          "old": "e34b9d2afae78b6abf08b54607f4d8677825861dd87df86a489d187c63d938b6",
+          "new": "12013fd39d1441c547a412d8ae7ea564e71a44e9653789f4e738db15a8aab729"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/43/sha256",
+          "old": "9fea45cdfa35ff148e9009a730a3e866615de823626b394fc4961694bb4eb6ae",
+          "new": "978fcb69c1c05d97ed4a34427a2a6fc9dab4c76403edc21fa3955b4fa5a40e85"
+        },
+        {
+          "pointer": "/stages/4/progress_evidence/45/sha256",
+          "old": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+          "new": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac"
+        },
+        {
+          "pointer": "/stages/5/progress_evidence/28/sha256",
+          "old": "92a92d4a0e29f0633574ac05c66218953b36b1aabdf49c9926389e0fce4c05b4",
+          "new": "dc94999d655fd50ef094411133d1f92b7011946a780413f8c918e564fe4fff8c"
+        },
+        {
+          "pointer": "/stages/6/progress_evidence/15/sha256",
+          "old": "92a92d4a0e29f0633574ac05c66218953b36b1aabdf49c9926389e0fce4c05b4",
+          "new": "dc94999d655fd50ef094411133d1f92b7011946a780413f8c918e564fe4fff8c"
+        },
+        {
+          "pointer": "/stages/7/progress_evidence/44/sha256",
+          "old": "5c9ea84e3a26a8c2dcf4d6aefc0dacb3d2c27cc49e39a868655bd74747923945",
+          "new": "61babba0a0e9023dfeabfd46853b6f4cf90e8ea6e0025c98c7e967d0707ba085"
+        },
+        {
+          "pointer": "/stages/7/progress_evidence/45/sha256",
+          "old": "4486fe02c58e2465a74a1614e63cc9a8bd84309f1e67ecb6f29ea307fea1feb4",
+          "new": "dad91f0471d433bd16b0128253e0a60185eb7453432ce7afc02b633a6d20469e"
+        },
+        {
+          "pointer": "/stages/7/progress_evidence/46/sha256",
+          "old": "b5ffb39c7117a6f3afcd5b212b4309ac044d33d1d89ca4f85e7767a611570e8e",
+          "new": "64f16295db13c43f893664c9eb88303dd63ef30f2ae500e735b4e6141a4dbb50"
+        },
+        {
+          "pointer": "/stages/7/progress_evidence/49/sha256",
+          "old": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+          "new": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/36/sha256",
+          "old": "c0a306bc8e4f9ae62ad074ba1ba81c1a089c8118ac13d7d0802c4957f827e21c",
+          "new": "91798850e23ceb36139aaea0b65dd2f86d8016e038268a4923758d983b05204c"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/37/sha256",
+          "old": "b22e218626ea8dffb9ece20b66f74ff5aee50767c57a1f3d2efb597d09453bcb",
+          "new": "338dbb41097a5a96c3bdd8fdc893cccab9153ee4f459223cf1bce5c5de53865a"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/38/sha256",
+          "old": "2aaa729a899b516cae781519438ff4aba4b819f72b698dfeb150f2523e642b1a",
+          "new": "a14db11b6735a65e44798d700c547f321abe5a0f2c90dead9d7812f67100fa4a"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/39/sha256",
+          "old": "5d7d6d139e40d8398d17e9188e05a023e46e9ccb8418f224b67c36e15dc76ef0",
+          "new": "4cfe97a45a6f312a736eac0f4fbb3e2ff91005ecc5c72b9baa669990a98d9844"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/42/sha256",
+          "old": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+          "new": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/44/sha256",
+          "old": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+          "new": "5074741247d8babf8767af1e201c45063c1a348c32048c175ee0b532b8894aac"
+        },
+        {
+          "pointer": "/stages/8/progress_evidence/47/sha256",
+          "old": "09b6061f5379ae1255e49b08108dda5dfddb538fff0243320b67a4f492099bfa",
+          "new": "045a181761e6d56da155acdbe1f6a982448f88ede4e662326a09286af5d1b5b6"
+        },
+        {
+          "pointer": "/stages/9/progress_evidence/13/sha256",
+          "old": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
+          "new": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197"
+        },
+        {
+          "pointer": "/stages/9/progress_evidence/14/sha256",
+          "old": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
+          "new": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528"
+        },
+        {
+          "pointer": "/stages/9/progress_evidence/15/sha256",
+          "old": "8bc4e1ac2cdf54067ae40eda2330dc9bdcacf321a5e689498c12edc6c80b8c5a",
+          "new": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b"
+        },
+        {
+          "pointer": "/stages/10/progress_evidence/27/sha256",
+          "old": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
+          "new": "0c2d340497a61b334d93366c1d27178c792d69c45d6719b04dffbfde16c0f197"
+        },
+        {
+          "pointer": "/stages/10/progress_evidence/28/sha256",
+          "old": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
+          "new": "01815ecdba7b3186aa77d117ce0c97f15b0fcb4245e29f78f18438867de25528"
+        },
+        {
+          "pointer": "/stages/10/progress_evidence/29/sha256",
+          "old": "8bc4e1ac2cdf54067ae40eda2330dc9bdcacf321a5e689498c12edc6c80b8c5a",
+          "new": "a4b35c231f808b85ac4b3008a7f3858ecc4ad9873c38ef233558f3d4e52a4c4b"
+        },
+        {
+          "pointer": "/stages/13/progress_evidence/3/sha256",
+          "old": "8bea999b9a46365fa3710bcf86737afdbe3d1c6c23aaca14f6b4fa7748e800a6",
+          "new": "3cb8433e39093832913eda72f0de893e68e0cfbe5183e6f2afd8abf6141a17ed"
+        }
+      ]
+    }
+  ],
+  "immutable_prior_class_review": {
+    "path": "model/completion/historical/program_class_v2_review_before_current_research_20261102.json",
+    "sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472"
+  },
+  "focused_checks": {
+    "command": "python -W error -m pytest model/completion/test_finite_attachment_map.py tools/test_completion_program.py model/completion/test_program_class_v2.py -q",
+    "passed": 87,
+    "seconds": 139.23,
+    "transcript": "........................................................................ [ 82%]\n...............                                                          [100%]\n87 passed in 139.23s (0:02:19)"
+  },
+  "canonical_physical_premises_promoted": [],
+  "scientific_class_rules_changed": false,
+  "acceptance_statuses_changed": false,
+  "full_repository_replay_performed": false,
+  "full_Lean_replay_performed": false,
+  "remote_CI_pass_claimed": false,
+  "manifest_integrity": "Final artifact manifests and model.verify --hashes-only are checked separately; this record does not bind itself."
+}

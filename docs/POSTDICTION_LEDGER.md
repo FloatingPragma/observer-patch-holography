@@ -10,6 +10,8 @@ Retained alternatives, calibrations and rejected candidates have separate domain
 
 The [executable hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) asks one native process to supply observer clocks, defect/maintenance energy, interacting field/particle observations and realized Einstein premises. The [completion DAG and issue owners](COMPLETION_PROGRAM.md) order the missing joins. Program `OPH-EXECUTABLE-COMPLETION-2026-10-29-v2` has boundary `FROZEN` and decision `NOT_DECIDED`.
 
+The [current continuum and entropy results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md) and [mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) collect the latest component proofs and certified readouts. Their source-bound progress is retained in the machine-readable ledger; component progress does not identify measured particles or accept an integrated physical gate.
+
 The existing modular-clock candidate, rank-three response geometry and conditional 3+1 field construction are retained foundations, together with finite interaction histories and the conditional Einstein kernel. They are components to extend, not work to restart. The local band's rank three does not alone derive three field-space dimensions: the native screen is two-dimensional and the radial extension retains its declared inputs. Physical clock calibration and the common interacting defect/energy/gravity joins remain open.
 
 | Foundation | Achieved component | Remaining join | Canonical claim |

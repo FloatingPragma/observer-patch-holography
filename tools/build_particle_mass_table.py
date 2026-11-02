@@ -319,7 +319,11 @@ def markdown(table):
               '| Positive group | Excitation energy interval | Relative to first |', '| --- | --- | --- |']
     for row in table['ordered_finite_spin']['first_six_positive_groups']:
         lines.append(f"| {row['cluster']} | [{', '.join(row['gap_interval'])}] | [{', '.join(row['gap_over_first_gap_interval'])}] |")
-    lines += ['', '## Reproduce', '',
+    lines += ['', 'The [filtered spin-packet readout](../spin_packet_readout/README.md) additionally '
+              'gives certified conditional excitation energies and success probabilities for this same '
+              'finite reference, including all rejection outcomes. Its continuum packet construction '
+              'has an explicit finite resource bound; it does not determine a relativistic rest mass.', '',
+              '## Reproduce', '',
               '```sh', 'python -W error tools/build_particle_mass_table.py --check',
               'python -W error -m pytest -q tools/test_particle_mass_table.py', '```', '',
               'The [machine-readable table](particle_mass_table.json) retains all 228 charged lines, '

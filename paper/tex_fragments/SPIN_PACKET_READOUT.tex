@@ -1,0 +1,44 @@
+\paragraph{Quantitative filtered spin readout.}
+The ordered spin source admits an explicit finite approximation to the
+positive-energy packets, with every LCU rejection retained.
+For a unit-norm annular envelope let
+\(f_p(x)=p^{3/2}F(px)\), \(A_p=\sum_xf_p(x)S_x^2\), and choose a certified
+\(\Lambda\) such that \(\frac12\sum_x|f_p(x)|\leq\Lambda p^{-3/2}\).
+An explicit sinc-product envelope supplies this constant and a fourth-order
+spatial tail bound. Let \(G\) be a box convolved with two uniform kernels,
+equal to one on \([m_0/8,32/m_0^2]\), with \(m_0=1/1000\).
+Its Fourier kernel \(g\) satisfies
+\[
+ \|g\|_1\leq28,\qquad
+ \int |s g(s)|\,ds\leq\frac{16}{3d},\qquad
+ \int_{|s|>T}|g(s)|\,ds\leq\frac{16}{3d^2T^2},
+ \quad d=\frac{m_0}{16}.
+\]
+The successful Kraus operator is the normalized integral of
+\(g(s)\alpha_{s/(Jp)}(A_p)\). On the specified ordered ground it prepares
+\(G(K/(Jp))A_p\Omega\), and its success probability obeys
+\[
+ q_p\geq\frac{m_0^2p^4}{96\Lambda^2\,29^2}.
+\]
+Heisenberg SELECT uses \(e^{itH}\sigma_x^2e^{-itH}\), so an absolute
+ground-energy shift cancels in every branch. Rational Fourier enclosures,
+Lieb--Robinson cutoffs, product formulas and explicitly counted controlled
+Pauli expansions give finite native budgets from the source coefficients. If the successful
+vector error is \(\eta<\sqrt{q_0}\), and input trace error is
+\(\delta<(\sqrt{q_0}-\eta)^2\), the conditional unhalved trace error is at most
+\[
+ \frac{4\eta}{\sqrt{q_0}}
+ +\frac{2\delta}{(\sqrt{q_0}-\eta)^2}.
+\]
+Regional input accuracy controls the accessible conditional output.
+A bound for the output together with a reference requires joint input accuracy.
+Thus errors of orders \(p^2\) in amplitude and \(p^4\) in input trace norm
+have explicit meaning; spectral weight proportional to \(p\) is not itself
+instrument success probability. The unchanged finite eight-site witness
+also certifies a local-probe filtered mean excitation energy in
+\([1.1650825184,1.1650825819]\) with success probability in
+\([0.01636954798,0.01636954802]\), in its selected \(J=1,B=1/4\) source clock.
+This is a finite target and resource calculation, not a new native execution
+or a relativistic mass assignment. Effective preparation of a specified
+infinite ordered marginal, a sharp shell, and physical identification are
+separate obligations.

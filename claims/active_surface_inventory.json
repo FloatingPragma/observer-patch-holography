@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 876,
+  "surface_count": 946,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -86,6 +86,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/BALLISTIC_FREE_BOUNDARY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/BAND_EDGE_CONTACT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -102,6 +107,21 @@
     },
     {
       "path": "paper/tex_fragments/CAUSAL_MANIFOLD_OBSERVATIONS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CENTERED_NATIVE_PREPARATION.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CENTERED_NEUTRAL_SPECTRUM.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CENTERED_PARTICLE_SPECTRUM.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -142,6 +162,11 @@
     },
     {
       "path": "paper/tex_fragments/COMMON_MATTER_METRIC_AND_RESPONSE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/COMPLETION_SPECTRAL_REFINEMENT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -202,6 +227,11 @@
     },
     {
       "path": "paper/tex_fragments/CUBE_ETA_PROTECTION.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CUBIC_PARTICLE_CHANNELS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -336,7 +366,17 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/LATTICE_MODULAR_LIMIT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/LATTICE_MOMENTUM_BALANCE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/LATTICE_WEYL_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -401,7 +441,17 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/NATIVE_LOCALIZATION_AND_BAND_CLOCK.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/NATIVE_ORDERED_GROUND.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -422,6 +472,11 @@
     },
     {
       "path": "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/NATIVE_SPIN_OBSERVER.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -691,6 +746,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/PROTECTED_SPIN_LIMIT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/QFT_Q1_Q4_WZ_THEOREM_PORT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -717,6 +777,11 @@
     },
     {
       "path": "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/REPAIR_COHERENCE_LIFETIME.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -752,6 +817,21 @@
     },
     {
       "path": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SHELL_ENTROPY_RESPONSE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SHRINKING_MODULAR_ENTROPY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SMALL_BALL_ENTROPY_ASYMPTOTIC.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -901,7 +981,37 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/SPIN_CANONICAL_ENERGY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SPIN_CANONICAL_FIELD.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SPIN_CURRENT_SPECTRUM.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/SPIN_EXCHANGE_SELECTION_BOUNDARY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SPIN_GOLDSTONE_SECTOR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SPIN_PACKET_READOUT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SPIN_PARTICLE_SCALING.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -917,6 +1027,11 @@
     },
     {
       "path": "paper/tex_fragments/STRICT_ONE_LOOP_WZ_POLE_MAP_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/STRONG_COUPLING_REFINEMENT.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -942,6 +1057,16 @@
     },
     {
       "path": "paper/tex_fragments/WEYL_CONTACT_BOUND_PAIR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/WEYL_GEOMETRIC_MODULAR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/WEYL_GRAVITY_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -1451,6 +1576,11 @@
       "allowlisted": false
     },
     {
+      "path": "docs/PR_AUDIT_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/README.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
@@ -1467,6 +1597,46 @@
     },
     {
       "path": "docs/THREE_DIMENSIONAL_PROGRESS_2026-11-01.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/comms/OPH_FROZEN_DISPERSION_AUDIT_2026-11-02.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/comms/README.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/comms/dispersion-audit-2026-11-02/README.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/comms/host-clock-2026-11-02/COMPARISON.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/comms/host-clock-2026-11-02/HOST_CLOCK.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/comms/host-clock-2026-11-02/README.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/integration/2026-11-02-pr-1170-1171.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/integration/2026-11-02-stashed-local-work.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },
@@ -1691,6 +1861,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/ballistic_free_boundary/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/band_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1737,6 +1912,21 @@
     },
     {
       "path": "model/calibrated_measurement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/centered_native_preparation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/centered_neutral_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/centered_particle_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2066,12 +2256,42 @@
       "allowlisted": false
     },
     {
+      "path": "model/completion/CONTINUUM_FIELD_AND_ENTROPY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/GAPLESS_NATIVE_SPATIAL_RESPONSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/MODULAR_ACCESS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/completion/NATIVE_NEUTRAL_SPIN_RESPONSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/OBSERVER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/ORDERED_SPIN_ENERGY_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/PARTICLE_MASS_TABLE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/PARTICLE_SCALING_MODULAR_CONSTRUCTION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2082,6 +2302,11 @@
     },
     {
       "path": "model/completion/SAME_PROCESS_INTERFACES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/SPECTRUM_REFINEMENT_GEOMETRY.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2162,6 +2387,11 @@
     },
     {
       "path": "model/cube_eta_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/cubic_particle_channels/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2431,7 +2661,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/lattice_modular_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/lattice_momentum_balance/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lattice_weyl_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/local_exchange_charge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2511,6 +2756,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_clock/HISTORICAL_CAPTURE_COMPATIBILITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_clock/HOST_CLOCK.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2527,6 +2777,11 @@
     },
     {
       "path": "model/native_equilibration/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fixed_algebra/OCCUPATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2551,12 +2806,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_joint_spin_spectroscopy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_localization/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/native_mass_channels/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_modular_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_ordered_ground/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2577,6 +2847,11 @@
     },
     {
       "path": "model/native_spectral_detector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_spin_observer/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2831,6 +3106,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/protected_spin_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/quantum_observer_correspondence/CLOCK_RESPONSE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2926,6 +3206,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/repair_coherence_lifetime/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/repair_identification/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3006,6 +3291,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/shell_entropy_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/shrinking_modular_entropy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/small_ball_entropy_asymptotic/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spatial_interaction/DERIVATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3021,7 +3321,47 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_canonical_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_canonical_field/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_current_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_goldstone_sector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_packet_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_particle_scaling/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_resolved_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_shell_diagnostic/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/strong_coupling_refinement/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3037,6 +3377,16 @@
     },
     {
       "path": "model/transfer_modular_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/weyl_geometric_modular/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/weyl_gravity_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

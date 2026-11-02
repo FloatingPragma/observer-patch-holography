@@ -7458,6 +7458,14 @@ def _render_md(ledger: dict[str, Any]) -> str:
             "missing joins. Program `" + program["program_id"] + "` has boundary `" +
             program["boundary_status"] + "` and decision `" + program["decision"] + "`.")
         add("")
+        add("The [current continuum and entropy results]"
+            "(../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md) and "
+            "[mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) "
+            "collect the latest component proofs and certified readouts. "
+            "Their source-bound progress is retained in the machine-readable "
+            "ledger; component progress does not identify measured particles "
+            "or accept an integrated physical gate.")
+        add("")
         add("The existing modular-clock candidate, rank-three response geometry and "
             "conditional 3+1 field construction are retained foundations, together "
             "with finite interaction histories and the conditional Einstein kernel. "
