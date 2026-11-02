@@ -1,0 +1,169 @@
+{
+  "date": "2026-11-02",
+  "input_sha256": {
+    "Lean/Geometry/CanonicalLorentzModule.lean": "20ad875b95e605ab4e6201c00b1e74ab6dd590d0e5578587d6facdc08c095707",
+    "Lean/Geometry/EventGermDisplacement.lean": "0f5129b2f66cf0eeb3be585fe0fcaf718ee12515fa9eeac96612d1dc82e6ed11",
+    "Lean/Time/ClockComparison.lean": "f8d747b5e8e1d5c325d35e53beada923bcdf1a79ff8c3c0b94b1851dedb20c8d",
+    "Lean/Time/ProperTimeCalibration.lean": "d1886e271387cbbbe442f3648314a0c7838a792613c82f920e09035e3232c377",
+    "Lean/Time/WorldlineRealization.lean": "fc7bfea1d1f2df8a499aefc04c873732c1c932a511ecf5520306faf071960d36",
+    "docs/AXIOM_REFERENCE.md": "1605ed5d16f90547f8297c228099751fa2b114a57bf5e64f7ccd7c2f5bb33e07",
+    "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a",
+    "model/continuum_free_limit/README.md": "a1b4114481aebd900d0e58e27e1494e1e3df937712aed68520ba3d7e44fc4472",
+    "model/defect_field_propagation/README.md": "02e5e87dec4f669318fadc0458d93b22f3d8b8355f4bc5ca0504f2fcb9d2aa53",
+    "model/moving_defect/README.md": "41ee123d9ae6d77be2e91a0394e07d4864c514a7ddae5aae7bba0b0c386969cc",
+    "model/moving_defect/test_transport.py": "e16151359cd346737d5f46f5db74787c89cd0248d7565579bab0caf8d0a8ae63",
+    "model/moving_defect/transport.py": "e9e6a56a9311e04dbd133b62d1ef7297d6c9224b79818e08328a69cc4770706c",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/source_discrimination/DERIVATION.md": "afed0cdad373f9dc35dbecbe025fa95f95dce466e61f989e93f932c3a4b851e3",
+    "model/observer/source_discrimination/README.md": "66baa1fe6fb4d0ba47509d4e52b7c0175e3905b64c39a193ee38c1a0938ef651",
+    "model/observer_time_fields/REFINEMENT.md": "d46924cf0fd3fd7afe947de6fc8ce6c0028c94f8197e4f24808852d8a1348cd0",
+    "model/observer_time_fields/test_continuum_dynamics.py": "e9ae9fa78562fdc5e992be069ea5b2f6dc61a9351e1ffd9f444383be1c8e67e2",
+    "model/physical_space_time/OCCUPATION_FIELD.md": "32a1deeceabcc00a6b8902733a6fa93bce4307c982567271c60af6ef891ec555",
+    "model/physical_space_time/test_observation_process.py": "40875af88964e8c91e8f00cc486e47544b7e2e452b1959e766bbe2a350d65842",
+    "model/record_laws/INSTRUMENT_CONTRACT.md": "5904ef12a1ca0748c688d55387a48184b7b02e136a43431f96c2bbfca8db951b",
+    "model/record_laws/README.md": "b7e6976ea446a3d7e63e5b0b2f4867a835d9a6455669880f651e18e3106116c7",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/relative_observer_geometry/README.md": "d589aab43927fe479375e41f6abd2fb6225fd949d8e76ec0486b055c2bbb4ca2",
+    "model/relative_observer_geometry/test_clock_reconstruction.py": "2e63e91502dd84c8a974d0db179ee2f4c27051ae1492a4c536323c4ed921d96f",
+    "model/relative_observer_geometry/test_construction.py": "cddc206a4bac54bb728c5fb5ed83d951093dc198ad3ae93a8820c48e6bd67c3c",
+    "model/relative_observer_geometry/test_temporal_records.py": "7912652855249c973e32ae5f0adba9ad600f465a49e6689f5eee04dd5275e655",
+    "model/relativistic_scalar/README.md": "02e993597389cde067269491627fc89c7ca6fd5d4aaf63c6a821a900cc3e9c5b"
+  },
+  "interference": {
+    "disk_rule": "[p(0)-p(pi)]^2+[p(pi/2)-p(3pi/2)]^2 <= 1/2",
+    "illustrative_design": {
+      "actual_laboratory_data": false,
+      "attempts_per_setting": 100000,
+      "calibration_failure_probability_must_be_added": true,
+      "per_setting_Hoeffding_radius": "91/10000",
+      "per_setting_physical_probability_allowance": "1/100",
+      "sampling_error_upper_bound": 2.5661071221762453e-07,
+      "settings": 2,
+      "sum_rule_total_radius": "191/5000"
+    },
+    "source_exact_examples": {
+      "C": {
+        "diagonal_control": "3/8",
+        "phase_0": "5/8",
+        "phase_pi": "1/8",
+        "phase_pi_over_2": "3/8"
+      },
+      "C0_quarter_turn": {
+        "diagonal_control": "3/8",
+        "phase_0": "3/8",
+        "phase_pi": "3/8",
+        "phase_pi_over_2": "3/8-1/4*sqrt2"
+      },
+      "C_T_mixture": {
+        "diagonal_control": "3/8",
+        "phase_0": "1/2",
+        "phase_pi": "1/4",
+        "phase_pi_over_2": "3/8"
+      },
+      "E": {
+        "diagonal_control": "3/8",
+        "phase_0": "3/8",
+        "phase_pi": "3/8",
+        "phase_pi_over_2": "3/8"
+      },
+      "T": {
+        "diagonal_control": "3/8",
+        "phase_0": "3/8",
+        "phase_pi": "3/8",
+        "phase_pi_over_2": "3/8"
+      }
+    },
+    "sum_rule": "p(0)+p(pi)=3/4; p(pi/2)+p(3pi/2)=3/4"
+  },
+  "new_script_sha256": "0e258ac21e460036beb6bbc6e1089bae751807ffbc2178c2dd54842012a1b95b",
+  "population": {
+    "binary_states": 66,
+    "deficit_spectrum": "0 [1], eta*(5-sqrt(5))/60 [3], eta/10 [5], eta*(5+sqrt(5))/60 [3]",
+    "high_low_deficit_ratio": "sqrt(5)/2 + 3/2",
+    "middle_low_deficit_ratio": "3*sqrt(5)/10 + 3/2",
+    "native_branch_checks": 3960,
+    "one_attempt_population_matrix": "I-eta*L/60",
+    "preparation_matrix_rank": 12
+  },
+  "response_rank": {
+    "A1_consequence": "infinitesimal port-generated response J factors through R^12, so rank(J)<=12",
+    "exact_negative_control": "12 selected SU(4) Pauli generators plus their XI/YX bracket ZX",
+    "exact_negative_control_rank": 13,
+    "finite_angle_rank_countercontrol": 4,
+    "laboratory_single_carrier_identification_established": false,
+    "negative_control_minimum_singular_value": "1/2",
+    "negative_control_response_matrix": "I13/2",
+    "proof_status": "elementary factorization argument with exact finite controls; no Lean formalization",
+    "rejection_rule": "sigma_13(J_observed)>epsilon when ||J_observed-J_true||_2<=epsilon",
+    "synthetic_rank12_factorization_thirteenth_singular_value": 2.6592021883880494e-15,
+    "tomography_settings": [
+      {
+        "preparation_Pauli": "IY",
+        "readout_Pauli": "IZ",
+        "target": "IX"
+      },
+      {
+        "preparation_Pauli": "IZ",
+        "readout_Pauli": "IX",
+        "target": "IY"
+      },
+      {
+        "preparation_Pauli": "IX",
+        "readout_Pauli": "IY",
+        "target": "IZ"
+      },
+      {
+        "preparation_Pauli": "YI",
+        "readout_Pauli": "ZI",
+        "target": "XI"
+      },
+      {
+        "preparation_Pauli": "XY",
+        "readout_Pauli": "IZ",
+        "target": "XX"
+      },
+      {
+        "preparation_Pauli": "XZ",
+        "readout_Pauli": "IX",
+        "target": "XY"
+      },
+      {
+        "preparation_Pauli": "XX",
+        "readout_Pauli": "IY",
+        "target": "XZ"
+      },
+      {
+        "preparation_Pauli": "ZI",
+        "readout_Pauli": "XI",
+        "target": "YI"
+      },
+      {
+        "preparation_Pauli": "YY",
+        "readout_Pauli": "IZ",
+        "target": "YX"
+      },
+      {
+        "preparation_Pauli": "YZ",
+        "readout_Pauli": "IX",
+        "target": "YY"
+      },
+      {
+        "preparation_Pauli": "YX",
+        "readout_Pauli": "IY",
+        "target": "YZ"
+      },
+      {
+        "preparation_Pauli": "XI",
+        "readout_Pauli": "YI",
+        "target": "ZI"
+      },
+      {
+        "preparation_Pauli": "ZY",
+        "readout_Pauli": "IZ",
+        "target": "ZX"
+      }
+    ]
+  },
+  "schema": "oph.ipi.direct_tests_audit.v1",
+  "status": "PASS_DATA_FREE_CONTROLS_ONLY"
+}
