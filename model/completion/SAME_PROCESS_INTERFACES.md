@@ -187,15 +187,34 @@ for zero-field source dynamics.
 The [two transverse channels](../spin_particle_scaling/README.md) have source
 momenta exchanged by a fourfold rotation, opposite circular charges, spectral
 weight proportional to momentum scale, and nonzero finite rescaled measures.
-The source diagonal bounds normalized readouts; it does not assume a known
-state-preparation rate or establish a sharp relativistic pole/field algebra.
+The subsequent [regular field construction](../spin_canonical_field/README.md)
+and [energy theorem](../spin_canonical_energy/README.md) identify actual Stone
+field vectors in the same history representation. Both have strictly positive
+spectral weight in bands proportional to arbitrarily small momentum, so the
+continuum is nonstatic and gapless. Neither a sharp relativistic pole nor an
+effective infinite-state preparation rate follows from these bounds.
+
+The [mass and energy table](PARTICLE_MASS_TABLE.md) keeps four distinct
+calculations: zero rest energies of the canonical free continuum, the two
+supplied quadratic branches `|m0-|m||` and `|m0+|m||`, positive spin spectral
+bands, and certified finite-system excitation gaps. The quadratic coefficients
+can produce any chosen nonnegative pair; the source has not selected them.
+Consequently the table supplies no independently predicted measured mass.
+The [local exchange-charge construction](../local_exchange_charge/README.md)
+gives an actual local preparation and transport law, but its sharp-sector
+exterior bound and spreading kernel prevent identifying it as a compact
+particle with an unchanged exterior on that carrier.
 
 The [regional modular limit](../lattice_modular_limit/README.md) uses precisely
 the U=0 filled-band source and retains all eight valleys. Actual finite-region
 modular flow converges on fixed probes without a uniform covariance gap;
-unbounded generators converge on matched graph-core inputs. Selected local
-unitary relative entropies converge. The existing controlled stress responses
-remain valid. The region is fixed in the new theorem: a joint boosted-region,
+unbounded generators converge on matched graph-core inputs. The subsequent
+[shrinking limit](../shrinking_modular_entropy/README.md) matches the established
+stress response. For its same shell states, the
+[finite-amplitude theorem](../shell_entropy_response/README.md) proves a positive
+entropy Hessian and uniform lattice convergence to regional Araki entropy.
+These remain free-source matter results on rest balls. Fixed-amplitude absolute
+convergence alone gives no `o(R^4)` nonlinear remainder. A joint boosted-region,
 area/edge entropy, stationarity and responsive metric join is still required.
 
 ## Support refinement

@@ -1,0 +1,156 @@
+{
+  "algebra": {
+    "checks": {
+      "compression_defect_Gram_identity": true,
+      "full_Fock_rank_one_Wick": true,
+      "full_Fock_state_affine": true,
+      "hole_resolvent_positive_sign": true,
+      "natural_endpoint_sum_at_most_one": true,
+      "noncommuting_covariance_perturbation": true,
+      "off_diagonal_block_factorization": true,
+      "one_mode_hessian_upper_saturated": true,
+      "particle_resolvent_negative_sign": true,
+      "positive_natural_mass": true,
+      "source_exterior_mode_unit": true,
+      "source_projection": true
+    },
+    "example_endpoint_sum": "1",
+    "example_mass": "73015056/446265625",
+    "full_source_Fock_dimension": 16,
+    "matrix_commutativity_assumed": false,
+    "regional_Fock_dimension": 4
+  },
+  "bounds": {
+    "hessian_zero_lower": "4m^2",
+    "hessian_zero_upper": "m",
+    "modulus": {
+      "B": "6",
+      "amplitude_radius": "1/2",
+      "endpoint_error_upper": "1/8",
+      "epsilon": "1/2",
+      "hessian_error_upper": "1/4",
+      "integral_lower_cut": "1/128",
+      "integral_upper_cut": "16",
+      "mesh_float_materialized": false,
+      "mesh_formula": "min(1/(6B),(numerator_over_K/K_N)^(6*12^(N+1)))",
+      "mesh_normalization_bound": "1/36",
+      "mesh_power_base": 12,
+      "mesh_power_exponent": 134217729,
+      "mesh_power_factor": 6,
+      "mesh_power_numerator_over_K": "1/309237645312",
+      "mesh_strictly_positive": true,
+      "regularity": {
+        "K_12_exponent": 9007199321849856,
+        "K_8192_exponent": 134217728,
+        "K_prefactor": 2048,
+        "alpha_denominator_base": 12,
+        "alpha_denominator_exponent": 134217729,
+        "alpha_denominator_factor": 6
+      },
+      "relative_entropy_error_coefficient": "1/4",
+      "series_error_upper": "1/16",
+      "series_terms": 134217728,
+      "spatial_error_upper": "1/16"
+    },
+    "natural_mass_upper": "1/4",
+    "relative_entropy_lower": "2m^2 theta^2",
+    "remainder_bound": "chi(0)|theta|^3/[3(1-b)^3]",
+    "resolvent_bound": "64B^2 K_N eta^alpha_N/tau^2+1/(N tau^2)",
+    "resolvent_comparison_constant": 64,
+    "sample_entropy_bounds": {
+      "hessian_amplitude_lower": "1/16",
+      "hessian_zero_lower": "1/16",
+      "hessian_zero_upper": "1/8",
+      "quadratic_remainder_upper": "1/192",
+      "relative_entropy_lower": "1/512",
+      "relative_entropy_upper": "1/64"
+    },
+    "shell": {
+      "applies_to": "nine original unboosted directional shells",
+      "continuum_entropy_theta_squared_lower": "1128581148409/526339151781991679009348534912888321322647342284800",
+      "continuum_hessian_lower": "1128581148409/263169575890995839504674267456444160661323671142400",
+      "finite_entropy_theta_squared_lower_with_extra_mesh": "1128581148409/2105356607127966716037394139651553285290589369139200",
+      "finite_hessian_lower_with_extra_mesh": "1128581148409/1052678303563983358018697069825776642645294684569600",
+      "mass_lower": "1062347/32445004292864307741327360",
+      "positive_mesh_numerator_over_B_squared": "1062347/3189473702005732908203444797440",
+      "positive_mesh_power": 72,
+      "radius_ratio": "1/262144"
+    }
+  },
+  "controls": {
+    "endpoints": {
+      "arbitrary_fixed_norm_probe_extension_rejected": true,
+      "endpoint_exponents_checked": [
+        2,
+        4,
+        8,
+        12
+      ],
+      "natural_Hessian_stays_bounded": true
+    },
+    "finite": {
+      "absolute_diagnostic_tolerance": "2e-11",
+      "eight_block_spectator_control": true,
+      "finite_CAR_restriction_monotonicity_checked": true,
+      "floating_diagnostics_used_as_proof": false,
+      "full_Fock_Hessian_and_entropy_checked": true,
+      "integral_CAR_and_covariance_forms_agree": true,
+      "noncommuting_amplitudes_checked": 6,
+      "occupation_in_place_of_cell_norm_rejected": true,
+      "opposite_resolvent_sign_mutation_rejected": true
+    }
+  },
+  "custody": {
+    "current_narrow_mathematical_sources_checked": true,
+    "predecessor_full_repository_receipts_replayed": false,
+    "runtime_Git_history_required": false,
+    "scope": "analytic theorem, exact finite controls, and separately identified floating diagnostics"
+  },
+  "finite_attachment": "FA106",
+  "full_repository_replay_performed": false,
+  "new_checks_pass": true,
+  "schema": "oph.shell_entropy_response.v1",
+  "source_bindings": {
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "a724da9e9a5a9e90aa80adb2833353370d5991180b89f7a634cf27e43e10f631",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean": "4cf17368329e6237e5b3f71b444d9b95dc6607a05b24ce24ae655b7da2478971",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/lattice_modular_limit/README.md": "fe247f6c8b783e174eefb78dfb6e24c78aec144a05267abc2f76f112fdf9e3c4",
+    "model/shell_entropy_response/README.md": "8c50ddd3fac020b19788b807bdcc3fe0f5b2c407c08ca0eb2a1e33ff6881f3a1",
+    "model/shell_entropy_response/__init__.py": "fa46b2e705a2c652ac4de447791d5dd535e8cf0954b192cbec732a6269aaecad",
+    "model/shell_entropy_response/__main__.py": "dd1140ca6b5f917559b56fe6fed727abdd483f9e1dcf82a0a45af9f59c40b4e8",
+    "model/shell_entropy_response/algebra.py": "a8a4ab666909282d354dcbfaaa9519256eb18bf0f72f0bcdc8da6926009443bf",
+    "model/shell_entropy_response/bounds.py": "98663e378aad14fe2cea502bc295e0f76699d285e366b9e4b65714e0dc1ee8e7",
+    "model/shell_entropy_response/controls.py": "377ce3442a682426cbd34bd538ea4c39cead83aa350e86aa28fe9205f2a99d37",
+    "model/shell_entropy_response/packet.py": "d771c64ecbe5a7bf9861f14e9a424ca4937c74eb87f048959aefd0098ffff5d3",
+    "model/shell_entropy_response/test_response.py": "ab2cfc8b6c07aa7ef89215fa584835dbcf95c7683e50530b1c8e603a6a51701f",
+    "model/shrinking_modular_entropy/README.md": "527a8c1bb064bd7749d81e6fe41c4e44a4dd7c827d94fc4a03079b3b8b075167",
+    "model/shrinking_modular_entropy/__init__.py": "ab7cd32270c4b2e2f2d48c67ddab7782721f29d2f2dcbb992f52a10f13df7107",
+    "model/shrinking_modular_entropy/algebra.py": "a579b2ba8b66820bac7284fb41c59c7bc60df25395e7c580c54f49a7b51fa36d",
+    "model/shrinking_modular_entropy/bounds.py": "47bfc56ce1fed8ef677f00091807b25e4981f9b0362622e3ae7152bac90cb165",
+    "model/weyl_gravity_response/README.md": "74de2795c327e01dd28b1ebf9bef0920ba240804f22c187f1325dc80598002d8",
+    "model/weyl_gravity_response/bounds.py": "f3f17dc37027244f2423ca099fc888a0499e23a3909502d1196ffa7b99349ae8",
+    "paper/tex_fragments/SHELL_ENTROPY_RESPONSE.tex": "de5bb38d933213ac3883642ed968a51fbd30e023c2543f9cabcb5907f1d76c04",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem": {
+    "Einstein_endpoint_closed": false,
+    "Hiai_Theorem_4_1_v_imported": true,
+    "absolute_continuum_entropy_computed": false,
+    "actual_Araki_relative_entropy_limit": true,
+    "actual_cell_norm_used": true,
+    "area_dynamics_or_stationarity_derived": false,
+    "astronomical_refinement_numerically_executed": false,
+    "finite_amplitude_cubic_remainder": true,
+    "global_affine_pure_vacuum_family_asserted": false,
+    "native_entropy_circuit_executed": false,
+    "nonzero_U_entropy_limit_proved": false,
+    "positive_symbolic_joint_mesh": true,
+    "rank_one_noncommuting_entropy_Hessian": true,
+    "same_natural_exterior_shell_states": true,
+    "source_U": 0,
+    "source_valleys_retained": 8,
+    "strict_positive_shell_lower_bound": true,
+    "uniform_compact_amplitude_lattice_Hessian_limit": true,
+    "uniform_covariance_gap_assumed": false
+  }
+}

@@ -1912,6 +1912,30 @@
           "independent_check": "model/native_joint_spin_spectroscopy/test_joint.py",
           "scope": "For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost.",
           "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
+        },
+        {
+          "id": "native_mass_channels",
+          "path": "model/native_mass_channels/results.json",
+          "sha256": "06fe651684c4504073d81a6938f28396146c607e07078e6e85c9ce82c04d604e",
+          "independent_check": "model/native_mass_channels/test_packet.py",
+          "scope": "An exact integer Gram, variance and spin certificate independently proves the unique centered full-cube singlet and a gap greater than1/128, without using Lieb uniqueness as a premise. The existing sharper spectral certificate remains valid. Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+          "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+        },
+        {
+          "id": "local_exchange_charge",
+          "path": "model/local_exchange_charge/results.json",
+          "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+          "independent_check": "model/local_exchange_charge/test_packet.py",
+          "scope": "The existing protected ordered-cover charge has a local qutrit realization with exactly reference-matched initial exterior and a nonzero exchange-charge expectation conserved by the complete native instrument with all histories retained. Each individual branch preserves the sharp exchange-charge sectors; its spatial contrast follows the actual pair transport kernel and has exact regional/exterior trace distances, including the separately retained split-pair correlations. For a k-port core, deterministic core-local preparation from the tracial reference with an independent blank and sector-preserving endpoint can create at most binomial(k,2)/66 absolute charge, attained by the compact extremal perturbation. Every globally sharp Q state has exterior distance at least binomial(12-k,2)/132, without fixing its occupation marginal; the uniform sharp state attains the bound. Global conservation therefore does not imply a sharply localized or permanently bound particle.",
+          "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+        },
+        {
+          "id": "spin_canonical_energy",
+          "path": "model/spin_canonical_energy/results.json",
+          "sha256": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
+          "independent_check": "model/spin_canonical_energy/test_energy.py",
+          "scope": "For the unchanged ordered cubic spin ground, the actual Stone vectors of both FA100 canonical fields have finite positive and inverse energy moments and no zero-energy component. Their positive joint energy-momentum measures retain explicit nonzero weight in energy windows proportional to every arbitrarily small momentum radius. The continuum dynamics is therefore nonstatic and gapless. The exact microscopic twist coefficient satisfies m^2/2<=kappa<=1/2, and its quadratic energy limit only bounds continuum energy from above; neither a sharp shell nor a surviving connected interaction is inferred.",
+          "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
         }
       ]
     },
@@ -2538,6 +2562,22 @@
           "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
           "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
           "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
+        },
+        {
+          "id": "native_mass_channels",
+          "path": "model/native_mass_channels/results.json",
+          "sha256": "06fe651684c4504073d81a6938f28396146c607e07078e6e85c9ce82c04d604e",
+          "independent_check": "model/native_mass_channels/test_packet.py",
+          "scope": "An exact integer Gram, variance and spin certificate independently proves the unique centered full-cube singlet and a gap greater than1/128, without using Lieb uniqueness as a premise. The existing sharper spectral certificate remains valid. Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+          "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+        },
+        {
+          "id": "local_exchange_charge",
+          "path": "model/local_exchange_charge/results.json",
+          "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+          "independent_check": "model/local_exchange_charge/test_packet.py",
+          "scope": "The existing protected ordered-cover charge has a local qutrit realization with exactly reference-matched initial exterior and a nonzero exchange-charge expectation conserved by the complete native instrument with all histories retained. Each individual branch preserves the sharp exchange-charge sectors; its spatial contrast follows the actual pair transport kernel and has exact regional/exterior trace distances, including the separately retained split-pair correlations. For a k-port core, deterministic core-local preparation from the tracial reference with an independent blank and sector-preserving endpoint can create at most binomial(k,2)/66 absolute charge, attained by the compact extremal perturbation. Every globally sharp Q state has exterior distance at least binomial(12-k,2)/132, without fixing its occupation marginal; the uniform sharp state attains the bound. Global conservation therefore does not imply a sharply localized or permanently bound particle.",
+          "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
         }
       ]
     },
@@ -3040,6 +3080,22 @@
           "independent_check": "model/spin_canonical_field/test_canonical.py",
           "scope": "The unchanged ordered cubic spin-1/2 ground constructs a regular Weyl field net in three continuous spatial coordinates and continuous time, with nonnegative energy and locality outside a conservative l1 cone. Q_p(F)=p^2 sum eps_x F(px) Sx^3 and P_p(G)=-p sum G(px) Sx^2 give one canonical pair, [Q(F),P(G)]=i m_s integral FG, m_s>1/1000. Maximality of order makes its macroscopic phase scalar; an exact reference-uniform energy-kick inequality controls all time histories and full-GNS regularity. No sharp shell, Lorentz covariance, nonzero connected interaction or measured species is established.",
           "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
+        },
+        {
+          "id": "native_mass_channels",
+          "path": "model/native_mass_channels/results.json",
+          "sha256": "06fe651684c4504073d81a6938f28396146c607e07078e6e85c9ce82c04d604e",
+          "independent_check": "model/native_mass_channels/test_packet.py",
+          "scope": "An exact integer Gram, variance and spin certificate independently proves the unique centered full-cube singlet and a gap greater than1/128, without using Lieb uniqueness as a premise. The existing sharper spectral certificate remains valid. Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+          "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+        },
+        {
+          "id": "spin_canonical_energy",
+          "path": "model/spin_canonical_energy/results.json",
+          "sha256": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
+          "independent_check": "model/spin_canonical_energy/test_energy.py",
+          "scope": "For the unchanged ordered cubic spin ground, the actual Stone vectors of both FA100 canonical fields have finite positive and inverse energy moments and no zero-energy component. Their positive joint energy-momentum measures retain explicit nonzero weight in energy windows proportional to every arbitrarily small momentum radius. The continuum dynamics is therefore nonstatic and gapless. The exact microscopic twist coefficient satisfies m^2/2<=kappa<=1/2, and its quadratic energy limit only bounds continuum energy from above; neither a sharp shell nor a surviving connected interaction is inferred.",
+          "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
         }
       ]
     },
@@ -3459,6 +3515,30 @@
           "independent_check": "model/native_joint_spin_spectroscopy/test_joint.py",
           "scope": "For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost.",
           "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
+        },
+        {
+          "id": "native_mass_channels",
+          "path": "model/native_mass_channels/results.json",
+          "sha256": "06fe651684c4504073d81a6938f28396146c607e07078e6e85c9ce82c04d604e",
+          "independent_check": "model/native_mass_channels/test_packet.py",
+          "scope": "An exact integer Gram, variance and spin certificate independently proves the unique centered full-cube singlet and a gap greater than1/128, without using Lieb uniqueness as a premise. The existing sharper spectral certificate remains valid. Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+          "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+        },
+        {
+          "id": "spin_canonical_energy",
+          "path": "model/spin_canonical_energy/results.json",
+          "sha256": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
+          "independent_check": "model/spin_canonical_energy/test_energy.py",
+          "scope": "For the unchanged ordered cubic spin ground, the actual Stone vectors of both FA100 canonical fields have finite positive and inverse energy moments and no zero-energy component. Their positive joint energy-momentum measures retain explicit nonzero weight in energy windows proportional to every arbitrarily small momentum radius. The continuum dynamics is therefore nonstatic and gapless. The exact microscopic twist coefficient satisfies m^2/2<=kappa<=1/2, and its quadratic energy limit only bounds continuum energy from above; neither a sharp shell nor a surviving connected interaction is inferred.",
+          "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
+        },
+        {
+          "id": "particle_mass_table",
+          "path": "model/completion/particle_mass_table.json",
+          "sha256": "09b6061f5379ae1255e49b08108dda5dfddb538fff0243320b67a4f492099bfa",
+          "independent_check": "tools/test_particle_mass_table.py",
+          "scope": "Exact supplied mass branches and complete certified finite readouts; zero physical particle masses or species derived.",
+          "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
         }
       ]
     },
@@ -3638,6 +3718,14 @@
           "independent_check": "model/shrinking_modular_entropy/test_algebra.py",
           "scope": "For the exact U=0 source, natural exterior-shell perturbations of full eight-valley regional density matrices have an explicit regulator-free entropy derivative bound. A positive symbolic mesh schedule, shrinking R/L, and finite perturbation steps give a common o(R^4) matter-entropy error at fixed shell scale L. Observer-frame shell preparations yield an invertible 9-by-9 finite entropy-response matrix approaching the established Weyl stress matrix. This is a matter/modular refinement input to the existing Einstein stack, not an area or stationarity theorem.",
           "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
+        },
+        {
+          "id": "shell_entropy_response",
+          "path": "model/shell_entropy_response/results.json",
+          "sha256": "3275e39bb79f8e5231acc1851ea7aa8d6a7da0787c5e3067bffb7feae35c49e5",
+          "independent_check": "model/shell_entropy_response/test_response.py",
+          "scope": "On the exact U=0 source and the same actual normalized exterior-shell preparations as FA101, the regional relative entropy has an explicit positive resolvent Hessian. Natural projection-block factorization gives 4||f||^4 <= D''(0) <= ||f||^2 <= 1/4, a cubic finite-amplitude remainder, strict lower bounds for all nine original directional shells, and uniform convergence of the lattice Hessians and relative entropies on compact amplitude intervals. Increasing finite CAR exhaustion identifies the limit with the actual regional Araki relative entropy. This is a sector-relative matter input, not an area or stationarity theorem.",
+          "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
         }
       ]
     },
@@ -3947,6 +4035,14 @@
           "independent_check": "model/shrinking_modular_entropy/test_algebra.py",
           "scope": "For the exact U=0 source, natural exterior-shell perturbations of full eight-valley regional density matrices have an explicit regulator-free entropy derivative bound. A positive symbolic mesh schedule, shrinking R/L, and finite perturbation steps give a common o(R^4) matter-entropy error at fixed shell scale L. Observer-frame shell preparations yield an invertible 9-by-9 finite entropy-response matrix approaching the established Weyl stress matrix. This is a matter/modular refinement input to the existing Einstein stack, not an area or stationarity theorem.",
           "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
+        },
+        {
+          "id": "shell_entropy_response",
+          "path": "model/shell_entropy_response/results.json",
+          "sha256": "3275e39bb79f8e5231acc1851ea7aa8d6a7da0787c5e3067bffb7feae35c49e5",
+          "independent_check": "model/shell_entropy_response/test_response.py",
+          "scope": "On the exact U=0 source and the same actual normalized exterior-shell preparations as FA101, the regional relative entropy has an explicit positive resolvent Hessian. Natural projection-block factorization gives 4||f||^4 <= D''(0) <= ||f||^2 <= 1/4, a cubic finite-amplitude remainder, strict lower bounds for all nine original directional shells, and uniform convergence of the lattice Hessians and relative entropies on compact amplitude intervals. Increasing finite CAR exhaustion identifies the limit with the actual regional Araki relative entropy. This is a sector-relative matter input, not an area or stationarity theorem.",
+          "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
         }
       ]
     },
@@ -5043,16 +5139,53 @@
         "scope": "Construct a regular continuum spin field, strengthen the charged free-boundary theorem, derive an actual finite entropy/stress shrinking limit, and implement complete joint native spin spectroscopy.",
         "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
       }
+    },
+    {
+      "id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-03",
+        "CP-05",
+        "CP-06",
+        "CP-07"
+      ],
+      "contract": {
+        "path": "model/completion/reviewed_particle_prs_campaign.json",
+        "sha256": "d9537faa2014e37ace3f57e316b6d326d94f5ebbfeedbae46d02784d980dea33",
+        "independent_check": "model/completion/test_finite_attachment_map.py",
+        "scope": "Integrate independently reviewed direct finite-ground, onsite-mass and local exchange-charge constructions without overwriting newer source results.",
+        "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+      }
+    },
+    {
+      "id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-03",
+        "CP-06",
+        "CP-07",
+        "CP-08",
+        "CP-09"
+      ],
+      "contract": {
+        "path": "model/completion/field_energy_entropy_campaign.json",
+        "sha256": "98ff96bb2eff8a63f08fa3ff2639918d520ae5eb32d7d20d2f997f68afc535b6",
+        "independent_check": "model/completion/test_finite_attachment_map.py",
+        "scope": "Identify nonzero positive spectral weight of the actual continuum spin fields and the finite-amplitude regional entropy Hessian on the established free source.",
+        "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
+      }
     }
   ],
   "next_wave": {
-    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v5",
+    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v6",
     "status": "PLANNED_PROVISIONAL_PARALLEL_WORK",
     "scope": "SOURCE_BOUND_COMPONENT_WORK_WITH_OPEN_ACCEPTANCE_JOINS",
     "changes_frozen_campaign": false,
     "successor_class_frozen": false,
     "physical_comparison_count_added": 0,
-    "rationale": "The continuum field algebra and entropy/stress join remove construction gaps; the stronger free boundary directs the interaction search; complete native spectroscopy connects finite source preparation, symmetry labels and energy readout. Evidence custody remains the fifth owner; broad CI is deferred at the user request.",
+    "rationale": "Current-source evidence repair, reference preparation, actual continuum field excitations, the exact supplied mass catalogue, and nonlinear entropy response address the five linked owner issues without promoting physical endpoints.",
     "shared_interface": {
       "baseline_campaign_id": "OPH-RECORD-DERIVED-CONTINUING-CLOCK-v1",
       "baseline_contract": "model/local_repair_family/record_clock_campaign.json",
@@ -5106,8 +5239,8 @@
         "title": "Construct protected local matter beyond the quantified bare-repair lifetime",
         "why_now": "The continuum field algebra and entropy/stress join remove construction gaps; the stronger free boundary directs the interaction search; complete native spectroscopy connects finite source preparation, symmetry labels and energy readout. Evidence custody remains the fifth owner; broad CI is deferred at the user request.",
         "deliverable": "Supply a local protected field encoding with a boundary invariant and measured operators under the actual repair/refinement.",
-        "may_start_now": "The ordered spin source supplies a regular continuum Weyl pair and exact finite joint graph-symmetry/energy observations.",
-        "join_condition": "Physical localization, boundary invariant and common gauge-charge/particle identification remain open.",
+        "may_start_now": "Actual Stone fields retain nonzero positive excitation weight at arbitrarily small momentum; local exchange charge is realized with a proved localization limit.",
+        "join_condition": "A sharp exchange-charge sector changes the exterior on this carrier. Derive a common physical localization and gauge-charge dictionary.",
         "evidence": [
           "cube_eta_protection",
           "protected_particle_readout",
@@ -5125,7 +5258,10 @@
           "spin_particle_scaling",
           "native_ordered_ground",
           "spin_canonical_field",
-          "native_joint_spin_spectroscopy"
+          "native_joint_spin_spectroscopy",
+          "native_mass_channels",
+          "local_exchange_charge",
+          "spin_canonical_energy"
         ]
       },
       {
@@ -5134,8 +5270,8 @@
         "title": "Control an interacting relativistic limit outside the proved free class",
         "why_now": "The continuum field algebra and entropy/stress join remove construction gaps; the stronger free boundary directs the interaction search; complete native spectroscopy connects finite source preparation, symmetry labels and energy readout. Evidence custody remains the fifth owner; broad CI is deferred at the user request.",
         "deliverable": "Derive a volume-uniform interacting continuum estimate and the corresponding ground, charged sectors and Lorentz dynamics.",
-        "may_start_now": "The actual ordered spin ground gives a regular local positive-energy continuum Weyl net. The unchanged canonical charged sector is free for U=o(c^(2/7)).",
-        "join_condition": "A sharp relativistic shell, Lorentz covariance, surviving continuum interaction and a massive sector remain to be derived; the spin net alone does not establish these.",
+        "may_start_now": "The actual spin continuum is nonstatic and gapless. The free charged source admits an exact two-branch supplied onsite mass catalogue.",
+        "join_condition": "Derive a sharp shell, Lorentz covariance and surviving continuum interaction; select mass coefficients dynamically.",
         "evidence": [
           "moving_bound_pair",
           "relativistic_sector_audit",
@@ -5163,7 +5299,9 @@
           "spin_particle_scaling",
           "spin_shell_diagnostic",
           "ballistic_free_boundary",
-          "spin_canonical_field"
+          "spin_canonical_field",
+          "native_mass_channels",
+          "spin_canonical_energy"
         ]
       },
       {
@@ -5172,8 +5310,8 @@
         "title": "Identify physical species beyond the excluded centered finite-gap dictionary",
         "why_now": "The continuum field algebra and entropy/stress join remove construction gaps; the stronger free boundary directs the interaction search; complete native spectroscopy connects finite source preparation, symmetry labels and energy readout. Evidence custody remains the fifth owner; broad CI is deferred at the user request.",
         "deliverable": "Construct the same-theory physical charge, spin, dispersion, detector and unit dictionary; compare its massive and massless sectors with observations.",
-        "may_start_now": "Complete finite joint energy/symmetry instruments connect source-computed ground inputs to all recorded bins; spin continuum fields have a nonzero canonical commutator.",
-        "join_condition": "Finite graph labels are not Lorentz spin or physical momentum dispersion. Derive sharp poles, gauge charges and independent units before identifying measured species.",
+        "may_start_now": "A source-bound table separates zero free masses, supplied quadratic mass branches, spin bands and all finite energy readouts.",
+        "join_condition": "Derive physical species, mass coefficients and independent units. Finite-system energies and unfixed branch formulas are not measured mass predictions.",
         "evidence": [
           "cube_eta_protection",
           "particle_identification",
@@ -5202,7 +5340,10 @@
           "spin_shell_diagnostic",
           "ballistic_free_boundary",
           "spin_canonical_field",
-          "native_joint_spin_spectroscopy"
+          "native_joint_spin_spectroscopy",
+          "native_mass_channels",
+          "spin_canonical_energy",
+          "particle_mass_table"
         ]
       },
       {
@@ -5211,8 +5352,8 @@
         "title": "Join the proved Weyl stress/modular sector to responsive geometry",
         "why_now": "The continuum field algebra and entropy/stress join remove construction gaps; the stronger free boundary directs the interaction search; complete native spectroscopy connects finite source preparation, symmetry labels and energy readout. Evidence custody remains the fifth owner; broad CI is deferred at the user request.",
         "deliverable": "Supply the native geometry identification, edge/area normalization, entropy stationarity and universal calibrated metric response on one refinement family.",
-        "may_start_now": "Actual finite-density entropy changes have a common explicit shrinking limit to the existing Weyl stress response, with an invertible nine-frame response matrix.",
-        "join_condition": "The theorem uses U=0 observer-frame preparations on rest balls. Area/edge identification, Newton normalization, entropy stationarity and responsive geometry remain open.",
+        "may_start_now": "The same free-source shell states have positive regional entropy Hessians and uniform finite-amplitude lattice limits.",
+        "join_condition": "Derive responsive area/edge identification, Newton normalization and generalized-entropy stationarity on the same matter/geometry family.",
         "evidence": [
           "dilute_momentum_ward",
           "relativistic_sector_audit",
@@ -5231,7 +5372,8 @@
           "weyl_gravity_response",
           "lattice_weyl_response",
           "lattice_modular_limit",
-          "shrinking_modular_entropy"
+          "shrinking_modular_entropy",
+          "shell_entropy_response"
         ]
       }
     ],
@@ -6480,6 +6622,46 @@
         "independent_check": "model/native_joint_spin_spectroscopy/test_joint.py",
         "scope": "For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost.",
         "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02"
+      },
+      {
+        "id": "native_mass_channels",
+        "path": "model/native_mass_channels/results.json",
+        "sha256": "06fe651684c4504073d81a6938f28396146c607e07078e6e85c9ce82c04d604e",
+        "independent_check": "model/native_mass_channels/test_packet.py",
+        "scope": "An exact integer Gram, variance and spin certificate independently proves the unique centered full-cube singlet and a gap greater than1/128, without using Lieb uniqueness as a premise. The existing sharper spectral certificate remains valid. Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+        "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+      },
+      {
+        "id": "local_exchange_charge",
+        "path": "model/local_exchange_charge/results.json",
+        "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e",
+        "independent_check": "model/local_exchange_charge/test_packet.py",
+        "scope": "The existing protected ordered-cover charge has a local qutrit realization with exactly reference-matched initial exterior and a nonzero exchange-charge expectation conserved by the complete native instrument with all histories retained. Each individual branch preserves the sharp exchange-charge sectors; its spatial contrast follows the actual pair transport kernel and has exact regional/exterior trace distances, including the separately retained split-pair correlations. For a k-port core, deterministic core-local preparation from the tracial reference with an independent blank and sector-preserving endpoint can create at most binomial(k,2)/66 absolute charge, attained by the compact extremal perturbation. Every globally sharp Q state has exterior distance at least binomial(12-k,2)/132, without fixing its occupation marginal; the uniform sharp state attains the bound. Global conservation therefore does not imply a sharply localized or permanently bound particle.",
+        "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02"
+      },
+      {
+        "id": "spin_canonical_energy",
+        "path": "model/spin_canonical_energy/results.json",
+        "sha256": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
+        "independent_check": "model/spin_canonical_energy/test_energy.py",
+        "scope": "For the unchanged ordered cubic spin ground, the actual Stone vectors of both FA100 canonical fields have finite positive and inverse energy moments and no zero-energy component. Their positive joint energy-momentum measures retain explicit nonzero weight in energy windows proportional to every arbitrarily small momentum radius. The continuum dynamics is therefore nonstatic and gapless. The exact microscopic twist coefficient satisfies m^2/2<=kappa<=1/2, and its quadratic energy limit only bounds continuum energy from above; neither a sharp shell nor a surviving connected interaction is inferred.",
+        "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
+      },
+      {
+        "id": "shell_entropy_response",
+        "path": "model/shell_entropy_response/results.json",
+        "sha256": "3275e39bb79f8e5231acc1851ea7aa8d6a7da0787c5e3067bffb7feae35c49e5",
+        "independent_check": "model/shell_entropy_response/test_response.py",
+        "scope": "On the exact U=0 source and the same actual normalized exterior-shell preparations as FA101, the regional relative entropy has an explicit positive resolvent Hessian. Natural projection-block factorization gives 4||f||^4 <= D''(0) <= ||f||^2 <= 1/4, a cubic finite-amplitude remainder, strict lower bounds for all nine original directional shells, and uniform convergence of the lattice Hessians and relative entropies on compact amplitude intervals. Increasing finite CAR exhaustion identifies the limit with the actual regional Araki relative entropy. This is a sector-relative matter input, not an area or stationarity theorem.",
+        "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
+      },
+      {
+        "id": "particle_mass_table",
+        "path": "model/completion/particle_mass_table.json",
+        "sha256": "09b6061f5379ae1255e49b08108dda5dfddb538fff0243320b67a4f492099bfa",
+        "independent_check": "tools/test_particle_mass_table.py",
+        "scope": "Exact supplied mass branches and complete certified finite readouts; zero physical particle masses or species derived.",
+        "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
       }
     ]
   },

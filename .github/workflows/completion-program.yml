@@ -360,7 +360,7 @@ jobs:
       - run: python -m model.defect_field_energy.packet --check
       - run: python -m pytest -q --durations=10 -W error model/defect_field_energy model/defect_field_modular
       - name: Check continuum and ordered-spin observer evidence
-        run: python -m pytest -q --durations=10 -W error model/spin_goldstone_sector model/native_spin_observer model/lattice_weyl_response model/cubic_particle_channels model/lattice_modular_limit model/spin_particle_scaling model/native_ordered_ground model/spin_shell_diagnostic tools/test_replay_model_receipts.py tools/test_read_ordered_spin_energies.py
+        run: python -m pytest -q --durations=10 -W error model/spin_goldstone_sector model/native_spin_observer model/lattice_weyl_response model/cubic_particle_channels model/lattice_modular_limit model/spin_particle_scaling model/native_ordered_ground model/spin_shell_diagnostic tools/test_replay_model_receipts.py tools/test_read_ordered_spin_energies.py tools/test_particle_mass_table.py
       - name: Cold replay continuum and ordered-spin receipts
         shell: python
         run: |
@@ -380,3 +380,8 @@ jobs:
                               "model." + package, "--check"], check=True)
       - name: Check certified finite selection energy ratios
         run: python -W error tools/read_ordered_spin_energies.py --check model/completion/ordered_spin_energy_readout.json
+      - name: Check canonical field, entropy, and particle table receipts
+        run: |
+          python -W error -m model.spin_canonical_energy --check
+          python -W error -m model.shell_entropy_response --check
+          python -W error tools/build_particle_mass_table.py --check

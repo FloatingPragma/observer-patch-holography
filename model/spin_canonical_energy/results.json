@@ -1,0 +1,173 @@
+{
+  "continuous_spectral_control": {
+    "atom_free": true,
+    "energy_lower": "1",
+    "energy_upper": "2",
+    "first_moment": "1/16000000",
+    "inverse_moment_upper": "1/24000000",
+    "is_a_Heisenberg_state_construction": false,
+    "obeys_coarse_P_bounds": true,
+    "weight": "1/24000000"
+  },
+  "direct_exact_checks": {
+    "all_three_double_commutators": true,
+    "both_transverse_quadratic_coefficients": true,
+    "canonical_sign": true,
+    "exact_single_axis_rotation_energy": true,
+    "mixed_quadratic_rotation_term_zero": true,
+    "transverse_bond_eigenvalues": {
+      "-1/2": 1,
+      "0": 2,
+      "1/2": 1
+    },
+    "transverse_bond_norm_one_half": true
+  },
+  "energy_escape_controls": [
+    {
+      "first": "3/2",
+      "first_moment_at_escaping_energy": "1",
+      "inverse": "3/4",
+      "mass": "1",
+      "mass_at_escaping_energy": "1/2",
+      "weak_limit_first": "1"
+    },
+    {
+      "first": "31/16",
+      "first_moment_at_escaping_energy": "1",
+      "inverse": "241/256",
+      "mass": "1",
+      "mass_at_escaping_energy": "1/16",
+      "weak_limit_first": "1"
+    },
+    {
+      "first": "2047/1024",
+      "first_moment_at_escaping_energy": "1",
+      "inverse": "1047553/1048576",
+      "mass": "1",
+      "mass_at_escaping_energy": "1/1024",
+      "weak_limit_first": "1"
+    }
+  ],
+  "inherited_custody": {
+    "finite_checks_alone_prove_infinite_volume_result": false,
+    "kind": "Current narrow mathematical source bindings; analytic proof in README",
+    "prior_full_producers_rerun_here": false
+  },
+  "primary_import": {
+    "statement": "Eq. (3.4): transverse inverse-energy bound 1/(2J e(k+Q)); finite positive-field real ground",
+    "url": "https://arxiv.org/html/2105.04970v2"
+  },
+  "rotation_remainder_coefficient": "9/4",
+  "schema": "oph.spin_canonical_energy.v1",
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
+    "model/spin_canonical_energy/__init__.py": "8570d911006ff29d1febaab74e1aa1ff3400ab2859f318f6f381ff4f5d980e3c",
+    "model/spin_canonical_energy/__main__.py": "ff708e8788656de2cddcfc4b66d9c81f7781d03955cf267e76ae1e572fbc669a",
+    "model/spin_canonical_energy/algebra.py": "8d2dd09cdb54665a85d230a4f792fea7a7ce13389bc2f770c424ee6ba890dd11",
+    "model/spin_canonical_energy/bounds.py": "97328d4f4675a61f01b2845a9e514ceefe479dfafae94f2ef544d2000f8b2ca5",
+    "model/spin_canonical_energy/packet.py": "e448241a75bef641b57129727408787487f51aa5eb7a61cf53985ec9bf743286",
+    "model/spin_canonical_energy/test_energy.py": "5ddb730b9c09e46c057cd83818b0122438bb60bb57208becd2808f8c7535908b",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "model/spin_particle_scaling/README.md": "0878f0d1c13e9000a1cd7b26c16da92b1464671b77becfa351b4cf14e79ce336",
+    "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
+    "paper/tex_fragments/SPIN_CANONICAL_ENERGY.tex": "755af9e4a485b8630d1a474fe17d00dbdf3a160c324b4850044ea3780f64f674"
+  },
+  "spectral_windows": [
+    {
+      "channel": "P",
+      "energy_lower": "1/8000000",
+      "energy_upper": "24000000",
+      "first_moment_upper": "1/4",
+      "inverse_moment_upper": "1/12",
+      "m0": "1/1000",
+      "momentum_inner": "1/2",
+      "momentum_outer": "1",
+      "retained_weight_lower": "1/48000000",
+      "total_weight_lower": "1/24000000"
+    },
+    {
+      "channel": "Q",
+      "energy_lower": "1/16000000",
+      "energy_upper": "12000000",
+      "first_moment_upper": "3",
+      "inverse_moment_upper": "4",
+      "m0": "1/1000",
+      "momentum_inner": "1/2",
+      "momentum_outer": "1",
+      "retained_weight_lower": "1/2000000",
+      "total_weight_lower": "1/1000000"
+    },
+    {
+      "channel": "P",
+      "energy_lower": "1/16000000",
+      "energy_upper": "12000000",
+      "first_moment_upper": "1/16",
+      "inverse_moment_upper": "1/12",
+      "m0": "1/1000",
+      "momentum_inner": "1/4",
+      "momentum_outer": "1/2",
+      "retained_weight_lower": "1/96000000",
+      "total_weight_lower": "1/48000000"
+    },
+    {
+      "channel": "Q",
+      "energy_lower": "1/32000000",
+      "energy_upper": "6000000",
+      "first_moment_upper": "3",
+      "inverse_moment_upper": "16",
+      "m0": "1/1000",
+      "momentum_inner": "1/4",
+      "momentum_outer": "1/2",
+      "retained_weight_lower": "1/1000000",
+      "total_weight_lower": "1/500000"
+    },
+    {
+      "channel": "P",
+      "energy_lower": "1/32000000",
+      "energy_upper": "6000000",
+      "first_moment_upper": "1/64",
+      "inverse_moment_upper": "1/12",
+      "m0": "1/1000",
+      "momentum_inner": "1/8",
+      "momentum_outer": "1/4",
+      "retained_weight_lower": "1/192000000",
+      "total_weight_lower": "1/96000000"
+    },
+    {
+      "channel": "Q",
+      "energy_lower": "1/64000000",
+      "energy_upper": "3000000",
+      "first_moment_upper": "3",
+      "inverse_moment_upper": "64",
+      "m0": "1/1000",
+      "momentum_inner": "1/8",
+      "momentum_outer": "1/4",
+      "retained_weight_lower": "1/500000",
+      "total_weight_lower": "1/250000"
+    }
+  ],
+  "stiffness_enclosure": [
+    "1/2000000",
+    "1/2"
+  ],
+  "theorem": {
+    "Lorentz_covariance_proved": false,
+    "actual_Stone_field_vectors_identified": true,
+    "actual_continuum_dynamics_nonstatic_and_gapless": true,
+    "canonical_fields_have_no_zero_energy_component": true,
+    "continuum_twist_energy_equality_proved": false,
+    "exact_microscopic_twist_energy_limit": "kappa/2 integral|grad G|^2+6 kappa integral F^2",
+    "kappa": "-omega(S0^1 Se^1+S0^3 Se^3), m^2/2<=kappa<=1/2",
+    "nonzero_positive_band_at_arbitrarily_small_momentum": true,
+    "physical_species_or_particle_masses_identified": false,
+    "reference": "same infinitesimal-axis-1-staggered-field-selected zero-field ground",
+    "scaled_clock": "L_p=K/(Jp); X=px and T=Jpt",
+    "sharp_mass_shell_proved": false,
+    "source": "same cubic spin-1/2 antiferromagnet H_J with each bond counted once",
+    "state_assumed_Gaussian": false,
+    "strong_unbounded_field_convergence_assumed": false,
+    "surviving_connected_interaction_proved": false
+  }
+}

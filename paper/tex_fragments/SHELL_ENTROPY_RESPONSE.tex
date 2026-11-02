@@ -1,0 +1,54 @@
+\paragraph{Positive finite-amplitude shell entropy response (FA106).}
+On the same exact $U=0$ source as FA101, keep the full eight-valley
+regional covariance $A=E\Pi E$.  For a unit exterior shell $g$, set
+$f=E\Pi g$, $m=\|f\|^2$, and $A_\theta=A-\theta ff^*$.
+The bounded exterior number multiplier defines a positive normal local
+state for $|\theta|<1$.  Actual lattice preparations use
+$g_a=M_bJ_ag/\|M_bJ_ag\|$, not normalization by its occupation.
+The projection identity gives $f=[A(1-A)]^{1/2}h$, $\|h\|\leq1$.
+Writing $q(t)=\langle f,(A+t)^{-1}f\rangle$ and
+$r(t)=\langle f,(1-A+t)^{-1}f\rangle$, one has $q(0)+r(0)\leq1$.
+For the ordinary finite relative entropy and its continuum Araki limit,
+\[
+ D''(\theta)=\chi(\theta)=\int_0^\infty
+ \left\{\frac{q(t)^2}{[1-\theta q(t)]^2}
+       +\frac{r(t)^2}{[1+\theta r(t)]^2}\right\}\,dt,
+ \qquad 4m^2\leq\chi(0)\leq m\leq\tfrac14.
+\]
+For $|\theta|\leq b<1$ the explicit finite-amplitude bounds are
+\[
+ 2m^2\theta^2\leq D(\theta)
+ \leq\frac{\chi(0)\theta^2}{2(1-b)^2},\qquad
+ \left|D(\theta)-\tfrac12\chi(0)\theta^2\right|
+ \leq\frac{\chi(0)|\theta|^3}{3(1-b)^3}.
+\]
+Finite CAR exhaustion and Hiai's martingale-continuity theorem
+(\emph{Quantum $f$-divergences in von Neumann algebras I},
+Theorem~4.1(v), arXiv:1805.02050) identify this limit with relative
+entropy on the same regional von Neumann algebra; no difference of
+absolute continuum entropies is taken.
+
+For $\eta=a/R$, $\|g\|_{H^1}\leq B$, let
+$K_N=2048\,8192^N12^{N(N+1)/2}$ and
+$\alpha_N=(6\,12^{N+1})^{-1}$.  The natural-vector and sharp-boundary
+estimates of FA101 give, with $s=1-b$, $0<\tau\leq1$ and $M\geq1$,
+\[
+ \sup_{|\theta|\leq b}|\chi_a(\theta)-\chi(\theta)|
+ \leq\frac{2\tau+(4M)^{-1}}{s^2}
+ +\frac{4M}{s^3\tau^2}
+       \left(64B^2K_N\eta^{\alpha_N}+\frac1N\right).
+\]
+Taking $\tau=\epsilon s^2/16$, $M=2/(\epsilon s^2)$,
+$N=\lceil32M/(\epsilon s^3\tau^2)\rceil$ and the positive symbolic
+mesh specified in the proof makes this less than $\epsilon$.
+Thus the finite-amplitude relative entropies converge uniformly on
+compact $\theta$ intervals, with error at most $\theta^2\epsilon/2$.
+For each of the nine original unboosted shells, $\rho=R/L\leq2^{-18}$
+gives $m\geq c_\gamma\rho^3/48$, hence
+$D(\theta)\geq c_\gamma^2\theta^2\rho^6/1152$, where
+$c_\gamma=4249388/150088295$.  A further explicit mesh bound retains
+strict positivity at finite spacing.
+This is a nonzero second-variation and finite-amplitude matter input to
+G5.  It does not supply a responsive area, Newton normalization,
+generalized-entropy stationarity, sharply boosted lattice algebras,
+or an interacting relativistic continuum.

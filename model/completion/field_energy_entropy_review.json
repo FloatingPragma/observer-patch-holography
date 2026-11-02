@@ -1,0 +1,290 @@
+{
+  "schema": "oph.scoped_completion_review.v1",
+  "as_of": "2026-11-02",
+  "base_commit": "977d56c415fc26d3ba698911edcc545334da7e55",
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "scope": "FA103-106, supplied mass catalogue and complete finite energy table. The statements below record independent scoped reviews; combined source replay, repository CI and publication are tracked separately.",
+  "physical_species_identified": false,
+  "independently_calibrated_physical_masses": 0,
+  "interacting_relativistic_continuum_constructed": false,
+  "Einstein_matter_geometry_join_complete": false,
+  "canonical_premises_discharged": [],
+  "reviewed_PR_heads": {
+    "1170": "d9e0a1a09480939b123b113b540ded022a1522d5",
+    "1171": "52eae23b24ea4401e76a5ff223356926774ff307"
+  },
+  "components": [
+    {
+      "attachment": "FA-103",
+      "packages": [
+        "centered_source_ground",
+        "native_mass_channels"
+      ],
+      "independent_mathematical_and_code_review": "PASS",
+      "focused_tests": {
+        "passed": 110,
+        "platform_skipped": 1,
+        "large_proof_deselected": 1
+      },
+      "scope": "Exact direct full-cube ground proof and supplied quadratic spectrum; the large proof is separately replayed on the combined tree."
+    },
+    {
+      "attachment": "FA-104",
+      "package": "local_exchange_charge",
+      "independent_mathematical_and_code_review": "PASS",
+      "scope": "Local source preparation, all-record charge conservation, spreading law and sharp-sector exterior obstruction; does not identify a particle.",
+      "independent_strict_tests_passed": 131,
+      "independent_strict_test_scope": "All local_exchange_charge tests on the reviewed PR integration tree; exit0. Final current-source packet replay is tracked separately."
+    },
+    {
+      "attachment": "FA-105",
+      "package": "spin_canonical_energy",
+      "independent_mathematical_and_code_review": "PASS",
+      "strict_tests_passed": 23,
+      "independent_strict_tests_passed": 23,
+      "cold_replay": "PASS",
+      "receipt": "model/spin_canonical_energy/results.json",
+      "sha256": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
+      "scope": "Positive conical energy windows of actual Stone field vectors, not a sharp mass shell."
+    },
+    {
+      "attachment": "FA-106",
+      "package": "shell_entropy_response",
+      "independent_mathematical_and_code_review": "PASS",
+      "strict_tests_passed": 34,
+      "independent_strict_tests_passed": 34,
+      "cold_replay": "PASS",
+      "receipt": "model/shell_entropy_response/results.json",
+      "sha256": "3275e39bb79f8e5231acc1851ea7aa8d6a7da0787c5e3067bffb7feae35c49e5",
+      "scope": "Positive finite-amplitude regional entropy Hessian and lattice limit on the same U=0 source; no area/stationarity or o(R^4) nonlinear claim."
+    }
+  ],
+  "mass_table_review": {
+    "mathematical_review": "PASS",
+    "checks": [
+      "two exact mass branches and signed multiplicities sum to16",
+      "inverse coefficient construction gives every nonnegative pair",
+      "at most two distinct positive rest energies in this uniform family",
+      "full228 charged rows cross-checked with certified CSV and retained residues",
+      "finite positive-field spin energies kept separate from infinite zero-field continuum",
+      "no parameter fitting, physical species assignment or unit calibration"
+    ],
+    "files": [
+      "tools/build_particle_mass_table.py",
+      "tools/test_particle_mass_table.py",
+      "tools/particle_mass_table_sources.json",
+      "model/completion/PARTICLE_MASS_TABLE.md",
+      "model/completion/particle_mass_table.json"
+    ]
+  },
+  "combined_tree_replay_and_CI": "Tracked separately; not asserted by this scoped review.",
+  "combined_narrow_regression": {
+    "strict_tests_passed": 77,
+    "components": [
+      "model/spin_canonical_energy",
+      "model/shell_entropy_response",
+      "tools/test_particle_mass_table.py"
+    ],
+    "log_sha256": "50a71dfe6d97a45362f3eeccf466fab5b114e9a5c708f128a99407b533131d9f",
+    "scope": "Recorded before final inherited receipt refresh; final source-bound table check is recorded separately."
+  },
+  "paper_validation": {
+    "status": "PASS",
+    "mode": "same-release local preview",
+    "release_bump": false,
+    "build_count": 21,
+    "warning_gate_count": 21,
+    "changed_pdf_count": 8,
+    "flagship_pages": 53,
+    "release_info_unchanged": true,
+    "canonical_book": {
+      "bytes_unchanged": true,
+      "rebuilt_in_this_pass": false
+    },
+    "release_manifest": {
+      "path": "paper/paper_release_manifest.json",
+      "sha256": "b18047c341ac2a3792903956f18ad5c464ed366a844c46d5f5cc2a7b1bb4ce87"
+    },
+    "pdfs": {
+      "from_observer_consensus_to_standard_physics": {
+        "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+        "sha256": "635f656528e46ab89d19feedcc1b34db977e2e169cbd63196c32851efed6f549",
+        "pages": 53,
+        "changed": true
+      },
+      "deriving_the_particle_zoo_from_observer_consistency": {
+        "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+        "sha256": "4bb19c529717a706c2021516269d7594374e8a1a396f245e531dc63881a9a553",
+        "pages": 85,
+        "changed": true
+      },
+      "observers_are_all_you_need": {
+        "path": "paper/observers_are_all_you_need.pdf",
+        "sha256": "d230b0772e322ba966edf911bf77b699a4022cdb80bee96d10d3c0df789064e7",
+        "pages": 172,
+        "changed": true
+      },
+      "executable_observer_construction": {
+        "path": "paper/executable_observer_construction.pdf",
+        "sha256": "d4e484c39923638ab5c04cb8cf21e5c2e679d0c4ba3d59e4cf90631614433cbf",
+        "pages": 122,
+        "changed": true
+      },
+      "reality_as_consensus_protocol": {
+        "path": "paper/reality_as_consensus_protocol.pdf",
+        "sha256": "d8cfb1711e91ee5a6b2901288a22176673c28717f3c851d3c51f1bad9d29800f",
+        "pages": 126,
+        "changed": true
+      },
+      "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency": {
+        "path": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
+        "sha256": "a60b0d30c5559ce6fb1f56f5727450d66e0a049a3308b21edfa45aa854ff3af2",
+        "pages": 175,
+        "changed": true
+      },
+      "deriving_standard_model_gauge_structure_from_observer_overlap_consistency": {
+        "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+        "sha256": "fbe2c75b450dfeba05481088ccb2ed9fc525183b50326c3ca6730728bbdc71f7",
+        "pages": 105,
+        "changed": true
+      },
+      "screen_microphysics_and_observer_synchronization": {
+        "path": "paper/screen_microphysics_and_observer_synchronization.pdf",
+        "sha256": "c335a83ff2b3eb5d4945f1035de92051baca96a22f5328ad049326c4f21b5272",
+        "pages": 118,
+        "changed": true
+      },
+      "de_sitter_time_advance_sign_from_fixed_screen_capacity": {
+        "path": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf",
+        "sha256": "8a02211c1c0bf703c1f2fded54ee67892dce7efe7577d848fef8a39b28c50591",
+        "pages": 16,
+        "changed": false
+      },
+      "fine_structure_constant_derivation": {
+        "path": "extra/fine_structure_constant_derivation.pdf",
+        "sha256": "ea88246386e0eaf8bd7c6208724d22d30ad37b010cddbb549cae3d29a8677685",
+        "pages": 34,
+        "changed": false
+      },
+      "koide_identity_from_positive_c3_face_circulants": {
+        "path": "extra/koide_identity_from_positive_c3_face_circulants.pdf",
+        "sha256": "a769457d459c75f9e87f7e70a268349307ae25a7ceee109676547e781213c13c",
+        "pages": 10,
+        "changed": false
+      },
+      "machine_checked_finite_event_algebras": {
+        "path": "extra/machine_checked_finite_event_algebras.pdf",
+        "sha256": "90ac524f9c212fae80ea95ce3337d531b80466fdfe89cac8f38fb8abfd25a6c9",
+        "pages": 28,
+        "changed": false
+      },
+      "observable_normal_forms": {
+        "path": "extra/observable_normal_forms.pdf",
+        "sha256": "116d9d4a96b2c728e51031cbb4de70d28f1c72d756c866e8ac5bb5d8ff906d15",
+        "pages": 44,
+        "changed": false
+      },
+      "yang_mills_gap_clay_problem": {
+        "path": "extra/yang_mills_gap_clay_problem.pdf",
+        "sha256": "17a35e0661891116a7a33ec00aebf3e499adc4203277a6f53ca6efe4a59c92e6",
+        "pages": 26,
+        "changed": false
+      },
+      "oph_black_hole_information_ledger": {
+        "path": "cosmology/oph_black_hole_information_ledger.pdf",
+        "sha256": "6d7cfaedeecb939af4cbbc28859a3210c4087778e8efe1c0bb3927c9e1a45537",
+        "pages": 12,
+        "changed": false
+      },
+      "oph_boltzmann_transport_derivation": {
+        "path": "cosmology/oph_boltzmann_transport_derivation.pdf",
+        "sha256": "13445d9e68daa80dd84b7cb2622fd487034626ca5360148d186a9069d480fe85",
+        "pages": 12,
+        "changed": false
+      },
+      "oph_cosmological_vacuum_and_structure_formation": {
+        "path": "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf",
+        "sha256": "174e5aad02e265a33988fff425e88f5e37321d1e38ca7a0bd0e9e552bda22eb9",
+        "pages": 13,
+        "changed": false
+      },
+      "oph_cosmology_data_likelihood_contracts": {
+        "path": "cosmology/oph_cosmology_data_likelihood_contracts.pdf",
+        "sha256": "133270812cfbd0c1a41cdd62a815051b68a09b33751a2e54121f5a4e2ae5ec26",
+        "pages": 9,
+        "changed": false
+      },
+      "oph_cosmology_finite_source_cmb_program": {
+        "path": "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+        "sha256": "bd30f30580f5e5ff5926c0558e56263bad51a94e9f1cf8c4894be62102c6217a",
+        "pages": 18,
+        "changed": false
+      },
+      "oph_dark_matter_paper": {
+        "path": "cosmology/oph_dark_matter_paper.pdf",
+        "sha256": "5fd1414a2c037555bece87c8fef29e1be6a8808fce60cdfbf17285c46b002756",
+        "pages": 17,
+        "changed": false
+      },
+      "oph_inflation_without_inflaton_observer_screen_synchronization": {
+        "path": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
+        "sha256": "9897e7543e84f5e9ca6e9ddcf90ee0ace47f8a063d6c2a8355907572ef472e98",
+        "pages": 24,
+        "changed": false
+      }
+    },
+    "scope": "All21 paper builds and warning gates; visual inspection limited to the listed changed pages, not every page.",
+    "particle_visual_review": {
+      "status": "PASS",
+      "reviewer": "root",
+      "scope": "Independent visual inspection of changed particle abstract/shared-summary pages and adjacent transitions; not a full-paper review.",
+      "pages": {
+        "1": "aced20e55f87d966d77661f61ccee735403ae08461bc7b719e7e3fbc792ab6bc",
+        "2": "f371986e1204a711f8018b540aeba8b79a90c05fb19412cf0542e410e6f1d879",
+        "3": "9722ffa88363dc92b72e178eb8de7baa7685f79a5a788ce708596cca8e62a933",
+        "4": "7ff32c4af8a1b4d3a894798d22c0100dfe5cf6bab0b59eaf067d641ddef91781",
+        "49": "af437db2027ed2955576cbc20f1fd2e6c9c92e067bea04772dfa30bb73581970",
+        "50": "849a8892863780c61ffe507ca3d2ca8d768ab75492676d79811b82c9a44b88d9",
+        "51": "8000abd1adcb0d4ea7caa8ca811b63b7bd7adc809cf8fc56ab3fc54d1bd89094",
+        "52": "f9de430aed78f686759b6a7a295f090b327baaa0092a5d71ecda150961e3369d",
+        "81": "595081b1b8efcfe00d2a12d723682131c6303768a479d43d84b714f1ea026715",
+        "82": "e6c182f21140d97c4627d8ed0db7cf180eb926c52559b8b88d9a4bb78f10040a",
+        "83": "ab2c0070d025f2caa54cd499479a08911a861503d3631695ca9c343a0642a914"
+      },
+      "checks": [
+        "No clipped text, overlapping equations or missing glyphs",
+        "Source mass formulas, gapless-field boundary and entropy boundary readable",
+        "Mass-table hyperlink and page transitions legible",
+        "Hiai and both Koma references and adjacent bibliography pages readable, with legible links and no clipping"
+      ],
+      "defects": []
+    },
+    "flagship_visual_review": {
+      "status": "PASS",
+      "reviewer": "gravity_continuation",
+      "scope": "Visual inspection of six selected flagship pages containing changed synthesis and conclusion, including adjacent transitions; not a full-paper review.",
+      "pdf_sha256": "635f656528e46ab89d19feedcc1b34db977e2e169cbd63196c32851efed6f549",
+      "pages": {
+        "29": "4115842445d1271184f1b25c9ab6702718b3c58e638c7c223fc59c4457c8dfb2",
+        "30": "b5a149a4312f029ff74a270dfb7322adf5633e5ff25a6adaafe49878263f66d6",
+        "31": "8c55f81c7af93b4f0fa4aeca34c12ba16c80010dc7cd67e94b568cbcd8a4db62",
+        "44": "6be19f88ca81826d6de1217c6bc2ad9c2baa779f110b446531e450fae8a761bb",
+        "45": "13048853faca68c64ad40ea83bd86ddc33932390fa659413b7f528a9cb1e1c91",
+        "46": "25c8ae8a8d57ed8dfe088e8b49ee13f406e78066c10c9bc4027787e8a21a4669"
+      },
+      "checks": [
+        "No clipped text, overlap, missing glyphs, or broken transition found",
+        "Mass catalogue remains a supplied-coefficient construction without predicted measured masses",
+        "Actual spin field energy bands distinguished from sharp relativistic mass shells",
+        "Rest-ball entropy and modular results do not assert area, stationarity or Einstein completion"
+      ],
+      "defects": []
+    }
+  }
+}

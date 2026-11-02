@@ -1,0 +1,43 @@
+{
+  "schema": "oph.archived_host_capture_review.v1",
+  "original_HEAD": "fc2aab8c0e87279c26f45828ece2d6be79913f51",
+  "archive_date": "2026-11-02",
+  "backup_manifest_sha256": "50f020ed417f6bd1d8c6242f95264bca508d5649091aa083971590620bd36102",
+  "declared_source_files_verified_at_original_HEAD": 24,
+  "complete_raw_records_replayed": true,
+  "retained_analysis_reproduced_exactly": true,
+  "new_timestamps_measured_during_review": false,
+  "timestamp_authenticity_independently_attested": false,
+  "canonical_capture_replaced": false,
+  "new_physical_prediction": false,
+  "runs": [
+    {
+      "name": "baseline",
+      "attempts": 264532,
+      "movements": 40000,
+      "complete": true
+    },
+    {
+      "name": "host_work_control",
+      "attempts": 264532,
+      "movements": 40000,
+      "complete": true
+    }
+  ],
+  "baseline_first_block_ns": 31185042,
+  "clock_tick_ns": "547106/31",
+  "held_out_verdicts": [
+    "within_tolerance",
+    "within_tolerance",
+    "within_tolerance",
+    "reject",
+    "reject",
+    "reject",
+    "reject"
+  ],
+  "preserved_files": {
+    "HOST_CLOCK.md": "ac7d149a73e146d993afedc0ec72dc3f0f2a856ad8a7fb9d94214c8961c89d91",
+    "host_clock_records.json": "95b4c57c0c3d9a9db89419d395ec8e568dc9003428043bbd3be91e86539f3b54",
+    "host_clock_results.json": "84092e758c49fbd04ac5c90d537749245d23af9d2058125f8a17ee58e0e2c8fe"
+  }
+}

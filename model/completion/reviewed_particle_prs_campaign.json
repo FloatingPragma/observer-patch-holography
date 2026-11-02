@@ -1,0 +1,88 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-REVIEWED-PARTICLE-PRS-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Integrate independently reviewed direct finite-ground, onsite-mass and local exchange-charge constructions without overwriting newer source results.",
+  "component_results": [
+    {
+      "id": "native_mass_channels",
+      "attachment": "FA-103",
+      "pr": 1170,
+      "owners": [
+        "CP-03",
+        "CP-05",
+        "CP-06",
+        "CP-07"
+      ],
+      "result": "An exact integer Gram, variance and spin certificate independently proves the unique centered full-cube singlet and a gap greater than1/128, without using Lieb uniqueness as a premise. The existing sharper spectral certificate remains valid. Every Hermitian onsite one-body field anticommuting with the native nonzero Weyl hopping is B_x=m0*(-1)^(x1+x2+x3)*I+sum_j mj*(-1)^xj*sigma_j. Exact source reconstruction gives four free parameters and rank 28 of the 32-coordinate cube constraint. All eight valleys remain in a 16-dimensional folded symbol with energies +/-sqrt(c^2*sum_j sin(p_j)^2+(m0+/-|m|)^2). The exact uniform gap is ||m0|-|m||; a nonzero pure spin mass has four irreducible Dirac blocks. The restricted gapped coefficient space has three components: two contractible scalar regions and a spin region retracting to S2. Spin-mass signs can unwind at constant uniform gap; exact finite hedgehog/antihedgehog degree witnesses are +/-1. These supplied mass textures do not establish spontaneous order, a trapped fermion, repair protection or a physical species.",
+      "evidence": [
+        "model/native_mass_channels/README.md",
+        "model/native_mass_channels/__init__.py",
+        "model/native_mass_channels/__main__.py",
+        "model/native_mass_channels/algebra.py",
+        "model/native_mass_channels/packet.py",
+        "model/native_mass_channels/results.json",
+        "model/native_mass_channels/test_algebra.py",
+        "model/native_mass_channels/test_packet.py",
+        "model/centered_source_ground/README.md",
+        "model/centered_source_ground/cube.py",
+        "model/centered_source_ground/gap.py",
+        "model/centered_source_ground/particles.py",
+        "model/centered_source_ground/packet.py",
+        "model/centered_source_ground/test_gap.py",
+        "model/centered_source_ground/test_ground.py",
+        "model/centered_source_ground/test_particles.py",
+        "model/centered_source_ground/test_packet.py",
+        "model/centered_source_ground/results.json"
+      ],
+      "remaining": [
+        "Derive and stabilize any proposed ordered field from the admitted interaction, reference and complete repair rather than supply its coefficients.",
+        "Prove a spatial defect Hamiltonian and its localized spectrum or index; a winding of onsite coefficients alone does not supply a fermion zero mode.",
+        "Join the resulting excitations to the common physical spin, charge, current, clock and unit dictionary, retaining all valleys unless a removal mechanism is proved."
+      ]
+    },
+    {
+      "id": "local_exchange_charge",
+      "attachment": "FA-104",
+      "pr": 1171,
+      "owners": [
+        "CP-03",
+        "CP-05"
+      ],
+      "result": "The existing protected ordered-cover charge has a local qutrit realization with exactly reference-matched initial exterior and a nonzero exchange-charge expectation conserved by the complete native instrument with all histories retained. Each individual branch preserves the sharp exchange-charge sectors; its spatial contrast follows the actual pair transport kernel and has exact regional/exterior trace distances, including the separately retained split-pair correlations. For a k-port core, deterministic core-local preparation from the tracial reference with an independent blank and sector-preserving endpoint can create at most binomial(k,2)/66 absolute charge, attained by the compact extremal perturbation. Every globally sharp Q state has exterior distance at least binomial(12-k,2)/132, without fixing its occupation marginal; the uniform sharp state attains the bound. Global conservation therefore does not imply a sharply localized or permanently bound particle.",
+      "evidence": [
+        "model/local_exchange_charge/README.md",
+        "model/local_exchange_charge/__init__.py",
+        "model/local_exchange_charge/__main__.py",
+        "model/local_exchange_charge/core.py",
+        "model/local_exchange_charge/test_core.py",
+        "model/local_exchange_charge/service.py",
+        "model/local_exchange_charge/test_service.py",
+        "model/local_exchange_charge/optimality.py",
+        "model/local_exchange_charge/test_optimality.py",
+        "model/local_exchange_charge/packet.py",
+        "model/local_exchange_charge/test_packet.py",
+        "model/local_exchange_charge/results.json"
+      ],
+      "remaining": [
+        "Construct a localized protected sector or controlled bound lifetime under a declared continuing process; the conserved compact charge excess spreads and a sharp global charge has the proved exterior deficit.",
+        "Supply the same excitation's nontrivial action, maintenance/rest energy, propagation clock, stress and physical detector dictionary. The present tracial modular-energy excess is zero.",
+        "Justify the coherent label preparation, storage and readout services in the admitted physical observer/refinement family, and derive physical spin, gauge charge and particle identity without equating tensor-label exchange to CAR or Lorentz statistics."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Supplied quadratic mass coefficients are not dynamically selected or measured particle masses. A locally prepared exchange-charge excess spreads; the sharp-sector exterior bound excludes identifying it with a sharply localized particle on that carrier.",
+  "maintenance_policy": "Current source replays and signed contract reviews follow the combined merge; historical PR CI is not treated as final-tree validation.",
+  "review": "model/completion/field_energy_entropy_review.json"
+}

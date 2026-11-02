@@ -1,0 +1,76 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Identify nonzero positive spectral weight of the actual continuum spin fields and the finite-amplitude regional entropy Hessian on the established free source.",
+  "specification_policy": "Simulator, observer, scheduler, repair and memory laws are admitted explicit specifications. Neither coefficients nor physical identifications are inferred without a derivation.",
+  "component_results": [
+    {
+      "id": "spin_canonical_energy",
+      "attachment": "FA-105",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "For the unchanged ordered cubic spin ground, the actual Stone vectors of both FA100 canonical fields have finite positive and inverse energy moments and no zero-energy component. Their positive joint energy-momentum measures retain explicit nonzero weight in energy windows proportional to every arbitrarily small momentum radius. The continuum dynamics is therefore nonstatic and gapless. The exact microscopic twist coefficient satisfies m^2/2<=kappa<=1/2, and its quadratic energy limit only bounds continuum energy from above; neither a sharp shell nor a surviving connected interaction is inferred.",
+      "evidence": [
+        "model/spin_canonical_energy/README.md",
+        "model/spin_canonical_energy/__init__.py",
+        "model/spin_canonical_energy/__main__.py",
+        "model/spin_canonical_energy/algebra.py",
+        "model/spin_canonical_energy/bounds.py",
+        "model/spin_canonical_energy/packet.py",
+        "model/spin_canonical_energy/results.json",
+        "model/spin_canonical_energy/test_energy.py",
+        "paper/tex_fragments/SPIN_CANONICAL_ENERGY.tex"
+      ],
+      "remaining": [
+        "A sharp mass shell or isolated particle branch and a dynamical equation.",
+        "Energy uniform integrability sufficient to identify the exact continuum energy form rather than its upper bound.",
+        "Surviving connected interactions or scattering, Lorentz covariance and physical particle identification.",
+        "An effective finite-size and field-selection modulus for preparing the actual ordered reference."
+      ]
+    },
+    {
+      "id": "shell_entropy_response",
+      "attachment": "FA-106",
+      "issues": [
+        1145
+      ],
+      "result": "On the exact U=0 source and the same actual normalized exterior-shell preparations as FA101, the regional relative entropy has an explicit positive resolvent Hessian. Natural projection-block factorization gives 4||f||^4 <= D''(0) <= ||f||^2 <= 1/4, a cubic finite-amplitude remainder, strict lower bounds for all nine original directional shells, and uniform convergence of the lattice Hessians and relative entropies on compact amplitude intervals. Increasing finite CAR exhaustion identifies the limit with the actual regional Araki relative entropy. This is a sector-relative matter input, not an area or stationarity theorem.",
+      "evidence": [
+        "model/shell_entropy_response/README.md",
+        "model/shell_entropy_response/__init__.py",
+        "model/shell_entropy_response/__main__.py",
+        "model/shell_entropy_response/algebra.py",
+        "model/shell_entropy_response/bounds.py",
+        "model/shell_entropy_response/controls.py",
+        "model/shell_entropy_response/packet.py",
+        "model/shell_entropy_response/results.json",
+        "model/shell_entropy_response/test_response.py",
+        "paper/tex_fragments/SHELL_ENTROPY_RESPONSE.tex"
+      ],
+      "remaining": [
+        "A source-derived responsive area/edge relation, Newton normalization, and generalized-entropy stationarity for the same geometry and matter states.",
+        "A common sharply boosted finite lattice algebra and geometry construction; the present estimates concern the established rest-ball family.",
+        "A corresponding nonzero-U finite-amplitude regional entropy theorem and a surviving interacting massive relativistic sector.",
+        "A sharp shrinking-ball nonlinear entropy asymptotic at fixed amplitude; the present rho^6 statement is a strict lower bound.",
+        "Native preparation and entropy-readout implementations with practical error and resource bounds."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Actual spin fields are nonstatic and gapless but a sharp mass shell and surviving continuum interaction remain open. Finite-amplitude free-sector entropy convergence does not derive area response, Einstein stationarity or an o(R^4) nonlinear remainder at fixed amplitude.",
+  "maintenance_policy": "Independent mathematical review and narrow finite controls accompany each analytic theorem. Broad CI is tracked separately and is required on the final published commit.",
+  "review": "model/completion/field_energy_entropy_review.json"
+}

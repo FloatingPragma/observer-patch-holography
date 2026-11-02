@@ -1,6 +1,6 @@
 # Continuum spin fields, finite entropy limits and joint spectroscopy
 
-2 November 2026. This continues the [particle/modular construction](PARTICLE_SCALING_MODULAR_CONSTRUCTION.md) under the same five issue owners: [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033), [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138), [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142), [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) and [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145). New derivations take priority; repository-wide CI is deferred at the user's request.
+2 November 2026. This continues the [particle/modular construction](PARTICLE_SCALING_MODULAR_CONSTRUCTION.md) under the same five issue owners: [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033), [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138), [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142), [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) and [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145). The reviewed PR constructions and field-energy/entropy results extend the original four components below. CI results are tracked separately for the published commit.
 
 | Attachment | Established result | Scope |
 | --- | --- | --- |
@@ -8,8 +8,12 @@
 | [FA100](../spin_canonical_field/README.md) | A nontrivial regular continuum net of Weyl (CCR) operators, continuous time and space translations, positive energy and a finite propagation cone | One canonical pair in the actual selected ordered spin ground; no assumed Gaussian state or ergodicity |
 | [FA101](../shrinking_modular_entropy/README.md) | Actual finite-density entropy differences converge to the existing Weyl stress response with an explicit common shrinking schedule and invertible nine-frame response | `U=0`, full regional CAR algebras and observer-frame shell preparations on ordinary rest balls |
 | [FA102](../native_joint_spin_spectroscopy/README.md) | Complete joint energy/symmetry instruments, all 32 ideal cube-bin enclosures, and an executed native two-site detector | 19,228 pulses with all 128 work rows and every failure retained; the cube native program is not executed |
+| [FA103](../native_mass_channels/README.md) | Complete onsite mass catalogue and an independent direct centered-ground singlet/gap certificate | Supplied quadratic coefficients; all eight valleys remain |
+| [FA104](../local_exchange_charge/README.md) | Local exchange-charge preparation, conservation and transport, with a sharp-sector exterior bound | The charge spreads; compact particle identity is not established |
+| [FA105](../spin_canonical_energy/README.md) | Actual continuum Stone fields retain positive excitation weight at every small momentum scale | Nonstatic, gapless fields; no sharp mass shell |
+| [FA106](../shell_entropy_response/README.md) | Positive regional entropy Hessian and uniform finite-amplitude lattice limit | Same free-source shell preparations; no area or stationarity premise added |
 
-The ledger contains **102 reviewed domains and 97 realized component attachments**. The 84 canonical premise rows, their discharge statuses, and integrated physical acceptance are unchanged. The proofs close the stated component domains; they do not close their stronger owning issues.
+The ledger contains **106 reviewed domains and 101 realized component attachments**. The 84 canonical premise rows, their discharge statuses, and integrated physical acceptance are unchanged. The proofs close the stated component domains; they do not close their stronger owning issues.
 
 ## What the field construction establishes
 
@@ -22,13 +26,15 @@ P_p(G) = -p sum_x G(px) S_x^2.
 
 Maximality of the selected order among ground states makes the macroscopic staggered observable a scalar, without an extra purity or ergodicity premise. Exact spin algebra and a uniform energy-form estimate then control every bounded multitime field history. A common subsequence gives the Weyl relation with symplectic coefficient `m_s`, strong regularity on the full history representation, continuous translations and nonnegative energy. The microscopic locality estimate yields a conservative continuum propagation cone.
 
-This constructs a field algebra and its dynamics from the actual ordered ground. It does not yet determine the limiting dynamical equation, uniqueness, a sharp relativistic shell or surviving connected interaction. One canonical pair is proved; a second pair cannot simply be added because its cross-commutator requires another estimate. The order parameter has not been numerically calculated.
+This constructs a field algebra and its dynamics from the actual ordered ground. The subsequent energy theorem identifies its Stone vectors and transfers positive and inverse energy moments into the same representation. For normalized momentum-annulus probes at radius `r`, the `P` spectral measure has weight at least `m_s^2 r/48` in `[m_s^2 r/8, 24r/m_s^2]`; the `Q` measure has weight at least `m_s^2/(2r)` in `[m_s^2 r/16, 12r/m_s^2]`. Thus these actual fields are nonstatic and gapless. These broad bands do not determine a limiting dynamical equation, a sharp relativistic shell or surviving connected interaction. One canonical pair is proved; a second pair cannot simply be added because its cross-commutator requires another estimate. The order parameter has not been numerically calculated.
 
 The charged-field calculation complements this construction: polynomial free propagation and a direct mixed-time CAR comparison prove that the canonical fields on the centered clock become free even for the power-growing class `U=o(c^(2/7))`, `c=v/a`. For example, `U=c^(1/4)` lies inside it. A stronger microscopic coupling outside that class is not itself a proof of continuum interaction. The protected spin limit is a different construction.
 
 ## Energies and particle identification
 
 The charged continuum in the proved free class has energies `E=v|p|` and zero relativistic rest masses in all eight valleys. These are model predictions for that class, without a measured species assignment. For the protected spin field, no proved sharp shell yet exists from which to calculate a relativistic mass.
+
+The [current mass and energy table](PARTICLE_MASS_TABLE.md) adds the exact supplied quadratic spectrum, `E=±sqrt(c^2 sum_j sin^2(p_j)+(m0±|m|)^2)`, and all 228 certified charged lines. A single uniform coefficient family has at most two distinct positive rest energies. Conversely, choosing `m0=(A+B)/2` and `|m|=(A−B)/2` produces any chosen pair `A≥B≥0`. Numerical masses therefore require a derivation that selects the coefficients; the formula alone predicts no mass ratio. No identification of the ordered spin expectation with these coefficients has been proved.
 
 The [complete finite energy readout](ORDERED_SPIN_ENERGY_READOUT.md) retains all 256 certified levels of the selected eight-site Hamiltonian. The first six positive gaps, in source units with `J=1` and `B=1/4`, have enclosure midpoints
 
@@ -45,7 +51,7 @@ They are finite selection-Hamiltonian energies, not relativistic rest masses. Th
 
 The new entropy proof uses natural exterior-shell vectors and ordinary finite regional density matrices. Projection-block factorization controls the endpoint singularity of the modular logarithm. A fractional Sobolev boundary estimate gives an explicit positive mesh schedule for a joint shrinking-ball limit; its extremely small scales are represented symbolically rather than rounded to zero.
 
-The resulting finite entropy derivatives and finite differences converge to the previously derived local Weyl stress response with error `o(R^4)` at fixed shell scale. Nine observer-frame preparations have a uniformly invertible response matrix. This supplies a quantitative matter/modular input to the existing geometry theorem stack. The frames are changes of preparation in the free continuum vacuum; a finite lattice boost symmetry is not asserted.
+The resulting linear entropy responses converge to the previously derived local Weyl stress response with error `o(R^4)` at fixed shell scale. Nine observer-frame preparations have a uniformly invertible response matrix. The same shell states now also have a positive nonlinear entropy Hessian: writing `s=||f||^2`, `4s^2≤D''(0)≤s≤1/4`, with an explicit cubic remainder and uniform finite-amplitude convergence from the lattice. This supplies a quantitative matter/modular input to the existing geometry theorem stack. Fixed-amplitude absolute convergence does not imply an `o(R^4)` nonlinear remainder. The frames are changes of preparation in the free continuum vacuum; a finite lattice boost symmetry is not asserted.
 
 Area and edge identification, Newton normalization, generalized-entropy stationarity and responsive geometry remain separate premises. The entropy result is for `U=0`; applying it to the ordered-spin continuum field would require another derivation. No combination of these separate sectors is silently treated as one completed physical universe.
 
