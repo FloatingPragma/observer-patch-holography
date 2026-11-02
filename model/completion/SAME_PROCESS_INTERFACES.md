@@ -174,6 +174,36 @@ analytic error bound. Neither calculation transfers its reference or detector
 interpretation to the half-filled particle candidates, or supplies an
 asymptotic physical cross section.
 
+## Ordered spin observations and spatial labels
+
+The [ordered spin sector](../spin_goldstone_sector/README.md) uses the exact
+fixed-spacing Heisenberg interaction of the protected source limit. Infinitesimal
+staggered fields select states; they are not added to the limiting source
+Hamiltonian. Nonzero positive-energy packet weight approaching zero is proved
+in the selected ground. This does not identify every original finite-source
+ground subsequence with that ordered state.
+
+The [native local-observer construction](../native_spin_observer/README.md)
+executes complete finite words and controls finite local histories uniformly in
+an entangled reference. It takes supplied local marginals or prepares a stated
+Neel product. Its arbitrary-accuracy family requires the explicit dyadic port
+controller; the retained binary64 examples do not supply unbounded precision.
+Repairs occur between complete encoded gate words. This schedule and apparatus
+must accompany the observation claim.
+
+[Actual cubic rotation labels](../cubic_particle_channels/README.md) use the
+original Weyl-spinor spatial action about the center of the same finite cube.
+Hidden internal spin is not substituted for it. The lowest neutral triplet is
+A1+E, and every local charged line has G1+G2+H visible channels. These labels
+constrain a particle dictionary but do not determine continuum spin or units.
+
+The [lattice stress refinement](../lattice_weyl_response/README.md) is a separate
+U=0 specialization on the free filled-band ground. It realizes the specified
+shell response family with finite-site symmetric stress detectors. These
+lab-slice probes are not the logarithms of boosted lattice regional states.
+The bounds must be extended before composing with nonzero-U composite stress,
+area/edge entropy and the Einstein stack's common geometric response premises.
+
 ## Support refinement
 
 The [rational chain retract](../support_refinement/README.md) supplies explicit

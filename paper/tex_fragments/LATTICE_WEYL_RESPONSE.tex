@@ -1,0 +1,105 @@
+\paragraph{A source lattice realization of the Weyl stress directions.}
+The new attachment in \path{model/lattice_weyl_response/README.md}
+specializes to the exact free source, $U=0$ and $c=v/a$, in its filled-band
+ground state. It realizes the preceding nine Weyl shell perturbations by
+compact lattice CAR operators and supplies a controlled joint lattice and
+detector-radius limit. All eight valleys are retained; the selected shell
+excites the $(1,1,1)$ source valley, while the seven other limiting sectors
+remain in their vacuum. This is a matter-response input to the existing
+G5 interface, not the complete geometric hypothesis.
+
+In the selected source frame, use the coordinate $x^0=vt$ and set
+\[
+ h=\boldsymbol\sigma\cdot\boldsymbol p,\qquad
+ h_a=\sum_j\sigma_j\sin(ap_j)/a.
+\]
+Write $\Pi,\Pi_a$ for their negative-band projectors and $J_a$ for
+normalized averages on centered cubes of side $a$.
+The exact translation intertwiner gives
+\[
+ \|(h_aJ_a-J_ah)f\|
+ \leq \frac{a^2}{6}\sum_j\|\partial_j^3f\|.
+\]
+For every $f\in H^3\cap L^1$ and $\varepsilon>0$, a spectral split at
+$|p|=\varepsilon$ gives the gapless estimate
+\[
+ \|(\Pi_aJ_a-J_a\Pi)f\|
+ \leq \frac{a^2}{\varepsilon}\||p|^3f\|
+       +\varepsilon^{3/2}\|f\|_1 .
+\]
+On each high-energy off-diagonal band the Sylvester equation has
+generators $A\geq0$, $B\geq\varepsilon$ and solution
+$X=-\int_0^\infty e^{-tA}\Pi_a(h_aJ_a-J_ah)e^{-tB}\,dt$.
+The low band is controlled by its Fourier volume. Thus no lattice gap or
+band-limited sampling assumption is inserted.
+
+The normalized shell of radius $L$ is weakly $H^4$: its first three
+boundary derivatives vanish. Exact radial integration of its harmonic
+degrees $0,1,2$ gives Sobolev majorants
+$(K_1,K_2,K_3,K_4)=(5,36,352,5036)$. With $q=a/L$, $F=\Pi f$ and
+$F_a=\Pi_aJ_af$, the choice $\varepsilon=a/L^2$ yields
+\[
+ \|F_a-J_aF\|\leq359q,\qquad
+ \|p_{a,j}F_a-J_ap_jF\|\leq\frac{15389q}{3L},\qquad
+ 1-\|J_af\|^2\leq225q^2.
+\]
+These estimates also hold in every source spin frame. They control
+derivative observables directly, rather than deducing them from
+distributional convergence of field correlations.
+
+Let $f_a=J_af/\|J_af\|$, with its source modulation restored, and put
+\[
+ B_{a,n}=c^*(f_{a,n})c(f_{a,n})
+       -\omega_a(c^*(f_{a,n})c(f_{a,n}))I.
+\]
+On the common interior algebra the functionals
+\[
+ \rho_{a,\theta}(X)=\omega_a\bigl((I+\sum_n\theta_nB_{a,n})X\bigr)
+\]
+form a positive normal affine state family for $\|\theta\|_1<1$.
+For $u=(5/4,3n/4)$ set
+\[
+ A_u=u^0I-\boldsymbol u\cdot\boldsymbol\sigma,\qquad
+ D_{a,u}=u^0h_a-\boldsymbol u\cdot\boldsymbol p_a,\qquad
+ Q_{a,u}(w)=\tfrac12\{w_aA_u,D_{a,u}\}.
+\]
+Compact $w$ makes this a finite-rank selfadjoint matrix and its
+second quantization a bounded finite-support CAR detector. If its support
+and nearest neighbours miss the shell, exact Wick contraction gives
+\[
+ S_{a,u,n}(w)
+ =\left.\partial_{\theta_n}\rho_{a,\theta}
+       (:d\Gamma(Q_{a,u}(w)):)\right|_0
+ =-\frac{\langle F_a,Q_{a,u}(w)F_a\rangle}{\|J_af\|^2}.
+\]
+For $q\leq1/30$, $q\leq1/16$, the corresponding continuum response obeys
+\[
+ |S_{a,u,n}(w)-S_{u,n}(w)|
+ \leq171560q\,\frac{\|w\|_\infty}{L}
+       +80q\,\operatorname{Lip}(w).
+\]
+
+Take $w_R=(R^2-|x|^2)_+/(2R)$, $\rho=R/L$, and normalize $2\pi S_a$
+by $(8\pi^2R^4/15)\gamma_L$, where
+$\gamma_L=c_\gamma/(\pi^3L^4)$ and
+$c_\gamma=4249388/150088295$. Entrywise, the resulting response matrix
+satisfies
+\[
+ |M_{a,ij}-D_{ij}|\leq C_{\rm lat}\frac q{\rho^4}
+                           +C_{\rm ball}\rho^2,\qquad
+ D_{ij}=\bigl(5/4+(3/4)n_i\cdot n_j\bigr)^2,
+\]
+where $C_{\rm lat}=193298715130500/1062347$ and $C_{\rm ball}$ is the
+previous exact small-ball bound. For
+$0<\rho\leq2^{-28}$ and
+$0<q\leq\min\{1/16,1/30,\rho^7/(1+C_{\rm lat})\}$,
+the Neumann budget is strictly less than $1/4$ and
+$\|M_a^{-1}\|_\infty\leq272/15$. This supplies one explicit common
+refinement of all nine compact source perturbations and detectors.
+
+These are lab-slice stress probes. Only the rest-vector continuum form
+is identified here with the unboosted ball modular kernel; lattice
+modular logarithms and boosted modular caps are not asserted. Neither
+nonzero-$U$ stress convergence, a native gate implementation of the shell
+coefficients, nor area, Newton normalization, geometric null balance or
+entropy stationarity follows from this attachment.

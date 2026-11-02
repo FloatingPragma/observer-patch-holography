@@ -1,5 +1,11 @@
 # Native energy readout, neutral spectrum and repaired spin dynamics
 
+This records the preceding construction stage. The [next integrated results](GAPLESS_NATIVE_SPATIAL_RESPONSE.md)
+add an ordered gapless spin sector, native local observers, lattice stress
+refinement and actual spatial particle labels. Earlier scope statements below
+refer to this stage's proofs.
+
+
 This campaign certifies the centered cube's **full finite spectral gap**, executes preparation and a four-bin charged-energy measurement of its actual ground, constructs an interacting spin limit with complete field-repair records, and supplies nine independent matter responses for the existing Einstein theorem stack. The measured-particle dictionary, an interacting relativistic continuum with massive and massless sectors, and the complete gravity requirements are not established.
 
 The source records are the [campaign](native_neutral_spin_response_campaign.json) and [independent review](native_neutral_spin_response_review.json). The four attachments are FA88–FA91. Their finite and continuum statements use the reference states, clocks and apparatus specified below; they cannot be combined by silently changing those inputs.

@@ -1,7 +1,7 @@
 # First bounded completion campaign
 
-For the current spectral, native-detector, repaired-spin and gravity-input
-results, see [the integrated construction summary](NATIVE_NEUTRAL_SPIN_RESPONSE.md).
+For the current ordered-spin, native-observer, spatial-particle and lattice-stress
+results, see [the integrated construction summary](GAPLESS_NATIVE_SPATIAL_RESPONSE.md).
 The contract below retains the scope of the original bounded campaign.
 
 28 October 2026. This directory advances CP-00, CP-01, CP-13, CP-02 and

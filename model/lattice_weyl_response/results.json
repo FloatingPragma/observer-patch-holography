@@ -1,0 +1,283 @@
+{
+  "algebra": {
+    "A_u": "u0 I - sum u_j sigma_j",
+    "D_u": "u0 h - sum u_j p_j",
+    "all_eight_valleys_retained": true,
+    "detector": "Q_u(w)=1/2 {w A_u,D_u}",
+    "frames": {
+      "Clifford_identities": 16,
+      "Dirac_pairs": 4,
+      "Weyl_fields": 8,
+      "each_chirality": 4,
+      "gamma_signature": "(+,-,-,-)",
+      "geometry_signature": "(-,+,+,+)",
+      "rows": [
+        {
+          "chirality": -1,
+          "lift": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "valley": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "chirality": 1,
+          "lift": [
+            [
+              "I",
+              "0"
+            ],
+            [
+              "0",
+              "-I"
+            ]
+          ],
+          "valley": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "chirality": 1,
+          "lift": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0"
+            ]
+          ],
+          "valley": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "chirality": -1,
+          "lift": [
+            [
+              "0",
+              "I"
+            ],
+            [
+              "I",
+              "0"
+            ]
+          ],
+          "valley": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "chirality": 1,
+          "lift": [
+            [
+              "0",
+              "I"
+            ],
+            [
+              "I",
+              "0"
+            ]
+          ],
+          "valley": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "chirality": -1,
+          "lift": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0"
+            ]
+          ],
+          "valley": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "chirality": -1,
+          "lift": [
+            [
+              "I",
+              "0"
+            ],
+            [
+              "0",
+              "-I"
+            ]
+          ],
+          "valley": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "chirality": 1,
+          "lift": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "valley": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "signature_conversion": "g=-eta; two-lowered stress and null cone unchanged",
+      "time_coordinate": "x0=v*t",
+      "unitary_source_frames": 8
+    },
+    "off_diagonal_momentum_symmetric_stress_contraction_verified": true,
+    "response_determinant": "24407490807/2000000000",
+    "response_inverse_norm": "68/5",
+    "rest_detector": "Q_(1,0)(w)=1/2 {w,h}",
+    "selected_valley": [
+      1,
+      1,
+      1
+    ],
+    "sobolev": {
+      "H1_H2_H3_H4_integer_majorants": [
+        5,
+        36,
+        352,
+        5036
+      ],
+      "H5_membership_claimed": false,
+      "angular_weights_without_pi_cubed": {
+        "0": "396900",
+        "1": "176400",
+        "2": "99225/2"
+      },
+      "exact_normalized_momentum_moments": [
+        "90678696/4288237",
+        "5320580800/4288237",
+        "529844446656/4288237",
+        "108752906109312/4288237"
+      ],
+      "weak_H4_boundary_test": true
+    }
+  },
+  "all_pass": false,
+  "bounds": {
+    "constants": {
+      "K0": "359",
+      "K1": "5",
+      "K2": "36",
+      "K3": "352",
+      "K4": "5036",
+      "KD": "15389/3",
+      "lattice_entry": "193298715130500/1062347",
+      "stress_A": "171560"
+    },
+    "example_error_bounds": {
+      "L_times_derivative_norm_upper": "16348457983/58241073929382594888742682669561424119339322112156709756209819451733835776",
+      "Neumann_budget": "2351304064954921682776576568896596126235239/14603134902213186950512719564771398990692352",
+      "normalization_defect_upper": "253930758392025/376891410271978774604598511253368887334671413469945762414746151581242979796628895545704213987116999542750702018773500932125327639203052544237502464",
+      "normalized_lattice_entry_upper": "48324678782625/934735235615572607288263562098311692288",
+      "normalized_total_entry_upper": "1306280036086067601542542538275886736797355/993013173350496712634864930404455131367079936",
+      "projection_norm_upper": "381382573/19413691309794198296247560889853808039779774037385569918736606483911278592"
+    },
+    "example_spacing_ratio": "1062347/19413691309794198296247560889853808039779774037385569918736606483911278592",
+    "inverse_infinity_norm_upper": "272/15",
+    "joint_family": "rho_m=2^-28/(m+1); q_m=min(1/16,1/(6K1),rho_m^7/(1+C_lattice))",
+    "maximum_radius_ratio": "1/268435456",
+    "numerical_lattice_extrapolation_used_for_proof": false,
+    "spacing_constraint_is_sufficient_not_necessary": true
+  },
+  "controls": {
+    "exact_nonzero_Wick_response": "-3/8",
+    "finite_control_is_continuum_proof": false,
+    "full_Fock_dimension": 16,
+    "full_Fock_modes": 4,
+    "support_intrusion_rejected": true,
+    "symmetric_detector_verified": true,
+    "unsymmetrized_detector_rejected": true
+  },
+  "dependency_custody_pass": false,
+  "finite_attachment": "FA94",
+  "new_checks_pass": true,
+  "prior_custody": {
+    "dependency_custody_pass": false,
+    "direct_prior_source_mismatches": [],
+    "inherited_dependency_custody_pass": false,
+    "prior": "model/weyl_gravity_response/results.json",
+    "prior_full_source_replay": false,
+    "prior_new_checks_pass": true
+  },
+  "schema": "oph.lattice_weyl_response.v1",
+  "source_bindings": {
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "a724da9e9a5a9e90aa80adb2833353370d5991180b89f7a634cf27e43e10f631",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean": "4cf17368329e6237e5b3f71b444d9b95dc6607a05b24ce24ae655b7da2478971",
+    "model/continuum_field_net/README.md": "08b3ed967e9a09b0de7aca558062cdb1ae355634a18b2de922d2366f6a715a44",
+    "model/continuum_field_net/cells.py": "a6da38a2db3f48613cbb53e1b79a959327d705dfc4c8b1b64dfcfeb88e65ed1d",
+    "model/continuum_field_net/valleys.py": "46c27641f6386974ec825e2ae2ce95954077f72191adc3beb1ce21d93644b802",
+    "model/continuum_free_limit/README.md": "a1b4114481aebd900d0e58e27e1494e1e3df937712aed68520ba3d7e44fc4472",
+    "model/lattice_weyl_response/README.md": "cdd77f09bbe4045cc8b4ce0b1000bb987b9aecd489d336d1b4ba40b085b6932a",
+    "model/lattice_weyl_response/__init__.py": "f2d654fe0f70b52fd5210b96f005d035a0408edd2cdc673652dd35634f6d9f9a",
+    "model/lattice_weyl_response/__main__.py": "dd1140ca6b5f917559b56fe6fed727abdd483f9e1dcf82a0a45af9f59c40b4e8",
+    "model/lattice_weyl_response/algebra.py": "030f3798aab3c433f532bfd1dbf69cd6572b4e234a25a071a569c88b0debbedc",
+    "model/lattice_weyl_response/bounds.py": "25ee6fe91afb25a5b3122527504992f5a08ba35af74134ed6a252d1667a24cee",
+    "model/lattice_weyl_response/controls.py": "fbce69fb44eff47147741681ae1b1c494fa0909ee0eb180764ba17c40817a729",
+    "model/lattice_weyl_response/packet.py": "3ce46fdf34e1caa52d0c0440d64f9f07d146632120a8fbe550faf25b6686e935",
+    "model/lattice_weyl_response/test_response.py": "4f844df30fa8cb92c6d78f17976c113a90254adb2f86406ad635b62ec4c5b51e",
+    "model/weyl_geometric_modular/README.md": "9719715b8256462c07a504d8cc2c326f3dd75d1ea787c77ab39ab59bd4ec073b",
+    "model/weyl_geometric_modular/algebra.py": "06cddd3d8b46e6cbc4ca2ae12d0c99bd26e248f7f494f02c7892c9341b7e015d",
+    "model/weyl_gravity_response/README.md": "74de2795c327e01dd28b1ebf9bef0920ba240804f22c187f1325dc80598002d8",
+    "model/weyl_gravity_response/algebra.py": "8e6ee9970fedc0afd7c042227e1fd6a67ea138e8c2193a055b338839e3d18f6e",
+    "model/weyl_gravity_response/bounds.py": "f3f17dc37027244f2423ca099fc888a0499e23a3909502d1196ffa7b99349ae8",
+    "model/weyl_gravity_response/results.json": "dad0ecf857b79b2670e1ba73af962af5ef642cb85e400eff5e40e6697064c840",
+    "paper/tex_fragments/LATTICE_WEYL_RESPONSE.tex": "963c630b029512dcb09e10a8f7b876606a1b87deebb708c45135779d2f2f3c32",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem": {
+    "actual_compact_lattice_states_and_quadratic_detectors": true,
+    "arbitrary_all_valley_state_total_stress_claimed": false,
+    "area_Newton_or_stationarity_supplied": false,
+    "boosted_modular_caps_realized": false,
+    "complete_Einstein_register_inhabited": false,
+    "explicit_joint_lattice_radius_limit": true,
+    "finite_spacing_response_invertibility_proved": true,
+    "gapless_projection_and_first_derivative_bounds": true,
+    "lattice_regional_modular_log_convergence_claimed": false,
+    "native_gate_program_for_shell_detector_supplied": false,
+    "nonzero_U_stress_convergence_claimed": false,
+    "response_dimension": 9,
+    "source_interaction_U": 0,
+    "valleys_retained": 8
+  }
+}

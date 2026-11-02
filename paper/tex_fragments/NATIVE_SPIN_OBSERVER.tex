@@ -1,0 +1,78 @@
+\paragraph{Native local observers for the protected spin limit.}
+On the single-occupancy space encode $0=\lvert\downarrow\rangle$ and
+$1=\lvert\uparrow\rangle$. The full onsite Pauli representatives
+\[
+ \bar X=X_\uparrow X_\downarrow,\qquad
+ \bar Y=Y_\uparrow X_\downarrow,\qquad \bar Z=Z_\uparrow
+\]
+preserve this space. Their common spin-frame rotation leaves exchange
+unchanged. Each bond has the exact extension
+\[
+ h_{xy}=\frac J4(\bar X_x\bar X_y+\bar Y_x\bar Y_y+
+                       \bar Z_x\bar Z_y-I).
+\]
+Its three Pauli products commute. Three source-compiled rotations and the
+scalar phase implement $e^{-it h_{xy}}$ with 62 native pulses. This is a
+direct implementation of the interacting spin gate, without virtual
+large-$U$ evolution. Encoding costs five pulses per site; a specified
+N\'eel product costs at most seven. Pauli probes cost three pulses for
+$\bar Z$ and 25 for $\bar X,\bar Y$, with both outcomes retained.
+
+The complete two-flavor C/E repair is compiled on every local occupation
+input and all 512 field/coin/record addresses. Its native costs are 69635
+and 94207 pulses. Collision holds, all 32 coin/raw slots and every native
+export failure are retained. Separated CAR endpoints are routed with
+fermionic swaps, including their double-occupation sign, at 88 extra pulses
+per intervening site. On single occupancy the exact repair remains
+$M_{c,r}P=\delta_{r,0}P/\sqrt2$. Repairs occur between completed gate words;
+protection during each constituent pulse is not presumed.
+
+\paragraph{Precision and local-history resources.}
+The source's twelve exact $\mathbb Q(\sqrt5)$ generators have rational
+norm majorants summing to 29. Integer-square-root enclosures and the Machin
+arctangent formula for $\pi$ compute each target port coefficient to a
+certified $p$-bit dyadic accuracy. Anti-Hermitian Duhamel and complete
+export give
+\[
+ \|V_{\rm native}-V_{\rm ideal}\|\le29N2^{-p},\qquad
+ \|\rho_{\rm native}-\rho_{\rm ideal}\|_1\le58N2^{-p}
+\]
+for $N$ pulses and arbitrary references. This is an explicit rational
+command family for the same source law. Its arbitrary-accuracy limit
+requires the controller to expose that finer coefficient precision;
+the fixed binary64 runner is not assigned a vanishing error.
+
+For $m$ local interventions on $s$ sites in a radius-$r$ cube, at fixed
+times up to $T$, the spin locality estimate gives
+\[
+ B_R(T)=\min\{2,6Js(2R+1)^2T\,2^{-(R-r)}(e^{48JT}-1)\}.
+\]
+Tensoring local memories does not change the Hamiltonian edge count.
+In the interaction picture each local Stinespring unitary costs at most
+$B_R(T)$ under the radius-$R$ cutoff. The product, its adjoint and final
+observable yield the complete observer trace-norm bound
+$(2m+1)B_R(T)$. This argument retains all measurement/adaptive records
+and does not assume reduced field dynamics is Markovian.
+
+The finite cube has $E=3(2R)(2R+1)^2$ bonds and at most
+$A=15(2R+1)^3$ overlapping unordered bond pairs. First-order steps of
+size at most $\delta$ cost at most $2AJ^2T\delta$ in complete-channel
+trace norm. Choosing $R,\delta,p$ to divide a requested error among
+locality, splitting and native precision gives an explicit finite
+source program. Supplied input-marginal error is added separately.
+A fixed-word schedule is budgeted explicitly; an adaptive implementation
+must add its actual control-synthesis costs.
+The constructive inputs are exact rational times and couplings. Ideal
+repairs append independent coins without enlarging the spin support.
+A N\'eel product is constructively preparable; an unspecified infinite
+ground is not an input oracle.
+
+The code executes native encoding/exchange Choi examples, both complete
+repair Choi maps, a nonadjacent CAR-sign test and a preparation/exchange/
+repair/probe history. Quantum references and all failure weights remain
+in the lossless archive. These finite binary64 executions have their
+own exact literal-control error certificates. The scalable statement is
+about local histories of the fixed-spacing interacting spin system;
+it identifies neither a relativistic particle sector nor an infinite
+ground-state preparation. Source, precision algorithm and cold replay
+are in \texttt{model/native\_spin\_observer}.

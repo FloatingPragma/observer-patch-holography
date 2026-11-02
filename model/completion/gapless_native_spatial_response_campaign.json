@@ -1,0 +1,173 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Construct an ordered infinite-volume gapless spin sector, scalable native local spin observations, a controlled lattice realization of finite Weyl stress responses, and actual cubic rotation labels for all certified particle lines.",
+  "specification_policy": "Simulator, observer, scheduler, repair and memory laws are admitted specifications. Every changed carrier, reference, clock, coupling trajectory and detector remains explicit. A specified model and a conditional mathematical derivation are not an empirical particle identification.",
+  "selection_reason": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance.",
+  "component_results": [
+    {
+      "id": "spin_goldstone_sector",
+      "attachment": "FA-92",
+      "issues": [
+        1139,
+        1142
+      ],
+      "result": "For the fixed-spacing cubic spin-1/2 antiferromagnet reached on c=J E^4,U=J E^8, exact rational infrared cubature proves staggered Bragg weight greater than 1/1000. A finite biased/projected ground construction gives nonzero maximal staggered magnetization. In the infinitesimal-field selected ground, L2-normalized transverse packets have weight at least m0^2 p/96 in a strictly positive energy filter supported in (m0 J p/16,64 J p/m0^2), m0=1/1000; a pure ordered gapless ground also exists. Complete recorded source histories approach this selected sector. This is internal spin on a fixed lattice, not a sharp particle pole or a relativistic mass/species identification.",
+      "evidence": [
+        "model/spin_goldstone_sector/README.md",
+        "model/spin_goldstone_sector/__init__.py",
+        "model/spin_goldstone_sector/__main__.py",
+        "model/spin_goldstone_sector/algebra.py",
+        "model/spin_goldstone_sector/bounds.py",
+        "model/spin_goldstone_sector/experiment.py",
+        "model/spin_goldstone_sector/infrared.py",
+        "model/spin_goldstone_sector/packet.py",
+        "model/spin_goldstone_sector/results.json",
+        "model/spin_goldstone_sector/test_sector.py",
+        "paper/tex_fragments/SPIN_GOLDSTONE_SECTOR.tex"
+      ],
+      "remaining": [
+        "Sharp one-particle poles, a complete neutral spectrum and scattering theory in the ordered infinite-volume sector.",
+        "Vanishing lattice spacing, Lorentz covariance and a controlled interacting relativistic continuum.",
+        "Spatial/Lorentz spin and measured particle identities, finite relativistic rest masses and empirical energy calibration.",
+        "Native large-volume ordered-state preparation and finite-resource resolution of arbitrarily low-energy packets.",
+        "Einstein dynamics and the remaining geometry-to-matter hypotheses."
+      ]
+    },
+    {
+      "id": "native_spin_observer",
+      "attachment": "FA-93",
+      "issues": [
+        1138,
+        1139
+      ],
+      "result": "The single-occupancy spin encoding supports direct 62-pulse Heisenberg exchange, explicit product-state preparation and Pauli probes. Complete native C/E field-repair dilations retain every occupation input, collision record, export failure and quantum reference; fermionic routing restores the CAR sign for separated endpoints. Six full native examples are executed. A reference-uniform local-history cutoff, finite-box product formula and source-derived dyadic coefficient algorithm give an explicit finite resource budget at each accuracy, conditional on the stated refined port-control interface. The fixed binary64 execution error is never sent to zero.",
+      "evidence": [
+        "model/native_spin_observer/README.md",
+        "model/native_spin_observer/__init__.py",
+        "model/native_spin_observer/__main__.py",
+        "model/native_spin_observer/algebra.py",
+        "model/native_spin_observer/bounds.py",
+        "model/native_spin_observer/circuits.py",
+        "model/native_spin_observer/execute.py",
+        "model/native_spin_observer/experiment.py",
+        "model/native_spin_observer/packet.py",
+        "model/native_spin_observer/precision.py",
+        "model/native_spin_observer/results.json",
+        "model/native_spin_observer/results.npz",
+        "model/native_spin_observer/test_algebra.py",
+        "model/native_spin_observer/test_bounds.py",
+        "model/native_spin_observer/test_packet.py",
+        "model/native_spin_observer/test_precision.py",
+        "paper/tex_fragments/NATIVE_SPIN_OBSERVER.tex"
+      ],
+      "remaining": [
+        "Prepare a chosen infinite interacting ground through a uniformly controlled native finite-volume process; a supplied marginal is not such a construction.",
+        "Derive physical controller, memory and measurement precision/noise properties if the admitted ideal source services are replaced by hardware dynamics.",
+        "Control repairs during constituent pulses if uninterrupted autonomous repair is required; this construction schedules repair between completed gate words.",
+        "Establish relativistic continuum particle species, masses and source-responsive Einstein dynamics independently of this fixed-spacing spin observer.",
+        "Resolve inherited historical receipt custody separately without changing old experiment records."
+      ]
+    },
+    {
+      "id": "lattice_weyl_response",
+      "attachment": "FA-94",
+      "issues": [
+        1145
+      ],
+      "result": "For the exact U=0 full-CAR source ground, compact cell-averaged FA91 shell perturbations and finite-support quadratic stress detectors have an explicit joint lattice/radius limit. Gapless spectral-projection and first-derivative bounds give an invertible nine-by-nine finite-spacing response matrix with inverse norm at most 272/15. This supplies a sector-relative matter-response refinement input to G5, without a lattice modular-log or geometric-balance claim.",
+      "evidence": [
+        "model/lattice_weyl_response/README.md",
+        "model/lattice_weyl_response/__init__.py",
+        "model/lattice_weyl_response/__main__.py",
+        "model/lattice_weyl_response/algebra.py",
+        "model/lattice_weyl_response/bounds.py",
+        "model/lattice_weyl_response/controls.py",
+        "model/lattice_weyl_response/packet.py",
+        "model/lattice_weyl_response/results.json",
+        "model/lattice_weyl_response/test_response.py",
+        "paper/tex_fragments/LATTICE_WEYL_RESPONSE.tex"
+      ],
+      "remaining": [
+        "Nonzero-U derivative-composite stress convergence, rather than only free U=0 source specialization.",
+        "Lattice regional modular-log, boosted-cap, geometric collar/chart and edge/area convergence.",
+        "Native apparatus synthesis of the compact shell preparations and stress spectral measurements.",
+        "Newton normalization, generalized-entropy stationarity, responsive geometry and the common geometry-stress null balance.",
+        "An interacting massive relativistic continuum and identification with measured particle species."
+      ]
+    },
+    {
+      "id": "cubic_particle_channels",
+      "attachment": "FA-95",
+      "issues": [
+        1143
+      ],
+      "result": "On the unchanged centered c=1/8,U=1 cube, exact binary cubic rotations classify all228 local charged lines as G1+G2+H and all135 spin plus135 density lines by Walsh degree. The lowest full-Fock triplet is A1+E under spatial rotations. Exact central projectors specify symmetry-filtered charged probes; source-clock gaps are retained without a continuum-spin, relativistic-mass or species assignment.",
+      "evidence": [
+        "model/cubic_particle_channels/README.md",
+        "model/cubic_particle_channels/__init__.py",
+        "model/cubic_particle_channels/__main__.py",
+        "model/cubic_particle_channels/channels.py",
+        "model/cubic_particle_channels/group.py",
+        "model/cubic_particle_channels/packet.py",
+        "model/cubic_particle_channels/results.json",
+        "model/cubic_particle_channels/test_channels.py",
+        "paper/tex_fragments/CUBIC_PARTICLE_CHANNELS.tex"
+      ],
+      "remaining": [
+        "Establish continuum spatial spin and relativistic dispersion on the same ground and detector family.",
+        "Identify physical gauge charges, stable asymptotic species and independently calibrated mass/energy units.",
+        "Implement and execute the coherent symmetry-filtered probes natively if their experimental readouts are claimed."
+      ]
+    }
+  ],
+  "quantifier_boundary": "No interacting relativistic spatial continuum, measured species, SI masses, or common dynamical Einstein realization is inferred. The ordered interacting spin sector has actual positive spectrum accumulating at zero at fixed lattice spacing. The stress refinement is U=0 and uses lab-slice probes. Cubic spatial labels do not specify continuum spin.",
+  "historical_custody": {
+    "base_commit": "3d56955bc",
+    "base_finite_map_mismatches": [
+      "model/plaquette_reference/README.md",
+      "model/plaquette_reference/preparation.py",
+      "model/plaquette_reference/results.json",
+      "model/plaquette_reference/test_preparation.py",
+      "model/certified_reference/test_certificate.py",
+      "model/cube_eta_protection/test_source.py",
+      "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex",
+      "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex",
+      "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex",
+      "paper/tex_fragments/INTERACTING_VACUUM.tex",
+      "paper/tex_fragments/MASS_GENERATION_AUDIT.tex",
+      "paper/tex_fragments/THERMODYNAMIC_GROUND.tex",
+      "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
+      "paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex",
+      "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex",
+      "paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex",
+      "paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex",
+      "paper/tex_fragments/SPECTRAL_READOUT.tex",
+      "paper/tex_fragments/CONTINUUM_FIELD_NET.tex",
+      "paper/tex_fragments/CONTINUUM_GROUND_CONSTRAINTS.tex",
+      "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex",
+      "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex",
+      "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+      "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex"
+    ],
+    "inherited_receipts_silently_recertified": false,
+    "note": "The separate main checkout contains an independent receipt rebuild. New evidence binds current proof sources and reports inherited custody separately. Historical accepted evidence is preserved."
+  },
+  "review": {
+    "path": "model/completion/gapless_native_spatial_response_review.json",
+    "sha256": "823e7dcce15138f2d22dcc4ab3b199cb3c56a725b86ab0b1d4dc88ff4b3333d6"
+  }
+}

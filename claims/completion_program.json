@@ -1457,6 +1457,14 @@
           "independent_check": "model/centered_native_preparation/test_tree.py",
           "scope": "The actual centered c=1/8,U=1 cube ground is prepared from a certified dyadic source witness by 262137 native Gray-tree pulses and 184 full-Fock inverse-frame pulses on all 65536 rows. A 13-pulse charge instrument and 607071-pulse centered M4 phase clock then execute on 262144 quantum rows and two retained classical charge columns. The complete history has 869405 pulses; exact target, angle, source-generator, frame, ground-phase and full-Fock Strang errors give total complete-state and total-variation error below 0.03. All 216 raw pointer combinations and every first-export failure are retained. Four broad energy outcomes do not resolve all 228 spectral lines or identify physical masses. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "native_spin_observer",
+          "path": "model/native_spin_observer/results.json",
+          "sha256": "185c42d495a09448c47df55cf5464f6e136d0a3fe1e94637fbf98b6cd1bce309",
+          "independent_check": "model/native_spin_observer/test_algebra.py",
+          "scope": "The single-occupancy spin encoding supports direct 62-pulse Heisenberg exchange, explicit product-state preparation and Pauli probes. Complete native C/E field-repair dilations retain every occupation input, collision record, export failure and quantum reference; fermionic routing restores the CAR sign for separated endpoints. Six full native examples are executed. A reference-uniform local-history cutoff, finite-box product formula and source-derived dyadic coefficient algorithm give an explicit finite resource budget at each accuracy, conditional on the stated refined port-control interface. The fixed binary64 execution error is never sent to zero. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -1840,6 +1848,22 @@
           "independent_check": "model/protected_spin_limit/test_algebra.py",
           "scope": "On the one-fermion-per-site two-flavour carrier, the complete C/E field extension is exactly identity on internal spins while retaining fair coin and raw-zero records. The centered signed Hubbard source with U>=4 tau, tau=c|E|, obeys the all-input, reference-complete recorded-history trace bound min(2,8m tau/U+6T tau^3/U^2). The explicit joint trajectory c=J|E|^4, U=J|E|^8 controls growing-volume independent Poisson repairs and converges locally to an interacting cubic Heisenberg dynamics at fixed spacing, with source-derived ground states and positive-energy GNS dynamics. On explicit L by W by W tori, L=2W^4 and odd W>=3, the full source first spectral spacing, counting ground multiplicity, is at most 5J/W^2+J/W^6. This does not prove a relativistic continuum or an infinite-volume massless particle. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "spin_goldstone_sector",
+          "path": "model/spin_goldstone_sector/results.json",
+          "sha256": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+          "independent_check": "model/spin_goldstone_sector/test_sector.py",
+          "scope": "For the fixed-spacing cubic spin-1/2 antiferromagnet reached on c=J E^4,U=J E^8, exact rational infrared cubature proves staggered Bragg weight greater than 1/1000. A finite biased/projected ground construction gives nonzero maximal staggered magnetization. In the infinitesimal-field selected ground, L2-normalized transverse packets have weight at least m0^2 p/96 in a strictly positive energy filter supported in (m0 J p/16,64 J p/m0^2), m0=1/1000; a pure ordered gapless ground also exists. Complete recorded source histories approach this selected sector. This is internal spin on a fixed lattice, not a sharp particle pole or a relativistic mass/species identification. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "native_spin_observer",
+          "path": "model/native_spin_observer/results.json",
+          "sha256": "185c42d495a09448c47df55cf5464f6e136d0a3fe1e94637fbf98b6cd1bce309",
+          "independent_check": "model/native_spin_observer/test_algebra.py",
+          "scope": "The single-occupancy spin encoding supports direct 62-pulse Heisenberg exchange, explicit product-state preparation and Pauli probes. Complete native C/E field-repair dilations retain every occupation input, collision record, export failure and quantum reference; fermionic routing restores the CAR sign for separated endpoints. Six full native examples are executed. A reference-uniform local-history cutoff, finite-box product formula and source-derived dyadic coefficient algorithm give an explicit finite resource budget at each accuracy, conditional on the stated refined port-control interface. The fixed binary64 execution error is never sent to zero. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -2928,6 +2952,14 @@
           "independent_check": "model/protected_spin_limit/test_algebra.py",
           "scope": "On the one-fermion-per-site two-flavour carrier, the complete C/E field extension is exactly identity on internal spins while retaining fair coin and raw-zero records. The centered signed Hubbard source with U>=4 tau, tau=c|E|, obeys the all-input, reference-complete recorded-history trace bound min(2,8m tau/U+6T tau^3/U^2). The explicit joint trajectory c=J|E|^4, U=J|E|^8 controls growing-volume independent Poisson repairs and converges locally to an interacting cubic Heisenberg dynamics at fixed spacing, with source-derived ground states and positive-energy GNS dynamics. On explicit L by W by W tori, L=2W^4 and odd W>=3, the full source first spectral spacing, counting ground multiplicity, is at most 5J/W^2+J/W^6. This does not prove a relativistic continuum or an infinite-volume massless particle. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "spin_goldstone_sector",
+          "path": "model/spin_goldstone_sector/results.json",
+          "sha256": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+          "independent_check": "model/spin_goldstone_sector/test_sector.py",
+          "scope": "For the fixed-spacing cubic spin-1/2 antiferromagnet reached on c=J E^4,U=J E^8, exact rational infrared cubature proves staggered Bragg weight greater than 1/1000. A finite biased/projected ground construction gives nonzero maximal staggered magnetization. In the infinitesimal-field selected ground, L2-normalized transverse packets have weight at least m0^2 p/96 in a strictly positive energy filter supported in (m0 J p/16,64 J p/m0^2), m0=1/1000; a pure ordered gapless ground also exists. Complete recorded source histories approach this selected sector. This is internal spin on a fixed lattice, not a sharp particle pole or a relativistic mass/species identification. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -3299,6 +3331,14 @@
           "independent_check": "model/centered_native_preparation/test_tree.py",
           "scope": "The actual centered c=1/8,U=1 cube ground is prepared from a certified dyadic source witness by 262137 native Gray-tree pulses and 184 full-Fock inverse-frame pulses on all 65536 rows. A 13-pulse charge instrument and 607071-pulse centered M4 phase clock then execute on 262144 quantum rows and two retained classical charge columns. The complete history has 869405 pulses; exact target, angle, source-generator, frame, ground-phase and full-Fock Strang errors give total complete-state and total-variation error below 0.03. All 216 raw pointer combinations and every first-export failure are retained. Four broad energy outcomes do not resolve all 228 spectral lines or identify physical masses. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "cubic_particle_channels",
+          "path": "model/cubic_particle_channels/results.json",
+          "sha256": "f08a2083d87f37418f0b97769856a3d3c7b1001697a29b04d22f894ee1e9ea90",
+          "independent_check": "model/cubic_particle_channels/test_channels.py",
+          "scope": "On the unchanged centered c=1/8,U=1 cube, exact binary cubic rotations classify all228 local charged lines as G1+G2+H and all135 spin plus135 density lines by Walsh degree. The lowest full-Fock triplet is A1+E under spatial rotations. Exact central projectors specify symmetry-filtered charged probes; source-clock gaps are retained without a continuum-spin, relativistic-mass or species assignment. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -3454,6 +3494,14 @@
           "independent_check": "model/weyl_gravity_response/test_response.py",
           "scope": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "lattice_weyl_response",
+          "path": "model/lattice_weyl_response/results.json",
+          "sha256": "ba89e41c2bc0068684f8fbe048941e76d046db33709cfc07b62f4bf11fc2b1df",
+          "independent_check": "model/lattice_weyl_response/test_response.py",
+          "scope": "For the exact U=0 full-CAR source ground, compact cell-averaged FA91 shell perturbations and finite-support quadratic stress detectors have an explicit joint lattice/radius limit. Gapless spectral-projection and first-derivative bounds give an invertible nine-by-nine finite-spacing response matrix with inverse norm at most 272/15. This supplies a sector-relative matter-response refinement input to G5, without a lattice modular-log or geometric-balance claim. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -3739,6 +3787,14 @@
           "independent_check": "model/weyl_gravity_response/test_response.py",
           "scope": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "lattice_weyl_response",
+          "path": "model/lattice_weyl_response/results.json",
+          "sha256": "ba89e41c2bc0068684f8fbe048941e76d046db33709cfc07b62f4bf11fc2b1df",
+          "independent_check": "model/lattice_weyl_response/test_response.py",
+          "scope": "For the exact U=0 full-CAR source ground, compact cell-averaged FA91 shell perturbations and finite-support quadratic stress detectors have an explicit joint lattice/radius limit. Gapless spectral-projection and first-derivative bounds give an invertible nine-by-nine finite-spacing response matrix with inverse norm at most 272/15. This supplies a sector-relative matter-response refinement input to G5, without a lattice modular-log or geometric-balance claim. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -4775,16 +4831,36 @@
         "scope": "Close the complete finite neutral gap, execute native centered-ground preparation and charged energy readout, derive repaired interacting spin dynamics in a joint growing-volume limit, and supply nondegenerate finite matter/entropy response directions to the existing Einstein stack.",
         "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
       }
+    },
+    {
+      "id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-02",
+        "CP-03",
+        "CP-06",
+        "CP-07",
+        "CP-08",
+        "CP-09"
+      ],
+      "contract": {
+        "path": "model/completion/gapless_native_spatial_response_campaign.json",
+        "sha256": "abcb2244e26c6140b0b9a3061d30a17c17ce09b488811503f26c0b652dec0341",
+        "independent_check": "model/completion/test_finite_attachment_map.py",
+        "scope": "Construct an ordered infinite-volume gapless spin sector, scalable native local spin observations, a controlled lattice realization of finite Weyl stress responses, and actual cubic rotation labels for all certified particle lines.",
+        "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
+      }
     }
   ],
   "next_wave": {
-    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v2",
+    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v3",
     "status": "PLANNED_PROVISIONAL_PARALLEL_WORK",
     "scope": "SOURCE_BOUND_COMPONENT_WORK_WITH_OPEN_ACCEPTANCE_JOINS",
     "changes_frozen_campaign": false,
     "successor_class_frozen": false,
     "physical_comparison_count_added": 0,
-    "rationale": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance. Direct new checks are distinct from inherited receipt custody; historical accepted evidence remains unchanged.",
+    "rationale": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance. Direct new checks are distinct from inherited receipt custody; historical accepted evidence remains unchanged.",
     "shared_interface": {
       "baseline_campaign_id": "OPH-RECORD-DERIVED-CONTINUING-CLOCK-v1",
       "baseline_contract": "model/local_repair_family/record_clock_campaign.json",
@@ -4811,11 +4887,11 @@
       {
         "gate": "CP-02",
         "issue": 1138,
-        "title": "Extend the executed centered reference and detector to continuing observers",
-        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
-        "deliverable": "Join the complete finite centered preparation and energy readout to growing-volume memory, repair and operational clock laws.",
-        "may_start_now": "The centered ground is now prepared and its four-bin charged readout executed with all outcomes and a below-0.03 error bound. Use this concrete native instrument and the separate repaired-spin limit.",
-        "join_condition": "The finite source-controlled preparation has no interleaved bare field repair. Establish continuing reference invariance, common access and clock on the intended growing-volume process; finite preparation is not an autonomous stationary regime.",
+        "title": "Join scalable native local observations to a continuing reference",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance.",
+        "deliverable": "Use explicit spin gates, complete repair and dyadic precision control to realize local histories, then establish stationary reference/scheduler/memory compatibility.",
+        "may_start_now": "Six complete native examples and a finite local-history resource algorithm now accompany the centered ground readout. Arbitrary precision uses the explicitly supplied dyadic integrated-port controller.",
+        "join_condition": "Ground marginals are supplied or a Neel product is prepared. Native preparation of the selected infinite ordered ground and a continuing adaptive observer invariant law remain separate.",
         "evidence": [
           "adaptive_reference",
           "thermodynamic_ground",
@@ -4826,17 +4902,18 @@
           "native_spectral_detector",
           "repair_coherence_lifetime",
           "centered_particle_spectrum",
-          "centered_native_preparation"
+          "centered_native_preparation",
+          "native_spin_observer"
         ]
       },
       {
         "gate": "CP-03",
         "issue": 1139,
         "title": "Construct protected local matter beyond the quantified bare-repair lifetime",
-        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance.",
         "deliverable": "Supply a local protected field encoding with a boundary invariant and measured operators under the actual repair/refinement.",
-        "may_start_now": "Use the exact full-domain internal-spin protection and its complete-record interacting limit, while retaining the distinct bare-binary coherence lifetime theorem.",
-        "join_condition": "The two-flavour field extension protects a one-fermion-per-site spin carrier. Supply a physical localized defect, boundary invariant, native scalable observable realization and common energy/clock; a protected spin factor is not yet an observed particle.",
+        "may_start_now": "The protected spin branch now has ordered ground states with genuine positive spectral weight arbitrarily near zero and explicit native local spin probes.",
+        "join_condition": "An internal Goldstone sector at fixed spacing is not yet a spatially localized physical defect. Derive the boundary invariant, physical charge/spin and common detector/clock identification.",
         "evidence": [
           "cube_eta_protection",
           "protected_particle_readout",
@@ -4848,17 +4925,19 @@
           "native_occupation_protection",
           "repair_coherence_lifetime",
           "centered_neutral_spectrum",
-          "protected_spin_limit"
+          "protected_spin_limit",
+          "spin_goldstone_sector",
+          "native_spin_observer"
         ]
       },
       {
         "gate": "CP-06",
         "issue": 1142,
         "title": "Control an interacting relativistic limit outside the proved free class",
-        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance.",
         "deliverable": "Derive a volume-uniform interacting continuum estimate and the corresponding ground, charged sectors and Lorentz dynamics.",
-        "may_start_now": "The joint c=J|E|^4,U=J|E|^8 trajectory now controls repaired interacting spin dynamics and source-derived ground states as volume grows. The canonical charged continuum remains free for U=o((log c)^(3/2)).",
-        "join_condition": "The new spin limit has fixed spatial spacing and divergent charged excitation energies. Derive a spatial continuum with the required massive/massless relativistic sectors, locality, field normalization and scattering on the same reference.",
+        "may_start_now": "Use the rigorous Neel-order and filtered positive-energy packet bounds on the repaired interacting spin branch. The canonical charged continuum remains free under its stated growing-coupling bound.",
+        "join_condition": "Establish spatial continuum scaling, Lorentz symmetry, sharp/asymptotic fields and scattering for interacting massive and massless sectors. No such conclusion follows solely from fixed-spacing gaplessness.",
         "evidence": [
           "moving_bound_pair",
           "relativistic_sector_audit",
@@ -4881,17 +4960,18 @@
           "centered_source_ground",
           "continuum_free_limit",
           "strong_coupling_refinement",
-          "protected_spin_limit"
+          "protected_spin_limit",
+          "spin_goldstone_sector"
         ]
       },
       {
         "gate": "CP-07",
         "issue": 1143,
         "title": "Identify physical species beyond the excluded centered finite-gap dictionary",
-        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance.",
         "deliverable": "Construct the same-theory physical charge, spin, dispersion, detector and unit dictionary; compare its massive and massless sectors with observations.",
-        "may_start_now": "Use the full finite neutral gap, 135 local spin and135 density lines, 228 local charged lines, and the executed centered charged four-bin instrument. Keep exact dark states and probe-invisible subspaces in the accounting.",
-        "join_condition": "Source-clock gaps and hidden-spin labels are not physical species or rest masses. The original and centered direct finite-gap lepton dictionaries remain excluded. A new assignment needs controlled relativistic dispersion, quantum numbers and independent common units; finer detector resolution needs its own execution and error budget.",
+        "may_start_now": "Actual binary cubic rotations now classify all228 charged and270 neutral positive local lines. The first neutral triplet is A1+E; each charged visible space is G1+G2+H. Exact coherent filters and unchanged energy enclosures are retained.",
+        "join_condition": "Cubic labels do not uniquely determine continuum spin. Derive relativistic dispersion, gauge charges and independent units, then test species/mass ratios on the same prepared and measured reference.",
         "evidence": [
           "cube_eta_protection",
           "particle_identification",
@@ -4914,17 +4994,18 @@
           "continuum_free_limit",
           "centered_particle_spectrum",
           "centered_neutral_spectrum",
-          "centered_native_preparation"
+          "centered_native_preparation",
+          "cubic_particle_channels"
         ]
       },
       {
         "gate": "CP-09",
         "issue": 1145,
         "title": "Join the proved Weyl stress/modular sector to responsive geometry",
-        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes the order and positive-energy gapless-sector inputs, source-control and local-observer bounds, derivative-sensitive stress refinement, and spatial representation inputs without changing historical physical acceptance.",
         "deliverable": "Supply the native geometry identification, edge/area normalization, entropy stationarity and universal calibrated metric response on one refinement family.",
-        "may_start_now": "Use the explicit nine-dimensional local normal-state family, full-rank finite boosted-ball modular/entropy responses and controlled remainder of the same free Weyl vacuum. Reuse the existing tensor-completion theorem.",
-        "join_condition": "Nondegenerate matter response closes a finite variation-space premise, not geometric null balance. Derive native geometric access, area normalization, generalized-entropy stationarity, joint lattice/collar limits and universal metric response with positive Newton calibration.",
+        "may_start_now": "The free U=0 source now realizes the nine Weyl stress responses with explicit derivative and joint lattice/radius error bounds, preserving finite response invertibility.",
+        "join_condition": "The detectors are lab-slice stress probes, not lattice boosted modular logarithms. Supply geometric area, stationarity, native access, common collar/chart limits and universal metric/Newton response, including interacting matter.",
         "evidence": [
           "dilute_momentum_ward",
           "relativistic_sector_audit",
@@ -4940,7 +5021,8 @@
           "centered_source_ground",
           "continuum_free_limit",
           "weyl_geometric_modular",
-          "weyl_gravity_response"
+          "weyl_gravity_response",
+          "lattice_weyl_response"
         ]
       }
     ],
@@ -6093,6 +6175,38 @@
         "independent_check": "model/weyl_gravity_response/test_response.py",
         "scope": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics. Direct checks and inherited custody are reported separately.",
         "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "spin_goldstone_sector",
+        "path": "model/spin_goldstone_sector/results.json",
+        "sha256": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+        "independent_check": "model/spin_goldstone_sector/test_sector.py",
+        "scope": "For the fixed-spacing cubic spin-1/2 antiferromagnet reached on c=J E^4,U=J E^8, exact rational infrared cubature proves staggered Bragg weight greater than 1/1000. A finite biased/projected ground construction gives nonzero maximal staggered magnetization. In the infinitesimal-field selected ground, L2-normalized transverse packets have weight at least m0^2 p/96 in a strictly positive energy filter supported in (m0 J p/16,64 J p/m0^2), m0=1/1000; a pure ordered gapless ground also exists. Complete recorded source histories approach this selected sector. This is internal spin on a fixed lattice, not a sharp particle pole or a relativistic mass/species identification. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "native_spin_observer",
+        "path": "model/native_spin_observer/results.json",
+        "sha256": "185c42d495a09448c47df55cf5464f6e136d0a3fe1e94637fbf98b6cd1bce309",
+        "independent_check": "model/native_spin_observer/test_algebra.py",
+        "scope": "The single-occupancy spin encoding supports direct 62-pulse Heisenberg exchange, explicit product-state preparation and Pauli probes. Complete native C/E field-repair dilations retain every occupation input, collision record, export failure and quantum reference; fermionic routing restores the CAR sign for separated endpoints. Six full native examples are executed. A reference-uniform local-history cutoff, finite-box product formula and source-derived dyadic coefficient algorithm give an explicit finite resource budget at each accuracy, conditional on the stated refined port-control interface. The fixed binary64 execution error is never sent to zero. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "lattice_weyl_response",
+        "path": "model/lattice_weyl_response/results.json",
+        "sha256": "ba89e41c2bc0068684f8fbe048941e76d046db33709cfc07b62f4bf11fc2b1df",
+        "independent_check": "model/lattice_weyl_response/test_response.py",
+        "scope": "For the exact U=0 full-CAR source ground, compact cell-averaged FA91 shell perturbations and finite-support quadratic stress detectors have an explicit joint lattice/radius limit. Gapless spectral-projection and first-derivative bounds give an invertible nine-by-nine finite-spacing response matrix with inverse norm at most 272/15. This supplies a sector-relative matter-response refinement input to G5, without a lattice modular-log or geometric-balance claim. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "cubic_particle_channels",
+        "path": "model/cubic_particle_channels/results.json",
+        "sha256": "f08a2083d87f37418f0b97769856a3d3c7b1001697a29b04d22f894ee1e9ea90",
+        "independent_check": "model/cubic_particle_channels/test_channels.py",
+        "scope": "On the unchanged centered c=1/8,U=1 cube, exact binary cubic rotations classify all228 local charged lines as G1+G2+H and all135 spin plus135 density lines by Walsh degree. The lowest full-Fock triplet is A1+E under spatial rotations. Exact central projectors specify symmetry-filtered charged probes; source-clock gaps are retained without a continuum-spin, relativistic-mass or species assignment. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-GAPLESS-NATIVE-SPATIAL-RESPONSE-2026-11-02"
       }
     ]
   },

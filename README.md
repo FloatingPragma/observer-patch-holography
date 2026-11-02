@@ -127,15 +127,14 @@ proof shows that the whole class of laws cannot work.
   finite propagation, resolves the complete finite ground family, and
   provides positive finite-resolution energy measurements. Surviving
   continuum interaction and the physical field and geometry joins remain open.
-  The [centered spectrum and native readout](model/completion/NATIVE_NEUTRAL_SPIN_RESPONSE.md)
-  now certify the full finite gap and execute preparation and charged
-  energy measurement of the unique half-filled ground. A separate joint
-  volume/coupling limit preserves complete repair records and constructs
-  interacting spin dynamics at fixed spacing. Explicit matter variations
-  supply nine independent finite responses to the existing gravity stack.
-  The canonical charged continuum remains free and massless; physical
-  species, an interacting relativistic continuum and responsive geometry
-  remain to be constructed.
+  The [ordered spin sector and spatial particle channels](model/completion/GAPLESS_NATIVE_SPATIAL_RESPONSE.md)
+  add genuine positive-energy gaplessness to the interacting spin branch,
+  native local spin observations, and controlled free lattice stress
+  responses for the existing Einstein stack. Exact cubic rotations now
+  classify all certified local particle lines; the lowest neutral triplet
+  is A1+E, rather than a spatial vector. These results retain the finite
+  source-clock energy readouts. Physical species, an interacting relativistic
+  spatial continuum and responsive geometry remain to be constructed.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12700 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.

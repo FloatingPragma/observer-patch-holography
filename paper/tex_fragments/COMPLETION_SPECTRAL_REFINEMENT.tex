@@ -1,67 +1,52 @@
-\paragraph{Centered spectra and an executed native readout.}
-Particle-hole symmetry fixes the charge clock $K=H-UN/2$.
-On the $c=1/8$, $U=1$ cube its unique ground is half filled, with hidden
-spin and eta spin zero. Exact symmetry blocks and rational eigenvector
-certificates resolve $228$ positive local charged lines. Complete neutral
-blocks now certify the full $65{,}536$-state gap in
-$[0.015021254176,0.015021254177]$, a hidden-spin triplet.
-Local spin and density each have $135$ positive lines, starting at
-approximately $0.01502125417613$ and $0.81180294910721$, respectively;
-their spatial residues and current-divergence weights are retained.
-Exact dark states and the remaining probe-invisible space are counted.
-
-The centered reference is also prepared by a checked native amplitude
-tree and full-Fock frame change. A complete charged four-bin energy
-experiment executes $869{,}405$ native pulses, with full-output error
-below $0.03$ and every pointer and first-failure outcome retained.
-The executed joint bin probabilities for either charge are approximately
-$(0.358983,0.089231,0.023107,0.028679)$, summing to $1/2$.
-The clock explicitly implements the number correction and certified
-ground phase. Four broad bins do not resolve every spectral line, and
-source-clock gaps are not calibrated relativistic masses.
-Proofs and executions are in
-\path{model/centered_particle_spectrum/},
-\path{model/centered_neutral_spectrum/}, and
+\paragraph{Centered energies and actual spatial channels.}
+The centered clock $K=H-UN/2$ has a unique half-filled cube ground at
+$c=1/8$, $U=1$, with hidden spin and eta spin zero. Exact certificates
+resolve $228$ local charged lines and $135$ lines each for spin and density.
+The full $65{,}536$-state gap lies in
+$[0.015021254176,0.015021254177]$. Actual spatial rotations refine these
+labels: every visible charged line has binary-cubic channels
+G1+G2+H; the first neutral triplet is A1+E, and the first density line
+is T1. Hidden internal spin alone therefore does not fix spatial spin.
+The central projectors specify symmetry-filtered probes, without claiming
+that those filters have been executed. A separate complete native
+preparation and four-bin charged readout executes $869{,}405$ pulses with
+full-output error below $0.03$. These source-clock energies and cubic
+representations do not identify relativistic masses or measured species;
+see \path{model/cubic_particle_channels/} and
 \path{model/centered_native_preparation/}.
 
-\paragraph{Repair protection and an interacting spin limit.}
-For bare binary C/E repair the edge min-cut $\lambda$ bounds fixed-number
-coherence by $(1-\lambda)^n$, including all classical records and an
-untouched reference. The twelve-port factor is $5/6$; fixed-selector
-populations converge with gap $(5-\sqrt5)/60$ when the tape is traced out.
-This law differs from the two-flavour field extension, whose complete
-repair is identity on the one-fermion-per-site internal spins.
-For the latter source, $\tau=c|E|$, $U\ge4\tau$, the centered low band
-has Heisenberg exchange $J=c^2/U$. Complete recorded histories with $m$
-free intervals and total time $T$ differ by at most
-$\min(2,8m\tau/U+6T\tau^3/U^2)$ in trace norm.
+\paragraph{Ordered interacting spins and native local observers.}
+Bare binary repair contracts fixed-number coherence by at most $5/6$ per
+event, including classical records. The two-flavour field extension instead
+preserves the one-fermion-per-site spin carrier. Its joint trajectory
+$c=J|E|^4$, $U=J|E|^8$ controls complete recorded histories and produces
+infinite cubic Heisenberg dynamics at fixed spacing. Exact infrared
+integral bounds and the matched spin theorems give an ordered ground
+with $m_s>1/1000$ and nonzero transverse packets whose strictly positive
+energy support approaches zero. This strengthens a finite spacing-collapse
+bound to an infinite-ground spectral statement, without asserting a sharp
+particle pole or Lorentz dispersion; see \path{model/spin_goldstone_sector/}.
 
-The joint trajectory $c=J|E|^4$, $U=J|E|^8$ now controls growing-volume
-Poisson repairs. Locality constructs an interacting infinite cubic spin
-dynamics and source-derived ground states at fixed spacing. On a stated
-odd-width torus family the source's first spectral spacing is at most
-$5J/W^2+J/W^6\to0$, counting ground multiplicity. This does not prove a
-massless particle or a spatial continuum. The separate canonical
-continuum remains the free eight-Weyl hierarchy for
-$U=o((\log c)^{3/2})$, $c=v/a$. The source bounds and distinct domains are
-recorded in \path{model/repair_coherence_lifetime/},
-\path{model/strong_coupling_refinement/}, and
-\path{model/protected_spin_limit/}.
+The spin algebra also has direct native operations: each exchange bond
+uses $62$ pulses, and complete C/E repair, fermionic routing and Pauli probes
+retain every failure and quantum reference. Six finite examples are
+executed. A locality cutoff, product formula and explicit dyadic port-control
+algorithm give finite resource budgets for local histories, including a
+constructively prepared N\'eel product. Arbitrary accuracy requires the
+stated refined coefficient interface; fixed binary64 errors are not sent
+to zero. An unspecified infinite ground is not a preparation oracle;
+see \path{model/native_spin_observer/}.
 
-\paragraph{Nondegenerate matter inputs to the Einstein stack.}
-The same free Weyl vacuum has conserved Lorentz Wick stress and a
-geometric double-cone modular group. Its local ball pairing is
-$(2\pi/v)\int w_R\mathcal E$, $w_R=(R^2-r^2)/(2R)$, with leading
-coefficient $8\pi^2R^4/(15v)$ and a controlled $O(R^6)$ remainder.
-Explicit shell perturbations now produce nine independent traceless
-stress tangents on one common local normal-state family. Nine boosted
-balls give an invertible finite modular-response matrix for
-$0<R/L\le2^{-28}$, with normalized inverse infinity norm at most
-$272/15$. Finite vacuum-relative entropy differences also distinguish
-all nine directions. The construction uses no trace-class continuum
-vacuum density and asserts no affine family through a pure global vacuum.
-It supplies the finite matter variation-space premise of the existing
-geometry theorem. Area normalization, generalized-entropy stationarity,
-native geometric limits, responsive metric and universal Newton coupling
-remain separate requirements; see \path{model/weyl_geometric_modular/}
-and \path{model/weyl_gravity_response/}.
+\paragraph{Source-realized matter responses for the Einstein stack.}
+The separate canonical continuum is the free eight-Weyl hierarchy for
+$U=o((\log c)^{3/2})$, $c=v/a$. Its conserved stress, geometric modular
+flow and nine shell-induced stress directions supply controlled matter
+premises. For the exact $U=0$ lattice source, compact state perturbations
+and finite quadratic stress detectors converge to the same leading stress-response
+matrix, with explicit derivative and normalization errors. A common
+lattice-spacing/small-ball limit preserves rank nine and normalized inverse
+bound $272/15$. This realizes the specified free-sector stress responses,
+not lattice modular logarithms or a nonzero-$U$ composite limit.
+Area normalization, entropy stationarity, responsive geometry and universal
+Newton coupling require their separate joins;
+see \path{model/lattice_weyl_response/}.
