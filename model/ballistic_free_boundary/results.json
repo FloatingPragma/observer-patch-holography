@@ -1,0 +1,149 @@
+{
+  "constants": {
+    "free_phase_space_coefficient": 1536,
+    "gaussian_moment_coefficient": 4,
+    "lattice_weight_sum": 79,
+    "microscopic_error_coefficient": 32768,
+    "microscopic_time_power": "3/2",
+    "schur_coefficient": 64,
+    "schur_time_power": "3/2",
+    "smoothed_error_coefficient": 131072,
+    "weighted_row_square": 16
+  },
+  "finite_bounds": [
+    {
+      "R": "1099511627776",
+      "U": "1048576",
+      "base": 2,
+      "c": "1208925819614629174706176",
+      "coupling_squared_weight_upper": "19110826860363095474176/36893488147419103231",
+      "epsilon": "1/256",
+      "exponential_argument": "1/36893488147419103232",
+      "unit_time_unit_window_field_error_upper": "2",
+      "unmultiplied_bound": "259/549755813888",
+      "weight_upper": "17381195776/36893488147419103231"
+    },
+    {
+      "R": "1208925819614629174706176",
+      "U": "1099511627776",
+      "base": 4,
+      "c": "1461501637330902918203684832716283019655932542976",
+      "coupling_squared_weight_upper": "196725743376167549189763444921490997248/97223533405982418132392744980505203273",
+      "epsilon": "1/65536",
+      "exponential_argument": "1/680564733841876926926749214863536422912",
+      "unit_time_unit_window_field_error_upper": "1719667764220197750279019/2417851639229258349412352",
+      "unmultiplied_bound": "259/154742504910672534362390528",
+      "weight_upper": "162727720910848/97223533405982418132392744980505203273"
+    },
+    {
+      "R": "1329227995784915872903807060280344576",
+      "U": "1152921504606846976",
+      "base": 8,
+      "c": "1766847064778384329583297500742918515827483896875618958121606201292619776",
+      "coupling_squared_weight_upper": "99229086271066303578702970007982519639313358161388240896/12554203470773361527671578846415332832204710888928069025791",
+      "epsilon": "1/16777216",
+      "exponential_argument": "1/12554203470773361527671578846415332832204710888928069025792",
+      "unit_time_unit_window_field_error_upper": "107479235263556204107959/2417851639229258349412352",
+      "unmultiplied_bound": "259/43556142965880123323311949751266331066368",
+      "weight_upper": "74651667423293341696/12554203470773361527671578846415332832204710888928069025791"
+    },
+    {
+      "R": "1461501637330902918203684832716283019655932542976",
+      "U": "1208925819614629174706176",
+      "base": 16,
+      "c": "2135987035920910082395021706169552114602704522356652769947041607822219725780640550022962086936576",
+      "coupling_squared_weight_upper": "7150209215275024083782407073318998368739348895168520471148375095856070656/231584178474632390847141970017375815706539969331281128078915168015826259279871",
+      "epsilon": "1/4294967296",
+      "exponential_argument": "1/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "unit_time_unit_window_field_error_upper": "6717452203972262560143/2417851639229258349412352",
+      "unmultiplied_bound": "259/12259964326927110866866776217202473468949912977468817408",
+      "weight_upper": "4892371676252952441389056/231584178474632390847141970017375815706539969331281128078915168015826259279871"
+    },
+    {
+      "R": "1766847064778384329583297500742918515827483896875618958121606201292619776",
+      "U": "1329227995784915872903807060280344576",
+      "base": 64,
+      "c": "3121748550315992231381597229793166305748598142664971150859156959625371738819765620120306103063491971159826931121406622895447975679288285306290176",
+      "coupling_squared_weight_upper": "37126008846339282594200163242702532354144395762161550690502219337575814056682347830633425328470159551102976/78804012392788958424558080200287227610159478540930893335896586808491443542994421222828532509769831281613255980613631",
+      "epsilon": "1/281474976710656",
+      "exponential_argument": "1/78804012392788958424558080200287227610159478540930893335896586808491443542994421222828532509769831281613255980613632",
+      "unit_time_unit_window_field_error_upper": "28851237528503988987424749387779/2658455991569831745807614120560689152",
+      "unmultiplied_bound": "259/971334446112864535459730953411759453321203419526069760625906204869452142602604249088",
+      "weight_upper": "21012576349383130559209352332312576/78804012392788958424558080200287227610159478540930893335896586808491443542994421222828532509769831281613255980613631"
+    }
+  ],
+  "power_controls": [
+    {
+      "coupling_power": "0",
+      "powers": {
+        "high_energy_tail": "-1/2",
+        "weighted_composite": "-4/5",
+        "width_floor": "-3/2"
+      },
+      "sufficient_free_condition": true
+    },
+    {
+      "coupling_power": "1/5",
+      "powers": {
+        "high_energy_tail": "-3/10",
+        "weighted_composite": "-6/25",
+        "width_floor": "-11/10"
+      },
+      "sufficient_free_condition": true
+    },
+    {
+      "coupling_power": "1/4",
+      "powers": {
+        "high_energy_tail": "-1/4",
+        "weighted_composite": "-1/10",
+        "width_floor": "-1"
+      },
+      "sufficient_free_condition": true
+    },
+    {
+      "coupling_power": "2/7",
+      "powers": {
+        "high_energy_tail": "-3/14",
+        "weighted_composite": "0",
+        "width_floor": "-13/14"
+      },
+      "sufficient_free_condition": false
+    },
+    {
+      "coupling_power": "1/3",
+      "powers": {
+        "high_energy_tail": "-1/6",
+        "weighted_composite": "2/15",
+        "width_floor": "-5/6"
+      },
+      "sufficient_free_condition": false
+    }
+  ],
+  "schema": "oph.ballistic_free_boundary.v1",
+  "scope": "Analytic sufficient free-continuum class for the centered source; exact arithmetic checks are not a numerical proof of a continuum limit.",
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/ballistic_free_boundary/README.md": "c3f8902936ef7d0a83db735994012ce1b4454baf7dea03d9621e5d7f5d1eb786",
+    "model/ballistic_free_boundary/__init__.py": "dc5ba014539aa0b671fa78ad244a3c1270f30ca96aaf1b910ceb11f205ceaf78",
+    "model/ballistic_free_boundary/__main__.py": "71604a9fab2bb8edfba8b8543e0c79215b6edf0a3d6e77cce8f5015cba4264b3",
+    "model/ballistic_free_boundary/bounds.py": "77c96f609faed4162aef459405fdc97c6f5f8c3ee989c1b517bdf10b0bd5cb81",
+    "model/ballistic_free_boundary/packet.py": "df33ac3d91b3de75869962bc523451d350fe6ae0bd98cb3bca537533a73174f7",
+    "model/ballistic_free_boundary/test_bounds.py": "c2b5a546bad0507ab8c7377a86fd3f3645ccffc58da0fbe46986731b5a8ea607",
+    "model/centered_source_ground/README.md": "3bfb173de3586878d5dcc4724b1f244db7e1ee2e84d152d83e3508ffadefe9ec",
+    "model/continuum_composite_channel/README.md": "9dd1edb14a89b414efdedf6d29a4e63bf13c6a570f1a1b5460dccd312c112a82",
+    "model/continuum_free_limit/README.md": "a1b4114481aebd900d0e58e27e1494e1e3df937712aed68520ba3d7e44fc4472",
+    "model/strong_coupling_refinement/README.md": "306ef51ec500a57db4fda24ca40843d0496a09f8c506f09abd5ea3209c9e01e5"
+  },
+  "theorem": {
+    "clock": "same centered K=H-(U/2)N",
+    "excitation_energy": "v*|p|",
+    "full_field_limit": "free eight-valley Weyl vacuum hierarchy",
+    "interactions_above_boundary_proved": false,
+    "physical_species_identified": false,
+    "protected_spin_limit_excluded": false,
+    "rest_masses_in_this_free_class": "zero",
+    "sharp_boundary_at_power_2_over_7_claimed": false,
+    "spacing": "c=v/a with fixed v>0",
+    "sufficient_coupling_class": "0<=U(c)=o(c^(2/7))"
+  }
+}

@@ -73,8 +73,10 @@ def test_selection_defect_vanishes_on_diagonal():
 def test_receipt_has_honest_inherited_custody(value):
     packet.validate(value)
     assert value['new_checks_pass'] is True
-    assert value['all_pass'] is False
-    assert value['prior_custody'][packet.PRIORS[0]]['historical_all_pass'] is False
+    expected=all(row['current_source_verified'] for row in value['prior_custody'].values()) and (
+        value['prior_custody'][packet.PRIORS[0]]['historical_all_pass'] is True)
+    assert value['dependency_custody_pass'] is expected
+    assert value['all_pass'] is expected
 
 
 @pytest.mark.parametrize('key,wrong',[('physical_particle_species_identified',True),('sharp_one_particle_pole_proved',True),('field_selected_ground_itself_proved_pure',True),('internal_spin_identified_with_spatial_spin',0),('ordered_ground_sector_constructed',1)])
@@ -88,6 +90,6 @@ def test_omitting_singular_cell_rejected(value):
     with pytest.raises(ValueError):packet.validate(v)
 
 
-def test_inherited_custody_cannot_be_promoted(value):
-    v=deepcopy(value);v['all_pass']=v['dependency_custody_pass']=True
+def test_inherited_custody_cannot_be_falsified(value):
+    v=deepcopy(value);v['all_pass']=v['dependency_custody_pass']=not value['dependency_custody_pass']
     with pytest.raises(ValueError):packet.validate(v)

@@ -15,9 +15,9 @@
       "complete_committed_map_audit": {
         "all_input_columns": 512,
         "arbitrary_reference_identity": "K_twisted[c,r]=(-1)**(r mod 2) K_original[c,r]",
-        "completeness_frobenius_error_diagnostic": 1.6602656199424345e-11,
+        "completeness_frobenius_error_diagnostic": 5.751556499255047e-12,
         "diagnostics_are_not_outward_roundoff_certificates": true,
-        "maximum_scalar_phase_operator_error_diagnostic": 2.892587618732217e-15,
+        "maximum_scalar_phase_operator_error_diagnostic": 5.6173335497220924e-15,
         "raw_outcomes_including_reserved": 8
       },
       "resources_per_attempt": {
@@ -47,7 +47,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9672.178382239576,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 5,
             "native_pulses": 5380,
             "pair_code_pulses": 1471,
@@ -63,7 +63,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9675.319974893166,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 5,
             "native_pulses": 5380,
             "pair_code_pulses": 1471,
@@ -79,7 +79,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9672.178382239576,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 5,
             "native_pulses": 5380,
             "pair_code_pulses": 1471,
@@ -95,7 +95,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9675.319974893166,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 5,
             "native_pulses": 5380,
             "pair_code_pulses": 1471,
@@ -116,55 +116,55 @@
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 0.49999999999962746,
+              "probability": 0.4999999999998909,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 8.371800200776339e-29,
+              "probability": 2.2573156488760657e-28,
               "read_code": 1
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.0731579601545588e-28,
+              "probability": 2.1670830339811653e-27,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 5.136185269303884e-30,
+              "probability": 8.163333239631e-29,
               "read_code": 3
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990684,
+              "probability": 0.12499999999997964,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990821,
+              "probability": 0.12499999999997356,
               "read_code": 1
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999989862,
+              "probability": 0.12499999999997756,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990158,
+              "probability": 0.12499999999996944,
               "read_code": 3
             }
           ],
           "ideal_plus_probability_exact": "3/4",
-          "plus_probability_diagnostic": 0.7499999999994329,
-          "probability_mass_diagnostic": 0.9999999999992427,
+          "plus_probability_diagnostic": 0.7499999999998481,
+          "probability_mass_diagnostic": 0.9999999999997912,
           "twisted": false
         },
         {
@@ -173,55 +173,55 @@
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 8.504828603441588e-29,
+              "probability": 2.239036309922211e-28,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 0.49999999999962746,
+              "probability": 0.4999999999998909,
               "read_code": 1
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 5.136185269303887e-30,
+              "probability": 8.163333239631002e-29,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.0731579601545588e-28,
+              "probability": 2.167083033981165e-27,
               "read_code": 3
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990824,
+              "probability": 0.1249999999999736,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.1249999999999068,
+              "probability": 0.1249999999999796,
               "read_code": 1
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.1249999999999016,
+              "probability": 0.12499999999996944,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.1249999999998986,
+              "probability": 0.12499999999997749,
               "read_code": 3
             }
           ],
           "ideal_plus_probability_exact": "1/4",
-          "plus_probability_diagnostic": 0.24999999999980985,
-          "probability_mass_diagnostic": 0.9999999999992427,
+          "plus_probability_diagnostic": 0.24999999999994305,
+          "probability_mass_diagnostic": 0.9999999999997911,
           "twisted": true
         },
         {
@@ -230,13 +230,13 @@
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 0.12499999999990935,
+              "probability": 0.12499999999997576,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 0.12499999999990931,
+              "probability": 0.12499999999997571,
               "read_code": 1
             },
             {
@@ -254,13 +254,13 @@
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 0.12499999999990435,
+              "probability": 0.12499999999996976,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 0.1249999999999044,
+              "probability": 0.12499999999996976,
               "read_code": 1
             },
             {
@@ -290,13 +290,13 @@
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.673096395659062e-29,
+              "probability": 5.3582259989788275e-28,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.6730963956590607e-29,
+              "probability": 5.358225998978825e-28,
               "read_code": 3
             },
             {
@@ -314,25 +314,25 @@
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.949502668578927e-29,
+              "probability": 5.885355832908549e-28,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.9495026685789274e-29,
+              "probability": 5.885355832908549e-28,
               "read_code": 3
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 0.12499999999990753,
+              "probability": 0.12499999999997662,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 0.1249999999999075,
+              "probability": 0.12499999999997659,
               "read_code": 1
             },
             {
@@ -350,13 +350,13 @@
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 2.0601637399754895e-30,
+              "probability": 5.724006473324821e-29,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 2.0601637399754906e-30,
+              "probability": 5.724006473324821e-29,
               "read_code": 1
             },
             {
@@ -386,13 +386,13 @@
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 0.12499999999990012,
+              "probability": 0.12499999999997352,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 0.12499999999990008,
+              "probability": 0.12499999999997348,
               "read_code": 3
             },
             {
@@ -410,19 +410,19 @@
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 6.156182610099824e-30,
+              "probability": 1.0059634446677992e-28,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 6.156182610099827e-30,
+              "probability": 1.0059634446677992e-28,
               "read_code": 3
             }
           ],
           "ideal_plus_probability_exact": "1/2",
-          "plus_probability_diagnostic": 0.49999999999962136,
-          "probability_mass_diagnostic": 0.9999999999992426,
+          "plus_probability_diagnostic": 0.49999999999989564,
+          "probability_mass_diagnostic": 0.9999999999997912,
           "twisted": false
         },
         {
@@ -431,13 +431,13 @@
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 0.12499999999990935,
+              "probability": 0.12499999999997576,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 0.12499999999990931,
+              "probability": 0.12499999999997571,
               "read_code": 1
             },
             {
@@ -455,13 +455,13 @@
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 0.12499999999990435,
+              "probability": 0.12499999999996976,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 0.1249999999999044,
+              "probability": 0.12499999999996976,
               "read_code": 1
             },
             {
@@ -491,13 +491,13 @@
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.673096395659062e-29,
+              "probability": 5.3582259989788275e-28,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.6730963956590607e-29,
+              "probability": 5.358225998978826e-28,
               "read_code": 3
             },
             {
@@ -515,25 +515,25 @@
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.949502668578927e-29,
+              "probability": 5.885355832908549e-28,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.9495026685789274e-29,
+              "probability": 5.885355832908549e-28,
               "read_code": 3
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 0.12499999999990753,
+              "probability": 0.12499999999997662,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 0.1249999999999075,
+              "probability": 0.12499999999997659,
               "read_code": 1
             },
             {
@@ -551,13 +551,13 @@
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 2.0234278524410594e-30,
+              "probability": 5.724006473324821e-29,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 2.02342785244106e-30,
+              "probability": 5.724006473324821e-29,
               "read_code": 1
             },
             {
@@ -587,13 +587,13 @@
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 0.12499999999990012,
+              "probability": 0.12499999999997348,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 0.12499999999990008,
+              "probability": 0.12499999999997344,
               "read_code": 3
             },
             {
@@ -611,19 +611,19 @@
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 6.026011078087344e-30,
+              "probability": 1.0059634446677992e-28,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 6.026011078087347e-30,
+              "probability": 1.0059634446677992e-28,
               "read_code": 3
             }
           ],
           "ideal_plus_probability_exact": "1/2",
-          "plus_probability_diagnostic": 0.49999999999962136,
-          "probability_mass_diagnostic": 0.9999999999992426,
+          "plus_probability_diagnostic": 0.49999999999989564,
+          "probability_mass_diagnostic": 0.9999999999997912,
           "twisted": true
         }
       ]
@@ -632,9 +632,9 @@
       "complete_committed_map_audit": {
         "all_input_columns": 512,
         "arbitrary_reference_identity": "K_twisted[c,r]=(-1)**(r mod 2) K_original[c,r]",
-        "completeness_frobenius_error_diagnostic": 1.6578516095454793e-11,
+        "completeness_frobenius_error_diagnostic": 6.128460406684762e-12,
         "diagnostics_are_not_outward_roundoff_certificates": true,
-        "maximum_scalar_phase_operator_error_diagnostic": 2.2298862014107384e-15,
+        "maximum_scalar_phase_operator_error_diagnostic": 4.3511678576332166e-15,
         "raw_outcomes_including_reserved": 16
       },
       "resources_per_attempt": {
@@ -664,7 +664,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9678.461567546756,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 6,
             "native_pulses": 5383,
             "pair_code_pulses": 1472,
@@ -680,7 +680,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9681.603160200344,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 6,
             "native_pulses": 5383,
             "pair_code_pulses": 1472,
@@ -696,7 +696,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9678.461567546756,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 6,
             "native_pulses": 5383,
             "pair_code_pulses": 1472,
@@ -712,7 +712,7 @@
             "identity_phase_pulses": 17,
             "initialization_storage_readout_physical_costs_included": false,
             "integrated_processor_norm_upper": 9681.603160200344,
-            "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+            "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
             "maximum_work_qubits": 6,
             "native_pulses": 5383,
             "pair_code_pulses": 1472,
@@ -733,103 +733,103 @@
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.1111594220533113e-28,
+              "probability": 2.8558210034774505e-28,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 3.415739554171729e-29,
+              "probability": 4.678008605305464e-29,
               "read_code": 1
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 3.4114220927655736e-30,
+              "probability": 2.556022090485747e-29,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.827305532563274e-30,
+              "probability": 3.9681920488726625e-29,
               "read_code": 3
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 0.49999999999962746,
+              "probability": 0.49999999999989003,
               "read_code": 4
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 3.659935829353672e-29,
+              "probability": 2.451353954584222e-28,
               "read_code": 5
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.0884553931547958e-28,
+              "probability": 2.2422594655868725e-27,
               "read_code": 6
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 4.398536752280475e-30,
+              "probability": 3.185963747118184e-29,
               "read_code": 7
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 1.3961782687502385e-30,
+              "probability": 1.786862448099547e-28,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 1.329055454557118e-30,
+              "probability": 1.2535147254992643e-28,
               "read_code": 1
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 8.126577304209207e-31,
+              "probability": 8.108111945855221e-29,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 3.536631874213337e-31,
+              "probability": 6.322826849193588e-29,
               "read_code": 3
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990774,
+              "probability": 0.12499999999997936,
               "read_code": 4
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.1249999999999084,
+              "probability": 0.12499999999997329,
               "read_code": 5
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999989812,
+              "probability": 0.12499999999997799,
               "read_code": 6
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990169,
+              "probability": 0.1249999999999683,
               "read_code": 7
             }
           ],
           "ideal_plus_probability_exact": "3/4",
-          "plus_probability_diagnostic": 0.7499999999994333,
-          "probability_mass_diagnostic": 0.9999999999992434,
+          "plus_probability_diagnostic": 0.7499999999998473,
+          "probability_mass_diagnostic": 0.999999999999789,
           "twisted": false
         },
         {
@@ -838,103 +838,103 @@
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 3.4157395541717305e-29,
+              "probability": 4.678008605305467e-29,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.1111594220533113e-28,
+              "probability": 2.8558210034774496e-28,
               "read_code": 1
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.827305532563274e-30,
+              "probability": 3.968192048872664e-29,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 3.4114220927655736e-30,
+              "probability": 2.556022090485747e-29,
               "read_code": 3
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 3.7088247334087635e-29,
+              "probability": 2.433792310236014e-28,
               "read_code": 4
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 0.49999999999962735,
+              "probability": 0.49999999999989003,
               "read_code": 5
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 4.398536752280478e-30,
+              "probability": 3.1859637471181885e-29,
               "read_code": 6
             },
             {
               "coin": 0,
               "committed_record": null,
-              "probability": 1.0884553931547958e-28,
+              "probability": 2.2422594655868718e-27,
               "read_code": 7
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 1.329055454557118e-30,
+              "probability": 1.253514725499265e-28,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 1.396178268750238e-30,
+              "probability": 1.7868624480995467e-28,
               "read_code": 1
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 3.5366318742133385e-31,
+              "probability": 6.322826849193592e-29,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 8.12657730420921e-31,
+              "probability": 8.108111945855218e-29,
               "read_code": 3
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.1249999999999084,
+              "probability": 0.12499999999997333,
               "read_code": 4
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990774,
+              "probability": 0.12499999999997934,
               "read_code": 5
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999990173,
+              "probability": 0.12499999999996834,
               "read_code": 6
             },
             {
               "coin": 1,
               "committed_record": null,
-              "probability": 0.12499999999989808,
+              "probability": 0.12499999999997796,
               "read_code": 7
             }
           ],
           "ideal_plus_probability_exact": "1/4",
-          "plus_probability_diagnostic": 0.24999999999981015,
-          "probability_mass_diagnostic": 0.9999999999992433,
+          "plus_probability_diagnostic": 0.24999999999994169,
+          "probability_mass_diagnostic": 0.9999999999997891,
           "twisted": true
         },
         {
@@ -943,13 +943,13 @@
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 6.64603333875077e-29,
+              "probability": 1.1161744829210392e-28,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 6.646033338750768e-29,
+              "probability": 1.1161744829210387e-28,
               "read_code": 1
             },
             {
@@ -991,13 +991,13 @@
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 6.176335486016534e-30,
+              "probability": 5.456364490829596e-29,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 6.176335486016536e-30,
+              "probability": 5.456364490829596e-29,
               "read_code": 1
             },
             {
@@ -1051,13 +1051,13 @@
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.3747624694618998e-30,
+              "probability": 3.2179034313531606e-29,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.3747624694618987e-30,
+              "probability": 3.2179034313531595e-29,
               "read_code": 3
             },
             {
@@ -1099,13 +1099,13 @@
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.4460134320252465e-31,
+              "probability": 4.420363832604466e-31,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.4460134320252474e-31,
+              "probability": 4.420363832604466e-31,
               "read_code": 3
             },
             {
@@ -1159,13 +1159,13 @@
             {
               "coin": 0,
               "committed_record": 4,
-              "probability": 0.12499999999990899,
+              "probability": 0.12499999999997623,
               "read_code": 4
             },
             {
               "coin": 0,
               "committed_record": 4,
-              "probability": 0.12499999999990895,
+              "probability": 0.12499999999997619,
               "read_code": 5
             },
             {
@@ -1207,13 +1207,13 @@
             {
               "coin": 0,
               "committed_record": 5,
-              "probability": 0.12499999999990472,
+              "probability": 0.12499999999996877,
               "read_code": 4
             },
             {
               "coin": 0,
               "committed_record": 5,
-              "probability": 0.12499999999990476,
+              "probability": 0.12499999999996877,
               "read_code": 5
             },
             {
@@ -1267,13 +1267,13 @@
             {
               "coin": 0,
               "committed_record": 6,
-              "probability": 2.607887058098486e-29,
+              "probability": 5.482903107838621e-28,
               "read_code": 6
             },
             {
               "coin": 0,
               "committed_record": 6,
-              "probability": 2.607887058098485e-29,
+              "probability": 5.482903107838619e-28,
               "read_code": 7
             },
             {
@@ -1315,25 +1315,25 @@
             {
               "coin": 0,
               "committed_record": 7,
-              "probability": 3.054316745289517e-29,
+              "probability": 5.88769240745165e-28,
               "read_code": 6
             },
             {
               "coin": 0,
               "committed_record": 7,
-              "probability": 3.0543167452895186e-29,
+              "probability": 5.88769240745165e-28,
               "read_code": 7
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 1.1759845965505154e-30,
+              "probability": 1.5022760781851498e-28,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 1.1759845965505149e-30,
+              "probability": 1.5022760781851492e-28,
               "read_code": 1
             },
             {
@@ -1375,13 +1375,13 @@
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 1.866322651031629e-31,
+              "probability": 1.7912508614256055e-30,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 1.8663226510316296e-31,
+              "probability": 1.7912508614256055e-30,
               "read_code": 1
             },
             {
@@ -1435,13 +1435,13 @@
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 3.25994976807353e-31,
+              "probability": 6.790090801661388e-29,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 3.2599497680735293e-31,
+              "probability": 6.790090801661386e-29,
               "read_code": 3
             },
             {
@@ -1483,13 +1483,13 @@
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 2.571654821137742e-31,
+              "probability": 4.253785958630173e-30,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 2.5716548211377427e-31,
+              "probability": 4.253785958630173e-30,
               "read_code": 3
             },
             {
@@ -1543,13 +1543,13 @@
             {
               "coin": 1,
               "committed_record": 4,
-              "probability": 0.12499999999990809,
+              "probability": 0.12499999999997635,
               "read_code": 4
             },
             {
               "coin": 1,
               "committed_record": 4,
-              "probability": 0.12499999999990805,
+              "probability": 0.12499999999997631,
               "read_code": 5
             },
             {
@@ -1591,13 +1591,13 @@
             {
               "coin": 1,
               "committed_record": 5,
-              "probability": 1.6794166569345538e-30,
+              "probability": 5.722612932387577e-29,
               "read_code": 4
             },
             {
               "coin": 1,
               "committed_record": 5,
-              "probability": 1.679416656934554e-30,
+              "probability": 5.722612932387577e-29,
               "read_code": 5
             },
             {
@@ -1651,13 +1651,13 @@
             {
               "coin": 1,
               "committed_record": 6,
-              "probability": 0.12499999999989993,
+              "probability": 0.12499999999997317,
               "read_code": 6
             },
             {
               "coin": 1,
               "committed_record": 6,
-              "probability": 0.12499999999989989,
+              "probability": 0.12499999999997313,
               "read_code": 7
             },
             {
@@ -1699,19 +1699,19 @@
             {
               "coin": 1,
               "committed_record": 7,
-              "probability": 8.01054319305559e-30,
+              "probability": 1.1333800031206037e-28,
               "read_code": 6
             },
             {
               "coin": 1,
               "committed_record": 7,
-              "probability": 8.010543193055593e-30,
+              "probability": 1.1333800031206037e-28,
               "read_code": 7
             }
           ],
           "ideal_plus_probability_exact": "1/2",
-          "plus_probability_diagnostic": 0.49999999999962175,
-          "probability_mass_diagnostic": 0.9999999999992434,
+          "plus_probability_diagnostic": 0.49999999999989453,
+          "probability_mass_diagnostic": 0.999999999999789,
           "twisted": false
         },
         {
@@ -1720,13 +1720,13 @@
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 6.64603333875077e-29,
+              "probability": 1.116174482921039e-28,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 0,
-              "probability": 6.646033338750768e-29,
+              "probability": 1.1161744829210385e-28,
               "read_code": 1
             },
             {
@@ -1768,13 +1768,13 @@
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 6.176335486016536e-30,
+              "probability": 5.456364490829596e-29,
               "read_code": 0
             },
             {
               "coin": 0,
               "committed_record": 1,
-              "probability": 6.176335486016537e-30,
+              "probability": 5.456364490829596e-29,
               "read_code": 1
             },
             {
@@ -1828,13 +1828,13 @@
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.3747624694618994e-30,
+              "probability": 3.217903431353161e-29,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 2,
-              "probability": 2.3747624694618987e-30,
+              "probability": 3.2179034313531606e-29,
               "read_code": 3
             },
             {
@@ -1876,13 +1876,13 @@
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.446013432025248e-31,
+              "probability": 4.420363832604466e-31,
               "read_code": 2
             },
             {
               "coin": 0,
               "committed_record": 3,
-              "probability": 2.4460134320252487e-31,
+              "probability": 4.420363832604466e-31,
               "read_code": 3
             },
             {
@@ -1936,13 +1936,13 @@
             {
               "coin": 0,
               "committed_record": 4,
-              "probability": 0.12499999999990895,
+              "probability": 0.12499999999997623,
               "read_code": 4
             },
             {
               "coin": 0,
               "committed_record": 4,
-              "probability": 0.1249999999999089,
+              "probability": 0.12499999999997619,
               "read_code": 5
             },
             {
@@ -1984,13 +1984,13 @@
             {
               "coin": 0,
               "committed_record": 5,
-              "probability": 0.12499999999990472,
+              "probability": 0.12499999999996877,
               "read_code": 4
             },
             {
               "coin": 0,
               "committed_record": 5,
-              "probability": 0.12499999999990476,
+              "probability": 0.12499999999996877,
               "read_code": 5
             },
             {
@@ -2044,13 +2044,13 @@
             {
               "coin": 0,
               "committed_record": 6,
-              "probability": 2.607887058098485e-29,
+              "probability": 5.482903107838621e-28,
               "read_code": 6
             },
             {
               "coin": 0,
               "committed_record": 6,
-              "probability": 2.607887058098484e-29,
+              "probability": 5.482903107838619e-28,
               "read_code": 7
             },
             {
@@ -2092,25 +2092,25 @@
             {
               "coin": 0,
               "committed_record": 7,
-              "probability": 3.054316745289517e-29,
+              "probability": 5.88769240745165e-28,
               "read_code": 6
             },
             {
               "coin": 0,
               "committed_record": 7,
-              "probability": 3.0543167452895186e-29,
+              "probability": 5.88769240745165e-28,
               "read_code": 7
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 1.175984596550515e-30,
+              "probability": 1.5022760781851498e-28,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 0,
-              "probability": 1.1759845965505147e-30,
+              "probability": 1.5022760781851494e-28,
               "read_code": 1
             },
             {
@@ -2152,13 +2152,13 @@
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 1.8663226510316296e-31,
+              "probability": 1.7912508614256055e-30,
               "read_code": 0
             },
             {
               "coin": 1,
               "committed_record": 1,
-              "probability": 1.8663226510316303e-31,
+              "probability": 1.7912508614256055e-30,
               "read_code": 1
             },
             {
@@ -2212,13 +2212,13 @@
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 3.25994976807353e-31,
+              "probability": 6.790090801661388e-29,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 2,
-              "probability": 3.2599497680735293e-31,
+              "probability": 6.790090801661386e-29,
               "read_code": 3
             },
             {
@@ -2260,13 +2260,13 @@
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 2.571654821137744e-31,
+              "probability": 4.253785958630173e-30,
               "read_code": 2
             },
             {
               "coin": 1,
               "committed_record": 3,
-              "probability": 2.571654821137745e-31,
+              "probability": 4.253785958630173e-30,
               "read_code": 3
             },
             {
@@ -2320,13 +2320,13 @@
             {
               "coin": 1,
               "committed_record": 4,
-              "probability": 0.12499999999990809,
+              "probability": 0.12499999999997635,
               "read_code": 4
             },
             {
               "coin": 1,
               "committed_record": 4,
-              "probability": 0.12499999999990805,
+              "probability": 0.12499999999997631,
               "read_code": 5
             },
             {
@@ -2368,13 +2368,13 @@
             {
               "coin": 1,
               "committed_record": 5,
-              "probability": 1.6584826267619883e-30,
+              "probability": 5.722612932387577e-29,
               "read_code": 4
             },
             {
               "coin": 1,
               "committed_record": 5,
-              "probability": 1.658482626761989e-30,
+              "probability": 5.722612932387577e-29,
               "read_code": 5
             },
             {
@@ -2428,13 +2428,13 @@
             {
               "coin": 1,
               "committed_record": 6,
-              "probability": 0.12499999999989993,
+              "probability": 0.12499999999997317,
               "read_code": 6
             },
             {
               "coin": 1,
               "committed_record": 6,
-              "probability": 0.12499999999989989,
+              "probability": 0.12499999999997313,
               "read_code": 7
             },
             {
@@ -2476,19 +2476,19 @@
             {
               "coin": 1,
               "committed_record": 7,
-              "probability": 7.865723165074918e-30,
+              "probability": 1.1333800031206037e-28,
               "read_code": 6
             },
             {
               "coin": 1,
               "committed_record": 7,
-              "probability": 7.865723165074919e-30,
+              "probability": 1.1333800031206037e-28,
               "read_code": 7
             }
           ],
           "ideal_plus_probability_exact": "1/2",
-          "plus_probability_diagnostic": 0.4999999999996217,
-          "probability_mass_diagnostic": 0.9999999999992433,
+          "plus_probability_diagnostic": 0.49999999999989453,
+          "probability_mass_diagnostic": 0.999999999999789,
           "twisted": true
         }
       ]
@@ -2505,7 +2505,7 @@
     "source_primitives_and_code_services_unchanged": true
   },
   "source_sha256": {
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
     "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",

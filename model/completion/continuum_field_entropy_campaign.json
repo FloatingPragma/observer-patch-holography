@@ -1,0 +1,132 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-CONTINUUM-FIELD-ENTROPY-CONSTRUCTION-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Construct a regular continuum spin field, strengthen the charged free-boundary theorem, derive an actual finite entropy/stress shrinking limit, and implement complete joint native spin spectroscopy.",
+  "specification_policy": "Simulator, observer, scheduler, repair, memory and refined port laws are explicit admitted specifications. Their mathematical consequences and their physical identification have distinct proof obligations.",
+  "selection_reason": "The continuum field algebra and entropy/stress join remove construction gaps; the stronger free boundary directs the interaction search; complete native spectroscopy connects finite source preparation, symmetry labels and energy readout. Evidence custody remains the fifth owner; broad CI is deferred at the user request.",
+  "component_results": [
+    {
+      "id": "ballistic_free_boundary",
+      "attachment": "FA-99",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "For the unchanged centered clock K=H-UN/2 and canonical charged fields, every full continuum limit with c=v/a and 0<=U=o(c^(2/7)) is the free eight-valley Weyl vacuum. A polynomial propagator bound and direct mixed-time CAR comparison make the interaction-weighted low-energy composite response vanish. Energies are v|p| and rest masses are zero in this class; the exponent is sufficient, not a sharp transition or an interacting construction.",
+      "evidence": [
+        "model/ballistic_free_boundary/README.md",
+        "model/ballistic_free_boundary/__init__.py",
+        "model/ballistic_free_boundary/__main__.py",
+        "model/ballistic_free_boundary/bounds.py",
+        "model/ballistic_free_boundary/packet.py",
+        "model/ballistic_free_boundary/results.json",
+        "model/ballistic_free_boundary/test_bounds.py",
+        "paper/tex_fragments/BALLISTIC_FREE_BOUNDARY.tex"
+      ],
+      "remaining": [
+        "A coupling outside this sufficient free class is not thereby proved interacting; construct surviving continuum interaction on a justified trajectory.",
+        "Derive the protected-spin sharp mass shell, relativistic covariance and massive sectors.",
+        "Identify physical species and independent units, and join the responsive Einstein premises."
+      ]
+    },
+    {
+      "id": "spin_canonical_field",
+      "attachment": "FA-100",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The unchanged ordered cubic spin-1/2 ground constructs a regular Weyl field net in three continuous spatial coordinates and continuous time, with nonnegative energy and locality outside a conservative l1 cone. Q_p(F)=p^2 sum eps_x F(px) Sx^3 and P_p(G)=-p sum G(px) Sx^2 give one canonical pair, [Q(F),P(G)]=i m_s integral FG, m_s>1/1000. Maximality of order makes its macroscopic phase scalar; an exact reference-uniform energy-kick inequality controls all time histories and full-GNS regularity. No sharp shell, Lorentz covariance, nonzero connected interaction or measured species is established.",
+      "evidence": [
+        "model/spin_canonical_field/README.md",
+        "model/spin_canonical_field/__init__.py",
+        "model/spin_canonical_field/__main__.py",
+        "model/spin_canonical_field/algebra.py",
+        "model/spin_canonical_field/bounds.py",
+        "model/spin_canonical_field/packet.py",
+        "model/spin_canonical_field/results.json",
+        "model/spin_canonical_field/test_canonical.py",
+        "paper/tex_fragments/SPIN_CANONICAL_FIELD.tex"
+      ],
+      "remaining": [
+        "Uniqueness of the continuum limit and its dynamical field equation.",
+        "A sharp particle shell and a nonzero surviving connected interaction or scattering amplitude.",
+        "Lorentz covariance, a common invariant domain for all unbounded field products, and measured particle identities.",
+        "An effective finite-size and field-selection rate for the actual ordered reference."
+      ]
+    },
+    {
+      "id": "shrinking_modular_entropy",
+      "attachment": "FA-101",
+      "issues": [
+        1145
+      ],
+      "result": "For the exact U=0 source, natural exterior-shell perturbations of full eight-valley regional density matrices have an explicit regulator-free entropy derivative bound. A positive symbolic mesh schedule, shrinking R/L, and finite perturbation steps give a common o(R^4) matter-entropy error at fixed shell scale L. Observer-frame shell preparations yield an invertible 9-by-9 finite entropy-response matrix approaching the established Weyl stress matrix. This is a matter/modular refinement input to the existing Einstein stack, not an area or stationarity theorem.",
+      "evidence": [
+        "model/shrinking_modular_entropy/README.md",
+        "model/shrinking_modular_entropy/__init__.py",
+        "model/shrinking_modular_entropy/__main__.py",
+        "model/shrinking_modular_entropy/algebra.py",
+        "model/shrinking_modular_entropy/bounds.py",
+        "model/shrinking_modular_entropy/controls.py",
+        "model/shrinking_modular_entropy/packet.py",
+        "model/shrinking_modular_entropy/results.json",
+        "model/shrinking_modular_entropy/test_algebra.py",
+        "model/shrinking_modular_entropy/test_bounds.py",
+        "model/shrinking_modular_entropy/test_packet.py",
+        "paper/tex_fragments/SHRINKING_MODULAR_ENTROPY.tex"
+      ],
+      "remaining": [
+        "A common finite lattice realization of sharply boosted regional algebras and responsive geometric charts; the theorem uses observer-frame preparations on rest balls.",
+        "Area and edge identification, Newton normalization, generalized-entropy stationarity, and the common geometry-stress balance required by EinsteinRegisterData.",
+        "A corresponding nonzero-U regional entropy theorem and a surviving interacting massive relativistic continuum.",
+        "Native preparation and entropy-readout circuits with practical resource bounds for these shell families.",
+        "Identification of physical particle species and masses beyond the explicitly free source sector."
+      ]
+    },
+    {
+      "id": "native_joint_spin_spectroscopy",
+      "attachment": "FA-102",
+      "issues": [
+        1138,
+        1143
+      ],
+      "result": "For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost.",
+      "evidence": [
+        "model/native_joint_spin_spectroscopy/README.md",
+        "model/native_joint_spin_spectroscopy/__init__.py",
+        "model/native_joint_spin_spectroscopy/__main__.py",
+        "model/native_joint_spin_spectroscopy/algebra.py",
+        "model/native_joint_spin_spectroscopy/bounds.py",
+        "model/native_joint_spin_spectroscopy/circuits.py",
+        "model/native_joint_spin_spectroscopy/experiment.py",
+        "model/native_joint_spin_spectroscopy/packet.py",
+        "model/native_joint_spin_spectroscopy/results.json",
+        "model/native_joint_spin_spectroscopy/results.npz",
+        "model/native_joint_spin_spectroscopy/spectral.py",
+        "model/native_joint_spin_spectroscopy/test_joint.py",
+        "model/native_joint_spin_spectroscopy/test_packet.py",
+        "paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex"
+      ],
+      "remaining": [
+        "Prove a nonvanishing sharp spectral component or the needed ordered-state force/current cancellation before identifying a scaling mass shell.",
+        "Identify physical spatial/Lorentz spin, charges and common energy units; the finite graph labels and bins alone do not identify measured species.",
+        "Establish a controlled interacting relativistic continuum and the remaining geometric area/edge/Newton/stationarity premises."
+      ]
+    }
+  ],
+  "quantifier_boundary": "The spin Weyl net is regular and positive-energy with a finite propagation cone, but its sharp particle shell, Lorentz covariance and surviving non-Gaussian continuum interaction remain unproved. The entropy theorem is for U=0 with observer-frame preparations on rest balls, not a responsive metric or a lattice boost symmetry. Native joint spectroscopy is finite. Measured species and independently calibrated masses are not derived.",
+  "maintenance_policy": "New component strict tests and source-bound cold replays are recorded independently. No broad repository or remote CI success is asserted."
+}

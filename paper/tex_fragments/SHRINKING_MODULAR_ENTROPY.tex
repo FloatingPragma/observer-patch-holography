@@ -1,0 +1,67 @@
+\paragraph{Actual lattice entropy on a common shrinking family.}
+For the explicitly free source $U=0$, retain the full eight-valley
+regional covariance $A_a=E_a\Pi_aE_a$.  Let $g$ be an exterior unit shell,
+$g_a=M_bJ_ag$, $r_a=\|g_a\|^2$, and $F_a=E_a\Pi_ag_a$.
+The centered number perturbation of the \emph{normalized} lattice mode
+has exact regional covariance
+\[
+ A_a(\theta)=A_a-\frac{\theta}{r_a}F_aF_a^*,\qquad
+ \left.\frac{dS(\rho_{a,\theta})}{d\theta}\right|_0
+ =-\frac{\langle F_a,k(A_a)F_a\rangle}{r_a},\quad
+ k(x)=\log\frac{1-x}{x}.
+\]
+The occupation probability of the exterior mode is not a substitute for
+$r_a$.  Positivity follows from the exterior commuting multiplier;
+the affine family is regional, not an affine family through a pure
+global vacuum.
+
+The projector block identity
+$[E\Pi(1-E)][E\Pi(1-E)]^*=A(1-A)$ gives
+$F=\sqrt{A(1-A)}h$ with $\|h\|\leq\|g\|$.
+For $k_\delta(x)=\log[(1-x+\delta)/(x+\delta)]$,
+\[
+ \|(k(A)-k_\delta(A))F\|\leq2\sqrt\delta\,\|g\|,
+ \qquad \|k(A)F\|\leq2\|g\|.
+\]
+This controls the actual shell vector at both spectral endpoints without
+a covariance gap.  On the unit ball, the explicit bounds
+$\|\chi_Bf\|_{H^{s/12}}\leq(2048/s)\|f\|_{H^s}$ and
+$\|(\Pi_\eta J_\eta-J_\eta\Pi)f\|\leq3\eta^s\|f\|_{H^s}$
+yield a quantitative regional logarithm limit.  With
+$K_j=2048\,8192^j12^{j(j+1)/2}$, $r=(1+2\delta)^{-1}$ and
+$\tau_N=2r^{2N+1}/[(2N+1)(1-r^2)]$, its scalar error is at most
+\[
+ 8\sqrt\delta+4\tau_N+
+ \frac{256 B^2K_{2N}}{\delta}
+       \eta^{1/(6\,12^{2N+1})},\qquad \eta=a/R,
+\]
+where $B$ bounds the scaled shell's $H^1$ norm.  The proof supplies an
+explicit positive mesh modulus; its very large powers are retained
+symbolically, not evaluated as floating zero.
+
+Set $\rho=R/L$, choose the modulus with error target $\rho^5$, and use
+the finite entropy difference at $\theta=\rho^5$.
+Binary-channel relative entropy bounds its additional error by $|\theta|$.
+Consequently, after division by
+$(8\pi^2R^4/15)\gamma_L$, $\gamma_L=c_\gamma/(\pi^3L^4)$,
+$c_\gamma=4249388/150088295$, the extra error is at most
+$[165/(14c_\gamma)]\rho$.
+The continuum small-ball error is $C_B\rho^2$, with the same $C_B$ as
+the established Weyl stress-tomography construction.
+
+Lorentz-transforming the exterior shell preparations through the nine
+fixed observer frames preserves unit norm, changes their gradient norms
+by at most two, and leaves their support outside $L/2$.
+The actual finite entropy matrix therefore converges to
+$D_{ij}=(5/4+3n_i\cdot n_j/4)^2$.
+Its inverse infinity norm is bounded by $272/15$ for
+$\rho\leq2^{-32}$ under the stated mesh schedule.
+Each finite row uses an ordinary lattice rest ball with its specified
+observer-frame preparation.  No finite lattice boost symmetry or family
+of sharp boosted lattice algebras is asserted.
+The argument reuses the existing free-field modular theorem and the
+Einstein premise stack; it supplies a common $o(R^4)$ matter-entropy
+limit, not an area law, edge identification, Newton coefficient,
+generalized-entropy stationarity, nonzero-$U$ entropy theorem, or Einstein
+evolution.  Proof and exact controls are in
+\path{model/shrinking_modular_entropy/README.md}.

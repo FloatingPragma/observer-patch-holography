@@ -1,0 +1,51 @@
+\paragraph{Canonical continuum fields from the ordered spin ground.}
+The same field-selected cubic spin-$1/2$ antiferromagnet admits a regular
+continuum Weyl-field net with positive energy and a finite propagation cone.
+This closes a field-algebra construction; it does not supply a sharp
+particle shell or a nonzero continuum scattering amplitude.
+Write $m_s>1/1000$ for its staggered order and take smooth compact real
+test functions $F,G$. In scaled coordinates $X=px$, $T=Jpt$, define
+\[
+ Q_p(F)=p^2\sum_x(-1)^xF(px)S_x^3,
+ \qquad P_p(G)=-p\sum_xG(px)S_x^2.
+\]
+Maximality of $m_s$ among all ground states forces the central limit of
+the staggered averages to be $m_s I$: otherwise central conditioning
+would give a ground with larger order. A positive ground Hamiltonian
+acts trivially on its central subspace, so that conditioning preserves
+groundness. Consequently the limiting fields satisfy the Weyl form of
+$[Q(F),P(G)]=i m_s\int FG$.
+
+The full time-history construction uses a uniform energy estimate.
+For $A=\sum_x\theta_x S_x^a$ and the positive ground generator $K$,
+\[
+ \|[A,[K,A]]\|\le {J\over2}
+       \sum_{\langle xy\rangle}(\theta_x-\theta_y)^2=:C_A,
+ \qquad
+ \sqrt{q(e^{iA}\psi)}\le\sqrt{q(\psi)}+\sqrt{C_A/2},
+\]
+where $q(\psi)=\|K^{1/2}\psi\|^2$ for a unit vector.
+Positivity of $e^{-itA}Ke^{itA}$ proves the second inequality by its
+quadratic remainder. Each scaled field has $C_A=O(Jp)$, so every fixed
+multitime Weyl word has energy $O(Jp)$. The same estimate controls the
+macroscopic commutator phase throughout these histories and proves
+strong regularity, rather than only a vacuum commutator identity.
+
+Reflection-positive second-moment bounds give
+\[
+ \limsup\omega(P_p(G)^2)\le {1\over4}
+       \int |k|\,|\widehat G(k)|^2{d^3k\over(2\pi)^3},
+ \qquad
+ \limsup\omega(Q_p(F)^2)\le 3
+       \int {|\widehat F(k)|^2\over|k|}{d^3k\over(2\pi)^3}.
+\]
+Together with the energy estimate these bounds yield continuous space
+and time translations on the full limiting history representation.
+The retained lattice propagation bound gives locality outside the
+conservative $\ell^1$ cone of speed $72$ in $(X,T)$ units.
+The pair belongs to the residual source valley $(0,0,\pi)$;
+its spin labels are internal. A second independent pair, a common
+unbounded-field domain, Lorentz covariance, a sharp mass shell and a
+surviving connected interaction are not established by this result.
+The derivation and exact checks are in
+\texttt{model/spin\_canonical\_field}.

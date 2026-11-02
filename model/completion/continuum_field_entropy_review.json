@@ -1,0 +1,536 @@
+{
+  "schema": "oph.scoped_completion_review.v1",
+  "as_of": "2026-11-02",
+  "base_commit": "ba312dbf0674abfb8ed08366953fe5e6d3e13202",
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "scope": "FA99\u2013102 analytic constructions and finite controls. No physical endpoint or full repository CI acceptance is asserted.",
+  "components": [
+    {
+      "attachment": "FA-99",
+      "package": "ballistic_free_boundary",
+      "strict_tests_passed": 23,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/ballistic_free_boundary/results.json",
+      "sha256": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+      "current_source_bindings": 11,
+      "scope": "Analytic sufficient free-continuum class for the centered source; exact arithmetic checks are not a numerical proof of a continuum limit."
+    },
+    {
+      "attachment": "FA-100",
+      "package": "spin_canonical_field",
+      "strict_tests_passed": 22,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/spin_canonical_field/results.json",
+      "sha256": "842a0516bfce2f06faef4cddd88aa3d3cf15094b8f637af58a07445d2e2e86e3",
+      "current_source_bindings": 12,
+      "scope": {
+        "Lorentz_covariance_proved": false,
+        "canonical_pair": "Q=p^2 sum eps_x F(px) Sx^3; P=-p sum G(px) Sx^2",
+        "common_Wightman_field_domain_proved": false,
+        "effective_ordered_state_preparation_rate_proved": false,
+        "physical_species_identified": false,
+        "reference": "same maximal staggered-field-selected zero-field ground",
+        "regular_local_positive_energy_Weyl_net": true,
+        "scaled_coordinates": "X=p*x, T=J*p*t, p->0",
+        "sharp_mass_shell_proved": false,
+        "source": "same cubic antiferromagnetic spin-1/2 H_J",
+        "state_is_assumed_ergodic_or_Gaussian": false,
+        "surviving_connected_interaction_proved": false,
+        "symplectic_form": "m_s integral(F G_prime-G F_prime)",
+        "two_independent_canonical_pairs_proved": false
+      }
+    },
+    {
+      "attachment": "FA-101",
+      "package": "shrinking_modular_entropy",
+      "strict_tests_passed": 33,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/shrinking_modular_entropy/results.json",
+      "sha256": "3ad9c7f152d511e92bb43feb679ead74f3c0f49f68139396aa959cf1343627d3",
+      "current_source_bindings": 23,
+      "scope": {
+        "Einstein_endpoint_closed": false,
+        "absolute_continuum_entropy_computed": false,
+        "actual_cell_norm_used": true,
+        "area_Newton_or_stationarity_input_supplied": false,
+        "astronomical_refinement_family_numerically_executed": false,
+        "explicit_positive_symbolic_refinement_schedule": true,
+        "finite_lattice_boost_symmetry_constructed": false,
+        "finite_lattice_regions": "ordinary rest balls for every observer preparation",
+        "finite_observer_rows": "distinct Lorentz-transformed exterior shell preparations",
+        "native_entropy_circuit_executed": false,
+        "natural_exterior_shell_logarithm_control": true,
+        "nonzero_U_regional_entropy_limit_proved": false,
+        "normalized_shrinking_matter_error_tends_to_zero": true,
+        "observer_frame_preparation_matrix_invertible": true,
+        "ordinary_finite_lattice_entropy_differences": true,
+        "single_lattice_family_of_boosted_sharp_algebras_constructed": false,
+        "source_U": 0,
+        "source_valleys_retained": 8,
+        "uniform_covariance_gap_assumed": false
+      }
+    },
+    {
+      "attachment": "FA-102",
+      "package": "native_joint_spin_spectroscopy",
+      "strict_tests_passed": 22,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/native_joint_spin_spectroscopy/results.json",
+      "sha256": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd",
+      "current_source_bindings": 285,
+      "scope": {
+        "actual_executing_sources_and_control_data_bound": true,
+        "arbitrary_input_split_error_zero": false,
+        "cube_labels": "combined graph-reflection characters",
+        "finite_attachment": "FA102",
+        "ground_specific_dimer_split_error_zero": true,
+        "infinite_ground_marginal_modulus_supplied": false,
+        "native_dimer_executed": true,
+        "native_full_cube_executed": false,
+        "old_broad_receipts_replayed": false,
+        "packet_success_weight_retained": true,
+        "periodic_torus_translation_theorem_separate": true,
+        "physical_mass_identified": false,
+        "positive_complete_joint_instrument": true,
+        "sharp_scaling_shell_proved": false
+      }
+    }
+  ],
+  "new_strict_tests_passed": 100,
+  "current_component_counts": {
+    "reviewed": 102,
+    "realized_on_claimed_domain": 97,
+    "canonical_physical_discharges_added": 0,
+    "physical_comparisons_added": 0
+  },
+  "canonical_premises": 84,
+  "canonical_claim_contracts": 346,
+  "ci_status": "DEFERRED_BY_USER: new scientific and paper checks pass; legacy program-class custody tests have seven failures and full remote CI is not asserted.",
+  "integrated_physical_gate_accepted": false,
+  "focused_integration_checks": {
+    "finite_attachment_map_tests": {
+      "passed": 19
+    },
+    "claim_registry": "PASS: 346 claims and original classifications preserved",
+    "claim_views": "PASS",
+    "model_theorem_map": "PASS: 84 canonical premises, 346 claim contracts, 669 Lean modules",
+    "program_class_v2_tests": {
+      "passed": 16,
+      "failed": 7,
+      "failure": "Existing source-custody mismatch at model/local_repair_family/record_clock_results.json; deferred with the broader CI work, not bypassed."
+    },
+    "completion_program_render": "PASS after current navigation source bindings were synchronized",
+    "premise_register_render": "PASS; canonical surface remains current"
+  },
+  "independent_integration_review": {
+    "reviewer": "particle_continuation",
+    "status": "PASS",
+    "scope": "FA99-102 scientific integration and immutable contracts; not a broad CI or old receipt replay",
+    "checks": {
+      "98_prior_attachments_identically_preserved": true,
+      "102_reviewed_97_realized": true,
+      "canonical_ownership_unchanged": true,
+      "zero_physical_promotions": true,
+      "84_canonical_premise_rows_identically_preserved": true,
+      "346_claim_classifications_and_contracts_unchanged": true,
+      "program_still_undecided_in_progress": true,
+      "14_stage_contracts_statuses_unchanged": true,
+      "accepted_evidence_paths_scope_and_counts_unchanged": true,
+      "five_selected_issue_owners": true,
+      "campaign_no_integrated_acceptance": true,
+      "ballistic_free_boundary_correct_id_and_no_physical_promotion": true,
+      "ballistic_free_boundary_all_witnesses_source_bound": true,
+      "ballistic_free_boundary_campaign_statement_matches_attachment": true,
+      "ballistic_free_boundary_anchor_exists": true,
+      "ballistic_free_boundary_receipt_direct_bindings_current": true,
+      "ballistic_free_boundary_CP-06_progress_only_hash": true,
+      "ballistic_free_boundary_CP-07_progress_only_hash": true,
+      "spin_canonical_field_correct_id_and_no_physical_promotion": true,
+      "spin_canonical_field_all_witnesses_source_bound": true,
+      "spin_canonical_field_campaign_statement_matches_attachment": true,
+      "spin_canonical_field_anchor_exists": true,
+      "spin_canonical_field_receipt_direct_bindings_current": true,
+      "spin_canonical_field_CP-03_progress_only_hash": true,
+      "spin_canonical_field_CP-06_progress_only_hash": true,
+      "spin_canonical_field_CP-07_progress_only_hash": true,
+      "shrinking_modular_entropy_correct_id_and_no_physical_promotion": true,
+      "shrinking_modular_entropy_all_witnesses_source_bound": true,
+      "shrinking_modular_entropy_campaign_statement_matches_attachment": true,
+      "shrinking_modular_entropy_anchor_exists": true,
+      "shrinking_modular_entropy_receipt_direct_bindings_current": true,
+      "shrinking_modular_entropy_CP-08_progress_only_hash": true,
+      "shrinking_modular_entropy_CP-09_progress_only_hash": true,
+      "native_joint_spin_spectroscopy_correct_id_and_no_physical_promotion": true,
+      "native_joint_spin_spectroscopy_all_witnesses_source_bound": true,
+      "native_joint_spin_spectroscopy_campaign_statement_matches_attachment": true,
+      "native_joint_spin_spectroscopy_anchor_exists": true,
+      "native_joint_spin_spectroscopy_receipt_direct_bindings_current": true,
+      "native_joint_spin_spectroscopy_CP-02_progress_only_hash": true,
+      "native_joint_spin_spectroscopy_CP-03_progress_only_hash": true,
+      "native_joint_spin_spectroscopy_CP-07_progress_only_hash": true,
+      "campaign_contract_digest_current": true,
+      "continuing_observer_and_state_modulus_not_dropped": true,
+      "unexecuted_full_cube_filters_explicit": true,
+      "native_symmetry_group_is_declared": true,
+      "summary_explicit_physical_limitations": true
+    },
+    "new_receipt_hashes": {
+      "ballistic_free_boundary": "d6ed2dae45a5351ad45f48ad5ab3187428c71761be420975dfe506285cb9784a",
+      "spin_canonical_field": "842a0516bfce2f06faef4cddd88aa3d3cf15094b8f637af58a07445d2e2e86e3",
+      "shrinking_modular_entropy": "3ad9c7f152d511e92bb43feb679ead74f3c0f49f68139396aa959cf1343627d3",
+      "native_joint_spin_spectroscopy": "65ab4d94c3dbad60b5dc314edf8b7fd05e27d8a6a527236b763cdcec4b92f6bd"
+    },
+    "reviewed_file_hashes": {
+      "model/completion/finite_attachment_map.json": "57a1f3b182a822b07ffe3b9f1b4b251670439016e19f4b43516ecbca6b318b16",
+      "claims/completion_program.json": "40dbd5a6396f8a472705d54c2dc19a6c29c51b3a8305b4a279119a6d6237f3e9",
+      "claims/claim_registry.yaml": "a310c214d7f2d7153c3e00e7bb831ed3773f894828ecf3d37780c80c9b6f408b",
+      "tracking/premise_register.json": "315984851d7fab584dd13a0731f71505c9819b94998c8948b98ac314322dd2a3",
+      "model/completion/continuum_field_entropy_campaign.json": "96ef19a9fae4cb1b043826aacb41b6162381c36acbe770e6c548ce0119acbea9",
+      "model/completion/CONTINUUM_FIELD_AND_ENTROPY.md": "2bdcf9842a99f3ddaa3fac7f78d6984344ef1b39bd2501258ef23fc598a2d19c"
+    },
+    "accepted_evidence_digest_refreshes_preceding_this_integration": [
+      {
+        "stage": "CP-00",
+        "path": "model/completion/program_class_v2.json",
+        "old_sha256": "287bb2d17d0f8644d7f5a994c78eebd197d4dcae1ff095ea548154626515783a",
+        "new_sha256": "16cc44dfa1dec94ef4d9855b6a2a6cd9be6a4bd1ba39dc52103ac1b6234bb715"
+      },
+      {
+        "stage": "CP-00",
+        "path": "model/completion/program_class_v2_review.json",
+        "old_sha256": "b4736c1047ec97a92d002c6e3e1aace0f65086ebc48ff8d535ff4a94091ac650",
+        "new_sha256": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc"
+      },
+      {
+        "stage": "CP-01",
+        "path": "model/native_program/results.json",
+        "old_sha256": "89fcad6b42291b1e657456759c765801c7687e74ccdf107587efacc3f23dcf3c",
+        "new_sha256": "750a6cea4bb7cb163152b88149dbf0e47f2872aaba614e60fb34b4c3ee322547"
+      },
+      {
+        "stage": "CP-01",
+        "path": "model/completion/program_class_v2_review.json",
+        "old_sha256": "b4736c1047ec97a92d002c6e3e1aace0f65086ebc48ff8d535ff4a94091ac650",
+        "new_sha256": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc"
+      },
+      {
+        "stage": "CP-13",
+        "path": "model/completion/finite_attachment_map.json",
+        "old_sha256": "292652bb1ed5d4167f43a47dcf387b421ce31039c92dde088891bdbfe4407534",
+        "new_sha256": "57a1f3b182a822b07ffe3b9f1b4b251670439016e19f4b43516ecbca6b318b16"
+      },
+      {
+        "stage": "CP-13",
+        "path": "model/completion/program_class_v2_review.json",
+        "old_sha256": "b4736c1047ec97a92d002c6e3e1aace0f65086ebc48ff8d535ff4a94091ac650",
+        "new_sha256": "77e743d3ba867bd018db2b1704c3590fd2f47fd71ab121e93e90d13f02c344fc"
+      }
+    ],
+    "findings_resolved": [
+      "FA102 symmetry statement narrowed to a declared commuting group.",
+      "Issue1138 retains the continuing observer invariant and effective ground-selection modulus.",
+      "Issue1143 retains the unexecuted full-cube/binary-cubic native filters."
+    ],
+    "manual_mathematical_scope_review": "All four conclusions match independently reviewed proofs; no sharp spin shell, Lorentz covariance, surviving connected interaction, physical particle identification, or Einstein area/Newton/stationarity closure is promoted."
+  },
+  "publication": {
+    "PDFs": {
+      "de_sitter_time_advance_sign_from_fixed_screen_capacity": {
+        "changed": false,
+        "pages": 16,
+        "path": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf",
+        "sha256": "8a02211c1c0bf703c1f2fded54ee67892dce7efe7577d848fef8a39b28c50591"
+      },
+      "deriving_standard_model_gauge_structure_from_observer_overlap_consistency": {
+        "changed": true,
+        "pages": 105,
+        "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+        "sha256": "4402caa6398576424a78e851fd19e0942b15795a32ff419f4ac5809f129de125"
+      },
+      "deriving_the_particle_zoo_from_observer_consistency": {
+        "changed": true,
+        "pages": 85,
+        "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+        "sha256": "81dfaa339ce5d9c4181f23c171945b1423dd2b492d318dca40df32a865ea827d"
+      },
+      "executable_observer_construction": {
+        "changed": true,
+        "pages": 122,
+        "path": "paper/executable_observer_construction.pdf",
+        "sha256": "29be90a7ed1107e8625fe81639235f47a3651202f781fb65de353583bf711e1a"
+      },
+      "fine_structure_constant_derivation": {
+        "changed": false,
+        "pages": 34,
+        "path": "extra/fine_structure_constant_derivation.pdf",
+        "sha256": "ea88246386e0eaf8bd7c6208724d22d30ad37b010cddbb549cae3d29a8677685"
+      },
+      "from_observer_consensus_to_standard_physics": {
+        "changed": true,
+        "pages": 53,
+        "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+        "sha256": "4f66c7e54f4ef719914a7221d2707b23d215933ce74f76f0ac125d9cca8aeb2b"
+      },
+      "koide_identity_from_positive_c3_face_circulants": {
+        "changed": false,
+        "pages": 10,
+        "path": "extra/koide_identity_from_positive_c3_face_circulants.pdf",
+        "sha256": "a769457d459c75f9e87f7e70a268349307ae25a7ceee109676547e781213c13c"
+      },
+      "machine_checked_finite_event_algebras": {
+        "changed": false,
+        "pages": 28,
+        "path": "extra/machine_checked_finite_event_algebras.pdf",
+        "sha256": "90ac524f9c212fae80ea95ce3337d531b80466fdfe89cac8f38fb8abfd25a6c9"
+      },
+      "observable_normal_forms": {
+        "changed": false,
+        "pages": 44,
+        "path": "extra/observable_normal_forms.pdf",
+        "sha256": "116d9d4a96b2c728e51031cbb4de70d28f1c72d756c866e8ac5bb5d8ff906d15"
+      },
+      "observers_are_all_you_need": {
+        "changed": true,
+        "pages": 172,
+        "path": "paper/observers_are_all_you_need.pdf",
+        "sha256": "27cbc9a270c6a85c1b2ed96f2d8dbfed04f7790d863dae150679184a27ebad6a"
+      },
+      "oph_black_hole_information_ledger": {
+        "changed": false,
+        "pages": 12,
+        "path": "cosmology/oph_black_hole_information_ledger.pdf",
+        "sha256": "6d7cfaedeecb939af4cbbc28859a3210c4087778e8efe1c0bb3927c9e1a45537"
+      },
+      "oph_boltzmann_transport_derivation": {
+        "changed": false,
+        "pages": 12,
+        "path": "cosmology/oph_boltzmann_transport_derivation.pdf",
+        "sha256": "13445d9e68daa80dd84b7cb2622fd487034626ca5360148d186a9069d480fe85"
+      },
+      "oph_cosmological_vacuum_and_structure_formation": {
+        "changed": false,
+        "pages": 13,
+        "path": "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf",
+        "sha256": "174e5aad02e265a33988fff425e88f5e37321d1e38ca7a0bd0e9e552bda22eb9"
+      },
+      "oph_cosmology_data_likelihood_contracts": {
+        "changed": false,
+        "pages": 9,
+        "path": "cosmology/oph_cosmology_data_likelihood_contracts.pdf",
+        "sha256": "133270812cfbd0c1a41cdd62a815051b68a09b33751a2e54121f5a4e2ae5ec26"
+      },
+      "oph_cosmology_finite_source_cmb_program": {
+        "changed": false,
+        "pages": 18,
+        "path": "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+        "sha256": "bd30f30580f5e5ff5926c0558e56263bad51a94e9f1cf8c4894be62102c6217a"
+      },
+      "oph_dark_matter_paper": {
+        "changed": false,
+        "pages": 17,
+        "path": "cosmology/oph_dark_matter_paper.pdf",
+        "sha256": "5fd1414a2c037555bece87c8fef29e1be6a8808fce60cdfbf17285c46b002756"
+      },
+      "oph_inflation_without_inflaton_observer_screen_synchronization": {
+        "changed": false,
+        "pages": 24,
+        "path": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
+        "sha256": "9897e7543e84f5e9ca6e9ddcf90ee0ace47f8a063d6c2a8355907572ef472e98"
+      },
+      "reality_as_consensus_protocol": {
+        "changed": true,
+        "pages": 126,
+        "path": "paper/reality_as_consensus_protocol.pdf",
+        "sha256": "68770ccacb406b0275b6dbdfc54710134f1255f028d5fcdf18c40a80345b0807"
+      },
+      "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency": {
+        "changed": true,
+        "pages": 175,
+        "path": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
+        "sha256": "a52df69b0d472ab6bcbbf41b0c25433101d90c1454202408d5c9d5ab0431cf28"
+      },
+      "screen_microphysics_and_observer_synchronization": {
+        "changed": true,
+        "pages": 118,
+        "path": "paper/screen_microphysics_and_observer_synchronization.pdf",
+        "sha256": "5e5e2e31d4603e95abdac0f0f13d530e0add4873c2b899567fb1e4f21a788612"
+      },
+      "yang_mills_gap_clay_problem": {
+        "changed": false,
+        "pages": 26,
+        "path": "extra/yang_mills_gap_clay_problem.pdf",
+        "sha256": "17a35e0661891116a7a33ec00aebf3e499adc4203277a6f53ca6efe4a59c92e6"
+      }
+    },
+    "all_pass": true,
+    "book": {
+      "byte_identical": true,
+      "canonical": "/Users/muellerberndt/Projects/oph-meta/oph-completion-2026-11-02/book/reverse-engineering-reality-book.pdf",
+      "canonical_replaced": false,
+      "canonical_sha256": "1bc2e029fc984be9c7b7239aad4e57922f103134a9be1045f90e306ab8ea6c5c",
+      "exit_code": 0,
+      "pages": 426,
+      "scratch": "/tmp/oph-new-derivations-paper/book.pdf",
+      "scratch_sha256": "1bc2e029fc984be9c7b7239aad4e57922f103134a9be1045f90e306ab8ea6c5c"
+    },
+    "changed_PDF_count": 8,
+    "checks": {
+      "all_21_build_warning_gates_passed": true,
+      "all_21_current_PDF_hashes_match": true,
+      "all_four_new_fragment_compilations_passed": true,
+      "canonical_book_unchanged": true,
+      "current_manifest_hash_matches": true,
+      "flagship_selected_visual_review_passed": true,
+      "flagship_stays_53_pages": true,
+      "particle_selected_visual_review_passed": true,
+      "preview_command_exit_zero": true,
+      "primary_source_roots_unchanged_during_build": true,
+      "release_ID_date_unchanged": true,
+      "release_manifest_validated": true,
+      "scratch_book_byte_identical": true
+    },
+    "commands": [
+      {
+        "command": "python tools/refresh_paper_release.py --preview",
+        "exit_code": 0,
+        "log": "/tmp/oph-new-derivations-paper/preview-build.log",
+        "log_sha256": "9cc3a1d28aca1d5011f6583ce303de374417c942bb0b1edfcc2df9ba2ee80541"
+      },
+      {
+        "command": "python tools/build_book_pdf.py --output /tmp/oph-new-derivations-paper/book.pdf",
+        "exit_code": 0,
+        "log": "/tmp/oph-new-derivations-paper/book-build.log",
+        "log_sha256": "1d79623fcf597a99948a2aea6d9075be627eb666aa9c47046cd08bc1126990ce"
+      }
+    ],
+    "manifest": {
+      "path": "paper/paper_release_manifest.json",
+      "sha256": "43e384b318fcf644872861bf322061bd9fd70d22692b5ee407f3994f15196098"
+    },
+    "new_fragment_compiles": [
+      {
+        "exit_code": 0,
+        "log": "/tmp/oph-new-derivations-paper/fragments/BALLISTIC_FREE_BOUNDARY/build.log",
+        "name": "BALLISTIC_FREE_BOUNDARY",
+        "sha256": "47f92e69f03671196ad68b2ad8f9bb58f11944b16dd80e8719e5b3810c5057b1",
+        "typesetting_warnings": []
+      },
+      {
+        "exit_code": 0,
+        "log": "/tmp/oph-new-derivations-paper/fragments/SPIN_CANONICAL_FIELD/build.log",
+        "name": "SPIN_CANONICAL_FIELD",
+        "sha256": "6f7553682886399f9ace1b301372bc7c5170d260eb0fc711c413a2de687930e2",
+        "typesetting_warnings": []
+      },
+      {
+        "exit_code": 0,
+        "log": "/tmp/oph-new-derivations-paper/fragments/SHRINKING_MODULAR_ENTROPY/build.log",
+        "name": "SHRINKING_MODULAR_ENTROPY",
+        "sha256": "e9409d6d3c40161af3474405eed3ca872b2a03431355713846c61583bcb45bf5",
+        "typesetting_warnings": []
+      },
+      {
+        "exit_code": 0,
+        "log": "/tmp/oph-new-derivations-paper/fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY/build.log",
+        "name": "NATIVE_JOINT_SPIN_SPECTROSCOPY",
+        "sha256": "0a79ac5b8caf3e4695a0f9652dfce8385881c10ef350753c1146b7915c4c278d",
+        "typesetting_warnings": []
+      }
+    ],
+    "registered_PDF_count": 21,
+    "release": "r2057",
+    "render_manifest": "/tmp/oph-new-derivations-paper/render-manifest.json",
+    "render_manifest_sha256": "062e7e66231c401df4de35a588fb0e7df8ef8a5d85c13cd62a8d75095a36bd9a",
+    "scope": "Same-release local paper preview and selected-page visual validation; not repository CI or publication",
+    "visual_review_scope": "Twelve pages total: changed flagship premises/conclusion and particle abstract/shared-summary, each with adjacent transition pages; not all pages of all PDFs.",
+    "visual_reviews": {
+      "flagship": {
+        "findings": "No clipped text/equations, overlapping layout, missing glyphs or broken transitions on the six rendered pages.",
+        "page_png_sha256": {
+          "31": "6cb754b8a89457fd6adcbd225054bc78d9f6eea7e77a67ca13ec138dc11a1d59",
+          "32": "6837390cd14260048624b33668bb10ce3762c3af4929b636a862c8f776a84280",
+          "33": "e91b1c4cf04753dce3fe0d59553105d03345c79a0b881aec909527d12138ac66",
+          "44": "6be19f88ca81826d6de1217c6bc2ad9c2baa779f110b446531e450fae8a761bb",
+          "45": "2a02c1a742158c809f21b4c7a36e9b8bf91eafdf43c00733b8b11849c3400cea",
+          "46": "3fd9c26f2b5dd70cbedd9aa904f8a0177986c25648ab0879f7049b8576470118"
+        },
+        "pages": [
+          31,
+          32,
+          33,
+          44,
+          45,
+          46
+        ],
+        "pdf_sha256": "4f66c7e54f4ef719914a7221d2707b23d215933ce74f76f0ac125d9cca8aeb2b",
+        "reviewer": "gravity_continuation",
+        "scope": "selected changed flagship passages and adjacent pages, not a full-paper visual review",
+        "visual_pass": true
+      },
+      "particle": {
+        "checks": [
+          "abstract and shared-summary updates readable",
+          "no clipped text or overlapping equations",
+          "margins headers footers and page transitions consistent",
+          "new shell/interaction and geometry limitations retained"
+        ],
+        "defects": [],
+        "pages_reviewed": [
+          {
+            "page": 1,
+            "png": "/tmp/oph-new-derivations-paper/deriving_the_particle_zoo_from_observer_consistency/page-001.png",
+            "png_sha256": "8159f7aeffdb50280323f830beefc2ff7cb2f27d6dc774d82bb9a46de35d56ab"
+          },
+          {
+            "page": 2,
+            "png": "/tmp/oph-new-derivations-paper/deriving_the_particle_zoo_from_observer_consistency/page-002.png",
+            "png_sha256": "e351ac6f5f218dfd179081f4b1b1992a4c8784a67c7561a76695986beea2d0e6"
+          },
+          {
+            "page": 3,
+            "png": "/tmp/oph-new-derivations-paper/deriving_the_particle_zoo_from_observer_consistency/page-003.png",
+            "png_sha256": "ae488c96936cd77bae0c54dd1c95a3960d051e0fc0b5cee67b9d885173cff659"
+          },
+          {
+            "page": 49,
+            "png": "/tmp/oph-new-derivations-paper/deriving_the_particle_zoo_from_observer_consistency/page-049.png",
+            "png_sha256": "af437db2027ed2955576cbc20f1fd2e6c9c92e067bea04772dfa30bb73581970"
+          },
+          {
+            "page": 50,
+            "png": "/tmp/oph-new-derivations-paper/deriving_the_particle_zoo_from_observer_consistency/page-050.png",
+            "png_sha256": "5fefbc8f382eccedfb7cf75ce2d93c7b65f751c21f1cbd56c0fcc092ee8a7078"
+          },
+          {
+            "page": 51,
+            "png": "/tmp/oph-new-derivations-paper/deriving_the_particle_zoo_from_observer_consistency/page-051.png",
+            "png_sha256": "13db5883bd15538fd36032b774620044988cf72b874f7b51f01660e7cbc62596"
+          }
+        ],
+        "pdf": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+        "pdf_sha256": "81dfaa339ce5d9c4181f23c171945b1423dd2b492d318dca40df32a865ea827d",
+        "render_manifest_sha256": "062e7e66231c401df4de35a588fb0e7df8ef8a5d85c13cd62a8d75095a36bd9a",
+        "review_kind": "independent visual inspection of every listed rendered page",
+        "reviewer": "particle_continuation",
+        "status": "PASS",
+        "total_pages_from_render_manifest": 85
+      }
+    }
+  },
+  "preexisting_maintenance_review": {
+    "path": "model/completion/evidence_maintenance_transitions.json",
+    "sha256": "add2bd4d6e0171f3141d5af77a49ecaf4781f41401543015bd08e7f94596d24a",
+    "status": "DEFERRED_BY_USER; historical complete and interrupted checks distinguished"
+  },
+  "publication_record_sha256": "edb65a0a9e23e79b1793d61354c1347aba58626d0f94792fa7942daeafef5795"
+}

@@ -1,0 +1,238 @@
+{
+  "schema": "oph.scoped_completion_review.v1",
+  "as_of": "2026-11-02",
+  "base_commit": "ba312dbf0674abfb8ed08366953fe5e6d3e13202",
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "scope": "New mathematical components and their integration. Full repository evidence maintenance and remote CI are separate checks; no physical completion is asserted.",
+  "components": [
+    {
+      "package": "lattice_modular_limit",
+      "strict_tests_passed": 27,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/lattice_modular_limit/results.json",
+      "sha256": "4640b95450b6cde614f73b1a5572a96fb56dd945c1f8052d0c6923790d81da7f",
+      "current_source_bindings": 18,
+      "new_checks_pass": true,
+      "all_pass": false,
+      "historical_custody_policy": "Historical snapshots retain their original limited status; current direct source checks are independent."
+    },
+    {
+      "package": "spin_particle_scaling",
+      "strict_tests_passed": 22,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/spin_particle_scaling/results.json",
+      "sha256": "d8983d6b54975cbf40958b59b197915e2b512f0ba31c8a05dfbd04c254a3cc27",
+      "current_source_bindings": 17,
+      "new_checks_pass": true,
+      "all_pass": false,
+      "historical_custody_policy": "Historical snapshots retain their original limited status; current direct source checks are independent."
+    },
+    {
+      "package": "native_ordered_ground",
+      "strict_tests_passed": 28,
+      "independent_mathematical_and_code_review": "PASS",
+      "cold_replay": "PASS",
+      "receipt": "model/native_ordered_ground/results.json",
+      "sha256": "9fea45cdfa35ff148e9009a730a3e866615de823626b394fc4961694bb4eb6ae",
+      "current_source_bindings": 276,
+      "new_checks_pass": true,
+      "all_pass": true,
+      "historical_custody_policy": "Current executing sources and exact input data are bound; no historical broad replay is claimed."
+    }
+  ],
+  "component_strict_tests_passed": 77,
+  "diagnostic_strict_tests_passed": 24,
+  "new_strict_tests_passed": 101,
+  "open_mass_shell_diagnostic": {
+    "receipt": "model/spin_shell_diagnostic/results.json",
+    "sha256": "940cf7dc2b0d0fa7002c6ac0cc6e10c0ab0a28c24a2886f2149f4e1fc649efc0",
+    "strict_tests_passed": 24,
+    "independent_strict_tests_passed": 24,
+    "independent_mathematical_and_code_review": "PASS",
+    "fresh_process_producer_and_cold_check": "PASS",
+    "current_source_bindings": 19,
+    "mass_shell_established": false,
+    "new_realized_attachment": false
+  },
+  "independent_integration_review": {
+    "status": "PASS",
+    "scope": "Initial FA96-98 integration; final current-reference maintenance and open diagnostic integration are checked separately.",
+    "checks": 835,
+    "audit_sha256": "38ad8422659e592a6114aa541fea29314c4d6905498786cb42afe68851deff1a",
+    "canonical_premise_rows_preserved": 84,
+    "canonical_claim_contracts_preserved": 346,
+    "prior_attachment_bodies_preserved": 95,
+    "stage_acceptance_statuses_preserved": true,
+    "proof_scope_review": "PASS"
+  },
+  "current_component_counts": {
+    "reviewed": 98,
+    "realized_on_claimed_domain": 93,
+    "canonical_physical_discharges_added": 0,
+    "physical_comparisons_added": 0
+  },
+  "publication": {
+    "primary_roots": [
+      {
+        "paper": "deriving_standard_model_gauge_structure_from_observer_overlap_consistency",
+        "pages": 105,
+        "source_sha256": "77800896b23ce8f9b60bc2c450957f449ca1c271c435299cfbadc7aa75ef1cfd",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "deriving_the_particle_zoo_from_observer_consistency",
+        "pages": 85,
+        "source_sha256": "c815eb2a085980fac25ab881405c2ddae880c0d43e0ec0d3ec180c9211bef20f",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "executable_observer_construction",
+        "pages": 122,
+        "source_sha256": "376f354f1e3adb198bacb161a9a3b59ecdc4bed978f6bf796cd00444474a96bb",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "from_observer_consensus_to_standard_physics",
+        "pages": 53,
+        "source_sha256": "175ddf26bd7e60b0693baa8a88c63dfaf3c33ec97adb2e5d900228516d82ee1c",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "observers_are_all_you_need",
+        "pages": 172,
+        "source_sha256": "025a0a8f07cfc68d4086c171e2df5857c01caf00a27a27a17113bfb21783842a",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "reality_as_consensus_protocol",
+        "pages": 126,
+        "source_sha256": "1996197344ce0b3487717237859f5e3074d14d6354352a13b5e2080ca3c2456e",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency",
+        "pages": 176,
+        "source_sha256": "f3417787a3a121e3a219bfc541e4d86eec4215d3db9ce547d5a7b2b8bf996c69",
+        "aux_compile": "PASS"
+      },
+      {
+        "paper": "screen_microphysics_and_observer_synchronization",
+        "pages": 118,
+        "source_sha256": "21aa0ab0e334b44aec08769f312b1d06f49af1c342d1ab5e5f5b195602301712",
+        "aux_compile": "PASS"
+      }
+    ],
+    "new_fragments_compiled": 3,
+    "mode": "AUX source checks followed by same-release preview rebuild and visual inspection; release identifier unchanged.",
+    "flagship_pages_before": 53,
+    "flagship_pages_after": 53,
+    "preview_rebuild": {
+      "scope": "Same-release paper previews; no release bump or new physical acceptance.",
+      "release_id": "r2057",
+      "release_info_unchanged": true,
+      "registered_paper_previews_built": 21,
+      "warning_gate_pass": true,
+      "manifest_validation_pass": true,
+      "second_build_all_21_PDFs_and_manifest_byte_identical": true,
+      "canonical_book_matches_scratch_rebuild": true,
+      "flagship_pages": 53,
+      "changed_PDFs": [
+        {
+          "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+          "sha256": "f764cfd32c173ca2319045ff296a6c246c2ade87b64f7d7641fc9b8fcc8860b8",
+          "pages": 53,
+          "rendered_pages": [
+            1,
+            32,
+            45
+          ]
+        },
+        {
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "sha256": "172c24f90baf2e20626f36455014dbc3fac87f30f5ae4d9ec0001ca7d155f96e",
+          "pages": 85,
+          "rendered_pages": [
+            1,
+            50,
+            51
+          ]
+        },
+        {
+          "path": "paper/observers_are_all_you_need.pdf",
+          "sha256": "81c3cdcb3753126706a63cafbd7421d82831263a6fa5ff63d1a1977158929c60",
+          "pages": 172,
+          "rendered_pages": [
+            1,
+            50,
+            51
+          ]
+        },
+        {
+          "path": "paper/executable_observer_construction.pdf",
+          "sha256": "192f0c83e96d42f7ab6391eb8de32a45f7ab839ba0892f6e2527b6266f9e5956",
+          "pages": 122,
+          "rendered_pages": [
+            1,
+            49,
+            50
+          ]
+        },
+        {
+          "path": "paper/reality_as_consensus_protocol.pdf",
+          "sha256": "71a1c9ba8e2c767ae554a22258475283049aea8d4fe096385bde6ef7e2fc14b8",
+          "pages": 126,
+          "rendered_pages": [
+            1,
+            50
+          ]
+        },
+        {
+          "path": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
+          "sha256": "019bc542f65f8e7b774ec57e3e7d44fc65986c13c6bab008550f749a0c57fff3",
+          "pages": 176,
+          "rendered_pages": [
+            1,
+            50,
+            51
+          ]
+        },
+        {
+          "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+          "sha256": "a0a93f23558ce83d42d999e90c32d3abeb9b7300134f9cb0d5e813772c875e89",
+          "pages": 105,
+          "rendered_pages": [
+            1,
+            50
+          ]
+        },
+        {
+          "path": "paper/screen_microphysics_and_observer_synchronization.pdf",
+          "sha256": "9500d168754ec38ab262f01c2c8db37d09638f9ea056b46369d60fcd05988e03",
+          "pages": 118,
+          "rendered_pages": [
+            1,
+            50,
+            51
+          ]
+        }
+      ],
+      "visual_review": "Affected particle/modular summaries, their shared page layouts, flagship gravity diagram and summaries, and particle abstract are legible without clipping or overlap. Unchanged pages were not individually reinspected.",
+      "manifest_sha256": "a9cb4eadb990110da7ae68c3a50a6982de86134b2a83e0a88e67a26695187726"
+    }
+  },
+  "ci_design": {
+    "new_workflows": 0,
+    "new_jobs": 0,
+    "coverage": "Existing completion job runs strict tests and cold checks for FA92\u201398 and the open spin-shell diagnostic; live evidence maintenance retains producers and independent checkers."
+  },
+  "physical_completion": false,
+  "remaining": "Interacting relativistic 3+1 field algebra with massive and massless sectors, physical species and independent mass calibration, effective preparation where finite cost is claimed, and common Einstein area/stationarity/metric-response premises."
+}

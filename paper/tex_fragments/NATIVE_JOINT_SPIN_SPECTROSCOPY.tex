@@ -1,0 +1,32 @@
+\paragraph{Joint native spin spectroscopy.}
+For the selected finite spin Hamiltonian
+$H_B=J\sum_{\langle xy\rangle}(\mathbf S_x\cdot\mathbf S_y-1/4)
+-B\sum_x\epsilon_xS_x^1$, each coordinate reflection of the open two-cube,
+combined with the global Pauli $Z$, commutes with $H_B$.
+Marshall conjugation converts this action to ordinary graph reflection,
+so positivity and uniqueness fix the ground character.
+The resulting projectors $Q_k$ and positive finite-clock effects
+\[
+ F_j(K)=\left|\frac1M\sum_{r=0}^{M-1}
+ e^{2\pi i jr/M}e^{-ir\tau K}\right|^2,
+ \qquad K=H_B-E_0\geq0,
+\]
+give a complete joint instrument: $\sum_{k,j}Q_kF_j(K)=I$.
+The full 256-state source certificate yields rigorous intervals for all
+eight reflection characters and four energy bins, without choosing an
+eigenbasis inside degenerate levels.  These are graph-symmetry labels;
+combined translations on even periodic tori are a separate construction.
+
+Controlled Pauli rotations use
+$e^{i\theta P/2}e^{-i\theta Z_cP/2}$, including scalar terms.
+An exchange of duration $\pi/J$ is an exact logical site swap.
+These identities compile the group and energy clocks into the same
+six-level source.  A complete two-site execution retains all 128 work
+rows, 19,228 pulses and every first-failure output.  Its transverse-probed
+ground is annihilated separately by exchange and the selected field,
+so its prepared-state splitting error is exactly zero; the generic
+operator splitting bound is retained separately.
+For a finite packet $A_f$, coherent site selection has success Kraus
+operator $A_f/\lambda$, where $\lambda=\sum_x|f_x|/2$; failed selections
+and the normalization cost are explicit.  Finite clock bins neither
+prove a sharp scaling shell nor identify relativistic masses.

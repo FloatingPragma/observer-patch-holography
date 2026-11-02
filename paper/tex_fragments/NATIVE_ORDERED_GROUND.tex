@@ -1,0 +1,30 @@
+% Standalone component proof summary; detailed proof and executable certificate in model/.
+\paragraph{Native preparation of the ordered-ground inputs (FA98).}
+For a finite bipartite spin sample, let
+$H_B=J\sum_{xy}(S_x\cdot S_y-1/4)-B\sum_x\epsilon_xS_x^1$,
+with rational $J,B>0$. Marshall conjugation makes every exchange and
+single-flip off-diagonal entry nonpositive. For $N$ sites and $E$ edges,
+put $s=JE+BN$, $\alpha=(B/(2s))^N$, and
+$\kappa=\alpha^2/2^N$. Positive padded hypercube paths and the Perron
+stochastic transform give
+\[
+ \operatorname{gap}(H_B)\ge s\kappa/N,\qquad
+ \|\widehat{(I-H'_B/s)^{mN}{\bf1}}-v_B\|
+ \le2\sqrt{2^N}(1-\kappa)^m.
+\]
+Thus exact integer power iteration terminates at every requested ground
+precision. Rational square-root and alternating-arctangent intervals give
+the amplitude-tree angles; exact Walsh synthesis and FA93's port controller
+bound the complete preparation error by
+$\varepsilon+N2^{-b}+29P2^{-p}$ for $P$ native pulses.
+The retained eight-site, $J=1,B=1/4$ certificate checks all 256 eigenvectors
+and executes 1,090 pulses, including a spin pointer and all failure outputs.
+Its ground energy lies in
+$[-8.2399123998819,-8.2399123998817]$ in selection-Hamiltonian units.
+For a local contraction supported on $s_A$ sites, the prepared source
+ground defect is at most
+$Bs_A+24Js_A\varepsilon+6J/E$.
+Ordered thermodynamic and zero-field limits therefore supply the finite
+preparation inputs to FA92, without an oracle for ground amplitudes.
+No effective thermodynamic convergence rate, relativistic rest mass or
+autonomous invariant observer is asserted.

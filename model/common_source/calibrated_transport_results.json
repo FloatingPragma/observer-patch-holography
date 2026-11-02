@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "calibrated_transport_results.npz",
-    "sha256": "abda1e9763c1d067e5aeb87d03b6068813d925d16a4ace780895f6aaee9294ff"
+    "sha256": "8c640258bcc668ac83b219a6959056d088fab171d0ea8bb02fc29a64a1a934d0"
   },
   "common_clock": {
     "global_energy_dictionary": "1GeV/log(5)",
@@ -14,43 +14,43 @@
       "axis": "x",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "1",
-      "source_frame_electric_charge_difference_diagnostic": 6.104375573512137e-15,
-      "source_frame_symbol_difference_diagnostic": 4.853211284746541e-13
+      "source_frame_electric_charge_difference_diagnostic": 4.3176471349999306e-15,
+      "source_frame_symbol_difference_diagnostic": 3.2362280688921265e-13
     },
     {
       "axis": "y",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "1",
-      "source_frame_electric_charge_difference_diagnostic": 6.049615391635128e-15,
-      "source_frame_symbol_difference_diagnostic": 4.563674395505026e-13
+      "source_frame_electric_charge_difference_diagnostic": 4.1846934446557726e-15,
+      "source_frame_symbol_difference_diagnostic": 2.629017381153818e-13
     },
     {
       "axis": "z",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "1",
-      "source_frame_electric_charge_difference_diagnostic": 6.0684727055015705e-15,
-      "source_frame_symbol_difference_diagnostic": 4.556344027221067e-13
+      "source_frame_electric_charge_difference_diagnostic": 4.173536888866592e-15,
+      "source_frame_symbol_difference_diagnostic": 2.5747046917740295e-13
     },
     {
       "axis": "x",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "2",
-      "source_frame_electric_charge_difference_diagnostic": 6.104375573512137e-15,
-      "source_frame_symbol_difference_diagnostic": 4.85367918861391e-13
+      "source_frame_electric_charge_difference_diagnostic": 4.3176471349999306e-15,
+      "source_frame_symbol_difference_diagnostic": 3.236912070431709e-13
     },
     {
       "axis": "y",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "2",
-      "source_frame_electric_charge_difference_diagnostic": 6.049615391635128e-15,
-      "source_frame_symbol_difference_diagnostic": 4.564049852094131e-13
+      "source_frame_electric_charge_difference_diagnostic": 4.1846934446557726e-15,
+      "source_frame_symbol_difference_diagnostic": 2.6291423603902704e-13
     },
     {
       "axis": "z",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "2",
-      "source_frame_electric_charge_difference_diagnostic": 6.0684727055015705e-15,
-      "source_frame_symbol_difference_diagnostic": 4.556577810027858e-13
+      "source_frame_electric_charge_difference_diagnostic": 4.173536888866592e-15,
+      "source_frame_symbol_difference_diagnostic": 2.575940318968154e-13
     }
   ],
   "dispersion_from_records": [
@@ -245,20 +245,20 @@
     },
     {
       "energy_interval_GeV": [
-        "38685655707337768346005801/38685626408467424766190465",
-        "38685655825684708149172099/38685625971051225917265969"
+        "38685655707337768349908163/38685626408467424766190465",
+        "38685655825684708144068019/38685625971051225917265969"
       ],
       "energy_interval_numeric_GeV": [
         1.0000007573580438,
         1.000000771724193
       ],
       "invariant_mass_interval_GeV": [
-        "30768456467031/25000000000000000",
-        "1242356221664181/1000000000000000000"
+        "615369129340661/500000000000000000",
+        "621178110832037/500000000000000000"
       ],
       "invariant_mass_interval_numeric_GeV": [
-        0.00123073825868124,
-        0.001242356221664181
+        0.001230738258681322,
+        0.001242356221664074
       ],
       "label": "up_0",
       "momentum_GeV": "1",
@@ -266,16 +266,16 @@
     },
     {
       "energy_interval_GeV": [
-        "91209123688605379072154711/77371252816934849532380930",
-        "45604561989972524641149766/38685625971051225917265969"
+        "45604561844302689539961496/38685626408467424766190465",
+        "45604561989972524645033890/38685625971051225917265969"
       ],
       "energy_interval_numeric_GeV": [
         1.178850288290042,
         1.178850305384713
       ],
       "invariant_mass_interval_GeV": [
-        "624249951703254329/1000000000000000000",
-        "124849996797057429/200000000000000000"
+        "62424995170325433/100000000000000000",
+        "312124991992643573/500000000000000000"
       ],
       "invariant_mass_interval_numeric_GeV": [
         0.6242499517032544,
@@ -287,15 +287,15 @@
     },
     {
       "energy_interval_GeV": [
-        "6572399342058480926541127318/38685626408467424766190465",
-        "13144798684407533918338812281/77371251942102451834531938"
+        "6572399342058480926543097727/38685626408467424766190465",
+        "13144798684407533918342753099/77371251942102451834531938"
       ],
       "energy_interval_numeric_GeV": [
         169.8925402593437,
         169.89254218406464
       ],
       "invariant_mass_interval_GeV": [
-        "84944798598520310359/500000000000000000",
+        "169889597197040620719/1000000000000000000",
         "169889599121794924647/1000000000000000000"
       ],
       "invariant_mass_interval_numeric_GeV": [
@@ -624,7 +624,7 @@
   ],
   "dyadic_levels": 31,
   "error_contract": {
-    "backend_complete_score_bias_diagnostic": "7/1099511627776",
+    "backend_complete_score_bias_diagnostic": "1/274877906944",
     "backend_diagnostics_authenticated_by_replay": false,
     "backend_pair_error_diagnostic": "1/1099511627776",
     "binary_all_column_pair_error_admission": "1/10000000000",
@@ -2323,7 +2323,7 @@
   "frame_source_word_grammar": {
     "FSWAP_calls_per_frame": 14142,
     "all_field_frame_arrays_materialized": false,
-    "backend_FSWAP_error_diagnostic": "3013/1000000000000000000",
+    "backend_FSWAP_error_diagnostic": "387/125000000000000000",
     "exact_binary_FSWAP_operator_error_upper": "1/10000000000000",
     "factor_count": 897,
     "factor_plan": [
@@ -18106,7 +18106,7 @@
     "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
     "code/a5_closure/manifests/echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "docs/INTERPRETATION_AND_TERMS.md": "d7ced4cd1b1480b228037e960250c87f47bf57bc59232207b1050806aaa1f19f",
     "docs/research/COHERENT_SOURCE_CLOCKS.md": "3daa10fa2fe85979c55e72e8dee18649d80d276b85db4654fa2d5097c98b5557",
@@ -18285,7 +18285,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_particles/neutrino_action_extension.py": "22bdb38199f8b90cad5414578202fa19b9c7f976ce09d4e645b032e8816f4f37",
     "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
@@ -18306,11 +18306,11 @@
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
     "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
     "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
     "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
-    "requirements.txt": "f116bec13d89a098f6523a26eede8280021585a32ec3294fc3f7174d6cd0ec09",
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "source_resources": {

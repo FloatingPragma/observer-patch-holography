@@ -174,35 +174,29 @@ analytic error bound. Neither calculation transfers its reference or detector
 interpretation to the half-filled particle candidates, or supplies an
 asymptotic physical cross section.
 
-## Ordered spin observations and spatial labels
+## Ordered spin preparation, spectral scaling and modular limits
 
-The [ordered spin sector](../spin_goldstone_sector/README.md) uses the exact
-fixed-spacing Heisenberg interaction of the protected source limit. Infinitesimal
-staggered fields select states; they are not added to the limiting source
-Hamiltonian. Nonzero positive-energy packet weight approaching zero is proved
-in the selected ground. This does not identify every original finite-source
-ground subsequence with that ordered state.
+The [native ground construction](../native_ordered_ground/README.md) computes
+and prepares finite positive-field grounds with no supplied-amplitude oracle.
+The selected ordered state uses thermodynamic then zero-field limits; an
+effective approximation modulus for a chosen infinite marginal remains open.
+Native local histories retain explicit dyadic precision and completed-gate
+repair scheduling. Finite selection-field states are not claimed stationary
+for zero-field source dynamics.
 
-The [native local-observer construction](../native_spin_observer/README.md)
-executes complete finite words and controls finite local histories uniformly in
-an entangled reference. It takes supplied local marginals or prepares a stated
-Neel product. Its arbitrary-accuracy family requires the explicit dyadic port
-controller; the retained binary64 examples do not supply unbounded precision.
-Repairs occur between complete encoded gate words. This schedule and apparatus
-must accompany the observation claim.
+The [two transverse channels](../spin_particle_scaling/README.md) have source
+momenta exchanged by a fourfold rotation, opposite circular charges, spectral
+weight proportional to momentum scale, and nonzero finite rescaled measures.
+The source diagonal bounds normalized readouts; it does not assume a known
+state-preparation rate or establish a sharp relativistic pole/field algebra.
 
-[Actual cubic rotation labels](../cubic_particle_channels/README.md) use the
-original Weyl-spinor spatial action about the center of the same finite cube.
-Hidden internal spin is not substituted for it. The lowest neutral triplet is
-A1+E, and every local charged line has G1+G2+H visible channels. These labels
-constrain a particle dictionary but do not determine continuum spin or units.
-
-The [lattice stress refinement](../lattice_weyl_response/README.md) is a separate
-U=0 specialization on the free filled-band ground. It realizes the specified
-shell response family with finite-site symmetric stress detectors. These
-lab-slice probes are not the logarithms of boosted lattice regional states.
-The bounds must be extended before composing with nonzero-U composite stress,
-area/edge entropy and the Einstein stack's common geometric response premises.
+The [regional modular limit](../lattice_modular_limit/README.md) uses precisely
+the U=0 filled-band source and retains all eight valleys. Actual finite-region
+modular flow converges on fixed probes without a uniform covariance gap;
+unbounded generators converge on matched graph-core inputs. Selected local
+unitary relative entropies converge. The existing controlled stress responses
+remain valid. The region is fixed in the new theorem: a joint boosted-region,
+area/edge entropy, stationarity and responsive metric join is still required.
 
 ## Support refinement
 

@@ -1,0 +1,143 @@
+{
+  "algebra": {
+    "cell_norm_and_occupation_are_distinct": true,
+    "exact_controls": {
+      "block_Douglas_identity": true,
+      "four_point_Wick_determinant": true,
+      "full_Fock_state_normalized": true,
+      "local_state_Hermitian": true,
+      "local_state_normalized": true,
+      "no_quadratic_parameter_term": true,
+      "pure_projection": true,
+      "rank_one_Wick_covariance": true
+    },
+    "exterior_occupation": "81936/105625",
+    "global_affine_pure_vacuum_family_asserted": false,
+    "observer_response_determinant": "24407490807/2000000000",
+    "observer_response_inverse_norm": "68/5",
+    "regional_covariance_diagonal": [
+      "9/25",
+      "25/169"
+    ]
+  },
+  "bounds": {
+    "chosen_epsilon_and_theta": "(R/L)^5",
+    "entropy_scalar_error": "8sqrt(delta)+4tau_N+256B^2*K_(2N)*eta^(1/(6*12^(2N+1)))/delta",
+    "matrix_Neumann_budget": "343989507429/536793602588672",
+    "matrix_inverse_infinity_norm_upper": "272/15",
+    "modulus_example": {
+      "B": "6",
+      "delta": "1/4096",
+      "endpoint_error_upper": "1/8",
+      "epsilon": "1/2",
+      "mesh_float_value_supplied": false,
+      "mesh_is_strictly_positive": true,
+      "mesh_normalization_bound": "1/36",
+      "mesh_power_base": 12,
+      "mesh_power_base_numerator_over_K": "1/301989888",
+      "mesh_power_exponent": 262145,
+      "mesh_power_factor": 6,
+      "mesh_representation": "min(normalization_bound,(base_over_K/K_depth)^(6*12^(depth+1)))",
+      "regularity": {
+        "K_12_exponent": 34359869440,
+        "K_8192_exponent": 262144,
+        "K_prefactor": 2048,
+        "holder_denominator_base": 12,
+        "holder_denominator_exponent": 262145,
+        "holder_denominator_factor": 6
+      },
+      "series_error_upper": "1/8",
+      "series_terms": 131072,
+      "spatial_error_upper": "1/8",
+      "total_error_upper": "3/8"
+    },
+    "modulus_formula_valid_for": "0<epsilon<=1, B>=1",
+    "natural_shell_defect_constant": 8,
+    "natural_shell_log_tail_constant": 2,
+    "normalized_ball_error_coefficient": "100699527474378178560/1062347",
+    "normalized_entropy_error_coefficient": "321617775/772616",
+    "positive_mesh_materialized_as_float": false,
+    "projector_Hs_constant": 3,
+    "radius_ratio": "1/4294967296",
+    "regional_defect_constant": 12,
+    "sharp_ball_Hs_to_Hs_over_12_constant": 2048
+  },
+  "controls": {
+    "endpoints": {
+      "arbitrary_unweighted_probe_claim_rejected": true,
+      "uniform_covariance_gap_used": false,
+      "weighted_endpoint_pairs_checked": 28
+    },
+    "entropy": {
+      "finite_Gibbs_entropy_identity_checked": true,
+      "full_16_dimensional_Fock_reduction_checked": true,
+      "numerical_identity_absolute_tolerance": "1e-12",
+      "numerical_values_used_as_proof": false,
+      "occupation_in_place_of_cell_norm_rejected": true,
+      "rank_one_quasifree_density_checked": true,
+      "two_sided_entropy_difference_checked": true
+    },
+    "projectors": {
+      "all_eight_valleys_checked": true,
+      "finite_low_frequency_pairs": 128,
+      "high_frequency_aliases_removed_from_source": false
+    }
+  },
+  "custody": {
+    "current_narrow_mathematical_sources_checked": true,
+    "historical_receipts_reinterpreted": false,
+    "new_proof_requires_no_runtime_Git_history": true,
+    "predecessor_full_repository_receipts_replayed": false,
+    "scope": "new analytic proof, exact finite controls and recorded numerical diagnostics only"
+  },
+  "finite_attachment": "FA101",
+  "full_repository_replay_performed": false,
+  "new_checks_pass": true,
+  "schema": "oph.shrinking_modular_entropy.v1",
+  "source_bindings": {
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "a724da9e9a5a9e90aa80adb2833353370d5991180b89f7a634cf27e43e10f631",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean": "4cf17368329e6237e5b3f71b444d9b95dc6607a05b24ce24ae655b7da2478971",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/continuum_field_net/cells.py": "a6da38a2db3f48613cbb53e1b79a959327d705dfc4c8b1b64dfcfeb88e65ed1d",
+    "model/lattice_modular_limit/README.md": "fe247f6c8b783e174eefb78dfb6e24c78aec144a05267abc2f76f112fdf9e3c4",
+    "model/lattice_weyl_response/README.md": "cdd77f09bbe4045cc8b4ce0b1000bb987b9aecd489d336d1b4ba40b085b6932a",
+    "model/lattice_weyl_response/algebra.py": "030f3798aab3c433f532bfd1dbf69cd6572b4e234a25a071a569c88b0debbedc",
+    "model/shrinking_modular_entropy/README.md": "527a8c1bb064bd7749d81e6fe41c4e44a4dd7c827d94fc4a03079b3b8b075167",
+    "model/shrinking_modular_entropy/__init__.py": "ab7cd32270c4b2e2f2d48c67ddab7782721f29d2f2dcbb992f52a10f13df7107",
+    "model/shrinking_modular_entropy/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/shrinking_modular_entropy/algebra.py": "a579b2ba8b66820bac7284fb41c59c7bc60df25395e7c580c54f49a7b51fa36d",
+    "model/shrinking_modular_entropy/bounds.py": "47bfc56ce1fed8ef677f00091807b25e4981f9b0362622e3ae7152bac90cb165",
+    "model/shrinking_modular_entropy/controls.py": "5919708d9ee57c864862cacde5b79b7ad897df1d1d40ced51ff5e662f0f0442c",
+    "model/shrinking_modular_entropy/packet.py": "752fb130ab1de78d4b16fff26ac00a7caf0a21c4d962bf59ed1e34a6ff718514",
+    "model/shrinking_modular_entropy/test_algebra.py": "46c9aed2f4ebb8f0e023146d3739dc9beabc527c5e25a17406f1798dab401376",
+    "model/shrinking_modular_entropy/test_bounds.py": "917712d963b873ef6e63fd172ced21d46ed0efd0097c536b26d32b9b7492ff50",
+    "model/shrinking_modular_entropy/test_packet.py": "1a54aec565e3f8515c678fe5675e3eabbb4554f762e828234c9be962b6de2065",
+    "model/weyl_geometric_modular/README.md": "9719715b8256462c07a504d8cc2c326f3dd75d1ea787c77ab39ab59bd4ec073b",
+    "model/weyl_gravity_response/README.md": "74de2795c327e01dd28b1ebf9bef0920ba240804f22c187f1325dc80598002d8",
+    "model/weyl_gravity_response/algebra.py": "8e6ee9970fedc0afd7c042227e1fd6a67ea138e8c2193a055b338839e3d18f6e",
+    "model/weyl_gravity_response/bounds.py": "f3f17dc37027244f2423ca099fc888a0499e23a3909502d1196ffa7b99349ae8",
+    "paper/tex_fragments/SHRINKING_MODULAR_ENTROPY.tex": "e9409d6d3c40161af3474405eed3ca872b2a03431355713846c61583bcb45bf5",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem": {
+    "Einstein_endpoint_closed": false,
+    "absolute_continuum_entropy_computed": false,
+    "actual_cell_norm_used": true,
+    "area_Newton_or_stationarity_input_supplied": false,
+    "astronomical_refinement_family_numerically_executed": false,
+    "explicit_positive_symbolic_refinement_schedule": true,
+    "finite_lattice_boost_symmetry_constructed": false,
+    "finite_lattice_regions": "ordinary rest balls for every observer preparation",
+    "finite_observer_rows": "distinct Lorentz-transformed exterior shell preparations",
+    "native_entropy_circuit_executed": false,
+    "natural_exterior_shell_logarithm_control": true,
+    "nonzero_U_regional_entropy_limit_proved": false,
+    "normalized_shrinking_matter_error_tends_to_zero": true,
+    "observer_frame_preparation_matrix_invertible": true,
+    "ordinary_finite_lattice_entropy_differences": true,
+    "single_lattice_family_of_boosted_sharp_algebras_constructed": false,
+    "source_U": 0,
+    "source_valleys_retained": 8,
+    "uniform_covariance_gap_assumed": false
+  }
+}

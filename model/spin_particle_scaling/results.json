@@ -1,0 +1,1049 @@
+{
+  "all_pass": false,
+  "dependency_custody_pass": false,
+  "direct_checks": {
+    "finite_control": {
+      "actual_translation_and_C4_actions_checked": true,
+      "circular_channels_orthogonal": true,
+      "circular_charges": [
+        1,
+        -1
+      ],
+      "every_finite_energy_eigenspace_checked": true,
+      "field": ".2",
+      "finite_control_proves_infinite_volume_limit": false,
+      "full_spin_dimension": 256,
+      "native_pulses_executed": false,
+      "one_spin_U1_alone_does_not_force_equal_weights": true,
+      "periodic_bonds_with_parallel_edges": 24,
+      "residual_charge_of_ground": 0,
+      "significant_positive_transverse_response_checked": true,
+      "spectral_matrix_scalar_at_each_cluster": true
+    },
+    "scaling": {
+      "boundary_power_upper_n_at_least_2": "-19 n^3",
+      "examples": [
+        {
+          "boundary_power_of_two": -152,
+          "boundary_prefactor": 302284872,
+          "boundary_support_radius": 8,
+          "box_radius": 1024,
+          "edges": 25794975744,
+          "finite_ground_selection_cost_known": false,
+          "momentum_radius": "1/2",
+          "rescaled_energy_support": [
+            "1/16000",
+            "64000000"
+          ],
+          "scale": 2,
+          "source_U_over_J": 196011246546724664863529819031182977170219875702364477554772236169735440806881263616,
+          "source_c_over_J": 442731573921179315818705442924176443703296,
+          "source_normalized_error_coefficient_K2_over_c": "1996142321003824963585/44696564886461808656542334976",
+          "source_trace_error_bound": "1996142321003824963585/715145038183388938504677359616",
+          "spatial_cutoff": 4,
+          "spatial_time_tail_normalized_coefficient": "16/6561",
+          "spectral_weight_lower": "1/192000000",
+          "spectral_weight_upper": "1/8",
+          "total_J_time_bound": 12
+        },
+        {
+          "boundary_power_of_two": -4704,
+          "boundary_prefactor": 77318848800,
+          "boundary_support_radius": 32,
+          "box_radius": 8192,
+          "edges": 13195750195200,
+          "finite_ground_selection_cost_known": false,
+          "momentum_radius": "1/4",
+          "rescaled_energy_support": [
+            "1/16000",
+            "64000000"
+          ],
+          "scale": 4,
+          "source_U_over_J": 919332648529170274114782875431060931198692982318848707547239991847929389440480542520770560000000000000000,
+          "source_c_over_J": 30320498817288119841483343073788266305657241600000000,
+          "source_normalized_error_coefficient_K2_over_c": "2089533878569661189239603201/373982300971270530728284127232000000",
+          "source_trace_error_bound": "2089533878569661189239603201/95739469048645255866440736571392000000",
+          "spatial_cutoff": 16,
+          "spatial_time_tail_normalized_coefficient": "256/390625",
+          "spectral_weight_lower": "1/384000000",
+          "spectral_weight_upper": "1/16",
+          "total_J_time_bound": 48
+        },
+        {
+          "boundary_power_of_two": -51584,
+          "boundary_prefactor": 19791511291008,
+          "boundary_support_radius": 128,
+          "box_radius": 65536,
+          "edges": 6755502520664064,
+          "finite_ground_selection_cost_known": false,
+          "momentum_radius": "1/8",
+          "rescaled_energy_support": [
+            "1/16000",
+            "64000000"
+          ],
+          "scale": 8,
+          "source_U_over_J": 4337717683449125892177002117716497876161147225294065968969169166120472361512850566299580409738028168173617355793072687369158656,
+          "source_c_over_J": 2082718820064082940435736662345425894599040597478746791887241216,
+          "source_normalized_error_coefficient_K2_over_c": "2190567086721529510015691290312705/3136185852905066800495973776728979025166336",
+          "source_trace_error_bound": "2190567086721529510015691290312705/12845817253499153614831508589481898087081312256",
+          "spatial_cutoff": 64,
+          "spatial_time_tail_normalized_coefficient": "4096/43046721",
+          "spectral_weight_lower": "1/768000000",
+          "spectral_weight_upper": "1/32",
+          "total_J_time_bound": 192
+        },
+        {
+          "boundary_power_of_two": -468480,
+          "boundary_prefactor": 5066559244472832,
+          "boundary_support_radius": 512,
+          "box_radius": 524288,
+          "edges": 3458771110893453312,
+          "finite_ground_selection_cost_known": false,
+          "momentum_radius": "1/16",
+          "rescaled_energy_support": [
+            "1/16000",
+            "64000000"
+          ],
+          "scale": 16,
+          "source_U_over_J": 20482104768205995862911478028874656398706993847446085687297042790820074792278871557404649707236102344460822966993947296559177785339570732463235792896,
+          "source_c_over_J": 143115704128533692732946231607494386113979912319100009870428246543314190336,
+          "source_normalized_error_coefficient_K2_over_c": "2296914738729817557651606964847687761921/26307180002345234624589002132933858667501717553152",
+          "source_trace_error_bound": "2296914738729817557651606964847687761921/1724067348633697296357064843783953361633392561563369472",
+          "spatial_cutoff": 256,
+          "spatial_time_tail_normalized_coefficient": "65536/6975757441",
+          "spectral_weight_lower": "1/1536000000",
+          "spectral_weight_upper": "1/64",
+          "total_J_time_bound": 768
+        },
+        {
+          "boundary_power_of_two": -3971072,
+          "boundary_prefactor": 1297037001920366592,
+          "boundary_support_radius": 2048,
+          "box_radius": 4194304,
+          "edges": 1770887853288607186944,
+          "finite_ground_selection_cost_known": false,
+          "momentum_radius": "1/32",
+          "rescaled_energy_support": [
+            "1/16000",
+            "64000000"
+          ],
+          "scale": 32,
+          "source_U_over_J": 96722713660522685052980329700773363569519244291894025664807176703380195566508705541461392263799761838733615003533745888749408034150895916180412386315796117267499781718016,
+          "source_c_over_J": 9834770646055894935253236685240458227170580716417177801513586196541144280033705066496,
+          "source_normalized_error_coefficient_K2_over_c": "2408481629894501016868542623711319378156847105/220679515726911867982997196585573437580559579921111842816",
+          "source_trace_error_bound": "2408481629894501016868542623711319378156847105/231399243882862338882139268406914252884472842075359771692630016",
+          "spatial_cutoff": 1024,
+          "spatial_time_tail_normalized_coefficient": "1048576/1406408618241",
+          "spectral_weight_lower": "1/3072000000",
+          "spectral_weight_upper": "1/128",
+          "total_J_time_bound": 3072
+        }
+      ],
+      "filtered_weight_two_sided": "m^2*p/96 <= w_p <= p/4",
+      "lattice_integral_exact": "8/35",
+      "lattice_sum_constant_exact": "6561/1120",
+      "lattice_sum_constant_upper": "6",
+      "norm_square_divided_by_weight_power": "p^(-4)",
+      "normalization_requires_error_below_weight": true,
+      "source_normalized_error_order": "O(n^(-3))",
+      "spatial_filter_norm_power": "p^(-3/2)",
+      "time_filter_L1_independent_of_p": true,
+      "truncation_normalized_error_order": "O(n^(-4))"
+    },
+    "spatial": {
+      "affine_cases_exact": 5184,
+      "circular_C4_characters": [
+        "-i",
+        "+i"
+      ],
+      "circular_channels_are_single_translation_eigenstates": false,
+      "cubic_character_is_relativistic_helicity": false,
+      "full_onsite_CAR_frame_cases": 192,
+      "hidden_translation_signs": "diag((-1)^(t2+t3),(-1)^(t1+t3),(-1)^(t1+t2))",
+      "order_translation_signs": "diag((-1)^t1,(-1)^t2,(-1)^t3)",
+      "ordered_spatial_stabilizer_mod2": [
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "rotation": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "translation_parity": [
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "ordered_spatial_stabilizer_mod2_count": 32,
+      "proper_cubic_rotations": 24,
+      "residual_translation_periods": [
+        2,
+        1,
+        1
+      ],
+      "source_hidden_zero_carriers_in_pi_units": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "source_order_carriers_in_pi_units": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "transverse_residual_zone_centers_in_pi_units": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "inherited_custody": {
+    "model/protected_spin_limit/results.json": {
+      "checkpoint": "ba312dbf0",
+      "expensive_parent_experiments_reexecuted": false,
+      "historical_all_pass": false,
+      "historical_new_checks_pass": true,
+      "parent_full_source_closure_replayed": false,
+      "sha256": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+      "snapshot": "model/spin_particle_scaling/historical/FA90.json"
+    },
+    "model/spin_goldstone_sector/results.json": {
+      "checkpoint": "ba312dbf0",
+      "expensive_parent_experiments_reexecuted": false,
+      "historical_all_pass": false,
+      "historical_new_checks_pass": true,
+      "parent_full_source_closure_replayed": false,
+      "sha256": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+      "snapshot": "model/spin_particle_scaling/historical/FA92.json"
+    }
+  },
+  "new_checks_pass": true,
+  "schema": "oph.spin_particle_scaling.v1",
+  "source_binding_scope": "explicit narrow mathematical inputs; not parent transitive closures",
+  "source_bindings": {
+    "model/cubic_particle_channels/README.md": "379443f5d7d5fc4f2b907a68cd9a537d11e31c504b105cfe43e591b71d13dfc2",
+    "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
+    "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "model/spin_goldstone_sector/experiment.py": "4805ad6709a1b0ef4f904a7bb5283dc18dfac61061867d6bdee4c903b3413b2c",
+    "model/spin_particle_scaling/README.md": "0878f0d1c13e9000a1cd7b26c16da92b1464671b77becfa351b4cf14e79ce336",
+    "model/spin_particle_scaling/__init__.py": "c38c7517e7a806b74bf982804fcafefd43959b7f1c30427a4383b136aa2e0699",
+    "model/spin_particle_scaling/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/spin_particle_scaling/algebra.py": "3f28935cb38794d6d16ca87c66e5f60d5adae3d5b68c243b3ea3569df74aa7fd",
+    "model/spin_particle_scaling/bounds.py": "a2383870db6b944c3f124899fac9e546e3b21eea1d1eee23636ccdb4fe2fd89f",
+    "model/spin_particle_scaling/experiment.py": "b670f807f2166de583f6a43e649be667013c53e901e6ccefe33894e77ccb520d",
+    "model/spin_particle_scaling/historical/FA90.json": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+    "model/spin_particle_scaling/historical/FA92.json": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+    "model/spin_particle_scaling/packet.py": "6ee32003ba18e9535d435dd658c56b997763245c28f67a4b4601072ffda385d3",
+    "model/spin_particle_scaling/test_scaling.py": "4e2254dc7ec815f203085b96bb9b227ea72a3f8e0a9353d3d7d7b22beb02cf50",
+    "paper/tex_fragments/SPIN_PARTICLE_SCALING.tex": "a463d099f7812aa71619d420797e97fe35b15898c4872decdc851f6ae66dd351",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem": {
+    "all_source_repair_records_retained": true,
+    "effective_thermodynamic_ground_preparation_cost_proved": false,
+    "finite_source_correlators_assumed_stationary": false,
+    "full_continuum_field_algebra_constructed": false,
+    "ground": "FA92 selected ordered zero-field state, internal n=e1",
+    "measured_particle_species_or_rest_mass_identified": false,
+    "native_pulses_executed_here": false,
+    "natural_p_inverse_spectral_measures_have_positive_finite_mass_limits": true,
+    "nonzero_normalized_energy_momentum_scaling_measures": true,
+    "scaling_limit_unique": false,
+    "sharp_particle_pole_or_Lorentz_helicity_proved": false,
+    "source": "FA90 c=J E^4,U=J E^8, fixed-spacing cubic AF spin limit",
+    "source_dynamical_diagonal_preserves_normalized_readouts": true,
+    "source_spatial_quantum_numbers_resolved": true,
+    "surviving_scattering_or_nonGaussianity_proved": false,
+    "two_orthogonal_equal_weight_transverse_channels": true
+  }
+}

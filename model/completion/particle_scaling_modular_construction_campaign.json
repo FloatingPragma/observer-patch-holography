@@ -1,0 +1,142 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-PARTICLE-SCALING-MODULAR-CONSTRUCTION-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1033,
+    1138,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Construct actual regional modular limits, spatially labelled two-channel spectral scaling, and native preparation of selected finite ordered-ground inputs; repair live evidence custody and CI.",
+  "specification_policy": "Simulator, observer, scheduler, repair, memory and refined port laws are explicit admitted specifications. Mathematical consequences must be proved for those laws; physical identification remains an independently tested statement.",
+  "selection_reason": "Evidence repair makes prior proofs reviewable; native ordered-ground preparation closes a supplied-state gap; two-channel spectral scaling connects particle labels with energy-momentum readouts; actual regional modular limits strengthen the existing Einstein theorem stack.",
+  "component_results": [
+    {
+      "id": "lattice_modular_limit",
+      "attachment": "FA-96",
+      "issues": [
+        1145
+      ],
+      "result": "For the exact U=0 full-CAR source ground and every fixed ball, the finite regional modular groups converge on every fixed probe to those of the same eight-Weyl vacuum, uniformly on compact modular-time intervals. The unbounded generators converge on a matched dense graph core, any positive regulator delta(a) tending to zero is admissible, and explicit finite relative entropies converge. This supplies a sector-relative modular refinement input to G5 without an assumed covariance gap.",
+      "evidence": [
+        "model/lattice_modular_limit/README.md",
+        "model/lattice_modular_limit/__init__.py",
+        "model/lattice_modular_limit/__main__.py",
+        "model/lattice_modular_limit/algebra.py",
+        "model/lattice_modular_limit/bounds.py",
+        "model/lattice_modular_limit/controls.py",
+        "model/lattice_modular_limit/historical/FA94-ba312dbf0.json",
+        "model/lattice_modular_limit/packet.py",
+        "model/lattice_modular_limit/results.json",
+        "model/lattice_modular_limit/test_modular.py",
+        "paper/tex_fragments/LATTICE_MODULAR_LIMIT.tex"
+      ],
+      "remaining": [
+        "Nonzero-U regional modular convergence and derivative-composite control beyond the explicitly free source.",
+        "Uniform shrinking-ball, boosted-region, geometric chart/collar and edge/area convergence in a common source refinement.",
+        "Native implementation and resource estimates for the regional modular operations and local phase preparations.",
+        "Newton normalization, generalized-entropy stationarity and a common responsive geometry-stress null balance.",
+        "A surviving interacting massive relativistic continuum and identification with measured particle species."
+      ]
+    },
+    {
+      "id": "spin_particle_scaling",
+      "attachment": "FA-97",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The FA92 selected ordered spin ground has two orthogonal equal-weight transverse channels with residual internal charges +1/-1 and site-centered C4 characters -i/+i for invariant envelopes. Actual source-frame translations place the real components at distinct residual-zone valleys (0,0,pi) and (0,pi,0). Their filtered weights obey m^2 p/96 <= w_p <= p/4, m=1/1000; recentered energy-momentum measures have nonzero compactly supported subsequential scaling limits. An explicit source box radius128n^3 at p=1/n gives normalized dynamical/readout error O(n^-3), retaining all repair records. No sharp pole, Lorentz helicity, scattering or physical species is inferred.",
+      "evidence": [
+        "model/spin_particle_scaling/README.md",
+        "model/spin_particle_scaling/__init__.py",
+        "model/spin_particle_scaling/__main__.py",
+        "model/spin_particle_scaling/algebra.py",
+        "model/spin_particle_scaling/bounds.py",
+        "model/spin_particle_scaling/experiment.py",
+        "model/spin_particle_scaling/historical/FA90.json",
+        "model/spin_particle_scaling/historical/FA92.json",
+        "model/spin_particle_scaling/packet.py",
+        "model/spin_particle_scaling/results.json",
+        "model/spin_particle_scaling/test_scaling.py",
+        "paper/tex_fragments/SPIN_PARTICLE_SCALING.tex"
+      ],
+      "remaining": [
+        "A unique scaling limit and a full continuum field algebra.",
+        "A sharp particle pole, controlled scattering and surviving low-energy interaction.",
+        "Relativistic helicity, Lorentz covariance, measured species and empirical mass/energy calibration.",
+        "An effective finite-cost preparation rate for the selected infinite-ground marginals."
+      ]
+    },
+    {
+      "id": "native_ordered_ground",
+      "attachment": "FA-98",
+      "issues": [
+        1138
+      ],
+      "result": "Every finite bipartite Heisenberg sample with positive rational staggered field has an explicit positive ground algorithm, rigorous nonzero gap bound and arbitrary-precision native amplitude preparation. A complete rational certificate checks all256 eigenvalues of the eight-site example and executes1090 native pulses with all failures and a spin pointer retained. Ordered thermodynamic and zero-field limits supply the finite preparation inputs to the selected ordered spin ground; no effective convergence rate to a specified infinite marginal is asserted.",
+      "evidence": [
+        "model/native_ordered_ground/README.md",
+        "model/native_ordered_ground/__init__.py",
+        "model/native_ordered_ground/__main__.py",
+        "model/native_ordered_ground/angles.py",
+        "model/native_ordered_ground/certificate.py",
+        "model/native_ordered_ground/experiment.py",
+        "model/native_ordered_ground/packet.py",
+        "model/native_ordered_ground/results.json",
+        "model/native_ordered_ground/results.npz",
+        "model/native_ordered_ground/source.py",
+        "model/native_ordered_ground/test_native_ordered_ground.py",
+        "model/native_ordered_ground/witness.npz",
+        "paper/tex_fragments/NATIVE_ORDERED_GROUND.tex"
+      ],
+      "remaining": [
+        "Prove a quantitative thermodynamic state-preparation modulus when a particular infinite marginal must be approximated at a prescribed finite cost.",
+        "Construct a continuing observer/reference invariant under the full scheduler and memory law.",
+        "Derive the common relativistic interacting spatial continuum, physical species and independently calibrated rest masses.",
+        "Join the geometric area, generalized-entropy stationarity and metric response premises of the Einstein stack."
+      ]
+    }
+  ],
+  "quantifier_boundary": "The spin scaling measures do not yet define a unique Lorentz-covariant interacting continuum field. Native state preparation has an ordered thermodynamic limit but no effective infinite-marginal modulus. The modular theorem holds at U=0 on fixed regions. Physical species, independently calibrated rest masses and responsive Einstein geometry remain open.",
+  "maintenance_policy": "Current live evidence is rebuilt or adopted only with source checks, independent cold replay and retained provenance review. Scientific statuses and historical records are not promoted by digest refresh.",
+  "review": {
+    "path": "model/completion/particle_scaling_modular_construction_review.json",
+    "sha256": "c18a8f06fd869fb6a0ebc8078b34eb3988ca5753d49133f55c120d9981120942"
+  },
+  "mass_shell_followup": {
+    "scope": "OPEN_MASS_SHELL_DIAGNOSTIC",
+    "mass_shell_established": false,
+    "physical_species_identified": false,
+    "new_realized_attachment": false,
+    "result": "The exact spin-current and three-spin force identities give a sufficient route to a sharp scaling cone through a ground-specific filtered correlation remainder, or equivalently a common limiting energy-to-momentum ratio with vanishing ratio-moment defect for the entire selected response. A sharp component may coexist with a continuum; its existence does not require concentration of the whole response. Positive continuous spectral measures satisfy the present Ward and moment constraints, so those constraints alone do not prove a sharp component. This is an open mass-shell diagnostic, not a new realized attachment or physical identification.",
+    "evidence": [
+      "model/spin_shell_diagnostic/README.md",
+      "model/spin_shell_diagnostic/__init__.py",
+      "model/spin_shell_diagnostic/__main__.py",
+      "model/spin_shell_diagnostic/algebra.py",
+      "model/spin_shell_diagnostic/criteria.py",
+      "model/spin_shell_diagnostic/experiment.py",
+      "model/spin_shell_diagnostic/packet.py",
+      "model/spin_shell_diagnostic/results.json",
+      "model/spin_shell_diagnostic/test_diagnostic.py"
+    ],
+    "receipt": {
+      "path": "model/spin_shell_diagnostic/results.json",
+      "sha256": "940cf7dc2b0d0fa7002c6ac0cc6e10c0ab0a28c24a2886f2149f4e1fc649efc0"
+    },
+    "sufficient_estimate": "One common c>0 and ||G(K/(Jp))[F_f+(1-2c^2)J^2 e(P)A_f]Omega||^2=o(J^4 p^5), uniformly for the admitted unit-normalized momentum envelopes.",
+    "alternative_sufficient_estimate": "Shrinking tubes around one common cone retain a fixed positive fraction of the original broad-window spectral weight; this proves a nonzero cone-supported component in the scaling limit without requiring the continuum to vanish."
+  },
+  "maintenance_review": {
+    "path": "model/completion/evidence_maintenance_review.json",
+    "sha256": "9355229a272183015c2755670c18065fff863e4e7f61cc694e24320ae9c2e63e",
+    "scope": "Current-source maintenance with explicit pending cold checks; historical proof records and scientific statuses preserved."
+  }
+}

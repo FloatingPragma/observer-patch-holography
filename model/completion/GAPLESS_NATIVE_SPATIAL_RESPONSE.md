@@ -1,5 +1,8 @@
 # Ordered spin sector, native observers and spatial particle channels
 
+This is the preceding construction stage. The [current construction](CONTINUUM_FIELD_AND_ENTROPY.md) adds regular continuum spin fields, finite entropy/stress shrinking limits and complete native joint spectroscopy. Scope statements below describe the earlier stage.
+
+
 2 November 2026. This pass develops five existing construction issues:
 [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138),
 [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139),

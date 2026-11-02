@@ -264,7 +264,7 @@
     ],
     "valleys_discarded": false
   },
-  "all_pass": false,
+  "all_pass": true,
   "bounds": {
     "boosted_Hessian_scaling": "HESSIAN*||theta||_1/L^6",
     "boosted_spatial_Hessian_majorant": 195689447424,
@@ -289,15 +289,15 @@
       25165824
     ]
   },
-  "dependency_custody_pass": false,
+  "dependency_custody_pass": true,
   "finite_attachment": "FA91",
   "new_checks_pass": true,
   "prior_custody": {
-    "dependency_custody_pass": false,
+    "dependency_custody_pass": true,
     "direct_prior_source_mismatches": [],
-    "historical_broad_mismatch_count": 21,
+    "historical_broad_mismatch_count": 0,
     "prior": "model/weyl_geometric_modular/results.json",
-    "prior_dependency_custody_pass": false,
+    "prior_dependency_custody_pass": true,
     "prior_full_source_replay": false,
     "prior_new_checks_pass": true
   },
@@ -310,7 +310,7 @@
     "model/weyl_geometric_modular/algebra.py": "06cddd3d8b46e6cbc4ca2ae12d0c99bd26e248f7f494f02c7892c9341b7e015d",
     "model/weyl_geometric_modular/entropy.py": "f2a7bb8df53555c67e7b528964dbf37e935316de0c7387a8455c94fcc345b643",
     "model/weyl_geometric_modular/geometry.py": "98c8669ce62721723ad12fc8eb302cca85c0426af62872b6dd3feb6f9c28c527",
-    "model/weyl_geometric_modular/results.json": "5961639d808149ceeb6daf34d8813d663ededf304d82e02780987cc258f7f9be",
+    "model/weyl_geometric_modular/results.json": "ac5ed5dccd28a983ba96f255522e81e649640515e546388121d3597ed738e829",
     "model/weyl_gravity_response/README.md": "74de2795c327e01dd28b1ebf9bef0920ba240804f22c187f1325dc80598002d8",
     "model/weyl_gravity_response/__init__.py": "7c9cd17eadf4fc22c6f62918453e3b4bca7abfe2ab938206edb4f298e1c60a11",
     "model/weyl_gravity_response/__main__.py": "dd1140ca6b5f917559b56fe6fed727abdd483f9e1dcf82a0a45af9f59c40b4e8",

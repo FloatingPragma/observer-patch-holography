@@ -20,6 +20,7 @@ from ..observer import native
 from ..common_source import slow_geometry
 from ..observer.scalar_response.experiment import canonical, compare_receipt
 from tools import strict_json
+from .historical_capture import source_compatibility, analysis_bindings
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW_PATH = Path(__file__).with_name('host_clock_records.json')
@@ -191,8 +192,7 @@ def analyse(raw):
             or canonical(raw['policy']) != canonical(POLICY)
             or type(raw['initial_configuration']) is not int or raw['initial_configuration'] != 0):
         raise ValueError('the declared host-clock protocol changed')
-    if raw['capture_sources'] != _hashes():
-        raise ValueError('capture source bindings changed')
+    compatibility = source_compatibility(raw, _hashes(), ROOT, canonical)
     if raw['scheduler'] != 'Python random.Random(1729).randrange(60); pseudorandom software service':
         raise ValueError('the declared pseudorandom scheduler changed')
     if raw['record_encoding'] != 'one byte per attempt: 3*(2*seam_index+coin)+current+1; lowercase hex':
@@ -257,7 +257,8 @@ def analyse(raw):
     control_ratios = [str(F(b['host_duration_ns'], a['host_duration_ns']))
                       for a, b in zip(runs[0]['blocks'], runs[1]['blocks'], strict=True)]
     return {'schema': 'oph.native_host_clock_attachment.v1', 'replay_integrity_passed': True,
-            'sources': _hashes(), 'clock_metadata': clock,
+            'sources': {**_hashes(), **analysis_bindings(ROOT)}, 'clock_metadata': clock,
+            'capture_compatibility': compatibility,
             'raw_records_canonical_sha256': hashlib.sha256(canonical(raw).encode()).hexdigest(),
             'calibration': {'run': 'baseline', 'block': 0, 'clock_port': CALIBRATION_PORT,
                             'local_tick_count': count, 'host_duration_ns': cal['host_duration_ns'],
@@ -275,7 +276,8 @@ def analyse(raw):
                 'control_rejected_in_every_measured_block': all(t['engineering_verdict'] == 'reject'
                     for t in tests if t['run'] == 'host_work_control'),
                 'timing_tolerance_is_a_confidence_interval': False},
-            'scope': {'actual_native_execution_measured_by_host_clock': True,
+            'scope': {'actual_native_execution_measured_by_host_clock': (compatibility['original_capture_data_match']
+                          or compatibility['mode'] == 'exact_current_source_declaration'),
                       'replay_reproduces_timestamps': False,
                       'new_capture_requires_new_measurement': True,
                       'host_clock_traceable_lab_calibration_established': False,

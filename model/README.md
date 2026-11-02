@@ -93,11 +93,11 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 
 | Owner | Current construction and remaining join |
 | --- | --- |
-| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Native spin observers](native_spin_observer/README.md) implement complete local gates, repairs and probes, with finite precision/resource bounds. A continuing invariant reference and native preparation of ordered-ground marginals remain open. |
-| [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | The [protected interacting spin branch](protected_spin_limit/README.md) now has an [ordered gapless sector](spin_goldstone_sector/README.md) and explicit local native observations. A physical localized defect and its boundary invariant remain open. |
-| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Positive-energy filtered packets](spin_goldstone_sector/README.md) approach zero energy in an infinite-volume interacting ground. The lattice spacing stays fixed; a controlled interacting relativistic spatial continuum is still required. |
-| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Actual cubic rotations](cubic_particle_channels/README.md) classify every certified local charged/spin/density line and supply exact coherent filters. Continuum spin, relativistic dispersion, gauge charges and independent units remain necessary for measured-species identification. |
-| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Source-lattice stress responses](lattice_weyl_response/README.md) have explicit derivative and joint-refinement bounds at U=0. Native geometric access, modular-log/area limits, stationarity and responsive universal metric coupling remain open. |
+| [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033) | [Evidence replay maintenance](../tools/replay_model_receipts.py) rebuilds live receipts in dependency order and runs their cold checkers, with backups and scientific-change review. |
+| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Native joint spectroscopy](native_joint_spin_spectroscopy/README.md) joins finite ground preparation to complete energy/symmetry observations. An effective infinite-marginal approximation rate and continuing invariant reference remain open. |
+| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Regular spin continuum fields](spin_canonical_field/README.md) now have a positive-energy Weyl net and finite propagation. A sharp shell, Lorentz covariance and surviving continuum interaction remain open. |
+| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Complete joint detector bins](native_joint_spin_spectroscopy/README.md) and the [power-law charged free boundary](ballistic_free_boundary/README.md) constrain the particle search. Measured species still require relativistic poles, physical charges and independent units. |
+| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Actual finite entropy limits](shrinking_modular_entropy/README.md) give a common shrinking matter/stress response and invertible nine-frame matrix. Area, Newton normalization and geometric stationarity/response remain open. |
 
 The [earlier particle transport](charged_dynamics/README.md) and
 [actual-data replay](particle_comparison/README.md) retain their own
@@ -133,20 +133,15 @@ fix microscopic occupation limits and continuum first energy moments.
 These results preserve the distinction between a continuum field net and a
 physically identified interacting Lorentz theory with Einstein dynamics.
 
-The [ordered spin sector and spatial particle channels](completion/GAPLESS_NATIVE_SPATIAL_RESPONSE.md)
-build on the complete finite neutral gap and executed centered energy readout.
-The interacting fixed-spacing spin theory now has an ordered ground sector and
-genuine positive-energy spectrum accumulating at zero. Explicit native local
-observers have complete-output executions and a finite resource construction;
-the latter uses a declared dyadic precision interface. Exact binary cubic
-rotations classify all228 charged and270 neutral local positive lines without
-changing their energy enclosures. The U=0 lattice source also realizes the nine
-Weyl stress responses with a common controlled lattice/radius limit.
-The [uniform spectral escape theorem](continuum_free_limit/README.md) and its
-[growing-coupling extension](strong_coupling_refinement/README.md) still identify
-the canonical charged continuum as free and massless. Relativistic interacting
-spatial scaling, measured species, independently calibrated rest masses and the
-geometric area/stationarity/metric premises remain open.
+The [continuum field and entropy construction](completion/CONTINUUM_FIELD_AND_ENTROPY.md)
+constructs a regular spin Weyl net from the actual ordered ground, with continuous
+space/time translations, positive energy and a finite propagation cone. Complete
+native joint observations connect finite ground preparation to energy and graph
+symmetry. For the free source, actual finite entropy changes now converge to the
+existing stress response on a common shrinking schedule. The canonical charged
+continuum is free and massless throughout `U=o(c^(2/7))`. These results close
+component inputs; sharp spin poles, surviving continuum interaction, physical
+species and responsive Einstein geometry remain to be derived.
 
 The [port/support incidence audit](../code/a5_closure/port_support_source_audit.md)
 retains all sixty oriented relative seed maps. A fixed support mark leaves

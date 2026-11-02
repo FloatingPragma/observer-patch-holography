@@ -105,5 +105,5 @@ def test_receipt_cannot_promote_physical_scope():
     with pytest.raises(ValueError):packet.validate(altered)
     altered=deepcopy(value);altered['spectrum']['charged'][0]['energy_interval']=['1','2']
     with pytest.raises(ValueError):packet.validate(altered)
-    altered=deepcopy(value);altered['dependency_custody_pass']=True
+    altered=deepcopy(value);altered['dependency_custody_pass']=not value['dependency_custody_pass']
     with pytest.raises(ValueError):packet.validate(altered)

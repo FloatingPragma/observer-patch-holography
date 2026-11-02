@@ -57,22 +57,22 @@
   },
   "native_covariance_controls": [
     {
-      "Poisson_residual_diagnostic": 2.1374986050084305e-14,
+      "Poisson_residual_diagnostic": 1.995077533983342e-14,
       "continuous_affine_smearings": 3,
       "covariance_diagnostic": [
         [
-          4.708573430162164,
-          -5.246581993365817e-15,
-          0.00039021050226709813
+          4.708573430162167,
+          -4.958781858430028e-15,
+          0.0003902105022646218
         ],
         [
-          -5.638607361759638e-15,
-          4.751230222192374,
-          3.455209550928937e-15
+          -4.671792704543253e-15,
+          4.751230222192368,
+          1.7899779384622454e-15
         ],
         [
-          0.0003902105022671427,
-          3.417629368442381e-15,
+          0.00039021050226507924,
+          9.957312752106873e-16,
           4.708573430162158
         ]
       ],
@@ -80,46 +80,46 @@
       "native_ports": 240
     },
     {
-      "Poisson_residual_diagnostic": 1.0957312660843568e-13,
+      "Poisson_residual_diagnostic": 9.744881411442175e-14,
       "continuous_affine_smearings": 3,
       "covariance_diagnostic": [
         [
-          5.584277137490841,
-          0.0038315754869393814,
-          4.6560596329625614e-05
+          5.584277137490829,
+          0.003831575486937968,
+          4.656059633168686e-05
         ],
         [
-          0.0038315754869379937,
-          5.5755619122257265,
-          -0.003092962030058797
+          0.0038315754869379277,
+          5.575561912225717,
+          -0.003092962030051196
         ],
         [
-          4.656059633070808e-05,
-          -0.003092962030059437,
-          5.650031856221502
+          4.656059633245985e-05,
+          -0.003092962030052686,
+          5.650031856221494
         ]
       ],
       "level": 1,
       "native_ports": 960
     },
     {
-      "Poisson_residual_diagnostic": 7.148660474247521e-13,
+      "Poisson_residual_diagnostic": 3.940168163814216e-13,
       "continuous_affine_smearings": 3,
       "covariance_diagnostic": [
         [
-          5.711044269756063,
-          -0.0004539746676620604,
-          5.393359225891459e-06
+          5.7110442697559325,
+          -0.00045397466757615543,
+          5.393359239623316e-06
         ],
         [
-          -0.00045397466766247674,
-          5.7542837342808,
-          -1.9249276938434687e-05
+          -0.0004539746675726402,
+          5.754283734280629,
+          -1.924927692489145e-05
         ],
         [
-          5.3933592268837205e-06,
-          -1.924927694126402e-05,
-          5.84555576264698
+          5.3933592376158355e-06,
+          -1.924927692625168e-05,
+          5.845555762646914
         ]
       ],
       "level": 2,
@@ -207,7 +207,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
     "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
@@ -224,7 +224,7 @@
     "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
     "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
     "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
     "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
     "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
@@ -245,3 +245,4 @@
     "unique_covariance_or_CFT_identified": false
   }
 }
+

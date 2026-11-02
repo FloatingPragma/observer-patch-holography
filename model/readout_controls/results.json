@@ -3150,31 +3150,31 @@
     "executed_complete_laws": {
       "complex_edge_superposition": {
         "imag_minus": {
-          "mean": 2.275957200481571e-15,
+          "mean": 8.326672684688674e-16,
           "probabilities": [
-            0.5000000000000009,
-            0.4999999999999986
+            0.5000000000000002,
+            0.4999999999999994
           ]
         },
         "imag_plus": {
-          "mean": -1.887379141862766e-15,
+          "mean": 1.4432899320127035e-15,
           "probabilities": [
-            0.4999999999999988,
-            0.5000000000000007
+            0.5000000000000006,
+            0.4999999999999991
           ]
         },
         "imag_zero": {
-          "mean": 2.7755575615628914e-16,
+          "mean": -1.1102230246251565e-16,
           "probabilities": [
-            0.49999999999999994,
-            0.49999999999999967
+            0.5000000000000001,
+            0.5000000000000002
           ]
         },
         "real_zero": {
-          "mean": 0.9999999999999994,
+          "mean": 0.9999999999999999,
           "probabilities": [
-            0.9999999999999994,
-            2.484153042863858e-31
+            0.9999999999999999,
+            3.41891333197088e-30
           ]
         }
       },
@@ -3182,29 +3182,29 @@
         "imag_minus": {
           "mean": 1.6653345369377348e-16,
           "probabilities": [
-            0.5000000000000001,
-            0.49999999999999994
+            0.5,
+            0.49999999999999983
           ]
         },
         "imag_plus": {
-          "mean": 2.220446049250313e-16,
+          "mean": 1.1102230246251565e-16,
           "probabilities": [
             0.5,
-            0.4999999999999998
+            0.4999999999999999
           ]
         },
         "imag_zero": {
-          "mean": 3.3306690738754696e-16,
+          "mean": 7.771561172376096e-16,
           "probabilities": [
-            0.5000000000000001,
+            0.5000000000000006,
             0.4999999999999998
           ]
         },
         "real_zero": {
-          "mean": 0.9999999999999998,
+          "mean": 1.0,
           "probabilities": [
-            0.9999999999999998,
-            2.6353744071347052e-31
+            1.0,
+            2.5611630404681727e-30
           ]
         }
       },
@@ -3212,59 +3212,59 @@
         "imag_minus": {
           "mean": -0.24230830861908492,
           "probabilities": [
-            0.3788458456904573,
-            0.6211541543095422
+            0.37884584569045754,
+            0.6211541543095425
           ]
         },
         "imag_plus": {
-          "mean": 0.24230830861908664,
+          "mean": 0.24230830861908503,
           "probabilities": [
-            0.6211541543095431,
-            0.3788458456904565
-          ]
-        },
-        "imag_zero": {
-          "mean": 1.1102230246251565e-16,
-          "probabilities": [
-            0.5,
-            0.4999999999999999
-          ]
-        },
-        "real_zero": {
-          "mean": 0.9999999999999997,
-          "probabilities": [
-            0.9999999999999997,
-            2.561547094543989e-31
-          ]
-        }
-      },
-      "vacuum": {
-        "imag_minus": {
-          "mean": 7.216449660063518e-16,
-          "probabilities": [
-            0.5000000000000001,
-            0.4999999999999994
-          ]
-        },
-        "imag_plus": {
-          "mean": 7.216449660063518e-16,
-          "probabilities": [
-            0.5000000000000001,
-            0.4999999999999994
+            0.6211541543095426,
+            0.37884584569045754
           ]
         },
         "imag_zero": {
           "mean": 3.3306690738754696e-16,
           "probabilities": [
-            0.5000000000000002,
-            0.4999999999999999
+            0.5000000000000004,
+            0.5000000000000001
           ]
         },
         "real_zero": {
           "mean": 1.0,
           "probabilities": [
             1.0,
-            2.7963698016577784e-31
+            2.514948419680267e-30
+          ]
+        }
+      },
+      "vacuum": {
+        "imag_minus": {
+          "mean": 9.43689570931383e-16,
+          "probabilities": [
+            0.5000000000000007,
+            0.4999999999999997
+          ]
+        },
+        "imag_plus": {
+          "mean": 9.43689570931383e-16,
+          "probabilities": [
+            0.5000000000000007,
+            0.4999999999999997
+          ]
+        },
+        "imag_zero": {
+          "mean": 0.0,
+          "probabilities": [
+            0.5000000000000006,
+            0.5000000000000006
+          ]
+        },
+        "real_zero": {
+          "mean": 1.0000000000000004,
+          "probabilities": [
+            1.0000000000000004,
+            3.9294131234031016e-30
           ]
         }
       }
@@ -3290,40 +3290,40 @@
         "stages": [
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 4.3948359693221525e-15,
+              "algebraic_telescoping_expression_evaluated": 2.2874614930285313e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 38
               ],
-              "complete_corrected_minus_raw_norm": 4.3948359693221525e-15,
+              "complete_corrected_minus_raw_norm": 2.2874614930285313e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 4.3948359693221525e-15,
-              "maximum_block_raw_unitarity_defect": 7.636868533600746e-15,
-              "maximum_block_restored_unitarity_defect": 1.3659861949842824e-15,
+              "maximum_block_projection_change": 2.2874614930285313e-15,
+              "maximum_block_raw_unitarity_defect": 3.857581265818898e-15,
+              "maximum_block_restored_unitarity_defect": 7.915134575024327e-16,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 7.636868533600746e-15,
+              "raw_block_product_unitarity_defect": 3.857581265818898e-15,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 4.3948359693221525e-15
+              "sum_block_projection_changes": 2.2874614930285313e-15
             },
-            "corrected_full_phase_target_residual": 6.401628483058009e-15,
-            "full_phase_target_residual": 7.42890184446248e-15,
+            "corrected_full_phase_target_residual": 7.036921253494709e-15,
+            "full_phase_target_residual": 6.701431106319981e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_quadrature_rotation",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 3.818434266800381e-15,
+              "exact_polar_distance_formula_evaluated": 1.928790632909451e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 4.3948359693221525e-15,
-              "raw_unitarity_defect": 7.636868533600746e-15,
-              "restored_unitarity_defect": 1.3659861949842824e-15
+              "projection_change": 2.2874614930285313e-15,
+              "raw_unitarity_defect": 3.857581265818898e-15,
+              "restored_unitarity_defect": 7.915134575024327e-16
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -3331,7 +3331,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 84.82300164692441,
-              "maximum_numerical_valid_code_leakage": 1.0011021312852209e-16,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 38,
               "pair_code_pulses": 10,
@@ -3347,40 +3347,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.305697345454423e-14,
+              "algebraic_telescoping_expression_evaluated": 3.719034096327542e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.305697345454423e-14,
+              "complete_corrected_minus_raw_norm": 3.719034096327542e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.305697345454423e-14,
-              "maximum_block_raw_unitarity_defect": 1.6610455691764277e-13,
-              "maximum_block_restored_unitarity_defect": 1.0790737892313792e-15,
+              "maximum_block_projection_change": 3.719034096327542e-14,
+              "maximum_block_raw_unitarity_defect": 7.368205416795076e-14,
+              "maximum_block_restored_unitarity_defect": 1.210196738321586e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6610455691764277e-13,
+              "raw_block_product_unitarity_defect": 7.368205416795076e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.305697345454423e-14
+              "sum_block_projection_changes": 3.719034096327542e-14
             },
-            "corrected_full_phase_target_residual": 1.0299484625555304e-14,
-            "full_phase_target_residual": 8.297639782238237e-14,
+            "corrected_full_phase_target_residual": 9.863519829889331e-15,
+            "full_phase_target_residual": 3.736248972693499e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_inverse_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.305227845882483e-14,
+              "exact_polar_distance_formula_evaluated": 3.684102708397606e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.305697345454423e-14,
-              "raw_unitarity_defect": 1.6610455691764277e-13,
-              "restored_unitarity_defect": 1.0790737892313792e-15
+              "projection_change": 3.719034096327542e-14,
+              "raw_unitarity_defect": 7.368205416795076e-14,
+              "restored_unitarity_defect": 1.210196738321586e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -3388,7 +3388,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -3404,40 +3404,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -3445,7 +3445,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -3461,40 +3461,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.2024179406311427e-14,
+              "algebraic_telescoping_expression_evaluated": 7.328579371354546e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 118
               ],
-              "complete_corrected_minus_raw_norm": 1.2024179406311427e-14,
+              "complete_corrected_minus_raw_norm": 7.328579371354546e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.2024179406311427e-14,
-              "maximum_block_raw_unitarity_defect": 2.3761876155433396e-14,
-              "maximum_block_restored_unitarity_defect": 1.7298649118768768e-15,
+              "maximum_block_projection_change": 7.328579371354546e-15,
+              "maximum_block_raw_unitarity_defect": 1.2299285973354758e-14,
+              "maximum_block_restored_unitarity_defect": 1.6848453175895123e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.3761876155433396e-14,
+              "raw_block_product_unitarity_defect": 1.2299285973354758e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.2024179406311427e-14
+              "sum_block_projection_changes": 7.328579371354546e-15
             },
-            "corrected_full_phase_target_residual": 2.3925542541686375e-15,
-            "full_phase_target_residual": 1.1914613117588532e-14,
+            "corrected_full_phase_target_residual": 3.773835373299772e-15,
+            "full_phase_target_residual": 6.1864307839179594e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_conditional_phase",
             "numerical_stabilization": {
               "dimension": 16,
-              "exact_polar_distance_formula_evaluated": 1.1880938077716769e-14,
+              "exact_polar_distance_formula_evaluated": 6.149642986677398e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.2024179406311427e-14,
-              "raw_unitarity_defect": 2.3761876155433396e-14,
-              "restored_unitarity_defect": 1.7298649118768768e-15
+              "projection_change": 7.328579371354546e-15,
+              "raw_unitarity_defect": 1.2299285973354758e-14,
+              "restored_unitarity_defect": 1.6848453175895123e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 4,
@@ -3502,7 +3502,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 214.9317670057691,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 4,
               "native_pulses": 118,
               "pair_code_pulses": 34,
@@ -3518,40 +3518,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -3559,7 +3559,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -3575,40 +3575,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.32100424785305e-14,
+              "algebraic_telescoping_expression_evaluated": 3.545350567947757e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.32100424785305e-14,
+              "complete_corrected_minus_raw_norm": 3.545350567947757e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.32100424785305e-14,
-              "maximum_block_raw_unitarity_defect": 1.6572448141479005e-13,
-              "maximum_block_restored_unitarity_defect": 1.536662725896514e-15,
+              "maximum_block_projection_change": 3.545350567947757e-14,
+              "maximum_block_raw_unitarity_defect": 6.976075171599675e-14,
+              "maximum_block_restored_unitarity_defect": 8.4702429207465e-16,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6572448141479005e-13,
+              "raw_block_product_unitarity_defect": 6.976075171599675e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.32100424785305e-14
+              "sum_block_projection_changes": 3.545350567947757e-14
             },
-            "corrected_full_phase_target_residual": 9.430774849337019e-15,
-            "full_phase_target_residual": 8.284063904961994e-14,
+            "corrected_full_phase_target_residual": 1.1299399487104728e-14,
+            "full_phase_target_residual": 3.552495701251082e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.286224070739847e-14,
+              "exact_polar_distance_formula_evaluated": 3.488037585799898e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.32100424785305e-14,
-              "raw_unitarity_defect": 1.6572448141479005e-13,
-              "restored_unitarity_defect": 1.536662725896514e-15
+              "projection_change": 3.545350567947757e-14,
+              "raw_unitarity_defect": 6.976075171599675e-14,
+              "restored_unitarity_defect": 8.4702429207465e-16
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -3616,7 +3616,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -3650,40 +3650,40 @@
         "stages": [
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 3.0800308517360998e-15,
+              "algebraic_telescoping_expression_evaluated": 2.5092402346649113e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 38
               ],
-              "complete_corrected_minus_raw_norm": 3.0800308517360998e-15,
+              "complete_corrected_minus_raw_norm": 2.5092402346649113e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 3.0800308517360998e-15,
-              "maximum_block_raw_unitarity_defect": 6.050292970049636e-15,
-              "maximum_block_restored_unitarity_defect": 6.922333975719511e-16,
+              "maximum_block_projection_change": 2.5092402346649113e-15,
+              "maximum_block_raw_unitarity_defect": 3.8398045761580815e-15,
+              "maximum_block_restored_unitarity_defect": 1.8067174273664667e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 6.050292970049636e-15,
+              "raw_block_product_unitarity_defect": 3.8398045761580815e-15,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 3.0800308517360998e-15
+              "sum_block_projection_changes": 2.5092402346649113e-15
             },
-            "corrected_full_phase_target_residual": 6.797042303544165e-16,
-            "full_phase_target_residual": 3.026120287001757e-15,
+            "corrected_full_phase_target_residual": 1.9339916812214594e-15,
+            "full_phase_target_residual": 1.936832504195485e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_quadrature_rotation",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 3.0251464850248228e-15,
+              "exact_polar_distance_formula_evaluated": 1.9199022880790427e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 3.0800308517360998e-15,
-              "raw_unitarity_defect": 6.050292970049636e-15,
-              "restored_unitarity_defect": 6.922333975719511e-16
+              "projection_change": 2.5092402346649113e-15,
+              "raw_unitarity_defect": 3.8398045761580815e-15,
+              "restored_unitarity_defect": 1.8067174273664667e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -3691,7 +3691,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 62.83185307179586,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 38,
               "pair_code_pulses": 10,
@@ -3707,40 +3707,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.305697345454423e-14,
+              "algebraic_telescoping_expression_evaluated": 3.719034096327542e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.305697345454423e-14,
+              "complete_corrected_minus_raw_norm": 3.719034096327542e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.305697345454423e-14,
-              "maximum_block_raw_unitarity_defect": 1.6610455691764277e-13,
-              "maximum_block_restored_unitarity_defect": 1.0790737892313792e-15,
+              "maximum_block_projection_change": 3.719034096327542e-14,
+              "maximum_block_raw_unitarity_defect": 7.368205416795076e-14,
+              "maximum_block_restored_unitarity_defect": 1.210196738321586e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6610455691764277e-13,
+              "raw_block_product_unitarity_defect": 7.368205416795076e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.305697345454423e-14
+              "sum_block_projection_changes": 3.719034096327542e-14
             },
-            "corrected_full_phase_target_residual": 1.0299484625555304e-14,
-            "full_phase_target_residual": 8.297639782238237e-14,
+            "corrected_full_phase_target_residual": 9.863519829889331e-15,
+            "full_phase_target_residual": 3.736248972693499e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_inverse_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.305227845882483e-14,
+              "exact_polar_distance_formula_evaluated": 3.684102708397606e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.305697345454423e-14,
-              "raw_unitarity_defect": 1.6610455691764277e-13,
-              "restored_unitarity_defect": 1.0790737892313792e-15
+              "projection_change": 3.719034096327542e-14,
+              "raw_unitarity_defect": 7.368205416795076e-14,
+              "restored_unitarity_defect": 1.210196738321586e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -3748,7 +3748,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -3764,40 +3764,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -3805,7 +3805,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -3821,40 +3821,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.2024179406311427e-14,
+              "algebraic_telescoping_expression_evaluated": 7.328579371354546e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 118
               ],
-              "complete_corrected_minus_raw_norm": 1.2024179406311427e-14,
+              "complete_corrected_minus_raw_norm": 7.328579371354546e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.2024179406311427e-14,
-              "maximum_block_raw_unitarity_defect": 2.3761876155433396e-14,
-              "maximum_block_restored_unitarity_defect": 1.7298649118768768e-15,
+              "maximum_block_projection_change": 7.328579371354546e-15,
+              "maximum_block_raw_unitarity_defect": 1.2299285973354758e-14,
+              "maximum_block_restored_unitarity_defect": 1.6848453175895123e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.3761876155433396e-14,
+              "raw_block_product_unitarity_defect": 1.2299285973354758e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.2024179406311427e-14
+              "sum_block_projection_changes": 7.328579371354546e-15
             },
-            "corrected_full_phase_target_residual": 2.3925542541686375e-15,
-            "full_phase_target_residual": 1.1914613117588532e-14,
+            "corrected_full_phase_target_residual": 3.773835373299772e-15,
+            "full_phase_target_residual": 6.1864307839179594e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_conditional_phase",
             "numerical_stabilization": {
               "dimension": 16,
-              "exact_polar_distance_formula_evaluated": 1.1880938077716769e-14,
+              "exact_polar_distance_formula_evaluated": 6.149642986677398e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.2024179406311427e-14,
-              "raw_unitarity_defect": 2.3761876155433396e-14,
-              "restored_unitarity_defect": 1.7298649118768768e-15
+              "projection_change": 7.328579371354546e-15,
+              "raw_unitarity_defect": 1.2299285973354758e-14,
+              "restored_unitarity_defect": 1.6848453175895123e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 4,
@@ -3862,7 +3862,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 214.9317670057691,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 4,
               "native_pulses": 118,
               "pair_code_pulses": 34,
@@ -3878,40 +3878,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -3919,7 +3919,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -3935,40 +3935,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.32100424785305e-14,
+              "algebraic_telescoping_expression_evaluated": 3.545350567947757e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.32100424785305e-14,
+              "complete_corrected_minus_raw_norm": 3.545350567947757e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.32100424785305e-14,
-              "maximum_block_raw_unitarity_defect": 1.6572448141479005e-13,
-              "maximum_block_restored_unitarity_defect": 1.536662725896514e-15,
+              "maximum_block_projection_change": 3.545350567947757e-14,
+              "maximum_block_raw_unitarity_defect": 6.976075171599675e-14,
+              "maximum_block_restored_unitarity_defect": 8.4702429207465e-16,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6572448141479005e-13,
+              "raw_block_product_unitarity_defect": 6.976075171599675e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.32100424785305e-14
+              "sum_block_projection_changes": 3.545350567947757e-14
             },
-            "corrected_full_phase_target_residual": 9.430774849337019e-15,
-            "full_phase_target_residual": 8.284063904961994e-14,
+            "corrected_full_phase_target_residual": 1.1299399487104728e-14,
+            "full_phase_target_residual": 3.552495701251082e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.286224070739847e-14,
+              "exact_polar_distance_formula_evaluated": 3.488037585799898e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.32100424785305e-14,
-              "raw_unitarity_defect": 1.6572448141479005e-13,
-              "restored_unitarity_defect": 1.536662725896514e-15
+              "projection_change": 3.545350567947757e-14,
+              "raw_unitarity_defect": 6.976075171599675e-14,
+              "restored_unitarity_defect": 8.4702429207465e-16
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -3976,7 +3976,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -4010,40 +4010,40 @@
         "stages": [
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 3.0800308517360998e-15,
+              "algebraic_telescoping_expression_evaluated": 2.5092402346649113e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 38
               ],
-              "complete_corrected_minus_raw_norm": 3.0800308517360998e-15,
+              "complete_corrected_minus_raw_norm": 2.5092402346649113e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 3.0800308517360998e-15,
-              "maximum_block_raw_unitarity_defect": 6.050292970049636e-15,
-              "maximum_block_restored_unitarity_defect": 6.922333975719511e-16,
+              "maximum_block_projection_change": 2.5092402346649113e-15,
+              "maximum_block_raw_unitarity_defect": 3.8398045761580815e-15,
+              "maximum_block_restored_unitarity_defect": 1.8067174273664667e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 6.050292970049636e-15,
+              "raw_block_product_unitarity_defect": 3.8398045761580815e-15,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 3.0800308517360998e-15
+              "sum_block_projection_changes": 2.5092402346649113e-15
             },
-            "corrected_full_phase_target_residual": 6.797042303544165e-16,
-            "full_phase_target_residual": 3.026120287001757e-15,
+            "corrected_full_phase_target_residual": 1.9339916812214594e-15,
+            "full_phase_target_residual": 1.936832504195485e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_quadrature_rotation",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 3.0251464850248228e-15,
+              "exact_polar_distance_formula_evaluated": 1.9199022880790427e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 3.0800308517360998e-15,
-              "raw_unitarity_defect": 6.050292970049636e-15,
-              "restored_unitarity_defect": 6.922333975719511e-16
+              "projection_change": 2.5092402346649113e-15,
+              "raw_unitarity_defect": 3.8398045761580815e-15,
+              "restored_unitarity_defect": 1.8067174273664667e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -4051,7 +4051,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 62.83185307179586,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 38,
               "pair_code_pulses": 10,
@@ -4067,40 +4067,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.305697345454423e-14,
+              "algebraic_telescoping_expression_evaluated": 3.719034096327542e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.305697345454423e-14,
+              "complete_corrected_minus_raw_norm": 3.719034096327542e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.305697345454423e-14,
-              "maximum_block_raw_unitarity_defect": 1.6610455691764277e-13,
-              "maximum_block_restored_unitarity_defect": 1.0790737892313792e-15,
+              "maximum_block_projection_change": 3.719034096327542e-14,
+              "maximum_block_raw_unitarity_defect": 7.368205416795076e-14,
+              "maximum_block_restored_unitarity_defect": 1.210196738321586e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6610455691764277e-13,
+              "raw_block_product_unitarity_defect": 7.368205416795076e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.305697345454423e-14
+              "sum_block_projection_changes": 3.719034096327542e-14
             },
-            "corrected_full_phase_target_residual": 1.0299484625555304e-14,
-            "full_phase_target_residual": 8.297639782238237e-14,
+            "corrected_full_phase_target_residual": 9.863519829889331e-15,
+            "full_phase_target_residual": 3.736248972693499e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_inverse_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.305227845882483e-14,
+              "exact_polar_distance_formula_evaluated": 3.684102708397606e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.305697345454423e-14,
-              "raw_unitarity_defect": 1.6610455691764277e-13,
-              "restored_unitarity_defect": 1.0790737892313792e-15
+              "projection_change": 3.719034096327542e-14,
+              "raw_unitarity_defect": 7.368205416795076e-14,
+              "restored_unitarity_defect": 1.210196738321586e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -4108,7 +4108,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -4124,40 +4124,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -4165,7 +4165,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -4181,40 +4181,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.1992625831047442e-14,
+              "algebraic_telescoping_expression_evaluated": 7.387457130689061e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 118
               ],
-              "complete_corrected_minus_raw_norm": 1.1992625831047442e-14,
+              "complete_corrected_minus_raw_norm": 7.387457130689061e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.1992625831047442e-14,
-              "maximum_block_raw_unitarity_defect": 2.326252090489238e-14,
-              "maximum_block_restored_unitarity_defect": 1.7051908262419361e-15,
+              "maximum_block_projection_change": 7.387457130689061e-15,
+              "maximum_block_raw_unitarity_defect": 1.3847354649092078e-14,
+              "maximum_block_restored_unitarity_defect": 1.9197336037198605e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.326252090489238e-14,
+              "raw_block_product_unitarity_defect": 1.3847354649092078e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.1992625831047442e-14
+              "sum_block_projection_changes": 7.387457130689061e-15
             },
-            "corrected_full_phase_target_residual": 2.1080375301786887e-15,
-            "full_phase_target_residual": 1.1737063299621575e-14,
+            "corrected_full_phase_target_residual": 3.4931859969229212e-15,
+            "full_phase_target_residual": 6.900179719345585e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_conditional_phase",
             "numerical_stabilization": {
               "dimension": 16,
-              "exact_polar_distance_formula_evaluated": 1.1631260452446258e-14,
+              "exact_polar_distance_formula_evaluated": 6.923677324546064e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.1992625831047442e-14,
-              "raw_unitarity_defect": 2.326252090489238e-14,
-              "restored_unitarity_defect": 1.7051908262419361e-15
+              "projection_change": 7.387457130689061e-15,
+              "raw_unitarity_defect": 1.3847354649092078e-14,
+              "restored_unitarity_defect": 1.9197336037198605e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 4,
@@ -4222,7 +4222,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 214.4136986075034,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 4,
               "native_pulses": 118,
               "pair_code_pulses": 34,
@@ -4238,40 +4238,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -4279,7 +4279,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -4295,40 +4295,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.32100424785305e-14,
+              "algebraic_telescoping_expression_evaluated": 3.545350567947757e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.32100424785305e-14,
+              "complete_corrected_minus_raw_norm": 3.545350567947757e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.32100424785305e-14,
-              "maximum_block_raw_unitarity_defect": 1.6572448141479005e-13,
-              "maximum_block_restored_unitarity_defect": 1.536662725896514e-15,
+              "maximum_block_projection_change": 3.545350567947757e-14,
+              "maximum_block_raw_unitarity_defect": 6.976075171599675e-14,
+              "maximum_block_restored_unitarity_defect": 8.4702429207465e-16,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6572448141479005e-13,
+              "raw_block_product_unitarity_defect": 6.976075171599675e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.32100424785305e-14
+              "sum_block_projection_changes": 3.545350567947757e-14
             },
-            "corrected_full_phase_target_residual": 9.430774849337019e-15,
-            "full_phase_target_residual": 8.284063904961994e-14,
+            "corrected_full_phase_target_residual": 1.1299399487104728e-14,
+            "full_phase_target_residual": 3.552495701251082e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.286224070739847e-14,
+              "exact_polar_distance_formula_evaluated": 3.488037585799898e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.32100424785305e-14,
-              "raw_unitarity_defect": 1.6572448141479005e-13,
-              "restored_unitarity_defect": 1.536662725896514e-15
+              "projection_change": 3.545350567947757e-14,
+              "raw_unitarity_defect": 6.976075171599675e-14,
+              "restored_unitarity_defect": 8.4702429207465e-16
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -4336,7 +4336,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -4370,40 +4370,40 @@
         "stages": [
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 3.0800308517360998e-15,
+              "algebraic_telescoping_expression_evaluated": 2.5092402346649113e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 38
               ],
-              "complete_corrected_minus_raw_norm": 3.0800308517360998e-15,
+              "complete_corrected_minus_raw_norm": 2.5092402346649113e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 3.0800308517360998e-15,
-              "maximum_block_raw_unitarity_defect": 6.050292970049636e-15,
-              "maximum_block_restored_unitarity_defect": 6.922333975719511e-16,
+              "maximum_block_projection_change": 2.5092402346649113e-15,
+              "maximum_block_raw_unitarity_defect": 3.8398045761580815e-15,
+              "maximum_block_restored_unitarity_defect": 1.8067174273664667e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 6.050292970049636e-15,
+              "raw_block_product_unitarity_defect": 3.8398045761580815e-15,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 3.0800308517360998e-15
+              "sum_block_projection_changes": 2.5092402346649113e-15
             },
-            "corrected_full_phase_target_residual": 6.797042303544165e-16,
-            "full_phase_target_residual": 3.026120287001757e-15,
+            "corrected_full_phase_target_residual": 1.9339916812214594e-15,
+            "full_phase_target_residual": 1.936832504195485e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_quadrature_rotation",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 3.0251464850248228e-15,
+              "exact_polar_distance_formula_evaluated": 1.9199022880790427e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 3.0800308517360998e-15,
-              "raw_unitarity_defect": 6.050292970049636e-15,
-              "restored_unitarity_defect": 6.922333975719511e-16
+              "projection_change": 2.5092402346649113e-15,
+              "raw_unitarity_defect": 3.8398045761580815e-15,
+              "restored_unitarity_defect": 1.8067174273664667e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -4411,7 +4411,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 62.83185307179586,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 38,
               "pair_code_pulses": 10,
@@ -4427,40 +4427,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.305697345454423e-14,
+              "algebraic_telescoping_expression_evaluated": 3.719034096327542e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.305697345454423e-14,
+              "complete_corrected_minus_raw_norm": 3.719034096327542e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.305697345454423e-14,
-              "maximum_block_raw_unitarity_defect": 1.6610455691764277e-13,
-              "maximum_block_restored_unitarity_defect": 1.0790737892313792e-15,
+              "maximum_block_projection_change": 3.719034096327542e-14,
+              "maximum_block_raw_unitarity_defect": 7.368205416795076e-14,
+              "maximum_block_restored_unitarity_defect": 1.210196738321586e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6610455691764277e-13,
+              "raw_block_product_unitarity_defect": 7.368205416795076e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.305697345454423e-14
+              "sum_block_projection_changes": 3.719034096327542e-14
             },
-            "corrected_full_phase_target_residual": 1.0299484625555304e-14,
-            "full_phase_target_residual": 8.297639782238237e-14,
+            "corrected_full_phase_target_residual": 9.863519829889331e-15,
+            "full_phase_target_residual": 3.736248972693499e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_inverse_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.305227845882483e-14,
+              "exact_polar_distance_formula_evaluated": 3.684102708397606e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.305697345454423e-14,
-              "raw_unitarity_defect": 1.6610455691764277e-13,
-              "restored_unitarity_defect": 1.0790737892313792e-15
+              "projection_change": 3.719034096327542e-14,
+              "raw_unitarity_defect": 7.368205416795076e-14,
+              "restored_unitarity_defect": 1.210196738321586e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -4468,7 +4468,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -4484,40 +4484,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -4525,7 +4525,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -4541,40 +4541,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.0413251243120792e-14,
+              "algebraic_telescoping_expression_evaluated": 7.0580148647425e-15,
               "block_count": 1,
               "block_pulse_counts": [
                 118
               ],
-              "complete_corrected_minus_raw_norm": 1.0413251243120792e-14,
+              "complete_corrected_minus_raw_norm": 7.0580148647425e-15,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.0413251243120792e-14,
-              "maximum_block_raw_unitarity_defect": 2.0221358502150498e-14,
-              "maximum_block_restored_unitarity_defect": 1.5123051386796577e-15,
+              "maximum_block_projection_change": 7.0580148647425e-15,
+              "maximum_block_raw_unitarity_defect": 1.2614837278371518e-14,
+              "maximum_block_restored_unitarity_defect": 1.9512154173559436e-15,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.0221358502150498e-14,
+              "raw_block_product_unitarity_defect": 1.2614837278371518e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.0413251243120792e-14
+              "sum_block_projection_changes": 7.0580148647425e-15
             },
-            "corrected_full_phase_target_residual": 1.6158821578395184e-15,
-            "full_phase_target_residual": 1.0111220517414329e-14,
+            "corrected_full_phase_target_residual": 4.056038235816687e-15,
+            "full_phase_target_residual": 6.336384370317248e-15,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "readout_conditional_phase",
             "numerical_stabilization": {
               "dimension": 16,
-              "exact_polar_distance_formula_evaluated": 1.0110679251075301e-14,
+              "exact_polar_distance_formula_evaluated": 6.3074186391857785e-15,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.0413251243120792e-14,
-              "raw_unitarity_defect": 2.0221358502150498e-14,
-              "restored_unitarity_defect": 1.5123051386796577e-15
+              "projection_change": 7.0580148647425e-15,
+              "raw_unitarity_defect": 1.2614837278371518e-14,
+              "restored_unitarity_defect": 1.9512154173559436e-15
             },
             "physical_service_error_certified": false,
             "register_qubits": 4,
@@ -4582,7 +4582,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 213.62830044410595,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 4,
               "native_pulses": 118,
               "pair_code_pulses": 34,
@@ -4598,40 +4598,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 1.110336394186365e-16,
+              "algebraic_telescoping_expression_evaluated": 0.0,
               "block_count": 1,
               "block_pulse_counts": [
                 1
               ],
-              "complete_corrected_minus_raw_norm": 1.110336394186365e-16,
+              "complete_corrected_minus_raw_norm": 0.0,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 1.110336394186365e-16,
-              "maximum_block_raw_unitarity_defect": 2.6803154833089315e-16,
-              "maximum_block_restored_unitarity_defect": 9.780112998841432e-36,
+              "maximum_block_projection_change": 0.0,
+              "maximum_block_raw_unitarity_defect": 0.0,
+              "maximum_block_restored_unitarity_defect": 0.0,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 2.6803154833089315e-16,
+              "raw_block_product_unitarity_defect": 0.0,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 1.110336394186365e-16
+              "sum_block_projection_changes": 0.0
             },
-            "corrected_full_phase_target_residual": 1.5701564094614035e-16,
-            "full_phase_target_residual": 1.796443562884391e-16,
+            "corrected_full_phase_target_residual": 1.7963785889362148e-16,
+            "full_phase_target_residual": 1.7963785889362148e-16,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "spin_rotation_X",
             "numerical_stabilization": {
               "dimension": 2,
-              "exact_polar_distance_formula_evaluated": 1.3401577416544657e-16,
+              "exact_polar_distance_formula_evaluated": 0.0,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 1.110336394186365e-16,
-              "raw_unitarity_defect": 2.6803154833089315e-16,
-              "restored_unitarity_defect": 9.780112998841432e-36
+              "projection_change": 0.0,
+              "raw_unitarity_defect": 0.0,
+              "restored_unitarity_defect": 0.0
             },
             "physical_service_error_certified": false,
             "register_qubits": 1,
@@ -4639,7 +4639,7 @@
               "identity_phase_pulses": 0,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 0.7853981633974483,
-              "maximum_numerical_valid_code_leakage": 1.2214158839764132e-17,
+              "maximum_numerical_valid_code_leakage": 2.4428317679528266e-17,
               "maximum_work_qubits": 1,
               "native_pulses": 1,
               "pair_code_pulses": 0,
@@ -4655,40 +4655,40 @@
           },
           {
             "blockwise_contraction": {
-              "algebraic_telescoping_expression_evaluated": 8.32100424785305e-14,
+              "algebraic_telescoping_expression_evaluated": 3.545350567947757e-14,
               "block_count": 1,
               "block_pulse_counts": [
                 1046
               ],
-              "complete_corrected_minus_raw_norm": 8.32100424785305e-14,
+              "complete_corrected_minus_raw_norm": 3.545350567947757e-14,
               "final_projection_change": 0.0,
               "floating_matrix_product_roundoff_in_telescoping_expression": false,
-              "maximum_block_projection_change": 8.32100424785305e-14,
-              "maximum_block_raw_unitarity_defect": 1.6572448141479005e-13,
-              "maximum_block_restored_unitarity_defect": 1.536662725896514e-15,
+              "maximum_block_projection_change": 3.545350567947757e-14,
+              "maximum_block_raw_unitarity_defect": 6.976075171599675e-14,
+              "maximum_block_restored_unitarity_defect": 8.4702429207465e-16,
               "maximum_native_pulses_per_block": 4096,
               "method": "fixed chronological pulse blocks; raw and guarded products retained",
               "outward_roundoff_or_physical_error_certificate": false,
-              "raw_block_product_unitarity_defect": 1.6572448141479005e-13,
+              "raw_block_product_unitarity_defect": 6.976075171599675e-14,
               "raw_product_grouping": "product of executed blocks, not monolithic pulse-by-pulse contraction",
               "source_word_or_resource_counts_changed": false,
-              "sum_block_projection_changes": 8.32100424785305e-14
+              "sum_block_projection_changes": 3.545350567947757e-14
             },
-            "corrected_full_phase_target_residual": 9.430774849337019e-15,
-            "full_phase_target_residual": 8.284063904961994e-14,
+            "corrected_full_phase_target_residual": 1.1299399487104728e-14,
+            "full_phase_target_residual": 3.552495701251082e-14,
             "matrix_origin": "contracted_native_source_pulses",
             "name": "coordinate_basis",
             "numerical_stabilization": {
               "dimension": 8,
-              "exact_polar_distance_formula_evaluated": 8.286224070739847e-14,
+              "exact_polar_distance_formula_evaluated": 3.488037585799898e-14,
               "maximum_projection_change": 5.1e-11,
               "maximum_raw_unitarity_defect": 1e-10,
               "maximum_restored_unitarity_defect": 2e-13,
               "method": "guarded polar projection of the executed source-word matrix",
               "physical_error_certificate": false,
-              "projection_change": 8.32100424785305e-14,
-              "raw_unitarity_defect": 1.6572448141479005e-13,
-              "restored_unitarity_defect": 1.536662725896514e-15
+              "projection_change": 3.545350567947757e-14,
+              "raw_unitarity_defect": 6.976075171599675e-14,
+              "restored_unitarity_defect": 8.4702429207465e-16
             },
             "physical_service_error_certified": false,
             "register_qubits": 3,
@@ -4696,7 +4696,7 @@
               "identity_phase_pulses": 1,
               "initialization_storage_readout_physical_costs_included": false,
               "integrated_processor_norm_upper": 1691.0089898787312,
-              "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+              "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
               "maximum_work_qubits": 3,
               "native_pulses": 1046,
               "pair_code_pulses": 234,
@@ -4772,7 +4772,7 @@
         "identity_phase_pulses": 1,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 54.19247327442393,
-        "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
         "maximum_work_qubits": 3,
         "native_pulses": 34,
         "pair_code_pulses": 8,
@@ -5069,7 +5069,7 @@
     "Lean/QFT/ConjugationGauge.lean": "a0382a1cf3d8fab9fd341438eb74c31b2856f89921540c0bd8ee4c776e49aabc",
     "Lean/QFT/SourcePhaseLiftBridge.lean": "930375b7d6138be8266bf9245fb9d91be3ed4fcf588de0044d603410b82967c6",
     "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "docs/research/COHERENT_SOURCE_CLOCKS.md": "3daa10fa2fe85979c55e72e8dee18649d80d276b85db4654fa2d5097c98b5557",
     "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
@@ -5150,7 +5150,7 @@
     "model/readout_controls/prospective.py": "03db652f5ded543f1783d9eb20ae9c9d8a6925a3b98f84258f1ae6f177d99391",
     "model/readout_controls/protocol.json": "1738e9b5c15b97ea7d36aac7fb06907177049a6a8bdecc8e620d526b24800842",
     "model/readout_controls/readout.py": "fcf0ef38307ef6de34f93f6933f9a8b5e00a3626e8d56333ff2da573fc0f28be",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
     "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",

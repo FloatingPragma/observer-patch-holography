@@ -192,7 +192,7 @@
       "weak_H4_boundary_test": true
     }
   },
-  "all_pass": false,
+  "all_pass": true,
   "bounds": {
     "constants": {
       "K0": "359",
@@ -228,13 +228,13 @@
     "symmetric_detector_verified": true,
     "unsymmetrized_detector_rejected": true
   },
-  "dependency_custody_pass": false,
+  "dependency_custody_pass": true,
   "finite_attachment": "FA94",
   "new_checks_pass": true,
   "prior_custody": {
-    "dependency_custody_pass": false,
+    "dependency_custody_pass": true,
     "direct_prior_source_mismatches": [],
-    "inherited_dependency_custody_pass": false,
+    "inherited_dependency_custody_pass": true,
     "prior": "model/weyl_gravity_response/results.json",
     "prior_full_source_replay": false,
     "prior_new_checks_pass": true
@@ -260,7 +260,7 @@
     "model/weyl_gravity_response/README.md": "74de2795c327e01dd28b1ebf9bef0920ba240804f22c187f1325dc80598002d8",
     "model/weyl_gravity_response/algebra.py": "8e6ee9970fedc0afd7c042227e1fd6a67ea138e8c2193a055b338839e3d18f6e",
     "model/weyl_gravity_response/bounds.py": "f3f17dc37027244f2423ca099fc888a0499e23a3909502d1196ffa7b99349ae8",
-    "model/weyl_gravity_response/results.json": "dad0ecf857b79b2670e1ba73af962af5ef642cb85e400eff5e40e6697064c840",
+    "model/weyl_gravity_response/results.json": "d7d100e56c49edcbbd8f729983ef9e1e36b3f8391a944264fdd8c229261acc76",
     "paper/tex_fragments/LATTICE_WEYL_RESPONSE.tex": "963c630b029512dcb09e10a8f7b876606a1b87deebb708c45135779d2f2f3c32",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },

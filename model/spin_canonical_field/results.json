@@ -1,0 +1,112 @@
+{
+  "constants": {
+    "magnetization_strict_lower": "1/1000",
+    "one_site_weyl_remainder_coefficient": "1/4",
+    "source_L1_cone_speed_upper": "72",
+    "staggered_energy_coefficient": "3",
+    "staggered_second_moment_coefficient": "3",
+    "transport_mixed_coefficient": 4,
+    "transport_quadratic_coefficient": 10,
+    "uniform_energy_coefficient": "1/4",
+    "uniform_second_moment_coefficient": "1/4"
+  },
+  "direct_exact_checks": {
+    "all_three_axis_double_commutators": true,
+    "canonical_sign": "[Q,P]=+iM",
+    "finite_controls_are_ground_scaling_evidence": false,
+    "second_transverse_momentum_commutator_is_nonzero": true,
+    "transverse_bond_norm": "1/2"
+  },
+  "inherited_custody": {
+    "finite_arithmetic_proves_infinite_limit_by_itself": false,
+    "kind": "Explicit mathematical inputs with current source-byte bindings",
+    "prior_full_producers_rerun_here": false
+  },
+  "primary_import": {
+    "statement": "Theorem 2.1: field-selected m_s is the supremum over all infinite-volume zero-field ground states",
+    "url": "https://arxiv.org/html/1712.09018v4"
+  },
+  "schema": "oph.spin_canonical_field.v1",
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_canonical_field/__init__.py": "3441c9f7e3cc711c3f7ab7a2fbfe240e7673ab8ebc3a3fea2248cd9de60caab9",
+    "model/spin_canonical_field/__main__.py": "579eccf3a604e6959aba7f671ecfd0df76fae8ef60977d5eaba17a25e4d6e39d",
+    "model/spin_canonical_field/algebra.py": "789a5cda2a01a5fe5509fcd3784e577963b7cf155f156f9d0c7854640a766120",
+    "model/spin_canonical_field/bounds.py": "0f5709a6eafcf17b2c1661f828152f90d1676a6428d201a162ad1e5fb401f599",
+    "model/spin_canonical_field/packet.py": "7c5951cf0dea36b1e6cb7d847ce172c9d9185685600d815bd793c2c199e8b0a5",
+    "model/spin_canonical_field/test_canonical.py": "5ca52aaa0181717665fdcb1ba108adeca7e6393c429f733e05513c0cc3218f73",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "model/spin_particle_scaling/README.md": "0878f0d1c13e9000a1cd7b26c16da92b1464671b77becfa351b4cf14e79ce336",
+    "paper/tex_fragments/SPIN_CANONICAL_FIELD.tex": "6f7553682886399f9ace1b301372bc7c5170d260eb0fc711c413a2de687930e2"
+  },
+  "theorem": {
+    "Lorentz_covariance_proved": false,
+    "canonical_pair": "Q=p^2 sum eps_x F(px) Sx^3; P=-p sum G(px) Sx^2",
+    "common_Wightman_field_domain_proved": false,
+    "effective_ordered_state_preparation_rate_proved": false,
+    "physical_species_identified": false,
+    "reference": "same maximal staggered-field-selected zero-field ground",
+    "regular_local_positive_energy_Weyl_net": true,
+    "scaled_coordinates": "X=p*x, T=J*p*t, p->0",
+    "sharp_mass_shell_proved": false,
+    "source": "same cubic antiferromagnetic spin-1/2 H_J",
+    "state_is_assumed_ergodic_or_Gaussian": false,
+    "surviving_connected_interaction_proved": false,
+    "symplectic_form": "m_s integral(F G_prime-G F_prime)",
+    "two_independent_canonical_pairs_proved": false
+  },
+  "transport_examples": [
+    {
+      "history_energy_upper": "1/4",
+      "order_kick_squared_upper": "1/64",
+      "order_self_averaging_rate_claimed": false,
+      "p": "1/4",
+      "scale": 2,
+      "time": "4",
+      "transport_distance_squared_upper": "13/8",
+      "untruncated_transport_bound": "13/8"
+    },
+    {
+      "history_energy_upper": "1/16",
+      "order_kick_squared_upper": "1/4096",
+      "order_self_averaging_rate_claimed": false,
+      "p": "1/16",
+      "scale": 4,
+      "time": "16",
+      "transport_distance_squared_upper": "37/128",
+      "untruncated_transport_bound": "37/128"
+    },
+    {
+      "history_energy_upper": "1/64",
+      "order_kick_squared_upper": "1/262144",
+      "order_self_averaging_rate_claimed": false,
+      "p": "1/64",
+      "scale": 8,
+      "time": "64",
+      "transport_distance_squared_upper": "133/2048",
+      "untruncated_transport_bound": "133/2048"
+    },
+    {
+      "history_energy_upper": "1/256",
+      "order_kick_squared_upper": "1/16777216",
+      "order_self_averaging_rate_claimed": false,
+      "p": "1/256",
+      "scale": 16,
+      "time": "256",
+      "transport_distance_squared_upper": "517/32768",
+      "untruncated_transport_bound": "517/32768"
+    },
+    {
+      "history_energy_upper": "1/4096",
+      "order_kick_squared_upper": "1/68719476736",
+      "order_self_averaging_rate_claimed": false,
+      "p": "1/4096",
+      "scale": 64,
+      "time": "4096",
+      "transport_distance_squared_upper": "8197/8388608",
+      "untruncated_transport_bound": "8197/8388608"
+    }
+  ]
+}

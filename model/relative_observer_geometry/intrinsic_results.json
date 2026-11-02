@@ -1249,14 +1249,14 @@
             0
           ],
           "incident_ticks": 1,
-          "probability": 0.13787858829401067
+          "probability": 0.1378785882940108
         },
         {
           "field_bits": [
             1
           ],
           "incident_ticks": 1,
-          "probability": 0.13989918948376684
+          "probability": 0.13989918948376667
         },
         {
           "field_bits": [
@@ -1264,7 +1264,7 @@
             0
           ],
           "incident_ticks": 2,
-          "probability": 0.013511623370147822
+          "probability": 0.013511623370147857
         },
         {
           "field_bits": [
@@ -1272,7 +1272,7 @@
             1
           ],
           "incident_ticks": 2,
-          "probability": 0.000276235459253206
+          "probability": 0.00027623545925320773
         },
         {
           "field_bits": [
@@ -1280,7 +1280,7 @@
             0
           ],
           "incident_ticks": 2,
-          "probability": 0.012055201223128333
+          "probability": 0.012055201223128325
         },
         {
           "field_bits": [
@@ -1288,7 +1288,7 @@
             1
           ],
           "incident_ticks": 2,
-          "probability": 0.001934717725248324
+          "probability": 0.0019347177252483337
         }
       ],
       "complete_native_tape_sha256": "72e13920b372a362a3c4203028d44de978f7ffee8f354dc78fb249c6f481df3a",
@@ -1298,24 +1298,24 @@
         0,
         1
       ],
-      "feedback_removal_record_tv": 0.011321153841852753,
+      "feedback_removal_record_tv": 0.011321153841852739,
       "first_model_duration": "1/4",
       "full_product_Gibbs_or_nonconstant_radial_inputs_covered": false,
       "native_timer_pauses_during_comparison_services": true,
       "radial_model_comparisons": [
         {
-          "complete_output_probability": 0.9999999999999993,
-          "complete_work_reference_record_distance_upper_numerical": 1.8481363927728023e-16,
+          "complete_output_probability": 0.9999999999999997,
+          "complete_work_reference_record_distance_upper_numerical": 1.4928024629756317e-16,
           "radial_model": "path_weight_one"
         },
         {
-          "complete_output_probability": 0.9999999999999993,
-          "complete_work_reference_record_distance_upper_numerical": 1.8728544384715395e-16,
+          "complete_output_probability": 0.9999999999999997,
+          "complete_work_reference_record_distance_upper_numerical": 1.4967174380046248e-16,
           "radial_model": "path_weight_four"
         },
         {
-          "complete_output_probability": 0.9999999999999993,
-          "complete_work_reference_record_distance_upper_numerical": 1.7679628376056846e-16,
+          "complete_output_probability": 0.9999999999999997,
+          "complete_work_reference_record_distance_upper_numerical": 1.7702019714964962e-16,
           "radial_model": "cycle_weight_one"
         }
       ],
@@ -2878,7 +2878,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
     "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
@@ -2896,7 +2896,7 @@
     "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
     "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
     "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
     "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
     "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",

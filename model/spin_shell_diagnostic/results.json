@@ -1,0 +1,120 @@
+{
+  "broad_band_criterion": {
+    "energy_lower_per_Jp": "1/16000",
+    "energy_upper_per_Jp": "64000000",
+    "lattice_error_coefficient": "c/12",
+    "ratio_upper_rational": "1408000000/7",
+    "required_common_ratio_mean": "one unknown c>0",
+    "required_ratio_defect_limit": "0",
+    "speed_identified": false,
+    "test_scope": "entire selected response, or an independently justified component with proved nonvanishing weight"
+  },
+  "continuous_ward_compatible_control": {
+    "cross_measure_density": "i*m/2",
+    "is_an_actual_Heisenberg_ground_state": false,
+    "known_first_inverse_moment_and_ward_bounds_satisfied": true,
+    "minimum_squared_energy_shell_residual": "34/45",
+    "mu_weight_over_p": "1/10",
+    "nu_weight_times_p": "5*m^2/2",
+    "positive_matrix_measure_rank_one": true,
+    "ratio_defect_lower": "1/27",
+    "scaled_energy_variance": "1/12",
+    "spectral_atoms": false,
+    "uniform_scaled_energy_support": [
+      "1",
+      "2"
+    ],
+    "ward_magnetization_range": "0<m<=1/2"
+  },
+  "exact_local_algebra": {
+    "arbitrary_complex_coefficients": true,
+    "current_and_double_commutator_checked": true,
+    "exact_graph_axis_checks": 12,
+    "force_trace_orthogonal_to_all_linear_spins": true,
+    "path_trace_norm": "(|a|^2+|b|^2+|a+b|^2)/32"
+  },
+  "exact_tracial_force": {
+    "finite_even_cubic_torus_side_at_least4": true,
+    "normalized_plane_wave_force_norm_squared_over_J4": "E**2/8 + 9*E/8",
+    "renormalized_force_norm_squared_over_J4": "E**2*alpha**2/4 - E**2*alpha/2 + 3*E**2/8 + 9*E/8",
+    "requires_simple_triangle_free_degree6_graph": true,
+    "tracial_state_is_not_the_ordered_ground": true
+  },
+  "finite_source_control": {
+    "J": 1,
+    "bonds": 12,
+    "finite_floating_control_not_interval_eigenvalue_certificate": true,
+    "full_spin_dimension": 256,
+    "graph": "open2x2x2cube",
+    "momenta_in_p_le1_regime": false,
+    "native_pulses_executed": false,
+    "proves_failure_of_infinite_scaling_shell": false,
+    "rows": [
+      {
+        "all256eigenvectors_used": true,
+        "cube_character": 1,
+        "current_moment_crosscheck": true,
+        "ratio_moment_defect_rounded": "0.008684",
+        "strictly_positive_defect_above": "0.006"
+      },
+      {
+        "all256eigenvectors_used": true,
+        "cube_character": 3,
+        "current_moment_crosscheck": true,
+        "ratio_moment_defect_rounded": "0.006647",
+        "strictly_positive_defect_above": "0.006"
+      },
+      {
+        "all256eigenvectors_used": true,
+        "cube_character": 7,
+        "current_moment_crosscheck": true,
+        "ratio_moment_defect_rounded": "0.031631",
+        "strictly_positive_defect_above": "0.006"
+      }
+    ],
+    "sites": 8
+  },
+  "inherited_scope": {
+    "direct_mathematical_inputs_pinned": true,
+    "old_full_receipt_closures_replayed": false,
+    "source_or_repair_law_changed": false
+  },
+  "mass_shell_established": false,
+  "new_checks_pass": true,
+  "new_finite_attachment_claimed": false,
+  "physical_species_identified": false,
+  "primary_source": "https://arxiv.org/html/2105.04970v2",
+  "primary_theorem_scope": "Theorem2.1 bounds the filtered mean energy between positive multiples of momentum; it does not establish a vanishing spectral width.",
+  "remaining_estimate": "A sufficient route is common-speed concentration of the entire broad-window response, or of an independently justified spectral component with proved nonvanishing weight. A sharp component may coexist with a continuum; whole-response concentration is not necessary for its existence.",
+  "schema": "oph.spin_shell_diagnostic.v1",
+  "scope": "EXACT_SOURCE_IDENTITIES_AND_OPEN_MASS_SHELL_DIAGNOSTIC",
+  "sharp_lattice_pole_established": false,
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
+    "model/protected_spin_limit/algebra.py": "b55427b2442d4f21256a11995b91278f2ff60fa5db10d7de2f20dce736776f81",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "model/spin_goldstone_sector/__init__.py": "d497a6791e48b90de7d1d2548906880cbf8cf1de17d6be4159a08f5c1c80d4de",
+    "model/spin_goldstone_sector/algebra.py": "db981083ea50d41914fd228e84dc7155afe85ab4c18c1f74d275454c62646173",
+    "model/spin_goldstone_sector/experiment.py": "4805ad6709a1b0ef4f904a7bb5283dc18dfac61061867d6bdee4c903b3413b2c",
+    "model/spin_particle_scaling/README.md": "0878f0d1c13e9000a1cd7b26c16da92b1464671b77becfa351b4cf14e79ce336",
+    "model/spin_particle_scaling/bounds.py": "a2383870db6b944c3f124899fac9e546e3b21eea1d1eee23636ccdb4fe2fd89f",
+    "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
+    "model/spin_shell_diagnostic/__init__.py": "a7c594661c62b2c404684299c5be447e519669a8109c553786cf538a486f0569",
+    "model/spin_shell_diagnostic/__main__.py": "dd1140ca6b5f917559b56fe6fed727abdd483f9e1dcf82a0a45af9f59c40b4e8",
+    "model/spin_shell_diagnostic/algebra.py": "1944adf4fa24a106530c147ce0733e2e1a0dcc096e87eb3c3af59ed80bb90067",
+    "model/spin_shell_diagnostic/criteria.py": "b3a2b01fab155a0254ae8169526524f84b8ebe67e8db04ea8cf11a780c63f5ee",
+    "model/spin_shell_diagnostic/experiment.py": "2468378b45d7c4299928184d1cde0c2892ac33ff00e00f30a82c619a7c46762d",
+    "model/spin_shell_diagnostic/packet.py": "5edce59528d40cd79bbeb08293570116b29ea8745ca4fcd84f27226182152c61",
+    "model/spin_shell_diagnostic/test_diagnostic.py": "cdd0bb775db0d2e7626ab7007abe7a52df109303e14806c87a84662de8ccf851",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "two_ray_ratio_control": {
+    "defect": "1/8",
+    "inverse_mean": "3/4",
+    "mean": "3/2",
+    "variance": "1/4"
+  },
+  "whole_response_concentration_necessary_for_any_sharp_branch": false
+}

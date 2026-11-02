@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "calibrated_spectrum_observer_results.npz",
-    "sha256": "ef13d71318fec3919aaed748fa1862e0ac85bd3a8a17ea95221198df25ef5c08"
+    "sha256": "e8e8589690bfb7cbdb72f26e1d189704b5c0165a5c0f94511725bb9d48748fc3"
   },
   "classification": "native implementation sanity check of a supplied empirically calibrated running action",
   "clock": {
@@ -36,16 +36,16 @@
       "application": "source-defined conjugation and mass-coordinate readout; conservative three complete frames charged per setting",
       "complete_frame_native_pulses": 816,
       "diagnostics": {
-        "CKM_source_operator_difference": 7.76695895545731e-15,
-        "CKM_source_unitarity_residual": 1.5433868895186466e-14,
-        "full90_mode_onebody_difference": 7.656043436449744e-15,
+        "CKM_source_operator_difference": 6.926256039301352e-15,
+        "CKM_source_unitarity_residual": 1.3518185037726499e-14,
+        "full90_mode_onebody_difference": 5.543881471917136e-15,
         "full_CKM_Fock_columns_executed": 8,
         "global_phase_removed_or_fitted": false,
         "numerical_operator_admission": 2e-10,
         "physical_native_service_error_certified": false,
         "polar_norm_or_probability_repair_applied": false,
-        "singlet_phase_source_difference": 2.491429137188931e-16,
-        "vacuum_phase_difference": 6.83035335636718e-15
+        "singlet_phase_source_difference": 4.440892098500626e-16,
+        "vacuum_phase_difference": 4.002966042486721e-15
       },
       "independent_source_weak_down_block_columns": 64,
       "mapping": {
@@ -327,12 +327,12 @@
       "mass_coordinate_outputs_are_literal_composed90_mode_binary_arrays": false,
       "three_frame_bounded_score_propagation_upper": "15833/549755813888",
       "weak_down_block_errors": {
-        "all_input_mass_source_target_difference": 2.2611533542305168e-14,
-        "all_input_weak_source_target_difference": 3.7126279603984766e-14,
-        "frame_source_target_difference": 7.919918743851512e-15,
-        "inverse_frame_source_target_difference": 7.726350685881103e-15,
-        "literal_composition_difference": 3.736247482674706e-15,
-        "weak_source_unitarity_residual": 7.372734266591015e-14
+        "all_input_mass_source_target_difference": 2.098749522806647e-14,
+        "all_input_weak_source_target_difference": 3.0027724622814576e-14,
+        "frame_source_target_difference": 6.730925448545864e-15,
+        "inverse_frame_source_target_difference": 6.557869328288626e-15,
+        "literal_composition_difference": 3.2334287598808374e-15,
+        "weak_source_unitarity_residual": 5.777912513283717e-14
       },
       "weak_down_block_level": 20,
       "weak_frame_admission_is_an_outward_analytic_or_physical_certificate": false,
@@ -567,7 +567,7 @@
   "source_bindings": {
     "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4",
     "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "model/calibrated_measurement/bounds.py": "fec098d950cff3ce03a0035ba25d847fd7623d7935f333f261ea796696422580",
     "model/common_source/calibrated_matter.py": "472eeba2ea6e3916a38a8cce1b933977c8f31f8bbb897fbe9dd2c508067cdf0e",
@@ -601,7 +601,7 @@
     "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
     "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
     "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },

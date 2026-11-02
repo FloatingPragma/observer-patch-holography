@@ -7,43 +7,43 @@
   },
   "artifact": {
     "filename": "wedge_modular_results.npz",
-    "sha256": "4e4fd41f09836c701b0009f7e6d0780d75f38091e48c6862f6b2eeb338bc1cc1"
+    "sha256": "8d22947ee5a9ea251e156a82ca1a048867380553dc9b0084b0ae459767da3010"
   },
   "exact_result": "K_half=gamma*B; 0<=1-gamma/(2*pi/c)<=mu^2/4",
   "finite_interval_controls": [
     {
       "finite_log_status": "resolved finite regional modular logarithm",
-      "first_four_covariance_BW_error_diagnostic": 0.023944479697285356,
+      "first_four_covariance_BW_error_diagnostic": 0.023944479697285533,
       "half_length": 4
     },
     {
       "finite_log_status": "resolved finite regional modular logarithm",
-      "first_four_covariance_BW_error_diagnostic": 0.017036976375169578,
+      "first_four_covariance_BW_error_diagnostic": 0.017036976375169693,
       "half_length": 8
     },
     {
       "finite_log_status": "purity gap unresolved; finite modular logarithm refused",
-      "first_four_covariance_BW_error_diagnostic": 0.010361258890461127,
+      "first_four_covariance_BW_error_diagnostic": 0.010361258890461399,
       "half_length": 16
     },
     {
       "finite_log_status": "purity gap unresolved; finite modular logarithm refused",
-      "first_four_covariance_BW_error_diagnostic": 0.006054145013762932,
+      "first_four_covariance_BW_error_diagnostic": 0.00605414501376278,
       "half_length": 32
     },
     {
       "finite_log_status": "purity gap unresolved; finite modular logarithm refused",
-      "first_four_covariance_BW_error_diagnostic": 0.0024714323555115707,
+      "first_four_covariance_BW_error_diagnostic": 0.0024714323555117975,
       "half_length": 64
     },
     {
       "finite_log_status": "purity gap unresolved; finite modular logarithm refused",
-      "first_four_covariance_BW_error_diagnostic": 0.00037090769001300156,
+      "first_four_covariance_BW_error_diagnostic": 0.0003709076900129689,
       "half_length": 128
     },
     {
       "finite_log_status": "purity gap unresolved; finite modular logarithm refused",
-      "first_four_covariance_BW_error_diagnostic": 6.869698064638346e-06,
+      "first_four_covariance_BW_error_diagnostic": 6.8696980645927175e-06,
       "half_length": 256
     }
   ],
@@ -69,7 +69,7 @@
     "absolute_levels": "delta*(n+1/2), n=0,1,...",
     "analytic_series_tail_upper": "293/500000000000000000000000000000000000",
     "entropy_diagnostic": 0.4473732012424107,
-    "independent_half32_entropy_diagnostic": 0.44737319330488856,
+    "independent_half32_entropy_diagnostic": 0.4473731933048882,
     "mu_exact": "1/4",
     "terms": 128
   },
@@ -96,7 +96,7 @@
       ],
       "independent_finite_entropy_controls": [
         {
-          "entropy_diagnostic": 0.7084412231614572,
+          "entropy_diagnostic": 0.7084412231614573,
           "half_length": 8
         },
         {
@@ -104,11 +104,11 @@
           "half_length": 32
         },
         {
-          "entropy_diagnostic": 0.919985907061406,
+          "entropy_diagnostic": 0.9199859070614063,
           "half_length": 128
         },
         {
-          "entropy_diagnostic": 0.920093485951467,
+          "entropy_diagnostic": 0.9200934859514669,
           "half_length": 512
         }
       ],
@@ -116,7 +116,7 @@
         "absolute_level_multiplicity": 1,
         "absolute_levels": "delta*(n+1/2), n=0,1,...",
         "analytic_series_tail_upper": "181/500000000000000000000000000000000000",
-        "entropy_diagnostic": 0.9200934863335822,
+        "entropy_diagnostic": 0.9200934863335823,
         "terms": 128
       },
       "infinite_local_phase_mixture_first_law": {
@@ -140,7 +140,7 @@
           "degree": 13,
           "distance_to_omitted_boundary": 28,
           "half_length": 32,
-          "local_covariance_error_diagnostic": 0.011794483496103876,
+          "local_covariance_error_diagnostic": 0.011794483496103958,
           "local_covariance_operator_norm_upper": "156005534990542694593763243124537043224627894141496008627346081810257763/3906250000000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 27
         },
@@ -150,7 +150,7 @@
           "degree": 253,
           "distance_to_omitted_boundary": 508,
           "half_length": 512,
-          "local_covariance_error_diagnostic": 5.191504840309973e-10,
+          "local_covariance_error_diagnostic": 5.191506418545488e-10,
           "local_covariance_operator_norm_upper": "72094258492986919041436309652018172961886236228128440164858666433783/3906250000000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 507
         },
@@ -160,7 +160,7 @@
           "degree": 4093,
           "distance_to_omitted_boundary": 8188,
           "half_length": 8192,
-          "local_covariance_error_diagnostic": 5.386597296146862e-15,
+          "local_covariance_error_diagnostic": 5.5341266140051956e-15,
           "local_covariance_operator_norm_upper": "244171873000255959047338622997264893/3906250000000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 8187
         },
@@ -170,7 +170,7 @@
           "degree": 16381,
           "distance_to_omitted_boundary": 32764,
           "half_length": 32768,
-          "local_covariance_error_diagnostic": 8.471156358528064e-15,
+          "local_covariance_error_diagnostic": 8.35070284585186e-15,
           "local_covariance_operator_norm_upper": "244171873000255959047338622997264893/3906250000000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 32763
         }
@@ -181,8 +181,8 @@
       "planar_entropy": {
         "Dirac_tastes": 2,
         "analytic_level_series_tail_upper": "1803/31250000000000000000000000000000000",
-        "bare_entropy_per_proper_area_diagnostic": 0.22436799881698638,
-        "entropy_diagnostic": 14.359551924287128,
+        "bare_entropy_per_proper_area_diagnostic": 0.22436799881698646,
+        "entropy_diagnostic": 14.359551924287134,
         "proper_area_exact": "64",
         "renormalized_area_coefficient_or_Newton_constant": false,
         "scalar_chains_per_reduced_transverse_momentum": 4,
@@ -213,15 +213,15 @@
           "half_length": 8
         },
         {
-          "entropy_diagnostic": 0.9653176586941188,
+          "entropy_diagnostic": 0.9653176586941187,
           "half_length": 32
         },
         {
-          "entropy_diagnostic": 1.1347570708556054,
+          "entropy_diagnostic": 1.1347570708556056,
           "half_length": 128
         },
         {
-          "entropy_diagnostic": 1.1513053748772188,
+          "entropy_diagnostic": 1.1513053748772186,
           "half_length": 512
         }
       ],
@@ -253,7 +253,7 @@
           "degree": 13,
           "distance_to_omitted_boundary": 28,
           "half_length": 32,
-          "local_covariance_error_diagnostic": 0.015715088571714872,
+          "local_covariance_error_diagnostic": 0.015715088571714837,
           "local_covariance_operator_norm_upper": "109137167583896459878590316166465340494424621305067351551719755282018001/488281250000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 27
         },
@@ -263,7 +263,7 @@
           "degree": 253,
           "distance_to_omitted_boundary": 508,
           "half_length": 512,
-          "local_covariance_error_diagnostic": 5.763171459112042e-05,
+          "local_covariance_error_diagnostic": 5.7631714591078704e-05,
           "local_covariance_operator_norm_upper": "8000175257990539485625255264758050908770970122834688846210322280903847/244140625000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 507
         },
@@ -273,7 +273,7 @@
           "degree": 4093,
           "distance_to_omitted_boundary": 8188,
           "half_length": 8192,
-          "local_covariance_error_diagnostic": 4.995685759766052e-15,
+          "local_covariance_error_diagnostic": 5.287286526423666e-15,
           "local_covariance_operator_norm_upper": "1423536571315090264960571331927390878954397679715679531/953674316406250000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 8187
         },
@@ -283,7 +283,7 @@
           "degree": 16381,
           "distance_to_omitted_boundary": 32764,
           "half_length": 32768,
-          "local_covariance_error_diagnostic": 9.881493484505024e-15,
+          "local_covariance_error_diagnostic": 9.6525151427311e-15,
           "local_covariance_operator_norm_upper": "122071289058593781249687503499958001/488281250000000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 32763
         }
@@ -322,19 +322,19 @@
       ],
       "independent_finite_entropy_controls": [
         {
-          "entropy_diagnostic": 0.7142808972653824,
+          "entropy_diagnostic": 0.7142808972653828,
           "half_length": 8
         },
         {
-          "entropy_diagnostic": 0.9707424160282078,
+          "entropy_diagnostic": 0.970742416028208,
           "half_length": 32
         },
         {
-          "entropy_diagnostic": 1.198744666328238,
+          "entropy_diagnostic": 1.1987446663282384,
           "half_length": 128
         },
         {
-          "entropy_diagnostic": 1.3305292955663375,
+          "entropy_diagnostic": 1.330529295566337,
           "half_length": 512
         }
       ],
@@ -366,7 +366,7 @@
           "degree": 13,
           "distance_to_omitted_boundary": 28,
           "half_length": 32,
-          "local_covariance_error_diagnostic": 0.01569132263769782,
+          "local_covariance_error_diagnostic": 0.015691322637697836,
           "local_covariance_operator_norm_upper": "88197860455969226886798741732266121409180375456183801313358292992320727/122070312500000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 27
         },
@@ -376,7 +376,7 @@
           "degree": 253,
           "distance_to_omitted_boundary": 508,
           "half_length": 512,
-          "local_covariance_error_diagnostic": 0.0005625162279591287,
+          "local_covariance_error_diagnostic": 0.0005625162279591565,
           "local_covariance_operator_norm_upper": "9301214490831990654100273927459986347254071631791141045427075744505373/24414062500000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 507
         },
@@ -386,7 +386,7 @@
           "degree": 4093,
           "distance_to_omitted_boundary": 8188,
           "half_length": 8192,
-          "local_covariance_error_diagnostic": 1.515920413224193e-13,
+          "local_covariance_error_diagnostic": 1.5136593795545062e-13,
           "local_covariance_operator_norm_upper": "1660869412167555609373495107156562293622366425772043547220019160153/122070312500000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 8187
         },
@@ -396,7 +396,7 @@
           "degree": 16381,
           "distance_to_omitted_boundary": 32764,
           "half_length": 32768,
-          "local_covariance_error_diagnostic": 9.406429307297279e-15,
+          "local_covariance_error_diagnostic": 9.494318135054328e-15,
           "local_covariance_operator_norm_upper": "4879194432410760061823244806416033629231553694032899/61035156250000000000000000000000000000000000000000000000000000000000",
           "maximum_walk_length": 32763
         }
@@ -407,8 +407,8 @@
       "planar_entropy": {
         "Dirac_tastes": 2,
         "analytic_level_series_tail_upper": "14353/250000000000000000000000000000000000",
-        "bare_entropy_per_proper_area_diagnostic": 0.2502872575295191,
-        "entropy_diagnostic": 16.01838448188922,
+        "bare_entropy_per_proper_area_diagnostic": 0.25028725752951914,
+        "entropy_diagnostic": 16.018384481889225,
         "proper_area_exact": "64",
         "renormalized_area_coefficient_or_Newton_constant": false,
         "scalar_chains_per_reduced_transverse_momentum": 4,
@@ -468,7 +468,7 @@
     "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
     "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
@@ -586,7 +586,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
     "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
@@ -596,29 +596,29 @@
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
     "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
-    "requirements.txt": "f116bec13d89a098f6523a26eede8280021585a32ec3294fc3f7174d6cd0ec09",
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "source_full_Fock_first_law": {
-    "entropy": 0.5683120078012294,
+    "entropy": 0.5683120078012256,
     "finite_interval_BW_equality_claimed": false,
-    "full_Fock_first_law_derivative": 0.07230447836740395,
-    "infinite_wedge_weight_finite_chain_response": 0.07392516556191978,
+    "full_Fock_first_law_derivative": 0.07230447836855826,
+    "infinite_wedge_weight_finite_chain_response": 0.07392516556191943,
     "mixture_parameters": [
       0.01,
       0.001,
       0.0001
     ],
     "mixture_secants": [
-      0.07031882026412584,
-      0.07199153607251318,
-      0.07226306254937143
+      0.07031882026437009,
+      0.07199153607451159,
+      0.07226306256491455
     ],
     "normalized_ray_used_only_for_state_function_comparison": true,
     "original_source_amplitudes_modified": false,
-    "quadratic_first_law_derivative": 0.07230447836867121
+    "quadratic_first_law_derivative": 0.07230447836867603
   },
   "source_preparation": {
     "CAR_modes": 8,
@@ -628,15 +628,15 @@
     "global_raw_half_trace_norm_strict_upper": "1/1000000",
     "native_CE_cooling_or_vacuum_selection": false,
     "own_binary_certificate": {
-      "Rayleigh_energy_exact": "-77592493568443706368177588722084951074145532201832828765766733626960499710926085525694241974659/133499189745045698612373612040904607506067064134450339163078897185050962681272694068429282865600",
+      "Rayleigh_energy_exact": "-155184987136892742717500902804268370282554962929539798317635914469877378228141146256743154356063/266998379490100567546921276333597063482170227252996183995121525228713423169559198513212568282624",
       "gap_lower": "140819963436609641/3307639590471911266",
-      "global_raw_half_trace_norm_upper": "555377737321392803869010408904869587767345473535443443063958357697623252640508468790783935230644030688227308385547/10429624198832568761694441924656016184583518175569593603257039100694432254788283935658994565120000000000000000000000000000000000",
+      "global_raw_half_trace_norm_upper": "20616951995882602497342781217676967575130531390939389408891053819194244827985069500483626980982928767730151830154193/521481209941628438084722096232800809229175908778479680162851955034721612739414196782949728256000000000000000000000000000000000000",
       "ground_energy_interval": [
         "-5885984961414947041382313214459673458213931976895050959828122796942677193/10126936087023604418026178071929614865694095139430835345368844573977573235",
         "-354526293136226313780891638714628245243655502705568552565899168349398114/609968447982049549790625586160664423480386941534600044608614386809297363"
       ],
-      "infidelity_upper": "2461757053732390692642556623466631120202623345667344750604976002565924803192798820117015855455618258837659572489817157412090500982391987138074151219840876171/19037982624404229105130586256559715010725708223381631210550531487570106877354137099428992073223094898220544399685054206522742539103022947529754835953338568631062879249961084290402445600",
-      "raw_norm_squared_exact": "2085924839766339040818337688139134492282297877100786549423107768516421291894885844819207544775/2085924839766513752338888384931203236916703635113918720651407820138886450957656787131798913024"
+      "infidelity_upper": "41868275221288380382008663581892588339975859036268727509617683459773359329465732400007040697533776057398274487232566744122174322387061507616686750833725441891/190379826244048829833846161638993356491362654496367817984798361941547912323082709167807389606621442107436844669843210289388192258389649108610765294225761988094267388791395197606689829120",
+      "raw_norm_squared_exact": "521481209941602670990080617839056764613613725103508171865471728962330904628045309596118297427/521481209941628438084722096232800809229175908778479680162851955034721612739414196782949728256"
     },
     "per_request_phase_angle_envelope": "pi",
     "representation": "real-hopping scalar transverse chain; onsite G_n=i^(-n) identifies the oriented imaginary-hopping representation and preserves the cut",
