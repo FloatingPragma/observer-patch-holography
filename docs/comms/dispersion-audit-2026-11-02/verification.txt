@@ -1,0 +1,77 @@
+OPH frozen dispersion audit - 2026-11-02
+Working source: reverse-engineering-reality, HEAD fc2aab8c0e87279c26f45828ece2d6be79913f51.
+The source working tree has pre-existing changes. audit_results.json pins relevant bytes.
+Commands below were executed from reverse-engineering-reality without --write.
+
+python3 -m pytest -q \
+  code/a5_fingerprint/test_carrier_class_dispersion_certificate.py \
+  code/a5_fingerprint/test_carrier_frequency_speed_certificate.py \
+  code/a5_fingerprint/test_fz12_full_symbol_remainder_certificate.py \
+  code/a5_fingerprint/test_fz12_free_photon_hamiltonian.py \
+  code/a5_fingerprint/test_fz12_observation_map_certificate.py \
+  code/a5_fingerprint/test_fz12_synthetic_recovery_coverage.py
+Result: 195 passed in 37.76s.
+
+python3 -m pytest -q \
+  code/a5_fingerprint/test_a5_multipole_fixed_point_certificate.py \
+  code/a5_fingerprint/test_a5_multipole_fixed_point_hardening_certificate.py \
+  code/a5_fingerprint/test_spin_six_universality_certificate.py
+Result: 30 passed in 21.62s.
+
+python3 -m pytest -q \
+  model/native_effective_fields/test_construction.py \
+  model/energy_identifiability/test_certificate.py \
+  model/physical_space_time/test_construction.py \
+  model/common_source/chiral_candidate/test_dispersion_identifiability.py
+Result: 79 passed in 39.79s.
+
+python3 code/a5_fingerprint/verify_fz12_full_symbol_remainder_independent.py
+Result: FZ12_FULL_SYMBOL_REMAINDER_VERIFY_PASS
+python3 code/a5_fingerprint/verify_carrier_frequency_speed_independent.py
+Result: CARRIER_FREQUENCY_SPEED_INDEPENDENT_PASS
+python3 code/a5_fingerprint/verify_fz12_observation_map_independent.py
+Result: FZ12_OBSERVATION_MAP_INDEPENDENT_VERIFY_PASS
+python3 code/a5_fingerprint/verify_fz12_free_photon_hamiltonian_independent.py
+Result: FZ12_TRANSVERSE_OSCILLATOR_SEPARATE_REPLAY_VALID
+
+Total: 304 targeted tests passed (225 geometry/dispersion, 79 executable-model).
+
+Follow-up: direct carrier tests and the existing field/clock link
+python3 -m pytest -q model/record_laws/test_record_laws.py \
+  model/record_laws/test_instrument_contract.py \
+  model/observer/source_discrimination/test_circuit.py
+Result: 36 passed in 38.28s.
+
+python3 -m pytest -q model/observer_time_fields/test_continuum_dynamics.py \
+  -k 'product_split_error or product_source_joint_ordered or product_control_rejects_commuting or joint_product_clock_preparation' \
+  model/physical_space_time/test_observation_process.py \
+  -k 'product_split_error or product_source_joint_ordered or product_control_rejects_commuting or joint_product_clock_preparation or exact_product_dictionary or record_filter_distinguishes'
+Result: 17 passed, 170 deselected in 5.25s.
+
+python3 ipi/research/dispersion-audit-2026-11-02/audit_direct_tests.py
+Result: PASS_DATA_FREE_CONTROLS_ONLY, with 3,960 native binary branches checked,
+exact recovery of the population map from twelve total-two ensembles, the
+record-law interference sum, and a 13-dimensional infinitesimal-response
+negative control with response matrix I13/2. The negative control is an
+ordinary SU(4) calculation, not a physical OPH exclusion.
+
+Aggregate: 357 targeted tests passed over the original audit and follow-up.
+The proposed A1 rank witness is an elementary mathematical consequence with
+finite exact controls, not an independently formalized Lean theorem or an
+operationally identified laboratory carrier.
+
+Follow-up: intuitive spacetime, relative position, motion and observer clocks
+python3 -m pytest -q model/relative_observer_geometry/test_construction.py \
+  model/relative_observer_geometry/test_clock_reconstruction.py \
+  model/relative_observer_geometry/test_temporal_records.py \
+  model/moving_defect/test_transport.py \
+  -k 'every_native_branch or three_shared or affine_comparison or nonuniform_scheduler or inferred_weights or adaptation or predictable_clock or incident_wave or source_compiled_motion or all_native_flags'
+Result: 12 passed, 109 deselected in 23.57s.
+Aggregate across all three stages: 369 targeted tests passed.
+Finite Lorentz-chart and proper-time statements were checked against the Lean
+source and its explicit premises; no new Lean build is represented here.
+
+These are scoped tests, not the complete repository suite. No Lean kernel rebuild
+or external OpenTimestamps/Bitcoin anchoring verification is claimed by this audit.
+No empirical comparison was performed. The illustrative measurement in the note
+is invented solely to explain the exclusion criterion.
