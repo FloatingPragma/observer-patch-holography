@@ -64,7 +64,7 @@ when consolidating documents.
   [Completion Program](COMPLETION_PROGRAM.md) assigns its construction gates,
   retained results, dependencies and next work.
 - [Current field, particle and entropy results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
-  joins the latest component proofs and their remaining premises. The
+  joins the component proofs and their remaining premises. The
   [mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) distinguishes
   finite source energies, supplied mass coefficients and physical predictions.
 

@@ -125,7 +125,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     runs-on: ${{ matrix.os }}
     # Every job collects the full suite, then executes a disjoint set of whole
     # test modules, balanced by model/pytest_shard_costs.json. Collection
@@ -163,7 +163,7 @@ jobs:
           ):
               subprocess.run([sys.executable, "-m", f"model.{package}.{name}",
                               "--check", f"model/{package}/{name}_results.json"], check=True)
-      - run: python -m pytest -q -W error -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 model
+      - run: python -m pytest -q -W error -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 8 model
       - if: matrix.shard == 0
         run: python -B model/observer_particles/run.py --verify-only
       - if: matrix.shard == 0

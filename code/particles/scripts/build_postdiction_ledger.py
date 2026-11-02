@@ -7461,7 +7461,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
         add("The [current continuum and entropy results]"
             "(../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md) and "
             "[mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md) "
-            "collect the latest component proofs and certified readouts. "
+            "collect the component proofs and certified readouts. "
             "Their source-bound progress is retained in the machine-readable "
             "ledger; component progress does not identify measured particles "
             "or accept an integrated physical gate.")

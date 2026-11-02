@@ -14,7 +14,7 @@ the model and the experiment before comparing their probabilities.
 
 The current [mass and energy table](../model/completion/PARTICLE_MASS_TABLE.md)
 collects the certified finite spectra and the supplied quadratic mass family.
-The [latest construction results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
+The [construction results](../model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
 add complete-output filtered spin readout, exact spin-current spectral identities
 and the fixed-amplitude free-sector small-ball entropy asymptotic. These are
 mathematical and operational results; they add no measured-species assignment,

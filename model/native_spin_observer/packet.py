@@ -75,6 +75,10 @@ def compare(expected,actual,path='receipt'):
             if abs(math.sqrt(actual)-math.sqrt(expected))>REPLAY_ATOL:
                 raise ValueError(path+': native failure amplitude changed')
         elif abs(actual-expected)>REPLAY_ATOL:raise ValueError(path+': native diagnostic changed')
+    elif path.endswith('.rounded_negative_count') and type(actual) is int:
+        # Host rounding decides how many near-zero weights fall below zero.
+        # validate bounds the count; the paired mass is compared by amplitude.
+        if actual<0:raise ValueError(path+': negative native diagnostic')
     elif type(actual) not in (str,int,bool,type(None)) or actual!=expected:raise ValueError(path+': value changed')
 
 

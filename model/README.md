@@ -10,9 +10,9 @@ or a completed physical realization.
 The [current construction summary](completion/CONTINUUM_FIELD_AND_ENTROPY.md)
 joins the finite gap and spectrum, native preparation and readout, gapless
 canonical spin fields, and free-source Weyl stress/modular responses.
-The latest proofs give an exact sixth-order small-ball entropy correction,
+The component proofs give an exact sixth-order small-ball entropy correction,
 explicit filtered-packet success and error budgets, and the current-correlation
-tail still needed for the first spin energy moment. The
+tail needed for the first spin energy moment. The
 [mass and energy table](completion/PARTICLE_MASS_TABLE.md) retains all physical
 identification limits. Focused proof checks and broad repository validation
 are reported separately; physical species and joint Einstein realization remain open.
@@ -96,8 +96,8 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 | --- | --- |
 | [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033) | [Evidence replay maintenance](../tools/replay_model_receipts.py) rebuilds live receipts in dependency order and runs their cold checkers, with backups and scientific-change review. |
 | [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Native joint spectroscopy](native_joint_spin_spectroscopy/README.md) joins finite ground preparation to complete energy/symmetry observations. An effective infinite-marginal approximation rate and continuing invariant reference remain open. |
-| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Regular spin continuum fields](spin_canonical_field/README.md) now have a positive-energy Weyl net and finite propagation. A sharp shell, Lorentz covariance and surviving continuum interaction remain open. |
-| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Complete joint detector bins](native_joint_spin_spectroscopy/README.md) and the [power-law charged free boundary](ballistic_free_boundary/README.md) constrain the particle search. Measured species still require relativistic poles, physical charges and independent units. |
+| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Regular spin continuum fields](spin_canonical_field/README.md) have a positive-energy Weyl net and finite propagation. A sharp shell, Lorentz covariance and surviving continuum interaction remain open. |
+| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | [Complete joint detector bins](native_joint_spin_spectroscopy/README.md) and the [power-law charged free boundary](ballistic_free_boundary/README.md) constrain the particle search. Measured species require relativistic poles, physical charges and independent units. |
 | [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Actual finite entropy limits](shrinking_modular_entropy/README.md) give a common shrinking matter/stress response and invertible nine-frame matrix. Area, Newton normalization and geometric stationarity/response remain open. |
 
 The [earlier particle transport](charged_dynamics/README.md) and
@@ -138,7 +138,7 @@ The [continuum field and entropy construction](completion/CONTINUUM_FIELD_AND_EN
 constructs a regular spin Weyl net from the actual ordered ground, with continuous
 space/time translations, positive energy and a finite propagation cone. Complete
 native joint observations connect finite ground preparation to energy and graph
-symmetry. For the free source, actual finite entropy changes now converge to the
+symmetry. For the free source, actual finite entropy changes converge to the
 existing stress response on a common shrinking schedule. The canonical charged
 continuum is free and massless throughout `U=o(c^(2/7))`. These results close
 component inputs; sharp spin poles, surviving continuum interaction, physical

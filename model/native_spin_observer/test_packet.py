@@ -64,6 +64,15 @@ def test_near_zero_host_diagnostic_is_compared_absolutely():
         packet.compare({'normalization_residual':0.}, {'normalization_residual':-1e-30})
 
 
+def test_host_rounding_count_is_a_diagnostic():
+    # macOS and Linux round a different number of ~1e-52 weights below zero.
+    packet.compare({'rounded_negative_count':2},{'rounded_negative_count':1})
+    with pytest.raises(ValueError,match='negative'):
+        packet.compare({'rounded_negative_count':2},{'rounded_negative_count':-1})
+    with pytest.raises(ValueError):
+        packet.compare({'rounded_negative_count':2},{'rounded_negative_count':True})
+
+
 def test_failure_replay_uses_one_total_amplitude_budget():
     zero=np.zeros((25,4),dtype=np.float64)
     small=np.full_like(zero,(packet.REPLAY_ATOL/20)**2)
