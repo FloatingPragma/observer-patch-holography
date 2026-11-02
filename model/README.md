@@ -7,6 +7,14 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
+The [2 November completion campaign](completion/SPECTRUM_REFINEMENT_GEOMETRY.md)
+addresses the five reference, protection, field, particle and gravity issues.
+It adds a certified centered local spectrum, quantitative complete-record
+repair lifetimes, a controlled interacting finite spin limit and an enlarged
+free-continuum scaling class, and same-vacuum Weyl stress/modular data.
+Its new proof checks and the pending custody of older receipts are reported
+separately; the physical species and joint Einstein requirements remain open.
+
 The [same-action energy and work](defect_field_energy/README.md) and [faithful modular reference](defect_field_modular/README.md) attach finite currents, source work, full-Fock Gibbs preparation, compatible regional observations and quantum entropy to that field law. The explicit reference, abort-component and geometric limits remain part of the result.
 
 The [complete collision repair](defect_field_bridge/FULL_DOMAIN.md), [finite ring propagation](defect_field_propagation/README.md), [common source clock](defect_field_clock/README.md), and [external Higgs drive](defect_field_interactions/README.md) extend this same designed field law. A [bounded direct common experiment](defect_field_bridge/joint.py) retains every four-mode occupation, native record and clock outcome. The finite one-dimensional domain, explicit collision-policy dependence, calibrated inputs and remaining physical 3+1/matched-particle obligations stay explicit.

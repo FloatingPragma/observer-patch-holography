@@ -1,0 +1,178 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Resolve the centered charged response, quantify complete-record repair coherence and reference convergence, derive an interacting finite spin limit and the growing-coupling free boundary, and attach the same Weyl vacuum to the existing geometric modular/stress theorem inputs.",
+  "specification_policy": "Simulator, observer, scheduler, repair and memory laws are admitted specifications. Theorems must state their actual law, reference, algebra, clock and refinement; changing these needs a new derivation. Imported mathematical theorems are named rather than treated as unexplained physical premises.",
+  "selection_reason": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+  "component_results": [
+    {
+      "id": "repair_coherence_lifetime",
+      "attachment": "FA-84",
+      "issues": [
+        1138,
+        1139
+      ],
+      "result": "For connected binary C/E repair with fair endpoint coins, weighted edge min-cut lambda contracts the entrywise coherence norm by at most 1-lambda within each fixed-number sector and 1-lambda/2 outside the extremal empty/full block. The bound retains every unnormalized classical history and an arbitrary untouched quantum reference, and holds under adaptive classical schedules with a uniform repair/min-cut floor. On all twelve native ports the sharp factors are 5/6 and 11/12; 983040 native columns and all 531441 ternary difference fields are checked. Fixed-selector populations have exact gap (5-sqrt(5))/60 by the imported exclusion-gap theorem, yielding explicit trace-norm preparation bounds to I_N/binomial(12,N) when the classical tape is traced out. For the bare uniform cubic C law, a positive diffusive clock damps one-particle coherence as exp(-12Dt/a^2), excluding that specific refinement as a reversible coherent particle field.",
+      "evidence": [
+        "model/repair_coherence_lifetime/README.md",
+        "model/repair_coherence_lifetime/__init__.py",
+        "model/repair_coherence_lifetime/__main__.py",
+        "model/repair_coherence_lifetime/bounds.py",
+        "model/repair_coherence_lifetime/certificate.py",
+        "model/repair_coherence_lifetime/packet.py",
+        "model/repair_coherence_lifetime/results.json",
+        "model/repair_coherence_lifetime/test_bounds.py",
+        "model/repair_coherence_lifetime/test_instrument.py",
+        "model/repair_coherence_lifetime/test_packet.py",
+        "paper/tex_fragments/REPAIR_COHERENCE_LIFETIME.tex"
+      ],
+      "remaining": [
+        "Construct and cost the coherent memory, recovery and reference-compatible local field carrier needed for a protected physical particle; the bare occupation source has only the stated finite coherence lifetime.",
+        "Join the same observer reference, detector, physical clock and interacting massive/massless continuum; a source-mixing rate is not a relativistic energy or rest mass.",
+        "Derive stationary states for general record-adaptive source/controller laws separately; tracing out the tape does not establish joint stationarity."
+      ]
+    },
+    {
+      "id": "centered_particle_spectrum",
+      "attachment": "FA-85",
+      "issues": [
+        1138,
+        1143
+      ],
+      "result": "The unique centered N=8, hidden-spin-zero, eta-zero cube ground at c=1/8,U=1 has exactly 228 distinct positive local charged excitation lines with strictly positive certified weights, and 456 signed retarded atoms. Every eight-site residue entry is enclosed, every visible spatial line has rank four, and the full linear-CAR reachable subspace has dimension 1824 in each N=7 and N=9 sector, leaving 9616 states per sector invisible to these probes. The visible energy interval is [0.36168271180597,3.88643475495061]; its ratio is less than 11, excluding any three-line charged-lepton rest-energy dictionary with one positive scale. This is complete local response, not all many-body eigenvalues, relativistic masses or physical-species identification.",
+      "evidence": [
+        "model/centered_particle_spectrum/README.md",
+        "model/centered_particle_spectrum/__init__.py",
+        "model/centered_particle_spectrum/__main__.py",
+        "model/centered_particle_spectrum/certificate.py",
+        "model/centered_particle_spectrum/comparison.py",
+        "model/centered_particle_spectrum/conftest.py",
+        "model/centered_particle_spectrum/lines.csv",
+        "model/centered_particle_spectrum/packet.py",
+        "model/centered_particle_spectrum/proposal.py",
+        "model/centered_particle_spectrum/results.json",
+        "model/centered_particle_spectrum/source.py",
+        "model/centered_particle_spectrum/test_certificate.py",
+        "model/centered_particle_spectrum/test_source.py",
+        "model/centered_particle_spectrum/witness.npz",
+        "paper/tex_fragments/CENTERED_PARTICLE_SPECTRUM.tex"
+      ],
+      "remaining": [
+        "Relativistic dispersion and a controlled massive interacting continuum limit; finite excitation energies are not rest masses.",
+        "Source-derived physical species and dimensional calibration beyond the excluded direct finite-gap dictionary.",
+        "Spectra of the 9616 states in each charged sector invisible to linear CAR probes, and a global neutral-gap theorem; no full many-body spectrum is claimed.",
+        "Native observer implementation of this centered-ground source and detector; this package is an exact source calculation.",
+        "Independent gravity closure and joint source-to-observer geometric refinement.",
+        "Historical dependency receipt custody is diagnosed separately; prior expensive all-number executions are not claimed to have been rerun here."
+      ]
+    },
+    {
+      "id": "strong_coupling_refinement",
+      "attachment": "FA-86",
+      "issues": [
+        1142
+      ],
+      "result": "For the actual signed centered Hubbard source, U>=4 tau with tau=c|E| yields an exact low-band isometry and the complete-output bound ||exp(-it(T+UD))P-P exp(-it Hspin)||<=min(2,4 tau/U+3|t|tau^3/U^2), with Hspin=sum(4t_xy^2/U)(S_x.S_y-1/4); charged sectors are separated by at least U/2-tau. The fixed-graph scaling U=c^2/J produces a genuinely interacting spin limit with a certified entanglement example. Separately, the centered canonical charged continuum remains the free eight-valley Weyl hierarchy for U=o((log c)^(3/2)), c=v/a; explicit all-smearing spectral and both-charge vacuum bounds plus a new all-time compactness argument prove the unbounded-U extension. The extensive finite-graph control does not establish an interacting relativistic continuum.",
+      "evidence": [
+        "model/strong_coupling_refinement/README.md",
+        "model/strong_coupling_refinement/__init__.py",
+        "model/strong_coupling_refinement/__main__.py",
+        "model/strong_coupling_refinement/algebra.py",
+        "model/strong_coupling_refinement/bounds.py",
+        "model/strong_coupling_refinement/packet.py",
+        "model/strong_coupling_refinement/results.json",
+        "model/strong_coupling_refinement/test_algebra.py",
+        "model/strong_coupling_refinement/test_bounds.py",
+        "model/strong_coupling_refinement/test_packet.py",
+        "paper/tex_fragments/STRONG_COUPLING_REFINEMENT.tex"
+      ],
+      "remaining": [
+        "Establish a volume-uniform interacting relativistic limit outside the proved free class or supply a different source-selected construction; the finite Heisenberg limit alone does not do this.",
+        "Identify physical particle spin, charges, detector observables and common energy units; the free branch retains only zero rest masses and does not match measured species.",
+        "Join matter, repair, memory and geometric readout in the same observer implementation and discharge the remaining Einstein theorem premises.",
+        "Refresh inherited historical receipt custody: the new source checks are distinct from the stale prerequisite manifests retained at this isolated checkout."
+      ]
+    },
+    {
+      "id": "weyl_geometric_modular",
+      "attachment": "FA-87",
+      "issues": [
+        1145
+      ],
+      "result": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register.",
+      "evidence": [
+        "model/weyl_geometric_modular/README.md",
+        "model/weyl_geometric_modular/__init__.py",
+        "model/weyl_geometric_modular/__main__.py",
+        "model/weyl_geometric_modular/algebra.py",
+        "model/weyl_geometric_modular/entropy.py",
+        "model/weyl_geometric_modular/geometry.py",
+        "model/weyl_geometric_modular/imports.json",
+        "model/weyl_geometric_modular/packet.py",
+        "model/weyl_geometric_modular/results.json",
+        "model/weyl_geometric_modular/tests/test_algebra.py",
+        "model/weyl_geometric_modular/tests/test_geometry_entropy.py",
+        "model/weyl_geometric_modular/tests/test_packet.py",
+        "paper/tex_fragments/WEYL_GEOMETRIC_MODULAR.tex"
+      ],
+      "remaining": [
+        "Native event/count identification with this Minkowski/cap geometry and source-selected observer access (remaining G1/G2/G5).",
+        "Edge/center area normalization, renormalized area density and generalized-entropy stationarity (remaining G4).",
+        "Uniform joint lattice, collar and chart remainder bounds and convergence of lattice stress/modular observables (remaining G5).",
+        "Dynamical metric response, positive Newton calibration and universal coupling to the full massive/interacting sectors (remaining G6).",
+        "Measured species identification and nonzero interacting relativistic continuum beyond this free-sector branch."
+      ]
+    }
+  ],
+  "quantifier_boundary": "Scoped new mathematical results and their direct checks. No measured species, SI mass calibration, interacting relativistic continuum, joint Einstein realization, or canonical physical discharge is inferred.",
+  "historical_custody": {
+    "base_commit": "fc2aab8c0",
+    "base_finite_map_mismatches": [
+      "model/completion/finite_attachment_map.py",
+      "model/completion/test_finite_attachment_map.py",
+      "model/plaquette_reference/README.md",
+      "model/plaquette_reference/preparation.py",
+      "model/plaquette_reference/results.json",
+      "model/plaquette_reference/test_preparation.py",
+      "model/certified_reference/test_certificate.py",
+      "model/cube_eta_protection/test_source.py",
+      "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex",
+      "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex",
+      "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex",
+      "paper/tex_fragments/INTERACTING_VACUUM.tex",
+      "paper/tex_fragments/MASS_GENERATION_AUDIT.tex",
+      "paper/tex_fragments/THERMODYNAMIC_GROUND.tex",
+      "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
+      "paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex",
+      "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex",
+      "paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex",
+      "paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex",
+      "paper/tex_fragments/SPECTRAL_READOUT.tex",
+      "paper/tex_fragments/CONTINUUM_FIELD_NET.tex",
+      "paper/tex_fragments/CONTINUUM_GROUND_CONSTRAINTS.tex",
+      "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex",
+      "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex",
+      "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+      "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex"
+    ],
+    "inherited_receipts_silently_recertified": false,
+    "note": "The main checkout has an independent receipt rebuild in progress. New packages bind their own current proof sources; continuum packages separately disclose older broad receipt mismatches. This campaign does not rewrite those historical receipts."
+  },
+  "review": {
+    "path": "model/completion/spectrum_refinement_geometry_review.json",
+    "sha256": "87ef474ae70db2d9382989f8d2f730e8ebbfedb49ea8d8cb60f74f8e902e8dcf"
+  }
+}

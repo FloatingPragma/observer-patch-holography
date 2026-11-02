@@ -1,0 +1,150 @@
+{
+  "schema": "oph.scoped_completion_review.v1",
+  "as_of": "2026-11-02",
+  "base_commit": "fc2aab8c0",
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "combined_tests": {
+    "command": "python -m pytest -q -W error model/repair_coherence_lifetime model/centered_particle_spectrum model/strong_coupling_refinement model/weyl_geometric_modular",
+    "passed": 140,
+    "failed": 0,
+    "warnings_as_errors": true
+  },
+  "components": [
+    {
+      "package": "repair_coherence_lifetime",
+      "strict_tests": 37,
+      "receipt": "model/repair_coherence_lifetime/results.json",
+      "receipt_sha256": "50032d0f11ce8a477d1d14141f2fbf4bb3bdb7ba9543fbe5f9924a3cb0a9d6d0",
+      "cold_replay_matches": true,
+      "independent_agent_math_and_code_review": "PASS"
+    },
+    {
+      "package": "centered_particle_spectrum",
+      "strict_tests": 27,
+      "receipt": "model/centered_particle_spectrum/results.json",
+      "receipt_sha256": "d64ea653bbebec47c17768111f19a8b116a4ac34fa14b462839e673f75642a59",
+      "cold_replay_matches": true,
+      "independent_agent_math_and_code_review": "PASS"
+    },
+    {
+      "package": "strong_coupling_refinement",
+      "strict_tests": 46,
+      "receipt": "model/strong_coupling_refinement/results.json",
+      "receipt_sha256": "a0a58ffd8052a37a13dfdf90ff76a47e2b014438e06e4b118881513ca87b59d9",
+      "cold_replay_matches": true,
+      "independent_agent_math_and_code_review": "PASS"
+    },
+    {
+      "package": "weyl_geometric_modular",
+      "strict_tests": 30,
+      "receipt": "model/weyl_geometric_modular/results.json",
+      "receipt_sha256": "5961639d808149ceeb6daf34d8813d663ededf304d82e02780987cc258f7f9be",
+      "cold_replay_matches": true,
+      "independent_agent_math_and_code_review": "PASS"
+    }
+  ],
+  "preserved": {
+    "canonical_premise_rows_unchanged": true,
+    "prior_83_attachments_unchanged": true,
+    "gate_statuses_unchanged": true,
+    "historical_accepted_evidence_unchanged": true,
+    "canonical_physical_discharges_added": 0,
+    "eligible_physical_comparisons_added": 0,
+    "old_scientific_receipts_rewritten": false
+  },
+  "ledger_checks": {
+    "canonical_claim_registry": "PASS",
+    "claim_views": "PASS",
+    "premise_register_view": "PASS",
+    "model_theorem_navigation": "PASS",
+    "new_witness_and_source_bindings": "PASS"
+  },
+  "pending_global_checks": {
+    "completion_program": "FAIL: inherited integration source custody changed: code/m1_source_realization/receipt.json",
+    "finite_attachment_map": "FAIL: inherited stale source hash: model/plaquette_reference/README.md",
+    "remaining_stale_map_bindings": [
+      "model/plaquette_reference/README.md",
+      "model/plaquette_reference/preparation.py",
+      "model/plaquette_reference/results.json",
+      "model/plaquette_reference/test_preparation.py",
+      "model/certified_reference/test_certificate.py",
+      "model/cube_eta_protection/test_source.py",
+      "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex",
+      "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex",
+      "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex",
+      "paper/tex_fragments/INTERACTING_VACUUM.tex",
+      "paper/tex_fragments/MASS_GENERATION_AUDIT.tex",
+      "paper/tex_fragments/THERMODYNAMIC_GROUND.tex",
+      "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
+      "paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex",
+      "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex",
+      "paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex",
+      "paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex",
+      "paper/tex_fragments/SPECTRAL_READOUT.tex",
+      "paper/tex_fragments/CONTINUUM_FIELD_NET.tex",
+      "paper/tex_fragments/CONTINUUM_GROUND_CONSTRAINTS.tex",
+      "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex",
+      "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex",
+      "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+      "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex"
+    ],
+    "provisional_completion_view_rendered": true,
+    "historical_acceptance_refreshed": false
+  },
+  "publication": {
+    "tex_engine": "Tectonic 0.15.0",
+    "mode": "aux only; no released PDF rewritten",
+    "four_new_proof_fragments_compile": true,
+    "primary_roots_aux_compiled": [
+      {
+        "paper": "from_observer_consensus_to_standard_physics",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "deriving_the_particle_zoo_from_observer_consistency",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "observers_are_all_you_need",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "executable_observer_construction",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "reality_as_consensus_protocol",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "deriving_standard_model_gauge_structure_from_observer_overlap_consistency",
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "paper": "screen_microphysics_and_observer_synchronization",
+        "exit_code": 0,
+        "errors": []
+      }
+    ]
+  },
+  "physical_completion": false,
+  "integration_note": "Work isolated from an independent main-checkout receipt rebuild. No validator is weakened and no old receipt is silently rebound."
+}

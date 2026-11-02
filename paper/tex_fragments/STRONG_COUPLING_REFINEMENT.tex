@@ -1,0 +1,134 @@
+\paragraph{Controlled spin exchange and a growing-contact free boundary.}
+In the exact onsite spin frame, the centered finite-graph source is
+\[
+ K=T+UD-\frac U2N,\qquad
+ T=\sum_{xy,s}t_{xy}(c_{xs}^{\dagger}c_{ys}+c_{ys}^{\dagger}c_{xs}),
+ \qquad t_{xy}=\pm\frac c2.
+\]
+For $V$ sites and edge set $E$, put $\tau=c|E|\geq\|T\|$.
+In the half-filled sector, let $P$ project onto one particle at every
+site, $Q=I-P$, and $H=K+UV/2=T+UD$. Then $PTP=0$, $QUDQ\geq UQ$,
+and $(UD)TP=UTP$. The last identity retains the actual intermediate
+doublon--hole configurations. Exact CAR multiplication gives
+\[
+ H_{\rm spin}=-\frac1U PT^2P
+  =\sum_{xy}\frac{4t_{xy}^2}{U}
+           \left(S_x\mathbin{\cdot}S_y-\frac14\right).
+\]
+The $S_x$ are hidden onsite spins; this is not an assignment of physical
+Lorentz spin. Hopping signs cancel at this order, not necessarily at
+higher orders.
+
+For $U>\tau$, exactly $2^V$ eigenvalues of $H$ are nonpositive and
+all the others are at least $U-\tau$. With $B=QTP$ and
+$A=QHQ\geq U-\tau$, the Feshbach operator at $z\leq0$ is
+$F(z)=-B^{\dagger}(A-z)^{-1}B$. Its low roots lie in
+$[-\tau^2/(U-\tau),0]$, and the resolvent identity yields
+\[
+ \|F(z)-H_{\rm spin}\|\leq\frac{\tau^3}{(U-\tau)^2}.
+\]
+The ordered eigenvalues of $F(z)$ are nonincreasing in $z$, so their
+crossings with $z$ pair every low source eigenvalue with its ordered
+spin eigenvalue within this error, without requiring gaps between
+spin levels.
+
+A stronger condition gives a dynamical statement on every input spin
+state. For $r=\tau/U\leq1/4$, the low spectral subspace is the graph
+of $X:P\to Q$, with
+\[
+ \|X\|\leq\frac r{\sqrt{1-2r}},\qquad
+ W=(P+X)(I+X^{\dagger}X)^{-1/2},\qquad \|W-P\|\leq2r.
+\]
+The Sylvester integral for its $Q$ component bounds the angle by
+$r/(1-r)$; the graph Riccati equation and $(UD)TP=UTP$ then give
+\[
+ \|W^{\dagger}HW-H_{\rm spin}\|\leq\frac{3\tau^3}{U^2}.
+\]
+Consequently, including all leakage into $Q$,
+\[
+ \big\|e^{-itH}P-Pe^{-itH_{\rm spin}}\big\|
+ \leq\min\left(2,\frac{4\tau}{U}
+                   +\frac{3|t|\tau^3}{U^2}\right).       \tag{SC1}
+\]
+On the full Fock carrier,
+$K+UV/2=T+(U/2)\sum_x(n_x-1)^2$.
+Every charged sector $N\ne V$ is therefore separated from the global
+ground by at least $U/2-\tau>0$ when $U>2\tau$; every global ground
+has $N=V$. No quantitative neutral gap is inferred.
+
+At fixed finite graph, $U=c^2/J$, with $J>0$ fixed and $c\to\infty$,
+makes (SC1) tend to zero and retains the interacting Heisenberg
+exchange $J$. Adjacent bond terms do not commute. A dimer takes
+$|\uparrow,\downarrow\rangle$ to a maximally entangled spin state at
+$t=\pi/(2J)$. For $c=128$, $U=16384$, $J=1$, its full-source error
+is less than $5/64$, preserving a Bell-state fidelity above $1/2$.
+This is a controlled interacting finite-graph limit. For a fixed
+physical cubic box with $L$ sites per side, however,
+$|E|=3L^2(L-1)$ and $c=vL$ give $\tau=O(L^4)$.
+The displayed global errors vanish for $U\asymp L^p$ with $p>6$,
+where $J=O(L^{2-p})$ tends to zero. The fixed-$J$ scaling fails this
+volume-dependent hypothesis. That failure is a limitation of the
+bound, not a no-go theorem for another local expansion.
+
+\paragraph{An unbounded coupling class with a free charged limit.}
+The centered-ground composite $d=(2n_{\rm opposite}-1)c$ has the
+source-derived occupation bound $\Delta\leq11(U/c)^2/8$.
+For either positive-energy charge branch, uniformly over all unit
+lattice smearings, the existing Gaussian estimate gives
+\begin{align*}
+ \|1_{[0,R]}(L_a)d(f)\Omega_a\|^2&\leq M_a(R),\\
+ M_a(R)&\leq \min\left\{1,e^{R^2/(2c^2\delta^2)}
+ \left[1536\delta^6+\frac{3U}{c\delta}
+ +624\sqrt{\frac{11}{8}}\frac Uc e^{81/(2\delta^2)}\right]\right\}.
+\end{align*}
+For kinetic packets bounded by $P$, the two vacuum Duhamel errors
+are at most
+\[
+ \frac U2\left[|t|\sqrt{M_a(R)}+
+                       \frac{2+|t|P}{R}\right]\|f\|.
+\]
+Taking $\delta=9/\sqrt{\log c}$ and $R=\sqrt c$ proves
+\[
+ U=o\big((\log c)^{3/2}\big)
+ \quad\Longrightarrow\quad U^2 M_a(\sqrt c)\to0,
+ \qquad U/\sqrt c\to0.                                  \tag{SC2}
+\]
+The initial positive-band annihilator and negative-band creator
+bounds vanish by the same split, determining the pure free
+filled-sea initial state.
+
+Unbounded $U$ does not satisfy the earlier uniform time-Lipschitz
+hypothesis. Instead, take cluster states of the universal bounded
+algebra of all-time, all-valley smeared fields. Its state space is
+weak-star compact without assuming time continuity. Equal-time CAR
+and both vacuum identities pass to every cluster state. The physical
+finite-propagation estimate is uniform in the onsite coupling, so
+each difference from the free field graded-commutes with the initial
+algebra outside a bounded region; free Weyl evolution itself enlarges
+compact support by at most $v|t|$. The free Weyl vacuum is cyclic for
+that outside algebra: compact support of a vector orthogonal to its
+one-particle ranges would give an entire Fourier transform, whereas
+continuation around a simple square-root branch point of the Weyl
+band equation forces that vector to vanish. Wick recursion gives
+cyclicity of the full outside CAR algebra, separately for all eight
+valleys. Both vacuum identities then force the field difference and
+its adjoint to vanish on the full cyclic representation. Every
+cluster hierarchy is the same free hierarchy; thus the original
+finite-word correlators converge, and time continuity follows from
+the identified free limit.
+
+A fully rational example of (SC2) is
+$c_k=2^{256k^2}$, $U_k=k^2$, $\delta_k=1/k$, $R_k=k^3$.
+The checked Gaussian majorants give
+\[
+ U_k^2 M_k(R_k)\leq\frac{3073}{k^2},\qquad
+ U_k\sqrt{M_k(R_k)}<\frac{56}{k},\qquad U_k/R_k=1/k.
+\]
+Unit-time unit-packet vacuum errors are bounded by $\min(2,30/k)$.
+These scales certify a constructive estimate; they are not a claim
+about practical lattice sizes. The charged continuum on this branch
+has eight massless Weyl valleys with energy $v|p|$, without a surviving
+contact interaction. It supplies neither measured species nor an
+interacting massive sector or Einstein dynamics. The proofs, exact
+integer controls, and scope-preserving receipt are in
+\texttt{model/strong\_coupling\_refinement}.

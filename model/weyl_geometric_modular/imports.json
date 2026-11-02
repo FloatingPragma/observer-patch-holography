@@ -1,0 +1,31 @@
+{
+  "historical_FA82": {
+    "commit": "6a66874bb72384e3dfb3fddaeb97b5df089fac18",
+    "receipt_path": "model/continuum_free_limit/results.json",
+    "receipt_sha256": "27e76244a20e248fdaeee1eecc5d17b2e540f6553330fa04e99f7a79616fe8d1",
+    "source_bindings_independently_verified_at_that_commit": 512,
+    "source_mismatches_at_that_commit": 0,
+    "current_full_source_replay_claimed": false
+  },
+  "imported_theorems": [
+    {
+      "authors": "Francesca La Piana and Gerardo Morsella",
+      "title": "The Fermionic Massless Modular Hamiltonian",
+      "publication": "Communications in Mathematical Physics 406, 81 (2025)",
+      "locator": "Theorems 3.4 and 4.1",
+      "url": "https://arxiv.org/html/2405.07888v2",
+      "doi": "https://doi.org/10.1007/s00220-025-05253-1",
+      "used_for": "Free-vacuum double-cone modular group and its Cauchy-data generator, applied to each Weyl field and the finite direct sum.",
+      "not_imported": "Global Wick-stress charge identification is proved on the stated common form domain here; geometric area and Einstein response do not follow from this theorem."
+    },
+    {
+      "authors": "Denes Petz",
+      "title": "Quasi-entropies for States of a von Neumann Algebra",
+      "publication": "Publications of RIMS 21 (1985), 787-800",
+      "locator": "Section 3 relative entropy specialization and Section 4 monotonicity under unit-preserving 2-positive maps",
+      "url": "https://ems.press/content/serial-article-files/42275",
+      "used_for": "Araki relative entropy cannot increase under a normal classical-to-quantum state preparation channel.",
+      "not_imported": "No finite absolute entropy, specific lattice entropy subtraction, or geometric stationarity is asserted."
+    }
+  ]
+}

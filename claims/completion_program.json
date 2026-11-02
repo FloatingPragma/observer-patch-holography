@@ -1433,6 +1433,22 @@
           "independent_check": "model/native_spectral_detector/test_preparation.py",
           "scope": "On the unchanged original zero-chemical-potential cube, a finite fifteen-word spin quadrature and native selector prepare the invariant ground reference P_ground/5 with complete state error below 1e-9. A complete native charge instrument retains both c-dagger and c branches. The executed two-bit phase clock applies controlled original-action histories through model time three and realizes all four positive Fejer energy effects, retaining all 78 positive source lines in its binned law. All 262144 quantum rows and 30 classical selector/charge columns are propagated without a number, spectral or amplitude projection. The longest complete history has 612666 source pulses and certified total-variation error below 3/100. All 3240 joint selector/tag/clock slots, selector stops and every first-export failure are retained. Four broad bins do not separately identify 78 lines or measured physical particles.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "id": "repair_coherence_lifetime",
+          "path": "model/repair_coherence_lifetime/results.json",
+          "sha256": "50032d0f11ce8a477d1d14141f2fbf4bb3bdb7ba9543fbe5f9924a3cb0a9d6d0",
+          "independent_check": "model/repair_coherence_lifetime/test_bounds.py",
+          "scope": "For connected binary C/E repair with fair endpoint coins, weighted edge min-cut lambda contracts the entrywise coherence norm by at most 1-lambda within each fixed-number sector and 1-lambda/2 outside the extremal empty/full block. The bound retains every unnormalized classical history and an arbitrary untouched quantum reference, and holds under adaptive classical schedules with a uniform repair/min-cut floor. On all twelve native ports the sharp factors are 5/6 and 11/12; 983040 native columns and all 531441 ternary difference fields are checked. Fixed-selector populations have exact gap (5-sqrt(5))/60 by the imported exclusion-gap theorem, yielding explicit trace-norm preparation bounds to I_N/binomial(12,N) when the classical tape is traced out. For the bare uniform cubic C law, a positive diffusive clock damps one-particle coherence as exp(-12Dt/a^2), excluding that specific refinement as a reversible coherent particle field. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "centered_particle_spectrum",
+          "path": "model/centered_particle_spectrum/results.json",
+          "sha256": "d64ea653bbebec47c17768111f19a8b116a4ac34fa14b462839e673f75642a59",
+          "independent_check": "model/centered_particle_spectrum/test_source.py",
+          "scope": "The unique centered N=8, hidden-spin-zero, eta-zero cube ground at c=1/8,U=1 has exactly 228 distinct positive local charged excitation lines with strictly positive certified weights, and 456 signed retarded atoms. Every eight-site residue entry is enclosed, every visible spatial line has rank four, and the full linear-CAR reachable subspace has dimension 1824 in each N=7 and N=9 sector, leaving 9616 states per sector invisible to these probes. The visible energy interval is [0.36168271180597,3.88643475495061]; its ratio is less than 11, excluding any three-line charged-lepton rest-energy dictionary with one positive scale. This is complete local response, not all many-body eigenvalues, relativistic masses or physical-species identification. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
         }
       ]
     },
@@ -1792,6 +1808,14 @@
           "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
           "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
           "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
+        },
+        {
+          "id": "repair_coherence_lifetime",
+          "path": "model/repair_coherence_lifetime/results.json",
+          "sha256": "50032d0f11ce8a477d1d14141f2fbf4bb3bdb7ba9543fbe5f9924a3cb0a9d6d0",
+          "independent_check": "model/repair_coherence_lifetime/test_bounds.py",
+          "scope": "For connected binary C/E repair with fair endpoint coins, weighted edge min-cut lambda contracts the entrywise coherence norm by at most 1-lambda within each fixed-number sector and 1-lambda/2 outside the extremal empty/full block. The bound retains every unnormalized classical history and an arbitrary untouched quantum reference, and holds under adaptive classical schedules with a uniform repair/min-cut floor. On all twelve native ports the sharp factors are 5/6 and 11/12; 983040 native columns and all 531441 ternary difference fields are checked. Fixed-selector populations have exact gap (5-sqrt(5))/60 by the imported exclusion-gap theorem, yielding explicit trace-norm preparation bounds to I_N/binomial(12,N) when the classical tape is traced out. For the bare uniform cubic C law, a positive diffusive clock damps one-particle coherence as exp(-12Dt/a^2), excluding that specific refinement as a reversible coherent particle field. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
         }
       ]
     },
@@ -2864,6 +2888,14 @@
           "independent_check": "model/continuum_free_limit/test_bounds.py",
           "scope": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "id": "strong_coupling_refinement",
+          "path": "model/strong_coupling_refinement/results.json",
+          "sha256": "a0a58ffd8052a37a13dfdf90ff76a47e2b014438e06e4b118881513ca87b59d9",
+          "independent_check": "model/strong_coupling_refinement/test_algebra.py",
+          "scope": "For the actual signed centered Hubbard source, U>=4 tau with tau=c|E| yields an exact low-band isometry and the complete-output bound ||exp(-it(T+UD))P-P exp(-it Hspin)||<=min(2,4 tau/U+3|t|tau^3/U^2), with Hspin=sum(4t_xy^2/U)(S_x.S_y-1/4); charged sectors are separated by at least U/2-tau. The fixed-graph scaling U=c^2/J produces a genuinely interacting spin limit with a certified entanglement example. Separately, the centered canonical charged continuum remains the free eight-valley Weyl hierarchy for U=o((log c)^(3/2)), c=v/a; explicit all-smearing spectral and both-charge vacuum bounds plus a new all-time compactness argument prove the unbounded-U extension. The extensive finite-graph control does not establish an interacting relativistic continuum. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
         }
       ]
     },
@@ -3211,6 +3243,14 @@
           "independent_check": "model/continuum_free_limit/test_bounds.py",
           "scope": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "id": "centered_particle_spectrum",
+          "path": "model/centered_particle_spectrum/results.json",
+          "sha256": "d64ea653bbebec47c17768111f19a8b116a4ac34fa14b462839e673f75642a59",
+          "independent_check": "model/centered_particle_spectrum/test_source.py",
+          "scope": "The unique centered N=8, hidden-spin-zero, eta-zero cube ground at c=1/8,U=1 has exactly 228 distinct positive local charged excitation lines with strictly positive certified weights, and 456 signed retarded atoms. Every eight-site residue entry is enclosed, every visible spatial line has rank four, and the full linear-CAR reachable subspace has dimension 1824 in each N=7 and N=9 sector, leaving 9616 states per sector invisible to these probes. The visible energy interval is [0.36168271180597,3.88643475495061]; its ratio is less than 11, excluding any three-line charged-lepton rest-energy dictionary with one positive scale. This is complete local response, not all many-body eigenvalues, relativistic masses or physical-species identification. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
         }
       ]
     },
@@ -3350,6 +3390,14 @@
           "independent_check": "model/continuum_free_limit/test_bounds.py",
           "scope": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "id": "weyl_geometric_modular",
+          "path": "model/weyl_geometric_modular/results.json",
+          "sha256": "5961639d808149ceeb6daf34d8813d663ededf304d82e02780987cc258f7f9be",
+          "independent_check": "model/weyl_geometric_modular/tests/test_algebra.py",
+          "scope": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
         }
       ]
     },
@@ -3619,6 +3667,14 @@
           "independent_check": "model/continuum_free_limit/test_bounds.py",
           "scope": "For the particle-hole invariant centered ground, c(a)=v/a with v>0 and 0<=U(a)<=Umax<infinity, every retained all-word continuum limit of the canonical charged fields is the free eight-valley Weyl vacuum net. A uniform microscopic-time comparison and cubic phase-space estimate force the composite d=(2n_opposite-1)c spectral weight out of every fixed energy window. Positive-energy Sylvester and both-charge Duhamel estimates give the free initial vacuum and both vacuum evolution identities; an explicit all-valley outside-cyclicity proof and graded locality promote these to operator equality on the full GNS space. Particle and hole energies are v|p| and all rest masses on this branch are zero. Thus the centered bounded-U trajectory fails the required interacting massive endpoint.",
           "campaign_id": "OPH-NATIVE-DETECTOR-CENTERED-GROUND-2026-11-01"
+        },
+        {
+          "id": "weyl_geometric_modular",
+          "path": "model/weyl_geometric_modular/results.json",
+          "sha256": "5961639d808149ceeb6daf34d8813d663ededf304d82e02780987cc258f7f9be",
+          "independent_check": "model/weyl_geometric_modular/tests/test_algebra.py",
+          "scope": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
         }
       ]
     },
@@ -4615,16 +4671,36 @@
         "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
         "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
       }
+    },
+    {
+      "id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-02",
+        "CP-03",
+        "CP-06",
+        "CP-07",
+        "CP-08",
+        "CP-09"
+      ],
+      "contract": {
+        "path": "model/completion/spectrum_refinement_geometry_campaign.json",
+        "sha256": "466ca4ded10a873a31eb3af8110f408f3e67d678687a74939979799e3fc62c57",
+        "independent_check": "model/completion/test_finite_attachment_map.py",
+        "scope": "Resolve the centered charged response, quantify complete-record repair coherence and reference convergence, derive an interacting finite spin limit and the growing-coupling free boundary, and attach the same Weyl vacuum to the existing geometric modular/stress theorem inputs.",
+        "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+      }
     }
   ],
   "next_wave": {
-    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-01-v25",
+    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v1",
     "status": "PLANNED_PROVISIONAL_PARALLEL_WORK",
     "scope": "SOURCE_BOUND_COMPONENT_WORK_WITH_OPEN_ACCEPTANCE_JOINS",
     "changes_frozen_campaign": false,
     "successor_class_frozen": false,
     "physical_comparison_count_added": 0,
-    "rationale": "Extend the protected interacting cube and its local probe, balance adaptive reference dynamics, join moving bound pairs to a physical field, and control local stress beyond the dilute regime. Preserve all declared source and comparison inputs.",
+    "rationale": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion. The new direct mathematical checks pass; inherited broad source custody remains pending from the starting checkout. No historical acceptance decision is refreshed by this campaign.",
     "shared_interface": {
       "baseline_campaign_id": "OPH-RECORD-DERIVED-CONTINUING-CLOCK-v1",
       "baseline_contract": "model/local_repair_family/record_clock_campaign.json",
@@ -4651,11 +4727,11 @@
       {
         "gate": "CP-02",
         "issue": 1138,
-        "title": "Continue the native observer and controller through the field refinement",
-        "why_now": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
-        "deliverable": "Attach the prepared ground and complete energy readout to a continuing observer, clock, memory and repair implementation.",
-        "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
-        "join_condition": "Construct native preparation and complete-outcome measurement for the centered ground and the claimed growing-volume continuum family. Prove continuing observer, repair, memory and controller invariance on that same family, and identify its operational clock and independently calibrated units. The original finite N=4 invariant ground and complete four-bin native energy instrument are executed with explicit error and sampling bounds.",
+        "title": "Execute the centered reference and resolved detector in a continuing native observer",
+        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "deliverable": "Compile preparation and complete-outcome observation of the centered ground, with resource and error bounds, and join it to the actual memory, repair and clock law.",
+        "may_start_now": "Use the certified 228-line centered response and the quantitative fixed-selector reference bounds; derive the selected adaptive joint reference separately.",
+        "join_condition": "The centered spectral measure is calculated, but its native preparation/readout is not executed. The original N4 ground and four-bin native detector remain separate. Identify the same accessible algebra, continuing state and operational clock; trace-out mixing of the bare source is not joint source/controller stationarity.",
         "evidence": [
           "adaptive_reference",
           "thermodynamic_ground",
@@ -4663,17 +4739,19 @@
           "retarded_spatial_locality",
           "spectral_readout",
           "continuum_field_net",
-          "native_spectral_detector"
+          "native_spectral_detector",
+          "repair_coherence_lifetime",
+          "centered_particle_spectrum"
         ]
       },
       {
         "gate": "CP-03",
         "issue": 1139,
-        "title": "Extend protected probes to the common continuum family",
-        "why_now": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
-        "deliverable": "Extend the finite protected charged process and construct its boundary invariant and detector map through controlled volume and spacing limits.",
-        "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
-        "join_condition": "Construct the required boundary invariant and prove protection under the actual repaired spatial refinement. Extend the original finite native energy instrument to the selected centered or continuum ground without transferring ground-specific spectra. Establish common physical spin, charge, detector and clock maps; finite cube protection and hidden spin alone do not supply these identifications.",
+        "title": "Construct protected local matter beyond the quantified bare-repair lifetime",
+        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "deliverable": "Supply a local protected field encoding with a boundary invariant and measured operators under the actual repair/refinement.",
+        "may_start_now": "Use the sharp complete-record 5/6 native coherence factor and uniform cubic diffusive dephasing bound to specify the needed coherent memory or recovery mechanism.",
+        "join_condition": "An added coherent memory or recovery law must retain all outputs and its costs. Do not transfer the bare occupation theorem to distinct field-block instruments. Establish localization, dynamics, quantum numbers and a common detector, rather than infer a particle from a protected label.",
         "evidence": [
           "cube_eta_protection",
           "protected_particle_readout",
@@ -4682,17 +4760,18 @@
           "ground_spectral_source",
           "spectral_readout",
           "native_spectral_detector",
-          "native_occupation_protection"
+          "native_occupation_protection",
+          "repair_coherence_lifetime"
         ]
       },
       {
         "gate": "CP-06",
         "issue": 1142,
-        "title": "Establish surviving interactions and relativistic sectors in the continuum net",
-        "why_now": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
-        "deliverable": "Determine the nonzero-coupling continuum correlations, real-frequency spectrum and common relativistic dynamics.",
-        "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
-        "join_condition": "Construct and control a source-selected coupling trajectory or action that retains nonzero continuum interaction. The centered bounded-U, c=v/a branch is proved to have a free massless eight-valley hierarchy, so it cannot supply the required interacting massive endpoint. For a different trajectory, rederive the ground, time/locality control, Lorentz dynamics, real-frequency sectors and any required scattering instead of reusing bounded-coupling estimates outside their domain.",
+        "title": "Control an interacting relativistic limit outside the proved free class",
+        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "deliverable": "Derive a volume-uniform interacting continuum estimate and the corresponding ground, charged sectors and Lorentz dynamics.",
+        "may_start_now": "Start from the exact finite spin embedding and full-output error, while addressing its extensive volume dependence. The canonical charged field remains free for U=o((log c)^(3/2)).",
+        "join_condition": "The fixed-graph U=c^2/J Heisenberg limit is interacting but is not a spatial continuum. A successful refinement must retain nonzero interaction with a controlled reference, locality, field normalization, relativistic spectrum and required scattering; rederive each changed premise.",
         "evidence": [
           "moving_bound_pair",
           "relativistic_sector_audit",
@@ -4713,17 +4792,18 @@
           "continuum_cpt_constraint",
           "continuum_composite_channel",
           "centered_source_ground",
-          "continuum_free_limit"
+          "continuum_free_limit",
+          "strong_coupling_refinement"
         ]
       },
       {
         "gate": "CP-07",
         "issue": 1143,
-        "title": "Identify physical particles from the limiting field and detector spectrum",
-        "why_now": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
-        "deliverable": "Derive intrinsic spin, gauge charges, relativistic dispersion and common physical mass units for the observable sectors.",
-        "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
-        "join_condition": "Derive physical quantum numbers and relativistic dispersion on the same selected ground, fields and detector observables; fix common energy/length units independently of species fitting. Identify measured species and test mass ratios and other predictions. The original full-ground addition spectrum and four-bin native readout are complete on their finite domains; the centered cube has a unique N=8 ground with hidden spin zero and a charged gap, but its full charged spectrum and native preparation remain separate tasks. The centered bounded-coupling continuum has zero rest mass in every Weyl valley; finite cube gaps do not become masses on that trajectory. The original finite single-CAR charged-lepton gap dictionary remains excluded.",
+        "title": "Identify physical species beyond the excluded centered finite-gap dictionary",
+        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "deliverable": "Construct the same-theory physical charge, spin, dispersion, detector and unit dictionary; compare its massive and massless sectors with observations.",
+        "may_start_now": "Use all 228 centered local lines and full spatial residues, retaining the 9616 states per adjacent charge sector invisible to linear probes. Investigate new probes or a justified interacting limit.",
+        "join_condition": "Both original and centered direct finite-gap charged-lepton dictionaries are excluded. The centered visible energy spread is less than11; arbitrary common rescaling cannot repair it. The free canonical continuum has eight zero rest masses. A physical assignment needs new controlled spectral/dispersion evidence and independently justified units, not species-dependent fits.",
         "evidence": [
           "cube_eta_protection",
           "particle_identification",
@@ -4743,17 +4823,18 @@
           "native_spectral_detector",
           "continuum_cpt_constraint",
           "centered_source_ground",
-          "continuum_free_limit"
+          "continuum_free_limit",
+          "centered_particle_spectrum"
         ]
       },
       {
         "gate": "CP-09",
         "issue": 1145,
-        "title": "Attach the continuum matter net to the existing Einstein theorem stack",
-        "why_now": "Realize the finite complete native energy detector, resolve the continuum contact channel, derive the same-field CPT constraint and its centered source-reference correction, construct regional modular data on the actual finite particle ground, and decide the centered bounded-coupling continuum through uniform finite-energy escape of the composite force.",
-        "deliverable": "Supply common matter coefficients, action normalization and the same-state geometric and stress premises.",
-        "may_start_now": "Derive the surviving continuum interaction and common Lorentz, gauge, detector and geometry/stress interfaces on the same limiting state and actual refinement law.",
-        "join_condition": "Use the proved free Weyl symbol on the centered bounded-coupling branch where applicable, and construct the common interacting matter/gauge symbols, action density and normalization required by wave_density_metric and source_tetrad. Supply local symmetric Lorentz stress, geometric modular weights, area stationarity, null matching, scaling tails and independent normalization required by the existing G1-G6 stack. Original-ground regional modular identities and centered-cube one-site faithfulness are finite inputs, not the common geometric cap or Einstein balance.",
+        "title": "Join the proved Weyl stress/modular sector to responsive geometry",
+        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "deliverable": "Supply the native geometry identification, edge/area normalization, entropy stationarity and universal calibrated metric response on one refinement family.",
+        "may_start_now": "Use the same-vacuum conserved Weyl stress, exact ball modular group and O(R^6) matter remainder already derived. Reuse the existing Einstein tensor-completion stack.",
+        "join_condition": "Sector-relative G2/G3 and matter first-law/small-ball parts of G4/G5 are supplied for the free Weyl branch. Native cap access, joint lattice/collar convergence, area density, generalized-entropy stationarity and G6 universal coupling with positive calibrated Newton constant remain. The full interacting massive sector must join the same construction.",
         "evidence": [
           "dilute_momentum_ward",
           "relativistic_sector_audit",
@@ -4767,7 +4848,8 @@
           "continuum_composite_channel",
           "ground_regional_modular",
           "centered_source_ground",
-          "continuum_free_limit"
+          "continuum_free_limit",
+          "weyl_geometric_modular"
         ]
       }
     ],
@@ -5856,6 +5938,38 @@
         "independent_check": "model/native_fixed_algebra/test_occupation_packet.py",
         "scope": "Complete C/E binary occupations have fixed algebra C^11 direct_sum M2(empty,full), proved by exact native effects and signed transport for both exchange characters. Faithful references and the fixed-selector limiting channel are explicit. Every proper-port-local fixed observable is scalar. Sixteen complete twelve-occupation-bit source histories verify global memory, local phase/pointer controls and six-occupation dephasing, with all failure outputs and counted resources. The distance-one extremal qubit needs cross-number coherence outside fixed-total V2; primitive pulses need not conserve encoded number. No federation execution, moving-particle exclusion, physical species, calibrated clock, refinement protection or empirical acceptance is claimed.",
         "campaign_id": "OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1"
+      },
+      {
+        "id": "repair_coherence_lifetime",
+        "path": "model/repair_coherence_lifetime/results.json",
+        "sha256": "50032d0f11ce8a477d1d14141f2fbf4bb3bdb7ba9543fbe5f9924a3cb0a9d6d0",
+        "independent_check": "model/repair_coherence_lifetime/test_bounds.py",
+        "scope": "For connected binary C/E repair with fair endpoint coins, weighted edge min-cut lambda contracts the entrywise coherence norm by at most 1-lambda within each fixed-number sector and 1-lambda/2 outside the extremal empty/full block. The bound retains every unnormalized classical history and an arbitrary untouched quantum reference, and holds under adaptive classical schedules with a uniform repair/min-cut floor. On all twelve native ports the sharp factors are 5/6 and 11/12; 983040 native columns and all 531441 ternary difference fields are checked. Fixed-selector populations have exact gap (5-sqrt(5))/60 by the imported exclusion-gap theorem, yielding explicit trace-norm preparation bounds to I_N/binomial(12,N) when the classical tape is traced out. For the bare uniform cubic C law, a positive diffusive clock damps one-particle coherence as exp(-12Dt/a^2), excluding that specific refinement as a reversible coherent particle field. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+      },
+      {
+        "id": "centered_particle_spectrum",
+        "path": "model/centered_particle_spectrum/results.json",
+        "sha256": "d64ea653bbebec47c17768111f19a8b116a4ac34fa14b462839e673f75642a59",
+        "independent_check": "model/centered_particle_spectrum/test_source.py",
+        "scope": "The unique centered N=8, hidden-spin-zero, eta-zero cube ground at c=1/8,U=1 has exactly 228 distinct positive local charged excitation lines with strictly positive certified weights, and 456 signed retarded atoms. Every eight-site residue entry is enclosed, every visible spatial line has rank four, and the full linear-CAR reachable subspace has dimension 1824 in each N=7 and N=9 sector, leaving 9616 states per sector invisible to these probes. The visible energy interval is [0.36168271180597,3.88643475495061]; its ratio is less than 11, excluding any three-line charged-lepton rest-energy dictionary with one positive scale. This is complete local response, not all many-body eigenvalues, relativistic masses or physical-species identification. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+      },
+      {
+        "id": "strong_coupling_refinement",
+        "path": "model/strong_coupling_refinement/results.json",
+        "sha256": "a0a58ffd8052a37a13dfdf90ff76a47e2b014438e06e4b118881513ca87b59d9",
+        "independent_check": "model/strong_coupling_refinement/test_algebra.py",
+        "scope": "For the actual signed centered Hubbard source, U>=4 tau with tau=c|E| yields an exact low-band isometry and the complete-output bound ||exp(-it(T+UD))P-P exp(-it Hspin)||<=min(2,4 tau/U+3|t|tau^3/U^2), with Hspin=sum(4t_xy^2/U)(S_x.S_y-1/4); charged sectors are separated by at least U/2-tau. The fixed-graph scaling U=c^2/J produces a genuinely interacting spin limit with a certified entanglement example. Separately, the centered canonical charged continuum remains the free eight-valley Weyl hierarchy for U=o((log c)^(3/2)), c=v/a; explicit all-smearing spectral and both-charge vacuum bounds plus a new all-time compactness argument prove the unbounded-U extension. The extensive finite-graph control does not establish an interacting relativistic continuum. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+      },
+      {
+        "id": "weyl_geometric_modular",
+        "path": "model/weyl_geometric_modular/results.json",
+        "sha256": "5961639d808149ceeb6daf34d8813d663ededf304d82e02780987cc258f7f9be",
+        "independent_check": "model/weyl_geometric_modular/tests/test_algebra.py",
+        "scope": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
       }
     ]
   },

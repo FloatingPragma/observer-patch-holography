@@ -581,13 +581,11 @@ additional inputs to the existing field and geometry interfaces.
 {\input{tex_fragments/GROUND_REGIONAL_MODULAR.tex}}
 {\input{../paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex}}
 
-\IfFileExists{tex_fragments/CENTERED_SOURCE_GROUND.tex}
-{\input{tex_fragments/CENTERED_SOURCE_GROUND.tex}}
-{\input{../paper/tex_fragments/CENTERED_SOURCE_GROUND.tex}}
-
-\IfFileExists{tex_fragments/CONTINUUM_FREE_LIMIT.tex}
-{\input{tex_fragments/CONTINUUM_FREE_LIMIT.tex}}
-{\input{../paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex}}
+% Current synthesis replaces duplicated ground/free-limit derivations;
+% their complete proof fragments and source receipts remain in the repository.
+\IfFileExists{tex_fragments/COMPLETION_SPECTRAL_REFINEMENT.tex}
+{\input{tex_fragments/COMPLETION_SPECTRAL_REFINEMENT.tex}}
+{\input{../paper/tex_fragments/COMPLETION_SPECTRAL_REFINEMENT.tex}}
 
 \paragraph{Other finite interfaces.}
 The full-CAR locality bounds used above control dynamics at fixed

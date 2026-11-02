@@ -1,0 +1,53 @@
+\paragraph{Complete-record coherence lifetimes.}
+The bare binary endpoint instrument admits a quantitative strengthening of
+its finite fixed-algebra classification. For a connected graph with positive
+normalized seam weights $q_e$ and fair endpoint coins, let
+$D_x=1_S(x)-1_T(x)$ for two occupation configurations. The total absolute
+coefficient of the matrix unit $|S\rangle\langle T|$, summed over every
+classically retained record, is
+\[
+ r_C(S,T)=1-\frac12\sum_{ab}q_{ab}|D_a-D_b|.
+\]
+The E instrument refines these records and cannot increase this quantity.
+Writing $A=\{D=1\}$ and $B=\{D=-1\}$ expresses the sum as the weights of
+$\partial A$ and $\partial B$. If $\lambda$ is the least proper cut weight,
+the off-diagonal entrywise norm contracts by $1-\lambda$ within a fixed
+number sector and by $1-\lambda/2$ outside the full/empty cat block. Partial
+injections preserve off-diagonality, so this estimate iterates with all
+records retained. It also applies to classical history-dependent selectors
+with a uniform conditional cut bound; coherent recovery is outside its domain.
+
+For the actual thirty-seam graph, exact enumeration of all $4094$ proper
+cuts and $531441$ ternary fields gives $\lambda=1/6$. Thus the factors are
+$5/6$ and $11/12$. The first is attained by every one-particle off-diagonal
+matrix unit under uniform C repair. A two-configuration superposition has
+coherence at most $(5/6)^{26}<0.01$ after $26$ full repair ticks. These ticks
+have no inferred conversion to physical time or particle mass.
+
+Diagonal populations follow symmetric exclusion with edge rates $q_e/2$.
+The weighted-graph spectral-gap theorem of Caputo, Liggett and Richthammer
+(\emph{J.~Amer.~Math.~Soc.}~23 (2010), 831--851, Theorem~1.1 and
+Eq.~(4.1)) is imported with its finite connected symmetric-rate premises
+checked. The exact native adjacency polynomial is
+$(x-5)(x+1)^5(x^2-5)^3$, giving
+$g=(5-\sqrt5)/60>11/240$ in each nontrivial number sector. With
+$d=\binom{12}{N}$,
+\[
+ \|\Phi_*^t(\rho)-I_N/d\|_1
+ \leq\sqrt{d-1}(1-g)^t+(d-1)(5/6)^t.
+\]
+Here the stationary-state channel traces out the classical tape; the joint
+source and tape need not mix. This supplies a faithful finite-sector reference and a convergence rate;
+it does not prepare the centered Hubbard ground or select sector populations.
+
+There is also a precise refinement boundary. On the periodic cubic graph
+of spacing $a$, $V$ vertices and $3V$ edges, uniform C repair gives a
+one-particle coherence factor $1-2/V$. A Poisson clock of rate $\nu$ and
+fixed diffusion coefficient $D=\nu a^2/(6V)>0$ therefore gives
+$\exp(-12Dt/a^2)$ for every off-diagonal matrix unit. For position pinching
+$\Pi$, this gives the uniform trace-norm bound
+$\|(\Phi_t\otimes\mathrm{id})(\rho-\Pi\rho)\|_1\leq2\exp(-12Dt/a^2)$,
+including an untouched reference. It vanishes at each positive macroscopic time.
+This bare, classically recorded diffusive family
+does not retain reversible one-particle coherence; quantum memories, active
+codes and separately derived Hamiltonian fields require their own analysis.
