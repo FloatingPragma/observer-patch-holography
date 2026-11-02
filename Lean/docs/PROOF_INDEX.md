@@ -1862,8 +1862,7 @@ through the trace pairing `(ρ, P) ↦ Tr(ρ P)`), so the split between the
 algebraic layer and the state layer is machine-visible. The core modules are
 `Basic`, `Lueders`, `PartitionPinching`, `PartitionAverage`,
 `StateExpectation`, `Robertson`, `Superselection`, `RecordMajorization`,
-`SpectralEntropyBoundary`, `Tsirelson`, and `ExpectationBound`; the Mathlib
-friction log is `EventAlgebra/MATHLIB_NOTES.md`. All 152 audited
+`SpectralEntropyBoundary`, `Tsirelson`, and `ExpectationBound`. All 152 audited
 declarations across the eleven modules report
 `[propext, Classical.choice, Quot.sound]` (the ring
 identity `chsh_mul_self` even avoids `Classical.choice`).

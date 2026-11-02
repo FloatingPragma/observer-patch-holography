@@ -590,8 +590,7 @@ surface for the OPH consensus layer. Contents:
   imports OPH-facing adapter modules which are outside this neutral core. The
   core is the journal-neutral surface for submission; every lemma is tagged
   **algebra-only** or **consumes a tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
-  ("Finite event algebras"); Mathlib friction log in
-  `EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
+  ("Finite event algebras"). Not a Prop 4.2 / Def 4.1 item.
 - An admission-free **B4 fixed-word locality package**:
   `ObserverPatchHolography/Locality/DependencyCone.lean` checks an
   `n`-move closed-neighborhood dependency upper bound against the concrete

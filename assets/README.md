@@ -1,6 +1,6 @@
 # OPH Figure Index
 
-This directory holds the public diagrams used by the papers, the book and the OPH web surfaces. SVG is the authoring and publication format where available; PNG and PDF variants support social cards and print builds.
+This directory holds the public diagrams used by the papers, the book and the OPH web surfaces. SVG is the authoring and publication format where available; PNG and PDF variants support print builds.
 
 The [working terms](../docs/INTERPRETATION_AND_TERMS.md) govern these diagrams:
 closure of a complete history permits internal computation, and modular
@@ -18,8 +18,6 @@ physical realization or discharge the papers' premise boundaries.
 
 ## Quantitative Figures
 
-- [Fine-structure derivation card](fine_structure_derivation_bluesky.svg) ([PNG](fine_structure_derivation_bluesky.png))
-- [Quark comparison card](quark_pdg_2025_exact_social.svg) ([PNG](quark_pdg_2025_exact_social.png))
 
 ## Publication Collections
 
