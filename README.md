@@ -127,14 +127,15 @@ proof shows that the whole class of laws cannot work.
   finite propagation, resolves the complete finite ground family, and
   provides positive finite-resolution energy measurements. Surviving
   continuum interaction and the physical field and geometry joins remain open.
-  The [native detector and centered-ground construction](docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
-  adds a complete native phase-clock readout, exact regional modular data,
-  and a symmetry-derived charge clock with its own unique half-filled
-  ground and faithful one-site states.
-  A uniform spectral estimate identifies its entire bounded-coupling
-  continuum hierarchy as free and massless. The required interacting
-  massive endpoint therefore needs a different justified trajectory;
-  finite charge gaps do not become physical rest masses.
+  The [centered spectrum and native readout](model/completion/NATIVE_NEUTRAL_SPIN_RESPONSE.md)
+  now certify the full finite gap and execute preparation and charged
+  energy measurement of the unique half-filled ground. A separate joint
+  volume/coupling limit preserves complete repair records and constructs
+  interacting spin dynamics at fixed spacing. Explicit matter variations
+  supply nine independent finite responses to the existing gravity stack.
+  The canonical charged continuum remains free and massless; physical
+  species, an interacting relativistic continuum and responsive geometry
+  remain to be constructed.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12700 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.

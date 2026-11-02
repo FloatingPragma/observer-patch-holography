@@ -1,0 +1,344 @@
+{
+  "algebra": {
+    "arbitrary_spatial_first_jet_map_has_exact_inverse": true,
+    "boosted_ball_response_determinant": "24407490807/2000000000",
+    "boosted_ball_response_matrix": [
+      [
+        "4",
+        "1/4",
+        "25/16",
+        "25/16",
+        "25/16",
+        "25/16",
+        "289/100",
+        "289/100",
+        "25/16"
+      ],
+      [
+        "1/4",
+        "4",
+        "25/16",
+        "25/16",
+        "25/16",
+        "25/16",
+        "16/25",
+        "16/25",
+        "25/16"
+      ],
+      [
+        "25/16",
+        "25/16",
+        "4",
+        "1/4",
+        "25/16",
+        "25/16",
+        "1369/400",
+        "25/16",
+        "289/100"
+      ],
+      [
+        "25/16",
+        "25/16",
+        "1/4",
+        "4",
+        "25/16",
+        "25/16",
+        "169/400",
+        "25/16",
+        "16/25"
+      ],
+      [
+        "25/16",
+        "25/16",
+        "25/16",
+        "25/16",
+        "4",
+        "1/4",
+        "25/16",
+        "1369/400",
+        "1369/400"
+      ],
+      [
+        "25/16",
+        "25/16",
+        "25/16",
+        "25/16",
+        "1/4",
+        "4",
+        "25/16",
+        "169/400",
+        "169/400"
+      ],
+      [
+        "289/100",
+        "16/25",
+        "1369/400",
+        "169/400",
+        "25/16",
+        "25/16",
+        "4",
+        "1444/625",
+        "25921/10000"
+      ],
+      [
+        "289/100",
+        "16/25",
+        "25/16",
+        "25/16",
+        "1369/400",
+        "169/400",
+        "1444/625",
+        "4",
+        "29929/10000"
+      ],
+      [
+        "25/16",
+        "25/16",
+        "289/100",
+        "16/25",
+        "1369/400",
+        "169/400",
+        "25921/10000",
+        "29929/10000",
+        "4"
+      ]
+    ],
+    "coordinates": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "directions": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "-1"
+      ],
+      [
+        "3/5",
+        "4/5",
+        "0"
+      ],
+      [
+        "3/5",
+        "0",
+        "4/5"
+      ],
+      [
+        "0",
+        "3/5",
+        "4/5"
+      ]
+    ],
+    "interpolated_spatial_derivative": "i*n_j*u/L",
+    "interpolated_time_derivative": "i*u/L",
+    "interpolated_value": "u",
+    "kernel": {
+      "complex_denominator_perturbation_over_L_squared": "153/1024",
+      "kernel": "-i*(t I+sigma.z)/(2*pi^2*(|z|^2-t^2)^2)",
+      "shell_profile_has_three_continuous_boundary_derivatives": true,
+      "spacelike_kernel_satisfies_Weyl_equation": true
+    },
+    "response_inverse_infinity_norm": "68/5",
+    "shell_moment_A": "1/420",
+    "shell_moment_B": "1/630",
+    "shell_norm_moment_J": "37949/669278610",
+    "single_summand_excited_others_in_same_vacuum": true,
+    "squared_norm_over_pi_cubed_L_cubed": "150088295/4249388",
+    "stress_amplitude_times_pi_cubed_L_fourth": "4249388/150088295",
+    "stress_covariant_sign": "positive gamma_L*(1,n)*(1,n)^T",
+    "tracefree_stress_frame_determinant": "13824/15625",
+    "unit_timelike_normals": [
+      [
+        "5/4",
+        "3/4",
+        "0",
+        "0"
+      ],
+      [
+        "5/4",
+        "-3/4",
+        "0",
+        "0"
+      ],
+      [
+        "5/4",
+        "0",
+        "3/4",
+        "0"
+      ],
+      [
+        "5/4",
+        "0",
+        "-3/4",
+        "0"
+      ],
+      [
+        "5/4",
+        "0",
+        "0",
+        "3/4"
+      ],
+      [
+        "5/4",
+        "0",
+        "0",
+        "-3/4"
+      ],
+      [
+        "5/4",
+        "9/20",
+        "3/5",
+        "0"
+      ],
+      [
+        "5/4",
+        "9/20",
+        "0",
+        "3/5"
+      ],
+      [
+        "5/4",
+        "0",
+        "9/20",
+        "3/5"
+      ]
+    ],
+    "valleys_discarded": false
+  },
+  "all_pass": false,
+  "bounds": {
+    "boosted_Hessian_scaling": "HESSIAN*||theta||_1/L^6",
+    "boosted_spatial_Hessian_majorant": 195689447424,
+    "both_budgets_strictly_below": "1/4",
+    "certified_radius_ratio": "1/268435456",
+    "complex_Cauchy_radius_over_L": "1/64",
+    "derivative_bound": "||partial^alpha F_normalized|| <= H_m L^(-3/2-m), |alpha|=m<=3",
+    "domain": "|x0|+|x|<=L/4; shell L<=|y|<=2L",
+    "finite_entropy_difference_step": "epsilon=(R/L)^6",
+    "finite_entropy_response_Neumann_budget": "725036597816873680287/4502951109024154648576",
+    "global_pure_vacuum_affine_two_sided_perturbation_asserted": false,
+    "joint_lattice_collar_limit_proved": false,
+    "modular_response_Neumann_budget": "84405368871/524212502528",
+    "normalized_ball_entry_error_coefficient": "100699527474378178560/1062347",
+    "normalized_entropy_difference_extra_coefficient": "750441475/4249388",
+    "normalized_response_inverse_infinity_norm_upper": "272/15",
+    "relative_entropy_upper": "||theta||_1^2/[2(1-r0^2)] for ||theta||_1<=r0<1",
+    "spacetime_derivative_majorants": [
+      16,
+      1024,
+      131072,
+      25165824
+    ]
+  },
+  "dependency_custody_pass": false,
+  "finite_attachment": "FA91",
+  "new_checks_pass": true,
+  "prior_custody": {
+    "dependency_custody_pass": false,
+    "direct_prior_source_mismatches": [],
+    "historical_broad_mismatch_count": 21,
+    "prior": "model/weyl_geometric_modular/results.json",
+    "prior_dependency_custody_pass": false,
+    "prior_full_source_replay": false,
+    "prior_new_checks_pass": true
+  },
+  "schema": "oph.weyl_gravity_response.v1",
+  "source_bindings": {
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "a724da9e9a5a9e90aa80adb2833353370d5991180b89f7a634cf27e43e10f631",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean": "4cf17368329e6237e5b3f71b444d9b95dc6607a05b24ce24ae655b7da2478971",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
+    "model/weyl_geometric_modular/README.md": "9719715b8256462c07a504d8cc2c326f3dd75d1ea787c77ab39ab59bd4ec073b",
+    "model/weyl_geometric_modular/algebra.py": "06cddd3d8b46e6cbc4ca2ae12d0c99bd26e248f7f494f02c7892c9341b7e015d",
+    "model/weyl_geometric_modular/entropy.py": "f2a7bb8df53555c67e7b528964dbf37e935316de0c7387a8455c94fcc345b643",
+    "model/weyl_geometric_modular/geometry.py": "98c8669ce62721723ad12fc8eb302cca85c0426af62872b6dd3feb6f9c28c527",
+    "model/weyl_geometric_modular/results.json": "5961639d808149ceeb6daf34d8813d663ededf304d82e02780987cc258f7f9be",
+    "model/weyl_gravity_response/README.md": "74de2795c327e01dd28b1ebf9bef0920ba240804f22c187f1325dc80598002d8",
+    "model/weyl_gravity_response/__init__.py": "7c9cd17eadf4fc22c6f62918453e3b4bca7abfe2ab938206edb4f298e1c60a11",
+    "model/weyl_gravity_response/__main__.py": "dd1140ca6b5f917559b56fe6fed727abdd483f9e1dcf82a0a45af9f59c40b4e8",
+    "model/weyl_gravity_response/algebra.py": "8e6ee9970fedc0afd7c042227e1fd6a67ea138e8c2193a055b338839e3d18f6e",
+    "model/weyl_gravity_response/bounds.py": "f3f17dc37027244f2423ca099fc888a0499e23a3909502d1196ffa7b99349ae8",
+    "model/weyl_gravity_response/packet.py": "c91f3404da0fd3323e5ef7c374c64e8e94feccd3212f7737b266d975e79cb2f1",
+    "model/weyl_gravity_response/test_response.py": "4d7783cdde237b81ef997ba241aca90bc4e15e5f712de83a43fd1c0827d33733",
+    "paper/tex_fragments/WEYL_GRAVITY_RESPONSE.tex": "4b55025b7e7785e860cadd08ded600b2e1f4c5bbc323116cee64a32f8ae463bb",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem": {
+    "Frechet_matter_first_law_on_common_variation_space": true,
+    "all_eight_Weyl_summands_retained": true,
+    "all_tracefree_symmetric_stress_tangents_spanned": true,
+    "area_Newton_or_generalized_stationarity_supplied": false,
+    "complete_Einstein_register_inhabited": false,
+    "explicit_common_continuum_radius_and_perturbation_limits": true,
+    "finite_boosted_ball_modular_responses_invertible": true,
+    "finite_relative_entropy_differences_invertible": true,
+    "geometry_stress_null_balance_supplied": false,
+    "global_pure_vacuum_affine_two_sided_state_family_claimed": false,
+    "interacting_or_massive_continuum_supplied": false,
+    "joint_lattice_collar_limit_supplied": false,
+    "local_normal_two_sided_states_constructed": true,
+    "measured_particle_species_identified": false,
+    "native_shell_operations_implemented": false,
+    "same_stress_and_vacuum_for_all_nine_observers": true,
+    "ten_component_trace_direction_supplied": false,
+    "variation_dimension": 9
+  }
+}

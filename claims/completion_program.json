@@ -1449,6 +1449,14 @@
           "independent_check": "model/centered_particle_spectrum/test_source.py",
           "scope": "The unique centered N=8, hidden-spin-zero, eta-zero cube ground at c=1/8,U=1 has exactly 228 distinct positive local charged excitation lines with strictly positive certified weights, and 456 signed retarded atoms. Every eight-site residue entry is enclosed, every visible spatial line has rank four, and the full linear-CAR reachable subspace has dimension 1824 in each N=7 and N=9 sector, leaving 9616 states per sector invisible to these probes. The visible energy interval is [0.36168271180597,3.88643475495061]; its ratio is less than 11, excluding any three-line charged-lepton rest-energy dictionary with one positive scale. This is complete local response, not all many-body eigenvalues, relativistic masses or physical-species identification. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "centered_native_preparation",
+          "path": "model/centered_native_preparation/results.json",
+          "sha256": "5ffe04817a2f9cbe511787f4a96899ffd339189172fe88833948e2f68061ff09",
+          "independent_check": "model/centered_native_preparation/test_tree.py",
+          "scope": "The actual centered c=1/8,U=1 cube ground is prepared from a certified dyadic source witness by 262137 native Gray-tree pulses and 184 full-Fock inverse-frame pulses on all 65536 rows. A 13-pulse charge instrument and 607071-pulse centered M4 phase clock then execute on 262144 quantum rows and two retained classical charge columns. The complete history has 869405 pulses; exact target, angle, source-generator, frame, ground-phase and full-Fock Strang errors give total complete-state and total-variation error below 0.03. All 216 raw pointer combinations and every first-export failure are retained. Four broad energy outcomes do not resolve all 228 spectral lines or identify physical masses. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -1816,6 +1824,22 @@
           "independent_check": "model/repair_coherence_lifetime/test_bounds.py",
           "scope": "For connected binary C/E repair with fair endpoint coins, weighted edge min-cut lambda contracts the entrywise coherence norm by at most 1-lambda within each fixed-number sector and 1-lambda/2 outside the extremal empty/full block. The bound retains every unnormalized classical history and an arbitrary untouched quantum reference, and holds under adaptive classical schedules with a uniform repair/min-cut floor. On all twelve native ports the sharp factors are 5/6 and 11/12; 983040 native columns and all 531441 ternary difference fields are checked. Fixed-selector populations have exact gap (5-sqrt(5))/60 by the imported exclusion-gap theorem, yielding explicit trace-norm preparation bounds to I_N/binomial(12,N) when the classical tape is traced out. For the bare uniform cubic C law, a positive diffusive clock damps one-particle coherence as exp(-12Dt/a^2), excluding that specific refinement as a reversible coherent particle field. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "centered_neutral_spectrum",
+          "path": "model/centered_neutral_spectrum/results.json",
+          "sha256": "ccf94da8714848425e6b88b061960747bcfbadc0cb0cccb79b3e836586494684",
+          "independent_check": "model/centered_neutral_spectrum/test_source.py",
+          "scope": "Exact complete spin/eta and signed-translation blocks cover all4900 balanced and12870 neutral N8 states. Together with the imported >1/8 other-charge separation, they certify the full65536-state centered source gap in [0.015021254176,0.015021254177], with a first hidden-spin1,eta0,k111 triplet. Local Sz and density n-1 each have135 strictly positive spectral lines plus one exactly dark energy-minus-two candidate, with complete spatial residues and current-divergence weights E^2 w(E). Their combined all-spin-and-density cyclic range has1428 neutral dimensions, leaving11441 excited neutral states invisible to these specified probes. This closes the finite quantitative neutral-gap premise without asserting a continuum gap, mass or species. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "protected_spin_limit",
+          "path": "model/protected_spin_limit/results.json",
+          "sha256": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+          "independent_check": "model/protected_spin_limit/test_algebra.py",
+          "scope": "On the one-fermion-per-site two-flavour carrier, the complete C/E field extension is exactly identity on internal spins while retaining fair coin and raw-zero records. The centered signed Hubbard source with U>=4 tau, tau=c|E|, obeys the all-input, reference-complete recorded-history trace bound min(2,8m tau/U+6T tau^3/U^2). The explicit joint trajectory c=J|E|^4, U=J|E|^8 controls growing-volume independent Poisson repairs and converges locally to an interacting cubic Heisenberg dynamics at fixed spacing, with source-derived ground states and positive-energy GNS dynamics. On explicit L by W by W tori, L=2W^4 and odd W>=3, the full source first spectral spacing, counting ground multiplicity, is at most 5J/W^2+J/W^6. This does not prove a relativistic continuum or an infinite-volume massless particle. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -2896,6 +2920,14 @@
           "independent_check": "model/strong_coupling_refinement/test_algebra.py",
           "scope": "For the actual signed centered Hubbard source, U>=4 tau with tau=c|E| yields an exact low-band isometry and the complete-output bound ||exp(-it(T+UD))P-P exp(-it Hspin)||<=min(2,4 tau/U+3|t|tau^3/U^2), with Hspin=sum(4t_xy^2/U)(S_x.S_y-1/4); charged sectors are separated by at least U/2-tau. The fixed-graph scaling U=c^2/J produces a genuinely interacting spin limit with a certified entanglement example. Separately, the centered canonical charged continuum remains the free eight-valley Weyl hierarchy for U=o((log c)^(3/2)), c=v/a; explicit all-smearing spectral and both-charge vacuum bounds plus a new all-time compactness argument prove the unbounded-U extension. The extensive finite-graph control does not establish an interacting relativistic continuum. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "protected_spin_limit",
+          "path": "model/protected_spin_limit/results.json",
+          "sha256": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+          "independent_check": "model/protected_spin_limit/test_algebra.py",
+          "scope": "On the one-fermion-per-site two-flavour carrier, the complete C/E field extension is exactly identity on internal spins while retaining fair coin and raw-zero records. The centered signed Hubbard source with U>=4 tau, tau=c|E|, obeys the all-input, reference-complete recorded-history trace bound min(2,8m tau/U+6T tau^3/U^2). The explicit joint trajectory c=J|E|^4, U=J|E|^8 controls growing-volume independent Poisson repairs and converges locally to an interacting cubic Heisenberg dynamics at fixed spacing, with source-derived ground states and positive-energy GNS dynamics. On explicit L by W by W tori, L=2W^4 and odd W>=3, the full source first spectral spacing, counting ground multiplicity, is at most 5J/W^2+J/W^6. This does not prove a relativistic continuum or an infinite-volume massless particle. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -3251,6 +3283,22 @@
           "independent_check": "model/centered_particle_spectrum/test_source.py",
           "scope": "The unique centered N=8, hidden-spin-zero, eta-zero cube ground at c=1/8,U=1 has exactly 228 distinct positive local charged excitation lines with strictly positive certified weights, and 456 signed retarded atoms. Every eight-site residue entry is enclosed, every visible spatial line has rank four, and the full linear-CAR reachable subspace has dimension 1824 in each N=7 and N=9 sector, leaving 9616 states per sector invisible to these probes. The visible energy interval is [0.36168271180597,3.88643475495061]; its ratio is less than 11, excluding any three-line charged-lepton rest-energy dictionary with one positive scale. This is complete local response, not all many-body eigenvalues, relativistic masses or physical-species identification. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "centered_neutral_spectrum",
+          "path": "model/centered_neutral_spectrum/results.json",
+          "sha256": "ccf94da8714848425e6b88b061960747bcfbadc0cb0cccb79b3e836586494684",
+          "independent_check": "model/centered_neutral_spectrum/test_source.py",
+          "scope": "Exact complete spin/eta and signed-translation blocks cover all4900 balanced and12870 neutral N8 states. Together with the imported >1/8 other-charge separation, they certify the full65536-state centered source gap in [0.015021254176,0.015021254177], with a first hidden-spin1,eta0,k111 triplet. Local Sz and density n-1 each have135 strictly positive spectral lines plus one exactly dark energy-minus-two candidate, with complete spatial residues and current-divergence weights E^2 w(E). Their combined all-spin-and-density cyclic range has1428 neutral dimensions, leaving11441 excited neutral states invisible to these specified probes. This closes the finite quantitative neutral-gap premise without asserting a continuum gap, mass or species. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+        },
+        {
+          "id": "centered_native_preparation",
+          "path": "model/centered_native_preparation/results.json",
+          "sha256": "5ffe04817a2f9cbe511787f4a96899ffd339189172fe88833948e2f68061ff09",
+          "independent_check": "model/centered_native_preparation/test_tree.py",
+          "scope": "The actual centered c=1/8,U=1 cube ground is prepared from a certified dyadic source witness by 262137 native Gray-tree pulses and 184 full-Fock inverse-frame pulses on all 65536 rows. A 13-pulse charge instrument and 607071-pulse centered M4 phase clock then execute on 262144 quantum rows and two retained classical charge columns. The complete history has 869405 pulses; exact target, angle, source-generator, frame, ground-phase and full-Fock Strang errors give total complete-state and total-variation error below 0.03. All 216 raw pointer combinations and every first-export failure are retained. Four broad energy outcomes do not resolve all 228 spectral lines or identify physical masses. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -3398,6 +3446,14 @@
           "independent_check": "model/weyl_geometric_modular/tests/test_algebra.py",
           "scope": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "weyl_gravity_response",
+          "path": "model/weyl_gravity_response/results.json",
+          "sha256": "dad0ecf857b79b2670e1ba73af962af5ef642cb85e400eff5e40e6697064c840",
+          "independent_check": "model/weyl_gravity_response/test_response.py",
+          "scope": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -3675,6 +3731,14 @@
           "independent_check": "model/weyl_geometric_modular/tests/test_algebra.py",
           "scope": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register. Direct checks and inherited custody are reported separately.",
           "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+        },
+        {
+          "id": "weyl_gravity_response",
+          "path": "model/weyl_gravity_response/results.json",
+          "sha256": "dad0ecf857b79b2670e1ba73af962af5ef642cb85e400eff5e40e6697064c840",
+          "independent_check": "model/weyl_gravity_response/test_response.py",
+          "scope": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics. Direct checks and inherited custody are reported separately.",
+          "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
         }
       ]
     },
@@ -4691,16 +4755,36 @@
         "scope": "Resolve the centered charged response, quantify complete-record repair coherence and reference convergence, derive an interacting finite spin limit and the growing-coupling free boundary, and attach the same Weyl vacuum to the existing geometric modular/stress theorem inputs.",
         "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
       }
+    },
+    {
+      "id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02",
+      "scope": "FINITE_COMPONENT_FAMILY",
+      "whole_program_frozen": false,
+      "supports": [
+        "CP-02",
+        "CP-03",
+        "CP-06",
+        "CP-07",
+        "CP-08",
+        "CP-09"
+      ],
+      "contract": {
+        "path": "model/completion/native_neutral_spin_response_campaign.json",
+        "sha256": "8956d1fec405c181df2cf261d89f457d11cd556cefcdb1d1cc69e8d63f9ff6c4",
+        "independent_check": "model/completion/test_finite_attachment_map.py",
+        "scope": "Close the complete finite neutral gap, execute native centered-ground preparation and charged energy readout, derive repaired interacting spin dynamics in a joint growing-volume limit, and supply nondegenerate finite matter/entropy response directions to the existing Einstein stack.",
+        "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+      }
     }
   ],
   "next_wave": {
-    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v1",
+    "id": "OPH-COMPLETION-NEXT-WAVE-2026-11-02-v2",
     "status": "PLANNED_PROVISIONAL_PARALLEL_WORK",
     "scope": "SOURCE_BOUND_COMPONENT_WORK_WITH_OPEN_ACCEPTANCE_JOINS",
     "changes_frozen_campaign": false,
     "successor_class_frozen": false,
     "physical_comparison_count_added": 0,
-    "rationale": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion. The new direct mathematical checks pass; inherited broad source custody remains pending from the starting checkout. No historical acceptance decision is refreshed by this campaign.",
+    "rationale": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance. Direct new checks are distinct from inherited receipt custody; historical accepted evidence remains unchanged.",
     "shared_interface": {
       "baseline_campaign_id": "OPH-RECORD-DERIVED-CONTINUING-CLOCK-v1",
       "baseline_contract": "model/local_repair_family/record_clock_campaign.json",
@@ -4727,11 +4811,11 @@
       {
         "gate": "CP-02",
         "issue": 1138,
-        "title": "Execute the centered reference and resolved detector in a continuing native observer",
-        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
-        "deliverable": "Compile preparation and complete-outcome observation of the centered ground, with resource and error bounds, and join it to the actual memory, repair and clock law.",
-        "may_start_now": "Use the certified 228-line centered response and the quantitative fixed-selector reference bounds; derive the selected adaptive joint reference separately.",
-        "join_condition": "The centered spectral measure is calculated, but its native preparation/readout is not executed. The original N4 ground and four-bin native detector remain separate. Identify the same accessible algebra, continuing state and operational clock; trace-out mixing of the bare source is not joint source/controller stationarity.",
+        "title": "Extend the executed centered reference and detector to continuing observers",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
+        "deliverable": "Join the complete finite centered preparation and energy readout to growing-volume memory, repair and operational clock laws.",
+        "may_start_now": "The centered ground is now prepared and its four-bin charged readout executed with all outcomes and a below-0.03 error bound. Use this concrete native instrument and the separate repaired-spin limit.",
+        "join_condition": "The finite source-controlled preparation has no interleaved bare field repair. Establish continuing reference invariance, common access and clock on the intended growing-volume process; finite preparation is not an autonomous stationary regime.",
         "evidence": [
           "adaptive_reference",
           "thermodynamic_ground",
@@ -4741,17 +4825,18 @@
           "continuum_field_net",
           "native_spectral_detector",
           "repair_coherence_lifetime",
-          "centered_particle_spectrum"
+          "centered_particle_spectrum",
+          "centered_native_preparation"
         ]
       },
       {
         "gate": "CP-03",
         "issue": 1139,
         "title": "Construct protected local matter beyond the quantified bare-repair lifetime",
-        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
         "deliverable": "Supply a local protected field encoding with a boundary invariant and measured operators under the actual repair/refinement.",
-        "may_start_now": "Use the sharp complete-record 5/6 native coherence factor and uniform cubic diffusive dephasing bound to specify the needed coherent memory or recovery mechanism.",
-        "join_condition": "An added coherent memory or recovery law must retain all outputs and its costs. Do not transfer the bare occupation theorem to distinct field-block instruments. Establish localization, dynamics, quantum numbers and a common detector, rather than infer a particle from a protected label.",
+        "may_start_now": "Use the exact full-domain internal-spin protection and its complete-record interacting limit, while retaining the distinct bare-binary coherence lifetime theorem.",
+        "join_condition": "The two-flavour field extension protects a one-fermion-per-site spin carrier. Supply a physical localized defect, boundary invariant, native scalable observable realization and common energy/clock; a protected spin factor is not yet an observed particle.",
         "evidence": [
           "cube_eta_protection",
           "protected_particle_readout",
@@ -4761,17 +4846,19 @@
           "spectral_readout",
           "native_spectral_detector",
           "native_occupation_protection",
-          "repair_coherence_lifetime"
+          "repair_coherence_lifetime",
+          "centered_neutral_spectrum",
+          "protected_spin_limit"
         ]
       },
       {
         "gate": "CP-06",
         "issue": 1142,
         "title": "Control an interacting relativistic limit outside the proved free class",
-        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
         "deliverable": "Derive a volume-uniform interacting continuum estimate and the corresponding ground, charged sectors and Lorentz dynamics.",
-        "may_start_now": "Start from the exact finite spin embedding and full-output error, while addressing its extensive volume dependence. The canonical charged field remains free for U=o((log c)^(3/2)).",
-        "join_condition": "The fixed-graph U=c^2/J Heisenberg limit is interacting but is not a spatial continuum. A successful refinement must retain nonzero interaction with a controlled reference, locality, field normalization, relativistic spectrum and required scattering; rederive each changed premise.",
+        "may_start_now": "The joint c=J|E|^4,U=J|E|^8 trajectory now controls repaired interacting spin dynamics and source-derived ground states as volume grows. The canonical charged continuum remains free for U=o((log c)^(3/2)).",
+        "join_condition": "The new spin limit has fixed spatial spacing and divergent charged excitation energies. Derive a spatial continuum with the required massive/massless relativistic sectors, locality, field normalization and scattering on the same reference.",
         "evidence": [
           "moving_bound_pair",
           "relativistic_sector_audit",
@@ -4793,17 +4880,18 @@
           "continuum_composite_channel",
           "centered_source_ground",
           "continuum_free_limit",
-          "strong_coupling_refinement"
+          "strong_coupling_refinement",
+          "protected_spin_limit"
         ]
       },
       {
         "gate": "CP-07",
         "issue": 1143,
         "title": "Identify physical species beyond the excluded centered finite-gap dictionary",
-        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
         "deliverable": "Construct the same-theory physical charge, spin, dispersion, detector and unit dictionary; compare its massive and massless sectors with observations.",
-        "may_start_now": "Use all 228 centered local lines and full spatial residues, retaining the 9616 states per adjacent charge sector invisible to linear probes. Investigate new probes or a justified interacting limit.",
-        "join_condition": "Both original and centered direct finite-gap charged-lepton dictionaries are excluded. The centered visible energy spread is less than11; arbitrary common rescaling cannot repair it. The free canonical continuum has eight zero rest masses. A physical assignment needs new controlled spectral/dispersion evidence and independently justified units, not species-dependent fits.",
+        "may_start_now": "Use the full finite neutral gap, 135 local spin and135 density lines, 228 local charged lines, and the executed centered charged four-bin instrument. Keep exact dark states and probe-invisible subspaces in the accounting.",
+        "join_condition": "Source-clock gaps and hidden-spin labels are not physical species or rest masses. The original and centered direct finite-gap lepton dictionaries remain excluded. A new assignment needs controlled relativistic dispersion, quantum numbers and independent common units; finer detector resolution needs its own execution and error budget.",
         "evidence": [
           "cube_eta_protection",
           "particle_identification",
@@ -4824,17 +4912,19 @@
           "continuum_cpt_constraint",
           "centered_source_ground",
           "continuum_free_limit",
-          "centered_particle_spectrum"
+          "centered_particle_spectrum",
+          "centered_neutral_spectrum",
+          "centered_native_preparation"
         ]
       },
       {
         "gate": "CP-09",
         "issue": 1145,
         "title": "Join the proved Weyl stress/modular sector to responsive geometry",
-        "why_now": "These five existing issues join the detector/reference, protection, continuum interaction, species dictionary and gravity bottlenecks. Exact finite certificates and explicit scaling estimates offer testable closure of bounded premises without promoting component proofs to physical completion.",
+        "why_now": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
         "deliverable": "Supply the native geometry identification, edge/area normalization, entropy stationarity and universal calibrated metric response on one refinement family.",
-        "may_start_now": "Use the same-vacuum conserved Weyl stress, exact ball modular group and O(R^6) matter remainder already derived. Reuse the existing Einstein tensor-completion stack.",
-        "join_condition": "Sector-relative G2/G3 and matter first-law/small-ball parts of G4/G5 are supplied for the free Weyl branch. Native cap access, joint lattice/collar convergence, area density, generalized-entropy stationarity and G6 universal coupling with positive calibrated Newton constant remain. The full interacting massive sector must join the same construction.",
+        "may_start_now": "Use the explicit nine-dimensional local normal-state family, full-rank finite boosted-ball modular/entropy responses and controlled remainder of the same free Weyl vacuum. Reuse the existing tensor-completion theorem.",
+        "join_condition": "Nondegenerate matter response closes a finite variation-space premise, not geometric null balance. Derive native geometric access, area normalization, generalized-entropy stationarity, joint lattice/collar limits and universal metric response with positive Newton calibration.",
         "evidence": [
           "dilute_momentum_ward",
           "relativistic_sector_audit",
@@ -4849,7 +4939,8 @@
           "ground_regional_modular",
           "centered_source_ground",
           "continuum_free_limit",
-          "weyl_geometric_modular"
+          "weyl_geometric_modular",
+          "weyl_gravity_response"
         ]
       }
     ],
@@ -5970,6 +6061,38 @@
         "independent_check": "model/weyl_geometric_modular/tests/test_algebra.py",
         "scope": "The FA82 centered free eight-Weyl continuum has the translation-normalized symmetric conserved Lorentz stress and the exact vacuum ball modular group, with its Wick-stress generator, an explicit finite Araki matter first law, and the 8*pi^2*R^4/(15*v) small-ball coefficient with remainder <=4*pi^2*M*R^6/(35*v). These establish sector-relative matter parts of G2/G3/G4/G5, not the joint Einstein register. Direct checks and inherited custody are reported separately.",
         "campaign_id": "OPH-SPECTRUM-REFINEMENT-GEOMETRY-2026-11-02"
+      },
+      {
+        "id": "centered_neutral_spectrum",
+        "path": "model/centered_neutral_spectrum/results.json",
+        "sha256": "ccf94da8714848425e6b88b061960747bcfbadc0cb0cccb79b3e836586494684",
+        "independent_check": "model/centered_neutral_spectrum/test_source.py",
+        "scope": "Exact complete spin/eta and signed-translation blocks cover all4900 balanced and12870 neutral N8 states. Together with the imported >1/8 other-charge separation, they certify the full65536-state centered source gap in [0.015021254176,0.015021254177], with a first hidden-spin1,eta0,k111 triplet. Local Sz and density n-1 each have135 strictly positive spectral lines plus one exactly dark energy-minus-two candidate, with complete spatial residues and current-divergence weights E^2 w(E). Their combined all-spin-and-density cyclic range has1428 neutral dimensions, leaving11441 excited neutral states invisible to these specified probes. This closes the finite quantitative neutral-gap premise without asserting a continuum gap, mass or species. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "centered_native_preparation",
+        "path": "model/centered_native_preparation/results.json",
+        "sha256": "5ffe04817a2f9cbe511787f4a96899ffd339189172fe88833948e2f68061ff09",
+        "independent_check": "model/centered_native_preparation/test_tree.py",
+        "scope": "The actual centered c=1/8,U=1 cube ground is prepared from a certified dyadic source witness by 262137 native Gray-tree pulses and 184 full-Fock inverse-frame pulses on all 65536 rows. A 13-pulse charge instrument and 607071-pulse centered M4 phase clock then execute on 262144 quantum rows and two retained classical charge columns. The complete history has 869405 pulses; exact target, angle, source-generator, frame, ground-phase and full-Fock Strang errors give total complete-state and total-variation error below 0.03. All 216 raw pointer combinations and every first-export failure are retained. Four broad energy outcomes do not resolve all 228 spectral lines or identify physical masses. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "protected_spin_limit",
+        "path": "model/protected_spin_limit/results.json",
+        "sha256": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+        "independent_check": "model/protected_spin_limit/test_algebra.py",
+        "scope": "On the one-fermion-per-site two-flavour carrier, the complete C/E field extension is exactly identity on internal spins while retaining fair coin and raw-zero records. The centered signed Hubbard source with U>=4 tau, tau=c|E|, obeys the all-input, reference-complete recorded-history trace bound min(2,8m tau/U+6T tau^3/U^2). The explicit joint trajectory c=J|E|^4, U=J|E|^8 controls growing-volume independent Poisson repairs and converges locally to an interacting cubic Heisenberg dynamics at fixed spacing, with source-derived ground states and positive-energy GNS dynamics. On explicit L by W by W tori, L=2W^4 and odd W>=3, the full source first spectral spacing, counting ground multiplicity, is at most 5J/W^2+J/W^6. This does not prove a relativistic continuum or an infinite-volume massless particle. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
+      },
+      {
+        "id": "weyl_gravity_response",
+        "path": "model/weyl_gravity_response/results.json",
+        "sha256": "dad0ecf857b79b2670e1ba73af962af5ef642cb85e400eff5e40e6697064c840",
+        "independent_check": "model/weyl_gravity_response/test_response.py",
+        "scope": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics. Direct checks and inherited custody are reported separately.",
+        "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02"
       }
     ]
   },

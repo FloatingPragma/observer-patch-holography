@@ -1,0 +1,181 @@
+{
+  "schema": "oph.field_particle_premises.v1",
+  "campaign_id": "OPH-NATIVE-NEUTRAL-SPIN-RESPONSE-2026-11-02",
+  "as_of": "2026-11-02",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Close the complete finite neutral gap, execute native centered-ground preparation and charged energy readout, derive repaired interacting spin dynamics in a joint growing-volume limit, and supply nondegenerate finite matter/entropy response directions to the existing Einstein stack.",
+  "specification_policy": "Simulator, observer, scheduler, repair and memory laws are admitted specifications. Every changed carrier, reference, clock, coupling trajectory and detector remains explicit. A specified model and a conditional mathematical derivation are not an empirical particle identification.",
+  "selection_reason": "These five existing issues connect the finite detector/reference, protected sector, interacting limit, species search and gravity bottlenecks. The new work closes executable finite inputs and constructs controlled limits without changing historical physical acceptance.",
+  "component_results": [
+    {
+      "id": "centered_neutral_spectrum",
+      "attachment": "FA-88",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "Exact complete spin/eta and signed-translation blocks cover all4900 balanced and12870 neutral N8 states. Together with the imported >1/8 other-charge separation, they certify the full65536-state centered source gap in [0.015021254176,0.015021254177], with a first hidden-spin1,eta0,k111 triplet. Local Sz and density n-1 each have135 strictly positive spectral lines plus one exactly dark energy-minus-two candidate, with complete spatial residues and current-divergence weights E^2 w(E). Their combined all-spin-and-density cyclic range has1428 neutral dimensions, leaving11441 excited neutral states invisible to these specified probes. This closes the finite quantitative neutral-gap premise without asserting a continuum gap, mass or species.",
+      "evidence": [
+        "model/centered_neutral_spectrum/README.md",
+        "model/centered_neutral_spectrum/__init__.py",
+        "model/centered_neutral_spectrum/__main__.py",
+        "model/centered_neutral_spectrum/certificate.py",
+        "model/centered_neutral_spectrum/conftest.py",
+        "model/centered_neutral_spectrum/lines.csv",
+        "model/centered_neutral_spectrum/packet.py",
+        "model/centered_neutral_spectrum/proposal.py",
+        "model/centered_neutral_spectrum/results.json",
+        "model/centered_neutral_spectrum/source.py",
+        "model/centered_neutral_spectrum/test_certificate.py",
+        "model/centered_neutral_spectrum/test_source.py",
+        "model/centered_neutral_spectrum/witness.npz",
+        "paper/tex_fragments/CENTERED_NEUTRAL_SPECTRUM.tex"
+      ],
+      "remaining": [
+        "Controlled volume/refinement behaviour of these neutral energies and weights; a nonzero finite gap is not a relativistic mass.",
+        "Measured particle species and dimensional calibration.",
+        "Native centered-ground detector implementation for these neutral probes.",
+        "Responses of neutral states outside the1428-dimensional specified probe-cyclic range, including independent transverse edge-current channels.",
+        "Surviving interacting massive relativistic continuum and full Einstein closure.",
+        "Historical source receipt custody is separately diagnosed; prior expensive all-number experiments are not claimed to be rerun."
+      ]
+    },
+    {
+      "id": "centered_native_preparation",
+      "attachment": "FA-89",
+      "issues": [
+        1138,
+        1143
+      ],
+      "result": "The actual centered c=1/8,U=1 cube ground is prepared from a certified dyadic source witness by 262137 native Gray-tree pulses and 184 full-Fock inverse-frame pulses on all 65536 rows. A 13-pulse charge instrument and 607071-pulse centered M4 phase clock then execute on 262144 quantum rows and two retained classical charge columns. The complete history has 869405 pulses; exact target, angle, source-generator, frame, ground-phase and full-Fock Strang errors give total complete-state and total-variation error below 0.03. All 216 raw pointer combinations and every first-export failure are retained. Four broad energy outcomes do not resolve all 228 spectral lines or identify physical masses.",
+      "evidence": [
+        "model/centered_native_preparation/README.md",
+        "model/centered_native_preparation/__init__.py",
+        "model/centered_native_preparation/__main__.py",
+        "model/centered_native_preparation/bounds.py",
+        "model/centered_native_preparation/circuits.py",
+        "model/centered_native_preparation/execute.py",
+        "model/centered_native_preparation/experiment.py",
+        "model/centered_native_preparation/packet.py",
+        "model/centered_native_preparation/results.json",
+        "model/centered_native_preparation/results.npz",
+        "model/centered_native_preparation/target.py",
+        "model/centered_native_preparation/test_circuits.py",
+        "model/centered_native_preparation/test_packet.py",
+        "model/centered_native_preparation/test_tree.py",
+        "model/centered_native_preparation/tree.py",
+        "paper/tex_fragments/CENTERED_NATIVE_PREPARATION.tex"
+      ],
+      "remaining": [
+        "Construct and certify a continuing preparation/readout with the specified repair, memory and observer laws on the same process; the executed source-control experiment has no interleaved bare field repair.",
+        "Resolve finer spectral windows and scale the prepared reference/instruments beyond the finite cube with uniform errors.",
+        "Establish physical species and common laboratory units independently; finite excitation energies and broad bins are not relativistic mass identifications.",
+        "Complete the interacting continuum and source-responsive gravity joins; this finite detector alone supplies neither.",
+        "Refresh inherited historical receipt custody separately; new native replay does not silently recertify old experiments."
+      ]
+    },
+    {
+      "id": "protected_spin_limit",
+      "attachment": "FA-90",
+      "issues": [
+        1139,
+        1142
+      ],
+      "result": "On the one-fermion-per-site two-flavour carrier, the complete C/E field extension is exactly identity on internal spins while retaining fair coin and raw-zero records. The centered signed Hubbard source with U>=4 tau, tau=c|E|, obeys the all-input, reference-complete recorded-history trace bound min(2,8m tau/U+6T tau^3/U^2). The explicit joint trajectory c=J|E|^4, U=J|E|^8 controls growing-volume independent Poisson repairs and converges locally to an interacting cubic Heisenberg dynamics at fixed spacing, with source-derived ground states and positive-energy GNS dynamics. On explicit L by W by W tori, L=2W^4 and odd W>=3, the full source first spectral spacing, counting ground multiplicity, is at most 5J/W^2+J/W^6. This does not prove a relativistic continuum or an infinite-volume massless particle.",
+      "evidence": [
+        "model/protected_spin_limit/README.md",
+        "model/protected_spin_limit/__init__.py",
+        "model/protected_spin_limit/__main__.py",
+        "model/protected_spin_limit/algebra.py",
+        "model/protected_spin_limit/bounds.py",
+        "model/protected_spin_limit/experiment.py",
+        "model/protected_spin_limit/packet.py",
+        "model/protected_spin_limit/results.json",
+        "model/protected_spin_limit/test_algebra.py",
+        "model/protected_spin_limit/test_bounds.py",
+        "model/protected_spin_limit/test_packet.py",
+        "paper/tex_fragments/PROTECTED_SPIN_LIMIT.tex"
+      ],
+      "remaining": [
+        "Derive a spatial continuum and relativistic dispersion with jointly interacting massive and massless sectors; the proved spin limit has fixed spacing and divergent charged energy.",
+        "Realize and cost the unbounded-volume spin observable dictionary and coherent operations in the native observer; the source-map attachment is not a large native pulse execution.",
+        "Identify measured species and physical energy units using the same reference, detector and clock.",
+        "Join the matter construction to area normalization, geometric entropy stationarity and dynamical metric response in the existing Einstein register.",
+        "Reconcile inherited receipt custody without silently rewriting historical accepted evidence."
+      ]
+    },
+    {
+      "id": "weyl_gravity_response",
+      "attachment": "FA-91",
+      "issues": [
+        1145
+      ],
+      "result": "An explicit shell-supported nine-parameter family of normal states on the same Weyl local algebra has stress tangents spanning all symmetric tracefree tensors. Nine actual boosted-ball modular pairings and finite vacuum-relative entropy differences distinguish those directions uniformly for 0<R/L<=2^-28, with normalized inverse norm<=272/15. This supplies a common matter variation space and quantitative finite response, not geometric null balance or Einstein dynamics.",
+      "evidence": [
+        "model/weyl_gravity_response/README.md",
+        "model/weyl_gravity_response/__init__.py",
+        "model/weyl_gravity_response/__main__.py",
+        "model/weyl_gravity_response/algebra.py",
+        "model/weyl_gravity_response/bounds.py",
+        "model/weyl_gravity_response/packet.py",
+        "model/weyl_gravity_response/results.json",
+        "model/weyl_gravity_response/test_response.py",
+        "paper/tex_fragments/WEYL_GRAVITY_RESPONSE.tex"
+      ],
+      "remaining": [
+        "Native implementation and source-selected access to the continuum shell operations and boosted ball pairings.",
+        "A common lattice/collar/chart limit for geometric and matter readouts.",
+        "Edge/area normalization, positive Newton calibration and generalized-entropy stationarity.",
+        "The actual geometry-stress null balance, responsive metric and universal coupling required by the full Einstein register.",
+        "An interacting massive relativistic continuum and measured particle identification beyond the free sector."
+      ]
+    }
+  ],
+  "quantifier_boundary": "No interacting relativistic spatial continuum, measured species, SI masses, or common dynamical Einstein realization is inferred. The interacting spin limit has fixed spatial spacing; its finite first-spacing bound counts ground multiplicity.",
+  "historical_custody": {
+    "base_commit": "3340ef791",
+    "base_finite_map_mismatches": [
+      "model/plaquette_reference/README.md",
+      "model/plaquette_reference/preparation.py",
+      "model/plaquette_reference/results.json",
+      "model/plaquette_reference/test_preparation.py",
+      "model/certified_reference/test_certificate.py",
+      "model/cube_eta_protection/test_source.py",
+      "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex",
+      "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex",
+      "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex",
+      "paper/tex_fragments/INTERACTING_VACUUM.tex",
+      "paper/tex_fragments/MASS_GENERATION_AUDIT.tex",
+      "paper/tex_fragments/THERMODYNAMIC_GROUND.tex",
+      "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
+      "paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex",
+      "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex",
+      "paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex",
+      "paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex",
+      "paper/tex_fragments/SPECTRAL_READOUT.tex",
+      "paper/tex_fragments/CONTINUUM_FIELD_NET.tex",
+      "paper/tex_fragments/CONTINUUM_GROUND_CONSTRAINTS.tex",
+      "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex",
+      "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex",
+      "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+      "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex"
+    ],
+    "inherited_receipts_silently_recertified": false,
+    "note": "The separate main checkout contains an independent receipt rebuild. New evidence binds current proof sources and reports inherited custody separately. Historical accepted evidence is preserved."
+  },
+  "review": {
+    "path": "model/completion/native_neutral_spin_response_review.json",
+    "sha256": "bf189fd36d447ae572ac7881fbaf7aa9f95ff2a8955eedf2648135aacaebd347"
+  }
+}

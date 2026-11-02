@@ -1,0 +1,117 @@
+\paragraph{An explicit nine-dimensional matter response domain.}
+The same centered free Weyl vacuum admits bounded local perturbations
+whose stress tangents span all symmetric traceless tensors at a point.
+This supplies a nondegenerate matter variation space for the existing
+Einstein premise stack. It does not supply its geometric null balance,
+area term, generalized-entropy stationarity or Newton normalization.
+Use Lorentz time $x^0=vt$ and one $h=\sigma\cdot p$ summand of the
+eight-valley field; all other summands remain in the same vacuum.
+
+The negative-band kernel at spacelike separation is
+\[
+ K_-(t,z)=-\frac{i(tI+\sigma\cdot z)}
+                   {2\pi^2(|z|^2-t^2)^2}.
+\]
+For $L>0$, write $s=|y|/L$, $\omega=y/|y|$, and set
+$\phi(s)=s^2(s-1)^4(2-s)^4$ on $1\leq s\leq2$, zero elsewhere.
+Given a unit $n$ and unit spinor $u$ with $\sigma\cdot n\,u=-u$, define
+\[
+ g_n(y)=\phi(s)\sigma\cdot\omega
+          \left(a+\sum_j\omega_j b_j\right),\qquad
+ a=-210\pi i u,\quad b_j=\frac{945\pi}{4}(n_jI-\sigma_j)u.
+\]
+The exact radial moments $\int\phi(s)/s\,ds=1/420$ and
+$\int\phi(s)/s^2\,ds=1/630$, together with the angular second moments,
+give, for $F_n=P_-g_n$,
+\[
+ F_n(0)=u,\qquad \partial_jF_n(0)=\frac{in_j}{L}u,
+ \qquad \partial_0F_n(0)=\frac{i}{L}u,
+ \qquad \|g_n\|^2=\frac{150088295}{4249388}\pi^3L^3.
+\]
+Thus the wave jets are constructed from a $C^3$ shell smearing outside
+the region of interest, not postulated as independent stress sources.
+
+Put $f_n=g_n/\|g_n\|$, $r_n=\langle f_n,P_-f_n\rangle$, and
+$B_n=c^*(f_n)c(f_n)-r_nI$. These operators are self-adjoint contractions
+of vacuum mean zero. They commute with the complete field algebra of
+$D_{L/4}=\{|x^0|+|x|<L/4\}$. For real $\theta\in\mathbb R^9$,
+$\|\theta\|_1<1$, the formula
+\[
+ \rho_\theta(X)=\omega\left[
+       \left(I+\sum_j\theta_j B_{n_j}\right)X\right]
+\]
+defines positive normalized normal states on this common local algebra.
+The vacuum is their local affine midpoint. Their global vector extensions
+are generally nonlinear in $\theta$; the affine vacuum-midpoint statement
+is only local. Wick contraction gives the local covariance tangent
+$\delta_n\rho(x,y)=-F_n(x)F_n(y)^*/\|g_n\|^2$.
+The negative-energy wave jet has classical stress of the opposite sign,
+so the covariant stress tangent is
+\[
+ \delta_n T_{\mu\nu}(0)=\gamma_L\ell_\mu\ell_\nu,
+ \qquad \ell=(1,n),\qquad
+ \gamma_L=\frac{4249388}{150088295\pi^3L^4}>0.
+\]
+Lowering both indices gives the same tensor in the geometry stack's
+opposite overall metric-sign convention.
+
+Choose $n_j$ to be the six signed coordinate axes and
+$(3/5,4/5,0)$, $(3/5,0,4/5)$, $(0,3/5,4/5)$.
+The nine null outer products have determinant $13824/15625$ in coordinates
+\[
+ (T_{00},T_{01},T_{02},T_{03},T_{11},T_{22},T_{12},T_{13},T_{23}),
+ \qquad T_{33}=T_{00}-T_{11}-T_{22}.
+\]
+They span exactly the tracefree space.
+Normal-channel relative-entropy monotonicity applied to the two states
+defined by $I\pm\sum_j\theta_jB_{n_j}/\|\theta\|_1$ gives
+\[
+ 0\leq S(\rho_\theta\Vert\omega)
+ \leq\frac{\|\theta\|_1^2}{2(1-r_0^2)},
+ \qquad \|\theta\|_1\leq r_0<1.
+\]
+With the previously specified vacuum-relative entropy subtraction this
+proves the matter first law on the whole nine-dimensional variation
+space, with a uniform quadratic remainder.
+
+\paragraph{Finite-radius modular and entropy tomography.}
+The observers have unit timelike normals $u_i=(5/4,3n_i/4)$.
+Their boosts have spatial block $I+n_in_i^{\mathsf T}/4$.
+All their radius-$R$ diamonds lie in the
+same $D_{L/4}$ when $R\leq L/8$. Thus the same local states and the same
+stress feed every modular pairing. At the center their response matrix is
+\[
+ D_{ij}=\left(\frac54+\frac34 n_i\cdot n_j\right)^2,
+ \qquad \det D=\frac{24407490807}{2000000000},\qquad
+ \|D^{-1}\|_\infty=\frac{68}{5}.
+\]
+The exact geometric modular normalization gives
+\[
+ \left.\partial_{\theta_j}\Delta\langle K_i(R)\rangle\right|_0
+ =\frac{8\pi^2R^4}{15}\gamma_LD_{ij}+\mathcal R_{ij}.
+\]
+The spacelike kernel is holomorphic on a complex polydisc of radius
+$L/64$ around every point in $D_{L/4}$. A direct denominator bound and
+Cauchy estimates give
+$\|\partial^\alpha(F_n/\|g_n\|)\|\leq
+16m!64^mL^{-3/2-m}$ for $m=|\alpha|\leq3$.
+Transforming the stress and its spatial Hessian to each of the nine
+frames yields the common bound
+\[
+ |\mathcal R_{ij}|\leq
+ \frac{4\pi^2}{35}\,195689447424\,\frac{R^6}{L^6}.
+\]
+For every $0<R/L\leq2^{-28}$ the normalized response differs from $D$
+by a matrix with $\|D^{-1}E\|_\infty<1/4$.
+Hence the actual finite-ball response is invertible, with normalized
+inverse norm at most $272/15$.
+
+Replacing the derivatives by symmetric finite differences of the
+vacuum-relative entropy, with $\epsilon=(R/L)^6$, adds at most
+$2\epsilon/3$ to each unnormalized entry. After the same normalization,
+the combined error still has Neumann budget below $1/4$. These are nine
+finite positive-state entropy differences; the small-ball and perturbation
+errors vanish together as $O((R/L)^2)$. The conservative radius does not
+claim practical measurement resolution. Native implementation of the
+shell operations, a common lattice/collar limit, geometric response and
+the remaining Einstein premises are separate requirements.

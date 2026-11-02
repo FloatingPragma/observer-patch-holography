@@ -1,0 +1,93 @@
+\paragraph{Executed native preparation of the centered ground.}
+The unique centered cube ground of $K=H-N/2$, at $c=1/8$ and $U=1$,
+has $N=8$, hidden spin zero and eta spin zero. Its exact dyadic spectral
+witness expands into 4484 nonzero signed integer amplitudes on the
+65536-row occupation carrier. Normalizing that specified program target
+and rerunning the exact residual certificate gives a distance from the
+true ground below $1.25\times10^{-13}$. This uses a checked source
+witness, not access to unknown quantum amplitudes, and does not replace
+the distinct original $N=4$ spin-two reference.
+
+A complete 16-level amplitude tree is compiled by cyclic Gray-code
+uniformly controlled $Y$ rotations. For $k$ controls, with
+$g(j)=j\mathbin{\mathrm{xor}}\lfloor j/2\rfloor$ and $n=2^k$, put
+\[
+ \beta_g=\frac1n\sum_a(-1)^{a\cdot g}\theta_a.
+\]
+The chronological circuit applies $Y(\beta_{g(j)})$, then the CNOT
+specified by the bit changed from $g(j)$ to $g(j+1\bmod n)$.
+The final CNOT restores the control-dependent toggles. Thus the rotation
+in sector $a$ is exactly $Y(\theta_a)$. The signed conditional target
+uses $\theta_a=-\operatorname{atan2}(y_a,x_a)$.
+All empty subtrees, zero rotations and final cycle operations are
+retained. Independent rational trigonometric enclosures check the
+proposed conditional angles; exact inverse Walsh arithmetic bounds the
+rounded literal coefficients. Each CNOT is the existing three-pulse
+native word. The tree therefore uses
+\[
+ 65535+3(65534)=262137
+\]
+native pulses. The subsequent 184-pulse inverse onsite frame is checked
+on all local vacuum, single and double occupations.
+
+These are actual pulses from the twelve-port, six-level source.
+For each angle $\theta$, its literal controls obey the exact error split
+\[
+ \left\|\sum_p c_p(\theta)D_p-\theta T\right\|
+ \leq |\theta|\left\|\sum_p b_pD_p-T\right\|
+       +\sum_p|c_p(\theta)-\theta b_p|\,\|D_p\|,
+ \qquad b_p=c_p(1).
+\]
+All coefficients on the right are read as exact binary64 rationals
+against the exact source generators. This bound requires no assumed
+rounding model. Complete native blocks on at most three work bits are
+then executed over all 65536 rows; their composition retains every
+first-export failure and its unnormalized prefix. The executed
+preparation has numerical full-output deviation about
+$2.15\times10^{-11}$, inside the analytic bound. The full failure family
+is retained through its literal tape, event labels and lossless weights;
+no success normalization or number projection is performed.
+
+\paragraph{A centered four-bin charged energy instrument.}
+The native origin probe copies the down-mode occupation to a blank tag
+and applies $Z_0X_1$. Its two recorded branches are
+$c_1^\dagger G$ and $c_1G$, each of ideal weight $1/2$.
+After the tag is read classically, two clock bits execute controlled
+field durations one and two, with 16 and 32 full-Fock Strang steps.
+The source $H$ is left intact. The explicit additional phase on each
+field mode is
+\[
+ e^{it n_jP_{\rm clock}/2}
+   =e^{it(II-ZI-IZ+ZZ)/8}.
+\]
+Together with the interval-certified phase $e^{itE_GP_{\rm clock}}$,
+this implements the centered excitation clock $K-E_G$.
+Every ideal split term conserves $N$, so the number phase introduces
+no extra splitting error. Omitting it and using the corresponding
+$H$ reference energy would shift the two charged frequencies by
+$+1/2$ and $-1/2$; a common scalar cannot repair both shifts.
+
+The positive Fourier readout is the complete $M=4$ Fejer instrument,
+with joint probabilities
+\[
+ p_{\pm}(k)=\sum_{i=1}^{228}w_i\,
+ \frac1{16}\left|\sum_{j=0}^3
+        e^{ij(2\pi k/4-E_i)}\right|^2.
+\]
+All weights and excitation intervals are supplied by the exact centered
+spectral certificate. Both charge laws coincide, with positive physical
+excitation energies; the negative removal sign labels response
+frequency only. The clock has 607071 native pulses and the complete
+preparation/probe/readout history has 869405. Its full-row execution
+retains 262144 quantum rows, two classical charge columns, all 216 raw
+pointer combinations and every prior failure. The analytic complete-state
+and total-variation error is below $0.03$.
+
+This is a four-bin native energy readout, not separate resolution of
+all 228 lines or an identification of relativistic particle masses.
+Blank preparation, coherent memory, pulse control, tag readout and
+feedforward are stated apparatus. There is no interleaved bare field
+repair during this experiment, so autonomous ground selection or
+repair protection is not inferred. The full records, code and proofs
+are in \texttt{model/centered\_native\_preparation}; new execution checks
+are separated from inherited receipt-custody diagnostics.

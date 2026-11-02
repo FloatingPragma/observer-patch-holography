@@ -1,5 +1,9 @@
 # First bounded completion campaign
 
+For the current spectral, native-detector, repaired-spin and gravity-input
+results, see [the integrated construction summary](NATIVE_NEUTRAL_SPIN_RESPONSE.md).
+The contract below retains the scope of the original bounded campaign.
+
 28 October 2026. This directory advances CP-00, CP-01, CP-13, CP-02 and
 CP-03 under the [completion program](../../docs/COMPLETION_PROGRAM.md).
 It keeps the existing native source, C and E controls, and retained evidence.

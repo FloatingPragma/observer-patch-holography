@@ -1,0 +1,64 @@
+\paragraph{Recorded repair and a growing-volume interacting spin limit.}
+\label{sec:protected-spin-limit}
+For the centered two-flavour signed Hubbard source let
+$H=T+UD-(U/2)N+U|V|/2$, $\tau=c|E|$, and $U\geq4\tau$.
+Let $P$ include the one-fermion-per-site spin carrier. The complete
+coloured field-repair instrument of
+\path{model/defect_field_bridge/full_domain.py} obeys
+$M_{b,r}P=\delta_{r0}P/\sqrt2$ for either repair law and coin $b$.
+This uses the specified two-flavour field extension, rather than
+identifying its carrier with the bare binary occupation law.
+The canonical low-band estimate of
+\path{model/strong_coupling_refinement} gives
+\[
+ H_{\rm spin}=\sum_{xy}\frac{c^2}{U}
+       (\mathbf S_x\!\cdot\!\mathbf S_y-\tfrac14),\qquad
+ \|W^*HW-H_{\rm spin}\|\leq3\tau^3/U^2.
+\]
+Telescoping full instruments, including an arbitrary untouched reference,
+therefore bounds the trace norm distance of complete recorded histories
+with $m$ free intervals and total absolute time $T$ by
+\[
+ \min\{2,8m\tau/U+6T\tau^3/U^2\}.
+\]
+All raw outcomes are retained. This estimate allows finite record-adaptive
+repair choices; the infinite construction below uses a consistent local
+clock family.
+
+For $E=|E|\geq2$ take $c_E=JE^4$, $U_E=JE^8$, with fixed $J>0$.
+Then the effective exchange is $J$, while the generator remainder is
+$3J/E$. Independent rate-$\Gamma$ clocks on every edge give the averaged
+full-history error
+\[
+ \min\{2,8(1+\Gamma ET)/E^3+6JT/E\}\longrightarrow0.
+\]
+The spin bond norm is $J$. On the cubic lattice the commutator-chain
+estimate is bounded by
+$\|A\|\|B\||X|2^{-d}(e^{48J|t|}-1)$.
+The resulting boundary estimate constructs the strongly continuous
+interacting quasi-local spin dynamics at fixed lattice spacing.
+If $\nu_E$ is the canonical pullback of a full source ground state,
+\[
+ \nu_E(A^*[H_{\rm spin},A])\geq-6J\|A\|^2/E.
+\]
+Weak-* limits consequently provide spin ground states with positive-energy
+GNS dynamics. The charged source gap instead diverges at least as
+$JE^8/2-JE^5$.
+
+An additional finite theorem uses the explicit periodic extension on
+$L\times W\times W$ tori, $L$ even and $W\geq3$ odd. If the spin ground
+is unique it is a singlet; the two opposite $2\pi/L$ twists are
+orthogonal to it because the transverse slice contains an odd number
+of spins. Their mean energy gives
+$E_1-E_0\leq\pi^2JW^2/L$. A degenerate ground gives zero first spacing,
+where eigenvalues count multiplicity. Canonical low-band stability adds
+at most $6J/E$ to the source spacing. With $L=2W^4$ and $E=6W^6$,
+\[
+ (E_1-E_0)_{\rm source}\leq5J/W^2+J/W^6\longrightarrow0.
+\]
+This is not a bound on the gap above an entire degenerate ground space
+and does not identify an infinite-volume massless particle. The complete
+proof and exact/full-output checks are in
+\path{model/protected_spin_limit/}. The result constructs a neutral,
+interacting fixed-spacing limit; relativistic continuum scaling, physical
+species, and Einstein's geometric premises remain separate obligations.

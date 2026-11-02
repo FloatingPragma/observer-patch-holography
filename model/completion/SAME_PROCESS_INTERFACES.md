@@ -49,6 +49,22 @@ Initial blanks, temperature, Hamiltonian and storage remain declared inputs.
 
 ## Regional observations
 
+The [centered native instrument](../centered_native_preparation/README.md)
+now prepares the distinct `K=H-N/2` cube ground and measures its charged
+response. Its actual source words include the number and ground phases;
+the old uncentered experiment is not relabeled. This finite preparation
+uses supplied coherent memory and has no interleaved bare field repair.
+The [repaired spin limit](../protected_spin_limit/README.md) instead uses
+the explicit two-flavour field-repair extension and a joint growing-volume
+coupling trajectory. Its protected internal spin and fixed-spacing limit
+do not prove autonomous protection of the finite centered detector state.
+
+The [finite gravity response](../weyl_gravity_response/README.md) uses the
+same free Weyl continuum as its modular/stress predecessor. Nine local
+normal-state directions now provide nondegenerate finite response data.
+Their identification with native geometric events, an area term and a
+responsive metric remains a separate interface.
+
 One faithful reference and composable state restrictions give a
 [reference-preserving UCP observation tower](../reference_observation/README.md)
 through the finite Petz transpose. It does not require product regional

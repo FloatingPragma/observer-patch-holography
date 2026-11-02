@@ -1,5 +1,10 @@
 # Spectrum, refinement and geometric matter inputs — 2 November 2026
 
+The [subsequent construction](NATIVE_NEUTRAL_SPIN_RESPONSE.md) closes the
+finite neutral gap, executes the centered native detector, extends the
+repaired spin limit to growing volume and supplies finite stress-response
+directions. The results and validation below describe this earlier stage.
+
 This campaign advances five existing completion issues. The admitted inputs
 include the simulator, observer, scheduler, repair and memory specifications.
 Every result below identifies its own state, algebra, operation, clock and

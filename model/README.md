@@ -7,11 +7,12 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
-The [2 November completion campaign](completion/SPECTRUM_REFINEMENT_GEOMETRY.md)
+The [current completion campaign](completion/NATIVE_NEUTRAL_SPIN_RESPONSE.md)
 addresses the five reference, protection, field, particle and gravity issues.
-It adds a certified centered local spectrum, quantitative complete-record
-repair lifetimes, a controlled interacting finite spin limit and an enlarged
-free-continuum scaling class, and same-vacuum Weyl stress/modular data.
+It certifies the full finite gap and neutral spectrum, executes a native
+centered-ground preparation and energy readout, constructs an interacting
+repaired spin limit at growing volume, and supplies nine independent finite
+Weyl stress/modular responses to the existing Einstein theorem stack.
 Its new proof checks and the pending custody of older receipts are reported
 separately; the physical species and joint Einstein requirements remain open.
 
@@ -92,11 +93,11 @@ work under the [shared interface conditions](completion/SAME_PROCESS_INTERFACES.
 
 | Owner | Current construction and remaining join |
 | --- | --- |
-| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Balanced adaptive reference](adaptive_reference/README.md) preserves the joint field/controller state under genuine record-dependent repairs. The finite repair-corner mixing theorem traces the retained archive; physical clock and geometry remain open. |
-| [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | [Cube eta protection](cube_eta_protection/README.md) gives a protected interacting sector and a one-site disturbance with unchanged initial exterior on the actual 3D cube. Growing-volume and boundary-invariant constructions are not established. |
-| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | [Moving bound pair](moving_bound_pair/README.md) extends the band-edge construction to nonzero total momentum with an explicit bound-packet propagator comparison. The [interacting cube ground](interacting_vacuum/README.md) supplies an exact finite reference. A [source-bound chain gap](mass_generation_audit/README.md) and [controlled relativistic continuation](hubbard_relativistic_sector/README.md) provide a one-dimensional massive quasiparticle branch under explicit canonical-reference and running-coupling conditions. The interacting physical three-dimensional field remains open. |
-| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | The [energy and identity audit](particle_identification/README.md) extracts cube energies, moving-pair inertial mass and binding energy. The [native observer readout](protected_particle_readout/README.md) attaches the accessible protected response to pointer records with error bounds. [Certified long-time reconstruction](resolved_particle_spectrum/README.md) resolves all eight weights on the source support. The separate [eight-valley construction](relativistic_sector_audit/README.md) supplies a controlled massless finite-particle limit. A [compiled Fourier detector](particle_species_detector/README.md) measures finite model flavors and energies; its retrospective PDG comparison finds no direct physical match. [Ground-referenced charged energies](interacting_vacuum/README.md) are positive, and a [chosen chain continuation](hubbard_relativistic_sector/README.md) yields calculated relativistic quasiparticle masses. Their physical identification, unique refinement law and common protected-detector join remain open. |
-| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | [Dilute local Ward bounds](dilute_momentum_ward/README.md) retain contact leakage in local time cells and spatial blocks. The critical-scaling stress tensor and geometric Einstein premises are not established. |
+| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | [Native centered preparation and readout](centered_native_preparation/README.md) executes 869405 pulses with complete outputs and error below0.03. Joining this finite controlled apparatus to a continuing growing-volume observer remains open. |
+| [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | [Complete field-repair protection](protected_spin_limit/README.md) preserves internal spins and controls their interacting growing-volume limit. A physical localized defect, boundary invariant and scalable native detector remain open. |
+| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | The [joint spin trajectory](protected_spin_limit/README.md) has interacting infinite-lattice dynamics and source-derived ground states at fixed spacing. The separate [canonical charged continuum](strong_coupling_refinement/README.md) remains free; an interacting relativistic spatial continuum is still required. |
+| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | The [complete finite gap and neutral spectra](centered_neutral_spectrum/README.md) join the [228-line charged measure](centered_particle_spectrum/README.md) and executed centered four-bin readout. Relativistic dispersion, physical quantum numbers and independently calibrated units remain necessary for species identification. |
+| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | The [same Weyl stress and modular flow](weyl_geometric_modular/README.md) now have [nine explicit finite matter/entropy responses](weyl_gravity_response/README.md). Area normalization, geometric stationarity, native geometric limits and dynamical metric response remain open. |
 
 The [earlier particle transport](charged_dynamics/README.md) and
 [actual-data replay](particle_comparison/README.md) retain their own
@@ -132,18 +133,18 @@ fix microscopic occupation limits and continuum first energy moments.
 These results preserve the distinction between a continuum field net and a
 physically identified interacting Lorentz theory with Einstein dynamics.
 
-The [native detector and centered-ground construction](../docs/NATIVE_DETECTOR_AND_CENTERED_GROUND_2026-11-01.md)
-extends the original reference with a complete native phase clock and
-exact regional modular data. It also resolves the continuum composite
-force algebra, derives a same-field CPT constraint, and constructs the
-distinct particle-hole invariant charge clock and ground. The centered
-cube has a unique half-filled ground with hidden spin zero, a charged gap
-and faithful one-site states. Exact finite spectra and quadratic
-occupation bounds retain their stated domains; old-ground readouts are
-not transferred to the new reference. The [uniform spectral escape
-theorem](continuum_free_limit/README.md) identifies the entire centered
-bounded-coupling continuum hierarchy as free and massless, so this
-trajectory cannot supply the required interacting massive endpoint.
+The [centered spectrum and native readout](completion/NATIVE_NEUTRAL_SPIN_RESPONSE.md)
+certify the full finite gap, resolve local spin/density spectra and execute
+preparation and charged four-bin measurement of the distinct centered
+ground. The new native instrument retains every export and pointer outcome.
+A joint volume/coupling trajectory constructs an interacting spin limit
+with complete field-repair records at fixed spatial spacing. Nine explicit
+matter-stress directions supply finite modular and entropy responses to
+the existing Einstein stack. The [uniform spectral escape theorem](continuum_free_limit/README.md)
+and its [growing-coupling extension](strong_coupling_refinement/README.md)
+still identify the canonical charged continuum as free and massless.
+These results leave relativistic spatial scaling, measured species and
+the geometric area/stationarity/metric premises open.
 
 The [port/support incidence audit](../code/a5_closure/port_support_source_audit.md)
 retains all sixty oriented relative seed maps. A fixed support mark leaves

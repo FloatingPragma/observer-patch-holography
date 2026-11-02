@@ -1,0 +1,211 @@
+{
+  "schema": "oph.scoped_completion_review.v1",
+  "as_of": "2026-11-02",
+  "base_commit": "3340ef791",
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "strict_tests": {
+    "passed": 96,
+    "failed": 0,
+    "warnings_as_errors": true,
+    "runs": [
+      {
+        "command": "python -W error -m pytest -q model/centered_neutral_spectrum model/protected_spin_limit model/weyl_gravity_response",
+        "passed": 78,
+        "seconds": 69.32
+      },
+      {
+        "command": "python -W error -m pytest -q model/centered_native_preparation",
+        "passed": 18,
+        "seconds": 70.82
+      }
+    ]
+  },
+  "components": [
+    {
+      "package": "centered_neutral_spectrum",
+      "strict_tests": 23,
+      "receipt": "model/centered_neutral_spectrum/results.json",
+      "receipt_sha256": "ccf94da8714848425e6b88b061960747bcfbadc0cb0cccb79b3e836586494684",
+      "cold_replay_matches": true,
+      "independent_math_and_source_review": "PASS",
+      "direct_checks_pass": true,
+      "dependency_custody_pass": null,
+      "all_pass": true,
+      "all_pass_scope": "new complete finite neutral-spectrum certificate; inherited custody reported separately",
+      "current_source_bindings": 517
+    },
+    {
+      "package": "centered_native_preparation",
+      "strict_tests": 18,
+      "receipt": "model/centered_native_preparation/results.json",
+      "receipt_sha256": "5ffe04817a2f9cbe511787f4a96899ffd339189172fe88833948e2f68061ff09",
+      "cold_replay_matches": true,
+      "independent_math_and_source_review": "PASS",
+      "direct_checks_pass": true,
+      "dependency_custody_pass": false,
+      "all_pass": false,
+      "all_pass_scope": "new checks and inherited prerequisite custody",
+      "current_source_bindings": 560
+    },
+    {
+      "package": "protected_spin_limit",
+      "strict_tests": 33,
+      "receipt": "model/protected_spin_limit/results.json",
+      "receipt_sha256": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+      "cold_replay_matches": true,
+      "independent_math_and_source_review": "PASS",
+      "direct_checks_pass": true,
+      "dependency_custody_pass": false,
+      "all_pass": false,
+      "all_pass_scope": "new checks and inherited prerequisite custody",
+      "current_source_bindings": 540
+    },
+    {
+      "package": "weyl_gravity_response",
+      "strict_tests": 22,
+      "receipt": "model/weyl_gravity_response/results.json",
+      "receipt_sha256": "dad0ecf857b79b2670e1ba73af962af5ef642cb85e400eff5e40e6697064c840",
+      "cold_replay_matches": true,
+      "independent_math_and_source_review": "PASS",
+      "direct_checks_pass": true,
+      "dependency_custody_pass": false,
+      "all_pass": false,
+      "all_pass_scope": "new checks and inherited prerequisite custody",
+      "current_source_bindings": 17
+    }
+  ],
+  "independent_integration_audit": {
+    "status": "PASS",
+    "checks": 809,
+    "report_sha256": "a53708203e9e7c9f11ad1c0318b4ec6d0695d412a6d940d4bb4f249974e67165",
+    "canonical_claims": 346,
+    "canonical_premise_rows": 84,
+    "old_attachments_preserved": 87,
+    "stage_statuses_and_accepted_evidence_preserved": true,
+    "new_physical_claims": 0
+  },
+  "preserved": {
+    "old_scientific_receipts_rewritten": false,
+    "canonical_premise_rows_unchanged": true,
+    "historical_accepted_evidence_unchanged": true,
+    "gate_statuses_unchanged": true,
+    "eligible_physical_comparisons_added": 0,
+    "canonical_physical_discharges_added": 0
+  },
+  "ledger_checks": {
+    "canonical_claim_registry": "PASS",
+    "claim_views": "PASS",
+    "premise_register_view": "PASS",
+    "model_theorem_navigation": "PASS",
+    "new_source_bindings": "PASS"
+  },
+  "pending_global_checks": {
+    "completion_program": "FAIL: inherited integration source custody changed: code/m1_source_realization/receipt.json",
+    "finite_attachment_map": "FAIL: inherited stale source hash: model/plaquette_reference/README.md",
+    "next_wave_historical_evidence": "FAIL: historical map evidence retains its accepted hash; no recertification is inferred",
+    "remaining_stale_map_bindings": [
+      "model/plaquette_reference/README.md",
+      "model/plaquette_reference/preparation.py",
+      "model/plaquette_reference/results.json",
+      "model/plaquette_reference/test_preparation.py",
+      "model/certified_reference/test_certificate.py",
+      "model/cube_eta_protection/test_source.py",
+      "paper/tex_fragments/PROTECTED_PARTICLE_READOUT.tex",
+      "paper/tex_fragments/RESOLVED_PARTICLE_SPECTRUM.tex",
+      "paper/tex_fragments/RELATIVISTIC_SECTOR_AUDIT.tex",
+      "paper/tex_fragments/PARTICLE_SPECIES_DETECTOR.tex",
+      "paper/tex_fragments/INTERACTING_VACUUM.tex",
+      "paper/tex_fragments/MASS_GENERATION_AUDIT.tex",
+      "paper/tex_fragments/THERMODYNAMIC_GROUND.tex",
+      "paper/tex_fragments/RETARDED_MATTER_RESPONSE.tex",
+      "paper/tex_fragments/GROUND_SPECTRAL_SOURCE.tex",
+      "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex",
+      "paper/tex_fragments/RETARDED_SPATIAL_LOCALITY.tex",
+      "paper/tex_fragments/SPIN_RESOLVED_SPECTRUM.tex",
+      "paper/tex_fragments/SPECTRAL_READOUT.tex",
+      "paper/tex_fragments/CONTINUUM_FIELD_NET.tex",
+      "paper/tex_fragments/CONTINUUM_GROUND_CONSTRAINTS.tex",
+      "paper/tex_fragments/NATIVE_SPECTRAL_DETECTOR.tex",
+      "paper/tex_fragments/GROUND_REGIONAL_MODULAR.tex",
+      "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+      "paper/tex_fragments/CONTINUUM_FREE_LIMIT.tex"
+    ],
+    "provisional_completion_view_rendered": true
+  },
+  "publication": {
+    "mode": "Tectonic aux-only; released PDFs unchanged",
+    "primary_roots": [
+      {
+        "paper": "deriving_standard_model_gauge_structure_from_observer_overlap_consistency",
+        "exit_code": 0,
+        "source_sha256": "77800896b23ce8f9b60bc2c450957f449ca1c271c435299cfbadc7aa75ef1cfd",
+        "pages": 105
+      },
+      {
+        "paper": "deriving_the_particle_zoo_from_observer_consistency",
+        "exit_code": 0,
+        "source_sha256": "08eb7b6bb3860cad5f2cfc6fa54075310f8735464cba38d2a3e46e6905b64248",
+        "pages": 85
+      },
+      {
+        "paper": "executable_observer_construction",
+        "exit_code": 0,
+        "source_sha256": "376f354f1e3adb198bacb161a9a3b59ecdc4bed978f6bf796cd00444474a96bb",
+        "pages": 122
+      },
+      {
+        "paper": "from_observer_consensus_to_standard_physics",
+        "exit_code": 0,
+        "source_sha256": "046dcd352c20e6aae415af9b18946a6e4a05bd14459ce403caa3579913a2566a",
+        "pages": 53
+      },
+      {
+        "paper": "observers_are_all_you_need",
+        "exit_code": 0,
+        "source_sha256": "025a0a8f07cfc68d4086c171e2df5857c01caf00a27a27a17113bfb21783842a",
+        "pages": 172
+      },
+      {
+        "paper": "reality_as_consensus_protocol",
+        "exit_code": 0,
+        "source_sha256": "1996197344ce0b3487717237859f5e3074d14d6354352a13b5e2080ca3c2456e",
+        "pages": 126
+      },
+      {
+        "paper": "recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency",
+        "exit_code": 0,
+        "source_sha256": "29fec30122d47787a12bf47b964080187e69462c299702cd9816218dcb70e13f",
+        "pages": 175
+      },
+      {
+        "paper": "screen_microphysics_and_observer_synchronization",
+        "exit_code": 0,
+        "source_sha256": "21aa0ab0e334b44aec08769f312b1d06f49af1c342d1ab5e5f5b195602301712",
+        "pages": 118
+      }
+    ],
+    "four_new_proof_fragments_compile": true,
+    "new_severe_TeX_warnings": false,
+    "flagship_pages_before": 53,
+    "flagship_pages_after": 53,
+    "new_fragment_hashes": {
+      "CENTERED_NATIVE_PREPARATION": "e5e713898d0cc316f0b77936299607874a7877fb36981f1b236ce35d0fcae8df",
+      "CENTERED_NEUTRAL_SPECTRUM": "12b97140eaed649a1772d31bc4216a3919c79d16798d20f66634924b26aaadf1",
+      "PROTECTED_SPIN_LIMIT": "8e523690fa8e2dbd59977ea6ff215d2e5f45b26e26d0c41c31e95723f262ede5",
+      "WEYL_GRAVITY_RESPONSE": "4b55025b7e7785e860cadd08ded600b2e1f4c5bbc323116cee64a32f8ae463bb"
+    }
+  },
+  "ci": {
+    "workflow_files_changed": [],
+    "new_CI_jobs_added": 0,
+    "full_repository_CI_claimed_green": false
+  },
+  "physical_completion": false,
+  "integration_note": "User authorized this intermediate state on GitHub main. Work is prepared in an isolated checkout, preserving separate uncommitted CI cleanup in the local main checkout. New direct checks do not repair historical receipt custody."
+}
