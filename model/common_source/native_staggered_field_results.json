@@ -1,16 +1,16 @@
 {
   "artifact": {
     "filename": "native_staggered_field_results.npz",
-    "sha256": "5f701de5a9c8212d471e0ddd2a2ae3c18a6cf85f008b65a614dbbadac1e2fd61"
+    "sha256": "eb8095ef9b0fd8a47e7ac5fed6b2811eb2983ea985792de5a15e8c487349a5ef"
   },
   "backend_diagnostics": {
-    "cube_Fock_target_residual": 5.396239740450653e-06,
-    "exchange_echo_operator_residual": 2.583549203278569e-15,
-    "history_Gram_residual": 9.545739759561644e-12,
-    "history_pointer_operator_residual": 2.5508151335169032e-15,
-    "maximum_macro_operator_residual": 1.8796996977398317e-15,
-    "vacuum_ground_residual": 1.9349709526976426e-15,
-    "vacuum_preparation_operator_residual": 3.4315253237810723e-14
+    "cube_Fock_target_residual": 5.396238936151562e-06,
+    "exchange_echo_operator_residual": 3.5051751942540527e-15,
+    "history_Gram_residual": 1.5634683542310328e-11,
+    "history_pointer_operator_residual": 3.337088097577448e-15,
+    "maximum_macro_operator_residual": 2.8298522769695936e-15,
+    "vacuum_ground_residual": 1.2204646661085577e-15,
+    "vacuum_preparation_operator_residual": 4.1108862080536297e-14
   },
   "continuing_observer": {
     "all_unknown_Fock_input_columns": 256,
@@ -37,10 +37,10 @@
     "physical_clock_or_native_service_flags_authenticated": false,
     "pointer_native_pulses_per_complete_schedule": 48,
     "record_probabilities": [
-      0.24991471015313113,
-      0.2593213081353243,
-      0.24164776922121686,
-      0.24911621248336016
+      0.24991471015132283,
+      0.25932130813310983,
+      0.24164776921913506,
+      0.24911621248141544
     ],
     "shared_observers_are_marginals_of_one_retained_instrument": true
   },
@@ -195,7 +195,7 @@
       "identity_phase_pulses": 4,
       "initialization_storage_readout_physical_costs_included": false,
       "integrated_processor_norm_upper": 94.39426398269379,
-      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "maximum_numerical_valid_code_leakage": 1.0282787712773792e-16,
       "maximum_work_qubits": 2,
       "native_pulses": 64,
       "pair_code_pulses": 12,
@@ -744,7 +744,7 @@
   "periodic_operator_and_corner_check": {
     "corner_blocks": [
       {
-        "operator_error_diagnostic": 5.169578620089136e-17,
+        "operator_error_diagnostic": 5.168081937289164e-17,
         "reduced_momentum_pi_over2_units": [
           0,
           0,
@@ -752,7 +752,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 2.1571946796100918e-16,
+        "operator_error_diagnostic": 2.1547501274632425e-16,
         "reduced_momentum_pi_over2_units": [
           0,
           0,
@@ -760,7 +760,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 1.927224946739074e-16,
+        "operator_error_diagnostic": 1.9267336959039193e-16,
         "reduced_momentum_pi_over2_units": [
           0,
           -1,
@@ -768,7 +768,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 1.96160209161646e-16,
+        "operator_error_diagnostic": 1.961354662314907e-16,
         "reduced_momentum_pi_over2_units": [
           0,
           -1,
@@ -776,7 +776,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 2.3591269201141863e-16,
+        "operator_error_diagnostic": 2.346658426421215e-16,
         "reduced_momentum_pi_over2_units": [
           -1,
           0,
@@ -784,7 +784,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 1.876472289210974e-16,
+        "operator_error_diagnostic": 1.8760141351372738e-16,
         "reduced_momentum_pi_over2_units": [
           -1,
           0,
@@ -792,7 +792,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 1.6879665329247052e-16,
+        "operator_error_diagnostic": 1.6872000494820254e-16,
         "reduced_momentum_pi_over2_units": [
           -1,
           -1,
@@ -800,7 +800,7 @@
         ]
       },
       {
-        "operator_error_diagnostic": 1.3568941790191058e-16,
+        "operator_error_diagnostic": 1.3568941790191068e-16,
         "reduced_momentum_pi_over2_units": [
           -1,
           -1,
@@ -995,7 +995,7 @@
           "identity_phase_pulses": 1,
           "initialization_storage_readout_physical_costs_included": false,
           "integrated_processor_norm_upper": 6.103515625e-05,
-          "maximum_numerical_valid_code_leakage": 0.0,
+          "maximum_numerical_valid_code_leakage": 2.9288347499048894e-21,
           "maximum_work_qubits": 1,
           "native_pulses": 2,
           "pair_code_pulses": 0,
@@ -1030,7 +1030,7 @@
           "identity_phase_pulses": 1,
           "initialization_storage_readout_physical_costs_included": false,
           "integrated_processor_norm_upper": 6.103515625e-05,
-          "maximum_numerical_valid_code_leakage": 0.0,
+          "maximum_numerical_valid_code_leakage": 2.9288347499048887e-21,
           "maximum_work_qubits": 1,
           "native_pulses": 2,
           "pair_code_pulses": 0,
@@ -1065,7 +1065,7 @@
           "identity_phase_pulses": 1,
           "initialization_storage_readout_physical_costs_included": false,
           "integrated_processor_norm_upper": 6.283185307179586,
-          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "maximum_numerical_valid_code_leakage": 1.454205784240811e-16,
           "maximum_work_qubits": 2,
           "native_pulses": 2,
           "pair_code_pulses": 1,
@@ -1101,7 +1101,7 @@
           "identity_phase_pulses": 1,
           "initialization_storage_readout_physical_costs_included": false,
           "integrated_processor_norm_upper": 1.5707963267948966,
-          "maximum_numerical_valid_code_leakage": 0.0,
+          "maximum_numerical_valid_code_leakage": 5.565004608784408e-17,
           "maximum_work_qubits": 1,
           "native_pulses": 2,
           "pair_code_pulses": 0,
@@ -1136,7 +1136,7 @@
           "identity_phase_pulses": 4,
           "initialization_storage_readout_physical_costs_included": false,
           "integrated_processor_norm_upper": 94.25159430495941,
-          "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+          "maximum_numerical_valid_code_leakage": 1.0282787712773792e-16,
           "maximum_work_qubits": 2,
           "native_pulses": 64,
           "pair_code_pulses": 12,
@@ -1617,7 +1617,7 @@
           "identity_phase_pulses": 1,
           "initialization_storage_readout_physical_costs_included": false,
           "integrated_processor_norm_upper": 1.5707963267948966,
-          "maximum_numerical_valid_code_leakage": 0.0,
+          "maximum_numerical_valid_code_leakage": 5.565004608784408e-17,
           "maximum_work_qubits": 1,
           "native_pulses": 2,
           "pair_code_pulses": 0,
@@ -33678,7 +33678,7 @@
     "energy_difference_diagnostic": 8.809145765870108e-05,
     "local_CAR_comparison_uses_separate_projector_and_two_point_bounds": true,
     "matching": "R_a\u2020h_aR_a=E_a beta and R_0\u2020h_0R_0=E_0 beta; identify those spectral coordinates",
-    "transported_generator_norm_diagnostic": 8.809145765874855e-05,
+    "transported_generator_norm_diagnostic": 8.809145765875995e-05,
     "unchanged_local_detectors_covered_by_excitation_bound": false
   },
   "spin_and_taste": {

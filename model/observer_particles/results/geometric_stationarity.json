@@ -1,49 +1,49 @@
 {
   "actual_source_first_order_mixture": {
     "all_outcomes_retained": true,
-    "analytic_first_order_energy_derivative": 1.171572875253868,
-    "analytic_first_order_entropy_derivative": 1.1715728752539738,
+    "analytic_first_order_energy_derivative": 1.1715728752538683,
+    "analytic_first_order_entropy_derivative": 1.1715728752539736,
     "complete_coin_work_CQ_entropy_derivative": 0,
     "domain": "actual public two-copy constant-angular/radial-mode code, plus two purification references and retained classical displacement sign",
     "finite_source_checks": [
       {
         "all_coin_probabilities": [
           0.5,
-          0.5
+          0.49999999999999994
         ],
-        "energy_secant": 1.1715496775430199,
+        "energy_secant": 1.1715496775404708,
         "epsilon": 0.0001,
-        "first_order_entropy_prediction": 1.1715728752539738,
-        "full_coin_plus_work_CQ_entropy_change": -3.3306690738754696e-16,
-        "secant_derivative_error": -0.00019375192143500364,
-        "unread_work_entropy_secant": 1.1713791233325388,
-        "word_normalization_error": 4.440892098500626e-16
+        "first_order_entropy_prediction": 1.1715728752539736,
+        "full_coin_plus_work_CQ_entropy_change": 1.1102230246251565e-16,
+        "secant_derivative_error": -0.0001937519169938895,
+        "unread_work_entropy_secant": 1.1713791233369797,
+        "word_normalization_error": 0.0
       },
       {
         "all_coin_probabilities": [
           0.5,
-          0.5
+          0.4999999999999999
         ],
-        "energy_secant": 1.1715705554836637,
+        "energy_secant": 1.171570555466669,
         "epsilon": 1e-05,
-        "first_order_entropy_prediction": 1.1715728752539738,
-        "full_coin_plus_work_CQ_entropy_change": 1.1102230246251565e-16,
-        "secant_derivative_error": -1.937789510564336e-05,
-        "unread_work_entropy_secant": 1.1715534973588682,
-        "word_normalization_error": 4.440892098500626e-16
+        "first_order_entropy_prediction": 1.1715728752539736,
+        "full_coin_plus_work_CQ_entropy_change": 5.551115123125783e-16,
+        "secant_derivative_error": -1.937782849203984e-05,
+        "unread_work_entropy_secant": 1.1715534974254815,
+        "word_normalization_error": 0.0
       },
       {
         "all_coin_probabilities": [
-          0.4999999999999998,
-          0.49999999999999983
+          0.49999999999999967,
+          0.4999999999999998
         ],
-        "energy_secant": 1.171572643218417,
+        "energy_secant": 1.171572643090958,
         "epsilon": 1e-06,
-        "first_order_entropy_prediction": 1.1715728752539738,
-        "full_coin_plus_work_CQ_entropy_change": -3.3306690738754696e-16,
-        "secant_derivative_error": -1.937879007707366e-06,
-        "unread_work_entropy_secant": 1.171570937374966,
-        "word_normalization_error": 2.220446049250313e-16
+        "first_order_entropy_prediction": 1.1715728752539736,
+        "full_coin_plus_work_CQ_entropy_change": 5.551115123125783e-16,
+        "secant_derivative_error": -1.9376569628803963e-06,
+        "unread_work_entropy_secant": 1.1715709375970107,
+        "word_normalization_error": 4.440892098500626e-16
       }
     ],
     "fixed_ideal_H_and_reference_beta": 1,
@@ -62,7 +62,7 @@
     "crossing_read_area_law": "Positive actual golden-source continuum crossing-area result under its population/read-radius/layer inputs; one nat/read and Planck calibration are declared. Not the240-port product-field source."
   },
   "artifacts": {
-    "geometric_stationarity_arrays.npz": "16c1e228d32848aaf877b39d0ff141fb0ec2163d3953523e3ac7e6241f12e52a"
+    "geometric_stationarity_arrays.npz": "8731d53fdad8411f2070d6fc4a7bd752ac49ce6b5f192236ce68bbc0cc316bd0"
   },
   "closure_assessment": {
     "all_OPH_dynamic_geometries_excluded": false,

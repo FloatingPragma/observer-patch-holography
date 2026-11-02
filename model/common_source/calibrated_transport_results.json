@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "calibrated_transport_results.npz",
-    "sha256": "8c640258bcc668ac83b219a6959056d088fab171d0ea8bb02fc29a64a1a934d0"
+    "sha256": "abda1e9763c1d067e5aeb87d03b6068813d925d16a4ace780895f6aaee9294ff"
   },
   "common_clock": {
     "global_energy_dictionary": "1GeV/log(5)",
@@ -14,43 +14,43 @@
       "axis": "x",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "1",
-      "source_frame_electric_charge_difference_diagnostic": 4.3176471349999306e-15,
-      "source_frame_symbol_difference_diagnostic": 3.2362280688921265e-13
+      "source_frame_electric_charge_difference_diagnostic": 6.104375573512137e-15,
+      "source_frame_symbol_difference_diagnostic": 4.853211284746541e-13
     },
     {
       "axis": "y",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "1",
-      "source_frame_electric_charge_difference_diagnostic": 4.1846934446557726e-15,
-      "source_frame_symbol_difference_diagnostic": 2.629017381153818e-13
+      "source_frame_electric_charge_difference_diagnostic": 6.049615391635128e-15,
+      "source_frame_symbol_difference_diagnostic": 4.563674395505026e-13
     },
     {
       "axis": "z",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "1",
-      "source_frame_electric_charge_difference_diagnostic": 4.173536888866592e-15,
-      "source_frame_symbol_difference_diagnostic": 2.5747046917740295e-13
+      "source_frame_electric_charge_difference_diagnostic": 6.0684727055015705e-15,
+      "source_frame_symbol_difference_diagnostic": 4.556344027221067e-13
     },
     {
       "axis": "x",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "2",
-      "source_frame_electric_charge_difference_diagnostic": 4.3176471349999306e-15,
-      "source_frame_symbol_difference_diagnostic": 3.236912070431709e-13
+      "source_frame_electric_charge_difference_diagnostic": 6.104375573512137e-15,
+      "source_frame_symbol_difference_diagnostic": 4.85367918861391e-13
     },
     {
       "axis": "y",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "2",
-      "source_frame_electric_charge_difference_diagnostic": 4.1846934446557726e-15,
-      "source_frame_symbol_difference_diagnostic": 2.6291423603902704e-13
+      "source_frame_electric_charge_difference_diagnostic": 6.049615391635128e-15,
+      "source_frame_symbol_difference_diagnostic": 4.564049852094131e-13
     },
     {
       "axis": "z",
       "complete_Nambu_columns": 180,
       "momentum_GeV": "2",
-      "source_frame_electric_charge_difference_diagnostic": 4.173536888866592e-15,
-      "source_frame_symbol_difference_diagnostic": 2.575940318968154e-13
+      "source_frame_electric_charge_difference_diagnostic": 6.0684727055015705e-15,
+      "source_frame_symbol_difference_diagnostic": 4.556577810027858e-13
     }
   ],
   "dispersion_from_records": [
@@ -245,20 +245,20 @@
     },
     {
       "energy_interval_GeV": [
-        "38685655707337768349908163/38685626408467424766190465",
-        "38685655825684708144068019/38685625971051225917265969"
+        "38685655707337768346005801/38685626408467424766190465",
+        "38685655825684708149172099/38685625971051225917265969"
       ],
       "energy_interval_numeric_GeV": [
         1.0000007573580438,
         1.000000771724193
       ],
       "invariant_mass_interval_GeV": [
-        "615369129340661/500000000000000000",
-        "621178110832037/500000000000000000"
+        "30768456467031/25000000000000000",
+        "1242356221664181/1000000000000000000"
       ],
       "invariant_mass_interval_numeric_GeV": [
-        0.001230738258681322,
-        0.001242356221664074
+        0.00123073825868124,
+        0.001242356221664181
       ],
       "label": "up_0",
       "momentum_GeV": "1",
@@ -266,16 +266,16 @@
     },
     {
       "energy_interval_GeV": [
-        "45604561844302689539961496/38685626408467424766190465",
-        "45604561989972524645033890/38685625971051225917265969"
+        "91209123688605379072154711/77371252816934849532380930",
+        "45604561989972524641149766/38685625971051225917265969"
       ],
       "energy_interval_numeric_GeV": [
         1.178850288290042,
         1.178850305384713
       ],
       "invariant_mass_interval_GeV": [
-        "62424995170325433/100000000000000000",
-        "312124991992643573/500000000000000000"
+        "624249951703254329/1000000000000000000",
+        "124849996797057429/200000000000000000"
       ],
       "invariant_mass_interval_numeric_GeV": [
         0.6242499517032544,
@@ -287,15 +287,15 @@
     },
     {
       "energy_interval_GeV": [
-        "6572399342058480926543097727/38685626408467424766190465",
-        "13144798684407533918342753099/77371251942102451834531938"
+        "6572399342058480926541127318/38685626408467424766190465",
+        "13144798684407533918338812281/77371251942102451834531938"
       ],
       "energy_interval_numeric_GeV": [
         169.8925402593437,
         169.89254218406464
       ],
       "invariant_mass_interval_GeV": [
-        "169889597197040620719/1000000000000000000",
+        "84944798598520310359/500000000000000000",
         "169889599121794924647/1000000000000000000"
       ],
       "invariant_mass_interval_numeric_GeV": [
@@ -624,7 +624,7 @@
   ],
   "dyadic_levels": 31,
   "error_contract": {
-    "backend_complete_score_bias_diagnostic": "1/274877906944",
+    "backend_complete_score_bias_diagnostic": "7/1099511627776",
     "backend_diagnostics_authenticated_by_replay": false,
     "backend_pair_error_diagnostic": "1/1099511627776",
     "binary_all_column_pair_error_admission": "1/10000000000",
@@ -2323,7 +2323,7 @@
   "frame_source_word_grammar": {
     "FSWAP_calls_per_frame": 14142,
     "all_field_frame_arrays_materialized": false,
-    "backend_FSWAP_error_diagnostic": "387/125000000000000000",
+    "backend_FSWAP_error_diagnostic": "3013/1000000000000000000",
     "exact_binary_FSWAP_operator_error_upper": "1/10000000000000",
     "factor_count": 897,
     "factor_plan": [

@@ -1,0 +1,119 @@
+{
+  "schema": "oph.merge_custody_handoff.v1",
+  "base_commit": "6da54cd8020ba1bba46f9e5bdc33309bbe5ddcd7",
+  "pr_heads": {
+    "1170": "d9e0a1a09480939b123b113b540ded022a1522d5",
+    "1171": "52eae23b24ea4401e76a5ff223356926774ff307"
+  },
+  "scope": "Outstanding source-binding checks after an explicitly CI-deferred merge. These are not replacement receipts or scientific acceptance evidence.",
+  "live_receipt_binding_mismatches": [
+    {
+      "receipt": "model/laboratory_clock/results.json",
+      "field": "root.sources",
+      "source": "model/native_clock/host_clock.py",
+      "expected": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+      "actual": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+    },
+    {
+      "receipt": "model/native_clock/clock_bridge_results.json",
+      "field": "root.sources",
+      "source": "model/native_clock/host_clock.py",
+      "expected": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+      "actual": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+    },
+    {
+      "receipt": "model/native_clock/host_clock_results.json",
+      "field": "root.sources",
+      "source": "model/native_clock/host_clock.py",
+      "expected": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+      "actual": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f"
+    },
+    {
+      "receipt": "model/charged_dynamics/results.json",
+      "field": "root.source_bindings",
+      "source": "model/verify.py",
+      "expected": "e68d23c9c2e5c48cb95cdfa9c8c5f77ace27d55adca97d98b08d47cf0acc403e",
+      "actual": "2f83f6d976401bb4e0cfbbca6596c05585f1cd29d9839ec3106c25d5d5832d74"
+    },
+    {
+      "receipt": "model/biased_reset/results.json",
+      "field": "root.source_bindings",
+      "source": "model/completion/SAME_PROCESS_INTERFACES.md",
+      "expected": "e423d43043e17fedbedea55f7f6f7ca1b5c06a783e264dff69f481d1670f0da9",
+      "actual": "d894b5059d8da12ffc3f239b8873c2b9ca9cb13e82d80bef4b8f439ee90ef119"
+    }
+  ],
+  "ledger_binding_mismatches": {
+    "model/completion/finite_attachment_map.json": [
+      "model/completion/finite_attachment_map.py",
+      "model/completion/test_finite_attachment_map.py",
+      "model/native_localization/results.json",
+      "model/band_clock/results.json",
+      "model/band_clock_budget/results.json",
+      "model/particle_comparison/results.json",
+      "model/defect_field_benchmark/readout_results.json",
+      "model/defect_field_propagation/results.json",
+      "model/defect_field_clock/results.json",
+      "model/defect_field_bridge/joint_results.json",
+      "model/defect_field_modular/results.json",
+      "model/common_spin_protection/results.json",
+      "model/plaquette_reference/results.json",
+      "model/repair_spectral_sectors/results.json",
+      "model/certified_reference/results.json",
+      "model/dark_spectral_source/results.json",
+      "model/continuing_reference/results.json",
+      "model/cube_eta_protection/results.json",
+      "model/cube_eta_protection/test_source.py",
+      "model/adaptive_reference/results.json",
+      "model/particle_identification/results.json",
+      "model/protected_particle_readout/results.json",
+      "model/resolved_particle_spectrum/results.json",
+      "model/interacting_vacuum/results.json",
+      "model/mass_generation_audit/results.json",
+      "model/hubbard_relativistic_sector/results.json",
+      "model/thermodynamic_ground/results.json",
+      "model/retarded_matter_response/results.json",
+      "model/ground_spectral_source/results.json",
+      "model/matrix_spectral_response/results.json",
+      "model/retarded_spatial_locality/results.json",
+      "model/spin_resolved_spectrum/results.json",
+      "model/spectral_readout/results.json",
+      "model/continuum_field_net/results.json",
+      "model/continuum_ground_constraints/results.json",
+      "model/native_spectral_detector/results.json",
+      "model/continuum_cpt_constraint/results.json",
+      "model/continuum_composite_channel/results.json",
+      "model/ground_regional_modular/results.json",
+      "model/centered_source_ground/results.json",
+      "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex",
+      "model/continuum_free_limit/results.json",
+      "model/native_fixed_algebra/occupation_results.json"
+    ],
+    "model/completion/component_interfaces.json": [
+      "model/band_clock/results.json",
+      "model/band_clock_budget/results.json",
+      "model/biased_reset/results.json",
+      "model/common_source/chiral_candidate/results.json",
+      "model/completion/finite_attachment_map.py",
+      "model/completion/test_finite_attachment_map.py",
+      "model/defect_field_benchmark/readout_results.json",
+      "model/defect_field_bridge/joint_results.json",
+      "model/defect_field_clock/results.json",
+      "model/defect_field_modular/results.json",
+      "model/defect_field_propagation/results.json",
+      "model/field_regions/results.json",
+      "model/interacting_field/results.json",
+      "model/observer_particles/results/entangled_alpha.json",
+      "model/particle_comparison/results.json",
+      "model/scalar_observations/experimental_readout/executable_results.json"
+    ],
+    "model/completion/program_class_v2_review.json": [
+      "model/completion/component_interfaces.json",
+      "model/completion/finite_attachment_map.json",
+      "model/completion/finite_attachment_map.py",
+      "model/completion/test_finite_attachment_map.py",
+      "model/defect_field_modular/results.npz",
+      "model/defect_field_propagation/results.npz"
+    ]
+  }
+}

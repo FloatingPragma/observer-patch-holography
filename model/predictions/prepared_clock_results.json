@@ -2,8 +2,8 @@
   "clock_field_response": {
     "analytic_signal": 9.098497360631269e-07,
     "event": "first incident attempt loses port10 load, second attempt is incident",
-    "executed_clock_off_signal": -5.97412337698458e-18,
-    "executed_signal": 9.098497360777901e-07,
+    "executed_clock_off_signal": 5.4056795660822193e-17,
+    "executed_signal": 9.098497359575632e-07,
     "formula": "(m0-m6)*sin(log(m0/m6))/(12*90)",
     "observable": "X detector address0 minus selected lambda6 address, feedback on minus off",
     "resolved_signal_lower_under_guards": 6.765937360631269e-07,
@@ -56,7 +56,7 @@
     "continuation_channel_norm_upper_under_guards": "1000000144401/1000000000000",
     "continuation_half_diamond_upper_under_guards": "72201/1000000000000",
     "directed_rounding_or_physical_fidelity_certificate": false,
-    "filter_complete_Frobenius_residual": 2.6410274027961046e-11,
+    "filter_complete_Frobenius_residual": 4.3040947407068774e-11,
     "filter_operator_guard": "1/1000000000",
     "ideal_success_probability": "994135427220848655906122603138321/1239337859764309689882378240000000",
     "numerical_arithmetic_allowance": "1/10000000000",
@@ -67,8 +67,8 @@
       "all_first_failure_environment_rows_compared": true,
       "all_terminal_reference_entries_compared": true,
       "axis": "X",
-      "complete_quantum_half_trace_upper_diagnostic": 2.2235705683011302e-12,
-      "complete_raw_mass_diagnostic": 0.9999999999966772,
+      "complete_quantum_half_trace_upper_diagnostic": 4.648095340430079e-12,
+      "complete_raw_mass_diagnostic": 0.99999999999142,
       "complete_uncompressed_records": 288011,
       "intervention": 0,
       "native_tapes_per_successful_request": 3600,
@@ -79,8 +79,8 @@
       "all_first_failure_environment_rows_compared": true,
       "all_terminal_reference_entries_compared": true,
       "axis": "X",
-      "complete_quantum_half_trace_upper_diagnostic": 2.2615531642497176e-12,
-      "complete_raw_mass_diagnostic": 0.9999999999965994,
+      "complete_quantum_half_trace_upper_diagnostic": 4.740200361821489e-12,
+      "complete_raw_mass_diagnostic": 0.9999999999912348,
       "complete_uncompressed_records": 288011,
       "intervention": 1,
       "native_tapes_per_successful_request": 3600,
@@ -91,8 +91,8 @@
       "all_first_failure_environment_rows_compared": true,
       "all_terminal_reference_entries_compared": true,
       "axis": "Y",
-      "complete_quantum_half_trace_upper_diagnostic": 2.224667053017816e-12,
-      "complete_raw_mass_diagnostic": 0.9999999999966747,
+      "complete_quantum_half_trace_upper_diagnostic": 4.6482153446736406e-12,
+      "complete_raw_mass_diagnostic": 0.9999999999914198,
       "complete_uncompressed_records": 288011,
       "intervention": 0,
       "native_tapes_per_successful_request": 3600,
@@ -103,8 +103,8 @@
       "all_first_failure_environment_rows_compared": true,
       "all_terminal_reference_entries_compared": true,
       "axis": "Y",
-      "complete_quantum_half_trace_upper_diagnostic": 2.2626457761493612e-12,
-      "complete_raw_mass_diagnostic": 0.9999999999965967,
+      "complete_quantum_half_trace_upper_diagnostic": 4.740302639872295e-12,
+      "complete_raw_mass_diagnostic": 0.9999999999912347,
       "complete_uncompressed_records": 288011,
       "intervention": 1,
       "native_tapes_per_successful_request": 3600,
@@ -121,10 +121,10 @@
       {
         "copy_controls": [
           {
-            "characteristic": 0.48000485292361617,
+            "characteristic": 0.4800048529236161,
             "copies": 16,
             "exact_rank_supported_error_upper": "13/256",
-            "gaussian_error": 0.007638300182601476
+            "gaussian_error": 0.007638300182601421
           },
           {
             "characteristic": 0.47282884727988844,
@@ -155,16 +155,16 @@
       {
         "copy_controls": [
           {
-            "characteristic": 0.48667430277575247,
+            "characteristic": 0.4866743027757524,
             "copies": 256,
             "exact_rank_supported_error_upper": "133/4096",
-            "gaussian_error": 0.014307750034737776
+            "gaussian_error": 0.01430775003473772
           },
           {
-            "characteristic": 0.4724224129045885,
+            "characteristic": 0.4724224129045884,
             "copies": 65536,
             "exact_rank_supported_error_upper": "133/1048576",
-            "gaussian_error": 5.5860163573784316e-05
+            "gaussian_error": 5.5860163573728805e-05
           }
         ],
         "dimension": 256
@@ -172,10 +172,10 @@
       {
         "copy_controls": [
           {
-            "characteristic": 0.4870008539884749,
+            "characteristic": 0.487000853988475,
             "copies": 1024,
             "exact_rank_supported_error_upper": "517/16384",
-            "gaussian_error": 0.014634301247460235
+            "gaussian_error": 0.01463430124746029
           },
           {
             "characteristic": 0.4723808555949406,
@@ -198,8 +198,8 @@
         "omega_equals_prepared_gap_at_b1": 0.016365944614047213,
         "operator_norm_squared": 21941.096460606834,
         "raw_operator_norm_scaled_two_point": [
-          0.1701418098850202,
-          -2.2787269581004442e-05
+          0.1701418098845585,
+          -2.278726958047243e-05
         ],
         "source_numerical_error_upper": 0.000927881343096066,
         "unscaled_Q_retarded_derivative_at_zero_control": 0.016365944614047213
@@ -214,8 +214,8 @@
         "omega_equals_prepared_gap_at_b1": 0.03480169117292312,
         "operator_norm_squared": 4896.953557376604,
         "raw_operator_norm_scaled_two_point": [
-          0.1685210260485219,
-          -0.00010208368742769196
+          0.16852102604809735,
+          -0.00010208368742543373
         ],
         "source_numerical_error_upper": 0.00020709046387246922,
         "unscaled_Q_retarded_derivative_at_zero_control": 0.03480169117292312
@@ -230,8 +230,8 @@
         "omega_equals_prepared_gap_at_b1": 0.041639948711939614,
         "operator_norm_squared": 3432.2725016650406,
         "raw_operator_norm_scaled_two_point": [
-          0.16791287398873267,
-          -0.00014563398501603442
+          0.1679128739883186,
+          -0.00014563398501296054
         ],
         "source_numerical_error_upper": 0.0001451496111160422,
         "unscaled_Q_retarded_derivative_at_zero_control": 0.041639948711939614
@@ -277,8 +277,8 @@
           },
           "dimension": 240,
           "level": 0,
-          "minimum_positive_eigenvalue_over_index_diagnostic": 0.014850780922266736,
-          "square_root_Gibbs_trace_b1_diagnostic": 36.472946178582475
+          "minimum_positive_eigenvalue_over_index_diagnostic": 0.014850780922266717,
+          "square_root_Gibbs_trace_b1_diagnostic": 36.47294617858241
         },
         {
           "bound": {
@@ -307,8 +307,8 @@
           },
           "dimension": 960,
           "level": 1,
-          "minimum_positive_eigenvalue_over_index_diagnostic": 0.01394287410153273,
-          "square_root_Gibbs_trace_b1_diagnostic": 48.78606581346107
+          "minimum_positive_eigenvalue_over_index_diagnostic": 0.013942874101536528,
+          "square_root_Gibbs_trace_b1_diagnostic": 48.78606581346099
         }
       ],
       "uniform_partition_bound_removes_no_herald_cost": true
@@ -1113,25 +1113,25 @@
         "all_terminal_reference_and_first_failure_environment_entries_compared": true,
         "axis": "X",
         "complete_half_trace_upper_under_guards": "1084845782678972679411128409433835854259596223822958727282185811725779689664439655833848888375028875909048530474947461/30257271966902092038144000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        "complete_quantum_half_trace_upper_diagnostic": 2.219740883150796e-12,
-        "complete_raw_mass_diagnostic": 0.9999999999964501,
+        "complete_quantum_half_trace_upper_diagnostic": 4.880404091110806e-12,
+        "complete_raw_mass_diagnostic": 0.9999999999908428,
         "joint_pointer_work_addresses_per_success": 32,
         "retained_coarse_records": 171,
         "source_pulses_after_success": 24238,
         "source_word_sha256": "c2e6cffd615a96a6094912aea0a494f2efa508dfb0d49f5a914438e03c183400",
-        "unconditional_pointer_contrast": 0.8020992705782993
+        "unconditional_pointer_contrast": 0.8020992705730695
       },
       {
         "all_terminal_reference_and_first_failure_environment_entries_compared": true,
         "axis": "Y",
         "complete_half_trace_upper_under_guards": "1084845782678972679411128409433835854259596223822958727282185811725779689664439655833848888375028875909048530474947461/30257271966902092038144000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        "complete_quantum_half_trace_upper_diagnostic": 2.2215736010543256e-12,
-        "complete_raw_mass_diagnostic": 0.9999999999964503,
+        "complete_quantum_half_trace_upper_diagnostic": 4.880924559207327e-12,
+        "complete_raw_mass_diagnostic": 0.9999999999908429,
         "joint_pointer_work_addresses_per_success": 32,
         "retained_coarse_records": 171,
         "source_pulses_after_success": 24238,
         "source_word_sha256": "72ed74c56c5e4ac5d343ff1738955462b94b60b6d8176505bf054e404dbc1277",
-        "unconditional_pointer_contrast": 9.783406537112633e-07
+        "unconditional_pointer_contrast": 9.78340653230318e-07
       }
     ],
     "expected_commutator_rule": "< [Qj,Pk] >= i*delta_jk; cross Q/Q and P/P vanish",
@@ -1256,15 +1256,15 @@
     "one_copy_source_estimator_error_upper_under_guards": 1.2642349326154846e-07,
     "ordered_time_correlation": "<Qj(t)Qk>=delta_jk*(coth(gj/2)*cos(gj*t)-i*sin(gj*t))/2",
     "raw_pointer_estimator": [
-      0.9999361918888632,
-      1.219647322377915e-06
+      0.9999361918823434,
+      1.219647321778345e-06
     ],
     "reference": "the ideal successful work marginal M/Tr(M); raw source error is separately bounded",
     "request_zero_finite_ordering_phase_required_to_vanish": false,
     "request_zero_gaussian_symplectic_form_vanishes": true,
     "request_zero_pointer_characteristic_control": [
-      0.9999367642403874,
-      -8.877821255914853e-10
+      0.999936764238269,
+      -8.877827362141488e-10
     ],
     "resolved_ordered_phase_lower_under_guards": 0.0023885581795347003,
     "resources": {

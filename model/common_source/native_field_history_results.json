@@ -7,7 +7,7 @@
   },
   "artifact": {
     "filename": "native_field_history_results.npz",
-    "sha256": "527cac7ed11209dc1dc0097d3b518a6c1f0f865cabb444dda04fe8d04da9b0fa"
+    "sha256": "0fb10e79c9bd3a30e5bd1682a8f7e791c21f9034c61834b99dac1fc9896e9019"
   },
   "carrier": {
     "actual512_row_factor_composition": true,
@@ -36,34 +36,34 @@
     "theorem": "||(V tensor I)rho(V* tensor I)-(W tensor I)rho(W* tensor I)||1 <= (||V||+||W||)||V-W||"
   },
   "execution": {
-    "all512_row_padding_probability_diagnostic": 2.6476016263958877e-22,
-    "all_record_dilation_Frobenius_error_upper_diagnostic": 1.381604187091772e-10,
-    "complete_input_Gram_defect_diagnostic": 8.98355956148488e-13,
+    "all512_row_padding_probability_diagnostic": 4.0523275109762063e-22,
+    "all_record_dilation_Frobenius_error_upper_diagnostic": 3.2705461462294456e-10,
+    "complete_input_Gram_defect_diagnostic": 1.3828515779993348e-11,
     "complete_input_columns": 4,
-    "compression_residual_sum_diagnostic": 2.867268594109146e-12,
+    "compression_residual_sum_diagnostic": 2.909345744598148e-12,
     "detector_joint_probabilities": [
       [
-        0.08609975026677136,
-        0.04212167792063969
+        0.08609975026553171,
+        0.04212167792003178
       ],
       [
-        0.28638564348508383,
-        0.5853929283280632
+        0.28638564348100015,
+        0.5853929283197511
       ]
     ],
-    "first_read_backaction_final_marginal_L1_control": 0.6281112307103326,
+    "first_read_backaction_final_marginal_L1_control": 0.6281112307103324,
     "independent_target_detector_joint": [
       [
-        0.08609975026673031,
-        0.04212167792061743
+        0.08609975026673024,
+        0.042121677920617426
       ],
       [
-        0.286385643484915,
-        0.5853929283277373
+        0.28638564348491485,
+        0.5853929283277374
       ]
     ],
-    "retained_halt_probability_diagnostic": 1.2909872148180918e-26,
-    "source_record_probability_mass": 1.0000000000005578,
+    "retained_halt_probability_diagnostic": 9.601053124556e-27,
+    "source_record_probability_mass": 0.9999999999863146,
     "terminal_records": 319
   },
   "number_history_identifiability_control": {

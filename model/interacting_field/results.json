@@ -19,9 +19,9 @@
       "apparatus_resources": {
         "committed_detector_bits": 2,
         "field_qubits": 54,
-        "floating_local_residual_sum_with_routing": 3.6014047332210436e-13,
+        "floating_local_residual_sum_with_routing": 4.0011007799584047e-13,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 3.601404733221692e-13,
+        "floating_residual_telescoping_estimate": 4.001100779959205e-13,
         "fresh_neutral_pointer_blanks": 2,
         "initial_filled_modes_supplied": 2,
         "initialization_storage_readout_costs_derived": false,
@@ -36,21 +36,21 @@
         "single_code_pulses": 3856
       },
       "complete_two_read_probabilities": [
-        0.46834881983005294,
-        0.00045870360021612396,
-        0.2822034904459422,
-        0.24898898611627968
+        0.46834881982927334,
+        0.0004587036002153518,
+        0.2822034904454718,
+        0.24898898611586318
       ],
       "evolution_resources": {
-        "FSWAP_target_residual": 2.048942540096992e-15,
+        "FSWAP_target_residual": 2.2840710334615957e-15,
         "all_routing_pulses_numerically_replayed": false,
         "completed_contact_blocks": 1728,
         "completed_hopping_blocks": 6912,
-        "contact_target_residual": 7.581077472893602e-16,
-        "floating_local_residual_sum_with_routing": 2.2804758164087415e-10,
+        "contact_target_residual": 7.581077464968604e-16,
+        "floating_local_residual_sum_with_routing": 2.5319587536490963e-10,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 2.2804758166687701e-10,
-        "maximum_local_hopping_target_residual": 1.5277374262219397e-15,
+        "floating_residual_telescoping_estimate": 2.531958753969637e-10,
+        "maximum_local_hopping_target_residual": 1.5227283208181346e-15,
         "native_pulses": 2952576,
         "number_sector_compression_residual_included_in_local_target_residuals": true,
         "pair_code_pulses": 455040,
@@ -63,22 +63,22 @@
         "scope": "worst-branch evolution only; separately retained apparatus counts must be added",
         "single_code_pulses": 2497536
       },
-      "feedback_deletion_history_TV": 0.28164427989318813,
+      "feedback_deletion_history_TV": 0.2816442798927191,
       "free_complete_two_read_probabilities": [
-        0.5000305138475012,
-        3.817468593633191e-06,
-        0.25000381313793907,
-        0.2499618555392216
+        0.5000305138466685,
+        3.817468593641194e-06,
+        0.25000381313752207,
+        0.24996185553880346
       ],
-      "history_normalization_residual": 7.509104449354709e-12,
+      "history_normalization_residual": 9.176326365434306e-12,
       "ideal_source_to_infinite_lattice_complete_history_bound": "44040535/100663296",
       "independent_sparse_probabilities": [
-        0.46834882179120146,
-        0.0004587035536547712,
-        0.28220348847910026,
-        0.2489889861760353
+        0.4683488217912015,
+        0.0004587035536547651,
+        0.28220348847910043,
+        0.2489889861760352
       ],
-      "interaction_deletion_history_TV": 0.03265456344000788,
+      "interaction_deletion_history_TV": 0.03265456343995346,
       "radius": 1,
       "short_interaction_certificate": {
         "all_box_radii_and_infinite_lattice": true,
@@ -92,9 +92,9 @@
         "proof": "Duhamel commutator telescoping; 2Bt=1/16 and exp(1/16)-1<=1/15"
       },
       "sites": 27,
-      "source_reference_complete_quantum_cq_distance": 2.080407116112223e-08,
-      "source_reference_history_TV": 2.0171537013966533e-09,
-      "source_short_interaction_probability_contrast": 0.008928030274951038,
+      "source_reference_complete_quantum_cq_distance": 2.0804033380121698e-08,
+      "source_reference_history_TV": 2.017516097626215e-09,
+      "source_short_interaction_probability_contrast": 0.00892803027495681,
       "spatial_certificate": {
         "apparatus_support": "origin and its +x neighbor; no remote intervention",
         "comparison": "same fixed-spacing N=2 field on larger cubes or infinite Z^3",
@@ -118,9 +118,9 @@
       "apparatus_resources": {
         "committed_detector_bits": 2,
         "field_qubits": 250,
-        "floating_local_residual_sum_with_routing": 1.015802086153142e-12,
+        "floating_local_residual_sum_with_routing": 1.1310128087035512e-12,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 1.015802086153658e-12,
+        "floating_residual_telescoping_estimate": 1.1310128087041908e-12,
         "fresh_neutral_pointer_blanks": 2,
         "initial_filled_modes_supplied": 2,
         "initialization_storage_readout_costs_derived": false,
@@ -135,21 +135,21 @@
         "single_code_pulses": 10896
       },
       "complete_two_read_probabilities": [
-        0.4683531236676732,
-        0.0004584524651802819,
-        0.2822032370308589,
-        0.24898518679682521
+        0.46835312366308735,
+        0.000458452465175822,
+        0.28220323702809696,
+        0.2489851867943867
       ],
       "evolution_resources": {
-        "FSWAP_target_residual": 2.048942540096992e-15,
+        "FSWAP_target_residual": 2.2840710334615957e-15,
         "all_routing_pulses_numerically_replayed": false,
         "completed_contact_blocks": 8000,
         "completed_hopping_blocks": 38400,
-        "contact_target_residual": 7.581077472893602e-16,
-        "floating_local_residual_sum_with_routing": 3.1540234816737165e-09,
+        "contact_target_residual": 7.581077464968604e-16,
+        "floating_local_residual_sum_with_routing": 3.5104306440710622e-09,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 3.1540234866476486e-09,
-        "maximum_local_hopping_target_residual": 1.5277374262219397e-15,
+        "floating_residual_telescoping_estimate": 3.510430650232624e-09,
+        "maximum_local_hopping_target_residual": 1.5227283208181346e-15,
         "native_pulses": 40348800,
         "number_sector_compression_residual_included_in_local_target_residuals": true,
         "pair_code_pulses": 6211200,
@@ -162,22 +162,22 @@
         "scope": "worst-branch evolution only; separately retained apparatus counts must be added",
         "single_code_pulses": 34137600
       },
-      "feedback_deletion_history_TV": 0.28163998229535403,
+      "feedback_deletion_history_TV": 0.2816399822925984,
       "free_complete_two_read_probabilities": [
-        0.500034327838759,
-        3.817936552603965e-06,
-        0.25000381280564665,
-        0.24995804138313268
+        0.5000343278338611,
+        3.817936552580893e-06,
+        0.25000381280320066,
+        0.2499580413806839
       ],
-      "history_normalization_residual": 3.9462322298788877e-11,
+      "history_normalization_residual": 4.925326813065567e-11,
       "ideal_source_to_infinite_lattice_complete_history_bound": "4817239/100663296",
       "independent_sparse_probabilities": [
-        0.4683531256441109,
-        0.0004584524186593407,
-        0.2822032350730638,
-        0.24898518686415802
+        0.4683531256441111,
+        0.0004584524186593314,
+        0.2822032350730639,
+        0.24898518686415796
       ],
-      "interaction_deletion_history_TV": 0.032654058755616625,
+      "interaction_deletion_history_TV": 0.03265405875529527,
       "radius": 2,
       "short_interaction_certificate": {
         "all_box_radii_and_infinite_lattice": true,
@@ -191,9 +191,9 @@
         "proof": "Duhamel commutator telescoping; 2Bt=1/16 and exp(1/16)-1<=1/15"
       },
       "sites": 125,
-      "source_reference_complete_quantum_cq_distance": 2.093215520566664e-08,
-      "source_reference_history_TV": 2.0240433155742105e-09,
-      "source_short_interaction_probability_contrast": 0.008928024713265037,
+      "source_reference_complete_quantum_cq_distance": 2.0932095111400412e-08,
+      "source_reference_history_TV": 2.0261722882451098e-09,
+      "source_short_interaction_probability_contrast": 0.008928024713317717,
       "spatial_certificate": {
         "apparatus_support": "origin and its +x neighbor; no remote intervention",
         "comparison": "same fixed-spacing N=2 field on larger cubes or infinite Z^3",
@@ -217,9 +217,9 @@
       "apparatus_resources": {
         "committed_detector_bits": 2,
         "field_qubits": 686,
-        "floating_local_residual_sum_with_routing": 1.999294505399698e-12,
+        "floating_local_residual_sum_with_routing": 2.227366904765117e-12,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 1.9992945054016964e-12,
+        "floating_residual_telescoping_estimate": 2.227366904767598e-12,
         "fresh_neutral_pointer_blanks": 2,
         "initial_filled_modes_supplied": 2,
         "initialization_storage_readout_costs_derived": false,
@@ -234,21 +234,21 @@
         "single_code_pulses": 21456
       },
       "complete_two_read_probabilities": [
-        0.4683531236251782,
-        0.0004584524673258656,
-        0.28220323700998107,
-        0.2489851867829348
+        0.46835312361155457,
+        0.00045845246731257626,
+        0.282203237001773,
+        0.24898518677569154
       ],
       "evolution_resources": {
-        "FSWAP_target_residual": 2.048942540096992e-15,
+        "FSWAP_target_residual": 2.2840710334615957e-15,
         "all_routing_pulses_numerically_replayed": false,
         "completed_contact_blocks": 21952,
         "completed_hopping_blocks": 112896,
-        "contact_target_residual": 7.581077472893602e-16,
-        "floating_local_residual_sum_with_routing": 1.7290644112742896e-08,
+        "contact_target_residual": 7.581077464968604e-16,
+        "floating_local_residual_sum_with_routing": 1.925871013827031e-08,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 1.7290644262226083e-08,
-        "maximum_local_hopping_target_residual": 1.5277374262219397e-15,
+        "floating_residual_telescoping_estimate": 1.925871032371927e-08,
+        "maximum_local_hopping_target_residual": 1.5227283208181346e-15,
         "native_pulses": 220366720,
         "number_sector_compression_residual_included_in_local_target_residuals": true,
         "pair_code_pulses": 33912704,
@@ -261,22 +261,22 @@
         "scope": "worst-branch evolution only; separately retained apparatus counts must be added",
         "single_code_pulses": 186454016
       },
-      "feedback_deletion_history_TV": 0.28163998227964077,
+      "feedback_deletion_history_TV": 0.2816399822714488,
       "free_complete_two_read_probabilities": [
-        0.5000343277994692,
-        3.8179365470305584e-06,
-        0.2500038127884162,
-        0.2499580413707359
+        0.500034327784921,
+        3.817936546933807e-06,
+        0.25000381278114575,
+        0.2499580413634631
       ],
-      "history_normalization_residual": 1.1458001214492697e-10,
+      "history_normalization_residual": 1.4366818845701346e-10,
       "ideal_source_to_infinite_lattice_complete_history_bound": "351575/100663296",
       "independent_sparse_probabilities": [
-        0.4683531256367761,
-        0.00045845242084060047,
-        0.28220323507338607,
-        0.24898518686898924
+        0.4683531256367762,
+        0.0004584524208405944,
+        0.28220323507338624,
+        0.24898518686898907
       ],
-      "interaction_deletion_history_TV": 0.03265405875721789,
+      "interaction_deletion_history_TV": 0.03265405875626544,
       "radius": 3,
       "short_interaction_certificate": {
         "all_box_radii_and_infinite_lattice": true,
@@ -290,9 +290,9 @@
         "proof": "Duhamel commutator telescoping; 2Bt=1/16 and exp(1/16)-1<=1/15"
       },
       "sites": 343,
-      "source_reference_complete_quantum_cq_distance": 2.0932851112843825e-08,
-      "source_reference_history_TV": 2.0403662951090727e-09,
-      "source_short_interaction_probability_contrast": 0.00892802471049603,
+      "source_reference_complete_quantum_cq_distance": 2.0932766909231726e-08,
+      "source_reference_history_TV": 2.046688979428536e-09,
+      "source_short_interaction_probability_contrast": 0.008928024710659399,
       "spatial_certificate": {
         "apparatus_support": "origin and its +x neighbor; no remote intervention",
         "comparison": "same fixed-spacing N=2 field on larger cubes or infinite Z^3",
@@ -435,10 +435,10 @@
     "Gaussian_covariance_evolution_used": false,
     "all_detector_outcomes_retained": true,
     "certificate_scope": "ideal completed source words; floating replay is a separate diagnostic",
-    "connected_four_point": -0.015302179763705098,
+    "connected_four_point": -0.015302179763705043,
     "detector_witness_resources": {
       "committed_detector_bits": 18,
-      "floating_local_residual_sum_with_routing": 3.1151511912682275e-13,
+      "floating_local_residual_sum_with_routing": 3.297410770106518e-13,
       "floating_residual_estimate_outward_certified": false,
       "fresh_pointer_blanks": 18,
       "native_pulses": 3774,
@@ -454,46 +454,46 @@
     "ideal_slater_defect": 0.06120871905481365,
     "ideal_slater_defect_lower_exact": "9025/147456",
     "independent_prepared_copies_for_settings": 17,
-    "initial_slater_defect": 1.865174681370263e-14,
+    "initial_slater_defect": 1.7763568394002505e-14,
     "model_time": "1/4",
     "phase_intervention_and_geometry_supplied": true,
-    "same_spin_Wick_prediction": 0.015302179763705098,
-    "same_spin_pair_probability": 6.251653613518864e-31,
-    "source_contact_target_residual": 7.447488907639706e-16,
-    "source_final_slater_defect": 0.06120871905484604,
-    "source_norm": 0.9999999999999937,
-    "source_one_body_tomography_residual": 5.091224794599575e-15,
+    "same_spin_Wick_prediction": 0.015302179763705043,
+    "same_spin_pair_probability": 6.251653613518868e-31,
+    "source_contact_target_residual": 7.258210736795486e-16,
+    "source_final_slater_defect": 0.06120871905484471,
+    "source_norm": 0.9999999999999941,
+    "source_one_body_tomography_residual": 4.9044780127577054e-15,
     "source_one_body_tomography_settings": [
       {
         "kind": "number",
         "mode": 0,
         "probabilities": [
-          0.4999999999999965,
-          0.49999999999999706
+          0.4999999999999968,
+          0.49999999999999717
         ]
       },
       {
         "kind": "number",
         "mode": 1,
         "probabilities": [
-          0.4999999999999965,
-          0.49999999999999706
+          0.4999999999999968,
+          0.49999999999999717
         ]
       },
       {
         "kind": "number",
         "mode": 2,
         "probabilities": [
-          0.49999999999999717,
-          0.4999999999999965
+          0.4999999999999973,
+          0.49999999999999667
         ]
       },
       {
         "kind": "number",
         "mode": 3,
         "probabilities": [
-          0.49999999999999717,
-          0.4999999999999965
+          0.4999999999999973,
+          0.49999999999999667
         ]
       },
       {
@@ -503,8 +503,8 @@
           1
         ],
         "probabilities": [
-          0.49999999999999595,
-          0.49999999999999584
+          0.4999999999999963,
+          0.49999999999999606
         ]
       },
       {
@@ -514,107 +514,107 @@
           1
         ],
         "probabilities": [
-          0.499999999999996,
-          0.49999999999999634
-        ]
-      },
-      {
-        "kind": "X",
-        "modes": [
-          0,
-          2
-        ],
-        "probabilities": [
-          0.015543789144677462,
-          0.9844562108553141
-        ]
-      },
-      {
-        "kind": "Y",
-        "modes": [
-          0,
-          2
-        ],
-        "probabilities": [
-          0.49999999999999645,
-          0.49999999999999567
-        ]
-      },
-      {
-        "kind": "X",
-        "modes": [
-          0,
-          3
-        ],
-        "probabilities": [
           0.4999999999999963,
-          0.49999999999999567
+          0.49999999999999645
+        ]
+      },
+      {
+        "kind": "X",
+        "modes": [
+          0,
+          2
+        ],
+        "probabilities": [
+          0.015543789144677515,
+          0.9844562108553144
         ]
       },
       {
         "kind": "Y",
         "modes": [
           0,
-          3
+          2
         ],
         "probabilities": [
-          0.49999999999999634,
-          0.49999999999999595
+          0.49999999999999656,
+          0.4999999999999957
         ]
       },
       {
         "kind": "X",
         "modes": [
-          1,
-          2
+          0,
+          3
         ],
         "probabilities": [
-          0.4999999999999963,
-          0.49999999999999567
+          0.4999999999999965,
+          0.4999999999999958
         ]
       },
       {
         "kind": "Y",
         "modes": [
-          1,
-          2
-        ],
-        "probabilities": [
-          0.49999999999999634,
-          0.49999999999999595
-        ]
-      },
-      {
-        "kind": "X",
-        "modes": [
-          1,
-          3
-        ],
-        "probabilities": [
-          0.015543789144677462,
-          0.9844562108553141
-        ]
-      },
-      {
-        "kind": "Y",
-        "modes": [
-          1,
-          3
-        ],
-        "probabilities": [
-          0.49999999999999645,
-          0.49999999999999567
-        ]
-      },
-      {
-        "kind": "X",
-        "modes": [
-          2,
+          0,
           3
         ],
         "probabilities": [
           0.49999999999999656,
-          0.4999999999999952
+          0.49999999999999617
+        ]
+      },
+      {
+        "kind": "X",
+        "modes": [
+          1,
+          2
+        ],
+        "probabilities": [
+          0.4999999999999965,
+          0.4999999999999958
+        ]
+      },
+      {
+        "kind": "Y",
+        "modes": [
+          1,
+          2
+        ],
+        "probabilities": [
+          0.49999999999999656,
+          0.49999999999999617
+        ]
+      },
+      {
+        "kind": "X",
+        "modes": [
+          1,
+          3
+        ],
+        "probabilities": [
+          0.015543789144677515,
+          0.9844562108553144
+        ]
+      },
+      {
+        "kind": "Y",
+        "modes": [
+          1,
+          3
+        ],
+        "probabilities": [
+          0.49999999999999656,
+          0.4999999999999957
+        ]
+      },
+      {
+        "kind": "X",
+        "modes": [
+          2,
+          3
+        ],
+        "probabilities": [
+          0.4999999999999967,
+          0.49999999999999556
         ]
       },
       {
@@ -624,30 +624,30 @@
           3
         ],
         "probabilities": [
-          0.4999999999999966,
-          0.49999999999999567
+          0.4999999999999968,
+          0.49999999999999595
         ]
       }
     ],
     "source_pair_number_records": [
       {
         "first": 0,
-        "probability": 5.691807826499697e-32,
+        "probability": 5.691807826499699e-32,
         "second": 0
       },
       {
         "first": 0,
-        "probability": 0.4999999999999965,
+        "probability": 0.49999999999999667,
         "second": 1
       },
       {
         "first": 1,
-        "probability": 0.49999999999999706,
+        "probability": 0.49999999999999717,
         "second": 0
       },
       {
         "first": 1,
-        "probability": 6.251653613518864e-31,
+        "probability": 6.251653613518868e-31,
         "second": 1
       }
     ],

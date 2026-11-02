@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "repair_continuation_results.npz",
-    "sha256": "f2c68e67a76ece6c049d4c9cc8aab2ce3d945e86b283a91758cbb8914d62926c"
+    "sha256": "5abc0c00a7f1c120596dd6171dd687d594e1e66154b187498bc78a33baafe383"
   },
   "classification": "controlled finite-source Zeno continuation of the existing corrected native cycle",
   "clock_winding_control": {
@@ -10,7 +10,7 @@
     "endpoint_unitary_equals_identity_at_coherent_parameter_one": true,
     "intermediate_quadrature_records_distinguish_it": [
       {
-        "X_mean": 0.9999999999999998,
+        "X_mean": 0.9999999999999992,
         "coherent_parameter": "1",
         "zero_generator_X_mean": 1.0
       },
@@ -1818,31 +1818,31 @@
           {
             "channels": [
               {
-                "attenuation_rate": 4.3946723693775014e-05,
-                "eigenvector_residual": 3.36964754826957e-15,
-                "nearest_to_one_mode_separation": 0.1580034521185881,
-                "pole_imag": 0.0009765562070934999,
-                "pole_real": 0.9999885365430646,
+                "attenuation_rate": 4.394672368578133e-05,
+                "eigenvector_residual": 1.9491242258468142e-15,
+                "nearest_to_one_mode_separation": 0.15800345211858924,
+                "pole_imag": 0.0009765562070936007,
+                "pole_real": 0.9999885365430666,
                 "spectator": 0,
-                "wrapped_phase_rate": 0.003906268365946004
+                "wrapped_phase_rate": 0.003906268365946399
               },
               {
-                "attenuation_rate": 5.453460830668533e-05,
-                "eigenvector_residual": 3.1032788448876473e-15,
-                "nearest_to_one_mode_separation": 0.18668790266615157,
-                "pole_imag": -0.0002441451116727226,
-                "pole_real": 0.9999863366370366,
+                "attenuation_rate": 5.45346082906979e-05,
+                "eigenvector_residual": 2.2253486031188906e-15,
+                "nearest_to_one_mode_separation": 0.18668790266615395,
+                "pole_imag": -0.00024414511167256646,
+                "pole_real": 0.9999863366370406,
                 "spectator": 1,
-                "wrapped_phase_rate": -0.0009765937708418962
+                "wrapped_phase_rate": -0.0009765937708412678
               },
               {
-                "attenuation_rate": 0.00026742845072162317,
-                "eigenvector_residual": 1.395885196180351e-15,
-                "nearest_to_one_mode_separation": 0.130869459145966,
-                "pole_imag": -8.202301446834023e-05,
-                "pole_real": 0.9999331417580942,
+                "attenuation_rate": 0.0002674284507296173,
+                "eigenvector_residual": 3.0435680539488723e-15,
+                "nearest_to_one_mode_separation": 0.13086945914596076,
+                "pole_imag": -8.202301446801064e-05,
+                "pole_real": 0.9999331417580922,
                 "spectator": 2,
-                "wrapped_phase_rate": -0.0003281139942622871
+                "wrapped_phase_rate": -0.0003281139942609693
               }
             ],
             "coherent_parameter_per_interval": "1/4"
@@ -1850,31 +1850,31 @@
           {
             "channels": [
               {
-                "attenuation_rate": 0.00017573542000397214,
-                "eigenvector_residual": 5.4933433289194385e-15,
-                "nearest_to_one_mode_separation": 0.1554541740007741,
-                "pole_imag": 0.0039058491982702,
-                "pole_real": 0.9998166508218757,
+                "attenuation_rate": 0.0001757354200070813,
+                "eigenvector_residual": 2.8994172946077864e-15,
+                "nearest_to_one_mode_separation": 0.15545417400077544,
+                "pole_imag": 0.0039058491982700613,
+                "pole_real": 0.9998166508218725,
                 "spectator": 0,
-                "wrapped_phase_rate": 0.003906545590990344
+                "wrapped_phase_rate": 0.003906545590990218
               },
               {
-                "attenuation_rate": 0.0002180424365831839,
-                "eigenvector_residual": 5.512250473771366e-15,
-                "nearest_to_one_mode_separation": 0.18634350835677774,
-                "pole_imag": -0.0009768527466352782,
-                "pole_real": 0.9997815041081392,
+                "attenuation_rate": 0.00021804243658740368,
+                "eigenvector_residual": 1.886831388625203e-15,
+                "nearest_to_one_mode_separation": 0.1863435083567738,
+                "pole_imag": -0.000976852746635417,
+                "pole_real": 0.9997815041081349,
                 "spectator": 1,
-                "wrapped_phase_rate": -0.0009770659206716334
+                "wrapped_phase_rate": -0.0009770659206717763
               },
               {
-                "attenuation_rate": 0.0010689507058514339,
-                "eigenvector_residual": 1.3496119794411247e-15,
-                "nearest_to_one_mode_separation": 0.12949235045720695,
-                "pole_imag": -0.0003668032459017076,
-                "pole_real": 0.9989315530741728,
+                "attenuation_rate": 0.0010689507058474327,
+                "eigenvector_residual": 3.736570507928053e-15,
+                "nearest_to_one_mode_separation": 0.1294923504572153,
+                "pole_imag": -0.000366803245901097,
+                "pole_real": 0.9989315530741768,
                 "spectator": 2,
-                "wrapped_phase_rate": -0.00036719555838156186
+                "wrapped_phase_rate": -0.00036719555838094913
               }
             ],
             "coherent_parameter_per_interval": "1"
@@ -1882,31 +1882,31 @@
           {
             "channels": [
               {
-                "attenuation_rate": 0.0006996854997406958,
-                "eigenvector_residual": 3.3087516700597867e-15,
-                "nearest_to_one_mode_separation": 0.1488320756467812,
-                "pole_imag": 0.01560130993173703,
-                "pole_real": 0.9970831218383949,
+                "attenuation_rate": 0.0006996854997406402,
+                "eigenvector_residual": 2.979511579937324e-15,
+                "nearest_to_one_mode_separation": 0.14883207564677994,
+                "pole_imag": 0.015601309931736881,
+                "pole_real": 0.9970831218383951,
                 "spectator": 0,
-                "wrapped_phase_rate": 0.0039114183585840494
+                "wrapped_phase_rate": 0.003911418358584011
               },
               {
-                "attenuation_rate": 0.0008660152532562251,
-                "eigenvector_residual": 1.076682873286459e-15,
-                "nearest_to_one_mode_separation": 0.18881188837375093,
-                "pole_imag": -0.003928000191998071,
-                "pole_real": 0.9965341905313794,
+                "attenuation_rate": 0.0008660152532553338,
+                "eigenvector_residual": 3.840330670970144e-15,
+                "nearest_to_one_mode_separation": 0.18881188837375298,
+                "pole_imag": -0.003928000191998043,
+                "pole_real": 0.9965341905313829,
                 "spectator": 1,
-                "wrapped_phase_rate": -0.0009854102063928552
+                "wrapped_phase_rate": -0.0009854102063928448
               },
               {
                 "attenuation_rate": 0.00418954280517803,
-                "eigenvector_residual": 1.6246235584490195e-15,
-                "nearest_to_one_mode_separation": 0.11317638577502193,
-                "pole_imag": -0.004040583385757912,
+                "eigenvector_residual": 2.1035887250584587e-15,
+                "nearest_to_one_mode_separation": 0.11317638577502469,
+                "pole_imag": -0.004040583385757857,
                 "pole_real": 0.9833731646776834,
                 "spectator": 2,
-                "wrapped_phase_rate": -0.001027219572378913
+                "wrapped_phase_rate": -0.0010272195723788988
               }
             ],
             "coherent_parameter_per_interval": "4"
@@ -1919,27 +1919,27 @@
       },
       "finite_time_controls": [
         {
-          "Choi_trace_defect_diagnostic": 2.2204537708027563e-16,
-          "Choi_trace_norm_error_diagnostic": 1.8548323656528645,
+          "Choi_trace_defect_diagnostic": 1.8070036208091676e-20,
+          "Choi_trace_norm_error_diagnostic": 1.8548323656528642,
           "Ramsey_three_spectator_controls": [
             {
               "X_mean": 0.23599729902324296,
-              "Y_mean": -0.13894789589932544,
-              "code_pair_probability": 0.35068907147094613,
+              "Y_mean": -0.13894789589932546,
+              "code_pair_probability": 0.3506890714709461,
               "outside_code_pair_probability": 0.6493109285290539,
               "spectator": 0
             },
             {
               "X_mean": 0.21185592120639996,
-              "Y_mean": 0.019878366562586916,
+              "Y_mean": 0.019878366562586933,
               "code_pair_probability": 0.3102178462447274,
               "outside_code_pair_probability": 0.6897821537552726,
               "spectator": 1
             },
             {
-              "X_mean": 0.057996560037910524,
-              "Y_mean": -0.0006127579050636637,
-              "code_pair_probability": 0.26134420339096653,
+              "X_mean": 0.05799656003791054,
+              "Y_mean": -0.0006127579050636729,
+              "code_pair_probability": 0.2613442033909665,
               "outside_code_pair_probability": 0.7386557966090335,
               "spectator": 2
             }
@@ -1959,27 +1959,27 @@
           "steps": 1
         },
         {
-          "Choi_trace_defect_diagnostic": 8.88198597192619e-16,
-          "Choi_trace_norm_error_diagnostic": 1.8704006342063415,
+          "Choi_trace_defect_diagnostic": 1.1102448498560118e-15,
+          "Choi_trace_norm_error_diagnostic": 1.8704006342063408,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": 0.009804400582837474,
-              "Y_mean": -0.004843327986382276,
-              "code_pair_probability": 0.41070859439754986,
+              "X_mean": 0.009804400582837472,
+              "Y_mean": -0.004843327986382278,
+              "code_pair_probability": 0.4107085943975499,
               "outside_code_pair_probability": 0.5892914056024501,
               "spectator": 0
             },
             {
               "X_mean": 0.004369570064651766,
-              "Y_mean": 0.006686603418899801,
-              "code_pair_probability": 0.39338039687688703,
-              "outside_code_pair_probability": 0.606619603123113,
+              "Y_mean": 0.0066866034188997996,
+              "code_pair_probability": 0.3933803968768872,
+              "outside_code_pair_probability": 0.6066196031231128,
               "spectator": 1
             },
             {
-              "X_mean": -0.00010495630607396255,
+              "X_mean": -0.00010495630607395678,
               "Y_mean": 0.020201163362985265,
-              "code_pair_probability": 0.3718083982773524,
+              "code_pair_probability": 0.37180839827735235,
               "outside_code_pair_probability": 0.6281916017226477,
               "spectator": 2
             }
@@ -1999,28 +1999,28 @@
           "steps": 16
         },
         {
-          "Choi_trace_defect_diagnostic": 3.197443496064864e-14,
-          "Choi_trace_norm_error_diagnostic": 1.4010948707560975,
+          "Choi_trace_defect_diagnostic": 3.153038008435165e-14,
+          "Choi_trace_norm_error_diagnostic": 1.4010948707560964,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.3190584794988036,
-              "Y_mean": 0.37350279621607,
-              "code_pair_probability": 0.9747216400623678,
-              "outside_code_pair_probability": 0.025278359937632167,
+              "X_mean": -0.31905847949880406,
+              "Y_mean": 0.37350279621607063,
+              "code_pair_probability": 0.9747216400623716,
+              "outside_code_pair_probability": 0.025278359937628392,
               "spectator": 0
             },
             {
-              "X_mean": 0.22131789791574513,
-              "Y_mean": 0.35145067717973977,
-              "code_pair_probability": 0.9774907524961437,
-              "outside_code_pair_probability": 0.0225092475038563,
+              "X_mean": 0.22131789791574522,
+              "Y_mean": 0.3514506771797402,
+              "code_pair_probability": 0.9774907524961387,
+              "outside_code_pair_probability": 0.022509247503861296,
               "spectator": 1
             },
             {
-              "X_mean": 0.007966582185285601,
-              "Y_mean": 0.01272836834255837,
-              "code_pair_probability": 0.8917770726602198,
-              "outside_code_pair_probability": 0.10822292733978023,
+              "X_mean": 0.007966582185285584,
+              "Y_mean": 0.012728368342558374,
+              "code_pair_probability": 0.8917770726602203,
+              "outside_code_pair_probability": 0.10822292733977967,
               "spectator": 2
             }
           ],
@@ -2039,28 +2039,28 @@
           "steps": 256
         },
         {
-          "Choi_trace_defect_diagnostic": 3.743672130567766e-13,
-          "Choi_trace_norm_error_diagnostic": 0.22924763844894766,
+          "Choi_trace_defect_diagnostic": 3.7037040341082523e-13,
+          "Choi_trace_norm_error_diagnostic": 0.22924763844895607,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.6248813036908741,
-              "Y_mean": 0.7235284448367919,
-              "code_pair_probability": 0.9998964675975427,
-              "outside_code_pair_probability": 0.000103532402457307,
+              "X_mean": -0.624881303690882,
+              "Y_mean": 0.7235284448367999,
+              "code_pair_probability": 0.9998964675975777,
+              "outside_code_pair_probability": 0.00010353240242233497,
               "spectator": 0
             },
             {
-              "X_mean": 0.5109483448499343,
-              "Y_mean": 0.7958108674961824,
-              "code_pair_probability": 0.9999080854952068,
-              "outside_code_pair_probability": 9.191450479317798e-05,
+              "X_mean": 0.5109483448499206,
+              "Y_mean": 0.7958108674961615,
+              "code_pair_probability": 0.9999080854952126,
+              "outside_code_pair_probability": 9.191450478740482e-05,
               "spectator": 1
             },
             {
-              "X_mean": 0.7182204004404882,
-              "Y_mean": 0.25081645454599305,
-              "code_pair_probability": 0.999439705724899,
-              "outside_code_pair_probability": 0.0005602942751009587,
+              "X_mean": 0.7182204004404618,
+              "Y_mean": 0.2508164545459849,
+              "code_pair_probability": 0.9994397057248469,
+              "outside_code_pair_probability": 0.0005602942751531392,
               "spectator": 2
             }
           ],
@@ -2079,28 +2079,28 @@
           "steps": 4096
         },
         {
-          "Choi_trace_defect_diagnostic": 6.73572309051057e-12,
-          "Choi_trace_norm_error_diagnostic": 0.015682559116694573,
+          "Choi_trace_defect_diagnostic": 6.5645267002270015e-12,
+          "Choi_trace_norm_error_diagnostic": 0.015682559116616767,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.6518077388328068,
-              "Y_mean": 0.7546769840690724,
-              "code_pair_probability": 0.9999995955091444,
-              "outside_code_pair_probability": 4.044908555878024e-07,
+              "X_mean": -0.6518077388330662,
+              "Y_mean": 0.754676984069371,
+              "code_pair_probability": 0.9999995955089281,
+              "outside_code_pair_probability": 4.044910718592476e-07,
               "spectator": 0
             },
             {
-              "X_mean": 0.5384197312678932,
-              "Y_mean": 0.8385392791677841,
-              "code_pair_probability": 0.9999996409032065,
-              "outside_code_pair_probability": 3.5909679352297275e-07,
+              "X_mean": 0.5384197312683169,
+              "Y_mean": 0.8385392791684423,
+              "code_pair_probability": 0.9999996409032184,
+              "outside_code_pair_probability": 3.590967816435864e-07,
               "spectator": 1
             },
             {
-              "X_mean": 0.9289186444653514,
-              "Y_mean": 0.32165216278581554,
-              "code_pair_probability": 0.9999978084168651,
-              "outside_code_pair_probability": 2.1915831348584547e-06,
+              "X_mean": 0.9289186444648936,
+              "Y_mean": 0.3216521627856603,
+              "code_pair_probability": 0.999997808416556,
+              "outside_code_pair_probability": 2.1915834439445447e-06,
               "spectator": 2
             }
           ],
@@ -2131,7 +2131,7 @@
         "untruncated_trace_norm_upper_exact": "28241/33554432"
       },
       "old_absorbing_terminal_control": {
-        "Choi_trace_norm_to_unchanged_input_diagnostic": 0.20214906951137124,
+        "Choi_trace_norm_to_unchanged_input_diagnostic": 0.2021490695113714,
         "clock_parameter_upper_exact": "128/5",
         "limit_at_fixed_total_coherent_parameter": "unchanged input; mean executed coherent parameter<=t/(N*timeout)->0",
         "mean_accumulated_coherent_parameter_exact": "4163172877865759632232874339959905952607978141918700525585458712713731030871550259612396334635591754977118113190706498174802959690889781494578752517086414390645509982982293993196332896717131897459725233708882866597512676842758039520544631733316201188183012603161599209803269148053722760708127130187160987627606328444925377087560859041708534609150721394314583342546241329752829582706483/162623940541631235655081880115063836540863472613542262583111130475056375932396254656441241277067565388162837718035640746740368222630054139189686040713708136920689523584206567902705989838462242976139990946057653300182713705430444982296289084131847817058317951332986887945912759141066493822909762998295606278860440971924070641042163054511452469201219544839627920323667511102432862011392",
@@ -2145,7 +2145,7 @@
       },
       "timeout_idle_probability_exact": "5/32",
       "two_time_record_control": {
-        "L1_difference": 0.003034877537168476,
+        "L1_difference": 0.0030348775366875517,
         "coherent_parameter_per_interval": "1024",
         "ideal_joint_probabilities": [
           [
@@ -2166,19 +2166,19 @@
         ],
         "joint_probabilities": [
           [
-            0.030309392263917455,
-            0.14378646565404035,
-            7.042184309823118e-08
+            0.030309392263837054,
+            0.14378646565384537,
+            7.042184309211892e-08
           ],
           [
-            0.6821168674465201,
-            0.14378646565397524,
-            3.3407822350867145e-07
+            0.6821168674465444,
+            0.14378646565379394,
+            3.3407822353603416e-07
           ],
           [
-            1.9746056057358958e-07,
-            2.0703949829966478e-07,
-            1.7158978287859357e-13
+            1.974605605941619e-07,
+            2.0703949833091e-07,
+            1.7158978286435222e-13
           ]
         ],
         "no_outcome_postselection_or_probability_repair": true,
@@ -5746,31 +5746,31 @@
           {
             "channels": [
               {
-                "attenuation_rate": 2.0684968992728637e-05,
-                "eigenvector_residual": 1.2390311075873988e-15,
-                "nearest_to_one_mode_separation": 0.31024642298004795,
-                "pole_imag": 0.0009765582580984153,
-                "pole_real": 0.9999943519355274,
+                "attenuation_rate": 2.068496899095227e-05,
+                "eigenvector_residual": 8.250780616248693e-16,
+                "nearest_to_one_mode_separation": 0.3102464229800464,
+                "pole_imag": 0.000976558258098418,
+                "pole_real": 0.9999943519355279,
                 "spectator": 0,
-                "wrapped_phase_rate": 0.003906253853406704
+                "wrapped_phase_rate": 0.003906253853406713
               },
               {
-                "attenuation_rate": 2.431056931470646e-05,
-                "eigenvector_residual": 1.876883684738825e-15,
-                "nearest_to_one_mode_separation": 0.3593926054983456,
-                "pole_imag": -0.00024413808334123417,
-                "pole_real": 0.9999938925742567,
+                "attenuation_rate": 2.431056933069377e-05,
+                "eigenvector_residual": 2.4289855908178433e-15,
+                "nearest_to_one_mode_separation": 0.3593926054983461,
+                "pole_imag": -0.00024413808334123677,
+                "pole_real": 0.9999938925742528,
                 "spectator": 1,
-                "wrapped_phase_rate": -0.0009765582782199209
+                "wrapped_phase_rate": -0.0009765582782199352
               },
               {
-                "attenuation_rate": 0.00011972213989145823,
-                "eigenvector_residual": 2.3980719320010786e-15,
-                "nearest_to_one_mode_separation": 0.26262186934506093,
-                "pole_imag": -8.150161301440952e-05,
-                "pole_real": 0.9999700665915853,
+                "attenuation_rate": 0.00011972213988257619,
+                "eigenvector_residual": 1.3327130117546625e-15,
+                "nearest_to_one_mode_separation": 0.2626218693450596,
+                "pole_imag": -8.150161301440561e-05,
+                "pole_real": 0.9999700665915875,
                 "spectator": 2,
-                "wrapped_phase_rate": -0.00032601621011212794
+                "wrapped_phase_rate": -0.0003260162101121116
               }
             ],
             "coherent_parameter_per_interval": "1/4"
@@ -5778,31 +5778,31 @@
           {
             "channels": [
               {
-                "attenuation_rate": 8.27348381575716e-05,
-                "eigenvector_residual": 1.4551608552575304e-15,
-                "nearest_to_one_mode_separation": 0.3074388024605049,
-                "pole_imag": 0.0039059785153570006,
-                "pole_real": 0.9999096395899353,
+                "attenuation_rate": 8.273483815979223e-05,
+                "eigenvector_residual": 1.812160018021256e-15,
+                "nearest_to_one_mode_separation": 0.30743880246050614,
+                "pole_imag": 0.003905978515356982,
+                "pole_real": 0.9999096395899331,
                 "spectator": 0,
-                "wrapped_phase_rate": 0.003906311623796043
+                "wrapped_phase_rate": 0.003906311623796033
               },
               {
-                "attenuation_rate": 9.7237245810733e-05,
-                "eigenvector_residual": 1.2896582984580073e-15,
-                "nearest_to_one_mode_separation": 0.35880132169236606,
-                "pole_imag": -0.0009763999720041171,
-                "pole_real": 0.9999022907566576,
+                "attenuation_rate": 9.72372458100668e-05,
+                "eigenvector_residual": 1.2097014454705944e-15,
+                "nearest_to_one_mode_separation": 0.358801321692365,
+                "pole_imag": -0.0009763999720040963,
+                "pole_real": 0.9999022907566583,
                 "spectator": 1,
-                "wrapped_phase_rate": -0.0009764950742525977
+                "wrapped_phase_rate": -0.0009764950742525763
               },
               {
-                "attenuation_rate": 0.0004788366739272885,
-                "eigenvector_residual": 9.689202528558618e-16,
-                "nearest_to_one_mode_separation": 0.26094099488569644,
-                "pole_imag": -0.0003332938634226165,
-                "pole_real": 0.9995212223810535,
+                "attenuation_rate": 0.00047883667392839926,
+                "eigenvector_residual": 1.2929897943996147e-15,
+                "nearest_to_one_mode_separation": 0.26094099488569766,
+                "pole_imag": -0.0003332938634226009,
+                "pole_real": 0.9995212223810523,
                 "spectator": 2,
-                "wrapped_phase_rate": -0.00033345350114280395
+                "wrapped_phase_rate": -0.00033345350114278866
               }
             ],
             "coherent_parameter_per_interval": "1"
@@ -5810,31 +5810,31 @@
           {
             "channels": [
               {
-                "attenuation_rate": 0.000330617578597538,
-                "eigenvector_residual": 1.2746690822186749e-15,
-                "nearest_to_one_mode_separation": 0.29756837239923567,
-                "pole_imag": 0.015607621741278426,
-                "pole_real": 0.9985564362060017,
+                "attenuation_rate": 0.000330617578598205,
+                "eigenvector_residual": 2.1653131194887013e-15,
+                "nearest_to_one_mode_separation": 0.2975683723992391,
+                "pole_imag": 0.015607621741278417,
+                "pole_real": 0.998556436205999,
                 "spectator": 0,
-                "wrapped_phase_rate": 0.0039072280662067775
+                "wrapped_phase_rate": 0.003907228066206786
               },
               {
-                "attenuation_rate": 0.00038862737094404746,
-                "eigenvector_residual": 1.968349172481558e-15,
-                "nearest_to_one_mode_separation": 0.35787183346024265,
-                "pole_imag": -0.003895989699536119,
-                "pole_real": 0.9984390969365335,
+                "attenuation_rate": 0.00038862737094443663,
+                "eigenvector_residual": 2.110281251866185e-15,
+                "nearest_to_one_mode_separation": 0.35787183346024537,
+                "pole_imag": -0.0038959896995360843,
+                "pole_real": 0.998439096936532,
                 "spectator": 1,
-                "wrapped_phase_rate": -0.0009755151661035052
+                "wrapped_phase_rate": -0.0009755151661034981
               },
               {
-                "attenuation_rate": 0.0019114896698733052,
-                "eigenvector_residual": 3.701936890741182e-15,
-                "nearest_to_one_mode_separation": 0.24672102597778922,
-                "pole_imag": -0.001802520260024948,
-                "pole_real": 0.9923815602969956,
+                "attenuation_rate": 0.001911489669873529,
+                "eigenvector_residual": 2.8075630630699568e-15,
+                "nearest_to_one_mode_separation": 0.2467210259777866,
+                "pole_imag": -0.0018025202600250312,
+                "pole_real": 0.9923815602969948,
                 "spectator": 2,
-                "wrapped_phase_rate": -0.00045408901925380685
+                "wrapped_phase_rate": -0.00045408901925382826
               }
             ],
             "coherent_parameter_per_interval": "4"
@@ -5847,27 +5847,27 @@
       },
       "finite_time_controls": [
         {
-          "Choi_trace_defect_diagnostic": 1.3834871471820238e-18,
-          "Choi_trace_norm_error_diagnostic": 1.7757615201748642,
+          "Choi_trace_defect_diagnostic": 2.220476165773087e-16,
+          "Choi_trace_norm_error_diagnostic": 1.7757615201748638,
           "Ramsey_three_spectator_controls": [
             {
               "X_mean": 0.3100438370388393,
               "Y_mean": -0.14337944224301524,
-              "code_pair_probability": 0.4772903314977948,
-              "outside_code_pair_probability": 0.5227096685022052,
+              "code_pair_probability": 0.47729033149779493,
+              "outside_code_pair_probability": 0.522709668502205,
               "spectator": 0
             },
             {
               "X_mean": 0.2593285377142722,
-              "Y_mean": 0.02312974451295809,
+              "Y_mean": 0.0231297445129581,
               "code_pair_probability": 0.46076345907098437,
               "outside_code_pair_probability": 0.5392365409290156,
               "spectator": 1
             },
             {
-              "X_mean": 0.020955676024119324,
+              "X_mean": 0.020955676024119303,
               "Y_mean": -0.039812665369850425,
-              "code_pair_probability": 0.4198425140597429,
+              "code_pair_probability": 0.4198425140597428,
               "outside_code_pair_probability": 0.5801574859402572,
               "spectator": 2
             }
@@ -5887,27 +5887,27 @@
           "steps": 1
         },
         {
-          "Choi_trace_defect_diagnostic": 1.5543177185897541e-15,
-          "Choi_trace_norm_error_diagnostic": 1.8092442459062286,
+          "Choi_trace_defect_diagnostic": 1.443303155819065e-15,
+          "Choi_trace_norm_error_diagnostic": 1.8092442459062288,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.008620631558989924,
-              "Y_mean": 0.0015531278081607586,
+              "X_mean": -0.008620631558989929,
+              "Y_mean": 0.0015531278081607636,
               "code_pair_probability": 0.6119326496296541,
               "outside_code_pair_probability": 0.3880673503703459,
               "spectator": 0
             },
             {
-              "X_mean": -0.0023325110943351935,
+              "X_mean": -0.0023325110943351914,
               "Y_mean": 0.008065356138142821,
               "code_pair_probability": 0.6297471184317885,
               "outside_code_pair_probability": 0.37025288156821146,
               "spectator": 1
             },
             {
-              "X_mean": -0.0016618009466668909,
-              "Y_mean": 0.002260723211859304,
-              "code_pair_probability": 0.479717272130985,
+              "X_mean": -0.0016618009466668915,
+              "Y_mean": 0.0022607232118593027,
+              "code_pair_probability": 0.47971727213098503,
               "outside_code_pair_probability": 0.520282727869015,
               "spectator": 2
             }
@@ -5927,28 +5927,28 @@
           "steps": 16
         },
         {
-          "Choi_trace_defect_diagnostic": 3.552798722622511e-15,
-          "Choi_trace_norm_error_diagnostic": 1.0268945625405128,
+          "Choi_trace_defect_diagnostic": 4.4409344793302336e-15,
+          "Choi_trace_norm_error_diagnostic": 1.0268945625405117,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.46585824914014096,
-              "Y_mean": 0.5404914463938506,
-              "code_pair_probability": 0.9950491350415357,
-              "outside_code_pair_probability": 0.004950864958464307,
+              "X_mean": -0.46585824914014184,
+              "Y_mean": 0.5404914463938518,
+              "code_pair_probability": 0.9950491350415344,
+              "outside_code_pair_probability": 0.0049508649584656395,
               "spectator": 0
             },
             {
-              "X_mean": 0.36409526247742613,
-              "Y_mean": 0.5657364011847601,
-              "code_pair_probability": 0.9956010398870796,
-              "outside_code_pair_probability": 0.0043989601129204026,
+              "X_mean": 0.364095262477427,
+              "Y_mean": 0.5657364011847612,
+              "code_pair_probability": 0.9956010398870813,
+              "outside_code_pair_probability": 0.004398960112918737,
               "spectator": 1
             },
             {
-              "X_mean": 0.12898972419944155,
-              "Y_mean": 0.06417853702805394,
-              "code_pair_probability": 0.9746020604509656,
-              "outside_code_pair_probability": 0.025397939549034354,
+              "X_mean": 0.12898972419944138,
+              "Y_mean": 0.06417853702805383,
+              "code_pair_probability": 0.9746020604509625,
+              "outside_code_pair_probability": 0.025397939549037463,
               "spectator": 2
             }
           ],
@@ -5967,26 +5967,26 @@
           "steps": 256
         },
         {
-          "Choi_trace_defect_diagnostic": 7.971405406556514e-14,
-          "Choi_trace_norm_error_diagnostic": 0.109711669941499,
+          "Choi_trace_defect_diagnostic": 8.970608731504968e-14,
+          "Choi_trace_norm_error_diagnostic": 0.10971166994149316,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.639943850317491,
-              "Y_mean": 0.7409465255251257,
-              "code_pair_probability": 0.9999804770362534,
-              "outside_code_pair_probability": 1.9522963746632094e-05,
+              "X_mean": -0.6399438503174656,
+              "Y_mean": 0.7409465255250958,
+              "code_pair_probability": 0.9999804770362708,
+              "outside_code_pair_probability": 1.9522963729201592e-05,
               "spectator": 0
             },
             {
-              "X_mean": 0.5270249127612306,
-              "Y_mean": 0.8207848757234775,
-              "code_pair_probability": 0.9999826578712896,
-              "outside_code_pair_probability": 1.7342128710406968e-05,
+              "X_mean": 0.5270249127612366,
+              "Y_mean": 0.8207848757234866,
+              "code_pair_probability": 0.9999826578713026,
+              "outside_code_pair_probability": 1.7342128697417358e-05,
               "spectator": 1
             },
             {
-              "X_mean": 0.8358484876559398,
-              "Y_mean": 0.28988967603732285,
+              "X_mean": 0.8358484876559193,
+              "Y_mean": 0.28988967603731586,
               "code_pair_probability": 0.9998941235250296,
               "outside_code_pair_probability": 0.00010587647497040109,
               "spectator": 2
@@ -6007,28 +6007,28 @@
           "steps": 4096
         },
         {
-          "Choi_trace_defect_diagnostic": 1.3369305662919082e-12,
-          "Choi_trace_norm_error_diagnostic": 0.0071417185174569905,
+          "Choi_trace_defect_diagnostic": 1.5518697448690182e-12,
+          "Choi_trace_norm_error_diagnostic": 0.00714171851777331,
           "Ramsey_three_spectator_controls": [
             {
-              "X_mean": -0.6527788705246715,
-              "Y_mean": 0.7558012925137101,
-              "code_pair_probability": 0.9999999237381152,
-              "outside_code_pair_probability": 7.626188480713836e-08,
+              "X_mean": -0.6527788705243313,
+              "Y_mean": 0.7558012925133168,
+              "code_pair_probability": 0.9999999237394149,
+              "outside_code_pair_probability": 7.626058506904343e-08,
               "spectator": 0
             },
             {
-              "X_mean": 0.539462340481661,
-              "Y_mean": 0.8401627850189526,
-              "code_pair_probability": 0.9999999322550407,
-              "outside_code_pair_probability": 6.77449593089463e-08,
+              "X_mean": 0.5394623404817428,
+              "Y_mean": 0.8401627850190799,
+              "code_pair_probability": 0.9999999322550974,
+              "outside_code_pair_probability": 6.774490257654975e-08,
               "spectator": 1
             },
             {
-              "X_mean": 0.9377437443265795,
-              "Y_mean": 0.3246991806079641,
-              "code_pair_probability": 0.9999995863115236,
-              "outside_code_pair_probability": 4.136884763639159e-07,
+              "X_mean": 0.9377437443264164,
+              "Y_mean": 0.3246991806079081,
+              "code_pair_probability": 0.9999995863108122,
+              "outside_code_pair_probability": 4.136891877948301e-07,
               "spectator": 2
             }
           ],
@@ -6059,7 +6059,7 @@
         "untruncated_trace_norm_upper_exact": "10201/33554432"
       },
       "old_absorbing_terminal_control": {
-        "Choi_trace_norm_to_unchanged_input_diagnostic": 0.1504787883927351,
+        "Choi_trace_norm_to_unchanged_input_diagnostic": 0.15047878839273518,
         "clock_parameter_upper_exact": "128/5",
         "limit_at_fixed_total_coherent_parameter": "unchanged input; mean executed coherent parameter<=t/(N*timeout)->0",
         "mean_accumulated_coherent_parameter_exact": "4163172877865759632232874339959905952607978141918700525585458712713731030871550259612396334635591754977118113190706498174802959690889781494578752517086414390645509982982293993196332896717131897459725233708882866597512676842758039520544631733316201188183012603161599209803269148053722760708127130187160987627606328444925377087560859041708534609150721394314583342546241329752829582706483/162623940541631235655081880115063836540863472613542262583111130475056375932396254656441241277067565388162837718035640746740368222630054139189686040713708136920689523584206567902705989838462242976139990946057653300182713705430444982296289084131847817058317951332986887945912759141066493822909762998295606278860440971924070641042163054511452469201219544839627920323667511102432862011392",
@@ -6073,7 +6073,7 @@
       },
       "timeout_idle_probability_exact": "5/32",
       "two_time_record_control": {
-        "L1_difference": 0.0014297410340733904,
+        "L1_difference": 0.0014297410348914114,
         "coherent_parameter_per_interval": "1024",
         "ideal_joint_probabilities": [
           [
@@ -6094,19 +6094,19 @@
         ],
         "joint_probabilities": [
           [
-            0.03014061494865752,
-            0.14346989841819843,
-            1.3240303951313204e-08
+            0.03014061494892166,
+            0.14346989841898006,
+            1.3240303987726364e-08
           ],
           [
-            0.6829194356912158,
-            0.14346989841816526,
-            6.302409776698381e-08
+            0.6829194356921069,
+            0.1434698984188282,
+            6.302409791343943e-08
           ],
           [
-            3.740450976636952e-08,
-            3.885989209683757e-08,
-            5.941002888241306e-15
+            3.740450985802184e-08,
+            3.885989220216013e-08,
+            5.9410029233414605e-15
           ]
         ],
         "no_outcome_postselection_or_probability_repair": true,
@@ -6345,8 +6345,8 @@
   "source_execution": {
     "N_interval_pulse_requirement": "N*(phase_word_pulses+worst_native_repair_and_recovery_pulses+selector_preparation_and_readout_pulses)",
     "actual512_versus_alternative66_output_operator_difference": {
-      "C": 1.3549233386082455,
-      "E": 1.375051952416766
+      "C": 1.3549233386082462,
+      "E": 1.3750519524167657
     },
     "additional_reachable_syndrome_input_columns_retained": 36,
     "all512_rows_and_six_reference_columns_retained": true,
@@ -6438,7 +6438,7 @@
       "identity_phase_pulses": 1,
       "initialization_storage_readout_physical_costs_included": false,
       "integrated_processor_norm_upper": 22531.506253764015,
-      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
+      "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
       "maximum_work_qubits": 9,
       "native_pulses": 11270,
       "pair_code_pulses": 3586,
@@ -6456,14 +6456,14 @@
     "reachable_basis_columns_are_operator_queries_not_free_state_preparations": true,
     "record_register_requirement": "fresh selector address, coin and rawC/E record per interval; no archive overwrite; total storage grows linearly withN",
     "retained_source_operator_errors": {
-      "encoded": 2.0357815015963274e-11,
-      "mixer_1": 1.1640521647883875e-14,
-      "mixer_4": 1.214684022001286e-14,
-      "mixer_5": 1.1317869562693101e-14,
-      "mixer_6": 1.1479254445650408e-14,
-      "native_C_outputs": 3.256652127128577e-11,
-      "native_E_outputs": 4.3543514437632445e-11,
-      "phase_outputs": 2.0375996604350515e-11
+      "encoded": 4.947723604258537e-11,
+      "mixer_1": 2.1171574175693394e-14,
+      "mixer_4": 2.1457464285474205e-14,
+      "mixer_5": 2.1421542031743544e-14,
+      "mixer_6": 2.177328237989819e-14,
+      "native_C_outputs": 6.911488970743763e-11,
+      "native_E_outputs": 8.78483352179933e-11,
+      "phase_outputs": 4.9491513708419096e-11
     },
     "selector_source_history_executed_here": false,
     "total_literal_input_columns_per_native_branch": 42

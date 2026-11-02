@@ -200,9 +200,9 @@
     "calibration": {
       "block": 0,
       "clock_port": 2,
-      "host_duration_ns": 32356500,
+      "host_duration_ns": 45033045,
       "local_tick_count": 1767,
-      "nanoseconds_per_local_tick": "10785500/589",
+      "nanoseconds_per_local_tick": "15011015/589",
       "other_clock_and_later_blocks_used_in_fit": false,
       "run": "baseline"
     },
@@ -214,10 +214,10 @@
         "block": 1,
         "global_movements": 10000,
         "host_duration_interval_ns": [
-          "8921324375/589",
-          "30757059375/589"
+          "546325890925/25916",
+          "1883507107125/25916"
         ],
-        "host_duration_ns": 31219000,
+        "host_duration_ns": 45779978,
         "host_interval_verdict": "within_tolerance",
         "incident_hits": 11168,
         "incident_minus_scaled_current": "2908/5",
@@ -230,10 +230,10 @@
         "block": 2,
         "global_movements": 10000,
         "host_duration_interval_ns": [
-          "8788956875/589",
-          "30536446875/589"
+          "538219942825/25916",
+          "169999744875/2356"
         ],
-        "host_duration_ns": 31731250,
+        "host_duration_ns": 47960271,
         "host_interval_verdict": "within_tolerance",
         "incident_hits": 11060,
         "incident_minus_scaled_current": "-602/5",
@@ -246,10 +246,10 @@
         "block": 3,
         "global_movements": 10000,
         "host_duration_interval_ns": [
-          "8911519375/589",
-          "92222153125/1767"
+          "49611404575/2356",
+          "5647519118375/77748"
         ],
-        "host_duration_ns": 31413375,
+        "host_duration_ns": 45141222,
         "host_interval_verdict": "within_tolerance",
         "incident_hits": 11160,
         "incident_minus_scaled_current": "3264/5",
@@ -262,10 +262,10 @@
         "block": 1,
         "global_movements": 10000,
         "host_duration_interval_ns": [
-          "8921324375/589",
-          "30757059375/589"
+          "546325890925/25916",
+          "1883507107125/25916"
         ],
-        "host_duration_ns": 858038917,
+        "host_duration_ns": 346113663,
         "host_interval_verdict": "reject",
         "incident_hits": 11168,
         "incident_minus_scaled_current": "2908/5",
@@ -278,10 +278,10 @@
         "block": 2,
         "global_movements": 10000,
         "host_duration_interval_ns": [
-          "8788956875/589",
-          "30536446875/589"
+          "538219942825/25916",
+          "169999744875/2356"
         ],
-        "host_duration_ns": 450908750,
+        "host_duration_ns": 348872605,
         "host_interval_verdict": "reject",
         "incident_hits": 11060,
         "incident_minus_scaled_current": "-602/5",
@@ -294,10 +294,10 @@
         "block": 3,
         "global_movements": 10000,
         "host_duration_interval_ns": [
-          "8911519375/589",
-          "92222153125/1767"
+          "49611404575/2356",
+          "5647519118375/77748"
         ],
-        "host_duration_ns": 380260458,
+        "host_duration_ns": 350056523,
         "host_interval_verdict": "reject",
         "incident_hits": 11160,
         "incident_minus_scaled_current": "3264/5",
@@ -347,9 +347,9 @@
     "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
     "model/native_clock/clock_bridge.py": "466f9b99a3d105ccaa0c6981144b3087bafebcb9a5916af049c1ccbdede11be5",
     "model/native_clock/comparison.py": "594d32829d5d74df6cc38fd3e7166997526a65b3acc42b04da6ad2edfa731536",
-    "model/native_clock/host_clock.py": "0c803a72b0a0eede334fb77ee37c25d0e48195f6e66c2055b844163d8d62aa5f",
-    "model/native_clock/host_clock_records.json": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f",
-    "model/native_clock/host_clock_results.json": "6fc65b9266b2cab64843198497e5d734ec5ecfe027394a558cb102ee4d891f89",
+    "model/native_clock/host_clock.py": "84906bc4afb3d70e026c6b7115e1169a901c4d185399a3f4e72576b18c47e23a",
+    "model/native_clock/host_clock_records.json": "33ea0a4b4dd1e24b8578f1ffbffe16b6620f18810829fc7ac2f624838b76394e",
+    "model/native_clock/host_clock_results.json": "2b97bcf85663027d3c2ae9167f2a2e878e6ccb0f9eda04b7ba7920546296b227",
     "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
     "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
     "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",

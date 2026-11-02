@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "reciprocal_vacuum_results.npz",
-    "sha256": "b06175aba7e7dda2320d5884402291ccf1585ed1e0835f094c4c7ccdb23625b3"
+    "sha256": "cb0a98c1b048a0f704de23bd97c4f7ce65a1e723e8310b1ff1210761d15c85eb"
   },
   "classification": "finite reciprocal thermal geometry-field closure with supplied reservoirs",
   "exact_finite_theorem": {
@@ -41,28 +41,28 @@
     "fixed_total_encoded_occupation": 1,
     "same_supplied_inverse_temperature": "sqrt(14)/14",
     "source_collision": {
-      "bath_gap": 0.13427734374999994,
+      "bath_gap": 0.13427734375,
       "bath_purification_native_pulses": 36,
       "edge": [
         1,
         12
       ],
-      "energy_commutator_diagnostic": 6.671695525200449e-14,
+      "energy_commutator_diagnostic": 2.646185995755417e-14,
       "full_collision_input_columns": 32,
-      "full_quantum_Gibbs_stationarity_error": 1.5169654169138232e-13,
-      "literal_endpoint_total_energy_defect": 1.0722580977461314e-12,
+      "full_quantum_Gibbs_stationarity_error": 3.731281887537844e-13,
+      "literal_endpoint_total_energy_defect": 2.816502301631945e-12,
       "native_pulses": 25782,
       "physical_control_work_or_error_certified": false,
       "proper_code_service_events_required": 51636,
-      "purified_all_column_operator_error": 8.666008168616327e-13,
+      "purified_all_column_operator_error": 2.112732868297834e-12,
       "purified_joint_system_input_columns": 16,
       "source_all_input_operator_admission": 2e-08,
       "source_energy_commutator_admission": 2e-06,
-      "source_operator_error": 1.0032272656386789e-12,
+      "source_operator_error": 2.2246419259757003e-12,
       "thermal_bath_state_and_controls_are_supplied": true,
       "thermal_excited_population": 0.4910291803493119
     },
-    "source_encoded_charge_commutator": 3.0717639444802305e-13,
+    "source_encoded_charge_commutator": 1.9106939955124452e-13,
     "spectral_frame_diagnostics": [
       {
         "charge_label": 0,
@@ -79,7 +79,7 @@
         "charge_label": 1,
         "diagonal_degeneracy_uses_fixed_computational_basis": false,
         "geometry_block": 0,
-        "minimum_resolved_sector_gap": 0.10986328125000006,
+        "minimum_resolved_sector_gap": 0.10986328125000008,
         "phase_pivots": [
           1,
           1,
@@ -169,36 +169,36 @@
       ],
       "entropy_chain_rule_residual": 0.0,
       "geometry_Shannon_entropy": 0.6931384204066462,
-      "geometry_energy_covariance": 0.007526135724708094,
+      "geometry_energy_covariance": 0.007526135724708101,
       "geometry_free_energy_first_variation": 1.0408340855860843e-16,
       "geometry_free_energy_second_variation": 14.966891770862702,
       "geometry_probabilities": [
         0.5020928602102211,
         0.4979071397897789
       ],
-      "geometry_probability_beta_response": -0.007526135724708094,
+      "geometry_probability_beta_response": -0.007526135724708101,
       "geometry_probability_response_to_added_branch1_energy": -0.06681413985679935,
       "isothermal_free_energy_cost_of_forcing_that_uniform_state": 3.277768372642548e-05,
       "joint_quantum_entropy": 1.790924633821851,
       "mean_conditional_field_entropy": 1.0977862134152048,
-      "mean_field_energy_branch1_potential_response": -0.0020114443805869494,
+      "mean_field_energy_branch1_potential_response": -0.002011444380586951,
       "population_detailed_balance_residual": 2.6020852139652106e-18,
-      "population_gap_diagnostic_on_admitted_sector": 0.09212956285123586,
+      "population_gap_diagnostic_on_admitted_sector": 0.09212956285123608,
       "stationary_external_drive_work_in_ideal_collision": 0,
-      "stationary_mean_system_heat": 2.168404344971009e-19,
-      "uniform_geometry_conditional_Gibbs_state_stationarity_defect_L1": 0.0007841722708691601
+      "stationary_mean_system_heat": 0.0,
+      "uniform_geometry_conditional_Gibbs_state_stationarity_defect_L1": 0.0007841722708691878
     },
     "unique_grandcanonical_state_from_arbitrary_charge_weights_claimed": false
   },
   "native_proposal_source_errors": {
-    "C": 1.6670835348349925e-13,
-    "E": 1.712578011393955e-13
+    "C": 3.795985490623145e-13,
+    "E": 3.797058352537287e-13
   },
   "scalar_control": {
     "conditional_field_Hamiltonians_do_not_commute_exactly": true,
     "field_Fock_cutoff": 2,
     "field_oscillators": 3,
-    "full_recorded_quantum_channel_stationarity_error": 5.577920887613675e-17,
+    "full_recorded_quantum_channel_stationarity_error": 8.392416612284275e-17,
     "geometries": [
       "9/10",
       "11/10"
@@ -212,7 +212,7 @@
         "charge_label": 0,
         "diagonal_degeneracy_uses_fixed_computational_basis": false,
         "geometry_block": 0,
-        "minimum_resolved_sector_gap": 0.785433219571841,
+        "minimum_resolved_sector_gap": 0.7854332195718374,
         "phase_pivots": [
           0,
           1,
@@ -230,7 +230,7 @@
         "charge_label": 0,
         "diagonal_degeneracy_uses_fixed_computational_basis": false,
         "geometry_block": 1,
-        "minimum_resolved_sector_gap": 0.6558076513738698,
+        "minimum_resolved_sector_gap": 0.6558076513738733,
         "phase_pivots": [
           0,
           1,
@@ -248,29 +248,29 @@
     "thermodynamics": {
       "bare_area_or_continuous_metric_entropy_stationarity_claimed": false,
       "conditional_free_energies_up_to_one_common_constant": [
-        -3.679834559598665,
-        -2.5474186785335466
+        -3.6798345595986683,
+        -2.5474186785335413
       ],
-      "entropy_chain_rule_residual": 2.220446049250313e-16,
-      "geometry_Shannon_entropy": 0.681827260692446,
-      "geometry_energy_covariance": 0.21356650516157685,
-      "geometry_free_energy_first_variation": -2.220446049250313e-16,
+      "entropy_chain_rule_residual": -2.220446049250313e-16,
+      "geometry_Shannon_entropy": 0.6818272606924458,
+      "geometry_energy_covariance": 0.21356650516157788,
+      "geometry_free_energy_first_variation": 1.3322676295501878e-15,
       "geometry_free_energy_second_variation": 15.311980281581317,
       "geometry_probabilities": [
-        0.5750904169392514,
-        0.4249095830607485
+        0.5750904169392521,
+        0.42490958306074816
       ],
-      "geometry_probability_beta_response": -0.21356650516157685,
-      "geometry_probability_response_to_added_branch1_energy": -0.06530833906590734,
-      "isothermal_free_energy_cost_of_forcing_that_uniform_state": 0.0426783188678919,
-      "joint_quantum_entropy": 2.4172944398529235,
-      "mean_conditional_field_entropy": 1.7354671791604772,
-      "mean_field_energy_branch1_potential_response": -0.05707804940037922,
-      "population_detailed_balance_residual": 1.5720931501039814e-18,
-      "population_gap_diagnostic_on_admitted_sector": 0.10127290421785373,
+      "geometry_probability_beta_response": -0.21356650516157788,
+      "geometry_probability_response_to_added_branch1_energy": -0.06530833906590737,
+      "isothermal_free_energy_cost_of_forcing_that_uniform_state": 0.04267831886789123,
+      "joint_quantum_entropy": 2.417294439852923,
+      "mean_conditional_field_entropy": 1.7354671791604774,
+      "mean_field_energy_branch1_potential_response": -0.0570780494003795,
+      "population_detailed_balance_residual": 2.710505431213761e-18,
+      "population_gap_diagnostic_on_admitted_sector": 0.1012729042178534,
       "stationary_external_drive_work_in_ideal_collision": 0,
-      "stationary_mean_system_heat": -2.439454888092385e-17,
-      "uniform_geometry_conditional_Gibbs_state_stationarity_defect_L1": 0.054190229930376976
+      "stationary_mean_system_heat": 2.5804011705155006e-17,
+      "uniform_geometry_conditional_Gibbs_state_stationarity_defect_L1": 0.05419022993037726
     }
   },
   "schema": "oph.reciprocal_vacuum.v1",
@@ -436,18 +436,18 @@
       0,
       8
     ],
-    "energy_commutator_diagnostic": 1.0883148478722966e-12,
+    "energy_commutator_diagnostic": 5.280602193139043e-13,
     "full_collision_input_columns": 32,
-    "full_quantum_Gibbs_stationarity_error": 1.5070720853204015e-13,
-    "literal_endpoint_total_energy_defect": 2.8530221237916627e-11,
+    "full_quantum_Gibbs_stationarity_error": 4.2319898217529474e-13,
+    "literal_endpoint_total_energy_defect": 7.526026064326804e-11,
     "native_pulses": 24350,
     "physical_control_work_or_error_certified": false,
     "proper_code_service_events_required": 48772,
-    "purified_all_column_operator_error": 7.961169874815562e-13,
+    "purified_all_column_operator_error": 2.0060499362644106e-12,
     "purified_joint_system_input_columns": 16,
     "source_all_input_operator_admission": 2e-08,
     "source_energy_commutator_admission": 2e-06,
-    "source_operator_error": 8.870323764719734e-13,
+    "source_operator_error": 2.0591705094539614e-12,
     "thermal_bath_state_and_controls_are_supplied": true,
     "thermal_excited_population": 0.4494275745284434
   },
@@ -458,6 +458,6 @@
     "native_pulses": 23288,
     "new_committed_energy_record_bits": 4,
     "record_labels_refine_energy_by_declared_geometry_and_charge": true,
-    "source_all_column_operator_error": 8.273578806422834e-13
+    "source_all_column_operator_error": 1.9495867592884185e-12
   }
 }

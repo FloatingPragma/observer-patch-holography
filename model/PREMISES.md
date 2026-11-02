@@ -19,7 +19,7 @@ Many entries cite executable model packages that supply finite instances of a pr
 
 The exhaustive contract inventory below covers every registered claim and tracked Lean source module. Restricted same-model bindings retain all canonical inputs and require explicit domain maps before composition. Missing model realizations remain visible; coverage and typed compatibility do not certify scientific entailment or physical completion.
 
-The current finite interfaces are recorded in [SAME_PROCESS_INTERFACES.md](completion/SAME_PROCESS_INTERFACES.md) and model/completion/finite_attachment_map.json. They assign all 84 canonical rows to completion owners and distinguish 97 realized scoped attachments among 102 reviewed domains from zero canonical physical discharges. Complete source reference recovery, charged response and contact interaction extend their stated finite domains; retrospective mass and ACT/CODATA comparisons add zero eligible physical tests. The larger claim/Lean inventory remains navigation rather than a new proof audit. The 2 November 2026 review supplies quantitative binary-repair lifetimes, the centered local spectrum, controlled spin exchange and same-Weyl-vacuum modular/stress inputs. These are scoped proofs; inherited broad receipt custody is separately reported and no canonical physical premise is discharged. The subsequent finite-gap, native centered readout, repaired spin-limit and finite stress-response proofs close four more scoped inputs. The spin limit is at fixed spacing; no measured species, relativistic interacting continuum or geometric area/stationarity premise is promoted. The subsequent ordered gapless sector, native spin observers, lattice stress refinement and spatial rotation channels close four more scoped inputs. The spin limit stays at fixed spacing and stress convergence uses U=0; no measured species, interacting relativistic continuum or geometric area/stationarity premise is promoted. Actual fixed-region modular limits, two-channel spectral scaling and native finite ordered-ground preparation close three additional component domains. No canonical physical premise or integrated gate is discharged. A regular continuum spin Weyl net, a power-law charged free boundary, actual finite entropy/stress shrinking limits and complete native joint spectroscopy close four further component domains. No canonical physical premise or integrated gate is discharged.
+The current finite interfaces are recorded in [SAME_PROCESS_INTERFACES.md](completion/SAME_PROCESS_INTERFACES.md) and model/completion/finite_attachment_map.json. They assign all 84 canonical rows to completion owners and distinguish 99 realized scoped attachments among 104 reviewed domains from zero canonical physical discharges. Complete source reference recovery, charged response and contact interaction extend their stated finite domains; retrospective mass and ACT/CODATA comparisons add zero eligible physical tests. The larger claim/Lean inventory remains navigation rather than a new proof audit. The 2 November 2026 review supplies quantitative binary-repair lifetimes, the centered local spectrum, controlled spin exchange and same-Weyl-vacuum modular/stress inputs. These are scoped proofs; inherited broad receipt custody is separately reported and no canonical physical premise is discharged. The subsequent finite-gap, native centered readout, repaired spin-limit and finite stress-response proofs close four more scoped inputs. The spin limit is at fixed spacing; no measured species, relativistic interacting continuum or geometric area/stationarity premise is promoted. The subsequent ordered gapless sector, native spin observers, lattice stress refinement and spatial rotation channels close four more scoped inputs. The spin limit stays at fixed spacing and stress convergence uses U=0; no measured species, interacting relativistic continuum or geometric area/stationarity premise is promoted. Actual fixed-region modular limits, two-channel spectral scaling and native finite ordered-ground preparation close three additional component domains. No canonical physical premise or integrated gate is discharged. A regular continuum spin Weyl net, a power-law charged free boundary, actual finite entropy/stress shrinking limits and complete native joint spectroscopy close four further component domains. No canonical physical premise or integrated gate is discharged. The separately certified centered cube has a strict neutral gap above 1/128, with exact singlet/charged-response controls. The four-channel onsite Weyl mass catalogue and its texture degrees concern the stated onsite family; they do not supply a dynamically selected mass or physical particle assignment. The coherent twelve-qutrit enlargement also realizes pair-supported conserved exchange charge with complete native preparation, transport and readout, and exact carrier-specific localization bounds. This does not identify electric charge, a localized particle species or a physical energy law.
 
 These groups are workgroup navigation crosswalks, not claim-consumer edges or changes
 to proof status. A group links related construction, branch, downstream or metrology
@@ -548,6 +548,18 @@ Sources:
 - [Complete native joint spin-energy and graph-symmetry observations](../model/native_joint_spin_spectroscopy/test_joint.py).
 - [Complete native joint spin-energy and graph-symmetry observations](../model/native_joint_spin_spectroscopy/test_packet.py).
 - [Complete native joint spin-energy and graph-symmetry observations](../paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/README.md).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/__init__.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/__main__.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/core.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_core.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/service.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_service.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/optimality.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_optimality.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/results.json).
 
 <a id="re-03"></a>
 
@@ -2162,7 +2174,7 @@ Sources:
 - [Native response calibration and original and extended binary-controller scopes](../model/common_source/SLOW_GEOMETRY.md).
 - [Exact slow projector and committed-current displacements on all joint paths](../model/common_source/slow_geometry.py).
 - [Exact native continuity, mean transport and their restricted field interpretation](../model/common_source/NATIVE_FIELDS.md).
-- [Exact structural recovery and distinct response-metric domains](../model/relative_observer_geometry/intrinsic_geometry.py).
+- [Radial selection obstruction and distinguishing readout](../model/relative_observer_geometry/intrinsic_geometry.py); exact source anchor: ` def radial_nonidentifiability_control( `.
 - [Single-carrier geometry and scheduler certificates](../model/relative_observer_geometry/intrinsic_results.json).
 - [Single-carrier clock comparison, spatial covariance and laboratory attachment contract](../model/native_clock/COMPARISON.md).
 - [Exact stopped current moments and action in one local clock](../model/native_action/current_clock_action.py).
@@ -2172,23 +2184,15 @@ Sources:
 - [Structural Gram versus inferred weighted field dynamics](../model/relative_observer_geometry/clock_reconstruction.py); exact source anchor: ` def predict_field( `.
 - [Actual-source bounded Green forms and nested observation maps](../model/physical_space_time/uniform_green.py); exact source anchor: ` def dictionary_control( `.
 - [Current native continuum and observable connection](../model/observer_time_fields/REFINEMENT.md); exact source anchor: ` ## Native temporal correlations and the spatial Green field `.
-- [Operator-norm Green limit and the continuum generator A](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### A common positive spatial generator from the native Green field `.
-- [Strongly local H1 form and spectral dimension two](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### Locality and spectral dimension of the source continuum `.
-- [Boundary-trace exclusion of a Dirichlet bulk](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### A boundary trace test for a radial extension `.
+- [Native construction and retained state, readout and clock contract](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### Independent native records give a radial product field `.
 - [Compactness, locality and eigenvalue certificates](../model/physical_space_time/local_continuum.py).
 - [Retained continuum-operator certificates](../model/physical_space_time/local_continuum_results.json).
 - [Forward cone placement and converse countercontrol](../model/physical_space_time/causal_placement.py).
 - [Executed four-event placement witness](../Lean/Geometry/NativeRepairSemanticPlacement.lean).
 - [Native causal-cone bound in graph hops per ordered repair event](../model/common_source/CAUSALITY.md).
-- [Positive local conductance representation](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### A local conductance graph with the same continuum Green limit `.
-- [Complete-readout decay-spectrum obstruction](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### A complete linear readout preserves the decay spectrum `.
 - [Native axial current observations](../model/native_circulation/README.md); exact source anchor: ` ### A three-component axial counter from the recovered frame `.
-- [Current native construction and scope](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### The Poisson extension as a native lag-record readout `.
-- [Native construction and retained state, readout and clock contract](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### Independent native records give a radial product field `.
 - [Current product field, clock and preparation contract](../model/relative_observer_geometry/README.md); exact source anchor: ` ### Lorentzian density of the product wave `.
-- [Radial selection obstruction and distinguishing readout](../model/relative_observer_geometry/intrinsic_geometry.py); exact source anchor: ` def radial_nonidentifiability_control( `.
 - [Finite observer-particle witness](../model/observer_particles/geometric_matter_join.py).
-- [Finite modular dilation bounds and compressed boundary identity](../model/common_source/modular_covariance.py); exact source anchor: ` def ward_certificate( `.
 - [Native projected derivative and finite-parameter countercontrol](../model/common_source/modular_covariance.py); exact source anchor: ` def native_certificate( `.
 - [Sharp and compressed modular-covariance controls](../model/common_source/test_modular_covariance.py).
 - [Exact original-action retarded matter response, Schur memory and certified low-frequency coefficients](../model/retarded_matter_response/README.md).
@@ -2366,6 +2370,18 @@ Sources:
 - [Actual finite lattice entropy in a common shrinking matter limit](../model/shrinking_modular_entropy/test_bounds.py).
 - [Actual finite lattice entropy in a common shrinking matter limit](../model/shrinking_modular_entropy/test_packet.py).
 - [Actual finite lattice entropy in a common shrinking matter limit](../paper/tex_fragments/SHRINKING_MODULAR_ENTROPY.tex).
+- [Direct exact centered singlet, full finite gap and certified reference approximation](../model/centered_source_ground/gap.py).
+- [Complete centered charged response, current and repair identities](../model/centered_source_ground/particles.py).
+- [Direct exact centered singlet, full finite gap and certified reference approximation](../model/centered_source_ground/test_gap.py).
+- [Complete centered charged response, current and repair identities](../model/centered_source_ground/test_particles.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/README.md).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/__init__.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/__main__.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/algebra.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/packet.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/results.json).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/test_algebra.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/test_packet.py).
 
 <a id="re-14"></a>
 
@@ -3240,7 +3256,7 @@ A finite supplied-action spectral diagnostic jointly resolves the conserved char
 
 2 November 2026, continuum-field/entropy construction: The unchanged ordered cubic spin-1/2 ground constructs a regular Weyl field net in three continuous spatial coordinates and continuous time, with nonnegative energy and locality outside a conservative l1 cone. Q_p(F)=p^2 sum eps_x F(px) Sx^3 and P_p(G)=-p sum G(px) Sx^2 give one canonical pair, [Q(F),P(G)]=i m_s integral FG, m_s>1/1000. Maximality of order makes its macroscopic phase scalar; an exact reference-uniform energy-kick inequality controls all time histories and full-GNS regularity. No sharp shell, Lorentz covariance, nonzero connected interaction or measured species is established.
 
-2 November 2026, continuum-field/entropy construction: For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost.
+2 November 2026, continuum-field/entropy construction: For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost. The separately certified centered cube has a strict neutral gap above 1/128, with exact singlet/charged-response controls. The four-channel onsite Weyl mass catalogue and its texture degrees concern the stated onsite family; they do not supply a dynamically selected mass or physical particle assignment. The coherent twelve-qutrit enlargement also realizes pair-supported conserved exchange charge with complete native preparation, transport and readout, and exact carrier-specific localization bounds. This does not identify electric charge, a localized particle species or a physical energy law.
 
 **Remaining input:** A common construction must identify physical charge and chiral sectors, interactions, vacuum, clock and metrological units, and reproduce the simultaneous measured spectrum. Specified coherent controls are architecture inputs; their derived free continuum and finite pole laws are not empirical identification. The echoed field has two Dirac tastes per sector; the interacting path has a nonuniform finite-volume bound. Neither passes the charged hierarchy. The overlap route additionally needs the chiral measure, quantum gauge/Higgs fields and a controlled interacting continuum. The wedge vacuum theorem applies to the specified free action only. The specified current menu and chosen spin/exterior lift provide a conditional same-object construction. Physical completeness of the accessible current, local gauge dynamics, physical spin/statistics, vacuum, clock/units and an uncalibrated mass-generating law matching observations remain required; the measured spectrum is not derived. The 17-current result excludes the stated exchange law and does not contradict a classification conditional on complete 12-dimensional response. The executable construction realizes calibrated Standard Model charged-matter structure and permits observer-record recovery of its supplied mass parameters. Their source derivation and the complete interacting physical continuum remain unestablished. Generation ordering within an established physical charge sector is a naming convention, not evidence of an extra conserved generation charge. The same response must emit the mass eigenvectors, residues and charged-current matrix with consistent permutations and phases; an exactly conserved generation label across charged weak transitions would exclude CKM mixing. The finite family-band window excludes no additional entry once faithfulness is imposed on the actual four-band table; the single-band realization and operational cost rule remain physical assumptions. Spectral visibility requires the accessible interpolator and reference-state contract: a mode dark to a restricted menu has not been shown absent or decoupled. Nambu redundancy, regulator tastes and physical species must be counted separately. A common kinetic metric, current vertices and charged preparation/readout including any phase-reference service must be identified on the same response; finite Hermitian action spectroscopy alone does not supply them. The native path class is not a protected live sector or source-only charge. Bare C/E moving amplitudes are positive; supplied phase-sensitive source controls implement and read both flat characters but do not select physical statistics. The triangular path fillings are declared relations, not consequences of edge moves. A common particle construction must join this exchange interface to reference-compatible localization, autonomous protection, physical spin and the same rest/kinetic/stress action. The active code remains exterior-supported, has a full-exterior deficit and requires supplied recovery and core reset after every attempt. The q=2 pair has no invariant native-edge bond. Neither construction supplies a localized physical species, intrinsic rest energy or stress; intermediate recovery changes the history grammar. The all-occupation result classifies scalar transport under declared path relations and an explicit spectator-compatibility condition. It does not select physical statistics or join a spatially protected native core to Lorentz spin, the matched particle spectrum and a physical mass dictionary. Hidden spin/eta multiplets and an eta-coherent source signal do not supply a localized native boundary charge, a protected charge-one particle, Lorentz spin or a physical mass dictionary. The eta preparation supplies coherence between even number sectors and does not select a physical vacuum or an autonomous phase reference. A sufficient route to the protected-spin mass shell is common-speed concentration of the entire selected response, expressed by a vanishing ratio-moment defect or the equivalent ground-specific current/force remainder. Alternatively, prove a sharp component retains a nonzero fraction of the original response while a continuum may coexist. The new exact identities and positive-measure controls establish neither of these estimates.
 
@@ -3255,11 +3271,7 @@ Sources:
 - [Declared finite scalar/matter interaction on the shared source](../model/common_source/scalar_coupling.py).
 - [Conditional interacting product field and same Gibbs clock](../model/interacting_band_extension/README.md); exact source anchor: ` ## Interacting readouts on the same radial product `.
 - [Quantitative Gibbs preparation and complete interacting history certificate](../model/interacting_band_extension/thermal_results.json).
-- [Native source construction and explicit theorem domain](../model/native_effective_fields/neutral_transport.py); exact source anchor: ` def exact_audit( `.
-- [Native source construction and explicit theorem domain](../model/native_effective_fields/neutral_transport.py); exact source anchor: ` def first_tick_predictions( `.
 - [Native source construction and explicit theorem domain](../model/native_effective_fields/neutral_transport.py); exact source anchor: ` def execution( `.
-- [Native common-reference and complete-instrument theorem attachment](../model/native_effective_fields/neutral_instrument.py); exact source anchor: ` def herald_audit( `.
-- [Native common-reference and complete-instrument theorem attachment](../model/native_effective_fields/neutral_instrument.py); exact source anchor: ` def source_budget( `.
 - [Native common-reference and complete-instrument theorem attachment](../model/native_effective_fields/neutral_instrument.py); exact source anchor: ` def execution( `.
 - [Finite observer-particle witness](../model/observer_particles/unified_yukawa_action.py).
 - [One protected finite Weyl-Higgs field with three-axis moving detector response](../model/common_source/chiral_candidate/protected_momentum.py).
@@ -4057,6 +4069,30 @@ Sources:
 - [Complete native joint spin-energy and graph-symmetry observations](../model/native_joint_spin_spectroscopy/test_joint.py).
 - [Complete native joint spin-energy and graph-symmetry observations](../model/native_joint_spin_spectroscopy/test_packet.py).
 - [Complete native joint spin-energy and graph-symmetry observations](../paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex).
+- [Direct exact centered singlet, full finite gap and certified reference approximation](../model/centered_source_ground/gap.py).
+- [Complete centered charged response, current and repair identities](../model/centered_source_ground/particles.py).
+- [Direct exact centered singlet, full finite gap and certified reference approximation](../model/centered_source_ground/test_gap.py).
+- [Complete centered charged response, current and repair identities](../model/centered_source_ground/test_particles.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/README.md).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/__init__.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/__main__.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/algebra.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/packet.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/results.json).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/test_algebra.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/test_packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/README.md).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/__init__.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/__main__.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/core.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_core.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/service.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_service.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/optimality.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_optimality.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/results.json).
 
 <a id="re-20"></a>
 
@@ -4500,7 +4536,7 @@ Two sequential native coin/current records isolate one modular gap. Source-certi
 
 2 November 2026, continuum-field/entropy construction: For the exact U=0 source, natural exterior-shell perturbations of full eight-valley regional density matrices have an explicit regulator-free entropy derivative bound. A positive symbolic mesh schedule, shrinking R/L, and finite perturbation steps give a common o(R^4) matter-entropy error at fixed shell scale L. Observer-frame shell preparations yield an invertible 9-by-9 finite entropy-response matrix approaching the established Weyl stress matrix. This is a matter/modular refinement input to the existing Einstein stack, not an area or stationarity theorem.
 
-2 November 2026, continuum-field/entropy construction: For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost.
+2 November 2026, continuum-field/entropy construction: For finite positive-field spin references with a declared commuting symmetry group, the symmetry and positive excitation generator define a complete joint Fourier/Fejer instrument. On the selected open eight-site cube, exact source permutations and the retained full256-state residual certificate enclose all32 joint bin probabilities without separating degenerate eigenvectors; tau=1/2 puts every excitation in one phase period. An actual19,228-pulse two-site source execution retains128 full work rows and every native first-failure output. The prepared transverse dimer state is in the common kernel of exchange and selected-field terms, closing its state-specific splitting error exactly while preserving the general operator bound. Finite packet preparation exposes its full rejected outcomes and explicit success-normalization cost. The separately certified centered cube has a strict neutral gap above 1/128, with exact singlet/charged-response controls. The four-channel onsite Weyl mass catalogue and its texture degrees concern the stated onsite family; they do not supply a dynamically selected mass or physical particle assignment. The coherent twelve-qutrit enlargement also realizes pair-supported conserved exchange charge with complete native preparation, transport and readout, and exact carrier-specific localization bounds. This does not identify electric charge, a localized particle species or a physical energy law.
 
 **Remaining input:** Architecture and admitted observer services may legitimately be design inputs. Unique selection of an implementation is a separate question. Physical interpretation and quantitative service fidelity require independent evidence. Complete native record laws, benchmark field laws and laboratory apparatus must be connected through compatible observations and interventions before their physical claims can be combined. A unique physical source-screen limit, relativistic field behavior, responsive gravity and observed matter are not established. A programmed modular probe is not automatically the evolution of the continuing observer. No cross-reference transfers a certificate to a different state, detector, action, clock or approximation domain. The single-carrier passage, action and clock packets provide explicit domain maps and countercontrols without federation. An integrated replay can check those maps without removing their preparation, scheduler, interface or physical-attachment premises. Existing public-data comparisons must stay attached to their own observable dictionaries until a derivation connects them to that same process. Typed contract checks validate the stated composition ledger, not its mathematical entailment. The finite A4 full-premise witness is a synthetic branch; it is not a source-derived realization of the common physical tower. Unbound theorem contracts retain their own state, action, clock and refinement premises. A sufficient route to the protected-spin mass shell is common-speed concentration of the entire selected response, expressed by a vanishing ratio-moment defect or the equivalent ground-specific current/force remainder. Alternatively, prove a sharp component retains a nonzero fraction of the original response while a continuum may coexist. The new exact identities and positive-measure controls establish neither of these estimates.
 
@@ -4516,13 +4552,12 @@ Sources:
 - [N4 shared bare-occupation response and finite memory certificate](../code/native_response/README.md).
 - [Live observer and repair-law implementation](../model/README.md).
 - [Reproducible package receipt and source verification](../model/verify.py).
-- [Counterexamples, identifiability and compatible constructions](../model/CONSTRUCTION.md); exact source anchor: ` ## Counterexamples and identifiability `.
+- [Operational completion criteria and effective-description scope](../model/CONSTRUCTION.md); exact source anchor: ` ## Completion target and acceptance criteria `.
 - [Executed scalar detector and native feedback contract](../model/observer/scalar_response/README.md).
 - [Binary instrument, history law and inherited refinement bound](../model/observer/scalar_response/DERIVATION.md).
 - [Retained scalar-response execution and controls](../model/observer/scalar_response/results.json).
 - [Composed finite source apparatus and retained physical obligations](../model/observer/source_scalar/DERIVATION.md).
 - [Current executable source-compiled two-site construction](../model/observer/source_scalar/experiment.py).
-- [Operational completion criteria and effective-description scope](../model/CONSTRUCTION.md); exact source anchor: ` ## Completion target and acceptance criteria `.
 - [Complete ideal two-oscillator output bound on the executed construction family](../model/observer/source_scalar/cutoff.py).
 - [Specified finite candidate comparison and complete-data decision rule](../model/predictions/protocol.py).
 - [Retrospective source-output mismatch with inherited physical-completion boundary](../model/predictions/endpoint_audit.py).
@@ -4544,27 +4579,18 @@ Sources:
 - [Exact original-array execution, complete-output and resource certificates](../model/compiled_clock_history/results.json).
 - [Common-current calibration propagated through the same complete compiled history](../model/compiled_clock_history/law_calibration.py); exact source anchor: ` def complete_bound( `.
 - [Explicit synthetic A4 premise inhabitant and its source-selection boundary](../Lean/Tower/FullPremiseInhabitant.lean); exact source anchor: ` theorem branch_endpoint_unconditional `.
-- [Current native continuum and observable connection](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### One continuum observation path for both native clocks `.
-- [Current native continuum and observable connection](../model/observer_time_fields/REFINEMENT.md); exact source anchor: ` ## Native temporal correlations and the spatial Green field `.
-- [Current native continuum and observable connection](../model/predictions/README.md); exact source anchor: ` ## Recovering the modular clock from visible current records `.
-- [Wave-phase modular reference and finite return-cap contract](../model/observer_time_fields/wave_reference.py); exact source anchor: ` def cap_bounds( `.
-- [Current native construction and scope](../model/observer_time_fields/REFINEMENT.md); exact source anchor: ` ### Source-coded quantum fluctuations and an ordered detector law `.
 - [Native construction and retained state, readout and clock contract](../model/physical_space_time/OCCUPATION_FIELD.md); exact source anchor: ` ### Independent native records give a radial product field `.
 - [Current product field, clock and preparation contract](../model/observer_time_fields/REFINEMENT.md); exact source anchor: ` ### One product field, state and active clock `.
+- [Current native continuum and observable connection](../model/predictions/README.md); exact source anchor: ` ## Recovering the modular clock from visible current records `.
+- [Wave-phase modular reference and finite return-cap contract](../model/observer_time_fields/wave_reference.py); exact source anchor: ` def cap_bounds( `.
 - [Source-compiled positive-log clock and intersector detectors for the actual prepared reference](../model/predictions/prepared_clock_source.py); exact source anchor: ` def compiled_source(): `.
 - [Same-register native clock, feedback and complete retained quantum outputs](../model/predictions/prepared_clock.py); exact source anchor: ` def execute( `.
 - [Complete finite face reconstruction and dynamical-phase ambiguity](../model/observer/holonomy_reconstruction.py).
-- [Local-current occupation intervals](../model/native_clock/bit_readout.py); exact source anchor: ` def decode( `.
 - [Local-current occupation intervals](../model/native_clock/bit_readout.py); exact source anchor: ` def occupation_interval( `.
-- [Native means and conditional tensor decoder](../model/common_source/null_tomography.py); exact source anchor: ` def native_record_tensor_certificate( `.
 - [Native means and conditional tensor decoder](../model/common_source/null_tomography.py); exact source anchor: ` def interval_tensor_estimate( `.
-- [Uniform native entropy preparation](../model/native_equilibration/entropy_refinement.py); exact source anchor: ` def entropy_budget( `.
 - [Uniform native entropy preparation](../model/native_equilibration/entropy_refinement.py); exact source anchor: ` def screen_family_budget( `.
 - [Uniform native entropy preparation](../model/native_equilibration/construction.py); exact source anchor: ` def graph_certificate( `.
 - [Full-work Palm action and preparation composition](../model/native_modular_reference/full_flow.py); exact source anchor: ` def composed_bound( `.
-- [Native regional state, clock and finite thermal theorem attachment](../model/native_modular_reference/completed_clock.py); exact source anchor: ` def reference( `.
-- [Native regional state, clock and finite thermal theorem attachment](../model/native_modular_reference/completed_clock.py); exact source anchor: ` def certify( `.
-- [Native regional state, clock and finite thermal theorem attachment](../model/native_modular_reference/completed_clock.py); exact source anchor: ` def budget( `.
 - [Native regional state, clock and finite thermal theorem attachment](../model/native_modular_reference/completed_clock.py); exact source anchor: ` def branch_covariance_audit( `.
 - [Native regional state, clock and finite thermal theorem attachment](../Lean/QFT/StructuralInheritance.lean); exact source anchor: ` theorem gibbsState_kms `.
 - [Native regional state, clock and finite thermal theorem attachment](../model/native_equilibration/cut_completion.py); exact source anchor: ` def heat_bath_audit( `.
@@ -5356,6 +5382,30 @@ Sources:
 - [Complete native joint spin-energy and graph-symmetry observations](../model/native_joint_spin_spectroscopy/test_joint.py).
 - [Complete native joint spin-energy and graph-symmetry observations](../model/native_joint_spin_spectroscopy/test_packet.py).
 - [Complete native joint spin-energy and graph-symmetry observations](../paper/tex_fragments/NATIVE_JOINT_SPIN_SPECTROSCOPY.tex).
+- [Direct exact centered singlet, full finite gap and certified reference approximation](../model/centered_source_ground/gap.py).
+- [Complete centered charged response, current and repair identities](../model/centered_source_ground/particles.py).
+- [Direct exact centered singlet, full finite gap and certified reference approximation](../model/centered_source_ground/test_gap.py).
+- [Complete centered charged response, current and repair identities](../model/centered_source_ground/test_particles.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/README.md).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/__init__.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/__main__.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/algebra.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/packet.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/results.json).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/test_algebra.py).
+- [Complete source-derived onsite mass family and restricted texture topology](../model/native_mass_channels/test_packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/README.md).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/__init__.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/__main__.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/core.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_core.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/service.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_service.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/optimality.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_optimality.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/test_packet.py).
+- [Local exchange-charge realization, complete source service and localization bounds](../model/local_exchange_charge/results.json).
 
 <a id="re-27"></a>
 

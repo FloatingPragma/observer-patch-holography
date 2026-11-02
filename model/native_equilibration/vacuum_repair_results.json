@@ -1,7 +1,7 @@
 {
   "artifact": {
     "filename": "vacuum_repair_results.npz",
-    "sha256": "bff42824178133315fb54103698596d6620571f16338f9bc5ee64d591f766cb6"
+    "sha256": "387e915588901763ab2f9f0f960736a5be480ef2dd11186f8613c9883df5c02c"
   },
   "compatible_state_geometry_response": [
     {
@@ -122,8 +122,8 @@
     ],
     "reduced_joint_channel_exact_target": "rho_GF -> (sum_g |g><g| tensor |vac_g><vac_g|/2)*Tr(rho_GF)",
     "source_feedback_reads_only_committed_native_geometry_record": true,
-    "source_isometry_completeness_residual": 2.6280329871770045e-14,
-    "source_isometry_error": 1.4461650873365498e-14
+    "source_isometry_completeness_residual": 2.618189249789686e-14,
+    "source_isometry_error": 1.3885440408560832e-14
   },
   "joint_repaired_family": {
     "any_positive_bare_area_coefficient_gives_stationarity": false,
@@ -140,7 +140,7 @@
   "literal_binary_source_cycle_work": {
     "exact_certified_lower_bound": "1/1000",
     "input_arrays_modified_or_renormalized": false,
-    "interval_midpoint_diagnostic": 0.16349661785975608,
+    "interval_midpoint_diagnostic": 0.16349661785978362,
     "proof": "exact Rayleigh intervals of the same returned vectors in both branch Hamiltonians"
   },
   "native_geometry": [
@@ -266,8 +266,8 @@
       "finite_ground_energy_diagnostic": 4.027339502740039,
       "geometry": "9/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.19900889370089395,
-      "source_state_error_to_finite_target": 3.6976671282011634e-13
+      "source_regional_entropy_diagnostic": 0.19900889370090846,
+      "source_state_error_to_finite_target": 3.755129985671954e-13
     },
     {
       "band": 1,
@@ -275,8 +275,8 @@
       "finite_ground_energy_diagnostic": 4.605493000885694,
       "geometry": "9/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.12053643446414905,
-      "source_state_error_to_finite_target": 3.737613977664031e-13
+      "source_regional_entropy_diagnostic": 0.12053643446415885,
+      "source_state_error_to_finite_target": 3.7361302125592255e-13
     },
     {
       "band": 2,
@@ -284,8 +284,8 @@
       "finite_ground_energy_diagnostic": 5.177845358577845,
       "geometry": "9/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.07941888061295177,
-      "source_state_error_to_finite_target": 3.8346820055924614e-13
+      "source_regional_entropy_diagnostic": 0.07941888061294576,
+      "source_state_error_to_finite_target": 3.8052347382184173e-13
     },
     {
       "band": 3,
@@ -293,8 +293,8 @@
       "finite_ground_energy_diagnostic": 5.377350906076204,
       "geometry": "9/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.06955686702475963,
-      "source_state_error_to_finite_target": 3.773072207758271e-13
+      "source_regional_entropy_diagnostic": 0.06955686702475387,
+      "source_state_error_to_finite_target": 3.7427506087518445e-13
     },
     {
       "band": 0,
@@ -302,8 +302,8 @@
       "finite_ground_energy_diagnostic": 4.027343546394563,
       "geometry": "11/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.1989870869270066,
-      "source_state_error_to_finite_target": 3.524257507332519e-13
+      "source_regional_entropy_diagnostic": 0.19898708692700554,
+      "source_state_error_to_finite_target": 3.537113743503421e-13
     },
     {
       "band": 1,
@@ -311,8 +311,8 @@
       "finite_ground_energy_diagnostic": 5.017499467308246,
       "geometry": "11/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.08873659810028185,
-      "source_state_error_to_finite_target": 3.6330207594383975e-13
+      "source_regional_entropy_diagnostic": 0.08873659810027303,
+      "source_state_error_to_finite_target": 3.561399883824897e-13
     },
     {
       "band": 2,
@@ -320,8 +320,8 @@
       "finite_ground_energy_diagnostic": 5.932168285374883,
       "geometry": "11/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.04941373042766839,
-      "source_state_error_to_finite_target": 3.6748537162542934e-13
+      "source_regional_entropy_diagnostic": 0.04941373042764872,
+      "source_state_error_to_finite_target": 3.6717513826665883e-13
     },
     {
       "band": 3,
@@ -329,19 +329,19 @@
       "finite_ground_energy_diagnostic": 6.24256059994919,
       "geometry": "11/10",
       "native_pulses": 12291,
-      "source_regional_entropy_diagnostic": 0.04140582431877112,
-      "source_state_error_to_finite_target": 3.6978377574455936e-13
+      "source_regional_entropy_diagnostic": 0.041405824318772384,
+      "source_state_error_to_finite_target": 3.693099518584552e-13
     }
   ],
   "reset_dilation": {
     "all_input_columns": 8,
-    "all_input_isometry_error": 1.4939944045136805e-14,
+    "all_input_isometry_error": 1.3843418221746037e-14,
     "discarded_environment_qubits": 3,
     "fresh_blank_qubits": 3,
     "input_or_reference_information_destroyed_globally": false,
-    "isometry_residual": 2.7419310535455665e-14,
+    "isometry_residual": 2.6006117019288368e-14,
     "native_pulses": 498,
-    "ordinary_swap_all_column_error": 4.268847044488424e-15,
+    "ordinary_swap_all_column_error": 4.304710820279934e-15,
     "ordinary_swap_native_pulses": 82
   },
   "schema": "oph.native_equilibration.vacuum_repair.v1",
