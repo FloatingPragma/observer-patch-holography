@@ -7,13 +7,13 @@
     "published_time_ms": 0.4,
     "subdivisions": 128
   },
-  "changed_action_complete_law_total_variation": 0.16139288046275482,
+  "changed_action_complete_law_total_variation": 0.16139288046291364,
   "full_primary_empirical_comparison": {
     "case_checks": [
       {
         "case": "a",
         "endpoints": 26,
-        "maximum_complete_endpoint_matrix_difference": 3.952503620366698e-14,
+        "maximum_complete_endpoint_matrix_difference": 7.353562785441386e-15,
         "maximum_constraint_residual": 0.0,
         "nodes_including_boundary": 355,
         "updates": 354
@@ -21,7 +21,7 @@
       {
         "case": "b",
         "endpoints": 26,
-        "maximum_complete_endpoint_matrix_difference": 1.7926308001922603e-14,
+        "maximum_complete_endpoint_matrix_difference": 4.747161003429928e-15,
         "maximum_constraint_residual": 0.0,
         "nodes_including_boundary": 355,
         "updates": 354
@@ -29,7 +29,7 @@
       {
         "case": "c",
         "endpoints": 26,
-        "maximum_complete_endpoint_matrix_difference": 2.5660749272397172e-14,
+        "maximum_complete_endpoint_matrix_difference": 5.1202253444287125e-15,
         "maximum_constraint_residual": 0.0,
         "nodes_including_boundary": 355,
         "updates": 354
@@ -37,7 +37,7 @@
       {
         "case": "d",
         "endpoints": 26,
-        "maximum_complete_endpoint_matrix_difference": 1.5393603377052137e-14,
+        "maximum_complete_endpoint_matrix_difference": 6.192231716218042e-15,
         "maximum_constraint_residual": 0.0,
         "nodes_including_boundary": 355,
         "updates": 354
@@ -45,7 +45,7 @@
       {
         "case": "e",
         "endpoints": 26,
-        "maximum_complete_endpoint_matrix_difference": 1.4923709535097456e-14,
+        "maximum_complete_endpoint_matrix_difference": 2.7924484474243957e-15,
         "maximum_constraint_residual": 0.0,
         "nodes_including_boundary": 355,
         "updates": 354
@@ -53,1700 +53,1700 @@
     ],
     "endpoint_count": 130,
     "endpoint_semantics": "separate prepared experiments with shared unread computed prefixes",
-    "maximum_retained_primary_probability_difference": 3.674838211509268e-14,
+    "maximum_retained_primary_probability_difference": 5.773159728050814e-15,
     "new_independent_data": false,
     "positive_duration_parameters_fitted": false,
-    "prediction_payload_sha256_before_scoring": "86f74555c076653fe9d6c8b03f3e34609998ffddb23781833b681df18ae78f64",
+    "prediction_payload_sha256_before_scoring": "60ed627180ba909c45849b47320a0db7ccb3af80defbe03c8b3e61f7f3b1ca93",
     "predictions": [
       {
-        "acceptance_probability": 1.0000000000000002,
+        "acceptance_probability": 0.999999999999999,
         "case": "a",
-        "predicted_position_estimator": -1.1531610159041341,
+        "predicted_position_estimator": -1.153161015904261,
         "probabilities": [
-          0.17383681034168735,
-          0.8261631896583128,
-          1.1223493293329058e-31,
-          3.7502737642200906e-31
+          0.1738368103416513,
+          0.8261631896583477,
+          1.2798750650387093e-31,
+          5.35865883050201e-31
         ],
         "time_ms": 0.0,
-        "total_probability_mass": 1.0000000000000002
+        "total_probability_mass": 0.999999999999999
       },
       {
-        "acceptance_probability": 0.9413135402740642,
+        "acceptance_probability": 0.9413135402744053,
         "case": "a",
-        "predicted_position_estimator": -0.9122098772290532,
+        "predicted_position_estimator": -0.9122098772305688,
         "probabilities": [
-          0.2277866600338409,
-          0.7135268802402234,
-          0.026389558839640153,
-          0.0322969008863551
+          0.2277866600335199,
+          0.7135268802408854,
+          0.026389558839485714,
+          0.032296900886328764
         ],
         "time_ms": 0.4,
-        "total_probability_mass": 1.0000000000000595
+        "total_probability_mass": 1.0000000000002198
       },
       {
-        "acceptance_probability": 0.9078687252280319,
+        "acceptance_probability": 0.9078687252285433,
         "case": "a",
-        "predicted_position_estimator": -0.4953817141305464,
+        "predicted_position_estimator": -0.49538171413426524,
         "probabilities": [
-          0.326728238369444,
-          0.5811404868585879,
-          0.04916373713407844,
-          0.0429675376380138
+          0.3267282383686731,
+          0.5811404868598702,
+          0.04916373713387578,
+          0.04296753763797208
         ],
         "time_ms": 0.8,
-        "total_probability_mass": 1.0000000000001241
+        "total_probability_mass": 1.0000000000003912
       },
       {
-        "acceptance_probability": 0.9393470029434489,
+        "acceptance_probability": 0.939347002944159,
         "case": "a",
-        "predicted_position_estimator": -0.24116813897981138,
+        "predicted_position_estimator": -0.2411681389855039,
         "probabilities": [
-          0.4055981525757648,
-          0.533748850367684,
-          0.030790362587476854,
-          0.029862634469253097
+          0.405598152574559,
+          0.5337488503696,
+          0.0307903625872568,
+          0.029862634469224
         ],
         "time_ms": 1.2,
-        "total_probability_mass": 1.0000000000001787
+        "total_probability_mass": 1.0000000000006397
       },
       {
-        "acceptance_probability": 0.9115844024960672,
+        "acceptance_probability": 0.9115844024972446,
         "case": "a",
-        "predicted_position_estimator": -0.2703302194097957,
+        "predicted_position_estimator": -0.27033021941715213,
         "probabilities": [
-          0.3860916077609243,
-          0.5254927947351429,
-          0.04493281959008462,
-          0.043482777914058954
+          0.3860916077595263,
+          0.5254927947377184,
+          0.04493281958982666,
+          0.04348277791398741
         ],
         "time_ms": 1.6,
-        "total_probability_mass": 1.0000000000002107
+        "total_probability_mass": 1.0000000000010587
       },
       {
-        "acceptance_probability": 0.8874240986086419,
+        "acceptance_probability": 0.8874240986098768,
         "case": "a",
-        "predicted_position_estimator": -0.1436285161016879,
+        "predicted_position_estimator": -0.1436285161117571,
         "probabilities": [
-          0.4076610850575473,
-          0.47976301355109463,
-          0.055725934910824546,
-          0.056849966480824216
+          0.4076610850555872,
+          0.47976301355428963,
+          0.05572593491079857,
+          0.05684996648078236
         ],
         "time_ms": 2.0,
-        "total_probability_mass": 1.0000000000002907
+        "total_probability_mass": 1.0000000000014577
       },
       {
-        "acceptance_probability": 0.9049746666815681,
+        "acceptance_probability": 0.9049746666827814,
         "case": "a",
-        "predicted_position_estimator": 0.3071261091308938,
+        "predicted_position_estimator": 0.30712610911994603,
         "probabilities": [
-          0.5311010181858207,
-          0.37387364849574745,
-          0.03973464799369935,
-          0.055290685325089906
+          0.5311010181837305,
+          0.3738736484990509,
+          0.03973464799368737,
+          0.055290685325323906
         ],
         "time_ms": 2.4,
-        "total_probability_mass": 1.0000000000003573
+        "total_probability_mass": 1.0000000000017928
       },
       {
-        "acceptance_probability": 0.9015375386728091,
+        "acceptance_probability": 0.9015375386745726,
         "case": "a",
-        "predicted_position_estimator": 0.7329267084376312,
+        "predicted_position_estimator": 0.732926708427121,
         "probabilities": [
-          0.6376601861161016,
-          0.2638773525567074,
-          0.051425516767454604,
-          0.04703694456012695
+          0.637660186114669,
+          0.26387735255990363,
+          0.05142551676731864,
+          0.04703694456030574
         ],
         "time_ms": 2.8,
-        "total_probability_mass": 1.0000000000003906
+        "total_probability_mass": 1.0000000000021971
       },
       {
-        "acceptance_probability": 0.896170447220036,
+        "acceptance_probability": 0.8961704472222349,
         "case": "a",
-        "predicted_position_estimator": 0.8934840758143239,
+        "predicted_position_estimator": 0.8934840758073178,
         "probabilities": [
-          0.6745613500199161,
-          0.22160909720011995,
-          0.06246085531826054,
-          0.04136869746214078
+          0.6745613500197953,
+          0.22160909720243957,
+          0.06246085531825248,
+          0.04136869746223101
         ],
         "time_ms": 3.2,
-        "total_probability_mass": 1.0000000000004374
+        "total_probability_mass": 1.0000000000027185
       },
       {
-        "acceptance_probability": 0.9127473310584427,
+        "acceptance_probability": 0.9127473310608476,
         "case": "a",
-        "predicted_position_estimator": 0.7854244115856119,
+        "predicted_position_estimator": 0.7854244115847933,
         "probabilities": [
-          0.6591419190651143,
-          0.2536054119933284,
-          0.04871689429693663,
-          0.038535774645073316
+          0.6591419190666397,
+          0.25360541199420794,
+          0.04871689429710281,
+          0.038535774645277215
         ],
         "time_ms": 3.6,
-        "total_probability_mass": 1.0000000000004527
+        "total_probability_mass": 1.0000000000032276
       },
       {
-        "acceptance_probability": 0.9120486083213756,
+        "acceptance_probability": 0.9120486083246826,
         "case": "a",
-        "predicted_position_estimator": 0.6695040700901387,
+        "predicted_position_estimator": 0.6695040700954379,
         "probabilities": [
-          0.6287337934874816,
-          0.283314814833894,
-          0.04703784156652248,
-          0.04091355011257132
+          0.6287337934911283,
+          0.28331481483355425,
+          0.04703784156644414,
+          0.040913550112467854
         ],
         "time_ms": 4.0,
-        "total_probability_mass": 1.0000000000004694
+        "total_probability_mass": 1.0000000000035945
       },
       {
-        "acceptance_probability": 0.8975360171958086,
+        "acceptance_probability": 0.8975360171999562,
         "case": "a",
-        "predicted_position_estimator": 0.6372489621314094,
+        "predicted_position_estimator": 0.637248962142532,
         "probabilities": [
-          0.6105409997927649,
-          0.2869950174030437,
-          0.054306633506395696,
-          0.048157349298306916
+          0.6105409997984099,
+          0.2869950174015463,
+          0.0543066335061783,
+          0.04815734929780491
         ],
         "time_ms": 4.4,
-        "total_probability_mass": 1.0000000000005111
+        "total_probability_mass": 1.0000000000039395
       },
       {
-        "acceptance_probability": 0.9020287295765823,
+        "acceptance_probability": 0.9020287295807601,
         "case": "a",
-        "predicted_position_estimator": 0.5825063456898365,
+        "predicted_position_estimator": 0.58250634570621,
         "probabilities": [
-          0.5996305209199577,
-          0.30239820865662453,
-          0.05267311641326171,
-          0.04529815401076756
+          0.5996305209269124,
+          0.30239820865384776,
+          0.05267311641306921,
+          0.045298154010544704
         ],
         "time_ms": 4.8,
-        "total_probability_mass": 1.0000000000006115
+        "total_probability_mass": 1.0000000000043738
       },
       {
-        "acceptance_probability": 0.8943258321463455,
+        "acceptance_probability": 0.8943258321510144,
         "case": "a",
-        "predicted_position_estimator": 0.372340758957602,
+        "predicted_position_estimator": 0.3723407589792349,
         "probabilities": [
-          0.5413478307017625,
-          0.352978001444583,
-          0.054307876564373074,
-          0.05136629129003827
+          0.5413478307100608,
+          0.35297800144095365,
+          0.054307876564182254,
+          0.051366291289551926
         ],
         "time_ms": 5.2,
-        "total_probability_mass": 1.000000000000757
+        "total_probability_mass": 1.0000000000047484
       },
       {
-        "acceptance_probability": 0.8738128994025351,
+        "acceptance_probability": 0.8738128994077349,
         "case": "a",
-        "predicted_position_estimator": 0.049152426232858794,
+        "predicted_position_estimator": 0.049152426259572196,
         "probabilities": [
-          0.4490545510126797,
-          0.42475834838985543,
-          0.05240166702953605,
-          0.07378543356878262
+          0.44905455102195413,
+          0.42475834838578075,
+          0.05240166702930677,
+          0.0737854335679845
         ],
         "time_ms": 5.6,
-        "total_probability_mass": 1.0000000000008538
+        "total_probability_mass": 1.0000000000050262
       },
       {
-        "acceptance_probability": 0.8618916462766895,
+        "acceptance_probability": 0.8618916462813,
         "case": "a",
-        "predicted_position_estimator": -0.2905019389396319,
+        "predicted_position_estimator": -0.2905019389107701,
         "probabilities": [
-          0.3601273269618261,
-          0.5017643193148634,
-          0.06553918109100687,
-          0.07256917263323891
+          0.3601273269707884,
+          0.5017643193105116,
+          0.06553918109103023,
+          0.07256917263293491
         ],
         "time_ms": 6.0,
-        "total_probability_mass": 1.0000000000009353
+        "total_probability_mass": 1.0000000000052651
       },
       {
-        "acceptance_probability": 0.8702786242848455,
+        "acceptance_probability": 0.8702786242889736,
         "case": "a",
-        "predicted_position_estimator": -0.5019096328344096,
+        "predicted_position_estimator": -0.5019096328104261,
         "probabilities": [
-          0.3115932689138525,
-          0.5586853553709931,
-          0.06280738492701017,
-          0.0669139907892639
+          0.31159326892123407,
+          0.5586853553677396,
+          0.06280738492731136,
+          0.06691399078922283
         ],
         "time_ms": 6.4,
-        "total_probability_mass": 1.0000000000011195
+        "total_probability_mass": 1.0000000000055078
       },
       {
-        "acceptance_probability": 0.871782953004423,
+        "acceptance_probability": 0.8717829530091084,
         "case": "a",
-        "predicted_position_estimator": -0.6098399361996706,
+        "predicted_position_estimator": -0.6098399361838084,
         "probabilities": [
-          0.2855186970054414,
-          0.5862642559989816,
-          0.05770945125444171,
-          0.07050759574243255
+          0.28551869701088717,
+          0.5862642559982212,
+          0.05770945125427237,
+          0.0705075957423901
         ],
         "time_ms": 6.8,
-        "total_probability_mass": 1.0000000000012972
+        "total_probability_mass": 1.000000000005771
       },
       {
-        "acceptance_probability": 0.8634416472272768,
+        "acceptance_probability": 0.8634416472317495,
         "case": "a",
-        "predicted_position_estimator": -0.6987044299158782,
+        "predicted_position_estimator": -0.6987044299096319,
         "probabilities": [
-          0.2610845010827695,
-          0.6023571461445073,
-          0.061829611626282636,
-          0.07472874114790815
+          0.2610845010856474,
+          0.6023571461461021,
+          0.06182961162617916,
+          0.07472874114804524
         ],
         "time_ms": 7.2,
-        "total_probability_mass": 1.0000000000014675
+        "total_probability_mass": 1.0000000000059739
       },
       {
-        "acceptance_probability": 0.8724481621702942,
+        "acceptance_probability": 0.8724481621744768,
         "case": "a",
-        "predicted_position_estimator": -0.7466487289663053,
+        "predicted_position_estimator": -0.7466487289703592,
         "probabilities": [
-          0.2519768559969224,
-          0.6204713061733718,
-          0.057862250437191426,
-          0.0696895873941221
+          0.2519768559971301,
+          0.6204713061773468,
+          0.057862250437379394,
+          0.06968958739434458
         ],
         "time_ms": 7.6,
-        "total_probability_mass": 1.0000000000016076
+        "total_probability_mass": 1.0000000000062008
       },
       {
-        "acceptance_probability": 0.8850859165980636,
+        "acceptance_probability": 0.8850859166032878,
         "case": "a",
-        "predicted_position_estimator": -0.7150202779579682,
+        "predicted_position_estimator": -0.7150202779711117,
         "probabilities": [
-          0.2635447093950456,
-          0.621541207203018,
-          0.05119849964669894,
-          0.06371558375694059
+          0.26354470939331087,
+          0.621541207209977,
+          0.05119849964636001,
+          0.06371558375682941
         ],
         "time_ms": 8.0,
-        "total_probability_mass": 1.000000000001703
+        "total_probability_mass": 1.0000000000064773
       },
       {
-        "acceptance_probability": 0.8774782945174128,
+        "acceptance_probability": 0.8774782945233734,
         "case": "a",
-        "predicted_position_estimator": -0.5791132045376406,
+        "predicted_position_estimator": -0.5791132045623425,
         "probabilities": [
-          0.2950100017971128,
-          0.5824682927203,
-          0.05975370804148981,
-          0.06276799744291103
+          0.29501000179298603,
+          0.5824682927303874,
+          0.05975370804076402,
+          0.06276799744260585
         ],
         "time_ms": 8.4,
-        "total_probability_mass": 1.0000000000018137
+        "total_probability_mass": 1.0000000000067433
       },
       {
-        "acceptance_probability": 0.8659389760308074,
+        "acceptance_probability": 0.8659389760366629,
         "case": "a",
-        "predicted_position_estimator": -0.3381987920206323,
+        "predicted_position_estimator": -0.33819879205533526,
         "probabilities": [
-          0.3501363082329174,
-          0.51580266779789,
-          0.06904234004351861,
-          0.06501868392755536
+          0.3501363082267855,
+          0.5158026678098775,
+          0.06904234004287133,
+          0.06501868392747644
         ],
         "time_ms": 8.8,
-        "total_probability_mass": 1.0000000000018814
+        "total_probability_mass": 1.0000000000070106
       },
       {
-        "acceptance_probability": 0.8674601871214846,
+        "acceptance_probability": 0.8674601871282057,
         "case": "a",
-        "predicted_position_estimator": -0.11839824171580038,
+        "predicted_position_estimator": -0.11839824175544204,
         "probabilities": [
-          0.40468051755715784,
-          0.4627796695643268,
-          0.0704702224850508,
-          0.06206959039541572
+          0.40468051755056705,
+          0.4627796695776387,
+          0.07047022248397068,
+          0.06206959039517954
         ],
         "time_ms": 9.2,
-        "total_probability_mass": 1.0000000000019513
+        "total_probability_mass": 1.000000000007356
       },
       {
-        "acceptance_probability": 0.8564875392683355,
+        "acceptance_probability": 0.8564875392755471,
         "case": "a",
-        "predicted_position_estimator": 0.11281867831243957,
+        "predicted_position_estimator": 0.1128186782712804,
         "probabilities": [
-          0.45557423647233974,
-          0.4009133027959958,
-          0.07534014160344817,
-          0.0681723191302373
+          0.4555742364662048,
+          0.40091330280934234,
+          0.07534014160241603,
+          0.06817231912983818
         ],
         "time_ms": 9.6,
-        "total_probability_mass": 1.000000000002021
+        "total_probability_mass": 1.0000000000078013
       },
       {
-        "acceptance_probability": 0.8419224535807125,
+        "acceptance_probability": 0.8419224535871401,
         "case": "a",
-        "predicted_position_estimator": 0.32224635128647816,
+        "predicted_position_estimator": 0.32224635124965445,
         "probabilities": [
-          0.497698275833298,
-          0.3442241777474145,
-          0.08413358236466736,
-          0.07394396405670682
+          0.49769827582832876,
+          0.3442241777588113,
+          0.08413358236445342,
+          0.07394396405663081
         ],
         "time_ms": 10.0,
-        "total_probability_mass": 1.0000000000020868
+        "total_probability_mass": 1.0000000000082243
       },
       {
-        "acceptance_probability": 1.0000000000000002,
+        "acceptance_probability": 0.999999999999999,
         "case": "b",
-        "predicted_position_estimator": -1.1531610159041341,
+        "predicted_position_estimator": -1.153161015904261,
         "probabilities": [
-          0.17383681034168735,
-          0.8261631896583128,
-          1.1223493293329058e-31,
-          3.7502737642200906e-31
+          0.1738368103416513,
+          0.8261631896583477,
+          1.2798750650387093e-31,
+          5.35865883050201e-31
         ],
         "time_ms": 0.0,
-        "total_probability_mass": 1.0000000000000002
+        "total_probability_mass": 0.999999999999999
       },
       {
-        "acceptance_probability": 0.9365118745775611,
+        "acceptance_probability": 0.9365118745779086,
         "case": "b",
-        "predicted_position_estimator": -0.854292115085323,
+        "predicted_position_estimator": -0.8542921150866495,
         "probabilities": [
-          0.24196629294599303,
-          0.6945455816315681,
-          0.028769628588091102,
-          0.03471849683439797
+          0.24196629294573144,
+          0.6945455816321772,
+          0.02876962858792154,
+          0.034718496834362934
         ],
         "time_ms": 0.4,
-        "total_probability_mass": 1.0000000000000502
+        "total_probability_mass": 1.0000000000001932
       },
       {
-        "acceptance_probability": 0.8988905427658325,
+        "acceptance_probability": 0.8988905427663696,
         "case": "b",
-        "predicted_position_estimator": -0.424094763353866,
+        "predicted_position_estimator": -0.4240947633570659,
         "probabilities": [
-          0.3416214512307142,
-          0.5572690915351183,
-          0.05392590348954387,
-          0.04718355374473
+          0.34162145123010473,
+          0.5572690915362648,
+          0.053925903489322496,
+          0.04718355374466994
         ],
         "time_ms": 0.8,
-        "total_probability_mass": 1.0000000000001064
+        "total_probability_mass": 1.000000000000362
       },
       {
-        "acceptance_probability": 0.9081963238786801,
+        "acceptance_probability": 0.9081963238793492,
         "case": "b",
-        "predicted_position_estimator": -0.2359250263339694,
+        "predicted_position_estimator": -0.23592502633888615,
         "probabilities": [
-          0.3934945169656781,
-          0.5147018069130019,
-          0.04774621250010261,
-          0.044057463621376594
+          0.39349451696470505,
+          0.5147018069146442,
+          0.04774621249986721,
+          0.044057463621419615
         ],
         "time_ms": 1.2,
-        "total_probability_mass": 1.0000000000001592
+        "total_probability_mass": 1.0000000000006362
       },
       {
-        "acceptance_probability": 0.893532066478828,
+        "acceptance_probability": 0.8935320664798483,
         "case": "b",
-        "predicted_position_estimator": -0.32370022759117073,
+        "predicted_position_estimator": -0.3237002275976533,
         "probabilities": [
-          0.36495758761996805,
-          0.52857447885886,
-          0.04685466431839167,
-          0.05961326920295803
+          0.3649575876187464,
+          0.5285744788611019,
+          0.04685466431818722,
+          0.05961326920303714
         ],
         "time_ms": 1.6,
-        "total_probability_mass": 1.0000000000001776
-      },
-      {
-        "acceptance_probability": 0.8886455089277874,
-        "case": "b",
-        "predicted_position_estimator": -0.22216746874875884,
-        "probabilities": [
-          0.38848164854149014,
-          0.5001638603862972,
-          0.04666512518034582,
-          0.06468936589202967
-        ],
-        "time_ms": 2.0,
-        "total_probability_mass": 1.000000000000163
-      },
-      {
-        "acceptance_probability": 0.9062494988723193,
-        "case": "b",
-        "predicted_position_estimator": 0.05565945022875733,
-        "probabilities": [
-          0.4673917173734995,
-          0.4388577814988199,
-          0.039636254679253524,
-          0.0541142464485445
-        ],
-        "time_ms": 2.4,
-        "total_probability_mass": 1.0000000000001172
-      },
-      {
-        "acceptance_probability": 0.9072802920609883,
-        "case": "b",
-        "predicted_position_estimator": 0.14993773788018985,
-        "probabilities": [
-          0.49211681129076235,
-          0.4151634807702259,
-          0.053370992769217966,
-          0.03934871516992613
-        ],
-        "time_ms": 2.8,
-        "total_probability_mass": 1.0000000000001323
-      },
-      {
-        "acceptance_probability": 0.9151664019534564,
-        "case": "b",
-        "predicted_position_estimator": 0.047618247577202476,
-        "probabilities": [
-          0.469909096149005,
-          0.4452573058044514,
-          0.049719335891984184,
-          0.03511426215472899
-        ],
-        "time_ms": 3.2,
-        "total_probability_mass": 1.0000000000001696
-      },
-      {
-        "acceptance_probability": 0.9259451389188158,
-        "case": "b",
-        "predicted_position_estimator": -0.21851953564619156,
-        "probabilities": [
-          0.40574299475476144,
-          0.5202021441640543,
-          0.03503510791290138,
-          0.039019753168456954
-        ],
-        "time_ms": 3.6,
-        "total_probability_mass": 1.000000000000174
-      },
-      {
-        "acceptance_probability": 0.8937240528795003,
-        "case": "b",
-        "predicted_position_estimator": -0.4852505982418538,
-        "probabilities": [
-          0.32419876175002876,
-          0.5695252911294715,
-          0.04117277257694105,
-          0.06510317454376756
-        ],
-        "time_ms": 4.0,
-        "total_probability_mass": 1.000000000000209
-      },
-      {
-        "acceptance_probability": 0.8814426943583751,
-        "case": "b",
-        "predicted_position_estimator": -0.6763440191251182,
-        "probabilities": [
-          0.27210226152130607,
-          0.6093404328370691,
-          0.04804835452222811,
-          0.07050895111973211
-        ],
-        "time_ms": 4.4,
-        "total_probability_mass": 1.0000000000003353
-      },
-      {
-        "acceptance_probability": 0.895914974802708,
-        "case": "b",
-        "predicted_position_estimator": -0.6924924448996871,
-        "probabilities": [
-          0.2724778094148711,
-          0.6234371653878369,
-          0.04966027108219255,
-          0.0544247541155824
-        ],
-        "time_ms": 4.8,
-        "total_probability_mass": 1.000000000000483
-      },
-      {
-        "acceptance_probability": 0.8750696508825689,
-        "case": "b",
-        "predicted_position_estimator": -0.6715390906856318,
-        "probabilities": [
-          0.27132415025749135,
-          0.6037455006250776,
-          0.058437489630087776,
-          0.06649285948797565
-        ],
-        "time_ms": 5.2,
-        "total_probability_mass": 1.0000000000006324
-      },
-      {
-        "acceptance_probability": 0.8478647399982813,
-        "case": "b",
-        "predicted_position_estimator": -0.6805238297145862,
-        "probabilities": [
-          0.2607343424041057,
-          0.5871303975941755,
-          0.06391692253758705,
-          0.08821833746486621
-        ],
-        "time_ms": 5.6,
-        "total_probability_mass": 1.0000000000007345
-      },
-      {
-        "acceptance_probability": 0.8624625885991696,
-        "case": "b",
-        "predicted_position_estimator": -0.636372199118972,
-        "probabilities": [
-          0.27599385951110433,
-          0.5864687290880652,
-          0.05810977397955028,
-          0.07942763742209674
-        ],
-        "time_ms": 6.0,
-        "total_probability_mass": 1.0000000000008167
-      },
-      {
-        "acceptance_probability": 0.8727670269872552,
-        "case": "b",
-        "predicted_position_estimator": -0.4501203093988643,
-        "probabilities": [
-          0.325268707449365,
-          0.5474983195378902,
-          0.0565080792840679,
-          0.07072489372955351
-        ],
-        "time_ms": 6.4,
-        "total_probability_mass": 1.0000000000008766
-      },
-      {
-        "acceptance_probability": 0.8794955768607893,
-        "case": "b",
-        "predicted_position_estimator": -0.21878191171196168,
-        "probabilities": [
-          0.38532383754565414,
-          0.49417173931513514,
-          0.05766678482363446,
-          0.06283763831643888
-        ],
-        "time_ms": 6.8,
-        "total_probability_mass": 1.0000000000008626
-      },
-      {
-        "acceptance_probability": 0.8826223485861504,
-        "case": "b",
-        "predicted_position_estimator": 0.01729292348770753,
-        "probabilities": [
-          0.4456282367647514,
-          0.43699411182139897,
-          0.057968836790476264,
-          0.05940881462422451
-        ],
-        "time_ms": 7.2,
-        "total_probability_mass": 1.000000000000851
-      },
-      {
-        "acceptance_probability": 0.8788678810233799,
-        "case": "b",
-        "predicted_position_estimator": 0.10725100223599783,
-        "probabilities": [
-          0.46609454215791224,
-          0.4127733388654676,
-          0.06039937860044456,
-          0.060732740377038866
-        ],
-        "time_ms": 7.6,
-        "total_probability_mass": 1.0000000000008633
-      },
-      {
-        "acceptance_probability": 0.8681598587732714,
-        "case": "b",
-        "predicted_position_estimator": 0.021486163327056478,
-        "probabilities": [
-          0.439355914574699,
-          0.4288039441985724,
-          0.06511110746640052,
-          0.06672903376122621
-        ],
-        "time_ms": 8.0,
-        "total_probability_mass": 1.0000000000008982
-      },
-      {
-        "acceptance_probability": 0.8654822741270141,
-        "case": "b",
-        "predicted_position_estimator": -0.13499682201375846,
-        "probabilities": [
-          0.3996945422280479,
-          0.46578773189896616,
-          0.06602702051164204,
-          0.06849070536227769
-        ],
-        "time_ms": 8.4,
-        "total_probability_mass": 1.0000000000009337
-      },
-      {
-        "acceptance_probability": 0.8463318695623534,
-        "case": "b",
-        "predicted_position_estimator": -0.2730957906050679,
-        "probabilities": [
-          0.35779259169300737,
-          0.488539277869346,
-          0.07137138481816548,
-          0.08229674562045602
-        ],
-        "time_ms": 8.8,
-        "total_probability_mass": 1.000000000000975
-      },
-      {
-        "acceptance_probability": 0.8315977925418594,
-        "case": "b",
-        "predicted_position_estimator": -0.3086991123226799,
-        "probabilities": [
-          0.3431893534982246,
-          0.48840843904363473,
-          0.07769284662504805,
-          0.09070936083417724
-        ],
-        "time_ms": 9.2,
-        "total_probability_mass": 1.0000000000010847
-      },
-      {
-        "acceptance_probability": 0.84735473030359,
-        "case": "b",
-        "predicted_position_estimator": -0.44382535511917764,
-        "probabilities": [
-          0.3173065809661771,
-          0.5300481493374128,
-          0.07583738635238693,
-          0.07680788334524287
-        ],
-        "time_ms": 9.6,
-        "total_probability_mass": 1.0000000000012197
-      },
-      {
-        "acceptance_probability": 0.8512200447106514,
-        "case": "b",
-        "predicted_position_estimator": -0.6633188794677857,
-        "probabilities": [
-          0.2659084493367442,
-          0.5853115953739072,
-          0.06845701452345795,
-          0.0803229407672167
-        ],
-        "time_ms": 10.0,
-        "total_probability_mass": 1.000000000001326
-      },
-      {
-        "acceptance_probability": 1.0000000000000002,
-        "case": "c",
-        "predicted_position_estimator": 1.153161015904134,
-        "probabilities": [
-          0.8261631896583127,
-          0.17383681034168744,
-          4.207542034513317e-31,
-          1.278999236955118e-31
-        ],
-        "time_ms": 0.0,
-        "total_probability_mass": 1.0000000000000002
-      },
-      {
-        "acceptance_probability": 0.9412786995239789,
-        "case": "c",
-        "predicted_position_estimator": 0.8940294322936028,
-        "probabilities": [
-          0.7086602212217055,
-          0.23261847830227347,
-          0.03045937938242422,
-          0.028261921093603787
-        ],
-        "time_ms": 0.4,
-        "total_probability_mass": 1.0000000000000069
-      },
-      {
-        "acceptance_probability": 0.911520887864886,
-        "case": "c",
-        "predicted_position_estimator": 0.4048722721164569,
-        "probabilities": [
-          0.5601434148699271,
-          0.3513774729949589,
-          0.03515602833384033,
-          0.05332308380131743
-        ],
-        "time_ms": 0.8,
-        "total_probability_mass": 1.0000000000000437
-      },
-      {
-        "acceptance_probability": 0.9380324896513238,
-        "case": "c",
-        "predicted_position_estimator": 0.11176835975180587,
-        "probabilities": [
-          0.49867014026315226,
-          0.43936234938817154,
-          0.022638326208002706,
-          0.039329184140845935
-        ],
-        "time_ms": 1.2,
-        "total_probability_mass": 1.0000000000001723
-      },
-      {
-        "acceptance_probability": 0.8993021012080078,
-        "case": "c",
-        "predicted_position_estimator": 0.13766928415319604,
-        "probabilities": [
-          0.4846687536736932,
-          0.4146333475343146,
-          0.04538681890245009,
-          0.05531107988981489
-        ],
-        "time_ms": 1.6,
-        "total_probability_mass": 1.000000000000273
-      },
-      {
-        "acceptance_probability": 0.8740254179566325,
-        "case": "c",
-        "predicted_position_estimator": 0.10062829859532788,
-        "probabilities": [
-          0.46188920375339404,
-          0.41213621420323837,
-          0.06657531993199764,
-          0.059399262111819603
-        ],
-        "time_ms": 2.0,
-        "total_probability_mass": 1.0000000000004496
-      },
-      {
-        "acceptance_probability": 0.9027732570150133,
-        "case": "c",
-        "predicted_position_estimator": -0.1908411565183276,
-        "probabilities": [
-          0.4026567062308568,
-          0.5001165507841565,
-          0.0532270895366545,
-          0.04399965344896229
-        ],
-        "time_ms": 2.4,
-        "total_probability_mass": 1.0000000000006302
-      },
-      {
-        "acceptance_probability": 0.876364086758095,
-        "case": "c",
-        "predicted_position_estimator": -0.4697444783746045,
-        "probabilities": [
-          0.3217449784962507,
-          0.5546191082618442,
-          0.053844824956697894,
-          0.06979108828598335
-        ],
-        "time_ms": 2.8,
-        "total_probability_mass": 1.0000000000007763
-      },
-      {
-        "acceptance_probability": 0.8700735844392198,
-        "case": "c",
-        "predicted_position_estimator": -0.377606006011555,
-        "probabilities": [
-          0.3421102300941718,
-          0.5279633543450479,
-          0.05661889871048387,
-          0.07330751685122217
-        ],
-        "time_ms": 3.2,
-        "total_probability_mass": 1.000000000000926
-      },
-      {
-        "acceptance_probability": 0.8991699097255117,
-        "case": "c",
-        "predicted_position_estimator": 0.06639248896983353,
-        "probabilities": [
-          0.4664701354045919,
-          0.4326997743209197,
-          0.05020452613467481,
-          0.05062556414089214
-        ],
-        "time_ms": 3.6,
-        "total_probability_mass": 1.0000000000010787
-      },
-      {
-        "acceptance_probability": 0.8755726150766211,
-        "case": "c",
-        "predicted_position_estimator": 0.4563435660610616,
-        "probabilities": [
-          0.5507994874823628,
-          0.32477312759425825,
-          0.07192411038459093,
-          0.0525032745400047
-        ],
-        "time_ms": 4.0,
-        "total_probability_mass": 1.0000000000012168
-      },
-      {
-        "acceptance_probability": 0.8580808071322653,
-        "case": "c",
-        "predicted_position_estimator": 0.63310696036753,
-        "probabilities": [
-          0.5826966676572853,
-          0.27538413947497997,
-          0.0825619744184573,
-          0.05935721845057468
-        ],
-        "time_ms": 4.4,
-        "total_probability_mass": 1.0000000000012972
-      },
-      {
-        "acceptance_probability": 0.8780583277470526,
-        "case": "c",
-        "predicted_position_estimator": 0.6531338074522847,
-        "probabilities": [
-          0.6012365119078034,
-          0.2768218158392492,
-          0.06242228084638565,
-          0.059519391407905756
-        ],
-        "time_ms": 4.8,
-        "total_probability_mass": 1.000000000001344
-      },
-      {
-        "acceptance_probability": 0.8640532786731242,
-        "case": "c",
-        "predicted_position_estimator": 0.6372358329433623,
-        "probabilities": [
-          0.5877614520670461,
-          0.2762918266060781,
-          0.07149786277357725,
-          0.06444885855465253
-        ],
-        "time_ms": 5.2,
-        "total_probability_mass": 1.000000000001354
-      },
-      {
-        "acceptance_probability": 0.8412277611154484,
-        "case": "c",
-        "predicted_position_estimator": 0.6436095066211921,
-        "probabilities": [
-          0.5737511997555518,
-          0.26747656135989656,
-          0.08932686220407621,
-          0.06944537668186535
-        ],
-        "time_ms": 5.6,
-        "total_probability_mass": 1.00000000000139
-      },
-      {
-        "acceptance_probability": 0.8643645479116697,
-        "case": "c",
-        "predicted_position_estimator": 0.6013397158706884,
-        "probabilities": [
-          0.5791973346168846,
-          0.2851672132947851,
-          0.0745919245067155,
-          0.061043527583157065
-        ],
-        "time_ms": 6.0,
-        "total_probability_mass": 1.0000000000015423
-      },
-      {
-        "acceptance_probability": 0.8527512575036266,
-        "case": "c",
-        "predicted_position_estimator": 0.41824480812957654,
-        "probabilities": [
-          0.5272539672336971,
-          0.32549729026992946,
-          0.08016231596180107,
-          0.06708642653625632
-        ],
-        "time_ms": 6.4,
-        "total_probability_mass": 1.000000000001684
-      },
-      {
-        "acceptance_probability": 0.8378062337049558,
-        "case": "c",
-        "predicted_position_estimator": 0.043663566315064344,
-        "probabilities": [
-          0.42924995809848193,
-          0.40855627560647384,
-          0.08591263516624584,
-          0.076281131130601
-        ],
-        "time_ms": 6.8,
-        "total_probability_mass": 1.0000000000018026
-      },
-      {
-        "acceptance_probability": 0.8553221358816299,
-        "case": "c",
-        "predicted_position_estimator": -0.3121746917585606,
-        "probabilities": [
-          0.35213925674418906,
-          0.5031828791374409,
-          0.0703668926618572,
-          0.07431097145849737
-        ],
-        "time_ms": 7.2,
-        "total_probability_mass": 1.0000000000019844
-      },
-      {
-        "acceptance_probability": 0.8410028238955795,
-        "case": "c",
-        "predicted_position_estimator": -0.40580735146352725,
-        "probabilities": [
-          0.32397140046473616,
-          0.5170314234308433,
-          0.07898720934345854,
-          0.08000996676313606
-        ],
-        "time_ms": 7.6,
-        "total_probability_mass": 1.000000000002174
-      },
-      {
-        "acceptance_probability": 0.8151962500206886,
-        "case": "c",
-        "predicted_position_estimator": -0.23345639355012002,
-        "probabilities": [
-          0.35376954306800706,
-          0.4614267069526815,
-          0.09539570607272364,
-          0.08940804390897766
-        ],
-        "time_ms": 8.0,
-        "total_probability_mass": 1.0000000000023899
-      },
-      {
-        "acceptance_probability": 0.8277172631149436,
-        "case": "c",
-        "predicted_position_estimator": -0.00887827563623786,
-        "probabilities": [
-          0.41178010474756754,
-          0.41593715836737616,
-          0.08493009577317259,
-          0.08735264111446998
-        ],
-        "time_ms": 8.4,
-        "total_probability_mass": 1.0000000000025862
-      },
-      {
-        "acceptance_probability": 0.8260429193941425,
-        "case": "c",
-        "predicted_position_estimator": 0.07771446447142005,
-        "probabilities": [
-          0.4311786842688402,
-          0.3948642351253023,
-          0.08385435498778895,
-          0.09010272562081277
-        ],
-        "time_ms": 8.8,
-        "total_probability_mass": 1.0000000000027442
-      },
-      {
-        "acceptance_probability": 0.8098555583382687,
-        "case": "c",
-        "predicted_position_estimator": 0.1462933688593954,
-        "probabilities": [
-          0.43843799320498467,
-          0.371417565133284,
-          0.09471586703254942,
-          0.09542857463205658
-        ],
-        "time_ms": 9.2,
-        "total_probability_mass": 1.0000000000028748
-      },
-      {
-        "acceptance_probability": 0.8191676821890184,
-        "case": "c",
-        "predicted_position_estimator": 0.385213424493532,
-        "probabilities": [
-          0.4988361001552838,
-          0.3203315820337345,
-          0.08871356131339703,
-          0.09211875650053189
-        ],
-        "time_ms": 9.6,
-        "total_probability_mass": 1.0000000000029472
-      },
-      {
-        "acceptance_probability": 0.8302675002063309,
-        "case": "c",
-        "predicted_position_estimator": 0.66692527294522,
-        "probabilities": [
-          0.5717512211627648,
-          0.25851627904356606,
-          0.08992934592425059,
-          0.07980315387244633
-        ],
-        "time_ms": 10.0,
-        "total_probability_mass": 1.0000000000030278
-      },
-      {
-        "acceptance_probability": 1.0000000000000007,
-        "case": "d",
-        "predicted_position_estimator": 1.1873824218796039e-14,
-        "probabilities": [
-          0.5000000000000037,
-          0.49999999999999695,
-          2.386176970659591e-31,
-          2.358361027510388e-31
-        ],
-        "time_ms": 0.0,
-        "total_probability_mass": 1.0000000000000007
-      },
-      {
-        "acceptance_probability": 0.9616472835066645,
-        "case": "d",
-        "predicted_position_estimator": -0.08512224454184703,
-        "probabilities": [
-          0.4576708231387808,
-          0.5039764603678837,
-          0.01769580679377697,
-          0.020656909699481064
-        ],
-        "time_ms": 0.4,
-        "total_probability_mass": 0.9999999999999225
-      },
-      {
-        "acceptance_probability": 0.9307309093821255,
-        "case": "d",
-        "predicted_position_estimator": -0.14820122480724554,
-        "probabilities": [
-          0.4263514148299452,
-          0.5043794945521803,
-          0.02975424193648013,
-          0.03951484868144868
-        ],
-        "time_ms": 0.8,
-        "total_probability_mass": 1.0000000000000544
-      },
-      {
-        "acceptance_probability": 0.9431710940294652,
-        "case": "d",
-        "predicted_position_estimator": -0.09966671602014363,
-        "probabilities": [
-          0.4449975498159776,
-          0.4981735442134876,
-          0.02628075837921989,
-          0.03054814759147885
-        ],
-        "time_ms": 1.2,
-        "total_probability_mass": 1.0000000000001639
-      },
-      {
-        "acceptance_probability": 0.9232418312996282,
-        "case": "d",
-        "predicted_position_estimator": -0.3213403711176029,
-        "probabilities": [
-          0.3777085899319676,
-          0.5455332413676606,
-          0.034580441624797634,
-          0.04217772707578574
-        ],
-        "time_ms": 1.6,
-        "total_probability_mass": 1.0000000000002116
-      },
-      {
-        "acceptance_probability": 0.903623118667163,
-        "case": "d",
-        "predicted_position_estimator": -0.7296370323891305,
-        "probabilities": [
-          0.26532858158694883,
-          0.6382945370802142,
-          0.035538037731065696,
-          0.06083884360206322
-        ],
-        "time_ms": 2.0,
-        "total_probability_mass": 1.000000000000292
-      },
-      {
-        "acceptance_probability": 0.9068585901789046,
-        "case": "d",
-        "predicted_position_estimator": -0.748403372274717,
-        "probabilities": [
-          0.26146506984830425,
-          0.6453935203306003,
-          0.03348583210504758,
-          0.05965557771650055
-        ],
-        "time_ms": 2.4,
-        "total_probability_mass": 1.0000000000004527
-      },
-      {
-        "acceptance_probability": 0.9160428198111479,
-        "case": "d",
-        "predicted_position_estimator": -0.43018023579844605,
-        "probabilities": [
-          0.34656341608840757,
-          0.5694794037227403,
-          0.03919613156027229,
-          0.044761048629145955
-        ],
-        "time_ms": 2.8,
-        "total_probability_mass": 1.000000000000566
-      },
-      {
-        "acceptance_probability": 0.9237173777675466,
-        "case": "d",
-        "predicted_position_estimator": -0.3542032207765126,
-        "probabilities": [
-          0.36931717210084125,
-          0.5544002056667053,
-          0.039333399659363916,
-          0.036949222573687567
-        ],
-        "time_ms": 3.2,
-        "total_probability_mass": 1.000000000000598
-      },
-      {
-        "acceptance_probability": 0.9175088293231943,
-        "case": "d",
-        "predicted_position_estimator": -0.5085520348289202,
-        "probabilities": [
-          0.32677972723381155,
-          0.5907291020893828,
-          0.03659569811611711,
-          0.04589547256140988
-        ],
-        "time_ms": 3.6,
-        "total_probability_mass": 1.0000000000007212
-      },
-      {
-        "acceptance_probability": 0.9114776671194739,
-        "case": "d",
-        "predicted_position_estimator": -0.4115327018894009,
-        "probabilities": [
-          0.34964372118304876,
-          0.5618339459364251,
-          0.03519167647568609,
-          0.053330656405643564
-        ],
-        "time_ms": 4.0,
-        "total_probability_mass": 1.0000000000008036
-      },
-      {
-        "acceptance_probability": 0.9066672719021214,
-        "case": "d",
-        "predicted_position_estimator": -0.11593248746655452,
-        "probabilities": [
-          0.42360341841312493,
-          0.4830638534889964,
-          0.04485579639076144,
-          0.04847693170786434
-        ],
-        "time_ms": 4.4,
-        "total_probability_mass": 1.0000000000007472
-      },
-      {
-        "acceptance_probability": 0.8996471946980535,
-        "case": "d",
-        "predicted_position_estimator": 0.026620334040303402,
-        "probabilities": [
-          0.45659737168650294,
-          0.4430498230115506,
-          0.05456700829678487,
-          0.0457857970058601
-        ],
-        "time_ms": 4.8,
-        "total_probability_mass": 1.0000000000006986
-      },
-      {
-        "acceptance_probability": 0.8801209400860333,
-        "case": "d",
-        "predicted_position_estimator": -0.009325169123361003,
-        "probabilities": [
-          0.43773910166311175,
-          0.44238183842292145,
-          0.06136649392639444,
-          0.05851256598836085
-        ],
-        "time_ms": 5.2,
-        "total_probability_mass": 1.0000000000007885
-      },
-      {
-        "acceptance_probability": 0.876434065996994,
-        "case": "d",
-        "predicted_position_estimator": -0.014642939603840655,
-        "probabilities": [
-          0.434587150939211,
-          0.44184691505778295,
-          0.059423946653434284,
-          0.0641419873504752
-        ],
-        "time_ms": 5.6,
-        "total_probability_mass": 1.0000000000009035
-      },
-      {
-        "acceptance_probability": 0.8933108754589622,
-        "case": "d",
-        "predicted_position_estimator": -0.1297095174622104,
-        "probabilities": [
-          0.4138821916844943,
-          0.47942868377446785,
-          0.04980316373789798,
-          0.05688596080402072
-        ],
-        "time_ms": 6.0,
-        "total_probability_mass": 1.0000000000008809
-      },
-      {
-        "acceptance_probability": 0.8858418192448321,
-        "case": "d",
-        "predicted_position_estimator": -0.37213994618258717,
-        "probabilities": [
-          0.3496797936521005,
-          0.5361620255927315,
-          0.05267376213523078,
-          0.0614844186208419
-        ],
-        "time_ms": 6.4,
-        "total_probability_mass": 1.0000000000009048
-      },
-      {
-        "acceptance_probability": 0.8807781782752204,
-        "case": "d",
-        "predicted_position_estimator": -0.44262899581182114,
-        "probabilities": [
-          0.33012060608651234,
-          0.5506575721887081,
-          0.05718424802104797,
-          0.062037573704804394
-        ],
-        "time_ms": 6.8,
         "total_probability_mass": 1.0000000000010727
       },
       {
-        "acceptance_probability": 0.8858402046851838,
-        "case": "d",
-        "predicted_position_estimator": -0.3514354299988651,
+        "acceptance_probability": 0.8886455089289849,
+        "case": "b",
+        "predicted_position_estimator": -0.22216746875610244,
         "probabilities": [
-          0.35486674420015607,
-          0.5309734604850277,
-          0.05708897345697343,
-          0.05707082185905114
-        ],
-        "time_ms": 7.2,
-        "total_probability_mass": 1.0000000000012084
-      },
-      {
-        "acceptance_probability": 0.8788235232507162,
-        "case": "d",
-        "predicted_position_estimator": -0.4552741012697236,
-        "probabilities": [
-          0.32624481135194333,
-          0.5525787118987728,
-          0.05802791999732969,
-          0.06314855675324649
-        ],
-        "time_ms": 7.6,
-        "total_probability_mass": 1.0000000000012923
-      },
-      {
-        "acceptance_probability": 0.863909202036889,
-        "case": "d",
-        "predicted_position_estimator": -0.698263978882647,
-        "probabilities": [
-          0.2613335030860048,
-          0.6025756989508843,
-          0.05976010694990989,
-          0.07633069101462037
-        ],
-        "time_ms": 8.0,
-        "total_probability_mass": 1.0000000000014193
-      },
-      {
-        "acceptance_probability": 0.8589635937445596,
-        "case": "d",
-        "predicted_position_estimator": -0.6277337654357087,
-        "probabilities": [
-          0.27697287872312404,
-          0.5819907150214355,
-          0.06174915778894785,
-          0.07928724846808546
-        ],
-        "time_ms": 8.4,
-        "total_probability_mass": 1.000000000001593
-      },
-      {
-        "acceptance_probability": 0.8594078117189276,
-        "case": "d",
-        "predicted_position_estimator": -0.2969025667390204,
-        "probabilities": [
-          0.35753365040052243,
-          0.5018741613184051,
-          0.06751035709999637,
-          0.07308183118277391
-        ],
-        "time_ms": 8.8,
-        "total_probability_mass": 1.0000000000016978
-      },
-      {
-        "acceptance_probability": 0.8499479450373615,
-        "case": "d",
-        "predicted_position_estimator": -0.13803073201615237,
-        "probabilities": [
-          0.39179116614472215,
-          0.4581567788926393,
-          0.07516005168135416,
-          0.07489200328304187
-        ],
-        "time_ms": 9.2,
-        "total_probability_mass": 1.0000000000017575
-      },
-      {
-        "acceptance_probability": 0.8468144671012658,
-        "case": "d",
-        "predicted_position_estimator": -0.16666249425363278,
-        "probabilities": [
-          0.38348901610111746,
-          0.46332545100014844,
-          0.0733912307793045,
-          0.07979430212130567
-        ],
-        "time_ms": 9.6,
-        "total_probability_mass": 1.000000000001876
-      },
-      {
-        "acceptance_probability": 0.85513436630487,
-        "case": "d",
-        "predicted_position_estimator": -0.11096518579465786,
-        "probabilities": [
-          0.4007281974826361,
-          0.45440616882223395,
-          0.06718304538444975,
-          0.07768258831266187
-        ],
-        "time_ms": 10.0,
-        "total_probability_mass": 1.0000000000019817
-      },
-      {
-        "acceptance_probability": 1.0000000000000002,
-        "case": "e",
-        "predicted_position_estimator": -1.1531610159041341,
-        "probabilities": [
-          0.17383681034168735,
-          0.8261631896583128,
-          1.1223493293329058e-31,
-          3.7502737642200906e-31
-        ],
-        "time_ms": 0.0,
-        "total_probability_mass": 1.0000000000000002
-      },
-      {
-        "acceptance_probability": 0.9313158270577101,
-        "case": "e",
-        "predicted_position_estimator": -0.7822290183260823,
-        "probabilities": [
-          0.2596063568096715,
-          0.6717094702480386,
-          0.03138746113990101,
-          0.03729671180244074
-        ],
-        "time_ms": 0.4,
-        "total_probability_mass": 1.0000000000000517
-      },
-      {
-        "acceptance_probability": 0.8902335008108816,
-        "case": "e",
-        "predicted_position_estimator": -0.3413468208570741,
-        "probabilities": [
-          0.35916696646691304,
-          0.5310665343439686,
-          0.05790926117521068,
-          0.0518572380139954
-        ],
-        "time_ms": 0.8,
-        "total_probability_mass": 1.0000000000000877
-      },
-      {
-        "acceptance_probability": 0.8806981546753894,
-        "case": "e",
-        "predicted_position_estimator": -0.253279933140005,
-        "probabilities": [
-          0.3772572853573091,
-          0.5034408693180803,
-          0.06308182225353831,
-          0.056220023071216235
-        ],
-        "time_ms": 1.2,
-        "total_probability_mass": 1.0000000000001439
-      },
-      {
-        "acceptance_probability": 0.8875176621166501,
-        "case": "e",
-        "predicted_position_estimator": -0.4293367304992986,
-        "probabilities": [
-          0.3359833319536099,
-          0.5515343301630402,
-          0.04540170798621147,
-          0.06708062989731012
-        ],
-        "time_ms": 1.6,
-        "total_probability_mass": 1.0000000000001716
-      },
-      {
-        "acceptance_probability": 0.8864483842258568,
-        "case": "e",
-        "predicted_position_estimator": -0.4765861747929397,
-        "probabilities": [
-          0.32373190160464993,
-          0.5627164826212069,
-          0.0402726553190652,
-          0.07327896045526137
+          0.3884816485401678,
+          0.500163860388817,
+          0.046665125180376535,
+          0.0646893658920105
         ],
         "time_ms": 2.0,
-        "total_probability_mass": 1.0000000000001834
+        "total_probability_mass": 1.000000000001372
       },
       {
-        "acceptance_probability": 0.8928478076251709,
-        "case": "e",
-        "predicted_position_estimator": -0.5219255823211878,
+        "acceptance_probability": 0.9062494988735647,
+        "case": "b",
+        "predicted_position_estimator": 0.05565945022339137,
         "probabilities": [
-          0.31461916814394986,
-          0.578228639481221,
-          0.04230716267425356,
-          0.06484502970083747
+          0.4673917173727663,
+          0.43885778150079835,
+          0.03963625467928929,
+          0.05411424644873203
         ],
         "time_ms": 2.4,
-        "total_probability_mass": 1.000000000000262
+        "total_probability_mass": 1.000000000001586
       },
       {
-        "acceptance_probability": 0.8926628897790578,
-        "case": "e",
-        "predicted_position_estimator": -0.6066647352382148,
+        "acceptance_probability": 0.9072802920627197,
+        "case": "b",
+        "predicted_position_estimator": 0.14993773787603615,
         "probabilities": [
-          0.2931587954132903,
-          0.5995040943657676,
-          0.05830170145916734,
-          0.049035408762117684
+          0.49211681129063556,
+          0.4151634807720841,
+          0.05337099276919198,
+          0.03934871517003437
         ],
         "time_ms": 2.8,
-        "total_probability_mass": 1.0000000000003428
+        "total_probability_mass": 1.000000000001946
       },
       {
-        "acceptance_probability": 0.8952115644334568,
-        "case": "e",
-        "predicted_position_estimator": -0.6617949877124004,
+        "acceptance_probability": 0.9151664019556719,
+        "case": "b",
+        "predicted_position_estimator": 0.04761824757635302,
         "probabilities": [
-          0.28003659972632877,
-          0.6151749647071281,
-          0.05731763275137752,
-          0.04747080281567799
+          0.4699090961499227,
+          0.4452573058057492,
+          0.04971933589196698,
+          0.03511426215472033
         ],
         "time_ms": 3.2,
-        "total_probability_mass": 1.0000000000005125
+        "total_probability_mass": 1.0000000000023592
       },
       {
-        "acceptance_probability": 0.8894315280232185,
-        "case": "e",
-        "predicted_position_estimator": -0.7493234821537555,
+        "acceptance_probability": 0.9259451389215958,
+        "case": "b",
+        "predicted_position_estimator": -0.21851953564250576,
         "probabilities": [
-          0.25620903562262876,
-          0.6332224924005897,
-          0.05412322955226998,
-          0.05644524242512005
+          0.4057429947569449,
+          0.5202021441646508,
+          0.03503510791271635,
+          0.039019753168348756
         ],
         "time_ms": 3.6,
-        "total_probability_mass": 1.0000000000006084
+        "total_probability_mass": 1.000000000002661
       },
       {
-        "acceptance_probability": 0.8463693833673726,
-        "case": "e",
-        "predicted_position_estimator": -0.7357694999829993,
+        "acceptance_probability": 0.8937240528830926,
+        "case": "b",
+        "predicted_position_estimator": -0.485250598234536,
         "probabilities": [
-          0.2470492636069915,
-          0.599320119760381,
-          0.06626792762009584,
-          0.08736268901325425
+          0.32419876175318174,
+          0.5695252911299109,
+          0.041172772576620914,
+          0.06510317454311092
         ],
         "time_ms": 4.0,
-        "total_probability_mass": 1.0000000000007225
+        "total_probability_mass": 1.0000000000028244
       },
       {
-        "acceptance_probability": 0.8287390279795606,
-        "case": "e",
-        "predicted_position_estimator": -0.4586680795176106,
+        "acceptance_probability": 0.8814426943621024,
+        "case": "b",
+        "predicted_position_estimator": -0.6763440191198267,
         "probabilities": [
-          0.30685643435368076,
-          0.5218825936258799,
-          0.06915232446703011,
-          0.10210864755420464
+          0.2721022615237759,
+          0.6093404328383265,
+          0.048048354521841447,
+          0.07050895111912894
         ],
         "time_ms": 4.4,
-        "total_probability_mass": 1.0000000000007954
+        "total_probability_mass": 1.0000000000030729
       },
       {
-        "acceptance_probability": 0.8528302667700802,
-        "case": "e",
-        "predicted_position_estimator": -0.305897690909733,
+        "acceptance_probability": 0.895914974806225,
+        "case": "b",
+        "predicted_position_estimator": -0.6924924448988281,
         "probabilities": [
-          0.35262746332334555,
-          0.5002028034467347,
-          0.06934806439732695,
-          0.0778216688334008
+          0.2724778094161584,
+          0.6234371653900665,
+          0.04966027108180944,
+          0.0544247541153143
         ],
         "time_ms": 4.8,
-        "total_probability_mass": 1.000000000000808
+        "total_probability_mass": 1.0000000000033487
       },
       {
-        "acceptance_probability": 0.8588872278803736,
-        "case": "e",
-        "predicted_position_estimator": -0.3252018108013597,
+        "acceptance_probability": 0.8750696508862292,
+        "case": "b",
+        "predicted_position_estimator": -0.6715390906864075,
         "probabilities": [
-          0.35044234023944143,
-          0.5084448876409322,
-          0.07447914842639479,
-          0.0666336236940408
+          0.27132415025843426,
+          0.603745500627795,
+          0.058437489629635644,
+          0.06649285948767258
         ],
         "time_ms": 5.2,
-        "total_probability_mass": 1.0000000000008091
+        "total_probability_mass": 1.0000000000035376
       },
       {
-        "acceptance_probability": 0.8599380341154975,
-        "case": "e",
-        "predicted_position_estimator": -0.38750957877382664,
+        "acceptance_probability": 0.8478647400016299,
+        "case": "b",
+        "predicted_position_estimator": -0.6805238297181567,
         "probabilities": [
-          0.33571614486424173,
-          0.5242218892512558,
-          0.06975356019279248,
-          0.07030840569260435
+          0.26073434240427923,
+          0.5871303975973506,
+          0.06391692253734602,
+          0.08821833746481188
         ],
         "time_ms": 5.6,
-        "total_probability_mass": 1.0000000000008944
+        "total_probability_mass": 1.0000000000037879
       },
       {
-        "acceptance_probability": 0.852440001859351,
-        "case": "e",
-        "predicted_position_estimator": -0.47078096783354306,
+        "acceptance_probability": 0.8624625886021742,
+        "case": "b",
+        "predicted_position_estimator": -0.6363721991289225,
         "probabilities": [
-          0.3127116766502908,
-          0.5397283252090601,
-          0.06828456852405124,
-          0.07927542961759253
+          0.2759938595096385,
+          0.5864687290925357,
+          0.05810977397943892,
+          0.07942763742250572
         ],
         "time_ms": 6.0,
-        "total_probability_mass": 1.0000000000009948
+        "total_probability_mass": 1.000000000004119
       },
       {
-        "acceptance_probability": 0.8476547207138132,
-        "case": "e",
-        "predicted_position_estimator": -0.7316888755316004,
+        "acceptance_probability": 0.8727670269905373,
+        "case": "b",
+        "predicted_position_estimator": -0.45012030941450676,
         "probabilities": [
-          0.24840278632089047,
-          0.5992519343929228,
-          0.06982759139639722,
-          0.08251768789090276
+          0.32526870744672676,
+          0.5474983195438106,
+          0.05650807928388864,
+          0.0707248937299725
         ],
         "time_ms": 6.4,
-        "total_probability_mass": 1.0000000000011133
+        "total_probability_mass": 1.0000000000043985
       },
       {
-        "acceptance_probability": 0.8330437673009079,
-        "case": "e",
-        "predicted_position_estimator": -0.8109667504180176,
+        "acceptance_probability": 0.8794955768649328,
+        "case": "b",
+        "predicted_position_estimator": -0.2187819117275651,
         "probabilities": [
-          0.22544160697982965,
-          0.6076021603210783,
-          0.07306371276936222,
-          0.0938925199309798
+          0.38532383754358807,
+          0.49417173932134484,
+          0.05766678482321627,
+          0.06283763831648148
         ],
         "time_ms": 6.8,
-        "total_probability_mass": 1.00000000000125
+        "total_probability_mass": 1.0000000000046305
       },
       {
-        "acceptance_probability": 0.8286756249237976,
-        "case": "e",
-        "predicted_position_estimator": -0.6136570933294491,
+        "acceptance_probability": 0.8826223485907492,
+        "case": "b",
+        "predicted_position_estimator": 0.01729292347496448,
         "probabilities": [
-          0.2705058796241497,
-          0.558169745299648,
-          0.08282506926336303,
-          0.08849930581421112
+          0.44562823676389207,
+          0.4369941118268571,
+          0.05796883679015714,
+          0.05940881462406866
         ],
         "time_ms": 7.2,
-        "total_probability_mass": 1.0000000000013718
+        "total_probability_mass": 1.0000000000049751
       },
       {
-        "acceptance_probability": 0.8088461987564364,
-        "case": "e",
-        "predicted_position_estimator": -0.4041124899073819,
+        "acceptance_probability": 0.8788678810287147,
+        "case": "b",
+        "predicted_position_estimator": 0.10725100223005209,
         "probabilities": [
-          0.3119717582149797,
-          0.4968744405414567,
-          0.0926397628154094,
-          0.09851403842957697
+          0.4660945421592635,
+          0.41277333886945117,
+          0.06039937860005292,
+          0.06073274037664922
         ],
         "time_ms": 7.6,
-        "total_probability_mass": 1.0000000000014229
+        "total_probability_mass": 1.000000000005417
       },
       {
-        "acceptance_probability": 0.8056714153015846,
-        "case": "e",
-        "predicted_position_estimator": -0.355666529974917,
+        "acceptance_probability": 0.8681598587792569,
+        "case": "b",
+        "predicted_position_estimator": 0.0214861633269175,
         "probabilities": [
-          0.3217870275350524,
-          0.4838843877665322,
-          0.09041549289365983,
-          0.10391309180627958
+          0.4393559145776941,
+          0.4288039442015629,
+          0.06511110746583597,
+          0.0667290337606656
         ],
         "time_ms": 8.0,
-        "total_probability_mass": 1.000000000001524
+        "total_probability_mass": 1.0000000000057585
       },
       {
-        "acceptance_probability": 0.8209663166958565,
-        "case": "e",
-        "predicted_position_estimator": -0.3240704629948337,
+        "acceptance_probability": 0.8654822741328343,
+        "case": "b",
+        "predicted_position_estimator": -0.1349968220077628,
         "probabilities": [
-          0.33523259041861275,
-          0.4857337262772437,
-          0.08450357938915222,
-          0.09453010391661004
+          0.39969454223220346,
+          0.4657877319006308,
+          0.06602702051125497,
+          0.06849070536192214
         ],
         "time_ms": 8.4,
-        "total_probability_mass": 1.0000000000016187
+        "total_probability_mass": 1.0000000000060114
       },
       {
-        "acceptance_probability": 0.8342936922111415,
-        "case": "e",
-        "predicted_position_estimator": -0.34706506529289316,
+        "acceptance_probability": 0.8463318695684475,
+        "case": "b",
+        "predicted_position_estimator": -0.27309579059630723,
         "probabilities": [
-          0.3352485522510477,
-          0.4990451399600937,
-          0.07893869103627624,
-          0.08676761675427673
+          0.35779259169768085,
+          0.4885392778707667,
+          0.0713713848178937,
+          0.08229674561995004
         ],
         "time_ms": 8.8,
-        "total_probability_mass": 1.0000000000016944
+        "total_probability_mass": 1.0000000000062914
       },
       {
-        "acceptance_probability": 0.8256251080159307,
-        "case": "e",
-        "predicted_position_estimator": -0.45637613709042724,
+        "acceptance_probability": 0.8315977925477527,
+        "case": "b",
+        "predicted_position_estimator": -0.30869911231057195,
         "probabilities": [
-          0.30623866516789444,
-          0.5193864428480363,
-          0.0857045452481014,
-          0.08867034673774228
+          0.3431893535035046,
+          0.488408439044248,
+          0.077692846624764,
+          0.09070936083407545
         ],
         "time_ms": 9.2,
-        "total_probability_mass": 1.0000000000017744
+        "total_probability_mass": 1.000000000006592
       },
       {
-        "acceptance_probability": 0.8030477166796194,
-        "case": "e",
-        "predicted_position_estimator": -0.5774023878278312,
+        "acceptance_probability": 0.8473547303089363,
+        "case": "b",
+        "predicted_position_estimator": -0.443825355105528,
         "probabilities": [
-          0.2703748773125234,
-          0.532672839367096,
-          0.09584164019577246,
-          0.10111064312652124
+          0.3173065809714505,
+          0.5300481493374858,
+          0.07583738635258544,
+          0.07680788334531248
         ],
         "time_ms": 9.6,
-        "total_probability_mass": 1.0000000000019131
+        "total_probability_mass": 1.000000000006834
       },
       {
-        "acceptance_probability": 0.7913985549945732,
-        "case": "e",
-        "predicted_position_estimator": -0.6188580556593837,
+        "acceptance_probability": 0.8512200447166423,
+        "case": "b",
+        "predicted_position_estimator": -0.6633188794592223,
         "probabilities": [
-          0.2571732771741815,
-          0.5342252778203918,
-          0.09828537634588035,
-          0.11031606866159611
+          0.26590844934067737,
+          0.5853115953759649,
+          0.06845701452346482,
+          0.08032294076695214
         ],
         "time_ms": 10.0,
-        "total_probability_mass": 1.0000000000020497
+        "total_probability_mass": 1.0000000000070592
+      },
+      {
+        "acceptance_probability": 1.0000000000000004,
+        "case": "c",
+        "predicted_position_estimator": 1.1531610159040526,
+        "probabilities": [
+          0.8261631896582899,
+          0.1738368103417105,
+          5.302016872361138e-31,
+          1.2728051214877924e-31
+        ],
+        "time_ms": 0.0,
+        "total_probability_mass": 1.0000000000000004
+      },
+      {
+        "acceptance_probability": 0.9412786995246928,
+        "case": "c",
+        "predicted_position_estimator": 0.8940294322951345,
+        "probabilities": [
+          0.7086602212226507,
+          0.23261847830204205,
+          0.030459379382377447,
+          0.02826192109344687
+        ],
+        "time_ms": 0.4,
+        "total_probability_mass": 1.0000000000005171
+      },
+      {
+        "acceptance_probability": 0.9115208878659633,
+        "case": "c",
+        "predicted_position_estimator": 0.40487227212048393,
+        "probabilities": [
+          0.5601434148716273,
+          0.3513774729943359,
+          0.03515602833376963,
+          0.05332308380112229
+        ],
+        "time_ms": 0.8,
+        "total_probability_mass": 1.0000000000008553
+      },
+      {
+        "acceptance_probability": 0.9380324896525711,
+        "case": "c",
+        "predicted_position_estimator": 0.11176835975753799,
+        "probabilities": [
+          0.4986701402653362,
+          0.43936234938723495,
+          0.022638326207870492,
+          0.03932918414065473
+        ],
+        "time_ms": 1.2,
+        "total_probability_mass": 1.0000000000010965
+      },
+      {
+        "acceptance_probability": 0.8993021012096445,
+        "case": "c",
+        "predicted_position_estimator": 0.13766928415942092,
+        "probabilities": [
+          0.4846687536761587,
+          0.41463334753348585,
+          0.045386818902191914,
+          0.05531107988952613
+        ],
+        "time_ms": 1.6,
+        "total_probability_mass": 1.0000000000013625
+      },
+      {
+        "acceptance_probability": 0.8740254179581411,
+        "case": "c",
+        "predicted_position_estimator": 0.10062829860276808,
+        "probabilities": [
+          0.46188920375603065,
+          0.4121362142021105,
+          0.066575319931751,
+          0.059399262111716616
+        ],
+        "time_ms": 2.0,
+        "total_probability_mass": 1.0000000000016087
+      },
+      {
+        "acceptance_probability": 0.9027732570165629,
+        "case": "c",
+        "predicted_position_estimator": -0.19084115651094655,
+        "probabilities": [
+          0.40265670623343264,
+          0.5001165507831302,
+          0.05322708953655214,
+          0.04399965344877564
+        ],
+        "time_ms": 2.4,
+        "total_probability_mass": 1.0000000000018907
+      },
+      {
+        "acceptance_probability": 0.876364086760117,
+        "case": "c",
+        "predicted_position_estimator": -0.46974447837002137,
+        "probabilities": [
+          0.3217449784981291,
+          0.5546191082619879,
+          0.053844824956395,
+          0.06979108828567367
+        ],
+        "time_ms": 2.8,
+        "total_probability_mass": 1.0000000000021856
+      },
+      {
+        "acceptance_probability": 0.870073584441177,
+        "case": "c",
+        "predicted_position_estimator": -0.37760600601366917,
+        "probabilities": [
+          0.3421102300944211,
+          0.5279633543467559,
+          0.05661889871015059,
+          0.07330751685112918
+        ],
+        "time_ms": 3.2,
+        "total_probability_mass": 1.0000000000024567
+      },
+      {
+        "acceptance_probability": 0.8991699097274464,
+        "case": "c",
+        "predicted_position_estimator": 0.06639248896239207,
+        "probabilities": [
+          0.4664701354037031,
+          0.4326997743237433,
+          0.050204526134454294,
+          0.050625564140809244
+        ],
+        "time_ms": 3.6,
+        "total_probability_mass": 1.0000000000027098
+      },
+      {
+        "acceptance_probability": 0.875572615079211,
+        "case": "c",
+        "predicted_position_estimator": 0.45634356605263704,
+        "probabilities": [
+          0.5507994874819058,
+          0.32477312759730526,
+          0.07192411038410998,
+          0.05250327453972113
+        ],
+        "time_ms": 4.0,
+        "total_probability_mass": 1.000000000003042
+      },
+      {
+        "acceptance_probability": 0.8580808071349777,
+        "case": "c",
+        "predicted_position_estimator": 0.6331069603609156,
+        "probabilities": [
+          0.5826966676575219,
+          0.27538413947745577,
+          0.08256197441819656,
+          0.05935721845030893
+        ],
+        "time_ms": 4.4,
+        "total_probability_mass": 1.0000000000034832
+      },
+      {
+        "acceptance_probability": 0.8780583277497263,
+        "case": "c",
+        "predicted_position_estimator": 0.6531338074490789,
+        "probabilities": [
+          0.601236511908838,
+          0.27682181584088833,
+          0.06242228084644873,
+          0.059519391407749325
+        ],
+        "time_ms": 4.8,
+        "total_probability_mass": 1.0000000000039244
+      },
+      {
+        "acceptance_probability": 0.8640532786765012,
+        "case": "c",
+        "predicted_position_estimator": 0.637235832944041,
+        "probabilities": [
+          0.5877614520695091,
+          0.2762918266069921,
+          0.07149786277336251,
+          0.06444885855439361
+        ],
+        "time_ms": 5.2,
+        "total_probability_mass": 1.0000000000042573
+      },
+      {
+        "acceptance_probability": 0.8412277611188539,
+        "case": "c",
+        "predicted_position_estimator": 0.6436095066267392,
+        "probabilities": [
+          0.5737511997591943,
+          0.2674765613596595,
+          0.0893268622040092,
+          0.06944537668168371
+        ],
+        "time_ms": 5.6,
+        "total_probability_mass": 1.0000000000045468
+      },
+      {
+        "acceptance_probability": 0.8643645479148436,
+        "case": "c",
+        "predicted_position_estimator": 0.6013397158823091,
+        "probabilities": [
+          0.5791973346218524,
+          0.2851672132929912,
+          0.07459192450703639,
+          0.061043527583027835
+        ],
+        "time_ms": 6.0,
+        "total_probability_mass": 1.0000000000049079
+      },
+      {
+        "acceptance_probability": 0.8527512575076048,
+        "case": "c",
+        "predicted_position_estimator": 0.4182448081478435,
+        "probabilities": [
+          0.5272539672405627,
+          0.3254972902670421,
+          0.08016231596185677,
+          0.06708642653579328
+        ],
+        "time_ms": 6.4,
+        "total_probability_mass": 1.000000000005255
+      },
+      {
+        "acceptance_probability": 0.8378062337092447,
+        "case": "c",
+        "predicted_position_estimator": 0.043663566336118925,
+        "probabilities": [
+          0.4292499581056686,
+          0.4085562756035761,
+          0.08591263516632557,
+          0.07628113112994092
+        ],
+        "time_ms": 6.8,
+        "total_probability_mass": 1.0000000000055111
+      },
+      {
+        "acceptance_probability": 0.8553221358858643,
+        "case": "c",
+        "predicted_position_estimator": -0.312174691743747,
+        "probabilities": [
+          0.35213925674951607,
+          0.5031828791363482,
+          0.07036689266180116,
+          0.07431097145806939
+        ],
+        "time_ms": 7.2,
+        "total_probability_mass": 1.0000000000057347
+      },
+      {
+        "acceptance_probability": 0.8410028239005611,
+        "case": "c",
+        "predicted_position_estimator": -0.405807351458691,
+        "probabilities": [
+          0.32397140046780565,
+          0.5170314234327555,
+          0.07898720934284222,
+          0.08000996676254002
+        ],
+        "time_ms": 7.6,
+        "total_probability_mass": 1.0000000000059432
+      },
+      {
+        "acceptance_probability": 0.8151962500257939,
+        "case": "c",
+        "predicted_position_estimator": -0.2334563935531633,
+        "probabilities": [
+          0.3537695430695209,
+          0.46142670695627297,
+          0.09539570607210951,
+          0.08940804390826598
+        ],
+        "time_ms": 8.0,
+        "total_probability_mass": 1.0000000000061695
+      },
+      {
+        "acceptance_probability": 0.8277172631191564,
+        "case": "c",
+        "predicted_position_estimator": -0.008878275644260287,
+        "probabilities": [
+          0.41178010474778515,
+          0.41593715837137124,
+          0.08493009577309531,
+          0.08735264111420708
+        ],
+        "time_ms": 8.4,
+        "total_probability_mass": 1.0000000000064588
+      },
+      {
+        "acceptance_probability": 0.8260429193987953,
+        "case": "c",
+        "predicted_position_estimator": 0.07771446445864902,
+        "probabilities": [
+          0.43117868426828504,
+          0.3948642351305102,
+          0.08385435498738539,
+          0.09010272562060037
+        ],
+        "time_ms": 8.8,
+        "total_probability_mass": 1.000000000006781
+      },
+      {
+        "acceptance_probability": 0.8098555583431271,
+        "case": "c",
+        "predicted_position_estimator": 0.14629336884040153,
+        "probabilities": [
+          0.4384379932032641,
+          0.3714175651398629,
+          0.09471586703220594,
+          0.0954285746317832
+        ],
+        "time_ms": 9.2,
+        "total_probability_mass": 1.000000000007116
+      },
+      {
+        "acceptance_probability": 0.8191676821930589,
+        "case": "c",
+        "predicted_position_estimator": 0.3852134244750444,
+        "probabilities": [
+          0.49883610015346086,
+          0.3203315820395981,
+          0.08871356131333269,
+          0.09211875650099828
+        ],
+        "time_ms": 9.6,
+        "total_probability_mass": 1.0000000000073899
+      },
+      {
+        "acceptance_probability": 0.830267500211153,
+        "case": "c",
+        "predicted_position_estimator": 0.6669252729361623,
+        "probabilities": [
+          0.5717512211639585,
+          0.2585162790471946,
+          0.0899293459239042,
+          0.07980315387264707
+        ],
+        "time_ms": 10.0,
+        "total_probability_mass": 1.0000000000077043
+      },
+      {
+        "acceptance_probability": 1.0000000000000004,
+        "case": "d",
+        "predicted_position_estimator": -1.7997184807662759e-13,
+        "probabilities": [
+          0.49999999999994926,
+          0.5000000000000511,
+          3.107719194157118e-31,
+          3.1070734320558645e-31
+        ],
+        "time_ms": 0.0,
+        "total_probability_mass": 1.0000000000000004
+      },
+      {
+        "acceptance_probability": 0.9616472835069947,
+        "case": "d",
+        "predicted_position_estimator": -0.0851222445417022,
+        "probabilities": [
+          0.4576708231389774,
+          0.5039764603680174,
+          0.017695806793743708,
+          0.020656909699436492
+        ],
+        "time_ms": 0.4,
+        "total_probability_mass": 1.000000000000175
+      },
+      {
+        "acceptance_probability": 0.9307309093828969,
+        "case": "d",
+        "predicted_position_estimator": -0.14820122480689796,
+        "probabilities": [
+          0.4263514148303901,
+          0.5043794945525069,
+          0.029754241936466502,
+          0.03951484868144156
+        ],
+        "time_ms": 0.8,
+        "total_probability_mass": 1.000000000000805
+      },
+      {
+        "acceptance_probability": 0.9431710940307054,
+        "case": "d",
+        "predicted_position_estimator": -0.09966671601929904,
+        "probabilities": [
+          0.4449975498167881,
+          0.49817354421391735,
+          0.02628075837916155,
+          0.030548147591524227
+        ],
+        "time_ms": 1.2,
+        "total_probability_mass": 1.000000000001391
+      },
+      {
+        "acceptance_probability": 0.9232418313010707,
+        "case": "d",
+        "predicted_position_estimator": -0.3213403711154351,
+        "probabilities": [
+          0.37770858993312384,
+          0.5455332413679469,
+          0.0345804416246528,
+          0.04217772707572902
+        ],
+        "time_ms": 1.6,
+        "total_probability_mass": 1.0000000000014526
+      },
+      {
+        "acceptance_probability": 0.9036231186687075,
+        "case": "d",
+        "predicted_position_estimator": -0.7296370323882946,
+        "probabilities": [
+          0.26532858158761596,
+          0.6382945370810915,
+          0.03553803773100704,
+          0.06083884360200781
+        ],
+        "time_ms": 2.0,
+        "total_probability_mass": 1.0000000000017224
+      },
+      {
+        "acceptance_probability": 0.9068585901805646,
+        "case": "d",
+        "predicted_position_estimator": -0.7484033722763513,
+        "probabilities": [
+          0.26146506984836365,
+          0.6453935203322009,
+          0.03348583210506417,
+          0.05965557771664058
+        ],
+        "time_ms": 2.4,
+        "total_probability_mass": 1.0000000000022693
+      },
+      {
+        "acceptance_probability": 0.9160428198130073,
+        "case": "d",
+        "predicted_position_estimator": -0.4301802357997724,
+        "probabilities": [
+          0.3465634160887674,
+          0.5694794037242399,
+          0.039196131560208354,
+          0.04476104862927831
+        ],
+        "time_ms": 2.8,
+        "total_probability_mass": 1.000000000002494
+      },
+      {
+        "acceptance_probability": 0.9237173777698994,
+        "case": "d",
+        "predicted_position_estimator": -0.3542032207768458,
+        "probabilities": [
+          0.3693171721016949,
+          0.5544002056682045,
+          0.039333399659140636,
+          0.03694922257359116
+        ],
+        "time_ms": 3.2,
+        "total_probability_mass": 1.0000000000026312
+      },
+      {
+        "acceptance_probability": 0.917508829325909,
+        "case": "d",
+        "predicted_position_estimator": -0.5085520348330524,
+        "probabilities": [
+          0.3267797272337061,
+          0.590729102092203,
+          0.03659569811589587,
+          0.04589547256134205
+        ],
+        "time_ms": 3.6,
+        "total_probability_mass": 1.000000000003147
+      },
+      {
+        "acceptance_probability": 0.911477667122641,
+        "case": "d",
+        "predicted_position_estimator": -0.41153270189720126,
+        "probabilities": [
+          0.3496437211822527,
+          0.5618339459403883,
+          0.035191676475471265,
+          0.05333065640561799
+        ],
+        "time_ms": 4.0,
+        "total_probability_mass": 1.0000000000037303
+      },
+      {
+        "acceptance_probability": 0.9066672719056778,
+        "case": "d",
+        "predicted_position_estimator": -0.11593248747149201,
+        "probabilities": [
+          0.42360341841352034,
+          0.4830638534921574,
+          0.04485579639051534,
+          0.04847693170766479
+        ],
+        "time_ms": 4.4,
+        "total_probability_mass": 1.0000000000038578
+      },
+      {
+        "acceptance_probability": 0.8996471947017853,
+        "case": "d",
+        "predicted_position_estimator": 0.026620334040241188,
+        "probabilities": [
+          0.4565973716883811,
+          0.44304982301340423,
+          0.054567008296624725,
+          0.04578579700561372
+        ],
+        "time_ms": 4.8,
+        "total_probability_mass": 1.000000000004024
+      },
+      {
+        "acceptance_probability": 0.880120940089979,
+        "case": "d",
+        "predicted_position_estimator": -0.009325169123593368,
+        "probabilities": [
+          0.4377391016650164,
+          0.4423818384249626,
+          0.06136649392639992,
+          0.058512565988324786
+        ],
+        "time_ms": 5.2,
+        "total_probability_mass": 1.0000000000047038
+      },
+      {
+        "acceptance_probability": 0.8764340660009756,
+        "case": "d",
+        "predicted_position_estimator": -0.014642939603347208,
+        "probabilities": [
+          0.4345871509413077,
+          0.44184691505966794,
+          0.059423946653589375,
+          0.06414198735070387
+        ],
+        "time_ms": 5.6,
+        "total_probability_mass": 1.000000000005269
+      },
+      {
+        "acceptance_probability": 0.8933108754632171,
+        "case": "d",
+        "predicted_position_estimator": -0.12970951745563394,
+        "probabilities": [
+          0.41388219168812734,
+          0.4794286837750898,
+          0.04980316373805607,
+          0.056885960804148906
+        ],
+        "time_ms": 6.0,
+        "total_probability_mass": 1.000000000005422
+      },
+      {
+        "acceptance_probability": 0.8858418192496037,
+        "case": "d",
+        "predicted_position_estimator": -0.3721399461741479,
+        "probabilities": [
+          0.3496797936560986,
+          0.5361620255935051,
+          0.05267376213530826,
+          0.06148441862072275
+        ],
+        "time_ms": 6.4,
+        "total_probability_mass": 1.0000000000056348
+      },
+      {
+        "acceptance_probability": 0.8807781782801756,
+        "case": "d",
+        "predicted_position_estimator": -0.442628995807231,
+        "probabilities": [
+          0.33012060608951305,
+          0.5506575721906626,
+          0.057184248021137286,
+          0.06203757370481229
+        ],
+        "time_ms": 6.8,
+        "total_probability_mass": 1.000000000006125
+      },
+      {
+        "acceptance_probability": 0.8858402046904821,
+        "case": "d",
+        "predicted_position_estimator": -0.3514354299952963,
+        "probabilities": [
+          0.3548667442031727,
+          0.5309734604873093,
+          0.057088973456947696,
+          0.05707082185905168
+        ],
+        "time_ms": 7.2,
+        "total_probability_mass": 1.0000000000064815
+      },
+      {
+        "acceptance_probability": 0.8788235232568485,
+        "case": "d",
+        "predicted_position_estimator": -0.45527410126402873,
+        "probabilities": [
+          0.32624481135563543,
+          0.5525787119012131,
+          0.058027919997037186,
+          0.06314855675273578
+        ],
+        "time_ms": 7.6,
+        "total_probability_mass": 1.0000000000066214
+      },
+      {
+        "acceptance_probability": 0.8639092020433247,
+        "case": "d",
+        "predicted_position_estimator": -0.6982639788838033,
+        "probabilities": [
+          0.261333503087669,
+          0.6025756989556557,
+          0.0597601069495287,
+          0.07633069101415431
+        ],
+        "time_ms": 8.0,
+        "total_probability_mass": 1.0000000000070077
+      },
+      {
+        "acceptance_probability": 0.8589635937505171,
+        "case": "d",
+        "predicted_position_estimator": -0.6277337654474897,
+        "probabilities": [
+          0.27697287872218285,
+          0.5819907150283343,
+          0.06174915778877434,
+          0.079287248468189
+        ],
+        "time_ms": 8.4,
+        "total_probability_mass": 1.0000000000074805
+      },
+      {
+        "acceptance_probability": 0.859407811725064,
+        "case": "d",
+        "predicted_position_estimator": -0.2969025667501987,
+        "probabilities": [
+          0.3575336504003581,
+          0.5018741613247059,
+          0.06751035709974856,
+          0.07308183118286685
+        ],
+        "time_ms": 8.8,
+        "total_probability_mass": 1.0000000000076794
+      },
+      {
+        "acceptance_probability": 0.8499479450434764,
+        "case": "d",
+        "predicted_position_estimator": -0.13803073202152852,
+        "probabilities": [
+          0.3917911661462484,
+          0.4581567788972279,
+          0.07516005168127926,
+          0.07489200328311527
+        ],
+        "time_ms": 9.2,
+        "total_probability_mass": 1.0000000000078708
+      },
+      {
+        "acceptance_probability": 0.8468144671070058,
+        "case": "d",
+        "predicted_position_estimator": -0.16666249426127852,
+        "probabilities": [
+          0.38348901610188557,
+          0.46332545100512024,
+          0.07339123077962617,
+          0.07979430212180699
+        ],
+        "time_ms": 9.6,
+        "total_probability_mass": 1.000000000008439
+      },
+      {
+        "acceptance_probability": 0.855134366310925,
+        "case": "d",
+        "predicted_position_estimator": -0.1109651858042103,
+        "probabilities": [
+          0.4007281974831631,
+          0.45440616882776186,
+          0.06718304538475253,
+          0.07768258831332406
+        ],
+        "time_ms": 10.0,
+        "total_probability_mass": 1.0000000000090015
+      },
+      {
+        "acceptance_probability": 0.999999999999999,
+        "case": "e",
+        "predicted_position_estimator": -1.153161015904261,
+        "probabilities": [
+          0.1738368103416513,
+          0.8261631896583477,
+          1.2798750650387093e-31,
+          5.35865883050201e-31
+        ],
+        "time_ms": 0.0,
+        "total_probability_mass": 0.999999999999999
+      },
+      {
+        "acceptance_probability": 0.9313158270580563,
+        "case": "e",
+        "predicted_position_estimator": -0.7822290183272612,
+        "probabilities": [
+          0.25960635680945743,
+          0.6717094702485988,
+          0.03138746113973706,
+          0.03729671180240675
+        ],
+        "time_ms": 0.4,
+        "total_probability_mass": 1.0000000000002
+      },
+      {
+        "acceptance_probability": 0.8902335008114155,
+        "case": "e",
+        "predicted_position_estimator": -0.341346820859828,
+        "probabilities": [
+          0.35916696646643503,
+          0.5310665343449805,
+          0.05790926117502988,
+          0.0518572380139327
+        ],
+        "time_ms": 0.8,
+        "total_probability_mass": 1.0000000000003781
+      },
+      {
+        "acceptance_probability": 0.8806981546759804,
+        "case": "e",
+        "predicted_position_estimator": -0.25327993314385394,
+        "probabilities": [
+          0.3772572853566035,
+          0.5034408693193769,
+          0.06308182225338939,
+          0.05622002307131209
+        ],
+        "time_ms": 1.2,
+        "total_probability_mass": 1.000000000000682
+      },
+      {
+        "acceptance_probability": 0.8875176621174958,
+        "case": "e",
+        "predicted_position_estimator": -0.429336730503375,
+        "probabilities": [
+          0.3359833319529068,
+          0.5515343301645891,
+          0.04540170798609989,
+          0.06708062989751258
+        ],
+        "time_ms": 1.6,
+        "total_probability_mass": 1.0000000000011082
+      },
+      {
+        "acceptance_probability": 0.8864483842270459,
+        "case": "e",
+        "predicted_position_estimator": -0.4765861747945958,
+        "probabilities": [
+          0.3237319016046689,
+          0.562716482622377,
+          0.04027265531909932,
+          0.07327896045514218
+        ],
+        "time_ms": 2.0,
+        "total_probability_mass": 1.0000000000012874
+      },
+      {
+        "acceptance_probability": 0.8928478076265389,
+        "case": "e",
+        "predicted_position_estimator": -0.5219255823209731,
+        "probabilities": [
+          0.31461916814448615,
+          0.5782286394820528,
+          0.042307162674177654,
+          0.06484502970074557
+        ],
+        "time_ms": 2.4,
+        "total_probability_mass": 1.0000000000014622
+      },
+      {
+        "acceptance_probability": 0.892662889780792,
+        "case": "e",
+        "predicted_position_estimator": -0.6066647352389533,
+        "probabilities": [
+          0.2931587954136734,
+          0.5995040943671186,
+          0.05830170145900964,
+          0.049035408761959345
+        ],
+        "time_ms": 2.8,
+        "total_probability_mass": 1.000000000001761
+      },
+      {
+        "acceptance_probability": 0.8952115644353885,
+        "case": "e",
+        "predicted_position_estimator": -0.661794987713075,
+        "probabilities": [
+          0.2800365997267622,
+          0.6151749647086263,
+          0.057317632751126085,
+          0.04747080281547111
+        ],
+        "time_ms": 3.2,
+        "total_probability_mass": 1.0000000000019857
+      },
+      {
+        "acceptance_probability": 0.8894315280257359,
+        "case": "e",
+        "predicted_position_estimator": -0.7493234821530024,
+        "probabilities": [
+          0.2562090356235434,
+          0.6332224924021925,
+          0.05412322955169026,
+          0.05644524242479147
+        ],
+        "time_ms": 3.6,
+        "total_probability_mass": 1.0000000000022176
+      },
+      {
+        "acceptance_probability": 0.8463693833700017,
+        "case": "e",
+        "predicted_position_estimator": -0.7357694999859055,
+        "probabilities": [
+          0.24704926360706325,
+          0.5993201197629384,
+          0.06626792761970068,
+          0.08736268901286492
+        ],
+        "time_ms": 4.0,
+        "total_probability_mass": 1.0000000000025673
+      },
+      {
+        "acceptance_probability": 0.8287390279817815,
+        "case": "e",
+        "predicted_position_estimator": -0.4586680795251464,
+        "probabilities": [
+          0.30685643435273663,
+          0.5218825936290448,
+          0.06915232446681688,
+          0.10210864755427342
+        ],
+        "time_ms": 4.4,
+        "total_probability_mass": 1.0000000000028717
+      },
+      {
+        "acceptance_probability": 0.8528302667724403,
+        "case": "e",
+        "predicted_position_estimator": -0.30589769091520647,
+        "probabilities": [
+          0.3526274633230011,
+          0.5002028034494392,
+          0.06934806439710156,
+          0.07782166883349334
+        ],
+        "time_ms": 4.8,
+        "total_probability_mass": 1.0000000000030353
+      },
+      {
+        "acceptance_probability": 0.8588872278829787,
+        "case": "e",
+        "predicted_position_estimator": -0.3252018108026352,
+        "probabilities": [
+          0.35044234024019444,
+          0.5084448876427842,
+          0.07447914842624317,
+          0.06663362369404238
+        ],
+        "time_ms": 5.2,
+        "total_probability_mass": 1.0000000000032643
+      },
+      {
+        "acceptance_probability": 0.8599380341185302,
+        "case": "e",
+        "predicted_position_estimator": -0.38750957877313097,
+        "probabilities": [
+          0.33571614486559487,
+          0.5242218892529353,
+          0.06975356019264235,
+          0.07030840569243052
+        ],
+        "time_ms": 5.6,
+        "total_probability_mass": 1.0000000000036031
+      },
+      {
+        "acceptance_probability": 0.8524400018632884,
+        "case": "e",
+        "predicted_position_estimator": -0.47078096783064527,
+        "probabilities": [
+          0.31271167665243393,
+          0.5397283252108545,
+          0.06828456852355294,
+          0.07927542961700804
+        ],
+        "time_ms": 6.0,
+        "total_probability_mass": 1.0000000000038494
+      },
+      {
+        "acceptance_probability": 0.8476547207178855,
+        "case": "e",
+        "predicted_position_estimator": -0.7316888755290235,
+        "probabilities": [
+          0.24840278632270166,
+          0.5992519343951839,
+          0.06982759139593192,
+          0.08251768789027447
+        ],
+        "time_ms": 6.4,
+        "total_probability_mass": 1.0000000000040918
+      },
+      {
+        "acceptance_probability": 0.8330437673047895,
+        "case": "e",
+        "predicted_position_estimator": -0.8109667504209245,
+        "probabilities": [
+          0.22544160698019516,
+          0.6076021603245944,
+          0.07306371276885673,
+          0.09389251993070499
+        ],
+        "time_ms": 6.8,
+        "total_probability_mass": 1.0000000000043512
+      },
+      {
+        "acceptance_probability": 0.828675624927976,
+        "case": "e",
+        "predicted_position_estimator": -0.613657093334702,
+        "probabilities": [
+          0.2705058796242824,
+          0.5581697453036936,
+          0.08282506926275854,
+          0.08849930581385264
+        ],
+        "time_ms": 7.2,
+        "total_probability_mass": 1.0000000000045872
+      },
+      {
+        "acceptance_probability": 0.808846198760383,
+        "case": "e",
+        "predicted_position_estimator": -0.40411248991221327,
+        "probabilities": [
+          0.3119717582153966,
+          0.49687444054498636,
+          0.0926397628150284,
+          0.09851403842936719
+        ],
+        "time_ms": 7.6,
+        "total_probability_mass": 1.0000000000047786
+      },
+      {
+        "acceptance_probability": 0.8056714153050766,
+        "case": "e",
+        "predicted_position_estimator": -0.35566652998136855,
+        "probabilities": [
+          0.32178702753497695,
+          0.4838843877700997,
+          0.09041549289346369,
+          0.10391309180657694
+        ],
+        "time_ms": 8.0,
+        "total_probability_mass": 1.0000000000051172
+      },
+      {
+        "acceptance_probability": 0.8209663166998646,
+        "case": "e",
+        "predicted_position_estimator": -0.32407046300062536,
+        "probabilities": [
+          0.33523259041890463,
+          0.48573372628096007,
+          0.08450357938893288,
+          0.09453010391664159
+        ],
+        "time_ms": 8.4,
+        "total_probability_mass": 1.000000000005439
+      },
+      {
+        "acceptance_probability": 0.834293692215839,
+        "case": "e",
+        "predicted_position_estimator": -0.3470650652913356,
+        "probabilities": [
+          0.3352485522533029,
+          0.4990451399625361,
+          0.07893869103593981,
+          0.086767616753848
+        ],
+        "time_ms": 8.8,
+        "total_probability_mass": 1.0000000000056268
+      },
+      {
+        "acceptance_probability": 0.8256251080213863,
+        "case": "e",
+        "predicted_position_estimator": -0.4563761370855483,
+        "probabilities": [
+          0.3062386651710574,
+          0.519386442850329,
+          0.08570454524746073,
+          0.08867034673697505
+        ],
+        "time_ms": 9.2,
+        "total_probability_mass": 1.000000000005822
+      },
+      {
+        "acceptance_probability": 0.8030477166854244,
+        "case": "e",
+        "predicted_position_estimator": -0.57740238782519,
+        "probabilities": [
+          0.27037487731507776,
+          0.5326728393703466,
+          0.0958416401950604,
+          0.10111064312559319
+        ],
+        "time_ms": 9.6,
+        "total_probability_mass": 1.000000000006078
+      },
+      {
+        "acceptance_probability": 0.7913985549999332,
+        "case": "e",
+        "predicted_position_estimator": -0.618858055660306,
+        "probabilities": [
+          0.2571732771757168,
+          0.5342252778242164,
+          0.09828537634520673,
+          0.11031606866119076
+        ],
+        "time_ms": 10.0,
+        "total_probability_mass": 1.0000000000063307
       }
     ],
     "primary_occupation_dimension": 32,
@@ -1755,785 +1755,785 @@
     "scores": {
       "metrics": {
         "a": {
-          "maximum_absolute_residual": 1.0822578585376406,
+          "maximum_absolute_residual": 1.0822578585623424,
           "observations": 25,
-          "position_estimator_rmse": 0.35752878118799203
+          "position_estimator_rmse": 0.35752878119211245
         },
         "b": {
-          "maximum_absolute_residual": 0.6882501168808223,
+          "maximum_absolute_residual": 0.6882501168944719,
           "observations": 25,
-          "position_estimator_rmse": 0.2839906789144713
+          "position_estimator_rmse": 0.28399067891583935
         },
         "c": {
-          "maximum_absolute_residual": 0.46999264624819415,
+          "maximum_absolute_residual": 0.46999264624246206,
           "observations": 25,
-          "position_estimator_rmse": 0.2697769854065764
+          "position_estimator_rmse": 0.2697769854056408
         },
         "combined": {
-          "maximum_absolute_residual": 1.0822578585376406,
+          "maximum_absolute_residual": 1.0822578585623424,
           "observations": 125,
-          "position_estimator_rmse": 0.2876427868364695
+          "position_estimator_rmse": 0.2876427868367799
         },
         "d": {
-          "maximum_absolute_residual": 0.6981173797463672,
+          "maximum_absolute_residual": 0.6981173797387215,
           "observations": 25,
-          "position_estimator_rmse": 0.30288202103018663
+          "position_estimator_rmse": 0.30288202102786643
         },
         "e": {
-          "maximum_absolute_residual": 0.4456450708462445,
+          "maximum_absolute_residual": 0.44564507084699767,
           "observations": 25,
-          "position_estimator_rmse": 0.20173544182614309
+          "position_estimator_rmse": 0.20173544182386186
         }
       },
       "rows": [
         {
           "case": "a",
           "observed_position_estimator": -0.959119497,
-          "residual": 0.046909619770946764,
+          "residual": 0.0469096197694312,
           "time_ms": 0.4
         },
         {
           "case": "a",
           "observed_position_estimator": -0.534591195,
-          "residual": 0.03920948086945358,
+          "residual": 0.039209480865734725,
           "time_ms": 0.8
         },
         {
           "case": "a",
           "observed_position_estimator": -0.676100629,
-          "residual": 0.43493249002018863,
+          "residual": 0.4349324900144961,
           "time_ms": 1.2
         },
         {
           "case": "a",
           "observed_position_estimator": -0.518867925,
-          "residual": 0.24853770559020433,
+          "residual": 0.24853770558284788,
           "time_ms": 1.6
         },
         {
           "case": "a",
           "observed_position_estimator": 0.047169811,
-          "residual": -0.1907983271016879,
+          "residual": -0.1907983271117571,
           "time_ms": 2.0
         },
         {
           "case": "a",
           "observed_position_estimator": 0.833333333,
-          "residual": -0.5262072238691062,
+          "residual": -0.5262072238800539,
           "time_ms": 2.4
         },
         {
           "case": "a",
           "observed_position_estimator": 1.320754717,
-          "residual": -0.5878280085623688,
+          "residual": -0.587828008572879,
           "time_ms": 2.8
         },
         {
           "case": "a",
           "observed_position_estimator": 0.817610063,
-          "residual": 0.07587401281432382,
+          "residual": 0.07587401280731776,
           "time_ms": 3.2
         },
         {
           "case": "a",
           "observed_position_estimator": 0.770440252,
-          "residual": 0.014984159585611945,
+          "residual": 0.014984159584793266,
           "time_ms": 3.6
         },
         {
           "case": "a",
           "observed_position_estimator": 0.911949686,
-          "residual": -0.24244561590986136,
+          "residual": -0.24244561590456215,
           "time_ms": 4.0
         },
         {
           "case": "a",
           "observed_position_estimator": 0.628930818,
-          "residual": 0.00831814413140941,
+          "residual": 0.008318144142532069,
           "time_ms": 4.4
         },
         {
           "case": "a",
           "observed_position_estimator": 0.896226415,
-          "residual": -0.3137200693101635,
+          "residual": -0.31372006929379004,
           "time_ms": 4.8
         },
         {
           "case": "a",
           "observed_position_estimator": 0.628930818,
-          "residual": -0.25659005904239796,
+          "residual": -0.25659005902076504,
           "time_ms": 5.2
         },
         {
           "case": "a",
           "observed_position_estimator": -0.141509434,
-          "residual": 0.19066186023285878,
+          "residual": 0.19066186025957219,
           "time_ms": 5.6
         },
         {
           "case": "a",
           "observed_position_estimator": -0.471698113,
-          "residual": 0.1811961740603681,
+          "residual": 0.1811961740892299,
           "time_ms": 6.0
         },
         {
           "case": "a",
           "observed_position_estimator": -0.36163522,
-          "residual": -0.1402744128344096,
+          "residual": -0.14027441281042613,
           "time_ms": 6.4
         },
         {
           "case": "a",
           "observed_position_estimator": -0.503144654,
-          "residual": -0.10669528219967062,
+          "residual": -0.10669528218380842,
           "time_ms": 6.8
         },
         {
           "case": "a",
           "observed_position_estimator": -1.006289308,
-          "residual": 0.3075848780841217,
+          "residual": 0.30758487809036805,
           "time_ms": 7.2
         },
         {
           "case": "a",
           "observed_position_estimator": -1.257861635,
-          "residual": 0.5112129060336947,
+          "residual": 0.5112129060296409,
           "time_ms": 7.6
         },
         {
           "case": "a",
           "observed_position_estimator": -0.581761006,
-          "residual": -0.13325927195796816,
+          "residual": -0.13325927197111165,
           "time_ms": 8.0
         },
         {
           "case": "a",
           "observed_position_estimator": 0.503144654,
-          "residual": -1.0822578585376406,
+          "residual": -1.0822578585623424,
           "time_ms": 8.4
         },
         {
           "case": "a",
           "observed_position_estimator": -0.125786164,
-          "residual": -0.2124126280206323,
+          "residual": -0.21241262805533526,
           "time_ms": 8.8
         },
         {
           "case": "a",
           "observed_position_estimator": 0.36163522,
-          "residual": -0.48003346171580036,
+          "residual": -0.48003346175544204,
           "time_ms": 9.2
         },
         {
           "case": "a",
           "observed_position_estimator": -0.157232704,
-          "residual": 0.2700513823124396,
+          "residual": 0.2700513822712804,
           "time_ms": 9.6
         },
         {
           "case": "a",
           "observed_position_estimator": 0.078616352,
-          "residual": 0.24362999928647816,
+          "residual": 0.24362999924965445,
           "time_ms": 10.0
         },
         {
           "case": "b",
           "observed_position_estimator": -0.70754717,
-          "residual": -0.146744945085323,
+          "residual": -0.14674494508664948,
           "time_ms": 0.4
         },
         {
           "case": "b",
           "observed_position_estimator": -0.613207547,
-          "residual": 0.18911278364613404,
+          "residual": 0.1891127836429341,
           "time_ms": 0.8
         },
         {
           "case": "b",
           "observed_position_estimator": -0.566037736,
-          "residual": 0.33011270966603057,
+          "residual": 0.33011270966111383,
           "time_ms": 1.2
         },
         {
           "case": "b",
           "observed_position_estimator": -0.754716981,
-          "residual": 0.4310167534088292,
+          "residual": 0.43101675340234663,
           "time_ms": 1.6
         },
         {
           "case": "b",
           "observed_position_estimator": -0.141509434,
-          "residual": -0.08065803474875885,
+          "residual": -0.08065803475610245,
           "time_ms": 2.0
         },
         {
           "case": "b",
           "observed_position_estimator": -0.188679245,
-          "residual": 0.24433869522875734,
+          "residual": 0.24433869522339136,
           "time_ms": 2.4
         },
         {
           "case": "b",
           "observed_position_estimator": -0.094339623,
-          "residual": 0.24427736088018986,
+          "residual": 0.24427736087603613,
           "time_ms": 2.8
         },
         {
           "case": "b",
           "observed_position_estimator": 0.047169811,
-          "residual": 0.00044843657720247676,
+          "residual": 0.0004484365763530243,
           "time_ms": 3.2
         },
         {
           "case": "b",
           "observed_position_estimator": -0.518867925,
-          "residual": 0.3003483893538085,
+          "residual": 0.30034838935749425,
           "time_ms": 3.6
         },
         {
           "case": "b",
           "observed_position_estimator": -0.424528302,
-          "residual": -0.06072229624185377,
+          "residual": -0.060722296234535955,
           "time_ms": 4.0
         },
         {
           "case": "b",
           "observed_position_estimator": -0.613207547,
-          "residual": -0.06313647212511819,
+          "residual": -0.06313647211982665,
           "time_ms": 4.4
         },
         {
           "case": "b",
           "observed_position_estimator": -0.943396226,
-          "residual": 0.25090378110031286,
+          "residual": 0.25090378110117184,
           "time_ms": 4.8
         },
         {
           "case": "b",
           "observed_position_estimator": -1.273584906,
-          "residual": 0.6020458153143682,
+          "residual": 0.6020458153135925,
           "time_ms": 5.2
         },
         {
           "case": "b",
           "observed_position_estimator": -1.08490566,
-          "residual": 0.40438183028541375,
+          "residual": 0.40438183028184327,
           "time_ms": 5.6
         },
         {
           "case": "b",
           "observed_position_estimator": -0.660377358,
-          "residual": 0.024005158881027944,
+          "residual": 0.02400515887107746,
           "time_ms": 6.0
         },
         {
           "case": "b",
           "observed_position_estimator": -0.566037736,
-          "residual": 0.11591742660113563,
+          "residual": 0.1159174265854932,
           "time_ms": 6.4
         },
         {
           "case": "b",
           "observed_position_estimator": -0.188679245,
-          "residual": -0.030102666711961684,
+          "residual": -0.03010266672756509,
           "time_ms": 6.8
         },
         {
           "case": "b",
           "observed_position_estimator": 0.235849057,
-          "residual": -0.21855613351229247,
+          "residual": -0.21855613352503553,
           "time_ms": 7.2
         },
         {
           "case": "b",
           "observed_position_estimator": 0.235849057,
-          "residual": -0.12859805476400216,
+          "residual": -0.1285980547699479,
           "time_ms": 7.6
         },
         {
           "case": "b",
           "observed_position_estimator": 0.235849057,
-          "residual": -0.21436289367294353,
+          "residual": -0.2143628936730825,
           "time_ms": 8.0
         },
         {
           "case": "b",
           "observed_position_estimator": 0.047169811,
-          "residual": -0.18216663301375846,
+          "residual": -0.1821666330077628,
           "time_ms": 8.4
         },
         {
           "case": "b",
           "observed_position_estimator": -0.566037736,
-          "residual": 0.29294194539493207,
+          "residual": 0.2929419454036927,
           "time_ms": 8.8
         },
         {
           "case": "b",
           "observed_position_estimator": -0.471698113,
-          "residual": 0.1629990006773201,
+          "residual": 0.16299900068942802,
           "time_ms": 9.2
         },
         {
           "case": "b",
           "observed_position_estimator": -1.132075472,
-          "residual": 0.6882501168808223,
+          "residual": 0.6882501168944719,
           "time_ms": 9.6
         },
         {
           "case": "b",
           "observed_position_estimator": -0.990566038,
-          "residual": 0.3272471585322143,
+          "residual": 0.3272471585407777,
           "time_ms": 10.0
         },
         {
           "case": "c",
           "observed_position_estimator": 1.320754717,
-          "residual": -0.42672528470639726,
+          "residual": -0.4267252847048655,
           "time_ms": 0.4
         },
         {
           "case": "c",
           "observed_position_estimator": 0.424528302,
-          "residual": -0.019656029883543147,
+          "residual": -0.01965602987951609,
           "time_ms": 0.8
         },
         {
           "case": "c",
           "observed_position_estimator": 0.581761006,
-          "residual": -0.46999264624819415,
+          "residual": -0.46999264624246206,
           "time_ms": 1.2
         },
         {
           "case": "c",
           "observed_position_estimator": 0.330188679,
-          "residual": -0.19251939484680394,
+          "residual": -0.19251939484057906,
           "time_ms": 1.6
         },
         {
           "case": "c",
           "observed_position_estimator": 0.157232704,
-          "residual": -0.056604405404672126,
+          "residual": -0.056604405397231924,
           "time_ms": 2.0
         },
         {
           "case": "c",
           "observed_position_estimator": 0.0,
-          "residual": -0.1908411565183276,
+          "residual": -0.19084115651094655,
           "time_ms": 2.4
         },
         {
           "case": "c",
           "observed_position_estimator": -0.251572327,
-          "residual": -0.2181721513746045,
+          "residual": -0.21817215137002138,
           "time_ms": 2.8
         },
         {
           "case": "c",
           "observed_position_estimator": -0.094339623,
-          "residual": -0.283266383011555,
+          "residual": -0.2832663830136692,
           "time_ms": 3.2
         },
         {
           "case": "c",
           "observed_position_estimator": 0.377358491,
-          "residual": -0.3109660020301665,
+          "residual": -0.31096600203760794,
           "time_ms": 3.6
         },
         {
           "case": "c",
           "observed_position_estimator": 0.817610063,
-          "residual": -0.3612664969389385,
+          "residual": -0.361266496947363,
           "time_ms": 4.0
         },
         {
           "case": "c",
           "observed_position_estimator": 1.006289308,
-          "residual": -0.37318234763246994,
+          "residual": -0.3731823476390843,
           "time_ms": 4.4
         },
         {
           "case": "c",
           "observed_position_estimator": 0.880503145,
-          "residual": -0.22736933754771538,
+          "residual": -0.22736933755092115,
           "time_ms": 4.8
         },
         {
           "case": "c",
           "observed_position_estimator": 1.08490566,
-          "residual": -0.4476698270566377,
+          "residual": -0.44766982705595904,
           "time_ms": 5.2
         },
         {
           "case": "c",
           "observed_position_estimator": 0.990566038,
-          "residual": -0.3469565313788079,
+          "residual": -0.34695653137326077,
           "time_ms": 5.6
         },
         {
           "case": "c",
           "observed_position_estimator": 0.72327044,
-          "residual": -0.12193072412931161,
+          "residual": -0.1219307241176909,
           "time_ms": 6.0
         },
         {
           "case": "c",
           "observed_position_estimator": 0.644654088,
-          "residual": -0.22640927987042347,
+          "residual": -0.22640927985215653,
           "time_ms": 6.4
         },
         {
           "case": "c",
           "observed_position_estimator": 0.01572327,
-          "residual": 0.027940296315064343,
+          "residual": 0.027940296336118924,
           "time_ms": 6.8
         },
         {
           "case": "c",
           "observed_position_estimator": -0.188679245,
-          "residual": -0.12349544675856061,
+          "residual": -0.12349544674374702,
           "time_ms": 7.2
         },
         {
           "case": "c",
           "observed_position_estimator": -0.188679245,
-          "residual": -0.21712810646352726,
+          "residual": -0.21712810645869102,
           "time_ms": 7.6
         },
         {
           "case": "c",
           "observed_position_estimator": -0.424528302,
-          "residual": 0.19107190844988,
+          "residual": 0.19107190844683672,
           "time_ms": 8.0
         },
         {
           "case": "c",
           "observed_position_estimator": -0.094339623,
-          "residual": 0.08546134736376214,
+          "residual": 0.08546134735573971,
           "time_ms": 8.4
         },
         {
           "case": "c",
           "observed_position_estimator": -0.267295597,
-          "residual": 0.34501006147142005,
+          "residual": 0.345010061458649,
           "time_ms": 8.8
         },
         {
           "case": "c",
           "observed_position_estimator": 0.550314465,
-          "residual": -0.40402109614060466,
+          "residual": -0.40402109615959847,
           "time_ms": 9.2
         },
         {
           "case": "c",
           "observed_position_estimator": 0.330188679,
-          "residual": 0.055024745493532035,
+          "residual": 0.055024745475044434,
           "time_ms": 9.6
         },
         {
           "case": "c",
           "observed_position_estimator": 0.786163522,
-          "residual": -0.11923824905477998,
+          "residual": -0.11923824906383762,
           "time_ms": 10.0
         },
         {
           "case": "d",
           "observed_position_estimator": -0.172955975,
-          "residual": 0.08783373045815299,
+          "residual": 0.08783373045829782,
           "time_ms": 0.4
         },
         {
           "case": "d",
           "observed_position_estimator": -0.031446541,
-          "residual": -0.11675468380724555,
+          "residual": -0.11675468380689796,
           "time_ms": 0.8
         },
         {
           "case": "d",
           "observed_position_estimator": 0.047169811,
-          "residual": -0.14683652702014363,
+          "residual": -0.14683652701929903,
           "time_ms": 1.2
         },
         {
           "case": "d",
           "observed_position_estimator": -0.440251572,
-          "residual": 0.1189112008823971,
+          "residual": 0.11891120088456486,
           "time_ms": 1.6
         },
         {
           "case": "d",
           "observed_position_estimator": -0.943396226,
-          "residual": 0.21375919361086948,
+          "residual": 0.21375919361170537,
           "time_ms": 2.0
         },
         {
           "case": "d",
           "observed_position_estimator": -1.116352201,
-          "residual": 0.367948828725283,
+          "residual": 0.36794882872364865,
           "time_ms": 2.4
         },
         {
           "case": "d",
           "observed_position_estimator": -0.817610063,
-          "residual": 0.387429827201554,
+          "residual": 0.38742982720022767,
           "time_ms": 2.8
         },
         {
           "case": "d",
           "observed_position_estimator": -0.660377358,
-          "residual": 0.30617413722348735,
+          "residual": 0.3061741372231542,
           "time_ms": 3.2
         },
         {
           "case": "d",
           "observed_position_estimator": -0.896226415,
-          "residual": 0.3876743801710798,
+          "residual": 0.38767438016694755,
           "time_ms": 3.6
         },
         {
           "case": "d",
           "observed_position_estimator": -0.581761006,
-          "residual": 0.17022830411059914,
+          "residual": 0.17022830410279877,
           "time_ms": 4.0
         },
         {
           "case": "d",
           "observed_position_estimator": -0.157232704,
-          "residual": 0.04130021653344548,
+          "residual": 0.04130021652850799,
           "time_ms": 4.4
         },
         {
           "case": "d",
           "observed_position_estimator": -0.157232704,
-          "residual": 0.1838530380403034,
+          "residual": 0.1838530380402412,
           "time_ms": 4.8
         },
         {
           "case": "d",
           "observed_position_estimator": -0.078616352,
-          "residual": 0.06929118287663899,
+          "residual": 0.06929118287640663,
           "time_ms": 5.2
         },
         {
           "case": "d",
           "observed_position_estimator": 0.062893082,
-          "residual": -0.07753602160384065,
+          "residual": -0.07753602160334722,
           "time_ms": 5.6
         },
         {
           "case": "d",
           "observed_position_estimator": -0.314465409,
-          "residual": 0.18475589153778957,
+          "residual": 0.18475589154436603,
           "time_ms": 6.0
         },
         {
           "case": "d",
           "observed_position_estimator": -0.314465409,
-          "residual": -0.05767453718258719,
+          "residual": -0.057674537174147944,
           "time_ms": 6.4
         },
         {
           "case": "d",
           "observed_position_estimator": -0.471698113,
-          "residual": 0.02906911718817884,
+          "residual": 0.029069117192769,
           "time_ms": 6.8
         },
         {
           "case": "d",
           "observed_position_estimator": -0.597484277,
-          "residual": 0.24604884700113483,
+          "residual": 0.24604884700470364,
           "time_ms": 7.2
         },
         {
           "case": "d",
           "observed_position_estimator": -0.880503145,
-          "residual": 0.4252290437302764,
+          "residual": 0.4252290437359713,
           "time_ms": 7.6
         },
         {
           "case": "d",
           "observed_position_estimator": -1.305031447,
-          "residual": 0.6067674681173529,
+          "residual": 0.6067674681161966,
           "time_ms": 8.0
         },
         {
           "case": "d",
           "observed_position_estimator": -0.896226415,
-          "residual": 0.2684926495642913,
+          "residual": 0.2684926495525103,
           "time_ms": 8.4
         },
         {
           "case": "d",
           "observed_position_estimator": -0.471698113,
-          "residual": 0.1747955462609796,
+          "residual": 0.17479554624980126,
           "time_ms": 8.8
         },
         {
           "case": "d",
           "observed_position_estimator": -0.471698113,
-          "residual": 0.33366738098384763,
+          "residual": 0.3336673809784715,
           "time_ms": 9.2
         },
         {
           "case": "d",
           "observed_position_estimator": -0.864779874,
-          "residual": 0.6981173797463672,
+          "residual": 0.6981173797387215,
           "time_ms": 9.6
         },
         {
           "case": "d",
           "observed_position_estimator": -0.597484277,
-          "residual": 0.4865190912053421,
+          "residual": 0.4865190911957896,
           "time_ms": 10.0
         },
         {
           "case": "e",
           "observed_position_estimator": -1.06918239,
-          "residual": 0.28695337167391766,
+          "residual": 0.2869533716727387,
           "time_ms": 0.4
         },
         {
           "case": "e",
           "observed_position_estimator": -0.534591195,
-          "residual": 0.1932443741429259,
+          "residual": 0.19324437414017198,
           "time_ms": 0.8
         },
         {
           "case": "e",
           "observed_position_estimator": -0.220125786,
-          "residual": -0.03315414714000503,
+          "residual": -0.03315414714385395,
           "time_ms": 1.2
         },
         {
           "case": "e",
           "observed_position_estimator": -0.550314465,
-          "residual": 0.12097773450070143,
+          "residual": 0.12097773449662502,
           "time_ms": 1.6
         },
         {
           "case": "e",
           "observed_position_estimator": -0.440251572,
-          "residual": -0.03633460279293971,
+          "residual": -0.03633460279459583,
           "time_ms": 2.0
         },
         {
           "case": "e",
           "observed_position_estimator": -0.440251572,
-          "residual": -0.08167401032118782,
+          "residual": -0.0816740103209731,
           "time_ms": 2.4
         },
         {
           "case": "e",
           "observed_position_estimator": -0.581761006,
-          "residual": -0.024903729238214822,
+          "residual": -0.02490372923895323,
           "time_ms": 2.8
         },
         {
           "case": "e",
           "observed_position_estimator": -0.833333333,
-          "residual": 0.1715383452875996,
+          "residual": 0.17153834528692502,
           "time_ms": 3.2
         },
         {
           "case": "e",
           "observed_position_estimator": -1.194968553,
-          "residual": 0.4456450708462445,
+          "residual": 0.44564507084699767,
           "time_ms": 3.6
         },
         {
           "case": "e",
           "observed_position_estimator": -0.959119497,
-          "residual": 0.22334999701700065,
+          "residual": 0.22334999701409453,
           "time_ms": 4.0
         },
         {
           "case": "e",
           "observed_position_estimator": -0.566037736,
-          "residual": 0.10736965648238933,
+          "residual": 0.10736965647485358,
           "time_ms": 4.4
         },
         {
           "case": "e",
           "observed_position_estimator": -0.408805031,
-          "residual": 0.10290734009026697,
+          "residual": 0.10290734008479352,
           "time_ms": 4.8
         },
         {
           "case": "e",
           "observed_position_estimator": -0.172955975,
-          "residual": -0.15224583580135967,
+          "residual": -0.1522458358026352,
           "time_ms": 5.2
         },
         {
           "case": "e",
           "observed_position_estimator": -0.377358491,
-          "residual": -0.010151087773826617,
+          "residual": -0.010151087773130951,
           "time_ms": 5.6
         },
         {
           "case": "e",
           "observed_position_estimator": -0.330188679,
-          "residual": -0.14059228883354308,
+          "residual": -0.14059228883064528,
           "time_ms": 6.0
         },
         {
           "case": "e",
           "observed_position_estimator": -0.566037736,
-          "residual": -0.1656511395316005,
+          "residual": -0.16565113952902355,
           "time_ms": 6.4
         },
         {
           "case": "e",
           "observed_position_estimator": -1.022012579,
-          "residual": 0.2110458285819825,
+          "residual": 0.2110458285790756,
           "time_ms": 6.8
         },
         {
           "case": "e",
           "observed_position_estimator": -0.628930818,
-          "residual": 0.015273724670550881,
+          "residual": 0.015273724665297972,
           "time_ms": 7.2
         },
         {
           "case": "e",
           "observed_position_estimator": -0.849056604,
-          "residual": 0.44494411409261814,
+          "residual": 0.4449441140877868,
           "time_ms": 7.6
         },
         {
           "case": "e",
           "observed_position_estimator": -0.676100629,
-          "residual": 0.320434099025083,
+          "residual": 0.32043409901863146,
           "time_ms": 8.0
         },
         {
           "case": "e",
           "observed_position_estimator": -0.471698113,
-          "residual": 0.14762765000516626,
+          "residual": 0.1476276499993746,
           "time_ms": 8.4
         },
         {
           "case": "e",
           "observed_position_estimator": -0.298742138,
-          "residual": -0.04832292729289317,
+          "residual": -0.04832292729133558,
           "time_ms": 8.8
         },
         {
           "case": "e",
           "observed_position_estimator": -0.125786164,
-          "residual": -0.33058997309042726,
+          "residual": -0.33058997308554827,
           "time_ms": 9.2
         },
         {
           "case": "e",
           "observed_position_estimator": -0.424528302,
-          "residual": -0.15287408582783113,
+          "residual": -0.15287408582519002,
           "time_ms": 9.6
         },
         {
           "case": "e",
           "observed_position_estimator": -0.644654088,
-          "residual": 0.025796032340616337,
+          "residual": 0.025796032339693964,
           "time_ms": 10.0
         }
       ],
@@ -2545,8 +2545,8 @@
     "new_independent_data": false,
     "position_estimator": -0.959119497,
     "residuals": {
-      "harmonic_control": 0.567310004954416,
-      "primary": 0.04690961977094943
+      "harmonic_control": 0.5673100049537272,
+      "primary": 0.04690961976943042
     },
     "statistical_rejection_claimed": false
   },
@@ -2555,108 +2555,108 @@
       "causal_depth": 11,
       "complete_terminal_records": 4,
       "node_count_including_boundary": 15,
-      "position_estimator": -0.391809492045584,
+      "position_estimator": -0.39180949204627286,
       "schedules": [
         {
           "complete_record_law": [
             {
-              "probability": 0.38917954049638126,
+              "probability": 0.38917954049634973,
               "record": [
                 0
               ]
             },
             {
-              "probability": 0.6108204595032494,
+              "probability": 0.6108204595037025,
               "record": [
                 1
               ]
             },
             {
-              "probability": 7.360760477828387e-26,
+              "probability": 2.2976977049970963e-25,
               "record": [
                 2
               ]
             },
             {
-              "probability": 1.0596263697875581e-25,
+              "probability": 3.0454166042175497e-25,
               "record": [
                 3
               ]
             }
           ],
           "maximum_constraint_residual": 0.0,
-          "maximum_terminal_matrix_difference": 8.494802730621493e-15,
+          "maximum_terminal_matrix_difference": 1.0634312375900021e-15,
           "schedule": "forward",
           "updates": 14
         },
         {
           "complete_record_law": [
             {
-              "probability": 0.38917954049638126,
+              "probability": 0.38917954049634973,
               "record": [
                 0
               ]
             },
             {
-              "probability": 0.6108204595032494,
+              "probability": 0.6108204595037025,
               "record": [
                 1
               ]
             },
             {
-              "probability": 7.360760477828387e-26,
+              "probability": 2.2976977049970963e-25,
               "record": [
                 2
               ]
             },
             {
-              "probability": 1.0596263697875581e-25,
+              "probability": 3.0454166042175497e-25,
               "record": [
                 3
               ]
             }
           ],
           "maximum_constraint_residual": 0.0,
-          "maximum_terminal_matrix_difference": 8.494802730621493e-15,
+          "maximum_terminal_matrix_difference": 1.0634312375900021e-15,
           "schedule": "reverse",
           "updates": 154
         },
         {
           "complete_record_law": [
             {
-              "probability": 0.38917954049638126,
+              "probability": 0.38917954049634973,
               "record": [
                 0
               ]
             },
             {
-              "probability": 0.6108204595032494,
+              "probability": 0.6108204595037025,
               "record": [
                 1
               ]
             },
             {
-              "probability": 7.360760477828387e-26,
+              "probability": 2.2976977049970963e-25,
               "record": [
                 2
               ]
             },
             {
-              "probability": 1.0596263697875581e-25,
+              "probability": 3.0454166042175497e-25,
               "record": [
                 3
               ]
             }
           ],
           "maximum_constraint_residual": 0.0,
-          "maximum_terminal_matrix_difference": 8.494802730621493e-15,
+          "maximum_terminal_matrix_difference": 1.0634312375900021e-15,
           "schedule": "shuffled",
           "updates": 154
         }
       ],
       "unfair_control": {
         "closed_within_tolerance": false,
-        "maximum_constraint_residual": 0.8880176123797483,
+        "maximum_constraint_residual": 0.888017612379764,
         "updates": 154
       }
     },
@@ -2664,108 +2664,108 @@
       "causal_depth": 11,
       "complete_terminal_records": 4,
       "node_count_including_boundary": 15,
-      "position_estimator": -0.9122098772290506,
+      "position_estimator": -0.9122098772305696,
       "schedules": [
         {
           "complete_record_law": [
             {
-              "probability": 0.2277866600338409,
+              "probability": 0.2277866600335199,
               "record": [
                 0
               ]
             },
             {
-              "probability": 0.7135268802402234,
+              "probability": 0.7135268802408854,
               "record": [
                 1
               ]
             },
             {
-              "probability": 0.026389558839640153,
+              "probability": 0.026389558839485714,
               "record": [
                 2
               ]
             },
             {
-              "probability": 0.0322969008863551,
+              "probability": 0.032296900886328764,
               "record": [
                 3
               ]
             }
           ],
           "maximum_constraint_residual": 0.0,
-          "maximum_terminal_matrix_difference": 1.7408056758879582e-15,
+          "maximum_terminal_matrix_difference": 9.75125724869535e-16,
           "schedule": "forward",
           "updates": 14
         },
         {
           "complete_record_law": [
             {
-              "probability": 0.2277866600338409,
+              "probability": 0.2277866600335199,
               "record": [
                 0
               ]
             },
             {
-              "probability": 0.7135268802402234,
+              "probability": 0.7135268802408854,
               "record": [
                 1
               ]
             },
             {
-              "probability": 0.026389558839640153,
+              "probability": 0.026389558839485714,
               "record": [
                 2
               ]
             },
             {
-              "probability": 0.0322969008863551,
+              "probability": 0.032296900886328764,
               "record": [
                 3
               ]
             }
           ],
           "maximum_constraint_residual": 0.0,
-          "maximum_terminal_matrix_difference": 1.7408056758879582e-15,
+          "maximum_terminal_matrix_difference": 9.75125724869535e-16,
           "schedule": "reverse",
           "updates": 154
         },
         {
           "complete_record_law": [
             {
-              "probability": 0.2277866600338409,
+              "probability": 0.2277866600335199,
               "record": [
                 0
               ]
             },
             {
-              "probability": 0.7135268802402234,
+              "probability": 0.7135268802408854,
               "record": [
                 1
               ]
             },
             {
-              "probability": 0.026389558839640153,
+              "probability": 0.026389558839485714,
               "record": [
                 2
               ]
             },
             {
-              "probability": 0.0322969008863551,
+              "probability": 0.032296900886328764,
               "record": [
                 3
               ]
             }
           ],
           "maximum_constraint_residual": 0.0,
-          "maximum_terminal_matrix_difference": 1.7408056758879582e-15,
+          "maximum_terminal_matrix_difference": 9.75125724869535e-16,
           "schedule": "shuffled",
           "updates": 154
         }
       ],
       "unfair_control": {
         "closed_within_tolerance": false,
-        "maximum_constraint_residual": 0.8879417007686239,
+        "maximum_constraint_residual": 0.8879417007686256,
         "updates": 154
       }
     }
@@ -2782,7 +2782,7 @@
     "prior_empirical_preparation_calibration_supplied": true
   },
   "source_sha256": {
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "model/anharmonic_observations/experiment.py": "d63447240d92a650cdd3aeb4f907c4892985bd7fd5c2d11b6c5566642215bdaf",
     "model/anharmonic_observations/replay.py": "608bccc16e3976371d3ec7f7d1ab0c5dcdc41c92c09faf87e47b9f75f6235e92",
@@ -2796,7 +2796,7 @@
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
     "model/anharmonic_transfer/experiment.py": "d2ca1b595505d288b043062038230895a36b0392a023110ec3a92de8683e7f66",
     "model/anharmonic_transfer/protocol.json": "9ec2bf9fded67c279bc903a9db4d7ce0851151307122692b7245f71d85d03400",
-    "model/anharmonic_transfer/results.json": "242a719a1b45831b5ff7935f888a9dc6ad81cf24517d6160d29332820b6f752c",
+    "model/anharmonic_transfer/results.json": "797f49286d769c7c399ef7c56abb2c0b026382657795a2719cb55860db30065c",
     "model/anharmonic_transfer/source.py": "1e54438f8c1939e53334d4f573ae63004a8cc86d8253618277835a7f5ff052f5",
     "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
     "model/identifiability_checks/consensus_observability.py": "64e479423f9c0b285a8f5fcec2831b9b9c7bda9683862ae44b18eac19b9ce5c0",

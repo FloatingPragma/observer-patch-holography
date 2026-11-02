@@ -13,49 +13,49 @@
       "both_ticks_probability_exact": "1/36",
       "cap_per_incident_interval": 1,
       "complete_all_input_reference_source_half_diamond_bound": "1/10000000000",
-      "complete_classical_native_quantum_probe_half_trace_diagnostic": 5.99679805747883e-15,
+      "complete_classical_native_quantum_probe_half_trace_diagnostic": 2.254812539229352e-15,
       "complete_joint_records": 3661,
       "first_interval_timeout_probability_exact": "5/6",
-      "independent_density_oracle_half_trace_diagnostic": 6.289918610741359e-15,
+      "independent_density_oracle_half_trace_diagnostic": 2.462533391558713e-15,
       "mode": 1,
       "native_terminal_record_sha256": "8e0070233bdd7f3dac5f3f60e76a398c1a017f94d56dfd26d7698913c5f26053",
-      "raw_output_total_weight_diagnostic": 0.999999999999988
+      "raw_output_total_weight_diagnostic": 0.9999999999999968
     },
     {
       "both_ticks_probability_exact": "1/36",
       "cap_per_incident_interval": 1,
       "complete_all_input_reference_source_half_diamond_bound": "1/10000000000",
-      "complete_classical_native_quantum_probe_half_trace_diagnostic": 6.536170019160902e-15,
+      "complete_classical_native_quantum_probe_half_trace_diagnostic": 3.7462549460230354e-15,
       "complete_joint_records": 3661,
       "first_interval_timeout_probability_exact": "5/6",
-      "independent_density_oracle_half_trace_diagnostic": 6.828392393868093e-15,
+      "independent_density_oracle_half_trace_diagnostic": 3.978804024153294e-15,
       "mode": 2,
       "native_terminal_record_sha256": "8e0070233bdd7f3dac5f3f60e76a398c1a017f94d56dfd26d7698913c5f26053",
-      "raw_output_total_weight_diagnostic": 0.999999999999987
+      "raw_output_total_weight_diagnostic": 0.999999999999994
     },
     {
       "both_ticks_probability_exact": "121/1296",
       "cap_per_incident_interval": 2,
       "complete_all_input_reference_source_half_diamond_bound": "1/10000000000",
-      "complete_classical_native_quantum_probe_half_trace_diagnostic": 7.902488005708933e-15,
+      "complete_classical_native_quantum_probe_half_trace_diagnostic": 2.737998118679004e-15,
       "complete_joint_records": 3661,
       "first_interval_timeout_probability_exact": "25/36",
-      "independent_density_oracle_half_trace_diagnostic": 8.280688023016803e-15,
+      "independent_density_oracle_half_trace_diagnostic": 3.0324688410301198e-15,
       "mode": 1,
       "native_terminal_record_sha256": "31f984b700c4751cd423347df9270fe97ed8ad12e51d070e9bd4f487614f7f65",
-      "raw_output_total_weight_diagnostic": 0.9999999999999841
+      "raw_output_total_weight_diagnostic": 0.9999999999999957
     },
     {
       "both_ticks_probability_exact": "121/1296",
       "cap_per_incident_interval": 2,
       "complete_all_input_reference_source_half_diamond_bound": "1/10000000000",
-      "complete_classical_native_quantum_probe_half_trace_diagnostic": 8.531645087044111e-15,
+      "complete_classical_native_quantum_probe_half_trace_diagnostic": 4.647780645249473e-15,
       "complete_joint_records": 3661,
       "first_interval_timeout_probability_exact": "25/36",
-      "independent_density_oracle_half_trace_diagnostic": 8.902523768602295e-15,
+      "independent_density_oracle_half_trace_diagnostic": 4.964079032154322e-15,
       "mode": 2,
       "native_terminal_record_sha256": "31f984b700c4751cd423347df9270fe97ed8ad12e51d070e9bd4f487614f7f65",
-      "raw_output_total_weight_diagnostic": 0.9999999999999828
+      "raw_output_total_weight_diagnostic": 0.9999999999999919
     }
   ],
   "contract": {
@@ -200,7 +200,7 @@
     "Lean/QFT/ConjugationGauge.lean": "a0382a1cf3d8fab9fd341438eb74c31b2856f89921540c0bd8ee4c776e49aabc",
     "Lean/QFT/SourcePhaseLiftBridge.lean": "930375b7d6138be8266bf9245fb9d91be3ed4fcf588de0044d603410b82967c6",
     "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "docs/research/COHERENT_SOURCE_CLOCKS.md": "3daa10fa2fe85979c55e72e8dee18649d80d276b85db4654fa2d5097c98b5557",
     "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
@@ -309,7 +309,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
     "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
@@ -319,7 +319,7 @@
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
     "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
     "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
     "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
     "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",

@@ -2,9 +2,9 @@
   "calibration": {
     "block": 0,
     "clock_port": 2,
-    "host_duration_ns": 32356500,
+    "host_duration_ns": 31185042,
     "local_tick_count": 1767,
-    "nanoseconds_per_local_tick": "10785500/589",
+    "nanoseconds_per_local_tick": "547106/31",
     "other_clock_and_later_blocks_used_in_fit": false,
     "run": "baseline"
   },
@@ -13,7 +13,7 @@
     "api": "time.perf_counter_ns",
     "implementation": "mach_absolute_time()",
     "monotonic": true,
-    "reported_resolution_seconds": 4.166666666666666e-08,
+    "reported_resolution_seconds": 4.166666666666667e-08,
     "traceable_accuracy_bound_supplied": false
   },
   "declared_native_rate_envelope": {
@@ -27,63 +27,63 @@
       "block": 1,
       "clock_port": 3,
       "engineering_verdict": "within_tolerance",
-      "observed_host_duration_ns": 31219000,
-      "predicted_host_duration_ns": "17299942000/589",
-      "relative_error": "1088049/17299942",
+      "observed_host_duration_ns": 31347583,
+      "predicted_host_duration_ns": "877558024/31",
+      "relative_error": "94217049/877558024",
       "run": "baseline"
     },
     {
       "block": 2,
       "clock_port": 3,
       "engineering_verdict": "within_tolerance",
-      "observed_host_duration_ns": 31731250,
-      "predicted_host_duration_ns": "18270637000/589",
-      "relative_error": "1676277/73082548",
+      "observed_host_duration_ns": 31593542,
+      "predicted_host_duration_ns": "926797564/31",
+      "relative_error": "26301119/463398782",
       "run": "baseline"
     },
     {
       "block": 3,
       "clock_port": 3,
       "engineering_verdict": "within_tolerance",
-      "observed_host_duration_ns": 31413375,
-      "predicted_host_duration_ns": "17170516000/589",
-      "relative_error": "10655695/137364128",
+      "observed_host_duration_ns": 31544125,
+      "predicted_host_duration_ns": "870992752/31",
+      "relative_error": "106875123/870992752",
       "run": "baseline"
     },
     {
       "block": 0,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 245831792,
-      "predicted_host_duration_ns": "16911664000/589",
-      "relative_error": "7992703843/1056979000",
+      "observed_host_duration_ns": 251963042,
+      "predicted_host_duration_ns": "857862208/31",
+      "relative_error": "3476496047/428931104",
       "run": "host_work_control"
     },
     {
       "block": 1,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 858038917,
-      "predicted_host_duration_ns": "17299942000/589",
-      "relative_error": "13191485949/467566000",
+      "observed_host_duration_ns": 255290208,
+      "predicted_host_duration_ns": "877558024/31",
+      "relative_error": "879554803/109694753",
       "run": "host_work_control"
     },
     {
       "block": 2,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 450908750,
-      "predicted_host_duration_ns": "18270637000/589",
-      "relative_error": "989258467/73082548",
+      "observed_host_duration_ns": 257960125,
+      "predicted_host_duration_ns": "926797564/31",
+      "relative_error": "7069966311/926797564",
       "run": "host_work_control"
     },
     {
       "block": 3,
       "clock_port": 3,
       "engineering_verdict": "reject",
-      "observed_host_duration_ns": 380260458,
-      "predicted_host_duration_ns": "17170516000/589",
-      "relative_error": "103401446881/8585258000",
+      "observed_host_duration_ns": 256516708,
+      "predicted_host_duration_ns": "870992752/31",
+      "relative_error": "252893757/31106884",
       "run": "host_work_control"
     }
   ],
@@ -134,7 +134,7 @@
         {
           "block": 0,
           "complete": true,
-          "host_duration_ns": 32356500,
+          "host_duration_ns": 31185042,
           "local_counts": [
             1760,
             1588,
@@ -155,7 +155,7 @@
         {
           "block": 1,
           "complete": true,
-          "host_duration_ns": 31219000,
+          "host_duration_ns": 31347583,
           "local_counts": [
             1771,
             1704,
@@ -176,7 +176,7 @@
         {
           "block": 2,
           "complete": true,
-          "host_duration_ns": 31731250,
+          "host_duration_ns": 31593542,
           "local_counts": [
             1608,
             1618,
@@ -197,7 +197,7 @@
         {
           "block": 3,
           "complete": true,
-          "host_duration_ns": 31413375,
+          "host_duration_ns": 31544125,
           "local_counts": [
             1743,
             1689,
@@ -244,7 +244,7 @@
         {
           "block": 0,
           "complete": true,
-          "host_duration_ns": 245831792,
+          "host_duration_ns": 251963042,
           "local_counts": [
             1760,
             1588,
@@ -265,7 +265,7 @@
         {
           "block": 1,
           "complete": true,
-          "host_duration_ns": 858038917,
+          "host_duration_ns": 255290208,
           "local_counts": [
             1771,
             1704,
@@ -286,7 +286,7 @@
         {
           "block": 2,
           "complete": true,
-          "host_duration_ns": 450908750,
+          "host_duration_ns": 257960125,
           "local_counts": [
             1608,
             1618,
@@ -307,7 +307,7 @@
         {
           "block": 3,
           "complete": true,
-          "host_duration_ns": 380260458,
+          "host_duration_ns": 256516708,
           "local_counts": [
             1743,
             1689,
@@ -335,7 +335,7 @@
       "seeded_source_addresses_and_work_sink_replayed": true
     }
   ],
-  "raw_records_canonical_sha256": "8a7590e9cd5aa13c7a703651c1851a46c51dfcffd49b125d072914434890900f",
+  "raw_records_canonical_sha256": "95b4c57c0c3d9a9db89419d395ec8e568dc9003428043bbd3be91e86539f3b54",
   "replay_integrity_passed": true,
   "schema": "oph.native_host_clock_attachment.v1",
   "scope": {
@@ -371,16 +371,16 @@
     "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "timing_control": {
     "control_rejected_in_every_measured_block": true,
     "control_to_baseline_duration_ratios_by_block": [
-      "61457948/8089125",
-      "858038917/31219000",
-      "360727/25385",
-      "42251162/3490375"
+      "125981521/15592521",
+      "255290208/31347583",
+      "257960125/31593542",
+      "256516708/31544125"
     ],
     "same_complete_native_records": true,
     "timing_tolerance_is_a_confidence_interval": false

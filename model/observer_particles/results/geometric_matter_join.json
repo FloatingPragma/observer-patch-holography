@@ -2,6 +2,11 @@
   "status": "PASS_COMMON_METRIC_TETRAD_MATTER_SYMBOL_AND_NULL_FRAME_JOIN_WITH_EXPLICIT_GLOBAL_LIMITS",
   "producer_sha256": "c13322ca350271efa70cba1a2822e7eac318c2875f6bef711c0448dbd103be54",
   "source_sha256": {
+    "Lean/Geometry/SourceOrderEinsteinComposition.lean": "f11db09374643cabfcb12e6e983af737b044799094e73409f274f020438ecf9d",
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/Screen/SeamCurrentEdge30Moment.lean": "dca0b721180b8b6a2363105ec9cb35bb9c5f5dca2da4352a9caef3b00129cd01",
     "code/a5_closure/echosahedral_selector_certificate.py": "e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7",
     "code/a5_closure/port_current_inner_certificate.py": "8ac3f51d08155decc328ebb8c12909bf92f9a50313f14ebc0faf70c0d2513436",
     "code/electromagnetism/cone_whitney_bridge.py": "638fcd8cc85fc9b6e844c2173f9015fcb2fbed1c47805693cc989daf7d340114",
@@ -16,16 +21,11 @@
     "code/source_gravity_admissibility/__init__.py": "9ac7a42527f951d4ea7e0f90e5d81832ca8609b61f6957ac6a3777ebe2eba8ab",
     "code/source_gravity_admissibility/check.py": "a81c75b05771a9bd1120030e2cbdc4750e1024339f949db530e83835648318ac",
     "code/source_gravity_admissibility/model.py": "720be90acd33b63f036b23f5b33f6faa00f17076e277c7c817670781cf024610",
-    "code/source_gravity_admissibility/receipt.json": "a2eaaa1bac3326667614412ac6cfc0c2e8542ee54cc1b066a19c128fb4faf90f",
+    "code/source_gravity_admissibility/receipt.json": "00ca9be9d4504b5608a2d7e8fc84e5ab6d6c4b9d4b5ba06ed13ec9c4eac2411e",
     "code/source_selection_model/__init__.py": "0ef4f07dd260ca06c04365934aa374efff3cfa851e2967d8edf231f76b51080c",
     "code/source_selection_model/geometry.py": "de47ae19dd4ae1677d0cefb0163513f2f1f6d24dfb4dd0264506d0b17fceb843",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e",
-    "Lean/Geometry/SourceOrderEinsteinComposition.lean": "f11db09374643cabfcb12e6e983af737b044799094e73409f274f020438ecf9d",
-    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
-    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
-    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
-    "Lean/Screen/SeamCurrentEdge30Moment.lean": "dca0b721180b8b6a2363105ec9cb35bb9c5f5dca2da4352a9caef3b00129cd01",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
@@ -52,7 +52,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_particles/evidence_contract.py": "2925e22820e59c8610610ae430a42fb46460341dcb6153447d287c025b69ec4f",
     "model/observer_particles/geometric_matter_join.py": "c13322ca350271efa70cba1a2822e7eac318c2875f6bef711c0448dbd103be54",
@@ -78,7 +78,7 @@
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
   },
   "artifacts": {
-    "geometric_matter_join_arrays.npz": "021302831c4c076d623b2a80ad1417b9c79b0e608f0fb7f9d73bfb78d2356b40"
+    "geometric_matter_join_arrays.npz": "ba5842ab78ecb8ca6b1f0923ba783c2479726b74bf8ecd754d3fbc06654ece37"
   },
   "empirical_inputs": [],
   "same_source_metric_and_clock": {
@@ -237,9 +237,9 @@
   },
   "native_Clifford_and_shared_symbols": {
     "native_basis_word_errors": [
-      3.664005454784526e-16,
-      3.566827076226514e-16,
-      3.664005454784526e-16
+      2.4281174087033774e-16,
+      1.7938038903913487e-16,
+      2.4281174087033774e-16
     ],
     "native_words_replayed": 3,
     "native_word_pulse_counts": [
@@ -416,16 +416,16 @@
     "same_lapse": 0.1550854221019267,
     "coframe_pullback_vs_direct_Hodge_errors": [
       1.3322676295501878e-15,
-      2.6645352591003757e-15
+      3.552713678800501e-15
     ],
     "scalar_vertex_modes": 13,
     "scalar_and_Maxwell_gradient_form_identity_error": 4.440892098500626e-16,
     "exact_incidence_curl_gradient_zero": true,
-    "metric_Maxwell_Ward_residual": 5.828670879282072e-16,
+    "metric_Maxwell_Ward_residual": 6.938893903907228e-16,
     "physical_Maxwell_modes": 30,
     "frequency_range": [
-      0.2924462137069188,
-      1.254553225727768
+      0.292446213706919,
+      1.2545532257277692
     ],
     "same_clock_rescaling_spectrum_verified": true,
     "kinetic_matrix": "M1(h)/N",

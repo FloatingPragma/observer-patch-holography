@@ -37,9 +37,9 @@
       "apparatus_resources": {
         "committed_detector_bits": 2,
         "field_qubits": 54,
-        "floating_local_residual_sum_with_routing": 4.0011007799584047e-13,
+        "floating_local_residual_sum_with_routing": 3.6014047332210436e-13,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 4.001100779959205e-13,
+        "floating_residual_telescoping_estimate": 3.601404733221692e-13,
         "fresh_neutral_pointer_blanks": 2,
         "initial_filled_modes_supplied": 2,
         "initialization_storage_readout_costs_derived": false,
@@ -54,21 +54,21 @@
         "single_code_pulses": 3856
       },
       "complete_record_probabilities": [
-        0.4683488139590378,
-        0.0004587037399121903,
-        0.28220349635392966,
-        0.2489889859436104
+        0.4683488139584443,
+        0.0004587037399115594,
+        0.28220349635356845,
+        0.24898898594329508
       ],
       "evolution_resources": {
-        "FSWAP_target_residual": 2.2840710334615957e-15,
+        "FSWAP_target_residual": 2.048942540096992e-15,
         "all_routing_pulses_numerically_replayed": false,
         "completed_contact_blocks": 864,
         "completed_hopping_blocks": 3456,
-        "contact_target_residual": 7.264073924243548e-16,
-        "floating_local_residual_sum_with_routing": 1.2656638543949885e-10,
+        "contact_target_residual": 7.255432190711451e-16,
+        "floating_local_residual_sum_with_routing": 1.1413520431811344e-10,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 1.2656638544750837e-10,
-        "maximum_local_hopping_target_residual": 1.6055317223439503e-15,
+        "floating_residual_telescoping_estimate": 1.1413520432462687e-10,
+        "maximum_local_hopping_target_residual": 1.5792787390430825e-15,
         "native_pulses": 1476288,
         "number_sector_compression_residual_included_in_local_target_residuals": true,
         "pair_code_pulses": 227520,
@@ -83,7 +83,7 @@
       },
       "evolution_resources_include_both_intervals": true,
       "floating_residuals_are_outward_certified": false,
-      "full_source_to_sparse_oracle_cq_distance": 8.321640273749251e-08,
+      "full_source_to_sparse_oracle_cq_distance": 8.321641373830574e-08,
       "ideal_fixed_spacing_infinite_history_half_trace_bound": "11010391/25165824",
       "ideal_temporal_half_trace_bound": "343/25165824",
       "local_sector_postselection": false,
@@ -91,10 +91,10 @@
         "1/16",
         "1/16"
       ],
-      "nested_restriction_operator_residual": 1.3552527156068805e-20,
+      "nested_restriction_operator_residual": 4.0657581468206416e-20,
       "number_of_complete_records": 4,
       "radius": 1,
-      "record_probability_restriction_residual": 5.551115123125783e-17,
+      "record_probability_restriction_residual": 1.1102230246251565e-16,
       "region_sites": [
         [
           0,
@@ -110,28 +110,28 @@
       "regional_dimension": 11,
       "regional_sector_weights_by_record_N0_N1_N2": [
         [
-          5.117162574927967e-08,
-          0.0003127278038465899,
-          0.4680360349835655
+          5.117162574903691e-08,
+          0.0003127278038456507,
+          0.46803603498297286
         ],
         [
-          3.1990727902512056e-38,
-          9.809333363640696e-09,
-          0.0004586939305788267
+          3.19907279023603e-38,
+          9.809333363609354e-09,
+          0.00045869393057819575
         ],
         [
-          1.0961465525639701e-08,
-          0.00011751925070936783,
-          0.28208596614175485
+          1.096146552558768e-08,
+          0.00011751925070901455,
+          0.28208596614139403
         ],
         [
-          6.852728556282832e-39,
-          7.854935973771768e-05,
-          0.24891043658387269
+          6.852728556250312e-39,
+          7.854935973748223e-05,
+          0.24891043658355758
         ]
       ],
-      "regional_source_to_sparse_oracle_cq_distance": 3.0403540008117995e-08,
-      "retained_history_normalization_residual": 3.5099700923524324e-12,
+      "regional_source_to_sparse_oracle_cq_distance": 3.040349046533027e-08,
+      "retained_history_normalization_residual": 4.7805093217334615e-12,
       "sites": 27,
       "split_steps_per_interval": 8
     },
@@ -140,9 +140,9 @@
       "apparatus_resources": {
         "committed_detector_bits": 2,
         "field_qubits": 250,
-        "floating_local_residual_sum_with_routing": 1.1310128087035512e-12,
+        "floating_local_residual_sum_with_routing": 1.015802086153142e-12,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 1.1310128087041908e-12,
+        "floating_residual_telescoping_estimate": 1.015802086153658e-12,
         "fresh_neutral_pointer_blanks": 2,
         "initial_filled_modes_supplied": 2,
         "initialization_storage_readout_costs_derived": false,
@@ -157,21 +157,21 @@
         "single_code_pulses": 10896
       },
       "complete_record_probabilities": [
-        0.46835311780371836,
-        0.00045845260480665965,
-        0.28220324294359467,
-        0.24898518662956112
+        0.4683531178001245,
+        0.00045845260480314,
+        0.2822032429414263,
+        0.2489851866276508
       ],
       "evolution_resources": {
-        "FSWAP_target_residual": 2.2840710334615957e-15,
+        "FSWAP_target_residual": 2.048942540096992e-15,
         "all_routing_pulses_numerically_replayed": false,
         "completed_contact_blocks": 4000,
         "completed_hopping_blocks": 19200,
-        "contact_target_residual": 7.264073924243548e-16,
-        "floating_local_residual_sum_with_routing": 1.7550653920801607e-09,
+        "contact_target_residual": 7.255432190711451e-16,
+        "floating_local_residual_sum_with_routing": 1.577656756335411e-09,
         "floating_residual_estimate_outward_certified": false,
-        "floating_residual_telescoping_estimate": 1.7550653936202878e-09,
-        "maximum_local_hopping_target_residual": 1.6055317223439503e-15,
+        "floating_residual_telescoping_estimate": 1.5776567575799114e-09,
+        "maximum_local_hopping_target_residual": 1.5792787390430825e-15,
         "native_pulses": 20174400,
         "number_sector_compression_residual_included_in_local_target_residuals": true,
         "pair_code_pulses": 3105600,
@@ -186,7 +186,7 @@
       },
       "evolution_resources_include_both_intervals": true,
       "floating_residuals_are_outward_certified": false,
-      "full_source_to_sparse_oracle_cq_distance": 8.372909004520038e-08,
+      "full_source_to_sparse_oracle_cq_distance": 8.37290794563284e-08,
       "ideal_fixed_spacing_infinite_history_half_trace_bound": "1204567/25165824",
       "ideal_temporal_half_trace_bound": "343/25165824",
       "local_sector_postselection": false,
@@ -194,10 +194,10 @@
         "1/16",
         "1/16"
       ],
-      "nested_restriction_operator_residual": 5.551115123126414e-17,
+      "nested_restriction_operator_residual": 8.326672684689513e-17,
       "number_of_complete_records": 4,
       "radius": 2,
-      "record_probability_restriction_residual": 5.551115123125783e-17,
+      "record_probability_restriction_residual": 1.1102230246251565e-16,
       "region_sites": [
         [
           0,
@@ -213,28 +213,28 @@
       "regional_dimension": 11,
       "regional_sector_weights_by_record_N0_N1_N2": [
         [
-          5.682641294860184e-08,
-          0.0003310716946868604,
-          0.4680219892826186
+          5.682641294796989e-08,
+          0.0003310716946837506,
+          0.46802198927902783
         ],
         [
-          3.5525904985344207e-38,
-          9.930076774068106e-09,
-          0.00045844267472988566
+          3.552590498494912e-38,
+          9.930076773973935e-09,
+          0.0004584426747263662
         ],
         [
-          1.2179485052023017e-08,
-          0.00012156857053658404,
-          0.282081662193573
+          1.2179485051887516e-08,
+          0.00012156857053544125,
+          0.28208166219140574
         ],
         [
-          7.614192173627905e-39,
-          7.854781949926919e-05,
-          0.2489066388100619
+          7.614192173543191e-39,
+          7.854781949853107e-05,
+          0.24890663880815228
         ]
       ],
-      "regional_source_to_sparse_oracle_cq_distance": 3.0503551026616044e-08,
-      "retained_history_normalization_residual": 1.8319123995524933e-11,
+      "regional_source_to_sparse_oracle_cq_distance": 3.050323629141629e-08,
+      "retained_history_normalization_residual": 2.5995317010085728e-11,
       "sites": 125,
       "split_steps_per_interval": 8
     }
@@ -252,9 +252,9 @@
       1,
       2
     ],
-    "source_complete_history_cq_distance_after_embedding": 0.004020238217053313,
-    "source_regional_history_cq_distance": 2.2408408170112235e-05,
-    "sparse_oracle_complete_history_cq_distance": 0.004020239377551547
+    "source_complete_history_cq_distance_after_embedding": 0.004020238217116991,
+    "source_regional_history_cq_distance": 2.2408411371241433e-05,
+    "sparse_oracle_complete_history_cq_distance": 0.0040202393775515466
   },
   "owner_gates": [
     "CP-08",
@@ -265,40 +265,40 @@
   "reference_history": {
     "all_four_record_blocks_retained": true,
     "complete_record_probabilities": [
-      0.49954252578448716,
-      0.0004917991305125953,
-      0.2656099493597297,
-      0.23435572572176483
+      0.49954252578385167,
+      0.0004917991305119212,
+      0.265609949359391,
+      0.23435572572146768
     ],
     "joint_input_preparation": "supplied entangled N2/reference state",
-    "local_instrument_restriction_square_residual": 1.716164201429832e-15,
+    "local_instrument_restriction_square_residual": 1.6725518237494888e-15,
     "radius": 1,
     "reference_dimension": 2,
     "reference_is_not_reset": true,
-    "reference_marginal_residual": 1.753883628710545e-12,
+    "reference_marginal_residual": 2.393260286868975e-12,
     "regional_sector_weights_by_record_N0_N1_N2": [
       [
-        5.235297409136993e-08,
-        0.0003239193997393195,
-        0.4992185540317738
+        5.235297409112152e-08,
+        0.00032391939973834603,
+        0.49921855403113924
       ],
       [
-        3.2729265965677487e-38,
-        1.0621548079341519e-08,
-        0.0004917885089645161
+        3.2729265965522174e-38,
+        1.0621548079307188e-08,
+        0.0004917885089638418
       ],
       [
-        1.047069057941644e-08,
-        0.00011173751133227247,
-        0.26549820137770686
+        1.0470690579366766e-08,
+        0.00011173751133193683,
+        0.26549820137736846
       ],
       [
-        6.545913059684717e-39,
-        7.504225490195998e-05,
-        0.23428068346686287
+        6.54591305965366e-39,
+        7.504225490173499e-05,
+        0.23428068346656597
       ]
     ],
-    "retained_history_normalization_residual": 3.505751244858857e-12,
+    "retained_history_normalization_residual": 4.777733764171899e-12,
     "source_preparation_for_entangled_input_executed": false,
     "subsequent_word_resources_bounded_by_radius1_level_counts": true
   },
@@ -330,7 +330,7 @@
     "model/interacting_field/test_resources.py": "735bfba4718ff30f541d9627a0fe019ca9ae8355a63fdf2436497aab2709f565",
     "model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
     "model/local_repair_family/record_clock_campaign.json": "b67b82ebfc34282a9281147ec45717de410e02a75610d32062153c2ff6be0fa3",
-    "model/local_repair_family/record_clock_results.json": "2f0b5b895ce1ac7c6455cf4bff6faf1d37bb25ded0208d2df66212e8b0cdc1da",
+    "model/local_repair_family/record_clock_results.json": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
     "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
   },

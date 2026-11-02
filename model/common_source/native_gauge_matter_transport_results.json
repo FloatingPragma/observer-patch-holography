@@ -1,7 +1,7 @@
 {
   "artifact": {
     "path": "native_gauge_matter_transport_results.npz",
-    "sha256": "d0d167c06e393215e514055e06af2400c993e398218030a37194dbd843d1addc"
+    "sha256": "174fa6a11e555a251376e6995f7c935db07861de1ae4cf10f0d0c0dd9d3a3e93"
   },
   "complete_species": {
     "Dirac_fields_counting_internal_and_family": 90,
@@ -52,9 +52,9 @@
       "same_mass_block_for_all_internal_components": true,
       "scalar_native_gap_control_retained": true
     },
-    "complete_Fourier_factor_error_diagnostic": 1.5741653849893874e-15,
+    "complete_Fourier_factor_error_diagnostic": 1.5502606302226382e-15,
     "complete_finite_lattice_dimension_with_families": 6144,
-    "complete_source_site_gauge_error_diagnostic": 9.112501377929503e-16,
+    "complete_source_site_gauge_error_diagnostic": 1.157629825647076e-15,
     "continuum_bound": "||h_a(p)-h_D(p)|| <= c*a^2*sum_j ||p_j I-i A_j||^3/6; propagation <= |T| times this bound",
     "coordinate_speed_from_native_exchange": "125/512",
     "corner_dimension": 8,
@@ -68,13 +68,13 @@
     "executed_source_scope": "complete32-column links and site gauge from the same native backend; local physical-CAR transport factors are retained by the canonical transport receipt",
     "field_strength_square_identity_error_diagnostic": 2.7755575615628914e-17,
     "finite_lattice_operator_retained_as_complete_factors": true,
-    "fixed_chirality_site_gauge_leakage_Frobenius_diagnostic": 0.6635845307736599,
+    "fixed_chirality_site_gauge_leakage_Frobenius_diagnostic": 0.66358453077366,
     "full_auxiliary_internal_dimension": 32,
     "global_periodic_lattice_Fock_source_word_executed": false,
     "local_covariance_domain": "all192 oriented links, all64 onsite blocks and all32 internal columns; transformed links need not be constant",
-    "maximum_unscaled_real_space_gauge_block_error_diagnostic": 1.8897079228428793e-15,
+    "maximum_unscaled_real_space_gauge_block_error_diagnostic": 2.3518695983419344e-15,
     "noncommuting_backgrounds_or_source_leakage_dropped": false,
-    "omitted_field_strength_operator_norm_diagnostic": 0.19288468226789185,
+    "omitted_field_strength_operator_norm_diagnostic": 0.1928846822678918,
     "physical_chiral_SM_or_dynamical_gauge_continuum_claimed": false,
     "references": [
       "https://doi.org/10.1103/PhysRevD.16.3031",
@@ -176,39 +176,39 @@
     ],
     "source_link_refinements": [
       {
-        "complete_link_error_diagnostic": 1.518578815114341e-15,
+        "complete_link_error_diagnostic": 2.609589530395134e-15,
         "fixed_source_link_error_upper_conditional": 2.9296875e-08,
         "sine_bound_diagnostic": 0.01336669921875,
         "spacing": "1/4",
-        "symbol_discretization_error_diagnostic": 0.007969031935397266
+        "symbol_discretization_error_diagnostic": 0.007969031935397327
       },
       {
-        "complete_link_error_diagnostic": 1.5712099373948152e-15,
+        "complete_link_error_diagnostic": 2.5901172354993352e-15,
         "fixed_source_link_error_upper_conditional": 5.859375e-08,
         "sine_bound_diagnostic": 0.0033416748046875,
         "spacing": "1/8",
-        "symbol_discretization_error_diagnostic": 0.0019991715226619954
+        "symbol_discretization_error_diagnostic": 0.0019991715226623597
       },
       {
-        "complete_link_error_diagnostic": 1.3416599316946576e-15,
+        "complete_link_error_diagnostic": 2.463815964270999e-15,
         "fixed_source_link_error_upper_conditional": 1.171875e-07,
         "sine_bound_diagnostic": 0.000835418701171875,
         "spacing": "1/16",
-        "symbol_discretization_error_diagnostic": 0.0005002259235113109
+        "symbol_discretization_error_diagnostic": 0.0005002259235121503
       }
     ]
   },
   "local_covariance": {
     "independent_site_transformations": 8,
     "link_transformation": "U_xy -> G_x U_xy G_y^dagger",
-    "nonflat_plaquette_operator_defect": 0.060062745994072735,
-    "operator_error_diagnostic": 4.7041580398897804e-17,
+    "nonflat_plaquette_operator_defect": 0.0600627459940727,
+    "operator_error_diagnostic": 5.1063153736761574e-17,
     "oriented_bond_law": "h_xy=-i*J*eta(x,axis)*rho(U_xy)/a; h_yx=h_xy^dagger",
     "site_count": 8,
     "spatial_dimension": 3,
     "time_dependent_frames_or_temporal_connection_constructed": false
   },
-  "native_bond_one_body_identity_error_diagnostic": 1.155499138911756e-16,
+  "native_bond_one_body_identity_error_diagnostic": 1.1503726629646405e-16,
   "native_bond_word": {
     "all_occupation_sectors_and_JW_routing_retained": true,
     "complete_Fock_dimension": "1237940039285380274899124224",
@@ -35748,7 +35748,7 @@
     "canonical_current_requests": [
       {
         "array": "current_0_full32",
-        "operator_error_diagnostic": 9.017657976269991e-16,
+        "operator_error_diagnostic": 1.172644646531553e-15,
         "path": [
           [
             0,
@@ -35771,7 +35771,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 3.952924080933277e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 5.476681024205823e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -35963,7 +35963,7 @@
       },
       {
         "array": "current_1_full32",
-        "operator_error_diagnostic": 1.031218101737078e-15,
+        "operator_error_diagnostic": 1.0799310652505323e-15,
         "path": [
           [
             1,
@@ -35986,7 +35986,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 4.3776028640890906e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 5.262702510245856e-16,
         "word": [
           {
             "angle": -1.5707963267948966,
@@ -36178,7 +36178,7 @@
       },
       {
         "array": "current_2_full32",
-        "operator_error_diagnostic": 1.5712099373948152e-15,
+        "operator_error_diagnostic": 2.5901172354993352e-15,
         "path": [
           [
             2,
@@ -36201,7 +36201,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 1.1695796428754471e-15,
+        "selected_to_auxiliary_complement_error_diagnostic": 1.0196825139453474e-15,
         "word": [
           {
             "angle": 0.7853981633974483,
@@ -36765,7 +36765,7 @@
       },
       {
         "array": "current_3_full32",
-        "operator_error_diagnostic": 1.712690517801304e-15,
+        "operator_error_diagnostic": 2.471878867370845e-15,
         "path": [
           [
             3,
@@ -36788,7 +36788,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 1.1862177069870751e-15,
+        "selected_to_auxiliary_complement_error_diagnostic": 9.118866905847768e-16,
         "word": [
           {
             "angle": 0.7853981633974483,
@@ -37352,7 +37352,7 @@
       },
       {
         "array": "current_4_full32",
-        "operator_error_diagnostic": 9.017657976269993e-16,
+        "operator_error_diagnostic": 1.172644646531553e-15,
         "path": [
           [
             4,
@@ -37375,7 +37375,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 3.952924080933278e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 5.476681024205823e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -37567,7 +37567,7 @@
       },
       {
         "array": "current_5_full32",
-        "operator_error_diagnostic": 1.0312181017370778e-15,
+        "operator_error_diagnostic": 1.0799310652505321e-15,
         "path": [
           [
             5,
@@ -37590,7 +37590,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 4.377602864089091e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 5.262702510245856e-16,
         "word": [
           {
             "angle": -1.5707963267948966,
@@ -37896,7 +37896,7 @@
       },
       {
         "array": "current_8_full32",
-        "operator_error_diagnostic": 9.899029570085166e-16,
+        "operator_error_diagnostic": 1.1030840843357152e-15,
         "path": [
           [
             8,
@@ -37919,7 +37919,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 4
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 4.280373696760162e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 4.806640948101169e-16,
         "word": [
           {
             "angle": -0.0,
@@ -38111,7 +38111,7 @@
       },
       {
         "array": "current_9_full32",
-        "operator_error_diagnostic": 6.297639985555134e-16,
+        "operator_error_diagnostic": 1.1839681590806802e-15,
         "path": [
           [
             9,
@@ -38134,7 +38134,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 4.613371981375033e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 5.18645810102175e-16,
         "word": [
           {
             "angle": 0.7853981633974483,
@@ -38482,7 +38482,7 @@
       },
       {
         "array": "current_12_full32",
-        "operator_error_diagnostic": 1.590645985414724e-15,
+        "operator_error_diagnostic": 2.2469838326277728e-15,
         "path": [
           [
             0,
@@ -38509,7 +38509,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 4
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 7.334757399595972e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 9.30529316808243e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -38887,7 +38887,7 @@
       },
       {
         "array": "current_13_full32",
-        "operator_error_diagnostic": 1.87556623436395e-15,
+        "operator_error_diagnostic": 2.081306599334088e-15,
         "path": [
           [
             1,
@@ -38914,7 +38914,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 6.697794862099715e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 8.886769424552967e-16,
         "word": [
           {
             "angle": -1.5707963267948966,
@@ -39423,7 +39423,7 @@
       },
       {
         "array": "current_15_full32",
-        "operator_error_diagnostic": 1.9669102658857636e-15,
+        "operator_error_diagnostic": 2.2254359060360044e-15,
         "path": [
           [
             0,
@@ -39454,7 +39454,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 4
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 6.399711019157385e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 8.838479785251377e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -39902,7 +39902,7 @@
       },
       {
         "array": "current_16_full32",
-        "operator_error_diagnostic": 2.216776329024957e-15,
+        "operator_error_diagnostic": 3.970029291520375e-15,
         "path": [
           [
             2,
@@ -39933,7 +39933,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 9.637498681909362e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 1.3696796659691027e-15,
         "word": [
           {
             "angle": 0.7853981633974483,
@@ -40753,7 +40753,7 @@
       },
       {
         "array": "current_17_full32",
-        "operator_error_diagnostic": 1.4974128306492452e-15,
+        "operator_error_diagnostic": 1.8488302042796265e-15,
         "path": [
           [
             4,
@@ -40784,7 +40784,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 4.136484891950967e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 4.596151921166042e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -41074,7 +41074,7 @@
       },
       {
         "array": "current_18_full32",
-        "operator_error_diagnostic": 1.7183592786818431e-15,
+        "operator_error_diagnostic": 2.2899753046894565e-15,
         "path": [
           [
             0,
@@ -41105,7 +41105,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 4
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 6.440145446233319e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 9.723470868284788e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -41553,7 +41553,7 @@
       },
       {
         "array": "current_19_full32",
-        "operator_error_diagnostic": 1.7801212617108334e-15,
+        "operator_error_diagnostic": 3.2439341969513893e-15,
         "path": [
           [
             2,
@@ -41584,7 +41584,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 9.793146135515162e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 1.3680394201800434e-15,
         "word": [
           {
             "angle": 0.7853981633974483,
@@ -42404,7 +42404,7 @@
       },
       {
         "array": "current_20_full32",
-        "operator_error_diagnostic": 6.757510760201848e-16,
+        "operator_error_diagnostic": 1.0162009260150518e-15,
         "path": [
           [
             4,
@@ -42435,7 +42435,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 3.335637270695715e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 4.753416523384933e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -42725,7 +42725,7 @@
       },
       {
         "array": "current_21_full32",
-        "operator_error_diagnostic": 1.4990674360398729e-15,
+        "operator_error_diagnostic": 2.244995182399804e-15,
         "path": [
           [
             0,
@@ -42756,7 +42756,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 4
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 6.564249429034146e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 9.594814330199667e-16,
         "word": [
           {
             "angle": -0.7853981633974483,
@@ -43204,7 +43204,7 @@
       },
       {
         "array": "current_22_full32",
-        "operator_error_diagnostic": 2.152224261792102e-15,
+        "operator_error_diagnostic": 3.6340932799895366e-15,
         "path": [
           [
             2,
@@ -43235,7 +43235,7 @@
           "valid_code_failure_probability_in_exact_arithmetic": 0,
           "zero_angle_requests": 0
         },
-        "selected_to_auxiliary_complement_error_diagnostic": 9.542571844898687e-16,
+        "selected_to_auxiliary_complement_error_diagnostic": 1.1812542168123295e-15,
         "word": [
           {
             "angle": 0.7853981633974483,
@@ -44089,7 +44089,7 @@
     "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
     "code/m1_source_realization/model.py": "c0089ba890db76ca9dc055c29800a328a3b6800dbb000247f38621288c5c03b2",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/DERIVATION.md": "e53df3ae59398a6abe2ad3b85f7871ff7ea728e72bd9de073af8bf398a86dcbe",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "code/source_selection_model/response.py": "c66160a6b6246692e19b32e9b00383c8abca8b493655cf534932bfcd900e8400",
@@ -44222,7 +44222,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
     "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
@@ -44238,9 +44238,9 @@
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
     "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
-    "requirements.txt": "f116bec13d89a098f6523a26eede8280021585a32ec3294fc3f7174d6cd0ec09",
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "source_parameters": {

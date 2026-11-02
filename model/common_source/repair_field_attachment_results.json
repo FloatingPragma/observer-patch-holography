@@ -1,20 +1,20 @@
 {
   "artifact": {
     "filename": "repair_field_attachment_results.npz",
-    "sha256": "6c14693ea2e21d8d9993dd1da6f1ba9d55c0765142693fc5688df56531bf2029"
+    "sha256": "45f30c315e568a729dbda8fda8e57fc73eee4a802037493b04e7b83417754ef4"
   },
   "classification": "native-derived finite interacting CAR field under an explicitly chosen correlation-average/collective-exchange architecture",
   "collective_native_source": {
     "chronological_factor_rule": "H18;product_jFredkin(j,9+j,18);H18;Z18(theta);H18;product_jFredkin(j,9+j,18);H18;I18(-theta)",
     "complete_macro_operator_bound_conditional": "3/1249999997",
     "factorized_contraction_not_direct19qubit_compiler_call": true,
-    "failed_return_operator_error_diagnostic": 9.705779594953783e-14,
+    "failed_return_operator_error_diagnostic": 1.490992172482177e-13,
     "local_admission_is_physical_or_outward_interval_certificate": false,
     "local_all_input_numerical_admission": "1/10000000000",
     "native_pulses_per_collective_bond": 18834,
     "proper_load_export_events_per_collective_bond": 37668,
     "retained_full_native_output_rows": 524288,
-    "source_operator_error_diagnostic": 1.4342877620455124e-12,
+    "source_operator_error_diagnostic": 3.9198218579063214e-13,
     "two_carrier_encoder_pulses": 884580,
     "unknown_Fock_columns": 4,
     "unnormalized_failed_ancilla_output_retained_by_factor_rule": true
@@ -32,19 +32,19 @@
       "first_measurement_backaction_retained": true,
       "initial_state": "source hopping of seed encoded charge1: (|100>+i|010>)/sqrt2",
       "joint_density_records": [
-        0.5860849709764657,
-        0.3196105979640175,
-        0.052860803668228824,
-        0.04144362738832733
+        0.5860849709775463,
+        0.31961059796460695,
+        0.052860803668319634,
+        0.0414436273884017
       ],
       "no_first_read_protocol_claimed_equal": false,
       "observer_A_first_record_marginal": [
-        0.9056955689404832,
-        0.09430443105655616
+        0.9056955689421533,
+        0.09430443105672134
       ],
       "observer_B_second_record_marginal": [
-        0.6389457746446946,
-        0.3610542253523448
+        0.638945774645866,
+        0.36105422535300863
       ],
       "records_are_common_history_restrictions": true,
       "source_pointer_native_pulses": 32,
@@ -55,19 +55,19 @@
       "first_measurement_backaction_retained": true,
       "initial_state": "source hopping of seed encoded charge1: (|100>+i|010>)/sqrt2",
       "joint_density_records": [
-        0.5860849709764537,
-        0.31961059796400804,
-        0.05286080366822964,
-        0.04144362738832716
+        0.5860849709775412,
+        0.3196105979646081,
+        0.05286080366831982,
+        0.04144362738840145
       ],
       "no_first_read_protocol_claimed_equal": false,
       "observer_A_first_record_marginal": [
-        0.9056955689404618,
-        0.09430443105655681
+        0.9056955689421493,
+        0.09430443105672126
       ],
       "observer_B_second_record_marginal": [
-        0.6389457746446834,
-        0.3610542253523352
+        0.638945774645861,
+        0.3610542253530096
       ],
       "records_are_common_history_restrictions": true,
       "source_pointer_native_pulses": 32,
@@ -78,19 +78,19 @@
       "first_measurement_backaction_retained": true,
       "initial_state": "source hopping of seed encoded charge1: (|100>+i|010>)/sqrt2",
       "joint_density_records": [
-        0.5860849709764502,
-        0.3196105979640103,
-        0.052860803668228776,
-        0.04144362738832681
+        0.5860849709775399,
+        0.3196105979646111,
+        0.052860803668319134,
+        0.04144362738840117
       ],
       "no_first_read_protocol_claimed_equal": false,
       "observer_A_first_record_marginal": [
-        0.9056955689404604,
-        0.09430443105655559
+        0.905695568942151,
+        0.0943044310567203
       ],
       "observer_B_second_record_marginal": [
-        0.6389457746446789,
-        0.3610542253523371
+        0.638945774645859,
+        0.3610542253530123
       ],
       "records_are_common_history_restrictions": true,
       "source_pointer_native_pulses": 32,
@@ -1979,14 +1979,14 @@
   },
   "finite_field_source": [
     {
-      "dense_target_difference_diagnostic": 1.2630241754899697e-05,
-      "local_source_difference_diagnostic": 2.0353598752692102e-15,
+      "dense_target_difference_diagnostic": 1.2630241854491273e-05,
+      "local_source_difference_diagnostic": 2.0525597206457694e-15,
       "model_coordinate_duration": "8",
       "resources": {
         "identity_phase_pulses": 388,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 16894.08491819873,
-        "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
         "maximum_work_qubits": 3,
         "native_pulses": 11527,
         "pair_code_pulses": 2304,
@@ -2002,12 +2002,12 @@
       "source_reference_pole_diagnostics": [
         {
           "conditional_record_pole_interval_numeric": [
-            0.0037775300967004158,
-            0.004035219415150829
+            0.0037775300966998585,
+            0.004035219415150032
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": 0.9995117584837284,
-          "raw_sine_mean_diagnostic": 0.031244913985301027,
+          "raw_cosine_mean_diagnostic": 0.9995117584846563,
+          "raw_sine_mean_diagnostic": 0.031244913985324616,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2018,12 +2018,12 @@
         },
         {
           "conditional_record_pole_interval_numeric": [
-            0.12580497498110788,
-            0.12614981880833498
+            0.1258049749811107,
+            0.1261498188083375
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": 0.5337058831764354,
-          "raw_sine_mean_diagnostic": 0.8456701663777538,
+          "raw_cosine_mean_diagnostic": 0.5337058831769168,
+          "raw_sine_mean_diagnostic": 0.8456701663785566,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2034,12 +2034,12 @@
         },
         {
           "conditional_record_pole_interval_numeric": [
-            0.3699707565979719,
-            0.3702616081564768
+            0.36997075659797735,
+            0.37026160815648196
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": -0.9837249129760373,
-          "raw_sine_mean_diagnostic": 0.17968109358129622,
+          "raw_cosine_mean_diagnostic": -0.9837249129769444,
+          "raw_sine_mean_diagnostic": 0.17968109358141862,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2055,14 +2055,14 @@
       "splitting_primary_source": "https://arxiv.org/abs/1912.08854; Proposition16; doubled two-term bound"
     },
     {
-      "dense_target_difference_diagnostic": 1.263024175662337e-05,
-      "local_source_difference_diagnostic": 2.0353598752692102e-15,
+      "dense_target_difference_diagnostic": 1.2630241854551993e-05,
+      "local_source_difference_diagnostic": 2.0525597206457694e-15,
       "model_coordinate_duration": "8",
       "resources": {
         "identity_phase_pulses": 388,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 16894.01460569873,
-        "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
         "maximum_work_qubits": 3,
         "native_pulses": 11527,
         "pair_code_pulses": 2304,
@@ -2078,12 +2078,12 @@
       "source_reference_pole_diagnostics": [
         {
           "conditional_record_pole_interval_numeric": [
-            0.0008507146654950951,
-            0.0011026603039863687
+            0.0008507146654934102,
+            0.0011026603039844467
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": 0.9999694825756839,
-          "raw_sine_mean_diagnostic": 0.0078124205273967335,
+          "raw_cosine_mean_diagnostic": 0.9999694825766102,
+          "raw_sine_mean_diagnostic": 0.007812420527389545,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2094,12 +2094,12 @@
         },
         {
           "conditional_record_pole_interval_numeric": [
-            0.122874426313257,
-            0.12322100316916844
+            0.12287442631325901,
+            0.12322100316917013
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": 0.5533778831493871,
-          "raw_sine_mean_diagnostic": 0.8329303203031911,
+          "raw_cosine_mean_diagnostic": 0.5533778831498922,
+          "raw_sine_mean_diagnostic": 0.8329303203039782,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2110,12 +2110,12 @@
         },
         {
           "conditional_record_pole_interval_numeric": [
-            0.367038755864083,
-            0.36733423828822653
+            0.3670387558640877,
+            0.3673342382882309
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": -0.979243847140724,
-          "raw_sine_mean_diagnostic": 0.20268568681653695,
+          "raw_cosine_mean_diagnostic": -0.9792438471416306,
+          "raw_sine_mean_diagnostic": 0.20268568681668753,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2131,14 +2131,14 @@
       "splitting_primary_source": "https://arxiv.org/abs/1912.08854; Proposition16; doubled two-term bound"
     },
     {
-      "dense_target_difference_diagnostic": 1.2630241754886361e-05,
-      "local_source_difference_diagnostic": 2.0353598752692102e-15,
+      "dense_target_difference_diagnostic": 1.2630241854584724e-05,
+      "local_source_difference_diagnostic": 2.0525597206457694e-15,
       "model_coordinate_duration": "8",
       "resources": {
         "identity_phase_pulses": 388,
         "initialization_storage_readout_physical_costs_included": false,
         "integrated_processor_norm_upper": 16893.97554319873,
-        "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
         "maximum_work_qubits": 3,
         "native_pulses": 11527,
         "pair_code_pulses": 2304,
@@ -2154,12 +2154,12 @@
       "source_reference_pole_diagnostics": [
         {
           "conditional_record_pole_interval_numeric": [
-            0.0002003206523466516,
-            0.0004509710109271025
+            0.00020032065234419692,
+            0.00045097101092440026
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": 0.9999966091584667,
-          "raw_sine_mean_diagnostic": 0.0026041637232267797,
+          "raw_cosine_mean_diagnostic": 0.9999966091594338,
+          "raw_sine_mean_diagnostic": 0.0026041637232086727,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2170,12 +2170,12 @@
         },
         {
           "conditional_record_pole_interval_numeric": [
-            0.12222320620149962,
-            0.12257014235354674
+            0.1222232062015008,
+            0.12257014235354757
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": 0.5577085366363409,
-          "raw_sine_mean_diagnostic": 0.8300368595444024,
+          "raw_cosine_mean_diagnostic": 0.5577085366368784,
+          "raw_sine_mean_diagnostic": 0.8300368595452168,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2186,12 +2186,12 @@
         },
         {
           "conditional_record_pole_interval_numeric": [
-            0.3663872111567219,
-            0.36668370070837214
+            0.3663872111567258,
+            0.3666837007083757
           ],
           "frequency_or_gap_received_by_inverse": false,
-          "raw_cosine_mean_diagnostic": -0.978174915480191,
-          "raw_sine_mean_diagnostic": 0.2077831430342753,
+          "raw_cosine_mean_diagnostic": -0.9781749154811382,
+          "raw_sine_mean_diagnostic": 0.20778314303444628,
           "source_analyzer_pointer_native_pulses": [
             250,
             250
@@ -2248,14 +2248,14 @@
       "supplied_logical_levels": 6,
       "supplied_register_qubits": 3
     },
-    "operator_error_diagnostic": 4.868355011869518e-11,
+    "operator_error_diagnostic": 1.928238246111283e-11,
     "pointer_resources": {
       "committed_classical_bits": 1,
       "fresh_pointer_blanks": 1,
       "identity_phase_pulses": 4,
       "initialization_storage_readout_physical_costs_included": false,
       "integrated_processor_norm_upper": 223.83847656827277,
-      "maximum_numerical_valid_code_leakage": 1.0282787712773793e-16,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
       "maximum_work_qubits": 10,
       "native_pulses": 124,
       "pair_code_pulses": 34,
@@ -2276,12 +2276,12 @@
     "complete_rows": 512,
     "complete_unknown_columns": 6,
     "model_coordinate_duration": "1",
-    "operator_error_diagnostic": 4.948413108440216e-11,
+    "operator_error_diagnostic": 2.0374353315193475e-11,
     "resources": {
       "identity_phase_pulses": 1,
       "initialization_storage_readout_physical_costs_included": false,
       "integrated_processor_norm_upper": 22531.749968414486,
-      "maximum_numerical_valid_code_leakage": 6.032922920504741e-17,
+      "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
       "maximum_work_qubits": 9,
       "native_pulses": 11270,
       "pair_code_pulses": 3586,
@@ -2354,7 +2354,7 @@
     "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
     "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
-    "code/m1_source_realization/receipt.json": "a9c93af99d861cd045614311b0f41ee0012a7c9f36dcbb815f6ab61d30e6d4ff",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
@@ -2468,7 +2468,7 @@
     "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
     "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
-    "model/observer/source_scalar/experiment.py": "7e7db71b4621bb64378f454f128e7f7cc3c080e3ab7ca7666e2c1b35539d2a3a",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
     "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
@@ -2478,9 +2478,9 @@
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
     "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
-    "model/requirements.txt": "2c585acfcb6e6b57cf3e822eba9e7822b877ce373eaf598be3045669588447cd",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
     "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
-    "requirements.txt": "f116bec13d89a098f6523a26eede8280021585a32ec3294fc3f7174d6cd0ec09",
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "source_contract": {
@@ -2552,12 +2552,12 @@
     "raw_source_probability_diagnostics": [
       {
         "conditional_record_pole_interval_numeric": [
-          0.0039036625192052556,
-          0.003908840034086257
+          0.0039036625192052817,
+          0.003908840034086282
         ],
         "frequency_or_gap_received_by_inverse": false,
-        "raw_cosine_mean_diagnostic": -0.41614683654711365,
-        "raw_sine_mean_diagnostic": 0.9092974268256295,
+        "raw_cosine_mean_diagnostic": -0.4161468365471342,
+        "raw_sine_mean_diagnostic": 0.9092974268256427,
         "source_analyzer_pointer_native_pulses": [
           250,
           250
@@ -2568,12 +2568,12 @@
       },
       {
         "conditional_record_pole_interval_numeric": [
-          0.0009739131500365943,
-          0.0009792139605157206
+          0.0009739131500366165,
+          0.0009792139605157425
         ],
         "frequency_or_gap_received_by_inverse": false,
-        "raw_cosine_mean_diagnostic": 0.8775825618903219,
-        "raw_sine_mean_diagnostic": 0.47942553860417075,
+        "raw_cosine_mean_diagnostic": 0.8775825618903333,
+        "raw_sine_mean_diagnostic": 0.4794255386041898,
         "source_analyzer_pointer_native_pulses": [
           250,
           250
@@ -2584,12 +2584,12 @@
       },
       {
         "conditional_record_pole_interval_numeric": [
-          0.00032327260154941075,
-          0.0003277727563529001
+          0.00032327260154943645,
+          0.0003277727563529258
         ],
         "frequency_or_gap_received_by_inverse": false,
-        "raw_cosine_mean_diagnostic": 0.9861432315628746,
-        "raw_sine_mean_diagnostic": 0.16589613269340348,
+        "raw_cosine_mean_diagnostic": 0.9861432315628862,
+        "raw_sine_mean_diagnostic": 0.16589613269341877,
         "source_analyzer_pointer_native_pulses": [
           250,
           250

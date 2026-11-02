@@ -3,7 +3,7 @@
 The executable native observer has been run against a real monotonic host
 clock. One local clock calibrates the first block; a different local clock
 predicts the durations of three untouched blocks. Their measured relative
-errors are **6.29%, 2.29% and 7.76%**, within the declared **25% engineering
+errors are **10.74%, 5.68% and 12.27%**, within the declared **25% engineering
 tolerance**. The tolerance is fixed in the capture policy; it is not a
 statistical confidence interval or a derived physical law.
 
@@ -45,11 +45,11 @@ seeded service; it does not prove the physical IID scheduler premise.
 
 ## Calibration and held-out measurements
 
-Port 2 records 1,767 ticks in the first baseline block's measured 32.3565 ms.
+Port 2 records 1,767 ticks in the first baseline block's measured 31.1850 ms.
 This fixes the single conversion
 
 ```text
-host duration per local tick = 10785500/589 ns.
+host duration per local tick = 547106/31 ns.
 ```
 
 Port 3 and all later blocks are excluded from the fit. For each validation
@@ -77,7 +77,7 @@ random choices. The raw tape retains the final workload value as well.
 
 Every recorded native current, local clock tick and block boundary in repair
 coordinates agrees between the two executions. The measured duration ratios
-of control to baseline are approximately **7.60, 27.48, 14.21 and 12.11**.
+of control to baseline are approximately **8.08, 8.14, 8.16 and 8.13**.
 The baseline local-clock calibration fails the duration test in every control
 block. No uniformity of the added host delay is assumed; the observed variation
 is retained.
