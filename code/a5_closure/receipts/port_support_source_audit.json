@@ -1,22 +1,17 @@
 {
-  "base": "83113a9cc33d82a56c84a8634445c8edd1e599a2",
-  "base_tree": "8a9f87e254c2f290c36e501a1d38963d1d7f9f85",
+  "base": "aa95355797ff58b03fa6378850f6be04bcffb78d",
+  "base_tree": "cb08ea5b3e659d8faa304249a3b13fc99ab34aa7",
   "common_sphere": "REALIZED_SPHERE_COMPARISON_MISSING",
   "historical_drift": {
     "code/m1_source_realization/receipt.json": {
       "classification": "BASELINE_PIN_DRIFT",
       "frozen_sha256": "1e43a903910966ec15602cbfdd07cea3c4af8dfde152225d874d2e0a7453ead1",
       "live_sha256": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49"
-    },
-    "code/source_selection_model/DERIVATION.md": {
-      "classification": "BASELINE_PIN_DRIFT",
-      "frozen_sha256": "4881f7c7e41b6294d3b164e943952438f09a3aa03041bf152a382d8ff42aba85",
-      "live_sha256": "e53df3ae59398a6abe2ad3b85f7871ff7ea728e72bd9de073af8bf398a86dcbe"
     }
   },
   "implementation_sha256": {
-    "code/a5_closure/port_support_source_audit.py": "d540a1307c6770af4bfc47a1ba17e1137a7b2460c8325aebc627be1a43dc8cb6",
-    "code/a5_closure/verify_port_support_source_audit.py": "09ba043d84d8ef94332e4e2560588d9156b0a85253f02e87ee2d0547fdf69398"
+    "code/a5_closure/port_support_source_audit.py": "050f955abc4ef006501dfdf8da743ed42320c7d99e6c29f9d520f3be883d6b24",
+    "code/a5_closure/verify_port_support_source_audit.py": "20fe8dd1c12f9562e04db3ddd7784d49f971cde32e32b198b441cd3abc7e6588"
   },
   "local_refinement": "No local incidence tower supplied by ScreenCarrierMapCandidate; support automorphism audit only.",
   "native_support_refinement": [
@@ -2012,19 +2007,19 @@
       "sha256": "75286414b7c33492b40225dd48ca9321cf3a09ecf96b65e254af9bd02421cf72"
     },
     "code/a5_closure/galois_source_response_control.py": {
-      "base_blob": "ecb5f9af4b9ab9d3ccde131e7228e174d4385c11",
-      "git_blob": "ecb5f9af4b9ab9d3ccde131e7228e174d4385c11",
-      "sha256": "71cfa71dce4080febc61e09b3675f8fc8822294acdbacfbd1f87012e9e0e618d"
+      "base_blob": "98ab08ca8ea1ffd3be0b3fce9413767f28a41557",
+      "git_blob": "98ab08ca8ea1ffd3be0b3fce9413767f28a41557",
+      "sha256": "f8636308203c3673c6769059bd73140f6a705f47d480d5158e2fa90ce64a833d"
     },
     "code/a5_closure/port_gram_support_attachment_certificate.py": {
-      "base_blob": "33a4cf82d3cfc83f6c71174c12d0078c4e01743c",
-      "git_blob": "33a4cf82d3cfc83f6c71174c12d0078c4e01743c",
-      "sha256": "6d165e0f80d85fd52f7b8e19ecfde87f7aa64d8b7a6396bf8c7ada5170d361cd"
+      "base_blob": "6bb7e77a57cc931a7ba755d4729c91b572cf27d5",
+      "git_blob": "6bb7e77a57cc931a7ba755d4729c91b572cf27d5",
+      "sha256": "964acea90ee275c9548246a9dd1a145dec9f247a0a11d7c8d522703f41c90706"
     },
     "code/a5_closure/verify_port_gram_support_attachment_independent.py": {
-      "base_blob": "edf3c8c4f8b6dd3b8b96ab72abfd858420e04ae4",
-      "git_blob": "edf3c8c4f8b6dd3b8b96ab72abfd858420e04ae4",
-      "sha256": "771a3ca9838ee46dc4a129c4c1a44459ecf3d66e27c27eacfc41bc78980fb733"
+      "base_blob": "f17916d14bd289325103f6784fab693faadee220",
+      "git_blob": "f17916d14bd289325103f6784fab693faadee220",
+      "sha256": "d82676998070c77163eda58f5f7ae32079279026d4039e3e0f630d11ce8b94e0"
     },
     "code/m1_source_realization/README.md": {
       "base_blob": "65cd4308713631e7ba064fff8314d82e269e6a93",
