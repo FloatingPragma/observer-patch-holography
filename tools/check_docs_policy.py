@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import argparse
 import re
+import subprocess
 import sys
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -97,6 +99,30 @@ def _document_paths(root: Path) -> list[Path]:
     return sorted(path for path in docs.rglob("*") if path.is_file())
 
 
+def changed_documents(root: Path, base: str) -> list[Path]:
+    """Documents added, copied, modified or renamed against a git revision."""
+    result = subprocess.run(
+        [
+            "git", "-C", str(root), "diff", "--name-only", "--diff-filter=ACMR",
+            f"{base}...HEAD",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise SystemExit(f"docs policy: cannot read the diff against {base}: "
+                         f"{result.stderr.strip()}")
+    documents = []
+    for line in result.stdout.splitlines():
+        if " => " in line:
+            continue
+        path = (root / line).resolve()
+        if path.is_file() and path.is_relative_to((root / DOCS).resolve()):
+            documents.append(path)
+    return sorted(documents)
+
+
 def _text_violations(relative: str, lines: list[str]) -> list[Violation]:
     found: list[Violation] = []
     for number, line in enumerate(lines, start=1):
@@ -113,11 +139,23 @@ def _text_violations(relative: str, lines: list[str]) -> list[Violation]:
     return found
 
 
-def check(root: Path = ROOT) -> tuple[list[Violation], list[Violation]]:
-    """Return (unexempted violations, violations covered by a known correction)."""
+def check(
+    root: Path = ROOT, documents: list[Path] | None = None
+) -> tuple[list[Violation], list[Violation]]:
+    """Return (unexempted violations, violations covered by a known correction).
+
+    With ``documents`` given, only those files and their ``docs/`` ancestors
+    are scanned; that is the changed-file mode a pull request runs.
+    """
     root = root.resolve()
+    docs = root / DOCS
+    targets = (
+        _document_paths(root)
+        if documents is None
+        else [path.resolve() for path in documents if path.is_file()]
+    )
     found: list[Violation] = []
-    for path in _document_paths(root):
+    for path in targets:
         relative = path.relative_to(root).as_posix()
         if path.suffix == ".md" and relative in EXEMPT_DOCUMENTS:
             continue
@@ -129,11 +167,19 @@ def check(root: Path = ROOT) -> tuple[list[Violation], list[Violation]]:
                     relative, path.read_text(encoding="utf-8").splitlines()
                 )
             )
-            if path.parent == root / DOCS and path.name not in ALLOWED_ROOT_DOCUMENTS:
+            if path.parent == docs and path.name not in ALLOWED_ROOT_DOCUMENTS:
                 found.append(Violation(relative, None, "root-document", path.name))
-    for directory in sorted(
-        path for path in (root / DOCS).rglob("*") if path.is_dir()
-    ):
+    directories = (
+        sorted(path for path in docs.rglob("*") if path.is_dir())
+        if documents is None
+        else sorted({
+            parent
+            for path in targets
+            for parent in path.parents
+            if parent.is_relative_to(docs) and parent != docs
+        })
+    )
+    for directory in directories:
         if ISO_DATE.search(directory.name):
             found.append(
                 Violation(
@@ -161,26 +207,51 @@ def check(root: Path = ROOT) -> tuple[list[Violation], list[Violation]]:
     return failures, exempted
 
 
-def main(root: Path = ROOT) -> None:
-    failures, exempted = check(root)
-    for violation in failures:
+def _report(violations: list[Violation], prefix: str = "") -> None:
+    for violation in violations:
         location = violation.path + (f":{violation.line}" if violation.line else "")
-        print(f"{location}: {violation.rule}: {violation.text}")
-    for violation in exempted:
-        location = violation.path + (f":{violation.line}" if violation.line else "")
-        print(f"exempt: {location}: {violation.rule}")
-    documents = len(_document_paths(root.resolve()))
+        print(f"{prefix}{location}: {violation.rule}: {violation.text}")
+
+
+def main(root: Path = ROOT, base: str | None = None) -> None:
+    documents = None if base is None else changed_documents(root, base)
+    failures, exempted = check(root, documents)
+    _report(failures)
+    _report(exempted, prefix="exempt: ")
+    scope = (
+        f"{len(documents)} changed file(s) against {base}"
+        if documents is not None
+        else f"{len(_document_paths(root.resolve()))} files"
+    )
+    failures_by_rule = Counter(v.rule for v in failures)
+    exempted_by_rule = Counter(v.rule for v in exempted)
     if failures:
-        raise SystemExit(
-            f"docs policy: {len(failures)} violation(s) across {documents} files"
+        counts = ", ".join(
+            f"{rule}={count}" for rule, count in sorted(failures_by_rule.items())
         )
+        raise SystemExit(f"docs policy: {len(failures)} violation(s) in {scope}: {counts}")
+    known = ", ".join(
+        f"{rule}={count}" for rule, count in sorted(exempted_by_rule.items())
+    )
     print(
-        f"docs policy OK: {documents} files checked, "
+        f"docs policy OK: {scope}, "
         f"{len(exempted)} known violation(s) exempted"
+        + (f" ({known})" if known else "")
     )
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
-    main(parser.parse_args().root)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="scan the whole tree (the default)",
+    )
+    parser.add_argument(
+        "--changed",
+        metavar="BASE",
+        help="scan only documents added, copied, modified or renamed against BASE",
+    )
+    arguments = parser.parse_args()
+    main(arguments.root, arguments.changed)

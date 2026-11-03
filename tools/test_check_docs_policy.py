@@ -94,3 +94,35 @@ def test_current_tree_passes() -> None:
     failures, exempted = check_docs_policy.check(ROOT)
     assert failures == []
     assert all(violation.path.startswith("docs/") for violation in exempted)
+
+
+def test_scoped_check_ignores_untouched_violation(tmp_path: Path) -> None:
+    _write(tmp_path, "docs/research/dated-2026-11-02.md", "text\n")
+    _write(tmp_path, "docs/research/clean.md", "# Clean\n")
+    failures, _ = check_docs_policy.check(
+        tmp_path, [tmp_path / "docs/research/clean.md"]
+    )
+    assert failures == []
+    failures, _ = check_docs_policy.check(
+        tmp_path, [tmp_path / "docs/research/dated-2026-11-02.md"]
+    )
+    assert {violation.rule for violation in failures} == {"dated-file-name"}
+
+
+def test_changed_documents_filters_to_the_docs_tree(
+    tmp_path: Path, monkeypatch
+) -> None:
+    _write(tmp_path, "docs/research/note.md", "# Note\n")
+    _write(tmp_path, "README.md", "# Root\n")
+
+    class Result:
+        returncode = 0
+        stdout = "docs/research/note.md\nREADME.md\n"
+        stderr = ""
+
+    monkeypatch.setattr(
+        check_docs_policy.subprocess, "run", lambda *arguments, **options: Result()
+    )
+    assert check_docs_policy.changed_documents(tmp_path, "base") == [
+        (tmp_path / "docs/research/note.md").resolve()
+    ]
