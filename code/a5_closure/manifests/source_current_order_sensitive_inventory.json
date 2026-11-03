@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 944,
+    "file_count": 945,
     "files": [
       {
         "byte_count": 42558,
@@ -2170,7 +2170,7 @@
       {
         "byte_count": 9387,
         "path": "code/a5_closure/galois_source_response_control.py",
-        "sha256": "sha256:71cfa71dce4080febc61e09b3675f8fc8822294acdbacfbd1f87012e9e0e618d"
+        "sha256": "sha256:f8636308203c3673c6769059bd73140f6a705f47d480d5158e2fa90ce64a833d"
       },
       {
         "byte_count": 3323,
@@ -2520,7 +2520,7 @@
       {
         "byte_count": 19739,
         "path": "code/a5_closure/port_gram_support_attachment_certificate.py",
-        "sha256": "sha256:6d165e0f80d85fd52f7b8e19ecfde87f7aa64d8b7a6396bf8c7ada5170d361cd"
+        "sha256": "sha256:964acea90ee275c9548246a9dd1a145dec9f247a0a11d7c8d522703f41c90706"
       },
       {
         "byte_count": 14012,
@@ -2848,6 +2848,11 @@
         "sha256": "sha256:ad1dfd22abc67c7539e01d2b5b8eebc0e7516cd2c428bc9a41cb45948b3e7b46"
       },
       {
+        "byte_count": 1669,
+        "path": "code/a5_closure/tests/test_galois_source_response_pins.py",
+        "sha256": "sha256:f7c784a0075111eae5fccf1dc6e249c92f798783085276514eb3fce00043a144"
+      },
+      {
         "byte_count": 23780,
         "path": "code/a5_closure/tests/test_load_fiber_readback_certificate.py",
         "sha256": "sha256:2487bb59e738866fc38308d5c89dc1408dbe98d77d7593ea4f1d1079f79bab35"
@@ -3015,7 +3020,7 @@
       {
         "byte_count": 10368,
         "path": "code/a5_closure/verify_port_gram_support_attachment_independent.py",
-        "sha256": "sha256:771a3ca9838ee46dc4a129c4c1a44459ecf3d66e27c27eacfc41bc78980fb733"
+        "sha256": "sha256:d82676998070c77163eda58f5f7ae32079279026d4039e3e0f630d11ce8b94e0"
       },
       {
         "byte_count": 14784,
@@ -4918,7 +4923,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:f90187dd1de5312a947832408e54764fe92051d6c3f70c9c38985d9b4cff243c",
+    "files_sha256": "sha256:a2fd707059cde8f529e642740a4861dad2da805d50db43ca852055ed1b944a27",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
@@ -7827,7 +7832,7 @@
     ],
     "through_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f"
   },
-  "inventory_sha256": "sha256:8f7fdeb69e90efdbb483838135004ff052f342d383c991d1af55ed3e39b8c43e",
+  "inventory_sha256": "sha256:500be8235c637184fbce38fb0ab11ff4a4885b519e7e7e5896d14e6d41cebc05",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",

@@ -21,7 +21,7 @@ DEGREE_VERIFIER = ROOT / "code/a5_closure/verify_galois_port_frame_independent.p
 PINNED_SOURCE_SHA256 = {
     "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
     "code/source_selection_model/geometry.py": "de47ae19dd4ae1677d0cefb0163513f2f1f6d24dfb4dd0264506d0b17fceb843",
-    "code/source_selection_model/DERIVATION.md": "4881f7c7e41b6294d3b164e943952438f09a3aa03041bf152a382d8ff42aba85",
+    "code/source_selection_model/DERIVATION.md": "e53df3ae59398a6abe2ad3b85f7871ff7ea728e72bd9de073af8bf398a86dcbe",
     "code/m1_source_realization/topology.py": "7319da3f7e9544cf334f7cf152b1aff350f822b2ace0bc786b5bef53e0429f14",
     "code/m1_source_realization/receipt.json": "1e43a903910966ec15602cbfdd07cea3c4af8dfde152225d874d2e0a7453ead1",
     "code/m1_source_realization/README.md": "b7986b78adfa2d0f407fb5150f2188ae84cd3ef96cc425d41c56323823fb0a36",
