@@ -43,7 +43,7 @@ every current or possible source implementation.
 | Declared max(edge) coarsening A5-natural | REQUEST CHANGES if claimed: DECLARED_COARSENING_NONNATURAL | Only identity commutes, independently at each of three transitions. |
 | Some endpoint-valued midpoint rounding is A5-equivariant | REQUEST CHANGES in the stated class | Each edge has a stabilizer involution swapping its endpoints. |
 | Common local/support refinement and realized sphere | HOLD: REALIZED_SPHERE_COMPARISON_MISSING | Existing local same-parent coordinate scaling is not a committed incidence tower. |
-| Universal twin continuous-degree floor | HOLD: FROZEN_PAIR_AND_ALGEBRAIC_CROSSCHECK_ONLY | Independent proof candidate written; independent hostile mathematical review outstanding. |
+| Universal twin continuous-degree floor | HOLD: FROZEN_PAIR_AND_ALGEBRAIC_CROSSCHECK_ONLY | Complete argument proposed; acceptance by a distinct mathematical reviewer required. |
 | Physical or observer golden-branch selection | HOLD | Relative attachment, common-sphere and physical readout premises remain missing. |
 
 ## Findings and remedies
@@ -78,12 +78,16 @@ latter changes operational/numerical evidence and source custody. Its full
 Remedy: retain `BASELINE_PIN_DRIFT`, replay at the matching historical
 commit, and audit live topology separately, as done here.
 
-**MEDIUM — continuous theorem custody/review not closed.** The [independent proof candidate](continuous_equivariant_degree_proof.md)
-spells out critical-pole replacement, relative smoothing, free-orbit indices,
-normalizer pole separation and the marking/orientation conventions. Its
-arithmetic controls pass, but no separate mathematical reviewer has audited
-that topological argument. Remedy: obtain the original packet and an
-independent hostile review of those lemmas before promoting the theorem.
+**MEDIUM — continuous theorem acceptance required.** The [proof proposed
+for acceptance](continuous_equivariant_degree_proof.md) supplies the relative
+homotopies with a strict normalization bound, a finite-dimensional transverse
+perturbation on the free source, and the same-element normalizer comparison
+in both faithful rotation representations. The cyclic lemma covers arbitrary
+continuous maps, including nonisolated initial fibres and critical poles.
+Its reconstruction and finite geometric controls do not constitute acceptance
+by a distinct mathematical reviewer. Remedy: obtain that acceptance before
+promoting the theorem gate. No replay of an original external proof packet
+is claimed; the proposed argument is autonomous.
 
 ## Recalculated seed and coupled actions
 
