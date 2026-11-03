@@ -18,10 +18,10 @@ program-wide and must equal the expected inventory exactly, in order; every
 type comes from the six-value enum and every disposition from the three-value
 enum; every consuming lane is a registered historical lane, duplicate-free and
 ascending, rendered beside its live owner from ``tools/closed_lanes.py``;
-every evidence path exists in the repository and has exactly one explicit
-evidence role; every row carries a discharge record for the current executable
-implementation, with a status from the five-value enum, existing evidence
-paths and a note, and a status that asserts an executed artefact must carry at
+every evidence path is an existing file in the repository and has exactly one
+explicit evidence role; every row carries a discharge record for the current
+executable implementation, with a status from the five-value enum, existing
+evidence files and a note, and a status that asserts an executed artefact must carry at
 least one non-prose evidence artefact; statements and notes are nonempty. The
 rendered page is a
 generated surface; edit the JSON, then regenerate.
@@ -692,8 +692,8 @@ def validate(register: dict) -> list[dict]:
         for path in evidence:
             if not isinstance(path, str) or not path.strip():
                 fail(f"{where}: evidence entries must be nonempty strings")
-            if not (ROOT / path).exists():
-                fail(f"{where}: evidence path missing: {path}")
+            if not (ROOT / path).is_file():
+                fail(f"{where}: evidence path missing or not a file: {path}")
         evidence_roles = row["evidence_roles"]
         if not isinstance(evidence_roles, dict):
             fail(f"{where}: evidence_roles must be an object")
@@ -718,8 +718,8 @@ def validate(register: dict) -> list[dict]:
         if not isinstance(discharge["evidence"], list) or not discharge["evidence"]:
             fail(f"{where}: discharge evidence must be a nonempty list")
         for path in discharge["evidence"]:
-            if not isinstance(path, str) or not (ROOT / path).exists():
-                fail(f"{where}: discharge evidence path missing: {path}")
+            if not isinstance(path, str) or not (ROOT / path).is_file():
+                fail(f"{where}: discharge evidence path missing or not a file: {path}")
         if discharge["status"] in EXECUTION_ASSERTING_DISCHARGE:
             media = []
             for path in discharge["evidence"]:

@@ -223,8 +223,8 @@
       "evidence": [
         "Lean/Thermodynamics/FiniteConditionalRepair.lean",
         "Lean/Thermodynamics/CommonReferenceObstruction.lean",
-        "code/thermodynamics/common_reference_obstruction/",
-        "code/b20_random_scan/",
+        "code/thermodynamics/common_reference_obstruction/verify_common_reference_obstruction.py",
+        "code/b20_random_scan/validate_random_scan.py",
         "claims/assumption_dictionary.md",
         "Lean/Thermodynamics/FourLawAdequacySurface.lean",
         "Lean/Geometry/EinsteinBranchInhabitant.lean",
@@ -236,8 +236,8 @@
       "evidence_roles": {
         "Lean/Thermodynamics/FiniteConditionalRepair.lean": "conditional_consumer",
         "Lean/Thermodynamics/CommonReferenceObstruction.lean": "no_go",
-        "code/thermodynamics/common_reference_obstruction/": "no_go",
-        "code/b20_random_scan/": "no_go",
+        "code/thermodynamics/common_reference_obstruction/verify_common_reference_obstruction.py": "no_go",
+        "code/b20_random_scan/validate_random_scan.py": "no_go",
         "claims/assumption_dictionary.md": "statement",
         "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer",
         "Lean/Geometry/EinsteinBranchInhabitant.lean": "conditional_consumer",
@@ -473,12 +473,12 @@
       "evidence": [
         "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
         "docs/policies/HADRON.md",
-        "code/particles/alpha_hvp_audit/"
+        "code/particles/alpha_hvp_audit/build_alpha_hvp_verdict.py"
       ],
       "evidence_roles": {
         "code/particles/hadron/empirical_ee_hadrons_sources.yaml": "external_input",
         "docs/policies/HADRON.md": "external_input",
-        "code/particles/alpha_hvp_audit/": "conditional_consumer"
+        "code/particles/alpha_hvp_audit/build_alpha_hvp_verdict.py": "conditional_consumer"
       },
       "notes": "A source-side hadronic computation would replace the pinned payload; the packet is permanent as compare and transport data and is flagged wherever consumed.",
       "discharge": {
@@ -676,13 +676,13 @@
       ],
       "evidence": [
         "docs/AXIOM_REFERENCE.md",
-        "code/P_derivation/",
+        "code/P_derivation/interval_contraction_certificate.py",
         "claims/assumption_dictionary.md",
         "model/observer/p_response/experiment.py"
       ],
       "evidence_roles": {
         "docs/AXIOM_REFERENCE.md": "statement",
-        "code/P_derivation/": "conditional_consumer",
+        "code/P_derivation/interval_contraction_certificate.py": "conditional_consumer",
         "claims/assumption_dictionary.md": "statement",
         "model/observer/p_response/experiment.py": "conditional_consumer"
       },

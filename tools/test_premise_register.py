@@ -300,3 +300,22 @@ def test_execution_asserting_discharge_rejects_unclassified_medium(monkeypatch) 
     monkeypatch.setattr(register_tool.claim_tool, "evidence_medium", lambda path: None)
     with pytest.raises(SystemExit, match="medium is unclassified"):
         register_tool.validate(register)
+
+
+def test_evidence_directory_is_not_evidence() -> None:
+    register = _register()
+    row = next(row for row in register["rows"] if row["id"] == "PR-05")
+    row["evidence"] = ["model/observer_time_fields"]
+    row["evidence_roles"] = {"model/observer_time_fields": "statement"}
+    assert (register_tool.ROOT / "model/observer_time_fields").is_dir()
+    with pytest.raises(SystemExit, match="evidence path missing or not a file"):
+        register_tool.validate(register)
+
+
+def test_discharge_evidence_directory_is_not_evidence() -> None:
+    register = _register()
+    row = next(row for row in register["rows"] if row["id"] == "PR-05")
+    row["discharge"]["evidence"] = ["model/observer_time_fields"]
+    assert (register_tool.ROOT / "model/observer_time_fields").is_dir()
+    with pytest.raises(SystemExit, match="discharge evidence path missing or not a file"):
+        register_tool.validate(register)
