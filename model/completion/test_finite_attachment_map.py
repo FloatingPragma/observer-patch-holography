@@ -74,6 +74,23 @@ def test_open_reference_gate_can_have_all_predecessors_accepted():
     validate(p)
 
 
+def test_every_open_gate_has_a_deduplicated_stage_scoped_closure_review():
+    p = packet()
+    program = strict_json.load(ROOT / 'claims/completion_program.json')
+    open_issues = {str(stage['issue']) for stage in program['stages']
+                   if stage['status'] != 'ACCEPTED'}
+    review = p['issue_closure_review']
+    assert open_issues <= set(review)
+    seen = {}
+    for issue, row in review.items():
+        items = row.get('unfulfilled_acceptance', [])
+        assert len(items) == len(set(items)), issue
+        for text in items:
+            assert text not in seen, (issue, seen[text])
+            seen[text] = issue
+    validate(p)
+
+
 def test_new_finite_interfaces_keep_reference_scattering_and_physical_scope_separate():
     p = packet()
     rows = {a['id']: a for a in p['attachments']}

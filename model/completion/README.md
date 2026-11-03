@@ -9,7 +9,8 @@ The contract below retains the scope of the original bounded campaign.
 28 October 2026. This directory advances CP-00, CP-01, CP-13, CP-02 and
 CP-03 under the [completion program](../../docs/COMPLETION_PROGRAM.md).
 It keeps the existing native source, C and E controls, and retained evidence.
-No integrated completion gate or physical comparison is accepted here.
+This bounded campaign accepts no integrated gate; the directory retains the
+accepted CP-00, CP-01 and CP-13 evidence.
 
 The [versioned campaign contract](campaign.json) fixes the first **finite
 component family**. The full program boundary remains unfrozen: a carrier

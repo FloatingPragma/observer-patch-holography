@@ -1649,6 +1649,7 @@ Retained starting evidence:
 - [results.json](../model/field_stress/results.json)
 - [results.json](../model/field_tastes/results.json)
 - [results.json](../model/biased_reset/results.json)
+- [modular_access_results.json](../model/completion/modular_access_results.json)
 
 Current component progress (not gate acceptance):
 
