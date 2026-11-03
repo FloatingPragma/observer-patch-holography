@@ -124,42 +124,42 @@
       {
         "filename": "results.npz",
         "role": "records",
-        "sha256": "1c03ec5a51d9fb637905b8eb8cde485672608ca0ed475f3f5112080267ead12b"
+        "sha256": "8b1717492d88021a120a86d000490ac49cd0a7afc8636d9b4daf0ef157b24bd0"
       },
       {
         "column_start": 0,
         "column_stop": 6,
         "filename": "results.state-0.npz",
         "role": "state_columns",
-        "sha256": "9dbc7a2b1379625cac2703fe2bef2f30fe9822082a0a1b21d95a693947a87f41"
+        "sha256": "773c976f5889deb1c690b39ea10ab711dfbb97d161c48cf2a848413c8ead8624"
       },
       {
         "column_start": 6,
         "column_stop": 12,
         "filename": "results.state-1.npz",
         "role": "state_columns",
-        "sha256": "5a318739a8937db140b4cb1d0b86439d56be13d311dd3ade91139bf9ab93798f"
+        "sha256": "cba92ac237a3c1b91d99cd2a35895c233415686bae0dcc4d054dbdb6966f9f0d"
       },
       {
         "column_start": 12,
         "column_stop": 18,
         "filename": "results.state-2.npz",
         "role": "state_columns",
-        "sha256": "a1beab23cb2b091abdccaae67b748cca5c6df572dd0c0de2b601ab68c0ed8730"
+        "sha256": "42eb280b44f0fafffeb6cdad4bb1288c1771a11a7c8f96cea8919a81f274188c"
       },
       {
         "column_start": 18,
         "column_stop": 24,
         "filename": "results.state-3.npz",
         "role": "state_columns",
-        "sha256": "edf165433906358b0f3e8731c2a380296dadccd430df5cc83b7d90908ba58731"
+        "sha256": "44bbf09d1f1285be5cc889ffe3ff6eafb651cbb13b8ce44716f1259ef9bcd3dd"
       },
       {
         "column_start": 24,
         "column_stop": 30,
         "filename": "results.state-4.npz",
         "role": "state_columns",
-        "sha256": "9351e5a532a37d5c4e887fd9dfe8f54764a016443c817c5d34ce1817d562bd9d"
+        "sha256": "2396f760b66aaf3c6b9723e5466b20b90faca6ea5687ce3ca06e9bba6f8b27e2"
       }
     ],
     "format": "lossless NumPy NPZ records and five ordered full-row state shards; no pickle or truncation"
@@ -351,7 +351,7 @@
           0,
           0
         ],
-        "probability": 0.570054120442123
+        "probability": 0.570054120442043
       },
       {
         "charge_record": 0,
@@ -359,7 +359,7 @@
           0,
           1
         ],
-        "probability": 0.012037531811885117
+        "probability": 0.012037531811883644
       },
       {
         "charge_record": 0,
@@ -399,7 +399,7 @@
           1,
           0
         ],
-        "probability": 0.15716129563172446
+        "probability": 0.1571612956317004
       },
       {
         "charge_record": 0,
@@ -407,7 +407,7 @@
           1,
           1
         ],
-        "probability": 0.010747052063767156
+        "probability": 0.010747052063769521
       },
       {
         "charge_record": 0,
@@ -639,7 +639,7 @@
           0,
           0
         ],
-        "probability": 0.24635851780767803
+        "probability": 0.24635851780759463
       },
       {
         "charge_record": 1,
@@ -647,7 +647,7 @@
           0,
           1
         ],
-        "probability": 0.0007231765451748203
+        "probability": 0.000723176545173827
       },
       {
         "charge_record": 1,
@@ -687,7 +687,7 @@
           1,
           0
         ],
-        "probability": 0.0016168036082519674
+        "probability": 0.0016168036082487302
       },
       {
         "charge_record": 1,
@@ -695,7 +695,7 @@
           1,
           1
         ],
-        "probability": 0.0013015020221655684
+        "probability": 0.0013015020221675343
       },
       {
         "charge_record": 1,
@@ -2081,7 +2081,7 @@
           0,
           0
         ],
-        "probability": 0.028341615118139048,
+        "probability": 0.028341615118131293,
         "selector_record": 0
       },
       {
@@ -2090,7 +2090,7 @@
           0,
           1
         ],
-        "probability": 0.00021298000282466356,
+        "probability": 0.000212980002824825,
         "selector_record": 0
       },
       {
@@ -2135,7 +2135,7 @@
           1,
           0
         ],
-        "probability": 0.00210719004895991,
+        "probability": 0.0021071900489588566,
         "selector_record": 0
       },
       {
@@ -2144,7 +2144,7 @@
           1,
           1
         ],
-        "probability": 0.0002465944218765386,
+        "probability": 0.00024659442187666955,
         "selector_record": 0
       },
       {
@@ -2405,7 +2405,7 @@
           0,
           0
         ],
-        "probability": 0.02428816695227359,
+        "probability": 0.024288166952264465,
         "selector_record": 0
       },
       {
@@ -2414,7 +2414,7 @@
           0,
           1
         ],
-        "probability": 7.129703824109248e-05,
+        "probability": 7.129703824115984e-05,
         "selector_record": 0
       },
       {
@@ -2459,7 +2459,7 @@
           1,
           0
         ],
-        "probability": 0.00015939857211233642,
+        "probability": 0.0001593985721118404,
         "selector_record": 0
       },
       {
@@ -2468,7 +2468,7 @@
           1,
           1
         ],
-        "probability": 0.00012831339741940117,
+        "probability": 0.00012831339741968453,
         "selector_record": 0
       },
       {
@@ -4025,7 +4025,7 @@
           0,
           0
         ],
-        "probability": 0.05067147737264039,
+        "probability": 0.050671477372628164,
         "selector_record": 1
       },
       {
@@ -4034,7 +4034,7 @@
           0,
           1
         ],
-        "probability": 0.001070002827723087,
+        "probability": 0.001070002827723039,
         "selector_record": 1
       },
       {
@@ -4079,7 +4079,7 @@
           1,
           0
         ],
-        "probability": 0.013969892945041716,
+        "probability": 0.01396989294503999,
         "selector_record": 1
       },
       {
@@ -4088,7 +4088,7 @@
           1,
           1
         ],
-        "probability": 0.0009552935167797095,
+        "probability": 0.0009552935167801511,
         "selector_record": 1
       },
       {
@@ -4349,7 +4349,7 @@
           0,
           0
         ],
-        "probability": 0.021898534916245226,
+        "probability": 0.02189853491623419,
         "selector_record": 1
       },
       {
@@ -4358,7 +4358,7 @@
           0,
           1
         ],
-        "probability": 6.428235957101961e-05,
+        "probability": 6.428235957108847e-05,
         "selector_record": 1
       },
       {
@@ -4403,7 +4403,7 @@
           1,
           0
         ],
-        "probability": 0.00014371587628942567,
+        "probability": 0.00014371587628876848,
         "selector_record": 1
       },
       {
@@ -4412,7 +4412,7 @@
           1,
           1
         ],
-        "probability": 0.00011568906863678897,
+        "probability": 0.0001156890686371756,
         "selector_record": 1
       },
       {
@@ -5969,7 +5969,7 @@
           0,
           0
         ],
-        "probability": 0.03499773159767233,
+        "probability": 0.03499773159767087,
         "selector_record": 2
       },
       {
@@ -5978,7 +5978,7 @@
           0,
           1
         ],
-        "probability": 0.0011245235318298533,
+        "probability": 0.001124523531830052,
         "selector_record": 2
       },
       {
@@ -6023,7 +6023,7 @@
           1,
           0
         ],
-        "probability": 0.015355176132348484,
+        "probability": 0.01535517613234808,
         "selector_record": 2
       },
       {
@@ -6032,7 +6032,7 @@
           1,
           1
         ],
-        "probability": 0.0009475224740991501,
+        "probability": 0.0009475224740987233,
         "selector_record": 2
       },
       {
@@ -6293,7 +6293,7 @@
           0,
           0
         ],
-        "probability": 0.003085001693036189,
+        "probability": 0.003085001693034201,
         "selector_record": 2
       },
       {
@@ -6302,7 +6302,7 @@
           0,
           1
         ],
-        "probability": 9.055911222716418e-06,
+        "probability": 9.055911222727433e-06,
         "selector_record": 2
       },
       {
@@ -6347,7 +6347,7 @@
           1,
           0
         ],
-        "probability": 2.024627324904434e-05,
+        "probability": 2.0246273248946902e-05,
         "selector_record": 2
       },
       {
@@ -6356,7 +6356,7 @@
           1,
           1
         ],
-        "probability": 1.6297938376991603e-05,
+        "probability": 1.629793837704483e-05,
         "selector_record": 2
       },
       {
@@ -7913,7 +7913,7 @@
           0,
           0
         ],
-        "probability": 0.02834161511812124,
+        "probability": 0.028341615118117152,
         "selector_record": 3
       },
       {
@@ -7922,7 +7922,7 @@
           0,
           1
         ],
-        "probability": 0.0002129800028246869,
+        "probability": 0.00021298000282451234,
         "selector_record": 3
       },
       {
@@ -7967,7 +7967,7 @@
           1,
           0
         ],
-        "probability": 0.0021071900489572546,
+        "probability": 0.0021071900489573123,
         "selector_record": 3
       },
       {
@@ -7976,7 +7976,7 @@
           1,
           1
         ],
-        "probability": 0.00024659442187631306,
+        "probability": 0.00024659442187624004,
         "selector_record": 3
       },
       {
@@ -8237,7 +8237,7 @@
           0,
           0
         ],
-        "probability": 0.024288166952256603,
+        "probability": 0.024288166952251836,
         "selector_record": 3
       },
       {
@@ -8246,7 +8246,7 @@
           0,
           1
         ],
-        "probability": 7.129703824125584e-05,
+        "probability": 7.129703824103671e-05,
         "selector_record": 3
       },
       {
@@ -8291,7 +8291,7 @@
           1,
           0
         ],
-        "probability": 0.0001593985721115342,
+        "probability": 0.0001593985721117682,
         "selector_record": 3
       },
       {
@@ -8300,7 +8300,7 @@
           1,
           1
         ],
-        "probability": 0.00012831339741956158,
+        "probability": 0.00012831339741947048,
         "selector_record": 3
       },
       {
@@ -9857,7 +9857,7 @@
           0,
           0
         ],
-        "probability": 0.05067147737262255,
+        "probability": 0.05067147737261563,
         "selector_record": 4
       },
       {
@@ -9866,7 +9866,7 @@
           0,
           1
         ],
-        "probability": 0.0010700028277225273,
+        "probability": 0.001070002827722725,
         "selector_record": 4
       },
       {
@@ -9911,7 +9911,7 @@
           1,
           0
         ],
-        "probability": 0.013969892945036878,
+        "probability": 0.013969892945036129,
         "selector_record": 4
       },
       {
@@ -9920,7 +9920,7 @@
           1,
           1
         ],
-        "probability": 0.0009552935167791934,
+        "probability": 0.0009552935167791614,
         "selector_record": 4
       },
       {
@@ -10181,7 +10181,7 @@
           0,
           0
         ],
-        "probability": 0.021898534916233867,
+        "probability": 0.02189853491622589,
         "selector_record": 4
       },
       {
@@ -10190,7 +10190,7 @@
           0,
           1
         ],
-        "probability": 6.428235957097481e-05,
+        "probability": 6.428235957095974e-05,
         "selector_record": 4
       },
       {
@@ -10235,7 +10235,7 @@
           1,
           0
         ],
-        "probability": 0.00014371587628902796,
+        "probability": 0.00014371587628874053,
         "selector_record": 4
       },
       {
@@ -10244,7 +10244,7 @@
           1,
           1
         ],
-        "probability": 0.00011568906863681311,
+        "probability": 0.00011568906863702934,
         "selector_record": 4
       },
       {
@@ -11801,7 +11801,7 @@
           0,
           0
         ],
-        "probability": 0.0349977315976652,
+        "probability": 0.03499773159766698,
         "selector_record": 5
       },
       {
@@ -11810,7 +11810,7 @@
           0,
           1
         ],
-        "probability": 0.0011245235318294577,
+        "probability": 0.001124523531829193,
         "selector_record": 5
       },
       {
@@ -11855,7 +11855,7 @@
           1,
           0
         ],
-        "probability": 0.015355176132345254,
+        "probability": 0.015355176132343763,
         "selector_record": 5
       },
       {
@@ -11864,7 +11864,7 @@
           1,
           1
         ],
-        "probability": 0.0009475224740975752,
+        "probability": 0.0009475224740984324,
         "selector_record": 5
       },
       {
@@ -12125,7 +12125,7 @@
           0,
           0
         ],
-        "probability": 0.003085001693033153,
+        "probability": 0.0030850016930319755,
         "selector_record": 5
       },
       {
@@ -12134,7 +12134,7 @@
           0,
           1
         ],
-        "probability": 9.055911222728595e-06,
+        "probability": 9.055911222688622e-06,
         "selector_record": 5
       },
       {
@@ -12179,7 +12179,7 @@
           1,
           0
         ],
-        "probability": 2.024627324903089e-05,
+        "probability": 2.0246273248952672e-05,
         "selector_record": 5
       },
       {
@@ -12188,7 +12188,7 @@
           1,
           1
         ],
-        "probability": 1.629793837694879e-05,
+        "probability": 1.6297938377001e-05,
         "selector_record": 5
       },
       {
@@ -13745,7 +13745,7 @@
           0,
           0
         ],
-        "probability": 0.028341615118118668,
+        "probability": 0.0283416151181184,
         "selector_record": 6
       },
       {
@@ -13754,7 +13754,7 @@
           0,
           1
         ],
-        "probability": 0.00021298000282476463,
+        "probability": 0.00021298000282450274,
         "selector_record": 6
       },
       {
@@ -13799,7 +13799,7 @@
           1,
           0
         ],
-        "probability": 0.0021071900489581354,
+        "probability": 0.0021071900489580075,
         "selector_record": 6
       },
       {
@@ -13808,7 +13808,7 @@
           1,
           1
         ],
-        "probability": 0.0002465944218762364,
+        "probability": 0.00024659442187616084,
         "selector_record": 6
       },
       {
@@ -14069,7 +14069,7 @@
           0,
           0
         ],
-        "probability": 0.024288166952254223,
+        "probability": 0.0242881669522515,
         "selector_record": 6
       },
       {
@@ -14078,7 +14078,7 @@
           0,
           1
         ],
-        "probability": 7.129703824139107e-05,
+        "probability": 7.129703824103777e-05,
         "selector_record": 6
       },
       {
@@ -14123,7 +14123,7 @@
           1,
           0
         ],
-        "probability": 0.00015939857211239613,
+        "probability": 0.0001593985721120918,
         "selector_record": 6
       },
       {
@@ -14132,7 +14132,7 @@
           1,
           1
         ],
-        "probability": 0.0001283133974194554,
+        "probability": 0.00012831339741932734,
         "selector_record": 6
       },
       {
@@ -15689,7 +15689,7 @@
           0,
           0
         ],
-        "probability": 0.050671477372622536,
+        "probability": 0.05067147737261287,
         "selector_record": 7
       },
       {
@@ -15698,7 +15698,7 @@
           0,
           1
         ],
-        "probability": 0.0010700028277220639,
+        "probability": 0.0010700028277221996,
         "selector_record": 7
       },
       {
@@ -15743,7 +15743,7 @@
           1,
           0
         ],
-        "probability": 0.013969892945037721,
+        "probability": 0.013969892945035785,
         "selector_record": 7
       },
       {
@@ -15752,7 +15752,7 @@
           1,
           1
         ],
-        "probability": 0.0009552935167786666,
+        "probability": 0.0009552935167790152,
         "selector_record": 7
       },
       {
@@ -16013,7 +16013,7 @@
           0,
           0
         ],
-        "probability": 0.021898534916233458,
+        "probability": 0.021898534916224295,
         "selector_record": 7
       },
       {
@@ -16022,7 +16022,7 @@
           0,
           1
         ],
-        "probability": 6.428235957091892e-05,
+        "probability": 6.428235957082195e-05,
         "selector_record": 7
       },
       {
@@ -16067,7 +16067,7 @@
           1,
           0
         ],
-        "probability": 0.00014371587628926233,
+        "probability": 0.00014371587628893095,
         "selector_record": 7
       },
       {
@@ -16076,7 +16076,7 @@
           1,
           1
         ],
-        "probability": 0.00011568906863653627,
+        "probability": 0.00011568906863697399,
         "selector_record": 7
       },
       {
@@ -17633,7 +17633,7 @@
           0,
           0
         ],
-        "probability": 0.03499773159766597,
+        "probability": 0.03499773159765657,
         "selector_record": 8
       },
       {
@@ -17642,7 +17642,7 @@
           0,
           1
         ],
-        "probability": 0.0011245235318297923,
+        "probability": 0.0011245235318290867,
         "selector_record": 8
       },
       {
@@ -17687,7 +17687,7 @@
           1,
           0
         ],
-        "probability": 0.015355176132348677,
+        "probability": 0.015355176132340316,
         "selector_record": 8
       },
       {
@@ -17696,7 +17696,7 @@
           1,
           1
         ],
-        "probability": 0.0009475224740979556,
+        "probability": 0.0009475224740978739,
         "selector_record": 8
       },
       {
@@ -17957,7 +17957,7 @@
           0,
           0
         ],
-        "probability": 0.003085001693032497,
+        "probability": 0.0030850016930316034,
         "selector_record": 8
       },
       {
@@ -17966,7 +17966,7 @@
           0,
           1
         ],
-        "probability": 9.055911222715898e-06,
+        "probability": 9.055911222706647e-06,
         "selector_record": 8
       },
       {
@@ -18011,7 +18011,7 @@
           1,
           0
         ],
-        "probability": 2.024627324902951e-05,
+        "probability": 2.0246273249013408e-05,
         "selector_record": 8
       },
       {
@@ -18020,7 +18020,7 @@
           1,
           1
         ],
-        "probability": 1.629793837694073e-05,
+        "probability": 1.629793837697582e-05,
         "selector_record": 8
       },
       {
@@ -19577,7 +19577,7 @@
           0,
           0
         ],
-        "probability": 0.028341615118129656,
+        "probability": 0.028341615118121496,
         "selector_record": 9
       },
       {
@@ -19586,7 +19586,7 @@
           0,
           1
         ],
-        "probability": 0.00021298000282458734,
+        "probability": 0.00021298000282447133,
         "selector_record": 9
       },
       {
@@ -19631,7 +19631,7 @@
           1,
           0
         ],
-        "probability": 0.002107190048958746,
+        "probability": 0.0021071900489583713,
         "selector_record": 9
       },
       {
@@ -19640,7 +19640,7 @@
           1,
           1
         ],
-        "probability": 0.0002465944218761913,
+        "probability": 0.00024659442187602336,
         "selector_record": 9
       },
       {
@@ -19901,7 +19901,7 @@
           0,
           0
         ],
-        "probability": 0.024288166952264583,
+        "probability": 0.024288166952254758,
         "selector_record": 9
       },
       {
@@ -19910,7 +19910,7 @@
           0,
           1
         ],
-        "probability": 7.129703824124195e-05,
+        "probability": 7.12970382410317e-05,
         "selector_record": 9
       },
       {
@@ -19955,7 +19955,7 @@
           1,
           0
         ],
-        "probability": 0.00015939857211203697,
+        "probability": 0.0001593985721120846,
         "selector_record": 9
       },
       {
@@ -19964,7 +19964,7 @@
           1,
           1
         ],
-        "probability": 0.00012831339741947395,
+        "probability": 0.00012831339741926288,
         "selector_record": 9
       },
       {
@@ -21521,7 +21521,7 @@
           0,
           0
         ],
-        "probability": 0.05067147737262857,
+        "probability": 0.05067147737262016,
         "selector_record": 10
       },
       {
@@ -21530,7 +21530,7 @@
           0,
           1
         ],
-        "probability": 0.0010700028277223507,
+        "probability": 0.001070002827722439,
         "selector_record": 10
       },
       {
@@ -21575,7 +21575,7 @@
           1,
           0
         ],
-        "probability": 0.013969892945039529,
+        "probability": 0.01396989294503831,
         "selector_record": 10
       },
       {
@@ -21584,7 +21584,7 @@
           1,
           1
         ],
-        "probability": 0.0009552935167791649,
+        "probability": 0.0009552935167793752,
         "selector_record": 10
       },
       {
@@ -21845,7 +21845,7 @@
           0,
           0
         ],
-        "probability": 0.021898534916239113,
+        "probability": 0.021898534916228465,
         "selector_record": 10
       },
       {
@@ -21854,7 +21854,7 @@
           0,
           1
         ],
-        "probability": 6.42823595710701e-05,
+        "probability": 6.42823595710138e-05,
         "selector_record": 10
       },
       {
@@ -21899,7 +21899,7 @@
           1,
           0
         ],
-        "probability": 0.00014371587628938875,
+        "probability": 0.0001437158762888796,
         "selector_record": 10
       },
       {
@@ -21908,7 +21908,7 @@
           1,
           1
         ],
-        "probability": 0.00011568906863671313,
+        "probability": 0.00011568906863711217,
         "selector_record": 10
       },
       {
@@ -23465,7 +23465,7 @@
           0,
           0
         ],
-        "probability": 0.034997731597657025,
+        "probability": 0.03499773159766201,
         "selector_record": 11
       },
       {
@@ -23474,7 +23474,7 @@
           0,
           1
         ],
-        "probability": 0.0011245235318296744,
+        "probability": 0.0011245235318293584,
         "selector_record": 11
       },
       {
@@ -23519,7 +23519,7 @@
           1,
           0
         ],
-        "probability": 0.015355176132346734,
+        "probability": 0.015355176132344411,
         "selector_record": 11
       },
       {
@@ -23528,7 +23528,7 @@
           1,
           1
         ],
-        "probability": 0.0009475224740970738,
+        "probability": 0.0009475224740975876,
         "selector_record": 11
       },
       {
@@ -23789,7 +23789,7 @@
           0,
           0
         ],
-        "probability": 0.0030850016930325823,
+        "probability": 0.003085001693031661,
         "selector_record": 11
       },
       {
@@ -23798,7 +23798,7 @@
           0,
           1
         ],
-        "probability": 9.055911222716295e-06,
+        "probability": 9.055911222699837e-06,
         "selector_record": 11
       },
       {
@@ -23843,7 +23843,7 @@
           1,
           0
         ],
-        "probability": 2.0246273249044836e-05,
+        "probability": 2.0246273249011907e-05,
         "selector_record": 11
       },
       {
@@ -23852,7 +23852,7 @@
           1,
           1
         ],
-        "probability": 1.6297938376942607e-05,
+        "probability": 1.629793837697767e-05,
         "selector_record": 11
       },
       {
@@ -25409,7 +25409,7 @@
           0,
           0
         ],
-        "probability": 0.02834161511813075,
+        "probability": 0.028341615118127397,
         "selector_record": 12
       },
       {
@@ -25418,7 +25418,7 @@
           0,
           1
         ],
-        "probability": 0.00021298000282471893,
+        "probability": 0.00021298000282454944,
         "selector_record": 12
       },
       {
@@ -25463,7 +25463,7 @@
           1,
           0
         ],
-        "probability": 0.0021071900489589867,
+        "probability": 0.0021071900489584776,
         "selector_record": 12
       },
       {
@@ -25472,7 +25472,7 @@
           1,
           1
         ],
-        "probability": 0.0002465944218760307,
+        "probability": 0.00024659442187633274,
         "selector_record": 12
       },
       {
@@ -25733,7 +25733,7 @@
           0,
           0
         ],
-        "probability": 0.024288166952266668,
+        "probability": 0.024288166952262404,
         "selector_record": 12
       },
       {
@@ -25742,7 +25742,7 @@
           0,
           1
         ],
-        "probability": 7.129703824117075e-05,
+        "probability": 7.129703824102053e-05,
         "selector_record": 12
       },
       {
@@ -25787,7 +25787,7 @@
           1,
           0
         ],
-        "probability": 0.00015939857211209158,
+        "probability": 0.00015939857211183704,
         "selector_record": 12
       },
       {
@@ -25796,7 +25796,7 @@
           1,
           1
         ],
-        "probability": 0.00012831339741928023,
+        "probability": 0.00012831339741945427,
         "selector_record": 12
       },
       {
@@ -27353,7 +27353,7 @@
           0,
           0
         ],
-        "probability": 0.05067147737263818,
+        "probability": 0.05067147737262961,
         "selector_record": 13
       },
       {
@@ -27362,7 +27362,7 @@
           0,
           1
         ],
-        "probability": 0.0010700028277229729,
+        "probability": 0.0010700028277231689,
         "selector_record": 13
       },
       {
@@ -27407,7 +27407,7 @@
           1,
           0
         ],
-        "probability": 0.013969892945040412,
+        "probability": 0.013969892945039444,
         "selector_record": 13
       },
       {
@@ -27416,7 +27416,7 @@
           1,
           1
         ],
-        "probability": 0.0009552935167794835,
+        "probability": 0.0009552935167796863,
         "selector_record": 13
       },
       {
@@ -27677,7 +27677,7 @@
           0,
           0
         ],
-        "probability": 0.02189853491624239,
+        "probability": 0.021898534916235078,
         "selector_record": 13
       },
       {
@@ -27686,7 +27686,7 @@
           0,
           1
         ],
-        "probability": 6.428235957109269e-05,
+        "probability": 6.428235957111943e-05,
         "selector_record": 13
       },
       {
@@ -27731,7 +27731,7 @@
           1,
           0
         ],
-        "probability": 0.00014371587628932286,
+        "probability": 0.0001437158762888935,
         "selector_record": 13
       },
       {
@@ -27740,7 +27740,7 @@
           1,
           1
         ],
-        "probability": 0.00011568906863674301,
+        "probability": 0.00011568906863705918,
         "selector_record": 13
       },
       {
@@ -29297,7 +29297,7 @@
           0,
           0
         ],
-        "probability": 0.034997731597671805,
+        "probability": 0.03499773159766508,
         "selector_record": 14
       },
       {
@@ -29306,7 +29306,7 @@
           0,
           1
         ],
-        "probability": 0.0011245235318299673,
+        "probability": 0.001124523531829567,
         "selector_record": 14
       },
       {
@@ -29351,7 +29351,7 @@
           1,
           0
         ],
-        "probability": 0.015355176132345666,
+        "probability": 0.015355176132343005,
         "selector_record": 14
       },
       {
@@ -29360,7 +29360,7 @@
           1,
           1
         ],
-        "probability": 0.0009475224740978913,
+        "probability": 0.0009475224740981482,
         "selector_record": 14
       },
       {
@@ -29621,7 +29621,7 @@
           0,
           0
         ],
-        "probability": 0.0030850016930337757,
+        "probability": 0.0030850016930323238,
         "selector_record": 14
       },
       {
@@ -29630,7 +29630,7 @@
           0,
           1
         ],
-        "probability": 9.055911222714351e-06,
+        "probability": 9.055911222714626e-06,
         "selector_record": 14
       },
       {
@@ -29675,7 +29675,7 @@
           1,
           0
         ],
-        "probability": 2.024627324899296e-05,
+        "probability": 2.024627324897014e-05,
         "selector_record": 14
       },
       {
@@ -29684,7 +29684,7 @@
           1,
           1
         ],
-        "probability": 1.629793837697792e-05,
+        "probability": 1.6297938376985358e-05,
         "selector_record": 14
       },
       {
@@ -44203,11 +44203,11 @@
     "column_partition_drops_no_coherences": "Columns are orthogonal retained classical selector/charge records; each complete quantum column is propagated.",
     "column_partition_workers": 5,
     "complete_binary_phase_clock_source_executed": true,
-    "complete_output_error_diagnostic": 4.502566022868473e-05,
-    "complete_probability": 0.9999999999327701,
+    "complete_output_error_diagnostic": 4.502566022819654e-05,
+    "complete_probability": 0.9999999999325813,
     "field_bits": 16,
     "finite_shot_measurement_records_generated": false,
-    "first_failure_and_invalid_selector_stop_mass": 3.1125604019267004e-28,
+    "first_failure_and_invalid_selector_stop_mass": 3.1125604019264452e-28,
     "full_quantum_rows": 262144,
     "host_diagnostics_prove_literal_control_accuracy": false,
     "host_numerical_admission": 2e-08,
@@ -45948,7 +45948,7 @@
     "physical_species_or_relativistic_mass_identified": false,
     "preparation": {
       "all15_conditional_ground_words_executed": true,
-      "complete_preparation_error_diagnostic": 5.10710967566341e-13,
+      "complete_preparation_error_diagnostic": 5.107140033782624e-13,
       "complete_probability": 0.9999999999989811,
       "ideal_ensemble_gram_rank": 5,
       "invalid_selector_record": 15,
@@ -46044,7 +46044,7 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.4841240175987878e-15,
+        "complete_probability_residual": 2.491062911502695e-15,
         "failure_weight_array": "conditional_ground_3_failure_weights",
         "first_failure_probability": 9.877656766405373e-33,
         "native_abort_slots": 1376,
@@ -46057,7 +46057,7 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 3.8441472227646045e-15,
+        "complete_probability_residual": 3.83026943495679e-15,
         "failure_weight_array": "conditional_ground_4_failure_weights",
         "first_failure_probability": 1.5978757758657842e-32,
         "native_abort_slots": 1376,
@@ -46070,9 +46070,9 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.400857290751901e-15,
+        "complete_probability_residual": 2.3869795029440866e-15,
         "failure_weight_array": "conditional_ground_5_failure_weights",
-        "first_failure_probability": 9.902812848035923e-33,
+        "first_failure_probability": 9.902812848035925e-33,
         "native_abort_slots": 1376,
         "padding_slots": 128,
         "pulses": 376,
@@ -46109,7 +46109,7 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.3869795029440866e-15,
+        "complete_probability_residual": 2.400857290751901e-15,
         "failure_weight_array": "conditional_ground_8_failure_weights",
         "first_failure_probability": 1.0068945555757642e-32,
         "native_abort_slots": 1376,
@@ -46122,7 +46122,7 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.525757381022231e-15,
+        "complete_probability_residual": 2.5396351688300456e-15,
         "failure_weight_array": "conditional_ground_9_failure_weights",
         "first_failure_probability": 9.850787180065015e-33,
         "native_abort_slots": 1376,
@@ -46135,9 +46135,9 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 3.95516952522712e-15,
+        "complete_probability_residual": 3.941291737419306e-15,
         "failure_weight_array": "conditional_ground_10_failure_weights",
-        "first_failure_probability": 1.5970157169145603e-32,
+        "first_failure_probability": 1.5970157169145606e-32,
         "native_abort_slots": 1376,
         "padding_slots": 128,
         "pulses": 376,
@@ -46148,7 +46148,7 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.4980018054066022e-15,
+        "complete_probability_residual": 2.4841240175987878e-15,
         "failure_weight_array": "conditional_ground_11_failure_weights",
         "first_failure_probability": 9.875943261695547e-33,
         "native_abort_slots": 1376,
@@ -46161,9 +46161,9 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.1510571102112408e-15,
+        "complete_probability_residual": 2.1441182163073336e-15,
         "failure_weight_array": "conditional_ground_12_failure_weights",
-        "first_failure_probability": 1.0811242107553749e-32,
+        "first_failure_probability": 1.081124210755375e-32,
         "native_abort_slots": 1376,
         "padding_slots": 128,
         "pulses": 376,
@@ -46187,7 +46187,7 @@
       },
       {
         "classical_columns": 1,
-        "complete_probability_residual": 2.1024848528838902e-15,
+        "complete_probability_residual": 2.1094237467877974e-15,
         "failure_weight_array": "conditional_ground_14_failure_weights",
         "first_failure_probability": 1.0836398189184285e-32,
         "native_abort_slots": 1376,
@@ -46202,7 +46202,7 @@
         "classical_columns": 15,
         "complete_probability_residual": 1.6653345369377348e-15,
         "failure_weight_array": "charge_instrument_failure_weights",
-        "first_failure_probability": 1.1977636526452693e-32,
+        "first_failure_probability": 1.197763652645269e-32,
         "native_abort_slots": 46,
         "padding_slots": 6,
         "pulses": 13,
@@ -46213,20 +46213,20 @@
       },
       {
         "classical_columns": 30,
-        "complete_probability_residual": 6.62271348872423e-11,
+        "complete_probability_residual": 6.641620586833596e-11,
         "failure_weight_array": "phase_clock_failure_weights",
-        "first_failure_probability": 3.0754598268373094e-28,
+        "first_failure_probability": 3.0754598268370543e-28,
         "native_abort_slots": 2221170,
         "padding_slots": 205834,
         "pulses": 606751,
-        "rounded_negative_slot_count": 22,
-        "rounded_negative_slot_mass": 1.3635152174694747e-49,
+        "rounded_negative_slot_count": 12,
+        "rounded_negative_slot_mass": 7.291502127252084e-50,
         "stage": "phase_clock",
         "work_bits": 18
       }
     ],
     "success_charge_or_bin_postselection_used": false,
-    "total_variation_error_diagnostic": 1.3544006182419856e-05
+    "total_variation_error_diagnostic": 1.3544006251427643e-05
   },
   "finite_shot_bound": {
     "events_including_coarse_abort": 9,
