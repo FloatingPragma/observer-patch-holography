@@ -32,6 +32,11 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from particles.artifact_paths import portable_json_dumps
+from particles.neutrino.kernel_validation import (
+    defect_weights,
+    normalized_response,
+    validated_symmetric_kernel,
+)
 DEFAULT_SECTOR = ROOT / "particles" / "runs" / "flavor" / "sector_transport_pushforward.json"
 DEFAULT_SCALE_ANCHOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_scale_anchor.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "family_response_tensor.json"
@@ -101,14 +106,13 @@ def main() -> int:
         raise ValueError("sector_response_object['nu'] is required")
 
     directed = np.asarray(nu.get("K_core_directed", nu.get("K_core")), dtype=float)
-    k_sym = np.asarray(nu.get("K_core_majorana_sym", nu.get("K_core")), dtype=float)
-    if directed.shape != (3, 3) or k_sym.shape != (3, 3):
-        raise ValueError("neutrino sector kernels must be 3x3")
+    if directed.shape != (3, 3):
+        raise ValueError("neutrino directed kernel must be 3x3")
+    k_sym = validated_symmetric_kernel(nu.get("K_core_majorana_sym", nu.get("K_core")))
 
-    diag_entries = np.sqrt(np.clip(np.diag(k_sym), 1.0e-15, None))
-    inv_diag = np.diag([1.0 / value for value in diag_entries])
-    e_nu = inv_diag @ k_sym @ inv_diag
-    s_nu = -np.log(np.clip(e_nu, 1.0e-15, None))
+    diag_entries = np.sqrt(np.diagonal(k_sym))
+    e_nu = normalized_response(k_sym)
+    s_nu = defect_weights(e_nu)
 
     u_vector = np.asarray(scale_anchor_payload["collective_mode"]["u_vector"], dtype=float)
     u_projector = np.asarray(scale_anchor_payload["collective_mode"]["u_uT"], dtype=float)
