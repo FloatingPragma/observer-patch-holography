@@ -55,6 +55,22 @@ def _sha256(path: pathlib.Path) -> str:
     return digest.hexdigest()
 
 
+# Receipts in this package stamp generated_utc into their own bytes, so a file
+# digest of a receipt is a byte identity, not a content identity: regenerating
+# an unchanged receipt moves it. Content digests drop that one key before
+# canonicalising, so provenance survives a re-stamp, while the published JSON
+# keeps the timestamp for human use.
+TIMESTAMP_KEY = "generated_utc"
+
+
+def _content_sha256(path: pathlib.Path) -> str:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(payload, dict):
+        payload.pop(TIMESTAMP_KEY, None)
+    canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
 def _load_json(path: pathlib.Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -507,7 +523,7 @@ def _source_boundary(kernel: dict[str, Any]) -> dict[str, Any]:
 
 def _prior_score_projection(
     prior: dict[str, Any], coordinates: dict[str, float], candidate_sha256: str,
-    manifest_sha256: str, kernel_sha256: str,
+    manifest_sha256: str, kernel_sha256: str, candidate_content_sha256: str | None = None,
 ) -> dict[str, Any]:
     """Preserve a prior comparison's inputs without inventing byte custody."""
     if prior.get("artifact") != "oph_neutrino_nufit61_retrospective_profile_score":
@@ -522,10 +538,17 @@ def _prior_score_projection(
     if prior["source_boundary"]["family_transport_kernel_sha256"] != kernel_sha256:
         raise ValueError("prior family-kernel source changed")
     old_candidate = prior["candidate"]["sha256"]
+    old_content = prior["candidate"].get("content_sha256")
     return {
         "original_candidate_sha256": old_candidate,
         "replayed_candidate_sha256": candidate_sha256,
         "candidate_byte_identity": old_candidate == candidate_sha256,
+        "original_candidate_content_sha256": old_content,
+        "replayed_candidate_content_sha256": candidate_content_sha256,
+        "candidate_content_identity": (
+            old_content is not None and candidate_content_sha256 is not None
+            and old_content == candidate_content_sha256
+        ),
         "scored_coordinate_projection_exactly_equal": True,
         "comparison_source_manifest_unchanged": True,
         "family_kernel_unchanged": True,
@@ -554,6 +577,7 @@ def main() -> int:
     kernel = _load_json(kernel_path)
     manifest = _load_json(manifest_path)
     coordinates = _candidate_coordinates(candidate)
+    candidate_content_sha256 = _content_sha256(candidate_path)
 
     scores = {
         "TBoff-NO": score_table(
@@ -583,6 +607,7 @@ def main() -> int:
             "artifact": candidate.get("artifact"),
             "filename": candidate_path.name,
             "sha256": _sha256(candidate_path),
+            "content_sha256": candidate_content_sha256,
             "coordinates": coordinates,
             "ordering": "normal",
         },
@@ -629,7 +654,7 @@ def main() -> int:
         )
         prior = _prior_score_projection(
             json.loads(raw), coordinates, _sha256(candidate_path),
-            _sha256(manifest_path), _sha256(kernel_path)
+            _sha256(manifest_path), _sha256(kernel_path), candidate_content_sha256
         )
         payload["prior_comparison_provenance"] = {
             "git_object": args.prior_score_git_object,

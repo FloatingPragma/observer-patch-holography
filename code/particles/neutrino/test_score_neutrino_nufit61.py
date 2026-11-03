@@ -7,6 +7,7 @@ import importlib.util
 import copy
 import json
 import math
+import re
 from fractions import Fraction
 import pathlib
 import sys
@@ -251,3 +252,49 @@ def test_historical_projection_records_different_bytes_without_target_change() -
         corrupted[section][key] = value
         with pytest.raises(ValueError, match="changed"):
             module._prior_score_projection(corrupted, coordinates, "new", "manifest", "kernel")
+
+
+def test_content_digest_ignores_the_generation_timestamp(tmp_path) -> None:
+    """Re-stamping a receipt must not change the provenance digest."""
+    module = _load_module()
+    committed = module.DEFAULT_CANDIDATE
+    payload = json.loads(committed.read_text(encoding="utf-8"))
+    assert "generated_utc" in payload
+    stamped = []
+    for index, stamp in enumerate(("2026-01-01T00:00:00Z", "2027-12-31T23:59:59Z")):
+        path = tmp_path / f"candidate_{index}.json"
+        path.write_text(
+            json.dumps(dict(payload, generated_utc=stamp), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        stamped.append(path)
+    assert module._sha256(stamped[0]) != module._sha256(stamped[1])
+    assert module._content_sha256(stamped[0]) == module._content_sha256(stamped[1])
+    # And the committed receipt's own content digest is the stable one.
+    assert module._content_sha256(committed) == module._content_sha256(stamped[0])
+
+
+def test_published_score_receipt_keeps_its_generation_timestamp() -> None:
+    module = _load_module()
+    payload = json.loads(module.DEFAULT_OUTPUT.read_text(encoding="utf-8"))
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", payload["generated_utc"])
+
+
+def test_prior_projection_reports_content_identity_across_a_restamp() -> None:
+    module = _load_module()
+    coordinates = {"ratio": .03}
+    prior = {"artifact": "oph_neutrino_nufit61_retrospective_profile_score",
+             "candidate": {"coordinates": coordinates, "sha256": "old-bytes",
+                           "content_sha256": "same-content"},
+             "nufit_release": {"source_manifest_sha256": "manifest"},
+             "source_boundary": {"family_transport_kernel_sha256": "kernel"}}
+    result = module._prior_score_projection(
+        prior, coordinates, "new-bytes", "manifest", "kernel", "same-content")
+    assert result["candidate_byte_identity"] is False
+    assert result["candidate_content_identity"] is True
+    assert result["original_candidate_content_sha256"] == "same-content"
+    legacy = copy.deepcopy(prior)
+    legacy["candidate"].pop("content_sha256")
+    legacy_result = module._prior_score_projection(
+        legacy, coordinates, "new-bytes", "manifest", "kernel", "same-content")
+    assert legacy_result["candidate_content_identity"] is False
