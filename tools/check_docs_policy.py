@@ -19,22 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 DOCS = "docs"
 
-# Root documents the repository declares as programs, references and ledgers.
-ALLOWED_ROOT_DOCUMENTS = frozenset({
-    "README.md",
-    "AGREEMENT_RESEARCH_FOUNDATIONS.md",
-    "AXIOM_REFERENCE.md",
-    "BASIS.md",
-    "COMMON_OBJECTIONS.md",
-    "COMPLETION_PROGRAM.md",
-    "EMPIRICAL_STATUS.md",
-    "FROZEN_PREDICTION_LADDER.md",
-    "INTERPRETATION_AND_TERMS.md",
-    "OPH_EXECUTABLE_HYPOTHESIS.md",
-    "OPH_FALSIFICATION_PROGRAM.md",
-    "PAPER_SET.md",
-    "POSTDICTION_LEDGER.md",
-})
+# Root documents are the ones docs/README.md declares, plus the index itself.
+ROOT_INDEX_LINK = re.compile(r"\]\(([A-Za-z0-9_.-]+\.md)\)")
 
 # The documented exception: retrospective public-data comparisons that no
 # single code package reproduces.
@@ -58,9 +44,6 @@ KNOWN_VIOLATIONS = {
     "docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md": {
         "pull-request-reference": "audit history leaves the note with its rewrite",
         "status-prose": "audit history leaves the note with its rewrite",
-    },
-    "docs/EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md": {
-        "root-document": "proposal moves beside its consumer",
     },
 }
 
@@ -123,6 +106,17 @@ def changed_documents(root: Path, base: str) -> list[Path]:
     return sorted(documents)
 
 
+def declared_root_documents(root: Path) -> set[str]:
+    """Root documents that the docs index declares, plus the index itself."""
+    index = root / DOCS / "README.md"
+    names = {"README.md"}
+    if index.is_file():
+        names.update(
+            ROOT_INDEX_LINK.findall(index.read_text(encoding="utf-8"))
+        )
+    return names
+
+
 def _text_violations(relative: str, lines: list[str]) -> list[Violation]:
     found: list[Violation] = []
     for number, line in enumerate(lines, start=1):
@@ -154,6 +148,7 @@ def check(
         if documents is None
         else [path.resolve() for path in documents if path.is_file()]
     )
+    declared_root = declared_root_documents(root)
     found: list[Violation] = []
     for path in targets:
         relative = path.relative_to(root).as_posix()
@@ -167,7 +162,7 @@ def check(
                     relative, path.read_text(encoding="utf-8").splitlines()
                 )
             )
-            if path.parent == docs and path.name not in ALLOWED_ROOT_DOCUMENTS:
+            if path.parent == docs and path.name not in declared_root:
                 found.append(Violation(relative, None, "root-document", path.name))
     directories = (
         sorted(path for path in docs.rglob("*") if path.is_dir())

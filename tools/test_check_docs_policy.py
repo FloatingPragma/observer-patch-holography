@@ -46,7 +46,19 @@ def test_undeclared_root_document_fails(tmp_path: Path) -> None:
 
 
 def test_declared_root_document_passes(tmp_path: Path) -> None:
+    _write(
+        tmp_path,
+        "docs/README.md",
+        "# Docs\n\n- [Completion program](COMPLETION_PROGRAM.md)\n",
+    )
     _write(tmp_path, "docs/COMPLETION_PROGRAM.md", "# Completion program\n")
+    assert _rules(tmp_path) == set()
+
+
+def test_index_declaration_admits_a_root_document(tmp_path: Path) -> None:
+    _write(tmp_path, "docs/PROPOSAL.md", "# Proposal\n")
+    assert "root-document" in _rules(tmp_path)
+    _write(tmp_path, "docs/README.md", "# Docs\n\n- [Proposal](PROPOSAL.md)\n")
     assert _rules(tmp_path) == set()
 
 
