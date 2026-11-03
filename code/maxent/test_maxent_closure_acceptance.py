@@ -12,8 +12,12 @@ import pytest
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
+import maxent_closure_acceptance as acceptance  # noqa: E402
+
 from maxent_closure_acceptance import (  # noqa: E402
+    NEGATIVE_DEFECT_TOL,
     cell_densities,
+    closure_defect,
     constrained_hamiltonian,
     decimate,
     duhamel_covariance,
@@ -255,6 +259,27 @@ def test_original_multipliers_must_preserve_convergence_after_ill_conditioned_co
         assert residual < 1e-11
         np.testing.assert_allclose(actual, target, rtol=0, atol=1e-11)
 
+
+
+def test_negative_roundoff_defect_keeps_its_magnitude():
+    # Trace-one states that differ only at roundoff can still give a small
+    # negative entropy estimate. The old max(..., 0.0) reported exact closure
+    # for exactly the case that signals a failed comparison.
+    sigma = np.diag([1.0 - 1e-12, 0.0])
+    reference = np.diag([1.0 - 2e-13, 2e-13])
+    raw = relative_entropy(sigma, reference)
+    assert -NEGATIVE_DEFECT_TOL < raw < 0
+    assert closure_defect(sigma, reference) == pytest.approx(-raw, rel=1e-6, abs=0)
+    assert closure_defect(sigma, reference) > 0
+
+
+def test_significantly_negative_defect_is_rejected(monkeypatch):
+    # A state that far outside the declared trace tolerance never reaches this
+    # guard: the state checks reject it first. Inject the value the guard has
+    # to refuse rather than read as zero.
+    monkeypatch.setattr(acceptance, "relative_entropy", lambda sigma, rho: -1e-6)
+    with pytest.raises(ValueError, match="negative relative entropy"):
+        acceptance.closure_defect(np.eye(2) / 2, np.eye(2) / 2)
 
 
 @pytest.mark.parametrize("energies", [[0., 2.], [0., 2., 4.]])
