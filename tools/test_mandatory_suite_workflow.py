@@ -38,6 +38,7 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "code/geometry/test_collar_scaling_boundaries.py",
     "code/thermodynamics/test_collar_stationary_regressions.py",
     "code/thermodynamics/test_exact_count_chain_controls.py",
+    "tools/test_check_docs_policy.py",
 )
 
 
