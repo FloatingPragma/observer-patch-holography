@@ -656,7 +656,7 @@
           "path": "model/completion/finite_attachment_map.json",
           "sha256": "2dcb06ae702109dbaac0336e9d817b81ce2035b05fcf554878f2ed3a93608adc",
           "independent_check": "model/completion/test_finite_attachment_map.py",
-          "scope": "Complete 84-premise ownership/relevance review, 39 inspected finite attachments with 34 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved."
+          "scope": "Complete 84-premise ownership/relevance review, 109 inspected finite attachments with 104 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved."
         },
         {
           "path": "model/completion/program_class_v2_review.json",
@@ -4145,7 +4145,9 @@
       "obstruction": "A genuine counterexample satisfying every theorem premise refutes the affected implication. A necessary failure of joint gravitational response can exclude the frozen program only with CP-12 coverage of the admissible class.",
       "evidence": [
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-        "flagship/from_observer_consensus_to_standard_physics.tex"
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "Lean/Geometry/EinsteinTensorBridge.lean",
+        "model/common_source/null_tomography.py"
       ],
       "legacy_issues": [
         1026,

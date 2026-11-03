@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "b01928d669fd705bd5464d0f7a672e328c3d26e9047f4d99db8685071d965fe4",
-      "claims/completion_program.json": "9632f51300af9cbd8f46c4e8557a873731cda40584b86c7f2d55627d50ecd4c0",
+      "claims/completion_program.json": "e7b9cb21a57363d103f0b03324543bfb5234224a69c570488514b0689635f22c",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -2925,7 +2925,7 @@
             {
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
-              "scope": "Complete 84-premise ownership/relevance review, 39 inspected finite attachments with 34 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.",
+              "scope": "Complete 84-premise ownership/relevance review, 109 inspected finite attachments with 104 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.",
               "sha256": "2dcb06ae702109dbaac0336e9d817b81ce2035b05fcf554878f2ed3a93608adc"
             },
             {
@@ -6593,7 +6593,9 @@
           "deliverable": "A common matter/geometry model that actually instantiates null balance and tensor completion and predicts its coupled coarse-scale gravitational response.",
           "evidence": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "flagship/from_observer_consensus_to_standard_physics.tex"
+            "flagship/from_observer_consensus_to_standard_physics.tex",
+            "Lean/Geometry/EinsteinTensorBridge.lean",
+            "model/common_source/null_tomography.py"
           ],
           "id": "CP-10",
           "issue": 1146,
