@@ -41,6 +41,7 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "code/a5_closure/tests/test_galois_port_frame_certificate.py",
     "code/a5_closure/tests/test_galois_source_response_pins.py",
     "code/a5_closure/tests/test_port_support_source_audit.py",
+    "code/a5_closure/tests/test_port_gram_support_attachment.py",
 )
 
 
