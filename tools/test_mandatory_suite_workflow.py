@@ -38,6 +38,9 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "code/geometry/test_collar_scaling_boundaries.py",
     "code/thermodynamics/test_collar_stationary_regressions.py",
     "code/thermodynamics/test_exact_count_chain_controls.py",
+    "code/a5_closure/tests/test_galois_port_frame_certificate.py",
+    "code/a5_closure/tests/test_galois_source_response_pins.py",
+    "code/a5_closure/tests/test_port_support_source_audit.py",
 )
 
 
