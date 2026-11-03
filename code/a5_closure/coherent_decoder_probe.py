@@ -14,7 +14,7 @@ from model.native_interface import tomography
 ROOT = Path(__file__).resolve().parents[2]
 BASELINE = 'eee3b6a2e0051e88d53053b5af1defbc0fb86988'
 # Reviewed exact-value-preserving source update; retain the work baseline.
-SOURCE_COMMIT = '83113a9cc33d82a56c84a8634445c8edd1e599a2'
+SOURCE_COMMIT = 'aa95355797ff58b03fa6378850f6be04bcffb78d'
 REFERENCE = ROOT/'code/a5_closure/receipts/coherent_decoder_probe.json'
 PATHS = sorted(set(previous.INPUTS + [
     'model/compiled_native_interface/construction.py',
