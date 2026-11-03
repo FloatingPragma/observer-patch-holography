@@ -119,7 +119,7 @@ def test_corrupt_midpoint_and_skipped_level_fail():
     "missing_map", "reverse_map", "support_count", "C5", "physical_orbits",
     "coarsening_natural", "midpoint_square", "skip_level", "unsigned_degree",
     "invented_local_tower", "invented_common_sphere", "physical_selection",
-    "hide_drift", "source_hash", "implementation_hash", "target_selected",
+    "invented_drift", "source_hash", "implementation_hash", "target_selected",
 ])
 def test_forged_scientific_receipts_fail(packet, mutation):
     bad = copy.deepcopy(packet)
@@ -147,8 +147,12 @@ def test_forged_scientific_receipts_fail(packet, mutation):
         bad["common_sphere"] = "CERTIFIED"
     elif mutation == "physical_selection":
         bad["physical_selection"] = True
-    elif mutation == "hide_drift":
-        bad["historical_drift"] = {}
+    elif mutation == "invented_drift":
+        # Every pin now matches, so the disclosure is empty; inventing a drift
+        # row is the lie the verifier has to reject.
+        bad["historical_drift"] = {"code/source_selection_model/DERIVATION.md": {
+            "classification": "BASELINE_PIN_DRIFT",
+            "frozen_sha256": "0" * 64, "live_sha256": "0" * 64}}
     elif mutation == "source_hash":
         bad["sources"][producer.GEOMETRY]["sha256"] = "0"*64
     elif mutation == "implementation_hash":

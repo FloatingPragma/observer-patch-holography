@@ -1,17 +1,11 @@
 {
-  "base": "aa95355797ff58b03fa6378850f6be04bcffb78d",
-  "base_tree": "cb08ea5b3e659d8faa304249a3b13fc99ab34aa7",
+  "base": "1fa8949e8000b9dad4cf3a816d5abc847d696e33",
+  "base_tree": "8d521ec89b58d03090a4d2a735ad5789f96fb2e3",
   "common_sphere": "REALIZED_SPHERE_COMPARISON_MISSING",
-  "historical_drift": {
-    "code/m1_source_realization/receipt.json": {
-      "classification": "BASELINE_PIN_DRIFT",
-      "frozen_sha256": "1e43a903910966ec15602cbfdd07cea3c4af8dfde152225d874d2e0a7453ead1",
-      "live_sha256": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49"
-    }
-  },
+  "historical_drift": {},
   "implementation_sha256": {
-    "code/a5_closure/port_support_source_audit.py": "050f955abc4ef006501dfdf8da743ed42320c7d99e6c29f9d520f3be883d6b24",
-    "code/a5_closure/verify_port_support_source_audit.py": "20fe8dd1c12f9562e04db3ddd7784d49f971cde32e32b198b441cd3abc7e6588"
+    "code/a5_closure/port_support_source_audit.py": "11716430285225f480ebbbd1fc40189344c3290dac22e9c6541d5d1825767cdc",
+    "code/a5_closure/verify_port_support_source_audit.py": "722180e4e398480c3374249bbc88abb8f6ee8bd33ec25b6521f4453dc53fddeb"
   },
   "local_refinement": "No local incidence tower supplied by ScreenCarrierMapCandidate; support automorphism audit only.",
   "native_support_refinement": [
@@ -2012,14 +2006,14 @@
       "sha256": "f8636308203c3673c6769059bd73140f6a705f47d480d5158e2fa90ce64a833d"
     },
     "code/a5_closure/port_gram_support_attachment_certificate.py": {
-      "base_blob": "6bb7e77a57cc931a7ba755d4729c91b572cf27d5",
-      "git_blob": "6bb7e77a57cc931a7ba755d4729c91b572cf27d5",
-      "sha256": "964acea90ee275c9548246a9dd1a145dec9f247a0a11d7c8d522703f41c90706"
+      "base_blob": "03fb464cb39e3131831cbe39cf083afdbfabc1db",
+      "git_blob": "03fb464cb39e3131831cbe39cf083afdbfabc1db",
+      "sha256": "cbaa9372d438c8c0807bd8c683dd22e5d01958fbabc429562e8d5a50481dbb28"
     },
     "code/a5_closure/verify_port_gram_support_attachment_independent.py": {
-      "base_blob": "f17916d14bd289325103f6784fab693faadee220",
-      "git_blob": "f17916d14bd289325103f6784fab693faadee220",
-      "sha256": "d82676998070c77163eda58f5f7ae32079279026d4039e3e0f630d11ce8b94e0"
+      "base_blob": "1c8e7d67d511f857efd063980403188dbbb05344",
+      "git_blob": "1c8e7d67d511f857efd063980403188dbbb05344",
+      "sha256": "c2432831d20029e8eff4a2b015733075a751e263fd9fbad19f2b287f04aa73ac"
     },
     "code/m1_source_realization/README.md": {
       "base_blob": "65cd4308713631e7ba064fff8314d82e269e6a93",
