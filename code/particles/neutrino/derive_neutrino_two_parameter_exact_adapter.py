@@ -53,6 +53,17 @@ PDG_2025_NO_CENTRAL = {
 }
 
 
+# ratio_21_over_32 is a difference of np.linalg.eigh eigenvalues of a matrix
+# whose largest eigenvalue is about 1e-3, so its binary64 noise floor is
+# eps * ||H|| / (m3^2 - m2^2) ~ 2e-16, and the local slope is
+# d(ratio)/d(tau_nu) ~ 3e-4. The root is therefore determined to about 2e-12
+# in tau_nu; digits below that are solver output, not accuracy, and no
+# consumer may assert them. TAU_RESOLUTION keeps a factor of about three over
+# the measured resolution so a different BLAS or numpy build stays inside it.
+RATIO_NOISE = 5.0e-16
+TAU_RESOLUTION = 5.0e-12
+
+
 def _timestamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -138,6 +149,11 @@ def _solve_tau_exact_ratio(
     if f_left * f_right > 0.0:
         raise SystemExit("positive selector segment does not bracket the representative PDG central ratio")
 
+    # The 1e-18 thresholds below drive the bisection past the scale at which
+    # the objective carries information (RATIO_NOISE, and TAU_RESOLUTION in
+    # tau_nu). They are kept because the published digits are produced on this
+    # path and must stay bit-for-bit reproducible for the committed receipts;
+    # the resolution they do not buy is declared instead of assumed.
     lo = 0.0
     hi = 1.0
     f_lo = f_left
@@ -155,6 +171,24 @@ def _solve_tau_exact_ratio(
     return _surface_at_tau(tau_nu=0.5 * (lo + hi), q=q, psi=psi, gamma=gamma, eps=eps, gamma_half=gamma_half, chi=chi)
 
 
+def load_segment_inputs(
+    *,
+    certificate: dict[str, Any],
+    cocycle: dict[str, Any],
+    phase_source: dict[str, Any],
+) -> dict[str, Any]:
+    """Collect the selector-segment inputs shared by the solver and its controls."""
+    eps = float(cocycle["defect_gap_ratio"])
+    return {
+        "q": {edge: float(certificate["q_e"][edge]) for edge in EDGE_ORDER},
+        "psi": {edge: float(phase_source["selector_point_absolute"][edge]) for edge in EDGE_ORDER},
+        "gamma": float(cocycle["theorem_gap_gamma"]),
+        "eps": eps,
+        "gamma_half": float(cocycle["hermitian_descendant_riesz_margin"]["gamma_half"]),
+        "chi": 1.0 + eps,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the compare-only exact neutrino two-parameter continuation adapter.")
     parser.add_argument("--certificate", default=str(DEFAULT_CERTIFICATE))
@@ -167,12 +201,13 @@ def main() -> int:
     cocycle = _load_json(Path(args.cocycle))
     phase_source = _load_json(Path(args.phase_source))
 
-    q = {edge: float(certificate["q_e"][edge]) for edge in EDGE_ORDER}
-    psi = {edge: float(phase_source["selector_point_absolute"][edge]) for edge in EDGE_ORDER}
-    gamma = float(cocycle["theorem_gap_gamma"])
-    eps = float(cocycle["defect_gap_ratio"])
-    gamma_half = float(cocycle["hermitian_descendant_riesz_margin"]["gamma_half"])
-    chi = 1.0 + eps
+    inputs = load_segment_inputs(certificate=certificate, cocycle=cocycle, phase_source=phase_source)
+    q = inputs["q"]
+    psi = inputs["psi"]
+    gamma = inputs["gamma"]
+    eps = inputs["eps"]
+    gamma_half = inputs["gamma_half"]
+    chi = inputs["chi"]
     target_21 = float(PDG_2025_NO_CENTRAL["delta_m21_sq_eV2"])
     target_32 = float(PDG_2025_NO_CENTRAL["delta_m32_sq_eV2"])
     target_31 = target_21 + target_32
