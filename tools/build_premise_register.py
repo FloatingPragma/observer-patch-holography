@@ -21,7 +21,9 @@ ascending, rendered beside its live owner from ``tools/closed_lanes.py``;
 every evidence path exists in the repository and has exactly one explicit
 evidence role; every row carries a discharge record for the current executable
 implementation, with a status from the five-value enum, existing evidence
-paths and a note; statements and notes are nonempty. The rendered page is a
+paths and a note, and a status that asserts an executed artefact must carry at
+least one non-prose evidence artefact; statements and notes are nonempty. The
+rendered page is a
 generated surface; edit the JSON, then regenerate.
 """
 
@@ -38,6 +40,7 @@ from closed_lanes import is_known, owner_text
 import build_gravity_ladder as gravity_tool
 import build_model_theorem_map as model_map_tool
 import build_sm_correspondence as sm_tool
+import check_claim_registry as claim_tool
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
@@ -94,6 +97,14 @@ DISCHARGE_STATUSES = (
     "not_addressed",
 )
 DISCHARGE_KEYS = {"status", "evidence", "note"}
+
+# Discharge statuses that assert an executed artefact exists, not merely a
+# declaration or a stated obligation. Their evidence therefore cannot be prose
+# only: a note may describe the run, but it cannot substitute for it.
+EXECUTION_ASSERTING_DISCHARGE = (
+    "derived_from_native_records",
+    "constructed_on_declared_inputs",
+)
 
 # Fixed program-wide inventory: (id, name, type, disposition), in order.
 EXPECTED_ROWS = (
@@ -709,6 +720,22 @@ def validate(register: dict) -> list[dict]:
         for path in discharge["evidence"]:
             if not isinstance(path, str) or not (ROOT / path).exists():
                 fail(f"{where}: discharge evidence path missing: {path}")
+        if discharge["status"] in EXECUTION_ASSERTING_DISCHARGE:
+            media = []
+            for path in discharge["evidence"]:
+                medium = claim_tool.evidence_medium(path)
+                if medium is None:
+                    fail(
+                        f"{where}: discharge evidence medium is unclassified; add "
+                        f"the suffix to EVIDENCE_MEDIA_BY_SUFFIX: {path}"
+                    )
+                media.append(medium)
+            if all(medium in claim_tool.PROSE_EVIDENCE_MEDIA for medium in media):
+                fail(
+                    f"{where}: discharge status {discharge['status']!r} asserts an "
+                    f"executed artefact, so its evidence cannot be prose only: "
+                    f"{discharge['evidence']}"
+                )
         if not isinstance(discharge["note"], str) or not discharge["note"].strip():
             fail(f"{where}: discharge note must be a nonempty string")
     validate_sections(register)

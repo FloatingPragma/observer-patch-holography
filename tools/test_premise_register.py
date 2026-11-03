@@ -268,3 +268,35 @@ def test_unknown_discharge_status_rejected() -> None:
     register["rows"][0]["discharge"]["status"] = "proved_physical"
     with pytest.raises(SystemExit, match="discharge status must be one of"):
         register_tool.validate(register)
+
+
+@pytest.mark.parametrize("premise", ["PR-21", "PR-22", "PR-81", "PR-82"])
+def test_execution_asserting_rows_bind_executable_evidence(premise: str) -> None:
+    register = _register()
+    row = next(row for row in register["rows"] if row["id"] == premise)
+    media = [claim_tool.evidence_medium(path) for path in row["discharge"]["evidence"]]
+    assert all(medium is not None for medium in media)
+    assert any(medium not in claim_tool.PROSE_EVIDENCE_MEDIA for medium in media)
+
+
+def test_execution_asserting_discharge_rejects_prose_only_evidence() -> None:
+    register = _register()
+    row = next(row for row in register["rows"] if row["id"] == "PR-81")
+    row["discharge"]["evidence"] = ["model/README.md"]
+    with pytest.raises(SystemExit, match="evidence cannot be prose only"):
+        register_tool.validate(register)
+
+
+def test_declared_discharge_may_rest_on_prose_evidence() -> None:
+    register = _register()
+    row = next(row for row in register["rows"] if row["id"] == "PR-05")
+    assert row["discharge"]["status"] == "declared"
+    assert row["discharge"]["evidence"] == ["model/CANDIDATES.md"]
+    register_tool.validate(register)
+
+
+def test_execution_asserting_discharge_rejects_unclassified_medium(monkeypatch) -> None:
+    register = _register()
+    monkeypatch.setattr(register_tool.claim_tool, "evidence_medium", lambda path: None)
+    with pytest.raises(SystemExit, match="medium is unclassified"):
+        register_tool.validate(register)

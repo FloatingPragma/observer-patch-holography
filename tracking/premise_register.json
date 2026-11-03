@@ -806,6 +806,9 @@
       "discharge": {
         "status": "constructed_on_declared_inputs",
         "evidence": [
+          "model/observer_time_fields/continuum_dynamics.py",
+          "model/observer_time_fields/continuum_dynamics_results.json",
+          "model/observer_time_fields/test_continuum_dynamics.py",
           "model/observer_time_fields/REFINEMENT.md"
         ],
         "note": "The active clock compiles per-mode pulses from the spectrum of the derived screen operator on supplied qubit codes, which realizes the oscillator lift and the frequency identification; passive native repair has no wave sector (OP7)."
@@ -834,6 +837,9 @@
       "discharge": {
         "status": "constructed_on_declared_inputs",
         "evidence": [
+          "model/observer_time_fields/continuum_dynamics.py",
+          "model/observer_time_fields/continuum_dynamics_results.json",
+          "model/observer_time_fields/test_continuum_dynamics.py",
           "model/observer_time_fields/REFINEMENT.md"
         ],
         "note": "The active clock compiles per-mode pulses from the spectrum of the derived screen operator on supplied qubit codes, which realizes the oscillator lift and the frequency identification; passive native repair has no wave sector (OP7)."
@@ -3899,6 +3905,9 @@
       "discharge": {
         "status": "derived_from_native_records",
         "evidence": [
+          "model/physical_space_time/causal_placement.py",
+          "model/physical_space_time/occupation_field_results.json",
+          "model/physical_space_time/test_causal_placement.py",
           "model/README.md"
         ],
         "note": "On the executed native process dependence crosses at most one seam per ordered repair event, and the attempt index ranks every event; the read support and ancestry rank are those of the native history."
@@ -3935,6 +3944,9 @@
       "discharge": {
         "status": "derived_from_native_records",
         "evidence": [
+          "model/physical_space_time/causal_placement.py",
+          "model/physical_space_time/occupation_field_results.json",
+          "model/physical_space_time/test_causal_placement.py",
           "model/README.md"
         ],
         "note": "On the executed native process dependence crosses at most one seam per ordered repair event, and the attempt index ranks every event; the read support and ancestry rank are those of the native history."
