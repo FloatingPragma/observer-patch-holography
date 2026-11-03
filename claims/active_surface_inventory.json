@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1026,
+  "surface_count": 1020,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1557,36 +1557,6 @@
     },
     {
       "path": "docs/README.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/comms/OPH_FROZEN_DISPERSION_AUDIT_2026-11-02.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/comms/README.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/comms/dispersion-audit-2026-11-02/README.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/comms/host-clock-2026-11-02/COMPARISON.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/comms/host-clock-2026-11-02/HOST_CLOCK.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/comms/host-clock-2026-11-02/README.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
     },

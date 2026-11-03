@@ -30,14 +30,7 @@ EXEMPT_DOCUMENTS = {
 }
 
 # Violations that open corrections remove; drop each entry with its correction.
-KNOWN_VIOLATIONS = {
-    "docs/comms/": {
-        "dated-file-name": "archive tree leaves docs/ with its relocation",
-        "dated-directory-name": "archive tree leaves docs/ with its relocation",
-        "dated-heading": "archive tree leaves docs/ with its relocation",
-        "status-prose": "archive tree leaves docs/ with its relocation",
-    },
-}
+KNOWN_VIOLATIONS: dict[str, dict[str, str]] = {}
 
 ISO_DATE = re.compile(
     r"(?<!\d)(?:19|20)\d{2}[-_](?:0[1-9]|1[0-2])[-_](?:0[1-9]|[12]\d|3[01])(?!\d)"
