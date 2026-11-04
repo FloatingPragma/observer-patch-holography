@@ -217,6 +217,10 @@ def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
     checkout = _step(job, "Checkout")
     assert checkout["uses"].startswith("actions/checkout@")
     assert checkout["with"]["fetch-depth"] == "0"
+    # Partial clone keeps the full commit and tree graph for ancestor and
+    # pinned-revision proofs; missing blobs are fetched lazily by the few
+    # steps that hash historical files.
+    assert checkout["with"]["filter"] == "blob:none"
     assert _step(job, "Set up Python")["with"]["python-version"] == "3.12"
     install = _step(job, "Install pinned dependencies")["run"]
     assert "pip install -r requirements.txt" in install

@@ -63,9 +63,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # The alpha/HVP retrospective audit proves that its source snapshot
-          # is a real ancestor and hashes blobs at that commit.
+          # The alpha/HVP retrospective audit, frozen-prediction ladder, and
+          # forecast-contract freeze prove their pinned commits are ancestors
+          # and hash blobs at those commits. Keep every commit and tree, but
+          # fetch blobs lazily so the checkout does not pull 1.8 GiB of
+          # historical file content.
           fetch-depth: 0
+          filter: blob:none
 
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
