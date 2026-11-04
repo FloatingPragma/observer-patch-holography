@@ -33,9 +33,15 @@ def test_neutrino_exact_adapter_bridge_coordinate() -> None:
     assert payload["scope"] == "compare_only_two_parameter_segment_adapter"
     assert payload["promotable"] is False
     bridge = payload["bridge_coordinates"]
-    assert bridge["paper_facing_amplitude"]["value"] == pytest.approx(6.696759752761619, abs=1.0e-15)
-    assert bridge["internal_proxy"]["value"] == pytest.approx(6.699912221878757, abs=1.0e-15)
-    assert bridge["reduced_correction_invariant"]["value"] == pytest.approx(0.9995294760568888, abs=1.0e-15)
+    # Every bridge coordinate is built from tau_nu, lambda_nu and p_nu of the
+    # exact adapter, so it inherits that fit's resolution: the ratio it solves
+    # is a difference of np.linalg.eigh eigenvalues, whose binary64 noise floor
+    # puts tau_nu at about 1e-12 and these values a few times 1e-15 apart
+    # between builds. Assert relative agreement at 1e-12 instead of an absolute
+    # 1e-15 that the arithmetic cannot deliver.
+    assert bridge["paper_facing_amplitude"]["value"] == pytest.approx(6.696759752761619, rel=1.0e-12)
+    assert bridge["internal_proxy"]["value"] == pytest.approx(6.699912221878757, rel=1.0e-12)
+    assert bridge["reduced_correction_invariant"]["value"] == pytest.approx(0.9995294760568888, rel=1.0e-12)
     checks = payload["consistency_checks"]
     assert checks["reconstruction_error_abs"] == pytest.approx(0.0, abs=1.0e-15)
     assert checks["within_current_compare_only_c_window"] is True
