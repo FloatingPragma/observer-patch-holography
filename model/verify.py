@@ -377,6 +377,7 @@ REPLAYS = (
     ("model.finite_modular_inclusion", None, "model/finite_modular_inclusion/results.json"),
     ("model.finite_area_response", None, "model/finite_area_response/results.json"),
     ("model.moving_contact_scattering", None, "model/moving_contact_scattering/results.json"),
+    ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 
 

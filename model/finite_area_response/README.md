@@ -165,7 +165,10 @@ and arithmetic bounds are replayed from their definitions.
 
 Equal conditional Hamiltonians, constant area and `beta=0` give zero
 fixed-law response. An equilibrium input without the field disturbance is
-stationary. Independent tests use the complete original transition/record
+stationary. For equal Hamiltonians, swapping the two energy labels pairs
+`w_j/(w_i+w_j)` with `w_i/(w_i+w_j)` to give one; the eight diagonal terms
+are `1/2`. Hence `S=32` and `p1=1/2` exactly, so (1) vanishes.
+Independent tests use the complete original transition/record
 law, full quantum densities and matrix-exponential Frechet derivatives.
 They retain all rejected proposals and check that the geometry changes
 only after the thermal update.
@@ -183,6 +186,49 @@ Those particular internal dimensions cannot supply a positive area-entropy
 coefficient. The Shannon entropy of the geometry distribution is a separate,
 generally nonzero term; no exclusion of all central or edge assignments
 follows from this calculation.
+
+There is also an exact obstruction to inferring geometric entropy
+stationarity from this Gibbs fixed point. On the complete joint carrier,
+take the source-basis tangent
+
+```
+delta=|g0,111><g0,111|-|g0,000><g0,000|.
+```
+
+It is Hermitian with trace zero and norm one. Both basis states have the
+same geometry, so `Tr(delta A)=Tr(delta V)=0`. The full thermal reference
+obeys `-log rho=beta H+log Z`; hence its entropy first law gives the exact
+nonzero derivative
+
+```
+d[S(rho+t delta)+eta Tr((rho+t delta)A)]/dt at t=0
+ =Tr(delta beta H)=11857/4200>0                         (3)
+```
+
+for every real coefficient `eta`. The tangent does not commute with the
+reference, and no commuting-density formula is used. The complete spectral
+enclosures place every `beta E` in `(1,5)`. The rational exponential bound
+`exp(2)<15/2` gives `exp(4)<63`, so
+`lambda_min(rho)>exp(-4)/16>1/1024`. Therefore all
+`|t|<=1/2048` give genuine trace-one states with minimum weight greater than
+`1/2048`. These are two-sided fixed-volume perturbations on the admitted
+finite state algebra, rather than formal variations outside its positive cone.
+
+Equation (3) excludes full-thermal-entropy plus bare-area stationarity on
+the entire fixed-volume source tangent space. It does not exclude the
+Einstein theorem's regional entropy statement: identifying its entropy,
+subtraction and admissible joint state/geometry variations requires a
+separate construction. Restricting variations to a selected manifold must
+be justified by that construction, rather than inferred from stationarity
+of one Gibbs density under the repair channel.
+
+The geometry marginal supplies a separate sign test. Its certified
+`p1<1/2` gives `dH(p)/dp1=log((1-p1)/p1)>0`, whereas
+`d<A>/dp1=-40/99<0`. Thus no nonnegative coefficient equates the first
+variation of this particular geometry Shannon entropy to that coefficient
+times the area variation. This result concerns the specified marginal;
+it does not exclude other central/edge assignments or a regional
+renormalized entropy construction.
 
 A common interacting Einstein construction needs a microscopic
 edge/area relation with derived normalization, a common stress/modular

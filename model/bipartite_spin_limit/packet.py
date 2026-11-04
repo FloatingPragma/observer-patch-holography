@@ -6,7 +6,7 @@ from pathlib import Path
 
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
-from . import algebra, bounds
+from . import algebra, bounds, local
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
@@ -20,7 +20,8 @@ def canonical(value):
 def source_bindings():
     paths = integration_source_paths(ROOT, {
         'domain_and_proof': 'model/bipartite_spin_limit/README.md',
-        'source_receipts': [PARENT], 'independent_checks': [],
+        'source_receipts': [PARENT],
+        'independent_checks': ['model/bipartite_spin_limit/LOCAL_LIMIT.md'],
     })
     return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
 
@@ -43,6 +44,7 @@ def report():
         'source_bindings': pins,
         'bounds': bounds.certificate(),
         'full_sector_controls': algebra.certificate(),
+        'dressed_local_limit': local.certificate(),
         'scope': {
             'source': 'same centered signed cubic Hubbard graph at half filling',
             'spectral_domain': 'finite simple bipartite graph, U>tau=c|E|, c>0',
@@ -51,7 +53,11 @@ def report():
             'canonical_generator_error': '7tau^4/U^3',
             'complete_dynamics_error': 'min(2,4tau/U+7|t|tau^4/U^3)',
             'all_virtual_charge_states_retained': True,
-            'infinite_volume_estimate': False,
+            'infinite_volume_estimate': 'fixed-spacing local observables on dressed spin inputs',
+            'local_dynamics_domain': 'U/2 >= 2^20 (144 c), maximum cubic degree six',
+            'undressed_input_local_limit': False,
+            'interleaved_native_repair_local_limit': False,
+            'finite_c_source_ground_identified': False,
             'interacting_relativistic_continuum': False,
             'physical_particle_assignment': False,
             'integrated_gate_accepted': False,

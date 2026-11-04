@@ -157,6 +157,34 @@ def test_zero_response_controls_and_incomplete_spectrum_rejection():
         r.Interval.point(1)/r.Interval(-1, 1)
 
 
+def test_exact_fixed_volume_entropy_tangent_is_a_positive_state_family():
+    value = r.certificate()['entropy_stationarity_obstruction']
+    assert F(value['full_thermal_entropy_derivative']) == F(11857, 4200)
+    model = source.finite_model()
+    tangent = np.diag([-1]+[0]*6+[1]+[0]*8)
+    area = np.diag([20/9]*8+[20/11]*8)
+    assert np.trace(tangent) == np.trace(area@tangent) == 0
+    assert np.linalg.norm(tangent, 2) == 1
+    assert np.linalg.norm(tangent@model.gibbs-model.gibbs@tangent) > 0.001
+    for parameter in (-1/2048, 1/2048):
+        state = model.gibbs+parameter*tangent
+        assert np.linalg.eigvalsh(state).min() > 1/2048
+        assert np.trace(state).real == pytest.approx(1, abs=2e-15)
+        assert np.trace(area@state).real == pytest.approx(np.trace(area@model.gibbs).real, abs=1e-15)
+    step = 1e-6
+    def entropy(state):
+        weights = np.linalg.eigvalsh(state)
+        return -weights@np.log(weights)
+    derivative = (entropy(model.gibbs+step*tangent)-entropy(model.gibbs-step*tangent))/(2*step)
+    assert derivative == pytest.approx(float(F(11857, 4200)), abs=1e-7)
+    p1 = model.probabilities[8:].sum()
+    assert np.log((1-p1)/p1) > 0
+    assert 20/11-20/9 < 0
+    # An equal-diagonal-energy tangent has zero first derivative instead.
+    equal_energy = np.diag([0, -1, 1]+[0]*13)
+    assert np.trace(equal_energy@model.hamiltonian) == 0
+
+
 def test_cold_replay_and_scope_mutations():
     value = packet.report()
     assert packet.canonical(value) == packet.canonical(strict_json.loads(packet.OUTPUT.read_text()))

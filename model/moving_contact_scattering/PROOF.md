@@ -13,7 +13,8 @@ W0 = <1/sum_j cos(q_j)^2>,        2/3 <= W0 < 5.
 The full torus average defines W0 without measured inputs. The original
 action H_a has the unchanged Weyl hopping and repulsive onsite contact.
 The scaling, gamma and reflected clock are specified family choices.
-Every statement below is in the two-particle sector.
+The scattering and bound-band statements use the two-particle sector. The
+final sections address its additive extension to all particle numbers.
 
 Let `K=aP`, `kappa=max_j |K_j|`, and let s denote energy below the exact
 free upper edge `B_K=2c_a R`, where
@@ -272,3 +273,139 @@ by more than one throughout the momentum window. This proves a surviving
 moving two-body interaction and a bound branch in three spatial dimensions.
 Its dispersion is nonrelativistic. It does not construct a relativistic
 many-body quantum field theory, fix gamma, or identify physical particles.
+
+## The additive Fock generator has no empty ground vacuum
+
+Let h_a denote the original one-particle Weyl hopping on
+`ell2(Z^3) tensor C^2`. Its Fourier eigenvalues are
+`+-c_a sqrt(sum_j sin(k_j)^2)`, so
+
+```
+0 <= j_a := 3/a^2-h_a <= 6/a^2.
+```
+
+The additive extension of the same reflected clock considered on fermionic
+Fock space is
+
+```
+J_(a,N) = dGamma(j_a) - U_a D,
+D = sum_x n_(x,up) n_(x,down),
+-U_a floor(N/2) <= J_(a,N) <= 6N/a^2.                 (7)
+```
+
+On an occupation configuration every doublon consumes two particles, hence
+`0<=D<=floor(N/2)`. This proves (7), including the odd-N and empty sectors.
+Each fixed-N operator is bounded and self-adjoint. Their direct sum is
+self-adjoint on the domain
+`{psi: sum_N ||J_(a,N) psi_N||^2<infinity}`. Finite particle-number vectors
+with finite spatial support form a core: truncate the particle-number sum
+in the graph norm and then approximate each bounded sector by finite spatial
+support. Thus this construction supplies a mathematically defined all-N
+generator. Its lower bound is linear in N, uniformly over finite spatial
+volumes at each fixed a. The constant `U_a/2` depends on a and diverges as
+`a->0`; (7) supplies no uniform continuum many-body stability estimate.
+
+For `a gamma<=1/4096`, the full Fock operator is unbounded below. The proof
+uses actual normalizable states of this same source. Set `Pmax=gamma/4`.
+The moving-pole premise follows from `272a gamma<=1`; its pole offset is
+at least `gamma^2/4`. The exact reflected bound energy on this momentum box
+is therefore at most
+
+```
+3 gamma^2/64 + a^2 gamma^4/1024 - gamma^2/4
+ = -13 gamma^2/64 + a^2 gamma^4/1024 < -gamma^2/8.      (8)
+```
+
+Take any normalized square-integrable total-momentum wavepacket supported
+inside this box and apply the normalized antisymmetric bound-fiber isometry
+from [the moving-pair construction](../moving_bound_pair/README.md).
+The result is a normalized two-particle vector psi satisfying (8), rather
+than a single nonnormalizable momentum eigenstate. The contact is positive
+and obeys `U_a<=4/a^2`, since
+
+```
+1/U_a >= a^2(1-a gamma)/3 >= a^2/4.
+```
+
+Equation (7) then gives `||J_(a,2)||<=12/a^2`. Finite spatial supports are
+dense in the antisymmetric two-particle Hilbert space. Choose a normalized
+finite-support approximation phi with
+`||phi-psi||<=a^2 gamma^2/768`. The expectation error is bounded by
+`2||J_(a,2)|| ||phi-psi||<=gamma^2/32`. In particular,
+
+```
+<phi,J_(a,2) phi> < -gamma^2/16.                       (9)
+```
+
+The norm tolerance is explicit; this density argument does not calculate
+a support radius. It suffices for the following variational obstruction.
+Enclose both spin modes of phi's support in a finite set of sites Lambda.
+For any integer m, translate Lambda to m disjoint site sets and form the
+fermionic wedge product of the m translated phi vectors. Orthogonality of
+their one-particle mode spaces makes this vector normalized. Each core has
+exactly two particles. A hopping term between distinct cores, or between
+a core and the empty exterior, changes those local particle numbers and
+has zero expectation. Internal hopping expectations equal those of phi;
+the onsite contact is additive on disjoint site sets. Therefore the full
+2m-particle expectation is exactly m times (9):
+
+```
+inf spectrum(J_a on full Fock space) = -infinity,
+<Phi_m,J_(a,2m) Phi_m> < -m gamma^2/16.                (10)
+```
+
+This is compatible with the fixed-N stability bound (7). It excludes the
+empty Fock vector, whose energy is zero, as a ground vacuum of this
+additive reflected generator. It is not an instability at fixed particle
+number, a proof of continuum collapse, or an exclusion of different
+finite-density representations.
+
+For a modified generator `J_a+mu_a N`, an empty ground requires
+`2mu_a>=delta_a(0)`, where delta_a(0) is the positive bound-pole offset at
+zero total momentum. Indeed the bound-band energy there is exactly
+`-delta_a(0)+2mu_a`; if it is negative, continuity gives a nonzero momentum
+neighborhood supporting a negative normalizable wavepacket. Continuity
+follows from the strict exterior-resolvent derivative and the isolated
+simple bound pole. Since `delta_a(0)->gamma^2`, any finite limit of mu_a
+must satisfy
+
+```
+mu >= gamma^2/2.                                      (11)
+```
+
+Equation (11) is necessary only. It supplies no lower bound for higher
+particle sectors. A distinct sufficient finite-spacing bound is
+`mu_a>=U_a/2`, directly from (7); this diverges as `a->0` and does not give
+a finite-energy continuum vacuum on the identified pair branch.
+
+The exact finite control retains all 256 Fock states on a four-site Weyl
+ring, with two disjoint two-site cores and both inter-core hopping links.
+The occupied core mode addresses interleave in the global ordering.
+Each normalized fixed-two-particle core has energy `-4/3`, and their graded
+fermion product has energy `-8/3`. Omitting the fermionic reordering signs
+gives `-2`. Independent Jordan--Wigner matrices check the Hamiltonian,
+every particle-number sector, and the exactly vanishing inter-core hopping
+expectation. These finite parameters test the product identity; the
+critical-family negative packet is certified separately by (8)--(9).
+
+## The pair branch has no exact affine Lorentz-shell identification
+
+The limiting pair branch, including a finite number shift, is
+`epsilon(P)=|P|^2/4-gamma^2+2mu`. Consider any fixed affine clock map
+`E=alpha epsilon+beta`, `alpha!=0`, and fixed invertible affine momentum
+map `p=L P+p0`. An exact massive or massless Lorentz shell would require
+
+```
+[alpha(|P|^2/4-gamma^2+2mu)+beta]^2
+  -v^2 |L P+p0|^2 -m^2 v^4 = 0                      (12)
+```
+
+on an open momentum set, with `v>0` and `m>=0`. This is a polynomial in P.
+A polynomial vanishing on a nonempty open set vanishes identically. On
+`P=r e1`, however, its coefficient of `r^4` is `alpha^2/16>0`;
+the momentum and mass terms have degree at most two. This contradicts
+(12). Thus this particular branch under the stated affine identification
+is neither an exact massive nor an exact massless Lorentz shell. The
+argument permits its ordinary nonrelativistic low-momentum interpretation
+and makes no claim about arbitrary nonlinear dictionaries, other source
+branches, or different continuum clock constructions.

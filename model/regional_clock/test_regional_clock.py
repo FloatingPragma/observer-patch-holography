@@ -239,3 +239,18 @@ def test_receipt_writer_uses_utf8_and_lf(tmp_path, monkeypatch):
     raw = output.read_bytes()
     assert b'\r' not in raw and raw.endswith(b'\n')
     assert json.loads(raw.decode('utf-8')) == value
+
+
+@pytest.mark.parametrize('explicit_path', [False, True])
+def test_replay_receipt_path_and_scientific_mismatch(tmp_path, monkeypatch, explicit_path):
+    output = tmp_path/'results.json'
+    value = {'status': 'SOURCE_BOUND_REGIONAL_CLOCK_IMPLEMENTED', 'regions': []}
+    output.write_text(json.dumps(value)+'\n')
+    monkeypatch.setattr(verify, 'OUTPUT', output)
+    monkeypatch.setattr(verify, 'report', lambda: dict(value))
+    monkeypatch.setattr(sys, 'argv', ['regional-clock', '--check']+
+                        ([str(output)] if explicit_path else []))
+    verify.main()
+    output.write_text(json.dumps({**value, 'CP02_accepted': True})+'\n')
+    with pytest.raises(ArithmeticError, match='differs from independent replay'):
+        verify.main()

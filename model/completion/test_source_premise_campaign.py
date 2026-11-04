@@ -69,6 +69,20 @@ def test_bipartite_estimate_does_not_certify_fixed_exchange_continuum():
     assert controlled['exchange_power'] < 0
 
 
+def test_uniform_local_spin_limit_keeps_its_dressed_fixed_spacing_domain():
+    from model.bipartite_spin_limit.local import certificate, local_bounds
+    result = certificate()
+    bound = local_bounds(2**256, 2**512, 1, 8)
+    assert result['thermodynamic_local_dynamics_constructed']
+    assert not result['source_ground_state_identified']
+    assert not result['continuum_relativistic_field_constructed']
+    assert not bound['depends_on_total_volume']
+    assert bound['exchange'] == 1
+    assert bound['dressed_observable_error'] < F(1, 10**6)
+    assert not bound['undressed_input_comparison']
+    assert not bound['interleaved_repair_comparison']
+
+
 def test_finite_modular_obstruction_does_not_remove_limiting_inclusion_route():
     value = packet()
     source = next(r for r in value['component_results'] if r['id'] == 'finite_modular_inclusion')

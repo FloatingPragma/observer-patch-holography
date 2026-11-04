@@ -138,11 +138,11 @@ def report():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write', action='store_true')
-    parser.add_argument('--check', action='store_true')
+    parser.add_argument('--check', nargs='?', const=OUTPUT, type=Path)
     args = parser.parse_args()
     result = report()
     if args.check:
-        retained = json.loads(OUTPUT.read_text())
+        retained = json.loads(args.check.read_text())
         # Host BLAS diagnostics may differ; all rational claims and bindings
         # must match exactly, and each replay has already enforced its gate.
         for value in (retained, result):

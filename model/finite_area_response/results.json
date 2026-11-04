@@ -299,6 +299,27 @@
         ]
       ]
     ],
+    "entropy_stationarity_obstruction": {
+      "Einstein_or_OPH_class_excluded": false,
+      "area_plus_entropy_derivative_for_every_real_area_coefficient": "11857/4200",
+      "expected_area_variation": "0",
+      "full_reference_minimum_weight_strict_lower": "1/1024",
+      "full_thermal_entropy_derivative": "11857/4200",
+      "full_thermal_entropy_plus_bare_area_stationary_on_all_fixed_volume_tangents": false,
+      "geometry_Shannon_derivative": "log((1-p1)/p1)>0",
+      "geometry_area_derivative": "-40/99",
+      "perturbed_state_minimum_weight_strict_lower": "1/2048",
+      "positive_geometry_Shannon_to_area_first_variation_coefficient_exists": false,
+      "proper_volume_variation": "0",
+      "regional_G4_entropy_or_admissible_joint_tangents_identified": false,
+      "tangent": "|g0,111><g0,111|-|g0,000><g0,000|",
+      "tangent_operator_norm": "1",
+      "trace_variation": "0",
+      "valid_two_sided_state_parameter": [
+        "-1/2048",
+        "1/2048"
+      ]
+    },
     "equilibrium_Hamiltonian_family_response": {
       "area_susceptibility": [
         "-673999563007187412986584619/1000000000000000000000000000000",
@@ -535,12 +556,12 @@
     "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
     "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
     "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
-    "model/finite_area_response/README.md": "e0712e66d17865214569e827d1ab28267cec48949e9375503a1151632a99ff9d",
+    "model/finite_area_response/README.md": "91aed8e7ea6098de7f15dfc546bcc1dfa2edd5905efccecb80756807bc5c55a7",
     "model/finite_area_response/__init__.py": "96012a28edb5774dc6991d611c3904b85bc2b478d61d6003a96ebbb059283d1d",
     "model/finite_area_response/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/finite_area_response/packet.py": "e528200701d5ec467eb2907dc1d5c7bae942766846d8dfb9b4aa4adde8682ca2",
-    "model/finite_area_response/response.py": "a1b23b05c30bb6bf3acbea685cf1ba7b58411bf9c53e8d9c8a35ed9d5dc8d816",
-    "model/finite_area_response/test_response.py": "da672e9f491c9989b637e472d130b391933fc88040513527a213542d3b69c8df",
+    "model/finite_area_response/response.py": "cd22b60330adf104ca50e5b6dd92ad95b6d0b38dae0e7c1ff9b0c9bd14a328f4",
+    "model/finite_area_response/test_response.py": "0c9c92d273747522705cddf984da852345fae9f9964844263dc6ce767291a95d",
     "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
     "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
     "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",

@@ -5,8 +5,10 @@ correction. On every fixed finite cubic graph, this gives a fourth-order
 bound on the actual low-energy generator and a complete-output time-evolution
 error. It sharpens the [finite spin construction](../strong_coupling_refinement/README.md)
 without changing the repair source, state space or clock. The bound is
-extensive in volume; it supplies no interacting relativistic continuum or
-measured particle assignment.
+extensive in volume. A separate [local construction](LOCAL_LIMIT.md) proves
+a volume-independent interacting spin limit for dressed inputs at fixed
+lattice spacing. Neither result supplies an interacting relativistic
+continuum or a measured particle assignment.
 
 ## Source and parity
 
@@ -114,6 +116,15 @@ For `U` proportional to `L^p`, the two errors have powers `4-p` and
 has power `2-p` and vanishes. Fixed nonzero exchange requires `p=2`,
 outside the certified domain. This is a limitation of the extensive
 bound, not an exclusion of a local expansion or another continuum limit.
+
+The [local theorem](LOCAL_LIMIT.md) removes this volume factor for a
+different, explicitly dressed state/readout domain. Five exact local
+integer-penalty transformations give a residual of order c^-4 and a
+spin-generator correction of order c^-1 at U=c^2/J. A local propagation
+estimate then gives error of order c^-1 for bounded times, uniformly in
+volume. Its limit is the interacting fixed-spacing Heisenberg system.
+It does not transfer the bare repair instrument or identify its prepared
+states with finite-c source ground states.
 
 The spectral-subspace method is a finite instance of the general
 [Schrieffer-Wolff framework](https://arxiv.org/abs/1105.0675).

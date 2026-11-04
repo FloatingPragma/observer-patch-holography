@@ -1,4 +1,61 @@
 {
+  "additive_Fock_extension": {
+    "Fock_direct_sum_self_adjoint": true,
+    "Fock_infimum_for_a_gamma_at_most_1_over_4096": "-infinity",
+    "Lorentz_shell": {
+      "arbitrary_nonlinear_dictionary_excluded": false,
+      "energy_map": "E=alpha*(|P|^2/4-gamma^2+2*mu)+offset; alpha != 0",
+      "exact_Lorentz_shell_on_any_open_momentum_set": false,
+      "momentum_map": "p=L P+p0 with fixed invertible real L and fixed p0",
+      "nonrelativistic_low_momentum_approximation_excluded": false,
+      "quartic_coefficient_on_P=r_e1": "alpha^2/16 > 0"
+    },
+    "different_finite_density_representations_excluded": false,
+    "empty_Fock_vacuum_is_ground_state": false,
+    "finite_fermion_product_control": {
+      "core_energies": [
+        "-4/3",
+        "-4/3"
+      ],
+      "core_particle_numbers": [
+        2,
+        2
+      ],
+      "critical_family_bound_state_asserted_by_finite_control": false,
+      "finite_sites": 4,
+      "full_Fock_dimension": 256,
+      "graded_product_energy": "-8/3",
+      "inter_core_hopping_expectation": "0",
+      "norms_squared": [
+        "6",
+        "6",
+        "36"
+      ],
+      "onsite_pair_bound_exhausted_occupation_states": 256,
+      "source": "reflected nearest-neighbor sigma_x Weyl hopping c=2, number shift 4, attraction 10",
+      "ungraded_product_energy": "-2"
+    },
+    "finite_spacing_stability_constant": "U_a/2 per particle",
+    "fixed_N_lower_bound": "-U_a floor(N/2)",
+    "fixed_N_self_adjoint": true,
+    "fixed_N_upper_bound": "6N/a^2",
+    "necessary_finite_number_shift_limit_for_empty_ground": "mu>=gamma^2/2",
+    "necessity_proves_sufficiency": false,
+    "negative_pair": {
+      "bound_wavepacket_energy_upper": "-55834574847/274877906944",
+      "compact_approximation_justification": "finite-support vectors are dense and J_a on N=2 is bounded",
+      "compact_energy_approximation_error_upper": "1/32",
+      "compact_pair_energy_upper": "-1/16",
+      "compact_support_radius_effectively_computed": false,
+      "gamma": "1",
+      "m_disjoint_pairs_energy_upper": "-m*gamma^2/16",
+      "momentum_cap": "1/4",
+      "spacing": "1/16384",
+      "sufficient_normalized_compact_vector_norm_error": "1/206158430208",
+      "two_particle_operator_norm_upper": "3221225472"
+    },
+    "uniform_continuum_many_body_stability_proved": false
+  },
   "coarea": {
     "all_edge_valleys_retained": 8,
     "angular_amplitude_derivative_upper": 48,
@@ -65,13 +122,17 @@
   },
   "schema": "oph.moving_contact_scattering.v1",
   "scope": {
+    "additive_generator_particle_number_sectors": "all nonnegative integers",
     "all_eight_edge_valleys_retained": true,
+    "empty_Fock_ground_vacuum_excluded_for_additive_reflected_generator": true,
     "energy_reflection_and_subtraction_declared": true,
     "entire_completion_gate_accepted": false,
+    "fixed_N_self_adjointness_and_finite_spacing_stability": true,
     "full_momentum_space_wave_operator_embedding_constructed": false,
     "gamma_derived_from_source_without_family_choice": false,
     "historical_receipt_producers_all_replayed": false,
     "native_scattering_detector_executed": false,
+    "pair_branch_exact_affine_Lorentz_shell_excluded": true,
     "particle_number_sector": 2,
     "physical_species_identified": 0,
     "positive_energy_many_body_vacuum_constructed": false,
@@ -107,14 +168,16 @@
     "model/moving_bound_pair/packet.py": "2d6610829402fc4c6f19b693ee2d1b22ddb5d5e43e082d5c1dbcbd60685c9ca9",
     "model/moving_bound_pair/results.json": "e39b16f3b9edc3342de68c3418f89298f03103729be8ce10d06ada23f02b68a3",
     "model/moving_bound_pair/test_limit.py": "3dde93bd2feaf79f8546aadcda6191159d1667ef4cd3655758c4279d3c750f30",
-    "model/moving_contact_scattering/PROOF.md": "7a89c2aa09a10997e0933faa876ae3354d9c9edc67313f67c4fff5503c20d7a0",
-    "model/moving_contact_scattering/README.md": "ecdcbbaeb46d61cda9a88c21ad5be00a0e6ef00e925ea4757905776d2e6a93ee",
+    "model/moving_contact_scattering/PROOF.md": "f3b98a8bf23e31d29b8d946081fe542489a165827c35d72e46623098c89da6e0",
+    "model/moving_contact_scattering/README.md": "3301e2e4d0b6103280c2ab54b28a8ae43d84fe451a61eaef5e2d0eb3c84e2400",
     "model/moving_contact_scattering/__init__.py": "1993831c4a3d377da8793681f83ca12b2de5f201b459bdbfd66e64197ae2f559",
     "model/moving_contact_scattering/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/moving_contact_scattering/bounds.py": "14eaedaa5eb5801c909c6b773f996954850b2e9d5990f607b625094ddf0df0f7",
     "model/moving_contact_scattering/diagnostic.py": "57fee813b189e09c15f675bf45fb3b6e751d69a3d29c10da6bb36307e0d2baab",
-    "model/moving_contact_scattering/packet.py": "ec4e339c36aa82d287137bcf6c9bc9cdb07e6bd76fd60bc6b132cccc7d648c71",
+    "model/moving_contact_scattering/packet.py": "48a8752d39ef43348813a225a7af819f4faba2d40f8c917c45b5c382729aac31",
     "model/moving_contact_scattering/test_scattering.py": "92054f267eb705a0154a67e865d0e503f2c355025fd29ec64c81365e3431bf8a",
+    "model/moving_contact_scattering/test_vacuum.py": "b0565252b82e8be4ee946a3c39501f5d01aa8dff1f5995cc50c2aa8275102e3d",
+    "model/moving_contact_scattering/vacuum.py": "f5082807f836a7a3b5dcc1033831f848c8f875084559a620de0157b263ebb66c",
     "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
     "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
     "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",

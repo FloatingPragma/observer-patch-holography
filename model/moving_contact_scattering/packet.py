@@ -7,7 +7,7 @@ from pathlib import Path
 
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
-from . import bounds
+from . import bounds, vacuum
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -29,7 +29,8 @@ def bindings():
     names=integration_source_paths(ROOT,{
         'domain_and_proof':'model/moving_contact_scattering/PROOF.md',
         'source_receipts':['model/band_edge_contact/results.json','model/moving_bound_pair/results.json'],
-        'independent_checks':['model/moving_contact_scattering/test_scattering.py']})
+        'independent_checks':['model/moving_contact_scattering/test_scattering.py',
+                              'model/moving_contact_scattering/test_vacuum.py']})
     names.add('model/moving_contact_scattering/README.md')
     return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
 
@@ -42,9 +43,14 @@ def build():
     if before!=_IMPORTED_BINDINGS:raise ValueError('source changed after import; use a fresh process')
     value=serialize({'schema':'oph.moving_contact_scattering.v1','source_bindings':before,
         'coarea':bounds.coarea_certificate(),
+        'additive_Fock_extension':vacuum.certificate(),
         'joined_finite_witness':bounds.joined_certificate(F(1,16384),1,1,1,1),
         'tolerance_schedules':[bounds.spacing_certificate(1,1,1,eps) for eps in (F(1,4),F(1,100),F(1,10000))],
         'scope':{'particle_number_sector':2,'spatial_dimensions':3,
+                 'additive_generator_particle_number_sectors':'all nonnegative integers',
+                 'fixed_N_self_adjointness_and_finite_spacing_stability':True,
+                 'empty_Fock_ground_vacuum_excluded_for_additive_reflected_generator':True,
+                 'pair_branch_exact_affine_Lorentz_shell_excluded':True,
                  'uniform_nonzero_total_momentum_on_shell_limit':True,
                  'uniform_threshold_endpoint_included':True,
                  'same_source_coupling_and_global_clock_for_scattering_and_binding':True,

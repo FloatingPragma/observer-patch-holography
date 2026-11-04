@@ -262,6 +262,47 @@ def randomization_certificate():
             'initialization_memory_and_intervention_energy_are_supplied': True}
 
 
+def entropy_stationarity_obstruction(spectra, geometry1_probability):
+    """A complete-source fixed-volume tangent, without numerical eigenvectors.
+
+    This tests the full thermal entropy plus bare expected area. It does
+    not identify that entropy or its tangent space with regional G4 data.
+    """
+    if any(not (1 < e.lo <= e.hi < 5) for block in spectra for e in block):
+        raise ArithmeticError('the faithful full-source spectral bound was lost')
+    if not exponential(2).hi < F(15, 2) or not F(15, 2)**2 < 63:
+        raise ArithmeticError('the rational Gibbs minimum-weight bound failed')
+    # Each beta*E lies in (1,5): rho_min > exp(-4)/16 > 1/1008 > 1/1024.
+    if not F(1, 16*63) > F(1, 1024):
+        raise ArithmeticError('the source-reference positivity margin failed')
+    tangent = s.diag(-1, 0, 0, 0, 0, 0, 0, 1, *([0]*8))
+    modular = s.diag(*matrices())
+    area = s.diag(*([s.Rational(20, 9)]*8+[s.Rational(20, 11)]*8))
+    if s.trace(tangent) != 0 or s.trace(tangent*area) != 0:
+        raise ArithmeticError('the source tangent changed normalization or area')
+    entropy_slope = rational(s.trace(tangent*modular))
+    if entropy_slope != F(11857, 4200) or entropy_slope <= 0:
+        raise ArithmeticError('the exact thermal-entropy tangent is not a strict obstruction')
+    if tangent*modular == modular*tangent:
+        raise ArithmeticError('the noncommuting source-basis tangent control disappeared')
+    if not 0 < geometry1_probability.lo <= geometry1_probability.hi < F(1, 2):
+        raise ArithmeticError('the geometry Shannon derivative sign is unresolved')
+    return {'tangent': '|g0,111><g0,111|-|g0,000><g0,000|',
+            'tangent_operator_norm': '1', 'trace_variation': '0',
+            'proper_volume_variation': '0', 'expected_area_variation': '0',
+            'full_reference_minimum_weight_strict_lower': '1/1024',
+            'valid_two_sided_state_parameter': ['-1/2048', '1/2048'],
+            'perturbed_state_minimum_weight_strict_lower': '1/2048',
+            'full_thermal_entropy_derivative': str(entropy_slope),
+            'area_plus_entropy_derivative_for_every_real_area_coefficient': str(entropy_slope),
+            'full_thermal_entropy_plus_bare_area_stationary_on_all_fixed_volume_tangents': False,
+            'geometry_Shannon_derivative': 'log((1-p1)/p1)>0',
+            'geometry_area_derivative': '-40/99',
+            'positive_geometry_Shannon_to_area_first_variation_coefficient_exists': False,
+            'regional_G4_entropy_or_admissible_joint_tangents_identified': False,
+            'Einstein_or_OPH_class_excluded': False}
+
+
 def certificate():
     spectra, weights = zip(*(spectral_weights(matrix) for matrix in matrices()), strict=True)
     primary = fixed_law_response(weights)
@@ -295,6 +336,7 @@ def certificate():
             'LDL_eigenvalue_counts': [[i, i+1] for i in range(8)],
             'exact_detailed_balance': source.exact_balance_identity()['population_detailed_balance_exact'],
             'complete_randomization_instrument': randomization_certificate(),
+            'entropy_stationarity_obstruction': entropy_stationarity_obstruction(spectra, primary['p1']),
             'fixed_law_state_response': {
                 'intervention': '(1-epsilon) id + epsilon replacement_by_I8/8 on matter; geometry unchanged',
                 'unchanged_Hamiltonian_bath_gaps_readout_and_transition': True,
