@@ -738,7 +738,7 @@
         },
         {
           "path": "model/active_code_energy/energy_bridge_results.json",
-          "sha256": "f7315c1b49a71fd32b074f78fa63882eb1046e1e64c179e3dbacd5189a7b1583",
+          "sha256": "99cd9b51637b634408d6a2d5c95a663d40c1e6efb22bb52fdd8438938d414529",
           "independent_check": "model/active_code_energy/test_energy_bridge.py",
           "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
           "campaign_id": "active-code-energy-20261028-v1"
@@ -766,7 +766,7 @@
         },
         {
           "path": "model/screened_transport/transport_results.json",
-          "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
+          "sha256": "8c0b4a55305abefe4204b8ea5ece55663a41627ea65eb497128be46c53c6f1ca",
           "independent_check": "model/screened_transport/test_transport.py",
           "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
           "campaign_id": "screened-transport-20261028-v1"
@@ -1653,7 +1653,7 @@
         },
         {
           "path": "model/screened_transport/transport_results.json",
-          "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
+          "sha256": "8c0b4a55305abefe4204b8ea5ece55663a41627ea65eb497128be46c53c6f1ca",
           "independent_check": "model/screened_transport/test_transport.py",
           "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
           "campaign_id": "screened-transport-20261028-v1"
@@ -2236,7 +2236,7 @@
         },
         {
           "path": "model/active_code_energy/energy_bridge_results.json",
-          "sha256": "f7315c1b49a71fd32b074f78fa63882eb1046e1e64c179e3dbacd5189a7b1583",
+          "sha256": "99cd9b51637b634408d6a2d5c95a663d40c1e6efb22bb52fdd8438938d414529",
           "independent_check": "model/active_code_energy/test_energy_bridge.py",
           "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
           "campaign_id": "active-code-energy-20261028-v1"
@@ -2250,7 +2250,7 @@
         },
         {
           "path": "model/screened_transport/transport_results.json",
-          "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
+          "sha256": "8c0b4a55305abefe4204b8ea5ece55663a41627ea65eb497128be46c53c6f1ca",
           "independent_check": "model/screened_transport/test_transport.py",
           "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
           "campaign_id": "screened-transport-20261028-v1"
@@ -5260,7 +5260,7 @@
       ],
       "contract": {
         "path": "model/active_code_energy/campaign.json",
-        "sha256": "4151150976bdc1e76e472ee662ed9edbcd893bcbeb6ca26c7393ff9e2e61d66b",
+        "sha256": "0d55277b294f93dcd09efed4ce66e5fa12e1c8a0b129bb8a84150abec98407b2",
         "independent_check": "model/active_code_energy/test_energy_bridge.py",
         "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol."
       }
@@ -5325,7 +5325,7 @@
       ],
       "contract": {
         "path": "model/screened_transport/campaign.json",
-        "sha256": "ce5dcbe37a62cd38ec35b4750a844f5fe4b26f493f265d8cabbdc54fbd7fccc1",
+        "sha256": "c38133cc1992a9f2c45b14cf8fc4a708e65b7a7f7db5f831b92a24c16202b23a",
         "independent_check": "model/screened_transport/test_transport.py",
         "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified."
       }
@@ -6714,7 +6714,7 @@
       {
         "id": "active_code_energy_campaign",
         "path": "model/active_code_energy/campaign.json",
-        "sha256": "4151150976bdc1e76e472ee662ed9edbcd893bcbeb6ca26c7393ff9e2e61d66b",
+        "sha256": "0d55277b294f93dcd09efed4ce66e5fa12e1c8a0b129bb8a84150abec98407b2",
         "independent_check": "model/active_code_energy/test_energy_bridge.py",
         "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
         "campaign_id": "active-code-energy-20261028-v1"
@@ -6722,7 +6722,7 @@
       {
         "id": "active_code_energy",
         "path": "model/active_code_energy/energy_bridge_results.json",
-        "sha256": "f7315c1b49a71fd32b074f78fa63882eb1046e1e64c179e3dbacd5189a7b1583",
+        "sha256": "99cd9b51637b634408d6a2d5c95a663d40c1e6efb22bb52fdd8438938d414529",
         "independent_check": "model/active_code_energy/test_energy_bridge.py",
         "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
         "campaign_id": "active-code-energy-20261028-v1"
@@ -6778,7 +6778,7 @@
       {
         "id": "screened_transport_campaign",
         "path": "model/screened_transport/campaign.json",
-        "sha256": "ce5dcbe37a62cd38ec35b4750a844f5fe4b26f493f265d8cabbdc54fbd7fccc1",
+        "sha256": "c38133cc1992a9f2c45b14cf8fc4a708e65b7a7f7db5f831b92a24c16202b23a",
         "independent_check": "model/screened_transport/test_transport.py",
         "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
         "campaign_id": "screened-transport-20261028-v1"
@@ -6786,7 +6786,7 @@
       {
         "id": "screened_transport",
         "path": "model/screened_transport/transport_results.json",
-        "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
+        "sha256": "8c0b4a55305abefe4204b8ea5ece55663a41627ea65eb497128be46c53c6f1ca",
         "independent_check": "model/screened_transport/test_transport.py",
         "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
         "campaign_id": "screened-transport-20261028-v1"
