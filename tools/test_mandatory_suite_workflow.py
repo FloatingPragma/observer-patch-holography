@@ -38,6 +38,7 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "code/geometry/test_collar_scaling_boundaries.py",
     "code/thermodynamics/test_collar_stationary_regressions.py",
     "code/thermodynamics/test_exact_count_chain_controls.py",
+    "tools/test_check_docs_policy.py",
 )
 
 
@@ -238,6 +239,10 @@ def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
             "Verify numerical recovery bounds without optional hardware SDKs",
         }:
             assert step["if"] == "matrix.shard == 0"
+        elif step.get("name") == "Check the documentation policy on changed files":
+            assert step["if"] == (
+                "github.event_name == 'pull_request' && matrix.shard == 0"
+            )
         else:
             assert not step.get("if")
     assert not any("download-artifact@" in step.get("uses", "") for step in job["steps"])
