@@ -148,11 +148,11 @@
     "model/common_spin_protection/test_spin.py": "53575363bca54fe15f5b1e7d04ae246cf2e0dad8a54a65b6b07062c39fb55bc4",
     "model/completion/acceptance_audit.py": "1a6d3bf4eac80d9e398e52b9ca7a3d35fb99672f11961c4ac2ef9c9d17c31b78",
     "model/completion/common_action_campaign.json": "dd0ae22c9c5184453501f70f383dda08562eeba0c2fa2f4c398c07fe83b8e8d6",
-    "model/completion/component_interfaces.json": "245a00ba33e188079cd440549f85f4eb0333eb78a67e83fd4b0a814d6ca00532",
+    "model/completion/component_interfaces.json": "ce0528bc6526c899ad47e8a7402d61187fb2bdfc40b0239cce2c3c2c8ab57416",
     "model/completion/continuing_spectrum_campaign.json": "c2da42adec941688f95f57584e4a7e88e90f1b932817d321b46344a02f48b082",
     "model/completion/continuum_field_campaign.json": "f7fd154f99dd54acf3212091847d81cb46b8a40943ea3fc9a9b759e803138679",
-    "model/completion/finite_attachment_map.json": "3ec8949f5756e5d825b2ddacc01e51c693ab9ebf148c75ba6e5a39522857f78d",
-    "model/completion/finite_attachment_map.py": "f7efc9255a677a69e02a55e8523d7119f238244a08b7f7862b928a0e682ae762",
+    "model/completion/finite_attachment_map.json": "690ddf46ac3516eea24010fb298981f213ed07f9003a66340382db70300eca91",
+    "model/completion/finite_attachment_map.py": "fa9d6ef0e24b8e845fe9c15a049ca675605b448f58601c577c557660cc84cb0b",
     "model/completion/ground_response_campaign.json": "11383b9d22ddcf0b0a68af0ec3cf66b8465d71a00c7d03cc2d2acc3476c7048c",
     "model/completion/independent_program_review.py": "ec4e30b6e7c858538fa391db84a40a770f829c54d987dd2b147d22fdd40153ac",
     "model/completion/interacting_mass_campaign.json": "599ea06cf997a40a027ccfa78f2c430466b1a6e6c428e5e9487e0ad0b9b8c29c",
@@ -162,7 +162,7 @@
     "model/completion/resolved_relativistic_campaign.json": "466029fec475af6be16a5a0c93987fa67c61ed8e80557ba111c02bc956e4a9be",
     "model/completion/spectral_precision_campaign.json": "ecebf08fda3970f1d23c8b61be40c0b29ba7237ed7c595040bccfdd52840ffd7",
     "model/completion/test_acceptance_audit.py": "eefeb82b3db0bf89f4e1d049ad5aa30b0461c51eef497d22d5c8842a05a432c8",
-    "model/completion/test_finite_attachment_map.py": "c44e153199b7c0e5dce13b697aecca391e7c6f5fcde1ee9c92682c69cf21fdad",
+    "model/completion/test_finite_attachment_map.py": "38becb2e31ccd6ad278cdc5c922a377e83624444b3c4c569e1afedc151cdc71a",
     "model/completion/three_dimensional_campaign.json": "4be3217bbb44b98d87772170c0f9ec40c8da9df33e8fc79628655f4a18dbf1af",
     "model/contact_continuum/README.md": "49714ba73687eb5a4e19df2d98aaaeee2f80ae74fdfbc0a858d9df00d4efb7b0",
     "model/contact_continuum/__init__.py": "9bce8fd6612528240ca81500123c9da27493a110b283634f78e0e8d5c9ec8f58",
@@ -678,7 +678,11 @@
     "model/centered_source_ground/gap.py": "fd5b1943cc39858897e49d8c955abdbf95a457349031cdee272764ec3e29fb83",
     "model/centered_source_ground/particles.py": "485d6fcae5d28ad07c8e0093004ac7603dcb56a1cdf0b8c2c50796cd6bdb913a",
     "model/centered_source_ground/test_gap.py": "7ac8ab4d65fa88ed9fb32cab946348f2d4b9864f6fa938087fc4851d95f1b45f",
-    "model/centered_source_ground/test_particles.py": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f"
+    "model/centered_source_ground/test_particles.py": "9ab4f6fd2534261eb2459eb7660198940d87237982e2fedbde991a62b14bd85f",
+    "model/completion/source_premise_campaign.json": "76ff1ab5793dd10f302a2c45744087a5296ebab9c41bd37be626799e67aaa509",
+    "model/completion/source_premise_campaign.py": "2b413ac93b196839d4bf406f6edafeba0a2260c3b3c2ec7faab8cbc5fcfe4d50",
+    "model/completion/test_source_premise_campaign.py": "4d35622d9664130c8985f5aff532d8880bdd8ca0b841424fb650f31b874b16ad",
+    "Lean/QFT/FiniteModularInclusion.lean": "bf6ab2f70bc66df67f1c975bd07a73896dccc29edef9f8dc61431b668c4bf668"
   },
   "verdict": "PASS",
   "audit_refresh": {
@@ -3162,25 +3166,54 @@
   "prior_main_review_preserved_at": "6da54cd8020ba1bba46f9e5bdc33309bbe5ddcd7",
   "historical_validation_notice": "The original review_date, checks, independent_channel_check and prior navigation/maintenance sections below retain their historical scope and counts. Current custody is renewed separately; those counts are not presented as fresh executions.",
   "current_custody_renewal": {
-    "date": "2026-11-02",
-    "historical_review": {
-      "path": "model/completion/historical/program_class_v2_review_before_current_research_20261102.json",
-      "sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472"
-    },
-    "historical_snapshot_metadata": "model/completion/historical/program_class_v2_review_before_current_research_20261102.metadata.json",
-    "contract_delta": {
-      "baseline": "412165b0380914681ff96908bd6624d0f6a7607a",
-      "changes": [],
-      "current_contract_digest": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+    "date": "2026-11-04",
+    "previous_live_review_sha256": "68006d023aa2584cf6d5384aa785f65b25694d871b88d2397340d35faf5ff643",
+    "previous_custody_renewal": {
+      "date": "2026-11-02",
+      "historical_review": {
+        "path": "model/completion/historical/program_class_v2_review_before_current_research_20261102.json",
+        "sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472"
+      },
+      "historical_snapshot_metadata": "model/completion/historical/program_class_v2_review_before_current_research_20261102.metadata.json",
+      "contract_delta": {
+        "baseline": "412165b0380914681ff96908bd6624d0f6a7607a",
+        "changes": [],
+        "current_contract_digest": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+        "class_rules_changed": false,
+        "adoption_status_changed": false
+      },
+      "scope": "Renew the exact same finite class after source-reviewed receipt regeneration on published main412165b03. The current theorem map has109 reviewed domains and104 realized finite domains. No canonical physical premise, gate status, resource ceiling or source law is promoted.",
+      "source_review": "Every changed current receipt is produced and independently cold-checked; current source pins and complete archived outputs are validated. Historical packet snapshots retain their original bytes.",
+      "validation_record": "model/completion/merged_pr_custody_validation.json",
+      "validation_record_role": "Separate current validation record; no recursive hash in this class signature.",
+      "canonical_physical_premises_discharged": [],
       "class_rules_changed": false,
-      "adoption_status_changed": false
+      "gate_statuses_changed": false
     },
-    "scope": "Renew the exact same finite class after source-reviewed receipt regeneration on published main412165b03. The current theorem map has109 reviewed domains and104 realized finite domains. No canonical physical premise, gate status, resource ceiling or source law is promoted.",
-    "source_review": "Every changed current receipt is produced and independently cold-checked; current source pins and complete archived outputs are validated. Historical packet snapshots retain their original bytes.",
-    "validation_record": "model/completion/merged_pr_custody_validation.json",
-    "validation_record_role": "Separate current validation record; no recursive hash in this class signature.",
+    "scope": "Same executable class contract and acceptance statuses; current map has115 reviewed domains and110 realized scoped domains. Six source-specific components support issues1138,1139,1142,1143,1145. This renews current map and aggregate custody without reasserting historical scientific executions or promoting an interacting QFT/Einstein gate.",
+    "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+    "current_checks": [
+      {
+        "command": "python -m model.completion.finite_attachment_map --check",
+        "canonical_premises": 84,
+        "realized_scoped_domains": 110,
+        "verdict": "PASS"
+      },
+      {
+        "command": "python -m model.completion.source_premise_campaign --check",
+        "reviewed_components": 6,
+        "verdict": "PASS"
+      },
+      {
+        "command": "python -m pytest -q -W error model/completion/test_finite_attachment_map.py model/completion/test_source_premise_campaign.py",
+        "passed": 33
+      }
+    ],
+    "validation_record": "model/completion/source_premise_campaign.json",
+    "validation_record_role": "Source-bound component and non-composition contract; no recursive hash in this class signature.",
     "canonical_physical_premises_discharged": [],
     "class_rules_changed": false,
-    "gate_statuses_changed": false
+    "gate_statuses_changed": false,
+    "historical_scientific_receipts_rewritten_by_this_review": false
   }
 }

@@ -1,0 +1,17 @@
+{
+  "schema": "oph.adaptive_sweep_reference.contract.v1",
+  "source": "unchanged twelve-port native C/E total-two carrier",
+  "boundary_algebra": "direct_sum_4 M66",
+  "full_input_algebra": "direct_sum_4 M78",
+  "selector_zero": "C in increasing source seam order",
+  "selector_one": "E in reverse source seam order",
+  "feedback": "advance the two-bit memory using the first raw record of each complete sweep",
+  "fine_records": "all seventeen raw slots at every event, including zero and outside slots",
+  "phase": "thirty classical phases, advanced deterministically",
+  "comparison": "field and working memory at a common sweep boundary, with archive traced",
+  "admitted_initial_states": "arbitrary CQ densities, including arbitrary untouched quantum references",
+  "interleaved_field_Hamiltonian": false,
+  "nontrivial_modular_clock": false,
+  "canonical_physical_discharge": false,
+  "integrated_gate_acceptance": false
+}

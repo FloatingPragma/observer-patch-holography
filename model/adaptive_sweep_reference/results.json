@@ -1,0 +1,180 @@
+{
+  "all_pass": true,
+  "canonical_physical_premises_discharged": [],
+  "contract": {
+    "admitted_initial_states": "arbitrary CQ densities, including arbitrary untouched quantum references",
+    "boundary_algebra": "direct_sum_4 M66",
+    "canonical_physical_discharge": false,
+    "comparison": "field and working memory at a common sweep boundary, with archive traced",
+    "feedback": "advance the two-bit memory using the first raw record of each complete sweep",
+    "fine_records": "all seventeen raw slots at every event, including zero and outside slots",
+    "full_input_algebra": "direct_sum_4 M78",
+    "integrated_gate_acceptance": false,
+    "interleaved_field_Hamiltonian": false,
+    "nontrivial_modular_clock": false,
+    "phase": "thirty classical phases, advanced deterministically",
+    "schema": "oph.adaptive_sweep_reference.contract.v1",
+    "selector_one": "E in reverse source seam order",
+    "selector_zero": "C in increasing source seam order",
+    "source": "unchanged twelve-port native C/E total-two carrier"
+  },
+  "controls": {
+    "dropping_E_histories_leaves_zero_minorization": true,
+    "first_record_feedback_coin_numerators_over2": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "global_archive_stationarity_claimed": false,
+    "initial_phase_zero_stays_phase_zero_at_sweep_boundaries": true,
+    "next_selector_depends_on_actual_source_record": true,
+    "nontrivial_modular_or_physical_clock_claimed": false
+  },
+  "finite_preparation_budgets": [
+    {
+      "full_78_state_input": false,
+      "half_trace_bound": "3759906298742889250569754910216642695919097257252472286572298320369285713775576754727468965666768207758504567343646366231083506479741775318176839474221458159882628047881912144881338086894764028496122502483437138271163620592773068375438776195787682476725643708041729495277698304599375957239/4989600773836799529140931782592096415168628151088643853756368106093029729672410164462394913731589252723356117110481238109931094970983984151847929495712078550800014182377714191293844303610907467956633391861359809983327026137802175972222138171120110393767802267189390104105896238075860024819712",
+      "native_attempts": 2280,
+      "requested_tolerance": "1/1000",
+      "sweeps": 76
+    },
+    {
+      "full_78_state_input": true,
+      "half_trace_bound": "3759906298742889250569754910216642695919097257252472286572298320369285713775576754727468965666768207758504567343646366231083506479741775318176839474221458159882628047881912144881338086894764028496122502483437138271163620592773068375438776195787682476725643708041729495277698304599375957239/4989600773836799529140931782592096415168628151088643853756368106093029729672410164462394913731589252723356117110481238109931094970983984151847929495712078550800014182377714191293844303610907467956633391861359809983327026137802175972222138171120110393767802267189390104105896238075860024819712",
+      "native_attempts": 2310,
+      "requested_tolerance": "1/1000",
+      "sweeps": 77
+    },
+    {
+      "full_78_state_input": false,
+      "half_trace_bound": "9166147302422099608279131059796944886622276097032654083678987610754873796589632317657808620787869737779744580936935859812718432471847993348198226658363232204111399712364033622104686886583259603245733014288967778686874946420975872912979759835924094778608857854475076012470990666591262100314863267455014686041956136659630596697212923872221011945956315469413395118272700074374319055448002778074975931450655327614517840182530719034097892924261556244995569257805213219883465272353926938587985307771700729452532334260403244287164715102550058476287372258289969644483719/11056096430494117248508830519379695177857353193066678562061972488950142437440347144741773070804903402013348979920612170754591791954364012842317232685387056562698849312545754688133831938686519319291297501523428571186664165950161330599020675978909469089371781269182810684095073609922096024243068247962639199331436596975390743020579069274269527692549154831400064410188637040094087279104338977273488739304373367277507274267313279669197166667012848539703675430880952197246051759099148853133067022709331937367957325144770850485409483753396666690767024207230529043428202774528",
+      "native_attempts": 4440,
+      "requested_tolerance": "1/1000000",
+      "sweeps": 148
+    },
+    {
+      "full_78_state_input": true,
+      "half_trace_bound": "9166147302422099608279131059796944886622276097032654083678987610754873796589632317657808620787869737779744580936935859812718432471847993348198226658363232204111399712364033622104686886583259603245733014288967778686874946420975872912979759835924094778608857854475076012470990666591262100314863267455014686041956136659630596697212923872221011945956315469413395118272700074374319055448002778074975931450655327614517840182530719034097892924261556244995569257805213219883465272353926938587985307771700729452532334260403244287164715102550058476287372258289969644483719/11056096430494117248508830519379695177857353193066678562061972488950142437440347144741773070804903402013348979920612170754591791954364012842317232685387056562698849312545754688133831938686519319291297501523428571186664165950161330599020675978909469089371781269182810684095073609922096024243068247962639199331436596975390743020579069274269527692549154831400064410188637040094087279104338977273488739304373367277507274267313279669197166667012848539703675430880952197246051759099148853133067022709331937367957325144770850485409483753396666690767024207230529043428202774528",
+      "native_attempts": 4470,
+      "requested_tolerance": "1/1000000",
+      "sweeps": 149
+    }
+  ],
+  "full_carrier_mixing": {
+    "CP_minorization": "Phi^4-alpha D is completely positive; D(X)=Tr(X) I264/264 on direct_sum_4 M66",
+    "CQ_algebra_complex_dimension": 17424,
+    "arbitrary_phase_inputs_mix_to_uniform_phase": false,
+    "arbitrary_reference_half_trace_bound": "(1-alpha)^floor(n/4) times the initial half trace distance",
+    "archive_traced_in_mixing_comparison": true,
+    "depolarizing_weight": "709505662292889/2251799813685248",
+    "depolarizing_weight_lower": "3/10",
+    "depolarizing_weight_upper": "1/3",
+    "elementary_phase_period": 30,
+    "minimum_measured_path_counts_by_sweep": [
+      0,
+      0,
+      0,
+      1586432651050269168489450503667712
+    ],
+    "native_attempts_per_sweep": 30,
+    "nontrivial_boundary_spectrum_radius_upper": "(1-alpha)^(1/4)",
+    "population_denominator_per_sweep": 1073741824,
+    "population_dimension": 264,
+    "population_numerator_sha256": "89a9f9284a7ef5b29b3bafbf58555d6132df6ac94124e24361e88c18404ce813",
+    "rank_one_path_count_sha256": "2c71e30c024b8e0bd23d5ac3531659cf78318a4288f582881db578814b9596ba",
+    "rank_one_path_denominator": 1329227995784915872903807060280344576,
+    "stationary_elementary_reference": "I7920/7920 on direct_sum_120 M66, including thirty classical sweep phases",
+    "stationary_reference_modular_automorphism": "identity",
+    "sweeps_per_minorization": 4,
+    "unique_stationary_boundary_reference": "I264/264 on direct_sum_4 M66"
+  },
+  "gates": [
+    "CP-02"
+  ],
+  "integrated_gate_accepted": false,
+  "issues": [
+    1138
+  ],
+  "memory": {
+    "all_68_memory_record_pairs_checked": true,
+    "complete_record_slots": 17,
+    "controller_reads_field_loads_or_hidden_state": false,
+    "forward": "(c,d),r -> (d XOR (coin XOR (raw mod2)),c); outside uses f=0",
+    "incoming_selector_at_output_u_v": "v for every retained record",
+    "inverse_given_record": "(u,v),r -> (v,u XOR f(r))",
+    "supplied_classical_controller_law_not_quantum_source_compilation": true,
+    "working_bits": 2,
+    "working_memory_erasure_or_reset_per_tick": false,
+    "working_states": 4
+  },
+  "schema": "oph.adaptive_sweep_reference.v1",
+  "source_attachment": {
+    "E_distinct_pair_survivors_after_each_attempt": [
+      4290,
+      2250,
+      1094,
+      672,
+      630,
+      390,
+      390,
+      390,
+      230,
+      230,
+      126,
+      126,
+      126,
+      60,
+      60,
+      60,
+      60,
+      20,
+      20,
+      20,
+      20,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "absorption_is_complete_output_support_without_postselection": true,
+    "all_native_instruments_complete": true,
+    "all_native_records_partial_injections": true,
+    "binary_instruments_unital": true,
+    "checked_raw_maps": 2040,
+    "every_fine_E_sweep_record_has_rank_at_most_one": true,
+    "full_carrier_support_after_C_and_E_sweeps": [
+      66,
+      66
+    ],
+    "independent_current_contrast_labels_agree": true,
+    "source_dimensions": [
+      78,
+      66
+    ]
+  },
+  "source_sha256": {
+    "Lean/QFT/AdaptiveReference.lean": "9fe1949842d5190e9dda73e0fccfa62a9eb17b42af3703edc8766bc2e4a80c16",
+    "model/adaptive_reference/controller.py": "07287f6cb300df4216b64dde83e7cd339eb9203ceae1fd82ccc3f8f487f32ffc",
+    "model/adaptive_sweep_reference/PROOF.md": "e289b77142a546356675cc9eee127ef0b9d1bf0429ebf1a95e9eb57a87859705",
+    "model/adaptive_sweep_reference/README.md": "8b402d7c4b507bf92d7c2ec88a1b28984a471eddb3a041d880f50970e9383b52",
+    "model/adaptive_sweep_reference/__init__.py": "542d2c84ad0e6dafb5cf2e3775c455e28665660898cac16bb8bd0c61d8062e58",
+    "model/adaptive_sweep_reference/__main__.py": "82ee912c1465909df856bf22198ebac07d213e44ff7bc72edce6c34e5ff51728",
+    "model/adaptive_sweep_reference/contract.json": "b84dc8011aa868ee4daf9c00011bdadf3d8de4db8262e67f8ecd40ee574b7af6",
+    "model/adaptive_sweep_reference/reference.py": "79bfef91b29e7149205aeccfc745dbe826ca3157d6cf965205c0bbd7924dbaa6",
+    "model/adaptive_sweep_reference/test_reference.py": "a2d018539c6cd81bfb91c064f85091c311e024f98feb5968ca74246d3d0d479d",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb"
+  }
+}

@@ -371,6 +371,12 @@ REPLAYS = (
     ("model.native_program.receipt", None, "model/native_program/results.json"),
     ("model.particle_screening.mobile_packet", None,
      "model/particle_screening/mobile_results.json"),
+    ("model.adaptive_sweep_reference", None, "model/adaptive_sweep_reference/results.json"),
+    ("model.one_particle_search", None, "model/one_particle_search/results.json"),
+    ("model.bipartite_spin_limit", None, "model/bipartite_spin_limit/results.json"),
+    ("model.finite_modular_inclusion", None, "model/finite_modular_inclusion/results.json"),
+    ("model.finite_area_response", None, "model/finite_area_response/results.json"),
+    ("model.moving_contact_scattering", None, "model/moving_contact_scattering/results.json"),
 )
 
 
