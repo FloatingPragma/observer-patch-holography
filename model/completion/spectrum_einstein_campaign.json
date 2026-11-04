@@ -1,0 +1,162 @@
+{
+  "schema": "oph.spectrum_einstein_campaign.v1",
+  "campaign_id": "OPH-SPECTRUM-EINSTEIN-CLOSURE-2026-11-04",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "canonical_premises_discharged": [],
+  "integrated_gate_accepted": false,
+  "common_interacting_QFT_and_Einstein_model": false,
+  "selected_issues": [
+    1139,
+    1142,
+    1143,
+    1145,
+    1146
+  ],
+  "objective": "Identify the conditional bulk and defect spectrum, control nonlinear textures of the actual ordered spin ground, and derive quantitative Einstein tensor balance from one matched regional source interface.",
+  "specification_readout_allowed": true,
+  "specification_policy": "Simulator, observer, scheduler, repair and memory specifications are admitted inputs. Their source-selected spectra and regional limits require proofs under the displayed state, clock and refinement assumptions.",
+  "component_results": [
+    {
+      "id": "topological_defect_spectrum",
+      "attachment": "FA-120",
+      "issues": [
+        1139,
+        1142,
+        1143
+      ],
+      "result": "The full source has two Dirac copies per uniform gap |m0+r| and |m0-r|, r=|m|, including two massless and two massive copies at m0=|m|>0. For the supplied bounded constant-magnitude radial hedgehog, the complete subgap point spectrum is zero with multiplicity two and +/-m*sqrt(1-1/n^2), n>=2, each sign with multiplicity 2*n^2; essential spectrum lies outside (-m,m). The explicit smooth hedgehog also has exactly two zero modes. Hedgehog/antihedgehog chiral indices are +2/-2 on their gapped domains. The independent linear continuum texture has +/-sqrt(2*v*kappa*q), q>=1, each signed multiplicity 4*q^2+2, plus two zeros. Original-lattice Bessel zero modes are exact and exhaustive; a complete Jacobi tensor reduction retains every sign, coordinate and coincident energy, with six certified infinite-lattice positive levels. In the supplied 27-site linear texture, the original centered interaction compresses exactly to C+(U/8)[n1*n2-(n1+n2)/2]. With w=27U/4 and epsilon=w^2/(6/5-2w), its complete-Fock error bound gives an exact Kramers ground doublet and particle-hole-related charged gap in U/16+/-2epsilon. At U=1/65536 the gap lies in [9.3599070381e-7,9.7135792901e-7] source units. These finite interacting energies are not identified with continuum Coulomb levels. For the bounded radial texture on the original lattice, every neighborhood of a fixed continuum gap level contained in (-m,m) contains at least the continuum multiplicity of lattice eigenvalues for every sufficiently small spacing: at least two near zero and at least 2*n^2 near each signed Coulomb level. This is a source-bound spectral inclusion, with no exclusion of extra lattice levels and no exact finite-spacing zero claim for the bounded profile.",
+      "interface": {
+        "state": "The complete sixteen-component continuum carrier from all eight native Weyl valleys, with explicitly supplied scalar/spin mass profiles. The exact original infinite lattice linear texture retains both onsite spin rows. The interacting theorem uses the full 27-site, 54-mode Fock carrier: all 26 negative one-body modes filled, both zero orbitals arbitrary, and every other Fock state retained in the complement bound. The source does not select or prepare the texture here.",
+        "algebra": "The original folded kinetic and four native onsite mass matrices, the complete three-mode internal Clifford CAR representation with multiplicity two, the original nearest-neighbor two-spin lattice algebra, and the full centered-contact finite Fock algebra. The comparison chiral grading is proved from these matrices; its preservation by native repair is not asserted.",
+        "operation": "Conditional quadratic generators H=-iv gamma.grad+beta.grad(W), with W=m|x| for the complete bounded Coulomb subgap spectrum, W=m(sqrt(|x|^2+ell^2)-ell) for smooth zero modes, and W=kappa|x|^2/2 for the confining oscillator. The original lattice has c=v/a and supplied staggered spin mass kappa*a*sum_j n_j*(-1)^n_j*sigma_j. On the stated 27-site cube the unchanged U sum_x(n_up-1/2)(n_down-1/2) is retained and controlled on the entire Fock carrier. The bounded original-lattice profile B_n=m*sum_j(n_j/|n|)*(-1)^n_j*sigma_j, B_0=0, is also retained on the complete original carrier and directly attached to the radial continuum spectrum.",
+        "clock": "The original source energy/time convention, c=v/a for lattice velocity v; no reflected band-edge clock is imported. The finite core subtracts only its fixed filled-negative-sea energy. Parameters and physical energy units are uncalibrated, and energy of an autonomous texture-forming field is not supplied by the fermion spectrum.",
+        "refinement": "Exact continuum operators at the stated profiles and exact original-lattice spectral reduction. For the bounded radial hedgehog, sigma_ess(H_a) is exactly [-sqrt(m^2+3v^2/a^2),-m] union [m,sqrt(m^2+3v^2/a^2)]. The all-eight-valley map J_a f(n)=a^(3/2)*sum_b(-1)^(b.n)*f_b(an) has convergent finite Gram matrices and O(a^2) kinetic consistency on smooth compact fields away from the core. Graph-core approximation and spectral projection imply that every fixed continuum gap level is approached, for all sufficiently small a, by at least its continuum multiplicity of actual lattice discrete eigenvalues. No reverse inclusion, additional-level exclusion, exact bounded-lattice zero mode, or global spectral rate is claimed. The uniform tuning m0=|m| closes the essential gap; the hedgehog index theorem instead uses m0=0,m>0. These remain distinct regimes."
+      },
+      "remaining": [
+        "Source-ground selection, autonomous formation and preparation of the supplied mass texture, including its profile, response and own finite rest energy.",
+        "A single controlled interacting relativistic continuum with the required massive/massless sectors and a common defect regime; the gapless bulk tuning and the gapped hedgehog index theorem are separate domains.",
+        "Two-sided lattice-to-continuum spectral classification, exclusion of additional lattice gap levels, uniform spectral convergence rates, thermodynamic interacting defect stability, and a native complete detector/repair-protection theorem for these defect modes.",
+        "Measured particle species, physical charge and Lorentz-spin assignments, calibrated energy units, and a common stress/regional entropy/Einstein geometry identification. No completion gate or physical comparison is accepted."
+      ],
+      "evidence": {
+        "model/topological_defect_spectrum/CORE_PROOF.md": "9ce44ce728b30a1a07c36be91e1725bc5031d134cb58b8fe96fc95655f06a2a2",
+        "model/topological_defect_spectrum/PROOF.md": "4cfa6600938ddf4b9a6595f4d98b04cce6457f9ba5bd408a4964687788f86d67",
+        "model/topological_defect_spectrum/README.md": "2bc87eb32bfc401892ee8470208163ce593439c9855e89f6142a11d4f5a086e5",
+        "model/topological_defect_spectrum/__init__.py": "5787a46eb22b57b221d7e166902b9c4291f10b0cfdbd2a8214f0bec230bf48ea",
+        "model/topological_defect_spectrum/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/topological_defect_spectrum/algebra.py": "e42ca993b8bdb1a3a1d28a47f27010f2d7ac59f5172621c0cc9625b21905fab6",
+        "model/topological_defect_spectrum/bulk.py": "b3bda8bc8a256a8c9e172aa335c293ded037d6e3222330a7b0d367b05d6fa0f0",
+        "model/topological_defect_spectrum/core.py": "3567358b12b7073c74e4bc11c9252f6f87a00e97ad0444af31f2063761107691",
+        "model/topological_defect_spectrum/lattice.py": "d61cd13787d4c6839386c85737a5b27ee2dffcd35f6b2828e809e5bedabd834a",
+        "model/topological_defect_spectrum/lattice_bounds.py": "fd8956940eb1f3b19a044fc41d09b62937cae26c654c8d1112fb47125bddfbd1",
+        "model/topological_defect_spectrum/packet.py": "55515c0c06d5ca5a5b0fae743126803d8e3284af0b216b686f0bd11513bfbe42",
+        "model/topological_defect_spectrum/results.json": "da86493e276d12788f57c7873e13a9fe1ad7025397ecb6bf0a71bbd4149c3b6f",
+        "model/topological_defect_spectrum/sampling.py": "783951dc8d9f19e2cd652c167a6893c420bf49461bb8697170cb0e644eedd2cd",
+        "model/topological_defect_spectrum/spectral_witness.json": "8e3729ed52ecd21fc70964361339b0bb32faefd8765b7656a808c4f3a1d9e9dd",
+        "model/topological_defect_spectrum/test_algebra.py": "7c1c8b2b5754467034e699cb2769e7a24965bb7e1ab8df920e3a17f9ffb96853",
+        "model/topological_defect_spectrum/test_bulk.py": "c96ef096384b2849238495b5eb51cdcabfd466e0eb201986375e72d6e23d82bd",
+        "model/topological_defect_spectrum/test_core.py": "3aff2ffa7490d395aaa33d904264c4c1770a020c442f031182f03af6ca0da477",
+        "model/topological_defect_spectrum/test_lattice.py": "0827d4612ded4a71720ebb26ded68686929040f4a967931815d045d12c0984b4",
+        "model/topological_defect_spectrum/test_lattice_bounds.py": "35b51254d78b7d253173cb1a4c39e8996a05abb876571bb7e5af0ced214e5807",
+        "model/topological_defect_spectrum/test_packet.py": "fbbb59be4254a84e34fb0808e40ab49517d62b24bfaafed5f1a9e082406bff7b",
+        "model/topological_defect_spectrum/test_sampling.py": "f98b58e94316904434955ef63cf9291e9aad429bdf49edc6d9400956e83dbc1d"
+      }
+    },
+    {
+      "id": "spin_texture_energy",
+      "attachment": "FA-121",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "For every finite rotation texture of the actual ground, DeltaE=J sum Tr[C(Rx^T Ry-I)] and DeltaE>=(J kappa/2) sum|nx-ny|^2, kappa>=m^2/2. The second frame term is also nonnegative. Smooth compact Hopf textures have DeltaE=L E_cont+O(1), E_cont>0, while radial hedgehog orbit approximants obey liminf DeltaE/L>=4pi J kappa. These are source-specific nonlinear energy identities and scoped energetic boundaries on explicit topological texture families.",
+      "interface": {
+        "state": "The same actual infinite-volume axis1-staggered-field-selected zero-field Heisenberg ground with order m>1/1000 and nearest-bond tensor diag(a,b,b). Textures are explicitly finite local-unitary rotations of this quantum ground, without a product-Neel approximation or minimization over all magnetization-compatible states.",
+        "algebra": "Complete spin-1/2 local matrix algebra and its quasilocal infinite-lattice completion. The constructed homogeneous ground orbit is S2=SO3/SO2, with the source symmetry conventions retained; translation n to minus n is not a gauge quotient.",
+        "operation": "Exact finite onsite SO3 rotations and full bond-energy evaluation. Ground positivity gives b<=0; quaternion/Rodrigues identities yield the nonnegative direction-gradient and local-frame contributions. C3 compact texture rescaling has an explicit O(1/L) static Riemann/Taylor error. Compact Hopf lifts and radial hedgehog direction maps label specific texture families.",
+        "clock": "Fixed-J original spin-source energy; separately the existing soft clock K/(Jp), p=1/L. The Hopf family has an energy expectation proportional to L in the first clock and L squared in the second. Diverging mean energy alone does not exclude finite-energy weak spectral components.",
+        "refinement": "Fixed-spacing finite local rotations, followed by controlled long-wavelength static profiles R(x/L). No time-dependent nonlinear sigma model, relaxed effective action, defect spectral pole or spatially refined interacting relativistic QFT is obtained."
+      },
+      "remaining": [
+        "A source-selected finite-energy defect state and its self-consistent mass background, including quantum states outside this local-unitary orbit.",
+        "Spectral concentration, stable defect particle modes, interactions/scattering and a common relativistic continuum with massive and massless sectors.",
+        "A common responsive geometry, regional entropy/stress law and Einstein dynamics."
+      ],
+      "evidence": {
+        "model/spin_texture_energy/PROOF.md": "f6f6797da961242aa825e78421635a559f6c213efc7cf84a166973e8d6f55248",
+        "model/spin_texture_energy/README.md": "d2831332a873b72664b050937b847fb4962b61de0af0238a5c392eb163553969",
+        "model/spin_texture_energy/__init__.py": "5951ab19d63ee7be93e6e191e638390a2ff84c6edd792062108608b9112940f0",
+        "model/spin_texture_energy/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/spin_texture_energy/energy.py": "f7d942292c07643bad55c3a1bd868649dbb42945488c9568e31f1c6aec582025",
+        "model/spin_texture_energy/packet.py": "9515a02b43372af57063343e81fb279864b6f44a9dd9f8e3c6921485507f7795",
+        "model/spin_texture_energy/results.json": "d2b479cb37bc361b4b28d26c1ad1954cb90895329604df098b5265a0931dd8b1",
+        "model/spin_texture_energy/test_energy.py": "477515823755d4d157110aeb8fd73cf43786c8faf8fe1b4469a64e0a69b86c2a"
+      }
+    },
+    {
+      "id": "matched_einstein_limit",
+      "attachment": "FA-122",
+      "issues": [
+        1145,
+        1146
+      ],
+      "result": "Ten rational unit timelike probes have an exact inverse with sharp coordinate infinity norm17/8. The matched regional estimates imply max|G+Lambda g-(2pi/eta)T|<=255(e_bulk+eta e_area+e_stationarity)/(32pi eta ell^4). Common normalized errors tending to zero yield the tensor equation without a separate null-balance premise; constant coupling, Ward/Bianchi and connectedness imply constantLambda. The universal conditional algebra, residual, convergence and conservation steps are Lean checked.",
+      "interface": {
+        "state": "Any single admitted source-state/refinement family satisfying the displayed regional entropy, actual fixed-volume area, actual curvature and same-action stress bounds. This is a universally quantified conditional theorem; no executable regional premise inhabitant is constructed.",
+        "algebra": "Symmetric real four-tensors in a common orthonormal Lorentz tetrad, with ten explicitly future-unit-timelike probes. Regional algebras, faithful references, edge-center split and source stress identifications are supplied matched inputs.",
+        "operation": "Exact ten-probe contraction and rational inversion; common entropy/area residual combination; scaling limit with all three errors o(ell^4); independent Ward/Bianchi contraction. Actual finite deficits imply the nonlinear relation; one-vacuum first derivatives imply only the linearized relation.",
+        "clock": "One source-derived proper-time normalization fixes the modular factor2pi and action stress in all ten frames. The positive limiting area coefficient is spacetime-independent; G_N=1/(4eta_*) in hbar=c=1 units. No fitted time or Newton scale is supplied by the finite examples.",
+        "refinement": "One cofinal shrinking proper-radius family with positive area coefficient limit and matched metric/stress/entropy readouts. Actual metric curvature identification and local C2 convergence or an equivalent curvature bound are explicit hypotheses. Finite profile controls prove no source refinement."
+      },
+      "remaining": [
+        "An executable common source supplies the regional entropy, edge-area normalization, true fixed-volume stationarity and actual matter stress on the required geodesic slices.",
+        "A same-state metric/curvature and stress refinement with common proper clock, positive universal eta and controlled small-ball remainders.",
+        "For nonlinear Einstein dynamics, actual finite-deficit balance or a justified integration theorem over admitted states; first variations at one vacuum are insufficient.",
+        "A common interacting relativistic quantum field theory, selected defect states and responsive Einstein geometry with physical identification."
+      ],
+      "evidence": {
+        "model/matched_einstein_limit/PROOF.md": "4068c59b0a3bdca143e06b5f50a338623b4810d0f20444364c4a7eac86030738",
+        "model/matched_einstein_limit/README.md": "66cf0a97982068f1ee37eef033b0e98c9a455d8a36796843ca7413af01d81f9f",
+        "model/matched_einstein_limit/__init__.py": "6688c47445906669bbfdc09d21a599a74d84a74ac2fe42f10939588f2a901e4e",
+        "model/matched_einstein_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/matched_einstein_limit/frame.py": "c6b8923316be288842746f92fb7d99063f2e39bf44c6e2c8b00d98d208bee25e",
+        "model/matched_einstein_limit/packet.py": "a1333f72808e4b634514e821602911f184494e85c47de1848ae1e14cb4e1f739",
+        "model/matched_einstein_limit/results.json": "58074adb67fa3572bc9892b20b42053328e6fa50d4ef9170249cf35828d5eeb4",
+        "model/matched_einstein_limit/test_frame.py": "344fe966c6f6937ab2b83985d450f2a12d288243b51ed8a095e61c3ca0e67e9e",
+        "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean": "f0631f3c7a5ed129984d8831cc957aed870a0e63a19a4dd31e0c358081d11ecc"
+      }
+    }
+  ],
+  "composition_boundary": {
+    "automatic_cross_domain_join": false,
+    "common_state_reference_constructed": false,
+    "common_clock_and_refinement_constructed": false,
+    "distinct_domains": [
+      "topological_defect_spectrum",
+      "spin_texture_energy",
+      "matched_einstein_limit"
+    ],
+    "reason": "Supplied fermion mass textures, local rotations of an ordered spin ground and a conditional regional gravity interface have no proved common selected source state or refinement. Their scoped conclusions cannot establish a single interacting relativistic particle and Einstein model."
+  },
+  "conditional_interfaces": {
+    "supplied_texture_has_conditionally_identified_spectrum": true,
+    "massless_bulk_and_gapped_defect_regimes_distinct": true,
+    "all_eight_native_valleys_retained": true,
+    "full_Fock_virtual_core_complement_retained": true,
+    "texture_energy_is_actual_ground_orbit_result": true,
+    "same_source_regional_Einstein_implication_proved": true,
+    "texture_energy_proves_stable_defect_particle": false,
+    "ground_texture_self_consistently_supplies_Dirac_mass": false,
+    "native_repair_protects_defect_spectrum": false,
+    "regional_Einstein_premises_instantiated": false,
+    "finite_thermal_eta_is_universal_Newton_coefficient": false,
+    "single_vacuum_tangent_proves_nonlinear_Einstein": false,
+    "physical_particle_identification": false,
+    "one_common_interacting_QFT_and_responsive_Einstein_source": false,
+    "spectrum_domain": "A supplied signed scalar or vector mass texture fixes the conditional Dirac spectrum. Native valley labels, finite full-Fock virtual transitions and actual ordered-ground texture energy retain their own source sectors. The massless-plus-massive bulk tuning differs from the gapped hedgehog regime; no self-consistent defect selection or native repair protection is supplied.",
+    "gravity_domain": "One matched regional source family with actual metric curvature, action stress, fixed-volume entropy/area contrasts, common proper clock and o(ell^4) errors implies the Einstein tensor equation. Positive spacetime-constant eta and independent Ward/Bianchi imply constant Lambda. No executable source is proved to instantiate these premises; a one-vacuum tangent proves only linearized Einstein."
+  },
+  "quantifier_boundary": "Exact finite controls and continuum conditional spectral or tensor theorems retain their explicit premises. Source premise instantiation, nonlinear entropy balance and physical particle identification are distinct claims."
+}

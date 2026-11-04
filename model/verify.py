@@ -377,6 +377,13 @@ REPLAYS = (
     ("model.finite_modular_inclusion", None, "model/finite_modular_inclusion/results.json"),
     ("model.finite_area_response", None, "model/finite_area_response/results.json"),
     ("model.moving_contact_scattering", None, "model/moving_contact_scattering/results.json"),
+    ("model.reciprocal_area_dynamics", None, "model/reciprocal_area_dynamics/results.json"),
+    ("model.scattering_packet_readout", None, "model/scattering_packet_readout/results.json"),
+    ("model.native_repair_spin_limit", None, "model/native_repair_spin_limit/results.json"),
+    ("model.spin_reference_limit", None, "model/spin_reference_limit/results.json"),
+    ("model.topological_defect_spectrum", None, "model/topological_defect_spectrum/results.json"),
+    ("model.spin_texture_energy", None, "model/spin_texture_energy/results.json"),
+    ("model.matched_einstein_limit", None, "model/matched_einstein_limit/results.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 

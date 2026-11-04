@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 934,
+  "surface_count": 952,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2171,6 +2171,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/completion/DYNAMICS_RESPONSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/GAPLESS_NATIVE_SPATIAL_RESPONSE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2212,6 +2217,11 @@
     },
     {
       "path": "model/completion/SAME_PROCESS_INTERFACES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/SPECTRUM_EINSTEIN.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2621,6 +2631,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/matched_einstein_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/matched_einstein_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/matrix_spectral_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2772,6 +2792,16 @@
     },
     {
       "path": "model/native_relational_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_repair_spin_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_repair_spin_limit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3066,6 +3096,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/reciprocal_area_dynamics/DERIVATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/reciprocal_area_dynamics/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/record_action/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3221,6 +3261,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/scattering_packet_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/scattering_packet_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/screened_recovery/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3291,12 +3341,32 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_reference_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_reference_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_resolved_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/spin_shell_diagnostic/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_texture_energy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_texture_energy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3312,6 +3382,21 @@
     },
     {
       "path": "model/thermodynamic_ground/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/topological_defect_spectrum/CORE_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/topological_defect_spectrum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/topological_defect_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4367,6 +4452,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/PerCutCollarComposition.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
