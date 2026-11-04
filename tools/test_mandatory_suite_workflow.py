@@ -39,7 +39,51 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "code/thermodynamics/test_collar_stationary_regressions.py",
     "code/thermodynamics/test_exact_count_chain_controls.py",
     "tools/test_check_docs_policy.py",
+    "evidence/exact_federation_tower_20260924/test_streamed_expectations.py",
+    "evidence/observer_dynamics_20260925/lean/test_verify.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/boltzmann/test_forward_contract.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/boltzmann_data/test_audit_inputs.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/causal/test_experiment.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/dynamics/test_dynamics.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/inflation/native_history/test_native_history.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/boundary_bulk/test_boundary_bulk.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/event_records/test_event_records.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/temporal_filters/test_temporal_filters.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/observation/test_conditional_bridges.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/observation/test_observations.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/observer_cmb/test_measured_comparison.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/observer_cmb/test_observer_spectrum.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/primordial/test_sources.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/innovations/test_extract.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/innovations/test_nested.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/source_derivation/native/test_native_source.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/scripts/test_codex_causal_cosmology_audit.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_golden_fourier.py",
+    "evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_scale_ensemble.py",
+    "evidence/source_net_causal_poset/manifold_sampled/tests/test_exact_source_net_manifold_sampled.py",
+    "evidence/source_net_causal_poset/manifold_sampled/tests/test_retained_receipt_mutations.py",
 )
+
+# Bounded but heavy: the eight-test tower replay takes about a minute, so it runs
+# in the nightly mandatory-full job only instead of on every push.
+NIGHTLY_EVIDENCE_TESTS = (
+    "evidence/exact_federation_tower_20260924/test_verify_tower.py",
+)
+
+# Evidence test files that another workflow already executes on every relevant
+# change. They are not duplicated here.
+OTHER_WORKFLOW_EVIDENCE_TESTS = {
+    "evidence/federation_recovery/test_recovery.py": ".github/workflows/federation-recovery.yml",
+}
+
+# Evidence test files that cannot run from a clean checkout. Their disposition
+# is tracked on the standing audit issue instead of being silently skipped.
+DISPOSITIONED_EVIDENCE_TESTS = {
+    "evidence/observer_dynamics_20260925/sim-analysis/codex/necessity/universality/test_universality.py": (
+        "six tests need commit 14d1699 of the upstream oph-physics-sim history, "
+        "which this repository does not carry (tracked on #1033)"
+    ),
+}
 
 
 # CI runs on Ubuntu only, for every trigger.
@@ -84,10 +128,13 @@ def _arguments(job, full, shard):
 
 def _evidence_dispatch(job, shard=None):
     """Read actual workflow commands; reject collection-only or partial execution."""
+    gated = ADDITIONAL_EVIDENCE_TESTS + NIGHTLY_EVIDENCE_TESTS
     dispatched = []
     for step in job["steps"]:
         for command in step.get("run", "").splitlines():
-            if not any(path in command for path in ADDITIONAL_EVIDENCE_TESTS):
+            if not command.strip() or command.lstrip().startswith("#"):
+                continue
+            if not any(path in command for path in gated):
                 continue
             assert not step.get("continue-on-error")
             if step.get("if"):
@@ -100,7 +147,7 @@ def _evidence_dispatch(job, shard=None):
             assert arguments[4:]
             # Only whole test files are allowed: no -k selection, collect-only,
             # shell success fallback, or ignored mutation tests.
-            assert all(path in ADDITIONAL_EVIDENCE_TESTS for path in arguments[4:])
+            assert all(path in gated for path in arguments[4:])
             assert all((ROOT / path).is_file() for path in arguments[4:])
             dispatched.extend(arguments[4:])
     return dispatched
@@ -115,7 +162,7 @@ def _assert_evidence_coverage(workflow, full, operating_system):
     ]
     assert Counter(dispatched) == Counter(ADDITIONAL_EVIDENCE_TESTS)
     assert Counter(_evidence_dispatch(workflow["jobs"]["mandatory-full"])) == (
-        Counter(ADDITIONAL_EVIDENCE_TESTS)
+        Counter(ADDITIONAL_EVIDENCE_TESTS + NIGHTLY_EVIDENCE_TESTS)
     )
 
 
@@ -134,11 +181,17 @@ def test_new_evidence_coverage_rejects_false_green_routes(job_name, mutation):
     job = workflow["jobs"][job_name]
     step = _step(job, "Verify additional scientific evidence")
     if mutation == "omit_test":
-        step["run"] = step["run"].replace(ADDITIONAL_EVIDENCE_TESTS[-1], "")
+        # Drop the last gated test wherever the workflow dispatches it, including
+        # the sampled-manifold step.
+        for candidate in job["steps"]:
+            if "run" in candidate:
+                candidate["run"] = candidate["run"].replace(
+                    ADDITIONAL_EVIDENCE_TESTS[-1], ""
+                )
     elif mutation == "duplicate":
         job["steps"].append(dict(step))
     elif mutation == "collect_only":
-        step["run"] += " --collect-only"
+        step["run"] = step["run"].rstrip() + " --collect-only"
     elif mutation == "skip":
         step["if"] = "false"
     else:
@@ -153,6 +206,44 @@ def test_new_evidence_cannot_be_repeated_on_every_push_shard():
     del step["if"]
     with pytest.raises(AssertionError):
         _assert_evidence_coverage(workflow, False, "ubuntu-latest")
+
+
+def test_heavy_evidence_runs_nightly_only():
+    workflow = _workflow()
+    job = workflow["jobs"]["mandatory-shards"]
+    for shard in _shards(job, False):
+        assert not set(_evidence_dispatch(job, shard)) & set(NIGHTLY_EVIDENCE_TESTS)
+    assert set(NIGHTLY_EVIDENCE_TESTS) <= set(
+        _evidence_dispatch(workflow["jobs"]["mandatory-full"])
+    )
+
+
+def _tracked_evidence_tests():
+    output = subprocess.check_output(
+        ["git", "ls-files", "evidence/**/test_*.py"], cwd=ROOT, text=True
+    )
+    return {line for line in output.splitlines() if line}
+
+
+def test_no_evidence_test_file_is_silently_unreached():
+    tracked = _tracked_evidence_tests()
+    groups = {
+        "gated": set(ADDITIONAL_EVIDENCE_TESTS) | set(NIGHTLY_EVIDENCE_TESTS),
+        "another workflow": set(OTHER_WORKFLOW_EVIDENCE_TESTS),
+        "dispositioned": set(DISPOSITIONED_EVIDENCE_TESTS),
+    }
+    claims = Counter()
+    for name, paths in groups.items():
+        claims.update(paths)
+    assert [path for path, count in claims.items() if count > 1] == [], (
+        "an evidence test must belong to exactly one group"
+    )
+    claimed_evidence = {path for path in claims if path.startswith("evidence/")}
+    assert claimed_evidence == tracked, (
+        "every tracked evidence test must be gated, owned by another workflow, "
+        "or explicitly dispositioned instead of being skipped silently"
+    )
+    assert all((ROOT / path).is_file() for path in tracked)
 
 
 @pytest.mark.parametrize("full", [False, True])
@@ -236,6 +327,7 @@ def test_each_worker_has_a_fresh_complete_checkout_and_the_runtime_ceiling():
         assert not step.get("continue-on-error")
         if step.get("name") in {
             "Verify additional scientific evidence",
+            "Verify sampled-manifold evidence",
             "Verify numerical recovery bounds without optional hardware SDKs",
         }:
             assert step["if"] == "matrix.shard == 0"
