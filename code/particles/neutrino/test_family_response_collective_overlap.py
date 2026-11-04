@@ -37,21 +37,23 @@ def test_zero_overlap_is_rejected_instead_of_replaced_by_unit_overlap() -> None:
 
 def test_degenerate_collective_mode_fails_the_producer(tmp_path) -> None:
     sector = json.loads(SECTOR.read_text(encoding="utf-8"))
-    sector["sector_response_object"]["nu"]["K_core_majorana_sym"] = [
-        [1.0, 0.0, 0.0],
-        [0.0, 1.0, 0.0],
-        [0.0, 0.0, 0.0],
+    # The kernel passes the symmetric, positive-diagonal and PSD validation
+    # (its only null direction is (1, -1, 0)), its normalized entries are all
+    # positive, and the collective mode is that null direction, so the overlap
+    # guard is the first check that can refuse it.
+    kernel = [
+        [1.0, 1.0, 0.5],
+        [1.0, 1.0, 0.5],
+        [0.5, 0.5, 1.0],
     ]
-    sector["sector_response_object"]["nu"]["K_core_directed"] = [
-        [1.0, 0.0, 0.0],
-        [0.0, 1.0, 0.0],
-        [0.0, 0.0, 0.0],
-    ]
+    sector["sector_response_object"]["nu"]["K_core_majorana_sym"] = kernel
+    sector["sector_response_object"]["nu"]["K_core_directed"] = kernel
+    half = 0.5 ** 0.5
     anchor = json.loads(ANCHOR.read_text(encoding="utf-8"))
     anchor["collective_mode"] = {
         "basis": "synthetic degenerate control",
-        "u_vector": [0.0, 0.0, 1.0],
-        "u_uT": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+        "u_vector": [half, -half, 0.0],
+        "u_uT": [[0.5, -0.5, 0.0], [-0.5, 0.5, 0.0], [0.0, 0.0, 0.0]],
     }
     sector_path = tmp_path / "sector.json"
     anchor_path = tmp_path / "anchor.json"
