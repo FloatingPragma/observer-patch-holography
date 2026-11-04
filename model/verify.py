@@ -495,6 +495,13 @@ def verify_receipt_source_bindings(digests=None):
         walk(strict_json.loads(raw.decode("utf-8")), receipt)
 
 
+# Non-artifact files that legitimately sit inside a packet: the manifest that
+# binds it, repository/VCS metadata, and interpreter caches. Every other file
+# must be bound by the packet manifest, whatever its suffix.
+PACKET_METADATA = frozenset({"manifest.json", ".gitattributes", ".gitignore"})
+PACKET_CACHE_DIRS = frozenset({"__pycache__", ".pytest_cache"})
+
+
 def verify_artifacts():
     covered = set()
     digests = {}
@@ -515,10 +522,11 @@ def verify_artifacts():
             digests[target] = actual
     for name in PACKETS:
         for target in (ROOT / name).rglob("*"):
-            if (target.is_file() and (target.suffix in {".py", ".md", ".json"}
-                                      or target.name.endswith(".json.gz"))
-                    and target.name != "manifest.json"
-                    and target.resolve() not in covered):
+            if not target.is_file() or target.name in PACKET_METADATA:
+                continue
+            if PACKET_CACHE_DIRS.intersection(target.relative_to(ROOT / name).parts):
+                continue
+            if target.resolve() not in covered:
                 raise ValueError(f"Unbound artifact: {target.relative_to(ROOT)}")
     verify_receipt_source_bindings(digests)
     return len(covered)
