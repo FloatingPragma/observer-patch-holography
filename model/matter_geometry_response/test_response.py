@@ -128,3 +128,33 @@ def test_finite_contrast_mutation_rejected():
     value['geometry']['G01_energy0_minus_energy1_strict_lower'] = '1/5'
     with pytest.raises(ValueError):
         packet.validate(value, fresh_report())
+
+
+def test_only_the_four_bounded_numeric_leakage_diagnostics_are_portable():
+    replay = fresh_report()
+    for resource in ('charged_endpoint_preparation_resources',
+                     'interaction_and_scalar_preparation_resources',
+                     'one_fair_coin_word_resources', 'pointer_resources'):
+        value = deepcopy(replay)
+        value['quantum_source'][resource]['maximum_numerical_valid_code_leakage'] = 1e-9
+        packet.validate(value, replay)
+        packet.validate(replay, value)
+        value['quantum_source'][resource]['integrated_processor_norm_upper'] += 1e-12
+        with pytest.raises(ValueError, match='fresh replay'):
+            packet.validate(value, replay)
+        value = deepcopy(replay)
+        row = value['quantum_source'][resource]
+        row['unregistered_leakage'] = row.pop('maximum_numerical_valid_code_leakage')
+        with pytest.raises(ValueError, match='declared numerical'):
+            packet.validate(value, replay)
+
+
+def test_leakage_admission_rejects_bad_values_on_both_sides():
+    replay = fresh_report()
+    for invalid in (-1e-16, 1.0001e-9, float('nan'), float('inf'), 0, False, '0'):
+        value = deepcopy(replay)
+        value['quantum_source']['pointer_resources']['maximum_numerical_valid_code_leakage'] = invalid
+        with pytest.raises(ValueError, match='admission'):
+            packet.validate(value, replay)
+        with pytest.raises(ValueError, match='admission'):
+            packet.validate(replay, value)

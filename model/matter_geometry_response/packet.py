@@ -1,6 +1,7 @@
 """Cold replay of the actual-source electric-energy geometry response."""
 import argparse
 import ast
+from copy import deepcopy
 from fractions import Fraction as F
 import hashlib
 import importlib.util
@@ -133,10 +134,30 @@ def report():
     return value
 
 
+def _comparable(value):
+    """Keep exact custody while admitting four bounded numerical diagnostics."""
+    comparable = deepcopy(value)
+    for resource in ('charged_endpoint_preparation_resources',
+                     'interaction_and_scalar_preparation_resources',
+                     'one_fair_coin_word_resources', 'pointer_resources'):
+        try:
+            row = comparable['quantum_source'][resource]
+            leakage = row['maximum_numerical_valid_code_leakage']
+        except (KeyError, TypeError) as error:
+            raise ValueError('missing declared numerical leakage diagnostic: '+resource) from error
+        if type(leakage) is not float or not math.isfinite(leakage) or not 0 <= leakage <= 1e-9:
+            raise ValueError('numerical leakage exceeds its declared admission: '+resource)
+        # Source exponentials and singular-value diagnostics vary with BLAS.
+        # Both receipts must pass the existing numerical admission; no other
+        # path, exact result, resource count or source binding is normalized.
+        row['maximum_numerical_valid_code_leakage'] = 0.0
+    return comparable
+
+
 def validate(value, expected):
     if value.get('scope') != scope():
         raise ValueError('actual-source geometry scope or freshness requirement changed')
-    if canonical(value) != canonical(expected):
+    if canonical(_comparable(value)) != canonical(_comparable(expected)):
         raise ValueError('geometry response receipt differs from fresh replay')
 
 

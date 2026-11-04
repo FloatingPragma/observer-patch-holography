@@ -19,8 +19,8 @@
   "canonical_registry": "tracking/premise_register.json",
   "physical_comparison_count_added": 0,
   "canonical_premises_discharged": [],
-  "finite_obligations_realized": 121,
-  "scope": "Exhaustive ownership and relevance navigation for all 84 canonical premise rows, with 126 explicit theorem/model attachments and 121 realized on their stated domains. Each construction retains its state, algebra, operations, clock and refinement. Source ground/Gibbs inputs have an explicit continuing-spin-repair join, and finite charged pole measures consume their own full-Fock core theorems. The bounded radial inversion index, source-energy-responsive Gram and conditional Einstein theorem retain separate premise interfaces. No canonical physical premise or integrated physical gate is discharged. Broad custody is distinguished from each component's independent checks and empirical eligibility.",
+  "finite_obligations_realized": 126,
+  "scope": "Exhaustive ownership and relevance navigation for all 84 canonical premise rows, with 131 reviewed theorem/model attachments and 126 realized on their stated domains. Each construction retains its state, algebra, operations, clock and refinement. The same bounded radial source supplies a finite isolated kernel, actual interacting charged poles, regional entropy/modular data and a controlled responsive native Gram, including a finite reused-field readout block. Its supplied state preparations and control conditions do not imply autonomous Einstein dynamics or a relativistic continuum. No canonical physical premise or integrated physical gate is discharged. Broad custody is distinguished from scientific execution and empirical eligibility.",
   "existing_navigation_coverage": {
     "claim_count": 346,
     "lean_module_count": 671,
@@ -2519,6 +2519,41 @@
         "# Electric energy and a native response geometry"
       ],
       "boundary": "The theorem is finite on the fixed 12-port source, for all energy expectations n in[0,1]. Its band-gap/Gram bounds are uniform on the larger parameter interval |theta|<=1/8. Exact rational endpoint certificates and a finite-cost statistical observer follow; no spatial/continuum refinement or source map to the fermion-core/defect families is supplied."
+    },
+    "radial_defect_gap": {
+      "path": "model/radial_defect_gap/PROOF.md",
+      "anchors": [
+        "# An isolated zero pair in the bounded radial lattice source"
+      ],
+      "boundary": "Every admitted fixed a,v,m,k has the same kernel dimension and one-body gap lower bound d in the infinite lattice and every symmetric finite cube. With b^2=3v^2/(2a^2), the origin weight is at least 1/(1+b^2/d^2), the inverse participation ratio at least its square, and normalized zero-mode tail at |n|_infinity>=L is at most min(1,(b^2/d^2)r^(2(L-1))). Embedded finite-cube zero projectors obey ||Z_R-Z||<=min(1,(2b/d)r^R). The strong-mass condition a*m>sqrt(3)*v excludes a->0 at fixed physical m,v. It does not supply a volume-uniform bound for a subsequent extensive contact interaction."
+    },
+    "radial_interacting_core": {
+      "path": "model/radial_interacting_core/PROOF.md",
+      "anchors": [
+        "# Interacting charged states of the bounded radial source"
+      ],
+      "boundary": "The inherited one-body gap and origin weights are uniform in cube radius on m>k>=sqrt(3)v/a. The complete interaction bound w=UV/4 is volume dependent and provides no fixed-U thermodynamic gap. The strong-mass condition provides no fixed-mass a-to-zero continuum. The retained cube has 27 sites; independent full-Fock controls have three."
+    },
+    "parity_entropy_response": {
+      "path": "model/parity_entropy_response/PROOF.md",
+      "anchors": [
+        "# Regional entropy, modular motion and the native response"
+      ],
+      "boundary": "Finite actual source, with qG in (1/4096,1/1000) for the ground reduction and native modular calibration throughout [1/4096,4095/4096] for |s|<=1/2. Rational logarithm order and exact integrated-port precision can both increase. The same affine source family relates regional entropy, total source energy and the FA126 kinetic bias/Gram; no geometric area, conserved Lorentzian stress, fixed-volume Einstein stationarity or continuum limit is inferred."
+    },
+    "radial_geometry_join": {
+      "path": "model/radial_geometry_join/PROOF.md",
+      "anchors": [
+        "# One interacting defect source and its geometry readout"
+      ],
+      "boundary": "One finite 27-site field source and finite controlled native response. The actual field reference remains attached to its charged poles and geometry parameter. Repeated mean dynamics requires fresh independent field copies. Complete control error and a costed96-million-attempt ideal-geometry inference bound are given; the large experiment is not executed. No autonomous reciprocal dynamics, regional area law, Lorentzian metric or interacting continuum limit follows."
+    },
+    "radial_reused_readout": {
+      "path": "model/radial_reused_readout/PROOF.md",
+      "anchors": [
+        "# Reusing one interacting radial field for complete native readout"
+      ],
+      "boundary": "Exact finite history formula for every bounded integer N, with a retained 32-round witness. The parent complete half-trace error is below10^-9 per attempt for arbitrary references, so32 rounds have error below32*10^-9. Increasing N collapses toward a persistent parity draw, not an estimate of ensemble q or a thermodynamic/continuum refinement."
     }
   },
   "attachments": [
@@ -7973,6 +8008,236 @@
       "proof_kind": "Exact fixed-instrument Kraus/source branch algebra; complete native history enumeration; Q(sqrt5) spectral derivative; uniform resolvent bounds; rational rounded matrix-sign interval certificates and explicit finite observer confidence bound. Numerical raw source-pulse contractions and independent floating spectral controls are distinct from the exact proof.",
       "new_lean_inhabitant": false,
       "physical_identification": false
+    },
+    {
+      "id": "FA-127",
+      "title": "Exactly two localized bounded-radial lattice modes with a volume-uniform gap",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-03",
+        "CP-06",
+        "CP-07"
+      ],
+      "reviewed_sources": [
+        "radial_defect_gap"
+      ],
+      "interface": {
+        "state": "The complete original two-spin carrier ell^2(Z^3,C^2), and every inversion-symmetric open cube of radius R>=1, with the same supplied bounded radial mass B_n=eta*m*sum_j(-1)^n_j*(n_j/|n|)*sigma_j for n!=0, B_0=0, eta=+1 or -1. No valley projection or change of the site-centered texture is made. The normalized zero frame determines exact local quadratic-reference states; interacting spectral projectors are outside this package.",
+        "algebra": "Original six-neighbor Weyl hopping and local spin matrices; origin rank-two projection P and Q=I-P; complement D=QHQ and origin coupling V=QhP. The exact Gram is V^*V=(3v^2/(2a^2))I2. Spatial inversion R anticommutes H. C=(-1)^(n1+n2+n3)*(i sigma2)*complex conjugation anticommutes H, and Theta=R C commutes H and squares to -1. The local normalized zero frame obeys W_n^*W_n=W_nW_n^*=rho_n I2.",
+        "operation": "The unchanged Hamiltonian H=h+B, with h_(n,n+e_j)=iv sigma_j/(2a). Admit an exact rational k with k^2>=3(v/a)^2 and 0<k<m; set d=m-k, r=k/m and b^2=3v^2/(2a^2). D is invertible with inverse norm at most 1/d. Inversion gives V^*D^-1V=0; the Schur complement proves exact two-mode exhaustion and excludes every other energy from (-d,d). The local Neumann expansion and finite-volume projection bounds act on the same original source.",
+        "clock": "The original source clock, velocity v/a and fixed energy origin are retained. The mass amplitude m and spacing a are supplied positive source parameters. No affine spectral recentering, physical unit calibration, interacting gap or autonomous texture energy is introduced.",
+        "refinement": "Every admitted fixed a,v,m,k has the same kernel dimension and one-body gap lower bound d in the infinite lattice and every symmetric finite cube. With b^2=3v^2/(2a^2), the origin weight is at least 1/(1+b^2/d^2), the inverse participation ratio at least its square, and normalized zero-mode tail at |n|_infinity>=L is at most min(1,(b^2/d^2)r^(2(L-1))). Embedded finite-cube zero projectors obey ||Z_R-Z||<=min(1,(2b/d)r^R). The strong-mass condition a*m>sqrt(3)*v excludes a->0 at fixed physical m,v. It does not supply a volume-uniform bound for a subsequent extensive contact interaction."
+      },
+      "conclusion": "On the same supplied bounded radial lattice as FA124, m>sqrt(3)*v/a implies exactly two square-summable zero modes and a uniform empty one-body spectral interval around them: every nonzero energy has |E|>=m-k for any admitted rational k. Every zero mode is inversion-even. The exact source antiunitaries make each local zero-frame Gram scalar, so its origin weight and contact-overlap weight have the stated positive volume-independent lower bounds. The original local observable D0=(n_origin-1)^2 has expectation (1-rho_0^2)/2 in every singly occupied free core reference and (1+rho_0^2)/2 in the empty or full core references. At a=v=1,k=2, mass4 gives gap>=2, rho0>=8/11 and IPR>=64/121; mass64 gives gap>=62, rho0>=7688/7691 and free-reference D0 contrast>=(7688/7691)^2. An explicit finite-hop Neumann expansion gives exponential localization and quantitative finite-to-infinite kernel-projector convergence without finite-eigenvalue extrapolation.",
+      "remaining": [
+        "The theorem classifies the exact central zero subspace and its exclusion gap in the strong-mass domain; it does not classify all nonzero bound levels, exhaust the kernel for m<=sqrt(3)*v/a, or yield fixed-physical-mass continuum refinement.",
+        "The local D0 and contact-overlap identities are quadratic-reference identities. A same-source interacting theorem must retain the full Fock virtual complement and its volume dependence; no volume-uniform interacting gap follows from this one-body result.",
+        "Dynamical source selection and finite preparation energy of the supplied texture, calibrated physical units, a complete detector and preservation under the actual repair and memory laws.",
+        "A common controlled interacting relativistic continuum with massive and massless physical species, and a source-derived Einstein stress/entropy/geometry instance. No physical comparison or completion gate is accepted."
+      ],
+      "witnesses": [
+        "model/radial_defect_gap/PROOF.md",
+        "model/radial_defect_gap/README.md",
+        "model/radial_defect_gap/__init__.py",
+        "model/radial_defect_gap/__main__.py",
+        "model/radial_defect_gap/algebra.py",
+        "model/radial_defect_gap/bounds.py",
+        "model/radial_defect_gap/finite.py",
+        "model/radial_defect_gap/packet.py",
+        "model/radial_defect_gap/results.json",
+        "model/radial_defect_gap/test_bounds.py",
+        "model/radial_defect_gap/test_finite.py",
+        "model/radial_defect_gap/test_packet.py"
+      ],
+      "countercontrols": [
+        "model/radial_defect_gap/test_bounds.py",
+        "model/radial_defect_gap/test_finite.py",
+        "model/radial_defect_gap/test_packet.py"
+      ],
+      "proof_kind": "Exact complement resolvent, inversion-cancelled origin Schur map and positive energy-dependent Schur bracket; source antiunitaries and quaternion local frames; Wick evaluation of the actual origin parity observable; finite-hop Neumann remainders and bidirectional graph-subspace projection estimates. Independent full-row finite-source controls cover masses3,4,64, both texture orientations, the actual nonzero-energy Schur resolvent, local densities, all four quadratic-reference occupations, walk support and cutoff convergence. Numerical eigensolvers do not admit the infinite theorem.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-128",
+      "title": "Actual interacting states, charged poles and faithful Gibbs reference of the bounded radial source",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-03",
+        "CP-06",
+        "CP-07"
+      ],
+      "reviewed_sources": [
+        "radial_interacting_core"
+      ],
+      "interface": {
+        "state": "Actual normalized N27 ground doublet and unique N26/N28 charged states of one supplied bounded-radial centered Weyl/contact source, with a=v=1,m=64,U=1/65536 on the symmetric 27-site cube. An explicit faithful full-Fock Gibbs reference approximates the ground mixture. The source does not select or prepare the supplied texture or spectral states.",
+        "algebra": "Complete 54-mode CAR algebra on all 2^54 Fock states, including the full virtual complement. The exact zero frame has W_x^*W_x=rho_x I2 and W_0=sqrt(alpha)I2. The local interface is the actual center parity D0=(n_center-1)^2, with contact energy (U/2)D0-U/4; D0 is not exact zero-orbital occupation.",
+        "operation": "Exact radial particle-hole and inversion-staggered Kramers identities; quaternion frame and paired filled-sea Wick compression; full-Fock Feshbach isolation; positive Lehmann residues; actual center-parity effects; faithful Gibbs approximation and modular clock. Independent full 64-state chain controls retain every number sector and do not replace the 54-mode proof.",
+        "clock": "The same centered Hamiltonian H=dGamma(h)+U sum_x(n_up-1/2)(n_down-1/2), including the supplied bounded radial mass. Finite Gibbs modular flow is exactly Hamiltonian time minus beta times the modular parameter. Repair stationarity, geometric modular identification and physical units are not inferred.",
+        "refinement": "The inherited one-body gap and origin weights are uniform in cube radius on m>k>=sqrt(3)v/a. The complete interaction bound w=UV/4 is volume dependent and provides no fixed-U thermodynamic gap. The strong-mass condition provides no fixed-mass a-to-zero continuum. The retained cube has 27 sites; independent full-Fock controls have three."
+      },
+      "conclusion": "On the SAME bounded radial Hamiltonian as the exact zero pair, PWP=C+U I[n1n2-(n1+n2)/2], I=sum rho_x^2>=alpha_lower^2. At d=62,alpha_lower=7688/7691,t=27/16252874, the actual ground is a Kramers doublet and equal charged gaps lie in [960588587329007/126010204829305274368,16253603/2130296700928]. Full one-body residue matrices differ from Z/2 by at most 3t, and each center-spin pole weight exceeds 0.49979. Actual center parity is below 0.000392 in the ground and above 0.999608 in either charged state. The faithful finite Gibbs state at beta=(2V+n)/g_lower has unhalved ground-mixture error at most 2^-n and exact modular clock.",
+      "remaining": [
+        "Autonomous selection/preparation of the bounded radial profile and native preparation or equilibration of the exact ground, charged and Gibbs inputs.",
+        "A volume-uniform interacting charged sector and controlled relativistic continuum with massive and massless sectors; the contact bound is finite and volume dependent.",
+        "Complete continuing observation and repair backaction; Hamiltonian poles and local modular flow do not prove repair protection or stationarity.",
+        "Matched regional entropy, area, stress and proper-clock refinement yielding Einstein dynamics, physical particle identification and calibrated units."
+      ],
+      "witnesses": [
+        "model/radial_interacting_core/PROOF.md",
+        "model/radial_interacting_core/README.md",
+        "model/radial_interacting_core/__init__.py",
+        "model/radial_interacting_core/__main__.py",
+        "model/radial_interacting_core/algebra.py",
+        "model/radial_interacting_core/core.py",
+        "model/radial_interacting_core/packet.py",
+        "model/radial_interacting_core/results.json",
+        "model/radial_interacting_core/test_packet.py",
+        "model/radial_interacting_core/test_radial.py"
+      ],
+      "countercontrols": [
+        "model/radial_interacting_core/test_radial.py",
+        "model/radial_interacting_core/test_packet.py"
+      ],
+      "proof_kind": "Exact bounded-radial source symmetries, paired filled-sea contact compression, full-Fock spectral isolation and Lehmann residues, actual central parity and faithful finite Gibbs approximation. No volume-uniform interacting mass or physical species assignment.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-129",
+      "title": "Actual radial ground local faithfulness, native modular motion and regional entropy response",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-08",
+        "CP-09"
+      ],
+      "reviewed_sources": [
+        "parity_entropy_response"
+      ],
+      "interface": {
+        "state": "The actual ground doublet mixture and PH-paired neighboring charged states of the same bounded radial 27-site source, at a=v=1,m=64,U=1/65536, together with a faithful stationary same-H affine family. Its target central parity q in [1/4,3/4] is realized by positive spectral weights and epsilon I/2^54 with epsilon=1/64. Spectral preparation and source-derived parity calibration are supplied, not executed.",
+        "algebra": "The full 54-mode CAR source and its complete central M4 algebra, including odd operators and arbitrary untouched references. D0=(n_origin-1)^2 and W0=(U/2)D0-U/4. Source N, particle-hole and origin Kramers symmetries force tau_q=diag(q,1-q,1-q,q)/2. The actual ground full-Fock state has rank two, while its central M4 reduction is proved faithful.",
+        "operation": "Exact affine-source weights, full-source energy slope and local entropy/relative-entropy identities; an independently executed eight-pulse native modular word on every central occupation/reference column with all 28 failure slots; rational logarithm and all twelve port coefficient refinement. Complete-record entropy follows the efficient parity instrument and 79872 injective native histories. A full 64-state interacting chain controls the same-H Gibbs readout-work identity without replacing the 27-site proof.",
+        "clock": "Regional modular parameter s maps to local-contact time -2 log((1-q)/q)s/U. It is the identity at q=1/2 and reverses sign across that point; it is not the full interacting Hamiltonian flow. The full Gibbs modular clock separately equals -beta times H time. Physical control precision, Hamiltonian drift compensation and fresh auxiliary services are stated inputs.",
+        "refinement": "Finite actual source, with qG in (1/4096,1/1000) for the ground reduction and native modular calibration throughout [1/4096,4095/4096] for |s|<=1/2. Rational logarithm order and exact integrated-port precision can both increase. The same affine source family relates regional entropy, total source energy and the FA126 kinetic bias/Gram; no geometric area, conserved Lorentzian stress, fixed-volume Einstein stationarity or continuum limit is inferred."
+      },
+      "conclusion": "The actual interacting radial ground has central parity at least 23489309429/68579205003925>1/4096, so its complete central M4 reduction is faithful although its full-Fock state is not. A stationary faithful family of the same H realizes every q in [1/4,3/4], with d<E_H>/dq=g/(n_C-n_G)>0. Its local modular generator is scalar+log((1-q)/q)D0, implemented by eight native pulses with complete complement outputs and rational error bounds. Exact regional entropy obeys DeltaS=kappa_r Deltaq-D_Bernoulli, with 2(Deltaq)^2<=D<=8(Deltaq)^2/3, and the same q sets theta=3(1-2q)/25. The region uniquely maximizes entropy at fixed parity/native bias. Complete committed-record entropy is H(B)-I(R:B)+9log2, and same-H Gibbs readout work satisfies beta W-DeltaS=D(Phi gamma||gamma). These are finite source entropy/response results, without an area-law or Einstein premise substitution.",
+      "remaining": [
+        "Native preparation and calibration of actual spectral states and the faithful affine family; physical precision, blank memory and drift-control services.",
+        "A joint spatial/refinement law providing geometric area, conserved Lorentzian stress and generalized-entropy stationarity at fixed volume; the signed kinetic bias cannot fill the area slot.",
+        "A volume-uniform interacting relativistic continuum with massive and massless sectors, autonomous reciprocal geometry, and physical particle/clock identification."
+      ],
+      "witnesses": [
+        "model/parity_entropy_response/PROOF.md",
+        "model/parity_entropy_response/README.md",
+        "model/parity_entropy_response/__init__.py",
+        "model/parity_entropy_response/__main__.py",
+        "model/parity_entropy_response/modular.py",
+        "model/parity_entropy_response/packet.py",
+        "model/parity_entropy_response/records.py",
+        "model/parity_entropy_response/regional.py",
+        "model/parity_entropy_response/results.json",
+        "model/parity_entropy_response/test_entropy.py"
+      ],
+      "countercontrols": [
+        "model/parity_entropy_response/test_entropy.py"
+      ],
+      "proof_kind": "Actual-source symmetry and full-Fock perturbation transfer, exact positive spectral-state mixture, finite-dimensional modular/relative-entropy algebra, complete native pulse/failure certificate, reversible all-history entropy accounting and Gibbs work identity. Independent decimal logarithms, full reference columns and full 64-state Fock controls accompany rational bounds.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-130",
+      "title": "Actual interacting radial charged states drive one complete native geometry readout",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-03",
+        "CP-06",
+        "CP-07",
+        "CP-08"
+      ],
+      "reviewed_sources": [
+        "radial_geometry_join"
+      ],
+      "interface": {
+        "state": "The actual full-Fock N27 Kramers ground mixture and neighboring N26/N28 charged singlets of FA128, at radius1, a=v=1,m=64,k=2,U=1/65536. Their same central contact operator D0=(n_origin-1)^2 supplies the FA126 geometry input. The five blank quantum probe/pointer bits and independent classical total-two twelve-port work are explicit services. No separate energy fit or replacement of the interacting spectral states is used.",
+        "algebra": "Complete54-mode CAR algebra, its two central occupation modes and arbitrary untouched field/reference spectators; D0 is the central even-occupation projection and W0=(U/2)D0-U/4. The same fixed source scalar-charge interaction and native M78 integer-load instrument are composed through the parity record; the M78 primitive is not asserted to be compiled into the M6 quantum processor.",
+        "operation": "Forty native pulses copy parity into the charge probe, prepare the scalar, execute the retained interaction subword, commit its pointer and uncompute the charge probe. The effective Kraus operators are (7I-6D0)/sqrt50 and i(I+6D0)/sqrt50. Every one of146 native first-failure slots is retained. Independent exact trig and port enclosures, plus nine fresh fair coins, bound complete single-attempt half trace distance below1e-9. Every one of79872 native repair histories is replayed. The field measurement injects exactly -(18/25)<H_origin_incident_hopping>.",
+        "clock": "The bounded radial Hamiltonian clock defines the charged gaps. The declared observation schedule uses native pulse/attempt and full idle-inclusive record counts. Source Hamiltonian drift during addressed control must be absent or compensated. Fresh ground or charged state preparation, probe memory and all record-retention services are inputs; they are not executed ground preparations or derived physical units.",
+        "refinement": "One finite 27-site field source and finite controlled native response. The actual field reference remains attached to its charged poles and geometry parameter. Repeated mean dynamics requires fresh independent field copies. Complete control error and a costed96-million-attempt ideal-geometry inference bound are given; the large experiment is not executed. No autonomous reciprocal dynamics, regional area law, Lorentzian metric or interacting continuum limit follows."
+      },
+      "conclusion": "For the same full interacting bounded radial source, the actual ground has <D0> at most188263256928/480690783803197 and each charged singlet at least its complement. Source particle-hole symmetry equates both charged parity and geometry responses. The actual local contact-energy contrast is positive. A complete forty-pulse native instrument gives p1=1/50+(24/25)<D0>; its unread channel multiplies parity coherences by7/25 and injects exactly -(18/25)<H_star> field energy. The same recorded scheduler produces theta=(3/25)(1-2<D0>) and the source rank-three Gram. Its actual ground-versus-charged G01 contrast is greater than59/1000, with rational lower bound approximately0.05996058. The exact complete control bound, including146 first-failure slots and nine coin words, is below1e-9 in half trace distance, with all79872 native load histories retained. A specified finite sampling protocol yields an inferred ideal Gram contrast above0.04899996 with at least99 percent joint confidence.",
+      "remaining": [
+        "The radial mass texture and source coefficients are supplied; exact interacting spectral-state preparations and fresh independent trial copies are not executed. Full2^54 Fock evolution is not numerically executed.",
+        "The controlled parity readout is generally energy-injecting. Its same-source geometry response is not an autonomous reciprocal gravity dynamics, and correlated state reuse does not have the independent-input mean law.",
+        "The admitted native-port, integer-repair and memory services retain their exact domains. The rounded-control guarantee is a complete one-attempt comparison; inferred ideal geometry does not identify all rounded long-time dynamics with the ideal response matrix.",
+        "A physical state/clock/refinement dictionary, Lorentzian stress, regional area/stationarity conditions, interacting thermodynamic and continuum limits, and observed particle identities require separate proof."
+      ],
+      "witnesses": [
+        "model/radial_geometry_join/PROOF.md",
+        "model/radial_geometry_join/README.md",
+        "model/radial_geometry_join/__init__.py",
+        "model/radial_geometry_join/__main__.py",
+        "model/radial_geometry_join/bounds.py",
+        "model/radial_geometry_join/packet.py",
+        "model/radial_geometry_join/results.json",
+        "model/radial_geometry_join/source.py",
+        "model/radial_geometry_join/test_packet.py",
+        "model/radial_geometry_join/test_source.py"
+      ],
+      "countercontrols": [
+        "model/radial_geometry_join/test_packet.py",
+        "model/radial_geometry_join/test_source.py"
+      ],
+      "proof_kind": "Exact local parity/contact identity on actual full-Fock spectral states; source-native coherent parity copy and uncomputation, independently checked interaction routing and rational trig/port isometry bounds; complete native histories; same-state Gram Lipschitz transfer and nonzero charged contrast; exact measurement-work and finite sampling error. No formal Lean inhabitant or physical identification.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
+    },
+    {
+      "id": "FA-131",
+      "title": "One prepared radial field supports a complete repeated native detector with controlled error",
+      "classification": "realized_on_claimed_domain",
+      "owners": [
+        "CP-07",
+        "CP-08"
+      ],
+      "reviewed_sources": [
+        "radial_reused_readout"
+      ],
+      "interface": {
+        "algebra": "Complete field/reference algebra, local D0=(n_center-1)^2, all ordered pointer and native scheduler/current/load histories, and every native complement or nonlogical output. Cross-parity quantum blocks are retained in each conditional field instrument.",
+        "clock": "A declared controlled readout block in attempt order. The field undergoes only the readout instrument; Hamiltonian drift is absent or compensated and no field repair or additional field operation is interleaved. Native integer work repair is retained. The attempt clock is not identified with autonomous source dynamics or proper time.",
+        "operation": "Compose the same complete FA130 native parity instrument for 32 rounds. For each ordered history with k ones, K_s=i^k*50^(-N/2)[7^(N-k)(I-D0)+7^k D0]. Retain all records; halt on a native failure or nonlogical pointer and score its retained padded suffix zero. Majority count at least16 is charged. The budget is2,432 quantum pulses, at most32 integer native repair attempts and736 fresh apparatus logical bits without recycling.",
+        "refinement": "Exact finite history formula for every bounded integer N, with a retained 32-round witness. The parent complete half-trace error is below10^-9 per attempt for arbitrary references, so32 rounds have error below32*10^-9. Increasing N collapses toward a persistent parity draw, not an estimate of ensemble q or a thermodynamic/continuum refinement.",
+        "state": "One preparation of the actual normalized 27-site bounded-radial ground projector G/2 or either unique lowest neighboring charged state, with a=v=1,m=64,U=1/65536. The complete 54-mode field and arbitrary untouched reference are retained; independent native work spans all 78 total-two states. Fresh blank probes and nine independent fair coins are supplied each round, without fresh field copies."
+      },
+      "conclusion": "A single field preparation yields the exact native mean (1-q)M0^N x0+q M1^N x0, retaining conditional quantum coherences. The incorrect averaged-matrix iteration differs at N2 by q(1-q)(M1-M0)^2; its matrix00 difference is9/1280000 at q=1/2. Unread parity cross terms multiply by(7/25)^N and full-field measurement work is-[1-(7/25)^N]<H_star>. Actual ground-versus-either-charged classification at N32 has error<1/2500, including source wrong parity, exact-binomial/rational-exponential tail bounds and all complete native control failures.",
+      "remaining": [
+        "Autonomous selection/preparation of the radial mass profile and the exact ground or charged input. The theorem consumes one supplied spectral preparation.",
+        "An observation theorem under simultaneous uncompensated source Hamiltonian and field-repair dynamics, with apparatus and drift-compensation costs. The postmeasurement field need not remain in its initial spectral sector.",
+        "Independent spectral samples for estimating ensemble parity or reconstructing a Gram parameter; one reused field measures a persistent parity draw and does not obey M_q^N.",
+        "A volume-uniform interacting relativistic continuum, physical particle identification, matched Lorentzian stress/area/proper clock and Einstein dynamics."
+      ],
+      "witnesses": [
+        "model/radial_reused_readout/PROOF.md",
+        "model/radial_reused_readout/README.md",
+        "model/radial_reused_readout/__init__.py",
+        "model/radial_reused_readout/__main__.py",
+        "model/radial_reused_readout/controls.py",
+        "model/radial_reused_readout/packet.py",
+        "model/radial_reused_readout/results.json",
+        "model/radial_reused_readout/reuse.py",
+        "model/radial_reused_readout/test_packet.py",
+        "model/radial_reused_readout/test_reuse.py"
+      ],
+      "countercontrols": [
+        "model/radial_reused_readout/test_reuse.py",
+        "model/radial_reused_readout/test_packet.py"
+      ],
+      "proof_kind": "Exact coherent ordered-history Kraus products and binomial summation; independent complete78-state native transition enumeration and two-step propagation; complete-channel telescoping error; rational binomial and exponential tail certificates; full-Fock measurement-work identity. Independent short-history quantum/reference and64-state Fock controls are not substitutes for the complete27-site theorem.",
+      "new_lean_inhabitant": false,
+      "physical_identification": false
     }
   ],
   "cleanup": {
@@ -8040,7 +8305,7 @@
         "Energy uniform integrability sufficient to identify the exact continuum energy form rather than its upper bound.",
         "Surviving connected interactions or scattering, Lorentz covariance and physical particle identification."
       ],
-      "progress_campaign": "model/completion/defect_geometry_campaign.json"
+      "progress_campaign": "model/completion/radial_source_campaign.json"
     },
     "1143": {
       "close_issue": false,
@@ -8055,7 +8320,7 @@
         "Identify physical spatial/Lorentz spin, charges and common energy units; the finite graph labels and bins alone do not identify measured species.",
         "Execute the full-cube and binary-cubic native symmetry filters; the present dimer/reflection execution does not implement them."
       ],
-      "progress_campaign": "model/completion/defect_geometry_campaign.json"
+      "progress_campaign": "model/completion/radial_source_campaign.json"
     },
     "1147": {
       "close_issue": false,
@@ -8113,7 +8378,7 @@
         "Derive physical spin, gauge charges, species and independently calibrated energy/length units on the same reference and detector family.",
         "Realize the common geometric area law, generalized-entropy stationarity, dynamical metric and universal coupling premises of the existing Einstein stack."
       ],
-      "progress_campaign": "model/completion/defect_geometry_campaign.json"
+      "progress_campaign": "model/completion/radial_source_campaign.json"
     },
     "1145": {
       "close_issue": false,
@@ -8133,7 +8398,7 @@
         "Physical particle species and calibrated masses beyond the explicitly free source sector.",
         "A source-bound limiting modular inclusion and common physical null-translation/stress attachment; exact finite half-sided compression is excluded on the tested plaquette."
       ],
-      "progress_campaign": "model/completion/spectrum_einstein_campaign.json"
+      "progress_campaign": "model/completion/radial_source_campaign.json"
     },
     "1144": {
       "close_issue": false,
@@ -8150,7 +8415,7 @@
         "Derive geometry response to admitted matter changes and area/edge identification; the static radial product has zero radial-null Einstein contraction while the scalar excitation is positive.",
         "Separate the finite rank-three carrier geometry from physical 3+1 event geometry before identifying a metric."
       ],
-      "progress_campaign": "model/completion/defect_geometry_campaign.json"
+      "progress_campaign": "model/completion/radial_source_campaign.json"
     },
     "1146": {
       "close_issue": false,
@@ -8194,8 +8459,8 @@
     "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e",
     "model/bound_pair/identity.py": "749a1ce10431e8a72b76b96c9568d7cbd0960a9f41e32c92498ba352d753a333",
     "model/bound_pair/mass.py": "45ab64c1b74d060e4ae380c9f5f5896ca7d1d7a84c18c022c9bd2e3d99735034",
-    "model/completion/finite_attachment_map.py": "4dadac714e7876974feed2cf6d0395622fd7d99916d8dd177998f2689c0f40f2",
-    "model/completion/test_finite_attachment_map.py": "548cedf465b9081107e5522a68d028894cf355c3252792355b5b606257ab2251",
+    "model/completion/finite_attachment_map.py": "ab98ba8fb59243c2384fd793d7aba83523e5c684b2d5bdb4773b691d0be33af5",
+    "model/completion/test_finite_attachment_map.py": "31209c4639d9292accac7e6cac92177aa784d04414abf205906c8de834109d97",
     "model/field_regions/README.md": "5073a68fc7c604335ad9aeac76ea0fd509857a73fb088148e66e0764cd6005ae",
     "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
     "model/field_stress/README.md": "8e5b2d4bf9f49d782512c17c6ccda0b2e54d69255a5d169154ba53c6c5c6c213",
@@ -9479,8 +9744,8 @@
     "model/reciprocal_area_dynamics/records.py": "0be685387dbd52acf2131e8bad35b467cdf9d1d2baf4595a279247ad0b6dbdbd",
     "model/reciprocal_area_dynamics/dynamics.py": "cbc41059cffb2091ce17e19f4c8bc4d0f94edb07274125d93c4fd4f946c037fd",
     "model/reciprocal_area_dynamics/packet.py": "d4916caef91aed5c3b073299695164fcd9c77cdffe50ec28006ed5c75b658908",
-    "model/reciprocal_area_dynamics/test_dynamics.py": "40c49861251731c851030fcba1656da9bfe415db68709556ecb36dfcca9269df",
-    "model/reciprocal_area_dynamics/results.json": "9e8e7e0d9cce948c24c5ef90eb92ea738b09467b4ea91a9aac92a3a3bcfbadb2",
+    "model/reciprocal_area_dynamics/test_dynamics.py": "4f5bdcc17deff3bd37e01d61a28f8569bc879c5b2fd61b642e010a2ce906a48b",
+    "model/reciprocal_area_dynamics/results.json": "52ed330f9f1687ee65f8e4def31bc15ecf2a9a7caba6f5e7003bb035f4551f69",
     "model/reciprocal_area_dynamics/__init__.py": "51e7e8b087c4d8f6bf9974379cbf5b9f15fae6c6649cf73aa3897979c22b352a",
     "model/reciprocal_area_dynamics/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/scattering_packet_readout/PROOF.md": "a9e514bb6a0d451c82723a5284305a424b8e125bed633191a1302f82e76f56ae",
@@ -9529,14 +9794,14 @@
     "model/topological_defect_spectrum/lattice.py": "d61cd13787d4c6839386c85737a5b27ee2dffcd35f6b2828e809e5bedabd834a",
     "model/topological_defect_spectrum/lattice_bounds.py": "fd8956940eb1f3b19a044fc41d09b62937cae26c654c8d1112fb47125bddfbd1",
     "model/topological_defect_spectrum/packet.py": "55515c0c06d5ca5a5b0fae743126803d8e3284af0b216b686f0bd11513bfbe42",
-    "model/topological_defect_spectrum/results.json": "da86493e276d12788f57c7873e13a9fe1ad7025397ecb6bf0a71bbd4149c3b6f",
+    "model/topological_defect_spectrum/results.json": "9f83f383b3fd6567dbcf5a76fc723499483f7b9316f793c180c0432931117923",
     "model/topological_defect_spectrum/sampling.py": "783951dc8d9f19e2cd652c167a6893c420bf49461bb8697170cb0e644eedd2cd",
     "model/topological_defect_spectrum/spectral_witness.json": "8e3729ed52ecd21fc70964361339b0bb32faefd8765b7656a808c4f3a1d9e9dd",
     "model/topological_defect_spectrum/test_algebra.py": "7c1c8b2b5754467034e699cb2769e7a24965bb7e1ab8df920e3a17f9ffb96853",
     "model/topological_defect_spectrum/test_bulk.py": "c96ef096384b2849238495b5eb51cdcabfd466e0eb201986375e72d6e23d82bd",
     "model/topological_defect_spectrum/test_core.py": "3aff2ffa7490d395aaa33d904264c4c1770a020c442f031182f03af6ca0da477",
     "model/topological_defect_spectrum/test_lattice.py": "0827d4612ded4a71720ebb26ded68686929040f4a967931815d045d12c0984b4",
-    "model/topological_defect_spectrum/test_lattice_bounds.py": "35b51254d78b7d253173cb1a4c39e8996a05abb876571bb7e5af0ced214e5807",
+    "model/topological_defect_spectrum/test_lattice_bounds.py": "17adcb2a51ba90fc00288bf2413b213e3c3087430315664324e7cdb011a46f9a",
     "model/topological_defect_spectrum/test_packet.py": "fbbb59be4254a84e34fb0808e40ab49517d62b24bfaafed5f1a9e082406bff7b",
     "model/topological_defect_spectrum/test_sampling.py": "f98b58e94316904434955ef63cf9291e9aad429bdf49edc6d9400956e83dbc1d",
     "model/spin_texture_energy/PROOF.md": "f6f6797da961242aa825e78421635a559f6c213efc7cf84a166973e8d6f55248",
@@ -9564,7 +9829,7 @@
     "model/defect_core_response/bounds.py": "ac61f1c66ef02f42651cd617618550a7ede160e54a9c8b390747971f73e0f9e5",
     "model/defect_core_response/packet.py": "09aead06caa61ae2a4a314096afdfb98bd5492b3b45d33d2bdb819884aad280f",
     "model/defect_core_response/response.py": "2f90f8ed7e26ad2d66fea6603d2ae07e37f7811d8fa84a989f915e954e59efb4",
-    "model/defect_core_response/results.json": "6b4de4dfc5acee7cb87dd41fd2b69ee0789a7c32925beb0521d6e84997be9c7c",
+    "model/defect_core_response/results.json": "e0be35d9d9d6bda14e344ff8cce9a400364bc16f32c56f0795883b9580478f21",
     "model/defect_core_response/test_packet.py": "17721bc78d262a3c34756ad0c6ec4cc74a4e2e9199f0da7081211e1b6ac351ed",
     "model/defect_core_response/test_response.py": "00d27a52bbc90838b0abc88b6726677246cb3fce63706731baa9c82d5ef44ac4",
     "model/bounded_defect_index/PROOF.md": "53dabf54c6e08539bb7414c252287f98ffa33558f0d1a22bc7aa998a5a891918",
@@ -9575,7 +9840,7 @@
     "model/bounded_defect_index/bounds.py": "73ffb958b2d809b882beb87233ca130f3650d34484870ad339ae4ab12d683116",
     "model/bounded_defect_index/finite.py": "f7b0cb53ea9339d186ee64dc6b9947d27446816f816cb19e136f86f831b8e0b9",
     "model/bounded_defect_index/packet.py": "7fcf6347b95ef9376ef155b8b84303c6926b192152abde18edcf090530f5978e",
-    "model/bounded_defect_index/results.json": "39239b574d92194a659c9b2a67cb983996cbc0e2ee64ac5aae3203070cdf08cb",
+    "model/bounded_defect_index/results.json": "39d08a8d24b85554eb35da7d3cfbf25097e207af37b3186d7b58883acc0c6cc1",
     "model/bounded_defect_index/test_algebra.py": "d4e6a0eaee080451f7163d459c78e6a68c5f8f13d4066c236c6c4944dce20160",
     "model/bounded_defect_index/test_bounds.py": "07e35c023ed3a24766e2c9f76c6c9c4d25e89c53b6417224621b21154a84c1f2",
     "model/bounded_defect_index/test_packet.py": "157e03253e64a4854d1e0ee0b068d1b8268aa8ef198dff7c5e250558300d1e26",
@@ -9595,10 +9860,62 @@
     "model/matter_geometry_response/__init__.py": "d70be1a91a6591bba8fec1a0f3ae3ae19f23775641d033170d0467aa1ef936b7",
     "model/matter_geometry_response/__main__.py": "fa6e590073394b5b505b50f292870390f2b876eec3d66e9059d16a10a423d34e",
     "model/matter_geometry_response/geometry.py": "5729dc471daeb71f8fea6b35547dfa3933e5e157e65fdd6638c749c212c38b77",
-    "model/matter_geometry_response/packet.py": "7eb0f1ac720ef45ea01c21e3de4097c97d866f667e1f5cfd2cae5ad3bcc7cc12",
-    "model/matter_geometry_response/results.json": "db9e905addb1a0c4ab782eb31ef3e77d936efb0b5bd25bad8f521f0b041b9a94",
+    "model/matter_geometry_response/packet.py": "e23b445a39fdacc3d6f7455fb35874e01a2fdc180ef9e924f8618728084f8997",
+    "model/matter_geometry_response/results.json": "43cc7092c24141ceff0648636464576d80935b1f507a1861cdb264c002ae61a7",
     "model/matter_geometry_response/source.py": "2ec94a3170cfde9ea3ca6e9d6c154c5b1685191b0c94ac120418106a5a3b361d",
-    "model/matter_geometry_response/test_response.py": "24739a664b8a411ca0dd8e098d9e8af6910a8418aec45c2533365fb3c2f26d06"
+    "model/matter_geometry_response/test_response.py": "0c2f39f5ce5c847b662739ae45d9fcfe67d981cfc7357bca8f1700cb15f6e78f",
+    "model/radial_defect_gap/PROOF.md": "7af6d3d738aa0c2bd2166fb99ad7ede55a5e6c8992185efa003084313c10c3ed",
+    "model/radial_defect_gap/README.md": "9b280e343f608927e422fc1836b89cdef0f57765f4667d04768a8708aa8392c2",
+    "model/radial_defect_gap/__init__.py": "84da3fbf852599f0a5a1c804a5bd412ee2490c52b9498f8cbbaa7d29bbbec97e",
+    "model/radial_defect_gap/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/radial_defect_gap/algebra.py": "81fa3523f3432d8fa0eeee0b9f062e1c395b924449db6518058ad62954b4b465",
+    "model/radial_defect_gap/bounds.py": "dd158af3d1751d5de190a5b2864887b2d11e35a4ec1eb6c6b58d71759839d793",
+    "model/radial_defect_gap/finite.py": "2a0b92a36162fe19a565ff8ba3e23f3b05e70fec3aab4bef4605d150aae14113",
+    "model/radial_defect_gap/packet.py": "a4dd3346f1ac73088f499a35743aee4e413c5ee413bef83779759b20ebc2b4d7",
+    "model/radial_defect_gap/results.json": "5c91c3c4258e45420626a84f2ff8b4b6c1cc57937e4b0ccf23006f909cb5acc0",
+    "model/radial_defect_gap/test_bounds.py": "733d7435cf91ce9d7c087bf1da76e08af129110d23831c5b2f0e90909f8dc938",
+    "model/radial_defect_gap/test_finite.py": "0f4cc2f44eff9b7b6a7cd6d93da460e51924f1e7e66439b7945ed204794d4b4d",
+    "model/radial_defect_gap/test_packet.py": "3060b3c08185a4962a4c3edfb18ce7ef3bd230d5f6ab995ec749be2a993a9f68",
+    "model/radial_interacting_core/PROOF.md": "4bf0906c80bb3b86875368132172b24707c1153ce166e8324b761e0d932bc2c3",
+    "model/radial_interacting_core/README.md": "594f179273de025ba836bbd6776ba516f4d6747b2f3a50a2eafdd72b3b6429e7",
+    "model/radial_interacting_core/__init__.py": "8fb1c406f76803182bda80e77cfc158c366fb716574d583b3488ee31d170b3f4",
+    "model/radial_interacting_core/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/radial_interacting_core/algebra.py": "4dd33cc0901fad6315f0d98bb72cf7d2453a64f61bf064d70a947bfc149e1b9b",
+    "model/radial_interacting_core/core.py": "0ccf9b003bde2d5235e6fccddeff701ab016dd45d2e69a8ae3ba3ffb048ed31d",
+    "model/radial_interacting_core/packet.py": "a3b8da4678272248e25833b2cf3458586f5af7bcaf5a558cec44d5ea1898db47",
+    "model/radial_interacting_core/results.json": "377b161da3851b0853c9544859b770982ed64aa9e39f766b9a10884a2b05bd2d",
+    "model/radial_interacting_core/test_packet.py": "5c2cc925bb2dfdb7d9685f2fceb194c44e6c30dc36dde87df3b54e3f197e1c6b",
+    "model/radial_interacting_core/test_radial.py": "ee3ed793eb1712aee28c5b31c0b7010c1e53b999de57cfe40031e32e2bffca80",
+    "model/parity_entropy_response/PROOF.md": "799911a49a29596af6c252f1f482f08f0873946a6a87163c7bb955a0b263d7fe",
+    "model/parity_entropy_response/README.md": "4fa20b70bda17c4e80762045e1ad287067ccc99fa80eafcbb7b58fdbea870ce1",
+    "model/parity_entropy_response/__init__.py": "fcc41a6bc809bcef6b9b3a107fb6a567e38af2bf0ed243d35fcbb9a3c7c1c9ef",
+    "model/parity_entropy_response/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/parity_entropy_response/modular.py": "4e3e16a675e624200c4af19eccc7fe71e21002fc8515847c4017d859f246f1f9",
+    "model/parity_entropy_response/packet.py": "42e77df6863f29d27d78eb53cc81246ed8bb1b7b3c8f7a4c199a6511f5a4a302",
+    "model/parity_entropy_response/records.py": "e3153f1a9b9220ad1c6e81f6d46be3a60c9aec065d9e818d82d26b672173e54d",
+    "model/parity_entropy_response/regional.py": "6e119ec625b54804bba37e4cd44046868bea1fe44d8c965c75d3ce2bd34955bc",
+    "model/parity_entropy_response/results.json": "feb8a773d831c388c4128e4b7bcc853b32b575d191bce2a71508d28c61c4a6eb",
+    "model/parity_entropy_response/test_entropy.py": "c317434c571a9475255c16a908cc3f577f04c26a28c0a833ae51fe3ff3c008d7",
+    "model/radial_geometry_join/PROOF.md": "5085a3ae1e74786ce0b269267dabdd30d7a517dfbd52f735a1e4ab25e1e16ee2",
+    "model/radial_geometry_join/README.md": "fd4c60c153a1c5de4b465eefa7bd340c208231a0c95803f28b01b28d309e2ca4",
+    "model/radial_geometry_join/__init__.py": "bdb051d20bc8073e12cbb63c05726eea93aa3c032de61ff5736538a3e1223692",
+    "model/radial_geometry_join/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/radial_geometry_join/bounds.py": "7e05abe62ec672a1128aaf0e985f53bb636178fe304ad71107dc7dcd68110c74",
+    "model/radial_geometry_join/packet.py": "629cb670c273759e7adf71ae6614a29075e4d1b25bdcb8bef65ca75ec4d4c0d4",
+    "model/radial_geometry_join/results.json": "2a1dc54685873eb412bec5fe5892d2eb820ce9473f2a2330a9c646725501c266",
+    "model/radial_geometry_join/source.py": "6612f4817e0dcf14d6ff01b82fe930277a9d6c29071e0936a8fc14bf832dcbeb",
+    "model/radial_geometry_join/test_packet.py": "59a815e9432783c52771048f3a31cc047e9d0c9544ad8888cb63f29b5d28ac53",
+    "model/radial_geometry_join/test_source.py": "e643589f02c9dc4373d90c04dc6622de0527575e1ea6137c75c43d48a483dc50",
+    "model/radial_reused_readout/PROOF.md": "95b1d5c48ff2fd1ddfb802255ca4029604178a204be20a8745bff9d8116e8ccc",
+    "model/radial_reused_readout/README.md": "ab483ae1184381a6f32b50fe171252f6e8513e15cd54850bf4d9a560c8108a83",
+    "model/radial_reused_readout/__init__.py": "4645ecfa83a66387d5528876d6b2640310bead738cc914c7c1a42aaf536fd077",
+    "model/radial_reused_readout/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/radial_reused_readout/controls.py": "397e73532269ece9e63157cc0574deceb05404f22cc799e75bda2b10a963e884",
+    "model/radial_reused_readout/packet.py": "0a9194ab7881f2f35bcb6c9f93c71de4e664579199d5e64a80b2240fe156402b",
+    "model/radial_reused_readout/results.json": "d4e2fb2288cd4178f1c12887f03045470151f8be7336cee8bcd78cff6d1ce22b",
+    "model/radial_reused_readout/reuse.py": "ddfc1d0dcb3850fc692275512a3a7e4f20cb51cf0fb2e4db8439cad0ae548593",
+    "model/radial_reused_readout/test_packet.py": "54a7f4f4da182f0ec32c6ac96727f563fe37c81513231ef316552de1f8d4107f",
+    "model/radial_reused_readout/test_reuse.py": "093a27311e82d186825512b037e219d94f5ffbc67277a0d8724aceee49e6482e"
   },
   "gate_acceptance_owner": "claims/completion_program.json",
   "predecessor_review": {

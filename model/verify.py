@@ -388,6 +388,11 @@ REPLAYS = (
     ("model.bounded_defect_index", None, "model/bounded_defect_index/results.json"),
     ("model.native_odd_box_core", None, "model/native_odd_box_core/results.json"),
     ("model.matter_geometry_response", None, "model/matter_geometry_response/results.json"),
+    ("model.radial_defect_gap", None, "model/radial_defect_gap/results.json"),
+    ("model.radial_interacting_core", None, "model/radial_interacting_core/results.json"),
+    ("model.parity_entropy_response", None, "model/parity_entropy_response/results.json"),
+    ("model.radial_geometry_join", None, "model/radial_geometry_join/results.json"),
+    ("model.radial_reused_readout", None, "model/radial_reused_readout/results.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 

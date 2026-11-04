@@ -3,7 +3,7 @@ from fractions import Fraction as F
 
 import numpy as np
 import pytest
-from scipy.linalg import eigvalsh_tridiagonal
+from scipy.linalg import eigh_tridiagonal
 import sympy as s
 
 from tools import strict_json
@@ -54,13 +54,21 @@ def test_all_six_infinite_levels_against_independent_larger_cutoff_diagnostic():
     # uses exact residuals and tails, and does not rely on this eigensolver.
     positions = np.arange(-64, 65)
     parity = np.where(positions % 2, -1., 1.)
-    numerical = eigvalsh_tridiagonal(positions*parity, parity[:-1]/2)
-    positive = numerical[numerical > .5][:6]
+    numerical, vectors = eigh_tridiagonal(positions*parity, parity[:-1]/2)
+    positive = np.flatnonzero(numerical > .5)[:6]
+    diagonal, off = bounds.tridiagonal(64)
     previous = F(0)
-    for row, number in zip(result['positive_levels'], positive, strict=True):
+    for row, index in zip(result['positive_levels'], positive, strict=True):
         lo, hi = map(F, row['energy_interval'])
+        center = F(float(numerical[index]))
+        vector = [F(float(x)) for x in vectors[:, index]]
+        # A floating eigenvalue can lie just outside the exact enclosure.
+        # Bound its error from its actual vector with exact arithmetic,
+        # including the two omitted infinite-source boundary rows.
+        residual = bounds.residual_bound(diagonal, off, center, vector)
+        assert residual < F(1, 10**11)
         assert previous < lo < hi
-        assert float(lo) <= number <= float(hi)
+        assert center-residual <= hi and lo <= center+residual
         assert hi-lo <= F(2, 10**12)
         assert F(row['infinite_source_residual_upper']) < F(1, 10**11)
         previous = hi

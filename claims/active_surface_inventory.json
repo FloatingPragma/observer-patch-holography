@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 961,
+  "surface_count": 972,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2226,6 +2226,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/completion/RADIAL_SOURCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3021,6 +3026,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/parity_entropy_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/parity_entropy_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3132,6 +3147,46 @@
     },
     {
       "path": "model/quantum_observer_correspondence/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_defect_gap/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_defect_gap/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_geometry_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_geometry_join/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_interacting_core/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_interacting_core/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_reused_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_reused_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

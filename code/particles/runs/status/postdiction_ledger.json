@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "b01928d669fd705bd5464d0f7a672e328c3d26e9047f4d99db8685071d965fe4",
-      "claims/completion_program.json": "7e6e766a17bdf3be33ef3b240cdf194bb63abd2dd8ee48b79595c1faac1eeeb9",
+      "claims/completion_program.json": "da889b780cd27d4f28bd8804ad128c465b51cc457cedf62fce7035d613b2f888",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -55,13 +55,13 @@
         "independent_check": "model/completion/independent_program_review.py",
         "path": "model/completion/program_class_v2_review.json",
         "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-        "sha256": "2f71d11e6bf00459d98225408af65e0e60b614b8d585b384cb29d0848159cf1d"
+        "sha256": "c803546dad130746721320c6fb52106aa41c63ddbffb6998193e9c88cd3b6bd4"
       },
       "adopted_class": {
         "independent_check": "model/completion/test_program_class_v2.py",
         "path": "model/completion/program_class_v2.json",
         "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-        "sha256": "00c83f59f619d7b4935ec77b650ea0dda1afdf7d37a78468e8e8d2efd61c2f42"
+        "sha256": "ee698a3ed0bca29ffcf74a77482adabea1a2c3667db840f134d2a0ced79e1f7a"
       },
       "boundary_status": "FROZEN",
       "component_campaigns": [
@@ -432,7 +432,7 @@
             "independent_check": "model/compiled_native_history/test_compiler.py",
             "path": "model/completion/component_interfaces.json",
             "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
-            "sha256": "e90a0acc184ad336b70cb9052dfd6548e6bc5c4d1d450f7fa2f5968a126aea8c"
+            "sha256": "e0c4512d07894ba26cf0eb008c2313d0092bc371a8f1a741328b1bc39f4922eb"
           },
           "id": "OPH-COMMON-FIELD-INTERFACES-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -990,7 +990,7 @@
             "independent_check": "model/completion/test_dynamics_response_campaign.py",
             "path": "model/completion/dynamics_response_campaign.json",
             "scope": "Construct continuing positive-rate native repair of interacting spin dynamics, actual source ground and thermal reference limits, complete moving-scattering readout, and same-source finite geometry/energy/entropy response.",
-            "sha256": "905d02e11d5defd9ba938f4ea4e68fbdd7ffd9b892fa33d10733986bc8f0b8c5"
+            "sha256": "37a2662f5e0dbb03da5b6bd26db36411455be75eb19f4185d6bc106f92bebc51"
           },
           "id": "OPH-DYNAMICS-RESPONSE-CLOSURE-2026-11-04",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -1009,7 +1009,7 @@
             "independent_check": "model/completion/test_spectrum_einstein_campaign.py",
             "path": "model/completion/spectrum_einstein_campaign.json",
             "scope": "Identify the conditional bulk and defect spectrum, control nonlinear textures of the actual ordered spin ground, and derive quantitative Einstein tensor balance from one matched regional source interface.",
-            "sha256": "4a07d70b4add1626b5af215ad6c7ffae488b184afeb08f74ea3ca7662f5cea55"
+            "sha256": "9e10122b7b123dad2d07c02a321697d9aa60ea1b0e65253cd517bd0c97a1a27e"
           },
           "id": "OPH-SPECTRUM-EINSTEIN-CLOSURE-2026-11-04",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -1028,7 +1028,7 @@
             "independent_check": "model/completion/test_defect_geometry_campaign.py",
             "path": "model/completion/defect_geometry_campaign.json",
             "scope": "Establish observable interacting charged poles, an unmodified finite source core, exact localized lattice defect modes and electric-energy-responsive native geometry while retaining every source and refinement boundary.",
-            "sha256": "5733e34c2aceabc844f423e334efc3b4043f8546fca99883ad18ce4535870cca"
+            "sha256": "69c9fd2aa30df7e9439099f13a8d34b9c05e99523a385b60700bfea5d72dc561"
           },
           "id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -1038,6 +1038,25 @@
             "CP-06",
             "CP-07",
             "CP-08"
+          ],
+          "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+            "independent_check": "model/completion/test_radial_source_campaign.py",
+            "path": "model/completion/radial_source_campaign.json",
+            "scope": "Join the actual bounded radial kernel, finite interacting charged states, regional entropy and native responsive geometry on one source, with complete records and explicit preparation/control/refinement conditions.",
+            "sha256": "e0f2018b8457ab56f70d5275cac9980dd752967608d9603d7fe252e884be4718"
+          },
+          "id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-03",
+            "CP-06",
+            "CP-07",
+            "CP-08",
+            "CP-09"
           ],
           "whole_program_frozen": false
         }
@@ -1642,7 +1661,7 @@
             "independent_check": "model/completion/test_finite_attachment_map.py",
             "path": "model/completion/finite_attachment_map.json",
             "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-            "sha256": "96082c2040fca55e1918867bb7cfdef3f9f224cbe948475955b4e66671451783"
+            "sha256": "06f74989632ad104b8470241ddfbd0bdb52320a14aa9d6b03e8091804a4d20be"
           },
           {
             "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -2649,13 +2668,13 @@
               "independent_check": "model/completion/test_program_class_v2.py",
               "path": "model/completion/program_class_v2.json",
               "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-              "sha256": "00c83f59f619d7b4935ec77b650ea0dda1afdf7d37a78468e8e8d2efd61c2f42"
+              "sha256": "ee698a3ed0bca29ffcf74a77482adabea1a2c3667db840f134d2a0ced79e1f7a"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "2f71d11e6bf00459d98225408af65e0e60b614b8d585b384cb29d0848159cf1d"
+              "sha256": "c803546dad130746721320c6fb52106aa41c63ddbffb6998193e9c88cd3b6bd4"
             }
           ],
           "deliverable": "A versioned, content-bound class of admissible carrier/refinement, repair and memory laws, record instruments, resources, preparations, clocks and interpretation maps; one target and exposure record fixed before validation.",
@@ -2749,7 +2768,7 @@
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "2f71d11e6bf00459d98225408af65e0e60b614b8d585b384cb29d0848159cf1d"
+              "sha256": "c803546dad130746721320c6fb52106aa41c63ddbffb6998193e9c88cd3b6bd4"
             }
           ],
           "deliverable": "One replayable native repair/memory process that prepares, acts, reads, retains records and continues on overlapping accessible regions, with every service and failure branch accounted.",
@@ -3001,14 +3020,14 @@
             {
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
-              "scope": "Complete 84-premise ownership/relevance review, 126 inspected attachments with 121 realized scoped instances. Explicit finite source joins and every canonical physical discharge status are preserved.",
-              "sha256": "96082c2040fca55e1918867bb7cfdef3f9f224cbe948475955b4e66671451783"
+              "scope": "Complete 84-premise ownership/relevance review, 131 inspected attachments with 126 realized scoped instances. Explicit finite source joins and every canonical physical discharge status are preserved.",
+              "sha256": "06f74989632ad104b8470241ddfbd0bdb52320a14aa9d6b03e8091804a4d20be"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "2f71d11e6bf00459d98225408af65e0e60b614b8d585b384cb29d0848159cf1d"
+              "sha256": "c803546dad130746721320c6fb52106aa41c63ddbffb6998193e9c88cd3b6bd4"
             }
           ],
           "deliverable": "A theorem-to-model integration and relevance review in the existing premise map: each result needed by the completion chain has an owning gate and an explicit model-premise proof obligation; irrelevant branches leave the active path.",
@@ -3353,7 +3372,7 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-              "sha256": "96082c2040fca55e1918867bb7cfdef3f9f224cbe948475955b4e66671451783"
+              "sha256": "06f74989632ad104b8470241ddfbd0bdb52320a14aa9d6b03e8091804a4d20be"
             },
             {
               "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -4290,7 +4309,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "fce2d441b4c7e00a085278bbef62155d3d447d49cee8addc43bc504c8cbeca6b"
+              "sha256": "e3b1959d8465e0de7e83637a2ce6b2c7cb50456b34d692d88e7b0722fcca01f7"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -4526,7 +4545,7 @@
               "independent_check": "model/topological_defect_spectrum/test_algebra.py",
               "path": "model/topological_defect_spectrum/results.json",
               "scope": "The full source has two Dirac copies per uniform gap |m0+r| and |m0-r|, r=|m|, including two massless and two massive copies at m0=|m|>0. For the supplied bounded constant-magnitude radial hedgehog, the complete subgap point spectrum is zero with multiplicity two and +/-m*sqrt(1-1/n^2), n>=2, each sign with multiplicity 2*n^2; essential spectrum lies outside (-m,m). The explicit smooth hedgehog also has exactly two zero modes. Hedgehog/antihedgehog chiral indices are +2/-2 on their gapped domains. The independent linear continuum texture has +/-sqrt(2*v*kappa*q), q>=1, each signed multiplicity 4*q^2+2, plus two zeros. Original-lattice Bessel zero modes are exact and exhaustive; a complete Jacobi tensor reduction retains every sign, coordinate and coincident energy, with six certified infinite-lattice positive levels. In the supplied 27-site linear texture, the original centered interaction compresses exactly to C+(U/8)[n1*n2-(n1+n2)/2]. With w=27U/4 and epsilon=w^2/(6/5-2w), its complete-Fock error bound gives an exact Kramers ground doublet and particle-hole-related charged gap in U/16+/-2epsilon. At U=1/65536 the gap lies in [9.3599070381e-7,9.7135792901e-7] source units. These finite interacting energies are not identified with continuum Coulomb levels. For the bounded radial texture on the original lattice, every neighborhood of a fixed continuum gap level contained in (-m,m) contains at least the continuum multiplicity of lattice eigenvalues for every sufficiently small spacing: at least two near zero and at least 2*n^2 near each signed Coulomb level. This is a source-bound spectral inclusion, with no exclusion of extra lattice levels and no exact finite-spacing zero claim for the bounded profile.",
-              "sha256": "da86493e276d12788f57c7873e13a9fe1ad7025397ecb6bf0a71bbd4149c3b6f"
+              "sha256": "9f83f383b3fd6567dbcf5a76fc723499483f7b9316f793c180c0432931117923"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -4534,7 +4553,31 @@
               "independent_check": "model/bounded_defect_index/test_algebra.py",
               "path": "model/bounded_defect_index/results.json",
               "scope": "For the same bounded radial native lattice operator as FA120, ind(P_- H P_+)=2. Hence there are at least two exact normalizable inversion-even zero modes at every positive spacing, with finite-dimensional total kernel. The full hopping homotopy has essential spectrum [-sqrt(m^2+3*t^2*v^2/a^2),-m] union [m,sqrt(m^2+3*t^2*v^2/a^2)]. The atomic endpoint has an invertible mass block on every nonzero inversion pair and exactly two even origin rows, proving the index without an infinite-volume eigenvalue extrapolation. Both hedgehog and antihedgehog have this same reflection index +2; no identification with their opposite continuum internal indices is made. Every normalized exact zero mode has the stated explicit exponential tail, including permitted finite-core perturbations after enlarging the reference radius. Compact inversion-odd perturbations preserve the zero lower bound without a norm restriction; inversion-odd perturbations of norm less than m also preserve it without compactness. A compact scalar term at the atomic origin removes its two zero levels while preserving the essential gap, and a uniform scalar term moves every original zero eigenvector, demonstrating why the spectral anticommutation hypothesis is necessary.",
-              "sha256": "39239b574d92194a659c9b2a67cb983996cbc0e2ee64ac5aae3203070cdf08cb"
+              "sha256": "39d08a8d24b85554eb35da7d3cfbf25097e207af37b3186d7b58883acc0c6cc1"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_defect_gap",
+              "independent_check": "model/radial_defect_gap/test_bounds.py",
+              "path": "model/radial_defect_gap/results.json",
+              "scope": "On the same supplied bounded radial lattice as FA124, m>sqrt(3)*v/a implies exactly two square-summable zero modes and a uniform empty one-body spectral interval around them: every nonzero energy has |E|>=m-k for any admitted rational k. Every zero mode is inversion-even. The exact source antiunitaries make each local zero-frame Gram scalar, so its origin weight and contact-overlap weight have the stated positive volume-independent lower bounds. The original local observable D0=(n_origin-1)^2 has expectation (1-rho_0^2)/2 in every singly occupied free core reference and (1+rho_0^2)/2 in the empty or full core references. At a=v=1,k=2, mass4 gives gap>=2, rho0>=8/11 and IPR>=64/121; mass64 gives gap>=62, rho0>=7688/7691 and free-reference D0 contrast>=(7688/7691)^2. An explicit finite-hop Neumann expansion gives exponential localization and quantitative finite-to-infinite kernel-projector convergence without finite-eigenvalue extrapolation.",
+              "sha256": "5c91c3c4258e45420626a84f2ff8b4b6c1cc57937e4b0ccf23006f909cb5acc0"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_interacting_core",
+              "independent_check": "model/radial_interacting_core/test_radial.py",
+              "path": "model/radial_interacting_core/results.json",
+              "scope": "On the SAME bounded radial Hamiltonian as the exact zero pair, PWP=C+U I[n1n2-(n1+n2)/2], I=sum rho_x^2>=alpha_lower^2. At d=62,alpha_lower=7688/7691,t=27/16252874, the actual ground is a Kramers doublet and equal charged gaps lie in [960588587329007/126010204829305274368,16253603/2130296700928]. Full one-body residue matrices differ from Z/2 by at most 3t, and each center-spin pole weight exceeds 0.49979. Actual center parity is below 0.000392 in the ground and above 0.999608 in either charged state. The faithful finite Gibbs state at beta=(2V+n)/g_lower has unhalved ground-mixture error at most 2^-n and exact modular clock.",
+              "sha256": "377b161da3851b0853c9544859b770982ed64aa9e39f766b9a10884a2b05bd2d"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_geometry_join",
+              "independent_check": "model/radial_geometry_join/test_packet.py",
+              "path": "model/radial_geometry_join/results.json",
+              "scope": "For the same full interacting bounded radial source, the actual ground has <D0> at most188263256928/480690783803197 and each charged singlet at least its complement. Source particle-hole symmetry equates both charged parity and geometry responses. The actual local contact-energy contrast is positive. A complete forty-pulse native instrument gives p1=1/50+(24/25)<D0>; its unread channel multiplies parity coherences by7/25 and injects exactly -(18/25)<H_star> field energy. The same recorded scheduler produces theta=(3/25)(1-2<D0>) and the source rank-three Gram. Its actual ground-versus-charged G01 contrast is greater than59/1000, with rational lower bound approximately0.05996058. The exact complete control bound, including146 first-failure slots and nine coin words, is below1e-9 in half trace distance, with all79872 native load histories retained. A specified finite sampling protocol yields an inferred ideal Gram contrast above0.04899996 with at least99 percent joint confidence.",
+              "sha256": "2a1dc54685873eb412bec5fe5892d2eb820ce9473f2a2330a9c646725501c266"
             }
           ],
           "requires": [
@@ -4849,7 +4892,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "fce2d441b4c7e00a085278bbef62155d3d447d49cee8addc43bc504c8cbeca6b"
+              "sha256": "e3b1959d8465e0de7e83637a2ce6b2c7cb50456b34d692d88e7b0722fcca01f7"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -4872,7 +4915,7 @@
               "independent_check": "model/defect_core_response/test_packet.py",
               "path": "model/defect_core_response/results.json",
               "scope": "For either proved finite source let w=27U/4, t=w/(d-2w), epsilon=w^2/(d-2w), with parent ground-ordering bounds; d=6/5 for the supplied texture and d=2/3 for the unmodified c=1 cube. Actual charged addition/removal poles share positive gap in U/16+/-2epsilon, while all other charged excitations lie above d-2w. Their complete 54-row residue matrices satisfy ||M_+/- - Z/2||<=3t and have exact rank two. Each zero-mode compression is z I_2 with 1/2-3t<=z<=1/2, and its high-energy weight is at most3t per sign. Native local pole weights are at least4/27-3t at the texture center and1/16-3t at every original-cube corner, positive at U=1/65536. Exact Hamiltonian charge/energy continuity and all native recorded charge transfers are proved. Complete Poisson archive distance is1-exp(-54 Gamma T), retaining all events. The specified strictly positive-rate witness gives distance<1/1000 for the exact ground, or at most1/1000+t for the uncorrelated trial mixture.",
-              "sha256": "6b4de4dfc5acee7cb87dd41fd2b69ee0789a7c32925beb0521d6e84997be9c7c"
+              "sha256": "e0be35d9d9d6bda14e344ff8cce9a400364bc16f32c56f0795883b9580478f21"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -5108,7 +5151,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "fce2d441b4c7e00a085278bbef62155d3d447d49cee8addc43bc504c8cbeca6b"
+              "sha256": "e3b1959d8465e0de7e83637a2ce6b2c7cb50456b34d692d88e7b0722fcca01f7"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -5780,7 +5823,7 @@
               "independent_check": "model/topological_defect_spectrum/test_algebra.py",
               "path": "model/topological_defect_spectrum/results.json",
               "scope": "The full source has two Dirac copies per uniform gap |m0+r| and |m0-r|, r=|m|, including two massless and two massive copies at m0=|m|>0. For the supplied bounded constant-magnitude radial hedgehog, the complete subgap point spectrum is zero with multiplicity two and +/-m*sqrt(1-1/n^2), n>=2, each sign with multiplicity 2*n^2; essential spectrum lies outside (-m,m). The explicit smooth hedgehog also has exactly two zero modes. Hedgehog/antihedgehog chiral indices are +2/-2 on their gapped domains. The independent linear continuum texture has +/-sqrt(2*v*kappa*q), q>=1, each signed multiplicity 4*q^2+2, plus two zeros. Original-lattice Bessel zero modes are exact and exhaustive; a complete Jacobi tensor reduction retains every sign, coordinate and coincident energy, with six certified infinite-lattice positive levels. In the supplied 27-site linear texture, the original centered interaction compresses exactly to C+(U/8)[n1*n2-(n1+n2)/2]. With w=27U/4 and epsilon=w^2/(6/5-2w), its complete-Fock error bound gives an exact Kramers ground doublet and particle-hole-related charged gap in U/16+/-2epsilon. At U=1/65536 the gap lies in [9.3599070381e-7,9.7135792901e-7] source units. These finite interacting energies are not identified with continuum Coulomb levels. For the bounded radial texture on the original lattice, every neighborhood of a fixed continuum gap level contained in (-m,m) contains at least the continuum multiplicity of lattice eigenvalues for every sufficiently small spacing: at least two near zero and at least 2*n^2 near each signed Coulomb level. This is a source-bound spectral inclusion, with no exclusion of extra lattice levels and no exact finite-spacing zero claim for the bounded profile.",
-              "sha256": "da86493e276d12788f57c7873e13a9fe1ad7025397ecb6bf0a71bbd4149c3b6f"
+              "sha256": "9f83f383b3fd6567dbcf5a76fc723499483f7b9316f793c180c0432931117923"
             },
             {
               "campaign_id": "OPH-SPECTRUM-EINSTEIN-CLOSURE-2026-11-04",
@@ -5796,7 +5839,7 @@
               "independent_check": "model/defect_core_response/test_packet.py",
               "path": "model/defect_core_response/results.json",
               "scope": "For either proved finite source let w=27U/4, t=w/(d-2w), epsilon=w^2/(d-2w), with parent ground-ordering bounds; d=6/5 for the supplied texture and d=2/3 for the unmodified c=1 cube. Actual charged addition/removal poles share positive gap in U/16+/-2epsilon, while all other charged excitations lie above d-2w. Their complete 54-row residue matrices satisfy ||M_+/- - Z/2||<=3t and have exact rank two. Each zero-mode compression is z I_2 with 1/2-3t<=z<=1/2, and its high-energy weight is at most3t per sign. Native local pole weights are at least4/27-3t at the texture center and1/16-3t at every original-cube corner, positive at U=1/65536. Exact Hamiltonian charge/energy continuity and all native recorded charge transfers are proved. Complete Poisson archive distance is1-exp(-54 Gamma T), retaining all events. The specified strictly positive-rate witness gives distance<1/1000 for the exact ground, or at most1/1000+t for the uncorrelated trial mixture.",
-              "sha256": "6b4de4dfc5acee7cb87dd41fd2b69ee0789a7c32925beb0521d6e84997be9c7c"
+              "sha256": "e0be35d9d9d6bda14e344ff8cce9a400364bc16f32c56f0795883b9580478f21"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -5804,7 +5847,7 @@
               "independent_check": "model/bounded_defect_index/test_algebra.py",
               "path": "model/bounded_defect_index/results.json",
               "scope": "For the same bounded radial native lattice operator as FA120, ind(P_- H P_+)=2. Hence there are at least two exact normalizable inversion-even zero modes at every positive spacing, with finite-dimensional total kernel. The full hopping homotopy has essential spectrum [-sqrt(m^2+3*t^2*v^2/a^2),-m] union [m,sqrt(m^2+3*t^2*v^2/a^2)]. The atomic endpoint has an invertible mass block on every nonzero inversion pair and exactly two even origin rows, proving the index without an infinite-volume eigenvalue extrapolation. Both hedgehog and antihedgehog have this same reflection index +2; no identification with their opposite continuum internal indices is made. Every normalized exact zero mode has the stated explicit exponential tail, including permitted finite-core perturbations after enlarging the reference radius. Compact inversion-odd perturbations preserve the zero lower bound without a norm restriction; inversion-odd perturbations of norm less than m also preserve it without compactness. A compact scalar term at the atomic origin removes its two zero levels while preserving the essential gap, and a uniform scalar term moves every original zero eigenvector, demonstrating why the spectral anticommutation hypothesis is necessary.",
-              "sha256": "39239b574d92194a659c9b2a67cb983996cbc0e2ee64ac5aae3203070cdf08cb"
+              "sha256": "39d08a8d24b85554eb35da7d3cfbf25097e207af37b3186d7b58883acc0c6cc1"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -5813,6 +5856,30 @@
               "path": "model/native_odd_box_core/results.json",
               "scope": "The unmodified odd open centered source has exactly two quadratic zero modes, and the retained 27-site contact interaction has an actual N27 Kramers ground doublet with equal N26/N28 charged excitation energies in [253315/274792972288,270811/274792972288]. The full complement is retained in the bound. The exact four-outcome zero-occupation detector is natively compiled and its full-chain reference-coupled execution passes. The L3 zero orbital has corner probability 1/8 and center probability 0; it is an open-boundary standing wave, with no imposed topological texture.",
               "sha256": "93f091d4cf625c94dc905ad996abf06f791abe4958028b2923aa6f3290a981e8"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_defect_gap",
+              "independent_check": "model/radial_defect_gap/test_bounds.py",
+              "path": "model/radial_defect_gap/results.json",
+              "scope": "On the same supplied bounded radial lattice as FA124, m>sqrt(3)*v/a implies exactly two square-summable zero modes and a uniform empty one-body spectral interval around them: every nonzero energy has |E|>=m-k for any admitted rational k. Every zero mode is inversion-even. The exact source antiunitaries make each local zero-frame Gram scalar, so its origin weight and contact-overlap weight have the stated positive volume-independent lower bounds. The original local observable D0=(n_origin-1)^2 has expectation (1-rho_0^2)/2 in every singly occupied free core reference and (1+rho_0^2)/2 in the empty or full core references. At a=v=1,k=2, mass4 gives gap>=2, rho0>=8/11 and IPR>=64/121; mass64 gives gap>=62, rho0>=7688/7691 and free-reference D0 contrast>=(7688/7691)^2. An explicit finite-hop Neumann expansion gives exponential localization and quantitative finite-to-infinite kernel-projector convergence without finite-eigenvalue extrapolation.",
+              "sha256": "5c91c3c4258e45420626a84f2ff8b4b6c1cc57937e4b0ccf23006f909cb5acc0"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_interacting_core",
+              "independent_check": "model/radial_interacting_core/test_radial.py",
+              "path": "model/radial_interacting_core/results.json",
+              "scope": "On the SAME bounded radial Hamiltonian as the exact zero pair, PWP=C+U I[n1n2-(n1+n2)/2], I=sum rho_x^2>=alpha_lower^2. At d=62,alpha_lower=7688/7691,t=27/16252874, the actual ground is a Kramers doublet and equal charged gaps lie in [960588587329007/126010204829305274368,16253603/2130296700928]. Full one-body residue matrices differ from Z/2 by at most 3t, and each center-spin pole weight exceeds 0.49979. Actual center parity is below 0.000392 in the ground and above 0.999608 in either charged state. The faithful finite Gibbs state at beta=(2V+n)/g_lower has unhalved ground-mixture error at most 2^-n and exact modular clock.",
+              "sha256": "377b161da3851b0853c9544859b770982ed64aa9e39f766b9a10884a2b05bd2d"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_geometry_join",
+              "independent_check": "model/radial_geometry_join/test_packet.py",
+              "path": "model/radial_geometry_join/results.json",
+              "scope": "For the same full interacting bounded radial source, the actual ground has <D0> at most188263256928/480690783803197 and each charged singlet at least its complement. Source particle-hole symmetry equates both charged parity and geometry responses. The actual local contact-energy contrast is positive. A complete forty-pulse native instrument gives p1=1/50+(24/25)<D0>; its unread channel multiplies parity coherences by7/25 and injects exactly -(18/25)<H_star> field energy. The same recorded scheduler produces theta=(3/25)(1-2<D0>) and the source rank-three Gram. Its actual ground-versus-charged G01 contrast is greater than59/1000, with rational lower bound approximately0.05996058. The exact complete control bound, including146 first-failure slots and nine coin words, is below1e-9 in half trace distance, with all79872 native load histories retained. A specified finite sampling protocol yields an inferred ideal Gram contrast above0.04899996 with at least99 percent joint confidence.",
+              "sha256": "2a1dc54685873eb412bec5fe5892d2eb820ce9473f2a2330a9c646725501c266"
             }
           ],
           "requires": [
@@ -6305,7 +6372,7 @@
               "independent_check": "model/topological_defect_spectrum/test_algebra.py",
               "path": "model/topological_defect_spectrum/results.json",
               "scope": "The full source has two Dirac copies per uniform gap |m0+r| and |m0-r|, r=|m|, including two massless and two massive copies at m0=|m|>0. For the supplied bounded constant-magnitude radial hedgehog, the complete subgap point spectrum is zero with multiplicity two and +/-m*sqrt(1-1/n^2), n>=2, each sign with multiplicity 2*n^2; essential spectrum lies outside (-m,m). The explicit smooth hedgehog also has exactly two zero modes. Hedgehog/antihedgehog chiral indices are +2/-2 on their gapped domains. The independent linear continuum texture has +/-sqrt(2*v*kappa*q), q>=1, each signed multiplicity 4*q^2+2, plus two zeros. Original-lattice Bessel zero modes are exact and exhaustive; a complete Jacobi tensor reduction retains every sign, coordinate and coincident energy, with six certified infinite-lattice positive levels. In the supplied 27-site linear texture, the original centered interaction compresses exactly to C+(U/8)[n1*n2-(n1+n2)/2]. With w=27U/4 and epsilon=w^2/(6/5-2w), its complete-Fock error bound gives an exact Kramers ground doublet and particle-hole-related charged gap in U/16+/-2epsilon. At U=1/65536 the gap lies in [9.3599070381e-7,9.7135792901e-7] source units. These finite interacting energies are not identified with continuum Coulomb levels. For the bounded radial texture on the original lattice, every neighborhood of a fixed continuum gap level contained in (-m,m) contains at least the continuum multiplicity of lattice eigenvalues for every sufficiently small spacing: at least two near zero and at least 2*n^2 near each signed Coulomb level. This is a source-bound spectral inclusion, with no exclusion of extra lattice levels and no exact finite-spacing zero claim for the bounded profile.",
-              "sha256": "da86493e276d12788f57c7873e13a9fe1ad7025397ecb6bf0a71bbd4149c3b6f"
+              "sha256": "9f83f383b3fd6567dbcf5a76fc723499483f7b9316f793c180c0432931117923"
             },
             {
               "campaign_id": "OPH-SPECTRUM-EINSTEIN-CLOSURE-2026-11-04",
@@ -6321,7 +6388,7 @@
               "independent_check": "model/defect_core_response/test_packet.py",
               "path": "model/defect_core_response/results.json",
               "scope": "For either proved finite source let w=27U/4, t=w/(d-2w), epsilon=w^2/(d-2w), with parent ground-ordering bounds; d=6/5 for the supplied texture and d=2/3 for the unmodified c=1 cube. Actual charged addition/removal poles share positive gap in U/16+/-2epsilon, while all other charged excitations lie above d-2w. Their complete 54-row residue matrices satisfy ||M_+/- - Z/2||<=3t and have exact rank two. Each zero-mode compression is z I_2 with 1/2-3t<=z<=1/2, and its high-energy weight is at most3t per sign. Native local pole weights are at least4/27-3t at the texture center and1/16-3t at every original-cube corner, positive at U=1/65536. Exact Hamiltonian charge/energy continuity and all native recorded charge transfers are proved. Complete Poisson archive distance is1-exp(-54 Gamma T), retaining all events. The specified strictly positive-rate witness gives distance<1/1000 for the exact ground, or at most1/1000+t for the uncorrelated trial mixture.",
-              "sha256": "6b4de4dfc5acee7cb87dd41fd2b69ee0789a7c32925beb0521d6e84997be9c7c"
+              "sha256": "e0be35d9d9d6bda14e344ff8cce9a400364bc16f32c56f0795883b9580478f21"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -6329,7 +6396,7 @@
               "independent_check": "model/bounded_defect_index/test_algebra.py",
               "path": "model/bounded_defect_index/results.json",
               "scope": "For the same bounded radial native lattice operator as FA120, ind(P_- H P_+)=2. Hence there are at least two exact normalizable inversion-even zero modes at every positive spacing, with finite-dimensional total kernel. The full hopping homotopy has essential spectrum [-sqrt(m^2+3*t^2*v^2/a^2),-m] union [m,sqrt(m^2+3*t^2*v^2/a^2)]. The atomic endpoint has an invertible mass block on every nonzero inversion pair and exactly two even origin rows, proving the index without an infinite-volume eigenvalue extrapolation. Both hedgehog and antihedgehog have this same reflection index +2; no identification with their opposite continuum internal indices is made. Every normalized exact zero mode has the stated explicit exponential tail, including permitted finite-core perturbations after enlarging the reference radius. Compact inversion-odd perturbations preserve the zero lower bound without a norm restriction; inversion-odd perturbations of norm less than m also preserve it without compactness. A compact scalar term at the atomic origin removes its two zero levels while preserving the essential gap, and a uniform scalar term moves every original zero eigenvector, demonstrating why the spectral anticommutation hypothesis is necessary.",
-              "sha256": "39239b574d92194a659c9b2a67cb983996cbc0e2ee64ac5aae3203070cdf08cb"
+              "sha256": "39d08a8d24b85554eb35da7d3cfbf25097e207af37b3186d7b58883acc0c6cc1"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -6338,6 +6405,38 @@
               "path": "model/native_odd_box_core/results.json",
               "scope": "The unmodified odd open centered source has exactly two quadratic zero modes, and the retained 27-site contact interaction has an actual N27 Kramers ground doublet with equal N26/N28 charged excitation energies in [253315/274792972288,270811/274792972288]. The full complement is retained in the bound. The exact four-outcome zero-occupation detector is natively compiled and its full-chain reference-coupled execution passes. The L3 zero orbital has corner probability 1/8 and center probability 0; it is an open-boundary standing wave, with no imposed topological texture.",
               "sha256": "93f091d4cf625c94dc905ad996abf06f791abe4958028b2923aa6f3290a981e8"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_defect_gap",
+              "independent_check": "model/radial_defect_gap/test_bounds.py",
+              "path": "model/radial_defect_gap/results.json",
+              "scope": "On the same supplied bounded radial lattice as FA124, m>sqrt(3)*v/a implies exactly two square-summable zero modes and a uniform empty one-body spectral interval around them: every nonzero energy has |E|>=m-k for any admitted rational k. Every zero mode is inversion-even. The exact source antiunitaries make each local zero-frame Gram scalar, so its origin weight and contact-overlap weight have the stated positive volume-independent lower bounds. The original local observable D0=(n_origin-1)^2 has expectation (1-rho_0^2)/2 in every singly occupied free core reference and (1+rho_0^2)/2 in the empty or full core references. At a=v=1,k=2, mass4 gives gap>=2, rho0>=8/11 and IPR>=64/121; mass64 gives gap>=62, rho0>=7688/7691 and free-reference D0 contrast>=(7688/7691)^2. An explicit finite-hop Neumann expansion gives exponential localization and quantitative finite-to-infinite kernel-projector convergence without finite-eigenvalue extrapolation.",
+              "sha256": "5c91c3c4258e45420626a84f2ff8b4b6c1cc57937e4b0ccf23006f909cb5acc0"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_interacting_core",
+              "independent_check": "model/radial_interacting_core/test_radial.py",
+              "path": "model/radial_interacting_core/results.json",
+              "scope": "On the SAME bounded radial Hamiltonian as the exact zero pair, PWP=C+U I[n1n2-(n1+n2)/2], I=sum rho_x^2>=alpha_lower^2. At d=62,alpha_lower=7688/7691,t=27/16252874, the actual ground is a Kramers doublet and equal charged gaps lie in [960588587329007/126010204829305274368,16253603/2130296700928]. Full one-body residue matrices differ from Z/2 by at most 3t, and each center-spin pole weight exceeds 0.49979. Actual center parity is below 0.000392 in the ground and above 0.999608 in either charged state. The faithful finite Gibbs state at beta=(2V+n)/g_lower has unhalved ground-mixture error at most 2^-n and exact modular clock.",
+              "sha256": "377b161da3851b0853c9544859b770982ed64aa9e39f766b9a10884a2b05bd2d"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_geometry_join",
+              "independent_check": "model/radial_geometry_join/test_packet.py",
+              "path": "model/radial_geometry_join/results.json",
+              "scope": "For the same full interacting bounded radial source, the actual ground has <D0> at most188263256928/480690783803197 and each charged singlet at least its complement. Source particle-hole symmetry equates both charged parity and geometry responses. The actual local contact-energy contrast is positive. A complete forty-pulse native instrument gives p1=1/50+(24/25)<D0>; its unread channel multiplies parity coherences by7/25 and injects exactly -(18/25)<H_star> field energy. The same recorded scheduler produces theta=(3/25)(1-2<D0>) and the source rank-three Gram. Its actual ground-versus-charged G01 contrast is greater than59/1000, with rational lower bound approximately0.05996058. The exact complete control bound, including146 first-failure slots and nine coin words, is below1e-9 in half trace distance, with all79872 native load histories retained. A specified finite sampling protocol yields an inferred ideal Gram contrast above0.04899996 with at least99 percent joint confidence.",
+              "sha256": "2a1dc54685873eb412bec5fe5892d2eb820ce9473f2a2330a9c646725501c266"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_reused_readout",
+              "independent_check": "model/radial_reused_readout/test_reuse.py",
+              "path": "model/radial_reused_readout/results.json",
+              "scope": "A single field preparation yields the exact native mean (1-q)M0^N x0+q M1^N x0, retaining conditional quantum coherences. The incorrect averaged-matrix iteration differs at N2 by q(1-q)(M1-M0)^2; its matrix00 difference is9/1280000 at q=1/2. Unread parity cross terms multiply by(7/25)^N and full-field measurement work is-[1-(7/25)^N]<H_star>. Actual ground-versus-either-charged classification at N32 has error<1/2500, including source wrong parity, exact-binomial/rational-exponential tail bounds and all complete native control failures.",
+              "sha256": "d4e2fb2288cd4178f1c12887f03045470151f8be7336cee8bcd78cff6d1ce22b"
             }
           ],
           "requires": [
@@ -6539,7 +6638,7 @@
               "independent_check": "model/reciprocal_area_dynamics/test_dynamics.py",
               "path": "model/reciprocal_area_dynamics/results.json",
               "scope": "The actual reciprocal law has a source-derived exact scalar area equation with a=0.63916680624..., k0=0.02170170003...>0 and explicit matter-input forcing. Outward rational Gram pivots prove the minimal memory dimension14 and15 visible nonconstant relaxation modes; reversibility and a two-step minorization place all memory poles in (0,16383/16384) and bound all tails. The same eliminated populations reconstruct source energy and bath heat. Conditional Gibbs states uniquely minimize free energy at each expected area. Their actual conditional energies derive eta in (0.578,0.579) and S(sigma_p)+eta<A>=constant-D_Bernoulli(p||p_equilibrium), giving a strict constrained fixed-volume maximum. On arbitrary full states the exact identity retains E_ex=E-[(1-p)e0+p e1], yielding DeltaS+etaDeltaA-betaDeltaE_ex=DeltaS-betaQ>=0, including the quantum energy-dephasing relative entropy. Both native laws have an exact involution on all512 outcomes, 128 accepted and384 self-reversing rejected/noop records, and full path likelihood ratio exp(-beta Q). The derived coefficient is a two-geometry thermal energy-to-area conversion, not a universal Newton scale. These relaxational finite results do not instantiate regional G4 or Einstein dynamics.",
-              "sha256": "9e8e7e0d9cce948c24c5ef90eb92ea738b09467b4ea91a9aac92a3a3bcfbadb2"
+              "sha256": "52ed330f9f1687ee65f8e4def31bc15ecf2a9a7caba6f5e7003bb035f4551f69"
             },
             {
               "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04",
@@ -6547,7 +6646,31 @@
               "independent_check": "model/matter_geometry_response/test_response.py",
               "path": "model/matter_geometry_response/results.json",
               "scope": "Actual source histories give p1=1/50+(24/25)<E\u00b2> and M=I\u2212[L+theta(D_(0,1)\u2212D_(0,5))]/64 with theta=(3/25)(1\u22122<E\u00b2>). The rank-three band is separated from the next band by at least sqrt5+1/2, and its projector diagonals are at least 1/20. The exact normalized-Gram derivative is G01prime(0)=(-33+29sqrt5)/100>3/10; rational integer spectral enclosures prove G01(energy0)\u2212G01(energy1)>3/40. All 79,872 native histories and raw emitted quantum words are checked. The native kinetic quadratic form has energy derivative\u22123/800 times its two-edge contrast. A correlated-probe countercontrol invalidates product-marginal closure by an exact 3/800 load-mean discrepancy.",
-              "sha256": "db9e905addb1a0c4ab782eb31ef3e77d936efb0b5bd25bad8f521f0b041b9a94"
+              "sha256": "43cc7092c24141ceff0648636464576d80935b1f507a1861cdb264c002ae61a7"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "parity_entropy_response",
+              "independent_check": "model/parity_entropy_response/test_entropy.py",
+              "path": "model/parity_entropy_response/results.json",
+              "scope": "The actual interacting radial ground has central parity at least 23489309429/68579205003925>1/4096, so its complete central M4 reduction is faithful although its full-Fock state is not. A stationary faithful family of the same H realizes every q in [1/4,3/4], with d<E_H>/dq=g/(n_C-n_G)>0. Its local modular generator is scalar+log((1-q)/q)D0, implemented by eight native pulses with complete complement outputs and rational error bounds. Exact regional entropy obeys DeltaS=kappa_r Deltaq-D_Bernoulli, with 2(Deltaq)^2<=D<=8(Deltaq)^2/3, and the same q sets theta=3(1-2q)/25. The region uniquely maximizes entropy at fixed parity/native bias. Complete committed-record entropy is H(B)-I(R:B)+9log2, and same-H Gibbs readout work satisfies beta W-DeltaS=D(Phi gamma||gamma). These are finite source entropy/response results, without an area-law or Einstein premise substitution.",
+              "sha256": "feb8a773d831c388c4128e4b7bcc853b32b575d191bce2a71508d28c61c4a6eb"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_geometry_join",
+              "independent_check": "model/radial_geometry_join/test_packet.py",
+              "path": "model/radial_geometry_join/results.json",
+              "scope": "For the same full interacting bounded radial source, the actual ground has <D0> at most188263256928/480690783803197 and each charged singlet at least its complement. Source particle-hole symmetry equates both charged parity and geometry responses. The actual local contact-energy contrast is positive. A complete forty-pulse native instrument gives p1=1/50+(24/25)<D0>; its unread channel multiplies parity coherences by7/25 and injects exactly -(18/25)<H_star> field energy. The same recorded scheduler produces theta=(3/25)(1-2<D0>) and the source rank-three Gram. Its actual ground-versus-charged G01 contrast is greater than59/1000, with rational lower bound approximately0.05996058. The exact complete control bound, including146 first-failure slots and nine coin words, is below1e-9 in half trace distance, with all79872 native load histories retained. A specified finite sampling protocol yields an inferred ideal Gram contrast above0.04899996 with at least99 percent joint confidence.",
+              "sha256": "2a1dc54685873eb412bec5fe5892d2eb820ce9473f2a2330a9c646725501c266"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "radial_reused_readout",
+              "independent_check": "model/radial_reused_readout/test_reuse.py",
+              "path": "model/radial_reused_readout/results.json",
+              "scope": "A single field preparation yields the exact native mean (1-q)M0^N x0+q M1^N x0, retaining conditional quantum coherences. The incorrect averaged-matrix iteration differs at N2 by q(1-q)(M1-M0)^2; its matrix00 difference is9/1280000 at q=1/2. Unread parity cross terms multiply by(7/25)^N and full-field measurement work is-[1-(7/25)^N]<H_star>. Actual ground-versus-either-charged classification at N32 has error<1/2500, including source wrong parity, exact-binomial/rational-exponential tail bounds and all complete native control failures.",
+              "sha256": "d4e2fb2288cd4178f1c12887f03045470151f8be7336cee8bcd78cff6d1ce22b"
             }
           ],
           "requires": [
@@ -6896,7 +7019,7 @@
               "independent_check": "model/reciprocal_area_dynamics/test_dynamics.py",
               "path": "model/reciprocal_area_dynamics/results.json",
               "scope": "The actual reciprocal law has a source-derived exact scalar area equation with a=0.63916680624..., k0=0.02170170003...>0 and explicit matter-input forcing. Outward rational Gram pivots prove the minimal memory dimension14 and15 visible nonconstant relaxation modes; reversibility and a two-step minorization place all memory poles in (0,16383/16384) and bound all tails. The same eliminated populations reconstruct source energy and bath heat. Conditional Gibbs states uniquely minimize free energy at each expected area. Their actual conditional energies derive eta in (0.578,0.579) and S(sigma_p)+eta<A>=constant-D_Bernoulli(p||p_equilibrium), giving a strict constrained fixed-volume maximum. On arbitrary full states the exact identity retains E_ex=E-[(1-p)e0+p e1], yielding DeltaS+etaDeltaA-betaDeltaE_ex=DeltaS-betaQ>=0, including the quantum energy-dephasing relative entropy. Both native laws have an exact involution on all512 outcomes, 128 accepted and384 self-reversing rejected/noop records, and full path likelihood ratio exp(-beta Q). The derived coefficient is a two-geometry thermal energy-to-area conversion, not a universal Newton scale. These relaxational finite results do not instantiate regional G4 or Einstein dynamics.",
-              "sha256": "9e8e7e0d9cce948c24c5ef90eb92ea738b09467b4ea91a9aac92a3a3bcfbadb2"
+              "sha256": "52ed330f9f1687ee65f8e4def31bc15ecf2a9a7caba6f5e7003bb035f4551f69"
             },
             {
               "campaign_id": "OPH-SPECTRUM-EINSTEIN-CLOSURE-2026-11-04",
@@ -6905,6 +7028,14 @@
               "path": "model/matched_einstein_limit/results.json",
               "scope": "Ten rational unit timelike probes have an exact inverse with sharp coordinate infinity norm17/8. The matched regional estimates imply max|G+Lambda g-(2pi/eta)T|<=255(e_bulk+eta e_area+e_stationarity)/(32pi eta ell^4). Common normalized errors tending to zero yield the tensor equation without a separate null-balance premise; constant coupling, Ward/Bianchi and connectedness imply constantLambda. The universal conditional algebra, residual, convergence and conservation steps are Lean checked.",
               "sha256": "58074adb67fa3572bc9892b20b42053328e6fa50d4ef9170249cf35828d5eeb4"
+            },
+            {
+              "campaign_id": "OPH-RADIAL-SOURCE-CLOSURE-2026-11-04",
+              "id": "parity_entropy_response",
+              "independent_check": "model/parity_entropy_response/test_entropy.py",
+              "path": "model/parity_entropy_response/results.json",
+              "scope": "The actual interacting radial ground has central parity at least 23489309429/68579205003925>1/4096, so its complete central M4 reduction is faithful although its full-Fock state is not. A stationary faithful family of the same H realizes every q in [1/4,3/4], with d<E_H>/dq=g/(n_C-n_G)>0. Its local modular generator is scalar+log((1-q)/q)D0, implemented by eight native pulses with complete complement outputs and rational error bounds. Exact regional entropy obeys DeltaS=kappa_r Deltaq-D_Bernoulli, with 2(Deltaq)^2<=D<=8(Deltaq)^2/3, and the same q sets theta=3(1-2q)/25. The region uniquely maximizes entropy at fixed parity/native bias. Complete committed-record entropy is H(B)-I(R:B)+9log2, and same-H Gibbs readout work satisfies beta W-DeltaS=D(Phi gamma||gamma). These are finite source entropy/response results, without an area-law or Einstein premise substitution.",
+              "sha256": "feb8a773d831c388c4128e4b7bcc853b32b575d191bce2a71508d28c61c4a6eb"
             }
           ],
           "requires": [

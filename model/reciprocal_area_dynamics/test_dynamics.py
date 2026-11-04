@@ -1,6 +1,7 @@
 """Independent full-source trajectories, quantum entropies and path controls."""
 import copy
 from fractions import Fraction as F
+from math import fsum
 
 import mpmath as mp
 import numpy as np
@@ -125,7 +126,9 @@ def test_two_step_complete_path_fluctuation_and_heat_balance(model, law):
     np.testing.assert_allclose(log_ratio, predicted, atol=4e-15, rtol=0)
     assert forward.sum() == pytest.approx(1, abs=5e-16)
     assert backward.sum() == pytest.approx(1, abs=5e-16)
-    assert forward@np.exp(-log_ratio) == pytest.approx(1, abs=5e-16)
+    # Retain every path while avoiding a BLAS reduction-order error in the
+    # sixteen-thousand-term normalization diagnostic.
+    assert fsum(forward*np.exp(-log_ratio)) == pytest.approx(1, abs=5e-16)
     mean = float(forward@log_ratio)
     heat_total = float(forward@(heat[first]+heat[second]))
     assert heat_total == pytest.approx(model.energies@(final-q), abs=5e-15)

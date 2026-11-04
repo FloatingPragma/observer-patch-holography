@@ -1,5 +1,7 @@
 # First bounded completion campaign
 
+For the same finite radial source's interacting excitations, regional entropy
+and complete geometric readout, see [the shared source construction](RADIAL_SOURCE.md).
 For interacting charged poles, exact lattice defect zeros and matter-responsive
 native geometry, see [the source-specific construction](DEFECT_GEOMETRY.md).
 For the current continuum spin fields, native joint spectroscopy and finite
