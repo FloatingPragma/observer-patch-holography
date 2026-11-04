@@ -186,8 +186,8 @@ constructions against shared spatial and metric contracts. Its
 state which theorem inputs are constructed and which physical identifications
 remain separate.
 
-The [operational triplet-attachment audit](../docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md)
-checks native preparation, continuing instruments, bare-cap clocks and full
+The [operational triplet-attachment result](../docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md)
+covers native preparation, continuing instruments, bare-cap clocks and full
 state tomography. The six-level source compiler and its proper-code services
 implement native controls, and current readout attaches the native load
 history to the spatial slow quotient. These capabilities do not supply a
