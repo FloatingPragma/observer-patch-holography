@@ -567,7 +567,7 @@ Retained starting evidence:
 
 Reviewed acceptance evidence:
 
-- [finite_attachment_map.json](../model/completion/finite_attachment_map.json): Complete 84-premise ownership/relevance review, 39 inspected finite attachments with 34 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.
+- [finite_attachment_map.json](../model/completion/finite_attachment_map.json): Complete 84-premise ownership/relevance review, 109 inspected finite attachments with 104 realized instances, corrected active routes and explicit finite CP01 joins. All canonical physical discharge statuses preserved.
 - [program_class_v2_review.json](../model/completion/program_class_v2_review.json): Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.
 
 Current component progress (not gate acceptance):
@@ -1582,6 +1582,8 @@ Retained starting evidence:
 
 - [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)
 - [from_observer_consensus_to_standard_physics.tex](../flagship/from_observer_consensus_to_standard_physics.tex)
+- [EinsteinTensorBridge.lean](../Lean/Geometry/EinsteinTensorBridge.lean)
+- [null_tomography.py](../model/common_source/null_tomography.py)
 
 Earlier related work: [#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026), [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078).
 
@@ -1647,6 +1649,7 @@ Retained starting evidence:
 - [results.json](../model/field_stress/results.json)
 - [results.json](../model/field_tastes/results.json)
 - [results.json](../model/biased_reset/results.json)
+- [modular_access_results.json](../model/completion/modular_access_results.json)
 
 Current component progress (not gate acceptance):
 

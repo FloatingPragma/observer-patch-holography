@@ -3,15 +3,18 @@
   "as_of": "2026-11-02",
   "gate": "CP-13",
   "selected_issues": [
+    1137,
     1138,
     1139,
     1140,
     1141,
     1142,
     1143,
+    1144,
+    1145,
+    1146,
     1147,
-    1137,
-    1145
+    1148
   ],
   "canonical_registry": "tracking/premise_register.json",
   "physical_comparison_count_added": 0,
@@ -7092,9 +7095,6 @@
       ],
       "unaccepted_predecessors": [],
       "unfulfilled_acceptance": [
-        "Prove a nonvanishing sharp spectral component or the needed ordered-state force/current cancellation before identifying a scaling mass shell.",
-        "Identify physical spatial/Lorentz spin, charges and common energy units; the finite graph labels and bins alone do not identify measured species.",
-        "Establish a controlled interacting relativistic continuum and the remaining geometric area/edge/Newton/stationarity premises.",
         "Construct a continuing observer/reference invariant under the full adaptive scheduler and memory law.",
         "Prove an effective finite-size and field-selection modulus for preparation of a prescribed infinite ordered-ground marginal."
       ],
@@ -7130,15 +7130,12 @@
       "unfulfilled_acceptance": [
         "A coupling outside this sufficient free class is not thereby proved interacting; construct surviving continuum interaction on a justified trajectory.",
         "Derive the protected-spin sharp mass shell, relativistic covariance and massive sectors.",
-        "Identify physical species and independent units, and join the responsive Einstein premises.",
         "Uniqueness of the continuum limit and its dynamical field equation.",
         "A sharp particle shell and a nonzero surviving connected interaction or scattering amplitude.",
         "Lorentz covariance, a common invariant domain for all unbounded field products, and measured particle identities.",
-        "An effective finite-size and field-selection rate for the actual ordered reference.",
         "A sharp mass shell or isolated particle branch and a dynamical equation.",
         "Energy uniform integrability sufficient to identify the exact continuum energy form rather than its upper bound.",
-        "Surviving connected interactions or scattering, Lorentz covariance and physical particle identification.",
-        "An effective finite-size and field-selection modulus for preparing the actual ordered reference."
+        "Surviving connected interactions or scattering, Lorentz covariance and physical particle identification."
       ],
       "progress_campaign": "model/completion/field_energy_entropy_campaign.json"
     },
@@ -7151,21 +7148,9 @@
         "CP-06"
       ],
       "unfulfilled_acceptance": [
-        "A coupling outside this sufficient free class is not thereby proved interacting; construct surviving continuum interaction on a justified trajectory.",
-        "Derive the protected-spin sharp mass shell, relativistic covariance and massive sectors.",
         "Identify physical species and independent units, and join the responsive Einstein premises.",
-        "Uniqueness of the continuum limit and its dynamical field equation.",
-        "A sharp particle shell and a nonzero surviving connected interaction or scattering amplitude.",
-        "Lorentz covariance, a common invariant domain for all unbounded field products, and measured particle identities.",
-        "An effective finite-size and field-selection rate for the actual ordered reference.",
-        "Prove a nonvanishing sharp spectral component or the needed ordered-state force/current cancellation before identifying a scaling mass shell.",
         "Identify physical spatial/Lorentz spin, charges and common energy units; the finite graph labels and bins alone do not identify measured species.",
-        "Establish a controlled interacting relativistic continuum and the remaining geometric area/edge/Newton/stationarity premises.",
-        "Execute the full-cube and binary-cubic native symmetry filters; the present dimer/reflection execution does not implement them.",
-        "A sharp mass shell or isolated particle branch and a dynamical equation.",
-        "Energy uniform integrability sufficient to identify the exact continuum energy form rather than its upper bound.",
-        "Surviving connected interactions or scattering, Lorentz covariance and physical particle identification.",
-        "An effective finite-size and field-selection modulus for preparing the actual ordered reference."
+        "Execute the full-cube and binary-cubic native symmetry filters; the present dimer/reflection execution does not implement them."
       ],
       "progress_campaign": "model/completion/field_energy_entropy_campaign.json"
     },
@@ -7249,6 +7234,48 @@
         "Native preparation and entropy-readout implementations with practical error and resource bounds."
       ],
       "progress_campaign": "model/completion/field_energy_entropy_campaign.json"
+    },
+    "1144": {
+      "close_issue": false,
+      "required_predecessors": [
+        "CP-02",
+        "CP-04"
+      ],
+      "unaccepted_predecessors": [
+        "CP-02",
+        "CP-04"
+      ],
+      "unfulfilled_acceptance": [
+        "Construct the effective Lorentzian domain, compatible observer directions and count/volume/length maps; finite causal tails do not supply a Lorentzian event geometry.",
+        "Derive geometry response to admitted matter changes and area/edge identification; the static radial product has zero radial-null Einstein contraction while the scalar excitation is positive.",
+        "Separate the finite rank-three carrier geometry from physical 3+1 event geometry before identifying a metric."
+      ]
+    },
+    "1146": {
+      "close_issue": false,
+      "required_predecessors": [
+        "CP-09"
+      ],
+      "unaccepted_predecessors": [
+        "CP-09"
+      ],
+      "unfulfilled_acceptance": [
+        "Apply the existing conditional Einstein theorem with a checked premise map; the gate binds the Lean bridge and null-tomography witness but no same-process premise map is established.",
+        "Obtain the Einstein equation with one positive Newton constant and universal coupling of the same defect maintenance stress.",
+        "Propagate finite/refinement errors into gravitational observations and keep a possible quantum spin-two graviton separate from the classical theorem."
+      ]
+    },
+    "1148": {
+      "close_issue": false,
+      "required_predecessors": [
+        "CP-00"
+      ],
+      "unaccepted_predecessors": [],
+      "unfulfilled_acceptance": [
+        "Register every gate exclusion with target version, mandatory premises, quantified class, evidence, independent coverage, surviving escape routes and consequence; the CP-02 modular-access obstruction is not yet routed here.",
+        "Machine-check rejection of circular mappings, hidden supplied services and incompatible benchmark branches throughout the DAG.",
+        "Keep theorem error, candidate failure, class no-go, empirical rejection, inconclusive search and resource stop distinct in one continuing register."
+      ]
     }
   },
   "source_bindings": {
@@ -7265,8 +7292,8 @@
     "model/bound_pair/fiber.py": "a5a21df2e5e6a4c71c66feaff2436390e357da8ae019df794280577afa48a49e",
     "model/bound_pair/identity.py": "749a1ce10431e8a72b76b96c9568d7cbd0960a9f41e32c92498ba352d753a333",
     "model/bound_pair/mass.py": "45ab64c1b74d060e4ae380c9f5f5896ca7d1d7a84c18c022c9bd2e3d99735034",
-    "model/completion/finite_attachment_map.py": "b6e48c898b5d73818d69bcd90f8b4270a61cf421707290f78a5c538785cc7daf",
-    "model/completion/test_finite_attachment_map.py": "1f2577d4e13eb86cc49636b2735663591b89598a78eb04edae4e2cc5fd089eae",
+    "model/completion/finite_attachment_map.py": "f7efc9255a677a69e02a55e8523d7119f238244a08b7f7862b928a0e682ae762",
+    "model/completion/test_finite_attachment_map.py": "c44e153199b7c0e5dce13b697aecca391e7c6f5fcde1ee9c92682c69cf21fdad",
     "model/field_regions/README.md": "5073a68fc7c604335ad9aeac76ea0fd509857a73fb088148e66e0764cd6005ae",
     "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
     "model/field_stress/README.md": "8e5b2d4bf9f49d782512c17c6ccda0b2e54d69255a5d169154ba53c6c5c6c213",

@@ -51,7 +51,7 @@ def validate(packet, root=ROOT):
     require(packet.get('gate_acceptance_owner') == 'claims/completion_program.json' and
             packet.get('physical_comparison_count_added')==0 and
             packet.get('canonical_premises_discharged')==[], 'scope promotion forbidden')
-    require(packet.get('selected_issues')==[1138,1139,1140,1141,1142,1143,1147,1137,1145], 'selected issue ownership changed')
+    require(packet.get('selected_issues')==list(range(1137,1149)), 'selected issue ownership changed')
     bindings=packet.get('source_bindings')
     require(isinstance(bindings,dict) and bindings,'missing source bindings')
     for name,expected in bindings.items():
@@ -102,7 +102,7 @@ def validate(packet, root=ROOT):
     require(actual==REALIZED and packet.get('finite_obligations_realized')==len(REALIZED),
             'finite realization count or domain changed')
     review=packet.get('issue_closure_review',{})
-    require(set(review)=={'1138','1139','1140','1141','1142','1143','1147','1137','1145'},'missing issue closure review')
+    require(set(review)=={str(number) for number in range(1137,1149)},'missing issue closure review')
     for n,row in review.items():
         require(row.get('close_issue') is False, f'map cannot close its own issue: {n}')
         expected = predecessor_review(program, n)
