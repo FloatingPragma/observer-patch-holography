@@ -147,7 +147,7 @@ def main():
         Path(args.write).write_text(canonical(report()), encoding='utf-8')
         print('wrote '+args.write)
     else:
-        validate(strict_json.load(args.check))
+        validate(strict_json.load(Path(args.check)))
         print('native flavor full-current and complete-memory replay passed')
 
 
