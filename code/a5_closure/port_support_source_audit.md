@@ -86,8 +86,9 @@ in both faithful rotation representations. The cyclic lemma covers arbitrary
 continuous maps, including nonisolated initial fibres and critical poles.
 Its reconstruction and finite geometric controls do not constitute acceptance
 by a distinct mathematical reviewer. Remedy: obtain that acceptance before
-promoting the theorem gate. No replay of an original external proof packet
-is claimed; the proposed argument is self-contained.
+promoting the theorem gate. The proof gives a self-contained expansion of
+the statement and proof plan proposed in the 28 October follow-up to
+discussion #786.
 
 ## Recalculated seed and coupled actions
 

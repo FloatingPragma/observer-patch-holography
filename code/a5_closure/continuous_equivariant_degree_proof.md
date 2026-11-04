@@ -7,6 +7,9 @@ reviewer. The executable verifiers check finite data and representation
 typing; they do not certify the differential-topological argument.
 No `CONTINUOUS_TWIN_DEGREE_FLOOR_PROVED` gate is emitted.
 
+This proof expands on the degree-floor statement and proof plan proposed by
+Bernhard Mueller in the 28 October follow-up to discussion #786.
+
 ## Oriented objects and theorem
 
 Put `phi=(1+sqrt(5))/2`, with `sigma(phi)=1-phi`. The vertices `v_i` of the
@@ -132,7 +135,15 @@ this modification the image lies in the chart disjoint from y+, so it
 introduces no preimage of y+ there. Call the resulting continuous map f0.
 It is smooth on neighborhoods of two smaller closed protected disks P±.
 Choose P+ strictly inside the polynomial region and P- strictly inside
-the constant region. Neighborhoods of their boundaries avoid y+.
+the constant region. Choose boundary collars entirely within these
+respective regions, so they avoid y+.
+
+The cutoff interpolation can create additional preimages of y+ in the
+transition annulus. This annulus lies outside P±, in the free source M
+defined below, and is disjoint from their protected boundary collars.
+No isolation or regularity of these additional preimages is assumed.
+After relative smoothing, every preimage of y+ in this region belongs
+to the compact set A used in the free-part transversality argument.
 
 ### Relative smoothing and the normalization bound
 
