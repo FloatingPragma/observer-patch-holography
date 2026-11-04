@@ -44,7 +44,7 @@ do not establish a common physical spectrum or geometric entropy law.
 
 | Paper | Role |
 | --- | --- |
-| [Observers Who Read Their Universe into Existence](../flagship/from_observer_consensus_to_standard_physics.pdf) ([source](../flagship/from_observer_consensus_to_standard_physics.tex)) | Flagship synthesis: the closure and executable-model hypotheses, adopted principles and tower layer by layer, with the status of each layer; released on [PhilPapers](https://philpapers.org/rec/MUEFOC) |
+| [Observers Who Read Their Universe into Existence](../flagship/from_observer_consensus_to_standard_physics.pdf) ([source](../flagship/from_observer_consensus_to_standard_physics.tex)) | Flagship synthesis: the OPH proposal, finite theorem stack, source specification, physical reconstruction and status of each implication; [PhilPapers entry](https://philpapers.org/rec/MUEFOC) |
 | [An Executable Observer for Observer Patch Holography](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | Layers 2–4: repair and memory, complete observer records, clocks, field limits and physical identification conditions |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Layer 1: local agreement repair, quotient normal forms, provenance order, and cycle holonomy as the residue repair cannot remove |
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Layer 3: observers, records, quantum and thermodynamic identities, and the closure equations |
