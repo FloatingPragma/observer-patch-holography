@@ -50,6 +50,28 @@ def _load_json(path: pathlib.Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# u_vector is a unit vector and e_nu is the kernel normalized to unit diagonal,
+# so a real collective mode overlaps it at order one (the committed anchor
+# gives 1.061872133120721). An overlap inside this band means the collective
+# direction is absent, or the kernel is indefinite; dividing by it would
+# manufacture an arbitrary c_nu_hat, so the builder refuses instead.
+COLLECTIVE_OVERLAP_FLOOR = 1.0e-15
+
+
+def _collective_overlap(e_nu: np.ndarray, u_vector: np.ndarray) -> float:
+    overlap = float(u_vector.T @ e_nu @ u_vector)
+    if not np.isfinite(overlap):
+        raise ValueError(f"collective-mode overlap is not finite: {overlap!r}")
+    if abs(overlap) <= COLLECTIVE_OVERLAP_FLOOR:
+        raise ValueError(
+            "collective-mode overlap is degenerate: "
+            f"u^T e_nu u = {overlap!r} for a unit collective mode, so the "
+            "normalized family kernel has no collective direction; refusing to "
+            "substitute unit overlap"
+        )
+    return overlap
+
+
 def _gap_certificate(values: np.ndarray) -> dict[str, Any]:
     ordered = np.sort(np.asarray(values, dtype=float))
     if ordered.size < 2:
@@ -116,9 +138,7 @@ def main() -> int:
 
     u_vector = np.asarray(scale_anchor_payload["collective_mode"]["u_vector"], dtype=float)
     u_projector = np.asarray(scale_anchor_payload["collective_mode"]["u_uT"], dtype=float)
-    collective_overlap = float(u_vector.T @ e_nu @ u_vector)
-    if abs(collective_overlap) <= 1.0e-15:
-        collective_overlap = 1.0
+    collective_overlap = _collective_overlap(e_nu, u_vector)
     c_nu_hat_real = e_nu / collective_overlap
     delta_nu = c_nu_hat_real - u_projector
     eigvals = np.linalg.eigvalsh(c_nu_hat_real)
