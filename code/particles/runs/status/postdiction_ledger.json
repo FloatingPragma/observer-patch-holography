@@ -1116,6 +1116,24 @@
             "CP-09"
           ],
           "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "independent_check": "model/completion/test_compact_source_campaign.py",
+            "path": "model/completion/compact_source_campaign.json",
+            "scope": "Guarded compact texture transport, a common 180-mode interacting memory core and its hopping-work derivative are proved on declared finite source domains. A separate native 60-state link gives local non-Abelian Gauss constraints. No full physical particle spectrum, interacting chiral continuum or Einstein realization is established.",
+            "sha256": "a121cdd9be4ea16a8806ede573f6511d481e29dd1bf9dd9102fbe2cb1e4aa868"
+          },
+          "id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-03",
+            "CP-04",
+            "CP-05",
+            "CP-06",
+            "CP-09"
+          ],
+          "whole_program_frozen": false
         }
       ],
       "continuing_issues": {
@@ -4683,6 +4701,14 @@
               "path": "model/compact_defect_pair/results.json",
               "scope": "A chosen compact opposite-degree texture has finite ordered-spin energy and a bounded full-Fock fermion energy difference uniformly in exterior volume. Its two cores support exactly four localized modes with an explicit exponentially decaying boundary error. All686 eigenvalues of the a=1,M=64,L=3 source are enclosed by exact complete-basis arithmetic; zero is excluded from its four-mode band and its infinite-volume limit. The twelve actual native currents and local symmetric pairing intertwine on that same band, with its nonzero binding energies retained. Core perturbations preserve shell data but change energies. Four complete numerical spectra and exact leading Schur cancellations distinguish shared-neighbor splitting from shell degree.",
               "sha256": "3c12fb74750b85e88bed85bbe803f4d0fb00463259340020e6dfe783fa9d8f7a"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "compact_defect_transport",
+              "independent_check": "model/compact_defect_transport/test_packet.py",
+              "path": "model/compact_defect_transport/results.json",
+              "scope": "On the compact opposite-degree texture, exact local homotopy guards preserve both shell degrees on every accepted or rejected record. A reference-relative perturbation budget gives a volume-uniform bound on the four-band projector change. When the projector bound is below one (in particular at M=64 and eta=1/512), its invertible polar intertwiner transports the band, all twelve uniform native currents, pairing and projected number interaction at operation endpoints. The explicit continuing three-texture process retains twelve records. Removing the guards admits degree erasure while the four-mode band persists. Guards, proposal law and coherent endpoint control are simulator design. Bare C/E compilation, autonomous formation, finite physical lifetime and core motion are not derived.",
+              "sha256": "c7be3d1b206f89071229e87a450361733489679f9beb1682e75cc583df250101"
             }
           ],
           "requires": [
@@ -5069,6 +5095,22 @@
               "path": "model/compact_defect_pair/results.json",
               "scope": "A chosen compact opposite-degree texture has finite ordered-spin energy and a bounded full-Fock fermion energy difference uniformly in exterior volume. Its two cores support exactly four localized modes with an explicit exponentially decaying boundary error. All686 eigenvalues of the a=1,M=64,L=3 source are enclosed by exact complete-basis arithmetic; zero is excluded from its four-mode band and its infinite-volume limit. The twelve actual native currents and local symmetric pairing intertwine on that same band, with its nonzero binding energies retained. Core perturbations preserve shell data but change energies. Four complete numerical spectra and exact leading Schur cancellations distinguish shared-neighbor splitting from shell degree.",
               "sha256": "3c12fb74750b85e88bed85bbe803f4d0fb00463259340020e6dfe783fa9d8f7a"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "compact_interacting_response",
+              "independent_check": "model/compact_interacting_response/test_packet.py",
+              "path": "model/compact_interacting_response/results.json",
+              "scope": "The compact four-mode spatial band and actual 45-slot native internal representation support one 180-annihilator core with every complete memory pairing and lambda(N-90)^2. Exact per-record factorization retains the nonzero spatial operator. A uniform Hamiltonian bound gives unread O(1/n) and complete-final-history O(1/sqrt(n)) memory estimates at fixed texture. Pair parities exhaust an exact sixteen-state charged slice. Rational source and exterior-volume bounds select its blocked ground for all three retained lepton coefficients at lambda=1/128, yielding two poles e1+lambda plus or minus m, each of residue one half. Full-core variational bounds do not identify its exact vacuum. The full interacting vacuum is bounded but not determined by a reducing slice. Individual family-dependent memory pulses need not preserve that slice.",
+              "sha256": "65998552d5073efd14feb4cd1289c68470d3f31dd20168f5ef69627a49bb70eb"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "compact_band_response",
+              "independent_check": "model/compact_band_response/test_response.py",
+              "path": "model/compact_band_response/results.json",
+              "scope": "For the same compact interacting action with h_s=sT+MV, M>=8 and s between one half and three halves, the isolated band satisfies norm(P_s prime)<=6/(M-6). Kato comparison preserves its pairing and uniform native currents. Differentiating the full Hamiltonian includes lambda{N_s-90,dGamma(P_s prime tensor I45)} as well as the hopping force. An exact CAR witness detects deletion of that term. The intrinsic force has norm at most360 and agrees with reference-subtracted full-source expectations on even product states. Its finite Gibbs work/entropy response uses the same Hamiltonian. A physical metric variation, local conserved Lorentz stress and calibrated clock are not supplied by the scalar hopping drive.",
+              "sha256": "6f249fe622b66205c3279ba9dca4c856041f6e097fc65f8c59c211deb55c22d5"
             }
           ],
           "requires": [
@@ -5436,6 +5478,22 @@
               "path": "model/defect_current_bridge/results.json",
               "scope": "A chosen local carrier and coherent record service put the retained pixel-dependent charged-lepton matrix, every native gauge current and the same radial defect wavefunctions into one exact finite operator/state map. Both pixel inputs and both admissible memory branches pass complete4860-row checks. The displayed Stage5 quark design and zero minimal neutrino coefficients give rank42 for K45, with84 positive,84 negative and12 zero localized Nambu rows. Every record preserves the inclusion and converges to its mean full-Fock Hamiltonian with error at most4MT/[N(1-p)]+(8/(1-p)+4)M^2T^2/N. Original site resolution and unstaggered pairing fail preservation as explicit countercontrols.",
               "sha256": "a0b8475acce5efa802f27260a482ce61e2be784667b1979d1bdd4fd43c528fe2"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "compact_defect_transport",
+              "independent_check": "model/compact_defect_transport/test_packet.py",
+              "path": "model/compact_defect_transport/results.json",
+              "scope": "On the compact opposite-degree texture, exact local homotopy guards preserve both shell degrees on every accepted or rejected record. A reference-relative perturbation budget gives a volume-uniform bound on the four-band projector change. When the projector bound is below one (in particular at M=64 and eta=1/512), its invertible polar intertwiner transports the band, all twelve uniform native currents, pairing and projected number interaction at operation endpoints. The explicit continuing three-texture process retains twelve records. Removing the guards admits degree erasure while the four-mode band persists. Guards, proposal law and coherent endpoint control are simulator design. Bare C/E compilation, autonomous formation, finite physical lifetime and core motion are not derived.",
+              "sha256": "c7be3d1b206f89071229e87a450361733489679f9beb1682e75cc583df250101"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "native_quantum_gauss",
+              "independent_check": "model/native_quantum_gauss/test_algebra.py",
+              "path": "model/native_quantum_gauss/results.json",
+              "scope": "The actual fifteen-state native matter representation has a declared 60-state link register consisting of a vacuum and the dual-times-fundamental factors of its five invariant multiplets. The same hopping and link-energy Hamiltonian commutes with all twelve local Gauss generators on the complete finite Fock space. A static dual reference gives nontrivial gauge-singlet transport sectors. Complete initial multiplet and endpoint records retain eighty histories, preserve Gauss and account for every field-plus-link energy change under readout. The link matrices are not unitary Wilson links. The link/register, static dual reference and coherent instruments are explicit design; no bare C/E compilation or full detector reservoir is implemented.",
+              "sha256": "0caa71e6d4021114434ba572e730b5202df62f7483f48133edd5e41f4a8fc3f5"
             }
           ],
           "requires": [
@@ -6137,6 +6195,22 @@
               "path": "model/interacting_defect_response/results.json",
               "scope": "The explicit interaction lambda*(N_W-45)^2 acts on the same ninety localized annihilators as the native currents and memory mass matrix. Every record preserves that CAR algebra; an O(1/n) unread error and O(1/sqrt(n)) complete final history/core error are uniform in radial cube size. Exact two-particle compression proves that every nonzero onsite density interaction on supported sites leaks from the source core. A reducing sixteen-state mean-Hamiltonian slice has exact shifted poles and a nonzero connected four-point cumulant. The same nonquadratic Hamiltonian admits an explicitly prepared faithful finite Gibbs reference and checked noncommuting Bogoliubov-Kubo-Mori response.",
               "sha256": "d03d7ff4617c8cf0d1960df926cdf3a77bfc639998496306a31847d9317ef990"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "compact_interacting_response",
+              "independent_check": "model/compact_interacting_response/test_packet.py",
+              "path": "model/compact_interacting_response/results.json",
+              "scope": "The compact four-mode spatial band and actual 45-slot native internal representation support one 180-annihilator core with every complete memory pairing and lambda(N-90)^2. Exact per-record factorization retains the nonzero spatial operator. A uniform Hamiltonian bound gives unread O(1/n) and complete-final-history O(1/sqrt(n)) memory estimates at fixed texture. Pair parities exhaust an exact sixteen-state charged slice. Rational source and exterior-volume bounds select its blocked ground for all three retained lepton coefficients at lambda=1/128, yielding two poles e1+lambda plus or minus m, each of residue one half. Full-core variational bounds do not identify its exact vacuum. The full interacting vacuum is bounded but not determined by a reducing slice. Individual family-dependent memory pulses need not preserve that slice.",
+              "sha256": "65998552d5073efd14feb4cd1289c68470d3f31dd20168f5ef69627a49bb70eb"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "native_quantum_gauss",
+              "independent_check": "model/native_quantum_gauss/test_algebra.py",
+              "path": "model/native_quantum_gauss/results.json",
+              "scope": "The actual fifteen-state native matter representation has a declared 60-state link register consisting of a vacuum and the dual-times-fundamental factors of its five invariant multiplets. The same hopping and link-energy Hamiltonian commutes with all twelve local Gauss generators on the complete finite Fock space. A static dual reference gives nontrivial gauge-singlet transport sectors. Complete initial multiplet and endpoint records retain eighty histories, preserve Gauss and account for every field-plus-link energy change under readout. The link matrices are not unitary Wilson links. The link/register, static dual reference and coherent instruments are explicit design; no bare C/E compilation or full detector reservoir is implemented.",
+              "sha256": "0caa71e6d4021114434ba572e730b5202df62f7483f48133edd5e41f4a8fc3f5"
             }
           ],
           "requires": [
@@ -7389,6 +7463,14 @@
               "path": "model/interacting_defect_response/results.json",
               "scope": "The explicit interaction lambda*(N_W-45)^2 acts on the same ninety localized annihilators as the native currents and memory mass matrix. Every record preserves that CAR algebra; an O(1/n) unread error and O(1/sqrt(n)) complete final history/core error are uniform in radial cube size. Exact two-particle compression proves that every nonzero onsite density interaction on supported sites leaks from the source core. A reducing sixteen-state mean-Hamiltonian slice has exact shifted poles and a nonzero connected four-point cumulant. The same nonquadratic Hamiltonian admits an explicitly prepared faithful finite Gibbs reference and checked noncommuting Bogoliubov-Kubo-Mori response.",
               "sha256": "d03d7ff4617c8cf0d1960df926cdf3a77bfc639998496306a31847d9317ef990"
+            },
+            {
+              "campaign_id": "OPH-COMPACT-SOURCE-CONSISTENCY-2026-11-04",
+              "id": "compact_band_response",
+              "independent_check": "model/compact_band_response/test_response.py",
+              "path": "model/compact_band_response/results.json",
+              "scope": "For the same compact interacting action with h_s=sT+MV, M>=8 and s between one half and three halves, the isolated band satisfies norm(P_s prime)<=6/(M-6). Kato comparison preserves its pairing and uniform native currents. Differentiating the full Hamiltonian includes lambda{N_s-90,dGamma(P_s prime tensor I45)} as well as the hopping force. An exact CAR witness detects deletion of that term. The intrinsic force has norm at most360 and agrees with reference-subtracted full-source expectations on even product states. Its finite Gibbs work/entropy response uses the same Hamiltonian. A physical metric variation, local conserved Lorentz stress and calibrated clock are not supplied by the scalar hopping drive.",
+              "sha256": "6f249fe622b66205c3279ba9dca4c856041f6e097fc65f8c59c211deb55c22d5"
             }
           ],
           "requires": [
@@ -7898,7 +7980,7 @@
   },
   "fixed_spectral_cross_scale_comparison": {
     "artifact_ref": "model/empirical_diagnostics/cross_scale_results.json",
-    "artifact_sha256": "f8bd157706c1d6645b57c6c991fb0f7d5eceb52ed69733e9f907d507c401b51b",
+    "artifact_sha256": "1ba1bfa0bc7a7586c077ae65e1f3932d5cbe976b9a177c723c2834d365663ea1",
     "attribution": {
       "OPH_contribution": "Independent reconstruction and complete-outcome, support-alignment and normalized-readout controls; physical electromagnetic identification remains conditional.",
       "author": "A. D. Wissner-Gross",
