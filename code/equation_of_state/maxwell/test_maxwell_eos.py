@@ -6,12 +6,36 @@ import pytest
 
 import verify_maxwell_eos as audit
 
+LEAN_MATHLIB_LIB = (Path(__file__).resolve().parents[3] / "Lean" / ".lake"
+                    / "packages" / "mathlib" / ".lake" / "build" / "lib")
+LEAN_REPLAY_SKIP_REASON = (
+    "Lean/.lake cache absent; the replay builds the Whitney Lean targets against "
+    "Mathlib and is covered by the Lean CI lane"
+)
+
+
+def mathlib_oleans_built() -> bool:
+    """True when the Lean workspace holds a compiled Mathlib."""
+    if not LEAN_MATHLIB_LIB.is_dir():
+        return False
+    return next(LEAN_MATHLIB_LIB.glob("**/Mathlib.olean"), None) is not None
+
+
+def lean_replay_available() -> bool:
+    """True when the resolved Lean toolchain can replay without a cold Mathlib build."""
+    return audit.original.lake_path() is not None and mathlib_oleans_built()
+
+
+requires_lean_replay = pytest.mark.skipif(
+    not lean_replay_available(), reason=LEAN_REPLAY_SKIP_REASON)
+
 
 @pytest.fixture(scope="module")
 def receipt():
     return audit.load(Path(__file__).parent / "runs/maxwell_eos_receipt.json")
 
 
+@requires_lean_replay
 def test_full_independent_replay(receipt):
     result = audit.verify(receipt)
     assert result["all_checks_passed"]
@@ -96,3 +120,17 @@ def test_semantic_mutations_fail(receipt, mutate):
     mutate(packet)
     with pytest.raises(ValueError):
         audit.verify(packet, replay_original=False)
+
+
+def test_lean_replay_guard_decision(monkeypatch, tmp_path):
+    """The replay guard skips only when the toolchain or the compiled Mathlib is absent."""
+    monkeypatch.setattr(audit.original, "lake_path", lambda: "/usr/bin/lake")
+    monkeypatch.setitem(globals(), "LEAN_MATHLIB_LIB", tmp_path / "cold")
+    assert lean_replay_available() is False
+    built = tmp_path / "built" / "lean"
+    built.mkdir(parents=True)
+    (built / "Mathlib.olean").write_bytes(b"olean")
+    monkeypatch.setitem(globals(), "LEAN_MATHLIB_LIB", built.parent)
+    assert lean_replay_available() is True
+    monkeypatch.setattr(audit.original, "lake_path", lambda: None)
+    assert lean_replay_available() is False
