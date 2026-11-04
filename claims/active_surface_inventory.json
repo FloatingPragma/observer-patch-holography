@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 979,
+  "surface_count": 987,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2586,6 +2586,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/higgs_curvature_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/higgs_curvature_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/hubbard_relativistic_sector/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2672,6 +2682,16 @@
     },
     {
       "path": "model/local_tick/SPEC.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/majorana_defect_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/majorana_defect_bridge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3181,6 +3201,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/radial_drift_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_drift_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/radial_geometry_join/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3547,6 +3577,16 @@
     },
     {
       "path": "model/weyl_gravity_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/winding_sector_search/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/winding_sector_search/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

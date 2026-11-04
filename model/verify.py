@@ -394,6 +394,11 @@ REPLAYS = (
     ("model.radial_geometry_join", None, "model/radial_geometry_join/results.json"),
     ("model.radial_reused_readout", None, "model/radial_reused_readout/results.json"),
     ("model.source_mass_shell", None, "model/source_mass_shell/results.json"),
+    ("model.conditional_standard_model", None, "model/conditional_standard_model/results.json"),
+    ("model.winding_sector_search", None, "model/winding_sector_search/results.json"),
+    ("model.radial_drift_readout", None, "model/radial_drift_readout/results.json"),
+    ("model.majorana_defect_bridge", None, "model/majorana_defect_bridge/results.json"),
+    ("model.higgs_curvature_response", None, "model/higgs_curvature_response/results.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 
