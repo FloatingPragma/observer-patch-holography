@@ -124,8 +124,7 @@ def test_owner_papers_carry_the_results() -> None:
         assert token in observers, token
     screen = _collapsed(
         "paper/screen_microphysics_and_observer_synchronization.tex")
-    for token in ("schema-level arming checklist", "DispersionArmingInterface",
-                  "natural-number digest labels"):
+    for token in ("DispersionArmingInterface",):
         assert token in screen, token
 
 

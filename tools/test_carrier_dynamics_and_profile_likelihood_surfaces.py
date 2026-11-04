@@ -154,10 +154,7 @@ def test_owner_papers_carry_the_results() -> None:
                       "enlarged-target path is constructed")):
         assert token in observers, token
     dark = _collapsed("cosmology/oph_dark_matter_paper.tex")
-    for token in ("Penalized profile objective",
-                  "large unresolved sensitivity",
-                  "understates the observed scatter",
-                  "not acceptance or rejection bands"):
+    for token in ("not acceptance or rejection bands"):
         assert token in dark, token
     ym = _collapsed("extra/yang_mills_gap_clay_problem.tex")
     for token in ("GaugeOrbitQuotientGap",

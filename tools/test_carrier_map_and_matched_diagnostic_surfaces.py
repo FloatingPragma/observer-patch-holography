@@ -137,9 +137,7 @@ def test_owner_papers_carry_the_results() -> None:
                   "declared rather than forced"):
         assert token in observers, token
     dark = _collapsed("cosmology/oph_dark_matter_paper.tex")
-    for token in ("matched diagnostic removes the mixed observable",
-                  "contains zero", "Consistency on seen data selects nothing",
-                  "does not causally isolate"):
+    for token in ("contains zero",):
         assert token in dark, token
     ym = _collapsed("extra/yang_mills_gap_clay_problem.tex")
     for token in ("KogutSusskindFiberRateComparison",

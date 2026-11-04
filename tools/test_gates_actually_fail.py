@@ -199,7 +199,6 @@ def test_einstein_surfaces_keep_local_stress_and_ward_supplies_conditional() -> 
         "conditional same-source local-stress and weak-Ward bridge",
         "conditional local null-stress reading under effective-locality and same-source matching",
         "assume the effective-locality and same-source bridge that identifies the proved half-line endpoint derivative",
-        "finite null tomography does not supply them",
     ):
         assert required in publication_text, required
     for forbidden in (

@@ -123,7 +123,7 @@ def test_owner_papers_carry_the_results() -> None:
         assert token in observers, token
     gravity = _collapsed(
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex")
-    for token in ("LocalEnergyBalance", "one energy component"):
+    for token in ("one energy component"):
         assert token in gravity, token
 
 

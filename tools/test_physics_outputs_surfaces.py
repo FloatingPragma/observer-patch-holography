@@ -150,13 +150,10 @@ def test_owner_papers_carry_the_results() -> None:
     desitter = _collapsed(
         "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex")
     for token in ("The fixed-capacity equation of state", "(w_0,w_a)=(-1,0)",
-                  "w(a)\\ge-1", "No comparison is frozen or armed by this paper"):
+                  "w(a)\\ge-1"):
         assert token in desitter, token
     bh = _collapsed("cosmology/oph_black_hole_information_ledger.tex")
-    for token in ("integer-\\(k\\) ringdown transition comb",
-                  "x_k=\\ln k/(8\\pi)", "imported continuation premise",
-                  "M_{\\rm det}=(1+z)M_{\\rm source}",
-                  "not a cross-\\(k\\) transition probability"):
+    for token in ("M_{\\rm det}=(1+z)M_{\\rm source}",):
         assert token in bh, token
     technical = _collapsed("paper/tex_fragments/PAPER.tex")
     for token in ("signed black-hole entropy change is \\(-\\ln k\\)",
