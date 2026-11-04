@@ -393,6 +393,7 @@ REPLAYS = (
     ("model.parity_entropy_response", None, "model/parity_entropy_response/results.json"),
     ("model.radial_geometry_join", None, "model/radial_geometry_join/results.json"),
     ("model.radial_reused_readout", None, "model/radial_reused_readout/results.json"),
+    ("model.source_mass_shell", None, "model/source_mass_shell/results.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 

@@ -427,7 +427,7 @@
     "model/completion/adaptive_reference.py": "b7acada7572f55c81fa8754658d3f7d592ee007dc38d2a421ba6d19de8247804",
     "model/completion/campaign.json": "6b12ab2491a801473e79917b0684fa6ead988056a1a8ee205e30c178271424ad",
     "model/completion/common_action_campaign.json": "dd0ae22c9c5184453501f70f383dda08562eeba0c2fa2f4c398c07fe83b8e8d6",
-    "model/completion/component_interfaces.json": "e0c4512d07894ba26cf0eb008c2313d0092bc371a8f1a741328b1bc39f4922eb",
+    "model/completion/component_interfaces.json": "c99a65bad44c9c14aa34f2c28e8b5d8c3aaac2e1bf7df8f2a046edffd81e5f10",
     "model/completion/continuing_spectrum_campaign.json": "c2da42adec941688f95f57584e4a7e88e90f1b932817d321b46344a02f48b082",
     "model/completion/continuum_field_campaign.json": "f7fd154f99dd54acf3212091847d81cb46b8a40943ea3fc9a9b759e803138679",
     "model/completion/defect_algebra.py": "1a19f00c64e89a65eb18bd335f59776ee522c1e6c35ae53508ee4b57aa9c7cf3",
@@ -436,8 +436,8 @@
     "model/completion/dynamics_response_campaign.json": "37a2662f5e0dbb03da5b6bd26db36411455be75eb19f4185d6bc106f92bebc51",
     "model/completion/dynamics_response_campaign.py": "17cb029f6864e3ec060c8384e4bb7a7fe30d6873bf2ab5870a2d166abc8f3512",
     "model/completion/family.py": "8aa8384f1a86af9531a4eeea7517b2d710bba4cce9b139660bfff482bf5e6d10",
-    "model/completion/finite_attachment_map.json": "06f74989632ad104b8470241ddfbd0bdb52320a14aa9d6b03e8091804a4d20be",
-    "model/completion/finite_attachment_map.py": "ab98ba8fb59243c2384fd793d7aba83523e5c684b2d5bdb4773b691d0be33af5",
+    "model/completion/finite_attachment_map.json": "5af9fa9daae80d91d964c4fc847412667dc4e80c5816a4540861efe82d6ed0d7",
+    "model/completion/finite_attachment_map.py": "ccd66c74e05f45707ebb76baeeb07533eb766e59a374f907fb4f7dfcccf9def2",
     "model/completion/ground_response_campaign.json": "11383b9d22ddcf0b0a68af0ec3cf66b8465d71a00c7d03cc2d2acc3476c7048c",
     "model/completion/independent_program_review.py": "ec4e30b6e7c858538fa391db84a40a770f829c54d987dd2b147d22fdd40153ac",
     "model/completion/interacting_mass_campaign.json": "599ea06cf997a40a027ccfa78f2c430466b1a6e6c428e5e9487e0ad0b9b8c29c",
@@ -464,7 +464,7 @@
     "model/completion/test_defect_geometry_campaign.py": "039d13794627ca93d985016195413196217f5bb02ca04ab1c2e27cf8357902b5",
     "model/completion/test_dynamics_response_campaign.py": "82ea32df7b79e00a1fb7ebbcccfab893b39bf6dc97482f1a1f0bcd12bad5cab0",
     "model/completion/test_family.py": "77aba43f82702b1ec5eaf920b0e7f2b9c456ac2614ca89a08ee62e8b67c10145",
-    "model/completion/test_finite_attachment_map.py": "31209c4639d9292accac7e6cac92177aa784d04414abf205906c8de834109d97",
+    "model/completion/test_finite_attachment_map.py": "52b5eee6c07b9da7a6ee99a436f1de00c0963ccb0344c3887579e5df03e692a2",
     "model/completion/test_four_lane_joins.py": "fe55b746f27ce8a6875034b504a4d24df82cbd7e4b913f317c216e6389c669d0",
     "model/completion/test_full_field_joins.py": "ef56361ed128471336104061056d1bdbe6cc477c3cbd158659a1f7ec1dd53da1",
     "model/completion/test_modular_access.py": "93de025dc2c8e2faf98d27ca75b0e1a829b1220e147bbdd5d0b0c3200ba529c4",
@@ -1469,6 +1469,21 @@
     "model/screened_recovery/protocol.py": "d523398d59f5e9a80bb8a5b1c6f6982a1e30799a6288f927ece741fb686d4d34",
     "model/screened_transport/__init__.py": "ed06f7ce24037ac2e4cbc00e7ed65f7216ded0a839eca299f41f10deb0768bce",
     "model/screened_transport/transport.py": "0f8d71595034ff584541e51fd4c3b71f50446b18d807159c500723b3ef849e0a",
+    "model/source_mass_shell/CALIBRATION_PROOF.md": "5679554943fdfaa74d0cb1cde1e3640ec09347b1427d0253a8ecec7110f89858",
+    "model/source_mass_shell/PROOF.md": "cc283f0afecabf948d72fb8a3a5d1302322b1ae7c29ac4e3bf27f8b2e18a20ce",
+    "model/source_mass_shell/README.md": "ec3edd3e23acad2c0005d45b33376e057dafed5ee2c70496a537ff29a9315e90",
+    "model/source_mass_shell/__init__.py": "d091fff35b306a4e04b2a6b69aaf1a1c1cbf45e82c5080c7598335de3e6cc29b",
+    "model/source_mass_shell/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/source_mass_shell/algebra.py": "6b42c73bdb2095952399ecec275434dfd87be43fda52d9d5724593d147da0aff",
+    "model/source_mass_shell/bounds.py": "40d1cf2088b74b04c2b8691186e94abf24263bd2d7b13b944fc629882bdff325",
+    "model/source_mass_shell/exterior.py": "62a16d10f0ee452bebe3907dc4c5d0dac1261f6b60cc711b52df08b07bf87d8c",
+    "model/source_mass_shell/packet.py": "64fb862774faf2a615211ef76cc6269ba98aaeb3075ca4096a9d3b4b496d10f4",
+    "model/source_mass_shell/results.json": "e9060478ab3dcdb6dcd2baef57f6ed4189919b04986e53222402157cdfea65e0",
+    "model/source_mass_shell/test_dispersion.py": "641567892ffccb5c6f8e77a79c7050d02b8acce35f529a14989666fd7b6d4a0e",
+    "model/source_mass_shell/test_exterior.py": "85bf0e36f4d8d11cdb2145f2fd48fd24467489aaa0fb5ed034958f026f5e4221",
+    "model/source_mass_shell/test_packet.py": "5c4eef790811eece63b8a7566dd420c137f94bc1b7f1158a07d4cb3c3f51a243",
+    "model/source_mass_shell/test_units.py": "35f7dbc4cffdd87847879ee35b17afb6305a8c57499d0dfe6436bcb395c25fe8",
+    "model/source_mass_shell/units.py": "fcebde36e7612cc8f88f04d741bd93da20e4b88380058cdbd186c7a9295ccf1d",
     "model/spectral_readout/README.md": "2f2d8b573c32962e3504536011f943a5e88a10710c8ad2b005f70c3ec7c8fa2f",
     "model/spectral_readout/__init__.py": "ae428661bb72a7e828fe334c145ed5597f9cdcca50acba051b0fd58fe95d00d7",
     "model/spectral_readout/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
@@ -4091,148 +4106,189 @@
   "historical_validation_notice": "The original review_date, checks, independent_channel_check and prior navigation/maintenance sections below retain their historical scope and counts. Current custody is renewed separately; those counts are not presented as fresh executions.",
   "current_custody_renewal": {
     "date": "2026-11-04",
-    "previous_live_review_sha256": "2f71d11e6bf00459d98225408af65e0e60b614b8d585b384cb29d0848159cf1d",
+    "previous_live_review_sha256": "c803546dad130746721320c6fb52106aa41c63ddbffb6998193e9c88cd3b6bd4",
     "previous_custody_renewal": {
       "date": "2026-11-04",
-      "previous_live_review_sha256": "7d460a8dfb04157e5c51a0bac83899daeca7591769882b4d2abccd87bfef6043",
+      "previous_live_review_sha256": "2f71d11e6bf00459d98225408af65e0e60b614b8d585b384cb29d0848159cf1d",
       "previous_custody_renewal": {
         "date": "2026-11-04",
-        "previous_live_review_sha256": "e403ebbef81acb93af4600cdfad4d6c9c5c3534e5f20e97c02d1de703caad231",
+        "previous_live_review_sha256": "7d460a8dfb04157e5c51a0bac83899daeca7591769882b4d2abccd87bfef6043",
         "previous_custody_renewal": {
           "date": "2026-11-04",
-          "previous_live_review_sha256": "a1e3cdd09ab33f9d98de232bd71c33b2dac8ea79fd104b8c5c217ecf3ea42df7",
+          "previous_live_review_sha256": "e403ebbef81acb93af4600cdfad4d6c9c5c3534e5f20e97c02d1de703caad231",
           "previous_custody_renewal": {
             "date": "2026-11-04",
-            "previous_live_review_sha256": "b9f6df00001ab460fb5ab87ad3689dc118af9c31cf80d640d2c6517203eccf85",
+            "previous_live_review_sha256": "a1e3cdd09ab33f9d98de232bd71c33b2dac8ea79fd104b8c5c217ecf3ea42df7",
             "previous_custody_renewal": {
               "date": "2026-11-04",
-              "previous_live_review_sha256": "68006d023aa2584cf6d5384aa785f65b25694d871b88d2397340d35faf5ff643",
+              "previous_live_review_sha256": "b9f6df00001ab460fb5ab87ad3689dc118af9c31cf80d640d2c6517203eccf85",
               "previous_custody_renewal": {
-                "date": "2026-11-02",
-                "historical_review": {
-                  "path": "model/completion/historical/program_class_v2_review_before_current_research_20261102.json",
-                  "sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472"
-                },
-                "historical_snapshot_metadata": "model/completion/historical/program_class_v2_review_before_current_research_20261102.metadata.json",
-                "contract_delta": {
-                  "baseline": "412165b0380914681ff96908bd6624d0f6a7607a",
-                  "changes": [],
-                  "current_contract_digest": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+                "date": "2026-11-04",
+                "previous_live_review_sha256": "68006d023aa2584cf6d5384aa785f65b25694d871b88d2397340d35faf5ff643",
+                "previous_custody_renewal": {
+                  "date": "2026-11-02",
+                  "historical_review": {
+                    "path": "model/completion/historical/program_class_v2_review_before_current_research_20261102.json",
+                    "sha256": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472"
+                  },
+                  "historical_snapshot_metadata": "model/completion/historical/program_class_v2_review_before_current_research_20261102.metadata.json",
+                  "contract_delta": {
+                    "baseline": "412165b0380914681ff96908bd6624d0f6a7607a",
+                    "changes": [],
+                    "current_contract_digest": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+                    "class_rules_changed": false,
+                    "adoption_status_changed": false
+                  },
+                  "scope": "Renew the exact same finite class after source-reviewed receipt regeneration on published main412165b03. The current theorem map has109 reviewed domains and104 realized finite domains. No canonical physical premise, gate status, resource ceiling or source law is promoted.",
+                  "source_review": "Every changed current receipt is produced and independently cold-checked; current source pins and complete archived outputs are validated. Historical packet snapshots retain their original bytes.",
+                  "validation_record": "model/completion/merged_pr_custody_validation.json",
+                  "validation_record_role": "Separate current validation record; no recursive hash in this class signature.",
+                  "canonical_physical_premises_discharged": [],
                   "class_rules_changed": false,
-                  "adoption_status_changed": false
+                  "gate_statuses_changed": false
                 },
-                "scope": "Renew the exact same finite class after source-reviewed receipt regeneration on published main412165b03. The current theorem map has109 reviewed domains and104 realized finite domains. No canonical physical premise, gate status, resource ceiling or source law is promoted.",
-                "source_review": "Every changed current receipt is produced and independently cold-checked; current source pins and complete archived outputs are validated. Historical packet snapshots retain their original bytes.",
-                "validation_record": "model/completion/merged_pr_custody_validation.json",
-                "validation_record_role": "Separate current validation record; no recursive hash in this class signature.",
+                "scope": "Same executable class contract and acceptance statuses; current map has115 reviewed domains and110 realized scoped domains. Six source-specific components support issues1138,1139,1142,1143,1145. This renews current map and aggregate custody without reasserting historical scientific executions or promoting an interacting QFT/Einstein gate.",
+                "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+                "current_checks": [
+                  {
+                    "command": "python -m model.completion.finite_attachment_map --check",
+                    "canonical_premises": 84,
+                    "realized_scoped_domains": 110,
+                    "verdict": "PASS"
+                  },
+                  {
+                    "command": "python -m model.completion.source_premise_campaign --check",
+                    "reviewed_components": 6,
+                    "verdict": "PASS"
+                  },
+                  {
+                    "command": "python -m pytest -q -W error model/completion/test_finite_attachment_map.py model/completion/test_source_premise_campaign.py",
+                    "passed": 33
+                  }
+                ],
+                "validation_record": "model/completion/source_premise_campaign.json",
+                "validation_record_role": "Source-bound component and non-composition contract; no recursive hash in this class signature.",
                 "canonical_physical_premises_discharged": [],
                 "class_rules_changed": false,
-                "gate_statuses_changed": false
+                "gate_statuses_changed": false,
+                "historical_scientific_receipts_rewritten_by_this_review": false
               },
-              "scope": "Same executable class contract and acceptance statuses; current map has115 reviewed domains and110 realized scoped domains. Six source-specific components support issues1138,1139,1142,1143,1145. This renews current map and aggregate custody without reasserting historical scientific executions or promoting an interacting QFT/Einstein gate.",
+              "scope": "Same executable class contract, gate statuses, 115 reviewed domains and 110 realized scoped attachments. The existing six-component campaign now includes volume-independent dressed fixed-spacing spin dynamics, exact fixed-volume bare-thermal entropy-stationarity and all-number additive-clock/affine-shell obstructions on their declared domains. No common relativistic QFT/Einstein gate is promoted.",
               "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
+              "independent_mathematical_review": "The five-step integer-penalty averaging constants, source compression and polynomial local propagation bound were checked independently by the finite-closure and gravity reviewers. Root reviewed the finite-area entropy tangent and moving-contact full-number/affine-shell proof. The new local regression keeps dressed inputs, fixed lattice spacing, finite-c source ground and native-repair boundaries separate.",
               "current_checks": [
                 {
-                  "command": "python -m model.completion.finite_attachment_map --check",
-                  "canonical_premises": 84,
-                  "realized_scoped_domains": 110,
-                  "verdict": "PASS"
-                },
-                {
-                  "command": "python -m model.completion.source_premise_campaign --check",
-                  "reviewed_components": 6,
-                  "verdict": "PASS"
-                },
-                {
                   "command": "python -m pytest -q -W error model/completion/test_finite_attachment_map.py model/completion/test_source_premise_campaign.py",
-                  "passed": 33
+                  "passed": 34
+                },
+                {
+                  "command": "python -m pytest -q -W error model/bipartite_spin_limit/test_local.py",
+                  "passed": 13
                 }
               ],
               "validation_record": "model/completion/source_premise_campaign.json",
-              "validation_record_role": "Source-bound component and non-composition contract; no recursive hash in this class signature.",
+              "validation_record_role": "Current source-bound component and non-composition contract; no recursive hash in this class signature.",
               "canonical_physical_premises_discharged": [],
               "class_rules_changed": false,
               "gate_statuses_changed": false,
               "historical_scientific_receipts_rewritten_by_this_review": false
             },
-            "scope": "Same executable class contract, gate statuses, 115 reviewed domains and 110 realized scoped attachments. The existing six-component campaign now includes volume-independent dressed fixed-spacing spin dynamics, exact fixed-volume bare-thermal entropy-stationarity and all-number additive-clock/affine-shell obstructions on their declared domains. No common relativistic QFT/Einstein gate is promoted.",
+            "scope": "Same executable class rules and gate statuses,119 reviewed domains and114 realized scoped attachments. Four component packages cover issues1138,1142,1143,1144,1145. The actual source reference/continuing-spin-repair join is explicit; scalar geometry and moving scattering remain distinct domains. No canonical physical premise, relativistic QFT or Einstein gate is promoted.",
             "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
-            "independent_mathematical_review": "The five-step integer-penalty averaging constants, source compression and polynomial local propagation bound were checked independently by the finite-closure and gravity reviewers. Root reviewed the finite-area entropy tangent and moving-contact full-number/affine-shell proof. The new local regression keeps dressed inputs, fixed lattice spacing, finite-c source ground and native-repair boundaries separate.",
+            "independent_mathematical_review": "Root, finite-closure and gravity reviewers checked positive-rate repair conservation, local-map constants and complete archives; finite-closure reviewed the actual source ground/Gibbs join. Root reviewed moving scattering readout. Particle and finite-closure reviewers independently checked reciprocal area/energy memory, constrained thermal area coefficient and complete bath entropy accounting. Arbitrary correlated-reference Gibbs replacement is excluded.",
             "current_checks": [
               {
-                "command": "python -m pytest -q -W error model/completion/test_finite_attachment_map.py model/completion/test_source_premise_campaign.py",
-                "passed": 34
+                "command": "python -m pytest -q -W error model/completion/test_finite_attachment_map.py model/completion/test_source_premise_campaign.py model/completion/test_dynamics_response_campaign.py",
+                "passed": 50
               },
               {
-                "command": "python -m pytest -q -W error model/bipartite_spin_limit/test_local.py",
-                "passed": 13
+                "command": "python -m pytest -q -W error model/test_verify_shards.py",
+                "passed": 402
+              },
+              {
+                "command": "Fresh charged_dynamics.packet write and cold check; scientific payload compared with retained receipt",
+                "scientific_payload_exactly_equal": true,
+                "changed_source_binding": "model/verify.py"
+              },
+              {
+                "component": "reciprocal_area_dynamics",
+                "independent_tests_passed": 11,
+                "cold_receipt_check": "PASS"
+              },
+              {
+                "component": "scattering_packet_readout",
+                "independent_tests_passed": 18,
+                "cold_receipt_check": "PASS"
+              },
+              {
+                "component": "native_repair_spin_limit",
+                "independent_tests_passed": 37,
+                "cold_receipt_check": "PASS"
+              },
+              {
+                "component": "spin_reference_limit",
+                "independent_tests_passed": 13,
+                "cold_receipt_check": "PASS"
               }
             ],
-            "validation_record": "model/completion/source_premise_campaign.json",
-            "validation_record_role": "Current source-bound component and non-composition contract; no recursive hash in this class signature.",
+            "validation_record": "model/completion/dynamics_response_campaign.json",
+            "validation_record_role": "Current source-bound component and explicitly typed internal-join contract; no recursive hash in this class signature.",
             "canonical_physical_premises_discharged": [],
             "class_rules_changed": false,
             "gate_statuses_changed": false,
             "historical_scientific_receipts_rewritten_by_this_review": false
           },
-          "scope": "Same executable class rules and gate statuses,119 reviewed domains and114 realized scoped attachments. Four component packages cover issues1138,1142,1143,1144,1145. The actual source reference/continuing-spin-repair join is explicit; scalar geometry and moving scattering remain distinct domains. No canonical physical premise, relativistic QFT or Einstein gate is promoted.",
+          "scope": "Same executable class rules and gate statuses; 122 reviewed domains and 117 realized scoped attachments. Three packages cover issues 1139, 1142, 1143, 1145 and 1146 with conditional defect spectra, actual ground-orbit texture energy and a quantitative matched regional Einstein implication. No canonical physical premise or integrated physical gate is promoted.",
           "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
-          "independent_mathematical_review": "Root, finite-closure and gravity reviewers checked positive-rate repair conservation, local-map constants and complete archives; finite-closure reviewed the actual source ground/Gibbs join. Root reviewed moving scattering readout. Particle and finite-closure reviewers independently checked reciprocal area/energy memory, constrained thermal area coefficient and complete bath entropy accounting. Arbitrary correlated-reference Gibbs replacement is excluded.",
+          "independent_mathematical_review": "Root and finite reviewers checked the ten-probe inverse, small-ball coefficients, matched nonlinear/linearized limits and Ward/Bianchi conditions; imported Lean axioms are parsed and checked. Root and finite/particle reviewers checked conditional defect spectral and full-complement core formulas and actual-ground texture energy. Source-selection and common-model assumptions remain explicit.",
           "current_checks": [
             {
-              "command": "python -m pytest -q -W error model/completion/test_finite_attachment_map.py model/completion/test_source_premise_campaign.py model/completion/test_dynamics_response_campaign.py",
-              "passed": 50
+              "component": "matched_einstein_limit",
+              "tests_passed": 36,
+              "fresh_receipt_check": "PASS",
+              "direct_Lean_compile": "PASS"
             },
             {
-              "command": "python -m pytest -q -W error model/test_verify_shards.py",
-              "passed": 402
+              "component": "spin_texture_energy",
+              "tests_passed": 10,
+              "fresh_receipt_check": "PASS"
             },
             {
-              "command": "Fresh charged_dynamics.packet write and cold check; scientific payload compared with retained receipt",
+              "component": "charged_dynamics",
               "scientific_payload_exactly_equal": true,
-              "changed_source_binding": "model/verify.py"
-            },
-            {
-              "component": "reciprocal_area_dynamics",
-              "independent_tests_passed": 11,
-              "cold_receipt_check": "PASS"
-            },
-            {
-              "component": "scattering_packet_readout",
-              "independent_tests_passed": 18,
-              "cold_receipt_check": "PASS"
-            },
-            {
-              "component": "native_repair_spin_limit",
-              "independent_tests_passed": 37,
-              "cold_receipt_check": "PASS"
-            },
-            {
-              "component": "spin_reference_limit",
-              "independent_tests_passed": 13,
-              "cold_receipt_check": "PASS"
+              "changed_source_binding": "model/verify.py",
+              "fresh_receipt_check": "PASS"
             }
           ],
-          "validation_record": "model/completion/dynamics_response_campaign.json",
-          "validation_record_role": "Current source-bound component and explicitly typed internal-join contract; no recursive hash in this class signature.",
+          "validation_record": "model/completion/spectrum_einstein_campaign.json",
+          "validation_record_role": "Current conditional spectrum and matched Einstein interface contract; no recursive hash in this class signature.",
           "canonical_physical_premises_discharged": [],
           "class_rules_changed": false,
           "gate_statuses_changed": false,
           "historical_scientific_receipts_rewritten_by_this_review": false
         },
-        "scope": "Same executable class rules and gate statuses; 122 reviewed domains and 117 realized scoped attachments. Three packages cover issues 1139, 1142, 1143, 1145 and 1146 with conditional defect spectra, actual ground-orbit texture energy and a quantitative matched regional Einstein implication. No canonical physical premise or integrated physical gate is promoted.",
+        "scope": "Same executable class rules and gate statuses; 126 reviewed domains and 121 realized scoped attachments. Four packages cover issues 1139, 1140, 1142, 1143 and 1144 with observable interacting finite-core poles, an unmodified odd-box core, exact bounded-texture lattice zeros and electric-energy-responsive native Gram geometry. No canonical physical premise or integrated physical gate is promoted.",
         "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
-        "independent_mathematical_review": "Root and finite reviewers checked the ten-probe inverse, small-ball coefficients, matched nonlinear/linearized limits and Ward/Bianchi conditions; imported Lean axioms are parsed and checked. Root and finite/particle reviewers checked conditional defect spectral and full-complement core formulas and actual-ground texture energy. Source-selection and common-model assumptions remain explicit.",
+        "independent_mathematical_review": "Root and independent peers checked the full-Fock projector/residue/current proof, original odd-box symmetries and complete native decoder, bounded radial Fredholm index/localization and the energy-dependent fixed-instrument Gram construction. Source selection, physical controls, repair-rate choices and cross-source maps retain their stated boundaries.",
         "current_checks": [
           {
-            "component": "matched_einstein_limit",
-            "tests_passed": 36,
-            "fresh_receipt_check": "PASS",
-            "direct_Lean_compile": "PASS"
+            "component": "defect_core_response",
+            "tests_passed": 29,
+            "fresh_receipt_check": "PASS"
           },
           {
-            "component": "spin_texture_energy",
-            "tests_passed": 10,
+            "component": "bounded_defect_index",
+            "tests_passed": 13,
+            "fresh_receipt_check": "PASS"
+          },
+          {
+            "component": "native_odd_box_core",
+            "tests_passed": 40,
+            "fresh_receipt_check": "PASS"
+          },
+          {
+            "component": "matter_geometry_response",
+            "tests_passed": 23,
             "fresh_receipt_check": "PASS"
           },
           {
@@ -4242,35 +4298,40 @@
             "fresh_receipt_check": "PASS"
           }
         ],
-        "validation_record": "model/completion/spectrum_einstein_campaign.json",
-        "validation_record_role": "Current conditional spectrum and matched Einstein interface contract; no recursive hash in this class signature.",
+        "validation_record": "model/completion/defect_geometry_campaign.json",
+        "validation_record_role": "Current source-bound finite poles, lattice index and native geometry interface contract; no recursive hash in this class signature.",
         "canonical_physical_premises_discharged": [],
         "class_rules_changed": false,
         "gate_statuses_changed": false,
         "historical_scientific_receipts_rewritten_by_this_review": false
       },
-      "scope": "Same executable class rules and gate statuses; 126 reviewed domains and 121 realized scoped attachments. Four packages cover issues 1139, 1140, 1142, 1143 and 1144 with observable interacting finite-core poles, an unmodified odd-box core, exact bounded-texture lattice zeros and electric-energy-responsive native Gram geometry. No canonical physical premise or integrated physical gate is promoted.",
+      "scope": "Same executable class rules and gate statuses; 131 reviewed domains and 126 realized scoped attachments. Five packages cover issues1139,1142,1143,1144,1145 through one bounded radial source with actual finite interacting poles, regional entropy/modular data, controlled responsive geometry and a complete finite reused-field readout. No canonical physical premise or integrated physical gate is promoted.",
       "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
-      "independent_mathematical_review": "Root and independent peers checked the full-Fock projector/residue/current proof, original odd-box symmetries and complete native decoder, bounded radial Fredholm index/localization and the energy-dependent fixed-instrument Gram construction. Source selection, physical controls, repair-rate choices and cross-source maps retain their stated boundaries.",
+      "independent_mathematical_review": "Root and independent peers checked the bounded radial kernel/gap, full-Fock contact and actual spectral residues, actual-ground local faithfulness, complete native modular/parity controls, record entropy/work and reused-field conditional dynamics. State preparation, source texture, physical controls and continuum/Einstein boundaries retain their explicit scopes.",
       "current_checks": [
         {
-          "component": "defect_core_response",
-          "tests_passed": 29,
+          "component": "radial_defect_gap",
+          "tests_passed": 25,
           "fresh_receipt_check": "PASS"
         },
         {
-          "component": "bounded_defect_index",
-          "tests_passed": 13,
+          "component": "radial_interacting_core",
+          "tests_passed": 37,
           "fresh_receipt_check": "PASS"
         },
         {
-          "component": "native_odd_box_core",
-          "tests_passed": 40,
+          "component": "parity_entropy_response",
+          "tests_passed": 25,
           "fresh_receipt_check": "PASS"
         },
         {
-          "component": "matter_geometry_response",
-          "tests_passed": 23,
+          "component": "radial_geometry_join",
+          "tests_passed": 41,
+          "fresh_receipt_check": "PASS"
+        },
+        {
+          "component": "radial_reused_readout",
+          "tests_passed": 25,
           "fresh_receipt_check": "PASS"
         },
         {
@@ -4278,59 +4339,38 @@
           "scientific_payload_exactly_equal": true,
           "changed_source_binding": "model/verify.py",
           "fresh_receipt_check": "PASS"
+        },
+        {
+          "component": "inherited_CI_portability_controls",
+          "tests_passed": 80,
+          "scientific_receipt_payloads_exactly_equal": true
         }
       ],
-      "validation_record": "model/completion/defect_geometry_campaign.json",
-      "validation_record_role": "Current source-bound finite poles, lattice index and native geometry interface contract; no recursive hash in this class signature.",
+      "source_custody_renewals": "Two binary64 diagnostic tests and four native leakage diagnostics have platform-portable comparisons; all owning scientific receipt payloads are exactly preserved. Complete transitive source hashes and old campaign evidence pins are renewed.",
+      "validation_record": "model/completion/radial_source_campaign.json",
+      "validation_record_role": "Current same-radial-source kernel, interacting poles, regional entropy and controlled geometric readout contract; no recursive hash in this class signature.",
       "canonical_physical_premises_discharged": [],
       "class_rules_changed": false,
       "gate_statuses_changed": false,
       "historical_scientific_receipts_rewritten_by_this_review": false
     },
-    "scope": "Same executable class rules and gate statuses; 131 reviewed domains and 126 realized scoped attachments. Five packages cover issues1139,1142,1143,1144,1145 through one bounded radial source with actual finite interacting poles, regional entropy/modular data, controlled responsive geometry and a complete finite reused-field readout. No canonical physical premise or integrated physical gate is promoted.",
+    "scope": "Same executable class and gate conditions; 132 reviewed domains and 127 realized scoped attachments. A standalone one-body exterior theorem supplies all-valley dispersion, bounded-radial compact packets and conditional SI interval conversion. The finite radial interacting/geometry campaign is unchanged. No physical clock anchor, interacting mass-shell attachment or canonical physical discharge is added.",
     "contract_digest_unchanged": "b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a",
-    "independent_mathematical_review": "Root and independent peers checked the bounded radial kernel/gap, full-Fock contact and actual spectral residues, actual-ground local faithfulness, complete native modular/parity controls, record entropy/work and reused-field conditional dynamics. State preparation, source texture, physical controls and continuum/Einstein boundaries retain their explicit scopes.",
+    "independent_mathematical_review": "Root and independent peers checked the folded Clifford algebra, all-valley multiplicities, radial essential spectrum, compact sine-packet error, continuum limit and exact SI/Cs conversion. Same-generator clock provenance is an explicit unfulfilled physical input; the finite interacting gap is distinct from exterior bulk rest energy.",
     "current_checks": [
       {
-        "component": "radial_defect_gap",
-        "tests_passed": 25,
-        "fresh_receipt_check": "PASS"
-      },
-      {
-        "component": "radial_interacting_core",
-        "tests_passed": 37,
-        "fresh_receipt_check": "PASS"
-      },
-      {
-        "component": "parity_entropy_response",
-        "tests_passed": 25,
-        "fresh_receipt_check": "PASS"
-      },
-      {
-        "component": "radial_geometry_join",
-        "tests_passed": 41,
-        "fresh_receipt_check": "PASS"
-      },
-      {
-        "component": "radial_reused_readout",
-        "tests_passed": 25,
-        "fresh_receipt_check": "PASS"
+        "component": "source_mass_shell",
+        "verification": "58 focused tests passed with warnings as errors (319.82s) under pinned Python3.13. A fresh --write and independent fresh-process --check passed. Root, finite_closure and gravity_closure independently reviewed the proof without unresolved findings. Exact full128-source-column checks, complete spectral projectors, high-precision energy enclosures, literal radial source/halo controls, large-anchor phase regression, strict numerical admission mutations and conditional SI calibration tests pass."
       },
       {
         "component": "charged_dynamics",
         "scientific_payload_exactly_equal": true,
         "changed_source_binding": "model/verify.py",
         "fresh_receipt_check": "PASS"
-      },
-      {
-        "component": "inherited_CI_portability_controls",
-        "tests_passed": 80,
-        "scientific_receipt_payloads_exactly_equal": true
       }
     ],
-    "source_custody_renewals": "Two binary64 diagnostic tests and four native leakage diagnostics have platform-portable comparisons; all owning scientific receipt payloads are exactly preserved. Complete transitive source hashes and old campaign evidence pins are renewed.",
-    "validation_record": "model/completion/radial_source_campaign.json",
-    "validation_record_role": "Current same-radial-source kernel, interacting poles, regional entropy and controlled geometric readout contract; no recursive hash in this class signature.",
+    "validation_record": "model/source_mass_shell/results.json",
+    "validation_record_role": "Current standalone exterior-packet, dispersion and conditional unit-conversion receipt; no recursive hash in the class signature.",
     "canonical_physical_premises_discharged": [],
     "class_rules_changed": false,
     "gate_statuses_changed": false,

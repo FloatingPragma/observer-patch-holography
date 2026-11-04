@@ -28,6 +28,10 @@ on:
       - 'model/parity_entropy_response/**'
       - 'model/radial_geometry_join/**'
       - 'model/radial_reused_readout/**'
+      - 'model/source_mass_shell/**'
+      - 'code/particles/*radial_excitation_catalogue.py'
+      - 'code/particles/RADIAL_EXCITATION_CATALOGUE.md'
+      - 'code/particles/runs/catalogue/radial_excitation_catalogue.json'
       - 'Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean'
       - 'model/clock_defect_energy/**'
       - 'model/local_repair_family/**'
@@ -130,6 +134,10 @@ on:
       - 'model/parity_entropy_response/**'
       - 'model/radial_geometry_join/**'
       - 'model/radial_reused_readout/**'
+      - 'model/source_mass_shell/**'
+      - 'code/particles/*radial_excitation_catalogue.py'
+      - 'code/particles/RADIAL_EXCITATION_CATALOGUE.md'
+      - 'code/particles/runs/catalogue/radial_excitation_catalogue.json'
       - 'Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean'
       - 'model/clock_defect_energy/**'
       - 'model/local_repair_family/**'
@@ -236,6 +244,8 @@ jobs:
       - run: python -m model.completion.spectrum_einstein_campaign --check
       - run: python -m model.completion.defect_geometry_campaign --check
       - run: python -m model.completion.radial_source_campaign --check
+      - run: python code/particles/derive_radial_excitation_catalogue.py --check
+      - run: python -m pytest -q -W error code/particles/test_radial_excitation_catalogue.py
 
   program-sectors:
     runs-on: ubuntu-latest
