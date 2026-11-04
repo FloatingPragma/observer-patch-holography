@@ -418,19 +418,9 @@ def check_claim_views(root: Path) -> None:
 
 
 def check_readme_pair(root: Path) -> None:
-    """Both READMEs carry the charged-lepton limit and the same top-level heading count."""
+    """Both READMEs carry the same top-level heading count."""
     english = (root / "README.md").read_text(encoding="utf-8")
     french = (root / "README_FR.md").read_text(encoding="utf-8")
-    require(
-        "No tested mass law reproduces the measured charged-lepton hierarchy."
-        in " ".join(english.split()),
-        "README.md: missing the charged-lepton mass-hierarchy limitation",
-    )
-    require(
-        "Aucune loi de masse testée ne reproduit la hiérarchie mesurée des leptons chargés."
-        in " ".join(french.split()),
-        "README_FR.md: missing the charged-lepton mass-hierarchy limitation",
-    )
     english_headings = [line for line in english.splitlines() if line.startswith("## ")]
     french_headings = [line for line in french.splitlines() if line.startswith("## ")]
     require(

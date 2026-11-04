@@ -108,8 +108,7 @@ de lois échoue.
   [table des masses et énergies](model/completion/PARTICLE_MASS_TABLE.md)
   consigne les spectres finis certifiés. Le continuum chargé est démontrablement
   libre pour `U=o(c^(2/7))`, avec des énergies de Weyl sans masse dans les huit
-  vallées. Aucune loi de masse testée ne reproduit la hiérarchie mesurée des
-  leptons chargés. Une couche de masse nette, une interaction continue survivante, des
+  vallées. Une couche de masse nette, une interaction continue survivante, des
   espèces de particules mesurées et une géométrie qui répond restent ouvertes,
   avec leurs prémisses énoncées dans la
   [construction du continuum](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).

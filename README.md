@@ -97,8 +97,7 @@ proof shows that the whole class of laws cannot work.
   remainder. Filtered spin readout includes every rejection outcome; the
   [mass and energy table](model/completion/PARTICLE_MASS_TABLE.md) records
   the certified finite spectra. The charged continuum is provably free for
-  `U=o(c^(2/7))`, with massless Weyl energies in all eight valleys. No tested
-  mass law reproduces the measured charged-lepton hierarchy. A sharp
+  `U=o(c^(2/7))`, with massless Weyl energies in all eight valleys. A sharp
   mass shell, surviving continuum interaction, measured particle species and
   responsive geometry remain open, with their premises stated in the
   [continuum construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).

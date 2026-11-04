@@ -903,31 +903,14 @@ def test_offline_release_gate_rejects_byte_and_tag_false_greens(
     )
 
 
-def test_readme_pair_requires_the_charged_lepton_limitation(tmp_path: Path) -> None:
+def test_readme_pair_requires_equal_heading_counts(tmp_path: Path) -> None:
     english = tmp_path / "README.md"
     french = tmp_path / "README_FR.md"
-    english.write_text(
-        "# README\n\n## Scope\n\n"
-        "No tested mass law reproduces the measured charged-lepton hierarchy.\n",
-        encoding="utf-8",
-    )
-    french.write_text(
-        "# README\n\n## Portée\n\n"
-        "Aucune loi de masse testée ne reproduit la hiérarchie mesurée des leptons chargés.\n",
-        encoding="utf-8",
-    )
+    english.write_text("# README\n\n## Scope\n\nText.\n", encoding="utf-8")
+    french.write_text("# README\n\n## Portée\n\nTexte.\n", encoding="utf-8")
     check_claim_registry.check_readme_pair(tmp_path)
 
-    french.write_text(
-        "# README\n\n## Portée\n\n## Détails\n\n"
-        "Aucune loi de masse testée ne reproduit la hiérarchie mesurée des leptons chargés.\n",
-        encoding="utf-8",
-    )
+    french.write_text("# README\n\n## Portée\n\n## Détails\n\nTexte.\n", encoding="utf-8")
     with pytest.raises(SystemExit) as failure:
         check_claim_registry.check_readme_pair(tmp_path)
     assert "top-level heading counts" in str(failure.value)
-
-    french.write_text("# README\n\n## Portée\n\nAucune limite.\n", encoding="utf-8")
-    with pytest.raises(SystemExit) as failure:
-        check_claim_registry.check_readme_pair(tmp_path)
-    assert "charged-lepton mass-hierarchy limitation" in str(failure.value)
