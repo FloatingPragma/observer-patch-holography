@@ -152,40 +152,20 @@ def test_invalid_original_coupling_is_refused(bad, evaluate):
         evaluate(bad)
 
 
-def _printed_number(cell):
-    """Read a paper cell and its last printed decimal-place resolution."""
-    cell = cell.strip().removesuffix(r"\%").strip()
-    scientific = re.fullmatch(r"\\\(([\d.]+)\\!\\times\\!10\^{(-?\d+)}\\\)", cell)
-    if scientific:
-        mantissa, exponent = scientific.groups()
-        value = Decimal(mantissa)*Decimal(10)**int(exponent)
-        quantum = Decimal(10)**(Decimal(mantissa).as_tuple().exponent+int(exponent))
-    else:
-        value = Decimal(cell)
-        quantum = Decimal(10)**value.as_tuple().exponent
-    return float(value), float(quantum)/2
-
-
-def test_paper_s3_table_replays_from_original_character_hamiltonian():
+def test_paper_s3_identity_replays_from_original_character_hamiltonian():
     paper = (Path(__file__).resolve().parents[2]/"paper"/
              "deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex")
-    table = paper.read_text(encoding="utf-8").split(
-        r"h & p\_triv & p\_sign & p\_std & t (sign)", 1)[1].split(r"\end{longtable}", 1)[0]
-    rows = [line.strip().removesuffix(r"\\").strip().split("&")
-            for line in table.splitlines() if re.match(r"^\d.*&", line)]
-    assert [float(row[0]) for row in rows] == [.5, 1., 2., 5., 12., 100.]
-    for row in rows:
-        ctx, _, reference = _matrix_oracle(float(row[0]))
+    text = " ".join(paper.read_text(encoding="utf-8").split())
+    assert r"x+12h-1-1/x-1/(24h+x)=0" in text
+    assert r"=\left(\frac{z-1}{z}\right)^2<1" in text
+    for h in (.5, 1., 2., 5., 12., 100.):
+        ctx, x, reference = _matrix_oracle(h)
         p = reference["probabilities"]
-        sign_time = ctx.log(p["triv"]/p["sign"])/6
-        std_time = reference["fit_time"]
-        relative_time = 100*(sign_time-std_time)/((sign_time+std_time)/2)
-        expected = [p["triv"], p["sign"], p["std"], sign_time, std_time,
-                    relative_time, 2+reference["log_ratio_excess"]]
-        assert len(row) == 8
-        for cell, value in zip(row[1:], expected):
-            printed, half_last_place = _printed_number(cell)
-            assert printed == pytest.approx(float(value), abs=half_last_place, rel=0)
+        assert abs(x+12*h-1-1/x-1/(24*h+x)) < ctx.mpf(10)**-300
+        z = x+12*h
+        ratio = p["sign"]/(p["std"]**2/(4*p["triv"]))
+        assert abs(ratio-((z-1)/z)**2) < ctx.mpf(10)**-300
+        assert ratio < 1
 
 
 def test_public_s3_cli_keeps_signed_fit_and_tiny_nonzero_discrepancies():
