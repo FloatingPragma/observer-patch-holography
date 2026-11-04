@@ -87,7 +87,7 @@ continuous maps, including nonisolated initial fibres and critical poles.
 Its reconstruction and finite geometric controls do not constitute acceptance
 by a distinct mathematical reviewer. Remedy: obtain that acceptance before
 promoting the theorem gate. No replay of an original external proof packet
-is claimed; the proposed argument is autonomous.
+is claimed; the proposed argument is self-contained.
 
 ## Recalculated seed and coupled actions
 
