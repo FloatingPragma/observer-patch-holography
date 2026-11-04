@@ -37,14 +37,6 @@ KNOWN_VIOLATIONS = {
         "dated-heading": "archive tree leaves docs/ with its relocation",
         "status-prose": "archive tree leaves docs/ with its relocation",
     },
-    "docs/policies/NUMERICAL_AUDIT.md": {
-        "dated-heading": "review history leaves the policy with its rewrite",
-        "pull-request-reference": "review history leaves the policy with its rewrite",
-    },
-    "docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md": {
-        "pull-request-reference": "audit history leaves the note with its rewrite",
-        "status-prose": "audit history leaves the note with its rewrite",
-    },
 }
 
 ISO_DATE = re.compile(
