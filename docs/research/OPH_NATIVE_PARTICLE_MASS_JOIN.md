@@ -28,24 +28,40 @@ mass formula while discarding `A` is incorrect. Winding charges classify
 the prescribed surrounding shells, rather than fermion occupations or
 autonomously stable particles.
 
-[The interacting radial core](../../model/interacting_defect_response/PROOF.md)
-retains all 90 localized annihilators and adds the native-current-invariant
-quartic `lambda(N_W-45)^2`. Complete memory pulses preserve this core and
-have an explicit error bound independent of exterior volume. The
-comparison of the entire final history/core state is bounded by
-`sqrt(2 delta)` for unread error `delta`, retaining the actual conditional
-history laws. This is
-a bound for the declared field-independent probe protocol. A reducing
-four-mode slice of the mean Hamiltonian gives exact interacting poles and
-connected correlations; it is not the full-core vacuum or a separate
-four-mode pulse process. A Gibbs first law and noncommuting susceptibility
-use that same Hamiltonian. The projected interaction has spatial tails;
-finite-range locality, a relativistic interacting limit, a physical vacuum
-and geometric entropy stationarity are separate requirements. This radial
-construction does not incorporate the compact pair's nonzero spatial term.
-The pixel feedback consumes the quadratic mass coefficients rather than the
-shifted interacting poles, so that feedback and the quartic spectral response
-also require an explicit common calculation.
+[The compact interacting core](../../model/compact_interacting_response/PROOF.md)
+retains the nonzero `A`, all 180 localized annihilators and the chosen
+quartic `lambda(N_W-90)^2`. Every complete memory record preserves this
+same core. Its exterior-volume-independent Hamiltonian bound is
+`90r+90(1+g)+8100lambda`; the unread error `delta` gives a complete final
+history/core error at most `sqrt(2 delta)`. The texture is fixed during
+this averaging interval, and rare conditioned histories have no uniform
+error guarantee.
+
+An exact sixteen-state reducing slice includes both compact spatial
+energies and the pairing coefficient. At `lambda=1/128` all three retained
+lepton slices have the certified blocked ground. Their two fermion poles
+are `e1+lambda-m` and `e1+lambda+m`, each of residue `1/2`. These differ
+from the quadratic coefficients and from the zero-splitting radial control.
+The full interacting vacuum is bounded by explicit variational states;
+it is not identified by these slices. The pixel feedback consumes quadratic
+coefficients, so a common interacting current-response loop is unproved.
+
+[Guarded local repair](../../model/compact_defect_transport/PROOF.md)
+preserves both shell degrees on all twelve records of a continuing
+three-texture law. Its chosen endpoint control transports the band,
+native currents, pairing and projected quartic. These are implemented
+design restrictions, without autonomous formation or moving-particle
+kinetics. [Hopping work](../../model/compact_band_response/PROOF.md)
+differentiates this same compact action, including the derivative of its
+band projector, and gives a finite Gibbs work/entropy identity. It supplies
+no metric identification, local Lorentz stress or geometric stationarity.
+
+[The finite native gauge link](../../model/native_quantum_gauss/PROOF.md)
+uses the actual fifteen-state currents and a chosen 60-state link.
+All native multiplets and local operator Gauss constraints survive its
+matter transport and complete readouts. Its static dual reference and
+coherent services are explicit inputs. Dressing the compact modes into
+this distinct local Gauss sector requires an additional map.
 
 ## Common localized states, native currents and pixel-dependent masses
 

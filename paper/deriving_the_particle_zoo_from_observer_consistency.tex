@@ -54,10 +54,11 @@ realizes the matrix with a controlled weak-step limit. Its feedback into a
 declared electromagnetic kernel has certified conditional fixed points;
 a minimal field census with one specified scale law is instead inconsistent.
 A compact opposite-winding texture has finite excess-energy bounds and four
-isolated modes with controlled infinite-volume errors. A separate quartic
-extension gives connected, non-Gaussian dynamics on the localized algebra.
-The compact texture and the interaction both change the excitation spectrum,
-so their mass interpretation requires their joint dynamics. The finite gauge
+isolated modes with controlled infinite-volume errors. Its same-band quartic
+extension gives exact interacting spectral readouts; local guarded repair
+preserves both charges and admits controlled transport of the band.
+The compact splitting changes the interacting ground sector and its poles.
+The finite gauge
 theorems constrain the internal representation; they do not identify physical
 particles or fix all couplings. The resulting construction is a precise
 conditional particle model, without a complete observed spectrum, an
@@ -485,8 +486,11 @@ below provides the latter type of finite source example.
 \let\section\subsection
 \input{tex_fragments/DEFECT_CURRENT_MASS_BRIDGE.tex}
 \endgroup
-\input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 \input{tex_fragments/COMPACT_DEFECT_PAIR.tex}
+\input{tex_fragments/COMPACT_DEFECT_TRANSPORT.tex}
+\input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
+\input{tex_fragments/COMPACT_BAND_WORK.tex}
+\input{tex_fragments/NATIVE_QUANTUM_GAUSS.tex}
 
 \section{The conditional catalogue and the physical comparison}
 \label{sec:particle-joins}
@@ -525,9 +529,9 @@ $A=W^\dagger hW$. Its energies enter the exact common operator and cannot
 be removed to retain the zero-mode mass list. Second, the positive quartic
 coupling changes the spectral poles. The pixel feedback calculation uses
 quadratic coefficients, rather than the changed interacting current spectral
-measure. The compact texture, radial interaction and conditional pixel roots
-therefore do not compose into one interacting electromagnetic fixed point
-by matching notation or individual eigenvalues.
+measure. The compact interacting operator and its exact slice readouts
+therefore require a recalculated electromagnetic response before a common
+interacting feedback fixed point can be claimed.
 
 The concrete physical target is the joint map
 \[
@@ -611,15 +615,20 @@ The executable sources and exact certificates accompany the public repository
 \path{model/mcpr_native_memory_bridge},
 \path{model/pixel_mass_closure},
 \path{model/defect_current_bridge},
-\path{model/interacting_defect_response}, and
-\path{model/compact_defect_pair}.
+\path{model/compact_defect_pair},
+\path{model/compact_defect_transport},
+\path{model/compact_interacting_response},
+\path{model/compact_band_response}, and
+\path{model/native_quantum_gauss}.
 They distinguish exact algebra and rational interval proofs from floating
 spectral checks and empirical comparisons. A source hash identifies a
 calculation; its mathematical scope is the stated theorem and domain.
 
 The finite results establish a common current/mass operator, complete-record
 memory limits, a conditional feedback closure, a compact finite-energy
-background with isolated modes, and a connected localized interaction.
+background with isolated modes, guarded band transport, a common localized
+interaction and its hopping-work response. A separate native link design
+supplies exact local Gauss constraints.
 A source-derived physical spectrum additionally requires their common
 interacting realization with a physical state, clock and response dictionary.
 

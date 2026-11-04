@@ -37,17 +37,28 @@ fermion kernel does not supply full bosonic or physical threshold matching.
 Exact native internal-current traces check the declared beta coefficients;
 the intended chiral multiplicities require a separate regulator/continuum map.
 
-The [compact pair](../../model/compact_defect_pair/PROOF.md) supplies finite
-texture-energy bounds and four nonzero localized levels with opposite local
-winding charges. Their spatial splittings must be included in the mass
-operator. The [quartic core](../../model/interacting_defect_response/PROOF.md)
-instead acts on the radial zero-mode carrier and has explicit interaction-
-dependent poles, a radius-uniform core readout limit, and a same-Hamiltonian
-Gibbs response. These two carriers are distinct constructions. Their results
-cannot be combined into a physical particle catalogue by omitting the
-compact pair's splitting or the interaction's change to excitation energies.
-The certified pixel loop consumes quadratic coefficients, not the interacting
-spectral measure. It is not a closed interacting electromagnetic feedback loop.
+The [compact interacting construction](../../model/compact_interacting_response/PROOF.md)
+places the finite-energy opposite-degree texture, its four nonzero spatial
+levels, the full native internal current, memory pairing and
+`lambda(N_W-90)^2` on one 180-mode localized algebra. Its complete-memory
+limit is uniform in exterior volume on that fixed core. Exact reducing
+sixteen-state spectra retain both spatial energies. At the inherited
+interaction strength, each of the three lepton slices has two poles
+`e1+lambda +/- m` with equal residues, and a different ground sector from
+the radial zero-splitting control. These are finite source readouts, without
+a physical mass map or identification of the complete interacting vacuum.
+The certified pixel loop consumes quadratic coefficients and has no
+interacting electromagnetic spectral feedback calculation.
+
+[The complete texture guard](../../model/compact_defect_transport/PROOF.md)
+protects both degrees branch by branch and has a chosen control transporting
+the band, pairing and quartic at its endpoints. The same action's
+[hopping-work derivative](../../model/compact_band_response/PROOF.md)
+retains the moving-projector term and gives a finite entropy/work response.
+The separate [60-state native link](../../model/native_quantum_gauss/PROOF.md)
+has exact non-Abelian local Gauss constraints and multiplet-preserving
+transport. Autonomous defect kinetics, gauge dressing of the compact band,
+physical dispersion and the common Einstein premises require further maps.
 
 | Result | What is established | Additional attachment |
 | --- | --- | --- |

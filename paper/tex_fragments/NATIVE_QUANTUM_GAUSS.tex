@@ -1,0 +1,58 @@
+\subsection{A finite local Gauss law for the native currents}
+\label{sec:native-quantum-gauss}
+
+The native fifteen-state matter representation decomposes into invariant
+blocks $V_r$ of dimensions $6,3,3,2,1$. A declared finite link design
+preserves those blocks. For an oriented edge $x\to y$, set
+\[
+ \mathcal L_{xy}=\mathbb C|0\rangle\oplus
+       \bigoplus_r(V_{r,x}^*\otimes V_{r,y}),
+ \qquad U_{ab}=|\bar a,b\rangle\langle0|,
+\]
+where $U_{ab}=0$ when $a,b$ belong to different blocks. The link dimension
+is $1+36+9+9+4+1=60$. For any native anti-Hermitian generator $T$, its
+endpoint generators are $0\oplus\bigoplus_r(-T_r^T\otimes I)$ and
+$0\oplus\bigoplus_r(I\otimes T_r)$. Adding the local fermion charge
+$d\Gamma_x(T)$ defines $G_x(T)$ on the complete Fock and link space.
+
+For real $J$, the same finite Hamiltonian transports matter and compensating
+link charge:
+\[
+ H_{xy}=J\sum_{a,b}c_{xa}^\dagger U_{ab}c_{yb}
+         +\mathrm{h.c.}+\epsilon(I-|0\rangle\langle0|),
+ \qquad [G_v(T),H_{xy}]=0,\quad\epsilon\geq0.
+\]
+Indeed, the two link commutators are
+$[L_x(T),U_{ab}]=-\sum_iT_{ai}U_{ib}$ and
+$[L_y(T),U_{ab}]=\sum_jT_{jb}U_{aj}$. They cancel the creation and
+annihilation commutators of $d\Gamma(T)$ after relabeling the summed
+indices. The link-energy projector commutes with both generators.
+This proves the identity for all occupation sectors and finite sums of
+edges. It also proves preservation of the Gauss kernel by evolution and
+by complete instruments whose Kraus operators commute with the generators.
+
+For an explicit nontrivial sector, supply a static dual reference at $y$.
+Within one block of dimension $d$, the vectors
+\[
+ A=\sum_b|y,b\rangle|\bar b\rangle|0\rangle,
+ \qquad B=\sum_{a,b}|x,a\rangle|\bar b\rangle|\bar a,b\rangle
+\]
+are Gauss singlets, with norms $\sqrt d$ and $d$.
+The Hamiltonian sends $A$ to $JB$ and $B$ to $dJA+\epsilon B$.
+Its orthonormal two-state restriction is
+$\left(\begin{smallmatrix}0&J\sqrt d\\J\sqrt d&\epsilon\end{smallmatrix}\right)$.
+All twelve native generators are checked on every block. Exact Cayley
+steps and complete endpoint readouts retain all eighty histories obtained
+from a five-outcome initial block measurement and four binary observations.
+The change of this same Hamiltonian's energy under each observation is
+included as detector work; the detector reservoir is a supplied service.
+
+This construction supplies finite non-Abelian operator Gauss constraints.
+The link operators are not unitary Wilson links. The link register, static
+reference, coherent hopping and readout are chosen inputs, with no asserted
+compilation into bare C/E repair. The localized compact band has a separate
+state inclusion; dressing it into this local Gauss sector requires an
+additional construction. Neither the finite transport frequency nor
+current conservation establishes physical particle masses, a chiral
+continuum or anomaly cancellation of its regulator. The exact source and
+independent full-Fock control are in \path{model/native_quantum_gauss}.

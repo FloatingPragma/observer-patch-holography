@@ -973,3 +973,19 @@ these are finite model conventions, not discharged physical premises.
 
 | `declared_biased_native_coherence_and_complete_scheduler` | Fixed H66 weights (25,25,8,...,8), all30positive seams, complete tagged C/E instruments, reference pi_ij=theta_i theta_j/7505 and the specified faithful known mixture define the native contrast calculation. Modular parameter and native attempt count are distinct. | `model/native_localization/README.md` |
 | `declared_exact_all_seam_flagged_code_domain` | Logical dimension at least two, every positive native seam, exact flagged correction and the full arbitrary complex code domain define the support and clock exclusions. Approximate codes and additional controls require separate analysis. | `model/native_localization/README.md` |
+
+
+
+
+
+
+
+
+
+| `declared_compact_guarded_texture_instrument` | Same full two-spin compact source, both oriented shell triangulations, rank-four spectral projectors and actual native M15 times three families. Four local proposals at each of three texture states, exact guards, all accept/reject outcomes, and a declared polar control after accepted changes; all source rows enter its finite compilation. Classical compact texture register and a field state in its isolated four-mode one-body band; fermionic lifts retain the required occupation-dependent error factors. Record endpoints and supplied coherent pulse durations. Drift cancellation/control are inputs; no laboratory time or moving-particle dispersion. | `paper/deriving_the_particle_zoo_from_observer_consistency.tex` |
+
+| `declared_compact_native_memory_quartic_action` | Complete compact A=W*hW, particle-hole pairing, actual twelve native currents, inherited memory coefficient and chosen projected quartic. Complete record-wise pairing plus quartic; exact CAR inclusion and all512 fine records per memory input; exact pair-parity spectra and spectral residues. All 180 localized annihilators, arbitrary classical-memory correlations and finite references; separately an exact mean-Hamiltonian charged four-mode reducing slice with fixed spectators. Declared v(P) feedback-pulse energy unit and native weak-pulse duration. The mass-law architecture has target-informed provenance; no GeV or physical pole assignment. | `paper/deriving_the_particle_zoo_from_observer_consistency.tex` |
+
+| `declared_compact_hopping_drive_and_Gibbs_reference` | Same full compact CAR operator for M>=8, 1/2<=s<=3/2 and its 180-mode band, with every complementary one-body mode retained in the projector derivative. Differentiate the actual hopping, band projector and noncommuting quartic; Kato comparison, exact CAR deletion control and same-source Gibbs derivatives. Even localized states with an identical even complement reference; a supplied faithful finite Gibbs reference; separate sixteen-state slice thermodynamic control. Specified dimensionless hopping amplitude s and source evolution parameter. No identification of s with physical metric variation or clock calibration. | `paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex` |
+
+| `declared_block_preserving_native_quantum_link` | Actual port-admitted native M15 current matrices and the 60-state direct-sum link, preserving blocks of dimensions6,3,3,2,1. Gauge-invariant hopping, link excitation energy, all twelve local Gauss actions, complete endpoint observations and their field-energy work terms. Finite matter/link Fock space; displayed one-fermion transport with a declared static dual reference, a complete five-block initial instrument and all endpoint outcomes. Common specified hopping J, link energy epsilon and exact Cayley step1/8, identical across multiplets. Finite frequencies have no physical mass or duration assignment. | `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex` |

@@ -1,0 +1,73 @@
+\subsection{Work on the moving compact interacting band}
+\label{sec:compact-band-work}
+
+A deformation must act on the same Hamiltonian used to identify the matter
+states. On the compact opposite-degree texture, vary the actual hopping by
+$h_s=sT+MV$, with $1/2\leq s\leq3/2$, $M\geq8$ and
+$\|T\|<2$. The texture, memory coefficients and quartic coupling are fixed.
+The four-dimensional spectral band has energies in $[-3,3]$ and separation
+at least $M-6$ from its complete complement. Let $P_s$ be its projector,
+$\mathsf C$ the source particle-hole matrix, and $K_\omega$ the internal
+pairing kernel on a complete memory record $\omega$. The same source law is
+\[
+ N_s=\mathrm d\Gamma(P_s\otimes I_{45}),\qquad
+ H_{\omega,s}=\mathrm d\Gamma(h_s\otimes I_{45})
+ +\operatorname{pair}(\mathsf C\otimes\overline{K_\omega})
+ +\lambda(N_s-90)^2.
+\]
+Its exact force conjugate to the hopping control is
+\begin{equation}
+ \partial_s H_{\omega,s}=\mathrm d\Gamma(T\otimes I_{45})
+ +\lambda\{N_s-90,\mathrm d\Gamma(P'_s\otimes I_{45})\}.
+ \label{eq:compact-moving-force}
+\end{equation}
+The second term follows by differentiating the noncommuting square.
+Freezing the localization projector omits this contribution to source work.
+
+\begin{proposition}[Localized force with the moving band retained]
+The band admits a unitary comparison frame $W_s$ in which its pairing form
+is constant and its intrinsic force is
+\[
+ J_s=\mathrm d\Gamma((W_s^*TW_s)\otimes I_{45}),\qquad
+ \|J_s\|\leq360,\qquad \|P'_s\|\leq\frac6{M-6}.
+\]
+For two even localized states with the same even complement reference,
+their contrast of~\eqref{eq:compact-moving-force} equals their contrast
+of $J_s$. The bounds are independent of the containing finite cube.
+\end{proposition}
+\begin{proof}
+For band vectors $p$ and complementary eigenvectors $q$,
+$\langle q,P'_sp\rangle=\langle q,Tp\rangle/(E_p-E_q)$ and the
+diagonal blocks of $P'_s$ vanish. Hence
+$\|P'_s\|^2\leq\|P'_s\|_{\rm HS}^2
+\leq8\|T\|^2/(M-6)^2<36/(M-6)^2$.
+Set $L_s=[P'_s,P_s]$ and solve $U'_s=L_sU_s$. Then
+$P_s=U_sP_1U_s^*$ and $W_s=U_sW_1$.
+Particle-hole covariance gives
+$\mathsf C\overline{U_s}=U_s\mathsf C$, so the pairing form is fixed.
+Differentiating $A_s=W_s^*h_sW_s$ gives
+$A'_s=W_s^*(T+[h_s,L_s])W_s=W_s^*TW_s$:
+$h_s$ is block diagonal and $L_s$ off diagonal.
+Number and pairing therefore have no derivative in this transported frame.
+The 180-mode second-quantization norm is at most $180\|T\|<360$.
+In an even product state the cross-band terms have zero expectation;
+subtracting the same complement reference cancels its remaining energy.
+\end{proof}
+
+At fixed $s$, a complete-memory trace-norm error $\delta$ consequently
+gives a force-readout error at most $360\delta$.
+The comparison transporter is an explicit mathematical identification;
+Hamiltonian evolution with changing $s$ does not implement it automatically.
+For the supplied Gibbs reference of the same mean Hamiltonian at fixed
+$\beta>0$, Duhamel differentiation gives
+\[
+ F'_{\rm thermal}=\operatorname{Tr}(\rho_sJ_s),\qquad
+ S'=\beta\bigl(E'-\operatorname{Tr}(\rho_sJ_s)\bigr).
+\]
+The complete compact source and a reducing sixteen-state interacting slice
+check these derivatives, retaining the spatial splitting and work performed
+by the hopping control; \path{model/compact_band_response/} gives the proof and replay.
+The hopping amplitude is a declared control. Its work derivative supplies
+no identification with a metric variation or conserved Lorentz stress,
+and this finite Gibbs identity supplies no regional geometric modular flow,
+area normalization or fixed-volume generalized-entropy stationarity.

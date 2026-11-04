@@ -1,0 +1,76 @@
+\subsection{Protected texture records and controlled band transport}
+\label{sec:compact-defect-transport}
+
+A declared local repair law protects the compact pair's two winding charges.
+Let $f_x$ be its unnormalized reference texture and fix the zero cores and
+constant exterior. At every noncore site retain a rational vector $v_x$ with
+$\lVert v_x-f_x\rVert\le\eta\lVert f_x\rVert$, $0<\eta<1/4$, using
+$v_x/\lVert v_x\rVert$ in the actual Pauli potential. A one-vertex proposal
+is accepted only if it satisfies this budget and has nonnegative scalar
+product with the old vector and every other vertex of every incident shell
+triangle. Shared-face data are checked on both shells. Rejected proposals
+remain recorded identity operations.
+
+\begin{proposition}[Guarded winding and uniform isolated band]
+Every admitted finite history preserves the two shell degrees. Its spatial
+Hamiltonian has exactly four isolated modes with $|E|\le r=b^2/(M-4)$ and
+complementary spectrum outside $(-g,g)$, $g=M-2$, where $b^2=7/4$ for adjacent
+unit shells and $b^2=3/2$ for separated shells. For two admitted band
+projectors $\Pi_v,\Pi_w$,
+\[
+ \lVert\Pi_w-\Pi_v\rVert\le\beta
+ =\frac{4M\eta c}{d^2},\qquad c=\frac{g+r}{2},\quad d=\frac{g-r}{2}.
+\]
+The statements are uniform in the exterior volume.
+\end{proposition}
+\begin{proof}
+During an accepted replacement, every interpolated shell vector is a convex
+combination of nonzero vectors with pairwise nonnegative scalar products.
+Its squared norm is at least $\sum_i t_i^2\lVert v_i\rVert^2>0$, so
+normalization gives a shell homotopy. Every noncore onsite eigenvalue stays
+$\pm M$ and the four core coordinates stay zero; the compact-source Schur
+proof therefore gives the same band count and localization bounds.
+Normalization gives $\lVert H_w-H_v\rVert\le4M\eta$. On $|z|=c$ both
+resolvents have norm at most $1/d$. Their identity and the contour formula
+for the two projectors give the displayed bound.
+\end{proof}
+
+For $\beta<1$, define
+\[
+ S=\Pi_w\Pi_v+(1-\Pi_w)(1-\Pi_v),\qquad
+ U=S(S^*S)^{-1/2},\qquad S^*S=1-(\Pi_w-\Pi_v)^2.
+\]
+Since $S\Pi_v=\Pi_wS$ and the positive factor commutes with $\Pi_v$,
+$U$ is unitary and $U\Pi_vU^*=\Pi_w$. The literal particle-hole relation
+$H_vC=-C\overline{H_v}$ implies $\Pi_vC=C\overline{\Pi_v}$, and the polar
+formula gives $UC=C\overline U$, hence $UCU^T=C$. Thus $U\otimes I_{45}$
+transports all twelve uniform native currents and the same pairing tensor
+$C\otimes\overline K$. For $W'=UW$, the pairing matrix
+$W'^*C\overline{W'}$ is unchanged, while $A_w=W'^*H_wW'$ retains the actual
+changed spatial energies. Second quantization also transports
+$N_v=d\Gamma(\Pi_v\otimes I_{45})$ and $\lambda(N_v-90)^2$.
+
+The explicit source uses $M=64$, $\eta=1/512$ and four equiprobable proposals
+at each record: two opposite transverse changes at the shared-face center,
+one forbidden zero and one forbidden core change. Its three texture states
+have transition rows $(1/2,1/4,1/4)$, $(0,3/4,1/4)$ and $(0,1/4,3/4)$.
+All twelve state/proposal records are retained. Each branch applies its
+texture transition and $\sqrt{q_r}\,\Gamma(U_r)$, with identity control for
+a repeated texture, so the complete instrument preserves trace. The band
+is transported exactly at record endpoints. Omitting $U_r$ instead gives
+leakage probability at most $\min(1,n^2\beta^2)$ after $n$ quenches and
+intervening source evolution; the numerical controls exhibit nonzero leakage.
+
+A nearest-neighbor snake through the $N=2(2L+1)^3$ spatial-spin coordinates
+compiles each $U$ by adjacent Givens rotations: at most $N(N-1)/2$ two-mode
+gates and $N$ onsite phases. The complete $N=686$ controls replay 234,955
+two-mode gates per nontrivial texture pair. Addressed quadratic pulses,
+their timing and drift cancellation are supplied services; this is not a
+compilation into unchanged C/E repair. Intermediate pulses need not preserve
+the band, and the controller supplies the endpoint energy change, bounded
+by $2r$ on the one-body band. Erasing the guards permits zero-degree textures
+with the same four-mode count. The result establishes controlled protection
+and transport on this law, without autonomous core motion, local Gauss
+dressing, physical species identification or relativistic dispersion.
+The complete proof, rational bounds and gate replay are in
+\path{model/compact_defect_transport/}.

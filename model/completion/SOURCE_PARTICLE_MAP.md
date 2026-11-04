@@ -291,6 +291,59 @@ The massless results also have distinct domains:
 Matching light speed fixes `length_unit=c T`. [Absolute calibration](../source_mass_shell/CALIBRATION_PROOF.md)
 requires an independently identified same-generator clock to determine `T`.
 
+## Compact interacting spectra, guarded transport and source work
+
+[The compact interacting core](../compact_interacting_response/PROOF.md)
+retains `A=W* h W`, the actual 45-row internal representation, the complete
+memory pairing and `lambda(N_W-90)^2` on 180 annihilators. All record
+Hamiltonians reduce that same algebra, with norm bounded by
+`90r+90(1+g)+8100lambda`. The unread `O(1/n)` estimate and complete-history
+`O(1/sqrt(n))` estimate are uniform in exterior volume at fixed texture.
+
+An exact charged four-mode slice has
+`H4=e1(n1-n2)+e2(n3-n4)+m(pair12+pair34)+lambda(N4-2)^2`.
+Its sixteen levels are exhausted by pair parity. At `lambda=1/128`, exact
+source and exterior-volume bounds select the blocked ground for all three
+retained lepton coefficients. A positive-energy orbital has the following
+addition-plus-removal poles in the declared `v(P)` unit, each of residue `1/2`:
+
+| Quadratic source coefficient | Lower pole | Upper pole |
+| --- | --- | --- |
+| 0.000002072030404 | 0.01171632730 | 0.01172047136 |
+| 0.0004284302055 | 0.01128996912 | 0.01214682953 |
+| 0.007205207119 | 0.004513192209 | 0.01892360645 |
+
+These are reducing-sector readouts of the same mean Hamiltonian. They are
+not the full interacting vacuum spectrum or physical particle masses.
+Keeping the compact splitting changes both ground sectors and spectral
+weights relative to the zero-splitting radial control. The pixel loop
+must use an interacting current response before it can be claimed to
+close on these excitations.
+
+[The local texture instrument](../compact_defect_transport/PROOF.md)
+retains all twelve branches of a continuing three-texture process. Exact
+local homotopy guards preserve both winding charges; a spectral budget
+preserves its four-mode band. A declared polar control transports that
+band, native currents, pairing and quartic at its endpoints. This is an
+active specified design, without autonomous particle motion or lifetime.
+
+[The hopping-work derivative](../compact_band_response/PROOF.md) uses the
+same action. For `h_s=sT+MV`, its full force is
+`dGamma(T tensor I45)+lambda{N_s-90,dGamma(P'_s tensor I45)}`.
+The projector derivative obeys a uniform bound, and an exact CAR control
+rejects deletion of the second term. In the transported frame the
+intrinsic force has norm at most 360. Finite Gibbs response relates this
+work to entropy using the same Hamiltonian; metric and Lorentz-stress
+interpretations are separate.
+
+[The native quantum link](../native_quantum_gauss/PROOF.md) is a distinct
+finite gauge design. Its 60-state link retains the five actual matter
+multiplets and exact local non-Abelian Gauss constraints on the full Fock
+space. All endpoint records and their field-energy changes are retained.
+The static dual reference, link Hamiltonian and coherent services are
+inputs. Dressing the compact localized states into this local Gauss sector
+and establishing a chiral continuum require further construction.
+
 ## Entropy, geometry and the common-source obligation
 
 [The interacting defect response](../interacting_defect_response/PROOF.md)
@@ -319,8 +372,9 @@ The Gibbs state of this same nonquadratic Hamiltonian has an exact entropy,
 energy and work first law, including the noncommuting Kubo--Mori response.
 Its temperature and preparation are declared services. The theorem supplies
 no geometric modular flow, area normalization, fixed-volume generalized-entropy
-stationarity or Einstein response. Nor does it identify the compact-pair
-carrier with the radial zero-mode carrier used by this interaction.
+stationarity or Einstein response. The compact source above has its own nonzero kinetic term and
+180-mode interaction. Neither finite Gibbs identity supplies physical
+geometric stationarity.
 
 [Finite radial entropy](../parity_entropy_response/PROOF.md) and
 [matter-responsive readout](../radial_geometry_join/PROOF.md) relate specified

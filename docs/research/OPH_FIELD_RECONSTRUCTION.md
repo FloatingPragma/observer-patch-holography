@@ -135,10 +135,34 @@ gives one explicit finite-energy alternative, with opposite local degrees
 and a constant exterior. Its four localized levels are bounded and certified
 away from zero in the displayed example, including in the controlled
 infinite-volume limit. The current/pairing inclusion therefore retains a
-nonzero `A=W* h W`. Neither the radial zero-mode mass formula nor its
-particular interacting-core realization transfers unchanged. The texture
-and its core zeros are prescribed, so finite energy alone supplies no
-formation, stability or moving-particle theorem.
+nonzero `A=W* h W`. The
+[compact interacting extension](../../model/compact_interacting_response/PROOF.md)
+retains that operator and `lambda(N_W-90)^2` on all 180 localized modes.
+Every native memory branch preserves this algebra; its bound
+`M_core<=90r+90(1+g)+8100lambda` is independent of exterior volume.
+The complete sixteen-level slice spectrum has competing even, mixed and
+blocked ground sectors. Exact source intervals place all three retained
+lepton slices in the blocked sector at `lambda=1/128`, with two poles
+`e1+lambda +/- m` and residues `1/2`. A slice is not the full interacting
+vacuum. The memory theorem concerns a fixed texture during its pulse interval.
+
+[Guarded texture repair](../../model/compact_defect_transport/PROOF.md)
+retains all twelve records of a continuing law, preserves both shell
+degrees, and admits explicit endpoint transport of the band, currents,
+pairing and interaction. The guards and coherent control are design
+inputs. [The hopping-work law](../../model/compact_band_response/PROOF.md)
+differentiates the same projected interaction as the band moves; its
+moving-projector term cannot be omitted. Its work/entropy relation does
+not turn the hopping parameter into spacetime geometry.
+
+[Local native Gauss constraints](../../model/native_quantum_gauss/PROOF.md)
+have a finite 60-state link realization with the actual five matter
+multiplets, a static dual reference and complete endpoint readouts.
+Its local Ward identity acts on the full finite Fock space. The compact
+band is not dressed into this distinct Gauss sector. Controlled texture
+protection, finite current conservation and interacting pole calculations
+therefore have explicit operator domains, without a common physical
+chiral continuum or laboratory mass assignment.
 
 The [pixel feedback calculation](../../model/pixel_mass_closure/PROOF.md)
 also uses distinct declared running/scale designs. Each certified root

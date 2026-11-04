@@ -1,29 +1,44 @@
-\subsection{A quartic interaction on the localized carrier}
+\subsection{A quartic interaction on the complete compact band}
 \label{sec:interacting-localized-response}
 
-Let $E=W\otimes I_{45}$ be the isometry from the ninety localized
-annihilators into the finite native field, with $hW=0$ and
-$W_x^\dagger W_x=\rho_x I_2$.  The current and pairing intertwiners hold
-for every complete memory record.  Write $P=EE^\dagger$ and choose the
-additional interaction
+The spatial source is the cubic operator $h=T+Mn\cdot\sigma$,
+$\|T\|<2$, $M\geq8$. Its direction is the normalization of
+$(x,y,z^2-a^2)$ inside the cube of radius $a+1$ and a constant outside,
+with zero amplitude at the two cores $(0,0,\pm a)$.
+The four-band bound is $r=b^2/(M-4)$, where $b^2=7/4$ for $a=1$
+and $b^2=3/2$ otherwise. The spectral and particle--hole identities
+are proved for this source in \path{model/compact_defect_pair/PROOF.md}.
+Let $W$ contain the four localized modes and set $A=W^\dagger hW$. The isometry $E=W\otimes I_{45}$ embeds 180 annihilators
+into the complete finite field. The current and pairing intertwiners hold
+for every complete memory record, with $A$ retained in the quadratic core.
+Write $P=EE^\dagger$ and choose
 \begin{equation}
- V=\lambda\bigl(N_W-45\bigr)^2,
+ V=\lambda\bigl(N_W-90\bigr)^2,
  \qquad N_W=d\Gamma(P),\qquad \lambda\geq0.
  \label{eq:localized-quartic}
 \end{equation}
-This is an explicit controller design.  It is parity even and commutes
+This is an explicit controller design. The particle--hole identity
+$C\overline W=WS$ ensures that the pairing has no localized/complementary
+cross term. All terms are even, so
+$H_r^{\rm full}=H_{r,W}\otimes I+I\otimes H_{r,\perp}$ on every record.
+The interaction is parity even and commutes
 with all twelve native internal currents.  In the localized occupation
 basis it contains the quartic term
 $2\lambda\sum_{i<j}n_i n_j$.  The pairing Hamiltonian does not conserve
 $N_W$, and its commutator with $V$ need not vanish.  Every record preserves
 the same localized algebra because $V$ acts entirely on that factor.
 
-The complete record limit has a bound independent of the radial cube
-size.  If $g$ is the source feedback gain, the ninety-mode pairing bound
-and $0\leq N_W\leq90$ give
+Hold the texture fixed throughout the memory averaging interval. The
+complete record limit has a bound independent of exterior volume.
+Writing the compact energies as $\{-e_2,-e_1,e_1,e_2\}$ with
+$e_i\leq r$, the kinetic norm is $45(e_1+e_2)\leq90r$.
+If $g$ is the source feedback gain, the pairing bound and
+$0\leq N_W\leq180$ give
 \[
- \|H_{r,W}\|\leq M_W=45(1+g)+2025\lambda.
+ \|H_{r,W}\|\leq M_W=90r+90(1+g)+8100\lambda.
 \]
+The radial two-column zero-mode construction is a separate special case
+with ninety annihilators, centre 45 and bound $45(1+g)+2025\lambda$.
 The actual memory transition has the reset decomposition
 $T=(1-p)R+pS$, and contracts zero-sum operator-valued memory blocks by
 at most $p$.  At step size $t/n$, its reduced core state consequently
@@ -63,8 +78,9 @@ $O(n^{-1/2})$.  Opposite qubit phase records saturate this square-root
 relation.  No uniform estimate for rare conditioned histories or
 intervening field measurements follows.
 
-The interaction has spatial tails.  The radial resolvent estimate at
-texture coefficient 64 gives, for the projection $A_L$ onto
+The interaction is defined through a spectral projector and need not be
+strictly onsite. For the radial special case, the resolvent estimate at
+texture coefficient 64 and $W_x^\dagger W_x=\rho_xI_2$ gives, for the projection $A_L$ onto
 $|x|_\infty<L$,
 \[
  \|(I-A_L)E\|^2\leq\epsilon_L
@@ -72,10 +88,10 @@ $|x|_\infty<L$,
 \]
 Thus $\|P-A_LPA_L\|\leq2\sqrt{\epsilon_L}$, and finite rank gives
 $\|N_W-d\Gamma(A_LPA_L)\|\leq360\sqrt{\epsilon_L}$.
-Equation~\eqref{eq:localized-quartic} is exponentially localized about
+The radial interaction $\lambda(N_W-45)^2$ is exponentially localized about
 the prescribed origin, without being a strictly onsite interaction.
 
-There is an exact obstruction for the onsite density alternative.
+On this radial subspace there is an exact obstruction for the onsite density alternative.
 On the two-particle sector let
 $D_g=\sum_xg_x\bigwedge^2 P_x$ and $E_2=\bigwedge^2 E$.  Direct
 compression gives
@@ -92,25 +108,77 @@ This statement does not exclude a dressed low-energy subspace or other
 local interaction tensors.
 
 \paragraph{Connected dynamics and spectral shifts.}
-The mean charged pairing operator has 42 two-mode blocks and six zero
-neutrino modes.  Select the two spin blocks of one charged-lepton
-singular value $m$.  Fix a single occupied mode in each of the other 40
-blocks, and occupy three zero modes.  Pair creation and annihilation
-kill those spectator states.  Their fixed occupation 43 gives the exact
-four-mode restriction
+The compact mean pairing operator has 84 charged two-mode blocks and
+twelve unpaired neutrino modes. Select the two spatial pairs of one
+charged-lepton singular value $m$. Fix one occupation in each of the other
+82 blocks and fill six neutral modes. Pair creation and annihilation kill
+these spectators, whose number is 88. Subtracting their fixed energy gives
+the exact reducing four-mode Hamiltonian
 \[
- H_4=m(a_1^\dagger a_2^\dagger+a_2a_1+
+ H_4=e_1(n_1-n_2)+e_2(n_3-n_4)
+       +m(a_1^\dagger a_2^\dagger+a_2a_1+
        a_3^\dagger a_4^\dagger+a_4a_3)+\lambda(N_4-2)^2.
 \]
 This is an invariant sector of the mean Hamiltonian, not its asserted
 vacuum or an invariant sector of every finite memory pulse.
-Its ground energy is $2\lambda-2\sqrt{\lambda^2+m^2}$.  A single-mode
-addition-plus-removal spectral measure has poles and weights
+Pair parities split its sixteen levels into the four even/even values
+$0,4\lambda,2\lambda\pm2\sqrt{\lambda^2+m^2}$, four odd/odd values
+$\pm e_1\pm e_2$, and eight mixed values $\lambda\pm e_i\pm m$.
+Consequently
+\[
+ E_0=\min\{2\lambda-2\sqrt{\lambda^2+m^2},
+            -e_1-e_2,\lambda-m-\max(e_1,e_2)\}.
+\]
+This enumeration is a complete diagonalization by pair parity. For the
+unique odd/odd ground, a positive-energy orbital has two addition-plus-removal
+poles $e_1+\lambda\pm m$, each of residue $1/2$. At $M=64$, half-separation
+one and $\lambda=1/128$, rational coefficient and exterior-volume enclosures
+place all three inherited charged-lepton slices in this ground sector:
+\begin{center}\small
+\begin{tabular}{@{}rrr@{}}
+\toprule
+Quadratic coefficient $m$ & Lower pole & Upper pole\\
+\midrule
+$0.000002072030404$ & $0.01171632730$ & $0.01172047136$\\
+$0.0004284302055$ & $0.01128996912$ & $0.01214682953$\\
+$0.007205207119$ & $0.004513192209$ & $0.01892360645$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The unit is the declared source pulse energy. These are slice poles, without
+a physical mass assignment or a determination of the full interacting vacuum.
+The compact exterior error $\delta_L$ bounds each displayed pole error by
+$\delta_L$ in this certified sector; no complementary mode is discarded.
+
+The full 180-mode ground also has an explicit variational bracket. List
+the charged singular values, including colour multiplicities, as
+$m_j$, $j=1,\ldots,21$. Each occurs in two pairing blocks at each spatial
+energy $e_i$, with quadratic levels $\{\pm m_j,\pm e_i\}$.
+The twelve neutral modes contribute $-3(e_1+e_2)$, giving
+\[
+ E_{\rm quad}=-2\sum_{j=1}^{21}
+ [\max(m_j,e_1)+\max(m_j,e_2)]-3(e_1+e_2).
+\]
+Positivity of $V$ makes this a lower bound. A quadratic product ground has
+mean occupation 90 and number variance one per even pairing block, zero
+per odd block. If $b$ blocks are even, its trial energy is
+$E_{\rm quad}+\lambda b$. A completely blocked trial state has exact
+occupation 90, zero interaction energy and kinetic energy $-45(e_1+e_2)$.
+Thus, retaining every localized mode,
+\[
+ E_{\rm quad}\leq E_{\rm full}\leq
+ \min\{E_{\rm quad}+\lambda b,-45(e_1+e_2)\}.
+\]
+The specified coefficient witness has $b=28$. These bounds constrain the
+full vacuum energy without identifying its excitation spectrum.
+
+The radial control sets $e_1=e_2=0$. Its ground energy is
+$2\lambda-2\sqrt{\lambda^2+m^2}$, and its single-mode spectral poles and weights are
 \[
  \omega_\pm=2\sqrt{\lambda^2+m^2}-\lambda\pm m,
  \qquad w_\pm=\frac{1\mp m/\sqrt{\lambda^2+m^2}}2.
 \]
-The cross-pair density cumulant is
+In this radial control the cross-pair density cumulant is
 $-\lambda/(4\sqrt{\lambda^2+m^2})$, while its normal and anomalous
 cross-pair two-point contractions vanish.  Hence positive $\lambda$
 gives a non-Gaussian connected interaction.  These spectral shifts
@@ -141,4 +209,5 @@ relativistic stress, area normalization or geometric entropy
 stationarity, and therefore imply no Einstein dynamics.
 The exact characteristic polynomial, complete finite spectra,
 record control and source-bound replay are implemented in
-\texttt{model/interacting\_defect\_response}.
+\texttt{model/compact\_interacting\_response}; the radial controls and
+onsite leakage calculation are in \texttt{model/interacting\_defect\_response}.

@@ -346,7 +346,11 @@
     "OPH-ENTANGLED-PAIR-ALPHA-CANDIDATE",
     "OPH-NATIVE-FAMILY-RECORD-PROTOCOL",
     "OPH-MODEL-WEYL-CONTACT-FINITE-PAIR",
-    "OPH-MODEL-NATIVE-LOCALIZED-COHERENCE"
+    "OPH-MODEL-NATIVE-LOCALIZED-COHERENCE",
+    "OPH-COMPACT-DEFECT-GUARDED-TRANSPORT",
+    "OPH-COMPACT-DEFECT-INTERACTING-READOUT",
+    "OPH-COMPACT-DEFECT-HOPPING-WORK",
+    "OPH-NATIVE-BLOCK-QUANTUM-GAUSS"
   ],
   "edges": [
     {
@@ -3028,6 +3032,11 @@
       "from": "OPH-MODEL-COMMON-SOURCE-EXECUTION",
       "to": "OPH-MODEL-NATIVE-LOCALIZED-COHERENCE",
       "role": "Reuses the complete native instruments, source compiler and exact-code support result. It does not import the supplied field action or its energy dictionary."
+    },
+    {
+      "from": "OPH-COMPACT-DEFECT-INTERACTING-READOUT",
+      "to": "OPH-COMPACT-DEFECT-HOPPING-WORK",
+      "role": "same_declared_compact_action"
     }
   ]
 }

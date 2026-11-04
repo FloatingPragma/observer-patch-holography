@@ -1,0 +1,780 @@
+{
+  "all_pass": true,
+  "canonical_physical_premises_discharged": [],
+  "complete_source_transport_controls": {
+    "all_continuing_records_retained": 12,
+    "baseline_numerical_band_energies": [
+      -0.003906437151,
+      -0.003905899328,
+      0.003905899328,
+      0.003906437151
+    ],
+    "complete_instrument_trace_preservation_below_1e_minus_9": true,
+    "localized_annihilators": 180,
+    "native_current_count": 12,
+    "native_internal_dimension": 45,
+    "nonidentity_transport_pairs": [
+      {
+        "all_transport_residuals_below_1e_minus_9": true,
+        "band_energy_operator_change_norm": 1.5250387e-05,
+        "bare_quench_leakage_probability": 4.652436e-10,
+        "controlled_band_leakage_below_1e_minus_18": true,
+        "local_gate_compilation": {
+          "compiled_into_unchanged_native_CE_repairs": false,
+          "complete_replay_Frobenius_error_below_1e_minus_8": true,
+          "nearest_neighbor_two_mode_gates": 234955,
+          "onsite_or_neighbor_controls_only": true,
+          "onsite_phase_gates": 686,
+          "spatial_spin_coordinates": 686,
+          "supplied_pulse_timing_and_drift_cancellation": true,
+          "two_mode_gate_count_upper": 234955
+        },
+        "numerical_band_energies": [
+          -0.003906452037,
+          -0.003905899328,
+          0.003905899328,
+          0.003906452037
+        ],
+        "pair_tensor_preserved": true,
+        "projection_difference_norm": 2.1569505e-05,
+        "reverse_is_adjoint_control": true,
+        "source_operator_difference_norm": 0.124999821187,
+        "source_state": 0,
+        "target_state": 1
+      },
+      {
+        "all_transport_residuals_below_1e_minus_9": true,
+        "band_energy_operator_change_norm": 1.5250387e-05,
+        "bare_quench_leakage_probability": 4.652436e-10,
+        "controlled_band_leakage_below_1e_minus_18": true,
+        "local_gate_compilation": {
+          "compiled_into_unchanged_native_CE_repairs": false,
+          "complete_replay_Frobenius_error_below_1e_minus_8": true,
+          "nearest_neighbor_two_mode_gates": 234955,
+          "onsite_or_neighbor_controls_only": true,
+          "onsite_phase_gates": 686,
+          "spatial_spin_coordinates": 686,
+          "supplied_pulse_timing_and_drift_cancellation": true,
+          "two_mode_gate_count_upper": 234955
+        },
+        "numerical_band_energies": [
+          -0.003906452037,
+          -0.003905899328,
+          0.003905899328,
+          0.003906452037
+        ],
+        "pair_tensor_preserved": true,
+        "projection_difference_norm": 2.1569505e-05,
+        "reverse_is_adjoint_control": true,
+        "source_operator_difference_norm": 0.124999821187,
+        "source_state": 0,
+        "target_state": 2
+      },
+      {
+        "all_transport_residuals_below_1e_minus_9": true,
+        "band_energy_operator_change_norm": 3.0500759e-05,
+        "bare_quench_leakage_probability": 1.8609725e-09,
+        "controlled_band_leakage_below_1e_minus_18": true,
+        "local_gate_compilation": {
+          "compiled_into_unchanged_native_CE_repairs": false,
+          "complete_replay_Frobenius_error_below_1e_minus_8": true,
+          "nearest_neighbor_two_mode_gates": 234955,
+          "onsite_or_neighbor_controls_only": true,
+          "onsite_phase_gates": 686,
+          "spatial_spin_coordinates": 686,
+          "supplied_pulse_timing_and_drift_cancellation": true,
+          "two_mode_gate_count_upper": 234955
+        },
+        "numerical_band_energies": [
+          -0.003906452037,
+          -0.003905899328,
+          0.003905899328,
+          0.003906452037
+        ],
+        "pair_tensor_preserved": true,
+        "projection_difference_norm": 4.313899e-05,
+        "reverse_is_adjoint_control": true,
+        "source_operator_difference_norm": 0.249999523164,
+        "source_state": 1,
+        "target_state": 2
+      }
+    ],
+    "numerical_diagnostics_are_exact_spectral_certificates": false,
+    "source_spatial_spin_coordinates": 686
+  },
+  "exact_complete_repair": {
+    "accepted_records": 2,
+    "all_continuing_instrument_records": [
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "1/512",
+          "0",
+          "-1"
+        ],
+        "proposal_label": 0,
+        "reason": "accepted",
+        "source_state": 0,
+        "target_state": 1
+      },
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "-1/512",
+          "0",
+          "-1"
+        ],
+        "proposal_label": 1,
+        "reason": "accepted",
+        "source_state": 0,
+        "target_state": 2
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "0"
+        ],
+        "proposal_label": 2,
+        "reason": "zero_direction",
+        "source_state": 0,
+        "target_state": 0
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 0,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "1"
+        ],
+        "proposal_label": 3,
+        "reason": "fixed_core",
+        "source_state": 0,
+        "target_state": 0
+      },
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "1/512",
+          "0",
+          "-1"
+        ],
+        "proposal_label": 0,
+        "reason": "accepted",
+        "source_state": 1,
+        "target_state": 1
+      },
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "-1/512",
+          "0",
+          "-1"
+        ],
+        "proposal_label": 1,
+        "reason": "accepted",
+        "source_state": 1,
+        "target_state": 2
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "0"
+        ],
+        "proposal_label": 2,
+        "reason": "zero_direction",
+        "source_state": 1,
+        "target_state": 1
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 0,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "1"
+        ],
+        "proposal_label": 3,
+        "reason": "fixed_core",
+        "source_state": 1,
+        "target_state": 1
+      },
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "1/512",
+          "0",
+          "-1"
+        ],
+        "proposal_label": 0,
+        "reason": "accepted",
+        "source_state": 2,
+        "target_state": 1
+      },
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "-1/512",
+          "0",
+          "-1"
+        ],
+        "proposal_label": 1,
+        "reason": "accepted",
+        "source_state": 2,
+        "target_state": 2
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 12,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "0"
+        ],
+        "proposal_label": 2,
+        "reason": "zero_direction",
+        "source_state": 2,
+        "target_state": 2
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 0,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "1"
+        ],
+        "proposal_label": 3,
+        "reason": "fixed_core",
+        "source_state": 2,
+        "target_state": 2
+      }
+    ],
+    "all_instrument_records": [
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "label": 0,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "1/512",
+          "0",
+          "-1"
+        ],
+        "reason": "accepted"
+      },
+      {
+        "accepted": true,
+        "incident_triangles_checked": 12,
+        "label": 1,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "-1/512",
+          "0",
+          "-1"
+        ],
+        "reason": "accepted"
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 12,
+        "label": 2,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "0"
+        ],
+        "reason": "zero_direction"
+      },
+      {
+        "accepted": false,
+        "incident_triangles_checked": 0,
+        "label": 3,
+        "local_shell_degrees": [
+          -1,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "probability": "1/4",
+        "proposal": [
+          "0",
+          "0",
+          "1"
+        ],
+        "reason": "fixed_core"
+      }
+    ],
+    "complete_probability": "1",
+    "complete_texture_transition_matrix": [
+      [
+        "1/2",
+        "1/4",
+        "1/4"
+      ],
+      [
+        "0",
+        "3/4",
+        "1/4"
+      ],
+      [
+        "0",
+        "1/4",
+        "3/4"
+      ]
+    ],
+    "degree_is_fermion_number": false,
+    "erasure_retains_four_zero_onsite_coordinates": true,
+    "relative_budget": "1/512",
+    "shared_face_update_checked_on_both_shells": true,
+    "shell_guard_control_with_relative_budget_6_over_25": {
+      "accepted": false,
+      "incident_triangles_checked": 6,
+      "point": [
+        -1,
+        -1,
+        -1
+      ],
+      "proposal": [
+        "-1",
+        "-1",
+        "-1003/3000"
+      ],
+      "reason": "shell_homotopy"
+    },
+    "stationary_texture_law": [
+      "0",
+      "1/2",
+      "1/2"
+    ],
+    "unguarded_erasure_degrees": [
+      0,
+      0
+    ]
+  },
+  "issues": [
+    1139,
+    1141
+  ],
+  "physical_comparison_count_added": 0,
+  "rational_transport_bounds": [
+    {
+      "any_two_admitted_source_difference_norm_upper": "1/2",
+      "band_abs_energy_upper": "7/240",
+      "bounds_uniform_in_exterior_volume": true,
+      "complement_abs_energy_lower": "62",
+      "controlled_one_body_band_work_abs_upper": "7/120",
+      "controlled_record_endpoint_band_leakage_probability": "0",
+      "core_probability_lower": "221206129/221306929",
+      "fixed_core_zero_coordinates": 4,
+      "half_separation": 1,
+      "isolated_band_dimension": 4,
+      "local_topology_guards_needed_for_band_count": false,
+      "mass": "64",
+      "relative_budget": "1/512",
+      "resolvent_contour_radius": "14887/480",
+      "resolvent_distance_to_each_spectrum_lower": "14873/480",
+      "single_quench_leakage_probability_upper": "12765471494400/48932151507164641",
+      "spectral_projection_difference_norm_upper": "3572880/221206129",
+      "uncontrolled_history_leakage_probability_upper": "12765471494400/48932151507164641",
+      "uncontrolled_rounds": 1
+    },
+    {
+      "any_two_admitted_source_difference_norm_upper": "1/2",
+      "band_abs_energy_upper": "7/240",
+      "bounds_uniform_in_exterior_volume": true,
+      "complement_abs_energy_lower": "62",
+      "controlled_one_body_band_work_abs_upper": "7/120",
+      "controlled_record_endpoint_band_leakage_probability": "0",
+      "core_probability_lower": "221206129/221306929",
+      "fixed_core_zero_coordinates": 4,
+      "half_separation": 1,
+      "isolated_band_dimension": 4,
+      "local_topology_guards_needed_for_band_count": false,
+      "mass": "64",
+      "relative_budget": "1/512",
+      "resolvent_contour_radius": "14887/480",
+      "resolvent_distance_to_each_spectrum_lower": "14873/480",
+      "single_quench_leakage_probability_upper": "12765471494400/48932151507164641",
+      "spectral_projection_difference_norm_upper": "3572880/221206129",
+      "uncontrolled_history_leakage_probability_upper": "204247543910400/48932151507164641",
+      "uncontrolled_rounds": 4
+    },
+    {
+      "any_two_admitted_source_difference_norm_upper": "1/2",
+      "band_abs_energy_upper": "7/240",
+      "bounds_uniform_in_exterior_volume": true,
+      "complement_abs_energy_lower": "62",
+      "controlled_one_body_band_work_abs_upper": "7/120",
+      "controlled_record_endpoint_band_leakage_probability": "0",
+      "core_probability_lower": "221206129/221306929",
+      "fixed_core_zero_coordinates": 4,
+      "half_separation": 1,
+      "isolated_band_dimension": 4,
+      "local_topology_guards_needed_for_band_count": false,
+      "mass": "64",
+      "relative_budget": "1/512",
+      "resolvent_contour_radius": "14887/480",
+      "resolvent_distance_to_each_spectrum_lower": "14873/480",
+      "single_quench_leakage_probability_upper": "12765471494400/48932151507164641",
+      "spectral_projection_difference_norm_upper": "3572880/221206129",
+      "uncontrolled_history_leakage_probability_upper": "3267960702566400/48932151507164641",
+      "uncontrolled_rounds": 16
+    }
+  ],
+  "schema": "oph.compact_defect_transport.v1",
+  "scope": {
+    "all_continuing_proposal_and_rejection_records_retained": true,
+    "autonomous_texture_formation_or_moving_core_dynamics": false,
+    "band_invariance_during_each_control_pulse": false,
+    "band_protection_applies_at_record_endpoints": true,
+    "chosen_guarded_local_texture_repair_law": true,
+    "complete_finite_local_quadratic_gate_factorization": true,
+    "conserved_gravitational_stress": false,
+    "exact_shell_degree_protection_on_declared_law": true,
+    "integrated_gate_accepted": false,
+    "local_Gauss_dressing_or_physical_species_identification": false,
+    "polar_band_transport_preserves_pair_tensor_and_uniform_native_currents": true,
+    "pulse_timing_and_drift_cancellation_are_supplied": true,
+    "relativistic_dispersion_or_interacting_continuum": false,
+    "same_band_number_interaction_transported": true,
+    "unchanged_native_CE_pulse_compilation": false,
+    "uniform_four_mode_gap_and_quench_leakage_bound": true
+  },
+  "source_bindings": {
+    "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/chiral_candidate/__init__.py": "10a17df74de08c2eb6e84954e825d30997cfa3c1f7d22e1e144491621a09b977",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
+    "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/occupation.py": "b9a42851ad8891a524c087ff1e3331323dbf9c8d3c38c3a5cf88b0128eb433b9",
+    "model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "model/common_source/particle_identification/__init__.py": "2c4e2f313c769ba55d203887a92ba14e65bbe7145287c89c95614dcf667a9683",
+    "model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/common_source/spatial.py": "873fa595f93ab8bc228d60bc46480acda2e5ea86fb0952db2d023670d1d36733",
+    "model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "model/compact_defect_pair/PROOF.md": "e1126c6bfa56d240e2030c118abb37c2d2dab999486e6673812ec0be9f00a4fa",
+    "model/compact_defect_pair/__init__.py": "6017d76ddcd0f7225ef7c255e1d4329c192827a5cc96089b1d7ef15231aaebce",
+    "model/compact_defect_pair/spectral.py": "746bbbc75fe948b3b1ad26509117ff593539fd406932e83231e5da938deb4c02",
+    "model/compact_defect_pair/topology.py": "b5d9bb8d86283f47fb9004c95533b055227787999e8b62b446935039af590f8b",
+    "model/compact_defect_transport/PROOF.md": "2ddcfdfe7b57be3361f4e32b299c28f612e045f0e2f5a88f98974be007525eb4",
+    "model/compact_defect_transport/README.md": "874ecdb0760533c98a81a06d49df2bf0b09e4c9313cc76f95f268a82839d0ae0",
+    "model/compact_defect_transport/__init__.py": "efa1b2f77a0db8515ed3d321e8bc8fd517e99e729b699f57b53e40d263f7deeb",
+    "model/compact_defect_transport/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/compact_defect_transport/bounds.py": "dd237cd36e54e6e7a69d65576c3864ab59d6d501734cb0f2190f4b1d209440ea",
+    "model/compact_defect_transport/packet.py": "8b5fe3761ef4cba6d0c9b1bbe460e7103758614b6ab89eb8e03b2f1f6859e99a",
+    "model/compact_defect_transport/source.py": "9142980bc9b09bb0d368a0c8827923364e1221d5152f6256e15557bcc01e22da",
+    "model/compact_defect_transport/test_packet.py": "67e193e81f9eee1b6b70f25489ab5bddfecb552071b2c493605a9494795211c1",
+    "model/compact_defect_transport/test_transport.py": "0d90e3e91601d35a7f5a722b01db74c99db95d949854c40163539f7de2c5871e",
+    "model/compact_defect_transport/transport.py": "8c925f50d6fb4508dd5c98088a1a8057856541be4ba0eaa450ce66bc7957f19f",
+    "model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+    "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+    "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+    "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+    "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "model/lattice_texture_selection/__init__.py": "b9c33eac2b6b0fa2f2861fe68fdfc0d2a55dc029cfa269bf6facf5ec44f811cb",
+    "model/lattice_texture_selection/shells.py": "11186ebe495245d7d12860a643e82a0938a5f382800bb32257898502f10e2e98",
+    "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+    "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+    "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+    "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+    "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+    "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+    "model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_particles/__init__.py": "d4898cd7ac4037731af3851b8b4a9101c553ec0f95e471c8e63c494af3c9f4cc",
+    "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+    "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+    "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+    "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+    "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}
