@@ -21,12 +21,20 @@ import argparse
 import json
 import math
 import pathlib
+import sys
 from datetime import datetime, timezone
 
 import numpy as np
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from particles.neutrino.kernel_validation import (  # noqa: E402
+    normalized_response,
+    validated_symmetric_kernel,
+)
 DEFAULT_INPUT = ROOT / "particles" / "runs" / "flavor" / "sector_transport_pushforward.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "majorana_holonomy_lift.json"
 
@@ -115,12 +123,9 @@ def main() -> int:
         raise ValueError("sector_response_object['nu'] is required")
 
     omega_012 = float(dict(nu.get("omega_cycle", {})).get("012", 0.0))
-    k_sym = np.asarray(nu.get("K_core_majorana_sym", nu.get("K_core")), dtype=float)
-    if k_sym.shape != (3, 3):
-        raise ValueError("neutrino symmetric kernel must be 3x3")
-    normalization_diag = np.sqrt(np.clip(np.diag(k_sym), 1.0e-15, None))
-    inv_diag = np.diag([1.0 / value for value in normalization_diag])
-    e_nu = inv_diag @ k_sym @ inv_diag
+    k_sym = validated_symmetric_kernel(nu.get("K_core_majorana_sym", nu.get("K_core")))
+    normalization_diag = np.sqrt(np.diagonal(k_sym))
+    e_nu = normalized_response(k_sym)
 
     edge_weights = {
         "psi12": float((normalization_diag[0] * normalization_diag[1] * e_nu[0, 1]) ** 2),

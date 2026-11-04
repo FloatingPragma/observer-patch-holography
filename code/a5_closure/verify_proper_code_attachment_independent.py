@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[2]
 BASELINE = 'a44330802c726037f88356f9f62044184ed429a5'
 HISTORICAL_SOURCE_COMMIT = '53e365b248a4611bb911e75d7afae0f52bfd8675'
 # Reviewed integration: detached Fraction returns only; see INTEGRATION_2026-10-29.md.
-SOURCE_COMMIT = '83113a9cc33d82a56c84a8634445c8edd1e599a2'
+SOURCE_COMMIT = 'aa95355797ff58b03fa6378850f6be04bcffb78d'
 REFERENCE = ROOT/'code/a5_closure/receipts/proper_code_attachment_probe.json'
 COMPILER = 'model/observer/source_scalar/compiler.py'
 INPUTS = sorted(set(m.INPUTS + [
@@ -201,10 +201,11 @@ def verify(packet, root=ROOT):
     drift = {p: {'expected': digest, 'actual': hashlib.sha256(
         (root/'code/source_selection_model'/p).read_bytes()).hexdigest()} for p, digest in old.items()}
     mismatches = [p for p, row in drift.items() if row['expected'] != row['actual']]
-    m.need(mismatches == ['DERIVATION.md'], 'historical drift scope changed; review required')
+    m.need(mismatches == [], 'live pin drift changed; review required')
     old_commit = 'a84438d99a355dfd31e39aeb667e00d8ea60e445'
     old_text = subprocess.check_output(['git', 'show', old_commit+':code/source_selection_model/DERIVATION.md'], cwd=ROOT)
-    m.need(hashlib.sha256(old_text).hexdigest() == old['DERIVATION.md'], 'historical derivation object')
+    m.need(hashlib.sha256((root/'code/source_selection_model/DERIVATION.md').read_bytes()).hexdigest()
+           == old['DERIVATION.md'], 'live derivation custody')
     delta = ''.join(difflib.unified_diff(old_text.decode().splitlines(True),
         (root/'code/source_selection_model/DERIVATION.md').read_text().splitlines(True),
         fromfile=old_commit, tofile=HISTORICAL_SOURCE_COMMIT))

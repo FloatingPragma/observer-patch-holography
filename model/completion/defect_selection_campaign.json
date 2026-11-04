@@ -1,0 +1,177 @@
+{
+  "schema": "oph.defect_selection_campaign.v1",
+  "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "canonical_premises_discharged": [],
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1139,
+    1141,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Constrain defect and mass assignments on the full source; close specified finite drift, Majorana-current and Higgs-curvature interfaces without inferring physical selection from them.",
+  "composition_boundary": {
+    "simulator_observer_scheduler_repair_memory_specs_admitted": true,
+    "winding_index_is_measured_generation_count": false,
+    "drift_bound_requires_no_compensation": true,
+    "timed_readout_rate_and_port_embedding_are_supplied": true,
+    "Majorana_coefficient_selected_by_native_current_constraints": false,
+    "conserved_additive_charges_must_respect_actual_mixing_support": true,
+    "varying_Higgs_curvature_coefficient_uses_generalized_volume": true,
+    "physical_entropy_stationarity_instantiated": false,
+    "same_current_defect_particle_map_constructed": false,
+    "nature_couplings_selected": false,
+    "common_interacting_continuum_and_Einstein_model_constructed": false
+  },
+  "component_results": [
+    {
+      "id": "winding_sector_search",
+      "attachment": "FA-133",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately±0.165782 and±0.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+      "interface": {
+        "state": "Prescribed rational-map mass textures of every nonzero integer degree on the full sixteen-row continuum Dirac action and the original two-spin cubic lattice. No texture vacuum or formation process is selected. All finite search matrices retain every site and spin row.",
+        "algebra": "Exact unitary comparison of all six native folded Clifford generators and their chiral grading to two Callias blocks; no valley projection. Degree is an exterior S2 map invariant. Lattice inversion is a different grading.",
+        "operation": "Exact Pauli trace, degree integral and source intertwiner; application of the stated analytic Callias theorem after compact core smoothing; full-lattice Schur-complement kernel theorem for odd unit textures. Complete numerical eigensystems for the declared grid and all adaptive volume controls retain basis-invariant projector weights.",
+        "clock": "The original Hamiltonian clock with supplied positive spacing, velocity and mass. The search uses a=v=1 and m=1 or4. No absolute physical frequency, GeV energy or moving-defect clock identification.",
+        "refinement": "The continuum index is2d with kernel dimension at least2|d|. Separately, at fixed lattice spacing m>K>=sqrt3*v/a, every inversion-odd texture has exactly two zeros and gap at least m-K. This domain does not extend to a->0 at fixed m. The28 finite matrices provide volume diagnostics without a certified interacting bound-state limit."
+      },
+      "remaining": [
+        "The texture, degree and mass coefficients are supplied. No energy principle or native repair law selects a degree, proves formation of the texture or preserves its continuum chiral protection.",
+        "No same-current intertwiner assigns the zero modes to physical spin, color or generations. Topological multiplicity alone supplies no observed species, Yukawa hierarchy or defect rest energy.",
+        "The strong-mass lattice theorem and continuum Callias theorem have different gradings and refinement domains. No controlled interacting continuum transports the lattice kernel to the continuum index; finite search residuals are diagnostics, not exact bound-state enclosures."
+      ],
+      "evidence": {
+        "model/winding_sector_search/PROOF.md": "6afccc087e1a60b8f523aa4b788c364fac59c5394d78fc53e963952ac237450b",
+        "model/winding_sector_search/README.md": "275ff3a1f28f637286b287c9a7e559ad406878ec3eead184919303ec6fe455cb",
+        "model/winding_sector_search/__init__.py": "82949027896e2efe83a7ee6daed2012bd0124354466f34f774efb731cec44f39",
+        "model/winding_sector_search/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/winding_sector_search/algebra.py": "bbc258526c7040580ac1d5ba8930644b9d10f687650e0ccab3b1b34ee7fa2b83",
+        "model/winding_sector_search/packet.py": "5e8c3949873933685b69e46747f27fa1b6e79573eb447ad6d126fbf76ff87d9a",
+        "model/winding_sector_search/results.json": "bf98de64871eaac4fb91262a9c2cc66d8f8942f1b4a7fcd7d2c2d0f9fda4a6c2",
+        "model/winding_sector_search/search.py": "efc695bbfd599e85ef5f546ac2cf562e9ad815b37d7a84129c533b3e1dae833d",
+        "model/winding_sector_search/test_packet.py": "11a4bb9f44dcbdeb10cf5d94e15377b03a4ef9b1e531dc56042a2711e5ce3c99",
+        "model/winding_sector_search/test_search.py": "8dfdd4fde5c51b7f6c3a51394a38009c14de812fc6ac8dab48d7f775e9de27ab"
+      }
+    },
+    {
+      "id": "radial_drift_readout",
+      "attachment": "FA-134",
+      "issues": [
+        1139,
+        1141
+      ],
+      "result": "The actual source has ||Hstar||=||[H,D0]||=sqrt6*v/a and ||Hstar+W0||^2=6v^2/a^2+U^2/16. Duhamel and complete-instrument contraction give half-diamond error at most N*delta+T*sqrt6*v/a for interleaved events, andN*delta+T*sqrt(6v^2/a^2+U^2/16) for the stated timed local realization. The comparison includes its final remote-source unitary and is not a frozen global field. At the supplied 27-site source andT=1e-6, all 32-round failures scored, ground-versus-either-charged error is below 0.000395133 and 1/2500. Exact full-CAR norms, unchanged timed native commands and independent full 64-state drift controls are retained. Actual records differ from the frozen latent-parity mixture.",
+      "interface": {
+        "algebra": "The original two-spin bounded radial hopping and centered onsite contact on every Fock sector. D0=(n_up+n_down-1)^2 is a projector; P0=2D0-I is sign parity. The complete readout, native failure labels, reference, scalar/pointer archive and all 78 integer-load states are retained.",
+        "clock": "Same exp(-i H t) source clock for free intervals and timed controls, with a common final horizon and idle padding after halt. The positive witness T=1/1000000 has 2432 pulses with durationT/4864 and 32 nonpulse budgetsT/64, retaining 736 fresh logical apparatus bits. Exact integrated native coefficients are unchanged; finite rational rates and required latency are supplied apparatus conditions. No SI clock or physical bandwidth is derived.",
+        "operation": "Actual H evolves between complete native readout events. A separate continuous-control theorem uses H+C(t), local origin/apparatus controls, the same complete zero-drift native instrument and a port embedding preserving the remote tensor factor and local drift norm. No H compensation is used. All pointer, coin, seam/idle, current, failure and halted records are retained; the integer work-register repair is included, while uncontrolled field repairs are outside this domain.",
+        "refinement": "The readout estimate is uniform in finite cube volume and radial mass because only the six incident hoppings and center contact enter it. The separate interacting spectral-state premise remains finite and volume dependent. At fixed round count the Hamiltonian drift term vanishes with total time; the legacy native precision error is retained separately. No long-time, continuum or source-state refinement is asserted.",
+        "state": "Complete finite Fock source on every odd open cube containing the origin star, with arbitrary untouched reference. The classifier uses the supplied actual mass64, U=1/65536, radius-one ground mixture or either charged singlet. Fresh blank probes and coins are retained; the classical total-two native work register starts independently of field/reference for the parent mean formula."
+      },
+      "remaining": [
+        "A physical same-clock local native-port realization satisfying the displayed rate, transfer/controller latency and bounded complement-drift conditions; the angle-only source API does not instantiate this timing contract.",
+        "Autonomous texture selection and preparation of the actual ground/charged inputs. The readout can leave their initial spectral sectors and does not resolve charge sign.",
+        "Continuing protection under uncontrolled field repair, stationary long-time observation and volume-uniform interacting reference states. The recorded integer-load repair is a different retained operation.",
+        "A controlled interacting relativistic continuum, physical defect/species identification, calibrated absolute units and a matched regional Einstein limit."
+      ],
+      "evidence": {
+        "model/radial_drift_readout/PROOF.md": "57f0901cc0776e50fdd47035d5fe919db6185dfd9c5772b0a449be80bea2d79c",
+        "model/radial_drift_readout/README.md": "17a1c77d6a5dc005af403184ecc668423f3f1eafc75782bdba6212d210060142",
+        "model/radial_drift_readout/__init__.py": "b7cae2df8dc29ae497efe18d5c5e9e1eff71dd83be168cb61e19ce310d12dca6",
+        "model/radial_drift_readout/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/radial_drift_readout/algebra.py": "c4f675a481303362dedf68fb8f3cc4dd9a9b830b1e6a7ce574563376e0c4edec",
+        "model/radial_drift_readout/bounds.py": "140622d9e1eb31184cbfcbc8a073109b5ea375f07f149defbcc0f4df65589dcc",
+        "model/radial_drift_readout/commands.py": "cd68ef98f0bef0a00fa11c01b5a1b5b30180c27bdc516b814e745d4dda78de9e",
+        "model/radial_drift_readout/controls.py": "1a39b83b739383301afd6ac3ce17f5ced36adf753052dcae70ea145ca5f5af43",
+        "model/radial_drift_readout/packet.py": "8cbdbf856980015ab2a767f0a2b7c269b06af1adddb0259038686670e5777f05",
+        "model/radial_drift_readout/results.json": "f477cce5099b5d0b810893afe38937d925140c4a6bf91ea84daa5bbcf2245858",
+        "model/radial_drift_readout/test_drift.py": "a005f699078a8d683dd3552c49df3d5b0af13c0a542e59bdb24ecc7f3263f7f9",
+        "model/radial_drift_readout/test_packet.py": "2dcb2142e8a0abdb964b3be9084c8dc370f13f7b254dcd891c4f5794e464a21f"
+      }
+    },
+    {
+      "id": "majorana_defect_bridge",
+      "attachment": "FA-135",
+      "issues": [
+        1141,
+        1142,
+        1143
+      ],
+      "result": "The native current equations select one LH invariant line. Its symmetric family lift joins the same complete K45/Delta90 action and gives E_i(p)^2=|p|^2+((w/w0)^2*m_i)^2, with all zero and repeated masses retained. The calibrated instance has K45 rank44 and one massless neutrino. Exact PMNS support bounds justify a connected graph. Definite additive Majorana charges then obey 2N=0; the all-positive branch has Z^2 plus Z2, or Z plus Z6 with the optional three-generation process. Excluding a zero-mass neutrino forces N=0 throughout the connected graph, giving Z^2 or Z plus Z3. The concrete nonempirical fixed-repair readout reconstructs identical charged Y, CKM=I and kappa=0; its ratios fail both retained charged-lepton comparison windows.",
+      "interface": {
+        "algebra": "All twelve native currents, their declared five-mode spin lift, the same two-component Higgs field, full K45 action, Delta90 pairing and opposite-momentum Nambu180 symbol. The derived LH invariant tensors with all six complex symmetric family coefficients. Separate additive-charge presentations retain all fifteen field labels and explicit mixing graphs.",
+        "clock": "The supplied canonical momentum action uses c=hbar=1 and the existing GeV calibration. The Weinberg coefficient is matched phenomenologically at the common Higgs norm; low-energy-to-MZ effective-theory running and its error are not certified. The fixed-repair coefficient has its separate declared unit-Higgs source clock and no derived physical energy scale.",
+        "operation": "Solve every native LH current equation, transport both Higgs components and arbitrary symmetric family coefficients into the retained action, check the actual Takagi K45 congruence and complete CAR/kinetic map, derive the exact quadratic shell, and compute Smith normal forms. Reconstruct the concrete native p=1/12 stationary Y and verify its retained full K45 hash and excluded ratio windows. Expensive native detector execution is inherited with checked source/artifact custody.",
+        "refinement": "Exact finite algebra and a momentum-symbol theorem valid at every declared finite momentum. No interacting chiral gauge continuum, physical pole matching, defect-motion limit or Einstein limit follows. Optional electroweak instanton charge relations require a separately supplied process.",
+        "state": "The same declared nonvacuum even exterior M15 representation tensored with three families and physical two-spin CAR modes. Arbitrary exact Takagi masses, including ranks zero through three, and exact unitary factors are supplied. The calibrated instance retains its zero lightest neutrino mass. No physical vacuum or microscopic defect state is selected."
+      },
+      "remaining": [
+        "The declared native architecture and canonical Higgs/Weyl attachment are inputs. The native current invariant leaves six complex Weinberg coefficients free; the empirical neutrino calibration is not selected by the fixed-repair law.",
+        "Reading the fixed repair specification fixes its Y and its excluded comparison spectrum. This does not select another source law, prove that the calibrated action is the physical source, or exclude all other interacting repair laws.",
+        "Majorana masses, phases and ordering remain supplied, and the default lightest mass is zero. No certified common-scale neutrino running, physical pole masses, absolute clock derivation or constructive interacting continuum is supplied.",
+        "The additive topology conclusions require definite field charges, charge-conserving vertices and the declared connected mixing graph. Native preservation of a defect invariant, formation energy, Lorentz spin/statistics and a physical defect-to-field intertwiner are separate premises."
+      ],
+      "evidence": {
+        "model/majorana_defect_bridge/PROOF.md": "a907e7d2e624a2745d6a8228ebafbb0e6c230aa616bb6c560b4c4cae8bace0b5",
+        "model/majorana_defect_bridge/README.md": "5e9f95b106dd9af1b268602e445a5ef96c5494dd1e25184f7d31bc11058e68fe",
+        "model/majorana_defect_bridge/__init__.py": "4f391470007e6f08d606e27858b1959de89e80daee5de6ac79642ce892003723",
+        "model/majorana_defect_bridge/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/majorana_defect_bridge/native.py": "44ea3587e6a76a68cc2f521853936c18ddf1416626fce3953fd6ad31ae467391",
+        "model/majorana_defect_bridge/packet.py": "02b5aa1a5c29254e5ea436b32ab8bf2ceb79e8ef0b9a20b77f43c533d89677d4",
+        "model/majorana_defect_bridge/readout.py": "4d50e48d57eec58b8e64bb5fae274ed4a99ff2bb1ab17759aa57ba5d1be68c61",
+        "model/majorana_defect_bridge/results.json": "8c1ed3c9a08306ccc77412943d2b1ad9116a63836b58a0c552efdd4a423b91f2",
+        "model/majorana_defect_bridge/spectrum.py": "046c08116d7393782f7323d63d6825c470c09f504b8492954ffc97a12ae014f5",
+        "model/majorana_defect_bridge/test_native.py": "0e15adad98b85b393a676e703330997753bfd0a50d44ba644f4afdce3d48b483",
+        "model/majorana_defect_bridge/test_packet.py": "236130b5f728bacda7f29988adb8aefdfced73509ff7250a45e124a60912745d",
+        "model/majorana_defect_bridge/test_readout.py": "c31966ef247ae1b1ab3339ba4dd3c14b2016673579b090b0fc513bbfa7519250",
+        "model/majorana_defect_bridge/test_spectrum.py": "ff124dbe48235fbfa00fc235c04f6b63c10911bab394f7a1b71f33b0c098ed48",
+        "model/majorana_defect_bridge/test_topology.py": "deabd7d0aaa148fdb4dcec0b9ffb2fd0c4241f324243570766b2a6badf759f9d",
+        "model/majorana_defect_bridge/topology.py": "9a70bceb2acaef30c9f68aae17150706536dff256ceecd8c4e38bd99d5000a5d"
+      }
+    },
+    {
+      "id": "higgs_curvature_response",
+      "attachment": "FA-136",
+      "issues": [
+        1145
+      ],
+      "result": "For the retained Higgs norm coupled through F(X)R, metric variation gives 2F G_ab+2(g_ab box-nabla_a nabla_b)F=T_min,ab and the same curvature derivative gives Wald coefficient4pi F. Its generalized volume W=integral(3F-Fstar)/(2Fstar)dV has the uniquely forced scalar coefficient3/(2Fstar). At a flat constant-F reference, deltaS_W-(8pi Fstar/ell)deltaW=-2pi C_ell[2Fstar deltaG_uu-2Delta_3 deltaF]+R_ell, C_ell=4pi ell^4/15, with the explicit fourth-derivative bound. Ordinary proper volume instead retains an ell^2 deltaF(0) term and Laplacian coefficient5 rather than2. Consequently a same-state bulk first law and fixed-W stationarity, if separately supplied, yield the linearized scalar-tensor residual with a controlled error. The scalar stress is not declared separately conserved and no ordinary-volume Einstein premise is promoted.",
+      "interface": {
+        "algebra": "The same finite Higgs/current/Yukawa tensors, Lorentzian metric and scalar curvature action F(X)R, where X=Hdagger H and F=F0-xi X. The metric extension, F0 and xi are supplied. Exact coordinate tensor differentiation and full polynomial ball/sphere moments retain nonminimal improvement, nonabelian gauge force and Yukawa exchange.",
+        "clock": "The classical Lorentzian metric and normalized timelike probe are specified. The regional calculation uses their local orthogonal slice and proper radial normal coordinates at the flat reference. No native proper-clock map, physical Newton scale or shared simulator-to-curved-spacetime clock is supplied.",
+        "operation": "Derive metric variation and the curvature derivative from one action, evaluate its Wald functional and Noether generalized volume, and compute a regional first variation with a fourth-derivative Taylor bound. Direct curved off-shell controls keep all scalar source forces. The executable source verifies72 actual current/Higgs equations and a nonzero full family mass kernel; a supplied two-sided Higgs variation realizes deltaF while keeping F positive.",
+        "refinement": "For first derivatives with respect to the variation parameter at the flat constant-F reference, the regional error is at most pi^2 ell^6[(3/7)Fstar Mh+(20/21)Mf]. Under bounded fourth derivatives this vanishes relative to ell^4 as ell tends to zero. This is a linearized regional expansion, with no finite-variation, quantum ultraviolet or nonlinear Einstein limit claimed.",
+        "state": "Classical first variations of a specified covariant extension of the retained conditional Standard Model action around a flat metric and constant Higgs norm, with Fstar>0. The actual two-component Higgs, twelve currents, three invariant Yukawa channels and full45-row family mass kernel are retained. No quantum state or regional entropy state is constructed."
+      },
+      "remaining": [
+        "The covariant extension, metric/spin data, curvature coupling and positive reference coefficient are supplied. The finite representation does not select xi, Newton scale, a native curved metric or the clock/refinement map.",
+        "The Wald functional is not identified with a simulator state entropy. Same-state bulk first-law normalization, nonminimal boundary/counterterm split and physical admissibility/stationarity at fixed generalized volume remain explicit premises.",
+        "The result is a first variation around a flat constant-F reference. It does not establish the ordinary fixed-proper-volume premise of matched_einstein_limit, nonlinear Einstein dynamics or quantum Ward identities. Variable Higgs norm cannot be absorbed into a constant area coefficient without additional restrictions.",
+        "The conditional Standard Model tensor attachment is retained without a physical particle or full interacting continuum identification; classical total conservation requires all matter equations with gauge and Yukawa exchange included."
+      ],
+      "evidence": {
+        "model/higgs_curvature_response/PROOF.md": "34e4ed868e770e748700ff58909fdc6729ff7bc250d5e29365ba701851409726",
+        "model/higgs_curvature_response/README.md": "cc953174a366b25d52c44fd9a2adf93d2d6c7e1b66fc2d9567d4c38938ac28d4",
+        "model/higgs_curvature_response/__init__.py": "9bfdfd48765329fb1417ecd647ce002031ecf0bd3067ebdbde7c3e54e5b1f913",
+        "model/higgs_curvature_response/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/higgs_curvature_response/balls.py": "a94deacb3bd95595d7d1c2ecb42144e34e3e2496368c09facfa62f799397a5b2",
+        "model/higgs_curvature_response/geometry.py": "afe790773895b2b12351040f39c79e11bd361b13b3cd5fb5fc0e96eb7f124adc",
+        "model/higgs_curvature_response/packet.py": "657a296fa0cef4ee981aaad35843d7c9d1e0a1e5e18da35fb533102b08f2736f",
+        "model/higgs_curvature_response/results.json": "deb1aaf761b266bc9a64a47cc76e486bbff2b5d78a14908262523fbcb751ee8d",
+        "model/higgs_curvature_response/source.py": "7d8694561ebf8d9ac511b6fa7800cc255f3ad935be370ff3c881da1963db150e",
+        "model/higgs_curvature_response/test_balls.py": "98fa1ba389faaa4e00562361988d44bfa8e1022a6f5659b3c9db6e9a3446ac42",
+        "model/higgs_curvature_response/test_packet.py": "1e74472c5684652b05713638319e840e5683f078c35ccbbbacbbccb5453b5896",
+        "model/higgs_curvature_response/test_ward.py": "0b0185a1609bef3fdd76caf88a81aa1e18b271a35ff944803c1e32b69a88347b",
+        "model/higgs_curvature_response/ward.py": "1ed3bbadd9e8b12d74ea9e0004910a19fb53b32ff9959dc4cfcdeb1a76b4bd39"
+      }
+    }
+  ]
+}

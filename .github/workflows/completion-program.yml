@@ -12,6 +12,32 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
+      - 'model/reciprocal_area_dynamics/**'
+      - 'model/scattering_packet_readout/**'
+      - 'model/native_repair_spin_limit/**'
+      - 'model/spin_reference_limit/**'
+      - 'model/topological_defect_spectrum/**'
+      - 'model/spin_texture_energy/**'
+      - 'model/matched_einstein_limit/**'
+      - 'model/defect_core_response/**'
+      - 'model/bounded_defect_index/**'
+      - 'model/native_odd_box_core/**'
+      - 'model/matter_geometry_response/**'
+      - 'model/radial_defect_gap/**'
+      - 'model/radial_interacting_core/**'
+      - 'model/parity_entropy_response/**'
+      - 'model/radial_geometry_join/**'
+      - 'model/radial_reused_readout/**'
+      - 'model/source_mass_shell/**'
+      - 'model/conditional_standard_model/**'
+      - 'model/winding_sector_search/**'
+      - 'model/radial_drift_readout/**'
+      - 'model/majorana_defect_bridge/**'
+      - 'model/higgs_curvature_response/**'
+      - 'code/particles/*radial_excitation_catalogue.py'
+      - 'code/particles/RADIAL_EXCITATION_CATALOGUE.md'
+      - 'code/particles/runs/catalogue/radial_excitation_catalogue.json'
+      - 'Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean'
       - 'model/clock_defect_energy/**'
       - 'model/local_repair_family/**'
       - 'model/exchange_sector/**'
@@ -97,6 +123,32 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
+      - 'model/reciprocal_area_dynamics/**'
+      - 'model/scattering_packet_readout/**'
+      - 'model/native_repair_spin_limit/**'
+      - 'model/spin_reference_limit/**'
+      - 'model/topological_defect_spectrum/**'
+      - 'model/spin_texture_energy/**'
+      - 'model/matched_einstein_limit/**'
+      - 'model/defect_core_response/**'
+      - 'model/bounded_defect_index/**'
+      - 'model/native_odd_box_core/**'
+      - 'model/matter_geometry_response/**'
+      - 'model/radial_defect_gap/**'
+      - 'model/radial_interacting_core/**'
+      - 'model/parity_entropy_response/**'
+      - 'model/radial_geometry_join/**'
+      - 'model/radial_reused_readout/**'
+      - 'model/source_mass_shell/**'
+      - 'model/conditional_standard_model/**'
+      - 'model/winding_sector_search/**'
+      - 'model/radial_drift_readout/**'
+      - 'model/majorana_defect_bridge/**'
+      - 'model/higgs_curvature_response/**'
+      - 'code/particles/*radial_excitation_catalogue.py'
+      - 'code/particles/RADIAL_EXCITATION_CATALOGUE.md'
+      - 'code/particles/runs/catalogue/radial_excitation_catalogue.json'
+      - 'Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean'
       - 'model/clock_defect_energy/**'
       - 'model/local_repair_family/**'
       - 'model/exchange_sector/**'
@@ -198,6 +250,12 @@ jobs:
       - run: python -m model.completion.program_class_v2 --check
       - run: python -m model.completion.independent_program_review
       - run: python -m model.completion.finite_attachment_map --check
+      - run: python -m model.completion.dynamics_response_campaign --check
+      - run: python -m model.completion.spectrum_einstein_campaign --check
+      - run: python -m model.completion.defect_geometry_campaign --check
+      - run: python -m model.completion.radial_source_campaign --check
+      - run: python code/particles/derive_radial_excitation_catalogue.py --check
+      - run: python -m pytest -q -W error code/particles/test_radial_excitation_catalogue.py
 
   program-sectors:
     runs-on: ubuntu-latest

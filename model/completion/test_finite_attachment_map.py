@@ -13,7 +13,7 @@ def packet():
 def test_complete_canonical_ownership_and_realized_finite_domains():
     result=validate(packet())
     assert result['canonical_premises']==84
-    assert result['finite_obligations_realized']==104
+    assert result['finite_obligations_realized']==131
     assert result['canonical_premises_discharged']==0
     assert result['gate_acceptance_owner']=='claims/completion_program.json'
 
@@ -71,6 +71,23 @@ def test_open_reference_gate_can_have_all_predecessors_accepted():
     assert row['required_predecessors'] == ['CP-01', 'CP-13']
     assert row['unaccepted_predecessors'] == []
     assert row['unfulfilled_acceptance'] and row['close_issue'] is False
+    validate(p)
+
+
+def test_every_open_gate_has_a_deduplicated_stage_scoped_closure_review():
+    p = packet()
+    program = strict_json.load(ROOT / 'claims/completion_program.json')
+    open_issues = {str(stage['issue']) for stage in program['stages']
+                   if stage['status'] != 'ACCEPTED'}
+    review = p['issue_closure_review']
+    assert open_issues <= set(review)
+    seen = {}
+    for issue, row in review.items():
+        items = row.get('unfulfilled_acceptance', [])
+        assert len(items) == len(set(items)), issue
+        for text in items:
+            assert text not in seen, (issue, seen[text])
+            seen[text] = issue
     validate(p)
 
 

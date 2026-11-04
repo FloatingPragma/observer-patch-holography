@@ -415,6 +415,40 @@ def test_compressed_receipt_requires_outer_manifest_coverage(monkeypatch, tmp_pa
     assert verify.verify_artifacts() == 2
 
 
+@pytest.mark.parametrize('name', ['results.npz', 'witness.csv', 'notes.txt', 'figure.pdf'])
+def test_unbound_artifact_of_any_suffix_is_rejected(monkeypatch, tmp_path, name):
+    packet = tmp_path/'model/example'
+    packet.mkdir(parents=True)
+    source = packet/'source.py'
+    source.write_text('value = 1\n', encoding='utf-8')
+    manifest = {'files': {'source.py': hashlib.sha256(source.read_bytes()).hexdigest()}}
+    (packet/'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+    monkeypatch.setattr(verify, 'ROOT', tmp_path)
+    monkeypatch.setattr(verify, 'PACKETS', ('model/example',))
+    monkeypatch.setattr(verify, 'REPLAYS', ())
+    assert verify.verify_artifacts() == 1
+    (packet/name).write_bytes(b'unbound\n')
+    with pytest.raises(ValueError, match='Unbound artifact'):
+        verify.verify_artifacts()
+
+
+def test_packet_metadata_and_interpreter_caches_are_not_artifacts(monkeypatch, tmp_path):
+    packet = tmp_path/'model/example'
+    packet.mkdir(parents=True)
+    source = packet/'source.py'
+    source.write_text('value = 1\n', encoding='utf-8')
+    manifest = {'files': {'source.py': hashlib.sha256(source.read_bytes()).hexdigest()}}
+    (packet/'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+    (packet/'.gitattributes').write_text('*.npz binary\n', encoding='utf-8')
+    cache = packet/'__pycache__'
+    cache.mkdir()
+    (cache/'source.cpython-312.pyc').write_bytes(b'cache\n')
+    monkeypatch.setattr(verify, 'ROOT', tmp_path)
+    monkeypatch.setattr(verify, 'PACKETS', ('model/example',))
+    monkeypatch.setattr(verify, 'REPLAYS', ())
+    assert verify.verify_artifacts() == 1
+
+
 def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     workflow = yaml.safe_load((verify.ROOT/'.github/workflows/observer-model.yml').read_text())
     hashes, observer, regression = (workflow['jobs'][key] for key in ('hashes', 'observer', 'regression'))

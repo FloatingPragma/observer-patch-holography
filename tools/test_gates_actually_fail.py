@@ -901,3 +901,16 @@ def test_offline_release_gate_rejects_byte_and_tag_false_greens(
     assert "public release tag commit differs from the requested commit" in _combined(
         tag_mutant
     )
+
+
+def test_readme_pair_requires_equal_heading_counts(tmp_path: Path) -> None:
+    english = tmp_path / "README.md"
+    french = tmp_path / "README_FR.md"
+    english.write_text("# README\n\n## Scope\n\nText.\n", encoding="utf-8")
+    french.write_text("# README\n\n## Portée\n\nTexte.\n", encoding="utf-8")
+    check_claim_registry.check_readme_pair(tmp_path)
+
+    french.write_text("# README\n\n## Portée\n\n## Détails\n\nTexte.\n", encoding="utf-8")
+    with pytest.raises(SystemExit) as failure:
+        check_claim_registry.check_readme_pair(tmp_path)
+    assert "top-level heading counts" in str(failure.value)

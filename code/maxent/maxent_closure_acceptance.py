@@ -56,6 +56,10 @@ from maxent.information_projection import (
 
 HERE = Path(__file__).resolve().parent
 
+# Roundoff allowance for a negative relative-entropy estimate; the state checks
+# in quantum_information admit trace and positivity deviations up to 1e-12.
+NEGATIVE_DEFECT_TOL = 1e-12
+
 PAULI_I = np.eye(2, dtype=complex)
 PAULI_X = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
 PAULI_Z = np.array([[1.0, 0.0], [0.0, -1.0]], dtype=complex)
@@ -100,6 +104,24 @@ def trace_norm(delta: np.ndarray) -> float:
     return float(np.sum(np.abs(np.linalg.eigvalsh((delta + delta.conj().T) / 2))))
 
 
+def closure_defect(sigma: np.ndarray, omega_coarse: np.ndarray) -> float:
+    """Closure defect D(sigma || omega_coarse), fail-closed on negative drift.
+
+    The Umegaki entropy is nonnegative for admissible states, so a value below
+    roundoff means the pair handed in is not a valid comparison. Clamping it to
+    zero would report exact closure for a failed projection, which is the one
+    outcome this acceptance test must never fake.
+    """
+    raw = relative_entropy(sigma, omega_coarse)
+    if not math.isfinite(raw):
+        raise ValueError(f"non-finite closure defect nats: {raw}")
+    if raw < -NEGATIVE_DEFECT_TOL:
+        raise ValueError(
+            "negative relative entropy in the closure defect: "
+            f"{raw} nats is below -{NEGATIVE_DEFECT_TOL} nats")
+    return abs(raw)
+
+
 def run_lattice_pair(n_fine: int, lam_fine: np.ndarray) -> dict:
     """Run the full issue-#539 acceptance test on the lattice pair (n_fine, n_fine/2)."""
     n_coarse = n_fine // 2
@@ -117,7 +139,7 @@ def run_lattice_pair(n_fine: int, lam_fine: np.ndarray) -> dict:
     projection = project_information(sigma, coarse)
     lam_star, omega_coarse = projection.multipliers, projection.state
 
-    defect = max(relative_entropy(sigma, omega_coarse), 0.0)
+    defect = closure_defect(sigma, omega_coarse)
     residual = trace_norm(sigma - omega_coarse)
     pinsker_bound = math.sqrt(2 * defect)
     hess_floor = float(np.linalg.eigvalsh(duhamel_covariance(coarse, lam_star)).min())

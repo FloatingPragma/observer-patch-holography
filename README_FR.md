@@ -76,13 +76,6 @@ de lois échoue.
 
 ## Points forts
 
-- **Résultats actuels et énergies.** Le [bilan de construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md)
-  réunit les champs continus, la lecture filtrée des excitations de spin et la
-  correction d’entropie à petite boule, d’ordre six à amplitude fixée dans le
-  secteur libre. La [table des masses et énergies](model/completion/PARTICLE_MASS_TABLE.md)
-  distingue les spectres finis et les masses quadratiques fournies comme
-  paramètres. L’identification aux particules mesurées, leurs masses physiques,
-  les interactions relativistes et la jonction complète matière-géométrie restent ouvertes.
 - **Un observateur qui fonctionne.** Un observateur à douze ports conserve ses
   registres et s’en sert pour choisir sa prochaine réparation. Des observateurs
   qui se chevauchent lisent une référence commune et son horloge, un processus
@@ -96,16 +89,6 @@ de lois échoue.
   direction radiale et les unités physiques sont des entrées. Le
   [verdict intégré](model/CONSTRUCTION.md#integrated-effective-description)
   donne les détails.
-- **Les particules sont la grande pièce manquante.** La théorie finie donne
-  les charges d’une génération du Modèle standard et ses couplages de Higgs,
-  mais aucune masse. Toutes les lois de masse testées sur le modèle exécutable
-  manquent la hiérarchie mesurée des leptons, et le candidat de défaut évident
-  sur le support natif se défait après quelques réparations. Une campagne
-  finie exclut aussi la forme la plus simple de charge protégée : aucune
-  grandeur cachée du support ne commute avec toutes les réparations. Trouver un défaut
-  réellement stable est l’objet de
-  l’[article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
-  et des [notes sur la réponse en masse](docs/research/OPH_PARTICLE_MASS_RESPONSE.md).
 - **La physique standard à partir d’un accord fini.** Sous des prémisses
   énoncées, des théorèmes finis donnent à la spécification des structures
   familières : des registres publics indépendants de l’ordre des réparations ;
@@ -114,6 +97,21 @@ de lois échoue.
   Modèle standard et une représentation de matière sans anomalies
   conditionnelle ; un ordre causal de dimension (1+3) avec un temps propre lu
   dans les comptages ; et l’équation d’Einstein à partir d’un bilan nul.
+- **Des constructions à action commune.** Une action originale sur le cube
+  tridimensionnel possède un fondamental global certifié, un fondamental sur
+  réseau infini à énergie d’excitation positive, et un réseau régulier de
+  champs de spin continus à énergie positive et propagation finie. À couplage
+  nul, les variations finies d’entropie régionale convergent vers la réponse de
+  contrainte du champ libre utilisée par la dérivation d’Einstein, avec un
+  reste contrôlé sur les petites boules à amplitude fixée. La lecture filtrée
+  des spins inclut chaque issue de rejet ; la
+  [table des masses et énergies](model/completion/PARTICLE_MASS_TABLE.md)
+  consigne les spectres finis certifiés. Le continuum chargé est démontrablement
+  libre pour `U=o(c^(2/7))`, avec des énergies de Weyl sans masse dans les huit
+  vallées. Une couche de masse nette, une interaction continue survivante, des
+  espèces de particules mesurées et une géométrie qui répond restent ouvertes,
+  avec leurs prémisses énoncées dans la
+  [construction du continuum](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
 - **Des mathématiques vérifiables.** La [bibliothèque Lean](Lean/) contient
   plus de 12700 théorèmes et lemmes publics sans preuve admise, et chaque reçu
   de calcul conservé est rejoué en intégration continue.

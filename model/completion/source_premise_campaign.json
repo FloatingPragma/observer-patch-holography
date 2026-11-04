@@ -1,0 +1,230 @@
+{
+  "schema": "oph.source_premise_campaign.v1",
+  "campaign_id": "OPH-SOURCE-PREMISE-CLOSURE-2026-11-04",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "canonical_premises_discharged": [],
+  "integrated_gate_accepted": false,
+  "common_interacting_QFT_and_Einstein_model": false,
+  "selected_issues": [
+    1138,
+    1139,
+    1142,
+    1143,
+    1145
+  ],
+  "objective": "Construct faithful native feedback preparation, search complete particle sectors, control moving two-body interactions and finite spin dynamics, and close finite gravitational attachment premises.",
+  "specification_readout_allowed": true,
+  "specification_policy": "Simulator, observer, scheduler, repair and memory implementations are readable model specifications. Their effective consequences require proofs on the declared states, algebras, operations, clocks and refinements.",
+  "component_results": [
+    {
+      "id": "adaptive_sweep_reference",
+      "attachment": "FA-110",
+      "issues": [
+        1138
+      ],
+      "result": "Every full native carrier and classical memory input converges at common sweep boundaries to a unique faithful reference, with an explicit arbitrary-reference error bound. An E covering sweep has rank-one fine-record paths; exact four-sweep counts imply Phi^4-alpha D is completely positive with 3/10<alpha<1/3. Completeness and incoming-row balance prove the stationary field/controller density and its thirty-phase extension. The full phase process is periodic and the growing archive is not stationary.",
+      "interface": {
+        "state": "Arbitrary density on the native total-two 78-state carrier and four classical memory states, including arbitrary untouched quantum references. One complete sweep absorbs collision support; on the binary sector the unique stationary boundary density is I264/264. No initially uniform memory or independent source/reference factorization is assumed.",
+        "algebra": "direct_sum_4 M66 at a common sweep boundary, with direct_sum_4 M78 admitted inputs; the elementary 30-phase controller has algebra direct_sum_120 M66 and stationary density I7920/7920. Growing raw archive is retained and traced only for the marginal comparison.",
+        "operation": "Unchanged complete native C/E partial-injection instruments. Memory first bit selects forward C or reverse E covering sweep; first raw record updates memory by the existing reversible balanced rule, and all seventeen raw slots of every event are retained. Exact integer path counting proves a four-sweep quantum CP minorization; an executable checkpoint retains and reverses the full classical control history.",
+        "clock": "Native event count and a deterministic thirty-state sweep phase. The reference is tracial with identity modular automorphism; no nontrivial modular flow, physical clock or interleaved field Hamiltonian is identified.",
+        "refinement": "Finite twelve-port source, with arbitrary sweep count and arbitrary external reference dimension. Four sweeps give contraction factor 1-alpha, alpha=709505662292889/2251799813685248; 149 sweeps/4470 native events certify half trace error at most 1e-6 for any full78 input. No spatial or continuum limit."
+      },
+      "evidence": {
+        "model/adaptive_sweep_reference/PROOF.md": "e289b77142a546356675cc9eee127ef0b9d1bf0429ebf1a95e9eb57a87859705",
+        "model/adaptive_sweep_reference/README.md": "8b402d7c4b507bf92d7c2ec88a1b28984a471eddb3a041d880f50970e9383b52",
+        "model/adaptive_sweep_reference/__init__.py": "542d2c84ad0e6dafb5cf2e3775c455e28665660898cac16bb8bd0c61d8062e58",
+        "model/adaptive_sweep_reference/__main__.py": "82ee912c1465909df856bf22198ebac07d213e44ff7bc72edce6c34e5ff51728",
+        "model/adaptive_sweep_reference/contract.json": "b84dc8011aa868ee4daf9c00011bdadf3d8de4db8262e67f8ecd40ee574b7af6",
+        "model/adaptive_sweep_reference/reference.py": "79bfef91b29e7149205aeccfc745dbe826ca3157d6cf965205c0bbd7924dbaa6",
+        "model/adaptive_sweep_reference/results.json": "01984966df823422f761e43badf77b5ba5465e30b1bec21a4962d9945973d93d",
+        "model/adaptive_sweep_reference/test_reference.py": "a2d018539c6cd81bfb91c064f85091c311e024f98feb5968ca74246d3d0d479d"
+      },
+      "remaining": [
+        "A common nontrivial observer modular clock and its field-dynamics identification; this tracial reference has identity modular flow.",
+        "A continuing interacting field and particle realization under the same native process, including any additional Hamiltonian layers.",
+        "Physical spacetime, continuum refinement, calibrated species and the joint geometric Einstein premises."
+      ]
+    },
+    {
+      "id": "one_particle_search",
+      "attachment": "FA-111",
+      "issues": [
+        1139,
+        1143
+      ],
+      "result": "The complete ideal spectral instrument labels all 1024 N=1 modes: 16 zero modes and six signed shells E=+/-sqrt(2n)/16, n=1..6, each sign with degeneracy 8*binomial(6,n). Native implementation has complete source operator error below 4.155e-9 and includes all outcomes. Exact P_E(x,x)=dim(P_E)/1024 I2 implies stationary one-site occupancy <=5/32, attained, and exterior occupancy >=1/16 outside every six-site region. Infinite unchanged N=1 law has no nonzero square-summable stationary eigenvector, including E=0; c=0 is an explicit countercontrol. The infinite exclusion also covers every nonzero positive trace-class stationary N1 density: compactness supplies a finite-dimensional invariant eigenspace and therefore an H eigenvector.",
+      "interface": {
+        "state": "Every state on the complete N=1 sector of the unchanged 8x8x8 periodic Weyl/contact source, c=1/8; stationary-localization statement applies to every normalized density commuting with this H. Infinite exclusion applies on Z^3 with c>0 and all real E.",
+        "algebra": "Full 1024-dimensional one-particle matrix algebra, embedded in the unchanged physical CAR Fock space; source detector error is on all Fock inputs and arbitrary untouched references.",
+        "operation": "Original number-conserving Weyl/contact law (contact annihilates N=1); existing complete native FFT followed by 512 momentum spin blocks, of which 492 are nontrivial, and all 1024 complete occupation pointers. Every occupation string and first source/export abort is retained.",
+        "clock": "Original source H and energy origin; no chemical-potential shift or SI unit calibration. Detection resources exclude preparation and evolution.",
+        "refinement": "Finite torus is fixed at side eight. Separate exact Laurent-polynomial and Fourier/Fubini proof excludes compactly supported and square-summable stationary N=1 eigenvectors on the infinite Z^3 lattice for every c>0. No finite-to-continuum interacting or state-selection limit is asserted."
+      },
+      "evidence": {
+        "model/one_particle_search/PROOF.md": "b861cd50433176fabe75bf5ecd6232016231ec40600cf017db93caefffe54f7a",
+        "model/one_particle_search/README.md": "fa4a06405bda6e7f89952bdd00a544b7a0fa8f34047fd171c5bfdf7dc9b680d7",
+        "model/one_particle_search/__init__.py": "01ba0e0ac123e4215b847f7fddbed3e72d8ed56de3fd45906a5c31a8469f2c39",
+        "model/one_particle_search/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/one_particle_search/native.py": "2dff17b3102d69b2ec89c4b0aab3bc802ff2990d7b2463e9c2fce492e78ff64b",
+        "model/one_particle_search/packet.py": "2d463a81085cd018624e630b791e8b28e3e2022d065d15be36efe5d0d6951fd5",
+        "model/one_particle_search/results.json": "7cabb060402c3a0990e1751f3bcb37981263257c9b593c342420701791a6728f",
+        "model/one_particle_search/spectrum.py": "e0d3efc99a2187766327652e89681a08474832f8968334905b3c0bc3cfab981b",
+        "model/one_particle_search/test_search.py": "546bf0609aef59dc253ecc01b934768c2508fe8a2956ab6b28ac87ea27ced36c"
+      },
+      "remaining": [
+        "Finite side-eight stationary N=1 densities have exterior weight at least 1/16 outside every region of at most six sites; larger finite supports are not excluded. On infinite Z^3 with c>0, the exclusion covers every square-summable stationary N=1 eigenvector and every nonzero positive trace-class stationary N=1 density.",
+        "No many-body defect or moving packet exclusion",
+        "No physical species, charge, Lorentz-spin or common-unit attachment",
+        "No source-selected positive-energy interacting vacuum or interacting 3+1 continuum limit",
+        "No entire completion gate is accepted"
+      ]
+    },
+    {
+      "id": "bipartite_spin_limit",
+      "attachment": "FA-112",
+      "issues": [
+        1142
+      ],
+      "result": "Sublattice parity proves B*CB=0, ordered low-energy error <=2tau^4/[U^2(U-tau)], canonical generator error <=7tau^4/U^3 and complete finite dynamics error <=min(2,4tau/U+7|t|tau^4/U^3). A separate five-step quasilocal dressing gives volume-independent local error O(c^-1) at U=c^2/J with fixed J and fixed lattice spacing: the off-diagonal local remainder is O(c^-4), the spin-generator correction O(c^-1), and all virtual charge outputs remain. This constructs interacting infinite-lattice spin dynamics on explicitly dressed inputs without a finite-c ground-state, interleaved-repair or relativistic-continuum identification.",
+      "interface": {
+        "state": "Every half-filled spin input of the unchanged finite signed bipartite Weyl/contact source, including arbitrary untouched reference entanglement. No chosen ground state or spin gap is assumed. A distinct local limit uses every spin state after the explicitly derived five-step quasilocal unitary dressing; it does not assume this is the finite-c source ground.",
+        "algebra": "Complete half-filled CAR sector and its canonical 2^V-dimensional low spectral subspace. Every virtual doublon-hole state is retained. The local theorem uses complete four-state onsite CAR algebras on arbitrary cubic boxes and their infinite-lattice quasilocal limit.",
+        "operation": "Exact sublattice parity, Feshbach resolvent expansion and canonical spectral-graph isometry. Independent Jordan-Wigner matrices verify energies, full-output dynamics and the low generator; integer audits include the complete 12870-state cube sector. Five exact integer-penalty averaging steps, connected-support BCH bounds and a polynomial summed locality estimate give a volume-independent local comparison. Neither undressed input convergence nor interleaved native repair on the dressed carrier is assumed.",
+        "clock": "Original centered K=T+UD-(U/2)N. H=K+UV/2 at N=V differs by its stated scalar phase. The spin exchange is J=c^2/U with no measured time calibration.",
+        "refinement": "The finite spectral theorem has U>tau=c|E| and the canonical all-output theorem U>=4tau. A separate local theorem on degree-six cubic boxes has U/2>=2^20(144c), no volume bound, and explicit dressed-input local error O(c^-1) at fixed spacing, J=c^2/U and bounded times. Its infinite-lattice limit is the interacting Heisenberg dynamics. The extensive fixed-physical-box bound still needs p>16/3; no relativistic spatial continuum is constructed."
+      },
+      "evidence": {
+        "model/bipartite_spin_limit/LOCAL_LIMIT.md": "0a118924a0a9c366c1579709ae5e1cdec0e5bac8d7d9fd0f49de80101504246a",
+        "model/bipartite_spin_limit/README.md": "ffd550b0eb97c586379b44dbd3377959326b594ee48ec815ac1c6ee5f12f9f57",
+        "model/bipartite_spin_limit/__init__.py": "b51bec8bc64c8f779f502d68109a8b35ce109ad1e6ffb1c6dafb802ee885bf90",
+        "model/bipartite_spin_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/bipartite_spin_limit/algebra.py": "736a892f5ab50c7e2cc3d6ddbfc35dc440c69dc9e825c4bfcca0c50a1e29999d",
+        "model/bipartite_spin_limit/bounds.py": "4e69eb7ef770371fa510d847147dc9915a6624064cc06910c0b350e6ee5b5945",
+        "model/bipartite_spin_limit/local.py": "ba2685320d7179e25a123f041495176232f25db4de66d8a1f6afa4bba586e84a",
+        "model/bipartite_spin_limit/packet.py": "9660be5fad512dacd82073b216f55748f734613f73a7f78883803c51c8bac5ae",
+        "model/bipartite_spin_limit/results.json": "2496ce4fdb14f115c6d81ae85435c52dbce6e7117d1baf15788fb0260f860f79",
+        "model/bipartite_spin_limit/test_limit.py": "fc8da3e43fb9c7d82ced4420c05fd7da1031cd0c1745a649fab9fe3a751f2c8d",
+        "model/bipartite_spin_limit/test_local.py": "dc6fdd1e0a19e78bb363c06f40861b087f23b22ce7827eecdf35d774821ae94a"
+      },
+      "remaining": [
+        "Join the local dressed construction to the actual finite-c selected ground, continuing native repair and the physical spatial/time refinement; the proved infinite-lattice limit has fixed spacing.",
+        "A sharp shell, Lorentz covariance and a surviving continuum connected interaction on one state and clock, with common massive/massless sectors, physical species and units.",
+        "A same-source responsive area, entropy stationarity and Einstein coupling law."
+      ]
+    },
+    {
+      "id": "finite_modular_inclusion",
+      "attachment": "FA-113",
+      "issues": [
+        1145
+      ],
+      "result": "An invertible linear map preserving a finite-dimensional subspace carries it onto itself, so half-sided modular invariance implies two-sided invariance. On the original complete interacting plaquette every proper site algebra fails positive-time inclusion: a norm-one local occupation probe has distance at least 23/524288 from the whole regional algebra at t=1/32. The certified literal source success reference retains a lower bound greater than 1/25000. The kinetic witness survives U=0; deleting crossing bonds or all hopping gives exact Gibbs tensor-sum controls, while beta=0 gives identity flow. This closes finite feasibility of exact half-sided attachment, not the common Einstein null-translation premise.",
+      "interface": {
+        "state": "Same complete 256-state c=1/8,U=1 plaquette Gibbs reference at beta=1/32, and the strictly positive subnormalized success field of its existing literal certified source preparation; classical records and abort outputs retained separately.",
+        "algebra": "Full eight-mode CAR algebra and all fourteen nonempty proper subsets of the four spatial sites, with signed Fock embedding and all number sectors and odd operators retained. Untouched reference extensions are permitted.",
+        "operation": "Exact full-Fock boundary commutators, signed tensor-sum deletion checks, unitary-conjugation remainder and Duhamel transfer using the source-bound full logarithm error. Modular automorphism is not passive repair or a newly executed source pulse.",
+        "clock": "alpha_t(A)=rho^(it) A rho^(-it), exp(-i beta t H) in the Gibbs comparison. Positive modular parameter t=1/32. No physical time or temperature calibration.",
+        "refinement": "Finite source and every proper site cut. The dimension theorem applies to every finite-dimensional invariant algebra. No lower bound uniform over continuum scaling or exclusion of limiting half-sided inclusions."
+      },
+      "evidence": {
+        "model/finite_modular_inclusion/README.md": "0702bfc4b074e8ec28c371213a5dda70d221c7a8d759bb0ae91fb9c286d526ff",
+        "model/finite_modular_inclusion/__init__.py": "c0764cd1f2112fca44f737742c7f07fdd2770bee097c7f5002c76fc250e3754e",
+        "model/finite_modular_inclusion/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/finite_modular_inclusion/inclusion.py": "72d6301803894b353e9fa8e2fb2cc6e2bf0e5ce7ffee51d47e746ee9fd894ddd",
+        "model/finite_modular_inclusion/packet.py": "26ab1b5278f4cc9b617732de4253ae4d898a15621a967bfd73f9b60893776efb",
+        "model/finite_modular_inclusion/results.json": "1351c52188f78ad56624401c53a60c917057be1b48b2aa46a673eb861d4fb37e",
+        "model/finite_modular_inclusion/test_inclusion.py": "c00d664562b8321b48328eb62d77185286f8a236fa4b907848afe13841c8b411",
+        "Lean/QFT/FiniteModularInclusion.lean": "bf6ab2f70bc66df67f1c975bd07a73896dccc29edef9f8dc61431b668c4bf668"
+      },
+      "remaining": [
+        "A source-bound algebra/reference/refinement family with approximate inclusion errors controlled in the limiting representation; finite failure alone does not exclude the continuum route.",
+        "Common physical null translations and symmetric stress; another finite Ward-balance route is not excluded.",
+        "Responsive geometry, central edge/area interpretation, calibrated positive Newton coefficient and generalized-entropy stationarity on the same interacting matter family."
+      ]
+    },
+    {
+      "id": "finite_area_response",
+      "attachment": "FA-114",
+      "issues": [
+        1145
+      ],
+      "result": "For the exact original reciprocal law, partial field randomization preserves the initial geometry distribution but one subsequent unchanged update yields Delta<A>=epsilon (20/11-20/9)[S-64p1]/128, where S sums every cross-geometry thermal acceptance. The area coefficient is rigorously in (-0.000628,-0.000627); the matter preparation injects energy in (2.697,2.698) per epsilon. An independently certified noncommuting equilibrium occupation susceptibility lies in (-0.000675,-0.000673), with explicit parameter-dependent bath/readout requirements. The independently derived action metric has equal proper volume on both branches. Equal Hamiltonians, constant area, beta zero and unperturbed equilibrium provide controls. One-dimensional internal geometry blocks have log-dimension zero and cannot supply a positive affine area coefficient; geometry Shannon entropy is separate. This is a finite responsive area result, not an interacting Einstein construction. A complete-source tangent delta=|g0,111><g0,111|-|g0,000><g0,000| has zero trace, area and volume variations, but dS=11857/4200. The source reference is greater than I/1024, so every |t|<=1/2048 gives a genuine positive state rho+t delta. Thus S_fullthermal+eta<A> is not stationary on the whole fixed-volume tangent space for any eta. Separately, p1<1/2 makes the geometry Shannon-entropy derivative positive while the area derivative is -40/99, excluding a nonnegative coefficient for that particular first-variation identification. Neither counterexample identifies the regional G4 entropy or its admissible joint tangent family, and no Einstein or OPH class is excluded.",
+      "interface": {
+        "state": "Complete sixteen-state joint Gibbs reference of the existing reciprocal scalar model: r=9/10,11/10, three cutoff-two oscillators, native angular band six, beta=1/sqrt14. A flagged partial field-randomization leaves the initial geometry marginal unchanged; no reference identification with the Weyl/contact particle source.",
+        "algebra": "Classical two-geometry register with full M8 field block on each branch. All sixteen levels, sixty-four cross-geometry thermal edges, rejected proposals, bath records and all sixty-five mixture/randomization outcomes retained. Independent action-metric dictionary gives two-face area 2/r and normalized proper volume one.",
+        "operation": "Apply (1-epsilon)identity+epsilon replacement_by_I8/8 to matter, then one unchanged reciprocal thermal update. Exact source matrices, rational LDL eigenvalue counts, outward exponential tails and complete-record transition sums prove the response. Supplied mixing/randomization apparatus injects energy, retains displaced input and records; the full native randomization/reservoir-controller history is not executed. Separate H_g(lambda)=H_g+lambda n_left susceptibility requires matching bath gaps and energy readout. An exact source-basis two-sided positive tangent preserves area and proper volume while its full thermal entropy derivative is nonzero; no numerical eigenvector is needed.",
+        "clock": "One unchanged thermal update is counted. Source Hamiltonian and beta use the common model-coordinate clock. Lapse r gives d tau=r dt, proper generator H/r and proper inverse temperature r beta. No physical duration per update, common proper temperature or empirical normalization.",
+        "refinement": "Fixed two-geometry, sixteen-state thermal construction. No shrinking-ball, continuum, universal coupling, zero-temperature or common Weyl/geometry refinement claim."
+      },
+      "evidence": {
+        "model/finite_area_response/README.md": "91aed8e7ea6098de7f15dfc546bcc1dfa2edd5905efccecb80756807bc5c55a7",
+        "model/finite_area_response/__init__.py": "96012a28edb5774dc6991d611c3904b85bc2b478d61d6003a96ebbb059283d1d",
+        "model/finite_area_response/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/finite_area_response/response.py": "cd22b60330adf104ca50e5b6dd92ad95b6d0b38dae0e7c1ff9b0c9bd14a328f4",
+        "model/finite_area_response/packet.py": "e528200701d5ec467eb2907dc1d5c7bae942766846d8dfb9b4aa4adde8682ca2",
+        "model/finite_area_response/results.json": "2a9359368a263f4d3fdd8e9864a3b7fe7279b59f4e504a5c2fd2b8d9da5e9706",
+        "model/finite_area_response/test_response.py": "0c9c92d273747522705cddf984da852345fae9f9964844263dc6ce767291a95d"
+      },
+      "remaining": [
+        "Source execution and error certification of the complete randomization, measurement, reservoir selection/refresh and thermal-controller history, including apparatus energy and memory costs.",
+        "A derived microscopic edge-dimension/geometric-area relation, with positive universal normalization; the finite internal-block observation does not exclude other central or edge assignments.",
+        "Common interacting matter, metric, stress, modular and clock readouts on one reference/refinement family, with joint fixed-volume generalized-entropy stationarity and controlled continuum errors.",
+        "Responsive Einstein dynamics, a physical Newton scale and laboratory identification; the separate finite scalar and Weyl/contact constructions are not identified.",
+        "A justified regional/renormalized entropy and admissible joint state/metric tangent family. Gibbs channel stationarity does not establish bare full-thermal entropy-plus-area stationarity on every fixed-volume source tangent."
+      ]
+    },
+    {
+      "id": "moving_contact_scattering",
+      "attachment": "FA-115",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "The source on-shell Green function obeys |(g_K(B_K-s+i0)-a^2W0/2)/a^3+i sqrt(s)/pi|<=a(3Pmax^2+265S), uniformly including threshold. Consequently S_J converges in operator norm to (gamma-i sqrt(s))/(gamma+i sqrt(s)) in the common contact channel, with error <=(88/7)a(3Pmax^2+265S)/gamma. Its same-clock free energy tends to |P|^2/4+s while the retained bound energy tends to |P|^2/4-gamma^2. At gamma=Pmax=S=1 and a=1/16384 the scattering error is 737/3584<1/4, the bound unit-time error is <0.028, and scattering at s=1 is separated from identity by more than one throughout the momentum window. On every fixed-N sector the additive extension is bounded self-adjoint with -U_a floor(N/2)<=J_(a,N)<=6N/a^2; its full direct sum is self-adjoint. For a gamma<=1/4096, compact two-particle vectors have energy below -gamma^2/16, and m disjoint translated graded products have expectation below -m gamma^2/16. Thus the full-Fock infimum is -infinity and its empty vector is not a ground vacuum, consistently with stability linear in N at each finite spacing. Any additional number shift with finite limit preserving an empty ground requires mu>=gamma^2/2, which is necessary only. The limiting pair branch has no exact massive or massless Lorentz-shell identity on any open momentum set under a fixed affine clock E=alpha epsilon+beta (alpha nonzero) and an invertible affine momentum map p=L P+p0: its residual quartic coefficient is alpha^2/16>0.",
+      "interface": {
+        "state": "The full original infinite-lattice two-fermion Weyl/contact source. The scattering comparison uses its complete contact-cyclic absolutely continuous channel, with noncontact channels retained as identity scattering and the upper bound pole retained separately. No physical or many-body vacuum is selected. The separate additive extension acts on the full fermionic Fock space over ell2(Z^3) tensor C^2, with every nonnegative particle number retained.",
+        "algebra": "Rank-one contact scattering on the full four-spin and full-Brillouin-zone two-body fibers; a common contact spectral representation L2([-Pmax,Pmax]^3 x (0,S),dP ds), tensored with arbitrary untouched references. All eight edge valleys are included. The Fock statement uses the complete CAR algebra and disjoint finite-site fixed-number variational cores; no finite-density representation is selected.",
+        "operation": "Original H_a=dGamma(h_a)+U_a contact with c_a=sqrt(3)/a^2 and 1/U_a=a^2 W0/2-a^3 gamma/pi, gamma>0. The interior boundary value is proved by explicit all-valley coarea and principal-value subtraction; the exterior estimate is not substituted for it. Source rank-one scattering and its reflected orientation are retained. For the additive extension, J_(a,N)=dGamma(3/a^2-h_a)-U_a D, D=sum_x n_(x,up)n_(x,down); no new source interaction is introduced.",
+        "clock": "One global J_a=6/a^2-H_a, shared by the moving bound branch and moving scattering. The rescaled model momentum labels obey K=aP. No momentum-dependent Hamiltonian subtraction, physical unit calibration or observed mass fit occurs. The additive extension agrees with this clock at N=2 and has the declared number-proportional shift 3N/a^2 in every N sector. A hypothetical additional mu_a N shift is examined only as a necessary-condition control.",
+        "refinement": "a tends to zero on fixed compact |P_j|<=Pmax and 0<=s<=S, with aPmax<=1/4, a^2 S<=1/128, a gamma<=1 and 44a(3Pmax^2+265S)<=7gamma. Joining the bound branch also requires 256a(gamma^2+Pmax^2)<=gamma. Rational schedules satisfy all bounds at arbitrary requested positive scattering tolerance. At each a gamma<=1/4096, normalizable moving-band packets admit compact spatial approximants with negative energy, whose disjoint translated products prove the full-Fock obstruction. This is not an all-N continuum stability estimate. The affine-shell exclusion concerns the limiting bound branch under fixed nonsingular affine energy and momentum dictionaries."
+      },
+      "evidence": {
+        "model/moving_contact_scattering/PROOF.md": "f3b98a8bf23e31d29b8d946081fe542489a165827c35d72e46623098c89da6e0",
+        "model/moving_contact_scattering/README.md": "3301e2e4d0b6103280c2ab54b28a8ae43d84fe451a61eaef5e2d0eb3c84e2400",
+        "model/moving_contact_scattering/__init__.py": "1993831c4a3d377da8793681f83ca12b2de5f201b459bdbfd66e64197ae2f559",
+        "model/moving_contact_scattering/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/moving_contact_scattering/bounds.py": "14eaedaa5eb5801c909c6b773f996954850b2e9d5990f607b625094ddf0df0f7",
+        "model/moving_contact_scattering/diagnostic.py": "57fee813b189e09c15f675bf45fb3b6e751d69a3d29c10da6bb36307e0d2baab",
+        "model/moving_contact_scattering/packet.py": "48a8752d39ef43348813a225a7af819f4faba2d40f8c917c45b5c382729aac31",
+        "model/moving_contact_scattering/results.json": "6e3e8fcc7d3297f21d9a72065a1d2c6fd219a67f333cd5d8a880bad11de166a6",
+        "model/moving_contact_scattering/test_scattering.py": "92054f267eb705a0154a67e865d0e503f2c355025fd29ec64c81365e3431bf8a",
+        "model/moving_contact_scattering/test_vacuum.py": "b0565252b82e8be4ee946a3c39501f5d01aa8dff1f5995cc50c2aa8275102e3d",
+        "model/moving_contact_scattering/vacuum.py": "f5082807f836a7a3b5dcc1033831f848c8f875084559a620de0157b263ebb66c"
+      },
+      "remaining": [
+        "A source-supported ground-vacuum representation and a uniform continuum many-body stability construction. The specified additive reflected empty-Fock clock is excluded as a ground-vacuum construction; its fixed-N self-adjointness and finite-spacing linear stability are proved. The finite limit mu>=gamma^2/2 is necessary only for an added number shift.",
+        "A relativistic 3+1 continuum with the required massive/massless sectors, physical gauge/charge/spin and observed species. The identified quadratic pair branch is excluded from an exact Lorentz shell under any fixed nonsingular affine dictionary; other branches and constructions are outside that exclusion.",
+        "A full momentum-space continuum wave-operator embedding, many-body asymptotic completeness and native scattering detector construction.",
+        "A source-selected gamma and compatible same-source responsive Einstein geometry."
+      ]
+    }
+  ],
+  "composition_boundary": {
+    "automatic_cross_domain_join": false,
+    "common_state_reference_constructed": false,
+    "common_clock_and_refinement_constructed": false,
+    "distinct_domains": [
+      "adaptive_sweep_reference",
+      "one_particle_search",
+      "bipartite_spin_limit",
+      "finite_modular_inclusion",
+      "finite_area_response",
+      "moving_contact_scattering"
+    ],
+    "reason": "The native total-two CQ reference, original one-particle CAR sector, half-filled strong-coupling sector, interacting Gibbs plaquette, reciprocal scalar geometry and moving two-body scattering have different carriers, states or clocks. There is no established common state/reference/clock/refinement across all six domains. The moving bound/scattering join holds within its own stated packet; it does not join the other domains into an interacting relativistic matter/gravity theory."
+  },
+  "quantifier_boundary": "The bounded component campaign includes an analytic infinite-lattice one-particle exclusion, a volume-independent dressed fixed-spacing spin dynamics limit and a uniform nonrelativistic two-body scattering limit. Its organizational scope does not restrict those proofs to finite numerical extrapolation. The new source-specific all-number clock and entropy-stationarity obstructions retain their stated comparator and tangent domains; no many-body relativistic or common matter/gravity limit is established."
+}

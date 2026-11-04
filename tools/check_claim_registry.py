@@ -417,6 +417,19 @@ def check_claim_views(root: Path) -> None:
     )
 
 
+def check_readme_pair(root: Path) -> None:
+    """Both READMEs carry the same top-level heading count."""
+    english = (root / "README.md").read_text(encoding="utf-8")
+    french = (root / "README_FR.md").read_text(encoding="utf-8")
+    english_headings = [line for line in english.splitlines() if line.startswith("## ")]
+    french_headings = [line for line in french.splitlines() if line.startswith("## ")]
+    require(
+        len(english_headings) == len(french_headings),
+        "README.md and README_FR.md top-level heading counts differ: "
+        f"{len(english_headings)} and {len(french_headings)}",
+    )
+
+
 def check_standalone_papers(root: Path) -> None:
     for folder in ["paper", "extra"]:
         for path in (root / folder).glob("*.tex"):
@@ -953,6 +966,7 @@ def main(root: Path = ROOT) -> None:
     # itself; synthetic fixture registries exercise the structural gates above.
     if root.resolve() == ROOT.resolve():
         check_claim_views(root)
+        check_readme_pair(root)
 
     gated = [claim for claim in claims if claim["gates"]]
     gate_count = len({gate for claim in gated for gate in claim["gates"]})

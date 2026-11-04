@@ -24,6 +24,7 @@ physical universe has been reconstructed.
 | [`registers/`](registers/) | Generated V3 registers and ledgers |
 | [`research/`](research/) | Research notes, each verified by a code lane |
 | [`policies/`](policies/) | Data, hardware-evidence and writing policies |
+| [`EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md`](EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md) | Program-class V2 proposal bound to the completion registry, marked `PROPOSED_FOR_INDEPENDENT_REVIEW` |
 
 ## Rules for this directory
 

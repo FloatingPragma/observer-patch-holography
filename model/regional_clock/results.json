@@ -61,7 +61,7 @@
       },
       "exact_source_address_abort_probability_upper": "1/1000000000000000000000000",
       "numeric_error_is_physical_precision": false,
-      "numeric_full512_Frobenius_diagnostic": 4.767950081572736e-12,
+      "numeric_full512_Frobenius_diagnostic": 3.646095910645331e-12,
       "ports": [
         1,
         7
@@ -113,7 +113,7 @@
       },
       "exact_source_address_abort_probability_upper": "1/1000000000000000000000000",
       "numeric_error_is_physical_precision": false,
-      "numeric_full512_Frobenius_diagnostic": 4.973293333317658e-12,
+      "numeric_full512_Frobenius_diagnostic": 3.751619389201822e-12,
       "ports": [
         1,
         2
@@ -146,7 +146,7 @@
   "source_sha256": {
     "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
-    "model/completion/program_class_v2.json": "4cf9925b4971d7cc421f80f001d6117ddf1cdc7b74e854f3c488bca35b573610",
+    "model/completion/program_class_v2.json": "39b69adc20947cfd0e14801cb62b92a95bc5881e7cceab08ae58e933ab829fda",
     "model/local_repair_family/record_clock_results.json": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
     "model/native_program/members.py": "311dc18d0af0ea41fc330cf6652cbc5f48dba57eb3696e0bca8352a84e8663f3",
     "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
@@ -155,8 +155,8 @@
     "model/regional_clock/actuator.py": "93a80519bef5ae4e1e27e74ab8a09eb23309b1dd568c6f149903bd014dbfd74c",
     "model/regional_clock/contract.json": "c95a7a6971ae510537dc8754ea76a56ea22a92c56ed93ab221dc4d3c80118bfb",
     "model/regional_clock/independent.py": "d2454fec7e8b3433eebe6b5a2c3fd7b2bca998d98142a4a15d1a46da68648423",
-    "model/regional_clock/test_regional_clock.py": "fcc535706d23451cd0f798d42c4dc974ba9b0348c634ebb122b7162ee92bb3b4",
-    "model/regional_clock/verify.py": "b9cbbd7f40934f9ec5fff54daab4f4058d397de591a65eb1e4d4158d2f98be14"
+    "model/regional_clock/test_regional_clock.py": "d1118d8110c00751178cd06cf0d8af2f67a17d5f85a242d38eb2e50e9a8ffdb7",
+    "model/regional_clock/verify.py": "07862ddf012af7384605be6a31ad02aa3b17ac52f666fc8ea952ab9189c024b8"
   },
   "status": "SOURCE_BOUND_REGIONAL_CLOCK_IMPLEMENTED",
   "task": "OPH\u2013ARITHMON\u2013REGIONAL-CLOCK-IMPLEMENTATION-0",

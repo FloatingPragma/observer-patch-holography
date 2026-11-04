@@ -1,6 +1,7 @@
 import ObserverPatchHolography.EinsteinBranch.Consensus
 import ObserverPatchHolography.EinsteinBranch.Entropy
 import ObserverPatchHolography.EinsteinBranch.SmallBall
+import ObserverPatchHolography.EinsteinBranch.QuantitativeSmallBall
 import ObserverPatchHolography.EinsteinBranch.Tensor
 import ObserverPatchHolography.EinsteinBranch.Manifest
 import ObserverPatchHolography.EinsteinBranch.Composition

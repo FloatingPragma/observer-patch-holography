@@ -1,0 +1,206 @@
+{
+  "schema": "oph.dynamics_response_campaign.v1",
+  "campaign_id": "OPH-DYNAMICS-RESPONSE-CLOSURE-2026-11-04",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "canonical_premises_discharged": [],
+  "integrated_gate_accepted": false,
+  "common_interacting_QFT_and_Einstein_model": false,
+  "selected_issues": [
+    1138,
+    1142,
+    1143,
+    1144,
+    1145
+  ],
+  "objective": "Construct continuing positive-rate native repair of interacting spin dynamics, actual source ground and thermal reference limits, complete moving-scattering readout, and same-source finite geometry/energy/entropy response.",
+  "specification_readout_allowed": true,
+  "specification_policy": "Simulator, observer, scheduler, repair and memory implementations are admitted readable specifications. Their effective consequences require proof on the specified states, algebras, operations, clocks and refinement maps.",
+  "component_results": [
+    {
+      "id": "reciprocal_area_dynamics",
+      "attachment": "FA-116",
+      "issues": [
+        1144,
+        1145
+      ],
+      "result": "The actual reciprocal law has a source-derived exact scalar area equation with a=0.63916680624..., k0=0.02170170003...>0 and explicit matter-input forcing. Outward rational Gram pivots prove the minimal memory dimension14 and15 visible nonconstant relaxation modes; reversibility and a two-step minorization place all memory poles in (0,16383/16384) and bound all tails. The same eliminated populations reconstruct source energy and bath heat. Conditional Gibbs states uniquely minimize free energy at each expected area. Their actual conditional energies derive eta in (0.578,0.579) and S(sigma_p)+eta<A>=constant-D_Bernoulli(p||p_equilibrium), giving a strict constrained fixed-volume maximum. On arbitrary full states the exact identity retains E_ex=E-[(1-p)e0+p e1], yielding DeltaS+etaDeltaA-betaDeltaE_ex=DeltaS-betaQ>=0, including the quantum energy-dephasing relative entropy. Both native laws have an exact involution on all512 outcomes, 128 accepted and384 self-reversing rejected/noop records, and full path likelihood ratio exp(-beta Q). The derived coefficient is a two-geometry thermal energy-to-area conversion, not a universal Newton scale. These relaxational finite results do not instantiate regional G4 or Einstein dynamics.",
+      "interface": {
+        "state": "The complete sixteen-state Gibbs reference of the unchanged reciprocal scalar source at r=9/10,11/10, three cutoff-two oscillators, native angular band six and beta=1/sqrt14. Arbitrary initial quantum states enter the complete energy readout; conditional Gibbs states are variational minimizers at fixed geometry probability, without asserting invariance of that manifold.",
+        "algebra": "Complete sixteen-dimensional source carrier, full energy/geometry readout, both full eight-state conditional field blocks, all64 cross-geometry edges and all512 native proposal/bath outcomes for each C/E law. Independent original action metric has volume1 and two-face area2/r. Area and source Hamiltonian energy are measured on this same family.",
+        "operation": "Repeated applications of the original reciprocal transition with its original Hamiltonians, bath gaps and energy readout; all rejects and tapes retained, subsequent updates ignore the tape. Exact conditional thermal variational identity, an exact projected area recurrence with fourteen matter-memory directions, reconstruction of energy and heat, and full-record reversal/entropy-production identities. Declared fresh baths/readout/pulse control remain supplied services; no full reservoir controller execution is claimed.",
+        "clock": "One unchanged collision update is one discrete count. All source energies and beta use the common model-coordinate clock; lapse r gives d tau=r dt and beta_proper=r beta. No physical duration per collision, common proper temperature, or laboratory calibration is inferred.",
+        "refinement": "Every finite update count with explicit uniform relaxation and memory-tail bounds on the same fixed16-state model. No spatial or small-ball refinement, thermodynamic limit, common Weyl/contact reference, or continuum gravity limit."
+      },
+      "remaining": [
+        "Common spatial refinement, local conserved stress tensor and regional modular/entropy/area law on one accepted interacting matter/geometry source.",
+        "A derived edge/area density, universal positive Newton normalization, sufficient joint metric/state variation directions and regional generalized-entropy stationarity.",
+        "Complete native reservoir-bank/controller execution and errors, repeated fresh thermal preparation, pulse-controller work and memory costs, with calibrated observer clocks.",
+        "Identification of the conditional thermal family or another admissible regional family with the Einstein variation domain; the actual finite transition does not preserve the conditional Gibbs manifold.",
+        "Common massive/massless interacting continuum, responsive Einstein evolution, and physical observation/parameter identification."
+      ],
+      "evidence": {
+        "model/reciprocal_area_dynamics/README.md": "02153fbbafa51d2c26db6b7d1ea7ecbd0e12982655c17e6511b978acb20d84a4",
+        "model/reciprocal_area_dynamics/DERIVATION.md": "9dbd1bca4ea128e4d0fab011b4d82b13d4dd07ff5f56ca2d98dd33b8df112518",
+        "model/reciprocal_area_dynamics/bounds.py": "929c7b973647f8be337b586e78585d382978cbffc25e4a64977f8c458d28178b",
+        "model/reciprocal_area_dynamics/records.py": "0be685387dbd52acf2131e8bad35b467cdf9d1d2baf4595a279247ad0b6dbdbd",
+        "model/reciprocal_area_dynamics/dynamics.py": "cbc41059cffb2091ce17e19f4c8bc4d0f94edb07274125d93c4fd4f946c037fd",
+        "model/reciprocal_area_dynamics/packet.py": "d4916caef91aed5c3b073299695164fcd9c77cdffe50ec28006ed5c75b658908",
+        "model/reciprocal_area_dynamics/test_dynamics.py": "4f5bdcc17deff3bd37e01d61a28f8569bc879c5b2fd61b642e010a2ce906a48b",
+        "model/reciprocal_area_dynamics/results.json": "52ed330f9f1687ee65f8e4def31bc15ecf2a9a7caba6f5e7003bb035f4551f69",
+        "model/reciprocal_area_dynamics/__init__.py": "51e7e8b087c4d8f6bf9974379cbf5b9f15fae6c6649cf73aa3897979c22b352a",
+        "model/reciprocal_area_dynamics/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74"
+      }
+    },
+    {
+      "id": "scattering_packet_readout",
+      "attachment": "FA-117",
+      "issues": [
+        1142,
+        1143
+      ],
+      "result": "An actual finite complete source instrument reads the nontrivial moving two-body scattering phase. At a=1/65536 the continuum phase error is 2101/32768, and the normalized packet has limiting imaginary phase at most -49/50. Seven complete-dilation errors at most 1/100 give valid-Y-plus probability at most 183597/1638400<1/8; the same prepared/read free counterfactual has probability at least 43/100. The complete recorded laws are separated by more than 3/10 on this event. Two thousand independent complete histories per law suffice for simultaneous 1/20 probability error with failure below 1/1000. A separate actual five-qubit native control retains all 32 quantum rows, six pointer labels and every first export failure, using 6309 interacting and 5125 free pulses; independent exact literal-port certificates bound its complete-isometry error below 1e-8. This finite control is distinct from the fine-spacing packet theorem.",
+      "interface": {
+        "state": "An explicit normalized incoming two-fermion free-source packet, defined through the actual contact spectral density on all eight upper-edge valleys, |P_j|<=1 and 3/4<=s<=5/4. Its energy profile is sqrt(3003/512)*(1-16*(s-1)^2)^3 and its total-momentum profile is the product of sqrt(3003/2048)*(1-P_j^2)^3. The full physical CAR carrier is retained. No many-body ground reference is selected.",
+        "algebra": "The complete two-particle Weyl/contact algebra and its complete finite-box Fock realization, with a blank Ramsey pointer, signed native Pauli controls, proper-code exports and all pointer/abort outcomes. The packet is defined by free functional calculus; its preparation does not encode the interacting scattering phase.",
+        "operation": "Original H=H0+U D with c=sqrt(3)/a^2 and 1/U=a^2 W0/2-a^3/pi. A finite source echo exp(-iH0 T)exp(+2iH T)exp(-iH0 T) is implemented with complete signed integrated-port words, followed by Pauli-Y readout. The free counterfactual deletes the interaction with the identical preparation and readout. No analytic S gate is supplied, and no passive background drift or repair is inserted into the admitted sequential-port interface.",
+        "clock": "The same declared global J=6/a^2-H and J0=6/a^2-H0 as FA115. Their scalar phases cancel from the finite echo. Positive physical execution steps with signed source commands implement inverse words; passive time reversal, laboratory calibration and a common proper-time clock are not inferred.",
+        "refinement": "0<a<=1/65536 with gamma=1. A holomorphic contour proof on |s-1|<=1/2 and complex lattice-momentum disks supplies actual density/phase derivatives. Both Cook tails are bounded by 160000000/(a^3 T); normalized packet truncation by 40000000/(a^5 R); finite-box error by 2^(2-L) for L>=288T/a^2. An explicit rational schedule assigns seven errors<=1/100, with computable native pulse counts and dyadic port precision. The enormous fine-spacing circuit is not numerically or physically executed."
+      },
+      "remaining": [
+        "Execution and practical resource reduction of the enormous fine-spacing native packet circuit; the theorem supplies an explicit finite schedule, not such an execution.",
+        "A common source-supported positive-energy many-body vacuum and uniform continuum many-body stability; the FA115 additive empty-Fock obstruction is unchanged.",
+        "A relativistic interacting 3+1 theory with the required massive/massless sectors, physical charges/Lorentz spin and measured species; gamma=1 is a declared family choice.",
+        "A common stress, regional entropy and responsive Einstein geometry identification; no gravity or full completion gate is accepted."
+      ],
+      "evidence": {
+        "model/scattering_packet_readout/PROOF.md": "a9e514bb6a0d451c82723a5284305a424b8e125bed633191a1302f82e76f56ae",
+        "model/scattering_packet_readout/README.md": "ea43f1ddbd5e9718e9ec50fc388739ea12269bed5c8a03b42d94a26b6922f406",
+        "model/scattering_packet_readout/__init__.py": "c36e0b51fe6c38271c2713cd14109397a126ede899ba19765ebffb114c319d81",
+        "model/scattering_packet_readout/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/scattering_packet_readout/bounds.py": "eff01757263c9cd9d5fac418c1c325117df04681f8da8653890ba8c63649eee4",
+        "model/scattering_packet_readout/diagnostic.py": "82b831db6f6f060521ebf2eccf881e2eaa0ff6d30538384a0cd1623de5fe678c",
+        "model/scattering_packet_readout/native.py": "8c081eb757ab76c54780c8797eb06f383d99f7e48af782b0768cce256e890f3d",
+        "model/scattering_packet_readout/packet.py": "4c94cc26c8431d919e46ca36c8aa731f306fd25c93bfdbc00633f328a242561d",
+        "model/scattering_packet_readout/results.json": "f3517e8baadd31b7c74b23c99805a728fd932b7ace5e3d2edfd7aa044c1e96fd",
+        "model/scattering_packet_readout/test_bounds.py": "23690fabb7d8f6452f54c675c6dfb1fa57c682455e325603089856d604a31287",
+        "model/scattering_packet_readout/test_contour.py": "e82d9ea902003224aa36923e94202b46f84be098988fab84500ceebebb446112",
+        "model/scattering_packet_readout/test_cook.py": "533a0362ef8c3420a3ce4aee4bf16dd4600503bacafb245d0aef6931b02bccae",
+        "model/scattering_packet_readout/test_native.py": "aa307eb6b5d87beaecec4548c6680072dd2df1f2c83c59a00994fd75f18b0819",
+        "model/scattering_packet_readout/test_packet.py": "62b35874ebfe49303a03311fde20de97a722b60d7b73d4ff2ceb3550d2639dcb"
+      }
+    },
+    {
+      "id": "native_repair_spin_limit",
+      "attachment": "FA-118",
+      "issues": [
+        1138,
+        1142
+      ],
+      "result": "Every native repair branch conserves N=sum_x(n_x-1)^2. Continuing homogeneous repair gives sqrt(q)<=((36+1000 Gamma T)c/nu)+sqrt(e_plus/nu), with dressed onsite charge probability O(c^-2). Spin propagation then proves a volume-independent local interacting Heisenberg limit at fixed positive repair rate on every edge, including complete local records and bare readouts on explicit faithful full-source inputs. Source faithfulness persists at finite volume and time without postselection.",
+      "interface": {
+        "state": "Full onsite CAR carrier on periodic cubic tori with side lengths multiples of four. The initial source marginal is period-two invariant and has bounded positive energy density. Arbitrary untouched reference correlations are allowed. Inputs include bare protected spin states, explicit faithful full-source mixtures, symmetry-averaged actual source grounds and fixed-temperature Gibbs states; repair selection of these states is not asserted.",
+        "algebra": "Even unital charge-times-spin algebra on the complete Fock carrier, local spin readouts tensored with the full finite-edge/time archive and untouched reference. Every occupation sector, repair outcome and virtual charge state is retained.",
+        "operation": "Original complete C or E repair, with one fixed law and homogeneous independent Poisson rate Gamma>0 on every edge, interleaved with the signed cubic source Hamiltonian. Exact branch defect conservation, local energy control, five derived local averaging transformations and spin propagation bounds. Complete observed coin/raw/time records use the matching coherent |+> coin or explicit common dephasing to a classical fair coin. No arbitrary record feedback.",
+        "clock": "Original source time, J=c^2/U fixed, U=c^2/J. Gamma is fixed positive in this clock. Any common positive clock rescaling preserves the diverging penalty/exchange coefficient ratio nu/J=c^2/(2J^2); this is not an exact many-body charged-gap identification.",
+        "refinement": "U/2>=2^20(144c), fixed lattice spacing, no volume bound. The local joint error is O(c^-1) at fixed time, and vanishes on T=O(c^alpha), 0<=alpha<1/6, with diverging observed event counts when alpha>0. Thermodynamic comparison uses local readouts and finite archive cylinder laws."
+      },
+      "remaining": [
+        "A physical spatial refinement with a sharp relativistic shell and surviving connected interaction, including simultaneous finite massive charged and massless sectors in one clock.",
+        "A derived state-selection rule and any claimed finite-c stationary reference under native repair; the explicit faithful mixture is generally nonstationary and the arbitrary-reference comparison uses its own positive spin pullback.",
+        "Feedback-complete histories, global infinite-archive trace norms, physical species identification and a same-source regional stress/area/Einstein law are outside this theorem."
+      ],
+      "evidence": {
+        "model/native_repair_spin_limit/PROOF.md": "ebb710b0e429ccf8b2bcb83ab296515c4fdc01215c966b5429bb0ed2e2068e79",
+        "model/native_repair_spin_limit/README.md": "29e5de8459580246a8ab921942fc663cffc54768e7e17fcbf62aff7db238b90f",
+        "model/native_repair_spin_limit/__init__.py": "b6ea8871a0b970f58df4dde17d02fb9fc0ccdff0c7b662ffb0972cbe765dd544",
+        "model/native_repair_spin_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/native_repair_spin_limit/algebra.py": "9ca7e41bc43f357a691c227163a22f7aaa9014cac6130aa15be93d639c6162d1",
+        "model/native_repair_spin_limit/bounds.py": "bf78655e68f8d4a1f99084f840f0cf15a4075de219ed984310fefae7797a6d96",
+        "model/native_repair_spin_limit/packet.py": "8337c4ce004038afacb66cabe26771de82d03c63b67554655260a9e0bf9ace60",
+        "model/native_repair_spin_limit/results.json": "8b610dea5ec4776be3532a9afd937c1a38d58ff7ceec70fc2de124444b55fa35",
+        "model/native_repair_spin_limit/test_algebra.py": "f3c4968b1a4d6b381c062346a24b0a17d532f3995b400d9bacf820bf28e6c6ee",
+        "model/native_repair_spin_limit/test_bounds.py": "739f0b27ef28248bd4c9d3f3e64098c65bed3e4159ba7dcc23a16b00050503d1",
+        "model/native_repair_spin_limit/test_dynamics.py": "b0bf93d89379d76deb3cc01b037e83e320a807b624f5ac55985628057c0dafb4",
+        "model/native_repair_spin_limit/test_packet.py": "948b56cccb9292eb2fc6df86d76968150a6e08dcd4739ec9684f9f2548cfa915"
+      }
+    },
+    {
+      "id": "spin_reference_limit",
+      "attachment": "FA-119",
+      "issues": [
+        1138,
+        1142
+      ],
+      "result": "Actual symmetry-averaged source grounds have defect density O(c^-2), and their unconditional dressed spin marginals satisfy the local Heisenberg ground inequality with O(c^-1) error uniformly in volume. Any joint weak local limit along receding tori and c tending to infinity is a ground state of the interacting spin dynamics. Actual source Gibbs inputs have energy density below 2/beta, a faithful full carrier and an exact nontrivial modular clock. Their spin marginal free-energy defect is at most V[2eta+r+4Bp+h(p)/beta], with an explicit rational O(c^-1) coefficient independent of volume. The same bound proves uniform pressure convergence and finite-volume thermal spin trace convergence. It does not identify a unique thermodynamic phase or infer an infinite-volume KMS condition from relative entropy density alone.",
+      "interface": {
+        "state": "Exact ground density matrices averaged under translations by two sites, or faithful full Gibbs states exp(-beta G)/Z at fixed beta>0, on the complete 4^V centered-source carrier. The spin state is the unconditional charge partial trace of Y rho Y*, with no P postselection. Ground and thermal state selection are specified input rules.",
+        "algebra": "The even unital onsite spin embedding I_charge tensor M2 on all four occupation states, with Q=(n-1)^2 and the same connected local source interactions; source-ground comparison permits parity-preserving pair number changes on charged blocks.",
+        "operation": "Five exact local integer-penalty transformations; source energy inequalities control the complete charged weight; local quadratic ground forms and Gibbs variational identities compare actual source references with the interacting Heisenberg source. No native thermal preparation or stationary finite-c repair Gibbs law is assumed executed.",
+        "clock": "The centered source Hamiltonian G and fixed source beta give the exact full finite modular identity sigma_s=tau_G^(-beta*s). The effective spin generator uses J=c^2/U in that source time. No physical temperature or gravitational proper time is calibrated.",
+        "refinement": "Periodic cubic boxes with each side a positive multiple of four, at least four; period-two invariant source marginals. nu=U/2>=2^20(144c), U=c^2/J with fixed J>0 and c tending to infinity. Local ground and pressure bounds are independent of volume; finite thermal trace convergence retains its explicit square-root-volume factor. Fixed spatial lattice spacing."
+      },
+      "remaining": [
+        "A derived ground or thermal state-selection rule and complete source preparation/resource accounting, including its relation to the continuing finite-c repair law.",
+        "An infinite-volume thermal KMS identification or phase selection with appropriate local convergence; relative entropy density is insufficient by itself.",
+        "A common spacetime continuum, physical clock and simultaneous interacting massive and massless particle sectors.",
+        "Source-selected physical particles and responsive regional Einstein dynamics with the required common state and stress tensor."
+      ],
+      "evidence": {
+        "model/spin_reference_limit/PROOF.md": "82768824169657dd3daed6e61c0df9830673427400e6c6318b0b3a6e508ef706",
+        "model/spin_reference_limit/README.md": "0cc92e5e35fcfcabb700ed5236d8fd9f99791cf4d845054f0350338318d7be6b",
+        "model/spin_reference_limit/__init__.py": "5e4f3bae2286f49abc19a8497d721dc6cf1ae77fda0726342094968bf232316e",
+        "model/spin_reference_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/spin_reference_limit/algebra.py": "1d187a9b8850fff1cdd2c338ec2f9cbb41be85574cf0ed0bce85c43fa4bc2a94",
+        "model/spin_reference_limit/bounds.py": "d981114fa8d39326d464fc6bcb37c277dd44f5bccca759384670736e4508567a",
+        "model/spin_reference_limit/packet.py": "953d940660189ff2e6a2d95041427bc3f4415acebc33886c332fa8c38e3bb18a",
+        "model/spin_reference_limit/results.json": "8d897e1d135bb0b1f5aa644a3bb7561c1e062f20b95990bf5d4f2fce80f6a583",
+        "model/spin_reference_limit/test_reference.py": "f0adc0ebc3b32a9e288ebba7ba8880a2699670f3d0ba4e2c7e17705c8d09e37b"
+      }
+    }
+  ],
+  "composition_boundary": {
+    "automatic_cross_domain_join": false,
+    "common_state_reference_constructed": false,
+    "common_clock_and_refinement_constructed": false,
+    "distinct_domains": [
+      "reciprocal_area_dynamics",
+      "scattering_packet_readout",
+      "native_repair_spin_limit",
+      "spin_reference_limit"
+    ],
+    "reason": "The repulsive strong-coupling spin reference/repair family has the explicitly stated internal join below. The dilute moving-scattering detector uses a different sector and scaling, and the reciprocal scalar geometry uses a finite thermal carrier and bath clock. No common state, source parameters, spatial refinement or stress/entropy geometry map joins all four into an interacting relativistic matter and Einstein model."
+  },
+  "shared_source_joins": [
+    {
+      "id": "source_reference_to_continuing_spin_repair",
+      "attachments": [
+        "FA-119",
+        "FA-118"
+      ],
+      "proved_on_stated_domain": true,
+      "shared_unconditional_rotated_spin_pullback": true,
+      "ground_and_thermal_selection_are_supplied_inputs": true,
+      "finite_volume_thermal_comparison": true,
+      "arbitrary_correlated_reference_Gibbs_replacement": false,
+      "finite_c_thermal_repair_stationarity": false,
+      "source": "The same centered full-Fock cubic Hamiltonian G, period-two invariant marginals, sides divisible by four, U=c^2/J and nu>=2^20(144c), at fixed lattice spacing.",
+      "thermal_input": "The actual full Gibbs input has e(0)<=2/beta. Both constructions use the same unconditional spin pullback of Y rho Y*, with no P postselection.",
+      "observable_domain": "Unit-norm final local spin observable jointly with a complete finite-edge Poisson/coin/raw archive. The thermal Gibbs replacement controls this system/archive output and initially independent spectators; it does not replace arbitrary correlated spin-reference inputs by a product Gibbs reference.",
+      "thermal_error": "E_quantum+E_record+sqrt(2 beta V epsilon_FA119); add 8sB/nu for a bare final readout. No initial-dressing term: both constructions compare the same rotated-spin pullback.",
+      "quantum_error": "2^18 s T (1+3072 J T)^3 Delta_T",
+      "archive_error": "Gamma |F| T (8 p_T+64 B/nu)",
+      "ground_input": "Symmetry-averaged actual source grounds have e(0)<=0. Their weak local spin limits are Heisenberg ground states and hence stationary for the limiting local spin evolution.",
+      "thermal_limit": "At fixed finite volume the Gibbs spin marginal converges to gamma_beta, stationary for the spin Hamiltonian, with independent ideal Poisson/coin/raw-zero records. Coherent coin records retain |+>; explicitly dephased records have the fair classical law.",
+      "infinite_volume_thermal_KMS_or_unique_phase_proved": false,
+      "intervention_complete_multitime_stationarity_proved": false,
+      "full_QFT_or_Einstein_composition": false,
+      "proof_sources": [
+        "model/spin_reference_limit/PROOF.md",
+        "model/native_repair_spin_limit/PROOF.md"
+      ]
+    }
+  ],
+  "quantifier_boundary": "Finite-component campaign is an ownership classification. Its local spin bounds are uniform in volume and support the stated infinite-lattice ground limits; its finite source detector bounds and reciprocal memory identities retain their own exact quantifiers. No relativistic many-body continuum or common Einstein construction is inferred."
+}

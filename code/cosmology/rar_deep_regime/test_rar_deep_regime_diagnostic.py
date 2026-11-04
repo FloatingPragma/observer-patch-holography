@@ -55,11 +55,35 @@ def test_deep_cut_is_fixed_before_fitting() -> None:
     assert fit["n_points"] == 2
 
 
+def assert_receipt_matches(receipt, fresh, path="receipt"):
+    """Compare a committed receipt with a fresh run at reproducible precision.
+
+    Structure, integer counts, booleans, labels and digests must match exactly.
+    The fitted parameters come from a two-parameter least-squares solve whose
+    objective is flat at binary64 precision, so a one-ulp change in an input
+    moves them by up to a few 1e-7 relative and exact float equality is not a
+    reproducible contract.
+    """
+    assert type(receipt) is type(fresh), path
+    if isinstance(receipt, dict):
+        assert set(receipt) == set(fresh), path
+        for key in receipt:
+            assert_receipt_matches(receipt[key], fresh[key], f"{path}.{key}")
+    elif isinstance(receipt, list):
+        assert len(receipt) == len(fresh), path
+        for index, (left, right) in enumerate(zip(receipt, fresh, strict=True)):
+            assert_receipt_matches(left, right, f"{path}[{index}]")
+    elif isinstance(receipt, float):
+        assert receipt == pytest.approx(fresh, rel=1e-6, abs=1e-9), path
+    else:
+        assert receipt == fresh, path
+
+
 def test_committed_receipt_matches_code() -> None:
     path = HERE / "receipts" / "sparc_deep_regime_diagnostic.json"
     receipt = json.loads(path.read_text(encoding="utf-8"))
     fresh = rar.run()
-    assert receipt == fresh
+    assert_receipt_matches(receipt, fresh)
     assert receipt["schema"].endswith(".v2")
     assert receipt["physical_claim"] is False
     assert receipt["source_derived_output"] is False

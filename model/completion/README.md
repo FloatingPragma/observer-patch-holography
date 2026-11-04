@@ -1,15 +1,28 @@
 # First bounded completion campaign
 
+The [conditional Standard Model derivation](../conditional_standard_model/README.md)
+connects the finite gauge, matter and family theorems to the Higgs mass action,
+its calibrated spectrum and the conditions for a protected-defect interpretation.
+
+For the same finite radial source's interacting excitations, regional entropy
+and complete geometric readout, see [the shared source construction](RADIAL_SOURCE.md).
+For interacting charged poles, exact lattice defect zeros and matter-responsive
+native geometry, see [the source-specific construction](DEFECT_GEOMETRY.md).
 For the current continuum spin fields, native joint spectroscopy and finite
 entropy/stress limits, see [the integrated construction summary](CONTINUUM_FIELD_AND_ENTROPY.md).
 The [mass and energy table](PARTICLE_MASS_TABLE.md) links the certified spectral
 readouts and states which physical identifications remain open.
+The [radial excitation catalogue](../../code/particles/RADIAL_EXCITATION_CATALOGUE.md)
+separates localized kernel states, finite interacting charged poles and exterior
+bulk packets. The [exterior dispersion theorem](../source_mass_shell/README.md)
+gives explicit packet errors and conditional conversion to physical units.
 The contract below retains the scope of the original bounded campaign.
 
 28 October 2026. This directory advances CP-00, CP-01, CP-13, CP-02 and
 CP-03 under the [completion program](../../docs/COMPLETION_PROGRAM.md).
 It keeps the existing native source, C and E controls, and retained evidence.
-No integrated completion gate or physical comparison is accepted here.
+This bounded campaign accepts no integrated gate; the directory retains the
+accepted CP-00, CP-01 and CP-13 evidence.
 
 The [versioned campaign contract](campaign.json) fixes the first **finite
 component family**. The full program boundary remains unfrozen: a carrier

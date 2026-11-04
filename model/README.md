@@ -7,6 +7,17 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
+The [winding search](winding_sector_search/README.md) derives the full-valley
+index of supplied higher-degree textures and retains 28 complete finite
+spectra. The [Majorana bridge](majorana_defect_bridge/README.md) joins the
+same native currents to neutrino mass terms, constrains conserved defect
+charges and reconstructs the excluded fixed-repair Yukawa spectrum.
+[Radial readout with drift](radial_drift_readout/README.md) bounds complete
+records under the uncompensated Hamiltonian. The
+[Higgs curvature calculation](higgs_curvature_response/README.md) derives
+the corresponding stress and generalized-volume variation. These results
+do not select nature's couplings or identify physical defect particles.
+
 The [current construction summary](completion/CONTINUUM_FIELD_AND_ENTROPY.md)
 joins the finite gap and spectrum, native preparation and readout, gapless
 canonical spin fields, and free-source Weyl stress/modular responses.
@@ -186,8 +197,8 @@ constructions against shared spatial and metric contracts. Its
 state which theorem inputs are constructed and which physical identifications
 remain separate.
 
-The [operational triplet-attachment audit](../docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md)
-checks native preparation, continuing instruments, bare-cap clocks and full
+The [operational triplet-attachment result](../docs/research/MARKED_TRIPLET_OPERATIONAL_ATTACHMENT_AUDIT.md)
+covers native preparation, continuing instruments, bare-cap clocks and full
 state tomography. The six-level source compiler and its proper-code services
 implement native controls, and current readout attaches the native load
 history to the spatial slow quotient. These capabilities do not supply a

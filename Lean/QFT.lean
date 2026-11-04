@@ -66,6 +66,7 @@ import QFT.LatticeMomentumBalance
 import QFT.PeriodicMomentum
 import QFT.ContinuingReference
 import QFT.AdaptiveReference
+import QFT.FiniteModularInclusion
 import QFT.DiluteMomentumWard
 
 /-!

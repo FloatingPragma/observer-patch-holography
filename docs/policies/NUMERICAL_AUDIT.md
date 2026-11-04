@@ -5,23 +5,33 @@ audit, #1033](https://github.com/FloatingPragma/observer-patch-holography/issues
 A passing test suite records execution on one tree. It does not establish
 the accuracy, domain or scientific interpretation of the calculation.
 
-## Lessons from the October 2026 reviews
+## Failure modes this procedure guards against
 
-The maintainer found defects after the author's audits and passing CI:
+Each failure mode below has a retained regression in the code package that
+owns the calculation.
 
-| Review | Missed failure | Required independent check |
-| --- | --- | --- |
-| [#1048](https://github.com/FloatingPragma/observer-patch-holography/pull/1048#pullrequestreview-5423083959) | Subnormal Gibbs populations were rounded before conversion to exact fractions. Variance and entropy derivative were both wrong by 75% while their ratio was correct. | Compute each response component from the original supplied parameters using a separate scalar partition function. Cross population precision boundaries at ordinary and rescaled observable units. |
-| [#1049](https://github.com/FloatingPragma/observer-patch-holography/pull/1049#pullrequestreview-5423084144) | Structural symbolic equality rejected an ordinary full-rank complex Markov state whose exact support residual was zero. Real examples and many existing tests missed it. | Compare operators in a canonical exact domain. Exercise complex conditional products, singular supports, nearby non-Markov states and genuine support escape through the public consumers. |
-| [#1052](https://github.com/FloatingPragma/observer-patch-holography/pull/1052#pullrequestreview-5439504720) | Correct Petz support refusal aborted a valid count-to-CMI run before its acquired evidence was saved. Default circuit selection hid the separate seed-1 failure. | Save acquired evidence before analysis; test recognized partial results and unexpected errors through serialization, including a nondefault valid circuit. |
+- Rounded subnormal populations. Converting Gibbs populations to exact
+  fractions only after rounding leaves the variance and the entropy derivative
+  each wrong by 75 percent while their ratio stays correct. Compute every
+  response component from the original supplied parameters with a separate
+  scalar partition function, and cross population precision boundaries at
+  ordinary and rescaled observable units. The regression is
+  [`test_gibbs_population_response.py`](../../code/quantum_information/test_gibbs_population_response.py).
+- Structural equality on complex Markov states. A symbolic equality test
+  rejects an ordinary full-rank state whose exact support residual is zero.
+  Compare operators in a canonical exact domain, and exercise complex
+  conditional products, singular supports, nearby non-Markov states and
+  support escape through the public consumers. The regression is
+  [`test_complex_markov_support.py`](../../code/quantum_information/test_complex_markov_support.py).
+- Evidence discarded on a valid refusal. A correct support refusal aborts a
+  valid count-to-CMI run before its acquired evidence is saved, and a default
+  circuit selection hides a separate seed failure. Save acquired evidence
+  before analysis, and test recognized partial results and unexpected errors
+  through serialization, including a nondefault valid circuit.
 
-The retained reproductions are
-[`test_gibbs_population_response.py`](../../code/quantum_information/test_gibbs_population_response.py)
-in #1048 and
-[`test_complex_markov_support.py`](https://github.com/MarioPoneder/observer-patch-holography/blob/ca79333e2420ee0d4c04dfc366ba87257112a0e8/code/quantum_information/test_complex_markov_support.py)
-in #1049. The first repair explicitly refuses insufficient population precision; it
-does not claim to evaluate that regime. The second preserves valid complex
-states and rejects actual support violations.
+The population guard refuses insufficient precision rather than evaluating that
+regime. The support guard preserves valid complex states and rejects actual
+support violations.
 
 ## Before changing the implementation
 

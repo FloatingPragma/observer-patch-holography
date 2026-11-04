@@ -371,6 +371,35 @@ REPLAYS = (
     ("model.native_program.receipt", None, "model/native_program/results.json"),
     ("model.particle_screening.mobile_packet", None,
      "model/particle_screening/mobile_results.json"),
+    ("model.adaptive_sweep_reference", None, "model/adaptive_sweep_reference/results.json"),
+    ("model.one_particle_search", None, "model/one_particle_search/results.json"),
+    ("model.bipartite_spin_limit", None, "model/bipartite_spin_limit/results.json"),
+    ("model.finite_modular_inclusion", None, "model/finite_modular_inclusion/results.json"),
+    ("model.finite_area_response", None, "model/finite_area_response/results.json"),
+    ("model.moving_contact_scattering", None, "model/moving_contact_scattering/results.json"),
+    ("model.reciprocal_area_dynamics", None, "model/reciprocal_area_dynamics/results.json"),
+    ("model.scattering_packet_readout", None, "model/scattering_packet_readout/results.json"),
+    ("model.native_repair_spin_limit", None, "model/native_repair_spin_limit/results.json"),
+    ("model.spin_reference_limit", None, "model/spin_reference_limit/results.json"),
+    ("model.topological_defect_spectrum", None, "model/topological_defect_spectrum/results.json"),
+    ("model.spin_texture_energy", None, "model/spin_texture_energy/results.json"),
+    ("model.matched_einstein_limit", None, "model/matched_einstein_limit/results.json"),
+    ("model.defect_core_response", None, "model/defect_core_response/results.json"),
+    ("model.bounded_defect_index", None, "model/bounded_defect_index/results.json"),
+    ("model.native_odd_box_core", None, "model/native_odd_box_core/results.json"),
+    ("model.matter_geometry_response", None, "model/matter_geometry_response/results.json"),
+    ("model.radial_defect_gap", None, "model/radial_defect_gap/results.json"),
+    ("model.radial_interacting_core", None, "model/radial_interacting_core/results.json"),
+    ("model.parity_entropy_response", None, "model/parity_entropy_response/results.json"),
+    ("model.radial_geometry_join", None, "model/radial_geometry_join/results.json"),
+    ("model.radial_reused_readout", None, "model/radial_reused_readout/results.json"),
+    ("model.source_mass_shell", None, "model/source_mass_shell/results.json"),
+    ("model.conditional_standard_model", None, "model/conditional_standard_model/results.json"),
+    ("model.winding_sector_search", None, "model/winding_sector_search/results.json"),
+    ("model.radial_drift_readout", None, "model/radial_drift_readout/results.json"),
+    ("model.majorana_defect_bridge", None, "model/majorana_defect_bridge/results.json"),
+    ("model.higgs_curvature_response", None, "model/higgs_curvature_response/results.json"),
+    ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 
 
@@ -495,6 +524,13 @@ def verify_receipt_source_bindings(digests=None):
         walk(strict_json.loads(raw.decode("utf-8")), receipt)
 
 
+# Non-artifact files that legitimately sit inside a packet: the manifest that
+# binds it, repository/VCS metadata, and interpreter caches. Every other file
+# must be bound by the packet manifest, whatever its suffix.
+PACKET_METADATA = frozenset({"manifest.json", ".gitattributes", ".gitignore"})
+PACKET_CACHE_DIRS = frozenset({"__pycache__", ".pytest_cache"})
+
+
 def verify_artifacts():
     covered = set()
     digests = {}
@@ -515,10 +551,11 @@ def verify_artifacts():
             digests[target] = actual
     for name in PACKETS:
         for target in (ROOT / name).rglob("*"):
-            if (target.is_file() and (target.suffix in {".py", ".md", ".json"}
-                                      or target.name.endswith(".json.gz"))
-                    and target.name != "manifest.json"
-                    and target.resolve() not in covered):
+            if not target.is_file() or target.name in PACKET_METADATA:
+                continue
+            if PACKET_CACHE_DIRS.intersection(target.relative_to(ROOT / name).parts):
+                continue
+            if target.resolve() not in covered:
                 raise ValueError(f"Unbound artifact: {target.relative_to(ROOT)}")
     verify_receipt_source_bindings(digests)
     return len(covered)

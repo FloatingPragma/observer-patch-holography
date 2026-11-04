@@ -32,6 +32,11 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from particles.artifact_paths import portable_json_dumps
+from particles.neutrino.kernel_validation import (
+    defect_weights,
+    normalized_response,
+    validated_symmetric_kernel,
+)
 DEFAULT_SECTOR = ROOT / "particles" / "runs" / "flavor" / "sector_transport_pushforward.json"
 DEFAULT_SCALE_ANCHOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_scale_anchor.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "family_response_tensor.json"
@@ -43,6 +48,28 @@ def _timestamp() -> str:
 
 def _load_json(path: pathlib.Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+# u_vector is a unit vector and e_nu is the kernel normalized to unit diagonal,
+# so a real collective mode overlaps it at order one (the committed anchor
+# gives 1.061872133120721). An overlap inside this band means the collective
+# direction is absent, or the kernel is indefinite; dividing by it would
+# manufacture an arbitrary c_nu_hat, so the builder refuses instead.
+COLLECTIVE_OVERLAP_FLOOR = 1.0e-15
+
+
+def _collective_overlap(e_nu: np.ndarray, u_vector: np.ndarray) -> float:
+    overlap = float(u_vector.T @ e_nu @ u_vector)
+    if not np.isfinite(overlap):
+        raise ValueError(f"collective-mode overlap is not finite: {overlap!r}")
+    if abs(overlap) <= COLLECTIVE_OVERLAP_FLOOR:
+        raise ValueError(
+            "collective-mode overlap is degenerate: "
+            f"u^T e_nu u = {overlap!r} for a unit collective mode, so the "
+            "normalized family kernel has no collective direction; refusing to "
+            "substitute unit overlap"
+        )
+    return overlap
 
 
 def _gap_certificate(values: np.ndarray) -> dict[str, Any]:
@@ -101,20 +128,17 @@ def main() -> int:
         raise ValueError("sector_response_object['nu'] is required")
 
     directed = np.asarray(nu.get("K_core_directed", nu.get("K_core")), dtype=float)
-    k_sym = np.asarray(nu.get("K_core_majorana_sym", nu.get("K_core")), dtype=float)
-    if directed.shape != (3, 3) or k_sym.shape != (3, 3):
-        raise ValueError("neutrino sector kernels must be 3x3")
+    if directed.shape != (3, 3):
+        raise ValueError("neutrino directed kernel must be 3x3")
+    k_sym = validated_symmetric_kernel(nu.get("K_core_majorana_sym", nu.get("K_core")))
 
-    diag_entries = np.sqrt(np.clip(np.diag(k_sym), 1.0e-15, None))
-    inv_diag = np.diag([1.0 / value for value in diag_entries])
-    e_nu = inv_diag @ k_sym @ inv_diag
-    s_nu = -np.log(np.clip(e_nu, 1.0e-15, None))
+    diag_entries = np.sqrt(np.diagonal(k_sym))
+    e_nu = normalized_response(k_sym)
+    s_nu = defect_weights(e_nu)
 
     u_vector = np.asarray(scale_anchor_payload["collective_mode"]["u_vector"], dtype=float)
     u_projector = np.asarray(scale_anchor_payload["collective_mode"]["u_uT"], dtype=float)
-    collective_overlap = float(u_vector.T @ e_nu @ u_vector)
-    if abs(collective_overlap) <= 1.0e-15:
-        collective_overlap = 1.0
+    collective_overlap = _collective_overlap(e_nu, u_vector)
     c_nu_hat_real = e_nu / collective_overlap
     delta_nu = c_nu_hat_real - u_projector
     eigvals = np.linalg.eigvalsh(c_nu_hat_real)
