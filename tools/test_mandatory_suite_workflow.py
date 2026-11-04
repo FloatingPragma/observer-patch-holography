@@ -62,6 +62,10 @@ ADDITIONAL_EVIDENCE_TESTS = (
     "evidence/observer_dynamics_20260925/sim-analysis/tests/test_codex_scale_ensemble.py",
     "evidence/source_net_causal_poset/manifold_sampled/tests/test_exact_source_net_manifold_sampled.py",
     "evidence/source_net_causal_poset/manifold_sampled/tests/test_retained_receipt_mutations.py",
+    "code/a5_closure/tests/test_galois_port_frame_certificate.py",
+    "code/a5_closure/tests/test_galois_source_response_pins.py",
+    "code/a5_closure/tests/test_port_support_source_audit.py",
+    "code/a5_closure/tests/test_port_gram_support_attachment.py",
 )
 
 # Bounded but heavy: the eight-test tower replay takes about a minute, so it runs

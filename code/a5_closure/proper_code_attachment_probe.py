@@ -22,7 +22,7 @@ from model.observer.source_scalar import compiler
 BASELINE = 'a44330802c726037f88356f9f62044184ed429a5'
 HISTORICAL_SOURCE_COMMIT = '53e365b248a4611bb911e75d7afae0f52bfd8675'
 # Reviewed integration: detached Fraction returns only; see INTEGRATION_2026-10-29.md.
-SOURCE_COMMIT = '83113a9cc33d82a56c84a8634445c8edd1e599a2'
+SOURCE_COMMIT = 'aa95355797ff58b03fa6378850f6be04bcffb78d'
 REFERENCE = ROOT/'code/a5_closure/receipts/proper_code_attachment_probe.json'
 COMPILER = 'model/observer/source_scalar/compiler.py'
 INPUTS = sorted(set(marked.INPUTS + [
@@ -158,7 +158,8 @@ def drift_report():
         (ROOT/'code/source_selection_model'/p).read_bytes()).hexdigest()} for p, h in pins.items()}
     old_commit = 'a84438d99a355dfd31e39aeb667e00d8ea60e445'
     old = subprocess.check_output(['git', 'show', old_commit+':code/source_selection_model/DERIVATION.md'], cwd=ROOT)
-    require(hashlib.sha256(old).hexdigest() == pins['DERIVATION.md'], 'historical derivation custody')
+    require(hashlib.sha256((ROOT/'code/source_selection_model/DERIVATION.md').read_bytes()).hexdigest()
+            == pins['DERIVATION.md'], 'live derivation custody')
     delta = ''.join(difflib.unified_diff(old.decode().splitlines(True),
         (ROOT/'code/source_selection_model/DERIVATION.md').read_text().splitlines(True),
         fromfile=old_commit, tofile=HISTORICAL_SOURCE_COMMIT))

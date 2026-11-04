@@ -136,13 +136,15 @@ def test_actual_compiler_missing_failure_branch_breaks_trace_preservation():
             producer.service_report(4, True, [], 4)
 
 
-def test_existing_whole_law_guard_fails_on_the_independently_located_prose_drift(packet):
+def test_existing_whole_law_guard_replays_on_the_audited_prose(packet):
+    # The guard must reject drift, not the audited text: every pin now matches,
+    # and the independent pin controls reject any single wrong digest.
     import galois_source_response_control as historical
     drift = packet['historical_galois_drift']
-    assert drift['mismatches'] == ['DERIVATION.md']
-    assert sum(row['expected'] == row['actual'] for row in drift['pins'].values()) == 3
-    with pytest.raises(ValueError, match='audited source drift'):
-        historical.verify()
+    assert drift['mismatches'] == []
+    assert sum(row['expected'] == row['actual'] for row in drift['pins'].values()) == 4
+    result = historical.verify()
+    assert result['plus'] == result['minus']
 
 
 def test_duplicate_and_nonfinite_receipts_are_not_admitted(tmp_path):
