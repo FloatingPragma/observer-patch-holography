@@ -46,7 +46,7 @@
     },
     "parents": {
       "claims/claim_registry.yaml": "b01928d669fd705bd5464d0f7a672e328c3d26e9047f4d99db8685071d965fe4",
-      "claims/completion_program.json": "52690bf2041ba7a7c491fef7fc51e6b68063af23f269037fe7b5acad21cb038e",
+      "claims/completion_program.json": "2c1fe61c04fefc9a4b929198c16944e853a4def626b88b38f20f01a82a4c9ac0",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
     },
@@ -55,13 +55,13 @@
         "independent_check": "model/completion/independent_program_review.py",
         "path": "model/completion/program_class_v2_review.json",
         "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-        "sha256": "ac80e3aac0bd740aaa8ac712c438a7e35c9e7adf3a88c05eebdbf722c1374321"
+        "sha256": "c476bc19d03d36158399e7a12a020667178456ed774763863d30f15a71e33ed4"
       },
       "adopted_class": {
         "independent_check": "model/completion/test_program_class_v2.py",
         "path": "model/completion/program_class_v2.json",
         "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-        "sha256": "25739dfd2951196aebcf87294204eb4a6d57652be11bf96cf84bc9523671c745"
+        "sha256": "39b69adc20947cfd0e14801cb62b92a95bc5881e7cceab08ae58e933ab829fda"
       },
       "boundary_status": "FROZEN",
       "component_campaigns": [
@@ -432,7 +432,7 @@
             "independent_check": "model/compiled_native_history/test_compiler.py",
             "path": "model/completion/component_interfaces.json",
             "scope": "Complete native-history evaluation, common-reference observations and conservation bounds, full-Fock interacting lattice dynamics, and same-pair gauge/current/residue attachment. Physical action, clock, vacuum and chiral-continuum joins remain explicit. Original-complex exchange certificates, both-character GNS bounds, local complete-history budgets, rational support chain maps and bounded source-prepared interacting Gibbs references have separate explicit domains. Bounded compiled faithful-reference recovery, complete-field charged response and same-pole contact interactions retain their separate reference and clock domains. Exact finite mass-attachment exclusion and actual-data replay add zero eligible physical comparisons.",
-            "sha256": "c99a65bad44c9c14aa34f2c28e8b5d8c3aaac2e1bf7df8f2a046edffd81e5f10"
+            "sha256": "3cd70752628de907c73c4695bef884b23eaa7ce3af075916645f20e54bd549e7"
           },
           "id": "OPH-COMMON-FIELD-INTERFACES-v1",
           "scope": "FINITE_COMPONENT_FAMILY",
@@ -1059,6 +1059,25 @@
             "CP-09"
           ],
           "whole_program_frozen": false
+        },
+        {
+          "contract": {
+            "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+            "independent_check": "model/completion/test_defect_selection_campaign.py",
+            "path": "model/completion/defect_selection_campaign.json",
+            "scope": "Constrain defect and mass assignments on the full source; close specified finite drift, Majorana-current and Higgs-curvature interfaces without inferring physical selection from them.",
+            "sha256": "cdd87d8899960b77b7bd0d8bb7e0e857b948a2ae67ba9b60aee93d3eedeba981"
+          },
+          "id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+          "scope": "FINITE_COMPONENT_FAMILY",
+          "supports": [
+            "CP-03",
+            "CP-05",
+            "CP-06",
+            "CP-07",
+            "CP-09"
+          ],
+          "whole_program_frozen": false
         }
       ],
       "continuing_issues": {
@@ -1661,7 +1680,7 @@
             "independent_check": "model/completion/test_finite_attachment_map.py",
             "path": "model/completion/finite_attachment_map.json",
             "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-            "sha256": "5af9fa9daae80d91d964c4fc847412667dc4e80c5816a4540861efe82d6ed0d7"
+            "sha256": "47f1ccd337c0b7703f53834001caa6d08cb014a22cb086f52630574b9f03b046"
           },
           {
             "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -2668,13 +2687,13 @@
               "independent_check": "model/completion/test_program_class_v2.py",
               "path": "model/completion/program_class_v2.json",
               "scope": "Reviewed successor executable class with actual native/program interfaces, resource ceilings, all71retrospective observations, physical targets, calibration/error/exposure and stop/version rules. No physical prediction or class exclusion is claimed.",
-              "sha256": "25739dfd2951196aebcf87294204eb4a6d57652be11bf96cf84bc9523671c745"
+              "sha256": "39b69adc20947cfd0e14801cb62b92a95bc5881e7cceab08ae58e933ab829fda"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "ac80e3aac0bd740aaa8ac712c438a7e35c9e7adf3a88c05eebdbf722c1374321"
+              "sha256": "c476bc19d03d36158399e7a12a020667178456ed774763863d30f15a71e33ed4"
             }
           ],
           "deliverable": "A versioned, content-bound class of admissible carrier/refinement, repair and memory laws, record instruments, resources, preparations, clocks and interpretation maps; one target and exposure record fixed before validation.",
@@ -2768,7 +2787,7 @@
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "ac80e3aac0bd740aaa8ac712c438a7e35c9e7adf3a88c05eebdbf722c1374321"
+              "sha256": "c476bc19d03d36158399e7a12a020667178456ed774763863d30f15a71e33ed4"
             }
           ],
           "deliverable": "One replayable native repair/memory process that prepares, acts, reads, retains records and continues on overlapping accessible regions, with every service and failure branch accounted.",
@@ -3020,14 +3039,14 @@
             {
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
-              "scope": "Complete 84-premise ownership/relevance review, 132 inspected attachments with 127 realized scoped instances. Explicit finite source joins and every canonical physical discharge status are preserved.",
-              "sha256": "5af9fa9daae80d91d964c4fc847412667dc4e80c5816a4540861efe82d6ed0d7"
+              "scope": "Complete84-premise ownership and136 reviewed domains, including131 realized scoped attachments. Canonical physical discharge and gate statuses are unchanged.",
+              "sha256": "47f1ccd337c0b7703f53834001caa6d08cb014a22cb086f52630574b9f03b046"
             },
             {
               "independent_check": "model/completion/independent_program_review.py",
               "path": "model/completion/program_class_v2_review.json",
               "scope": "Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.",
-              "sha256": "ac80e3aac0bd740aaa8ac712c438a7e35c9e7adf3a88c05eebdbf722c1374321"
+              "sha256": "c476bc19d03d36158399e7a12a020667178456ed774763863d30f15a71e33ed4"
             }
           ],
           "deliverable": "A theorem-to-model integration and relevance review in the existing premise map: each result needed by the completion chain has an owning gate and an explicit model-premise proof obligation; irrelevant branches leave the active path.",
@@ -3372,7 +3391,7 @@
               "independent_check": "model/completion/test_finite_attachment_map.py",
               "path": "model/completion/finite_attachment_map.json",
               "scope": "Exhaustive ownership and relevance navigation for the existing 84-premise register, with source-bound finite model attachments and explicit unresolved construction/acceptance joins. It is not a new audit of every Lean module or discharge of global physical premises.",
-              "sha256": "5af9fa9daae80d91d964c4fc847412667dc4e80c5816a4540861efe82d6ed0d7"
+              "sha256": "47f1ccd337c0b7703f53834001caa6d08cb014a22cb086f52630574b9f03b046"
             },
             {
               "campaign_id": "OPH-SAME-ACTION-PARTICLE-PREMISES-2026-10-29-v1",
@@ -4309,7 +4328,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "b74d2ddd11cc4b80d03cc548046b8c5a63fbe14a4e0b2e5cb0ec421e188e7f66"
+              "sha256": "bcd9ee871e2a2112e5cb0e78cdf2681295c07f1f693ba8dc820a5c8fc15c4e79"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -4578,6 +4597,22 @@
               "path": "model/radial_geometry_join/results.json",
               "scope": "For the same full interacting bounded radial source, the actual ground has <D0> at most188263256928/480690783803197 and each charged singlet at least its complement. Source particle-hole symmetry equates both charged parity and geometry responses. The actual local contact-energy contrast is positive. A complete forty-pulse native instrument gives p1=1/50+(24/25)<D0>; its unread channel multiplies parity coherences by7/25 and injects exactly -(18/25)<H_star> field energy. The same recorded scheduler produces theta=(3/25)(1-2<D0>) and the source rank-three Gram. Its actual ground-versus-charged G01 contrast is greater than59/1000, with rational lower bound approximately0.05996058. The exact complete control bound, including146 first-failure slots and nine coin words, is below1e-9 in half trace distance, with all79872 native load histories retained. A specified finite sampling protocol yields an inferred ideal Gram contrast above0.04899996 with at least99 percent joint confidence.",
               "sha256": "2a1dc54685873eb412bec5fe5892d2eb820ce9473f2a2330a9c646725501c266"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "winding_sector_search",
+              "independent_check": "model/winding_sector_search/test_search.py",
+              "path": "model/winding_sector_search/results.json",
+              "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately\u00b10.165782 and\u00b10.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+              "sha256": "bf98de64871eaac4fb91262a9c2cc66d8f8942f1b4a7fcd7d2c2d0f9fda4a6c2"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "radial_drift_readout",
+              "independent_check": "model/radial_drift_readout/test_drift.py",
+              "path": "model/radial_drift_readout/results.json",
+              "scope": "The actual source has ||Hstar||=||[H,D0]||=sqrt6*v/a and ||Hstar+W0||^2=6v^2/a^2+U^2/16. Duhamel and complete-instrument contraction give half-diamond error at most N*delta+T*sqrt6*v/a for interleaved events, andN*delta+T*sqrt(6v^2/a^2+U^2/16) for the stated timed local realization. The comparison includes its final remote-source unitary and is not a frozen global field. At the supplied 27-site source andT=1e-6, all 32-round failures scored, ground-versus-either-charged error is below 0.000395133 and 1/2500. Exact full-CAR norms, unchanged timed native commands and independent full 64-state drift controls are retained. Actual records differ from the frozen latent-parity mixture.",
+              "sha256": "f477cce5099b5d0b810893afe38937d925140c4a6bf91ea84daa5bbcf2245858"
             }
           ],
           "requires": [
@@ -4892,7 +4927,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "b74d2ddd11cc4b80d03cc548046b8c5a63fbe14a4e0b2e5cb0ec421e188e7f66"
+              "sha256": "bcd9ee871e2a2112e5cb0e78cdf2681295c07f1f693ba8dc820a5c8fc15c4e79"
             },
             {
               "campaign_id": "OPH-FIELD-SYMMETRY-2026-10-31",
@@ -5151,7 +5186,7 @@
               "independent_check": "model/charged_dynamics/test_packet.py",
               "path": "model/charged_dynamics/results.json",
               "scope": "Unchanged uniform four-site Weyl/contact action on all 256 Fock states: exact full-path charged-band isolation, residue-derived hopping, physical charge/current, full coupled-ground response and complete T=4 source histories. Polar dressing has small physical charge contrast; native passive/topological protection, a physical clock and electron/positron identity are not established.",
-              "sha256": "b74d2ddd11cc4b80d03cc548046b8c5a63fbe14a4e0b2e5cb0ec421e188e7f66"
+              "sha256": "bcd9ee871e2a2112e5cb0e78cdf2681295c07f1f693ba8dc820a5c8fc15c4e79"
             },
             {
               "campaign_id": "native-many-particle-statistics-20261031-v1",
@@ -5243,6 +5278,22 @@
               "path": "model/local_exchange_charge/results.json",
               "scope": "The existing protected ordered-cover charge has a local qutrit realization with exactly reference-matched initial exterior and a nonzero exchange-charge expectation conserved by the complete native instrument with all histories retained. Each individual branch preserves the sharp exchange-charge sectors; its spatial contrast follows the actual pair transport kernel and has exact regional/exterior trace distances, including the separately retained split-pair correlations. For a k-port core, deterministic core-local preparation from the tracial reference with an independent blank and sector-preserving endpoint can create at most binomial(k,2)/66 absolute charge, attained by the compact extremal perturbation. Every globally sharp Q state has exterior distance at least binomial(12-k,2)/132, without fixing its occupation marginal; the uniform sharp state attains the bound. Global conservation therefore does not imply a sharply localized or permanently bound particle.",
               "sha256": "23948a1f43f1daa88c4fc0f470e1570dc5cdb5dacff214d501d902ecfdd7261e"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "radial_drift_readout",
+              "independent_check": "model/radial_drift_readout/test_drift.py",
+              "path": "model/radial_drift_readout/results.json",
+              "scope": "The actual source has ||Hstar||=||[H,D0]||=sqrt6*v/a and ||Hstar+W0||^2=6v^2/a^2+U^2/16. Duhamel and complete-instrument contraction give half-diamond error at most N*delta+T*sqrt6*v/a for interleaved events, andN*delta+T*sqrt(6v^2/a^2+U^2/16) for the stated timed local realization. The comparison includes its final remote-source unitary and is not a frozen global field. At the supplied 27-site source andT=1e-6, all 32-round failures scored, ground-versus-either-charged error is below 0.000395133 and 1/2500. Exact full-CAR norms, unchanged timed native commands and independent full 64-state drift controls are retained. Actual records differ from the frozen latent-parity mixture.",
+              "sha256": "f477cce5099b5d0b810893afe38937d925140c4a6bf91ea84daa5bbcf2245858"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "majorana_defect_bridge",
+              "independent_check": "model/majorana_defect_bridge/test_native.py",
+              "path": "model/majorana_defect_bridge/results.json",
+              "scope": "The native current equations select one LH invariant line. Its symmetric family lift joins the same complete K45/Delta90 action and gives E_i(p)^2=|p|^2+((w/w0)^2*m_i)^2, with all zero and repeated masses retained. The calibrated instance has K45 rank44 and one massless neutrino. Exact PMNS support bounds justify a connected graph. Definite additive Majorana charges then obey 2N=0; the all-positive branch has Z^2 plus Z2, or Z plus Z6 with the optional three-generation process. Excluding a zero-mass neutrino forces N=0 throughout the connected graph, giving Z^2 or Z plus Z3. The concrete nonempirical fixed-repair readout reconstructs identical charged Y, CKM=I and kappa=0; its ratios fail both retained charged-lepton comparison windows.",
+              "sha256": "8c1ed3c9a08306ccc77412943d2b1ad9116a63836b58a0c552efdd4a423b91f2"
             }
           ],
           "requires": [
@@ -5888,6 +5939,14 @@
               "path": "model/source_mass_shell/results.json",
               "scope": "The exact period-two source has E_a,s,\u00b1(p)=\u00b1sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E\u00b2-v\u00b2|p|\u00b2=m\u00b2 with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
               "sha256": "e9060478ab3dcdb6dcd2baef57f6ed4189919b04986e53222402157cdfea65e0"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "majorana_defect_bridge",
+              "independent_check": "model/majorana_defect_bridge/test_native.py",
+              "path": "model/majorana_defect_bridge/results.json",
+              "scope": "The native current equations select one LH invariant line. Its symmetric family lift joins the same complete K45/Delta90 action and gives E_i(p)^2=|p|^2+((w/w0)^2*m_i)^2, with all zero and repeated masses retained. The calibrated instance has K45 rank44 and one massless neutrino. Exact PMNS support bounds justify a connected graph. Definite additive Majorana charges then obey 2N=0; the all-positive branch has Z^2 plus Z2, or Z plus Z6 with the optional three-generation process. Excluding a zero-mass neutrino forces N=0 throughout the connected graph, giving Z^2 or Z plus Z3. The concrete nonempirical fixed-repair readout reconstructs identical charged Y, CKM=I and kappa=0; its ratios fail both retained charged-lepton comparison windows.",
+              "sha256": "8c1ed3c9a08306ccc77412943d2b1ad9116a63836b58a0c552efdd4a423b91f2"
             }
           ],
           "requires": [
@@ -6453,6 +6512,22 @@
               "path": "model/source_mass_shell/results.json",
               "scope": "The exact period-two source has E_a,s,\u00b1(p)=\u00b1sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E\u00b2-v\u00b2|p|\u00b2=m\u00b2 with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
               "sha256": "e9060478ab3dcdb6dcd2baef57f6ed4189919b04986e53222402157cdfea65e0"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "winding_sector_search",
+              "independent_check": "model/winding_sector_search/test_search.py",
+              "path": "model/winding_sector_search/results.json",
+              "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately\u00b10.165782 and\u00b10.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+              "sha256": "bf98de64871eaac4fb91262a9c2cc66d8f8942f1b4a7fcd7d2c2d0f9fda4a6c2"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "majorana_defect_bridge",
+              "independent_check": "model/majorana_defect_bridge/test_native.py",
+              "path": "model/majorana_defect_bridge/results.json",
+              "scope": "The native current equations select one LH invariant line. Its symmetric family lift joins the same complete K45/Delta90 action and gives E_i(p)^2=|p|^2+((w/w0)^2*m_i)^2, with all zero and repeated masses retained. The calibrated instance has K45 rank44 and one massless neutrino. Exact PMNS support bounds justify a connected graph. Definite additive Majorana charges then obey 2N=0; the all-positive branch has Z^2 plus Z2, or Z plus Z6 with the optional three-generation process. Excluding a zero-mass neutrino forces N=0 throughout the connected graph, giving Z^2 or Z plus Z3. The concrete nonempirical fixed-repair readout reconstructs identical charged Y, CKM=I and kappa=0; its ratios fail both retained charged-lepton comparison windows.",
+              "sha256": "8c1ed3c9a08306ccc77412943d2b1ad9116a63836b58a0c552efdd4a423b91f2"
             }
           ],
           "requires": [
@@ -7052,6 +7127,14 @@
               "path": "model/parity_entropy_response/results.json",
               "scope": "The actual interacting radial ground has central parity at least 23489309429/68579205003925>1/4096, so its complete central M4 reduction is faithful although its full-Fock state is not. A stationary faithful family of the same H realizes every q in [1/4,3/4], with d<E_H>/dq=g/(n_C-n_G)>0. Its local modular generator is scalar+log((1-q)/q)D0, implemented by eight native pulses with complete complement outputs and rational error bounds. Exact regional entropy obeys DeltaS=kappa_r Deltaq-D_Bernoulli, with 2(Deltaq)^2<=D<=8(Deltaq)^2/3, and the same q sets theta=3(1-2q)/25. The region uniquely maximizes entropy at fixed parity/native bias. Complete committed-record entropy is H(B)-I(R:B)+9log2, and same-H Gibbs readout work satisfies beta W-DeltaS=D(Phi gamma||gamma). These are finite source entropy/response results, without an area-law or Einstein premise substitution.",
               "sha256": "feb8a773d831c388c4128e4b7bcc853b32b575d191bce2a71508d28c61c4a6eb"
+            },
+            {
+              "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04",
+              "id": "higgs_curvature_response",
+              "independent_check": "model/higgs_curvature_response/test_balls.py",
+              "path": "model/higgs_curvature_response/results.json",
+              "scope": "For the retained Higgs norm coupled through F(X)R, metric variation gives 2F G_ab+2(g_ab box-nabla_a nabla_b)F=T_min,ab and the same curvature derivative gives Wald coefficient4pi F. Its generalized volume W=integral(3F-Fstar)/(2Fstar)dV has the uniquely forced scalar coefficient3/(2Fstar). At a flat constant-F reference, deltaS_W-(8pi Fstar/ell)deltaW=-2pi C_ell[2Fstar deltaG_uu-2Delta_3 deltaF]+R_ell, C_ell=4pi ell^4/15, with the explicit fourth-derivative bound. Ordinary proper volume instead retains an ell^2 deltaF(0) term and Laplacian coefficient5 rather than2. Consequently a same-state bulk first law and fixed-W stationarity, if separately supplied, yield the linearized scalar-tensor residual with a controlled error. The scalar stress is not declared separately conserved and no ordinary-volume Einstein premise is promoted.",
+              "sha256": "deb1aaf761b266bc9a64a47cc76e486bbff2b5d78a14908262523fbcb751ee8d"
             }
           ],
           "requires": [
