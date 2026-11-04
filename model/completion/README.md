@@ -1,5 +1,9 @@
 # First bounded completion campaign
 
+The [conditional Standard Model derivation](../conditional_standard_model/README.md)
+connects the finite gauge, matter and family theorems to the Higgs mass action,
+its calibrated spectrum and the conditions for a protected-defect interpretation.
+
 For the same finite radial source's interacting excitations, regional entropy
 and complete geometric readout, see [the shared source construction](RADIAL_SOURCE.md).
 For interacting charged poles, exact lattice defect zeros and matter-responsive
