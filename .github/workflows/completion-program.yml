@@ -19,6 +19,10 @@ on:
       - 'model/topological_defect_spectrum/**'
       - 'model/spin_texture_energy/**'
       - 'model/matched_einstein_limit/**'
+      - 'model/defect_core_response/**'
+      - 'model/bounded_defect_index/**'
+      - 'model/native_odd_box_core/**'
+      - 'model/matter_geometry_response/**'
       - 'Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean'
       - 'model/clock_defect_energy/**'
       - 'model/local_repair_family/**'
@@ -112,6 +116,10 @@ on:
       - 'model/topological_defect_spectrum/**'
       - 'model/spin_texture_energy/**'
       - 'model/matched_einstein_limit/**'
+      - 'model/defect_core_response/**'
+      - 'model/bounded_defect_index/**'
+      - 'model/native_odd_box_core/**'
+      - 'model/matter_geometry_response/**'
       - 'Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean'
       - 'model/clock_defect_energy/**'
       - 'model/local_repair_family/**'
@@ -216,6 +224,7 @@ jobs:
       - run: python -m model.completion.finite_attachment_map --check
       - run: python -m model.completion.dynamics_response_campaign --check
       - run: python -m model.completion.spectrum_einstein_campaign --check
+      - run: python -m model.completion.defect_geometry_campaign --check
 
   program-sectors:
     runs-on: ubuntu-latest

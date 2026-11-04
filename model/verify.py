@@ -384,6 +384,10 @@ REPLAYS = (
     ("model.topological_defect_spectrum", None, "model/topological_defect_spectrum/results.json"),
     ("model.spin_texture_energy", None, "model/spin_texture_energy/results.json"),
     ("model.matched_einstein_limit", None, "model/matched_einstein_limit/results.json"),
+    ("model.defect_core_response", None, "model/defect_core_response/results.json"),
+    ("model.bounded_defect_index", None, "model/bounded_defect_index/results.json"),
+    ("model.native_odd_box_core", None, "model/native_odd_box_core/results.json"),
+    ("model.matter_geometry_response", None, "model/matter_geometry_response/results.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 

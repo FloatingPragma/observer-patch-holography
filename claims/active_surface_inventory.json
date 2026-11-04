@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 952,
+  "surface_count": 961,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1821,6 +1821,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/bounded_defect_index/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/bounded_defect_index/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/calibrated_measurement/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2171,6 +2181,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/completion/DEFECT_GEOMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/DYNAMICS_RESPONSE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2317,6 +2332,16 @@
     },
     {
       "path": "model/dark_spectral_source/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_core_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_core_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2646,6 +2671,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/matter_geometry_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/matter_geometry_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/measurement_bounds/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2772,6 +2807,16 @@
     },
     {
       "path": "model/native_modular_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_odd_box_core/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_odd_box_core/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

@@ -1,5 +1,7 @@
 # First bounded completion campaign
 
+For interacting charged poles, exact lattice defect zeros and matter-responsive
+native geometry, see [the source-specific construction](DEFECT_GEOMETRY.md).
 For the current continuum spin fields, native joint spectroscopy and finite
 entropy/stress limits, see [the integrated construction summary](CONTINUUM_FIELD_AND_ENTROPY.md).
 The [mass and energy table](PARTICLE_MASS_TABLE.md) links the certified spectral
