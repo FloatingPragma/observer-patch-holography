@@ -32,7 +32,7 @@ The eligible sources are:
   [Standard Model gauge paper](../paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf);
 - the exact gauge, charge, color, generation, and declared-action carrier
   claims in
-  [*Particles as Localized Topological Defects of Native Overlap Transport: Finite Theorems, a Native Decision Test and Mass Obstructions*](../paper/deriving_the_particle_zoo_from_observer_consistency.pdf);
+  [*Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator*](../paper/deriving_the_particle_zoo_from_observer_consistency.pdf);
 - the finite carrier and screen-sieve theorems in
   [*Twelve-Port Icosahedral Carriers and Native Seam Repair*](../paper/screen_microphysics_and_observer_synchronization.pdf);
 - the substrate-neutral

@@ -230,8 +230,17 @@ def test_flagship_uses_mixed_verification_and_declared_closure_map_status() -> N
     assert "conditional paper argument, numerical receipt, or explicit" in flagship
     assert "unproved premise" in flagship
     assert "come from the closure hypothesis directly" not in flagship
-    assert "Neither clears the source-only selection" in flagship
-    assert "the choice of map is itself declared" in flagship
+    # Compaction retains the mathematical and empirical boundaries without
+    # requiring the former historical comparison of two closure candidates.
+    assert "specify the history domain and the action of $T$" in flagship
+    assert "the identification of our universe with a fixed point" in flagship
+    assert "questions the equation leaves open" in flagship
+    assert "on the declared finite consensus branch the closure map" in flagship
+    assert "an affine idempotent whose fixed points are exactly the packets" in flagship
+    assert "supported on consensus normal forms" in flagship
+    assert "Declaring a primitive fixes the model under study" in flagship
+    assert "Its consequences require proofs, and its physical adequacy requires tests" in flagship
+    assert "a specified input must remain distinguishable from a consequence" in flagship
 
 
 def test_exact_courant_boundary_is_field_energy_not_potential_boundedness() -> None:
@@ -349,11 +358,11 @@ def test_thermodynamic_scope_separates_stationary_kernels_from_normalizers() -> 
 
 
 def test_wz_and_quark_surfaces_do_not_promote_declared_maps_or_close_future_routes() -> None:
-    particle = _text("paper/deriving_the_particle_zoo_from_observer_consistency.tex")
-    assert "They are conditional constructions: their discrete choices and some attachments have target ancestry." in particle
-    assert "Freezing them does not erase that ancestry." in particle
-    assert "Conditional on the registered source signature" in particle
-    assert "does not define a unique quark mass spectrum" in particle
+    particle = " ".join(_text("paper/deriving_the_particle_zoo_from_observer_consistency.tex").split())
+    assert "architecture has target-informed provenance" in particle
+    assert "conditional postdictions even when its execution reads no measured masses" in particle
+    assert "The quark exponents, scalar quartic, neutrino operator and physical flavor mixing are not determined" in particle
+    assert "Independent validation requires consequences not used to choose it" in particle
     quark = _claims()["OPH-QUARK-YUKAWA-TWO-MODULUS-NONIDENTIFIABILITY"]
     assert "current registered A1--A3 source signature" in quark["statement"]
     assert "not a machine proof of registry completeness" in quark["statement"]
@@ -390,16 +399,16 @@ def test_heat_kernel_formula_and_finite_diagnostics_keep_their_conditions() -> N
     assert "declared_finite_diagnostic_with_independent_controls_and_exact_S3_identity" in claim["status"]
     assert "no_frozen_receipt_or_continuous_group_transfer" in claim["status"]
     assert "code/edge_sectors/test_heat_kernel_regressions.py" in claim["evidence"]
-    assert "At \\(h=h_*\\), the relative log residual and log-ratio divide by zero" in paper
-    assert "strict held-out mismatch at every finite coupling" in paper
+    assert r"$h>(1+\sqrt3-\sqrt2)/24$" in paper
+    assert r"\frac{p_{\rm sign}}{p_{\rm std}^2/(4p_{\rm triv})}" in paper
     # The S3 identity is a proved finite counterexample to exact heat-kernel
     # weights, so no surface may state those weights as a law of the model.
     assert "The heat-kernel ansatz assigns the sector probabilities" in paper
     assert "the conditional ansatz assigns the probabilities" in paper
     assert "The sector probabilities follow a heat-kernel law" not in paper
     assert "samples do not transfer the law" not in paper
-    assert "transfers nothing to either continuous group" in paper
-    assert "with the fit overpredicting the sign sector" in paper
+    assert "retains the need for (EH-1) and (EH-2)" in paper
+    assert r"\left(\frac{z-1}{z}\right)^2<1" in paper
     dictionary = _text("claims/assumption_dictionary.md")
     assert "Gauge and spacetime paper shared finite-diagnostic fragment" not in dictionary
     assert "depart from the ansatz at every finite coupling" in dictionary
@@ -465,15 +474,14 @@ def test_field_subset_search_records_nonlumpability_and_keeps_other_maps_open() 
 
 
 def test_particle_exact_formulae_preserve_degeneracy_and_domain_boundaries() -> None:
-    # The neutrino deformation, Ward/Thomson and RG-transport charts left the
-    # particle paper with its electroweak and neutrino chart sections; the
-    # exact obstructions it keeps must retain their scope clauses.
-    particle = _text("paper/deriving_the_particle_zoo_from_observer_consistency.tex")
-    assert "distinguished calibrated positive gap vector" in particle
-    assert "It does not bound a smallest eigenvalue away from zero" in particle
-    assert "The bound is not a universal heavy-to-light bound" in particle
-    assert "a light eigenvalue near zero can make that single ratio arbitrarily large" in particle
-    assert "Neither becomes a rest mass by taking a logarithm" in particle
+    # Guard the actual compact construction, without requiring a survey of
+    # every separate mass prescription to be repeated in its main narrative.
+    particle = " ".join(_text("paper/deriving_the_particle_zoo_from_observer_consistency.tex").split())
+    assert "complete accounting of the displayed model's assignments, not a complete catalogue of nature" in particle
+    assert "cannot be removed to retain the zero-mode mass list" in particle
+    assert "the positive quartic coupling changes the spectral poles" in particle
+    assert "does not count or remove spatial regulator valleys or doublers" in particle
+    assert "no certified running-to-pole, confinement, or laboratory-clock map" in particle
 
 
 def test_yang_mills_legacy_gap_does_not_fake_the_missing_bridge() -> None:
@@ -506,18 +514,14 @@ def test_screen_variational_and_finite_descent_theorems_have_complete_hypotheses
 
 
 def test_particle_paper_states_the_defect_hypothesis_and_decision_scope() -> None:
-    # The affine event-record stitching section left the particle paper; the
-    # paper now leads with the defect hypothesis and the native decision test.
-    particle = _text("paper/deriving_the_particle_zoo_from_observer_consistency.tex")
-    assert "Stable massive matter is a localized defect of the native overlap and transport structure" in particle
-    assert "admitted local repairs cannot erase" in particle
-    assert "with one common signal speed" in particle
-    assert "No conversion factor is fitted per species" in particle
-    assert "survival is \\((5/6)^n\\)" in particle
-    assert "\\sum_hK_h^\\dagger P_{\\rm coll}K_h=\\frac56P_{\\rm coll}" in particle
-    assert "\\(31/108\\) or \\(55/108\\)" in particle
-    assert "They do not exclude other quantum, complete-history or federated defects" in particle
-    assert "1:195.11703757:3579.82624571" in particle
+    particle = " ".join(_text("paper/deriving_the_particle_zoo_from_observer_consistency.tex").split())
+    assert "Stable massive matter admits a localized excitation" in particle
+    assert "an invariant preserved by the admitted dynamics" in particle
+    assert "one energy and clock dictionary" in particle
+    assert "massless radiation need not carry a defect invariant" in particle
+    assert "Distinct protected winding numbers therefore cannot simply be assigned" in particle
+    assert "it is not an exclusion of other admitted OPH designs" in particle
+    assert "uniqueness among all possible simulator designs is not a prerequisite" in particle
 
 
 def test_consensus_confluence_is_quotient_not_representative_uniqueness() -> None:

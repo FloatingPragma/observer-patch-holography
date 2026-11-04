@@ -2,7 +2,6 @@
 
 \usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,tabularx}
@@ -44,86 +43,30 @@
 \end{center}
 
 \begin{abstract}
-Under a supplied universal coupling, the observer-patch Einstein adapter
-responds to total modular charge, including sources without electromagnetic
-readout. Two premises, deep-regime scale covariance and quadrature
-composition of independent sources, characterize a unique one-constant law
-\(a_A=\sqrt{a_ba_0}\) with flat rotation curves and \(v^4=GM_ba_0\), the
-deep limit of Milgrom's modified dynamics and the baryonic Tully--Fisher
-relation with \(a_0\) fitted; each premise is load-bearing, the scale
-covariance is the known symmetry of that deep limit, and the square root
-reads as the variance additivity of independent collar defects. Anomalous energy on
-overlap collars is the candidate dark source: under the collar-recovery and
-modular-stress attachment its stress is bounded by the recovery defect,
-vanishes at full recovery, and dilutes as \(a^{-3}\) when its comoving charge
-is conserved; a common exponential recovery envelope gives a quantitative
-compact-source saturation theorem, and the erasure-record model
-independently computes the optimal recovery defect as \((1-p)/2\). These
-structural results are machine-checked. A retrospective SPARC comparison on
-a matched 97-galaxy sample finds the two baryon-subtracted channels
-consistent with one fitted constant \(a_0\), while the fixed exponent \(4\)
-sits \(2.66\) standard deviations above the ordinary least-squares
-Tully--Fisher exponent of the seen sample. An independent replay of the
-empirical full radial-acceleration interpolation authenticates the
-153-galaxy parent selection and quantifies its weighting sensitivity.
+Under a supplied universal coupling, geometry responds to modular charge
+without regard to electromagnetic visibility. An overlap-collar recovery
+defect provides a conditional non-luminous source whose stress is bounded
+by that defect and vanishes at full recovery. A common exponential recovery
+envelope suppresses compact sources; an erasure-record model supplies an
+explicit defect law. For nonnegative anomalous mass, deep-regime scale
+covariance and quadrature composition uniquely give
+\(a_A=\sqrt{a_ba_0}\) and \(v^4=GM_ba_0\), with one undetermined
+constant. A per-cut model expresses it as \(a_0=Gn^2c\).
+These are conditional source and profile results, not a derivation of the
+physical cut density, variance or relativistic stress. Retrospective galaxy
+fits test the profile and reveal material weighting and covariance sensitivity.
+Lensing, cosmological abundance and perturbation dynamics require a common
+covariant completion.
+
 \end{abstract}
 
-\input{../paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-
-\section*{This paper's hypothesis and place in the tower}
-
-This paper sits at layer seven and develops the dark-sector branch. Its
-hypothesis is that dark matter is non-luminous modular charge: under
-universal coupling geometry responds to total modular charge, and the
-anomalous modular energy carried on overlap collars that local records fail
-to recover is the gravitating dark source, with a deep-regime profile fixed
-by scale covariance and quadrature composition of independent collar
-defects.
-
-The finite results are the classification theorems, the bounded source and
-its cold dilution, compact-source saturation under a common recovery
-envelope, the erasure-record defect law, the profile characterization, the
-per-cut dictionary \(a_0=Gn^2c\), and the deep radial-acceleration and
-Tully--Fisher identities. Each is an algebraic or analytic consequence of the
-premises named where it is stated and is checked in the Lean
-formalization~\cite{ophlean}. Universal coupling, the recovery envelope, the
-collar-scale premise and the two profile premises are structure fields or
-named hypotheses there; the rest-frame Einstein relation and the cap
-generator split are imported from the spacetime and screen
-layers~\cite{ophEinstein,ophmicro}.
-Every physical conclusion is therefore a conditional implication, and the
-acceleration constant \(a_0\) is a fitted comparison value.
-
-For the branch to apply, the executable model must produce from one native
-process a cap modular generator with a bulk/collar split, a physical clock
-and energy normalization in which the collar anomaly is stress in the same
-dictionary as matter, a responsive three-dimensional geometry whose
-galactic-scale settled cuts carry an order-one defect, the cut density \(n\)
-and per-cut variance \(c\), a relativistic stress for lensing, and the
-cosmological abundance. The executable observer~\cite{ophmodel} supplies
-none of these: its
-full configuration reference has a tracial limit with trivial modular flow,
-and its native continuum is a two-dimensional screen operator without a
-radial domain~\cite{ophtimefields,ophcontinuum}. The branch is refuted by a
-proof that admitted native repair recovers every collar, since full recovery
-switches the source off (Theorem~\ref{thm:off}); by a calibrated,
-prospectively frozen galaxy likelihood that excludes the square-root deep law
-with one common constant or its Tully--Fisher exponent \(4\); or by a source
-derivation of \(n^2c\) that returns an \(a_0\) outside the measured range.
-The frozen register FZ-01 retains an acceleration-scale target from a
-reserve-survival reading: the presence reading
-\(1.184737388\times10^{-10}\,\mathrm{m\,s^{-2}}\), with survival factor
-\(1-P/24\), and the Poisson reading
-\(1.179018696\times10^{-10}\,\mathrm{m\,s^{-2}}\), with \(e^{-P/24}\). Each
-reading is scored only against a held-out sub-percent determination of
-\(a_0\); SPARC and SPARC-derived recalibrations are ineligible, so the fits
-of Section~\ref{sec:data} do not score it, and no verdict is
-registered~\cite{ophladder}. The deep-regime characterization of this paper
-derives neither reading.
-
-\tableofcontents
 
 \section{What Sources Gravity in OPH}
+
+The finite classification, recovery and profile identities are checked under
+the stated hypotheses in the Lean formalization~\cite{ophlean}. Their physical
+identification is an additional premise throughout.
+
 
 The conditional Einstein arrow of the spacetime paper ends in
 \begin{equation}
@@ -166,44 +109,21 @@ The stress contraction entering the rest-frame Einstein relation equals
 \(Q_{\rm tot}\), with no readout-dependent weight.
 \end{premise}
 
-\begin{theorem}[Geometry responds to all modular charge]
-\label{thm:all-charge}
-Under Premise~\ref{pre:universal},
-\(\delta G_{00}=8\pi G\,(Q_{\rm lum}+Q_{\rm dark})\).
-\end{theorem}
-
-\begin{theorem}[The luminous-only relation]
-\label{thm:iff}
-Under Premise~\ref{pre:universal}, \(\delta G_{00}=8\pi G\,Q_{\rm lum}\)
-holds if and only if \(Q_{\rm dark}=0\).
-\end{theorem}
-
-\begin{corollary}[A geometric excess forces a dark source]
-\label{cor:excess}
-If \(\delta G_{00}\neq8\pi G\,Q_{\rm lum}\), some source without the
-electromagnetic readout carries nonzero modular charge.
-\end{corollary}
-
-\begin{proposition}[Attractive sign]
-\label{prop:sign}
-If every non-luminous charge is nonnegative, \(Q_{\rm dark}\ge0\), and the
-dark contribution enters the weak-field equation with the sign of baryonic
-mass.
+\begin{proposition}[Total and non-luminous response]
+\label{thm:all-charge}\label{thm:iff}\label{cor:excess}\label{prop:sign}
+Under Premise~\ref{pre:universal} and \(G>0\),
+\(\delta G_{00}=8\pi G(Q_{\rm lum}+Q_{\rm dark})\).
+The luminous-only equation holds exactly when \(Q_{\rm dark}=0\).
+If every non-luminous charge is nonnegative, its weak-field contribution
+has the attractive sign.
 \end{proposition}
-
-\begin{proof}[Proofs]
-\(Q_{\rm tot}=Q_{\rm lum}+Q_{\rm dark}\) is a finite-sum identity.
-Theorem~\ref{thm:all-charge} substitutes it into the rest-frame relation.
-Theorem~\ref{thm:iff} cancels \(8\pi G>0\). The corollary is the
-contrapositive of the sum of zeros, and the proposition is a sum of
-nonnegative terms.
+\begin{proof}
+Substitute the finite-sum decomposition of \(Q_{\rm tot}\) in the assumed
+response law. Cancel \(8\pi G\) for the equivalence and sum nonnegative
+terms for the sign.
 \end{proof}
-
-These four lines provide a conditional bookkeeping/classification theorem: if
-universal coupling holds and a geometric excess over the luminous term exists,
-that excess is called non-luminous modular charge. They do not derive a
-nonzero \(Q_{\rm dark}\), its abundance, or a physical carrier. Those existence
-and attachment questions are separate.
+This classifies a geometric excess if one exists; it does not establish a
+nonzero charge, its abundance, or a physical carrier.
 
 \section{The Modular-Anomaly Source}
 \label{sec:source}
@@ -386,8 +306,8 @@ and the defect falls below \(\varepsilon\) exactly when
 threshold. With unit collar radius and collar constant, and anomalous energy
 equal to the model defect, the unrecorded instance carries stress
 \(15/(16\pi^2)\) exactly. The identification of the model
-defect with \(\eta_\delta\) is a modeling premise, and which record density
-a galactic-scale settled cut realizes is open; the model shows the
+defect with \(\eta_\delta\) is a modeling premise, and the record density
+of a physical galactic-scale cut is not specified; the model shows the
 mechanism class exists, with an exact defect-density law.
 
 Under Premise~\ref{pre:scale} the Solar System is a test of the ambient
@@ -637,103 +557,51 @@ marginalize distance, inclination, stellar-population, or correlated
 rotation-curve uncertainties, so it is a diagnostic rather than a full
 measurement likelihood.
 
-\paragraph{Baryonic Tully--Fisher.}
-For the 123 galaxies with a positive measured flat velocity that pass the
-catalogue quality and inclination cuts (without applying the rotation-point
-fractional-velocity-error cut),
-with \(M_b=0.5L_{[3.6]}+1.33M_{\rm HI}\), the fixed-exponent normalization
-\(a_0=v_f^4/(GM_b)\) gives
-\(a_0=1.55\times10^{-10}\,\mathrm{m\,s^{-2}}\) with \(0.26\) dex scatter,
-a normalization that carries no row in the retrospective comparison
-ledger~\cite{ophcontracts}, and the free exponent from an ordinary
-least-squares fit of \(\log v_f\) on \(\log M_b\) is \(3.75\pm0.10\). The
-exact source exponent \(4\) sits \(+2.66\) standard deviations from that
-fitted exponent on this seen sample~\cite{ophcontracts}.
+\paragraph{Tully--Fisher and matched channels.}
+The 123 quality-selected galaxies with positive flat velocity give
+\(a_0=v_f^4/(GM_b)=1.55\times10^{-10}\,\mathrm{m\,s^{-2}}\), with
+\(0.26\) dex scatter, for \(M_b=0.5L_{[3.6]}+1.33M_{\rm HI}\).
+The ordinary least-squares exponent is \(3.75\pm0.10\), placing the
+fixed exponent \(4\) at \(+2.66\sigma\) in this diagnostic. Catalogued
+flat speeds retain a baryonic contribution at finite radius and need not
+measure the anomalous speed entering the theorem.
 
-\paragraph{One constant.}
-Theorems~\ref{thm:rar} and \ref{thm:btfr} share one \(a_0\). A mixed
-diagnostic compares mismatched observables: the radial-acceleration fit
-above against the fixed-exponent normalization \(a_0=v_f^4/(GM_b)\) built
-from the catalogued \(V_{\rm flat}\). It gives paired parent-galaxy bootstrap intervals
-\([0.730,1.037]\times10^{-10}\,\mathrm{m\,s^{-2}}\) and
-\([1.405,1.723]\times10^{-10}\,\mathrm{m\,s^{-2}}\) with a log-ratio
-95 percent interval of \([0.180,0.317]\) dex, none of which carries a row in
-the retrospective comparison ledger~\cite{ophcontracts}. The catalogued
-\(V_{\rm flat}\) is read at a finite measurement radius where the baryonic
-contribution to \(V^2\) has not been subtracted, and that bias has the
-direction of the mismatch.
+A matched comparison uses
+\(v_A^2=v_{\rm obs}^2-v_{\rm bar}^2\) at the outermost radius,
+\(g_{\rm bar}<0.1a_{\rm ref}\), and excludes nonzero bulge components
+without separate luminosities. On the resulting 97-galaxy set the speed
+and radial channels give respectively \(0.769\) and
+\(0.853\times10^{-10}\,\mathrm{m\,s^{-2}}\). Their paired log-ratio
+is \(-0.045\) dex with 95 percent galaxy-bootstrap interval
+\([-0.117,+0.026]\). For comparison, the mixed flat-speed/radial analysis
+has interval \([0.180,0.317]\) dex and normalization intervals
+\([0.730,1.037]\) and \([1.405,1.723]\times10^{-10}\,\mathrm{m\,s^{-2}}\).
+The matched construction changes radius, subtraction, sample and combination
+together; it does not isolate one cause for the discrepancy. It is consistent
+with one fitted constant on seen data, not a physical likelihood verdict.
 
-The matched diagnostic removes the mixed observable by comparing the same
-anomalous observable in both channels: the baryon-subtracted squared speed
-\(v_A^2=v_{\rm obs}^2-v_{\rm bar}^2\) at the outermost measured radius,
-restricted to galaxies whose outermost point passes the same fixed absolute
-deep cut \(g_{\rm bar}<0.1\,a_{\rm ref}\) used at \(f=0.1\). Galaxies with
-any nonzero retained bulge component are excluded because table 1 supplies
-only total \(L_{[3.6]}\), not the disk/bulge luminosity split needed for a
-consistent mass denominator. On the resulting 97-galaxy common set the second
-channel gives \(a_0=0.769\times10^{-10}\,\mathrm{m\,s^{-2}}\), while the
-radial-acceleration fit on the same common set gives
-\(0.853\times10^{-10}\,\mathrm{m\,s^{-2}}\); the paired \(\log_{10}\) ratio
-is \(-0.045\) with galaxy-level bootstrap 95 percent interval
-\([-0.117,+0.026]\), which contains zero. The full \(f=0.1\) channel-A fit,
-before the common-set restriction, is
-\(0.875\times10^{-10}\,\mathrm{m\,s^{-2}}\). A
-synthetic sample with a known \(a_0\) recovers a unit paired ratio through
-the same pipeline, and an independent script re-derives every quoted number
-from the released receipt. The combined matched-analysis changes remove the
-displacement and are consistent with a mixed-proxy explanation, but they also
-change the radius, subtraction, sample, and combination rule together. This
-does not causally isolate a mixed-proxy explanation; attribution requires
-staged one-change-at-a-time ablations. The deep-regime
-profile is consistent with one fitted constant across the matched channels on
-this seen sample. Consistency on seen data selects nothing: this is a
-postdiction diagnostic with declared mass-to-light ratios and cuts, and a
-physical verdict requires the joint nuisance and measurement-error
-likelihood named in Section~\ref{sec:open}. The generic modular-charge
-dark-sector statements do not depend on this profile fit.
+\paragraph{Covariance and nuisance sensitivity.}
+A separate penalized Gaussian objective profiles disk mass-to-light,
+distance and inclination, and scans an equal-correlation family
+\(\rho\in\{0,0.2,0.4,0.6\}\). A log-normal mass-to-light prior centered
+at \(0.5\) is a penalty rather than an auxiliary-data likelihood.
+The fixed catalogue-frame mean is
+\(v_{\rm model}\sin i/\sin i_{\rm cat}\). Transforming observations and
+errors by \(s(i)=\sin i_{\rm cat}/\sin i\) also requires the density
+Jacobian \(s(i)^n\), which cancels the Gaussian factor \(s(i)^{-n}\).
 
-\paragraph{Penalized profile objective.}
-A declared-convention objective is released with the paper: a per-point
-Gaussian rotation-curve data term for
-\(g_{\rm obs}=g_{\rm bar}+\sqrt{g_{\rm bar}a_0}\) with per-galaxy profiled
-nuisances (disk mass-to-light under a log-normal prior centered at
-\(0.5\), distance and inclination at their catalogued errors), and a declared
-equal-correlation intra-galaxy covariance family scanned over
-\(\rho\in\{0,0.2,0.4,0.6\}\). The likelihood uses the fixed catalogue
-velocity frame, with mean \(v_{\rm model}\sin i/\sin i_{\rm cat}\) and
-catalogue velocity errors. Equivalently, correcting observations and errors by
-\(s(i)=\sin i_{\rm cat}/\sin i\) requires a density Jacobian
-\(s(i)^n\), which cancels the Gaussian normalization \(s(i)^{-n}\).
-Because the mass-to-light constraint is an
-astrophysical prior rather than an identified auxiliary-data likelihood,
-this is a penalized objective, not a maximum-likelihood analysis. Its
-delta-objective threshold sets are uncalibrated sensitivity contours rather
-than confidence intervals, and every component is reported. All corrected
-snapshot threshold sets are connected; a disconnected synthetic curve tests
-component enumeration. On
-the \(f=0.1\) deep subset the objective minimum moves from \(0.804\) to
-\(0.582\times10^{-10}\,\mathrm{m\,s^{-2}}\) as \(\rho\) runs from \(0\) to
-\(0.6\), a \(0.140\)-dex shift and a large unresolved sensitivity within
-the scanned covariance family. Other unquantified systematics prevent a total
-systematic ranking, and no single \(\rho\) is selected. The data quadratic
-form divided by the nominal fixed-nuisance denominator lies between \(3.6\)
-and \(16.4\) on every subset and correlation value, so
-the declared error family, which carries no intrinsic-scatter term,
-understates the observed scatter. The paired comparison against the matched
-baryon-subtracted channel contains zero at every cut and correlation value,
-but it is only partially paired: channel A is re-minimized in each bootstrap
-replicate while channel-B nuisance values are held at their full-sample point
-estimates. The source does not fix \(a_0\); the released receipt records
-measurement-side sensitivity contours only. They are not acceptance or
-rejection bands for a future source derivation, which must be scored against a
-prospectively frozen, calibrated covariance and intrinsic-scatter likelihood.
-An independent script re-derives
-the receipt byte for byte, a synthetic sample with known \(a_0\) recovers
-it through the same pipeline as a regression sanity check, and mutation guards cover the subtraction
-sign, the cut, the mass-to-light encoding, and the covariance algebra.
-Independent checks project the model into the fixed observation frame and
-compare its explicit covariance quadratic form; two exact projected fits at
-different inclinations must have equal likelihood.
+On the \(f=0.1\) subset the optimum shifts from \(0.804\) to
+\(0.582\times10^{-10}\,\mathrm{m\,s^{-2}}\), or \(0.140\) dex,
+as \(\rho\) increases from zero to \(0.6\). The data quadratic form per
+nominal fixed-nuisance degree of freedom lies between \(3.6\) and \(16.4\);
+the family has no intrinsic scatter and understates observed variation.
+Its threshold sets are uncalibrated sensitivity contours, not confidence
+intervals. The paired comparison contains zero at every scanned setting,
+but channel-B nuisances are held at full-sample estimates while channel A
+is refitted, so it is only partially paired. Independent replay and synthetic
+controls verify the subtraction, fixed observation frame, covariance algebra
+and component enumeration~\cite{ophrar}. A physical test requires a
+calibrated covariance and intrinsic-scatter likelihood.
 
 \section{Cosmological Scaling}
 \label{sec:cosmo}
@@ -752,84 +620,40 @@ clustering. Premise~\ref{pre:scale} associates its carrier with galactic
 collars but supplies no perturbation dynamics. The abundance \(\Omega_A\),
 initial data, transfer functions, and the claim that it clusters with galaxies are not derived here.
 
-\section{Required Physical Constructions}
+\section{Physical closure conditions}
 \label{sec:open}
+The source interpretation requires the same cap modular generator, record
+recovery law, local stress, physical clock and geometric response. The finite
+bulk/collar split supplies the anomaly under its Gibbs-on-bulk premise;
+it does not identify a physical boost generator. The common recovery envelope
+suppresses compact sources only in its stated fixed-parameter limit and does
+not force a nonzero galactic defect. The physical location, density and
+statistics of those cuts must therefore be supplied separately.
 
-\begin{enumerate}
-\item \textbf{Collar scale.} Theorem~\ref{thm:saturation} supplies
-asymptotic compact-source suppression under the common exponential
-envelope \eqref{eq:envelope}; exact absence of a compact source's own
-anomalous charge is part of Premise~\ref{pre:scale}. Physical attachment
-requires a proof that physical collars satisfy the mixing branch behind
-the envelope, and a positive mechanism for the order-one defect on
-galactic-scale settled cuts, which the envelope provably does not force.
-\item \textbf{Magnitude.} The normalization of
-\(\delta\langle E_C^{(\delta)}\rangle\) to repair conservation on the
-Ward/Bianchi branch is not derived. The per-cut dictionary
-\eqref{eq:dictionary} reduces the question to the collar density \(n\) and
-the per-cut variance constant \(c\): a repair-conservation normalization
-would fix \(c\), and a source-derived galactic collar count would fix \(n\).
-On the conditional fixed-capacity branch, reading the screen capacity \(N\)
-as de Sitter horizon entropy in nats gives one acceleration scale without a
-further dial, the de Sitter value
+The profile theorem determines the exponents and leaves \(a_0=Gn^2c\).
+A constant-capacity horizon dictionary supplies a separate dimensional scale,
 \begin{equation}
-a_{\rm dS}=c^2\sqrt{\Lambda/3}=\frac{c^2}{\ell_P}\sqrt{\frac{\pi}{N}},
-\label{eq:horizon-scale}
+ a_{\rm dS}=c^2\sqrt{\Lambda/3}
+ =\frac{c^2}{\ell_P}\sqrt{\frac{\pi}{N}}.
+ \label{eq:horizon-scale}
 \end{equation}
-equal to \(5.42\times10^{-10}\,\mathrm{m\,s^{-2}}\) at the Planck-central
-\(\Lambda=1.089\times10^{-52}\,\mathrm{m^{-2}}\). That reading of a
-whole-screen cell count as the area of a three-dimensional region's boundary
-is a premise; the region map is not constructed~\cite{ophentropy}. The fitted constant is a
-fixed fraction of it: \(a_0/a_{\rm dS}=0.214\) for the full
-radial-acceleration calibration at disk mass-to-light \(0.5\), between
-\(0.176\) and \(0.268\) for mass-to-light \(0.6\) and \(0.4\), between
-\(0.156\) and \(0.171\) for the deep-regime fixed-exponent fits, and
-\(0.222\) for the published \(1.20\times10^{-10}\,\mathrm{m\,s^{-2}}\). In
-the dictionary \eqref{eq:dictionary} this ratio reads
-\(Gn^2c\,\ell_P\sqrt{N/\pi}/c^2\), so a source derivation of \(n\) and \(c\)
-must return a number in that range. The proximity of \(a_0\) to
-\(cH_0/(2\pi)\) is Milgrom's observation~\cite{milgrom1983}; the ratio is
-recorded as a comparison target and no value of \(a_0\) is derived here.
-\item \textbf{Profile.} Theorem~\ref{thm:char} reduces the profile to
-Premises~\ref{pre:cov} and \ref{pre:quad}; the required step is deriving
-those two premises from the collar geometry of a point source, and extending the
-profile through the transition to the Newtonian regime.
-\item \textbf{Localization.} The finite quotient-invariant receipt of
-Section~\ref{sec:source} identifies the collar operator with the bounded
-remainder on a finite carrier under the Gibbs-on-bulk condition; the
-required step is the continuum identification for the physical cap generator,
-whose modular flow the finite boost datum only declares.
-\item \textbf{Abundance.} The comoving anomalous charge of the early screen,
-the resulting \(\Omega_A\), and the joint galaxy, cluster, lensing, CMB, and
-growth likelihood are not derived. Within rotation curves, the released
-penalized profile objective is a conditional sensitivity diagnostic: a
-calibrated intra-galaxy covariance, an intrinsic-scatter model, and a
-source value of \(a_0\) are the measurement-side constructions this paper does not supply.
-\end{enumerate}
+At the Planck-central \(\Lambda=1.089\times10^{-52}\,\mathrm{m^{-2}}\),
+this is \(5.42\times10^{-10}\,\mathrm{m\,s^{-2}}\). The full-RAR
+calibration gives \(a_0/a_{\rm dS}=0.214\), ranging from \(0.176\) to
+\(0.268\) as disk mass-to-light varies from \(0.6\) to \(0.4\);
+the deep-law fits give \(0.156\) to \(0.171\). These comparisons do not
+select \(n\) or the per-cut variance constant. In this paragraph the
+\(c\) in \(a_{\rm dS}\) is the speed of light, distinct from the variance
+constant in the per-cut dictionary.
 
-\section{Conclusion}
+A covariant completion must determine pressure, anisotropic stress,
+gravitational slip, exchange, abundance and perturbations before lensing,
+clusters or cosmology can test the same source. The static deep law neither
+specifies the transition to Newtonian dynamics nor establishes those
+quantities. Its galaxy comparisons are retrospective fits with declared
+cuts and nuisances; a source-derived acceleration requires an independent
+physical scale and a prospectively fixed measurement likelihood.
 
-Under universal coupling the screen gravitates according to its total
-modular charge, so any geometric excess over the luminous term is
-non-luminous modular charge; this classification does not establish that the
-excess is nonzero. Anomalous modular energy on overlap collars is a candidate
-carrier supplied by the collar-recovery, source-localization, stress and
-conservation premises, not by the finite Einstein-shape theorem. Under those
-premises it is bounded by the recovery defect, absent at full recovery, and
-cold when conserved; on galactic-scale collars its Solar-System footprint has
-zero trace-free quadrupole and a small isotropic tidal scale. Deep-regime
-scale covariance and quadrature composition characterize its profile, which
-gives the radial-acceleration relation, flat rotation curves and the baryonic
-Tully--Fisher relation with one constant. On seen SPARC data the matched
-channels agree on that constant within the paired bootstrap interval, the
-penalized profile objective stays consistent at every scanned correlation
-value with uncalibrated contours, and the source-bound full-RAR replay is a
-custody and estimator-sensitivity result. A physical verdict requires a
-calibrated covariance and intrinsic-scatter likelihood; physical application
-requires attachment of the envelope, a mechanism selecting galactic-scale
-cuts, and the charge magnitude of Section~\ref{sec:open}.
-
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_OPH_DARK_MATTER_PAPER.tex}{}{}
 \begin{thebibliography}{99}
 
 \bibitem{ophEinstein}
@@ -843,27 +667,6 @@ B. Mueller et al.,
 \emph{Reality as a Consensus Protocol},
 OPH consensus paper.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/reality_as_consensus_protocol.pdf}
-
-\bibitem{ophmicro}
-B. Mueller et al.,
-\emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/screen_microphysics_and_observer_synchronization.pdf}
-
-\bibitem{ophcontracts}
-B. Mueller et al.,
-\emph{Observer Patch Holography Cosmology Data and Likelihood Contracts: Provenance, Comparability, and Claim Boundaries},
-OPH cosmology data and likelihood contracts paper.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/cosmology/oph_cosmology_data_likelihood_contracts.pdf}
-
-\bibitem{ophlean}
-B. Mueller et al.,
-\emph{Observer Patch Holography: machine-checked Lean formalization},
-Einstein-branch modules \texttt{SmallBall}, \texttt{DarkSector},
-\texttt{CollarScaleSaturation}, \texttt{DeepProfileClosure},
-\texttt{PerCutCollarComposition}, \texttt{SparseRecordDefectWitness},
-\texttt{CollarPremiseDerivation}, and \texttt{FiniteCapGeneratorSplit},
-2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/Lean/ObserverPatchHolography/EinsteinBranch}
 
 \bibitem{ophrar}
 B. Mueller,
@@ -883,11 +686,6 @@ S. S. McGaugh, F. Lelli, and J. M. Schombert,
 \emph{Radial Acceleration Relation in Rotationally Supported Galaxies},
 Phys. Rev. Lett. 117, 201101 (2016), arXiv:1609.05917.
 \url{https://arxiv.org/abs/1609.05917}
-
-\bibitem{milgrom1983}
-M. Milgrom,
-\emph{A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis},
-Astrophys. J. 270, 365 (1983).
 
 \bibitem{milgrom2009}
 M. Milgrom,
@@ -913,11 +711,6 @@ P. F. de Salas and A. Widmark,
 Rep. Prog. Phys. 84, 104901 (2021), arXiv:2012.11477.
 \url{https://arxiv.org/abs/2012.11477}
 
-\bibitem{ophmodel}
-FloatingPragma (2026). The runnable OPH model: observer implementation,
-tests, receipts and construction guide.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/model}
-
 \bibitem{ophcontinuum}
 FloatingPragma (2026). A spatial fluctuation field from one native history:
 the common spatial generator, its locality and spectral dimension, and the
@@ -938,11 +731,16 @@ FloatingPragma (2026). Native quantum mixing and the full-carrier memory
 boundary.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/model/observer/QUANTUM_MIXING.md}
 
-\bibitem{ophladder}
-FloatingPragma (2026). Frozen prediction register.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/claims/frozen_prediction_register.json}
+\bibitem{ophlean}
+B. Mueller et al.,
+\emph{Observer Patch Holography: machine-checked Lean formalization},
+Einstein-branch modules \texttt{SmallBall}, \texttt{DarkSector},
+\texttt{CollarScaleSaturation}, \texttt{DeepProfileClosure},
+\texttt{PerCutCollarComposition}, \texttt{SparseRecordDefectWitness},
+\texttt{CollarPremiseDerivation}, and \texttt{FiniteCapGeneratorSplit},
+2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/Lean/ObserverPatchHolography/EinsteinBranch}
 
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_OPH_DARK_MATTER_PAPER_BIBITEMS.tex}{}{}
 \end{thebibliography}
 
 \section*{AI Assistance Disclosure}

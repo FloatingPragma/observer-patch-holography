@@ -166,151 +166,59 @@ attempt budgets reach it, and when no local repair can construct it. They
 are mathematics on their stated domains and assume no physical
 interpretation of the quotient, the observation map or the scheduler.
 
-\subsection{Main contributions}
+\subsection{The certificate and its scope}
 
-The manuscript has six technical contributions.
-
-\begin{enumerate}[label=\textbf{C\arabic*.},leftmargin=3.2em]
-\item \textbf{Correct exact interface.}
-We state a canonical partial normalizer and a boundary-indexed unique-normal-form theorem with the empty-fiber case separated from weak normalization.  An audited-terminal theorem further separates computational quiescence from semantic consistency.  Identification modulo a silent equivalence is characterized exactly by cross-source endpoint agreement.  For a separately declared finite scheduler, we also distinguish the static fiber question from positive first hit, almost-sure first hit, and endpoint-class selection.  The exact confluence implications are explicitly treated as classical.
-
-\item \textbf{Sharp observational stability.}
-For a residual $\Phi$ and an observation map $B$, we define intrinsic moduli $\eta_\Phi$ and $\omega_B$.  For arbitrary residual levels $\delta_x,\delta_y$,
+The quantitative core combines an error-bound modulus $\eta_\Phi$ with
+an inverse-observation modulus $\omega_B$. With attained consistent
+witnesses and a Lipschitz observation map, it gives
 \begin{equation}\label{eq:intro-master}
 \begin{split}
  d_Q(x,y)\le{}&\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)\\
- &+\omega_B\!\left(
- d_{\cB}(Bx,By)+L_B[\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)]
- \right).
+ &+\omega_B\!\left(d_{\cB}(Bx,By)
+ +L_B[\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)]\right).
 \end{split}
 \end{equation}
-At zero residual the bound is exact by definition.  Across all finite metric systems, the coefficient $2$ in the equal-residual specialization cannot be lowered.
-The sharp form uses nearest consistent points; on general metric spaces the
-attained-witness certificate of \cref{def:attained-metric-certificate} is an
-explicit hypothesis.
+The equal-residual coefficient is sharp. The same two interfaces yield
+approximate naturality, telescoping refinement bounds and cross-level
+solver comparison. Separate finite theorems classify repair existence,
+protected first-hit behavior, fair scheduling, attempt budgets and fixed
+computation federations. None supplies a probability law, physical clock
+or continuum field interpretation without additional data.
 
-\item \textbf{Uniform refinement towers.}
-One-step approximate naturality follows from consistency and observation defects on the stated attained-witness domain.  We distinguish same-level receipt-conditioned agreement from genuinely cross-level comparison.  An anchor-optimized theorem compares independently computed outputs at arbitrary refinement levels after restriction to a common level.  Compatible nested inputs leave only the intervening defect segment, and summable pathwise defects yield an implementation-independent projective limit.  Counterexamples separate an unattained distance bound from the needed witness and show that stagewise injectivity is not enough without a uniform inverse modulus.
+\section{Relation to existing theory}\label{sec:related}
 
-\item \textbf{Repair and selection obstructions.}
-A total exact local repair preserving an exterior collar exists if and only if the local consistency relation projects surjectively onto that collar.  For a finite scheduler, four nested protected-behavior sets and their complementary cuts isolate fiber, positive-reach, almost-sure, and endpoint-selection obstructions.  On the canonical OPH adaptive branch, every attempt stream stabilizes after finitely many genuine changes, pathwise weak fairness is sufficient for normality, and work conservation gives an initial-mismatch bound on the normal horizon.  Counting stutter as positive attempt cost separates that bound from cumulative capacity: no single mismatch-only attempt horizon uniformly bounds all normalizing schedulers, bounded waste gives a quantitative upper horizon, and two nonisomorphic canonical finite sources make the work-conserving threshold sharp.  Completeness and confluence are explicit requirements for a consistent canonical endpoint.  The underlying finite Markov, weighted-rewriting, and fair-termination facts are standard; the contribution is the source-bound protected-observation certificate, the adaptive attempt/cost classification, and their exact connection to the existing behavior-cut and public-endpoint interfaces.  On a finite full-support probability space, observation-fiber resampling is the weighted orthogonal conditional-expectation projector and has a finite matrix recognition receipt.  A stabilizer obstruction prevents an equivariant selector on ambiguous fibers.
+The exact set-theoretic interface specializes classical unique-normal-form
+and rewriting theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003},
+including confluence modulo equivalence
+\citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021}.
+Here the observation map acts after the representation quotient and need
+only be injective on the consistent subset. Unlike quantitative rewriting
+\citep{GavazzoDiFlorio2022}, the bound measures disagreement between outputs,
+not a metric rewrite path.
 
-\item \textbf{Constructive and linear classes.}
-Ranked functional-audit systems have singleton-or-empty fibers, terminate under every effective asynchronous schedule with an explicit update bound, and settle synchronously in dependency depth; acyclic Boolean circuits compile directly into this class.  Linear quotient systems admit rank tests and singular-value bounds that instantiate \eqref{eq:intro-master}; finite linear dynamics yield the usual observability matrix as a special case.
+Error bounds, inverse continuity and approximate inverse systems are
+standard \citep{Kruger2015,CibulkaDontchevKruger2018,DontchevRockafellar2014,
+MardesicSegal1989,MardesicRubin1989,Mardesic1993}. The contribution is their
+explicit composition into receipt-conditioned comparisons and a
+solver-independent projective limit. The linear specialization is an
+observability problem \citep{Kailath1980,MontanariEtAl2023,Kravaris2024}.
+Local extension and repair obstructions are related to database consistency
+and global-section problems
+\citep{BeeriEtAl1983,ArenasBertossiChomicki1999,AbramskyBrandenburger2011}.
 
-\item \textbf{Receipts and complexity.}
-A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  Machine-checked first-hit laws, exact finite-state transport, and machine-checked TwoBit, fixed-relation, and proper-target counterexamples provide separate receipts for the protected-behavior profile.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.
-\end{enumerate}
-
-\subsection{Relation to existing theory}
-
-The exact theory overlaps several established areas.  Abstract rewriting supplies Newman's lemma, Church--Rosser properties, unique normal forms, and normalization theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003,AotoToyama2018}.  Rewriting modulo equivalence and confluence under invariants address quotient and relevant-state restrictions \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021,Lucas2025}.  Quantitative rewriting enriches rewrite relations themselves and proves metric analogues of classical confluence theorems \citep{GavazzoDiFlorio2022}.  Error bounds and inverse stability are mature subjects in variational analysis \citep{Kruger2015,CibulkaDontchevKruger2018}.  Functoriality of rewriting is also established in categorical graph transformation \citep{DuvalEchahedProst2011}.
-
-Cumulative and nonuniform rewrite costs, derivation-height bounds, failed-attempt accounting, and self-stabilizing enabled-move convergence are established theory \citep{Dijkstra1974,KopMiddeldorpSternagel2017,AvanziniYamada2025}.  The contribution below is not a new weighted-rewriting formalism.  It locates the quantitative boundary on the declared chosen-site attempt semantics, where a scheduler may spend capacity on a quiescent site, and then proves the exact additional condition and finite OPH witnesses that recover a sharp bound.
-
-The triangle inequality, error bounds, inverse continuity, section criteria,
-boundary-indexed unique normal forms, and the Lipschitz telescope are standard.
-The integrated certificate architecture combines them with an explicit
-anchor-optimized cross-level receipt comparison and its cofinal-limit
-consequence.  Approximate inverse-system theory supplies the neighboring
-framework, while the result here is an organizing synthesis for automated
-reasoning, rewriting, and semantics.
-
-\section{Relation to existing theories}\label{sec:related}
-
-\subsection{Rewriting, invariants, and quotients}
-
-The classical properties of an abstract reduction system are standard \citep{Huet1980,BaaderNipkow1998,Terese2003}.  Confluence restricted to an invariant or taken modulo an equivalence has been developed in Constraint Handling Rules and graph transformation \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021}.  Those frameworks are close to the first arrow in
-\[
- \text{presentations}\longrightarrow Q\longrightarrow\cB:
-\]
-they identify states that should count as the same or restrict attention to relevant states.  Our observation map is the second arrow.  It may be strictly coarser than equality in $Q$, and it is required to be injective only on the consistent subset when exact reconstruction is desired.
-
-Unique-normal-form properties weaker than confluence are well known and have
-been automated for term rewriting \citep{AotoToyama2018}.  The fiber
-trichotomy and partial-normalizer universal property here are elementary set
-theory; only the reachable-normal-form and fiberwise-confluence corollaries
-specialize classical rewriting theory.
-
-\subsection{Quantitative rewriting versus output stability}
-
-Gavazzo and Di Florio enrich rewriting relations over quantales and derive quantitative Newman, Church--Rosser, and critical-pair theorems \citep{GavazzoDiFlorio2022}.  Here the rewrite relation is ordinary.  Distances are attached to two semantic interfaces: residual-to-solution error and inversion of observable data on the solution set.  Thus the theory does not estimate a quantitative rewrite path; it estimates disagreement between settled outputs of possibly unrelated schedules or initial interiors.
-
-\subsection{Error bounds and inverse mappings}
-
-The inequality
-\[
- \dist(x,C)\le \eta(\Phi(x))
-\]
-is an error-bound property.  In variational analysis, local linear versions are equivalent to metric subregularity or calmness of suitable set-valued mappings \citep{Kruger2015,CibulkaDontchevKruger2018,DontchevRockafellar2014}.  The inverse-observation modulus is a global finite or compact analogue of inverse Lipschitz/calmness information.  Our use of these notions is intentionally transparent: the novelty claim concerns their operational consequences for schedules and refinement towers, not their analytic origin.
-
-\subsection{Approximate inverse systems}
-
-Approximate inverse systems and almost-commuting diagrams have a substantial
-topological literature, including stability and resolution theorems for
-compacta \citep{MardesicSegal1989,MardesicRubin1989,Mardesic1993}.  Those
-works perturb or relax compatibility of bonding data in topological or cover
-terms.  Our setting keeps the ambient inverse system exact and instead gives
-pointwise metric bounds for normalizer defects, solver receipts, and
-protected-observation mismatch.  The connection limits the novelty claim:
-the contribution is an explicit certificate adapted to
-observation-determined normalizers, not the invention of approximate inverse
-systems.
-
-\subsection{Static reconstruction and functional observability}
-
-Control-theoretic observability reconstructs a state, or a prescribed function of state, from an output history.  Linear observability and functional observability supply rank and conditioning tests; nonlinear work characterizes when a nonlinear functional can be reconstructed from measurements and studies the quality of the inverse map \citep{Kailath1980,MontanariEtAl2023,Kravaris2024}.  This is the closest neighboring language for the map $B|_C$.  Our setting is nevertheless static at the theorem interface: $C$ is the settled consistent set, $B$ may be any protected quotient observation, and the questions are how residual error and inverse conditioning control schedule disagreement and how these certificates propagate through refinement towers.
-
-\subsection{Constraints, databases, and global sections}
-
-Acyclic database schemes and positive-semiring relations provide local-to-global consistency results \citep{BeeriEtAl1983,AtseriasKolaitis2020}.  Constraint satisfaction studies local consistency as an algorithmic reduction \citep{DalmauOprsal2023}.  Database repair semantics distinguishes the existence of many consistent repairs from the answers invariant across them \citep{ArenasBertossiChomicki1999}.  Sheaf-theoretic contextuality similarly turns failure of a global section into an obstruction \citep{AbramskyBrandenburger2011}.  Our empty-fiber certificate belongs to this broad lineage.  The additional layer is the interaction with normal-form stability and refinement.
-
-\subsection{Fair scheduling and asynchronous Boolean-network fixing}
-
-Fairness is a qualitative liveness condition rather than a latency bound;
-Lamport formulates the general closure issue explicitly
-\citep{Lamport2000Fairness}, while the self-stabilization daemon taxonomy
-separates fairness, boundedness, and enabledness as independent scheduling
-axes \citep{DuboisTixeuil2011}.  Asynchronous Boolean-network work studies
-fixing words and their minimal lengths, including monotone, acyclic, tree, and
-conjunctive families \citep{AracenaEtAl2019,GadouleauRichard2018}.  We assign
-no novelty credit to weak fairness, round robin, fixing words, or quadratic
-fixing phenomena themselves.  The source-specific contribution below is the
-joint machine-checked classification for the actual nonmonotone
-\texttt{go} compiler: its first emission-order cycle, taken in the order in
-which the compiler emits nodes, is the existing sweep and
-therefore has a linear exact-output horizon, its adversarial genuine
-accepted-step paths are order-sharp quadratic in the same emitted-node metric,
-and its Tower endpoint distinguishes both from arbitrary weak-fair attempts
-and from a separately supplied bounded-waste contract.  General well-formed
-federations are sharply exponential, in line with the order of the acyclic
-fixing-length results \citep{GadouleauRichard2018}; the source-specific delta
-is that the compiler's single-consumer shape is exactly what removes the
-exponent.
-
-\subsection{Asynchronous functional networks}
-
-Kahn process networks provide timing-independent determinacy for networks of
-functional components, while generalized Kahn principles treat broader
-abstract asynchronous, including nondeterministic, models under their stated
-hypotheses \citep{Kahn1974,Abramsky2011}.  Ranked functional systems below
-are a finite terminating special case with residual audits.  Their purpose is
-to give a class in which the exact boundary hypotheses, update bound, and
-obstruction output are explicit.  They do not reprove those principles.
-
-\subsection{Finite Markov reachability and lumping}
-
-First-hitting probabilities, the decomposition into transient and closed
-classes in a finite chain, least nonnegative solutions of reachability Bellman
-equations, and strong lumpability are standard
-\citep{Norris1997,KemenySnell1976,BaierKatoen2008}.  Markov functions and
-intertwining provide neighboring language for law pushforward
-\citep{RogersPitman1981}.  We use these facts without a novelty claim.  Their
-role here is architectural: declared active sources and a protected
-observation index four separate failure modes; those modes recover the
-OPH behavior cuts through explicit supported traces; and exact
-transport retains the active-source, target, observation, and silent-quotient
-data in addition to the kernel law.
+Fairness alone does not bound latency
+\citep{Lamport2000Fairness,DuboisTixeuil2011}; asynchronous fixing and
+weighted rewriting provide the relevant background
+\citep{AracenaEtAl2019,GadouleauRichard2018,Dijkstra1974,
+KopMiddeldorpSternagel2017,AvanziniYamada2025}.
+The source-specific result separates a compiler's linear emission-order
+sweep, order-sharp quadratic accepted paths, weak-fair attempts and
+bounded-waste contracts. Its ranked functional systems also fit the
+asynchronous determinacy framework \citep{Kahn1974,Abramsky2011}.
+Finite first-hit probabilities, closed classes and strong lumpability are
+standard \citep{Norris1997,KemenySnell1976,BaierKatoen2008,RogersPitman1981};
+the protected profile retains the source, target and observation data
+needed to distinguish their four obstructions.
 
 \section{Exact observable fibers}\label{sec:exact}
 
@@ -2686,35 +2594,13 @@ this manuscript are self-contained. No empirical dataset is used.
 
 \section{Conclusion}
 
-Confluence is about paths from one state.  Observable normalization is about what partial data determine after consistency is enforced.  Their exact intersection is classical unique-normal-form theory: under observation preservation and $\NF(\to)=C$, identification modulo any silent equivalence is equivalent to agreement of normal endpoints across all sources with the same observation.  This does not by itself provide normalization or all-schedule settlement.  Their stable intersection is governed by two analytic objects: an error bound to the consistent set and an inverse modulus for the observation map on that set.
-
-On the canonical OPH adaptive branch, finite genuine-change stabilization is
-source-derived rather than postulated as a scheduler property.  The remaining
-steps are deliberately separate: pathwise weak fairness supplies normality,
-while completeness and confluence promote the stable state to one consistent
-canonical raw and public endpoint.
-
-On the separate fixed compiler branch, the emission-order round-robin schedule
-reaches the exact output in one \(n\)-attempt cycle, arbitrary genuine accepted
-order has an order-sharp \(\Theta(n^2)\) worst-case family, weak fairness alone
-has no uniform finite attempt horizon, and bounded waste supplies the general
-conditional attempt bound.  These four statements classify distinct
-scheduler and cost regimes rather than attaching a physical duration to an
-attempt.
-
-The resulting estimate is universal and sharp in its two unavoidable components. It survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies the determination and stability question, a four-stage protected-behavior ladder, and an orthogonal local-support question:
-\[
-\boxed{
-\begin{array}{c}
-\text{Does a consistent extension exist?}\\
-\text{Is it observably unique and stable?}\\
-\text{Does some declared source reach it with positive probability?}\\
-\text{Do all declared sources reach it almost surely?}\\
-\text{Do first-hit endpoints select one silent-equivalence class?}\\
-\text{Can the declared local support construct it?}
-\end{array}}
-\]
-No one of these questions answers the others.  Keeping them separate is the central mathematical lesson and the reason the framework applies across rewrite, reconstruction, and distributed-inference models.
+Observation-determined normalization composes two certificates: proximity
+to consistency and stable inversion of the observation map on consistent
+states. Attained witnesses and uniform control make this composition
+survive refinement. Existence of a consistent extension, uniqueness,
+positive reach, almost-sure reach, endpoint selection and local
+repairability remain separate questions. The theorems and counterexamples
+state exactly which supplied assumptions connect them.
 
 \section*{Statements and Declarations}
 
@@ -2759,9 +2645,8 @@ non-financial interests for this manuscript.
 editing, drafting assistance, formatting support, and submission-package preparation. The authors
 reviewed and are responsible for all scientific content, claims, references, and declarations.
 
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_OBSERVABLE_NORMAL_FORMS.tex}{}{}
 \bibliographystyle{plainnat}
-\bibliography{observable_normal_forms,observable_normal_forms_prior_work}
+\bibliography{observable_normal_forms}
 
 \section*{AI Assistance Disclosure}
 This research project used research-grade commercial models, including

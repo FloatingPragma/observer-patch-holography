@@ -147,6 +147,37 @@ matter has the minimal Standard Model census. The inherited pixel coordinate
 is therefore a conditional input. A common fixed point must recompute the
 response using the same masses, field census and justified thresholds.
 
+[The pixel/mass closure](../pixel_mass_closure/PROOF.md) performs this calculation
+for two explicit response designs. Both use the retained MCPR lepton law and
+all six declared quark coefficients in the same charged-fermion response kernel.
+Outward interval bounds include the infinite heat-sum tails, prove a locally
+unique feedback root, and admit both native-memory inverse branches throughout
+the root enclosure. The resulting coordinates therefore feed the actual
+complete-record mass operator rather than a separate fixed mass table.
+
+| Declared running and scale design | Feedback inverse coupling | Pixel coordinate |
+| --- | --- | --- |
+| MSSM running proxy, scale coefficient 4 | 137.000994766342 | 1.630971514159316 |
+| Minimal Standard Model running, color scale coefficient 7 | 168.815082928453 | 1.628533369611833 |
+
+These are conditional model coefficients. The first design requires a supplied
+supersymmetric running proxy whose extra fields are absent from the native
+matter carrier. The second uses the native matter census but changes the
+transmutation coefficient to the magnitude of its color beta coefficient.
+Neither design derives the physical electromagnetic response: the stipulated
+charged-fermion kernel and its multiplicative correction do not supply the
+complete bosonic, threshold, confinement or pole-matching calculation. The
+minimal Standard Model census with the inherited scale coefficient 4 has no
+positive ordered solution on the proved domain `P>=1, MU>=mZ`. That exclusion
+concerns this combined census/scale prescription, not every simulator design.
+The beta coefficients use exact traces of the native internal currents with
+the intended chiral field multiplicities. They do not prove removal of spatial
+lattice doublers or establish the continuum multiplicities of the finite carrier.
+The feedback calculation consumes the quadratic mass coefficients. The compact
+pair and quartic interaction below change excitation energies; their actual
+spectral response is not substituted into this loop. These component results
+therefore do not close an interacting electromagnetic feedback calculation.
+
 ## A common finite defect, current and mass operator
 
 [The memory realization](../mcpr_native_memory_bridge/PROOF.md) chooses independent
@@ -205,6 +236,28 @@ theorems on this same chosen source.
 
 ## Ordered-spin textures and massless sectors
 
+[The compact defect pair](../compact_defect_pair/PROOF.md) replaces the isolated
+radial tail by opposite local degrees and a constant exterior. The two cores
+are at `(0,0,+/-a)`; the finite texture is part of the chosen design. Its total
+spin-energy excess and fermion-vacuum energy difference have bounds independent
+of exterior volume. A Schur-complement argument gives exactly four isolated
+one-body modes on finite cubes and the infinite lattice, with explicit core
+weight and exterior-volume error bounds.
+
+For `a=1, M=64`, complete rational certification on the 686-row cube excludes
+zero from every eigenvalue. The four localized levels are numerically
+`+/-0.003905899328` and `+/-0.003906437151`; their nonzero character survives
+the controlled infinite-volume limit. The filled-sea energy difference is
+about `127.9700`, which is a different quantity from either mode gap.
+The same native-current and pairing inclusion works on this four-dimensional
+band, but its nonzero spatial operator must be retained. The energies are
+`lambda(A) +/- s_j(K)`, so the compact construction changes the radial mass
+coefficients. A core perturbation preserves the surrounding shell degrees
+while shifting the levels. Thus finite energy and local winding alone neither
+pin masses nor prove autonomous stability or two independent constituent
+particles. Spin and fermion texture energies are separately specified; their
+sum is not claimed to follow from an autonomous common texture law.
+
 [Lattice texture energy](../lattice_texture_selection/PROOF.md) uses the actual
 spin Hamiltonian and a specified ordered ground reference. Within its local
 rotation orbit, each admissible charged shell costs at least `pi J kappa |q|`;
@@ -239,6 +292,35 @@ Matching light speed fixes `length_unit=c T`. [Absolute calibration](../source_m
 requires an independently identified same-generator clock to determine `T`.
 
 ## Entropy, geometry and the common-source obligation
+
+[The interacting defect response](../interacting_defect_response/PROOF.md)
+adds `V=lambda(N_W-45)^2` to the same 90-mode radial core. It is a genuine
+quartic interaction, invariant under the native currents, with nonzero
+connected correlations and interaction-dependent fermion poles in an exact
+four-mode reducing slice of the mean Hamiltonian. The slice uses fixed odd
+occupations in the other pairing blocks; it is not the full-core vacuum or
+a reducing slice of every individual memory pulse.
+
+Every complete record preserves the full 90-mode core. Its weak-pulse error
+bound uses `M_core<=45(1+g)+2025lambda`, independent of exterior cube radius.
+This uniformity concerns core observations and untouched references, not
+arbitrary spatial observables or a continuum limit. If the unread trace error
+is bounded by `delta`, retaining the entire final classical history gives
+error at most `sqrt(2 delta)` against the same history law with ideal mean
+evolution. The bound includes correlated initial classical memory by retaining
+its conditional history distribution. It applies to this field-independent
+probe protocol, without a uniform guarantee for rare conditioned histories
+or additional measurements during evolution. The projected interaction
+has exponentially small spatial tails but is not finite range. Exact
+two-particle leakage controls show why an onsite Hubbard interaction cannot
+silently replace it.
+
+The Gibbs state of this same nonquadratic Hamiltonian has an exact entropy,
+energy and work first law, including the noncommuting Kubo--Mori response.
+Its temperature and preparation are declared services. The theorem supplies
+no geometric modular flow, area normalization, fixed-volume generalized-entropy
+stationarity or Einstein response. Nor does it identify the compact-pair
+carrier with the radial zero-mode carrier used by this interaction.
 
 [Finite radial entropy](../parity_entropy_response/PROOF.md) and
 [matter-responsive readout](../radial_geometry_join/PROOF.md) relate specified

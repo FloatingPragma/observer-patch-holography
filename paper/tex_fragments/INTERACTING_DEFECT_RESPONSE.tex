@@ -1,0 +1,144 @@
+\subsection{A quartic interaction on the localized carrier}
+\label{sec:interacting-localized-response}
+
+Let $E=W\otimes I_{45}$ be the isometry from the ninety localized
+annihilators into the finite native field, with $hW=0$ and
+$W_x^\dagger W_x=\rho_x I_2$.  The current and pairing intertwiners hold
+for every complete memory record.  Write $P=EE^\dagger$ and choose the
+additional interaction
+\begin{equation}
+ V=\lambda\bigl(N_W-45\bigr)^2,
+ \qquad N_W=d\Gamma(P),\qquad \lambda\geq0.
+ \label{eq:localized-quartic}
+\end{equation}
+This is an explicit controller design.  It is parity even and commutes
+with all twelve native internal currents.  In the localized occupation
+basis it contains the quartic term
+$2\lambda\sum_{i<j}n_i n_j$.  The pairing Hamiltonian does not conserve
+$N_W$, and its commutator with $V$ need not vanish.  Every record preserves
+the same localized algebra because $V$ acts entirely on that factor.
+
+The complete record limit has a bound independent of the radial cube
+size.  If $g$ is the source feedback gain, the ninety-mode pairing bound
+and $0\leq N_W\leq90$ give
+\[
+ \|H_{r,W}\|\leq M_W=45(1+g)+2025\lambda.
+\]
+The actual memory transition has the reset decomposition
+$T=(1-p)R+pS$, and contracts zero-sum operator-valued memory blocks by
+at most $p$.  At step size $t/n$, its reduced core state consequently
+satisfies
+\begin{equation}
+ \|\rho_{W,n}(t)-e^{-it\bar H_W}\rho_W(0)e^{it\bar H_W}\|_1
+ \leq\frac{4M_Wt}{n(1-p)}
+ +\left(\frac8{1-p}+4\right)\frac{M_W^2t^2}{n}.
+ \label{eq:localized-quartic-limit}
+\end{equation}
+The estimate includes arbitrary initial classical--quantum memory
+correlations and a finite untouched reference.  The first term vanishes
+for stationary product memory.  The mean Hamiltonian contains the same
+memory-derived mass matrix and the interaction~\eqref{eq:localized-quartic}.
+Uniformity concerns this fixed localized algebra under its source
+isometries; it gives no uniform continuum estimate for all spatial
+observables.
+
+Equation~\eqref{eq:localized-quartic-limit} compares the unread core.
+There is a separate estimate for the full native history register.
+For a fixed initial memory label, purify the core/reference state.
+Write $p_\omega$ for the field-independent history probability,
+$\psi_\omega=U_\omega\psi$, and
+$\bar\psi=e^{-it\bar H_W}\psi$.  If $\delta$ is the unread trace-norm
+bound, then
+$\sum_\omega p_\omega(1-|\langle\bar\psi|\psi_\omega\rangle|^2)
+\leq\delta/2$.
+The pure-state distance identity and Jensen's inequality bound the
+full history/core trace distance from
+$\sum_\omega p_\omega|\omega\rangle\langle\omega|
+\otimes|\bar\psi\rangle\langle\bar\psi|$
+by $\sqrt{2\delta}$.  Partial trace covers mixed inputs.  For initial
+classical memory/core correlations, condition on the initial memory
+label and retain that tag in the ideal history law; convexity preserves
+the same bound.  The complete final record/core rate is therefore
+$O(n^{-1/2})$.  Opposite qubit phase records saturate this square-root
+relation.  No uniform estimate for rare conditioned histories or
+intervening field measurements follows.
+
+The interaction has spatial tails.  The radial resolvent estimate at
+texture coefficient 64 gives, for the projection $A_L$ onto
+$|x|_\infty<L$,
+\[
+ \|(I-A_L)E\|^2\leq\epsilon_L
+ =\frac{3}{2\cdot62^2}\,32^{-2(L-1)}.
+\]
+Thus $\|P-A_LPA_L\|\leq2\sqrt{\epsilon_L}$, and finite rank gives
+$\|N_W-d\Gamma(A_LPA_L)\|\leq360\sqrt{\epsilon_L}$.
+Equation~\eqref{eq:localized-quartic} is exponentially localized about
+the prescribed origin, without being a strictly onsite interaction.
+
+There is an exact obstruction for the onsite density alternative.
+On the two-particle sector let
+$D_g=\sum_xg_x\bigwedge^2 P_x$ and $E_2=\bigwedge^2 E$.  Direct
+compression gives
+\begin{equation}
+ E_2^\dagger D_g(I-E_2E_2^\dagger)D_gE_2
+ =\left[\sum_x g_x^2\rho_x^2-
+              \left(\sum_xg_x\rho_x^2\right)^2\right]I.
+ \label{eq:onsite-interaction-leakage}
+\end{equation}
+Writing $c=\sum_x\rho_x^2<1$, Cauchy--Schwarz bounds the bracket below
+by $(1-c)\sum_xg_x^2\rho_x^2$.  Every nonzero member of this onsite
+density class leaks from the source subspace on which it has support.
+This statement does not exclude a dressed low-energy subspace or other
+local interaction tensors.
+
+\paragraph{Connected dynamics and spectral shifts.}
+The mean charged pairing operator has 42 two-mode blocks and six zero
+neutrino modes.  Select the two spin blocks of one charged-lepton
+singular value $m$.  Fix a single occupied mode in each of the other 40
+blocks, and occupy three zero modes.  Pair creation and annihilation
+kill those spectator states.  Their fixed occupation 43 gives the exact
+four-mode restriction
+\[
+ H_4=m(a_1^\dagger a_2^\dagger+a_2a_1+
+       a_3^\dagger a_4^\dagger+a_4a_3)+\lambda(N_4-2)^2.
+\]
+This is an invariant sector of the mean Hamiltonian, not its asserted
+vacuum or an invariant sector of every finite memory pulse.
+Its ground energy is $2\lambda-2\sqrt{\lambda^2+m^2}$.  A single-mode
+addition-plus-removal spectral measure has poles and weights
+\[
+ \omega_\pm=2\sqrt{\lambda^2+m^2}-\lambda\pm m,
+ \qquad w_\pm=\frac{1\mp m/\sqrt{\lambda^2+m^2}}2.
+\]
+The cross-pair density cumulant is
+$-\lambda/(4\sqrt{\lambda^2+m^2})$, while its normal and anomalous
+cross-pair two-point contractions vanish.  Hence positive $\lambda$
+gives a non-Gaussian connected interaction.  These spectral shifts
+preclude identifying the quadratic mass coefficients with the
+interacting excitation energies without further calculation.
+
+\paragraph{A common finite energy and modular response.}
+For the same full localized Hamiltonian choose
+$\rho_\beta=Z^{-1}e^{-\beta\bar H_W}$, $\beta>0$.
+This state is faithful.  A global spectral reset with Kraus operators
+$\sqrt{p_i}|i\rangle\langle j|$ prepares it and preserves total
+probability.  That reset is a declared service, not an implementation
+by the original site repair.  For $H(s)=\bar H_W+sX$, Duhamel
+differentiation gives
+\[
+ \rho'_\beta(0)=-\beta\int_0^1
+ \rho_\beta^u(X-\langle X\rangle)\rho_\beta^{1-u}\,du.
+\]
+The positive logarithmic-mean kernel yields
+$F'=\langle X\rangle$,
+$F''=-\beta C_{\rho_\beta}(X,X)\leq0$, and
+$S'=\beta(E'-\langle X\rangle)$, where $C_\rho$ is the
+Bogoliubov--Kubo--Mori covariance.  The noncommuting choice
+$X=(N_4-2)^2$ is checked against an independent matrix-exponential
+derivative.  These are finite identities for one nonquadratic
+Hamiltonian.  They supply no geometric modular flow, local
+relativistic stress, area normalization or geometric entropy
+stationarity, and therefore imply no Einstein dynamics.
+The exact characteristic polynomial, complete finite spectra,
+record control and source-bound replay are implemented in
+\texttt{model/interacting\_defect\_response}.

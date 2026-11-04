@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -51,88 +50,170 @@ Record-Density Expansion, Required Premises and a Conditional Tilt}
 \end{center}
 
 \begin{abstract}
-For a supplied layered event population whose comoving read law generates
-the same finite order for every scale-factor profile, the expansion history
-is a record density per comoving cell and conformal tick, and the redshift
-between two epochs is the fourth root of a record-count ratio for congruent
-comoving windows with constant scale factor within each, or in the
-shrinking-window limit of a continuous profile. These statements are exact
-and machine-checked; native repair selects neither the population nor its
-profile. On this footing we state observer-screen synchronization as a candidate
-inflation-free branch of Observer Patch Holography (OPH) and list the premises
-it must supply; none of its replacements for the jobs of inflation is
-supplied here. A conditional source theorem fixes a screen amplitude from a primitive collar
-release law and a spectral tilt \(n_s=1-P_\star/48\) from an edge-center
-generator once its full-collar generator density is supplied; physical
-source dilation and radial cross-covariance tomography give two sufficient
-routes to a unique three-dimensional spectrum, and vanishing spatial
-curvature holonomy identifies a flat FLRW branch without selecting it. The
-generator density is a declared branch input, so the tilt is a declared map
-evaluated at a target-informed pixel. At the comparison pixel
-located from the measured fine-structure constant the tilt is \(0.96602\),
-\(0.27\sigma\) above Planck 2018 and at the lower \(0.612\) percent position
-of the joint posterior of ACT DR6 with Planck, lensing and DESI 2024 baryon
-acoustic oscillations, a retrospective tension on data that precede the
-registration.
+Observer-screen synchronization is a conditional alternative to an inflaton
+model. Its mathematical ingredients are a finite source ensemble, a
+geometric screen covariance and a physical radial lift. We derive the
+Gaussian screen spectrum and its amplitude from specified source data,
+show how an infinitesimal collar density would give
+\(n_s=1-P/48\), and state the conditions for a unique radial power law.
+The survival-cocycle form does not select that density. Native load
+covariance has spectral dimension two and cannot carry the proposed tilt
+under a bounded energy identification. On a supplied spatially flat
+background, expansion is represented by a fourth-power record-density
+weight; the source law does not select its profile. Horizon coherence,
+flat-sector selection, a hot radiation state and a common physical clock
+are independent premises. The construction therefore specifies a testable
+conditional spectrum without establishing an inflation-replacement
+cosmology.
+
 \end{abstract}
 
-\input{../paper/tex_fragments/INTERPRETATION_CONVENTIONS.tex}
 
-\input{../paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
 
-\section*{This paper's hypothesis and place in the tower}
 
-This paper sits at layer seven and develops the primordial branch without an
-inflaton. Its hypothesis is that observer-screen synchronization does the
-logical jobs of inflation: expansion is a record density on the sourced
-causal order, spatial flatness is zero clock-slice curvature holonomy,
-horizon-scale coherence is same-boundary repair, the nearly scale-invariant
-spectrum is a geometric screen spectrum with edge-center tilt
-\(n_s=1-P_\star/48\), the hot start is a MaxEnt release, and the acoustic
-sky follows from ordinary Boltzmann transfer.
+\section{Source ensemble and screen covariance}
+\label{sec:screen-spectrum-theorems}
+A finite physical quotient \(Q_r\), positive base weight \(m_r\), and
+intrinsic action \(S_r\) define
+\(\mu_r(q)=Z_r^{-1}m_r(q)e^{-S_r(q)}\). Settlement only retracts onto
+normal forms and fixes every law supported there; it does not select
+\(m_r\) or \(S_r\). Compatible coarse maps must push \(\mu_s\) to
+\(\mu_r\), and a physical vacuum needs reversible transfer data and a
+reconstruction theorem~\cite{ophvacuum}.
 
-The unconditional finite results are the record-density form of a
-spatially flat expanding background on a supplied layered population, the
-finite quotient ensemble theorems, and the cocycle freedom that leaves the
-tilt exponent unselected. The screen amplitude, the tilt, the two radial
-uniqueness routes and the flatness identification are conditional theorems:
-each holds once its displayed premise is supplied, and no finite source
-supplies the full-collar generator density \(P_\star/24\), the primitive
-collar release law, the record-production profile or a horizon-coherence
-mechanism. The FLRW chart, the population and its profile are premises.
+\begin{definition}[Geometric scalar and precision]
+\label{def:oph-screen-scalar}
+For a positive collar-volume readout \(J_{X,r}\) and independently
+specified reference \(\bar J_{X,r}\), set
+\[
+ q_r=(I-\Pi_{<2,r})\frac13\log(J_{X,r}/\bar J_{X,r}),\qquad
+ \Pi_{<2,r}=B_r(B_r^{\mathsf T}M_rB_r)^{-1}B_r^{\mathsf T}M_r,
+\]
+where \(M_r\) is the positive screen quadrature and \(B_r\) spans its
+certified monopole/dipole space. Let \(K_r\) be positive and self-adjoint
+in this quadrature on \(V_r=\operatorname{im}(I-\Pi_{<2,r})\).
+Its normalization and the source release energy \(E_{q,r}^{\rm src}\)
+are specified independently of the desired spectrum.
+\end{definition}
+A chart change satisfying \(U^{\mathsf T}M'_rU=M_r\),
+\(q'_{0,r}=Uq_{0,r}\), \(B'_r=UB_r\) gives
+\(\Pi'_{<2,r}U=U\Pi_{<2,r}\) by substitution. Patch count alone is not
+a quadrature or angular-resolution certificate.
 
-For the branch to apply, the executable model must emit from one native
-process the geometric collar-volume field, the generator density and
-orientation-half identity, a physical clock calibrating the release, a
-radial observation algebra that lifts the two-dimensional screen to a
-three-dimensional curvature field, and the record-production law. The
-native construction constrains this join. Its continuum generator is not
-identified with the round Laplacian, its reference state identifies no
-quantum vacuum, and under a bounded form-congruent identification its
-spatial covariance forces \(\theta=0\), so the tilt needs an ingredient
-beyond the native density field (see the paragraph on the native source
-after the screen-spectrum theorems). The
-branch is refuted if the frozen tilt protocol excludes \(n_s=0.96602\) on
-its eligible data, if nonzero running or primordial isocurvature is detected
-beyond the measurement errors, or if no admissible native ingredient can
-supply a nonzero tilt.
+\begin{theorem}[Screen covariance]
+\label{thm:oph-screen-maxent}
+For \(d_r=\dim V_r\), the entropy-maximizing continuous law with zero
+mean and expected energy
+\(\tfrac12\mathbb E\langle q,K_rq\rangle=E_{q,r}^{\rm src}>0\)
+is Gaussian with covariance \(A_{q,r}K_r^{-1}\), where
+\(A_{q,r}=2E_{q,r}^{\rm src}/d_r\).
+\end{theorem}
+\begin{proof}
+In an \(M_r\)-orthonormal eigenbasis, the multiplier equation gives
+\(\exp[-\beta\sum_i\kappa_i a_i^2/2]\). Each mode contributes
+\(1/(2\beta)\) to the energy. Strict entropy concavity gives uniqueness.
+\end{proof}
+\label{prop:oph-screen-amplitude-nogo}
+Every \(A>0\) defines such a Gaussian; MaxEnt does not choose the energy.
+One source prescription is a primitive collar law
+\(\nu_r^{\rm rel}\propto m_r^0\exp(-\sum_a\lambda_aF_a)\), whose
+constraints are specified before measuring the screen energy. It fixes
+\(E_{q,r}^{\rm src}=\tfrac12\mathbb E_{\nu_r^{\rm rel}}
+\langle q_r,K_rq_r\rangle\) only after that law is supplied.
 
-\section{Finite quotient theorem scope}
+\subsection{Conformal precision and controlled refinement}
+\label{def:oph-screen-conformal-precision}
+On a round spherical continuum, choose, for \(-2<\theta<4\),
+\[
+ K_\theta Y_{\ell m}=\Lambda_\ell(\theta)Y_{\ell m},\qquad
+ \Lambda_\ell(\theta)=
+ \frac{\Gamma(\ell+2+\theta/2)}{\Gamma(\ell-\theta/2)},\quad \ell\ge2.
+\]
+Then \(K_0=-\Delta_{S^2}\), and the Gaussian law gives
+\[
+ C_\ell^q=\frac{A_q}{\Lambda_\ell(\theta)},\qquad
+ \frac{\ell(\ell+1)C_\ell^q}{2\pi}\sim\frac{A_q}{2\pi}\ell^{-\theta}.
+\]
+A finite functional-calculus realization uses
+\(K_{\theta,r}=\Gamma(B_r+3/2+\theta/2)/
+\Gamma(B_r-1/2-\theta/2)\), \(B_r=(L_r+I/4)^{1/2}\), on a specified
+positive spectral branch; positivity of this finite operator is an explicit
+hypothesis. A sufficient condition is
+\(\sqrt{\lambda+1/4}>(1+\theta)/2\) for every retained eigenvalue
+\(\lambda\) of \(L_r\), which places both gamma arguments on the positive
+real axis. Positivity of \(L_r\) and its continuum limit alone do not
+imply this finite spectral condition. If on a fixed angular band its eigenvalues and amplitude have
+relative errors \(\epsilon_K<1\) and \(\epsilon_A\), respectively, then
+\[
+ \left|\frac{C_{\ell m,r}^q}{A_q/\Lambda_\ell}-1\right|
+ \le\frac{\epsilon_A+\epsilon_K}{1-\epsilon_K}.
+\]
+This follows from \((1+a)/(1+b)\) with
+\(|a|\le\epsilon_A\), \(|b|\le\epsilon_K\). The round operator and its
+normalization are premises, not consequences of finite icosahedral symmetry.
 
-\input{../paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
+\subsection{Generator density and radial spectrum}
+A positive continuous covariance-survival cocycle has
+\(u(s+t)=u(s)u(t)\), \(u(0)=1\), hence \(u(s)=e^{-\theta s}\).
+An independently supplied full-collar derivative
+\(-u'_{\rm full}(0)=P_\star/24\) and a weighted orientation-half identity
+\(-u'_q(0)=-u'_{\rm full}(0)/2\) therefore give
+\[
+ \theta=P_\star/48,\qquad n_s=1-P_\star/48,\qquad
+ \kappa_{\rm rep}^{\rm edge}=\frac{P_\star}{48(P_\star-\varphi)}.
+\]
+The last coordinate requires \(P_\star\ne\varphi\). A finite survival
+step has exponent \(-\log u(\log b)/\log b\); its probability cannot
+replace the derivative. Every real \(\theta\) satisfies the cocycle
+identity, and every nonnegative \(\theta\) is a decay cocycle. The density
+\(P_\star/24\) is therefore an independent premise.
 
-\input{../paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex}
+A physical dilation intertwiner, source stress, common clock, freezeout and
+translation/rotation covariance can transfer this law to the curvature
+covariance. On the common compact-\(\log k\) domain, assume
+\(D_s^{-1}C_\zeta D_s=e^{-\theta s}C_\zeta\), where
+\((D_sf)(k)=f(e^{-s}k)\). A positive measurable radial multiplier then
+has \(\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}\) almost everywhere.
+Indeed \(e^{\theta t}\Delta_\zeta^2(e^t)\) is translation-invariant in
+\(t\); measurability makes it constant almost everywhere. A global bounded
+covariance norm is not assumed for a nonzero tilt.
+
+For \(q=Z_\star\Pi_{\ell\ge2}\zeta(R_\star\hat n)\),
+\(Z_\star\ne0\), the spherical-Bessel integral gives
+\[
+ C_\ell^q=4\pi Z_\star^2\int d\log k\,
+ \Delta_\zeta^2(k)j_\ell^2(kR_\star),\qquad
+ A_\zeta=\frac{A_q}{\pi^{3/2}Z_\star^2(k_\star R_\star)^\theta}
+ \frac{\Gamma(3/2+\theta/2)}{\Gamma(1+\theta/2)}.
+\]
+The stated range \(-2<\theta<4\) ensures convergence for \(\ell\ge2\).
+A shell alone determines correlation only for chords up to \(2R_\star\),
+leaving an infinite-dimensional radial kernel even under positivity.
+Complete radial cross-covariances supply a separate tomography route.
+For a finite radial matrix \(C=Ap\), the null space has dimension
+\(N_k-\operatorname{rank}A\).
+
+For a normalized nonnegative radial window with mean \(R_\star\) and
+variance \(\sigma_R^2\), Taylor's theorem gives
+\(\delta_\ell(k)=\tfrac12 k^2\sigma_R^2
+\sup_{r\in\operatorname{supp}W}|j_\ell''(kr)|\) and
+\[
+ |C_{\ell,W}^q-C_{\ell,\rm shell}^q|
+ \le4\pi Z_\star^2\int d\log k\,\Delta_\zeta^2(k)
+ [2\delta_\ell(k)+\delta_\ell(k)^2].
+\]
+This requires a finite right-hand side. A source spectrum must control the
+radial null space, window error, finite refinement and forward residual
+before photon transfer can assign it an observed sky.
 
 \paragraph{Native source and the screen premises.}
-The conformal precision of
-Definition~\ref{def:oph-screen-conformal-precision} takes the round
+The conformal precision above takes the round
 continuum limit \(-\Delta_{S^2}\) as a premise. The native repair law
 supplies a continuum generator \(A\) on the screen whose energy lies between
 fixed multiples of the gradient energy of the flat comparison polyhedron;
 its identification with \(-\Delta_{S^2}\) is not
 established~\cite{ophcontinuum}. The executable source also supplies no
-source-only vacuum law in the sense of
-Proposition~\ref{prop:oph-screen-amplitude-nogo}: its full configuration
+source-only vacuum law selecting its release amplitude: its full configuration
 reference approaches the normalized trace, and its continuous wave readout
 has the classical displacement covariance \(A^{-1}\), not the vacuum
 covariance \((2\sqrt A)^{-1}\)~\cite{ophtimefields}. Under any bounded
@@ -143,95 +224,62 @@ of \(K_\theta\) against the linear growth of \(\lambda_n(A)\) and forces
 \(\theta=0\), so the native field's spatial covariance cannot carry the
 edge-center tilt, which requires a separate ingredient.
 
-\section{Branch Thesis}
+\section{Physical content of an inflation-free branch}
+A replacement for inflation must explain horizon-scale coherence, flat-sector
+selection, a nearly scale-invariant geometric spectrum, its amplitude and
+phase, and a hot radiation state on one common clock. The covariance
+calculation establishes the spectrum only after its source data are supplied.
+It proves none of the other requirements. In particular, the lowest native
+screen eigenvalue is bounded below only in the rescaled attempt parameter
+\(\tau=\mathrm{attempts}/(1260\cdot16^l)\); this gives no
+refinement-uniform physical low-wavenumber coherence rate.
 
-The branch requirement is:
-\[
-\boxed{
-\begin{gathered}
-\text{An inflation-free finite-source branch would have to replace the logical jobs of}\\
-\text{inflation by clock-slice spatial-holonomy selection, same-boundary or low-}k\text{ repair coherence,}\\
-\text{a geometric screen spectrum, MaxEnt release, and ordinary Boltzmann transfer.}
-\end{gathered}}
-\]
-This paper states those jobs as premises. Apart from the record-density
-expansion law of Section~\ref{sec:expansion-record-density}, it supplies
-none of them: flatness is identified but not selected, and horizon coherence
-has no derivation (Section~\ref{sec:unsupplied}). The claim becomes
-predictive only when the source objects are fixed before observational
-comparison. The proposed screen synchronization must be related to a
-declared state--algebra pair. Its modular group supplies a dimensionless
-parameter; the local clock readout and the cosmological-duration
-identification require their own premises. In the executable observer,
-passive native repair cannot act as a nontrivial modular automorphism, an
-active event clock executes one compiled modular step per incident native
-event with declared coherent services~\cite{ophmodel}, and equal mean rates
-of local event clocks give a stochastic relative-clock law. No universal
-synchronization of the screen follows from these constructions.
-
-The dark continuation of this branch is unspecified until a finite source
-fixes the anomaly abundance \(\bar\rho_A(a)\) and a finite covariant
-dark-stress parent supplies \(w_A\), \(c_{s,A}^2\), \(\sigma_A\),
-\(Q_A^\mu\), recipient stress and the cold-dark-matter limit; the local
-scalar-channel identity of coherent-matter same-channel forcing does not
-supply that parent.
-
-\section{Physical Conditions}
-
-\begin{longtable}{@{}p{0.28\textwidth}p{0.62\textwidth}@{}}
-\toprule
-Physical question & Required result or premise\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-Finite early state & Quotient normal-form branch with declared base measure and implementation
-invariance.\\
-Flatness & Zero clock-slice spatial Levi--Civita holonomy identifies \(\kappa=0\). Exact selection
-requires a derivation from the finite screen or an explicit curvature premise. Damping
-gives only an approximate \(|K|\) or \(|\Omega_K|\) bound.\\
-Horizon coherence & Same-boundary unique-extension theorem or a uniform low-\(k\) repair gap.
-The native screen generator has lowest eigenvalue at least \(3/4096\) only
-in the rescaled attempt parameter \(\tau=\text{attempts}/(1260\cdot16^l)\),
-so per native attempt its slowest relaxation rate falls as \(16^{-l}\); it is
-a two-dimensional spatial spectrum, not a physical low-\(k\)
-gap~\cite{ophcontinuum,ophtimefields}.\\
-Near scale invariance & Geometric screen scalar, normalized scalar precision, source release
-energy, infinitesimal reserve-generator tilt, and angular screen-spectrum receipts.\\
-Amplitude & The conditional theorem fixes \(A_q=2E_q^{\rm src}/d\) and its source-family
-conversion to \(A_\zeta\). A finite collar release law and energy receipt must supply their
-values without CMB data.\\
-Hot start & MaxEnt release into the realized radiation branch with a common release clock.\\
-Expansion history & Conformal invariance of the layered order and the
-\(a^4\) record-density weight of Section~\ref{sec:expansion-record-density};
-the record-production profile is a supplied datum, with the fixed-capacity
-de Sitter profile \(a=-1/(H\eta)\) as one inhabitant.\\
-Acoustic transfer & Declared source functions and a Boltzmann transfer calculation.\\
-\end{longtable}
-
-\section{Numerical Acceptance Conditions}
-
-The simulator source and its public data archives are cited
-in~\cite{ophsim}. For this paper the simulator may emit diagnostic
-screen spectra, observer-screen synchronization receipts, and release-amplitude candidates.  It
-supports an inflation-replacement interpretation only when one finite source supplies the
-primordial growth mode, physical radial lift, transfer calculation, and likelihood inputs.
-The executable observer construction emits none of these~\cite{ophmodel}.
+A modular flow supplies a dimensionless state-dependent parameter, not an
+absolute cosmological duration. Active coherent services can implement
+modular steps and relative event-clock laws, but do not synchronize an
+entire physical screen by themselves~\cite{ophmodel}. A dark-sector
+continuation must likewise supply its abundance, covariant stress, exchange
+and perturbation dynamics; a static acceleration law supplies none of those
+objects.
 
 \section{Expansion as Record Density}
 \label{sec:expansion-record-density}
 
 The spacetime construction supplies a flat causal-order and count-volume
 limit for the conservative golden-record population and the retrospective
-count clock. The following statements transfer that family to a spatially
-flat expanding background. They are exact and machine-checked in the Lean
-module named below; the profile law that selects how many records a comoving
-cell produces per conformal tick is a supplied datum, and no statement below
-derives the Friedmann equation. Conformal time \(\eta\), the layer index
+count clock. The source-cosmology companion gives the exact finite count identities
+for a spatially flat expanding background. The profile law specifying
+records per comoving cell and conformal tick is supplied; these count
+identities do not derive the Friedmann equation. Conformal time \(\eta\), the layer index
 \(j\) and the durations \(\sigma_j\Delta\) called physical ticks are
 coordinates of the supplied FLRW chart; none is a calibrated observer clock.
 
-\input{../paper/tex_fragments/SOURCE_NET_FLRW_RECORD_DENSITY.tex}
+For a positive profile \(a(\eta)\), the metric
+\(ds^2=a^2(c^2d\eta^2-|dx|^2)\) has the flat comoving causal order.
+Scaling a layer's site positions and read radius by the same \(a_j\)
+preserves every read relation. With constant physical event density \(\rho\),
+uniform comoving cell volume \(v\) and conformal tick \(\Delta\),
+\[
+ M_a(I)=\rho\Delta v\sum_{(j,s)\in I}a_j^4,
+ \qquad a_{\min}^4M_1(I)\le M_a(I)\le a_{\max}^4M_1(I).
+\]
+The fourth root of a ratio therefore reads the corresponding scale ratio
+for congruent constant-profile windows. For shrinking diamonds and continuous
+profiles it converges to the proper-time ratio; fixed finite diamonds can
+retain a bias. For example, \(a(\eta)=1+\eta\), with durations \(1\)
+and \(1/2\), gives mass ratio \(1516288/44451\), while the fourth power
+of the proper-time ratio is \((12/5)^4\). These differ by
+\(25944064/27781875\).
+
+For emission and reception windows of equal comoving shape, the same
+constant-profile or shrinking-window condition gives
+\[
+ 1+z=\frac{a_0}{a_e}=\left[\frac{M_a(I_0)}{M_a(I_e)}\right]^{1/4}.
+\] A de Sitter profile
+\(a=-1/(H\eta)\) gives record density proportional to \((H\eta)^{-4}\).
+The profile is supplied; these identities derive neither the Friedmann
+equation nor a physical clock. Their proofs and exact finite controls are
+in the source-cosmology companion~\cite{ophcmb}.
 
 \section{Flatness Boundary}
 
@@ -248,110 +296,26 @@ decay is a repair diagnostic rather than a spatial curvature holonomy.
 Curvature damping supplies only an approximate bound on \(|K|\) or
 \(|\Omega_K|\).
 
-\section{Screen-Spectrum Branch}
+\section{Conditional value and observation}
+At the comparison pixel \(P_\star=1.6309682094\), located using the
+measured fine-structure constant, the declared density gives
+\(n_s=0.96602\). The diagnostic clock choice
+\(\theta=e(P_\star-\varphi)\) gives \(0.96484\). Neither the survival
+cocycle nor a particle/memory fixed point selects the cosmological density
+or this clock choice. The first value lies \(0.27\sigma\) above Planck
+2018 and at the lower \(0.612\) percent position of the ACT DR6, Planck,
+lensing and DESI 2024 BAO joint posterior; the alternative lies at
+\(0.200\) percent. These are retrospective comparisons under
+\(\Lambda\)CDM, not likelihood ratios~\cite{act2025,ophpublicdata}.
 
-The load-bearing screen result is the angular screen covariance. It is
-distinct from a CMB spectrum:
-\[
-  C_\ell^q
-  =
-  A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
-\]
-This statement requires the geometric \(q_r\) of Definition~\ref{def:oph-screen-scalar}, a
-normalized conformal precision operator \(K_{\theta,r}\), the primitive collar release law,
-\(E^{\rm src}_{q,r}\), the MaxEnt covariance theorem, and a finite-to-continuum refinement error
-budget. The edge-center theorem gives
-\[
-\theta=\frac{P_\star}{48},\qquad
-n_s=1-\frac{P_\star}{48},\qquad
-\kappa_{\rm rep}^{\rm edge}=\frac{P_\star}{48(P_\star-\varphi)}.
-\]
-Its premise is a source-emitted full-collar generator density \(P_\star/24\) with the
-orientation-half identity. A finite one-step survival probability is converted through
-\(-\log u/\log b\). The \(e(P_\star-\varphi)\) clock branch is a diagnostic alternative.
-The finite generator and clock receipt is not supplied here. No finite source
-emits the density \(P_\star/24\); it is a declared branch input. The tilt
-therefore has the same status as the capacity display of the cosmological
-constant: a declared one-parameter map evaluated at a pixel that the measured
-fine-structure constant locates. Its numerical content is the declared
-density, since the cocycle form alone admits every exponent (see the end of
-this section).
-
-At the comparison pixel \(P_\star=1.6309682094\), located from the measured
-fine-structure constant, the edge-center value is \(n_s=0.96602\); the forward
-pixel \(1.6309721\) moves it by less than \(10^{-7}\). The retrospective
-comparison with public temperature and polarization data is recorded in the
-cosmology postdiction ledger released with these papers: the value lies
-\(0.27\sigma\) above Planck 2018, \(0.69\sigma\) above SPT-3G with Planck,
-\(0.79\sigma\) below the SPT, Planck and ACT combination, and \(1.28\sigma\)
-below ACT DR6 with Planck.
-The diagnostic \(e(P_\star-\varphi)\) branch gives \(0.96484\).
-The official joint posterior chains of ACT DR6 with Planck, lensing and DESI
-2024 baryon acoustic oscillations, whose mean is \(0.9743\pm0.0034\), place
-the edge-center branch at their lower \(0.612\) percent position and the
-diagnostic branch at \(0.200\) percent; the measured tail differs from the
-Gaussian summary~\cite{act2025,ophpublicdata}. Those data precede the
-registration, so this is a retrospective tension under baseline
-\(\Lambda\)CDM, not a likelihood ratio, and the registered comparison with a
-later dataset is unchanged. These are seen-data comparisons of a
-receipt-conditional value and select neither branch. The operative tilt protocol is FZ-15,
-frozen on 2026-10-04 with register status
-\texttt{frozen\_stamped\_upgrade\_pending}; its complete combination, pivot,
-thresholds and anchoring requirements govern the prospective comparison.
-On the same branch
-the dilation cocycle gives zero running,
-the rank-one single-clock normal form gives zero source-side isocurvature.
-The scalar screen field emits no transverse-traceless source,
-but that condition alone leaves homogeneous tensor modes free.
-A zero linear primordial tensor amplitude additionally requires zero initial tensor amplitude and velocity and no tensor forcing;
-those initial data are extra branch premises. Planck 2018 gives a
-running of \(-0.0045\pm0.0067\) and ACT DR6 with Planck, lensing and
-baryon acoustic oscillations \(0.0062\pm0.0052\); BICEP/Keck 2018 bounds
-\(r_{0.05}<0.036\) and the fourth Planck release with BK18 and BAO \(r<0.032\); Planck
-2018 bounds the uncorrelated cold-dark-matter isocurvature fraction at
-\(3.5\) to \(3.9\) percent. A tensor null at a stated sensitivity excludes
-only specified models predicting a larger signal, since slow-roll inflation
-allows arbitrarily small tensor amplitudes. It cannot establish exact zero
-or distinguish this branch from all single-field models. The running-zero
-row likewise tests only alternatives resolved by its measurement errors.
-The exponential form of the survival cocycle and the tilt
-\(P_\star/48\) from the half-collar density, together with the exact
-rational brackets of every comparison above, are machine-checked in the
-Lean modules \texttt{EdgeCenterTiltCocycle} and
-\texttt{CosmologyLedgerBrackets}.
-
-Under the declared source dilation cocycle, the primordial power law
-\[
-  \Delta_\zeta^2(k)=A_\zeta\left(\frac{k}{k_\star}\right)^{-\theta}
-\]
-is the unique member of the one-dimensional source family. The exact thin-shell identity fixes
-the amplitude conversion
-\[
-A_\zeta=\frac{A_q}{\pi^{3/2}}
-\frac{\Gamma(3/2+\theta/2)}{\Gamma(1+\theta/2)}
-\]
-at the source pivot when \(q=\Pi_{\geq2}\zeta(R_\star\hat n)\) and
-\(k_\star R_\star=1\). For the general attachment
-\(q=Z_\star\Pi_{\geq2}\zeta(R_\star\hat n)\), the displayed expression
-is divided by \(Z_\star^2(k_\star R_\star)^\theta\), with
-\(Z_\star\neq0\) and \(-2<\theta<4\).
-A finite run requires \(R_\star\), the radial window, the unrestricted
-null-space report, the forward residual, and the physical scale. The screen theorem proves no
-temperature, polarization, lensing, acoustic-peak, or likelihood statement.
-
-\input{../paper/tex_fragments/NATIVE_COSMOLOGY_SOURCE_BOUNDARY.tex}
-
-\paragraph{Refinement survival does not select a numerical exponent.}
-For every real \(\theta\), \(u_\theta(s)=e^{-\theta s}\) is a
-continuous multiplicative survival cocycle. For \(\theta\ge0\) it also
-obeys \(0<u_\theta(s)\le1\) on \(s\ge0\). Distinct exponents
-therefore inhabit the same cocycle interface; its type alone cannot select
-\(P_\star/48\). The Lean module
-\texttt{EinsteinBranch.EdgeCenterTiltFreedom}~\cite{ophlean}
-checks this freedom against the canonical cocycle definition. Numerical
-tilt selection requires the source generator and its physical
-dilation attachment. Neither nested regression orthogonality nor coarse
-load survival supplies that derivative premise.
+The fixed dilation exponent gives zero running. A Gaussian single-clock
+source has no independent isocurvature mode. Zero linear tensors requires
+both zero initial tensor amplitude and velocity and zero forcing; absence
+of a scalar-induced tensor source alone leaves homogeneous solutions.
+A tensor upper limit can exclude only models above its sensitivity, because
+slow-roll inflation has no universal positive tensor floor. Physical
+comparison additionally needs the curvature map, acoustic transfer,
+recombination, foregrounds and covariance on the same branch.
 
 \section{Unsupplied Premises}
 \label{sec:unsupplied}
@@ -387,26 +351,20 @@ tensor-curvature convergence or the continuum small-ball/null-balance
 identification.
 
 \begin{thebibliography}{99}
+\bibitem{ophvacuum}
+B.~M\"uller, \emph{Observer Patch Holography Cosmological Vacuum and Structure Formation}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/cosmology/oph_cosmological_vacuum_and_structure_formation.pdf}.
+
 
 \bibitem{ophEinstein}
 B.~M\"uller et al.,
 \emph{Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}.
 
-\bibitem{ophmicro}
-B.~M\"uller et al.,
-\emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/screen_microphysics_and_observer_synchronization.pdf}.
-
 \bibitem{ophcmb}
 B.~M\"uller, \emph{Finite-Source Cosmology from Observer Patch Holography:
 Source, Transfer, and Likelihood Boundaries}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/cosmology/oph_cosmology_finite_source_cmb_program.pdf}.
-
-\bibitem{ophsim}
-B.~Mueller (2026). OPH physics simulator and reproduction source.
-\url{https://github.com/muellerberndt/oph-physics-sim}. Public data archives:
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence}.
 
 \bibitem{ophmodel}
 FloatingPragma (2026). The runnable OPH model: observer implementation,
@@ -435,15 +393,6 @@ FloatingPragma (2026). OPH predictions and public-data comparisons.
 T.~Louis et al. (2025). The Atacama Cosmology Telescope: DR6 power spectra,
 likelihoods and \(\Lambda\)CDM parameters. arXiv:2503.14452.
 \url{https://arxiv.org/abs/2503.14452}.
-
-\bibitem{ophlean}
-FloatingPragma (2026). Observer Patch Holography Lean formalization.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/Lean}.
-
-\bibitem{ophobsdyn}
-FloatingPragma (2026). Observer-dynamics analysis archive: specifications,
-refinement-chain receipts, independent controls and covariance extraction.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/observer_dynamics_20260925/sim-analysis}.
 
 \end{thebibliography}
 

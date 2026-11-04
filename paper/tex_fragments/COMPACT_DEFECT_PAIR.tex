@@ -1,0 +1,84 @@
+\subsection{Compact opposite-degree textures and their isolated modes}
+\label{subsec:compact-defect-pair}
+
+A finite-energy texture can carry opposite local winding numbers while
+approaching a constant exterior.  On the two-spin cubic hopping carrier,
+choose an integer $a\geq1$, write $R=a+1$, and define
+\[
+ f(x,y,z)=
+ \begin{cases}
+ (x,y,z^2-a^2),&\max(|x|,|y|,|z|)\leq R,\\
+ (0,0,1),&\text{otherwise}.
+ \end{cases}
+\]
+Set $n=f/|f|$ away from $c_\pm=(0,0,\pm a)$ and $n(c_\pm)=0$.
+The Hamiltonian is $h=T+M n\cdot\sigma$, where the nearest-neighbor
+hopping has $\|T\|\leq\sqrt3<2$ and $M\geq8$.
+The texture and its amplitude zeros are explicit design inputs.
+The complete unit cubic shells about $c_+$ and $c_-$ have degrees $+1$
+and $-1$ under their normalized barycentric interpolation; the exterior
+shell is constant.  Exact rational regular-value counts check every
+oriented triangle.  This degree classifies the interpolated texture and
+is not a fermionic superselection charge.
+
+For the selected ordered-spin reference, fill the two core directions
+by the exterior direction.  Each rotated-ground source bond has excess
+energy in $[0,J]$.  With $s=2a+3$, precisely $3s^2(s+1)$ bonds touch the
+support cube, so
+\[
+ 0\leq\Delta E_{\rm spin}\leq3s^2(s+1)J.
+\]
+The two zero fermion masses and the spin-core fill are distinct declared
+parts of the construction.  The second-quantized Hamiltonian differs
+from that of the uniform texture by an operator of norm at most
+$2M(s^3-1)$.  Its vacuum-energy difference has the same bound,
+independently of exterior volume.  These are total texture-energy bounds;
+they do not assign a constituent rest mass to a localized mode.
+
+Projection onto the two core sites gives
+$h=\left(\begin{smallmatrix}0&B^\dagger\\B&D\end{smallmatrix}\right)$.
+The exterior block has no spectrum in $(-M+2,M-2)$, and
+$\|B\|^2=b^2$, where $b^2=7/4$ for $a=1$ and $b^2=3/2$ otherwise.
+There are exactly four low eigenvalues.  Their Feshbach equations give
+\[
+ |E|\leq r:=\frac{b^2}{M-4},\qquad
+ \frac{\|\psi_{\rm exterior}\|^2}{\|\psi_{\rm cores}\|^2}
+ \leq\frac{b^2}{(M-2-r)^2}.
+\]
+These bounds are uniform in volume.  For a cube of radius $L\geq R+1$,
+resolvent path expansion and monotone Feshbach eigenvalue crossings give
+\[
+ |E_j(L)-E_j(\infty)|\leq
+ \frac{2b^2}{M-r-2}
+ \left(\frac{2}{M-r}\right)^{2(L+1-R)}.
+\]
+Thus the infinite lattice also has precisely four isolated modes in
+$[-2,2]$.  At $a=1$, $M=64$, $L=3$, complete rational interval
+certification of all $686$ eigenvalues excludes zero from all four low
+levels and from their infinite-volume limits.  The numerical levels are
+approximately $\pm0.003905899328$ and $\pm0.003906437151$.
+The finite-volume filled-sea energy difference is approximately
+$127.9700$ in the same hopping units.
+
+Let $W$ span this four-dimensional band, $A=W^\dagger hW$, and
+$C=D_{\rm stagger}i\sigma_2$.  Particle-hole symmetry gives
+$C\overline W=WS$ with $S=W^\dagger C\overline W$ antisymmetric and
+unitary.  The actual twelve native current operators intertwine through
+$W\otimes I_{45}$.  The same local pairing
+$\Delta=C\otimes\overline K$ has the exact core
+\[
+ \begin{pmatrix}
+ A\otimes I&S\otimes\overline K\\
+ (S\otimes\overline K)^\dagger&-\overline A\otimes I
+ \end{pmatrix}.
+\]
+Its energies are those of $A$ plus or minus the singular values of $K$.
+Consequently the compact texture shifts the retained family coefficients;
+dropping $A$ gives an incorrect operator inclusion.  A local Pauli
+perturbation at the two cores preserves every shell datum while changing
+these energies.  Winding alone therefore does not pin a zero mode for
+this carrier.  The construction supplies a compact background and
+controlled localized spectrum, without autonomous formation, stability,
+a relativistic mass shell or physical particle identification.
+The complete calculation and exact certificates are in
+\texttt{model/compact\_defect\_pair}.

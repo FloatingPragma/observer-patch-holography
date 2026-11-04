@@ -10,40 +10,25 @@ The [working terms](../docs/INTERPRETATION_AND_TERMS.md) summarize these
 definitions. Mathematical background supplied by a benchmark remains an
 explicit premise even when the programme aims to reconstruct its physical role.
 
-The papers form one tower over the executable model, and the
-[paper set](../docs/PAPER_SET.md) maps each paper to its layer. Every paper
-opens with the same statement of the
-[executable-model hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md) and then
-its own hypothesis, what it proves, the open join it needs from the model and
-what would refute it. The [basis](../docs/BASIS.md) states the closure
-hypothesis behind the whole set.
+The [paper set](../docs/PAPER_SET.md) maps the logical dependencies. Each
+paper states its own construction, assumptions, proofs and physical scope.
+Shared project summaries are kept in the index; specialist papers develop
+their mathematical subject without repeating the full program.
 
-For a first reading, begin with the flagship synthesis,
-[*Observers Who Read Their Universe into Existence*](../flagship/from_observer_consensus_to_standard_physics.pdf),
-which walks through the tower layer by layer. The construction paper,
+Begin with the flagship synthesis,
+[*Observers Who Read Their Universe into Existence*](../flagship/from_observer_consensus_to_standard_physics.pdf).
+The construction paper,
 [*An Executable Observer for Observer Patch Holography*](executable_observer_construction.pdf),
-states the specification, the executed components and the ordered joins.
-
-The current-source previews also include the
-[28 October finite C/E campaign](../model/completion/README.md): continuing
-record-buffer operation with accounted exports, an exact stationary reference
-lifted to the actual complete records, and scoped branch-charge and modular-
-access obstructions. This finite campaign alone grants no integrated gate acceptance.
-The construction paper gives the detailed observer/reference join; the shared
-summary in every primary paper preserves the same scope. The current previews
-also include the [same-action bound-pair construction](../model/bound_pair/README.md),
-its complete native clock corner, regional CAR maps and finite energy/entropy
-identities. One composite has verified motion, spectral protection,
-charge and complete spectral records. Its band is topologically trivial,
-physical species and units remain unassigned, and the same-speed relativistic
-mass relation fails. The interaction also prevents exact isolation of one
-Weyl momentum pocket by deleting the rest. The papers state these results
-alongside the remaining field and Einstein premises.
+states the repair and memory specification, complete observer records and
+controlled field limits. The [basis](../docs/BASIS.md) distinguishes closure,
+operational agreement, and the adopted state and response principles.
 
 The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
-gives certified finite interacting spectra, their conserved radial currents,
-a memory realization of the pixel-dependent charged-lepton operator, its
-localized native-current inclusion, and a lattice texture energy bound.
+develops the finite gauge and matter inputs, pixel-dependent mass law,
+native memory realization, common localized current/mass operator, quartic
+interaction and compact finite-energy defect pair. Its conditional catalogue
+states the unresolved physical identifications without surveying separate
+mass prescriptions.
 The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
 states the corresponding conditional stress and generalized-volume entropy
 relation. The [source particle map](../model/completion/SOURCE_PARTICLE_MAP.md)
@@ -51,15 +36,21 @@ connects each calculation to its readable inputs and mathematical domain.
 A common physical defect assignment, interacting continuum and Einstein
 realization require the stated identification and limit theorems.
 
+The flagship summarizes this construction alongside the strongest controlled
+field limits and conditional Einstein theorem, with specialist references
+for their proofs. The core's Gibbs response uses the same Hamiltonian as its
+interacting poles. Distinct texture carriers and a supplied response kernel
+do not establish a common physical spectrum or geometric entropy law.
+
 | Paper | Role |
 | --- | --- |
 | [Observers Who Read Their Universe into Existence](../flagship/from_observer_consensus_to_standard_physics.pdf) ([source](../flagship/from_observer_consensus_to_standard_physics.tex)) | Flagship synthesis: the closure and executable-model hypotheses, adopted principles and tower layer by layer, with the status of each layer; released on [PhilPapers](https://philpapers.org/rec/MUEFOC) |
-| [An Executable Observer for Observer Patch Holography](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | Layers 2–4 as executed: the specification, executed components, premise map, and the ordered joins with their stopping tests |
+| [An Executable Observer for Observer Patch Holography](executable_observer_construction.pdf) ([source](executable_observer_construction.tex)) | Layers 2–4: repair and memory, complete observer records, clocks, field limits and physical identification conditions |
 | [Reality as a Consensus Protocol](reality_as_consensus_protocol.pdf) ([source](reality_as_consensus_protocol.tex)) | Layer 1: local agreement repair, quotient normal forms, provenance order, and cycle holonomy as the residue repair cannot remove |
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Layer 3: observers, records, quantum and thermodynamic identities, and the closure equations |
 | [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Layers 4 and 6: clocks, causal order and geometry from the same process, and the conditional Einstein implication with its realization premises |
 | [Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) ([source](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex)) | Layer 5, gauge half: gauge structure as overlap transport and the compact Lie type under complete-response premises |
-| [Particles as Localized Topological Defects of Native Overlap Transport](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Layer 5, matter half: the localized-defect hypothesis, the native decision test and the mass obstructions |
+| [Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Layer 5, matter half: common gauge currents, defect modes, the pixel-dependent mass operator and its physical matching conditions |
 | [Twelve-Port Icosahedral Carriers and Native Seam Repair](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Layer 2: the twelve-port carrier, seam rule, record laws and federation |
 
 The flavor theorem is developed in [The Positive-Chamber Koide Identity for

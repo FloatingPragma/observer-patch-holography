@@ -41,195 +41,59 @@ Jinwook Kim, Oraclizer Labs.
 \end{center}
 
 \begin{abstract}
-In Observer Patch Holography (OPH) a world is a finite network of observer
-patches that repair disagreements on their overlaps. This paper is the
-mathematical layer of the OPH tower that treats that repair. A repair law
-whose accepted moves satisfy a transactional local diamond, strictly
-decrease a declared descent measure and are complete reaches one quotient
-normal form whatever the order of accepted repairs. This is Newman's lemma
-for a precisely stated acceptance filter, and explicit countermodels show
-that atomic commits, disjoint write sets or termination alone do not
-suffice. Canonical adaptive repair is eventually constant, pathwise weak
-fairness makes its stable state a normal form, and a stutter allowance \(q\)
-gives the sharp horizon of \((q+1)\) times the initial mismatch count.
-Hidden local representation is gauge: the normal form descends to the
-quotient by changes that preserve overlap data.
-
-The residue that local repair cannot remove is cycle holonomy. For affine
-abelian overlap constraints, global consistency holds exactly when every
-cycle holonomy vanishes, and with fixed edge offsets and positive weights a
-nonzero holonomy forces a strictly positive minimum mismatch. This
-frustration theorem is the mathematical seed of the OPH matter hypothesis;
-it supplies neither a native defect nor its localization, motion or energy.
-Authenticated read-from provenance generates a finite informational order,
-a fair-block theorem controls noisy repair, and a fixed input-independent
-repair federation computes every finite Boolean function under fair
-scheduling. Geometry, matter and dynamics enter through the higher layers
-under their own premises.
+Observer Patch Holography represents local records by overlapping patches
+and agreement by accepted repair. We prove that a repair law with
+well-founded descent, a transactional local diamond and completeness has
+one schedule-independent quotient normal form. Adaptive fairness and
+capacity bounds distinguish eventual stabilization from termination within
+a fixed number of attempts. Atomic commits and termination alone do not
+suffice. For affine abelian constraints, consistency is equivalent to
+vanishing cycle holonomy; fixed nonzero holonomy forces positive residual
+mismatch. This is an obstruction theorem, not a particle-energy law.
+Gauge descent, natural refinement maps, central record algebras and
+controlled recovery extend the construction. Authenticated provenance gives
+an informational order; fair-block certificates bound noisy repair; and
+admissible distributed implementations preserve the same public normal
+form. Physical fields, clocks, localized matter and Einstein dynamics
+require the separate realization premises stated at the interfaces.
 \end{abstract}
 
-\input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
-\input{tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-\input{tex_fragments/FINITE_COMPLETION_CAMPAIGN.tex}
 
-\section*{This paper's hypothesis and place in the tower}
+\section{Local repair and observable agreement}
 
-This paper is layer~1 of the tower: the mathematics of local agreement
-repair. Its hypothesis is that local agreement repair between overlapping
-patches reaches global consistency, as a schedule-independent quotient
-normal form that preserves its protected boundary data and orders its
-commits by provenance, and that the residue local repair cannot remove is
-cycle holonomy, or frustration. Hidden local representation is gauge:
-implementation detail that the public normal form does not see.
+A finite graph of observer patches represents local records and overlap
+constraints. Accepted local repairs compute a quotient normal form when
+they decrease a well-founded measure, satisfy a local diamond and are
+complete for the declared consistent states. The result is a rewriting
+theorem, not an identification of its endpoint with a physical universe.
+The closure hypothesis proposes that observers recover and realize the
+specification of their world; selecting a particular source, state and
+physical interpretation requires additional premises \cite{ophsynthesis}.
 
-The finite theorems are proved outright for every structure meeting their
-stated hypotheses:
-confluence of an admissible accepted repair law
-(Theorem~\ref{thm:confluence}), the adaptive and capacity horizons, the
-holonomy criterion and the frustration bound (Theorem~\ref{thm:holonomy},
-Corollary~\ref{cor:defects}), gauge descent (Theorem~\ref{thm:gauge}),
-refinement-limit classes, the record-algebra and finite observable-net
-results, distributed invariance and the generated provenance order. The
-noisy fair-block bound and the protocol and code extensions are
-implications from certificates that an implementation must supply.
+The construction uses Newman's confluence lemma \cite{newman42}.
+Termination differs from a continuing legitimate regime in
+self-stabilization \cite{dijkstra1974}, and finite linear sheaf diffusion
+has its own state and operator hypotheses \cite{hansenghrist2020}.
+A native seam process that waits or swaps at mismatch one need not satisfy
+strict descent; applying the theorem to it requires an admissible quotient
+presentation \cite{ophmodelguide}.
 
-Two results pass to higher layers. Nonzero cycle holonomy with fixed edge
-offsets forces a strictly positive residual mismatch; this is the
-mathematical seed of the matter hypothesis of layer~5
-(Section~\ref{sec:frustration-matter}). Gauge as implementation hiding is
-the quotient on which the gauge layer reconstructs transport
-(Section~\ref{sec:gauge-layer-bridge}). The normal form and its records feed
-the observer layer. The provenance order is informational and reaches the
-spacetime layer only through further premises. The flagship paper composes
-the layers~\cite{ophsynthesis}.
+The main results are the quotient normal-form theorem, adaptive scheduling
+and capacity bounds, the cycle-holonomy obstruction, gauge descent,
+refinement naturality and complete record stability. The derived
+informational order does not supply a physical metric or clock. Likewise,
+fixed nonzero holonomy forces residual mismatch but supplies no localized
+particle or maintenance-to-energy law. These distinctions determine the
+interfaces to the gauge, particle and spacetime constructions.
 
-These theorems describe the executable model only after its native law is
-presented as an admissible quotient repair law. The integer pair-repair and
-transactional contracts satisfy the descent premise. The native seam rule
-waits or swaps at mismatch one, so its binary shell keeps moving and its
-accepted moves need not lower a measure~\cite{ophmodelguide}. A quotient
-presentation of the native law that meets the admissibility premises, or a
-separate theorem for its continuing regime in the sense of
-self-stabilization~\cite{dijkstra1974}, is an open join. The matter bridge needs native transition data
-that carry a nonzero holonomy class preserved by the admitted repairs,
-together with a localized core, its transport and a derived energy; none of
-these is constructed.
+On the collar branch, repair uses exact Markov splice or a specified
+Petz/Fawzi--Renner recovery map. Support conditions, repair completeness and
+the local diamond are explicit hypotheses. The rooted-tree packet domain
+below realizes them jointly. Host execution time, repair attempts, record
+precedence and physical duration are distinct; a physical interpretation
+must state their maps. The consensus fixed point, a complete-history
+closure point and a stationary probability law are also distinct objects.
 
-An admissible presentation in which two accepted schedules from one initial
-state reach different quotient normal forms, with no holonomy obstruction
-and no mere gauge difference, refutes the consensus hypothesis for that law.
-So do two inequivalent normal forms from the same boundary data where the
-fiber-uniqueness hypothesis of
-Theorem~\ref{thm:boundary-conditioned-uniqueness} holds. An exhaustive
-proof that native transport admits no nonzero holonomy class preserved by
-the admitted repairs, over every sector and refinement of a declared defect
-class, stops the defect route to matter.
-
-\input{tex_fragments/UNIFIED_OBSERVER_PHYSICS_SPINE.tex}
-
-\section{Introduction}
-
-A world is represented here as a finite graph of observer patches. Each
-patch carries local state, neighboring patches compare their data on
-overlaps, and local repair moves reconcile mismatch. The questions are
-whether this repair reaches one shared world, and how the obstructions are
-encoded when it cannot.
-
-``Dynamics'' is meant in the rewriting-system sense. The repair schedule
-selects terminal normal forms, and schedule independence is proved under
-stated hypotheses. The selected observer-facing structure can carry an
-internal record order, which is read as history. Identifying the normal
-form with intrinsic computation of a complete history requires an
-observation- and intervention-preserving realization map, and a
-physical-clock reading additionally requires an observer-readable
-transition process, event correspondence and clock calibration. The
-patch-net algorithm is a theorem device for fixed-point selection; the
-description contains no global timeline on which spacetime contents are
-rendered.
-
-The mathematics is standard where it should be. Constraint satisfaction,
-rewriting, well-founded descent, local-diamond confluence~\cite{newman42},
-inverse limits and recovery channels enter with their usual meanings. OPH
-adds the reading: each variable is an observer patch, each constraint an
-overlap-visible record check, and each accepted rewrite a local repair move
-that descends to the quotient seen by neighboring observers. Two precedents
-separate the available convergence tools. Dijkstra's self-stabilizing ring
-reaches a legitimate regime under its central daemon while permitted
-activity continues~\cite{dijkstra1974}, which differs from termination of a
-repair relation. For finite-dimensional inner-product stalks and linear
-restriction maps on a finite graph, sheaf diffusion converges to the
-orthogonal projection onto compatible sections~\cite{hansenghrist2020}.
-Each result requires its own state, map and scheduling hypotheses, and
-neither selects a physical law from its equilibria. The finite rewrite
-construction below is a separate instantiation.
-
-The results are as follows.
-\begin{enumerate}[leftmargin=2em]
-\item \textbf{Constraint codes.} A finite overlap net is a finite
-constraint code with \(C=\Phi^{-1}(0)\)
-(Proposition~\ref{prop:constraint-code}). It is not by itself a quantum
-error-correcting code, and the bare graph does not determine a code
-distance (Theorem~\ref{thm:no-free-mincut}).
-\item \textbf{Asynchronous confluence.} Primitive recovery proposals commit
-only through transactional snapshot validation, protected-data
-preservation and exact descent. The accepted relation induces a total,
-idempotent, boundary-preserving quotient repair map
-\(\operatorname{Rep}_\lambda:Q\to Q\). Semantic-complete read sets and one
-coherent aggregate per conflict component prove the quotient local diamond,
-and with repair completeness every initial state has a unique
-schedule-independent quotient normal form
-(Theorems~\ref{thm:quotient-repair-normal-form} and \ref{thm:confluence}).
-Attempt streams, fairness and cumulative capacity are classified exactly
-(Theorems~\ref{thm:adaptive-repair-stratification} and
-\ref{thm:cumulative-attempt-capacity}).
-\item \textbf{Cycle obstruction and frustration.} For affine abelian overlap
-constraints, global consistency holds exactly when every cycle holonomy
-vanishes (Theorem~\ref{thm:holonomy}); fixed nonzero holonomy forces
-positive residual mismatch (Corollary~\ref{cor:defects}); the
-crossed-module class extends the obstruction to the noncentral branch
-(Theorem~\ref{thm:higherdefects}).
-\item \textbf{Gauge quotient and boundary data.} The normal form descends to
-the quotient by implementation hiding, and preserved boundary data with a
-unique consistent extension fix the quotient bulk
-(Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness},
-\ref{thm:layered-carrier-HB-Hfib}, \ref{thm:functional-selected-fiber} and
-\ref{thm:obsconfluence}).
-\item \textbf{Refinement.} Natural restriction systems assemble normal forms
-and holonomy classes into inverse-limit classes, and controlled
-coarse-graining commutes with reconciliation up to declared errors
-(Theorems~\ref{thm:refinement-consensus} and
-\ref{thm:coarse-grain-consensus}).
-\item \textbf{Records and finite observable nets.} A supplied density state
-and a declared L\"uders instrument give Born--L\"uders formulas on central
-record projectors, with explicit stability bounds for approximate records
-(Theorem~\ref{thm:crdt}). Authenticated provenance generates a finite
-informational order, and the finite consensus tower carries a normed
-completion, selected-state GNS representations and exact finite local
-dynamics.
-\item \textbf{Implementations.} Admissible distributed presentations of one
-global carrier have the monolithic normal form
-(Theorem~\ref{thm:distributed-one-universe}), and fair-block contraction
-certificates control noisy repair
-(Theorem~\ref{thm:noisy-fair-block-consensus}).
-\end{enumerate}
-
-The repair step is a concrete recovery move. On the fixed-cutoff collar
-branch a local update comes from exact Markov splice or from a declared
-Petz/Fawzi--Renner recovery channel, read on overlap-invariant data. The
-union-collar payload is parenthesization independent only with an exact
-aligned Markov construction, a coherent canonical recovery construction or
-a primitive aggregate payload (Proposition~\ref{prop:assocglue}). Repair
-completeness, the quotient local diamond and, on the Petz branch, the
-support clause of Proposition~\ref{prop:petz-cptp} are separate conditions.
-The rooted-tree packet domain of Theorem~\ref{thm:tree-packet-domain}
-proves all of them on a nontrivial exported net.
-
-Synchronization and consensus are distinct. A phase-lock process may
-establish a stable relative phase between two exposed ports. It enters
-these theorems only after its phase records are tied to the accepted
-transaction ledger, an independent clock, the record surface and the
-confluence premises; frequency entrainment can coexist with conflicting
-records.
 
 \section{Patch Nets, Overlaps, and Global Consistency}
 
@@ -1479,72 +1343,32 @@ locus can be related by \(H\)-valued edge changes. Ordinary loop coherence is th
 separate existential holonomy test stated above.
 \end{proof}
 
-\subsection{Frustration as the seed of the matter hypothesis}
+\subsection{Holonomy and the particle interpretation}
 \label{sec:frustration-matter}
 
-The OPH matter hypothesis reads stable massive matter as localized
-topological defects of native overlap transport: a bounded core whose
-boundary transport carries a holonomy that admitted local repairs cannot
-erase, with rest energy derived from its excess maintenance in the same
-physical clock and energy dictionary. Theorem~\ref{thm:holonomy} and
-Corollary~\ref{cor:defects} are the finite mathematics behind the first
-clause of that statement, and this subsection records exactly what they
-supply.
+With fixed offsets $b$, every assignment violates an edge on each cycle of
+nonzero holonomy. Repairs of vertex labels cannot remove this obstruction;
+updates of $b$ that change its class can. The invariant therefore constrains
+an admitted dynamics only if that dynamics preserves the class.
+The residual $\min_x\Phi_b(x)$ is a cost of the whole constraint problem,
+not an excitation energy above its own ground state. Localization,
+reference subtraction, transport and a common physical energy and clock
+map are additional requirements.
 
-\paragraph{What the theorem gives.}
-On a fixed finite graph with positive mismatch weights and fixed edge
-offsets \(b\), nonzero cycle holonomy forces a strictly positive minimum
-mismatch \(\min_x\Phi_b(x)>0\). Repairs of the vertex assignments cannot
-remove it. The violated edges of every assignment meet every cycle of
-nonzero holonomy, because a cycle whose edge equations all hold has
-telescoping holonomy zero. The obstruction persists under changes of \(b\) that keep
-its cycle class. On the noncentral branch the invariant is the
-crossed-module class of Theorem~\ref{thm:higherdefects}, and the
-refinement-limit holonomy class of Theorem~\ref{thm:refinement-consensus}
-carries it across a natural refinement system.
+Native load contrasts are exact port gradients and have zero cycle
+holonomy. The seam graph has a cycle space, but the filled icosahedral face
+complex has vanishing first homology: face-curl-free offsets have zero
+holonomy on every cycle. The collision sector of the total-two native
+C/E process has survival $(5/6)^n$ after $n$ uniform seam attempts; this
+excludes a protected collision state, not other quantum or memory sectors
+\cite{ophmodelguide}.
 
-\paragraph{What it does not give.}
-The offsets \(b\) are fixed data, so the theorem supplies no update law for
-them. An admitted update that changes \(b\) outside its cycle class removes
-the obstruction, and gauge invariance alone does not prove that a physical
-update preserves the class. The theorem localizes nothing and moves
-nothing: it constrains the violated edges only to meet every frustrated
-cycle, and it selects no core, no reference-like exterior and no transport
-of a defect. The residual \(\min_x\Phi_b(x)\) is a mismatch of the whole
-compatibility problem, not an excitation above that problem's own ground
-state. Mismatch weights, repair counts and host work are distinct from
-rest energy; identifying the residual with rest energy requires a derived
-maintenance-to-energy map in a calibrated clock, with one common signal
-speed and no conversion fitted per species.
+The localized-defect interpretation requires actual transition data and an
+invariant preserved by all admitted operations, together with finite
+excitation energy and particle-compatible dynamics. The finite holonomy
+theorem establishes the algebraic obstruction under its stated premises;
+it does not by itself identify physical matter.
 
-\paragraph{The native carrier supplies no free holonomy.}
-Native load contrasts are differences of port values. They are exact, so
-their holonomy vanishes on every cycle and their face curl is zero; the
-oriented-face curvature of the native carrier has kernel exactly the port
-gradients (Section~\ref{sec:finite-observable-nets}). The full
-two-dimensional carrier complex has vanishing first homology, so every
-cycle of its one-skeleton bounds faces and a face-curl-free offset has zero
-holonomy on every cycle. The seam graph alone has a nonzero cycle space,
-and a frustrated offset there must carry nonzero face curl. A native defect
-therefore needs transition data that the native law itself supplies and
-protects. Such data are unconstructed. Declared \(\mathbb Z_6\) links and
-punctures support a separate flux experiment, but they are additional state
-and update premises, and unrestricted local link changes can erase a
-declared pair~\cite{ophmodelguide}.
-
-The tested local candidate, a doubled port load in the native total-load-two
-C/E process, is transient. Under independent uniform choice of the 30
-seams it survives \(n\) seam attempts with probability \((5/6)^n\), with
-mean lifetime six seam-attempt counts, and splits into two unit loads; both
-complete C/E instruments give the same survival law on its quantum collision
-subspace. No physical duration is assigned to a seam attempt, and quantum
-and history sectors beyond that subspace are untested~\cite{ophmodelguide}.
-The matter hypothesis therefore requires an actual native sector and
-boundary invariant preserved by the full admitted law, a localized core
-with a reference-like exterior, transport of the invariant, and a derived
-energy. An exhaustive invariant and localization no-go over every sector
-and admitted refinement of a declared defect class would stop that
-mechanism.
 
 \section{Gauge Symmetry as Implementation Hiding}
 
@@ -4233,7 +4057,6 @@ Recovery bounds therefore prove no local stress-source theorem.
 \section{Protocol and Code Extensions}\label{app:bft-qecc}
 \input{appendix_B_bft_qecc_extensions}
 
-\InputIfFileExists{tex_fragments/PRIOR_WORK_REALITY_AS_CONSENSUS_PROTOCOL.tex}{}{}
 \begin{thebibliography}{99}
 
 \bibitem{bombelli1987}
@@ -4418,7 +4241,6 @@ B.~M\"uller et al.,
 \emph{Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex}.
 
-\InputIfFileExists{tex_fragments/PRIOR_WORK_REALITY_AS_CONSENSUS_PROTOCOL_BIBITEMS.tex}{}{}
 \end{thebibliography}
 
 \section*{AI Assistance Disclosure}

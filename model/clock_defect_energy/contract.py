@@ -21,6 +21,18 @@ REQUIRED_SOURCES = frozenset((
     "model/relative_observer_geometry/intrinsic_geometry.py",
 ))
 
+# These two canonical digests were checked against the byte-pinned inputs at
+# 3d282b3d59763fa1a5171ad9a4fbc09fc0abf35a. They allow only renewal of the
+# retained control's documentation custody, never a new scientific result.
+_PREDECESSOR = "model/completion/campaign.json"
+_PREDECESSOR_SHA256 = "6b12ab2491a801473e79917b0684fa6ead988056a1a8ee205e30c178271424ad"
+_PREDECESSOR_CANONICAL = "866940997b82c46f0cea42de0bb653a0dcb4c07f66057868a5a50bfb0b4f8099"
+_CONTROL = "model/common_source/native_defect_decision_results.json"
+_CONTROL_SHA256 = "6f33c6225924af280c8f92da3df6e2f004637e0896c967ff124030fc3359c1f5"
+_CONTROL_CANONICAL = "0dc04c091af1dd535a8b8f8fab5b8364ba944fc46ba7275a1b84bc267d7678d7"
+_DOCUMENT = "docs/research/OPH_FIELD_RECONSTRUCTION.md"
+_DOCUMENT_SHA256 = "c5514b54a45fd2411ac49c6bfc332e1148481d66d84d5195aa2fedbf0263ca5a"
+
 
 def source_bindings(paths):
     result = {}
@@ -30,6 +42,44 @@ def source_bindings(paths):
             raise ValueError("existing repository source required")
         result[path.relative_to(ROOT).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
     return dict(sorted(result.items()))
+
+
+def _canonical_digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"),
+                                     allow_nan=False).encode()).hexdigest()
+
+
+def _metadata_only_predecessor_compatible(expected, current):
+    """Validate one documented custody renewal without rewriting frozen pins.
+
+    The predecessor may change only its first retained-control digest. That
+    control may change only its existing documentation digest. Both current
+    references must resolve, the six executable dependencies stay byte-exact,
+    and all scientific values, types, source paths and scope flags stay exact.
+    Canonical comparison permits JSON whitespace/key-order differences only.
+    """
+    if (expected.keys() != current.keys()
+            or expected.get(_PREDECESSOR) != _PREDECESSOR_SHA256
+            or {p for p in expected if expected[p] != current[p]} != {_PREDECESSOR}):
+        return False
+    try:
+        predecessor = strict_json.load(ROOT / _PREDECESSOR)
+        reference = predecessor["retained_controls"][0]
+        if (reference["path"] != _CONTROL
+                or reference["sha256"] != source_bindings((_CONTROL,))[_CONTROL]):
+            return False
+        reference["sha256"] = _CONTROL_SHA256
+        if _canonical_digest(predecessor) != _PREDECESSOR_CANONICAL:
+            return False
+        control = strict_json.load(ROOT / _CONTROL)
+        sources = control["source_sha256"]
+        if (type(sources) is not dict or _DOCUMENT not in sources
+                or sources != source_bindings(sources)):
+            return False
+        sources[_DOCUMENT] = _DOCUMENT_SHA256
+        return _canonical_digest(control) == _CONTROL_CANONICAL
+    except (KeyError, IndexError, TypeError, ValueError, OSError):
+        return False
 
 
 def load_contract(path=None):
@@ -48,7 +98,9 @@ def load_contract(path=None):
         raise ValueError("diagnostic scope or pending dependency changed")
     if type(value["source_sha256"]) is not dict or set(value["source_sha256"]) != REQUIRED_SOURCES:
         raise ValueError("complete predecessor source bindings required")
-    if source_bindings(value["source_sha256"]) != value["source_sha256"]:
+    current = source_bindings(value["source_sha256"])
+    if (current != value["source_sha256"]
+            and not _metadata_only_predecessor_compatible(value["source_sha256"], current)):
         raise ValueError("predecessor source changed; review a new diagnostic contract")
     return value
 

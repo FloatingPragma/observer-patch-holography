@@ -44,8 +44,6 @@ null balance for its own scalar excitation.
 \end{abstract}
 
 \input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
-\input{tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-\input{tex_fragments/FINITE_COMPLETION_CAMPAIGN.tex}
 
 \section*{This paper's hypothesis and place in the tower}
 \addcontentsline{toc}{section}{This paper's hypothesis and place in the tower}
@@ -170,7 +168,7 @@ two interior timelike diamonds; it reads accessible ancestry and counts, with
 a reference interval fixing units
 (Theorem~\ref{thm:source-count-clock},
 Proposition~\ref{prop:source-count-clock-error}). Finite readings of the
-family are in Section~\ref{sec:causal-manifold-observations}.
+family are in Appendix~\ref{app:source-causal-order}.
 
 Exact order embeddings form a separate finite interface. For a source spatial
 readback and positive height scale, a parent-edge speed bound maps
@@ -240,61 +238,20 @@ constancy of the metric residue, the vacuum reference fixing $\Lambda$ and the
 $8\pi G$ label. The small-ball step is Jacobson's entanglement-equilibrium
 argument, each of whose inputs enters as a receipt.
 
-The Lorentz arrow composes two independent inputs on one refinement tower:
-the finite cap-normal Bisognano--Wichmann certificate (cap-normal density and
-nondegeneracy, BW framing, support-order faithfulness, geometric support-flow
-group and continuity control, held-out oriented cross-ratio convergence,
-independently normalized geometric \(2\pi\)-KMS comparison, and
-wrong-normalization separation), and an independently produced complete
-multiresolution algebra-state comparison package. Geometry does not
-manufacture the modular state, and bare finite consensus implies neither
-input. A finite boundary-circle diagnostic uses half-filled ground states of
-anti-periodic nearest-neighbour hopping on rings of $16,32,64,128$ sites.
-Summing every fitting odd hopping range of the half-ring modular Hamiltonian
-gives median relative profile errors $0.004808,0.001152,0.0002850,0.00007106$
-against the conformal profile, while a fixed range-nine extraction increases
-from $0.0001124$ at $64$ sites to $0.0003381$ at $128$. These are finite
-diagnostics, not a KMS identity on a common cap algebra.
-
-\paragraph{Stress and energy precursors.}
-Stress reconstruction consumes same-source null-stress matching,
-locality/covariance and the weak Ward balance; finite null tomography does
-not supply them. Of the local-stress inputs, one finite precursor exists at
-one energy component: a face-local discrete Poynting law on the committed
-twelve-port carrier (\texttt{LocalEnergyBalance}), exact at every step of the
-scaled Maxwell evolution, whose face sum is the committed global energy
-balance. It supplies no momentum or stress components, covariance or
-continuum limit. The identification of the screen field energy with the
-modular energy that the composition consumes is read against the
-clock-and-energy calibration clause, whose reference is the Gibbs state of a
-declared energy at one declared inverse temperature \(\beta\)
-(\texttt{GibbsReferenceEnergyIdentification}). Against that clause the modular
-energy ledger of any state is \(\beta\) times its field-energy expectation plus
-\(\log Z\), and the cap first law takes the Clausius form
-\(S(p)-S(\tau)=\beta(\langle H\rangle_p-\langle H\rangle_\tau)-D(p\Vert\tau)\).
-A two-point reference outside the Gibbs form has equal energy expectations with
-unequal ledgers, so the affine reading is specific to that clause. Nothing
-derives that the record reference is Gibbs and nothing selects \(\beta\). The
-collar modular surface does not supply that inverse temperature
-(\texttt{CollarTemperatureReading}): its reference, with modular Hamiltonian
-\(K=\lambda\cdot S\) on the four joint sectors, equals the Gibbs state of
-\(K/\beta\) at \(\beta\) for every nonzero \(\beta\), and is Gibbs for an
-energy \(H\) at \(\beta\) exactly when \(K=\beta H+\mathrm{const}\).
-
-On the committed complex, along the scaled Amp\`ere evolution with any
-current, the Gauss constraint propagates exactly when the sources satisfy the
-continuity equation; for declared sources a field history solving both exists
-if and only if the initial load is neutral and the sources are conserved
-(\texttt{SeamChargeContinuity}). Since the closed carrier conserves total load,
-one hopping charge alone has a Gauss-consistent history only at zero charge,
-so a worldline joined to the field sector carries a neutral partner or a
-neutralising background. A neutral pair of crossing charges inhabits the
-scaled Maxwell bundle in one finite action. At $q=1$, $h=1/2$ the
-Coulomb-started packet is stationary in the field slots, but delaying either
-crossing changes the action by $5/12$, and both simultaneously by $5/6$; on the
-window $N=1$ a second exact rational history with the same crossings is
-stationary under every in-window closed two-step replacement. These are
-declared discrete exchanges, not continuum first-variation claims.
+The modular route requires both a geometric cap-flow comparison and a
+compatible algebra-state limit. Finite support incidence alone supplies
+neither the state nor the geometric $2\pi$ normalization. The selected
+comparison must identify the same cap charges, stress tensor and clock
+throughout refinement. For a faithful Gibbs reference of a declared finite
+Hamiltonian one has the exact identity
+\[
+ S(\rho)-S(\tau)
+ =\beta\operatorname{Tr}((\rho-\tau)H)-D(\rho\Vert\tau),
+ \qquad \tau=Z^{-1}e^{-\beta H}.
+\]
+This supplies a finite entropy--energy relation. It does not select
+$\beta$, identify a reduced regional state with the Gibbs state of its bare
+local Hamiltonian, or supply geometric entropy stationarity.
 
 \paragraph{The executable construction.}
 On a declared radial product over its refining spherical source, the native
@@ -329,10 +286,114 @@ $c=0$, so the depth cutoff is explicit.
 \def\OPHSkipEmbeddedReferences{1}
 \input{tex_fragments/COMMON_MATTER_METRIC_AND_RESPONSE.tex}
 \input{tex_fragments/SOURCE_PARTICLE_EINSTEIN_JOIN.tex}
+\input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 
-\input{tex_fragments/PAPER.tex}
+\section{Null balance and the Einstein tensor}
+\label{sec:einstein-tensor}
+
+The tensor theorem isolates the precise content of the gravitational
+conclusion. A successful source realization must produce its balance
+premise independently from matter, geometry and entropy.
+
+\begin{theorem}[Null tomography]
+\leavevmode\par\raggedright
+Let $V$ be four-dimensional with Lorentz form
+$\eta=\operatorname{diag}(-1,1,1,1)$. A symmetric form $X$ vanishes on every
+null square exactly when $X=\phi\eta$. Nine null directions suffice to
+recover $X$ modulo this line: the six $(1,\pm e_i)$ and
+$(1,s,s,s),(1,s,s,-s),(1,s,-s,s)$, where $s=1/\sqrt3$.
+The corresponding exact decoder has
+$\|x\|_\infty\leq(2+\sqrt3)\|q\|_\infty$ in its registered coordinates.
+\end{theorem}
+\begin{proof}
+On the unit sphere, $X(1,n;1,n)=X_{00}+2X_{0i}n_i+X_{ij}n_in_j$.
+Opposite directions remove the mixed temporal entries. The six axis
+values fix the spatial diagonal modulo the metric, and the three
+remaining sign choices fix the spatial off-diagonal entries. Thus the
+kernel consists exactly of the metric line. Solving this finite system
+gives the stated decoder bound; its determinant and identities are also
+checked in the finite theorem library \cite{ophrepo}.
+\end{proof}
+
+\begin{theorem}[Einstein equation from a common null balance]
+Let $(M,g)$ be a connected time-oriented $C^3$ Lorentzian four-manifold and
+$T$ a symmetric $C^1$ tensor with $\nabla^aT_{ab}=0$. Fix a single
+$\kappa=8\pi G_N>0$. If
+\[
+ G_{ab}k^ak^b=\kappa T_{ab}k^ak^b
+\]
+for every null $k$ at every point, then there is a constant $\Lambda$ such
+that $G_{ab}+\Lambda g_{ab}=\kappa T_{ab}$.
+Balance on the nine directions in any orthonormal frame suffices.
+\end{theorem}
+\begin{proof}
+Null tomography gives $G-\kappa T=\phi g$ pointwise. The contracted Bianchi
+identity, the independently supplied Ward identity and metric compatibility
+give $\nabla\phi=0$. Connectedness makes $\phi$ constant; set
+$\Lambda=-\phi$. Its value requires one reference condition.
+\end{proof}
+
+\subsection{The small-ball input and its normalization}
+For a ball of radius $\ell$ in a tangent spatial slice,
+\[
+ \int_{B_\ell}\frac{\ell^2-r^2}{2\ell}\,d^3x
+ =\frac{4\pi\ell^4}{15}.
+\]
+A geometrically normalized vacuum modular generator and its first law
+give, for stress approximately constant across the ball,
+\[
+ \delta S_{\rm bulk}
+ =\frac{8\pi^2\ell^4}{15}\,\delta T_{uu}+o(\ell^4).
+\]
+The independent fixed-proper-volume area variation is
+$\delta A=-(4\pi\ell^4/15)\delta G_{uu}+o(\ell^4)$.
+Consequently fixed-volume stationarity
+$\delta S_{\rm bulk}+\delta A/(4G_N)=o(\ell^4)$ implies
+$\delta G_{uu}=8\pi G_N\delta T_{uu}$ as $\ell\to0$.
+The same variations for a complete family of timelike observers determine
+the tensor variation; a common reference and Ward/Bianchi identities fix
+the remaining metric term. These are the conditional
+entanglement-equilibrium inputs, not consequences of finite
+entropy maximization alone \cite{jacobson16}.
+
+For nonminimal $F(H^\dagger H)R$ coupling, the correct curvature entropy
+and fixed generalized volume are instead those in
+Section~\ref{sec:source-particle-einstein-join}. Replacing them by constant
+area and ordinary fixed volume changes the field equation. Every remainder
+must be $o(\ell^4)$ in the same small-ball limit; a fixed absolute error
+does not suffice after division by $\ell^4$.
+
+\subsection{Controlled matter inputs and the common-model boundary}
+The centered lattice Weyl source has a controlled free limit on
+$0\leq U=o(c^{2/7})$, with $c=v/a\to\infty$. On the exactly free branch
+$U=0$, all eight valleys remain. The resulting positive-energy free field
+has a conserved Lorentz stress tensor and geometric double-cone modular
+flow. Compact lattice state perturbations and finite quadratic detectors
+converge to its leading stress response in a joint spacing/small-ball limit.
+Nine explicit shell perturbations span traceless stress variations; the
+finite boosted-ball response has full rank for $0<R/L\leq2^{-28}$.
+On each fixed ball, the finite-density modular flows converge on fixed
+probes, with a generator graph core and convergent selected relative
+entropies. No uniform lattice covariance gap is assumed. The source and
+proofs are in \path{model/lattice_weyl_response/} and
+\path{model/lattice_modular_limit/}.
+
+A separate fixed-spacing spin construction is interacting and admits
+ordered gapless continuum observables; a surviving connected interaction
+and sharp relativistic continuum mass shell are not established. The radial
+quartic model above supplies exact finite charged poles and a
+same-Hamiltonian Gibbs response. It does not turn the free Weyl stress theorem
+into an interacting stress theorem. Nor does the compact finite-energy
+texture supply its own dynamical metric or entropy--area relation.
+
+These results close specified matter inputs on their own domains.
+Conditions (G1)--(G6) require a common event geometry, reference,
+physical clock, universal coupling, entropy--area normalization and
+stationarity under geometry changes. The static-product obstruction in
+Proposition~\ref{prop:static-product} proves why merely adjoining a fixed
+radial geometry cannot perform this remaining step.
+
 \appendix
-\input{tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex}
 
 \section{Causal order, counts and clocks on source populations}
 \label{app:source-causal-order}
@@ -346,7 +407,6 @@ limits apply to it.
 \input{tex_fragments/SOURCE_POPULATION_QUADRATURE.tex}
 \input{tex_fragments/OPERATIONAL_CAUSAL_SELECTION.tex}
 \input{tex_fragments/SOURCE_COUNT_CLOCK.tex}
-\input{tex_fragments/CAUSAL_MANIFOLD_OBSERVATIONS.tex}
 \input{tex_fragments/SOURCE_RECORD_GLUING.tex}
 
 \section{Fields, volume and entropy on source populations}
@@ -485,10 +545,69 @@ the compression boundary, and control the actual responses on one
 refining family. Unbounded continuum generators are not excluded by
 these bounded-operator statements.
 
-\input{tex_fragments/RECORD_GLUING_PRINCIPLE.tex}
-\def\OPHPriorWorkBibitems{tex_fragments/PRIOR_WORK_RECOVERING_OBSERVER_SPACETIME_AND_EINSTEIN_DYNAMICS_FROM_OVERLAP_CONSISTENCY_BIBITEMS.tex}
-\InputIfFileExists{tex_fragments/PRIOR_WORK_RECOVERING_OBSERVER_SPACETIME_AND_EINSTEIN_DYNAMICS_FROM_OVERLAP_CONSISTENCY.tex}{}{}
-\input{tex_fragments/OBSERVERS_REFERENCES.tex}
+\begin{thebibliography}{99}
+
+\bibitem{ophmodel}
+B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
+\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Observable Fields},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/executable_observer_construction.pdf}.
+
+\bibitem{bombelli1987}
+L.~Bombelli, J.~Lee, D.~Meyer, and R.~D.~Sorkin,
+\emph{Space-time as a causal set},
+Phys.\ Rev.\ Lett.\ \textbf{59}, 521--524 (1987).
+\url{https://doi.org/10.1103/PhysRevLett.59.521}.
+
+\bibitem{surya2019}
+S.~Surya,
+\emph{The causal set approach to quantum gravity},
+Living Rev.\ Relativ.\ \textbf{22}, 5 (2019).
+\url{https://doi.org/10.1007/s41114-019-0023-1}.
+
+\bibitem{hawkingkingmccarthy1976}
+S.~W.~Hawking, A.~R.~King, and P.~J.~McCarthy,
+\emph{A new topology for curved space--time which incorporates the causal,
+differential, and conformal structures},
+J.\ Math.\ Phys.\ \textbf{17}, 174--181 (1976).
+\url{https://doi.org/10.1063/1.522874}.
+
+\bibitem{malament1977}
+D.~B.~Malament,
+\emph{The class of continuous timelike curves determines the topology of spacetime},
+J.\ Math.\ Phys.\ \textbf{18}, 1399--1404 (1977).
+\url{https://doi.org/10.1063/1.523436}.
+
+\bibitem{ophrepo}
+Pragma Research,
+\emph{Observer Patch Holography: machine-checked proofs and executable certificates},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
+
+\bibitem{jacobson16}
+T.~Jacobson,
+``Entanglement equilibrium and the Einstein equation,''
+\emph{Phys.\ Rev.\ Lett.} \textbf{116} (2016), 201101,
+doi:10.1103/PhysRevLett.116.201101,
+arXiv:1505.04753.
+
+\bibitem{myrheim1978}
+J.~Myrheim,
+\emph{Statistical geometry},
+CERN preprint TH-2538 (1978).
+
+\bibitem{meyer1988}
+D.~A.~Meyer,
+\emph{The Dimension of Causal Sets},
+PhD thesis, Massachusetts Institute of Technology (1988).
+
+\bibitem{reid2003}
+D.~D.~Reid,
+\emph{Manifold dimension of a causal set: Tests in conformally flat spacetimes},
+Phys.\ Rev.\ D \textbf{67}, 024034 (2003).
+\url{https://doi.org/10.1103/PhysRevD.67.024034}.
+
+\end{thebibliography}
 
 \section*{AI Assistance Disclosure}
 This research project used research-grade commercial models, including

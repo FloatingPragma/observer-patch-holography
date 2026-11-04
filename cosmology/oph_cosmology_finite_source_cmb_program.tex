@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -45,68 +44,23 @@
 \end{center}
 
 \begin{abstract}
-For a supplied layered event population with a conformally flat causal
-order, a spatially flat expanding background is a record density per
-comoving cell and conformal tick, and the redshift is a fourth root of a
-count ratio for congruent comoving windows with a constant scale factor
-within each window, or in the shrinking-window limit of a continuous
-profile; native repair selects neither the population nor its profile. On
-this footing we give a conditional source-screen construction for
-Observer Patch Holography (OPH). A supplied primitive collar law fixes the
-angular amplitude, an edge-center generator with its orientation-half
-identity fixes the tilt once its reserve-generator receipt is supplied, and
-physical dilation and radial cross-covariance tomography provide two
-sufficient uniqueness routes beyond one-shell data; the source, stress,
-scale, transfer and likelihood conditions are stated separately. The
-receipt-conditional primordial values, the
-tilt \(1-P_\star/48=0.96602\), zero running, zero source-side isocurvature
-and zero linear primordial tensor amplitude under additionally vanishing
-tensor initial data and forcing, are compared in a deterministic ledger with
-machine-checked brackets against Planck 2018, ACT DR6, SPT-3G and BICEP/Keck
-data that precede the registered freezes. The tilt rests on a declared
-generator density and lies within one standard deviation of Planck 2018 and
-of both SPT-3G combinations, \(1.37\sigma\) above SPT-3G alone, and at the lower
-\(0.612\) percent position of the official ACT DR6, Planck, lensing and DESI
-BAO joint posterior chains, a retrospective tension under baseline
-\(\Lambda\)CDM that is not a likelihood ratio.
+A supplied layered event population represents a spatially flat expanding
+background through its count measure: the scale factor contributes a fourth
+power per comoving cell and conformal tick. Count ratios recover redshift
+for congruent constant-profile windows, or in a shrinking-window limit.
+We connect this exact construction to conditional primordial source models.
+A specified collar release fixes a screen amplitude; a specified generator
+density fixes the tilt; physical dilation or complete radial cross-covariances
+can determine a three-dimensional spectrum. Native load records provide
+absolute covariance controls but no geometric curvature identification.
+The source, stress, clock, radial observation and photon-transfer maps must
+therefore be supplied on the same physical process. A numerical value of
+the pixel parameter does not provide those maps. Retrospective cosmological
+comparisons test the declared branches, not a completed source-derived
+cosmology.
+
 \end{abstract}
 
-\input{../paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-
-\section*{This paper's hypothesis and place in the tower}
-
-This paper sits at layer seven and states the finite-source hypothesis for
-the cosmic microwave background: the primordial sky is the image of one
-finite observer-screen source map that emits a metric, a conserved stress,
-gauge-invariant initial data and a background without using the observed
-sky, and the acoustic spectra follow from that source through standard
-transfer and a complete likelihood.
-
-The record-density form of a spatially flat expanding background on a
-supplied layered population and the exact Fourier response of the golden
-coordinate population are unconditional finite results. The screen
-amplitude, the edge-center tilt, the source-dilation and tomography
-uniqueness routes and the common-bulk route are conditional theorems on
-their displayed receipts. The population, its record-production profile,
-the round-sphere Laplacian, the reserve-generator density \(P_\star/24\),
-the radial observation algebra and the physical scale are premises.
-
-For the hypothesis to apply, the executable model must instantiate the
-source map on one native process, with its clock, release surface,
-covariant stress, physical scale and radial lift. The native construction
-supplies a two-dimensional screen continuum and a load-record spectrum in
-native units (Section~\ref{subsec:native-cosmology-source-boundary}); it
-supplies no covariant source, physical scale, radial lift or primordial
-branch~\cite{ophmodel,ophtimefields}, and the conditional tilt is not derived
-from its joint records~\cite{ophpublicdata}. The native continuum generator
-excludes a unitary identification, up to a fixed scale and bounded mass
-shift, with a second-order elliptic operator on a smooth compact
-three-dimensional manifold, so a bulk reading needs an added
-radial observation algebra. The hypothesis is refuted by a proof that no
-admissible finite source map passes either radial uniqueness route, or by a
-frozen comparison whose eligible data exclude the conditional primordial
-values. Simulator outputs test numerical interfaces and carry no
-cosmological verdict.
 
 \section{Finite-Source Interface}
 
@@ -156,28 +110,10 @@ primordial source, a radial lift and photon transfer; smooth Einstein
 promotion requires same-family tensor-curvature convergence or the continuum
 small-ball/null-balance identification.
 
-\subsection{Expansion on the sourced order}
-
-The transfer calculation of Section~\ref{sec:transfer-interface} runs on a
-spatially flat Friedmann background. On the source family that background
-has an exact finite form: the layered read law in comoving coordinates is
-conformally invariant, so the flat causal order of the spacetime construction
-is the causal order of every spatially flat expanding history, and the scale
-factor enters only through the count measure, as the weight \(a^4\) per
-comoving cell and conformal tick that a constant physical event density
-assigns. The count clock converges to the proper-time ratio for shrinking
-diamonds; fixed finite diamonds obey a scale-factor enclosure and can retain
-a continuum bias. The redshift between two epochs is the fourth root of the
-ratio of record counts of congruent comoving diamonds when the profile is
-constant within each, or in the corresponding shrinking-window limit.
-The statements are proved in the fragment below and machine-checked
-in the named Lean module. The record-production profile \(a(\eta)\) is a
-supplied datum on this family; deriving it from the source dynamics is the
-sourced-density problem of the spacetime paper, and nothing here supplies the
-Friedmann equation, a physical clock, or the physical scale map. In the
-fragment, conformal time \(\eta\), the layer index \(j\) and the durations
-\(\sigma_j\Delta\) called physical ticks are coordinates of the supplied
-FLRW chart; none is a calibrated observer clock.
+The following finite construction realizes a supplied spatially flat
+expansion profile by weighting the same comoving read order. Its conformal
+ticks and count ratios are model coordinates; a physical clock and a law
+selecting the profile are additional inputs.
 
 \input{../paper/tex_fragments/SOURCE_NET_FLRW_RECORD_DENSITY.tex}
 
@@ -246,8 +182,62 @@ publishes its singular spectrum, null basis, finite-window error, positivity
 check, and forward residual. Temperature and polarization spectra belong to the
 transfer interface.
 
-\input{../paper/tex_fragments/NATIVE_COSMOLOGY_SOURCE_BOUNDARY.tex}
-\input{../paper/tex_fragments/NATIVE_GEOMETRIC_SOURCE_IDENTIFIABILITY.tex}
+\subsection{Native records and geometric identification}
+\label{subsec:native-cosmology-source-boundary}
+\label{subsec:native-geometric-source-identification}
+For fair balanced repair on a connected weighted graph with \(p\) ports
+and \(r\) raised loads, stationary centered loads obey
+\[
+ \operatorname{Cov}(z(t),z(0))=\kappa e^{-|t|L/2}\Pi,
+ \quad \kappa=\frac{r(p-r)}{p(p-1)},\quad
+ \Pi=I-\mathbf1\mathbf1^{\mathsf T}/p.
+\]
+Here \(t\) counts unit-rate seam attempts. A normalized eigenmode of the
+ordinary average \(T^{-1}\int_0^Tz(t)\,dt\) has variance
+\(2\kappa(u-1+e^{-u})/u^2\), \(u=\lambda T/2\); the fluctuation record
+\(T^{-1/2}\int_0^Tz(t)\,dt\) instead has limiting covariance
+\(4\kappa L^+\). Incident pre-attempt records, including null attempts,
+have the same leading term with correction bounded by
+\(3\kappa/d_{\min}\)~\cite{ophmicro}.
+
+On refining \(240\cdot4^l\)-port screens at one-third filling, uniform
+fixed-number preparation and independent fair seam attempts give joint
+Gaussian snapshot limits at attempt count
+\(\lfloor1260\cdot16^l\tau\rfloor\), along one common subsequence:
+\[
+ \operatorname{Cov}(z_\tau(f),z_u(g))
+ =\langle f,e^{-|\tau-u|A}g\rangle.
+\]
+The positive strongly local generator obeys
+\(n/49920\le\lambda_n(A)\le3n/2\) and has spectral dimension two.
+These finite-dimensional distribution limits assert neither path-space
+tightness nor a spatial rate. Fixed-area equal port weights and a common
+temporal filter of bounded \(L^1\) gain \(W\) give mean harmonic
+pseudo-power at most \(\pi W^2/(p-1)\), not a bound on each realization.
+A deterministic temporal filter has spectral slope
+\(d\log V/d\log\lambda\ge-1\). Moreover the eigenvalue growth excludes
+identification, up to scale and bounded mass shift, with a smooth compact
+three-dimensional second-order elliptic operator, or bounded energy
+congruence with its static Dirichlet boundary action. Neither a physical
+radial coordinate nor a primordial tilt follows~\cite{ophcontinuum,ophtimefields}.
+
+Two exact controls distinguish a geometric source from a load label.
+If every repair preserves the chart \(\Gamma\), a geometric volume
+\(V_i(\Gamma)\) relative to its prepared value has log contrast zero at
+every history. On the isolated twelve-port graph, normalized load and seam
+drive covariances are respectively \(\Pi/11\) and \(L^2/360\).
+Both have diagonal \(1/12\), but antipodal covariances are \(-1/132\)
+and zero, and adjacent covariances are \(-1/132\) and \(-1/45\).
+Thus equal local variance, locality and icosahedral symmetry do not select
+spatial power. Since \(L_{ii}=5\), adjacent vertices share two neighbors,
+and \(\operatorname{tr}L^2=360\), these entries follow directly by
+squaring \(L\). Assigning \(J_i/\bar J_i=e^{3u_i}\) to a load observable
+\(u_i\) supplies a constitutive rule, not a derived geometric volume.
+The finite-history proof and exact enumeration are retained in
+\texttt{Geometry.NativeGeometricSourceIdentification} and
+\texttt{code/native\_geometric\_source}~\cite{ophlean}.
+A cosmological source must supply this metric/record interface as well as
+its spatial and temporal calibration.
 
 \subsection{Exact Fourier control for the golden source population}
 The deterministic Cartesian population
@@ -330,107 +320,37 @@ evolution, or coupling to the visible sector. A cosmological use requires a
 covariant completion that supplies these quantities from one common source and
 obeys the full energy-momentum ledger. That completion is not supplied here.
 
-\section{Primordial Interface}
-
-A physical primordial branch must supply all of the following:
-\begin{enumerate}[leftmargin=2em]
-\item a finite source ensemble and a clock;
-\item a conserved covariant stress tensor;
-\item gauge-invariant scalar, vector, and tensor initial data;
-\item a screen-to-volume lift with a controlled null space;
-\item phase, amplitude, and isocurvature conditions;
-\item refinement stability and an error model.
-\end{enumerate}
-
-The conditional source theorem selects \(n_s=1-P_\star/48\) from the
-infinitesimal edge-center generator receipt. No finite source emits the
-density \(P_\star/24\) that this receipt requires; it is a declared branch
-input, so the tilt has the status of the capacity display of the
-cosmological constant, a declared one-parameter map evaluated at a pixel
-that the measured fine-structure constant locates. Physical primordial use requires
-one finite source construction that supplies this receipt together with the release law,
-stress, clock, freezeout, mode, scale, and radial receipts. Numerical agreement
-with a measured summary does not supply the missing source map.
-
-\section{Comparison with Public Data}
+\section{Primordial source and conditional comparisons}
 \label{sec:public-comparison}
+The source must provide conserved stress, a common clock and release
+surface, scalar/vector/tensor initial data, radial observation and physical
+scale, and controlled refinement. Neither the value of \(P\) nor a finite
+gauge-current algebra determines these objects. In particular, a conditional
+particle/memory fixed point does not derive the separate cosmological
+generator density \(P/24\).
 
-The values that the conditional theorems of this paper and its companions
-fix once their declared receipts are supplied are compared with public measurements in a deterministic
-ledger released with these papers, with an independent verifier and exact
-rational brackets machine-checked in the Lean module
-\texttt{CosmologyLedgerBrackets}. Every comparison is on seen data and
-carries a class label; the rule, theory minus measurement in units of the
-quoted standard deviation, is fixed before any row is read. The primordial
-rows are the following.
+On the declared density branch, \(n_s=1-P_\star/48\) gives
+\(0.96602\) at the comparison pixel \(P_\star=1.6309682094\), which is
+located from the measured fine-structure constant. The continuous survival
+cocycle alone admits every exponent, so this numerical density is a
+substantive premise. At that value the retrospective position in the
+ACT DR6, Planck, lensing and DESI 2024 BAO joint posterior is the lower
+\(0.612\) percent tail; the same value is within one standard deviation of
+Planck 2018 and the two cited SPT combinations. These are seen-data
+comparisons under baseline \(\Lambda\)CDM, not likelihood ratios or a
+selection of the physical source~\cite{act2025,ophpublicdata}.
+The complete comparisons, including background tensions, are given in the
+likelihood companion~\cite{ophcontracts}.
 
-\begin{itemize}[leftmargin=2em]
-\item The tilt \(n_s=1-P_\star/48=0.96602\) at the comparison pixel, with
-a branch spread below \(10^{-7}\), lies \(0.27\sigma\) above Planck 2018
-(\(0.9649\pm0.0042\)), \(0.69\sigma\) above SPT-3G with Planck
-(\(0.9636\pm0.0035\)), \(0.79\sigma\) below the SPT, Planck and ACT
-combination (\(0.9684\pm0.0030\)) and \(1.28\sigma\) below ACT DR6 with
-Planck (\(0.9709\pm0.0038\)). The official joint posterior chains of ACT DR6
-with Planck, lensing and DESI 2024 baryon acoustic oscillations, whose mean
-is \(0.9743\pm0.0034\), place the branch at their lower \(0.612\) percent
-position and the diagnostic clock alternative
-\(1-e(P_\star-\varphi)=0.96484\) at \(0.200\) percent; the measured tail
-differs from the Gaussian summary~\cite{act2025,ophpublicdata}. Those data
-precede the FZ-01 and FZ-15 registrations, so this is a retrospective
-tension under baseline \(\Lambda\)CDM, not a likelihood ratio, and the
-registered comparison with a later dataset is unchanged. The value is a
-consequence of the reserve-generator receipt, which is not supplied; the
-comparison records where a receipt-conditional number lands and selects no
-branch.
-\item The running vanishes exactly on the dilation-cocycle branch; Planck
-2018 gives \(-0.0045\pm0.0067\) (\(0.67\sigma\)) and ACT DR6 with Planck,
-lensing and baryon acoustic oscillations gives \(0.0062\pm0.0052\)
-(\(1.19\sigma\)).
-\item A vanishing emitted transverse-traceless source does not determine
-the primordial tensor amplitude. The linear tensor equation admits
-homogeneous solutions: for example, in radiation domination
-\(h_k''+2h_k'/\tau+k^2h_k=0\) has the nonzero regular solution
-\(h_k=\sin(k\tau)/(k\tau)\). The additional conditions of zero initial
-tensor amplitude and velocity, and no tensor forcing, select the zero
-linear solution and hence \(r=0\) when the scalar power is positive.
-Those tensor initial conditions are not derived by the scalar screen
-construction. BICEP/Keck 2018 gives \(r_{0.05}<0.036\) and the fourth
-Planck release with BK18 and BAO gives \(r<0.032\), both compatible with
-this more restrictive branch. A future null excludes only specified models
-whose tensor signal exceeds its bound; single-field slow roll has no
-universal positive lower bound on \(r\). An observable comparison must also
-separate linear primordial tensors from later scalar-induced tensors,
-lensing, and foregrounds.
-\item The source-side isocurvature fraction vanishes on the rank-one
-single-clock branch; Planck 2018 bounds the uncorrelated cold-dark-matter
-fraction at \(3.5\), \(3.8\) and \(3.9\) percent at the three reference
-scales. Zero non-Gaussianity at the source (Planck local
-\(-0.9\pm5.1\)) and zero curvature (Planck with BAO \(0.0007\pm0.0019\);
-DESI DR2 with CMB \(0.0023\pm0.0011\), \(2.1\sigma\)) are shared with the
-adiabatic single-field baseline.
-\end{itemize}
-
-The first background row is the fixed-capacity equation of state
-\((w_0,w_a)=(-1,0)\), which the Gaussian moment diagnostic of the official
-DESI DR2 chains places between \(2.6\sigma\) and \(3.9\sigma\) from the
-posterior means of the four default combinations, a tension recorded with
-the same prominence as the agreements. This fixed-capacity point coincides
-with \(\Lambda\)CDM, so its survival earns no distinctive OPH support, and
-the registered FZ-13 rule uses empirical posterior quantiles rather than a
-Gaussian conversion~\cite{ophladder}. The other background rows are the
-capacity candidates
-\(3.29\times10^{122}\) and \(3.30\times10^{122}\), whose dictionary
-\(\Lambda\ell_P^2=3\pi/N\) returns the cosmological constant within
-\(0.6\) percent of the Planck-central value and \(2.7\sigma\) below the DESI
-DR2 with CMB display. The conditional tilt protocol FZ-15 and the
-fixed-capacity protocol FZ-13 were frozen on 2026-10-04; the register labels
-both \texttt{frozen\_stamped\_upgrade\_pending}. Only their complete
-registered protocols and anchoring requirements govern eligible comparisons.
-The FZ-15 registered comparison concerns a specified later Simons
-Observatory product; the Planck, ACT DR6, SPT-3G and DESI data above precede
-both FZ-01 (2026-07-17) and FZ-15~\cite{ophladder}.
-The tensor-zero FZ-16 and running/isocurvature FZ-17 texts are unadopted
-proposals and define no score.
+A single-clock Gaussian source has no independent source isocurvature or
+connected higher Gaussian cumulants, and a fixed dilation exponent has
+zero running. Tensor zero needs an extra condition: no tensor forcing alone
+permits homogeneous solutions. For example,
+\(h_k''+2h_k'/\tau+k^2h_k=0\) admits
+\(h_k=\sin(k\tau)/(k\tau)\). Vanishing initial amplitude and velocity,
+together with zero forcing, select the zero linear solution. A finite
+observational upper bound excludes only alternatives above that bound;
+single-field slow roll has no universal positive tensor floor.
 
 \section{Transfer Interface}
 \label{sec:transfer-interface}
@@ -461,41 +381,21 @@ The cosmic microwave background (CMB), galaxy, and background comparisons are
 diagnostic. These computations supply neither a prospectively fixed
 cosmological comparison nor a falsification verdict.
 
-\section{Theorem scope}
+\section{Scope}
+The count identities and finite Fourier response are established for the
+supplied population. Screen covariance, amplitude and tilt depend on the
+specified precision and source law. A physical cosmology additionally needs
+the common state, metric, stress, radial and transfer identification.
+The passive native screen does not supply that identification, and a
+solver using supplied primordial inputs is a conditional forward model.
 
-\begin{center}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.46\textwidth}X@{}}
-\toprule
-Object & Classification \\
-\midrule
-Finite observer-screen carriers & Conditional finite construction \\
-Native screen continuum generator \(A\) & Proved along one common refinement
-subsequence; two-dimensional; no physical, radial or primordial identification \\
-Screen scalar covariance & Conditional theorem \\
-Source-functional screen amplitude and edge-center tilt & Conditional theorem; finite receipt not supplied \\
-Radial-lift mathematics & Conditional theorem packet; one-shell unrestricted inversion is impossible \\
-Physical source-dilation or radial-tomography receipt & Not supplied \\
-Primordial covariant source & Not supplied \\
-Repair-charge cosmological abundance & Not supplied \\
-Relativistic repair stress and slip & Not supplied \\
-Boltzmann initial-state bridge & Not supplied \\
-Joint CMB, baryon acoustic oscillation, lensing, growth, and cluster likelihood &
-Not supplied \\
-Prospectively fixed cosmological comparison & Not supplied by these diagnostics \\
-\bottomrule
-\end{tabularx}
-\end{center}
-
-\section{Conclusion}
-
-Finite OPH screen data become cosmology only through a covariant source map,
-a three-dimensional lift, a conserved stress tensor, compatible transfer
-equations, and a complete likelihood. These constructions are not supplied here.
-Existing cosmological calculations are diagnostics and carry no falsification
-verdict.
-
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_OPH_COSMOLOGY_FINITE_SOURCE_CMB_PROGRAM.tex}{}{}
 \begin{thebibliography}{99}
+\setlength{\itemsep}{2pt}
+\setlength{\parskip}{0pt}
+\bibitem{ophcontracts}
+B.~M\"uller, \emph{Observer Patch Holography Cosmology Data and Likelihood Contracts}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/cosmology/oph_cosmology_data_likelihood_contracts.pdf}.
+
 
 \bibitem{ophEinstein}
 B.~M\"uller et al.,
@@ -530,10 +430,6 @@ FloatingPragma (2026). Exact native causal cones.
 FloatingPragma (2026). OPH predictions and public-data comparisons.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md}.
 
-\bibitem{ophladder}
-FloatingPragma (2026). Frozen prediction register.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/claims/frozen_prediction_register.json}.
-
 \bibitem{act2025}
 T.~Louis et al. (2025). The Atacama Cosmology Telescope: DR6 power spectra,
 likelihoods and \(\Lambda\)CDM parameters. arXiv:2503.14452.
@@ -548,12 +444,6 @@ FloatingPragma (2026). Exact Fourier response of the golden source
 population: formula, small-cloud checks and numerical receipt.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/evidence/observer_dynamics_20260925/sim-analysis/scripts/codex_golden_fourier.py}.
 
-\bibitem{ophobsdyn}
-FloatingPragma (2026). Observer-dynamics analysis archive: specifications,
-refinement-chain receipts, independent controls and covariance extraction.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/observer_dynamics_20260925/sim-analysis}.
-
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_OPH_COSMOLOGY_FINITE_SOURCE_CMB_PROGRAM_BIBITEMS.tex}{}{}
 \end{thebibliography}
 
 \section*{AI Assistance Disclosure}

@@ -11,7 +11,7 @@
 \input{release_info.tex}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
-\hypersetup{pdftitle={Particles as Localized Topological Defects of Native Overlap Transport: Finite Theorems, a Native Decision Test and Mass Obstructions},pdfauthor={Bernhard Mueller; Mario Poneder; Alexander Osika; Kai Xue; Daniel Ari Friedman}}
+\hypersetup{pdftitle={Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator},pdfauthor={Bernhard Mueller; Mario Poneder; Alexander Osika; Kai Xue; Daniel Ari Friedman}}
 \setlength{\emergencystretch}{3em}
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
@@ -29,9 +29,9 @@
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\U}{\mathrm{U}}
 
-\title{Particles as Localized Topological Defects of\\
-Native Overlap Transport:\\
-Finite Theorems, a Native Decision Test and Mass Obstructions}
+\title{Particles from Native Overlap Transport:\\
+Common Currents, Defect Modes and a\\
+Pixel-Dependent Mass Operator}
 \author{B.\ M\"uller \and Mario Poneder \and Alexander Osika \and Kai Xue \and Daniel Ari Friedman}
 \date{\OPHPaperReleaseDate}
 
@@ -45,1106 +45,591 @@ Finite Theorems, a Native Decision Test and Mass Obstructions}
 \end{center}
 
 \begin{abstract}
-The matter hypothesis of Observer Patch Holography identifies stable
-massive matter with localized defects of native overlap transport, whose
-maintenance energy shares the propagation clock. One Weyl/contact action
-has a positive-energy, non-Gaussian infinite-lattice ground with an ordered
-reflection-positive Euclidean hierarchy. On its interacting trajectory
-$c=J|E|^4$, $U=J|E|^8$, matched infrared bounds construct an ordered ground
-with $m_s>1/1000$. Its regular continuum Weyl (CCR) pair has continuous
-translations, finite propagation and positive-energy weight at arbitrarily
-small momentum, so the dynamics is nonstatic and gapless. On the centered
-trajectory the canonical hierarchy becomes eight free Weyl fields with
-$E=v|p|$ for $U=o(c^{2/7})$, $c=v/a$.
-
-Particle-hole symmetry fixes the clock $H-(U/2)N$ and a unique half-filled
-cube ground. Exact certificates place its gap in
-$[0.015021254176,0.015021254177]$ and resolve $228$ charged and $135$
-spin/density lines. Spatial rotations give binary-cubic channels G1+G2+H on
-each visible charged line, A1+E on the first neutral triplet and T1 on the
-first density line, so hidden internal spin is distinct from spatial quantum
-numbers. A native centered preparation and four-bin charged readout executes
-$869{,}405$ pulses with full-output error below $0.03$. Protected
-exchange-history sectors carry exact CAR signs, and a two-label local
-extension prepares and transports a localized charge contrast.
-
-The direct finite-gap dictionary fails the charged-lepton hierarchy for every
-ground preparation and positive unit factor, and the onsite quadratic
-catalogue predicts no mass ratio. A sharp mass shell, Lorentz covariance,
-surviving continuum interaction and the identified massive and
-electromagnetic sectors of a common chiral $3+1$ theory remain to be derived.
+Observer Patch Holography proposes that particles are reproducible features
+of the records of a specified observer, repair and memory process. We
+construct a finite link between that proposal's gauge and particle sectors:
+the same localized fermion modes carry the twelve native current operators
+and a pixel-dependent charged-lepton mass matrix. A complete memory process
+realizes the matrix with a controlled weak-step limit. Its feedback into a
+declared electromagnetic kernel has certified conditional fixed points;
+a minimal field census with one specified scale law is instead inconsistent.
+A compact opposite-winding texture has finite excess-energy bounds and four
+isolated modes with controlled infinite-volume errors. A separate quartic
+extension gives connected, non-Gaussian dynamics on the localized algebra.
+The compact texture and the interaction both change the excitation spectrum,
+so their mass interpretation requires their joint dynamics. The finite gauge
+theorems constrain the internal representation; they do not identify physical
+particles or fix all couplings. The resulting construction is a precise
+conditional particle model, without a complete observed spectrum, an
+interacting chiral continuum, or a common Einstein limit.
 \end{abstract}
 
-\input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
-\input{tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-\input{tex_fragments/FINITE_COMPLETION_CAMPAIGN.tex}
-
-\section*{This paper's hypothesis and place in the tower}
-\addcontentsline{toc}{section}{This paper's hypothesis and place in the tower}
+\section{One source process and its particle interpretation}
 \label{sec:particle-hypothesis-place}
 
-This paper is the matter half of layer~5. The gauge half proposes that gauge
-structure is the transport of overlap data and classifies the compact Lie
-type of that transport under complete-response premises \cite{ophGauge}.
-The present hypothesis is that stable massive matter is a localized
-topological defect of the same native overlap transport, whose rest energy
-is its excess maintenance dynamics over the reference regime, read in the
-common clock and energy dictionary (Hypothesis~\ref{hyp:defect}).
+Observer Patch Holography (OPH) proposes a self-referential complete history:
+observers infer the specification of their world from shared records and
+realize it through operations within that same history. The executable
+version specifies a carrier Hilbert space, accessible algebras, repair
+instruments, a scheduler, memory, feedback and preparation services
+\cite{ophobservers,ophmodel}. These are permitted design choices. Their
+implementation and their observable consequences must agree; selecting a
+design is not itself a proof that it describes nature.
 
-\emph{What is proved.} The finite results are unconditional statements
-about stated finite objects: the frustration theorem at fixed holonomy
-\cite{ophconsensus}, the topology of the native carrier complex, the exact
-decision test on the native two-load repair process, the collision
-projector identity, the record-cost theorem for the corrected code, and the
-normalization, affine-family, rate and scale obstructions for the tested
-mass prescriptions. The one-generation matter decoder, the Higgs channels
-and the interaction dictionaries are conditional implications of their
-declared spin lift, exterior module and actions.
+Operational agreement concerns accepted shared data. State selection and
+endogenous implementation of response transformations are additional stated
+principles, not consequences of self-reference alone. The exact basis and
+conditional theorem premises are recorded in the common registry
+\cite{ophbasis}. This paper consumes the finite carrier and complete-response
+results of the gauge construction \cite{ophGauge}; it states separately the
+spatial, dynamical and physical assumptions needed for matter.
 
-Complete spectral enclosures certify finite interacting poles of prescribed
-radial textures and determine their exact conserved eta currents
-(Section~\ref{sec:certified-defect-currents}). A specified current-dependent
-memory gives distinct charged coefficient triples and real mixing, invariant
-under every family basis change preserving the same currents
-(Section~\ref{sec:source-flavor-orbit}). On the ordered-spin rotation orbit,
-finite energy forces sufficiently distant shells to have degree zero
-(Section~\ref{sec:lattice-texture-finite-energy}). These results retain their
-different carriers and do not identify their excitations as observed species.
+The source specification is a tuple
+\[
+ \mathcal S=(\mathcal H,\mathcal A,\{\Phi_{e,r}\},\sigma,
+              \mathcal M,\mathcal F,\mathcal P),
+\]
+where $\Phi_{e,r}$ is the operation on seam $e$ with retained outcome $r$,
+$\sigma$ selects operations, $\mathcal M$ is memory, $\mathcal F$ is feedback,
+and $\mathcal P$ is the preparation domain. A particle assertion concerns the
+joint and conditional laws of actual preparations, interventions and detector
+outputs of $\mathcal S$. Agreement between two spectra alone does not identify
+the states, currents, clocks or instruments that produced them.
 
-\emph{Open joins.} The executable model must supply a native defect sector
-with a protecting invariant under its full admitted law, the excess
-maintenance energy with kinetics and stress, defect transport with
-creation, annihilation, fusion and decay rules, an interacting chiral
-\(3+1\) description containing massless radiation, and a frozen dictionary
-compared with the matched spectrum (Section~\ref{sec:particle-joins}).
+\begin{hypothesis}[Matter as localized defects]
+\label{hyp:defect}
+Stable massive matter admits a localized excitation of a continuing source
+reference, with an invariant preserved by the admitted dynamics. Its creation,
+transport, interactions and detection are operations of the same source.
+Its total excess energy and propagation use one energy and clock dictionary.
+Unstable species may be metastable or internal excitations; massless radiation
+need not carry a defect invariant.
+\end{hypothesis}
 
-\emph{Refutation.} A proof that every invariant of the full admitted law on
-the declared carrier and refinement class is constant, including its quantum
-and complete-history sectors, removes the native defect mechanism for that
-law. A protected sector whose excess maintenance quantity is not one energy
-with the common signal speed of its propagation rejects the maintenance
-reading of mass. A frozen defect dictionary that fails the matched spectrum
-rejects that law and dictionary.
+This hypothesis does not require a distinct conserved topological charge for
+every mass eigenstate. Flavor mixing and decay can connect internal states of
+a defect family. A protected label cannot change at an admitted vertex without
+another field or record carrying the compensating charge. A proposed complete
+particle catalogue must account for those vertices as well as masses.
+
+The construction developed here has the following dependency structure:
+\[
+\begin{array}{ccccc}
+\text{native currents}&\longrightarrow&M_{15}\otimes\mathbb C^3
+ &\longrightarrow&\text{Higgs invariant lines}\\[2pt]
+ P&\longrightarrow&t_i(P)&\longrightarrow&g(P)Z_C(P)\\[2pt]
+ \text{texture }h&\longrightarrow&W&\longrightarrow&
+ E^\dagger H E,\ E^\dagger J E .
+\end{array}
+\]
+The first row constrains internal quantum numbers, the second constructs a
+chosen mass operator, and the third attaches both to common localized states.
+Closing the physical model additionally requires that the same full interacting
+current response determine $P$, rather than inserting a separate response
+model. The finite statements below make this distinction explicit.
 
 \tableofcontents
 
-\section{The defect hypothesis}
-\label{sec:defect-hypothesis}
-
-OPH models observations through finite accessible algebras, retained records
-and local repair. The executable observer construction supplies explicit
-carriers, source operators, instruments and a native repair law
-\cite{ophmodel,ophrepairlaw}, and the observer layer supplies the record and
-measurement theorems on which a detector reading rests \cite{ophobservers}. A particle in this setting is a statement about
-a continuing observable response: preparations, currents and detector
-records must exhibit one excitation, with its quantum numbers, propagation
-and interactions, in a specified state and clock regime. A finite internal
-basis vector, memory level, channel decay rate or agreement record does not
-have that meaning by itself, and no fundamental particle object behind the
-observers' statistics is assumed.
-
-\subsection{Statement}
-
-\begin{hypothesis}[Localized defects of native overlap transport]
-\label{hyp:defect}
-Stable massive matter is a localized defect of the native overlap and
-transport structure, in the following sense.
-\begin{enumerate}[leftmargin=2em,label=(\roman*)]
-\item \emph{Core and reference.} There is a reference regime of the
-native process and a bounded core outside which the records approach that
-regime.
-\item \emph{Protecting invariant.} The transport around the core carries a
-loop holonomy, a nontrivial invariant relative to the reference, that
-admitted local repairs cannot erase. The obstruction is to trivializing the
-transport relative to the reference; observers agree on every measured
-event.
-\item \emph{Transport.} Moving the core transports the invariant.
-\item \emph{One law.} Creation, annihilation, fusion and decay follow from
-the same native law. Freezing selected seams or supplying punctures to
-protect an assigned label changes the law and does not count.
-\item \emph{Rest energy.} The rest mass is the excess rest energy of the
-defect over the reference, produced by its excess maintenance dynamics and
-read in the same clock and energy dictionary as its propagation and
-interactions. In a justified local relativistic regime this gives
-\(E_{\rm rest}=mc^2\) with one common signal speed \(c\), the speed of the
-massless response of the same construction. No conversion factor is fitted
-per species.
-\item \emph{Unstable species.} Unstable particles are metastable or
-internal excitations of defects, with decay channels and widths derived
-from the same law.
-\item \emph{Radiation.} Massless radiation and the gauge response arise from
-the same construction, as transport or collective excitations of the
-overlap structure.
-\item \emph{Identity.} Species, charges, spin and statistics, and families
-are properties of defect classes and of their transport.
-\end{enumerate}
-\end{hypothesis}
-
-The hypothesis is the matter clause of the executable-model hypothesis
-stated above. It specifies a mechanism and its observable consequences. It
-is not implied by mass--energy equivalence: a real free scalar field has a
-contractible field target and trivial vacuum topology, yet its one-particle
-states have relativistic massive dispersion \cite{tongQFT}. A dispersion
-relation alone therefore does not reveal a topological sector. Whether an
-effective particle is microscopically a defect is a question about the
-source realization.
-
-The hypothesis names parameters explicitly. Native attempt counts, host
-runtime, solver counters and modular parameters are distinct from calibrated
-observer clocks, and repair counts, entropy production and resource use are
-distinct from energy. The maintenance-to-energy map in clause~(v) must be
-derived, including kinetic normalization and any reference or regulator
-subtraction. Different schedules or implementations can change resource
-counts without changing the claimed physical response; an energy must be
-invariant under such changes.
-
-\subsection{Observable criteria}
-
-Each clause has a test that a finite or refined execution can pass or fail.
-The tests are conjunctive: they must hold for one excitation of one
-continuing source process, with one state, one clock and one set of
-accessible operations.
-
-\begin{center}
-\small
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.70\linewidth}}
-\toprule
-Part of the hypothesis & Concrete test \\
-\midrule
-Defect identity & Exhibit an actual native state or observable sector and a
-boundary charge invariant under the admitted repairs; derive its
-coefficient group and transport rules. \\
-Persistence and localization & Retain the full law and show that the core
-persists or has a controlled lifetime, with reference-like response outside
-it; distinguish active recovery from autonomous protection. \\
-Maintenance and energy & Derive the excess action or energy of the defect
-relative to the reference using a calibrated local clock, with all kinetic
-terms from that same process. \\
-Mass and propagation & In a justified local relativistic regime, recover the
-same rest energy from propagation and dispersion; the rest-mass relation uses
-the common signal speed, not a conversion fitted per species. \\
-Particle identity & Obtain spin and statistics, charges, current couplings
-and any family structure on those same defects or excitations, before
-comparing mass ratios. \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-A candidate identification names one excitation or sector of one continuing
-source process before its mass comparison: the reference regime, local
-preparation, support, defect invariant, admitted repairs, propagation and
-allowed creation and annihilation channels. The same object must account for
-currents, detector response, kinetic normalization and its mass observable.
-Representation labels, memory levels, decay rates and benchmark field poles
-cannot be pooled into a spectrum by choosing the closest numerical row.
-
-\section{What the finite theorems supply}
+\section{What the finite gauge theorems determine}
 \label{sec:finite-supply}
 
-\subsection{Frustration at fixed holonomy}
+\subsection{Complete response and the compact Lie algebra}
 
-The mathematical seed of the hypothesis is the cycle-obstruction theorem of
-the consensus layer \cite{ophconsensus}. Let \(A\) be an abelian group,
-\(G=(V,E)\) a finite connected graph with oriented edges, \(b_e\in A\) an
-edge offset and \(w_e>0\) an edge weight. The affine overlap equations
-\(x_v-x_u=b_e\) have a global solution exactly when every cycle holonomy
-\(\sum_{e\in C}\varepsilon_C(e)b_e\) vanishes.
-
-\begin{theorem}[Persistent frustration at fixed holonomy {\cite{ophconsensus}}]
-\label{thm:fixed-holonomy-frustration}
-Define the mismatch cost
+The carrier is the oriented icosahedral boundary, with twelve ports, thirty
+seams and twenty faces. Its real port module under the proper rotation group
+$A_5$ decomposes as
 \[
- \Phi_b(x)=\sum_{e:u\to v}w_e\,\mathbf 1[x_v-x_u\neq b_e],
- \qquad x:V\to A.
+ V_{12}=\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
+ \qquad \dim V_{12}^{A_5}=1.
 \]
-If some cycle holonomy of \(b\) is nonzero, then
-\(\min_x\Phi_b(x)>0\).
-\end{theorem}
+The following is the finite input to the particle construction. Assume a
+faithful real-linear response map
+$D:V_{12}\to\mathfrak u(\mathcal K)$ whose image is the complete connected
+response algebra and is closed under commutators. Assume proper carrier
+rotations act on that image through the same connected inner response group,
+with operationally silent centralizer factors allowed. Then the compact
+classification gives
+\begin{equation}
+ \mathfrak g\simeq\mathfrak u(1)\oplus\mathfrak{su}(2)
+                         \oplus\mathfrak{su}(3).
+ \label{eq:finite-gauge-type}
+\end{equation}
 
-\begin{proof}
-The cost takes values among the finite subset sums of the positive weights,
-so its minimum is attained. A zero minimum would solve every edge equation,
-contradicting the cycle criterion.
-\end{proof}
+The short dimension argument explains the strength of the assumptions.
+A compact Lie algebra is the sum of its centre and its semisimple part.
+Inner rotations fix the centre, so the one-dimensional invariant subspace
+bounds its dimension by one. A twelve-dimensional centre-free compact algebra
+would be $\mathfrak{su}(2)^4$ under the small-dimension classification.
+Inner $A_5$ actions preserve each factor; the fixed subspace in each
+three-dimensional factor has dimension zero or three. Their sum cannot have
+fixed dimension one. The centre therefore has dimension one, leaving the
+unique semisimple dimension split $11=3+8$ \cite{ophGauge}.
 
-Repairs of the vertex assignments \(x\) cannot remove this frustration while
-\(b\) is fixed, and it persists under changes of \(b\) inside its cohomology
-class. The theorem lacks four things that the hypothesis needs. It has no
-update rule for \(b\); a physical update that changes the compatibility data
-outside its class can remove the obstruction. It does not localize the
-frustration in a bounded core. It does not move it. Its residual
-\(\min_x\Phi_b\) is a cost of the whole compatibility problem, not an
-excitation energy above a reference ground state of its own sector.
+Twelve ports alone do not imply~\eqref{eq:finite-gauge-type}. Dropping
+completeness, bracket closure, faithfulness or the inner-action condition
+changes the problem. In particular, a diagonal port response can be abelian,
+and allowing further connected directions can produce a larger Lie algebra.
+The finite result also does not identify carrier rechartings with physical
+spatial rotations of a relativistic scattering theory.
 
-On a two-dimensional complex the holonomy and its localization are related
-by an elementary identity. Let \(K\) be a finite oriented two-complex, \(b\)
-an \(A\)-valued one-cochain and \(F=\delta b\) its face curvature,
-\(F(f)=b(\partial f)\).
-
-\begin{lemma}[Loop holonomy is enclosed curvature]
-\label{lem:enclosed-curvature}
-For every two-chain \(c\), the holonomy of \(b\) around \(\partial c\)
-equals \(F(c)\). If \(H_1(K;A)=0\), every closed edge loop is such a
-boundary, so every loop holonomy is the curvature it encloses. If \(K\) is a
-closed oriented surface with coherently oriented faces, then
-\(\sum_fF(f)=0\). If \(b=\delta n\) is an exact difference, then \(F=0\) and
-every loop holonomy vanishes.
-\end{lemma}
-
-\begin{proof}
-The first statement is the definition of the coboundary. A one-cycle with
-vanishing homology class bounds a two-chain. The sum of all coherently
-oriented faces of a closed surface has zero boundary. Finally,
-\(\delta\delta n=0\).
-\end{proof}
-
-On a closed surface with vanishing first homology, a nonzero holonomy around
-a bounded core therefore requires nonzero curvature inside the core, and the
-total curvature vanishes: cores come with compensating curvature elsewhere.
-For a nonabelian structure group the holonomy of a based loop is defined up
-to conjugation, and its conjugacy class is the invariant that a defect
-charge would carry.
-
-\subsection{A quantitative frustration instance}
-
-Frustration produces a strictly positive gap on the executable carrier. Let
-\(D_\sigma\) be the sign-twisted seam derivative on the connected
-observer-visible finite local domain, and let
-\(H_\sigma=D_\sigma^\ast D_\sigma\) use the declared unit-counting measure.
-
-\begin{proposition}[Exact finite source-Hamiltonian gap]
-\label{prop:finite-source-hamiltonian-gap}
-The signed-incidence formula makes \(H_\sigma\) integer symmetric and
-positive semidefinite. A kernel vector would supply a sign-consistent
-coloring on each connected component. The declared reversing seam transport
-frustrates every triangle, so the connected complex has no such coloring and
-the signed incidence rank is \(8{,}662\). Therefore \(\ker H_\sigma=0\). With
-maximum degree \(12\), the determinant bound gives
+There is an explicit chosen current law on the protected native carrier.
+For port vectors $v_p$, their Galois-conjugate triplet $\sigma(v_p)$ and the
+cross-product matrix $\widehat v$, set
 \[
-  \lambda_{\min}(H_\sigma)\geq 24^{-8661}>0 .
+ D_p=\operatorname{diag}\left(
+ \widehat{v_p/2}+iQ_p,\ \widehat{\sigma(v_p)/2}\right),\qquad
+ Q_p=\tfrac12v_pv_p^T-\tfrac16\|v_p\|^2 I_3+\tfrac1{12}I_3.
 \]
-A sparse numerical refinement gives
-\(\lambda_{\min}=0.11753670336118684\) with relative residual
-\(1.49\times10^{-14}\).
-\end{proposition}
+The twelve matrices have rank twelve as response directions; their brackets
+close, and the actual port permutations implement the required covariance.
+Their sum is $\operatorname{diag}(iI_3,0)$, an observable relative phase under
+cross-triplet readout. This realizes
+$\mathfrak u(3)\oplus\mathfrak{so}(3)$ and hence the stated Lie type.
+Coherent control, encoding and record-assisted recovery belong to this
+specified law; unchanged dissipative C/E repair alone is not assigned these
+reversible generators \cite{ophGauge,ophmodel}.
 
-The determinant floor follows because the positive integer determinant is
-at least one and every eigenvalue is at most 24. The decimal is measured,
-with a residual check and no interval enclosure. This is the
-\(\mathbb Z_2\) analogue of Theorem~\ref{thm:fixed-holonomy-frustration}
-with frustration on every face. It is a global gap of a declared operator.
-It does not select a localized defect, a physical field fiber or a mass.
+\subsection{The matter module and its family factor}
 
-\subsection{The classification target}
-
-The gauge layer supplies the structure group in which defect holonomies
-would take values \cite{ophGauge}. Under its complete-response and
-endogenous-transport premises, a faithful compact commutator-closed
-twelve-port response on which proper carrier rechartings act by inner
-automorphisms has the single compact Lie type
-\(\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)\). Under the
-stated faithful-representation and central-kernel hypotheses the global
-group is \((\SU(3)\times\SU(2)\times\U(1))/\mathbb Z_6\). A declared spin lift
-and exterior module give the one-generation matter module with exact
-Standard Model charges, anomaly cancellation, the common central kernel
-\(\mathbb Z_6\) and the three charged-fermion Higgs channels
-(Section~\ref{sec:repair-matter-readout}). The carrier premises and the
-closure hypothesis are stated with that classification \cite{ophGauge}; the
-results below use them only through it.
-
-These are the classification target for defect charges. If the hypothesis
-holds, the charge of a stable defect is a holonomy class in this group and
-the matter labels of the decoder are properties of defect classes and their
-transport. How the representation labels of the module arise from a defect
-sector is part of the particle-identity join. The finite gauge
-identification fixes allowed representations; it does not fix their
-excitation energies.
-
-\subsection{Native topology and the finite flux criterion}
-
-The native carrier is the oriented boundary complex of an icosahedron:
-twelve ports, thirty seams and twenty faces, with Euler characteristic two
-\cite{ophmicrophysics}.
-The full two-dimensional complex has vanishing \(H_1\), while \(H_2\) does
-not vanish. The seam graph alone has cycle rank
-\(30-12+1=19\); its cycles all bound in the two-complex. A nontrivial bundle
-needs actual transition data, and by Lemma~\ref{lem:enclosed-curvature} a
-nonzero loop holonomy needs face curvature.
-
-Native port loads supply none. The load contrast \(b_{ab}=n_a-n_b\) on a
-seam is an exact difference, so every face circulation is zero; the exact
-receipt checks all twenty faces on every state of the two-load domain of
-Section~\ref{sec:native-decision}. This excludes flux in the actual
-load-gradient map only. It does not exclude other bundles, enlarged states
-or quantum sectors.
-
-Declared \(\mathbb Z_6\) link variables with a puncture pair give a separate
-flux experiment. Six flux classes, realized by two-puncture witnesses, are
-distinguished by the spectra of the twisted seam-adjacency operators up to
-the charge-conjugation pairing \(k\leftrightarrow6-k\); regauging by a
-coboundary leaves each spectrum fixed, flux classes add under chain addition,
-and one edge-midpoint refinement to 42 ports, 120 seams and 80 faces
-reproduces the six classes. The links and punctures are supplied state and
-update premises. Unrestricted local link changes can erase the pair. The
-flux criterion therefore shows what a protected sector would look like on
-this carrier without exhibiting one in the native process.
-
-\section{The native decision test}
-\label{sec:native-decision}
-
-The simplest local candidate in the native process is a double occupation of
-one port in the unchanged total-load-two C/E repair process on the twelve
-ports. Its domain has 78 configurations: twelve double loads and 66 binary
-states with two unit loads. The test retains all 720 raw outcome maps and
-compares the same state transitions, transport and cost observables. The
-invariant test uses the support of all native seams. Lifetime and activity
-numbers use an explicitly supplied independent uniform-seam and fair-coin
-probe schedule, which is not the production feedback policy. No physical
-duration is assigned to an attempt.
+A declared spin lift to five internal coordinates and the nonvacuum even
+exterior module give
+\[
+ M_{15}=\Lambda^2\mathbb C^5\oplus\Lambda^4\mathbb C^5,
+ \qquad \dim M_{15}=10+5=15.
+\]
+The actual source-current lift preserves all brackets and has an exact
+intertwiner with this module. Its simultaneous primitive-charge and
+color/weak Casimir readouts give the following all-left convention.
 
 \begin{center}
-\small
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.33\linewidth}}
+\begin{tabular}{@{}lccrr@{}}
 \toprule
-Test under the unchanged native law & Exact finite result & Consequence \\
+Label & Color & Weak & $6Y$ & Components\\
 \midrule
-Configuration sectors & Twelve transient double-load classes feed one
-closed irreducible binary class of 66 states & A scalar configuration label
-preserved by every admitted branch is constant on the 78-state domain \\
-Local double-load persistence & Under independent uniform choice of the 30
-seams, survival is \((5/6)^n\) and the mean lifetime is six seam attempts &
-The candidate splits into two unit loads; it is not a protected defect
-transported by this law \\
-Quantum collision sector & Both complete C/E instruments satisfy
-\(\sum_hK_h^\dagger P_{\rm coll}K_h=\tfrac56P_{\rm coll}\), with no
-binary-to-collision feed & The same survival law holds for arbitrary quantum
-inputs and untouched references \\
-Continuing binary transport & Nonzero current probability \(5/33\) per
-attempt in the uniform binary stationary law; every binary event has zero
-drop of \(\Phi=\tfrac12\sum_pn_p^2\) & Repair activity and motion are not
-potential decrease \\
-Proposed edge cost & The binary edge-disagreement cost takes the values 8
-and 10, with native transitions in both directions & It is not a monotone
-maintenance-energy law of this process \\
-Changed-law control & Removing the five seams at one port gives binary
-closed classes of sizes 11 and 55 & A frozen port creates sectors by
-changing the allowed law \\
+$Q$ & $\mathbf3$ & $\mathbf2$ & $1$ & $6$\\
+$u^c$ & $\overline{\mathbf3}$ & $\mathbf1$ & $-4$ & $3$\\
+$d^c$ & $\overline{\mathbf3}$ & $\mathbf1$ & $2$ & $3$\\
+$L$ & $\mathbf1$ & $\mathbf2$ & $-3$ & $2$\\
+$e^c$ & $\mathbf1$ & $\mathbf1$ & $6$ & $1$\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Several entries have short explanations. The native seam rule sets the two
-endpoint loads to the floor and ceiling of their mean, with a fair coin for
-an odd remainder. A double load next to an empty port therefore splits
-whenever one of its five incident seams is chosen, which happens with
-probability \(5/30\) per attempt at each of the twelve locations; it never
-hops as a unit. Two unit loads on the icosahedron disagree across ten seams
-when they are not adjacent and across eight when they are, and native moves
-change adjacency in both directions. At a binary seam the rule either waits
-or swaps, so \(\Phi\) never changes while loads keep moving. Holding one
-port leaves either that port loaded with the other load free on eleven
-ports, or that port empty with \(\binom{11}{2}=55\) placements.
-
-\begin{proposition}[Collision decay for quantum inputs]
-\label{prop:collision-decay}
-Let \(\{K_h\}\) be the complete uniform C or E instrument on the 78-state
-domain, \(K_h=M_h/\sqrt{60}\) over the thirty seams, two coins and retained
-raw outcomes, including zero-probability outcomes. Then
+The labels abbreviate computed finite quantum numbers. Their identification
+with laboratory Weyl fields requires the physical current, spin and kinetic
+maps. The selected exterior grammar has two conjugate anomaly-free masks;
+conjugating the mask does not add a generation. The exact identities include
 \[
- \sum_hK_h^\dagger P_{\rm coll}K_h=\frac56P_{\rm coll}
+ \operatorname{tr}(6Y)=\operatorname{tr}[(6Y)^3]=0,
+ \quad 2(1)-4+2=0,\quad 3(1)-3=0,
 \]
-for the projector \(P_{\rm coll}\) onto the twelve double-load
-configurations. For every state \(\rho\) on the domain and an untouched
-reference,
+for the abelian and mixed anomalies, with $2-1-1=0$ for the color cubic
+anomaly and four weak doublets per copy for weak global parity.
+These are representation statements, conditional on the intended chiral
+field interpretation.
+
+The maximal faithful image of these local representations has common central
+kernel $\mathbb Z_6$. Selecting a physical global gauge group and allowed line
+operators needs the corresponding source loop and line data. The finite
+kernel computation alone does not exclude a different covering-group
+interpretation with the same local charges.
+
+The finite family theorem selects a rank-three band under a complete faithful
+band premise, the stated dimension window and strict seam-cost comparison.
+Applying it to particles requires an isometry from that same band into the
+family factor. In the executable field construction we explicitly choose
+$M_{15}\otimes\mathbb C^3$, with gauge currents acting trivially on
+$\mathbb C^3$. The family choice is allowed simulator design. A two-dimensional
+radial kernel or a winding number three is not a proof of three generations.
+Equivalent triplet representations on spatial, color and family factors do
+not identify those factors.
+
+
+There is a separate finite route to protected exchange records. On the native
+ordered-cover transport, let $p_h(x)$ be the permutation parity accumulated by
+branch $h$. A coherent ordering bit gives
 \[
- \operatorname{Tr}\bigl[(P_{\rm coll}\otimes I)(\Phi^n\otimes\mathrm{id})
- (\rho)\bigr]
- =\Bigl(\frac56\Bigr)^n
- \operatorname{Tr}\bigl[(P_{\rm coll}\otimes I)\rho\bigr],
+ K_h=\frac1{\sqrt2}\sum_{x\in D_h}|f_h(x)\rangle\langle x|
+             \otimes X^{p_h(x)},\qquad Q=I\otimes X,
+ \qquad [K_h,Q]=0.
 \]
-where \(\Phi\) is the unread one-attempt channel. No persistent quantum subspace is supported wholly on the
-collisions under this
-unread evolution.
-\end{proposition}
+An odd exchange loop acts as $X$ on the bit, and the corresponding colored
+fermionic lift acts as $-\mathrm{SWAP}$. The sectors survive complete
+record-adaptive native schedules in this specified memory design. Dephasing
+or resetting the bit changes that conclusion. These are exchange-history
+sectors, distinct from spatially localized texture charge; they do not
+establish the physical spin and statistics of the bound modes constructed
+below. The source constructions are in \path{model/defect_protection} and
+\path{model/charged_defect}.
 
-\begin{proof}
-The Heisenberg identity is verified exactly on all retained branches; its
-effect matrix is diagonal with entries \(50/60\) on collisions, and no branch
-feeds a binary state into a collision. The dual channel is linear, so
-\(\Phi^{*n}(P_{\rm coll})=(5/6)^nP_{\rm coll}\), and tensoring with the
-identity on the reference preserves the identity. A persistent
-collision-supported subspace would keep its collision weight equal to one.
-\end{proof}
+\section{The conditional field action and particle table}
+\label{sec:conditional-field-action}
 
-These results reject the proposed autonomous configuration defect and the
-tested automatic cost-to-energy identifications: attempt counts, the
-quadratic load potential and the edge-disagreement cost. They reject
-quantum persistence wholly within the collision subspace. They do not
-exclude other quantum, complete-history or federated defects, another
-repair law, a common energy offset, or the general hypothesis. A replacement
-candidate must identify its actual source sector and allowed dynamics before
-any mass comparison.
+\subsection{Symmetry constrains the action, not its numerical coefficients}
 
-\subsection{The actively corrected code}
-
-The actively corrected matching code is a different persistent object. It
-uses six fixed nonedge matching words; coherent recovery preserves its
-logical information, and actual port rotations act on it. Without recovery,
-one uniform-seam C or E attempt takes the normalized code projector out of
-the code with probability \(31/108\) or \(55/108\), respectively. This is a
-one-step escape from that preparation, not an all-state lifetime. With the
-declared recorded recovery, the logical state and its references are
-preserved and the complete record law has the product form
+Choose one complex weak doublet $H$ of hypercharge $1/2$, canonical positive
+kinetic forms, physical Weyl statistics and a Lorentz-covariant local field
+interpretation in $3+1$ dimensions. Restrict the polynomial action to operator
+dimension at most four, modulo integration by parts. The invariant grammar
+then gives the gauge kinetic terms, scalar kinetic term and potential,
+fermion kinetic terms and exactly three charged Yukawa lines. Independent
+gauge couplings, topological theta terms and an additive vacuum-energy
+constant also remain free; local integration by parts does not remove their
+possible global physical effects. In the four-component convention the
+charged Yukawa part is
 \[
- \rho\longmapsto\rho\otimes p(\mathrm{records}).
+ \mathcal L_Y=-\overline Q_L\widetilde H Y_u u_R
+             -\overline Q_L H Y_d d_R
+             -\overline L_L H Y_e e_R+\mathrm{h.c.}
 \]
+Each $Y_a$ is a complex $3\times3$ matrix. The all-left source convention
+uses the corresponding conjugated blocks; changing only half the convention
+would change the charge equations. The native invariant-line computation
+solves all twelve current equations for both Higgs components and gives one
+line for each allowed origin $(6Y_1,6Y_2)=(-4,1),(1,2),(-3,6)$.
+Tensoring these lines with the gauge-trivial family factor leaves exactly the
+three matrix coefficients. Canonical kinetic normalization must precede any
+reading of their singular values as action masses
+\cite{ophGauge,pwweinberg1967model,pwpeskin1995introduction}.
 
-\begin{proposition}[Record costs cannot split logical states]
-\label{prop:record-cost-split}
-For a channel of this product form and any observable \(c\) of the records
-alone, the expectation \(\operatorname{Tr}[(I\otimes c)(\rho\otimes p)]
-=\operatorname{Tr}(\rho)\,\mathbb E_p[c]\) is independent of the logical
-state \(\rho\).
-\end{proposition}
-
-\begin{proof}
-The trace factorizes over the tensor product.
-\end{proof}
-
-The exact receipt checks all 720 raw branches. The one-port cost, each
-native edge cost and the quadratic load potential compress on the code to
-\(I_6/6\), \(I_6/3\) and \(I_6\). A fixed cost of seams or records alone
-therefore cannot give different masses to different logical states. A
-common energy offset is not excluded, and no physical offset is derived.
-Persistence here is active recovery selected by existing records, not
-autonomous protection, and the code carries no exhibited topological charge.
-Its fixed matching table and the separately derived equivariant code table
-must not be identified for a nonscalar observable or a new interaction.
-
-\section{Mass from maintenance}
-\label{sec:mass-maintenance}
-
-\subsection{Requirements}
-
-A rest mass can be the excess rest energy of a localized excitation over the
-reference state in a regime where energy, clock and spatial dispersion are
-defined. To identify it with repair maintenance, the source must derive how
-the excitation changes an intrinsic action or energy readout, or the same
-clocked response; subtract the reference contribution; and account for
-cutoff, volume and renormalization dependence. Propagation and interactions
-are then tested with that same identification. Attenuation can govern
-lifetime or decoherence instead of inertial mass, and the response
-calculation must decide which.
-
-Counting alone cannot supply the scale.
-
-\begin{proposition}[Count-rate no-go]
-An oriented register with twenty-four slots, a twenty-four-stage automaton,
-or a decomposition into twenty-four formal update steps determines no
-physical frequency, Hamiltonian gap or mass scale.
-\end{proposition}
-
-\begin{proof}
-Rescaling every physical generator by \(H\mapsto\lambda H\), \(\lambda>0\),
-preserves the register, transition graph, grading and settled quotient while
-multiplying all generator gaps and rates by \(\lambda\).
-\end{proof}
-
-The number twenty-four plays no role in the argument, and a repair
-iteration counter is likewise not an operational clock. A physical rate
-requires a source-derived clock instrument, a calibrated comparison line and
-a residual bound. Once such a line exists, a scale follows exactly.
-
-\begin{theorem}[Conditional determinant-clock attachment]
-Consider a source-derived, one-dimensional operational clock line \(L_{24}\)
-with a distinguished calibrated positive gap vector \(\ell_{24}\) of norm
-\(\Delta_{24}\). Suppose there is a refinement-natural, quotient-visible
-norm-preserving line isomorphism
-\(\Theta_e:L_{24}^{\otimes3}\to\det M_e\) to the physical charged-lepton
-determinant line, with the element compatibility
-\(\Theta_e(\ell_{24}^{\otimes3})=\det(M_e)\). Then
-\(g_e:=|\det M_e|^{1/3}=\Delta_{24}\). If the element-compatible map
-rescales norms by a separately derived factor \(\kappa>0\), then
-\(g_e=\kappa^{1/3}\Delta_{24}\).
-\end{theorem}
-
-\begin{proof}
-The distinguished tensor-cube vector has norm \(\Delta_{24}^3\). Element
-compatibility and norm preservation give \(|\det M_e|=\Delta_{24}^3\).
-\end{proof}
-
-Writing a norm-preserving line isomorphism without the distinguished-vector
-equality constructs neither the clock line nor the attachment. Data that
-fix only centered logarithms leave the scale free.
-
-\begin{theorem}[Absolute-scale underdetermination]
-Any readout factoring only through a centered log triple
-\((\ell_1,\ell_2,\ell_3)\), \(\sum_i\ell_i=0\), and its difference invariants
-leaves the common scale \(g>0\) of \(m_i=g\,e^{\ell_i}\) free.
-\end{theorem}
-
-\begin{proof}
-For every \(c\in\mathbb R\), \(e^c\operatorname{diag}(e^{\ell_i})\) has the
-same centered logarithms and differences, determinant \(e^{3c}\), and masses
-scaled by \(e^c\).
-\end{proof}
-
-A rest energy appears to a comoving observer as a clock rate. On a declared
-Lorentz module and mass shell, free plane waves persist under the declared
-translation flow, and their phase along their own frame has proper-time
-derivative \(m\). For \(m>0\) the internal-clock periods are
-\((2\pi/m)\mathbb Z\); the zero-mass clock is constant and has no fundamental
-period. This is conditional kinematics, without a source-selected mass or
-clock, and it states the target that a maintenance rate must meet: the same
-\(m\) must appear in the internal clock, in the dispersion and in the
-kinetic normalization.
-
-Kinetic and mass terms must come from the same source. For a four-component
-Dirac convention with positive kinetic metrics,
+For the explicitly chosen broken potential
 \[
- Y_{s,\mathrm{can}}=Z_L^{-1/2}Y_sZ_R^{-1/2}/\sqrt{Z_H};
+ V(H)=\lambda_H(H^\dagger H-v^2/2)^2,\qquad \lambda_H>0,
 \]
-a literal all-left Weyl bilinear has a transpose on the left normalization
-factor. A record matrix can change a coordinate without changing the mass:
-\(Z_L=Z_R=R>0\) and \(Y_s=g_sR\) give \(Y_{s,\mathrm{can}}=g_sI/\sqrt{Z_H}\)
-and \(\det(pR-hg_sR)=\det(R)(p-hg_s)^3\). A hierarchical Gram matrix by itself
-need not produce a hierarchical physical vertex. Eliminating an invertible
-heavy block also changes the Higgs derivative,
+the vacuum shell has $|H|=v/\sqrt2$. Taking $H=(0,v/\sqrt2)$ gives the
+following conditional quadratic table.
+
+\begin{center}
+\begin{tabular}{@{}lp{6.0cm}@{}}
+\toprule
+Field directions & Action mass or coefficient\\
+\midrule
+Three charged leptons & $m_{e,i}=v\,s_i(Y_e)/\sqrt2$\\
+Three up and three down flavors & $m_{a,i}=v\,s_i(Y_a)/\sqrt2$, each in three colors\\
+Three minimal left neutrino fields & Zero in the dimension-four charged grammar\\
+Charged weak vectors & $m_W=g_2v/2$\\
+Neutral massive weak vector & $m_Z=v\sqrt{g_2^2+g_Y^2}/2$\\
+Electromagnetic direction & Zero quadratic mass\\
+Eight color directions & Zero quadratic mass; no free physical gluon claim\\
+One radial scalar & $m_h=\sqrt{2\lambda_H}\,v$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The neutral vector matrix follows from the coefficient of
+$\tfrac12 A^TM^2A$ in $|D H|^2$; this factor of two matters. The three
+zero scalar Hessian directions are gauge-orbit directions and do not count
+as three additional physical scalars. Neither the sign of the broken
+potential nor its quantum vacuum is selected by the finite representation.
+This action and its normalization are checked in
+\path{model/conditional_standard_model}.
+
+For a supplied Weyl principal symbol and the antisymmetric pairing
+$\epsilon_{\rm spin}\otimes\overline K$, squaring the complete Nambu
+symbol cancels its momentum--mass cross terms. Its frequencies obey
 \[
- \partial_H(A-BD^{-1}C)=A_H-B_HD^{-1}C-BD^{-1}C_H+BD^{-1}D_HD^{-1}C .
+ E_j(\mathbf p)^2=c^2|\mathbf p|^2+s_j(K)^2.
 \]
+This is a theorem of that supplied relativistic action. The spatial source
+constructed below has additive bands instead, so the displayed relativistic
+formula cannot be transferred to it by matching $K$ alone.
 
-Repair contraction and coherent propagation are different dynamics. Passive
-stationary fixed-reference schedules have an exact rank-two Schur response
-obstruction, including eight zero crossing weights among the 22 seams, and
-positive whitening preserves the null direction. The uncorrected recorded
-66-state channel has no invariant fifteen-state work code in the tested
-class. Its ten-mode response conditioned on an incident event has operator
-norm \(\lambda_C=7/10\) or \(\lambda_E=2/5\).
+\subsection{Flavor, neutrinos and conserved defect labels}
 
-\begin{proposition}[Contraction has no direct unitary intertwiner]
-\label{prop:no-intertwiner}
-Let \(R\) have operator norm \(\lambda<1\), let \(U\) be unitary and let \(J\)
-be any linear map. Then
-\(\|UJ-JR\|_{\rm HS}\ge(1-\lambda)\|J\|_{\rm HS}\). In particular, the
-conditioned native response has no nonzero exact direct intertwiner to the
-unmeasured closed quadratic Weyl evolution.
-\end{proposition}
+The canonical family-frame freedom is $\U(3)^5$. It preserves the charged
+singular spectra and basis-invariant mixing data. In particular
+$V_{\rm CKM}=U_{uL}^\dagger U_{dL}$ is determined by the same left-handed
+weak current; relabeling families cannot repair a mass hierarchy or generate
+physical CP violation. A real symmetric coefficient class has
+$\operatorname{tr}[Y_uY_u^\dagger,Y_dY_d^\dagger]^3=0$.
+This is a restriction of that class, not of arbitrary complex source feedback
+\cite{pwjarlskog1985commutator}.
 
-\begin{proof}
-\(\|UJ\|_{\rm HS}=\|J\|_{\rm HS}\) and
-\(\|JR\|_{\rm HS}\le\lambda\|J\|_{\rm HS}\); apply the triangle inequality.
-\end{proof}
+A supplied dimension-five operator
+$(L\cdot H)^T C_5(L\cdot H)/(2\Lambda)+\mathrm{h.c.}$ gives
+$M_\nu=v^2C_5/(2\Lambda)$ and Takagi singular masses. It supplies neither
+$C_5$ nor its scale from the charged-lepton construction. The source checks
+are in \path{model/majorana_defect_bridge}.
 
-The proposition does not exclude a field coupled to detectors, an
-environment or interactions; a complete dephasing-channel control realizes
-the same uniform contraction. A contraction modulus describes attenuation
-in its declared event parameter, and the argument of a transfer eigenvalue
-describes a phase only with an unwrapping and clock convention. Neither
-becomes a rest mass by taking a logarithm.
-
-\subsection{Obstructions for the tested mass prescriptions}
-\label{sec:mass-obstructions}
-
-The following results are theorems about specified classes of
-uncalibrated prescriptions. Each excludes its class as the charged mass
-law. None excludes other repair laws on the carrier.
-
-\paragraph{The complete record memory.}
-A complete twelve-state family memory uses the native events with
-probabilities \(p=1/12\) and \(q=1/6\), a specified reset state and declared
-half-turn updates. All 128 native raw labels are combined with all twelve old
-memory states; conditioning on successful events is not substituted for
-this 1,536-branch law. The stationary projector average
+Conserved additive defect labels must respect the same vertices. If the
+charged-current mixing graph is connected, the relation
 \[
- Y=\sum_k\pi_kP_k\succeq0,\qquad\operatorname{tr}Y=1,
+ q(W^-)-q(e_\alpha)+q(\nu_i)=0
 \]
-has coefficient ratios \(1:195.11703757:3579.82624571\). A two-angle record
-inverse cancels the finite-pulse bias exactly; the resulting numerical
-allowance is conditional on its floating-point and mixing estimates. Gating
-the same memory with the complete thirteen-outcome matter instrument
+for every nonzero entry forces one common neutrino label $N$ and one common
+charged-lepton label. A massive Majorana field adds $2N=0$. In an integer
+winding group this implies $N=0$. If a massless neutrino is excluded from
+defect assignments and has label zero, connected mixing forces the other
+neutrino labels to zero as well. Distinct protected winding numbers therefore
+cannot simply be assigned to the three mixed mass eigenstates. Internal
+excitations, nonadditive invariants and charged compensating vertices require
+their own source construction.
+
+\section{Pixel capacity and the chosen mass law}
+\label{sec:pixel-role}
+
+The pixel variable is the dimensionless capacity ratio
+$P=a_{\rm cell}/\ell_P^2$. It is distinct from a projector $P_j$ in the
+memory controller. The declared self-reference relation reads
 \[
- M_0=\cos(t\sqrt C),\qquad
- M_a=iF_a\frac{\sin(t\sqrt C)}{\sqrt C},\quad a=1,\ldots,12,
+ P=\varphi+\sqrt\pi\,\alpha,\qquad
+ \varphi=\frac{1+\sqrt5}{2}.
 \]
-with \(C=\sum_aF_a^\dagger F_a\) built from the matter lift of the
-trace-orthonormal current frame, and with both components of each Higgs
-tensor, gives sector-dependent coefficients without empirical mass inputs.
-At the declared \(t=\pi/5\) the ratios for the channels matched after
-construction are \(1:271.446:6071.036\) (up), \(1:311.762:6822.880\) (down)
-and \(1:675.782:30775.333\) (charged lepton). The entire declared catalog
-\(t\in\{\pi/5,\pi/3,\pi/2\}\) fails the charged hierarchy comparison; its
-zero coefficient at \(t=\pi/2\) is retained. This finite candidate uses
-supplied control services and a declared architecture. It is a tested
-prescription, not a derivation of the spectrum.
-
-\begin{proposition}[Normalized-feedback scale bound]
-\label{prop:trace-one}
-For a probability average of rank-one projectors on a three-dimensional
-family space, \(Y\succeq0\), \(\operatorname{tr}Y=1\) and
-\(1/3\le\lambda_{\max}(Y)\le1\). With common canonical kinetics,
-unit-modulus neutral Higgs tensors and a common Higgs norm \(v\), the three
-family action masses in each sector sum to \(v\). Any two sector maxima
-have ratio at most three.
-\end{proposition}
-
-\begin{proof}
-The nonnegative eigenvalues sum to one, so their largest lies between their
-mean and their sum. The specified Higgs tensors multiply each family
-singular value by \(v\). Apply the bounds to both sectors.
-\end{proof}
-
-This is a sector-normalization obstruction under the common-coupling and
-canonical-kinetic hypotheses. It does not bound a smallest eigenvalue away
-from zero and does not exclude within-sector hierarchies. A
-sector-dependent strength or a different kinetic response changes the
-hypotheses and needs its own derivation. Positive trace-one matrices can
-differ in eigenbasis, so the bound implies nothing about mixing or CP
-violation. Unconditional event-duty pulses change the normalization and must
-use the complete correlated record law: for the reset projector \(P_2\) the
-C-duty response is \(Z_C=Y-(1-p)P_2\), not \(pY\). The always, C, E and CE
-policies have traces \(1,p,q,pq\); their sector-maximum spans are
-approximately \(1.0233,2.0572,1.1528,2.3695\), and the E and CE responses
-have rank two. These policies are excluded as the charged mass prescription.
-
-\paragraph{Static family features.}
-The native quadratic comparison uses \(Y_u=aF\), \(Y_d=bF\), \(Y_e=JF\) with
+The inner response supplying $\alpha$ must be specified. In the heat/running
+construction it depends on $P$ through a unified scale, a heat-sum equation,
+low-energy couplings and charged masses. Thus the loop has the form
 \[
- a=\log(25/8),\quad b=\log(8/5),\quad J=a-b,\quad v=a+b .
+ P\longrightarrow (\alpha_U,v,\text{field census})
+ \longrightarrow (M_f,J_f)
+ \longrightarrow A_{\rm response}
+ \longrightarrow \varphi+\frac{\sqrt\pi}{A_{\rm response}}.
 \]
-The family matrix \(F\) has eigenvalues
-\[
- \frac{61}{450},\qquad\frac{41}{225}\pm\frac{7\sqrt5}{750},
-\]
-and the direct positive prescription has ratios approximately
-\(1:1.1903:1.4982\), far from a charged hierarchy. Complex affine
-coefficients do not repair the class.
+The same masses and current normalization must appear on both sides.
+A fixed point of a declared response proves consistency of that map, without
+identifying it as the physical electromagnetic response.
 
-\begin{proposition}[Affine quadratic-family exclusion]
-\label{prop:affine-exclusion}
-Let \(Y=uI+wF\), \(u,w\in\mathbb C\), with singular values
-\(m_{\min}\le m_{\mathrm{mid}}\le m_{\max}\). With \(\varphi=(1+\sqrt5)/2\),
-\[
- m_{\max}\le\varphi^2m_{\mathrm{mid}}+\varphi m_{\min}.
-\]
-\end{proposition}
+The mass law used here is a chosen finite response architecture with
+icosahedral incidence registers and a determinant normalization. Its charged
+shape has a three-phase form related to Koide-type parametrizations
+\cite{koide1983,brannen2006}. The architecture has target-informed provenance; its predictions are
+conditional postdictions even when
+its execution reads no measured masses. Choosing it as part of a simulator
+is allowed. Independent validation requires consequences not used to choose
+it. The following realization states both the operator identity and the
+complete-record error bound. Its displayed $\beta=4$ scale convention is one
+specified branch; the normalized coefficients and memory identities also
+apply to the explicit $\beta=7$ branch considered afterward.
 
-\begin{proof}
-For ordered eigenvalues \(f_1<f_2<f_3\) of \(F\), the complex points
-\(z_i=u+wf_i\) are collinear, and \(f_3-f_1=\varphi^2(f_2-f_1)\) gives
-\(z_3-\varphi^2z_2+\varphi z_1=0\). Solving this relation for each point and
-applying the triangle inequality bounds any modulus by \(\varphi^2\) times
-one of the others plus \(\varphi\) times the third. The middle point is a
-convex combination of the endpoints. Applying these bounds to the largest
-modulus gives the sorted inequality.
-\end{proof}
-
-Conditional on \(m_{\mathrm{mid}}/m_{\min}\le207\), the bound gives
-\(m_{\max}/m_{\min}\le543.551\), whereas the broad charged-lepton pole-ratio
-windows \([206,207]\) and \([3470,3485]\) require at least \(3470\). The
-adopted \(\overline{\mathrm{MS}}\) comparison at \(M_Z\) has lepton ratios
-about \(210.7\) and \(3578\) \cite{antusch2025running}, and the inequality
-excludes that comparison as well. The bound is not a universal heavy-to-light
-bound: a light eigenvalue near zero can make that single ratio arbitrarily
-large. The class has a fixed quadratic action, so its anticommutator poles
-are state independent; an occupation-versus-gap factor of two, a common
-clock rescaling or a basis change cannot change their ratios.
-
-\paragraph{Other explicit laws.}
-A five-memory feedback law gives ratios near \(1:30.84:452.62\); a
-two-rotation memory gives \(1:382.23:5909.43\); the admitted
-auxiliary-dressing class bounds its two smallest subthreshold lepton poles by
-a ratio below 32. A near numerical ratio found by searching many
-prescriptions is not a blind prediction; the selection ancestry and all
-admitted alternatives must be retained.
-
-\paragraph{Symmetry and entropy selectors.}
-Residual symmetry does not select the ratios. Realize the quadrupole carrier
-\(W_5\) as traceless symmetric real \(3\times3\) matrices. Invariance under a
-threefold or fivefold rotation about \(n\) forces \(A=\alpha(nn^T-I/3)\),
-with a double eigenvalue. The twofold fixed locus is three-dimensional and
-admits simple spectra, and every subgroup of \(A_5\) other than the trivial
-group, \(C_2\) and \(V_4\) contains a threefold or fivefold rotation. No
-residual stabilizer pins an isolated simple-spectrum orbit. For six antipodal
-pair weights \(p_i=(1+ra_i)/6\) at fixed index of coincidence, every global
-minimizer of the full uniform-reference relative entropy
-\(D(p\Vert\mathbf1/6)\) for \(0<r\le\sqrt{60}\) is a permutation of one high
-and five equal low weights, the standard maximum-entropy branch at fixed
-index of coincidence \cite{harremoesTopsoe2001}. Its quadrupole spectrum is
-\((-2/\sqrt{15},-2/\sqrt{15},4/\sqrt{15})\) up to scale, with the
-fivefold-axis stabilizer. No amplitude rule therefore yields three distinct
-masses through an attachment that reads only these eigenvalues. The leading
-cubic truncation selects the same degenerate orbit. The strict full-support
-minima of the quartic truncation have sorted-gap ratio \(\varphi\) or a
-double eigenvalue, and the quartic truncation reaches the central charged-lepton gap ratio only at a target-attached
-amplitude on its closed boundary, where eight of twelve port probabilities
-vanish; that is not a prediction. These exclusions concern the stated
-reference, constraint and readout.
-
-\subsection{Calibrated control and target-informed constructions}
-\label{sec:calibrated-control}
-
-A calibration packet supplies nine running charged Yukawas, mixing
-parameters and the Higgs scale in stated schemes. The finite action checks
-its internal mass and current identities, and separate source-record
-experiments and a moving-field readout recover the supplied running
-parameters with a fixed probe design and a blind inverse. This is a readout
-test: the Hamiltonian retains the empirical inputs, and decoder blindness
-does not remove that ancestry. A running action parameter is not
-automatically a laboratory pole mass.
-
-Several numerical constructions have target ancestry and are retained only
-as such: fixed closure-coordinate running charts for quarks, the
-electroweak bosons and Higgs criticality; an eight-register charged-lepton
-response architecture; a down-type Clebsch assignment ranked against
-measurements; and the equal-weight block realization of the Koide balance.
-They are conditional constructions: their discrete choices and some
-attachments have target ancestry. Freezing them does not erase that
-ancestry. Their transmutation recipe uses supersymmetric one-loop
-coefficients \((33/5,1,-3)\), whereas the stated matter content of three
-fifteen-state generations and one Higgs doublet gives \((41/10,-19/6,-7)\)
-in the same normalization, and their energy unit is the Planck energy formed
-with measured \(G\). A square of renormalization and Higgs maps that returns
-the same declared tuple along both routes is a
-declared-map packaging identity, not a construction of
-source-derived comparison maps.
-The current packet supplies no OPH result about Higgs naturalness. None of these
-constructions is a derivation, and the measured particle spectrum is not
-derived.
-
-\input{tex_fragments/REPAIR_MATTER_AND_INTERACTION_READOUT.tex}
-
-\section{Further supporting results}
-\label{sec:supporting}
-
-\subsection{Currents and carrier covariance}
-
-The native protected geometric object has type \(3\oplus3'\). Twelve ports
-count interfaces, not independent Lie generators. The tested native exchange
-response closes at seventeen currents. A specified law instead closes at
-\(\mathfrak u(3)\oplus\mathfrak{so}(3)\), of dimension twelve, and a
-coherent Hamiltonian filter has an exact invertible control map into the
-same algebra. This is a conditional control construction; ordinary C/E state
-repair is not shown to select the physical gauge response. The full
-exchange-plus-class-sum controller has eighteen directions; a fixed-bias
-long-time limit has six observable directions, and a joint bias and update
-limit with bounded drive approaches twelve.
-
-The carrier recharting premise acts by inner automorphisms on the current
-algebra, and the real part of the colour generators implements rotations
-about the port axes. These facts establish carrier covariance. They do not
-establish which transformations observers recover as physical spatial
-rotations: equivalent finite-group representations on different factors
-need not be one physical action, and declaring one action to be both frame
-rotation and colour transport does not establish their independence. A
-rank-three local carrier frame is not a proof of three-dimensional physical
-propagation on a federation.
-
-\subsection{Finite interaction identities}
-
-With a declared scalar quartic, breaking scale and gauge couplings, the
-finite electroweak-breaking theorem identifies the vacuum shell, its
-one-dimensional stabilizer, three gauge-orbit Hessian zero directions and the
-tree gauge-mass ratio. The slot dictionaries then give photon charge \(eQ\),
-neutral shape \(g_Z(T_3-Q\sin^2\theta_W)\), and charged shifts \(g_W/\sqrt2\)
-on doublets and zero on singlets. These are identities of the declared
-infinitesimal action and pairing, with supplied constants; they construct no
-physical current operators, mixing, decay amplitudes or Fermi limit.
-
-For a declared complex algebra with \([X_i,X_j]=iq\epsilon_{ijk}B_k\), the
-Pauli identity reads
-\[
- (\sigma\cdot X)^2=(X\cdot X)I-q\,\sigma\cdot B,
-\]
-which in the stated orbital and spin normalization is \(g=2\). It constructs
-no gauge potential, electron, anomalous moment or physical coupling.
-
-The ten-row exterior census follows from the 32 subsets of five modes:
-bidegrees \((c,w)\) have multiplicity \(\binom3c\binom2w\) and charge
-\(-2c+3w\), and removing vacuum and top degree leaves ten bidegrees. A
-supplied anomaly-free chiral mask and central weights recover the same
-six-element kernel. The finite family interface selects rank three under its
-single-object, faithful-action and operational-cost hypotheses; a separate
-conditional argument from intrinsic CP capability and weak-sector
-ultraviolet completeness gives \(3\le N_g\le5\). Neither attaches a physical
-family field or excludes extra light sectors.
-
-On the declared carrier \(C\oplus W=\mathbb C^3\oplus\mathbb C^2\), with
-\(H=h_0e_3+h_1e_4\), the top-form contractions
-\(B_u=[Q\wedge H\wedge u^c]_5\) and
-\(B_d=[(\iota_{\overline H}Q)\wedge d^c]_5\) give
-\[
- U(H)=I_C\otimes\binom{h_1}{-h_0},\qquad
- D(H)=I_C\otimes\binom{-\overline h_0}{-\overline h_1},\qquad
- U^\dagger U=D^\dagger D=\|H\|^2I_C,\quad U^\dagger D=0 .
-\]
-The full doublet has unit-magnitude color Clebsches, and the channel
-coefficients \(g_u,g_d\) are not fixed by normalizing these tensors. On a
-family attachment \(F\otimes M\) that restricts every supplied operator to
-\(I_F\otimes A\), the result is \(Y_u=g_uI_F\) and \(Y_d=g_dI_F\), preserved
-by products, adjoints, inverses, positive functional calculus and
-family-independent heavy-mode elimination. This bounded direct-contraction
-model produces no hierarchy.
-
-\subsection{Flavor constraints}
-
-Species are identified by represented charges, Casimirs and interaction
-channels. Sorting a nondegenerate singular spectrum names mass eigenstates;
-it does not derive three families or their weak couplings. For canonical
-Dirac matrices with \(U_{sL}^\dagger Y_sU_{sR}=\operatorname{diag}(y_s)\),
-the charged-current matrix is \(V=U_{uL}^\dagger U_{dL}\), and a physical CP
-test uses a rephasing-invariant quantity such as the Jarlskog invariant
-\cite{pwjarlskog1985commutator,pdg2024ckm}. Yukawa matrices simultaneously
-real in one weak basis have zero CP-odd invariant, and a common matrix up to
-sector scalars has trivial charged-current mixing for a simple spectrum.
-Orientation reversal of a cycle phase is physical time reversal only with
-its own antiunitary intertwiner, and a classical cycle affinity is a log
-probability ratio, not a coherent \(\U(1)\) phase.
-
-For a positive Hermitian circulant square-root response
-\(C=aI+bR+\overline bR^2\), \(R^3=I\), \(b=are^{i\delta}\), with eigenvalues
-the nonnegative square roots of the masses,
-\[
- Q:=\frac{\sum_im_i}{(\sum_i\sqrt{m_i})^2}=\frac13+\frac23r^2,
-\]
-since \(\operatorname{tr}C=3a\) and \(\operatorname{tr}C^2=3a^2+6|b|^2\).
-Thus \(Q=2/3\) exactly when \(r=1/\sqrt2\) \cite{koide1983,brannen2006}. The
-identity selects no positive branch, phase, absolute scale or physical
-response; the balance condition that realizes \(Q=2/3\) is a premise with
-measured-triple ancestry.
-
-Conditional on the registered source signature containing no typed datum
-that separates the stated centered-spread orbit, a generic quark package
-does not define a unique quark mass spectrum. Granting an ordered profile
-shape, write its centered logarithms as \(\sigma_u\widehat\ell_u\) and
-\(\sigma_d\widehat\ell_d\). Independent positive changes of
-\((\sigma_u,\sigma_d)\) preserve the certified gauge representations,
-anomaly traces and invariant Higgs lines, so those certificates leave at
-least an \((\mathbb R_{>0})^2\) fiber in this granted subfamily.
-Without the shape hypothesis, sector means and shapes are also undetermined.
-Representative independence does not select the datum: a constant map on a
-bridge fiber descends to its quotient whatever its value, and a
-target-derived spread keeps that ancestry after descent. Two finite
-exclusions complete the picture. The candidate reciprocal-ray law requires a
-product of adjacent log-gap ratios equal to one, whereas common-scale
-\(\overline{\mathrm{MS}}\) Yukawas at \(M_Z\) give approximately \(0.83532\)
-\cite{antusch2025running}. Directly identifying two real \(A_5\) residual
-axes with the Cabibbo angle fails: the least nonzero angle is about
-\(20.905^\circ\), with sine \(0.356822\), against the measured approximately
-\(0.225\). Under additional alphabet, measure-balance and
-register-faithfulness hypotheses a finite enumeration selects the Clebsch
-set \(\{1/3,1,3\}\). Ranking its six generation assignments against
-measurements is target-informed. The selected assignment
-\(y_b=y_\tau\), \(y_s=y_\mu/3\), \(y_d=3y_e\) is the Georgi--Jarlskog texture
-\cite{pwgeorgi1979new}, and it fails the adopted joint lattice comparison
-\cite{flag2024}.
-
-\subsection{Response readout tools}
-
-The response diagnostics test a field interpretation once a defect sector
-exists. The finite interacting CAR response determines its inverse and
-frequency derivative from all Lehmann residues, with canonical sum-rule and
-positivity admission. Kinetic and mass forms transform together under a
-change of interpolators, so raw matrix eigenvalues are not invariant mass
-data. A charge-resolved census of the supplied 180-mode Weyl--Nambu symbol
-retains signed and dark modes and unresolved frequency lists.
-
-For one charged \(L/e^c\) pair, a finite neutral-reference experiment
-reconstructs the complex two-mode transfer from complete detector and clock
-records. Charge-compatible source pulses prepare a fixed-total-charge-zero
-reference, and all measured continuation branches are kept. On a supplied
-principal logarithm window and canonical quadratic response class, the
-inverse recovers the generator, residues and joint \(z\)-axis momentum and
-neutral-Higgs multiplier derivatives. The retained 304 contexts have 4,864
-terminal outcomes. Withheld settings and a second duration give generator
-residuals at most about \(6.40\times10^{-8}\) per unit of reconstructed clock
-coordinate and complete-output distances about \(4.36\times10^{-8}\); both
-durations repeat one elementary source word, with composition defect about
-\(2.23\times10^{-16}\). These are numerical diagnostics. Phase-sensitive
-controls detect opposite coupling signs hidden by Rabi marginals, and
-withheld momenta detect an otherwise indistinguishable two-hop kinetic
-control. The experiment reconstructs a component of a supplied action; it
-selects no mass coefficient and introduces no particle candidate.
-
-A finite abelian quantum link has an electric--matter interaction and an
-exact operator-Gauss sector on a restricted four-state code. A Euclidean
-overlap calculation on the fifteen-state representation checks the modified
-chiral projector and gauge covariance on a nonconstant nonabelian background,
-with a stated small-plaquette locality domain; exact gauge-invariant
-constructions of this type are known for abelian chiral lattice theories
-\cite{luscher1999,luscher2000,kadohKikukawa2008}. The free spatial
-implementation has conditional Weyl--Higgs dispersion on a supplied
-background; its cubic staggered continuum contains two Dirac tastes and both
-chiralities \cite{Susskind1977,MisumiStaggered2026}, and the naive lattice has
-eight balanced Weyl nodes. Deleting unwanted nodes is not a decoupling proof.
-
-\input{tex_fragments/WEYL_CONTACT_BOUND_PAIR.tex}
-\input{tex_fragments/NATIVE_LOCALIZATION_AND_BAND_CLOCK.tex}
-
-\input{tex_fragments/CERTIFIED_DEFECT_CURRENTS.tex}
-\input{tex_fragments/SOURCE_FLAVOR_ORBIT.tex}
+\begingroup
+\let\section\subsection
 \input{tex_fragments/MCPR_NATIVE_MEMORY_BRIDGE.tex}
-\input{tex_fragments/DEFECT_CURRENT_MASS_BRIDGE.tex}
-\input{tex_fragments/LATTICE_TEXTURE_ENERGY.tex}
+\endgroup
+\input{tex_fragments/PIXEL_MASS_CLOSURE.tex}
 
-\section{The open joins}
+The beta coefficients in the feedback calculation are obtained from the
+actual internal-current traces with the intended chiral field multiplicities.
+This assumes that those are the surviving continuum fields. It does not count
+or remove spatial regulator valleys or doublers. The minimal-census root and
+the supersymmetric proxy are different scale designs, not two calibrations
+of one proved physical theory. The absence of a positive solution for the
+minimal census with $\beta=4$ is a mathematical inconsistency of that specified
+combination; it is not an exclusion of other admitted OPH designs.
+
+
+The three increasing coefficients returned by these closed conditional maps
+are shown below. They are dimensionless singular coefficients $m_i/v$;
+there is no physical pole-mass or GeV assignment in this table.
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Scale design & $m_1/v$ & $m_2/v$ & $m_3/v$\\
+\midrule
+Supersymmetric proxy, $\beta=4$ & $2.07203042\!\times\!10^{-6}$ & $4.28430204\!\times\!10^{-4}$ & $7.20520710\!\times\!10^{-3}$\\
+Minimal census, $\beta=7$ & $2.07103435\!\times\!10^{-6}$ & $4.28253912\!\times\!10^{-4}$ & $7.20232110\!\times\!10^{-3}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The interval certificate encloses these values and both admissible memory
+inverses over each complete root box, so the table and the controller refer
+to the same conditional source coordinates.
+
+\section{Localizing the same current and mass operators}
+\label{sec:localized-source}
+
+\subsection{Topology, total energy and the radial source}
+
+The seed of the defect hypothesis is a precise finite frustration statement.
+For a finite connected graph, abelian edge offsets $b_e$ and positive weights
+$w_e$, define
+\[
+ \Phi_b(x)=\sum_{e:u\to v}w_e\,\mathbf1[x_v-x_u\ne b_e].
+\]
+If a cycle has nonzero signed offset sum, then $\min_x\Phi_b(x)>0$.
+Indeed, the possible costs form a finite set of positive-weight subset sums;
+a zero cost would solve every edge equation and force zero cycle sums.
+This is frustration at fixed compatibility data \cite{ophconsensus}.
+It does not protect $b$ against an admitted update that changes its class,
+localize its energy, or assign a rest mass.
+
+For a one-cochain $b$ on the full carrier complex, face curvature is
+$F=\delta b$ and $b(\partial c)=F(c)$ for every two-chain $c$.
+The icosahedral boundary has trivial first homology: graph cycles bound faces.
+The native load difference $b_{uv}=n_v-n_u$ is exact, so $F=0$ and all loop
+sums vanish. An actual defect invariant requires additional transport or field
+data; it does not follow from nonuniform loads alone.
+
+Consider the two-spin cubic hopping operator with forward link
+$i\sigma_j/2$ and its Hermitian reverse. A declared radial onsite texture is
+\[
+ B_x=M\sum_{j=1}^3(-1)^{x_j}\frac{x_j}{|x|}\sigma_j,
+ \qquad B_0=0.
+\]
+On the odd radius-one cube at $M=64$, this literal source has exactly two
+zero modes and a complementary absolute-energy gap at least $62$.
+The normalized kernel frame $W$ has scalar local density
+$W_x^\dagger W_x=\rho_x I_2$, with $\sum_x\rho_x=1$.
+The kernel and full complement are retained in the following construction;
+the finite spin coordinates are not identified with physical Lorentz spin
+by this fact alone.
+
+A radial mass profile also needs a total energy law. In the selected
+ordered-spin rotation orbit, each admissible charged shell costs at least
+$\pi J\kappa|q|$ with $\kappa>0$. A hedgehog retaining nonzero degree on
+arbitrarily many disjoint shells therefore has infinite excess energy in
+that ungauged identification. A fermion bound-mode gap omits this background
+cost. Screening, compact opposite-charge textures or another specified
+finite-energy structure are substantive dynamical choices. The compact pair
+below provides the latter type of finite source example.
+
+\begingroup
+\let\section\subsection
+\input{tex_fragments/DEFECT_CURRENT_MASS_BRIDGE.tex}
+\endgroup
+\input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
+\input{tex_fragments/COMPACT_DEFECT_PAIR.tex}
+
+\section{The conditional catalogue and the physical comparison}
 \label{sec:particle-joins}
 
-The joins below are conjunctive. Each must hold on the same continuing
-source process, and each has a test that stops its branch when it fails.
+\subsection{What the displayed source actually assigns}
 
-\paragraph{Native defect sector.}
-Exhibit a state or observable sector of the unchanged law, including its
-quantum, complete-history and federated or refined extensions, with a
-boundary invariant preserved by every admitted branch; derive its coefficient
-group, show localization with reference-like response outside a bounded
-core, and distinguish autonomous protection from active recovery. A proof
-that every admitted-branch invariant on the declared carrier and refinement
-class is constant, as on the 78-state domain, removes the native defect
-mechanism for that law. A sector that exists only after freezing seams or
-supplying links and punctures belongs to a changed law and is tested as a
-new candidate.
+The common finite construction specifies three distinct charged-lepton
+coefficients, six quark coefficients with color multiplicities, and three
+zero neutrino coefficients in a $45$-component internal kernel. The gauge
+and Higgs directions belong to the separate conditional bosonic action.
+The complete assignment is therefore:
 
-\paragraph{Maintenance energy, kinetics and stress.}
-Derive the excess energy of the defect over the reference from the same
-process, with a calibrated local clock, its kinetic terms and its stress, so
-that the same energy enters the modular and stress dictionary used by the
-gravitational layer \cite{ophEinstein}. A maintenance quantity that changes
-under admissible rescheduling while the observable response is unchanged is
-not an energy. A rest energy from maintenance that differs from the rest
-energy read from dispersion with the common signal speed rejects the
-maintenance reading of mass for that law.
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{6.0cm}@{}}
+\toprule
+Channel & Displayed source input & Established finite meaning\\
+\midrule
+Charged leptons & $Y_e=\sqrt2\,gZ_C$ & Three memory-derived singular coefficients on the native charged-lepton slots\\
+Up and down flavors & Diagonal powers of $1/6$ & Six declared coefficients on native color slots; this displayed choice has identity quark mixing\\
+Minimal neutrino slots & Zero & Three zero internal coefficients, without a massless relativistic particle proof\\
+Gauge and scalar fields & Canonical one-doublet action, $g_i$, $\lambda_H$, $v$ & Conditional symmetry breaking and quadratic masses; no bosonic defect-state inclusion in the CAR construction\\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\paragraph{Transport and identity.}
-Show that moving the core transports its invariant, and derive the rules for
-pair creation, annihilation, fusion and decay from the same law. Obtain spin
-and statistics, for example from defect exchange, together with charges,
-currents and any family structure on the same defects. A charge that moves
-only through supplied link updates, or labels that are attached without a
-transport derivation, fail this join.
+This is a complete accounting of the displayed model's assignments, not a
+complete catalogue of nature. The quark exponents, scalar quartic, neutrino
+operator and physical flavor mixing are not determined by the charged-lepton
+memory inverse. The finite gauge theorem fixes an allowed Lie algebra and,
+under the matter attachment, internal charges; it leaves these dynamical
+coefficients unconstrained.
 
-\paragraph{Interacting chiral description.}
-Establish locality, a state and vacuum, the chiral measure and anomaly
-control, dynamical gauge interactions, and controlled volume and continuum
-limits, with massless radiation and gauge response arising as transport or
-collective excitations of the same construction. Extra regulator species,
-dark modes and complementary modes stay in the census. A proof that the
-admitted native regulator class keeps balanced chiralities in every refinement
-limit excludes the chiral spectrum for that class.
+Two mathematical distinctions prevent a false physical spectrum.
+First, the compact four-mode band has a nonzero operator
+$A=W^\dagger hW$. Its energies enter the exact common operator and cannot
+be removed to retain the zero-mode mass list. Second, the positive quartic
+coupling changes the spectral poles. The pixel feedback calculation uses
+quadratic coefficients, rather than the changed interacting current spectral
+measure. The compact texture, radial interaction and conditional pixel roots
+therefore do not compose into one interacting electromagnetic fixed point
+by matching notation or individual eigenvalues.
 
-\paragraph{Frozen dictionary and matched spectrum.}
-Freeze the source, observation map, calibration and uncertainties before the
-comparison, retaining a hash, date, decision rule, all tested alternatives
-and prior target exposure. The charged-spectrum benchmark is nine running
-charged Yukawas and the four independent CKM parameters in compatible
-conventions; neutrino masses and their mechanism are a further obligation.
-Compare ratios within a stated scheme and scale, then sector strengths,
-mixing and the operational absolute scale. A source-only GeV value is
-equivalent to a source-only dimensionless clock ratio, because the
-conversion through the defining cesium frequency is exact in SI units. A
-failed frozen comparison rejects that law and dictionary; changing the rule
-creates a new recorded candidate, and registration after exposure to known
-masses makes a postdiction.
+The concrete physical target is the joint map
+\[
+\begin{split}
+ &(\text{same source, vacuum, clocks, instruments})\\
+ &\quad\longrightarrow
+ (\text{total defect energies, current residues, dispersion, vertices})\\
+ &\quad\longrightarrow
+ (\text{one response kernel and its pixel fixed point}).
+\end{split}
+\]
+Its first row must supply an autonomous finite-energy defect process, rather
+than an externally fixed texture. Its second must retain all spatial
+regulator modes until an actual decoupling or continuum theorem controls
+them. The third must use the first two, including thresholds and physical
+normalization. These are composition requirements on one permitted design;
+uniqueness among all possible simulator designs is not a prerequisite.
 
-\paragraph{Fixed boundaries.}
-There is no strictly positive global vacuum mass gap in the intended
-infinite-volume theory with a massless photon, so sector gaps and massive
-thresholds name their state, sector and limit; a positive repair relaxation
-gap or finite-cavity spacing is not a physical mass gap. Quark masses
-require renormalization, matching and confinement observables, and confined
-gluons are not observable free particles. Unstable masses require resonance
-conventions, a pole on a stated sheet or a controlled line shape
-\cite{pdg2025resonances}. Charged sectors with massless gauge fields require
-an infrared treatment instead of an isolated one-particle pole
-\cite{buchholz1986,duch2023}. Under the hypothesis, conjugate defect classes
-supply antiparticles; a matter asymmetry additionally requires a physical CP-odd current, its
-state, generator, clock and thermal history.
+\subsection{Particle observables and comparison conventions}
 
-\section*{Reproduction}
+At finite volume the spectral measure of a prepared operator $O$ is
+\[
+ d\mu_O(\omega)=\sum_n|\langle n|O|\Omega\rangle|^2
+ \delta\!\left(\omega-(E_n-E_\Omega)\right)d\omega.
+\]
+A visible eigenvalue requires nonzero residue in the actual detector channel.
+The physical dictionary must transport $O$, the state, the Hamiltonian,
+current charges and the clock together. Localized wavefunctions have position
+and momentum distributions; they are not momentum eigenstates, and a Fourier
+transform of a pinned mode is not a moving-defect dispersion experiment.
 
-The source operators, invariant projectors, Higgs tensors, native decision
-experiment, corrected-code control, record-memory protocol and hierarchy
-diagnosis are executable in the public repository with the observer
-construction \cite{ophmodel,ophrepo}. Their receipts distinguish exact
-algebra, floating-point diagnostics and empirical comparisons. A hash check
-verifies custody; it does not replace execution or extend a theorem's
-physical scope.
+In a justified relativistic regime a stable massive excitation has a common
+rest-energy and propagation relation. Setting the numerical speed of light
+fixes units only. The same source must establish the relative normalization
+of time and space, the momentum generator and the dispersion law.
+An unstable particle requires a resonance convention and width
+\cite{pdg2025resonances}. Charged sectors coupled to a massless photon require
+an infrared treatment rather than an assumed isolated sharp particle pole
+\cite{buchholz1986,duch2023}. A massless photon also precludes a strictly
+positive global infinite-volume vacuum gap; massive-sector thresholds are
+separate statements. Color confinement prevents reading a free color-mode
+frequency as an observable quark or gluon mass.
 
-\appendix
-\section{Finite flavor constraints from a settlement rule}
-\label{quark-native-response-constraints}
+Comparison uses mass ratios in one stated running or pole convention,
+physical mixing observables, widths and interaction strengths. Running
+charged masses and mixing data must share scale and scheme
+\cite{antusch2025running,flag2024}. Quark and unstable-particle conventions
+cannot be replaced by arbitrary ratios of finite-cavity levels.
+Parameters chosen after exposure to these quantities carry that provenance;
+independent tests use data or consequences not used in the choice.
+The finite source spectra reported here have no certified running-to-pole,
+confinement, or laboratory-clock map.
 
-The constraints below concern the icosahedral carrier and a strict-descent
-settlement rule. That rule differs from the native seam rule of the
-executable observer, which sets the endpoint loads to the floor and ceiling
-of their mean and assigns an odd remainder by a fair coin; at load difference
-one the native rule waits or swaps, so its balanced class keeps moving
-\cite{ophmodel,ophrepairlaw}. The results are exact statements about the
-settlement rule and about the carrier geometry.
+\subsection{Interaction, chiral continuum and responsive geometry}
 
-\paragraph{Quadrupole carrier.}
-Let \(b_i\) be the centered totals of the record counts at the two ports of
-antipodal pair \(i\), so that
-\(b\in W_5=\{b\in\mathbb R^6:\sum_ib_i=0\}\), and set
-\(T(b)=\sum_ib_i(n_in_i^{\mathsf T}-I_3/3)\) for unit axis vectors \(n_i\).
-The icosahedral inner products give \(T^*T=(4/5)P_5\) with
-\(P_5=I_6-\mathbf 1\mathbf 1^{\mathsf T}/6\), so \(W_5\) is the geometric
-quadrupole carrier, irreducible under \(A_5\). A supplied face axis has
-normalizer \(D_3\), with \(W_5|_{D_3}=\mathbf1\oplus\mathbf2\oplus\mathbf2\),
-whereas the physical geometric triplet restricts as
-\(\mathrm{sign}\oplus\mathbf2\). The full native 30-seam port Laplacian acts
-on \(W_5\) as \(6I_5\), so a \(D_3\) jump process on \(W_5\) is a further
-dynamical hypothesis. With
-\(\operatorname{Tr}(T_aT_b)=\delta_{ab}/2\), the color observable
-\(A=(\sum_aT_a^2)\otimes P_0\) on \(\mathbb C^3\otimes W_5\), for the
-canonical rank-one face-axis projector \(P_0\), has
-\(\operatorname{Tr}A/15=4/15\) and \(\operatorname{Tr}A^2/15=16/45\). Its
-identification as a mass response is a physical hypothesis.
+The quartic result gives a genuine connected interaction on a fixed localized
+algebra, with a bound uniform in the surrounding radial volume. Its spatial
+tails and fixed number of localized modes do not by themselves define an
+interacting local $3+1$ field theory. A controlled common field limit must
+also establish the intended chiral measure, anomaly realization, local gauge
+constraints, surviving interactions and regulator census. Finite internal
+anomaly sums are necessary representation checks; a chiral lattice measure
+has additional locality and integrability requirements
+\cite{luscher1999,luscher2000,kadohKikukawa2008}.
 
-\paragraph{Settled endpoints.}
-The settlement rule transfers one record across a seam only if
-\(N_i-N_j\ge2\); it preserves \(\sum_iN_i\) and strictly lowers
-\(\sum_iN_i^2\), so every bounded fiber is finite and forward invariant. In the
-sector \(N_i\in\{0,1,2\}\), \(\sum_iN_i=12\), repair schedules are orderings of
-maximal matchings of the active bipartite graph; exhaustive enumeration gives
-73,789 states and 303 settled states in nine rotational orbits, with largest
-minimum cost four and longest schedule six. Settledness implies
-\(|N_i-N_j|\le d(i,j)\), and at totals divisible by twelve the 303 settled
-states exhaust all signed-integer endpoints. Their quadrupole spectra are
-\(\{0,0,0\}\), \(\{-2/\sqrt5,0,2/\sqrt5\}\),
-\(\{-1-1/\sqrt5,1-1/\sqrt5,2/\sqrt5\}\) and its negative, so under an
-affine log-mass readout a nondegenerate ordered spectrum has adjacent
-log-gap ratio in \(\{1,R,R^{-1}\}\), \(R=(3/\sqrt5-1)/2\). At arbitrary total,
-the settled states reduce to 6,077 classes modulo uniform shift with exactly
-31 quadrupole spectra, every integer settled state obeys
-\(\operatorname{Tr}Q^2\le24/5\), and the shape invariant
-\(\chi=(\operatorname{Tr}Q^3)^2/(\operatorname{Tr}Q^2)^3\) takes eleven exact
-values, giving nineteen admissible log-gap ratios. These restrictions select
-no physical total, endpoint, scale or attachment.
+The same matter energy and stress must then enter the geometric response.
+The companion Einstein implication uses compatible clocks and metric,
+conserved stress, a geometric modular normalization and controlled
+fixed-proper-volume generalized-entropy variations \cite{ophEinstein}.
+The finite Gibbs first law proved for the interacting localized Hamiltonian
+is a useful common-operator identity. It does not supply a geometric area
+term, the small-ball remainder, the Ward/Bianchi map or a universal Newton
+normalization. Einstein dynamics cannot be inferred by joining unrelated
+matter and entropy calculations.
 
-\paragraph{A driven record state.}
-An additional renewal protocol appends one of the twenty-four signed port
-events uniformly after each complete settlement and settles again with fresh
-uniform proposals. On the 6,077 settled relative configurations it defines an
-irreducible kernel of period two with a unique positive stationary law,
-\(\mathbb E_\pi Q=0\), all odd centered moments zero, and
-\(\mathbb E_\pi\operatorname{tr}Q^2\simeq1.4647638612\). Stationarity of the
-bounded cost \(W(N)=\sum_i(N_i-S/12)^2\), which rises by \(11/12\) per
-preparation on average and falls by two per accepted repair, gives exactly
-\(11/24\) accepted repairs per preparation. The process is not reversible;
-it is a driven stationary record law, not a thermal equilibrium or quantum
-vacuum, and its moments transfer to a physical response only through an
-identification.
+\section*{Reproduction and mathematical scope}
 
-\InputIfFileExists{tex_fragments/PRIOR_WORK_DERIVING_THE_PARTICLE_ZOO_FROM_OBSERVER_CONSISTENCY.tex}{}{}
+The executable sources and exact certificates accompany the public repository
+\cite{ophrepo}. The principal components used in this construction are
+\path{model/conditional_standard_model},
+\path{model/mcpr_native_memory_bridge},
+\path{model/pixel_mass_closure},
+\path{model/defect_current_bridge},
+\path{model/interacting_defect_response}, and
+\path{model/compact_defect_pair}.
+They distinguish exact algebra and rational interval proofs from floating
+spectral checks and empirical comparisons. A source hash identifies a
+calculation; its mathematical scope is the stated theorem and domain.
 
-\begin{thebibliography}{9}
+The finite results establish a common current/mass operator, complete-record
+memory limits, a conditional feedback closure, a compact finite-energy
+background with isolated modes, and a connected localized interaction.
+A source-derived physical spectrum additionally requires their common
+interacting realization with a physical state, clock and response dictionary.
+
+\begin{thebibliography}{99}
 
 \bibitem{ophrepo}
 B.\ M\"uller et al.,
 \emph{Observer Patch Holography: formal proofs and executable receipts},
 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/Lean/Screen}
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model}
 
 \bibitem{ophobservers}
 B.\ M\"uller, M.\ Poneder, A.\ Osika, K.\ Xue, B.\ Cassie, P.\ Nguyen, and D.\ A.\ Friedman,
@@ -1157,12 +642,6 @@ B.\ M\"uller, K.\ Xue, J.\ Kim, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics}.
 GitHub PDF:
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/reality_as_consensus_protocol.pdf}
-
-\bibitem{ophmicrophysics}
-B.\ M\"uller, A.\ Osika, K.\ Xue, B.\ Cassie, B.\ de La Fourni\`ere, and D.\ A.\ Friedman,
-\emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}.
-GitHub PDF:
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophEinstein}
 B.\ M\"uller, M.\ Poneder, A.\ Osika, K.\ Xue, P.\ Nguyen, M.\ A.\ Visser, D.\ Matscheko, and B.\ de La Fourni\`ere,
@@ -1178,21 +657,9 @@ GitHub PDF:
 
 \bibitem{ophmodel}
 B.\ M\"uller, M.\ Poneder, J.\ Kim, and D.\ A.\ Friedman,
-\emph{An Executable Observer for Observer Patch Holography: Specification, Executed Components and Ordered Joins}.
+\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Observable Fields}.
 GitHub PDF:
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/executable_observer_construction.pdf}
-
-\bibitem{ophrepairlaw}
-FloatingPragma,
-\emph{Repair laws: what is fixed, what is free and how to tell},
-2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/model/CANDIDATES.md}
-
-\bibitem{tongQFT}
-D.\ Tong,
-\emph{Lectures on Quantum Field Theory}, Section~2, Free fields,
-University of Cambridge.
-\url{https://www.damtp.cam.ac.uk/user/tong/qft/qfthtml/S2.html}
 
 \bibitem{koide1983}
 Y. Koide,
@@ -1204,13 +671,6 @@ C. A. Brannen,
 \emph{The Lepton Masses},
 preprint, 2006.
 \url{http://brannenworks.com/MASSES2.pdf}
-
-\bibitem{harremoesTopsoe2001}
-P. Harremo\"es and F. Tops\o e,
-\emph{Inequalities between entropy and index of coincidence derived from
-information diagrams},
-IEEE Transactions on Information Theory \textbf{47}, 2944--2960 (2001).
-\url{https://doi.org/10.1109/18.959272}
 
 \bibitem{antusch2025running}
 S. Antusch, K. Hinze, and S. Saad,
@@ -1224,24 +684,6 @@ Y. Aoki et al. (Flavour Lattice Averaging Group),
 arXiv:2411.04268, 2024,
 Tables 11--12.
 \url{https://arxiv.org/abs/2411.04268}
-
-\bibitem{pdg2024ckm}
-S.~Navas et al. (Particle Data Group),
-\emph{CKM Quark-Mixing Matrix},
-Review of Particle Physics 2024, Sec.~12.2.2, revised May 31, 2024.
-\url{https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf}
-
-\bibitem{pdg2025quarks}
-S.~Navas et al. (Particle Data Group),
-\emph{Review of Particle Physics}, Phys. Rev. D \textbf{110}, 030001 (2024),
-2025 update, quark summary table.
-\url{https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf}
-
-\bibitem{buttazzo2013}
-D.~Buttazzo et al.,
-\emph{Investigating the near-criticality of the Higgs boson},
-JHEP \textbf{12} (2013) 089, Appendix B.
-\url{https://arxiv.org/abs/1307.3536}
 
 \bibitem{pdg2025resonances}
 Particle Data Group,
@@ -1277,18 +719,19 @@ D. Kadoh and Y. Kikukawa,
 lattice gauge theories with exact gauge invariance},
 Journal of High Energy Physics \textbf{02} (2008) 063, arXiv:0709.3658.
 
-\InputIfFileExists{tex_fragments/PRIOR_WORK_DERIVING_THE_PARTICLE_ZOO_FROM_OBSERVER_CONSISTENCY_BIBITEMS.tex}{}{}
+\bibitem{pwjarlskog1985commutator}
+Jarlskog, C. (1985). ``Commutator of the Quark Mass Matrices in the Standard Electroweak Model and a Measure of Maximal CP Nonconservation.'' \emph{Physical Review Letters} \textbf{55}, 1039--1042. \url{https://doi.org/10.1103/PhysRevLett.55.1039}
 
-\bibitem{Susskind1977}
-L.~Susskind, ``Lattice fermions,''
-\href{https://doi.org/10.1103/PhysRevD.16.3031}{\emph{Phys. Rev. D}
-\textbf{16}, 3031--3039 (1977)}.
+\bibitem{pwpeskin1995introduction}
+Peskin, M. E., and Schroeder, D. V. (1995). \emph{An Introduction to Quantum Field Theory}. Addison-Wesley. \url{https://doi.org/10.1201/9780429503559}
 
-\bibitem{MisumiStaggered2026}
-T.~Misumi, T.~Onogi and T.~Yamaoka,
-``Taste-splitting mass and edge modes in 3+1D staggered fermions,''
-\href{https://arxiv.org/abs/2604.02078v1}{arXiv:2604.02078v1} (2026),
-Sections~2.1--2.2.
+\bibitem{pwweinberg1967model}
+Weinberg, S. (1967). ``A model of leptons.'' \emph{Physical Review Letters} \textbf{19}, 1264--1266. \url{https://doi.org/10.1103/PhysRevLett.19.1264}
+
+\bibitem{ophbasis}
+B.\ M\"uller et al.,
+\emph{OPH basis and conditional theorem-premise registry}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/axiom_registry.yaml}
 
 \end{thebibliography}
 

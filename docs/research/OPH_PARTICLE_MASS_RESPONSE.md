@@ -23,6 +23,32 @@ uniquely selected by overlap consistency. The
 which states and operators are connected and which physical identifications
 require further proof.
 
+The [pixel/mass closure](../../model/pixel_mass_closure/PROOF.md) recomputes
+the feedback coordinate with the same MCPR lepton prescription and all six
+declared quark coefficients. Two explicit designs have interval-certified
+roots and admissible complete-record memory inverses: the MSSM-running proxy
+with scale coefficient 4 gives inverse coupling about `137.000995`, while
+minimal Standard Model running with color scale coefficient 7 gives about
+`168.815083`. Minimal Standard Model running with coefficient 4 is excluded
+on the stated positive-coupling domain. These are consequences of declared
+response kernels; neither coefficient is established as a measured coupling.
+The supersymmetric proxy lacks its extra native fields, and the stipulated
+fermion kernel does not supply full bosonic or physical threshold matching.
+Exact native internal-current traces check the declared beta coefficients;
+the intended chiral multiplicities require a separate regulator/continuum map.
+
+The [compact pair](../../model/compact_defect_pair/PROOF.md) supplies finite
+texture-energy bounds and four nonzero localized levels with opposite local
+winding charges. Their spatial splittings must be included in the mass
+operator. The [quartic core](../../model/interacting_defect_response/PROOF.md)
+instead acts on the radial zero-mode carrier and has explicit interaction-
+dependent poles, a radius-uniform core readout limit, and a same-Hamiltonian
+Gibbs response. These two carriers are distinct constructions. Their results
+cannot be combined into a physical particle catalogue by omitting the
+compact pair's splitting or the interaction's change to excitation energies.
+The certified pixel loop consumes quadratic coefficients, not the interacting
+spectral measure. It is not a closed interacting electromagnetic feedback loop.
+
 | Result | What is established | Additional attachment |
 | --- | --- | --- |
 | Gauge and matter structure | A specified closed twelve-current law, a spin/exterior lift, the fifteen internal states of one Standard Model generation, and three invariant charged-fermion Higgs lines | Complete physical current selection, physical spin/statistics, and an interacting field |

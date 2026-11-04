@@ -7,6 +7,46 @@ complete finite coefficient map and its physical boundaries. The
 [completion program](../COMPLETION_PROGRAM.md) separates these results from
 acceptance of a physical interacting theory.
 
+## Consistent coefficients, finite texture energy and interactions
+
+[Pixel/mass feedback](../../model/pixel_mass_closure/PROOF.md) has certified
+roots using the same retained lepton prescription as the memory. Rational
+intervals admit both controller branches throughout each root enclosure.
+The running census, transmutation coefficient and response kernel are part
+of the design: a supersymmetric proxy gives inverse coupling `137.000995`,
+and the minimal-census color-scale design gives `168.815083`. The inherited
+scale coefficient 4 with minimal Standard Model running has no positive
+ordered root on the proved domain. A physical Thomson response of the
+native carrier is not supplied by these stipulated kernels.
+
+[Compact opposite-degree textures](../../model/compact_defect_pair/PROOF.md)
+have uniform finite-energy bounds and exactly four isolated modes, including
+on the infinite lattice. In the certified mass-64 example all four energies
+are nonzero. Their same-current inclusion has a spatial term `A=W* h W`;
+the localized energies are `lambda(A) +/- s_j(K)`. Reusing the zero-mode
+mass formula while discarding `A` is incorrect. Winding charges classify
+the prescribed surrounding shells, rather than fermion occupations or
+autonomously stable particles.
+
+[The interacting radial core](../../model/interacting_defect_response/PROOF.md)
+retains all 90 localized annihilators and adds the native-current-invariant
+quartic `lambda(N_W-45)^2`. Complete memory pulses preserve this core and
+have an explicit error bound independent of exterior volume. The
+comparison of the entire final history/core state is bounded by
+`sqrt(2 delta)` for unread error `delta`, retaining the actual conditional
+history laws. This is
+a bound for the declared field-independent probe protocol. A reducing
+four-mode slice of the mean Hamiltonian gives exact interacting poles and
+connected correlations; it is not the full-core vacuum or a separate
+four-mode pulse process. A Gibbs first law and noncommuting susceptibility
+use that same Hamiltonian. The projected interaction has spatial tails;
+finite-range locality, a relativistic interacting limit, a physical vacuum
+and geometric entropy stationarity are separate requirements. This radial
+construction does not incorporate the compact pair's nonzero spatial term.
+The pixel feedback consumes the quadratic mass coefficients rather than the
+shifted interacting poles, so that feedback and the quartic spectral response
+also require an explicit common calculation.
+
 ## Common localized states, native currents and pixel-dependent masses
 
 The [memory realization](../../model/mcpr_native_memory_bridge/PROOF.md) and

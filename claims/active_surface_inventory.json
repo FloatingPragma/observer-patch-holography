@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1006,
+  "surface_count": 1015,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -167,6 +167,11 @@
     },
     {
       "path": "paper/tex_fragments/COMMON_MATTER_METRIC_AND_RESPONSE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/COMPACT_DEFECT_PAIR.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -357,6 +362,11 @@
     },
     {
       "path": "paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/INTERACTING_DEFECT_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -582,6 +592,11 @@
     },
     {
       "path": "paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PIXEL_MASS_CLOSURE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -2201,6 +2216,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/compact_defect_pair/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/compact_defect_pair/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/compiled_clock_history/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2667,6 +2692,16 @@
     },
     {
       "path": "model/interacting_band_extension/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_defect_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_defect_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3212,6 +3247,16 @@
     },
     {
       "path": "model/physical_space_time/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/pixel_mass_closure/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/pixel_mass_closure/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

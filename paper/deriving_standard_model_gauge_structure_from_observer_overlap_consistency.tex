@@ -44,8 +44,6 @@ from unchanged repair.
 \end{abstract}
 
 \input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
-\input{tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-\input{tex_fragments/FINITE_COMPLETION_CAMPAIGN.tex}
 
 \section*{This paper's hypothesis and place in the tower}
 \label{sec:gauge-hypothesis}
@@ -1221,93 +1219,23 @@ These are algebraic consequences of the weighting, not source-selected
 coupling predictions. The repair-gap identification on the compact-gauge
 branch is the subject of the Yang--Mills supplement~\cite{ophyangmills}.
 
-\paragraph{Finite diagnostics.}
-In two-dimensional \(\mathbb Z_n\) lattice gauge models on a \(2\times2\)
-torus with
-\(H=-K\sum_p\mathrm{Re}B_p-h\sum_\ell\mathrm{Re}X_\ell-\Gamma\sum_v\mathrm{Re}A_v\),
-\(K=1\), \(\Gamma=5\), the electric-centre edge charge at a boundary vertex is
-the restricted star. For \(\mathbb Z_2\) one eigenvalue allows an exact fit,
-and for \(\mathbb Z_3\) the two extractions agree by charge conjugation and
-eigenvalue degeneracy; these are implementation checks. \(\mathbb Z_5\) has
-two distinct nonzero eigenvalues with \(\lambda_2/\lambda_1=\phi^2\approx2.618\).
-Fitting \(t\) on \(q=1\) and holding out \(q=2\), direct diagonalization gives
-the following.
-
-{\def\LTcaptype{none}
-\begin{longtable}[]{@{}rrr@{}}
-\toprule\noalign{}
-h & ln(p\textsubscript{2}/p\textsubscript{0})/ln(p\textsubscript{1}/p\textsubscript{0}) & deviation from \(\phi^2\) \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-0.50 & 2.876 & 9.9\% \\
-0.20 & 2.750 & 5.1\% \\
-0.10 & 2.671 & 2.0\% \\
-0.05 & 2.643 & 1.0\% \\
-\end{longtable}
-}
-
-The deviation decreases monotonically across these samples; no limit proof
-or interval enclosure is supplied. A symmetry-reduced electric calculation
-with \(n^3\) states reproduces the link-basis values.
-
-For the one-plaquette \(S_3\) model with transposition Cayley eigenvalues
-\(\lambda_{\mathrm{triv}}=0\), \(\lambda_{\mathrm{sign}}=6\),
-\(\lambda_{\mathrm{std}}=3\), Gauss' law leaves the three character states, and
-\(p_R=|c_R|^2\) exactly. With \(K=1\) and four electric links the reduced
-Hamiltonian is
+\paragraph{A finite obstruction to universal Casimir weights.}
+Gauge symmetry alone does not imply the heat-kernel law. For a single
+$S_3$ plaquette, Gauss reduction gives the exact three-state Hamiltonian
 \[
-H(h)=\begin{pmatrix}
-0&0&-1\\
-0&24h&-1\\
--1&-1&12h-1
-\end{pmatrix},\qquad h\geq0,
+ H(h)=\begin{pmatrix}0&0&-1\\0&24h&-1\\-1&-1&12h-1\end{pmatrix},
+ \qquad h\geq0.
 \]
-and the Gauss penalty is a common shift. Fitting \(t\) on the standard sector
-and holding out the sign sector gives the following values.
-
-{\def\LTcaptype{none}
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{longtable}[]{@{}rrrrrrrr@{}}
-\toprule\noalign{}
-h & p\_triv & p\_sign & p\_std & t (sign) & t (std) & \ensuremath{\Delta}t/t & log-ratio \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-0.5 & 0.962927 & \(2.476\!\times\!10^{-4}\) & 0.036825 & 1.37766 & 1.31898 & 4.3518\% & 2.088972 \\
-1.0 & 0.991861 & \(1.400\!\times\!10^{-5}\) & 0.008125 & 1.86139 & 1.83261 & 1.5580\% & 2.031406 \\
-2.0 & 0.998116 & \(8.158\!\times\!10^{-7}\) & 0.001883 & 2.33619 & 2.32203 & 0.6080\% & 2.012197 \\
-5.0 & 0.999713 & \(1.993\!\times\!10^{-8}\) & \(2.871\!\times\!10^{-4}\) & 2.95511 & 2.94950 & 0.1897\% & 2.003798 \\
-12 & 0.999951 & \(5.895\!\times\!10^{-10}\) & \(4.890\!\times\!10^{-5}\) & 3.54195 & 3.53963 & 0.0656\% & 2.001312 \\
-100 & 0.999999 & \(1.208\!\times\!10^{-13}\) & \(6.956\!\times\!10^{-7}\) & 4.95749 & 4.95721 & 0.0056\% & 2.000112 \\
-\end{longtable}
-}
-
-Here \(\Delta t/\bar t=(t_{\rm sign}-t_{\rm std})/\bar t\) and the log-ratio is
-\(\log(p_{\rm sign}/p_0)/\log(p_{\rm std}/(2p_0))\), which equals \(2\) under exact
-heat-kernel weights. Writing the ground energy as \(-x<0\), the secular
-equation is \(x+12h-1-1/x-1/(24h+x)=0\), with a unique positive root
-decreasing from \(x(0)=2\). With \(z=x+12h\) and
-\(p^{\rm pred}_{\rm sign}=p_{\rm std}^2/(4p_{\rm triv})\),
+Writing its ground energy as $-x<0$ and $z=x+12h$, the secular equation is
+$x+12h-1-1/x-1/(24h+x)=0$. The corresponding sector probabilities obey
 \[
-\frac{p_{\rm sign}}{p_{\rm sign}^{\rm pred}}=\left(\frac{z-1}{z}\right)^2<1 ,
+ \frac{p_{\rm sign}}{p_{\rm std}^2/(4p_{\rm triv})}
+ =\left(\frac{z-1}{z}\right)^2<1.
 \]
-so the standard-sector fit overpredicts the sign sector at every finite \(h\),
-and the ratio increases strictly from \(1/4\) toward one as \(h\to\infty\). The
-fitted time \(t_{\rm std}=\log(2/x^2)/3\) is positive exactly for
-\(h>h_*=(1+\sqrt3-\sqrt2)/24\simeq0.0549098852\). At \(h=h_*\), the relative
-log residual and log-ratio divide by zero; below it the fitted time is
-negative and outside the positive-diffusion ansatz. On \(h>h_*\) the relative
-residual and log-ratio minus two decrease strictly to zero; at \(h=100\) the
-held-out relative log residual has magnitude about \(0.0056\%\), with the fit
-overpredicting the sign sector. The identity proves a strict held-out
-mismatch at every finite coupling inside one three-dimensional model and
-transfers nothing to either continuous group. Neither diagnostic validates
-the law generally. A held-out refit script is part of the public
-code~\cite{ophrepo}.
+Thus fitting the standard-sector Casimir weight does not reproduce the sign
+sector at any finite coupling. The positive-time fit exists only for
+$h>(1+\sqrt3-\sqrt2)/24$. This exact counterexample retains the need for
+(EH-1) and (EH-2); numerical agreement in another phase does not remove them.
 
 \section{Classical carrier modes and the quantum-particle criterion}
 \label{sec:particle-criterion}
@@ -1369,21 +1297,162 @@ The appendices carry the local covariant action on the declared matter
 grammar and the finite current constructions built on it.
 
 \input{tex_fragments/LOCAL_SM_JET_ACTION.tex}
-The local action admits a consistent classical charged-scalar slice, with
-both Cartan gauge equations and their variational current retained. Its
-finite source-address execution uses a declared logarithmic plaquette
-action and model clock, as follows.
-\input{tex_fragments/CARTAN_SCALAR_REDUCTION.tex}
-\input{tex_fragments/CARTAN_SCALAR_READOUT.tex}
-\input{tex_fragments/FERMION_SOURCE_CURRENT.tex}
-\input{tex_fragments/FERMION_COUPLED_ACTION.tex}
-\input{tex_fragments/SPIN_EXCHANGE_SELECTION_BOUNDARY.tex}
-\input{tex_fragments/PAULI_STABILITY_SELECTION.tex}
-\input{tex_fragments/PAULI_SOURCE_SELECTION_BOUNDARY.tex}
-\def\OPHPriorWorkBibitems{tex_fragments/PRIOR_WORK_DERIVING_STANDARD_MODEL_GAUGE_STRUCTURE_FROM_OBSERVER_OVERLAP_CONSISTENCY_BIBITEMS.tex}
-\InputIfFileExists{tex_fragments/PRIOR_WORK_DERIVING_STANDARD_MODEL_GAUGE_STRUCTURE_FROM_OBSERVER_OVERLAP_CONSISTENCY.tex}{}{}
+\subsection{Finite current realizations and their domains}
+The local action above fixes which charge and current must be transported
+into an executable realization. For a number-conserving CAR hopping term
+\[
+ \widehat H_{xy}=c_x^\dagger U_{xy}c_y+c_y^\dagger U_{xy}^\dagger c_x,
+\]
+its link derivative is the current of that same Hamiltonian. With a
+consistent orientation, $\dot Q_x=i[\widehat H,Q_x]$ is the signed sum of
+these link currents. This identity survives exact finite Fock construction;
+interpreting a coefficient matrix as a measured charge requires the same
+state, generator, clock and readout on both sides.
+
+The source implementations in \path{code/sm_fermion_current/} retain the registered representations
+and all outcomes of their declared operations. Their hybrid branch has
+classical compact links and quantum CAR matter, not a fully quantized
+nonabelian gauge field. Internal scalar covariances give zero expectation
+of each traceless nonabelian source. The corresponding quantum charge
+variance can remain positive, so this is not a sharp nonabelian Gauss-law
+state. Its specified electric kinetic function satisfies
+\[
+ T_\lambda'(E)=\frac2\lambda\arctan\frac{\lambda E}{2M},\qquad
+ 0\leq\frac{E^2}{2M}-T_\lambda(E)
+ \leq\frac{\lambda^2E^4}{48M^3}.
+\]
+This is a controlled comparison of energy functions, not a trajectory or
+continuum theorem. Cartan scalar reductions likewise retain both gauge
+variations of the action rather than deleting a force by setting its field
+to zero.
+
+The particle construction gives a stronger same-operator finite attachment:
+the actual twelve current matrices act on an isolated spatial band tensored
+with the exterior matter module and the declared family space
+\cite{ophparticles}. For the radial zero-mode band, the localized CAR map
+intertwines those currents and the specified $P$-dependent pairing operator.
+A compact defect pair instead has a four-dimensional band with nonzero
+spatial matrix $A$, and its one-body energies are shifted by $\lambda(A)$.
+A finite quartic interaction has an exact radial CAR restriction, but it
+changes charged poles and screening response. None of these identities
+selects a continuum chiral field, removes spatial doublers or derives a
+physical spin-statistics attachment from the gauge algebra alone.
+
+\section{Scope of the gauge conclusion}
+The complete-response and inner-transport premises determine the compact
+Lie type. The declared matrix embedding, exterior module and band rule give
+a conditional one-generation representation and family architecture. The
+local action and finite current identities join those algebraic data to
+explicit operators. A physical realization must additionally identify the
+same local gauge field, constrained state space and renormalized current on
+one interacting continuum limit. Coupling selection, the vacuum, defect
+species, pole masses and gravitational response require that common model;
+they are not fixed by dimension twelve or by the Lie-type theorem.
+
 \def\OPHStandardModelDerivationPaper{1}
-\input{tex_fragments/OBSERVERS_REFERENCES.tex}
+
+\begin{thebibliography}{99}
+
+\bibitem{ophparticles}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
+\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{knapp2002}
+A.~W.~Knapp,
+\emph{Lie Groups Beyond an Introduction},
+second edition, Progress in Mathematics \textbf{140},
+Birkh\"auser, 2002.
+
+\bibitem{ophrepo}
+Pragma Research,
+\emph{Observer Patch Holography: machine-checked proofs and executable certificates},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
+
+\bibitem{ophmodel}
+B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
+\emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Observable Fields},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/executable_observer_construction.pdf}.
+
+\bibitem{ophmicrophysics}
+B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, B.~de La Fourni\`ere, and D.~A.~Friedman,
+\emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/screen_microphysics_and_observer_synchronization.pdf}.
+
+\bibitem{ophEinstein}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, P.~Nguyen, M.~A.~Visser, D.~Matscheko, and B.~de La Fourni\`ere,
+\emph{Recovering Observer Spacetime and Einstein Dynamics from Overlap Consistency},
+2026.
+Available at \href{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}{GitHub PDF}.
+
+\bibitem{dr89}
+S.~Doplicher and J.~E.~Roberts,
+``A new duality theory for compact groups,''
+\emph{Invent.\ Math.} \textbf{98} (1989), 157--218.
+
+\bibitem{dr90}
+S.~Doplicher and J.~E.~Roberts,
+``Why there is a field algebra with a compact gauge group describing the superselection structure in particle physics,''
+\emph{Commun.\ Math.\ Phys.} \textbf{131} (1990), 51--107.
+
+\bibitem{pwgeorgi1974unity}
+H.~Georgi and S.~L.~Glashow,
+``Unity of All Elementary-Particle Forces,''
+\emph{Physical Review Letters} \textbf{32}, 438--441 (1974).
+\url{https://doi.org/10.1103/PhysRevLett.32.438}
+
+\bibitem{witten82}
+E.~Witten,
+``An SU(2) anomaly,''
+\emph{Phys.\ Lett.\ B} \textbf{117} (1982), 324--328.
+
+\bibitem{ophfpe}
+B.~M\"uller,
+\emph{OPH-FPE: finite simulator and receipt engine for Observer Patch Holography physics experiments},
+2026.
+Source available at \url{https://github.com/muellerberndt/oph-physics-sim}.
+Large-run source revision:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/ce17921eb7504106fef1ba445e1349b5367aa676}.
+Exact-federation archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/exact_federation_L6_canonical_20260909}.
+Closure-loop archive:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/closure_loop}.
+Active refinement-readout revision:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/036b12b608a9ca4c19d69f5e951b3b83a7a51cd8}.
+Finite local-domain revision and data:
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/550fe77dc67dc8bef2dd8927bcf72ec98cfa3506},
+\url{https://github.com/muellerberndt/oph-physics-sim/tree/550fe77dc67dc8bef2dd8927bcf72ec98cfa3506/data/local_domain}.
+Exact repository-local archive and checker:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/local_domain}.
+Causal-poset evidence package:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/source_net_causal_poset}.
+Closure-loop evidence package:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence/closure_loop}.
+Evidence index:
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2060/evidence}.
+
+\bibitem{ophconsensus}
+B.~M\"uller, K.~Xue, J.~Kim, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
+\emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/reality_as_consensus_protocol.pdf}.
+
+\bibitem{peterWeyl27}
+F.~Peter and H.~Weyl,
+``Die Vollst\"andigkeit der primitiven Darstellungen einer geschlossenen kontinuierlichen Gruppe,''
+\emph{Math.\ Ann.} \textbf{97} (1927), 737--755.
+
+\bibitem{ophyangmills}
+B.~M\"uller and J.~Hill,
+\emph{A Conditional Identification of the Yang--Mills Gap with a Finite Repair Gap: Dobrushin Repair Floors and a \(\mathbb Z_2\) Test of the Transfer Receipt},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/extra/yang_mills_gap_clay_problem.pdf}.
+
+\end{thebibliography}
 
 \section*{AI Assistance Disclosure}
 This research project used research-grade commercial models, including

@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
@@ -35,50 +34,20 @@
 \end{center}
 
 \begin{abstract}
-We specify data and likelihood contracts for conditional Observer-Patch
-Holography (OPH) cosmology. Each comparison binds a finite source, compatible
-transfer equations, declared datasets and covariance, nuisance parameters,
-and a common observable projection; the contracts distinguish source-derived
-quantities, imported inputs and fitted parameters, and account for sample
-overlap and shared calibration. A retrospective comparison ledger with an
-independent verifier and machine-checked brackets records where the
-receipt-conditional values land on Planck, ACT, SPT, BICEP/Keck, DESI and
-SPARC data. The running, tensor, isocurvature and non-Gaussianity rows are
-consistent. The registered conditional tilt branch \(n_s=1-P/48=0.96602\),
-a declared generator density evaluated at the calibrated grain \(P\), lies at the lower \(0.612\) percent position
-of the official joint posterior chains of ACT DR6 with Planck, CMB lensing
-and DESI 2024 (DR1) BAO, whose mean is \(0.9743\pm0.0034\), and is
-consistent with the other combinations; the curvature value is in tension at
-\(-2.09\sigma\) against DESI DR2 with CMB; the fixed-capacity equation of
-state is in tension with DESI DR2; and the capacity display is in tension at
-\(-2.64\) and \(-2.81\sigma\) against the DESI DR2 \(\Lambda\) coordinate
-while sitting at \(+0.62\) and \(+0.38\) percent against the Planck central
-value. Every row is on seen data, so each tension is retrospective under
-baseline \(\Lambda\)CDM and none is a likelihood ratio.
+A cosmological comparison requires a finite source model, compatible
+transfer, an observable projection and a data likelihood with covariance
+and nuisance parameters. We distinguish quantities derived from a chosen
+source from imported scales, fitted parameters and diagnostic formulas.
+A reproducible retrospective ledger compares conditional observer-patch
+values with Planck, ACT, SPT, BICEP/Keck, DESI and SPARC measurements.
+It records both agreement and tension, including the conditional tilt,
+fixed-capacity equation of state and capacity normalization. These
+comparisons use seen data and several share the standard cosmological
+baseline. None supplies a joint source-derived cosmological likelihood or
+a likelihood ratio for the full theory.
+
 \end{abstract}
 
-\input{../paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-
-\section*{This paper's hypothesis and place in the tower}
-
-This paper sits at layer seven as the test interface of the cosmology
-branches. Its hypothesis is methodological: a cosmological value of the
-construction counts as evidence only through a contract that binds one
-finite source, compatible transfer, declared data and covariance, nuisance
-parameters and a common observable projection, with every measured input
-that selected a formula declared as an input. It proves no physical
-statement. It fixes the comparison classes, the required model and data
-information, and the no-data-use rule, and it records in a deterministic
-ledger where the receipt-conditional values of the companion papers land on
-seen data.
-
-No source-derived joint cosmology likelihood exists, because the executable
-model supplies no covariant source, expanding background, physical scale or
-radial lift; every ledger row is retrospective and conditional on the
-premises of its owning paper. A conditional branch is rejected when its
-frozen protocol fails on the eligible data that the protocol names. Such a
-failure rejects the tested branch and its premises; it rejects the wider
-proposal only when those premises are proved necessary.
 
 \section{Comparison Classes}
 
@@ -106,35 +75,22 @@ background, conserved stress, initial conditions and matter assumptions. A
 geometric count clock by itself does not define the cosmological transfer or
 observable likelihood.
 
-\section{Required Model Information}
+\section{Model and data contract}
+A comparison must specify the covariant action and source map, background
+and species, gauge-invariant initial data, perturbation and collision
+terms, observable projection, numerical errors, and every external input
+or fitted parameter. Source, transfer and observable must use the same
+physical clock and scale.
 
-A physical comparison must state:
-\begin{enumerate}[leftmargin=2em]
-\item the covariant action and source map;
-\item the background solution and species content;
-\item the gauge-invariant initial conditions;
-\item the perturbation, collision, and exchange equations;
-\item the observable projection and numerical tolerances;
-\item every external input and fitted parameter.
-\end{enumerate}
-
-For the modular-charge dark-sector proposal, conserved charge in a supplied
-comoving volume gives the homogeneous dilution law \(\rho_A\propto a^{-3}\).
-With the separate no-exchange continuity equation it gives a pressureless
-background. The abundance, relativistic stress,
-initial perturbations, lensing map, clusters, and nonlinear structure equations
-are not supplied here.
-
-\section{Required Data Information}
-
-A comparison must identify the data release, selection, masks, covariance,
-calibration model, nuisance parameters, priors, and combination rule. Dataset
-overlap and shared calibration must be included. A diagonal sum is not a joint
-likelihood when the covariance is non-diagonal.
-
-The model and data layers are separate. Measured values that select
-a source formula, normalization, branch, or applicability domain are inputs to
-that comparison rather than OPH outputs.
+It must also identify the data release, selection, masks, covariance,
+calibration, nuisance parameters, priors and combination rule. Sample
+overlap and shared calibration enter the covariance; a sum of diagonal
+residuals is not the joint likelihood when correlations are present.
+A measured quantity that selects the formula, normalization or applicability
+range is an input to that comparison. For example, conserved modular
+charge in a comoving volume gives \(\rho_A\propto a^{-3}\), and with a
+separate no-exchange continuity law gives a pressureless background. It
+does not fix abundance, perturbations, lensing or nonlinear growth.
 
 \section{Observable Contracts}
 
@@ -198,8 +154,8 @@ the source, radial and transfer interfaces with their uncertainties.
 \section{Retrospective Comparison Ledger}
 \label{sec:ledger}
 
-A deterministic ledger released with these papers records every comparison
-of a conditional cosmological value of the construction with public data. Its
+The deterministic cosmology ledger records the conditional comparisons
+in Table~\ref{tab:ledger}. Its
 producer reads the corpus values and the parent receipts, types each public
 measurement once with its citation, and writes one row per comparison with a
 class label; an independent verifier recomputes every row. Every row is on
@@ -207,10 +163,11 @@ seen data. No row is a frozen prediction or a score, and the rule, theory
 minus measurement over the quoted standard deviation, is fixed before any row
 is read. Table~\ref{tab:ledger} summarizes the rows.
 
-\begin{table}[t]
+\clearpage
+\begin{table}[!htbp]
 \centering\small
 \setlength{\tabcolsep}{4pt}
-\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
 \toprule
 Quantity & Value & Public measurement and distance & Class \\
 \midrule
@@ -253,8 +210,8 @@ Planck-central \(\Lambda\): \(+0.62\) and \(+0.38\) percent; DESI DR2 with
 CMB display \((2.968\pm0.040)\times10^{-122}\): \(-3.5\) and \(-3.8\)
 percent (\(-2.6\) and \(-2.8\sigma\)) &
 closure-candidate display \\
-\(a_0\) & no source-derived value; FZ-01 readings \(1.1847\) and
-\(1.1790\times10^{-10}\,\mathrm{m\,s^{-2}}\) &
+\(a_0\) & no source-derived value &
+Registered readings \(1.1847\) and \(1.1790\times10^{-10}\,\mathrm{m\,s^{-2}}\).
 SPARC calibration \(1.161\times10^{-10}\,\mathrm{m\,s^{-2}}\) at
 mass-to-light \(0.5\); ratio to \(c^2\sqrt{\Lambda/3}\) equal to \(0.214\) &
 fitted comparison value \\
@@ -263,58 +220,40 @@ fitted comparison value \\
 \caption{Rows of the cosmology postdiction ledger. Distances are theory
 minus measurement in units of the quoted standard deviation; bounds are
 consistent when the value lies below the bound. All data are seen. SPARC
-values are ineligible for scoring the FZ-01 acceleration readings.}
+values are ineligible for scoring the registered acceleration readings.}
 \label{tab:ledger}
 \end{table}
+\clearpage
 
-The rows that agree are, with three exceptions, shared with the standard
-baseline and support nothing: zero isocurvature, zero non-Gaussianity at the
-source and zero curvature are the single-field adiabatic expectation, and the
-fixed-capacity point is the \(\Lambda\)CDM null. The exceptions are the exact
-linear tensor zero, which requires vanishing tensor initial amplitude and
-velocity as well as no forcing and whose null test excludes only specified
-models above the achieved bound, the exact zero
-running, which discriminates only against running of order \(10^{-2}\), and
-the specific tilt value, which the seen combinations place between
-\(+0.7\sigma\) and \(-2.4\sigma\) under the ledger's Gaussian rule. Its only
-numerical premise is the declared full-collar generator density
-\(P_\star/24\), which no finite source emits, so the tilt has the epistemic
-status of the capacity display: a declared one-parameter map evaluated at a
-pixel located from the measured fine-structure constant. Its distance from
-the data discriminates that declared map, not a source derivation. In the
-official ordered ACT DR6, Planck and DESI joint chains, \(0.612\) percent of
-the posterior mass lies at or below the branch, against about \(0.74\)
-percent for the Gaussian summary; the diagnostic clock alternative
-\(0.96484\) lies at \(0.200\) percent~\cite{act2025,ophpublicdata}. Absence of an emitted tensor source alone
-does not establish the tensor-zero premise; source-free homogeneous modes
-are allowed. Slow roll supplies no universal positive tensor lower bound,
-so a finite upper limit cannot distinguish the entire model class from zero.
-The tensions are the fixed-capacity
-equation of state, at \(2.6\) to \(3.9\sigma\) across the DESI DR2
-combinations under the moment diagnostic and with monotone-branch posterior
-fractions between \(0.007\) and \(0.11\) percent, the curvature value from
-DESI DR2 with CMB at \(2.1\sigma\), and the capacity display against the
-DESI DR2 \(\Lambda\) coordinate at \(-2.64\) and \(-2.81\sigma\), while the
-same candidates sit at \(+0.62\) and \(+0.38\) percent against the
-Planck-central value. These are retrospective
-diagnostics of receipt-conditional values. FZ-01, frozen on 2026-07-17 with
-a Bitcoin attestation, registers four cosmology targets: the capacity band
-\(N\in[3.30836,3.31137]\times10^{122}\), the tilt menu
-\(\{0.9660214956,\,0.96484114303\}\), the acceleration readings
-\(1.184737388\) and \(1.179018696\times10^{-10}\,\mathrm{m\,s^{-2}}\), and
-the point \((w_0,w_a)=(-1,0)\). Every comparison in Table~\ref{tab:ledger}
-uses data published before that freeze, so each is a postdiction, and no
-FZ-01 verdict is registered; neither closure candidate lies in the
-registered capacity band~\cite{ophladder}. The tilt FZ-15 and fixed-capacity
-FZ-13 protocols were frozen on 2026-10-04, with register status
-\texttt{frozen\_stamped\_upgrade\_pending}; their complete protocols and
-anchoring requirements govern eligible comparisons. The registered FZ-15
-comparison is the first eligible Simons Observatory LAT primary-CMB
-release, which the ACT DR6 reanalysis leaves unchanged. The tensor and
-running/isocurvature texts FZ-16 and FZ-17 are unadopted proposals and
-define no comparison. A ledger row alone
-does not define a score: the combination, statistic and thresholds must be
-fixed before the eligible release under the operative registration.
+Agreement has to be attributed to the tested model. Zero source
+isocurvature and Gaussian source cumulants are shared with standard
+adiabatic models; \((w_0,w_a)=(-1,0)\) is the \(\Lambda\)CDM point.
+The tensor-zero branch additionally assumes zero initial tensor amplitude
+and velocity and no forcing. Its compatibility with a finite upper bound
+does not establish exact zero or exclude all slow-roll models. The
+running-zero branch discriminates only alternatives resolvable by the data.
+
+The tilt uses a declared full-collar generator density \(P_\star/24\),
+evaluated at a pixel located from the measured fine-structure constant.
+No native source emits that density. A conditional particle/memory root
+also does not derive it. In the ACT DR6, Planck, lensing and DESI joint
+chains, \(0.612\) percent of posterior mass lies below \(0.96602\),
+versus approximately \(0.74\) percent in a Gaussian approximation; the
+diagnostic \(0.96484\) branch lies at \(0.200\) percent~\cite{act2025,ophpublicdata}.
+These are posterior positions conditional on the fitted baseline, not
+probabilities of OPH or likelihood ratios.
+
+The fixed-capacity point has a \(2.6\) to \(3.9\sigma\) Gaussian-moment
+distance in the stated DESI combinations, and the monotone-capacity branch
+has posterior fractions between \(0.007\) and \(0.11\) percent. The two
+capacity displays differ from the DESI coordinate by \(-2.64\) and
+\(-2.81\sigma\), while differing from the Planck-central value by
+\(+0.62\) and \(+0.38\) percent. All these inputs were seen before the
+registered comparison protocols. Only a complete prospectively fixed
+protocol, its eligible release, statistic and thresholds defines a test;
+the frozen prediction register specifies those separate contracts~\cite{ophladder}.
+A failure of a conditional branch rejects the full proposal only if that
+branch's premises are shown necessary.
 
 \section{No-Data-Use Boundary}
 

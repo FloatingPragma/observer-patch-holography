@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -48,95 +47,50 @@ Transfer Interface for OPH Sources}
 \end{center}
 
 \begin{abstract}
-This note shows that standard general-relativistic photon--baryon Boltzmann
-transport is reproduced on an Observer Patch Holography (OPH) branch that
-takes as premises a geometry, photon refinement convergence, an
-electromagnetic vertex, a polarized collision matrix, the electron mass, and
-a recombination history; none of these is derived in this note. The
-reduction gives the linear multipole hierarchy, acoustic and diffusion
-approximations, and a line-of-sight transfer formula in a common brightness
-convention; these are the Ma--Bertschinger system and its standard
-approximations, and nothing in them is derived from observer-patch
-consistency. The OPH content is two interfaces, a repair-exchange rate and a
-collar stress, which vanish on the standard branch and mark where a
-conditional extension would enter.
+We give the conditional photon--baryon transfer equations for an
+observer-patch cosmology. A photon record process converges to Liouville
+transport when its generator approaches null-geodesic flow and its scaled
+quadratic variation vanishes. Supplying the electromagnetic vertex,
+polarized Thomson matrix, electron mass, recombination history and
+cosmological background then gives the standard linear multipole hierarchy,
+acoustic oscillator, diffusion scale and line-of-sight solution in one
+brightness convention. Repair exchange and collar stress have separate
+insertion points. The passive native density process has decaying
+correlations and does not satisfy the photon-flow identification.
+The result specifies how a physical source would enter standard transfer;
+it supplies no primordial amplitude, photon-sector continuum proof or
+observational likelihood.
+
 \end{abstract}
 
-\input{../paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-
-\section*{This paper's hypothesis and place in the tower}
-
-This note sits at layer seven as the transfer link between a primordial
-source and the observed acoustic sky. Its hypothesis is that photon--baryon
-transport on an OPH branch is the coarse limit of photon-class records
-continued between commits, with Thomson collisions at commits, so that the
-branch reduces to the standard Einstein--Boltzmann system plus two OPH
-interfaces, a repair-exchange rate and a collar stress, which vanish on the
-standard branch.
-
-The reduction is a conditional theorem. The geometry, the photon refinement
-convergence condition, the electromagnetic vertex and photon pole, the
-polarized collision matrix, the electron mass, the recombination history,
-the FLRW background and the initial spectrum are premises; the acoustic,
-damping and line-of-sight results are the textbook consequences of the
-reduced system. The note certifies no initial spectrum, normalization,
-recombination history or likelihood, and it reads no Planck data.
-
-For the reduction to apply, the executable model must realize on one
-process a two-polarization photon sector, its continuation between record
-commits, a physical clock and a smooth Lorentzian background. The native
-construction supplies none of these~\cite{ophmodel,ophspine}, and its
-passive repair has stationary decaying correlations and no wave propagator
-(Section~\ref{s:premises}). The reduction is refuted on a realized branch
-whose photon-class record process has a nonzero scaled quadratic-variation
-limit, since the transport is then diffusive or jump-like rather than
-Liouville flow, or whose source-level commit kernel differs from the
-Thomson functional.
 
 \section{Branch inputs}
+We use conformal Newtonian-gauge conventions for the scalar
+perturbations~\cite{mabertschinger,dodelson}.
 
 \begin{assumption}[Einstein branch]\label{a:geom}
-The observer-facing normal form carries a Lorentzian metric $g_{ab}$
-satisfying $G_{ab}+\Lambda g_{ab}=8\pi G_{\rm geom}\langle T_{ab}\rangle$,
-with $G_{\rm geom}=\ell_\star^2$ from the edge-entropy/area-law theorem and
-$\Lambda\ell_\star^2=3\pi/N_\star$ from capacity closure. This area-law
-normalization is a premise: a reading of the whole screen's count as the
-area of a three-dimensional region's boundary requires a region map that the
-executable construction does not supply~\cite{ophentropy}. $N_\star$ is the
-capacity-identity estimate read from measured $\Lambda$ through a declared
-capacity-to-scale bridge; $\Lambda$ is an input to this assumption, not an
-OPH output. A physical interpretation of $N_\star$ beyond that estimate
-requires the readback map $F$ and its contraction certificate.
-The executable carrier bounds dependence by one seam per ordered repair
-event, with no laboratory speed or continuum light cone~\cite{ophcausality},
-and does not supply the smooth metric assumed here. This branch requires physically identified
-events with exact order reflection or controlled vanishing causal error,
-count-to-volume convergence, a common clock and physical stress, together
-with the capacity premises. Its smooth Einstein reading additionally needs
-same-family tensor-curvature convergence or the continuum
-small-ball/null-balance identification; scalar curvature alone is diagnostic.
+A common physical clock and Lorentzian metric satisfy
+\(G_{ab}+\Lambda g_{ab}=8\pi G_{\rm geom}\langle T_{ab}\rangle\)
+with local conserved stress. Identifying \(G_{\rm geom}=\ell_\star^2\)
+and \(\Lambda\ell_\star^2=3\pi/N_\star\) additionally assumes the
+entropy/area and capacity dictionaries. These require a physical region map identifying the counted quantity
+with the specified geometric area. Reading \(N_\star\) from measured
+\(\Lambda\) is a calibration, not a prediction.
+The smooth Einstein law needs compatible causal, volume and clock limits
+and tensor-curvature convergence or the small-ball/null-balance identification
+of the spacetime construction~\cite{ophEinstein}.
 \end{assumption}
 
-The flat causal-order, count-volume and count-clock limit of the spacetime
-construction~\cite{ophEinstein} uses a supplied event law and a relative
-reference unit; it does not calibrate the common physical clock required by
-the Einstein, electromagnetic and cosmological transfer assumptions.
-
 \begin{assumption}[Electromagnetic action and photon pole]\label{a:qed}
-The realized branch carries the Standard Model quotient and the Maxwell
-kinetic action with a $\mathrm U(1)$ vertex of strength $\alpha$. This note
-uses $\alpha=\alpha_{\rm root}$, the exact root of a declared source map,
-conditional on same-scheme transport, target-independent selection of that
-map, and a typed bridge showing that its two coordinates read the same
-physical quantity. In addition, this transport note
-assumes a positive-energy physical QED quantization with two transverse
-states and a positive-residue isolated pole at $k^2=0$ on the ordinary
-Lorentz-vacuum, unbroken electromagnetic phase. This extra photon-pole
-receipt is not implied by the reconstructed abstract group. Charged-lepton
-\emph{ratios} are branch outputs; the absolute electron mass $m_e$ is
-empirically anchored. The inputs are the cited electroweak branch theorem,
-the explicit quantum-pole assumption just stated, and the declared import
-$m_e$.
+The branch has the Maxwell action and a physical electromagnetic vertex
+of strength \(\alpha\), positive-energy quantization, two transverse
+states, and a positive-residue massless photon pole in the unbroken
+Lorentz-vacuum phase. These pole and state properties do not follow from
+the abstract gauge group. A declared source-map root can be used for
+\(\alpha\) only after its current response and renormalization scheme
+are identified with this vertex. The absolute electron mass \(m_e\)
+is an imported physical scale. Finite mass coefficients or conditional
+charged-lepton ratios alone do not establish it.
 \end{assumption}
 
 \begin{assumption}[Cosmological background]\label{a:bg}
@@ -247,30 +201,18 @@ simulator test. Theorem~\ref{t:liouville} is conditional on this convergence
 premise.
 \end{proof}
 
-\begin{remark}[Scalar continuum on the source family]\label{r:scalar-continuum}
-On the conservative golden-record population of the spacetime construction,
-a positive source-metric scalar action has a proved finite-time continuum
-limit. For $m\ge0$ the finite equation $\ddot q+c^2Lq+m^2q=0$ converges to
-$u_{tt}-c^2\Delta u+m^2u=0$ with an explicit detector error bound as
-$\epsilon\to0$ and $h/\epsilon^2\to0$, and the canonical kick--drift--kick
-time discretization of the same action converges with a full-spectrum bound.
-For $m=0$ the limiting characteristics are the null cone $|dx|=c\,dt$. The
-read law of the same family has cone radii between $c(1-2h/a)\tau$ and
-$c\tau$, so the two limiting cones coincide when the wave speed of the action
-is identified with the read-law ratio $a/\Delta$; that identification is a
-common-model condition and is not a theorem. The high-frequency limit of the
-massless wave equation is the null-geodesic Liouville flow on the flat mass
-shell: Wigner measures of its solutions are transported by the Hamiltonian
-flow of $|\xi|$ (Lions--Paul 1993). On the flat declared family this supplies
-the free-flow generator $X_H$ of Theorem~\ref{t:liouville} for a scalar record
-field. It supplies neither the two-polarization photon sector, nor the
-quotient lumpability and vanishing quadratic variation of the record
-process, nor the characteristics of the perturbed metric of
-Assumption~\ref{a:bg}. The finite Maxwell dynamics on the Whitney cone gives
-constraint-preserving evolution on a supplied domain and no continuum limit.
-The photon refinement convergence of Section~\ref{s:premises} therefore
-reduces, on the flat family, to the vector, record-process and
-curved-background clauses.
+\begin{remark}[Scalar control and photon scope]\label{r:scalar-continuum}
+On the supplied golden population, the positive scalar action
+\(\ddot q+c^2Lq+m^2q=0\) converges at finite times to
+\(u_{tt}-c^2\Delta u+m^2u=0\) when \(\epsilon\to0\) and
+\(h/\epsilon^2\to0\), with an explicit detector bound and a controlled
+kick--drift--kick discretization. For \(m=0\), its high-frequency Wigner
+measures follow flat null-geodesic flow~\cite{lionspaul}. Equating the action speed to the
+read-law ratio \(a/\Delta\) makes their limiting cones coincide; this is
+a common-model condition. The result supplies neither photon polarization,
+record-process lumpability nor transport on the perturbed metric. Finite
+Whitney Maxwell evolution preserves constraints on its supplied domain
+but supplies no photon continuum theorem.
 \end{remark}
 
 \begin{corollary}[Collision and diffusion alternatives]
@@ -430,8 +372,8 @@ k^2\phi+3\ah\!\left(\dot\phi+\ah\psi\right)=-4\pi G a^2\,\delta\rho_{\rm tot},
 k^2(\phi-\psi)=12\pi G a^2(\bar\rho+\bar p)\sigma_{\rm tot},
 \]
 where $\delta\rho_{\rm tot}$ and $\sigma_{\rm tot}$ include the gated
-$\rho_A,B_A$ contributions of Remark~\ref{r:channels}. These contributions are
-zero on the receipt-failing branch. With $\Gamma_{\rm rec}=B_A=0$ this is verbatim the standard
+$\rho_A,B_A$ contributions of Remark~\ref{r:channels}. On the standard branch the additional contributions are set to zero.
+With $\Gamma_{\rm rec}=B_A=0$ this is the standard
 Einstein--Boltzmann system.
 \end{theorem}
 
@@ -470,7 +412,7 @@ unforced extrema $k_n r_s\simeq n\pi$. Baryon loading changes the
 equilibrium offset and relative compression and rarefaction amplitudes;
 evolving gravitational potentials drive the oscillator. Initial phases,
 free-streaming species, finite visibility and angular projection shift the
-observed peak positions and heights. The oscillator therefore identifies the
+observed peak positions and heights~\cite{bashinskyseljak}. The oscillator therefore identifies the
 acoustic mechanism without fixing exact peaks of a measured TT spectrum.
 \end{proposition}
 
@@ -481,7 +423,7 @@ $e^{-k^2/k_D^2}$ with
 k_D^{-2}=\int_0^{\tau}\frac{\Dd\tau'}{6(1+R)\,\kdot}
 \left[\frac{R^2}{1+R}+\frac{16}{15}\right],
 \]
-the $16/15$ arising from the polarization terms of
+the $16/15$ arising from the standard polarization terms~\cite{huwhite} of
 Theorem~\ref{t:hierarchy}; photon diffusion between commits is the physical
 mechanism, and its OPH reading is transparent: on scales crossed by a random
 walk of commit-free transport legs, the record field cannot maintain
@@ -525,64 +467,23 @@ Integration by parts therefore gives $g\Pi/4+3(g\Pi)^{\cdot\cdot}/(4k^2)$
 and $(g\theta_b)^{\cdot}/k^2$, respectively. The initial boundary terms
 vanish by optical thickness, and the observer terms affect only the
 monopole and dipole. These conventions specify the signs and factors in
-the Seljak--Zaldarriaga line-of-sight construction.
+the Seljak--Zaldarriaga line-of-sight construction~\cite{seljakzaldarriaga}.
 
-\Needspace{12\baselineskip}
-\section{Premises and Numerical Tests}\label{s:premises}
+\section{Source tests and physical scope}\label{s:premises}
+A finite source implementation must verify quotient lumpability, tightness,
+initial-law convergence, first conditional moments approaching \(X_H\),
+vanishing scaled quadratic variation, and controlled boundary, measure,
+mass-shell and schedule defects. These conditions must hold for the photon process itself. A nonzero
+second-moment limit excludes deterministic Liouville transport; jump sizes
+and the limiting generator distinguish diffusion from jump transport.
 
-\begin{longtable}{@{}L{0.16\linewidth}L{0.5\linewidth}L{0.26\linewidth}@{}}
-\toprule
-\textbf{Condition} & \textbf{Statement} & \textbf{Classification}\\
-\midrule
-Photon refinement convergence &
-Finite-lattice refinement Liouville: coarse-grained photon-class record
-transport has quotient lumpability, tightness, convergent initial laws and
-first conditional moments, vanishing scaled second conditional moments,
-generator convergence on a frozen test basis, unique geodesic characteristics,
-and vanishing schedule, refinement, boundary, mass-shell, and measure defects.
-This condition is independent
-of repair confluence and of the orientation-doubled label count. &
-scalar free-flow generator supplied on the flat declared family
-(Remark~\ref{r:scalar-continuum}); vector, record-process and
-curved-background clauses: simulator test below\\
-Thomson normalization &
-$\sigma_T$ normalization: absolute $m_e$ is a declared import; the
-charged-family absolute-scale theorem is not supplied. &
-declared import\\
-Recombination history &
-$x_e(\tau)$ recombination history from imported atomic data; contains no
-CMB-target information. &
-declared import\\
-Numerical transfer test &
-Independent hierarchy implementation matches CAMB temperature and polarization spectra at stated
-tolerances with identical inputs. &
-not supplied; engineering test specified below\\
-Tilt certificate &
-Conditional \(n_s=1-P_\star/48\); source generator, weighted half, and clock
-normalization are not supplied. &
-not supplied\\
-Amplitude + lift &
-$A_s$ and radial screen-to-$k$ map. &
-conditional radial theorem; finite source receipt not supplied\\
-Kernels &
-$\Gamma_{\rm rec}$, $\rho_A$, $B_A$ physical receipts. &
-not supplied\\
-Likelihood &
-Official likelihood, provenance, and data-use contract. &
-not supplied\\
-\bottomrule
-\end{longtable}
-
-\textbf{Simulator test for photon refinement convergence.} Freeze a smooth compactly
-supported test basis. At each regulator estimate the first conditional moment
-$\widehat L_r\phi$ and scaled conditional variance
-$\widehat\Gamma_r(\phi)$, together with quotient-measure, mass-shell,
-schedule, refinement, boundary-leakage, and collision/free-channel residuals.
-Pass requires $\widehat L_r\phi\to X_H\phi$ and
-$\widehat\Gamma_r(\phi)\to0$ on the frozen basis with the preregistered
-uniform compact envelopes. Random-schedule tests are supplemental.
-A nonzero second-moment limit excludes the deterministic Liouville theorem;
-the limiting jump sizes and generator distinguish diffusion from jump transport.
+At matched inputs an independent numerical implementation should reproduce
+temperature and polarization transfer to stated tolerances. That test does
+not derive its imported electron mass, recombination history, primordial
+amplitude, radial lift or geometric background. A physical prediction also
+requires the collision kernel and the same current/clock normalization.
+Neither a source-map root nor the conditional formula \(n_s=1-P/48\)
+establishes those identifications.
 
 \paragraph{Native repair diffusion and the photon interface.}
 For the specified fair conservative port repair, mean load evolves as
@@ -624,19 +525,13 @@ momentum, active forcing, nonstationary preparation or different records.
 The passive source matching and acoustic initial data used by a conditional
 CMB transport calculation are additional physical inputs.
 
-\section{Scope of the Conditional Reduction}
-The cited branch theorems supply the \emph{scalar angular form} of the
-transport and locate the two conditional OPH kernels. The polarization
-hierarchy, blackbody background, absolute normalizations, and recombination
-history are imported. A physical cosmic microwave background prediction
-requires a source-level polarized collision bridge, blackbody and
-thermalization provenance, photon refinement convergence, the numerical
-transfer test, a physical radial lift, a finite primordial source,
-active-kernel evidence, and an immutable likelihood contract. This reduction
-certifies no initial conditions, normalizations, recombination history, or
-likelihood, and it reads no Planck data. Under the anti-fitting rule, the
-acoustic peak structure is attributable to standard plasma physics. OPH's
-falsifiable exposure is concentrated in the primordial inputs.
+The hierarchy and its acoustic consequences are standard plasma physics
+under the stated imports. A physical OPH CMB prediction additionally needs
+the source-level photon and polarized collision limits, blackbody
+thermalization, curvature initial data and radial observation map, and one
+likelihood with the same background and nuisance conventions. The two
+additional response terms are absent on the standard branch; a failed
+source identification does not prove their physical value is zero.
 
 \begin{thebibliography}{99}
 
@@ -664,14 +559,6 @@ in CMB Anisotropy and Matter Clustering}, Phys. Rev. D 69, 083002 (2004).
 W. Hu and M. White, \emph{CMB Anisotropies: Total Angular Momentum
 Method}, Phys. Rev. D 56, 596 (1997).
 
-\bibitem{ophobservers}
-B.~M\"uller et al., \emph{Observers Are All You Need}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/observers_are_all_you_need.pdf}.
-
-\bibitem{ophconsensus}
-B.~M\"uller et al., \emph{Reality as a Consensus Protocol}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/reality_as_consensus_protocol.pdf}.
-
 \bibitem{ophEinstein}
 B.~M\"uller et al., \emph{Recovering Observer Spacetime and Einstein
 Dynamics from Overlap Consistency}.
@@ -680,21 +567,6 @@ Dynamics from Overlap Consistency}.
 \bibitem{ophmicro}
 B.~M\"uller et al., \emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/screen_microphysics_and_observer_synchronization.pdf}.
-
-\bibitem{ophcmb}
-B.~M\"uller, \emph{Finite-Source Cosmology from Observer Patch Holography:
-Source, Transfer, and Likelihood Boundaries}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/cosmology/oph_cosmology_finite_source_cmb_program.pdf}.
-
-\bibitem{ophflagship}
-B.~M\"uller et al., \emph{Observers Who Read Their Universe into Existence:
-Finite Consensus, an Executable Observer, and Standard Physics}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/flagship/from_observer_consensus_to_standard_physics.pdf}.
-
-\bibitem{ophspine}
-B.~Mueller, M.~Poneder, J.~Kim and D.~A.~Friedman (2026). \emph{An Executable Observer for
-Observer Patch Holography: Specification, Executed Components and Ordered Joins}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/executable_observer_construction.pdf}.
 
 \bibitem{ophmodel}
 FloatingPragma (2026). The runnable OPH model: observer implementation,
@@ -710,15 +582,6 @@ boundary-trace test.
 \bibitem{ophtimefields}
 FloatingPragma (2026). Joint time and field laws on matched source screens.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/model/observer_time_fields/REFINEMENT.md}.
-
-\bibitem{ophentropy}
-FloatingPragma (2026). Tangent first laws and finite entropy changes:
-native reference entropy and region boundaries.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/code/geometry/ENTROPY_FIRST_LAW_AUDIT.md}.
-
-\bibitem{ophcausality}
-FloatingPragma (2026). Exact native causal cones.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/model/common_source/CAUSALITY.md}.
 
 \bibitem{ophpublicdata}
 FloatingPragma (2026). OPH predictions and public-data comparisons.

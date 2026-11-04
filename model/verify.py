@@ -405,6 +405,9 @@ REPLAYS = (
     ("model.lattice_texture_selection", None, "model/lattice_texture_selection/results.json"),
     ("model.mcpr_native_memory_bridge", None, "model/mcpr_native_memory_bridge/results.json"),
     ("model.defect_current_bridge", None, "model/defect_current_bridge/results.json"),
+    ("model.pixel_mass_closure", None, "model/pixel_mass_closure/results.json"),
+    ("model.compact_defect_pair", None, "model/compact_defect_pair/results.json"),
+    ("model.interacting_defect_response", None, "model/interacting_defect_response/results.json"),
     ("model.completion.source_flavor_comparison", None, "model/completion/source_flavor_comparison.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )

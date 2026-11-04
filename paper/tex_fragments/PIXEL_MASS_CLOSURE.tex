@@ -1,0 +1,56 @@
+\subsection{Pixel feedback with one charged-fermion mass prescription}
+\label{sec:pixel-mass-closure}
+The pixel feedback must use the same mass coefficients as the declared
+field and memory operators.  Let $u=\alpha_U$ and retain
+\[
+ M_U/E_*=e^{-2\pi}P^{1/6},\qquad
+ v/E_*=P^{-1/2}e^{-2\pi/(\beta u)},\qquad
+ \alpha_i^{-1}=u^{-1}+\frac{b_i}{2\pi}\log(M_U/m_Z).
+\]
+Here $E_*$ is a declared energy unit.  The same conditional three-lepton
+coefficients are inserted into the charged-fermion integral, together with
+all six declared quark coefficients, including the finite top contribution.
+With the prescribed factor $1-3\alpha_3/\pi$ on the quark terms, the resulting
+inverse response $A(P)$ defines $P=\phi+\sqrt\pi/A(P)$.
+This kernel supplies no charged-vector or charged-scalar terms, confining
+hadronic spectral measure, threshold matching, or derivation of the native
+current's physical Thomson limit.
+
+There is an exact obstruction to substituting the minimal Standard Model
+census while retaining $\beta=4$.  Assume $P\ge1$, $M_U\ge m_Z$, positive
+couplings and threshold-free one-loop coefficients
+$b=(41/10,-19/6,-7)$.  Set $x=\alpha_2^{-1}$ and $y=\alpha_3^{-1}$.
+Eliminating the unified coupling and scale ratio gives $0<y\le x$ and
+\[
+ \frac{\pi(18x+5y)}{46}
+ =2\pi-\frac23\log P+\frac12\log\!\left[
+ \pi\left(\frac1x+\frac{69}{333x-218y}\right)\right].
+\]
+The logarithm's argument is at most $8\pi/(5x)$.
+The function $9\pi x/23-2\pi-\tfrac12\log[8\pi/(5x)]$ is increasing and
+exceeds one at $x=6$, so $x<6$ and both nonabelian couplings exceed $1/6$.
+Their heat-sum denominators are at least one; direct outward summation with
+infinite-tail bounds places their combined numerators below $1/80$.
+The required pixel entropy is $P/4\ge1/4$, a contradiction.  This excludes
+the stated scale and census combination, independently of the readout kernel.
+
+Two other declared maps have certified local fixed points.  The
+supersymmetric running proxy with $\beta=4$ gives
+$P\simeq1.630971514159316$ and $A\simeq137.000994766342$.
+The minimal census with the explicit scale choice $\beta=|b_3|=7$ gives
+$P\simeq1.628533369611833$ and $A\simeq168.815082928453$.
+The first requires extra supersymmetric fields absent from the native
+quadratic carrier.  The second supplies a scale choice, without identifying
+the Higgs scale physically with color transmutation.
+For each map, verified implicit-root signs, infinite heat tails and interval
+automatic differentiation give a strict self-map and $|g'|<0.00734$ on the
+reported coupling interval.  Uniqueness is local to that interval.
+
+Rational interval inversion over both complete root enclosures admits both
+native memory solutions, with $0<p<1/12$ and $0<q<1/6$.  The gain
+$g=\sum_j(m_j/v)/p$ preserves the unconditional duty probability, so the
+same full-record memory coefficient has the required three singular energies.
+The proof and independent simultaneous-root and quadrature checks are in
+\texttt{model/pixel\_mass\_closure}.  These are conditional consistent
+feedback calculations; neither is a complete physical particle or
+fine-structure prediction.

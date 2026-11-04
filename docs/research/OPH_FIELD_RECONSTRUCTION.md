@@ -14,8 +14,8 @@ numerical constructions and hierarchy exclusions; the
 sets the larger observational target.
 
 **The construction supplies a common finite defect, gauge-current and
-pixel-dependent mass operator, with a complete record service converging to
-its quadratic dynamics. It does not establish the physical interacting
+pixel-dependent mass operator, with a complete record service and a controlled
+quartic extension on its localized algebra. It does not establish the physical interacting
 chiral Standard Model or its measured spectrum.** Distinguish the action chosen by
 the producer, the information in accessible records, the inverse justified
 by those records, and the physical interpretation being tested. These are
@@ -93,6 +93,25 @@ with volume; it is not a continuum estimate. The finite unread channel
 can be nonunitary, and this coherent service is distinct from the original
 site-field repair.
 
+For observations confined to the same 90-mode core, the
+[interacting extension](../../model/interacting_defect_response/PROOF.md)
+replaces the extensive norm by
+`M_core<=45(1+g)+2025lambda` for `lambda>=0`, after adding
+`lambda(N_W-45)^2`. This gives a radius-uniform complete-record limit on
+that algebra, including untouched references. It does not give uniform
+control of arbitrary spatial observations or lattice-spacing refinement.
+Writing the unread bound as `delta`, the complete final history/core state
+has error at most `sqrt(2 delta)` against the same history distribution with
+ideal mean evolution. This includes initially correlated classical memory
+with its conditional history laws preserved. Thus final record retention has
+an `O(N^-1/2)` bound; it does not inherit the unread `O(N^-1)` rate. No uniform
+rare-history or intervening field-measurement guarantee is inferred.
+The interaction preserves native currents and the core inclusion but has
+nonzero spatial tails. Its exact four-mode mean-Hamiltonian slice displays
+connected correlations and interaction-dependent fermion poles. Its
+Gibbs response supplies an entropy/energy/work identity on the same algebra,
+without a geometric modular-flow or Einstein-stationarity conclusion.
+
 The radius-one witness retains 2,430 annihilator modes and all 4,860 Nambu
 coordinates. Its core has 90 annihilator modes and 180 Nambu coordinates,
 including every zero direction. Those counts are operator degrees of
@@ -110,6 +129,23 @@ per-shell bound then forces divergent total energy. This rules out that
 specific identification as an isolated finite-rest-energy defect. It does
 not exclude a screened defect or another localized topology with its own
 derived field action.
+
+The [compact-pair construction](../../model/compact_defect_pair/PROOF.md)
+gives one explicit finite-energy alternative, with opposite local degrees
+and a constant exterior. Its four localized levels are bounded and certified
+away from zero in the displayed example, including in the controlled
+infinite-volume limit. The current/pairing inclusion therefore retains a
+nonzero `A=W* h W`. Neither the radial zero-mode mass formula nor its
+particular interacting-core realization transfers unchanged. The texture
+and its core zeros are prescribed, so finite energy alone supplies no
+formation, stability or moving-particle theorem.
+
+The [pixel feedback calculation](../../model/pixel_mass_closure/PROOF.md)
+also uses distinct declared running/scale designs. Each certified root
+feeds the retained mass formula and an admissible native-memory inverse.
+This closes a conditional coefficient consistency problem; identification
+with the electromagnetic response of these field records requires its
+own current-response and physical matching derivation.
 
 ## What a particle means in this construction
 

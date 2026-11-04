@@ -76,53 +76,6 @@ conditionally and keeps the finite repair theorem separate from the Clay
 claim.
 \end{abstract}
 
-\input{../paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex}
-
-\section*{This paper's hypothesis and place in the tower}
-
-This paper is a supplement to the gauge layer, carried with the conditional
-branches of layer seven. Its hypothesis is a conditional identification: on
-a compact-gauge branch whose finite transfer matrix has a ground-state
-transform into exact local collar repair, and whose regulator family carries
-the four-dimensional continuum certificate, the pure Yang--Mills Hamiltonian
-is unitarily equivalent to the collar repair generator, so that
-\(\Delta_{\YM}=\Delta_{\mathrm{rep}}\).
-
-The finite theorems hold without that hypothesis: exact local repair is a
-conditional expectation, a homogeneous fiber forces scalar relaxation, an
-admissible collar tower has the Dobrushin floor
-\(\delta_*=c_*(1-\eta_*)\), two finite countermodels show that neither
-hypothesis of that floor can be dropped, and the compact-gauge cylinder
-system has a projective weak-* / GNS extraction. The fiber-rate comparison
-and the descent-and-restriction step of the gauge-orbit quotient are
-machine-checked, and the \(\mathbb Z_2\) diagnostic is a finite computation.
-The Euclidean Yang--Mills form, the continuum transfer identification, the
-Osterwalder--Schrader reconstruction, nontriviality and the main gap theorem
-are conditional on the finite transfer receipt
-(Assumption~\ref{ass:finite-transfer-receipt}) and the continuum certificate
-(Assumption~\ref{ass:ym-continuum-certificate}).
-
-Three boundaries fix the scope. First, a positive relaxation gap of a finite
-repair generator, or the finite level spacing of a bounded carrier, is not a
-physical mass gap; it becomes one only through the transfer receipt and the
-continuum certificate. Second, the intended full theory has an unbroken
-electromagnetic sector with a massless photon, so it has no strictly
-positive global vacuum gap; the statement here concerns pure Yang--Mills
-with compact simple \(G\), and the abelian branch below has a massless
-pole. Third, a Clay-level construction requires renormalized
-Schwinger-function convergence, reflection positivity, Euclidean covariance
-and locality, nontriviality, and transfer and intertwiner convergence at the
-strength of the Clay/Jaffe--Witten statement, together with the finite
-receipts; this paper proves none of these continuum items.
-
-For the identification to apply to the executable model, its native process
-must realize a compact simple gauge sector with an admissible collar tower,
-the finite transfer receipt and the continuum certificate. None of these is
-constructed, and the native gaps of the model are different objects, as
-the claim boundary below records. A proof that every admissible
-compact-gauge transfer object leaves multi-flip terms after the ground-state
-transform, with no positive fiber-dependent rate floor, would close this
-route.
 
 \section{Claim Boundary}
 
@@ -195,26 +148,10 @@ seams lie outside the admissible collar tower of
 Definition~\ref{def:admissible-collar-tower}, and \(\lambda_1(A)\) is the
 finite-size gap of a massless two-dimensional operator.
 
-\section{Relation to the other OPH papers}
-
-The observer and consensus layers are summarized in the flagship
-synthesis~\cite{oph1}, and the executable observer
-construction~\cite{ophmodel} runs native repair, quantum instruments,
-recorded feedback and local event clocks. The compact-gauge collar system of
-this paper is a separate declared construction. The finite repair and
-quotient-normal-form machinery comes from the consensus
-paper~\cite{oph4}; the regulated screen, record, and edge heat-kernel
-architecture from the screen microphysics paper~\cite{oph5}; the particle
-branch is separate~\cite{oph3}. The Clay-facing import is the Yang--Mills
-theorem surface of the Standard Model gauge paper~\cite{oph2}: the
-compact-gauge reconstruction ladder, the four-dimensional Euclidean
-Yang--Mills form theorem, the coherent compact-gauge extraction proposition,
-the conditional support-visible Osterwalder--Schrader reconstruction theorem,
-the nontriviality certificate, and the exact finite repair-gap theorem. This
-paper isolates that branch theorem surface and does not enlarge it. The
-companion two-dimensional edge-sector identity fixes a heat-kernel
-normalization and worldsheet-effective bridge
-(Section~\ref{sec:twod-bridge}); it is not part of the mass-gap proof.
+The collar construction uses the consensus and compact-gauge interfaces
+\cite{oph4,oph2}; its heat-kernel normalization is stated in
+Section~\ref{sec:twod-bridge}. These are distinct from the executable native
+observer dynamics \cite{ophmodel}.
 
 \section{The Clay Target}
 
@@ -530,6 +467,7 @@ finite transfer-matrix/decomposition receipt.
 
 \begin{theorem}[Exact Euclidean repair law under homogeneous fibers]
 \label{thm:ec-law}
+\leavevmode\par
 Under the fiber-homogeneous orbit condition for every active collar and
 Assumption~\ref{ass:finite-transfer-receipt}, there are positive constants
 \(c_C>0\) such that the ground-state transformed physical Euclidean
@@ -1340,59 +1278,24 @@ That 2D result is a normalization and worldsheet-effective bridge. The spectral 
 concerns the support-visible compact-gauge Hamiltonian and obtains its lower bound by identifying
 Euclidean transfer with the repair generator.
 
-\section{Requirements for a Clay-Level Construction}
+\section{Physical scope}
 
-\begin{longtable}{@{}L{0.30\textwidth}L{0.62\textwidth}@{}}
-\toprule
-Clay/Jaffe--Witten target & OPH repair-dynamics boundary \\
-\midrule
-\endhead
-Compact simple gauge group \(G\) & \(G\) is arbitrary compact simple, provided it is carried by the OPH compact-gauge zero-obstruction branch. \\
-Four-dimensional Euclidean Yang--Mills form & Theorem~\ref{thm:ym-form}, imported from the Standard Model gauge paper's Yang--Mills theorem surface, gives \(S_E[A]=\frac{1}{4g^2}\int_{\R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x\) under the branch and renormalized identification certificates. \\
-Four-dimensional quantum Yang--Mills theory & Proposition~\ref{prop:extraction} proves support-visible projective weak-* / GNS extraction. Renormalized Schwinger convergence, reflection positivity, Euclidean covariance/locality, clustering, nontriviality, and transfer/intertwiner convergence are conditional on Assumption~\ref{ass:ym-continuum-certificate}. \\
-Nontriviality & Conditional on the variance-floor and finite-energy certificate in item (Y6). Finite nonconstant Wilson/plaquette cylinders are candidates; weak-\(*\) convergence alone is not enough. \\
-Axiomatic strength & Theorem~\ref{thm:os} states the conditional OS reconstruction step on the support-visible gauge-invariant local algebra. \\
-Mass gap & Under the finite ground-state-transform, source-type, cross-fiber-rate, and uniform approximate-tensorization receipts, \(L_r^{\Rep}\ge\delta_*(I-P_{0,r})\), where \(\delta_*=c_*/A_*\). The continuum Hamiltonian bound \(H\ge\delta_*(I-P_0^{\Hcal})\) follows only after Theorem~\ref{thm:continuum}. \\
-Exact gap accounting & On the certified continuum branch, \(UHU^{-1}=L^{\mathrm{rep}}\) gives \(\Delta_{\YM}=\Delta_{\mathrm{rep}}\). OPH accounts exactly for the Yang--Mills gap as the first nonzero repair eigenvalue only on that branch. \\
-Uniformity in \(G\) & The proof uses compact simplicity and compact-gauge quotient locality, not Standard-Model-specific representation data. \\
-\bottomrule
-\end{longtable}
-
-\section{Conclusion}
-
-The finite repair mechanism is the following. A non-vacuum support-visible
-compact-gauge excitation is not fixed by all local repair collars, so at
-least one active collar relaxes it. Because active collar rates have a
-uniform positive floor and the source law has one uniform
-approximate-tensorization constant, every non-vacuum finite-regulator state
-pays a positive Euclidean repair cost. The finite-stage statements are exact
-theorems on the declared cylinder system, with the load-bearing transfer
-receipt isolated in one assumption and evaluated on a finite gauge system,
-where it fails for the tested Wilson transfer matrices. A positive repair
-gap of this kind is not by itself a physical mass gap.
-
-The Clay-facing conclusion is conditional. If the regulator family also satisfies the
-renormalized continuum, reflection-positivity, OS, nontriviality, and transfer/intertwiner
-certificate of Assumption~\ref{ass:ym-continuum-certificate}, then the continuum compact-gauge
-Hamiltonian is unitarily equivalent to the repair generator. On that certified branch the
-pure Yang--Mills gap is the repair gap:
+A Clay-level conclusion requires the finite transfer receipt and a uniform
+positive rate and approximate-tensorization floor, followed by the
+Schwinger-function, reflection-positivity, covariance, locality,
+nontriviality and transfer/intertwiner convergence requirements in
+Assumption~\ref{ass:ym-continuum-certificate}. The projective weak-* / GNS
+extraction alone does not supply them. Under all those premises the same
+Hamiltonian satisfies
 \[
-\boxed{
-\Delta_{\YM}=\Delta_{\mathrm{rep}}\ge \delta_*=c_*/A_*>0.
-}
+\Delta_{\YM}=\Delta_{\mathrm{rep}}\ge c_*/A_*>0.
 \]
-The statement concerns pure Yang--Mills theory. The full theory with an
-unbroken electromagnetic sector and a massless photon has no positive global
-vacuum gap, and its sector gaps must name their state, sector and limit.
+This is a conditional statement for pure Yang--Mills with compact simple
+$G$. The full theory with an unbroken electromagnetic sector and a massless
+photon has no positive global vacuum gap. Its sector gaps must specify
+the state, sector and limiting procedure.
 
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_YANG_MILLS_GAP_CLAY_PROBLEM.tex}{}{}
 \begin{thebibliography}{99}
-
-\bibitem{oph1}
-B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, B.~Cassie, P.~Nguyen, J.~Kim, D.~Matscheko, D.~A.~Friedman, J.~Hill, W.~T.~Glynn, M.~A.~Visser, K.~A.~Anirudha, and B.~de La Fourni\`ere,
-\emph{Observers Who Read Their Universe into Existence: Finite Consensus, an Executable Observer, and Standard Physics},
-2026.\\
-PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/flagship/from_observer_consensus_to_standard_physics.pdf}.
 
 \bibitem{oph2}
 B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, P.~Nguyen, D.~Matscheko, and D.~A.~Friedman,
@@ -1400,13 +1303,6 @@ B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, P.~Nguyen, D.~Matscheko, and D.~A.~Fr
 2026.\\
 Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex}.\\
 PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}.
-
-\bibitem{oph3}
-B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
-\emph{Particles as Localized Topological Defects of Native Overlap Transport: Finite Theorems, a Native Decision Test and Mass Obstructions},
-2026.\\
-Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.\\
-PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2060/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
 
 \bibitem{oph4}
 B.~M\"uller, K.~Xue, J.~Kim, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
@@ -1539,7 +1435,6 @@ L.~Wu,
 \emph{Annals of Probability} \textbf{34} (2006), 1960--1989,
 arXiv:math/0611635.
 
-\InputIfFileExists{../paper/tex_fragments/PRIOR_WORK_YANG_MILLS_GAP_CLAY_PROBLEM_BIBITEMS.tex}{}{}
 \end{thebibliography}
 
 \section*{AI Assistance Disclosure}
