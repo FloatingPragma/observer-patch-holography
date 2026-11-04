@@ -161,14 +161,14 @@
         },
         {
           "path": "model/clock_defect_energy/campaign.json",
-          "sha256": "080c7f345ce21366afce807b76d064acf90a092c5bf19363a9c9ac61fbd463ed",
+          "sha256": "4bd2fe9e3905f66170587af34bffbd5328f98d6cd7f26392eb541aaeb9ed9910",
           "independent_check": "model/clock_defect_energy/test_contract.py",
           "scope": "Frozen finite component diagnostics on the unchanged C/E family and the pinned pending PR1149 input. Reference transport, clock/wave comparison, adjacent-pair localization and maintenance-energy tests retain separate premises; no integrated gate or physical comparison is accepted.",
           "campaign_id": "OPH-CLOCK-DEFECT-ENERGY-2026-10-28-v1"
         },
         {
           "path": "model/clock_defect_energy/joins_campaign.json",
-          "sha256": "cb962f0132512e55768f3a566e70a2b4d89934782de1f7887a359ba542ef9d95",
+          "sha256": "74f90725265ede3c439ac43ea2bed9987ef97824da242ceb90fce1a3ac5b8113",
           "independent_check": "model/clock_defect_energy/test_joins_contract.py",
           "scope": "Frozen finite theorem applications and explicit service extension on the unchanged native C/E law: all-core compiled clock coverage, joint event-clock/field records, native history exchange topology and current/action-mode comparisons. Prior diagnostics and their limited service menu remain retained.",
           "campaign_id": "OPH-FINITE-THEOREM-JOINS-2026-10-28-v1"
@@ -738,7 +738,7 @@
         },
         {
           "path": "model/active_code_energy/energy_bridge_results.json",
-          "sha256": "b0ed659ecba571ffc6e638c95d8994e114d6a78d72e33836126e24d365e95067",
+          "sha256": "f7315c1b49a71fd32b074f78fa63882eb1046e1e64c179e3dbacd5189a7b1583",
           "independent_check": "model/active_code_energy/test_energy_bridge.py",
           "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
           "campaign_id": "active-code-energy-20261028-v1"
@@ -766,7 +766,7 @@
         },
         {
           "path": "model/screened_transport/transport_results.json",
-          "sha256": "4ad3b84beae2fb1e0e5c7450d2df0d71fdbb9ae7fb15ac7e621e171d421e64eb",
+          "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
           "independent_check": "model/screened_transport/test_transport.py",
           "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
           "campaign_id": "screened-transport-20261028-v1"
@@ -1653,7 +1653,7 @@
         },
         {
           "path": "model/screened_transport/transport_results.json",
-          "sha256": "4ad3b84beae2fb1e0e5c7450d2df0d71fdbb9ae7fb15ac7e621e171d421e64eb",
+          "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
           "independent_check": "model/screened_transport/test_transport.py",
           "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
           "campaign_id": "screened-transport-20261028-v1"
@@ -2236,7 +2236,7 @@
         },
         {
           "path": "model/active_code_energy/energy_bridge_results.json",
-          "sha256": "b0ed659ecba571ffc6e638c95d8994e114d6a78d72e33836126e24d365e95067",
+          "sha256": "f7315c1b49a71fd32b074f78fa63882eb1046e1e64c179e3dbacd5189a7b1583",
           "independent_check": "model/active_code_energy/test_energy_bridge.py",
           "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
           "campaign_id": "active-code-energy-20261028-v1"
@@ -2250,7 +2250,7 @@
         },
         {
           "path": "model/screened_transport/transport_results.json",
-          "sha256": "4ad3b84beae2fb1e0e5c7450d2df0d71fdbb9ae7fb15ac7e621e171d421e64eb",
+          "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
           "independent_check": "model/screened_transport/test_transport.py",
           "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
           "campaign_id": "screened-transport-20261028-v1"
@@ -4029,7 +4029,7 @@
         {
           "id": "particle_mass_table",
           "path": "model/completion/particle_mass_table.json",
-          "sha256": "e6ceaec007e04cc0c81a996b182396c674de95571e993c9167244592c02b632c",
+          "sha256": "04641c00c9f93d4fc2fef3a9678fd56f13e57fac9ef04a162cc35934eb964426",
           "independent_check": "tools/test_particle_mass_table.py",
           "scope": "Exact supplied mass branches and complete certified finite readouts; zero physical particle masses or species derived.",
           "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"
@@ -5162,7 +5162,7 @@
       ],
       "contract": {
         "path": "model/clock_defect_energy/campaign.json",
-        "sha256": "080c7f345ce21366afce807b76d064acf90a092c5bf19363a9c9ac61fbd463ed",
+        "sha256": "4bd2fe9e3905f66170587af34bffbd5328f98d6cd7f26392eb541aaeb9ed9910",
         "independent_check": "model/clock_defect_energy/test_contract.py",
         "scope": "Frozen finite component diagnostics on the unchanged C/E family and the pinned pending PR1149 input. Reference transport, clock/wave comparison, adjacent-pair localization and maintenance-energy tests retain separate premises; no integrated gate or physical comparison is accepted."
       }
@@ -5181,7 +5181,7 @@
       ],
       "contract": {
         "path": "model/clock_defect_energy/joins_campaign.json",
-        "sha256": "cb962f0132512e55768f3a566e70a2b4d89934782de1f7887a359ba542ef9d95",
+        "sha256": "74f90725265ede3c439ac43ea2bed9987ef97824da242ceb90fce1a3ac5b8113",
         "independent_check": "model/clock_defect_energy/test_joins_contract.py",
         "scope": "Frozen finite theorem applications and explicit service extension on the unchanged native C/E law: all-core compiled clock coverage, joint event-clock/field records, native history exchange topology and current/action-mode comparisons. Prior diagnostics and their limited service menu remain retained."
       }
@@ -5260,7 +5260,7 @@
       ],
       "contract": {
         "path": "model/active_code_energy/campaign.json",
-        "sha256": "0d55277b294f93dcd09efed4ce66e5fa12e1c8a0b129bb8a84150abec98407b2",
+        "sha256": "4151150976bdc1e76e472ee662ed9edbcd893bcbeb6ca26c7393ff9e2e61d66b",
         "independent_check": "model/active_code_energy/test_energy_bridge.py",
         "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol."
       }
@@ -5325,7 +5325,7 @@
       ],
       "contract": {
         "path": "model/screened_transport/campaign.json",
-        "sha256": "c38133cc1992a9f2c45b14cf8fc4a708e65b7a7f7db5f831b92a24c16202b23a",
+        "sha256": "ce5dcbe37a62cd38ec35b4750a844f5fe4b26f493f265d8cabbdc54fbd7fccc1",
         "independent_check": "model/screened_transport/test_transport.py",
         "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified."
       }
@@ -6561,7 +6561,7 @@
       },
       {
         "path": "model/clock_defect_energy/campaign.json",
-        "sha256": "080c7f345ce21366afce807b76d064acf90a092c5bf19363a9c9ac61fbd463ed",
+        "sha256": "4bd2fe9e3905f66170587af34bffbd5328f98d6cd7f26392eb541aaeb9ed9910",
         "independent_check": "model/clock_defect_energy/test_contract.py",
         "scope": "Frozen finite component diagnostics on the unchanged C/E family and the pinned pending PR1149 input. Reference transport, clock/wave comparison, adjacent-pair localization and maintenance-energy tests retain separate premises; no integrated gate or physical comparison is accepted.",
         "campaign_id": "OPH-CLOCK-DEFECT-ENERGY-2026-10-28-v1",
@@ -6601,7 +6601,7 @@
       },
       {
         "path": "model/clock_defect_energy/joins_campaign.json",
-        "sha256": "cb962f0132512e55768f3a566e70a2b4d89934782de1f7887a359ba542ef9d95",
+        "sha256": "74f90725265ede3c439ac43ea2bed9987ef97824da242ceb90fce1a3ac5b8113",
         "independent_check": "model/clock_defect_energy/test_joins_contract.py",
         "scope": "Frozen finite theorem applications and explicit service extension on the unchanged native C/E law: all-core compiled clock coverage, joint event-clock/field records, native history exchange topology and current/action-mode comparisons. Prior diagnostics and their limited service menu remain retained.",
         "campaign_id": "OPH-FINITE-THEOREM-JOINS-2026-10-28-v1",
@@ -6714,7 +6714,7 @@
       {
         "id": "active_code_energy_campaign",
         "path": "model/active_code_energy/campaign.json",
-        "sha256": "0d55277b294f93dcd09efed4ce66e5fa12e1c8a0b129bb8a84150abec98407b2",
+        "sha256": "4151150976bdc1e76e472ee662ed9edbcd893bcbeb6ca26c7393ff9e2e61d66b",
         "independent_check": "model/active_code_energy/test_energy_bridge.py",
         "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
         "campaign_id": "active-code-energy-20261028-v1"
@@ -6722,7 +6722,7 @@
       {
         "id": "active_code_energy",
         "path": "model/active_code_energy/energy_bridge_results.json",
-        "sha256": "b0ed659ecba571ffc6e638c95d8994e114d6a78d72e33836126e24d365e95067",
+        "sha256": "f7315c1b49a71fd32b074f78fa63882eb1046e1e64c179e3dbacd5189a7b1583",
         "independent_check": "model/active_code_energy/test_energy_bridge.py",
         "scope": "The canonical screened code has native current rate 1/6 per uniform-seam attempt. Positive conserved-sector reweightings preserve stationary dynamics and leave formal Gibbs energy contrasts free. Prior-code fixed-seam recovery pulses retain their own protocol.",
         "campaign_id": "active-code-energy-20261028-v1"
@@ -6778,7 +6778,7 @@
       {
         "id": "screened_transport_campaign",
         "path": "model/screened_transport/campaign.json",
-        "sha256": "c38133cc1992a9f2c45b14cf8fc4a708e65b7a7f7db5f831b92a24c16202b23a",
+        "sha256": "ce5dcbe37a62cd38ec35b4750a844f5fe4b26f493f265d8cabbdc54fbd7fccc1",
         "independent_check": "model/screened_transport/test_transport.py",
         "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
         "campaign_id": "screened-transport-20261028-v1"
@@ -6786,7 +6786,7 @@
       {
         "id": "screened_transport",
         "path": "model/screened_transport/transport_results.json",
-        "sha256": "4ad3b84beae2fb1e0e5c7450d2df0d71fdbb9ae7fb15ac7e621e171d421e64eb",
+        "sha256": "69884e0a6ef7a1db11d57f68b634ab13ced044abe161211b14dec50cfa685130",
         "independent_check": "model/screened_transport/test_transport.py",
         "scope": "The same screened code has a positive rank-eleven native current covariance, but complete corrected logical transfer is identity and the core resets each attempt. Logical-state-dependent current/variance ratios prevent transfer of the earlier uniform-source wave rate. No rest gap or particle mass is identified.",
         "campaign_id": "screened-transport-20261028-v1"
@@ -7682,7 +7682,7 @@
       {
         "id": "particle_mass_table",
         "path": "model/completion/particle_mass_table.json",
-        "sha256": "e6ceaec007e04cc0c81a996b182396c674de95571e993c9167244592c02b632c",
+        "sha256": "04641c00c9f93d4fc2fef3a9678fd56f13e57fac9ef04a162cc35934eb964426",
         "independent_check": "tools/test_particle_mass_table.py",
         "scope": "Exact supplied mass branches and complete certified finite readouts; zero physical particle masses or species derived.",
         "campaign_id": "OPH-FIELD-ENERGY-ENTROPY-2026-11-02"

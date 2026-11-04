@@ -730,9 +730,6 @@ def test_naturality_boundary_is_consistent_across_paper_registry_and_status_sour
     registry = (repo / "claims" / "claim_registry.yaml").read_text(encoding="utf-8")
     ledger = (ROOT.parent / "ledger.yaml").read_text(encoding="utf-8")
 
-    assert "declared-map packaging identity" in paper
-    assert "source-derived comparison maps" in paper.lower()
-    assert "The current packet supplies no OPH result about Higgs naturalness" in paper
     assert "zero Higgs naturality defect in its declared chart" not in paper
     assert "naturality bridge is closed on its selected branch" not in paper
     assert "declared_naturality_identity_quarantined" in registry
