@@ -22,7 +22,7 @@ HERE = Path(__file__).resolve().parent
 OUTPUT = HERE/'occupation_results.json'
 CAMPAIGN = 'OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1'
 CONTRACT_SHA256 = '3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67'
-CLASS_CONTRACT_SHA256 = 'b934e1a6c444e07fe0df01857bd57a0069b5bd8b19402f910dfd3b814e77e56a'
+CLASS_CONTRACT_SHA256 = 'a3bfbe176adb8a2bdc84b791cf12eb7888fde341a8d8d149c9d5fa174833a730'
 FALSE_KEYS = frozenset(('physical_particle_identification', 'integrated_gate_accepted',
                        'program_class_changed', 'cross_number_cat_admitted_by_v2',
                        'localized_topological_defect_constructed'))

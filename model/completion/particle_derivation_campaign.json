@@ -16,11 +16,11 @@
   "objective": "Certify finite interacting poles and currents, derive native memory flavor spectra, realize the retained P-dependent lepton operator on a chosen memory/carrier design, and constrain unscreened texture energies. The common finite operator construction does not establish physical particle identification or the interacting continuum and Einstein limits.",
   "source_map": {
     "path": "model/completion/SOURCE_PARTICLE_MAP.md",
-    "sha256": "077dd77d64f7c653a234208d47b8846051ff6f736ae0b48077f93348a6a4eb58"
+    "sha256": "e86649f1699497907f87a6226e42d50e0173365ebf66b6e2ca4e82824f9463e6"
   },
   "downstream_comparison": {
     "path": "model/completion/source_flavor_comparison.json",
-    "sha256": "64c6b6524d5311cfaea65db876f0a7506f3677a7435aa755211cd8df4807cea5"
+    "sha256": "6514d91a07016b8391cb99a7edaf38e15d3f35c3788326560b72bc38f2de58f0"
   },
   "composition_boundary": {
     "simulator_observer_scheduler_repair_memory_specs_admitted": true,
@@ -82,7 +82,7 @@
         "model/certified_winding_core/core.py": "c3f907d0738e949a1b089bef19f8a5e7ceabb7a3de916375d9f70cbb749e2443",
         "model/certified_winding_core/intervals.py": "10c01d1646bef7c347315af1074ad69738e8c226c5c907f359b2e01cd3caff4c",
         "model/certified_winding_core/packet.py": "0f86d33710fdd6539438f2194ab2aa4987fb9febff772e8925b17c4505d3a834",
-        "model/certified_winding_core/results.json": "d579fc653da3edebcdea5cb15faba3a5207be77c7c4843777ef66aa31bcfd700",
+        "model/certified_winding_core/results.json": "47a5b19730ee6d6cef347682e4b5bdeba0902bd8c797196f108425808c1b4ba5",
         "model/certified_winding_core/spectrum.py": "0b1bd87f5f22e767baf3179ce93ee0599c298faa0275f72b72e306c5909886c9",
         "model/certified_winding_core/test_packet.py": "a290c65a316001f37702bf5046e0480733e60c6d82486406311820561f3da8f5",
         "model/certified_winding_core/test_spectrum.py": "01bf5e17a9c268ef2f95f95ab6fd23a95013d3496fa8fa34bceb07e6dc665e46"
@@ -120,7 +120,7 @@
         "model/radial_current_map/controls.py": "adfded38bc28fec19c3b9e7691eefcdb9c718ba894fe0b37bd182a90113b5377",
         "model/radial_current_map/packet.py": "c3cae2fa32a13ce49da4898d11aa1c91d22c748691ee05e4be40c66f465be833",
         "model/radial_current_map/representation.py": "82f095ddfacd43cb23cf20dc988b4633adf97447b81fbf0352630f4b3fe92862",
-        "model/radial_current_map/results.json": "3e4ef92da1ff2a971c6cadd0ef893aa3a12f88301aa0f56d3d6cc775434206b5",
+        "model/radial_current_map/results.json": "3f4bc609109e5b9624c4130ac798bf4f1f7d513a06442ed4d7892d632b76c602",
         "model/radial_current_map/test_currents.py": "6dcdc737b8c61e0af37191f8fcb3733611d026406eab05d34e4ddc352e5c1b6e",
         "model/radial_current_map/test_packet.py": "31661b1f173b582232b2f9bbcb0d965126530e993eebf4cca5ff481a06285412"
       }
@@ -157,7 +157,7 @@
         "model/native_flavor_orbit/correlated.py": "4d87b6da9b2bd3e7ca52b9889d450c1250dd2779d59b1479801bc6b65e958dee",
         "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
         "model/native_flavor_orbit/packet.py": "1d3978c829ce7e7590150a7661e122118f52cf90bb8f67d326a71ae2103f527b",
-        "model/native_flavor_orbit/results.json": "dfa037a0fc76ad5d385745327bdd6472b896bb178a060a5f36c958a3e6074393",
+        "model/native_flavor_orbit/results.json": "727557459fecc30c2a41e394a8d044bdd647f172e986b99994343ef970fc47ae",
         "model/native_flavor_orbit/spectrum.py": "5f793b5f50ce4ae931df0439c6987cdf6c62235a5103a227f948933e9017c0f2",
         "model/native_flavor_orbit/test_algebra.py": "7b84ec73c89c41ae58f2694f35251aed68241cdec5aae75faa884f68f6494c93",
         "model/native_flavor_orbit/test_correlated.py": "1f4f464b3901d00606933a719e95f0150c4ac6bb854e6aa389af4dfd4d78bae0",
@@ -195,7 +195,7 @@
         "model/lattice_texture_selection/energy.py": "a89942e484d5b6855121f2b378d4b9678c85b115967a9500d7abbe3744729248",
         "model/lattice_texture_selection/packet.py": "f386b967a1f39ae6638b70ea3f0c7efb1e6e11160f7daa708b431d9db7bbbaf7",
         "model/lattice_texture_selection/repair.py": "09cb72ceac4af6c613241f0a4b6a0f1beab53df1808f365570f725c491a63f60",
-        "model/lattice_texture_selection/results.json": "1d605cb1f4eb6af75c83f19f956626c7521d35f54324a106dd6d46dc509f6a5b",
+        "model/lattice_texture_selection/results.json": "e5bd5dba013cbb390e5a92f565297f77b269efd89901d6365389ab4430625571",
         "model/lattice_texture_selection/shells.py": "11186ebe495245d7d12860a643e82a0938a5f382800bb32257898502f10e2e98",
         "model/lattice_texture_selection/test_energy.py": "370ceb89433d413488299e426ab8d7cc3dab622eeb2f3d595998387db98fc95c",
         "model/lattice_texture_selection/test_packet.py": "43872f00adcf232299e04d31b82cb256faf0dfe976aedc3cb5d44d8ed938579f",
@@ -233,7 +233,7 @@
         "model/mcpr_native_memory_bridge/certificate.py": "5d0e13de9bf8c286525d4f1d8e9aceb93cf6cbf838d70e98a0ff5e576ea5c262",
         "model/mcpr_native_memory_bridge/construction.py": "caa4d3f58893a692d1a563263d56443efa8e3129deeae488ac31c13255968438",
         "model/mcpr_native_memory_bridge/packet.py": "aeda9c77888feb739572836352cab4b29b4d2fd4ac856d0868dd68ff19f3eef2",
-        "model/mcpr_native_memory_bridge/results.json": "b886f71acbf9f339516dd0b8120e94cb04a6e960e3a4dcb9040805ada46db899",
+        "model/mcpr_native_memory_bridge/results.json": "b0ce3a2d834f2fa780d0fbf9b7f607b8bdb00ab98ee00d1250565723d4527e15",
         "model/mcpr_native_memory_bridge/test_bridge.py": "82a44830858ded47f2381167328136f67e61ef58c6aba8f4e200a61c30192688"
       }
     },
@@ -270,7 +270,7 @@
         "model/defect_current_bridge/construction.py": "c68b7c5e97384d7b954f2cf8e40e83e0748f5c01da60dd849ea81d50715758d3",
         "model/defect_current_bridge/controls.py": "0d9d8dcadf99655daf1be377b010c87731805ed811c54f418bd6016083f5ab78",
         "model/defect_current_bridge/packet.py": "b555b8897ba90795492d8d74d617717461c546fefc7ceafd28cd76dafa1cbc4e",
-        "model/defect_current_bridge/results.json": "cbf2f15727d680ba006af89fefea7267cb9e262ee0cb0d58e5b17a2f5d427499",
+        "model/defect_current_bridge/results.json": "a0b8475acce5efa802f27260a482ce61e2be784667b1979d1bdd4fd43c528fe2",
         "model/defect_current_bridge/test_bridge.py": "48f1dc2b0daaa298444c2e7368600dd008f58c56becb250f3499c11208f9ba0c",
         "model/defect_current_bridge/test_packet.py": "de4554e000d6202b4f82342810d9bcc07feda62fef6dfc31b41423070ea11567"
       }
