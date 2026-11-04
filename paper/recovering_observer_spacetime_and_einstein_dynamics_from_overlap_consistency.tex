@@ -31,7 +31,8 @@ selects the light cone of the declared quadratic form among closed convex
 pointed cones, and finite null tomography reconstructs a symmetric tensor from
 null projections. Null balance on nine design directions, with Ward and Bianchi
 identities, gives the Einstein equation up to a cosmological constant, and
-Jacobson's entanglement-equilibrium argument supplies null balance under six
+the small-ball entanglement-equilibrium calculation supplies the required
+tensor response under six
 realization premises. The proved centered Weyl vacuum supplies a conserved
 Lorentz stress tensor, its geometric double-cone modular generator and a
 finite vacuum-relative first law. For the exact free lattice source, compact
@@ -62,7 +63,7 @@ count clock reads proper-time ratios. Cap modular covariance gives Lorentz
 kinematics on the support-visible geometric subnet. The gravitational theorem
 is an implication. Null balance on nine design directions, together with Ward
 and Bianchi identities, gives $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$
-(Figure~\ref{fig:einstein-chain}); the null-balance step follows from the
+(Figure~\ref{fig:einstein-chain}); the physical response step follows from the
 following realization premises on one refinement tower:
 \begin{enumerate}\setlength{\itemsep}{1pt}
 \item[(G1)] a Lorentzian event and geometry domain with the required
@@ -288,6 +289,49 @@ $c=0$, so the depth cutoff is explicit.
 \input{tex_fragments/SOURCE_PARTICLE_EINSTEIN_JOIN.tex}
 \input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 
+\section{The modular input to gravitational response}
+\label{sec:modular-einstein-input}
+
+\begin{theorem}[Conditional cap modular normalization]
+\label{thm:conditional-cap-modular}
+Let one cofinal refinement tower have a common support-visible geometric
+cap algebra and state in its mixed-GNS limit. Suppose its finite collars
+have exact Markov replacements or controlled faithful Markov comparison,
+the local algebra-state comparisons and replacements are compatible under
+refinement, and modular action is readable as a map of cap supports.
+Suppose further that a cap-normal certificate supplies oriented
+cross-ratio rigidity and an independent geometric $2\pi$-KMS comparison.
+Then the limiting modular automorphism of each geometric cap is its
+cap-preserving conformal flow with the $2\pi$ normalization. This is an
+automorphism statement on the limit algebra; a literal
+$K_C=2\pi B_C+Z_C$ representation requires an additional type-I
+realization, with $Z_C$ central.
+\end{theorem}
+\begin{proof}[Proof outline]
+Controlled Markov replacement confines the finite modular defect to the
+collar, with the faithful-collar comparison controlling its matrix elements
+on fixed local observables. Projective compatibility and mixed-GNS
+convergence define one limiting cap pair independently of a chosen
+comparison sequence. Support readability turns its modular action into a
+cap-support flow. Oriented cross-ratio rigidity identifies this flow with
+the cap-preserving conformal one up to parameter scale; the independent
+KMS comparison fixes that scale to $2\pi$. None of these steps identifies
+the full algebra with a type-I factor or derives the certificate from the
+unchanged native repair law.
+\end{proof}
+
+The corresponding half-sided null inclusion has a positive translation
+generator $P_\Omega$ and, on its common quadratic-form core, the affine
+relation $K_a(\Omega)=K_0(\Omega)-2\pi aP_\Omega$. Reading its endpoint
+derivative as a local charge $\int T_{kk}$ requires effective locality and
+an identification with the \emph{same} stress tensor that propagates the
+matter fields. Affine/projective interval transport then produces the
+ball kernel used below, provided the endpoint and collar remainders meet
+the displayed small-ball bound. Thus cap modular covariance, the local
+stress reading and the entropy--area response are three separately
+testable inputs; the finite record entropy identity by itself supplies
+none of their physical identifications.
+
 \section{Null balance and the Einstein tensor}
 \label{sec:einstein-tensor}
 
@@ -334,27 +378,95 @@ $\Lambda=-\phi$. Its value requires one reference condition.
 \end{proof}
 
 \subsection{The small-ball input and its normalization}
-For a ball of radius $\ell$ in a tangent spatial slice,
+The missing physical step in the preceding theorem is its null-balance
+premise. Under (G1)--(G6), a sufficiently small cap has a tangent causal
+diamond $D_\ell$. In local inertial coordinates its preserving conformal
+Killing field and its lapse on the central slice are
+\[
+ \xi_{D_\ell}=\frac{(\ell^2-r^2-t^2)\partial_t-2t x^i\partial_i}{2\ell},
+ \qquad \xi^t_{D_\ell}\big|_{t=0}
+ =\frac{\ell^2-r^2}{2\ell}.
+\]
+The geometrically normalized cap modular flow and the same-source local
+stress reading in (G2) give the ball modular first law
+\[
+ \delta S_{\rm bulk}
+ =2\pi\int_{B_\ell}\frac{\ell^2-r^2}{2\ell}
+       \delta T_{uu}\,d^3x+\delta E_{\ell,\delta}.
+\]
+Here $\delta E_{\ell,\delta}$ carries finite-collar, modular-transport and
+locality errors. The factor $2\pi$ is a geometric KMS normalization required
+by (G2), not a consequence of entropy maximization. Direct integration gives
 \[
  \int_{B_\ell}\frac{\ell^2-r^2}{2\ell}\,d^3x
  =\frac{4\pi\ell^4}{15}.
 \]
-A geometrically normalized vacuum modular generator and its first law
-give, for stress approximately constant across the ball,
+Thus, for stress smooth on the ball,
 \[
  \delta S_{\rm bulk}
- =\frac{8\pi^2\ell^4}{15}\,\delta T_{uu}+o(\ell^4).
+ =\frac{8\pi^2\ell^4}{15}\,\delta T_{uu}
+  +\delta E_{\ell,\delta}+O(\ell^5\|\partial T\|).
 \]
-The independent fixed-proper-volume area variation is
-$\delta A=-(4\pi\ell^4/15)\delta G_{uu}+o(\ell^4)$.
-Consequently fixed-volume stationarity
-$\delta S_{\rm bulk}+\delta A/(4G_N)=o(\ell^4)$ implies
-$\delta G_{uu}=8\pi G_N\delta T_{uu}$ as $\ell\to0$.
-The same variations for a complete family of timelike observers determine
-the tensor variation; a common reference and Ward/Bianchi identities fix
-the remaining metric term. These are the conditional
-entanglement-equilibrium inputs, not consequences of finite
-entropy maximization alone \cite{jacobson16}.
+The independent fixed-proper-volume geometric identity required by (G4) is
+\[
+ \delta A\big|_V
+ =-\frac{4\pi\ell^4}{15}\,\delta G_{uu}+\epsilon_A.
+\]
+With fixed-volume stationarity
+$\delta S_{\rm bulk}+\delta A/(4G_N)=\epsilon_{\rm stat}$,
+the two coefficients give the finite-scale relation
+\[
+ \delta G_{uu}-8\pi G_N\delta T_{uu}
+ =\frac{15G_N}{\pi\ell^4}
+   \left(\delta E_{\ell,\delta}
+       +\frac{\epsilon_A}{4G_N}-\epsilon_{\rm stat}\right)
+   +O(\ell\|\partial T\|).
+\]
+This displays the required cutoff control: every entropy, area and
+stationarity remainder in parentheses must be $o(\ell^4)$ along the same
+refinement and small-ball limit. For example, if a fixed-collar comparison
+bounds $|\delta E_{\ell,\delta}|$ uniformly over the chosen ball family by
+a constant times the constructive
+recovery error, the exact-Markov replacement error and a regularized
+modular-transport error, its first two terms may be written
+$r_{\rm FR}(\varepsilon)=2\sqrt{1-e^{-\varepsilon}}\leq2\sqrt\varepsilon$
+and $4\lambda_*^{-1}d_{\rm M}(\varepsilon)$, where $\lambda_*>0$ is the
+fixed faithful-collar spectral floor and $d_{\rm M}$ bounds distance to an
+exact Markov state. Their sum with the transport error must be
+$o(\ell^4)$ on the chosen
+joint limit. A bound that is merely $o(1)$ at fixed $\ell$ cannot be
+divided by $\ell^4$ without specifying an order of limits or a diagonal
+sequence. Exact Einstein dynamics is a controlled-limit statement, not a
+finite-cutoff identity.
+
+If this relation holds for every local timelike unit vector in matched
+orthonormal frames, $g(u,u)=-1$ keeps the cosmological term fixed under the
+scalar variation. For $u=\gamma(1,v^i)$, the polynomial
+$\delta Y_{00}+2v^i\delta Y_{0i}+v^iv^j\delta Y_{ij}$ vanishes on the open
+unit ball, where $Y=G+\Lambda g-8\pi G_N T$ and the common reference fixes
+$\Lambda$. Its coefficients vanish, so $\delta Y=0$. A common maximally
+symmetric reference, compatible variations on the connected branch, and
+the independent Ward identity complete the tensor equation. Equivalently,
+once the same-source construction yields the nine null balances, the
+preceding null-tomography theorem gives $G+\Lambda g=8\pi G_N T$
+directly. These are the conditional entanglement-equilibrium inputs of
+\cite{jacobson16}; finite entropy maximization alone supplies none of the
+geometric area identity, universal coupling or same-source stress reading.
+
+The coefficient $G_N$ is an area-to-entropy conversion on this branch.
+If the shared-cut edge entropy density is $\bar\ell_{\rm shared}$ per
+cell of physical area $a_{\rm cell}$, its normalization is
+\[
+ G_{\rm geom}=\frac{a_{\rm cell}}{4\bar\ell_{\rm shared}}.
+\]
+The conditional pixel and scale identifications
+$a_{\rm cell}=P\ell_*^2$ and $\bar\ell_{\rm shared}=P/4$ then give
+$G_{\rm geom}=\ell_*^2$ and
+$G_{\rm SI}=c^3\ell_*^2/\hbar$. The cancellation of $P$ is exact;
+the shared-cut density and the independent physical scale certificate must
+still be realized on the same gravitational tower. Local null data leave
+$\Lambda$ invisible, so its value requires a reference or global
+capacity condition rather than this small-ball calculation.
 
 For nonminimal $F(H^\dagger H)R$ coupling, the correct curvature entropy
 and fixed generalized volume are instead those in
