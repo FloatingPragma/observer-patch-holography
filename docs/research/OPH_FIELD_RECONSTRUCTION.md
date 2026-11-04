@@ -8,19 +8,108 @@ In particular, the photon-containing full theory is gapless, and stationary
 repair or record entropy is not the geometric entropy variation needed for
 gravity. The distinctions below are acceptance tests for that common target.
 
-28 October 2026. This is the continuation guide for identifying effective
-particles in the executable observer construction. The
-[particle/mass handoff](OPH_PARTICLE_MASS_RESPONSE.md) records the numerical
-lanes and hierarchy exclusions; the
+The [particle mass response](OPH_PARTICLE_MASS_RESPONSE.md) records the
+numerical constructions and hierarchy exclusions; the
 [construction contract](../../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
 sets the larger observational target.
 
-**The current construction supplies several finite field executions and
-response inverses. It does not yet establish the physical interacting chiral
-Standard Model or its measured spectrum.** Distinguish the action chosen by
+**The construction supplies a common finite defect, gauge-current and
+pixel-dependent mass operator, with a complete record service converging to
+its quadratic dynamics. It does not establish the physical interacting
+chiral Standard Model or its measured spectrum.** Distinguish the action chosen by
 the producer, the information in accessible records, the inverse justified
 by those records, and the physical interpretation being tested. These are
 different steps even when one software implementation performs all of them.
+
+## The common finite particle operator
+
+The simulator carrier, memory rule and coherent pulse service are explicit
+design inputs. Their consequences can be derived without proving that bare
+overlap consistency uniquely selects that design. A design selected with
+knowledge of measured masses retains that calibration provenance even when
+its execution reads no measured mass values. The
+[source particle map](../../model/completion/SOURCE_PARTICLE_MAP.md) separates
+those inputs from the proved operator identities and physical attachments.
+
+| Finite construction | Established result | Physical boundary |
+| --- | --- | --- |
+| [Certified winding cores](../../model/certified_winding_core/PROOF.md) | Complete finite spectral enclosures certify 16 two-dimensional kernels among 28 supplied winding matrices; 34 supplied contact cases have controlled full-Fock ground pairs and equal addition/removal gaps | The winding texture and contact parameters are supplied; these are not 34 identified species |
+| [Radial current algebra](../../model/radial_current_map/PROOF.md) | The conserved sums of onsite even operators of the original radial carrier give eta-pairing su(2), with only u(1) in the number-preserving part | This carrier does not realize the full native Standard Model current algebra through those local operators |
+| [Native flavor and memory](../../model/native_flavor_orbit/PROOF.md) | The native current commutant gives the complete canonical same-current family frames; full-record coefficients, mixing and correlated-channel restrictions are calculated | The fixed common-duration example fails the direct same-scale charged-lepton hierarchy comparison; its static mean is not its finite unread channel |
+| [Lattice texture energy](../../model/lattice_texture_selection/PROOF.md) | The selected ordered spin state gives positive shell-degree energy bounds; finite energy excludes nonzero degree on sufficiently distant shells | Bare protected-spin C/E repair does not select the texture, and the absolute crossing-energy bound is not a lifetime theorem |
+| [Pixel-dependent native memory](../../model/mcpr_native_memory_bridge/PROOF.md) | Two admissible choices of current-probe durations and a source gain realize the retained charged-lepton mass operator, with rational existence bounds and controlled correlated weak-pulse dynamics | The mass-law architecture has calibration provenance; the source coordinates and operational scale require their physical attachment |
+| [Defect, current and mass inclusion](../../model/defect_current_bridge/PROOF.md) | One local enlarged carrier has the same defect modes, native current action and pixel-dependent mass operator; a complete record service converges to its full finite quadratic Hamiltonian | Family multiplicity, carrier and coherent service are chosen; occupation does not create winding, and no interacting relativistic continuum follows |
+
+The positive operator inclusion uses the full radial operator \(h\), its
+two-column kernel frame \(W\), and the actual native matter representation
+\(M_{15}\otimes\mathbb C^3\). The three family copies are chosen, rather than
+deduced from the two-dimensional radial kernel. With \(J=i\sigma_2\) and
+\(C_x=(-1)^{x_1+x_2+x_3}J\), the source identities give
+\(hW=0\) and \(C\overline W=WJ\). For the symmetric all-left Higgs kernel
+\(K\), the local creation pairing is \(\Delta=C\otimes\overline K\).
+The Nambu inclusion
+
+```math
+E=\operatorname{diag}(W\otimes I_{45},\overline W\otimes I_{45}),\qquad
+BE=EB_0,\qquad
+B_0=\begin{pmatrix}0&J\otimes\overline K\\
+ (J\otimes\overline K)^\dagger&0\end{pmatrix}
+```
+
+also intertwines all twelve actual native currents. The source permutation
+transports their original port representation, so the identification does
+not consist of attaching gauge labels to an unrelated spectrum. The induced
+current action is spatially uniform; this construction supplies neither
+dynamical gauge links nor a local Gauss constraint. The induced
+CAR inclusion intertwines quadratic dynamics. On even states, tensoring
+with the normalized trace on the complementary modes supplies a recoverable
+full-carrier state map; that complement is not a vacuum.
+
+The memory construction supplies a positive family matrix \(M(P)\) whose
+eigenvalues are the retained conditional \(m_i(P)/v(P)\). Its construction
+uses the complete C-enabled stationary coefficient \(Z_C\), with
+\(M(P)=gZ_C\), rather than conditioning away failed records. Choosing
+\(Y_e=\sqrt2 M(P)\) at \(H=(0,v(P)/\sqrt2)\) puts those coefficients in
+the actual Higgs kernel on the same localized modes.
+
+This coefficient has an explicit record-driven implementation. Fresh
+auxiliary current probes generate the complete memory law independently of
+the spatial field. On every record apply the chosen local finite-Fock
+Hamiltonian \(H_r=H_0+\mathbf1_C gL(P_j)\), where \(j\) is the updated
+memory port and \(L\) is the lepton pairing map. Each record preserves the
+same core inclusion, and its stationary mean is \(H_0+L(gZ_C)\). If
+\(\|H_r\|\le M\), the reduced channel after \(N\) steps of duration
+\(\tau/N\) differs from that mean Hamiltonian's unitary channel by at most
+
+```math
+\frac{4M\tau}{N(1-p)}+
+\left(\frac8{1-p}+4\right)\frac{M^2\tau^2}{N}
+```
+
+in unhalved trace norm, including arbitrary initial classical-memory
+correlations and untouched finite references. Stationary product memory
+removes the first term. The bound is for a fixed finite volume and grows
+with volume; it is not a continuum estimate. The finite unread channel
+can be nonunitary, and this coherent service is distinct from the original
+site-field repair.
+
+The radius-one witness retains 2,430 annihilator modes and all 4,860 Nambu
+coordinates. Its core has 90 annihilator modes and 180 Nambu coordinates,
+including every zero direction. Those counts are operator degrees of
+freedom, not species. The complete bands are \(\lambda(h)\pm s_j(K)\).
+Their additive form does not prove relativistic massive dispersion. The
+finite inclusion therefore connects the three specified operators without
+identifying their states with nature's particles. A common interacting
+vacuum, physical clock and mass matching, dynamical defect formation, and
+the responsive Einstein limit require additional derivations.
+
+The texture energy cannot be omitted from that test. Identifying the
+prescribed radial hedgehog with the unscreened ordered-spin rotation field
+would put degree one on every surrounding shell. The proved positive
+per-shell bound then forces divergent total energy. This rules out that
+specific identification as an isolated finite-rest-energy defect. It does
+not exclude a screened defect or another localized topology with its own
+derived field action.
 
 ## What a particle means in this construction
 
@@ -67,13 +156,14 @@ This is a counterexample to inferring a topological sector from a dispersion
 relation alone. Whether a microscopic realization of an effective particle
 is a defect is an additional question about that source realization.
 
-## Leading working hypothesis: localized defects of native repair
+## The hypothesis of particles as localized defects
 
-The preferred concrete mechanism to develop is **a localized, persistent
+The particle hypothesis is **a localized, persistent
 topological defect in the native overlap/transport structure**. Its continued
 maintenance by the same repair process would account for its rest energy.
-This is the research hypothesis being prioritized; a native realization and
-its physical mass relation are not yet established.
+The finite common operator above supplies fermions bound to a prescribed
+texture. It does not prove that creating a fermion creates that texture or
+that its eigenvalue is the texture's physical rest energy.
 
 The proposed object is a bounded core whose surrounding records approach the
 reference regime, but whose boundary transport carries a nontrivial invariant
@@ -84,7 +174,8 @@ transport its charge. Allowed creation, annihilation, fusion and decay must
 follow from the same source law, rather than from freezing selected seams
 or supplying punctures to protect an assigned label.
 
-The initial target is stable massive matter. Unstable species could be
+For stable massive matter the proposed object is a persistent excitation.
+Unstable species could be
 metastable or internal defect excitations with derived decay channels.
 Massless propagation and gauge interactions must also be tested in the same
 construction; their meaning cannot be supplied by selecting unrelated
@@ -100,18 +191,17 @@ numerical modes.
 
 The tested double-load configuration fails this persistence requirement,
 including its quantum collision subspace. The actively corrected matching
-code supplies persistent information but does not yet supply the proposed
-topological charge or maintenance-energy map. Neither is identified with a
-physical particle at present. The next positive result must construct a
-native defect sector that passes these tests; the response diagnostics below
-are tools for testing its eventual field interpretation.
+code supplies persistent information without the proposed topological charge
+or maintenance-energy map. Neither object is identified with a physical
+particle. The radial common-operator construction has a different specified
+carrier and law; it does not reverse either of these exclusions.
 
 ## Choose one source object before comparing masses
 
-The different quantities already calculated are not interchangeable particle
+The different calculated quantities are not interchangeable particle
 definitions. Their roles must stay visible in every spectrum table.
 
-| Object already computed | Legitimate role | Missing identification |
+| Calculated object | Legitimate role | Missing identification |
 | --- | --- | --- |
 | Representation components, charges and Casimirs | Internal types and allowed current/Higgs couplings | A propagating source excitation with those quantum numbers |
 | Protected bands, memories and family kernels | Persistent information and candidate interaction coefficients | A physical family sector and a derived mass/kinetic interaction |
@@ -119,7 +209,7 @@ definitions. Their roles must stay visible in every spectrum table.
 | Finite CAR addition/removal poles | Excitations of the specified interacting finite law, with residues and charge | Physical spatial, gauge, spin/statistics, continuum and mass matching |
 | Supplied Weyl/Nambu symbols, staggered/dimer gaps and Hubbard thresholds | Separate conditional field or interaction benchmarks | A derivation from one selected native source object; their numbers cannot be pooled into a spectrum |
 | Running charts and calibrated mass coordinates | Parameterization, matching controls and empirical comparison | Independent selection of source couplings and physical readout |
-| Topological defects | Leading native mechanism to develop, initially for stable massive matter | No native defect classification and defect-maintenance-to-mass map is presently established |
+| Topological textures and their bound modes | Certified finite winding sectors, energy bounds and a common current/mass operator on localized modes | Creation of a particle as creation of a protected dynamical defect, with physical rest energy and transport |
 
 A candidate identification must name **one excitation or sector of one
 continuing source process** before its mass comparison. Specify the reference
@@ -133,12 +223,13 @@ each benchmark does not supply that map.
 
 Each finite CAR experiment belongs to a named supplied-action benchmark.
 The four-mode interacting ring and the chiral quadratic candidate are distinct
-laws. The new inverse-response diagnostic tests the ring's existing response;
-the spectral census and record tomography test the same existing chiral
+laws. The inverse-response diagnostic tests the ring's response;
+the spectral census and record tomography test the same chiral
 candidate, with tomography restricted to one exactly decoupled component.
 They introduce no additional physical particle candidate or mass ansatz and
-do not turn these benchmarks into one source. Protected native repair objects
-and their physical chiral-field attachment remain an open join. No benchmark
+do not turn these benchmarks into one source. The common radial operator
+above supplies a particular finite join with its own declared carrier;
+its physical chiral-field attachment requires further premises. No benchmark
 is promoted to a Standard Model particle because its spectrum resembles a
 measured ratio.
 
@@ -169,10 +260,11 @@ fit a conversion independently for each species. Attenuation can govern
 lifetime or decoherence instead of inertial mass; the response calculation
 must decide that distinction.
 
-There is presently no established native topological-defect maintenance law
-that yields the measured masses. The next mechanism search must begin with
-the source object and its cost/energy correspondence. Unrelated numerical gap
-and kernel scans cannot substitute for it.
+No established native topological-defect maintenance law yields the measured
+masses. The specified memory and coherent field service realizes the retained
+pixel-dependent mass operator without establishing that maintenance-energy
+interpretation. That interpretation requires the source object and its
+cost/energy correspondence; unrelated gap and kernel scans cannot supply it.
 
 ### Existing defect theorems and the direct native decision test
 
@@ -211,7 +303,7 @@ That schedule does not replace the production feedback policy.
 | Quantum collision-sector persistence | Both complete C/E instruments satisfy sum_h K_h* P_collision K_h = (5/6) P_collision, with no binary-to-collision feed | The same survival law holds for arbitrary quantum inputs and untouched references. There is no persistent subspace wholly supported on these collisions under the stated uniform unread evolution; other quantum/history sectors are untested |
 | Continuing binary transport | Nonzero current probability is 5/33 per attempt in the uniform binary stationary law, while every binary event has zero drop of Phi=one-half sum(load squared) | Repair activity and motion are not equal to potential decrease |
 | Proposed edge disagreement cost | The retained binary edge cost takes both values 8 and 10 and has native transitions in both directions | It is not a monotone maintenance-energy law of this process |
-| Changed-law control | Removing the five seams incident to one port yields binary closed classes of sizes 11 and 55 | An artificially frozen port creates a sector by changing the allowed law; it is not evidence that the original law already protects one |
+| Changed-law control | Removing the five seams incident to one port yields binary closed classes of sizes 11 and 55 | An artificially frozen port creates a sector by changing the allowed law; it does not establish protection under the original law |
 
 These results reject this proposed autonomous configuration defect and the
 tested automatic cost-to-energy identifications, including quantum persistence
@@ -222,7 +314,7 @@ its actual source sector and allowed dynamics before any mass comparison.
 
 The [actively corrected code](../../model/common_source/native_gauge_object.py)
 is a different persistent object: coherent recovery preserves logical
-information and actual port rotations act on it. The existing fixed matching
+information and actual port rotations act on it. The fixed matching
 code leaks out of its subspace without recovery, by 31/108 for C and 55/108
 for E on the normalized code projector under the uniform-seam test. This is
 a one-step preparation-specific escape result, not an all-state lifetime.
@@ -234,7 +326,7 @@ also gives scalar one-port and native-edge quadratic compressions. This is a
 restriction on logical-state mass splitting from those costs, not a proof of
 zero common mass. Its fixed matching table and the separately derived
 equivariant table in [native code transport](../../model/common_source/native_code_transport.py)
-must not be silently identified for a nonscalar observable or new interaction.
+must not be silently identified for a nonscalar observable or an additional interaction.
 
 ## The inference chain to retain
 
@@ -313,7 +405,7 @@ alone.
 The [protected momentum experiment](../../model/common_source/chiral_candidate/protected_momentum.py)
 recovers oscillation frequency and visibility from its declared finite probe
 records. Those marginals do not identify every matrix residue, sign, phase,
-current or kinetic derivative of a general charged field. Existing
+current or kinetic derivative of a general charged field. The
 seven-momentum agreement also leaves local continuations that disagree on
 a second shell. Tests of additional preparations, phases, momenta and Higgs
 perturbations must be withheld from the inverse and predicted afterwards.
@@ -325,7 +417,7 @@ reference/dressing and a charge-compatible preparation and detector, or a
 stated additional phase-reference service. Native selection of that service
 cannot be inferred merely from tomography being algebraically possible.
 
-### New tests of the existing response, not new particle candidates
+### Response inverses and record tests
 
 The [inverse-response diagnostic](../../model/common_source/particle_identification/kinetic_response.py)
 computes G inverse and its frequency derivative from the complete finite
@@ -346,7 +438,7 @@ are not presented as one exact pole, and numerical ranks are not exact proofs.
 
 The [record two-point experiment](../../model/common_source/chiral_candidate/record_two_point.py)
 and [retained receipt](../../model/common_source/chiral_candidate/record_two_point_results.json)
-reconstruct one existing charged L/e-conjugate pair, native family axis zero.
+reconstruct one charged L/e-conjugate pair, native family axis zero.
 It uses neutral source pulses and a charged reference fermion in a fixed
 total-charge-zero code. Complete detector/clock records reconstruct the complex
 two-mode transfer and, under an explicit principal-phase bound and canonical
@@ -377,12 +469,20 @@ coefficient is supplied and is not selected by repair maintenance.
 ## Repair, coherent evolution and physical energy
 
 The complete native instrument can be contractive while an attached closed
-Hamiltonian evolves unitarily. The current no-intertwiner result excludes a
+Hamiltonian evolves unitarily. The no-intertwiner result for the tested
+conditioned response excludes a
 nonzero direct linear identification of the tested conditioned native
 response with the unmeasured closed quadratic evolution. It does not rule
-out a detector-coupled or environmental effective description; the existing
+out a detector-coupled or environmental effective description; the
 [dephasing control](../../model/common_source/chiral_candidate/KINETIC.md)
 exhibits the distinction explicitly.
+
+The common defect/current construction has an exact CAR intertwiner for
+its chosen local Hamiltonian and each record-specific coherent field pulse.
+Its weak-step averaging theorem gives a controlled limiting unitary after
+the complete classical memory is traced out. These statements do not equate
+a finite unread native channel with a closed unitary, and hence do not
+contradict the conditioned-response exclusion.
 
 A contraction modulus describes attenuation in its declared update or event
 parameter. The argument of a transfer eigenvalue describes a phase only
@@ -401,8 +501,10 @@ identifiability control, not a change in units.
 ## Gauge, chirality and multiplicity boundaries
 
 The finite representation decoder supplies internal charge/Casimir labels
-under its declared spin/exterior lift. Physical particles require the same
-labels on the propagating response and currents. Equivalent carrier
+under its declared spin/exterior lift. The common operator construction
+puts the actual corresponding currents on the same localized radial modes
+as the pixel-dependent mass kernel. Physical particles additionally require
+their controlled propagation and physical spin/statistics. Equivalent carrier
 representations on different factors do not identify physical spatial and
 internal rotations. A valid conditional spin/matter tensor product likewise
 does not prove that the continuing source realizes its physical action.
@@ -416,14 +518,14 @@ not a decoupling argument.
 
 The [regulator routes](../../model/common_source/chiral_candidate/REGULATOR_ROUTES.md)
 include Euclidean overlap tests on nonconstant nonabelian backgrounds and a
-stated locality domain. They do not yet establish the interacting chiral
+stated locality domain. They do not establish the interacting chiral
 measure, physical continuation, common state and observer correspondence.
-The existing finite abelian quantum-link Gauss sector is real progress;
-most nonabelian transport calculations still use supplied classical links.
+The finite abelian quantum-link construction supplies a Gauss sector;
+the nonabelian background transport calculations use supplied classical links.
 Neither the internal anomaly sums nor a free regulator alone close the
 physical nonabelian chiral theory.
 
-## Next calculations and success conditions
+## Conditions for a physical identification
 
 1. Fix the physical response domain, allowed apparatus, reference state and
    clock. State separately which operations are native, compiled coherent
@@ -441,10 +543,10 @@ physical nonabelian chiral theory.
    with controlled limits. Recheck what the detector can access in that regime.
 5. Apply one fixed physical dictionary and a compatible matching/uncertainty
    contract to independent observations. A changed rule or matching map is a
-   new candidate with its prior exposure retained.
+   distinct candidate with its exposure to comparison data retained.
 
 A positive finite test advances only its declared part of this chain. A
 negative test identifies the indistinguishable alternatives, failed candidate
-or exact excluded class. The measured particle spectrum remains an open
-obligation until the field/record and numerical comparison contracts meet in
-one continuing construction.
+or exact excluded class. Identifying the measured particle spectrum requires
+the field/record and numerical comparison contracts to hold in one continuing
+construction.

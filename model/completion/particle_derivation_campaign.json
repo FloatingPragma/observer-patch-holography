@@ -1,0 +1,279 @@
+{
+  "schema": "oph.particle_derivation_campaign.v1",
+  "campaign_id": "OPH-SOURCE-PARTICLE-DERIVATION-2026-11-04",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "canonical_premises_discharged": [],
+  "integrated_gate_accepted": false,
+  "selected_issues": [
+    1139,
+    1140,
+    1141,
+    1142,
+    1143
+  ],
+  "objective": "Certify finite interacting poles and currents, derive native memory flavor spectra, realize the retained P-dependent lepton operator on a chosen memory/carrier design, and constrain unscreened texture energies. The common finite operator construction does not establish physical particle identification or the interacting continuum and Einstein limits.",
+  "source_map": {
+    "path": "model/completion/SOURCE_PARTICLE_MAP.md",
+    "sha256": "f18cc5d7cd58cb2d7d9b8cbb9349156c23508ba06aaaef2f533fb819c4e83df6"
+  },
+  "downstream_comparison": {
+    "path": "model/completion/source_flavor_comparison.json",
+    "sha256": "605e24fb29308cb5b1982b8ff696796973fb5a97aaa6b31e206adfebbd7fdfbf"
+  },
+  "composition_boundary": {
+    "simulator_observer_scheduler_repair_memory_specs_admitted": true,
+    "finite_winding_spectra_enclosed_with_multiplicity": true,
+    "full_Fock_contact_bounds_retain_all_virtual_sectors": true,
+    "finite_spectral_certification_is_interacting_continuum": false,
+    "radial_eta_identified_as_Standard_Model_or_Lorentz_current": false,
+    "all_nonlocal_or_broken_gauge_currents_classified": false,
+    "native_same_current_basis_changes_preserve_flavor_invariants": true,
+    "source_flavor_architecture_and_duty_policy_are_supplied": true,
+    "empirical_Yukawa_coefficients_consumed_by_flavor_calculation": false,
+    "static_mean_real_projector_feedback_has_zero_CP_invariant": true,
+    "static_mean_zero_CP_applies_to_all_correlated_feedback": false,
+    "finite_unread_feedback_equals_unitary_mean_action": false,
+    "P_dependent_memory_configuration_is_a_declared_design": true,
+    "target_informed_mass_architecture_is_an_independent_prediction": false,
+    "localized_native_current_mass_join_uses_extended_carrier": true,
+    "same_localized_CAR_current_and_P_mass_operator_constructed": true,
+    "record_driven_quadratic_limit_controlled_at_fixed_volume": true,
+    "local_Gauss_constraint_or_dynamical_gauge_fields_derived": false,
+    "localized_fermion_occupation_creates_texture_winding": false,
+    "finite_energy_topology_bound_uses_selected_ordered_rotation_orbit": true,
+    "finite_energy_derives_eventual_shell_admissibility_and_zero_degree": true,
+    "topology_energy_crossing_floor_is_particle_lifetime": false,
+    "bare_protected_repair_identity_equals_full_Hamiltonian_evolution": false,
+    "source_texture_vacuum_and_absolute_mass_scale_selected": false,
+    "same_source_current_map_to_observed_particles_complete": false,
+    "common_interacting_continuum_and_Einstein_model_constructed": false
+  },
+  "component_results": [
+    {
+      "id": "certified_winding_core",
+      "attachment": "FA-137",
+      "issues": [
+        1139,
+        1140,
+        1142,
+        1143
+      ],
+      "result": "All 28 complete finite source spectra have rational enclosures including matrix-construction error and every eigenvalue. Exactly 16 cases have a certified two-dimensional inversion-even kernel, 6 are invertible and 6 retain an unresolved kernel count. Of 84 contact attempts, 34 satisfy sufficient complete-Fock inequalities proving a Kramers ground pair and unique equal-gap addition/removal states with rank-two pole matrices. No virtual complement is discarded. Failed sufficient inequalities remain inconclusive.",
+      "interface": {
+        "state": "Every site and spin row of the 28 retained open-cube rational-map texture sources, at spacing and hopping velocity one and supplied masses one or four. The same centered contact acts on the complete Fock space.",
+        "algebra": "Exact rational source enclosures, dyadic full eigenbasis Gram and residual bounds, ordered Weyl intervals, inversion index and the actual particle-hole/Kramers maps. Integer dot products have checked binary64 limb and int64 recombination domains.",
+        "operation": "Reconstruct the literal source, certify every ordered eigenvalue with multiplicity, and join the exhausted odd-texture kernel to the complete-Fock contact theorem. All 28 source cases and all 84 supplied-contact attempts remain in the receipt.",
+        "clock": "The literal source Hamiltonian clock with supplied unit spacing and velocity. Contact couplings are 1/65536,2^-24,2^-40. No measured absolute energy scale or moving-defect dispersion is asserted.",
+        "refinement": "Finite matrices have rational spectral enclosures. Odd inversion index plus exhaustive intervals certifies a two-dimensional kernel without a strong-mass premise; the same complete-Fock theorem gives poles on its explicit small-contact domain. No volume-uniform interacting gap, continuum limit or observed-particle assignment follows."
+      },
+      "remaining": [
+        "Textures, masses, boxes and contact strengths are supplied source-family inputs; no native formation or vacuum-selection law derives them.",
+        "The inversion grading differs from the continuum Callias grading. No volume-uniform interacting limit or common massive/massless relativistic field is proved.",
+        "Pole gaps are finite transition energies, not measured species or relativistic defect rest masses. A same-current native particle map, motion and physical scale remain uninstantiated."
+      ],
+      "evidence": {
+        "model/certified_winding_core/PROOF.md": "c375171dccb876bcdbd2696abeade5e880d01fd9a480bf7464d469cf9ecddc4b",
+        "model/certified_winding_core/README.md": "d1fed2ab20b7a8caa5403fa67fd0e46b17af05d86021ecf80760b400dc01e47a",
+        "model/certified_winding_core/__init__.py": "1a60bc3ac7083e75ce840a7ccb5a07cee6135b18ebb39eb4f48fe0b2fbe47a67",
+        "model/certified_winding_core/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/certified_winding_core/catalogue.py": "b2ff9f7a858111c893ac6d6b1525311d4117ad400fe31aafbe4563cdcce52534",
+        "model/certified_winding_core/core.py": "c3f907d0738e949a1b089bef19f8a5e7ceabb7a3de916375d9f70cbb749e2443",
+        "model/certified_winding_core/intervals.py": "10c01d1646bef7c347315af1074ad69738e8c226c5c907f359b2e01cd3caff4c",
+        "model/certified_winding_core/packet.py": "0f86d33710fdd6539438f2194ab2aa4987fb9febff772e8925b17c4505d3a834",
+        "model/certified_winding_core/results.json": "d42dd8a917d2025d8ad321d278044e8dbf85e488c9aeaaca88a92e7b084c7bb0",
+        "model/certified_winding_core/spectrum.py": "0b1bd87f5f22e767baf3179ce93ee0599c298faa0275f72b72e306c5909886c9",
+        "model/certified_winding_core/test_packet.py": "a290c65a316001f37702bf5046e0480733e60c6d82486406311820561f3da8f5",
+        "model/certified_winding_core/test_spectrum.py": "01bf5e17a9c268ef2f95f95ab6fd23a95013d3496fa8fa34bceb07e6dc665e46"
+      }
+    },
+    {
+      "id": "radial_current_map",
+      "attachment": "FA-138",
+      "issues": [
+        1140,
+        1141,
+        1142,
+        1143
+      ],
+      "result": "The full local-even current algebra is exactly eta su(2), with number-preserving subgroup u(1); the complete edge kernel forces every quartic parity coefficient to vanish. The actual Kramers ground pair consists of two eta singlets, and the unique N26/N28 charged states form one exact eta doublet with ladder norm one and zero current leakage. At every site and both ground columns, the actual charge-addition/removal amplitudes obey A_plus=D_x i sigma2 A_minus. Each center Pauli current instead leaks outside the entire low quartet with squared norm at least 23489309429/68579205003925>1/4096. The faithful native color/weak/hypercharge action cannot be inherited from this conserved onsite-even algebra; no electroweak identification of eta is made.",
+      "interface": {
+        "algebra": "Every sum of arbitrary onsite even Hermitian four-state CAR operators, including pair creation, annihilation, quartic parity and constants. After quotienting constants, the conserved algebra is exactly su(2)_eta. The actual twelve native currents and their separately declared fifteen-dimensional exterior matter target are retained for comparison.",
+        "clock": "The original exp(-i H t) source Hamiltonian clock. Eta generators are dimensionless conserved operators. The spectral isolation uses a=v=1, m=64 and U=1/65536 with every Fock sector retained. No physical clock, Lorentz-spin identification or GeV calibration is inferred.",
+        "operation": "Solve the complete sixteen-variable two-site current kernels for all three hopping axes, transport the resulting fields through the connected source and impose its nonparallel transported texture directions. Construct the actual low-state eta intertwiner and full-CAR addition/removal amplitude identity. Certify nonzero center-spin leakage outside the entire interacting quartet; retain independent all-number 64-state controls.",
+        "refinement": "The local-current classification holds at every finite cube radius and interaction strength in the stated texture domain; open bipartite boundaries are required. The displayed interacting map and rational leakage bound use the finite parent isolation theorem and its volume-dependent contact condition. No nonlocal-current, long-time repair or interacting continuum limit is claimed.",
+        "state": "The complete two-mode-per-site Fock source on connected odd open cubes, with original Weyl hopping, a supplied nonzero radial or rational-map mass texture, and centered onsite contact. The exact low-state map uses the retained mass64 radius-one source and its proved complete isolated quartet; no extra matter register or zero-mode truncation is inserted."
+      },
+      "remaining": [
+        "The supplied texture, Hamiltonian coefficients and isolated spectral-state preparation are not selected by the observer or repair specification.",
+        "Broken gauge currents with dynamical links, multisite or emergent nonlocal current algebras lie outside the complete onsite-even classification. Their physical exclusion is not asserted.",
+        "Native repair preservation, a physical defect-to-Standard-Model current and statistics map, and a controlled interacting chiral continuum require separate constructions. The auxiliary fifteen-label target is not appended to the radial source.",
+        "The finite eta representation and addition/removal relation supply no moving-defect rest mass, observed species assignment, absolute physical clock or matched Einstein dynamics."
+      ],
+      "evidence": {
+        "model/radial_current_map/PROOF.md": "a8b6ce89b93163a53cddce1ebd90ba06ed6a93e9619b503476d8ed58ef75171e",
+        "model/radial_current_map/README.md": "0d645d410413d3c3376f949755c5255de2f1d6260922a9f869c0966beaf35231",
+        "model/radial_current_map/__init__.py": "0f9225f8530ce7b62d99708c51e19ff1fa891e90f0695201320221f369bd5b52",
+        "model/radial_current_map/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/radial_current_map/algebra.py": "ace2491dc5efec7b9bedbc24ed43c87449893cd24526a4892db005bfe4069510",
+        "model/radial_current_map/controls.py": "adfded38bc28fec19c3b9e7691eefcdb9c718ba894fe0b37bd182a90113b5377",
+        "model/radial_current_map/packet.py": "c3cae2fa32a13ce49da4898d11aa1c91d22c748691ee05e4be40c66f465be833",
+        "model/radial_current_map/representation.py": "82f095ddfacd43cb23cf20dc988b4633adf97447b81fbf0352630f4b3fe92862",
+        "model/radial_current_map/results.json": "4822ab5529f539d49d543fbf20bd31e4aa1f894943f158f250e837a3d2493efe",
+        "model/radial_current_map/test_currents.py": "6dcdc737b8c61e0af37191f8fcb3733611d026406eab05d34e4ddc352e5c1b6e",
+        "model/radial_current_map/test_packet.py": "31661b1f173b582232b2f9bbcb0d965126530e993eebf4cca5ff481a06285412"
+      }
+    },
+    {
+      "id": "native_flavor_orbit",
+      "attachment": "FA-139",
+      "issues": [
+        1141,
+        1142,
+        1143
+      ],
+      "result": "The exact fifteen-state commutant is C^5 and the complete three-family same-current canonical-kinetic embedding group is U(3)^5. One shared quark-left unitary preserves joint charged spectra and physical mixing invariants, so the fixed common-Y repair spectrum and trivial mixing cannot be changed by family embeddings. The distinct declared current-gated memory law derives different charged coefficients and nontrivial real quark mixing from its readable specification, with no supplied Yukawa entries. All four duty policies retain their full records and yield traces1,p,q,pq and ranks3,3,2,2 on the strict-positive gate domain. Their static45-row action ranks are42,42,28,28. All nine default coefficients and squared mixing entries have rational enclosures. Every real-projector coefficient in this class has exact zero charged-current CP invariant in every admissible embedding. A same-current gauge-allowed complex control has invariant4320*i, so covariance alone does not impose this restriction. Every complete finite feedback history has the exact auxiliary grading H=I tensor iA+X tensor S for its principal Hermitian generator, with A real antisymmetric and S real symmetric. All four unread duty channels have exact positive reference-assisted purity-loss bounds at finite pulse count on the positive-gate/nonidentity-step domain, including arbitrary independent initial memory for N>=2. The full 432-dimensional classical-memory/quantum-feedback map is singular and has no matrix logarithm. A complete two-step coherent tangent projection has explicitly nonzero iA. A complex positive-X-block countercontrol prevents promoting the auxiliary grading to a universal physical CP theorem.",
+      "interface": {
+        "algebra": "All twelve actual currents, their complete charge-block commutant, the entire U(3)^5 same-current canonical-kinetic family orbit, three native invariant Higgs tensors and the full45-row action. The underlying169 current-outcome pairs and128 native labels give21632 fine labels per old input, or259584 with all12 old inputs; declared binary grouping gives512 reduced records per input and6144 reduced memory/feedback Kraus factors.",
+        "clock": "Dimensionless current angle and feedback pulse step with Higgs norm1. No calibrated physical clock, absolute energy unit, empirical matching input or interacting pole-mass interpretation is supplied.",
+        "operation": "Compute exact commutant ranks and generic complex CAR/Higgs frame identities; sum the complete record law to derive the unique stationary Y(p,q) and all four unconditional duty coefficients; certify all nine charged singular coefficients and all nine quark mixing-modulus squares at the source default by rational Machin/Taylor bounds, LDL inertia and spectral-projector overlaps. The joint action uses the declared static mean-feedback service, without identifying it with finite-step correlated memory evolution. Compute complete-history symmetries, all twelve default one-step Choi purity intervals, finite-N lower bounds, the full-memory logarithm obstruction and the exact coherent two-step tangent projection without dropping records.",
+        "refinement": "Exact finite embedding, stationary coefficient and correlated-memory theorems. Principal coherent-history generators require absence of eigenvalue -1; continuous unitary limits have the same grading modulo scalar. Finite unread-channel nonunitarity requires 0<p,q<1 and epsilon not in2piZ, with arbitrary independent initial memory for N>=2. The CP obstruction is for the real off-diagonal coefficient in the declared auxiliary grading, not a physical-CP classification of the full process. Larger encodings, changed current maps, fine-current-output antiunitary covariance, a relativistic continuum and Einstein coarse-graining are outside these results.",
+        "state": "The declared native spin/exterior M15 current representation with three gauge-trivial family copies, canonical I45 kinetic form, both Higgs components and unit neutral Higgs norm. The complete current-input domains, all twelve old memory states and all native C/E records are retained. Source angle pi/5, reset2, independent current legs and the feedback service are readable implementation inputs; no empirical Yukawa entries are supplied."
+      },
+      "remaining": [
+        "The current interaction angle, auxiliary spin/exterior carrier, family realization, independent legs, memory controller and coherent/static services are declared readable source inputs. Reading them fixes this model and its dimensionless coefficients; it does not identify this implementation with nature or select another implementation.",
+        "The joint45-row spectrum belongs to the declared static mean-feedback action. No equality with the entire finite correlated-memory channel, actual native compilation of the current instrument, interacting relativistic particle poles or physical clock calibration is inferred.",
+        "Higher time-ordered coherent corrections retain the auxiliary real off-diagonal block but can add a nonzero imaginary antisymmetric diagonal term. The reduced finite channel is not unitary; no channel logarithm exists on the complete CQ domain. Identifying the auxiliary grading with physical chirality/CP, replacing the corrected generator by a pure Yukawa matrix, or extending covariance to fine-current output legs requires additional maps.",
+        "The embedding theorem fixes the same actual currents and canonical kinetic form on45 rows. Larger encodings, altered current dictionaries, noncanonical kinetic structures, microscopic radial-defect assignments and source-preserved topological charges require explicit maps.",
+        "No controlled interacting chiral continuum, physical vacuum selection, measured mass/mixing agreement or Einstein dynamics is constructed."
+      ],
+      "evidence": {
+        "model/native_flavor_orbit/PROOF.md": "c1e3796d1d15494fa9f50b646d92906e6d7767081409278312534cd90f93a91f",
+        "model/native_flavor_orbit/README.md": "73f2c021a03e2cfd3463002bcf186bca5a78737c603a58ab91011652313585e2",
+        "model/native_flavor_orbit/__init__.py": "15b16fc770925a548110294fc01d68d7ae817ae15985e987291b1f6b08d5e171",
+        "model/native_flavor_orbit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/native_flavor_orbit/algebra.py": "276cabf61520a6fdd3893c2730fd613c4d09feb5e57e2238376ba01d24dcc0bb",
+        "model/native_flavor_orbit/correlated.py": "4d87b6da9b2bd3e7ca52b9889d450c1250dd2779d59b1479801bc6b65e958dee",
+        "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
+        "model/native_flavor_orbit/packet.py": "1d3978c829ce7e7590150a7661e122118f52cf90bb8f67d326a71ae2103f527b",
+        "model/native_flavor_orbit/results.json": "6261b1be61a9758734c3ede3bc6896d56d77bc10754f75bfe08f11395f1de740",
+        "model/native_flavor_orbit/spectrum.py": "5f793b5f50ce4ae931df0439c6987cdf6c62235a5103a227f948933e9017c0f2",
+        "model/native_flavor_orbit/test_algebra.py": "7b84ec73c89c41ae58f2694f35251aed68241cdec5aae75faa884f68f6494c93",
+        "model/native_flavor_orbit/test_correlated.py": "1f4f464b3901d00606933a719e95f0150c4ac6bb854e6aa389af4dfd4d78bae0",
+        "model/native_flavor_orbit/test_packet.py": "464d7475e1b8c58c52ae833bbdf828bb87cef833cbfc6337a0238854c0c18ec2",
+        "model/native_flavor_orbit/test_spectrum.py": "dfbe4f442dc5ce5ba37bc399f5ea522ec4c9edbf2fceed35a95943f107fc0ded"
+      }
+    },
+    {
+      "id": "lattice_texture_selection",
+      "attachment": "FA-140",
+      "issues": [
+        1139,
+        1140,
+        1143
+      ],
+      "result": "On the actual selected ordered-ground rotation orbit, an acute degree-q cubic shell costs at least pi*J*kappa*abs(q). A nonacute shell costs more than J*kappa/2, so finite energy itself derives eventual shell admissibility and zero degree. The mixed finite bound is E>=(J*kappa/2)*N_bad+pi*J*kappa*sum_good|q|. The exact interpolation degree can change only through a convex-hull singularity costing at least2*J*kappa in absolute energy; this is not an activation barrier above the initial state. Every finite N-cube assignment admits a controlled onsite-rotation unwinding path with peak energy at most initial+J*(N^2+N+7). Complete native repair-only histories are identity on the protected spin/reference carrier with independent fair coin and raw0 records, so they supply no winding preference there. The actual hopping countercontrol prevents promotion to a claim about full dynamics.",
+      "interface": {
+        "algebra": "The actual spin-1/2 nearest-neighbor Hamiltonian J sum(Sx.Sy-1/4), covariance diag(a,b,b), kappa=-(a+b)>=m_order^2/2>1/2000000 and b<=0. Unit order directions are interpolated on complete oriented triangulated cubic shells; diagonals are interpolation edges only. Complete two-flavor C/E branch maps retain both coins and all16 raw slots.",
+        "clock": "Fixed lattice spacing and the inherited spin source clock with exchange J. The deformation is a supplied controlled path rather than Hamiltonian time evolution. Repair-only schedules are fixed or depend only on their retained repair records; no source-state inspection is smuggled into the schedule. No physical mass scale or proper gravitational clock is selected.",
+        "operation": "Count degree by exact rational regular-target cone intersections, validating closed sphere topology and every source edge. Derive shell energy and nonacute-cell costs from the actual covariance identity, construct a finite lexicographic onsite-rotation deformation, and verify the complete protected isometry on all two-site/three-site Fock inputs. Nonzero actual hopping out of the protected carrier is retained as a countercontrol.",
+        "refinement": "Exact finite shell bounds sum over disjoint concentric or separated shells. The nonnegative bond-energy sum implies every finite-energy rotation assignment has only finitely many nonacute shells and finitely many admissible nonzero-degree shells; all sufficiently large shells are acute and degree0. No radial-profile limit, smoothness assumption, finite-c transfer, interacting relativistic continuum or lifetime limit is asserted.",
+        "state": "Finite local rotations of the actual selected ordered spin ground, and the bondwise local-state extension to infinite rotation assignments. Its positive order and covariance bounds are inherited source results with an admitted ground-selection rule. Bare one-fermion-per-site states, with arbitrary untouched references, are used for the separate complete repair identity. These are not identified with dressed finite-c stationary states."
+      },
+      "remaining": [
+        "The selected ordered quantum ground and its source limit are inherited inputs. The result is restricted to its rotation orbit and bondwise extension, rather than energy minimized over all quantum states or a classification of source vacua.",
+        "Finite degree requires a declared complete shell interpolation. Finite source energy proves eventual admissibility in this orbit, but no exact microscopic topological superselection operator, metastability, lifetime or autonomous unwinding trajectory is derived.",
+        "Protected repair identity applies to repair-only intervals and specified onsite controls on the bare carrier. Full Hamiltonian hopping leaves that carrier; finite-c dressed states, interacting repair stationarity and a texture formation law are not supplied.",
+        "A mapping from the spin order direction to the prescribed fermion Dirac mass texture is not constructed. No observed species, finite defect mass shell, absolute mass scale, interacting relativistic QFT or Einstein dynamics is inferred."
+      ],
+      "evidence": {
+        "model/lattice_texture_selection/PROOF.md": "84eca41be50413dde8d8f9d12a013ff4283cafdc8b9e0ba3d0d800ceaababf76",
+        "model/lattice_texture_selection/README.md": "4fca4455ccb0240dfcf3f2d9d03b837d5906ed924eb9030b450ac468597a08c3",
+        "model/lattice_texture_selection/__init__.py": "b9c33eac2b6b0fa2f2861fe68fdfc0d2a55dc029cfa269bf6facf5ec44f811cb",
+        "model/lattice_texture_selection/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/lattice_texture_selection/energy.py": "a89942e484d5b6855121f2b378d4b9678c85b115967a9500d7abbe3744729248",
+        "model/lattice_texture_selection/packet.py": "f386b967a1f39ae6638b70ea3f0c7efb1e6e11160f7daa708b431d9db7bbbaf7",
+        "model/lattice_texture_selection/repair.py": "09cb72ceac4af6c613241f0a4b6a0f1beab53df1808f365570f725c491a63f60",
+        "model/lattice_texture_selection/results.json": "75a2b790865f5e471b17b13e3101133a400660f34594ffe3855cb4b43744fc60",
+        "model/lattice_texture_selection/shells.py": "11186ebe495245d7d12860a643e82a0938a5f382800bb32257898502f10e2e98",
+        "model/lattice_texture_selection/test_energy.py": "370ceb89433d413488299e426ab8d7cc3dab622eeb2f3d595998387db98fc95c",
+        "model/lattice_texture_selection/test_packet.py": "43872f00adcf232299e04d31b82cb256faf0dfe976aedc3cb5d44d8ed938579f",
+        "model/lattice_texture_selection/test_repair.py": "5853d14f409ab5040fdeecd3e467b8b803b85da3fa47b5a2f90b55f2e507dc55",
+        "model/lattice_texture_selection/test_shells.py": "e87486754ddef159388818caed029ebcfe2ded224def65db7191047ae429d71e"
+      }
+    },
+    {
+      "id": "mcpr_native_memory_bridge",
+      "attachment": "FA-141",
+      "issues": [
+        1141,
+        1142,
+        1143
+      ],
+      "result": "The retained conditional P/MCPR charged triple is realized as the eigenvalues of the actual native-memory coefficient with independently chosen left/right current-probe durations and a common C-duty feedback gain. The same twelve-input reset2 controller and C/E repair law are retained. Both source-coordinate branches have three certified positive projector weights and two admissible inverse rate pairs; every source matrix has norm strictly below1. The complete correlated pulse service converges to the corresponding mass Hamiltonian with an explicit O(1/N) trace-norm bound including arbitrary untouched finite references. The family diagonalization commutes with every native gauge current and preserves canonical kinetic normalization.",
+      "interface": {
+        "algebra": "Actual native gauge currents on M15 and gauge-trivial F3, the literal projectors P2,P3,P10, all12 memory inputs, all128 native C/E labels, all13 outcomes on each current leg. Complete binary grouping has512 records per old input; fine current labels give21632 per input.",
+        "clock": "Dimensionless pulse time and mass coefficients m_i/v or m_i/E_star. No laboratory clock calibration or physical pole matching is supplied.",
+        "operation": "Compute the retained MCPR source formula, invert its three spectral invariants into positive projector weights and two current-gated rate pairs, choose the source gain sum(m_i/v)/p, and apply the complete C-duty pulse service. Independent direct record summation verifies the source mass matrix. Rational enclosures certify inverse existence and norm bounds.",
+        "refinement": "Weak-pulse limit N→infinity at fixed dimensionless time, with error at most4gT/[N(1-p)]+(8/(1-p)+4)g²T²/N. The finite unread channel need not be unitary. This is not a continuum spacetime or Einstein limit.",
+        "state": "Arbitrary normalized classical/quantum memory states with an untouched finite reference; stationary product removes the transient averaging term. The two supplied P/alpha_U decimal pairs are exact conditional source inputs, including explicit measured-alpha provenance on the endpoint-control branch."
+      },
+      "remaining": [
+        "The chosen memory timing and gain realize the conditional source mass law; the target-informed MCPR architecture remains a design input and its numerical agreement is not a prospective prediction.",
+        "The supplied forward P/alpha_U coordinates are not certified as the complete physical endpoint. The measured-endpoint control inherits measured-alpha calibration.",
+        "The coherent pulse service is specified explicitly; compilation into a smaller native pulse alphabet and physical interacting pole-mass/clock identification are separate requirements.",
+        "This theorem supplies no complete quark or neutrino parameter derivation, creation of topological winding by particle occupation, relativistic continuum or Einstein dynamics."
+      ],
+      "evidence": {
+        "model/mcpr_native_memory_bridge/PROOF.md": "14727c45253a6b42f7ad7fb5ab9eba629e327a57747ab7a128c150a5f9a72856",
+        "model/mcpr_native_memory_bridge/README.md": "ae3f927457b66db896bf970b5e7a511f15cadecc009c39f65caf1bf6219efe6d",
+        "model/mcpr_native_memory_bridge/__init__.py": "34257435ab651f40063536b70e590f54945ab9bbb2f51062f0336b9b691c5479",
+        "model/mcpr_native_memory_bridge/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/mcpr_native_memory_bridge/certificate.py": "5d0e13de9bf8c286525d4f1d8e9aceb93cf6cbf838d70e98a0ff5e576ea5c262",
+        "model/mcpr_native_memory_bridge/construction.py": "caa4d3f58893a692d1a563263d56443efa8e3129deeae488ac31c13255968438",
+        "model/mcpr_native_memory_bridge/packet.py": "aeda9c77888feb739572836352cab4b29b4d2fd4ac856d0868dd68ff19f3eef2",
+        "model/mcpr_native_memory_bridge/results.json": "aa86ac60b86cc3619ca97d47c364d9bb0606e1f411ec4c46e9fac137832f063e",
+        "model/mcpr_native_memory_bridge/test_bridge.py": "82a44830858ded47f2381167328136f67e61ef58c6aba8f4e200a61c30192688"
+      }
+    },
+    {
+      "id": "defect_current_bridge",
+      "attachment": "FA-142",
+      "issues": [
+        1139,
+        1140,
+        1141,
+        1142,
+        1143
+      ],
+      "result": "A chosen local carrier and coherent record service put the retained pixel-dependent charged-lepton matrix, every native gauge current and the same radial defect wavefunctions into one exact finite operator/state map. Both pixel inputs and both admissible memory branches pass complete4860-row checks. The displayed Stage5 quark design and zero minimal neutrino coefficients give rank42 for K45, with84 positive,84 negative and12 zero localized Nambu rows. Every record preserves the inclusion and converges to its mean full-Fock Hamiltonian with error at most4MT/[N(1-p)]+(8/(1-p)+4)M^2T^2/N. Original site resolution and unstaggered pairing fail preservation as explicit countercontrols.",
+      "interface": {
+        "algebra": "Explicit CAR lift ell2(Lambda) tensor C2 tensor native M15 tensor F3, with all twelve actual anti-Hermitian currents and local creation pairing Delta=(D i sigma2) tensor conjugate(K45). The family copies and coherent record service are chosen simulator design inputs.",
+        "clock": "Chosen v(P) energy unit, radial hopping v/a=1 and texture coefficient64. Every full-record field pulse has duration T/N. The bound controls finite-Fock evolution against the stationary-mean Hamiltonian; no laboratory clock or relativistic mass interpretation is supplied.",
+        "operation": "The actual kernel isometry W intertwines all native currents and the full Nambu Hamiltonian with its180-row localized operator. The lepton block is the same MCPR native-memory coefficient, with exact sqrt2 Higgs normalization. Complete record-dependent pairings preserve that same inclusion pulse by pulse, and their weak-step average converges with an explicit reference-uniform error bound.",
+        "refinement": "Fixed finite-volume weak-step N to infinity, with all complete memory records and auxiliary probe outcomes retained. The full spectrum is additive lambda(h) plus/minus singular(K); 2||K||<d isolates single-quasiparticle bands. No uniform-volume bound, many-body band isolation or interacting continuum follows.",
+        "state": "The radius-one witness retains27 sites,2430 physical annihilator modes,4860 Nambu rows and2340 complementary annihilators. Its localized CAR subalgebra has90 annihilators; an exact even-state inclusion tensors normalized trace on the complement. The prescribed texture is not created by fermion occupation."
+      },
+      "remaining": [
+        "The native matter lift, three family copies, retained target-informed MCPR architecture, Stage5 quark exponents, coherent field service and v(P) normalization are explicit design choices. Their physical identification and parameter independence are not inferred.",
+        "The background radial texture is prescribed. Bound-state occupation does not create a topological defect; the two source spin rows do not establish Lorentz spin, chirality or a massless continuum.",
+        "The complete finite spectrum is quadratic and has additive bulk dispersion. Single-quasiparticle isolation does not establish interacting many-body isolation, a common relativistic continuum, renormalized pole masses or physical CKM mixing.",
+        "The fresh auxiliary native probes and chosen coherent service do not establish preservation under the original site-field repair. A physical clock, same-source electromagnetic response and responsive Einstein geometry are not proved."
+      ],
+      "evidence": {
+        "model/defect_current_bridge/PROOF.md": "2643736e48a68c5595c7cc398179673c1447950b583a2309540fcab2fc351c3c",
+        "model/defect_current_bridge/README.md": "21d546260fc07f1d6ed869819a418dc5a4e01ab88fda3c1af01f5b656924d6c6",
+        "model/defect_current_bridge/__init__.py": "9208a86087f823d844d617738fe32edc9dfaa8d92618b7fcb33edbac0ee6c830",
+        "model/defect_current_bridge/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+        "model/defect_current_bridge/algebra.py": "31a643fbd505c5a2cfc98d4bb5f4cf86d60119c56b8dfee722eac82e8f78a131",
+        "model/defect_current_bridge/construction.py": "c68b7c5e97384d7b954f2cf8e40e83e0748f5c01da60dd849ea81d50715758d3",
+        "model/defect_current_bridge/controls.py": "0d9d8dcadf99655daf1be377b010c87731805ed811c54f418bd6016083f5ab78",
+        "model/defect_current_bridge/packet.py": "b555b8897ba90795492d8d74d617717461c546fefc7ceafd28cd76dafa1cbc4e",
+        "model/defect_current_bridge/results.json": "71b69d23d9fa104705b38c1477b8b187e6b80c55648990e666281c3f637c87a4",
+        "model/defect_current_bridge/test_bridge.py": "48f1dc2b0daaa298444c2e7368600dd008f58c56becb250f3499c11208f9ba0c",
+        "model/defect_current_bridge/test_packet.py": "de4554e000d6202b4f82342810d9bcc07feda62fef6dfc31b41423070ea11567"
+      }
+    }
+  ]
+}

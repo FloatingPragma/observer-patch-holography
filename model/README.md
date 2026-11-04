@@ -7,6 +7,14 @@ evidence needed to accept or stop each stage. The packages below are retained
 components and controls; they do not constitute separate particle definitions
 or a completed physical realization.
 
+The [source particle map](completion/SOURCE_PARTICLE_MAP.md) distinguishes
+certified finite interacting poles, their exact radial currents, the native
+memory realization of the pixel-dependent lepton operator, its localized
+native-current inclusion, and the lattice texture energy constraint.
+It identifies each readable source input and each unresolved
+map to observed particles. The five-issue contract is
+[particle_derivation_campaign.json](completion/particle_derivation_campaign.json).
+
 The [winding search](winding_sector_search/README.md) derives the full-valley
 index of supplied higher-degree textures and retains 28 complete finite
 spectra. The [Majorana bridge](majorana_defect_bridge/README.md) joins the

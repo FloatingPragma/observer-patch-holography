@@ -399,6 +399,13 @@ REPLAYS = (
     ("model.radial_drift_readout", None, "model/radial_drift_readout/results.json"),
     ("model.majorana_defect_bridge", None, "model/majorana_defect_bridge/results.json"),
     ("model.higgs_curvature_response", None, "model/higgs_curvature_response/results.json"),
+    ("model.certified_winding_core", None, "model/certified_winding_core/results.json"),
+    ("model.radial_current_map", None, "model/radial_current_map/results.json"),
+    ("model.native_flavor_orbit", None, "model/native_flavor_orbit/results.json"),
+    ("model.lattice_texture_selection", None, "model/lattice_texture_selection/results.json"),
+    ("model.mcpr_native_memory_bridge", None, "model/mcpr_native_memory_bridge/results.json"),
+    ("model.defect_current_bridge", None, "model/defect_current_bridge/results.json"),
+    ("model.completion.source_flavor_comparison", None, "model/completion/source_flavor_comparison.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
 )
 

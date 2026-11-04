@@ -1,0 +1,302 @@
+\section{Flavor from a specified current-dependent memory}
+\label{sec:source-flavor-orbit}
+
+Reading a complete repair and memory specification fixes its predictions,
+including predictions that disagree with particle observations. Consider the
+declared module
+\(M=\Lambda^2\mathbb C^5\oplus\Lambda^4\mathbb C^5\), its twelve native
+current generators \(G_a\), and a gauge-trivial family factor
+\(F=\mathbb C^3\). The three families, spin/exterior realization, canonical
+kinetic form \(I_{45}\), and neutral Higgs background \(H=(0,1)\) are inputs.
+They do not follow from a defect multiplicity. The calculation below uses no
+empirical Yukawa coefficients; this runtime fact makes no claim about
+target-independent design history.
+
+\begin{proposition}[Complete family orbit]
+\label{prop:source-flavor-orbit}
+Every unitary on \(M\otimes F\) preserving the same twelve currents and
+canonical kinetic form belongs to \(\mathrm U(3)^5\), with one common
+family unitary on the two components of the quark weak doublet.
+\end{proposition}
+\begin{proof}
+The primitive charge, an exact linear combination of the native currents,
+has eigenvalues \((-4,-3,1,2,6)\) with multiplicities \((3,2,6,3,1)\).
+Any commuting operator preserves these five blocks. The complete
+commutator equations within them have ranks \((8,3,35,8,0)\) in
+\((9,4,36,9,1)\) complex unknowns. Each kernel consists precisely of the
+identity. Therefore
+\begin{equation}
+ \{G_a\}'=\mathbb C^5,\qquad
+ \{G_a\otimes I_3\}'=\bigoplus_{q=-4,-3,1,2,6}M_3(\mathbb C).
+ \label{eq:source-flavor-commutant}
+\end{equation}
+Taking the unitary elements proves the assertion.
+\end{proof}
+
+Let \(S_q\) be these five unitaries. In the all-left Weyl convention the
+symmetric pairing kernel transforms as \(K\mapsto S^tKS\); its directed
+Higgs block contains \(\overline Y\). Consequently
+\begin{equation}
+ Y_u'=S_1^\dagger Y_u\overline S_{-4},\qquad
+ Y_d'=S_1^\dagger Y_d\overline S_2,\qquad
+ Y_e'=S_{-3}^\dagger Y_e\overline S_6.
+ \label{eq:source-flavor-transform}
+\end{equation}
+Each singular spectrum is invariant. Writing \(H_f=Y_fY_f^\dagger\),
+both quark matrices undergo the same similarity by \(S_1\), preserving
+their spectral-projector overlaps and \(\operatorname{tr}[H_u,H_d]^3\).
+A specified law with \(Y_u=Y_d=Y_e\) cannot acquire distinct hierarchies
+or physical quark mixing through these embeddings. The complete Higgs
+invariant spaces nevertheless permit three arbitrary complex matrices;
+current covariance alone does not select their 27 complex entries.
+
+\subsection{Stationary coefficients from complete records}
+\label{subsec:source-flavor-memory}
+
+The specified alternative law uses the matter lifts \(F_a\) of a current
+frame orthonormal for \(-\operatorname{tr}_6(XY)\) on the six-dimensional
+response carrier. With \(\mathcal C=\sum_aF_a^\dagger F_a\), its thirteen
+apparatus Kraus operators are
+\[
+ M_0=\cos(\theta\sqrt{\mathcal C}),\qquad
+ M_a=iF_a\frac{\sin(\theta\sqrt{\mathcal C})}{\sqrt{\mathcal C}}.
+\]
+Their Gram sum is the identity. The recorded jump/no-jump grouping keeps
+both outcomes. On the invariant left and right Higgs domains its effects
+are scalar, so the two-leg probabilities factorize even for entangled
+inputs. Combining them with the complete native repair records gives the
+C-event and E-event probabilities
+\begin{equation}
+ p=\frac1{12}\sin^2(\theta\sqrt{c_L}),\qquad
+ q=\frac1{6}\sin^2(\theta\sqrt{c_R}),\qquad
+ (c_L,c_R)=
+ \begin{cases}
+ (25/8,4),&u,\\
+ (25/8,3),&d,\\
+ (9/8,3),&e.
+ \end{cases}
+ \label{eq:source-flavor-gates}
+\end{equation}
+The angle, independent current legs, coherent feedback and reset rule are
+readable implementation inputs. The retained angle is \(\theta=\pi/5\).
+Each feedback pulse uses \(X\otimes P_j\), where \(X\) is the Pauli flip
+of a two-state auxiliary register.
+
+The twelve memory ports reset to port 2. Set \(a=p(1-q)\), \(b=pq\) and
+\(D=1-a^2+ab\). Within the recurrent ports, the nonreset transitions are
+\(2\to3\) with probability \(a\), \(3\to10\) with probability \(b\),
+and \(9\leftrightarrow10\) with probability \(a\). All other weight
+returns to port 2. The full transition retains every transient input and
+has reset probability at least \(1-p>0\), hence a unique stationary law:
+\begin{equation}
+ \pi_2=\frac{1-a}{D},\quad \pi_3=a\pi_2,\quad
+ \pi_{10}=\frac{ab\pi_2}{1-a^2},\quad \pi_9=a\pi_{10}.
+ \label{eq:source-flavor-stationary}
+\end{equation}
+All other stationary weights vanish. To specify the geometric projectors,
+put \(A=(5-\sqrt5)/10\), \(B=(5+\sqrt5)/10\), and
+\[
+ v_2=(\sqrt A,\sqrt B,0)^t,\quad
+ v_3=(\sqrt A,-\sqrt B,0)^t,\quad
+ v_{10}=(\sqrt B,0,\sqrt A)^t.
+\]
+Then \(P_j=v_jv_j^t\) and \(P_9=P_{10}\). The unconditional stationary
+coefficient is exactly
+\begin{equation}
+ Y(p,q)=\frac{(1-a)P_2+a(1-a)P_3+abP_{10}}{D}.
+ \label{eq:source-flavor-Y}
+\end{equation}
+
+The four pulse duties are unconditional, C-event, E-event and joint event.
+Their coefficients are
+\[
+ Z_D=\sum_{m,r}\pi_m w_r\chi_D(r)P_{F(m,r)}.
+\]
+Disabled pulses act as identity and their records are retained.
+For \(0<p,q<1\), the traces and ranks are
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Duty & Unconditional & C & E & CE\\
+\midrule
+\(\operatorname{tr}Z_D\) & \(1\) & \(p\) & \(q\) & \(pq\)\\
+\(\operatorname{rank}Z_D\) & 3 & 3 & 2 & 2\\
+Full \(45\)-row kernel nullity & 3 & 3 & 17 & 17\\
+\bottomrule
+\end{tabular}
+\end{center}
+In particular \(Z_C=Y-(1-p)P_2\), generally unequal to \(pY\).
+There is no normalization by a success probability. The fine instrument
+has \(128\cdot169\cdot12=259584\) labels. Tracing the current apparatus
+and using its declared binary grouping gives \(512\cdot12=6144\)
+memory/feedback labels, without postselection.
+
+\subsection{Certified spectrum, mixing and the finite-time domain}
+\label{subsec:source-flavor-spectrum}
+
+For unconditional duty at \(\theta=\pi/5\), each table entry \(x\)
+denotes the rigorous interval \([x,x+10^{-12}]\). These dimensionless
+coefficients use unit Higgs norm and the declared feedback clock.
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Channel & First & Second & Third\\
+\midrule
+Up & 0.000157642145 & 0.042791271223 & 0.957051086630\\
+Down & 0.000140141555 & 0.043690776544 & 0.956169081900\\
+Charged lepton & 0.000031794364 & 0.021486046753 & 0.978482158882\\
+\bottomrule
+\end{tabular}
+\end{center}
+The source Higgs tensors have unit nonzero singular value. Each up or
+down coefficient occurs six times in \(K\), each lepton coefficient twice;
+three neutral directions complete its 45 rows. Thus no unlisted charged
+or zero direction is discarded.
+
+With ascending eigenvalues and \(V=U_u^\dagger U_d\), the squared mixing
+moduli lie entrywise between the following matrix and that matrix plus
+\(10^{-9}\) in every entry:
+\begin{equation}
+ \begin{pmatrix}
+ 0.999999540&0.000000458&0\\
+ 0.000000458&0.999999188&0.000000352\\
+ 0&0.000000352&0.999999647
+ \end{pmatrix}.
+ \label{eq:source-flavor-mixing-box}
+\end{equation}
+Rational bounds from \(\pi=16\arctan(1/5)-4\arctan(1/239)\) and the sine
+series enclose the gates. Interval \(LDL^\dagger\) inertia certifies each
+eigenvalue, and
+\(P_i(Z)=\prod_{j\ne i}(Z-\lambda_jI)/(\lambda_i-\lambda_j)\)
+certifies \(\operatorname{tr}(P_i(Y_u)P_j(Y_d))=|V_{ij}|^2\).
+The bounds do not depend on numerical eigensolver accuracy.
+
+The mixing is nontrivial analytically: direct substitution gives
+\[
+ [Y(p,q),Y(p,r)]_{02}=
+ \frac{(\sqrt5-1)p^2(q-r)
+ [p^2(1-q)(1-r)+q+r-1]}{10D(p,q)D(p,r)}.
+\]
+For \(0<p\le1/12\) and \(0\le q,r\le1/6\), the bracketed factor is at
+most \(-95/144\). The up and down left gates agree, while
+\(q_u>q_d\) at \(\pi/5\). Their positive squared matrices consequently
+do not commute. Yet every stated duty coefficient is real symmetric, so
+\([H_u,H_d]\) is real antisymmetric and
+\begin{equation}
+ \operatorname{tr}[H_u,H_d]^3=0.
+ \label{eq:source-flavor-CP}
+\end{equation}
+Equation~\eqref{eq:source-flavor-transform} preserves this charged-current
+restriction on combined charge conjugation and parity (CP) in every
+admissible family frame.
+
+These are stationary first-order coefficients. The joint action uses a
+declared static mean-feedback service. For one unconditional correlated
+memory channel, let \(\rho_N\) be the reduced feedback/reference state
+after \(N\) pulses of step \(t/N\), and \(\rho_0\) its initial marginal.
+With \(\mathcal U_t(\rho)=e^{-itX\otimes Y}\rho e^{itX\otimes Y}\),
+\[
+ \|\rho_N-(\mathcal U_t\otimes\operatorname{id}_R)(\rho_0)\|_1
+ \le\frac{4pt+4(1+p)t^2}{N(1-p)}
+\]
+for any external reference \(R\). Only a stationary product preparation
+removes the \(4pt\) term; a stationary marginal alone does not remove
+memory correlations. The estimate uses contraction by \(p\) on zero-sum
+operator-valued memory blocks and the commutator bound
+\(\|[X\otimes P_j,\,\cdot\,]\|\le2\). Finite-time noise and higher-order time-ordering
+terms are therefore distinct from the static coefficient catalogue.
+No physical pole-mass matching, absolute clock calibration or defect-to-field
+identification follows from these calculations. Exact matrices, rational
+enclosures and complete record controls are supplied in
+\path{model/native_flavor_orbit/PROOF.md} and
+\path{model/native_flavor_orbit/results.json}.
+
+\subsection{Exact histories and finite-memory noise}
+\label{subsec:source-flavor-histories}
+
+\begin{proposition}[History grading and unread-channel obstruction]
+\label{prop:source-flavor-histories}
+Every retained feedback history commutes with \(X\otimes I_3\) and is fixed
+by the antiunitary \(\Theta=(Z\otimes I_3)K\), where \(K\) is conjugation
+in the declared source basis. If its spectrum excludes \(-1\), its
+principal Hermitian generator has the exact form
+\begin{equation}
+ H=I_2\otimes iA+X\otimes S,\qquad
+ A^t=-A,\quad S^t=S,\quad A,S\text{ real}.
+ \label{eq:source-flavor-history-grading}
+\end{equation}
+For \(0<p,q<1\), nonidentity pulse step
+\(\epsilon\notin2\pi\mathbb Z\), and every finite \(N\ge2\), the unread
+feedback channel from any independent initial memory preparation is
+nonunitary, for all four duties.
+\end{proposition}
+\begin{proof}
+Each pulse \(U_j=e^{-i\epsilon X\otimes P_j}\) obeys the two symmetries
+because \(P_j\) is real and \(ZXZ=-X\). Products preserve both identities
+in their original order. The principal logarithm consequently commutes
+with \(X\) and satisfies \(\Theta H\Theta^{-1}=-H\), giving
+\eqref{eq:source-flavor-history-grading}. The sufficient condition
+\(\sum_j|\epsilon_j|<2\) follows from \(\|U-I\|<2\).
+
+For the second assertion use the normalized Choi state
+\(J_N=\sum_h w_h|U_h\rangle\!\rangle\langle\!\langle U_h|/6\)
+of the complete history sum. Distinct active projectors satisfy
+\(\operatorname{tr}(P_iP_j)=1/5\), so the normalized trace overlaps are
+\(t_0=(2+\cos\epsilon)/3\) for idle versus active and
+\(t_1=(7+8\cos\epsilon)/15\) for distinct active pulses.
+For unconditional duty, compare all C-events false with the history whose
+only C-event is at the final step, with its E-event false. The common
+prefix resets to port 2, and the final pulses are \(U_2,U_3\). For the
+other duties use an all-inactive prefix and one final active event. Their
+positive pairwise contributions to the full Choi purity defect give
+\begin{equation}
+ 1-\operatorname{tr}J_N^2\ge
+ \begin{cases}
+ 2a(1-p)^{2N-1}(1-t_1^2),&\text{unconditional},\\
+ 2d_D[(1-p)(1-q)]^{2N-1}(1-t_0^2),&D=C,E,CE,
+ \end{cases}
+ \label{eq:source-flavor-finite-noise}
+\end{equation}
+where \(d_C=a,d_E=(1-p)q,d_{CE}=b\). These terms are strictly positive;
+no history is conditioned away.
+\end{proof}
+
+If \(\delta=1-\operatorname{tr}J_N^2\), the distance from every unitary
+channel in the unhalved diamond norm is at least
+\(2(1-\sqrt{1-\delta})\ge\delta\). This follows by testing a normalized
+maximally entangled input and bounding every pure-state overlap of its
+output by \(\lambda_{\max}(J_N)\le\sqrt{\operatorname{tr}J_N^2}\).
+The finite-history lower bounds decay with \(N\); they do not assert an
+asymptotic noise floor or contradict the weak-pulse estimate above.
+
+For one stationary step the exact defect is
+\(2w_0(1-w_0)(1-t_0^2)+[(1-w_0)^2-w_2^2-w_3^2-w_{10}^2](1-t_1^2)\),
+where \(w_0\) is the idle weight and \(w_j\) sums every record applying
+\(P_j\). This provides rationally enclosed witnesses for all three
+channels and four duties. The full classical-memory/quantum-feedback channel has
+operator-space dimension \(432\), but its two forbidden output memory
+ports give rank at most \(360\). It therefore has no matrix logarithm.
+Restricting to recurrent ports changes the domain and leaves the
+eigenvalue \(-a\) on identity feedback blocks, excluding the standard
+principal logarithm on the negative-axis cut.
+
+The diagonal term \(iA\) in
+\eqref{eq:source-flavor-history-grading} need not vanish after averaging
+histories. For the Hilbert--Schmidt projection of the complete two-step
+channel onto Hamiltonian commutators, at \(p=1/12,q=1/6\),
+\(\cos\epsilon=99/101\), and \(\sin\epsilon=20/101\), exact multiplication
+gives \(A_{02}=1656589(\sqrt5-1)/899081864640>0\). This projection is a
+coherent diagnostic, not an exact channel generator.
+The graded off-diagonal coefficient \(S\) remains real, but in the
+\(X\) eigenbasis the block \(S+iA\) can be complex Hermitian. For example
+\(K_u=\operatorname{diag}(1,2,3)\) and
+\(K_d=\left(\begin{smallmatrix}1&1&i\\1&2&1\\-i&1&3\end{smallmatrix}\right)\)
+both occur in the containing graded class and satisfy
+\(\operatorname{tr}[K_uK_u^\dagger,K_dK_d^\dagger]^3=-34560i\).
+This is a counterexample to a universal CP inference from that symmetry;
+it is not a claim that these blocks are reached by the controller or are
+physical Yukawa matrices. The auxiliary antiunitary is not identified
+with physical CP. Its covariance extends to the reduced memory and
+feedback channel, whereas the complex fine-current output legs require
+a separately specified antiunitary map.

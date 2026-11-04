@@ -1,0 +1,170 @@
+\section{Certified defect spectra and their conserved currents}
+\label{sec:certified-defect-currents}
+
+Consider the complete fermion Fock space on the open cube
+$\Lambda_R=\{-R,\ldots,R\}^3$, $R\geq1$, with $V=|\Lambda_R|$ and two
+modes per site.  With canonical anticommutation relations, define
+\begin{align}
+ H&=\sum_{x,y}c_x^\dagger h_{xy}c_y+\mathcal W,
+ &\mathcal W&=U\sum_x(n_{x\uparrow}-\tfrac12)
+                         (n_{x\downarrow}-\tfrac12),\label{eq:cdc-source}\\
+ h_{x,x+e_j}&=\frac{iv}{2a}\sigma_j,
+ &h_{xx}&=m\sum_j(-1)^{x_j}u_j(x)\sigma_j,\qquad h_{00}=0.
+ \nonumber
+\end{align}
+Reverse hopping blocks are adjoints; other blocks vanish.
+Here $a,v,m,U>0$ are supplied parameters.  The unit direction $u(x)$ is
+radial, or is a specified sphere map of degree $k\neq0$ obtained from
+stereographic $w\mapsto w^{|k|}$ and the appropriate target orientation.
+This defines a Hamiltonian with a pinned mass texture; it assumes neither
+a formation mechanism nor an identification of winding with particle charge.
+
+\begin{proposition}[Complete finite spectral certificate]
+\label{prop:cdc-spectral-certificate}
+Let $h_q=h_q^\dagger$ approximate the full $2V$-dimensional matrix $h$,
+let $Q$ be square, and let $\mathcal L=\operatorname{diag}(\lambda_1,
+\ldots,\lambda_{2V})$ have ordered real entries.  Suppose
+\[
+ \|h-h_q\|\leq s,\quad
+ \|Q^\dagger Q-I\|\leq\gamma<1,\quad
+ \|h_qQ-Q\mathcal L\|\leq r,\quad \|\mathcal L\|\leq L.
+\]
+Every ordered eigenvalue of $h$ lies in $[\lambda_j-\delta,\lambda_j+\delta]$,
+where
+\begin{equation}
+ \delta=s+\frac{r+2L(1+\gamma)\gamma}{1-\gamma}.
+ \label{eq:cdc-spectral-error}
+\end{equation}
+If $u(-x)=-u(x)$ and exactly two such intervals contain zero, then
+$\ker h$ has dimension two and is inversion-even.
+\end{proposition}
+\begin{proof}
+Put $G=Q^\dagger Q$ and $Q_0=QG^{-1/2}$.  This is a square unitary matrix.
+The identity
+$h_qQ_0-Q_0\mathcal L=(h_qQ-Q\mathcal L)G^{-1/2}
++Q[\mathcal L,G^{-1/2}]$, together with
+$\|G^{-1/2}\|\leq(1-\gamma)^{-1}$,
+$\|G^{-1/2}-I\|\leq\gamma/(1-\gamma)$ and $\|Q\|\leq1+\gamma$,
+gives \eqref{eq:cdc-spectral-error}.  Weyl's inequality then includes every
+eigenvalue and multiplicity.  Spatial inversion $\mathcal R$ anticommutes
+with $h$.  Its trace is two, from the two origin modes, so rank-nullity gives
+$\dim\ker h|_{\mathcal R=+1}-\dim\ker h|_{\mathcal R=-1}=2$.
+The two zero-containing intervals exhaust this lower bound.
+\end{proof}
+
+Rational intervals for the sphere-map coefficients bound $s$; exact dyadic
+Gram and residual calculations bound $\gamma,r$.  Numerical eigenvectors
+only propose $Q$.  At $a=v=1$, the cases $R=1,2,3$, $k=1,2,3,4$, $m=1,4$,
+and the additional cases $R=4,5$, $k=1,3$, $m=1$ give 28 complete matrices:
+16 certified two-dimensional kernels, six invertible matrices and six
+unresolved kernel counts.  A six-level degree-three window contains two
+exact zeros and four nonzero levels, rather than six protected zero modes.
+
+Let $d>0$ be the distance of all remaining spectral intervals from zero.
+The staggered particle-hole map and its product with inversion give a
+symplectic zero frame $W$ whose site blocks satisfy
+$W_x^\dagger W_x=\rho_x I_2$, $\sum_x\rho_x=1$.
+Filling every negative mode and allowing both zero-mode occupations gives
+a four-dimensional free ground space, with projector $P$ and particle
+numbers $V-1,V,V,V+1$.  The filled-sea Wick calculation yields
+\begin{equation}
+ P\mathcal WP=C+U\mathcal I
+       \bigl(n_1n_2-\tfrac12(n_1+n_2)\bigr),\qquad
+ \mathcal I=\sum_x\rho_x^2\geq V^{-1}.
+ \label{eq:cdc-contact-compression}
+\end{equation}
+For $w=UV/4<d/4$, the complementary Feshbach inverse bounds each of the
+four low-energy corrections by $\varepsilon=w^2/(d-2w)$ and the associated
+projector angle by $t=w/(d-2w)$.  Indeed, a low eigenvalue is within $w$
+of the free ground energy, so the complementary block is at least $d-2w$;
+its Schur correction has norm at most $w^2/(d-2w)$.  Thus, if
+$U\mathcal I_{\rm low}/2-2\varepsilon>0$ and $3t<1/2$, the exact ground
+is a Kramers pair at particle number $V$.  The unique neighboring charged
+states have equal gap
+\begin{equation}
+ \Delta_c\in[U\mathcal I_{\rm low}/2-2\varepsilon,
+                  U/2+2\varepsilon].
+ \label{eq:cdc-charged-gap}
+\end{equation}
+Their addition/removal residue matrices have rank two and operator error
+at most $3t$ from $WW^\dagger/2$.  The full Fock complement enters these
+bounds; its matrix need not be materialized.  Applying
+$U\in\{2^{-16},2^{-24},2^{-40}\}$ gives 84 cases, of which 34 satisfy
+these sufficient inequalities.  Failure of an inequality
+is an inconclusive certificate, not a negative physical mass.
+
+\begin{proposition}[All conserved onsite-even currents]
+\label{prop:cdc-local-currents}
+For \eqref{eq:cdc-source} with the specified nonzero textures, every
+conserved sum of even Hermitian onsite operators, modulo constants, lies
+in $\mathfrak{su}(2)_\eta$, generated by
+\begin{equation}
+ \eta_z=(\mathcal N-V)/2,\qquad
+ \eta_+=\sum_x D_xc_{x\uparrow}^\dagger c_{x\downarrow}^\dagger,
+ \qquad \eta_-=\eta_+^\dagger,\quad D_x=(-1)^{\sum_jx_j},
+ \label{eq:cdc-eta}
+\end{equation}
+where $\mathcal N$ is total particle number.  Its number-preserving
+subalgebra is $\mathfrak u(1)$.
+\end{proposition}
+\begin{proof}
+The full even Hermitian onsite algebra has basis $I,n-1$, three
+$c^\dagger\sigma_jc$, two pair quadratures, and $(-1)^n$.  On each edge,
+the complete sixteen-state commutator equation has rank eight in sixteen
+coefficients.  Its kernel forces both quartic coefficients to zero,
+equal number coefficients, opposite pair coefficients, and spin transport
+$A_{x+e_j}=\sigma_jA_x\sigma_j$.  Different edge commutators have distinct
+odd--odd tensor supports and cannot cancel.  Pauli conjugations commute,
+so transport back to the origin reduces the mass condition to
+$[b\cdot\sigma,u(x)\cdot\sigma]=0$.  The transported directions at $e_1,e_3$
+are nonparallel, forcing $b=0$.  The surviving operators are exactly
+\eqref{eq:cdc-eta}.  Their commutators follow from the full anticommutation
+relations.  Traceless onsite mass and centered contact commute with them.
+\end{proof}
+
+On the isolated interacting quartet, $\eta_\pm$ annihilate both ground
+vectors $G_a$: there are no same-energy states at $V\pm2$.  If $C_-$ is
+the normalized state at $V-1$, absence of a same-energy state at $V-3$
+gives $\eta_-C_-=0$ and $\|\eta_+C_-\|^2=-2\langle\eta_z\rangle=1$.
+Choosing $C_+=\eta_+C_-$ therefore constructs an exact current and
+Hamiltonian intertwiner: two eta singlets and one eta doublet.  The full
+field operators obey the same symmetry.  Define
+$(A_+(x))_{sa}=\langle C_+|c_{xs}^\dagger|G_a\rangle$ and
+$(A_-(x))_{sa}=\langle C_-|c_{xs}|G_a\rangle$.  Their explicit identity is
+\begin{equation}
+ A_+(x)=D_x i\sigma_2 A_-(x).
+ \label{eq:cdc-pole-intertwiner}
+\end{equation}
+Indeed $[\eta_-,c_{x\uparrow}^\dagger]=D_xc_{x\downarrow}$ and
+$[\eta_-,c_{x\downarrow}^\dagger]=-D_xc_{x\uparrow}$, while $\eta_-G_a=0$.
+
+This exact eta action differs from a local spin assignment.  For the
+radial witness $R=a=v=1$, $m=64$, $U=1/65536$, let $P_{\rm low}$ project
+onto the entire interacting quartet and $S_j=c_0^\dagger\sigma_jc_0$.
+The source antiunitary $\mathcal R D(i\sigma_2)K$ reverses $S_j$ and
+preserves each unique charged state.  Number conservation then gives
+$P_{\rm low}S_jC_\pm=0$.  Since $S_j^2=1-(n_0-1)^2$, the zero-frame
+center weight $\alpha\leq2904/2905$ and projector bound
+$t=27/16252874$ imply
+\begin{equation}
+ \|(1-P_{\rm low})S_jC_\pm\|^2
+ \geq\frac{1-(2904/2905)^2}{2}-\frac{27}{16252874}
+ >\frac1{4096}.
+ \label{eq:cdc-spin-leakage}
+\end{equation}
+Here the weight bound follows from the origin coupling
+$V_0^\dagger V_0=3I_2/2$ and complementary one-body norm at most $66$;
+the charged reference has center parity $(1+\alpha^2)/2$ and its actual
+effect differs by at most $t$.
+
+No nonzero homomorphism embeds $\mathfrak{su}(3)$ into this local
+$\mathfrak{su}(2)_\eta$: simplicity would require an injection.
+Identifying a nontrivial weak algebra with eta also leaves no nonconstant
+commuting local hypercharge generator.  This excludes a faithful Standard
+Model current action within the classified domain.  It excludes neither
+nonlocal emergent currents nor broken currents coupled to dynamical links.
+Eta is not identified with electroweak, spatial or Lorentz spin.
+Finite excitation gaps supply no moving-defect rest masses, texture selection,
+repair protection or interacting continuum limit.  Exact matrix and rational
+certificates are supplied in \path{model/certified_winding_core/} and
+\path{model/radial_current_map/}, with independent complete-Fock controls.

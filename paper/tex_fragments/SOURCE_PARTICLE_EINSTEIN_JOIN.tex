@@ -1,0 +1,131 @@
+\subsection{Matter action, regional entropy and the geometric equation}
+\label{sec:source-particle-einstein-join}
+
+A finite particle spectrum and a responsive geometric readout do not by
+themselves specify the stress or entropy of a common spacetime theory.
+The curvature calculation makes this distinction explicit. In signature
+$(-,+,+,+)$ and units $\hbar=c=1$, use the same complex Higgs doublet
+$H$ as in the conditional matter action, write $X=H^\dagger H$, and specify
+\begin{equation}
+ S=\int\sqrt{-g}\,[F(X)R+\mathcal L_{\rm min}],\qquad
+ F(X)=F_0-\xi X,\quad F_0>0.
+ \label{eq:source-particle-curvature-action}
+\end{equation}
+Here $\mathcal L_{\rm min}$ contains the canonical gauge, Higgs, fermion
+and Yukawa terms. The covariant extension, metric, spin structure and
+curvature coupling $\xi$ are supplied data. Let $T_{\rm min}$ be the
+Hilbert stress of this same minimally coupled action. Metric variation
+gives
+\begin{equation}
+ \mathcal E_{ab}:=2FG_{ab}
+       +2(g_{ab}\Box-\nabla_a\nabla_b)F=T_{{\rm min},ab}.
+ \label{eq:source-particle-metric-equation}
+\end{equation}
+Equivalently, the additional matter stress relative to $2F_0G$ is
+$T_{\xi,ab}=2\xi[XG_{ab}+(g_{ab}\Box-\nabla_a\nabla_b)X]$.
+It obeys $\nabla^aT_{\xi,ab}=-\xi R\nabla_bX$; this sector is not
+separately conserved. Total classical conservation uses all matter
+field equations, retaining gauge forces and Yukawa exchange. It does
+not establish a regulated quantum Ward identity.
+
+The same curvature derivative
+$\partial(FR)/\partial R_{abcd}
+ =(F/2)(g^{ac}g^{bd}-g^{ad}g^{bc})$
+gives the Wald functional and its area coefficient,
+\begin{equation}
+ S_W=4\pi\int_{\partial B}F\,dA,\qquad
+ \eta(X)=4\pi F(X).
+ \label{eq:source-particle-wald-coefficient}
+\end{equation}
+If $F_0=1/(16\pi G_0)$, then
+$\eta=1/(4G_0)-4\pi\xi X$. Positivity of $F$ is a domain condition;
+a varying Higgs norm does not give a constant area coefficient.
+The Noether-charge functional in
+\eqref{eq:source-particle-wald-coefficient} is not, by definition, the
+entropy of the finite source state.
+
+\begin{proposition}[A controlled regional first variation]
+\label{prop:source-particle-generalized-volume}
+Vary about flat spacetime and constant $F=F_*>0$, with variation parameter
+$s$ and $f=\partial_sF|_0$. On the slice orthogonal to a unit timelike
+vector $u$, use radial normal coordinates and spatial metric tangent
+$h_{ij}=\partial_sg_{ij}|_0$, with $h(0)=\partial h(0)=0$ and
+$h_{ij}(x)x^j=0$. Define
+\[
+ W=\int_B\frac{3F-F_*}{2F_*}\,dV,\qquad
+ C_\ell=\frac{4\pi\ell^4}{15}.
+\]
+If fourth directional derivatives of $\operatorname{tr}h$ and $f$ on
+$B_\ell$ are bounded by $M_h,M_f$ for every Euclidean unit direction, then
+\begin{align}
+ \delta S_W-\frac{8\pi F_*}{\ell}\delta W
+   &=-2\pi C_\ell(2F_*\delta G_{uu}-2\Delta_3 f)+\mathcal R_\ell,
+       \label{eq:source-particle-ball-identity}\\
+ |\mathcal R_\ell|
+   &\leq\pi^2\ell^6\left(\frac37F_*M_h+\frac{20}{21}M_f\right).
+       \label{eq:source-particle-ball-error}
+\end{align}
+All variations are first derivatives at $s=0$; curvature and Laplacian
+values on the right are evaluated at the ball centre.
+\end{proposition}
+
+\begin{proof}
+The curvature derivative contracts with the slice normal and spatial
+projector to $3F/2$, with reference coefficient $F_*/2$; its
+Noether generalized volume is therefore $W$ above.
+Also $\delta W=\delta V+3\int_Bf/(2F_*)$ and
+$\delta S_W=4\pi(F_*\delta A+\int_{\partial B}f)$.
+Spherical moments give the constant and quadratic scalar terms
+$4\pi\ell^2f(0)+(2\pi/3)\ell^4\Delta_3f$ on the boundary and
+$(4\pi/3)\ell^3f(0)+(2\pi/15)\ell^5\Delta_3f$ in the ball.
+The constant term cancels. The identity
+$\Delta_3\operatorname{tr}h(0)=-(4/3)\delta G_{uu}(0)$ gives the metric term.
+Integrating the Taylor remainders $M|x|^4/24$ yields
+\eqref{eq:source-particle-ball-error}.
+\end{proof}
+
+The scalar variation is constrained by the Higgs coupling. For $\xi\ne0$
+and reference $H=(0,w)$ with real $w\ne0$, the path
+$H_s=(0,w-sf/(2\xi w))$ realizes $\delta F=f$; for $\xi=0$ it requires $f=0$.
+Ordinary fixed proper volume instead leaves
+$16\pi^2\ell^2f(0)-2\pi C_\ell(2F_*\delta G_{uu}-5\Delta_3f)
++O(\ell^6)$. Even $f(0)=0$ does not remove the coefficient mismatch.
+Fixed generalized volume is a distinct admissibility premise.
+The Wald construction and generalized volume follow their
+\href{https://arxiv.org/abs/gr-qc/9307038}{Noether-charge}
+and \href{https://arxiv.org/abs/1612.04374}{regional first-law}
+formulations; the exact action, tensor and moment checks are in
+\path{model/higgs_curvature_response/}.
+
+For a geometric inference, the same state and action must supply
+$\delta S_{\rm bulk}=2\pi C_\ell\delta T_{{\rm min},uu}+e_{\rm bulk}$
+and fixed-$W$ stationarity with error $e_{\rm stat}$. Then
+\begin{equation}
+ |\delta(\mathcal E_{uu}-T_{{\rm min},uu})|
+ \leq\frac{|e_{\rm bulk}|+|e_{\rm stat}|+|\mathcal R_\ell|}
+               {2\pi C_\ell}.
+ \label{eq:source-particle-entropy-residual}
+\end{equation}
+Ten timelike probes spanning the symmetric tensors determine the full
+residual, provided they use common metric, stress, state and clock data.
+Nonminimal boundary counterterms must be assigned consistently between
+bulk entropy and $S_W$. With $f=0$ this is the constant-coefficient
+linearized Einstein normalization; finite nonlinear regional deficits
+and errors $o(\ell^4)$ are required for a nonlinear inference. A common
+isotropic vacuum term becomes a spacetime constant only with constant
+gravitational coupling and the matched total Ward and Bianchi identities.
+
+The finite winding spectra with centered contact provide interacting
+energy levels on prescribed textures. Their radial conserved current is
+eta-pairing, not an established Standard Model charge map. The separate
+native-current matter carrier has a specified family architecture, and
+its stationary flavor coefficient uses a declared static mean-feedback
+service. An explicit carrier extension admits a localized CAR inclusion
+intertwining the native currents and a pixel-dependent quadratic mass
+operator. This finite inclusion does not supply an interacting continuum
+vacuum or its gravitating stress. Likewise, the ordered-spin texture energy bound is not a
+fermion mass-generation law. An interacting continuum join must transport
+one source's field algebra, currents, stress and state into the regional
+data of \eqref{eq:source-particle-entropy-residual}, with a common proper
+clock and controlled errors. The finite algebraic and spectral results
+supply no such physical entropy identification or common continuum model.

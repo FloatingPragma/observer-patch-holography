@@ -1,9 +1,110 @@
-# Native particle and mass join: current finite status
+# Native particles, currents and mass operators
 
 The [particle-mass response audit](OPH_PARTICLE_MASS_RESPONSE.md) retains the
-source-bound evidence and its tested mass prescriptions. This page
-tracks native candidates in the [completion program](../COMPLETION_PROGRAM.md).
-Neither component has yet identified a physical particle or its rest mass.
+source-bound evidence and its tested mass prescriptions. The
+[source particle map](../../model/completion/SOURCE_PARTICLE_MAP.md) gives the
+complete finite coefficient map and its physical boundaries. The
+[completion program](../COMPLETION_PROGRAM.md) separates these results from
+acceptance of a physical interacting theory.
+
+## Common localized states, native currents and pixel-dependent masses
+
+The [memory realization](../../model/mcpr_native_memory_bridge/PROOF.md) and
+[defect/current construction](../../model/defect_current_bridge/PROOF.md)
+provide an explicit common operator model. The carrier, independent probe
+durations, feedback gain and coherent field service are chosen simulator
+design. Their consequences are derived from that specification; uniqueness
+under bare overlap consistency is not a requirement for this construction.
+
+The retained pixel-dependent charged-lepton law determines three coefficients
+`m_i(P)/v(P)`. The complete C-duty reset controller realizes a positive family
+matrix `M(P)` with exactly those eigenvalues. Its coefficient has trace `p`;
+the gain is `sum_i(m_i/v)/p`, so the calculation retains every disabled record.
+Both pixel-source branches admit two independent-duration solutions within
+the native gate domain. The forward branch reads no charged-lepton masses at
+runtime. Its mass-law architecture has target-informed provenance, so this
+is a conditional realization rather than an independent spectrum prediction.
+
+On the odd radial cube, let `hW=0`, `W*W=I_2`, and let `C` be the staggered
+spin antisymmetry satisfying `hC=-C conjugate(h)` and
+`C conjugate(W)=W i sigma_2`. Extend the physical CAR carrier by the actual
+native fifteen-state matter representation and three declared family copies.
+For its symmetric Higgs kernel `K`, the local pairing
+`Delta=C tensor conjugate(K)` has the exact localized Nambu inclusion
+
+```math
+E=\operatorname{diag}(W\otimes I_{45},\overline W\otimes I_{45}),\qquad
+BE=E\begin{pmatrix}0&i\sigma_2\otimes\overline K\\
+ (i\sigma_2\otimes\overline K)^\dagger&0\end{pmatrix}.
+```
+
+All twelve actual native current operators intertwine through this same
+inclusion. The charged-lepton block uses `Ye=sqrt(2)M(P)` with neutral Higgs
+`H=(0,v(P)/sqrt(2))`; its localized singular energies therefore have the
+retained three mass coefficients. A complete displayed kernel also uses
+the declared Stage5 quark powers and three zero neutrino coefficients.
+Its rank is 42, with three zero directions. The 180 localized Nambu rows
+contain 84 positive, 84 negative and 12 zero eigenvalues. They count spin and
+charge-conjugate coordinates, not 180 independent particle species.
+
+These are spatially uniform internal current transformations. Dynamical gauge
+links and local Gauss-law constraints are not supplied by this inclusion.
+
+The full cube retains 2,430 physical annihilator modes and 4,860 Nambu rows.
+In the chosen `v(P)` unit, the source radial complement has gap at least 62
+and `||K||<1`, so the localized single-quasiparticle bands are separated from
+the full complement. Bulk energies are `lambda(h) +/- s_j(K)`. This additive
+identity supplies no relativistic dispersion relation.
+
+Each complete memory record can drive the corresponding local pairing pulse
+with fixed kinetic and quark terms. Every pulse preserves the same localized
+inclusion. A proved `O(1/N)` weak-pulse bound, uniform over finite untouched
+references at fixed volume, gives the stated quadratic Hamiltonian as the
+limit of this correlated record process. Current probes use fresh auxiliary
+legs. This is an explicit coherent service, not a claim that original
+site-resolved field repair preserves the kernel. The finite unread channel
+need not be unitary.
+
+The CAR state inclusion has exact partial-trace recovery with a tracial
+complementary state; that state is not a selected physical vacuum. The modes
+are bound to a prescribed winding texture, and their occupation does not
+create its winding. Three family copies are supplied, not counted by the
+two-dimensional radial index. Autonomous defect formation, interacting pole
+masses, physical spin and clock identification, and a common relativistic
+continuum with Einstein dynamics are not established by this finite join.
+
+The owning calculations can be reproduced from the repository root:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.mcpr_native_memory_bridge --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.defect_current_bridge --check
+```
+
+## Finite interacting poles and texture constraints
+
+[Complete winding certificates](../../model/certified_winding_core/PROOF.md)
+retain all 28 source matrices and their multiplicities: 16 have exactly two
+zero modes, six are invertible, and six are unresolved. Their complete-Fock
+contact estimates certify 34 of 84 supplied cases with an isolated ground
+pair and equal-gap addition/removal states. These interacting poles belong
+to the two-spin source; they are not silently transferred into the extended
+quadratic model above.
+
+[The radial current classification](../../model/radial_current_map/PROOF.md)
+gives exactly eta-pairing SU(2), modulo constants, for conserved sums of
+onsite even CAR operators. This explains the need for an explicit internal
+carrier extension. [The ordered-spin texture bound](../../model/lattice_texture_selection/PROOF.md)
+forces finite-energy rotation textures to have eventually admissible,
+degree-zero shells. Its crossing-energy floor does not prove a particle
+lifetime or identify that spin texture with the prescribed fermion mass.
+
+This bound also constrains the proposed identification: a radial hedgehog
+has degree one on every surrounding shell. If it is identified with this
+unscreened ordered-spin field, its total energy diverges with radius. The
+finite bound-state energy then cannot represent the rest energy of an
+isolated finite-energy defect. Gauge screening, a different localized
+topology, or a different dynamical texture law requires an explicit source
+construction and a recomputed spectrum.
 
 
 ## Declared field candidates and measured-mass comparison
@@ -26,7 +127,7 @@ conditional PDG positronium bound. **No absolute particle mass is independently
 predicted.** CAR number charge and an internal doublet have not been identified
 with electromagnetic charge and Lorentz spin. A physical vacuum, continuum
 dispersion, autonomous native protection and a same-excitation topological-defect map
-are still missing. The two-site frequencies alone cannot supply those maps.
+are unproved. The two-site frequencies alone cannot supply those maps.
 The [executable dictionary](../../model/particle_comparison/dictionary.py)
 supplies their conditional SI operators and a common time/length conversion.
 Its complete current/dipole response passes the finite external-electric-field
@@ -69,18 +170,18 @@ number-conserving reflection probes recover the same addition/removal Green
 functions through eight complete source readouts. The subtraction combines
 record probabilities without postselection. Preparation, source controls,
 reservoir charge, neutral pointers and Hamiltonian model time remain declared
-resources. A local number read already disturbs the charged lower band.
+resources. A local number read disturbs the charged lower band.
 The failed dispersion benchmark and physical-particle identification gates
 therefore remain unchanged.
 
 ## Native memory and energy conditions
 
 The [mobile-memory construction](../../model/particle_screening/mobile.py)
-now carries the same unknown qubit between all 60 admissible core locations.
+carries the same unknown qubit between all 60 admissible core locations.
 It keeps naturally moved cores and intervenes only at the six impossible
 locations. The optimal long-run core-reset rate is `1/150` per native
 attempt, compared with `1/15` for the fixed edge-core service. Coherent
-recovery still follows **every** attempt. The construction below establishes
+recovery follows **every** attempt. The construction below establishes
 controlled transport and its exact maintenance requirement; it supplies no
 physical species assignment.
 
@@ -100,14 +201,14 @@ The [screening successor](../../model/particle_screening/README.md) reuses the
 finite all-seam code theorem to improve the candidate. Exact correction
 forces its exterior support onto ports nonadjacent to both core ports.
 There are four such ports for each of the 30 edge cores, two for each of
-the 30 distance-two cores, and none for the six opposite cores. A new qubit
+the 30 distance-two cores, and none for the six opposite cores. A qubit
 distributed over four safe exterior ports has worst one-port trace distance
 `61/450`, compared with `82/225` for the original code. This is optimal
 among exact all-seam `q=1` qubits with an edge core. Without the code
 constraint, the sharp-sector optimum is `8/225`; exact hypergeometric
 averaging gives the corresponding bounds for every exterior cap size.
 
-The new code is algebraically correctable under all complete C/E branches,
+The screened code is algebraically correctable under all complete C/E branches,
 and its [successor recovery service](../../model/screened_recovery/README.md)
 source-executes all 208 positive C/E recovery branches. Exact composition
 preserves arbitrary logical/reference states when immediate correction and
@@ -130,7 +231,7 @@ its conserved charge is exactly zero. Its sector probabilities do not select
 a rest-energy splitting.
 
 The [same-code energy packet](../../model/active_code_energy/README.md)
-imports the new code's canonical definition and makes that freedom explicit.
+imports the screened code's canonical definition and makes that freedom explicit.
 Each connected charge sector has a uniform stationary measure. Multiplying
 the `q=1` sector weight by two preserves the native law and its conditional
 `q=1` records, while shifting a separately declared Gibbs modular contrast
@@ -142,7 +243,7 @@ The original code's executed recovery on seam `(0,5)` costs mean repair plus
 recovery pulses `439409` for C and `863483/2` for E per attempt, plus its
 preparation and stated archive services. These counts belong to that fixed
 seam and original code. Combining them with uniform-seam activity would
-require a new common protocol. They measure compiler work, not rest energy.
+require a common protocol. They measure compiler work, not rest energy.
 
 The [clock-count inference](../../model/clock_defect_energy/CLOCK_COUNT_INFERENCE.md)
 provides a useful clock join: after hiding the full native history, the joint
@@ -228,7 +329,7 @@ The [rational support retract](../../model/support_refinement/README.md)
 preserves homology equivariantly across the 12-, 42-, 162- and 642-vertex
 support levels. Its midpoint averages and chain homotopy supply a compatible
 finite refinement interface. They are not vertex-valued port attachments
-or quantum channels, so they do not yet transport a native particle into
+or quantum channels, so they do not transport a native particle into
 the spatial field or generate responsive geometry.
 
 ## Completed recovery, transport and unit attachment
@@ -342,7 +443,7 @@ The inverse branch encoder followed by the target encoder is a full
 512-address unitary extension. Complete zero/abort outputs remain present:
 valid zero-code-weight slots use identity recovery, and aborts terminate.
 On encoded ideal inputs the zero slots have zero probability; their
-implemented amplitudes are still checked. The identity composes along every
+implemented amplitudes are checked. The identity composes along every
 finite history, so the complete tape contains no unknown logical information
 and the same logical/reference state survives at the record-selected core.
 This supplies a continuing **classically located** quantum memory, not a
@@ -371,7 +472,7 @@ directed links with no reverse. Therefore native reversible-action theorems
 do not automatically apply to this corrected process. No physical entropy
 production or rest energy is obtained by assigning a price to a reset.
 
-The current native catalogue is:
+The bare-law and active-memory catalogue is:
 
 | Object | Established invariant or dynamics | Particle assignment |
 | --- | --- | --- |
@@ -418,9 +519,10 @@ field protection follows.
 
 None supplies the missing joint localization, coherent statistics, matched
 rest/kinetic action and detector response required to name a physical species.
-Internal Standard Model representation labels remain separate from these
-native objects. The mobile result closes a transport and maintenance question
-inside the same executable model; CP-03, CP-04 and CP-05 remain open.
+The mobile-memory objects above have no established Standard Model current
+map. The separate extended radial construction at the start of this document
+does have that operator inclusion, under its stated coherent-service design.
+Neither result establishes all physical requirements of CP-03, CP-04 and CP-05.
 
 ```sh
 python -m model.particle_screening.mobile_packet --check

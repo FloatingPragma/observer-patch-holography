@@ -8,6 +8,30 @@
 # here resolves to a tracked source.
 
 shared_fragments:
+  paper/tex_fragments/MCPR_NATIVE_MEMORY_BRIDGE.tex:
+    role: realization of the retained pixel-dependent charged-lepton coefficient by a chosen native memory design
+    included_by:
+      - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/DEFECT_CURRENT_MASS_BRIDGE.tex:
+    role: explicit localized CAR and current intertwiner for the native matter carrier with the pixel-dependent mass operator
+    included_by:
+      - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/CERTIFIED_DEFECT_CURRENTS.tex:
+    role: complete finite spectral enclosures, interacting contact poles and exact radial eta currents
+    included_by:
+      - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/SOURCE_FLAVOR_ORBIT.tex:
+    role: same-current family embeddings and certified stationary flavor coefficients from the declared native memory
+    included_by:
+      - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/LATTICE_TEXTURE_ENERGY.tex:
+    role: ordered-spin shell energy, finite-energy topology constraint and complete bare-repair identity
+    included_by:
+      - deriving_the_particle_zoo_from_observer_consistency
+  paper/tex_fragments/SOURCE_PARTICLE_EINSTEIN_JOIN.tex:
+    role: Higgs-curvature generalized-volume response and the conditional common-source particle and Einstein interface
+    included_by:
+      - recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency
   paper/tex_fragments/EXECUTABLE_COMPLETION_HYPOTHESIS.tex:
     role: shared tower panel stating the executable-model hypothesis, the tower layers and the stopping rules
     included_by:

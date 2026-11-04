@@ -1,0 +1,130 @@
+\section{A pixel mass law in native memory dynamics}
+\label{sec:mcpr-native-memory}
+
+A chosen simulator specification can realize the conditional pixel-dependent
+charged mass law on the native gauge-family carrier. The construction uses
+the twelve-port reset controller and the complete native current instruments.
+Its design inputs are independent left and right probe durations, a rule
+enabling feedback on a successful C event, and a common feedback amplitude.
+The conditional mass-law architecture is target-informed; evaluating that
+architecture without a charged-mass input does not establish a prospective
+prediction.
+
+The selected response architecture gives
+\begin{align}
+ \kappa&=\frac{\alpha_U/50}{1+\alpha_U/31+\alpha_U^2/310},&
+ \chi&=\frac{\alpha_U^2/512}{1-\alpha_U/77},\\
+ \zeta&=\frac{(P-\varphi)^2/(21\pi)}{1-\alpha_U/27-\alpha_U^2/135},&
+ r_j&=1+\sqrt2 e^{-\chi}
+       \cos\left(\frac29+\zeta+\frac{2\pi j}{3}\right),
+\end{align}
+where $\varphi=(1+\sqrt5)/2$ and $j=0,1,2$.
+Its charged coefficients, ordered increasingly, are
+\begin{equation}
+ t_i=\frac{m_i}{v}
+     =\frac{e^\kappa r_i^2}
+      {\left(2\,6^{14}\prod_{j=0}^{2}r_j^2\right)^{1/3}},
+ \qquad \frac v{E_*}=P^{-1/2}
+       \exp\left(-\frac{2\pi}{4\alpha_U}\right).
+\end{equation}
+The register dimensions and determinant exponent in these formulas are
+part of the selected architecture. The scale $E_*$ is a source coordinate;
+assigning it an energy in laboratory units requires a clock calibration.
+
+Let $t_i>0$ be these three charged coefficients and
+$\lambda_i=t_i/\sum_jt_j$. For the native projectors $P_2,P_3,P_{10}$,
+direct multiplication gives $\operatorname{tr}(P_iP_j)=1/5$ for distinct
+indices and the spanning-vector Gram determinant
+$d=2/5-2\sqrt5/25$. Consequently the matrix
+$Y=uP_2+v_1P_3+wP_{10}$ has elementary eigenvalue invariants
+\begin{equation}
+ \operatorname{tr}Y=u+v_1+w,\qquad
+ e_2(Y)=\frac45(uv_1+uw+v_1w),\qquad
+ \det Y=d uv_1w.
+\end{equation}
+Choose its three positive weights as the roots of
+\begin{equation}
+ z^3-z^2+\frac54e_2(\lambda)z-\frac{e_3(\lambda)}d=0,
+ \qquad w<u<v_1.
+ \label{eq:memory-shape-cubic}
+\end{equation}
+It follows that $\operatorname{spec}Y=\{\lambda_i\}$.
+
+The complete C-enabled memory coefficient, with $a=p(1-q)$,
+$b=pq$ and $D=1-a^2+ab$, is
+\begin{equation}
+ Z_C=\frac{(1-a)P_2+a(1-a)P_3+abP_{10}}D-(1-p)P_2.
+\end{equation}
+It has trace $p$; disabled records have not been removed or normalized away.
+Put $A=v_1(v_1+w)$ and
+$B=v_1(1-v_1+w)+(v_1+w)w$. The inverse equations
+\begin{equation}
+ -Ap^2+Bp-w=0,\qquad
+ q=1-\frac{v_1}{1-p(v_1+w)}
+ \label{eq:memory-rate-inverse}
+\end{equation}
+give the exact identity $Z_C=pY$. This follows by substituting the second
+equation and reducing each of the three coefficient differences by the
+quadratic in the first equation.
+
+At each of the supplied forward and measured-endpoint pixel coordinates,
+rational Taylor enclosures and polynomial endpoint signs give exactly
+three roots of~\eqref{eq:memory-shape-cubic}, and exactly two solutions of
+\eqref{eq:memory-rate-inverse} satisfying $0<p<1/12$, $0<q<1/6$.
+For the forward coordinate the first solution is approximately
+$p=0.01915526454$, $q=0.05474497127$.
+The native charged-lepton support Casimirs are $9/8$ and $3$, so the
+complete probes implement these rates with the declared durations
+\begin{equation}
+ \theta_L=\frac{\arcsin\sqrt{12p}}{\sqrt{9/8}},\qquad
+ \theta_R=\frac{\arcsin\sqrt{6q}}{\sqrt3}.
+\end{equation}
+Both probes retain all thirteen outcomes. Their product retains all
+$169\times128$ current and repair labels per old memory input.
+The covariant binary grouping retains $512$ labels per input and all
+twelve old inputs.
+
+Choose $g=\sum_i t_i/p$. Then $gZ_C$ has exactly the three coefficients
+$t_i$. Its diagonalizing unitary acts on the gauge-trivial family factor,
+commutes with every native gauge current, and preserves the canonical
+kinetic form. Thus this is an operator realization of the conditional
+mass law, up to the allowed family frame. It does not assert an additional
+alternating-group intertwiner. The source-coordinate enclosures also give
+$\sum_it_i<1$ by bounding the cube of that sum.
+
+The coefficient is the generator of a controlled limit of the full
+correlated memory. Apply $\exp(-ihgX\otimes P_{\rm new})$ on enabled
+records and identity on disabled records. Let $\Psi_h$ be this complete
+classical/quantum channel. Its classical transition satisfies
+$T=(1-p)R+pS$, where $R$ resets to port two and $S$ is stochastic.
+For every normalized initial classical/quantum state $z_0$, including
+an arbitrary untouched finite reference, the reduced state after $N$
+steps of size $h=\tau/N$ obeys
+\begin{equation}
+ \left\|\sum_{\rm memory}\Psi_{\tau/N}^{N}(z_0)
+       -\mathcal U_\tau\!\left(\sum_{\rm memory}z_0\right)\right\|_1
+ \le \frac{4g\tau}{N(1-p)}
+       +\left(\frac8{1-p}+4\right)\frac{g^2\tau^2}{N},
+ \label{eq:memory-mass-averaging}
+\end{equation}
+where $\mathcal U_\tau$ is generated by $gX\otimes Z_C$.
+For a stationary product preparation the first term vanishes.
+
+To prove the bound, let $\Pi z=\pi\sum z$ and $e_k=(I-\Pi)z_k$.
+The sum of trace norms on memory blocks gives
+$\|Te\|_1\le p\|e\|_1$ on zero-sum blocks and
+$\|\Psi_h-T\|\le2gh$. Hence
+$\|e_k\|_1\le2p^k+4gh/(1-p)$.
+The reduced stationary step and the mean unitary step have the same first
+derivative; their two Taylor remainders sum to at most $4g^2h^2$.
+The reduced error due to $e_k$ is at most $2gh\|e_k\|_1$.
+Summing these errors proves~\eqref{eq:memory-mass-averaging}.
+
+This limit is in dimensionless simulator time. A finite unread channel
+need not equal its limiting unitary. The feedback pulse service is an
+explicit design choice; compilation into a smaller native gate alphabet
+is a separate requirement. The forward pixel coordinate has no complete
+physical endpoint proof, and the measured-endpoint coordinate inherits
+measured-alpha calibration. No physical pole-mass identification,
+renormalization map, operational energy scale, or complete quark and
+neutrino spectrum follows from this finite realization.

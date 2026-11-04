@@ -40,17 +40,16 @@ mass relation fails. The interaction also prevents exact isolation of one
 Weyl momentum pocket by deleting the rest. The papers state these results
 alongside the remaining field and Einstein premises.
 
-The four selected tasks are [native defect protection (#1139)](https://github.com/FloatingPragma/observer-patch-holography/issues/1139),
-[common energy and kinetics (#1140)](https://github.com/FloatingPragma/observer-patch-holography/issues/1140),
-[an interacting chiral field (#1142)](https://github.com/FloatingPragma/observer-patch-holography/issues/1142),
-and [finite-theorem integration (#1137)](https://github.com/FloatingPragma/observer-patch-holography/issues/1137).
-The original acceptance criteria and predecessor requirements remain in force.
-The [independent V2 review](../model/completion/program_class_v2_review.json)
-accepts the executable class, counted finite observer and theorem map. The PR closes their issues on merge. Canonical physical
-premises and the particle, energy and chiral-field gates are not discharged.
-The previews include the complete-band rate transfer and direct native
-localization results, with their added-reference, immobility and zero-energy
-boundaries.
+The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
+gives certified finite interacting spectra, their conserved radial currents,
+a memory realization of the pixel-dependent charged-lepton operator, its
+localized native-current inclusion, and a lattice texture energy bound.
+The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+states the corresponding conditional stress and generalized-volume entropy
+relation. The [source particle map](../model/completion/SOURCE_PARTICLE_MAP.md)
+connects each calculation to its readable inputs and mathematical domain.
+A common physical defect assignment, interacting continuum and Einstein
+realization require the stated identification and limit theorems.
 
 | Paper | Role |
 | --- | --- |

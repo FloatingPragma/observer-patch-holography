@@ -1,4 +1,4 @@
-# Particle construction: results, assumptions and research tasks
+# Particle construction: source laws, mass operators and physical matching
 
 The [common executable hypothesis](../OPH_EXECUTABLE_HYPOTHESIS.md) fixes the
 particle/maintenance-energy target within the same clocked process that must
@@ -6,24 +6,31 @@ realize gravity. The [completion DAG](../COMPLETION_PROGRAM.md) orders the
 construction and validation gates; the evidence below supplies components
 and exclusions, without declaring those gates complete.
 
-The executable construction realizes calibrated Standard Model charged-matter
-structure and permits observer-record recovery of its supplied mass parameters.
-**No measured particle spectrum is derived from the repair law.** The uncalibrated
-mass prescriptions fail their stated comparisons. A physical chiral interacting
-continuum, its vacuum and its mass/clock calibration are unproved.
+The executable construction has both an empirically calibrated Standard Model
+action and a chosen memory realization of the retained pixel-dependent
+charged-lepton law. An explicit localized CAR inclusion places the latter
+mass operator and all twelve native gauge currents on the same states.
+**This is a finite source-derived operator construction, not a derivation of
+the measured particle spectrum from bare repair alone.** The mass-law
+architecture has target-informed provenance. Physical pole matching, the
+interacting chiral continuum, its vacuum and a physical clock are unproved.
 
-The fixed twelve-port carrier is used throughout. The research question is which
-repair dynamics and observer implementation produce a physical particle
-response on that carrier. Internal representation labels, persistent levels,
-repair decay rates and physical particles are different objects until an
-explicit observation map connects them.
+The twelve-port source supplies the current and record laws. Carrier extensions,
+observer controls and feedback services are permitted simulator design inputs;
+their complete specification must accompany every result. They need not be
+uniquely selected by overlap consistency. The
+[source particle map](../../model/completion/SOURCE_PARTICLE_MAP.md) identifies
+which states and operators are connected and which physical identifications
+require further proof.
 
 | Result | What is established | Additional attachment |
 | --- | --- | --- |
 | Gauge and matter structure | A specified closed twelve-current law, a spin/exterior lift, the fifteen internal states of one Standard Model generation, and three invariant charged-fermion Higgs lines | Complete physical current selection, physical spin/statistics, and an interacting field |
 | Family structure | A source-executed protected rank-three band and several explicit symmetry-breaking memories | Identification with three physical generations and selection of their couplings |
 | Calibrated realization | Supplied running Yukawas and mixing parameters enter the finite action and are recovered from simulated records | Derivation of those inputs and a physical pole/threshold comparison |
-| Uncalibrated coefficients | Complete record laws determine the specified feedback coefficients; blind inverses recover them | The tested coefficients do not reproduce the charged spectrum |
+| Fixed uncalibrated coefficients | Complete record laws determine the specified feedback coefficients; blind inverses recover them | The particular fixed laws fail their stated comparisons; this is not an exclusion of all memory designs |
+| Pixel-dependent memory design | The complete C-duty memory realizes the retained three lepton coefficients without runtime charged-mass inputs; correlated weak pulses have a controlled unitary limit | Target-informed mass-law architecture, source endpoint and physical matching are explicit premises |
+| Common localized operator | Native currents, the memory-derived mass matrix and the chosen local quadratic field pulses intertwine on the same radial modes | Prescribed texture, supplied family factor, no autonomous winding creation or interacting relativistic mass interpretation |
 | Propagation and measurement | Finite CAR fields, charge/current identities, complete detector controls, and restricted continuum comparisons | One same-process physical chiral field, controlled interactions and physical units |
 
 Read the [particle paper](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex)
@@ -35,8 +42,7 @@ decisive exclusions, code entry points and tests needed to continue the research
 The [field-response guide](OPH_FIELD_RECONSTRUCTION.md) specifies what a particle
 identification requires from the same records, propagators, residues and
 currents, and distinguishes supplied-action checks from record reconstruction.
-The numerical lane status below records the current interpretation of retained
-results; historical receipts keep their original values and design ancestry.
+The numerical comparison table classifies the retained results; historical receipts keep their original values and design ancestry.
 An unsuccessful prescription is evidence about its stated class, rather than
 an exclusion of all mechanisms on this carrier.
 
@@ -75,7 +81,9 @@ $Q,u^c,d^c,L,e^c$ and the compatible central quotient
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 The spin cover, exterior-sector choice and physical CAR field are separate
 attachments. Even auxiliary exterior parity does not establish physical
-fermion statistics. No topological-defect identification is proved.
+fermion statistics. The localized construction below attaches this representation
+to bound modes of a prescribed winding texture. It does not prove that fermion
+creation creates a topological defect.
 
 Both components of each invariant Higgs tensor are checked against all twelve
 currents. The allowed lines are $Qu^cH$, $Qd^cH^*$ and $Le^cH^*$.
@@ -216,10 +224,11 @@ retain the conditional and rejected lanes. None supplies an independently
 derived physical spectrum. The following distinctions must travel with any
 quoted number.
 
-| Lane and primary retained evidence | Current result | Remaining issue or next test |
+| Construction and primary retained evidence | Result | Physical boundary |
 | --- | --- | --- |
 | [Charged circulant completion](../../code/particles/runs/leptons/charged_icosahedral_completion_v1_review.json) | Target-informed architecture with three independently inferred spectral coordinates; no charged target is loaded at runtime | Runtime separation does not remove historical formula selection. The muon/electron ratio residual is about +0.087 ppm, compared with the adopted componentwise one-standard-uncertainty interval halfwidth of about 0.022 ppm; the tau ratio residual is about +0.079 ppm. These are retrospective diagnostics, not a joint significance or theory-error estimate; correlations and matching are not supplied |
 | [MCPR scale display](../../code/particles/runs/leptons/charged_mcpr_completion_conditional.json) | The approximately 84 ppm absolute display is conditional on its response architecture, P branch and external energy normalization | Keep ratio residuals separate from overall scale. The forward branch P = 1.6309721 and comparison branch P = 1.6309682 change the transmutation scale at roughly the same 84 ppm level; do not combine their receipts as one branch |
+| [MCPR native memory](../../model/mcpr_native_memory_bridge/PROOF.md) and [localized current/mass operator](../../model/defect_current_bridge/PROOF.md) | Two admissible current-duration designs per pixel branch realize the retained lepton matrix; all native currents and this matrix act on the same localized CAR modes | Chosen architecture and field pulse service, prescribed winding, quadratic weak-pulse limit at finite volume; no physical pole or autonomous soliton identification |
 | [Positive-chamber Koide identity](../../extra/koide_identity_from_positive_c3_face_circulants.tex) | Exact phase-independent identity under its positive-chamber hypotheses; Q = 2/3 follows from the supplied amplitude balance | The balance has measured-triple ancestry and is implemented by an asymmetric block choice. Neither the identity nor that construction selects the physical phase or the two mass ratios |
 | [Kappa coherent closure](../../code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json) | Empirical closure using target-anchored shape and measured-lepton information in the higher-order remainder | An interval obtained by inverting those endpoints is calibration; cancellation of a shared payload does not create an independent falsification interval |
 | [Electroweak branch provenance](../../code/particles/runs/calibration/boson_source_prediction_closure_audit.json) | The legacy tuple at P = 1.63094 gives the archived near-measurement chart; strict source-branch coordinates differ | Every row must name the evaluated tuple as well as any nominal P label. The approximately (80.330, 91.119) and (80.321, 91.124) GeV rows are conditional running/tree coordinates, not physical pole predictions |
@@ -337,6 +346,93 @@ $h=1/4$, with numerical admission restricted to $1/16\le h\le1/2$; complex
 probability payloads are rejected. This static experiment is **not identified
 with the correlated finite-memory history**. Such an identification needs its
 own averaging and source-implementation bounds.
+
+### Pixel-dependent memory and the common localized operator
+
+The shared self-reference requires a separate consistency check. The retained
+forward pixel closure calls `structured_thomson_running()` in
+[`paper_math.py`](../../code/P_derivation/paper_math.py), whose lepton input is
+the Stage5 `charged_lepton_masses()` prescription. The joined memory uses the
+different MCPR prescription. Consequently its inherited pixel coordinate is
+a conditional input, not a certified fixed point of the joined particle
+response. The running also uses the declared MSSM coefficient packet, while
+the displayed native matter action has the minimal Standard Model field census.
+A single-source closure must reconcile both the mass prescription and the
+running content, including any additional ultraviolet sectors and thresholds.
+It must use the actual current response of that same action; substituting
+lattice band energies into a relativistic loop formula is not a derivation.
+
+The [memory bridge](../../model/mcpr_native_memory_bridge/PROOF.md) supplies a
+different choice of current durations and duty, together with its own
+correlated-memory bound. It retains the C/E law and all records. Let
+`t_i=m_i(P)/v_P` be the three retained MCPR coefficients and
+`lambda_i=t_i/sum_j t_j`. Here `v_P` is the conventional electroweak scale in
+the chosen pixel recipe; the neutral Higgs component has norm `v_P/sqrt(2)`.
+Pixel capacity `P=a_cell/l_P^2` is distinct from a port projector `P_j`.
+The mass recipe uses `P` both in the scale and in its shape correction.
+
+The existing projectors `P_2,P_3,P_10` have pairwise trace overlap `1/5`
+and spanning-vector Gram determinant `d=2/5-2 sqrt(5)/25`. Positive weights
+`w<u<v_1` solving
+
+```math
+z^3-z^2+\frac54e_2(\lambda)z-\frac{e_3(\lambda)}d=0
+```
+
+give `Y=u P_2+v_1 P_3+w P_10` with exactly the eigenvalues `lambda_i`.
+The complete C-duty coefficient satisfies `Z_C=pY` when
+
+```math
+-v_1(v_1+w)p^2+
+ [v_1(1-v_1+w)+(v_1+w)w]p-w=0,\qquad
+q=1-\frac{v_1}{1-p(v_1+w)}.
+```
+
+Exact interval checks admit two roots in `0<p<1/12`, `0<q<1/6` for each
+retained source branch. On the first forward branch,
+`p≈0.01915526454`, `q≈0.05474497127`, and the gain
+`g=sum_i t_i/p≈0.39862197364`. Independent native probe durations implement
+these rates. The actual mass matrix is `M(P)=g Z_C`, not a renormalized
+successful-branch statistic. No measured lepton masses enter this execution;
+the retained MCPR architecture has target-informed provenance.
+
+For complete correlated memory, record pulses converge to generator
+`X tensor M(P)`. With duration `T`, `N` steps and gain bound `g`, the
+reference-assisted trace error is at most
+
+```math
+\frac{4gT}{N(1-p)}+
+\left(\frac8{1-p}+4\right)\frac{g^2T^2}{N}.
+```
+
+The first term vanishes for stationary product memory. The finite unread
+channel is not the unitary limit. The
+[native flavor analysis](../../model/native_flavor_orbit/PROOF.md) gives
+strict finite-step purity-loss bounds and distinguishes the auxiliary
+history grading from physical CP. Its static real-matrix CP conclusion
+cannot be promoted to every correlated feedback model.
+
+The [localized operator bridge](../../model/defect_current_bridge/PROOF.md)
+uses `Ye=sqrt(2)M(P)` in the actual native Higgs tensor. Its common CAR
+inclusion intertwines the mass operator and all twelve gauge currents on
+the same radial modes. A chosen local field pulse for every memory record
+extends the averaging argument to the whole finite Fock space; its norm
+bound grows with volume. Every such pulse preserves the inclusion. The
+complete 45-row internal matrix, including the declared Stage5 quark
+coefficients and three zero neutrino directions, has rank 42. All 180
+localized Nambu rows and all 4,860 full-source Nambu rows are retained.
+
+The current inclusion concerns uniform internal transformations; it does not
+construct dynamical gauge links or local Gauss-law constraints.
+
+This is a constructive finite realization of the retained mass law. It does
+not derive that law's architecture, identify bound fermion occupation with
+creation of the texture winding, or supply the physical running-to-pole
+map. The finite interacting contact spectrum is a separate result; its
+interaction does not automatically preserve this extended quadratic model.
+The [complete source map](../../model/completion/SOURCE_PARTICLE_MAP.md)
+also records the bosonic and Einstein interfaces, whose common-source
+continuum hypotheses are unproved.
 
 ## Hierarchy diagnosis
 
@@ -517,8 +613,8 @@ law. A proposed fix must identify the violated equation or hypothesis.
 
 ## Open challenges and research tasks
 
-The next decisive object is one continuing source process with a **charged
-chiral inverse propagator**. It must determine the kinetic derivatives/residues,
+A physical particle identification requires one continuing source process
+with a **charged chiral inverse propagator**. It must determine the kinetic derivatives/residues,
 Higgs response and mass terms together. Selecting a different Gram matrix or
 fitting a function of a family feature does not supply that process.
 
@@ -527,13 +623,12 @@ protected sector, with the same reference, admissible repairs, charges,
 propagation and detector/clock interpretation throughout. The
 preferred working hypothesis is a persistent localized topological defect in
 native overlap transport, with its excess maintenance action/energy producing
-the same rest energy measured by propagation. Its native invariant and
-energy/clock map remain to be constructed; stable massive matter is the first
+the same rest energy measured by propagation. An autonomous native invariant and physical energy/clock map are unproved; stable massive matter is the first
 target, with unstable defect excitations requiring derived decay channels.
 The [concrete hypothesis and tests](OPH_FIELD_RECONSTRUCTION.md#leading-working-hypothesis-localized-defects-of-native-repair)
 keep this proposal separate from established results. The
 [native defect decision](../../model/common_source/native_defect_decision.py)
-has now tested the natural double-load candidate on the actual 78-state C/E
+tests the double-load candidate on the actual 78-state C/E
 domain. It is transient, and the binary 66-state class has no nonconstant
 classical configuration invariant under all admitted branches. Uniform-seam
 transport persists at zero quadratic-potential drop. This rejects that
@@ -542,8 +637,7 @@ defects or OPH. The actively recovered code is a different object; its record
 costs are logical-state blind and recovery is needed for persistence. The
 [field guide](OPH_FIELD_RECONSTRUCTION.md) records the exact results and limits.
 
-Finite response improvements now operate on the existing supplied-action
-benchmark rather than adding more mass candidates: complete residue/charge
+The supplied-action benchmark has finite response results: complete residue/charge
 diagnostics, a CAR-validated inverse-response derivative, and charge-compatible
 record tomography of one existing charged pair. The last reconstructs its
 canonical transfer and joint momentum/background response with complete
@@ -585,7 +679,7 @@ valid finite component results and its precisely scoped rejection.
 A useful negative result states its exact excluded class. A useful positive
 result preserves the full detector/intervention law, including the state after
 measurement and subsequent predictions. These criteria apply to any change of
-repair law, coherent memory or effective particle interpretation on the fixed
+repair law, coherent memory or effective particle interpretation on the declared
 carrier.
 
 ## Reproduction and primary evidence
@@ -593,6 +687,14 @@ carrier.
 Use the pinned [model requirements](../../model/requirements.txt). From the
 repository root, single-threaded numerical libraries make the small-matrix
 replays predictable:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.mcpr_native_memory_bridge --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.defect_current_bridge --check
+python -m model.completion.source_flavor_comparison --check
+```
+
+The fixed-duration protocol and its scoped exclusions have separate replays:
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest -q \
@@ -615,6 +717,9 @@ primary-array checks.
 
 | Question | Owning evidence and replay entry |
 | --- | --- |
+| Retained pixel mass law in native memory | [Memory proof](../../model/mcpr_native_memory_bridge/PROOF.md), exact admissibility and full-record checks in its receipt |
+| Same localized states, currents and mass operator | [Common operator proof](../../model/defect_current_bridge/PROOF.md), full-carrier controls and record-driven weak-pulse limit |
+| Complete finite particle map | [Source map](../../model/completion/SOURCE_PARTICLE_MAP.md), including the distinct bosonic and Einstein interfaces |
 | Native objects and actual current | [Gauge object](../../model/common_source/native_gauge_object.py), [current law](../../model/common_source/native_sm_current.py), [matter joins](../../model/common_source/native_matter_attachment.py) |
 | Full-current controlled limit | [Controller and source bindings](../../model/common_source/native_response_controller.py) |
 | Complete memory/gate/field candidate | [Protocol JSON](../../model/common_source/native_family_protocol_results.json) and adjacent NPZ; `python -m model.common_source.native_family_protocol --check ...` |

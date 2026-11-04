@@ -1,0 +1,117 @@
+\section{Finite energy and lattice texture charge}
+\label{sec:lattice-texture-finite-energy}
+
+Consider the cubic spin-$\tfrac12$ source
+\[
+ H_{\rm spin}=J\sum_{\langle xy\rangle}
+ (\mathbf S_x\cdot\mathbf S_y-\tfrac14),\qquad J>0,
+\]
+and its chosen staggered-field ground $\omega$. The state-selection rule
+is an input. Its order vector and nearest-neighbour covariance satisfy
+$\omega(\mathbf S_x)=(-1)^x m_{\rm ord}e_1$ and
+$C_{ab}=\omega(S_x^aS_y^b)=\operatorname{diag}(a,b,b)$, with
+$\kappa=-(a+b)\geq m_{\rm ord}^2/2>0$ and $b\leq0$.
+The latter sign also follows from ground positivity: a one-site rotation
+by $\pi$ about $e_1$ changes the energy by $-24Jb$.
+The spin Hamiltonian is the fixed-spacing strong-coupling limit of the
+centered contact source; no physical Lorentz-spin or Dirac-mass
+identification is imposed.
+
+For onsite rotations $R_x\in\mathrm{SO}(3)$, put $n_x=R_xe_1$.
+The rotated quantum state has the exact excess energy
+\begin{align}
+ \Delta E
+ &=J\sum_{\langle xy\rangle}\operatorname{Tr}
+       [C(R_x^{\mathsf T}R_y-I)] \notag\\
+ &\geq \frac{J\kappa}{2}
+       \sum_{\langle xy\rangle}|n_x-n_y|^2.
+ \label{eq:lattice-texture-source-bound}
+\end{align}
+Indeed, each summand equals
+$J\kappa(1-n_x\cdot n_y)+J(-b)(1+R_{11}-R_{22}-R_{33})$,
+where $R=R_x^{\mathsf T}R_y$.
+For a rotation through $\theta$ about $u$, the last factor is
+$2(1-\cos\theta)u_1^2\geq0$.
+Each bond excess is at most $J$, because the source bond has spectrum
+$\{-J,0\}$ and the reference bond energy is $J(a+2b-1/4)$.
+These statements concern the rotation orbit of $\omega$, not energy
+minimized over all quantum states with specified one-point functions.
+
+\begin{proposition}[Shell charge and finite energy]
+\label{prop:lattice-texture-shell-charge}
+Triangulate each integer-radius cubic shell by dividing every unit square
+with corners $p_{00},p_{10},p_{01},p_{11}$ into
+$(p_{00},p_{10},p_{01})$ and $(p_{11},p_{01},p_{10})$, oriented outwards.
+Call a shell admissible when every triangle's three direction vectors
+have pairwise nonnegative dot products. Normalized barycentric
+interpolation then defines a sphere map of integer degree $q_r$.
+For any finite collection of concentric shells,
+\begin{equation}
+ \Delta E\geq \frac{J\kappa}{2}N_{\rm bad}
+       +\pi J\kappa\sum_{r\ {m admissible}}|q_r|,
+ \label{eq:lattice-texture-mixed-shell-bound}
+\end{equation}
+where $N_{\rm bad}$ counts nonadmissible shells.
+Consequently every finite-energy rotation assignment has admissible,
+degree-zero shells at all sufficiently large integer radii.
+\end{proposition}
+
+\begin{proof}
+For an admissible triangle with unit vectors $u,v,w$, its unsigned
+spherical area obeys
+\[
+ A=2\arctan\frac{|\det(u,v,w)|}{1+u\cdot v+v\cdot w+w\cdot u}
+   \leq |u-v|^2+|u-w|^2.
+\]
+The denominator is at least one, and
+$|\det(u,v,w)|\leq|v-u||w-u|$.
+Both chords on the right are actual source bonds at the triangle's
+square-corner apex. The two triangles count each square side once;
+the closed surface counts each source edge twice. Thus
+$4\pi|q_r|\leq2\sum_{\rm shell}|n_x-n_y|^2$.
+A nonadmissible triangle has a chord square greater than two.
+If that chord is the square diagonal, its square is at most twice the
+sum of the two source-bond squares at the apex. Every bad shell
+therefore has source-bond square sum greater than one.
+Distinct concentric shells have disjoint source edges, proving
+\eqref{eq:lattice-texture-mixed-shell-bound}.
+For infinite assignments, onsite rotations define a state on every local
+algebra and energy is the extended sum of nonnegative bond excesses.
+Finite energy permits only finitely many bad or charged shells.
+\end{proof}
+
+This conclusion requires no separate asymptotic smoothness assumption.
+For opposite charges whose disjoint shell families each extend through
+$R$ radii with degrees $+q$ and $-q$, the cost is at least
+$2\pi J\kappa R|q|$. This is a bound on those assigned directions, not
+a derived two-particle potential. Zero excess energy with an identity
+exterior forces $n_x=e_1$ everywhere by
+\eqref{eq:lattice-texture-source-bound} and lattice connectivity.
+
+A continuous rotation path can change a shell degree only through a
+triangle whose convex hull contains the origin. At that crossing,
+$u\cdot(v+w)\leq0$. Its two source-bond squares therefore sum to at least
+four, giving the absolute floor $\Delta E\geq2J\kappa$. This bound gives
+neither an activation energy above the initial state nor a lifetime.
+For an assignment supported in a cube of side $N$, a controlled erasure
+path satisfies
+\[
+ \max_{\rm path}\Delta E
+ \leq\Delta E_{\rm initial}+J(N^2+N+7).
+\]
+Reset sites lexicographically along continuous quaternion rotations.
+A completed prefix cuts at most $N^2+N+1$ bonds; the rotating site touches
+at most six more. The bound follows from the bond spectrum. This path
+is a specified control, not autonomous Hamiltonian evolution.
+
+The complete two-flavour field-repair instrument gives
+$K_{c,r}P=\delta_{r0}P/\sqrt2$ on the bare one-fermion-per-site carrier.
+Here $P$ is the carrier projection, $c$ the coin bit and $r$ the raw syndrome.
+With every coin and raw record retained, repair-only schedules preserve
+any spin state and untouched reference and append independent fair
+coins with raw zero. They select no texture. Source hopping can leave
+this carrier, so the identity does not describe interleaved full dynamics.
+Nor does the energy theorem identify the spin direction with a prescribed
+fermion mass texture or exclude defects outside the stated quantum orbit.
+Exact degree counts, bond identities and complete branch checks are in
+\path{model/lattice_texture_selection/}.

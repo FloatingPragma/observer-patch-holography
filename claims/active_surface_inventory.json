@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 987,
+  "surface_count": 1006,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -131,6 +131,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/CERTIFIED_DEFECT_CURRENTS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/CERTIFIED_REFERENCE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -237,6 +242,11 @@
     },
     {
       "path": "paper/tex_fragments/DARK_SPECTRAL_SOURCE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/DEFECT_CURRENT_MASS_BRIDGE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -376,6 +386,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/LATTICE_TEXTURE_ENERGY.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/LATTICE_WEYL_RESPONSE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -417,6 +432,11 @@
     },
     {
       "path": "paper/tex_fragments/MATRIX_SPECTRAL_RESPONSE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/MCPR_NATIVE_MEMORY_BRIDGE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -866,6 +886,11 @@
       "allowlisted": false
     },
     {
+      "path": "paper/tex_fragments/SOURCE_FLAVOR_ORBIT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
       "path": "paper/tex_fragments/SOURCE_METRIC_SCALAR_CONTINUUM.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
@@ -887,6 +912,11 @@
     },
     {
       "path": "paper/tex_fragments/SOURCE_OPERATION_READS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/SOURCE_PARTICLE_EINSTEIN_JOIN.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -1861,6 +1891,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/certified_winding_core/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/certified_winding_core/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/characteristic_constraints/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2241,6 +2281,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/completion/SOURCE_PARTICLE_MAP.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/SPECTRUM_EINSTEIN.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2367,6 +2412,16 @@
     },
     {
       "path": "model/defect_core_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_current_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_current_bridge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2661,6 +2716,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/lattice_texture_selection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lattice_texture_selection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/lattice_weyl_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2722,6 +2787,16 @@
     },
     {
       "path": "model/matter_geometry_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/mcpr_native_memory_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/mcpr_native_memory_bridge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2822,6 +2897,16 @@
     },
     {
       "path": "model/native_fixed_algebra/SIGNED.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_flavor_orbit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_flavor_orbit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3187,6 +3272,16 @@
     },
     {
       "path": "model/quantum_observer_correspondence/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_current_map/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/radial_current_map/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
