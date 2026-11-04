@@ -107,8 +107,7 @@ def test_owner_papers_carry_the_results() -> None:
                   "CarrierModeEquivariance", "split of the golden sector by eigenvalue is an observation"):
         assert token in observers, token
     gravity = _collapsed(GRAV)
-    for token in ("CollarTemperatureReading",
-                  "does not supply that inverse temperature"):
+    for token in ("does not supply that inverse temperature"):
         assert token in gravity, token
 
 

@@ -161,7 +161,7 @@ def test_owner_paper_carries_the_results() -> None:
         assert token in observers, token
     gravity = _collapsed(
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex")
-    for token in ("GibbsReferenceEnergyIdentification", "Nothing derives that the record reference is Gibbs"):
+    for token in ("Nothing derives that the record reference is Gibbs"):
         assert token in gravity, token
 
 

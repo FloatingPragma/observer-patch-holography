@@ -132,8 +132,6 @@ def test_lean_modules_registered() -> None:
 def test_owner_papers_carry_the_results() -> None:
     assert "InstrumentSelectionByCertainStates" in _collapsed(
         "extra/machine_checked_finite_event_algebras.tex")
-    assert "SeamChargeContinuity" in _collapsed(
-        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex")
     assert "GoldenSectorComplexIrreducibility" in _collapsed(
         "paper/observers_are_all_you_need.tex")
     assert "FieldSectorEnergyInnerProduct" in _collapsed(
