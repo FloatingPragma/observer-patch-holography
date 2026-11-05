@@ -15,6 +15,10 @@ on:
       - 'model/charged_composite_search/**'
       - 'model/quadratic_conservation/**'
       - 'model/prepared_regional_entropy/**'
+      - 'model/composite_spatial_response/**'
+      - 'model/native_composite_probe/**'
+      - 'model/interacting_observation_process/**'
+      - 'model/native_regional_modular/**'
       - 'model/reciprocal_area_dynamics/**'
       - 'model/scattering_packet_readout/**'
       - 'model/native_repair_spin_limit/**'
@@ -138,6 +142,10 @@ on:
       - 'model/charged_composite_search/**'
       - 'model/quadratic_conservation/**'
       - 'model/prepared_regional_entropy/**'
+      - 'model/composite_spatial_response/**'
+      - 'model/native_composite_probe/**'
+      - 'model/interacting_observation_process/**'
+      - 'model/native_regional_modular/**'
       - 'model/reciprocal_area_dynamics/**'
       - 'model/scattering_packet_readout/**'
       - 'model/native_repair_spin_limit/**'
@@ -498,3 +506,25 @@ jobs:
           python -W error -m model.quadratic_conservation --check
           python -W error -m model.prepared_regional_entropy --check
           python -W error -m model.completion.finite_observable_campaign --check
+
+  native-observations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Check complete spatial, detector, intervention and modular domains
+        run: python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe model/interacting_observation_process model/native_regional_modular model/completion/test_native_observation_campaign.py
+      - name: Cold replay complete native observation certificates
+        run: |
+          python -W error -m model.composite_spatial_response --check
+          python -W error -m model.native_composite_probe --check
+          python -W error -m model.interacting_observation_process --check
+          python -W error -m model.native_regional_modular --check
+          python -W error -m model.completion.native_observation_campaign --check

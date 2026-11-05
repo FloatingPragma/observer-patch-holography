@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1031,
+  "surface_count": 1039,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2381,6 +2381,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/composite_spatial_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/composite_spatial_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/conditional_standard_model/DEFECTS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2766,6 +2776,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/interacting_observation_process/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_observation_process/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/interacting_reconstruction/DERIVATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2961,6 +2981,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_composite_probe/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_composite_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_effective_fields/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3057,6 +3087,16 @@
     },
     {
       "path": "model/native_quantum_history/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_regional_modular/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_regional_modular/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

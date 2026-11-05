@@ -13,7 +13,7 @@ mode, defect index or fitted coefficient with an observed species.
 
 ## Charged composite search and complete quadratic currents
 
-The [composite detector](../charged_composite_search/README.md) acts on the
+The [composite probe](../charged_composite_search/README.md) acts on the
 same centered eight-site Weyl/contact source and its unique half-filled
 ground as the complete linear charged spectrum. Combining a local fermion
 removal with a neighboring hidden-spin flip reaches hidden spin `3/2` and
@@ -26,10 +26,27 @@ energies lie between `0.40246851577010` and `2.97475650816795` in the same
 source-clock units. Direct calculations of `A* A` and `A* [K,A]` on the
 unreduced source independently enclose the total weight and energy moment.
 The conditional mean energy is between `0.52537938729092` and
-`0.52537938735399`. The probe is a specified operator, without an executed
-native detector. Its block does not exhaust every charged composite, and
+`0.52537938735399`. Its block does not exhaust every charged composite, and
 hidden spin is not identified with physical Lorentz spin. These finite
 energies supply neither autonomous localization nor relativistic masses.
+
+The [spatial response](../composite_spatial_response/PROOF.md) gives every
+eight-by-eight residue matrix and its exact rank four. Each matrix is
+twice its local weight times one of the actual source's two kinetic-band
+projectors, with 69 lines on each band. Spin and eta ladders give 2,208
+visible composite states per charge sector. Their orthogonal union with
+linear probes covers 4,032 of 11,440 states. Independent source equations
+and all 192 spatial energy moments retain the nonzero contact contribution
+and kinetic/contact interference. These finite spatial projectors do not
+supply a continuous momentum dispersion.
+
+The [native composite instrument](../native_composite_probe/PROOF.md)
+implements the success Kraus operator `C_0/3` in 1,008 source pulses on the
+authenticated hidden-frame ground preparation. It retains all 7,776 raw
+selector records, native aborts and coherent field-reference amplitudes.
+Its success probability is approximately `0.08261623248916`, consistent
+with the certified composite spectral weight. The instrument detects the
+total response; no clock resolving its 138 energies is executed.
 
 The [quadratic conservation theorem](../quadratic_conservation/PROOF.md)
 classifies every self-adjoint even quadratic operator of the connected open
@@ -400,6 +417,17 @@ has exponentially small spatial tails but is not finite range. Exact
 two-particle leakage controls show why an onsite Hubbard interaction cannot
 silently replace it.
 
+[Intervening observations](../interacting_observation_process/PROOF.md)
+have a separate constructive bound for the compact 180-mode interacting
+core. Finite adaptive instruments compose with the complete native-memory
+record law while retaining the evolving memory and arbitrary untouched
+references. The error is the sum of per-interval complete-record bounds;
+conditioning does not justify resetting memory to a stationary product.
+Exact resource schedules and an independent complete finite execution
+check the intervention correspondence. The bounds concern a declared
+temporal refinement and core observations, without a spatial continuum
+or unlimited adaptation at every microscopic step.
+
 The Gibbs state of this same nonquadratic Hamiltonian has an exact entropy,
 energy and work first law, including the noncommuting Kubo--Mori response.
 Its temperature and preparation are declared services. The theorem supplies
@@ -416,6 +444,15 @@ bound and an explicit remainder for the same regional modular polynomial.
 The calculation includes noncommuting directions and keeps the success
 probability fixed. These are finite entropy premises; the regional state
 has no derived geometric modular-flow, area or fixed-volume stationarity map.
+
+The [native regional modular actuator](../native_regional_modular/PROOF.md)
+implements that same prepared region's full modular-polynomial action.
+All 39 Pauli terms and all 16 regional input columns enter its 37,568-pulse
+execution. At dimensionless modular parameter `1/2`, the complete channel
+error is below `6.4e-9`, including the bridge to the actual prepared
+regional logarithm. Its exterior/reference extension and all source
+failure outcomes are retained. This operational modular clock has no
+identified geometric flow or physical-duration normalization.
 
 [Finite radial entropy](../parity_entropy_response/PROOF.md) and
 [matter-responsive readout](../radial_geometry_join/PROOF.md) relate specified
