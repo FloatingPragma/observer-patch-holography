@@ -24,6 +24,9 @@ INPUTS = (
     'model/centered_particle_spectrum/README.md', 'model/centered_particle_spectrum/source.py',
     'model/centered_particle_spectrum/certificate.py', 'model/centered_particle_spectrum/witness.npz',
     'model/centered_particle_spectrum/results.json', 'model/centered_particle_spectrum/lines.csv',
+    'model/charged_composite_search/README.md', 'model/charged_composite_search/source.py',
+    'model/charged_composite_search/certificate.py', 'model/charged_composite_search/witness.npz',
+    'model/charged_composite_search/results.json', 'model/charged_composite_search/lines.csv',
     'tools/read_ordered_spin_energies.py', 'model/completion/ordered_spin_energy_readout.json',
     'model/native_ordered_ground/source.py', 'model/native_ordered_ground/certificate.py',
     'model/native_ordered_ground/witness.npz', 'model/native_ordered_ground/results.json',
@@ -155,28 +158,89 @@ def centered_rows(receipt, csv_bytes):
             or spectrum.get('finite_energies_identified_as_relativistic_rest_masses') is not False
             or spectrum.get('physical_particle_species_identified') is not False):
         raise ValueError('centered finite-spectrum scope changed')
-    rows = spectrum['rows']
+    return spectral_rows(spectrum['rows'], csv_bytes, 228,
+                         'excitation_energy_interval', 'local_branch_weight_interval')
+
+
+def spectral_rows(rows, csv_bytes, count, energy_key, weight_key):
+    """Retain every disjoint line and match the independent published CSV."""
     csv_rows = list(csv.DictReader(io.StringIO(csv_bytes.decode())))
-    if len(rows) != 228 or len(csv_rows) != 228:
-        raise ValueError('all228 centered spectral rows required')
-    first = interval(rows[0]['excitation_energy_interval'], True)
+    if len(rows) != count or len(csv_rows) != count:
+        raise ValueError(f'all {count} spectral rows required')
+    first = interval(rows[0][energy_key], True)
     result = []
     previous = F()
     for index, (row, csv_row) in enumerate(zip(rows, csv_rows, strict=True)):
-        energy = interval(row['excitation_energy_interval'], True)
-        weight = interval(row['local_branch_weight_interval'], True)
+        energy = interval(row[energy_key], True)
+        interval(row[weight_key], True)
         if type(row['index']) is not int or row['index'] != index or energy[0] <= previous:
-            raise ValueError('ordered disjoint centered lines required')
+            raise ValueError('ordered disjoint spectral lines required')
         if (csv_row['index'] != str(index) or
-                [csv_row['energy_lower'], csv_row['energy_upper']] != row['excitation_energy_interval'] or
-                [csv_row['weight_lower'], csv_row['weight_upper']] != row['local_branch_weight_interval']):
+                [csv_row['energy_lower'], csv_row['energy_upper']] != row[energy_key] or
+                [csv_row['weight_lower'], csv_row['weight_upper']] != row[weight_key]):
             raise ValueError('CSV and exact spectral receipt disagree')
         previous = energy[1]
         ratio = (F(1), F(1)) if index == 0 else (energy[0]/first[1], energy[1]/first[0])
-        result.append({'index': index, 'energy_interval': row['excitation_energy_interval'],
+        result.append({'index': index, 'energy_interval': row[energy_key],
                        'relative_to_first_interval': decimal_interval(*ratio),
-                       'local_weight_interval': row['local_branch_weight_interval']})
+                       'local_weight_interval': row[weight_key]})
     return result
+
+
+def composite_readout(receipt, csv_bytes):
+    spectrum = receipt['spectrum']
+    if (receipt.get('all_pass') is not True
+            or spectrum.get('complete_block_lines') != 138
+            or spectrum.get('strictly_positive_lines') != 138
+            or spectrum.get('omitted_block_lines') != 0
+            or spectrum.get('weight_outside_reducing_block') != '0'
+            or spectrum.get('finite_gaps_identified_as_relativistic_rest_masses') is not False
+            or spectrum.get('physical_particle_species_identified') is not False
+            or spectrum.get('all_dark_charged_states_exhausted') is not False
+            or spectrum['source_selection'].get('all_linear_CAR_responses_orthogonal') is not True):
+        raise ValueError('composite finite-spectrum scope changed')
+    lines = spectral_rows(spectrum['rows'], csv_bytes, 138,
+                          'energy_interval', 'weight_interval')
+    checks = spectrum['independent_sum_rules']
+    if checks.get('independent_of_composite_eigenvectors') is not True:
+        raise ValueError('independent composite source moments required')
+    energies = [interval(row['energy_interval'], True) for row in lines]
+    weights = [interval(row['local_weight_interval'], True) for row in lines]
+    sums = {
+        'spectral_weight_interval': tuple(sum((w[j] for w in weights), F()) for j in (0, 1)),
+        'spectral_first_energy_moment_interval': tuple(
+            sum((w[j]*e[j] for w, e in zip(weights, energies, strict=True)), F()) for j in (0, 1)),
+    }
+    for spectral, direct, reported in (
+        ('spectral_weight_interval', 'direct_AstarA_interval', 'total_weight_interval'),
+        ('spectral_first_energy_moment_interval', 'direct_Astar_commutator_interval',
+         'first_energy_moment_interval')):
+        a, b = interval(checks[spectral], True), interval(checks[direct], True)
+        c = interval(spectrum[reported], True)
+        recomputed = sums[spectral]
+        if max(a[0], recomputed[0]) > min(a[1], recomputed[1]):
+            raise ValueError('composite moment summary differs from retained lines')
+        # Reported decimal enclosures can be wider through outward rounding.
+        if max(a[0], b[0]) > min(a[1], b[1]) or c[0] > max(a[0], b[0]) or c[1] < min(a[1], b[1]):
+            raise ValueError('composite spectral and source moments disagree')
+    weight = interval(spectrum['total_weight_interval'], True)
+    moment = interval(spectrum['first_energy_moment_interval'], True)
+    mean = interval(spectrum['conditional_mean_energy_interval'], True)
+    if max(mean[0], moment[0]/weight[1]) > min(mean[1], moment[1]/weight[0]):
+        raise ValueError('composite conditional mean differs from source moments')
+    return {
+        'reference': spectrum['reference'], 'energy_unit': spectrum['energy_unit'],
+        'probe': 'C_x=(sum of neighboring hidden spin raising operators) c_xdown',
+        'hidden_spin': '3/2', 'eta': '1/2', 'visible_lines': 138,
+        'all_lines': lines, 'source_full_table': 'model/charged_composite_search/lines.csv',
+        'total_weight_interval': spectrum['total_weight_interval'],
+        'first_energy_moment_interval': spectrum['first_energy_moment_interval'],
+        'conditional_mean_energy_interval': spectrum['conditional_mean_energy_interval'],
+        'orthogonal_to_linear_CAR_response': True,
+        'finite_gaps_are_relativistic_masses': False,
+        'all_dark_charged_states_exhausted': False,
+        'physical_species': None, 'calibration_to_eV': None,
+    }
 
 
 def assemble(snapshot):
@@ -206,6 +270,8 @@ def assemble(snapshot):
         raise ValueError('spin field energy cannot be promoted to a particle mass')
     charged = data('model/centered_particle_spectrum/results.json')
     charged_lines = centered_rows(charged, snapshot['model/centered_particle_spectrum/lines.csv'])
+    composite = composite_readout(data('model/charged_composite_search/results.json'),
+                                 snapshot['model/charged_composite_search/lines.csv'])
     ordered = data('model/completion/ordered_spin_energy_readout.json')
     if (ordered.get('total_certified_states') != 256 or ordered.get('cluster_count') != 68
             or ordered.get('relativistic_masses_identified') is not False
@@ -257,6 +323,7 @@ def assemble(snapshot):
                 'finite_gaps_are_relativistic_masses': False,
                 'single_scale_charged_lepton_dictionary_excluded': charged['comparison']['all_three_distinct_frequency_assignments_excluded'],
                 'conditional_dictionary_only': True},
+            'centered_finite_composite': composite,
             'ordered_finite_spin': {
                 'Hamiltonian': ordered['Hamiltonian'], 'J': ordered['J'], 'B_over_J': ordered['B_over_J'],
                 'states': 256, 'enclosure_groups': 68,
@@ -309,8 +376,21 @@ def markdown(table):
     for row in table['centered_finite_CAR']['all_lines'][:6]:
         lines.append(f"| {row['index']} | [{', '.join(row['energy_interval'])}] | [{', '.join(row['relative_to_first_interval'])}] |")
     lines += ['', 'Treating these finite gaps as charged-lepton rest energies under one positive scale '
-              'is already excluded by the retained ratio certificate. This excludes that dictionary, '
+              'is excluded by the retained ratio certificate. This excludes that dictionary, '
               'not all continuum or composite sectors.', '',
+              '## Charged composite spectrum', '',
+              'The same centered ground has 138 positive lines in a cubic probe with hidden spin 3/2 '
+              'and eta 1/2. This response is orthogonal to every linear CAR response above. '
+              'Every weight is retained in the [full composite table](../charged_composite_search/lines.csv). '
+              'The block does not exhaust all charged composites, and hidden spin has no Lorentz-spin assignment.', '',
+              '| Line | Excitation energy interval | Relative to first |', '| --- | --- | --- |']
+    for row in table['centered_finite_composite']['all_lines'][:6]:
+        lines.append(f"| {row['index']} | [{', '.join(row['energy_interval'])}] | [{', '.join(row['relative_to_first_interval'])}] |")
+    composite = table['centered_finite_composite']
+    lines += ['', 'Independent source calculations of C* C and C* [K,C] enclose total weight in ['+
+              ', '.join(composite['total_weight_interval'])+'] and conditional mean excitation energy in ['+
+              ', '.join(composite['conditional_mean_energy_interval'])+']. '
+              'These source-clock energies have no physical mass or SI calibration.', '',
               '## Finite ordered-spin reference', '',
               'Here J=1 and B/J=1/4 on the open eight-site cube. The '
               '[complete certified 256-state readout](ordered_spin_energy_readout.json) has 68 '
@@ -326,7 +406,7 @@ def markdown(table):
               '## Reproduce', '',
               '```sh', 'python -W error tools/build_particle_mass_table.py --check',
               'python -W error -m pytest -q tools/test_particle_mass_table.py', '```', '',
-              'The [machine-readable table](particle_mass_table.json) retains all 228 charged lines, '
+              'The [machine-readable table](particle_mass_table.json) retains all 228 linear charged lines and 138 composite lines, '
               'the exact coefficient examples and source hashes. Its builder checks reviewed proof '
               'outputs and performs exact rational arithmetic; it does not rerun every inherited proof producer.', '']
     return '\n'.join(lines)

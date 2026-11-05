@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1026,
+  "surface_count": 1031,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1936,6 +1936,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/charged_composite_search/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/charged_defect/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3336,6 +3341,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/prepared_regional_entropy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/prepared_regional_entropy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/primitive_observer/COMPLETE_CERTIFICATE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3362,6 +3377,16 @@
     },
     {
       "path": "model/protected_spin_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/quadratic_conservation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/quadratic_conservation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

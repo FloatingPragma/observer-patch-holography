@@ -97,6 +97,9 @@ def test_real_complete_table_scope_and_all_charged_lines():
     assert value['physical_prediction_count'] == 0
     assert value['all_physical_particle_masses_derived'] is False
     assert len(value['centered_finite_CAR']['all_lines']) == 228
+    assert len(value['centered_finite_composite']['all_lines']) == 138
+    assert value['centered_finite_composite']['orthogonal_to_linear_CAR_response'] is True
+    assert value['centered_finite_composite']['finite_gaps_are_relativistic_masses'] is False
     assert value['ordered_finite_spin']['states'] == 256
     assert value['classes'][2]['rest_energy'] is None
     assert all(row['physical_prediction'] is False for row in value['classes'])
@@ -137,3 +140,29 @@ def test_in_flight_source_change_rejected(tmp_path, monkeypatch):
     monkeypatch.setattr(table, 'assemble', lambda data: {})
     with pytest.raises(ValueError, match='during build'):
         table.build(tmp_path)
+
+
+@pytest.mark.parametrize('damage', ['line', 'moment', 'mass', 'csv', 'mean', 'summary'])
+def test_composite_readout_retains_all_lines_and_independent_source_energy(damage):
+    snapshot = table.checked_snapshot(table.ROOT)
+    path = 'model/charged_composite_search/results.json'
+    receipt = table.loads(snapshot[path])
+    if damage == 'line':
+        receipt['spectrum']['rows'].pop()
+    elif damage == 'moment':
+        receipt['spectrum']['independent_sum_rules']['direct_Astar_commutator_interval'] = ['1', '2']
+    elif damage == 'mass':
+        receipt['spectrum']['finite_gaps_identified_as_relativistic_rest_masses'] = True
+    elif damage == 'mean':
+        receipt['spectrum']['conditional_mean_energy_interval'] = ['1', '2']
+    elif damage == 'summary':
+        spectrum = receipt['spectrum']
+        spectrum['independent_sum_rules']['spectral_weight_interval'] = ['10', '11']
+        spectrum['independent_sum_rules']['direct_AstarA_interval'] = ['10', '11']
+        spectrum['total_weight_interval'] = ['10', '11']
+    else:
+        csv_path = 'model/charged_composite_search/lines.csv'
+        snapshot[csv_path] = snapshot[csv_path].replace(b'0.40246851577010', b'0.40246851577000', 1)
+    snapshot[path] = json.dumps(receipt).encode()
+    with pytest.raises(ValueError):
+        table.assemble(snapshot)

@@ -35,7 +35,22 @@ The first six of 228 visible lines per local spin/charge branch follow. Referenc
 | 4 | [0.46219220757884, 0.46219220757887] | [1.277894111308, 1.277894111309] |
 | 5 | [0.47442977795619, 0.47442977795621] | [1.311729210354, 1.311729210355] |
 
-Treating these finite gaps as charged-lepton rest energies under one positive scale is already excluded by the retained ratio certificate. This excludes that dictionary, not all continuum or composite sectors.
+Treating these finite gaps as charged-lepton rest energies under one positive scale is excluded by the retained ratio certificate. This excludes that dictionary, not all continuum or composite sectors.
+
+## Charged composite spectrum
+
+The same centered ground has 138 positive lines in a cubic probe with hidden spin 3/2 and eta 1/2. This response is orthogonal to every linear CAR response above. Every weight is retained in the [full composite table](../charged_composite_search/lines.csv). The block does not exhaust all charged composites, and hidden spin has no Lorentz-spin assignment.
+
+| Line | Excitation energy interval | Relative to first |
+| --- | --- | --- |
+| 0 | [0.40246851577010, 0.40246851577013] | [1.000000000000, 1.000000000000] |
+| 1 | [0.42208975632848, 0.42208975632850] | [1.048752237229, 1.048752237230] |
+| 2 | [0.43899074292156, 0.43899074292158] | [1.090745550820, 1.090745550821] |
+| 3 | [0.47993821750041, 0.47993821750043] | [1.192486365255, 1.192486365256] |
+| 4 | [0.48578552247412, 0.48578552247414] | [1.207014967480, 1.207014967481] |
+| 5 | [0.49403565036905, 0.49403565036907] | [1.227513783093, 1.227513783094] |
+
+Independent source calculations of C* C and C* [K,C] enclose total weight in [0.74354609240642, 0.74354609241091] and conditional mean excitation energy in [0.52537938729092, 0.52537938735399]. These source-clock energies have no physical mass or SI calibration.
 
 ## Finite ordered-spin reference
 
@@ -59,4 +74,4 @@ python -W error tools/build_particle_mass_table.py --check
 python -W error -m pytest -q tools/test_particle_mass_table.py
 ```
 
-The [machine-readable table](particle_mass_table.json) retains all 228 charged lines, the exact coefficient examples and source hashes. Its builder checks reviewed proof outputs and performs exact rational arithmetic; it does not rerun every inherited proof producer.
+The [machine-readable table](particle_mass_table.json) retains all 228 linear charged lines and 138 composite lines, the exact coefficient examples and source hashes. Its builder checks reviewed proof outputs and performs exact rational arithmetic; it does not rerun every inherited proof producer.

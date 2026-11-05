@@ -11,6 +11,38 @@ The finite constructions supply no complete particle catalogue of nature.
 A finite certificate establishes its stated mathematics; it does not identify a
 mode, defect index or fitted coefficient with an observed species.
 
+## Charged composite search and complete quadratic currents
+
+The [composite detector](../charged_composite_search/README.md) acts on the
+same centered eight-site Weyl/contact source and its unique half-filled
+ground as the complete linear charged spectrum. Combining a local fermion
+removal with a neighboring hidden-spin flip reaches hidden spin `3/2` and
+eta `1/2`. Source symmetry proves that every resulting state is orthogonal
+to the hidden-spin-`1/2` response of all linear CAR probes.
+
+Exact integer residuals certify all 138 spectral lines in the composite
+probe's reducing block, each with strictly positive weight. The excitation
+energies lie between `0.40246851577010` and `2.97475650816795` in the same
+source-clock units. Direct calculations of `A* A` and `A* [K,A]` on the
+unreduced source independently enclose the total weight and energy moment.
+The conditional mean energy is between `0.52537938729092` and
+`0.52537938735399`. The probe is a specified operator, without an executed
+native detector. Its block does not exhaust every charged composite, and
+hidden spin is not identified with physical Lorentz spin. These finite
+energies supply neither autonomous localization nor relativistic masses.
+
+The [quadratic conservation theorem](../quadratic_conservation/PROOF.md)
+classifies every self-adjoint even quadratic operator of the connected open
+Weyl/contact source with positive hopping and repulsion. It includes
+offsite terms and anomalous pair creation and annihilation. Apart from the
+identity, the uncentered Hamiltonian has four generators, hidden spin and
+number; the centered Hamiltonian has six, hidden spin and eta pairing.
+Exact full-CAR coefficient ranks and independent occupation-matrix checks
+verify the finite instances. Centering changes the conserved pairing
+algebra as well as charged energies. This closes the quadratic-current
+search domain; higher-degree currents, Lorentz stress and an interacting
+chiral continuum require their own constructions.
+
 ## Finite radial defects and their actual currents
 
 **Input.** Two-spin lattice hopping, a prescribed rational-map mass texture, open
@@ -375,6 +407,15 @@ no geometric modular flow, area normalization, fixed-volume generalized-entropy
 stationarity or Einstein response. The compact source above has its own nonzero kinetic term and
 180-mode interaction. Neither finite Gibbs identity supplies physical
 geometric stationarity.
+
+[Prepared regional entropy](../prepared_regional_entropy/PROOF.md) has a
+separate finite source domain: the complete interacting plaquette and its
+literal prepared success state, with abort outcomes retained. A positive
+spectral floor gives two-sided finite variations, a quadratic relative-entropy
+bound and an explicit remainder for the same regional modular polynomial.
+The calculation includes noncommuting directions and keeps the success
+probability fixed. These are finite entropy premises; the regional state
+has no derived geometric modular-flow, area or fixed-volume stationarity map.
 
 [Finite radial entropy](../parity_entropy_response/PROOF.md) and
 [matter-responsive readout](../radial_geometry_join/PROOF.md) relate specified

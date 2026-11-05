@@ -12,6 +12,9 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
+      - 'model/charged_composite_search/**'
+      - 'model/quadratic_conservation/**'
+      - 'model/prepared_regional_entropy/**'
       - 'model/reciprocal_area_dynamics/**'
       - 'model/scattering_packet_readout/**'
       - 'model/native_repair_spin_limit/**'
@@ -132,6 +135,9 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
+      - 'model/charged_composite_search/**'
+      - 'model/quadratic_conservation/**'
+      - 'model/prepared_regional_entropy/**'
       - 'model/reciprocal_area_dynamics/**'
       - 'model/scattering_packet_readout/**'
       - 'model/native_repair_spin_limit/**'
@@ -471,3 +477,24 @@ jobs:
           python -W error -m model.spin_canonical_energy --check
           python -W error -m model.shell_entropy_response --check
           python -W error tools/build_particle_mass_table.py --check
+
+  finite-observables:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Check composite poles, complete quadratic currents and finite entropy bounds
+        run: python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation model/prepared_regional_entropy model/completion/test_finite_observable_campaign.py
+      - name: Cold replay the finite observable certificates
+        run: |
+          python -W error -m model.charged_composite_search --check
+          python -W error -m model.quadratic_conservation --check
+          python -W error -m model.prepared_regional_entropy --check
+          python -W error -m model.completion.finite_observable_campaign --check
