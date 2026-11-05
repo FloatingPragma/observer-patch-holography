@@ -22,10 +22,36 @@ def completion_program_commands(workflow):
     program_jobs = ('program-contract', 'program-sectors', 'program-repair',
                     'program-fields', 'program-native')
     other_jobs = {'particle-services', 'protected-defects', 'native-field-readout',
-                  'native-field-dynamics', 'native-field-thermodynamics'}
+                  'native-field-dynamics', 'native-field-thermodynamics',
+                  'finite-observables', 'native-observations'}
     assert set(workflow['jobs']) == set(program_jobs) | other_jobs
     return [step['run'] for name in program_jobs
             for step in workflow['jobs'][name]['steps'] if 'run' in step]
+
+
+@pytest.mark.parametrize('job,packages,campaign', [
+    ('finite-observables', ('charged_composite_search', 'quadratic_conservation',
+                            'prepared_regional_entropy'), 'finite_observable_campaign'),
+    ('native-observations', ('composite_spatial_response', 'native_composite_probe',
+                             'interacting_observation_process', 'native_regional_modular'),
+     'native_observation_campaign'),
+])
+def test_finite_observation_jobs_require_complete_tests_and_cold_replays(job, packages, campaign):
+    workflow = yaml.safe_load((verify.ROOT/'.github/workflows/completion-program.yml').read_text())
+    completion_program_commands(workflow)
+    worker = workflow['jobs'][job]
+    assert 'if' not in worker
+    commands = [step['run'] for step in worker['steps'] if 'run' in step]
+    tests = '\n'.join(command for command in commands if 'python -m pytest' in command)
+    lines = [line.strip() for command in commands for line in command.splitlines()]
+    events = workflow.get('on', workflow.get(True))
+    for package in packages:
+        assert f'model/{package}' in tests
+        assert f'python -W error -m model.{package} --check' in lines
+        for event in ('push', 'pull_request'):
+            assert f'model/{package}/**' in events[event]['paths']
+    assert f'model/completion/test_{campaign}.py' in tests
+    assert f'python -W error -m model.completion.{campaign} --check' in lines
 
 
 @pytest.mark.parametrize('count', range(1, len(verify.replay_groups())+1))
