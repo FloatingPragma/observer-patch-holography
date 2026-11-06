@@ -590,7 +590,7 @@
       "name": "compact-Lie classification inputs",
       "type": "external_mathematics",
       "disposition": "import",
-      "statement": "Three Lie-theory facts enter the gauge classification as declared classical inputs: the direct-sum splitting L = Z(L) + [L, L] of a compact Lie algebra into invariant submodules, surjectivity of the exponential map on compact connected groups, and the classification of compact simple Lie algebras through its dimension list and the unique compact simple type in dimensions 3, 8 and 10. The cited modules declare the remaining Lie-theoretic bridge steps of the classification (centre rationality through the torus/cocharacter step, the su(2)^4 fixed-space exclusion, and the reductive-decomposition boundary bundle) as classical inputs subsumed under this row. They are marked as inputs in Lean/Screen/A5OPH.lean and Lean/Screen/TrichotomyCases.lean and cited by paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex.",
+      "statement": "Three Lie-theory facts enter the gauge classification as declared classical inputs: the direct-sum splitting L = Z(L) + [L, L] of a compact Lie algebra into invariant submodules, surjectivity of the exponential map on compact connected groups, and the classification of compact simple Lie algebras through its dimension list. The cited modules declare the remaining Lie-theoretic bridge steps of the classification (centre rationality through the torus/cocharacter step, the su(2)^4 fixed-space exclusion, and the reductive-decomposition boundary bundle) as classical inputs subsumed under this row. They are marked as inputs in Lean/Screen/A5OPH.lean and Lean/Screen/TrichotomyCases.lean and cited by paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex.",
       "consuming_lanes": [
         734,
         735
@@ -607,7 +607,7 @@
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "external_input",
         "Lean/Screen/SMStructureComposition.lean": "conditional_consumer"
       },
-      "notes": "The facts are classical compact-Lie theory consumed as imports; the row's only movement is machine-checked replacements for the paper citations, and no derivation obligation attaches.",
+      "notes": "The facts are classical compact-Lie theory consumed as imports; the row's only movement is machine-checked replacements for the paper citations, and no derivation obligation attaches. The compact simple type in dimensions 3, 8 and 10 is unique, so the classification fixes the Lie type as well as the dimension list.",
       "discharge": {
         "status": "not_addressed",
         "evidence": [

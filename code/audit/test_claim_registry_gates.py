@@ -542,7 +542,7 @@ def test_canonical_direct_premise_examples_are_exact() -> None:
     }
     assert rows["OPH-THERMO-FOUR-LAW-PACKAGE"] == {
         "classification": "explicit_edges",
-        "consumed": ["PR-07", "PR-08", "PR-15"],
+        "consumed": ["PR-05", "PR-07", "PR-08", "PR-15"],
         "open": [],
         "boundary": [],
     }
