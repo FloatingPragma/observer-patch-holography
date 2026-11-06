@@ -8,7 +8,8 @@ typing; they do not certify the differential-topological argument.
 No `CONTINUOUS_TWIN_DEGREE_FLOOR_PROVED` gate is emitted.
 
 This proof expands on the degree-floor statement and proof plan proposed by
-Bernhard Mueller in the 28 October follow-up to discussion #786.
+B. Shatto (`dmobius3`) in the
+[28 October follow-up to discussion #786](https://github.com/FloatingPragma/observer-patch-holography/discussions/786#discussioncomment-19246623).
 
 ## Oriented objects and theorem
 
