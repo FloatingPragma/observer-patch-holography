@@ -265,27 +265,31 @@ therefore gives a unique density matrix. Effect realizability transfers
 uniqueness from the valuation to the operational representation.
 \end{proof}
 
-The native record construction in \texttt{model/native\_born\_bridge}
-derives complete finite-history weights directly from endpoint repair and
-supplied fair coins, including record-controlled schedules. Record coarse
+The native record construction in the accompanying repository
+derives complete finite-history weights directly from endpoint repair, a
+supplied initial law and supplied fair coins, including record-controlled schedules. Record coarse
 graining is additive and determines a unique diagonal density on the
 record algebra. This does
 not select off-diagonal matrix entries. The executable complex tomography
 uses coherent services and trace-based quantum semantics; it supplies no
-independent proof of the universal operational hypotheses above.
+independent proof of the universal operational hypotheses above. Exact
+realization of every effect needs uncountably many settings, so a finite-program
+source needs a dense-effect version of this theorem.
 
 The same module proves a direct obstruction: diagonal event effects cannot
 realize a non-diagonal effect, hence cannot satisfy the operational quotient
 on a matrix algebra containing one. An explicit qubit projection supplies
 the witness. This concerns the direct native record-effect representation.
-In the separate analytic construction
-\texttt{model/native\_quantum\_reconstruction}, occupation fields and a
+In the separate analytic construction, occupation fields and a
 positive native transfer generate the full real matrix algebra. Scaled
 closed-path counts give its normalized positive functional
 $A\mapsto\operatorname{Tr}(P^L A)/\operatorname{Tr}(P^L)$, including a
-positive complex-linear extension. This supplies the mathematical
-effect-valuation hypotheses for a reconstructed algebra; signed combinations
-of count statistics are not asserted to be single native measurement events.
+positive complex-linear extension. The linear extension meets the
+effect-valuation hypotheses on this reconstructed algebra. Its entries are
+classical endpoint probabilities divided by the return probability, and every
+connected positive-definite symmetric stochastic matrix gives the same result.
+Signed combinations of count statistics are not asserted to be single native
+measurement events.
 
 \section{L\"uders update as a partial state interface}
 \label{sec:lueders}
@@ -1141,7 +1145,7 @@ trials per each of $m$ probes give simultaneous allowance
 $1-(\alpha/m)^{1/N_c}$ at confidence at least $1-\alpha$.
 
 The analytic multi-block reduction and exact controls are supplied by
-\path{model/finite_instrument_calibration}. The quantum instrument class, trusted
+the accompanying repository. The quantum instrument class, trusted
 preparations, trusted readback and probability semantics are hypotheses.
 The algebraic examples are not source-authenticated calibration records,
 and the result does not identify native repair as a L\"uders instrument.

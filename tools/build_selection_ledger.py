@@ -33,7 +33,7 @@ SURFACE_PATH = ROOT / "docs" / "registers" / "SELECTION_LEDGER.md"
 SCHEMA = "oph.selection_ledger.v1"
 CLASSES = ("forced", "exposed_premise", "open")
 CLASS_TITLES = {
-    "forced": "Forced by consensus",
+    "forced": "Forced under axioms and declared source objects",
     "exposed_premise": "Exposed premises",
     "open": "Open: the work-wanted list",
 }

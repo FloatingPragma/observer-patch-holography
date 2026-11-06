@@ -26,8 +26,9 @@ Faithfulness fixes the dimension twelve, the single fixed line of the
 transitive \(A_5\) action bounds the centre by one, the fixed-space count
 excludes \(\mathfrak{su}(2)^4\), and the classification of compact simple
 Lie algebras, a declared input, leaves the split \(11=3+8\). The dimension
-arithmetic and the centre bound are machine checked; the fixed-space
-exclusion and the classification enter Lean as declared hypotheses.
+arithmetic and the one-dimensional fixed subspace are machine checked; the
+centre bound, the fixed-space exclusion and the classification enter Lean as
+declared hypotheses.
 
 A conditional matrix realization supplies the current blocks. Its declared
 spin lift and trace redistribution are the standard \(\mathfrak{su}(5)\)
@@ -183,10 +184,10 @@ compact-simple classification gives the unique split \(11=3+8\).
 
 The port count fixes the dimension twelve by declaration; the content of the
 theorem is the exclusion of \(\mathfrak{su}(2)^4\) and a one-dimensional
-centre. The dimension arithmetic, the centre bound and the dimension-six
-exclusion below are machine checked in the accompanying Lean
-development~\cite{ophrepo}. The \(\mathfrak{su}(2)^{4}\) fixed-space step and
-the compact-Lie classification enter Lean as declared hypotheses, and no
+centre. The dimension arithmetic, the one-dimensional fixed subspace and the
+dimension-six exclusion below are machine checked in the accompanying Lean
+development~\cite{ophrepo}. The centre bound, the \(\mathfrak{su}(2)^{4}\)
+fixed-space step and the compact-Lie classification enter Lean as declared hypotheses, and no
 source current or full Lie-algebra isomorphism is constructed there. The
 formal interface keeps the inputs separate: an injective port-response map
 supplies dimension twelve; an inner carrier action places the centre inside
@@ -1309,7 +1310,7 @@ these link currents. This identity survives exact finite Fock construction;
 interpreting a coefficient matrix as a measured charge requires the same
 state, generator, clock and readout on both sides.
 
-The source implementations in \path{code/sm_fermion_current/} retain the registered representations
+The source implementations~\cite{ophrepo} retain the registered representations
 and all outcomes of their declared operations. Their hybrid branch has
 classical compact links and quantum CAR matter, not a fully quantized
 nonabelian gauge field. Internal scalar covariances give zero expectation

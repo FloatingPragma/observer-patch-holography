@@ -253,7 +253,7 @@ def build():
                                                'specified electric/magnetic time reversal'],
                           'free_coefficients': ['electric energy epsilon>0', 'magnetic energy beta>0']},
             'controls': controls(),
-            'scope': {'native_incidence_and_rotation_tables_used': True,
+            'scope': {'committed_lean_incidence_and_rotation_tables_used': True,
                       'local_quadratic_form_classified_exhaustively': True,
                       'Ampere_is_derived_from_stated_energy_and_reversal': True,
                       'native_record_law_selects_field_action_hypotheses': False,

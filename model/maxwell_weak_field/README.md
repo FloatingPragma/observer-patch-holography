@@ -3,7 +3,8 @@
 Smooth local field actions and smooth conservative dynamics can have
 Maxwell theory as their leading response without being exactly quadratic
 or linear. On the committed finite carrier, symmetry and the stated vacuum
-susceptibilities select that response. Energy conservation supplies a
+susceptibilities select the leading action; Faraday kinematics, conservation
+and reversal select the leading evolution. Energy conservation supplies a
 uniform finite-time error bound. An exact quartic example retains gauge
 and Gauss constraints while allowing nonlinear corrections.
 

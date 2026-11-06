@@ -3,9 +3,9 @@
 ## Exact source attachment and one common reference
 
 Fix the existing twelve-port carrier and its thirty seams. Work on X, the
-66 binary configurations with exactly two occupied ports. This sector and
-independent fair placement coins are supplied source data, not equilibrium
-conclusions. A seam (a,b) leaves the other ten bits and x_a+x_b unchanged.
+66 binary configurations with exactly two occupied ports. Total load two and
+independent fair placement coins are supplied source data; collision states of
+the 78-state carrier are transient under a covering scan. A seam (a,b) leaves the other ten bits and x_a+x_b unchanged.
 If this sum is zero or two there is one possible endpoint configuration.
 If it is one there are two, and the actual native rule chooses each with
 probability one half. Thus the source kernel is

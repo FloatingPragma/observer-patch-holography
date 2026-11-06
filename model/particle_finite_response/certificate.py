@@ -344,7 +344,16 @@ def main():
     args = parser.parse_args()
     result = run()
     if args.check:
-        if json.loads(args.output.read_text()) != result:
+        def same(a, b):
+            # Floating LAPACK residuals vary by platform; everything else is exact.
+            if type(a) is float:
+                return type(b) is float and bool(np.isclose(a, b, atol=2e-12, rtol=1e-9))
+            if isinstance(a, dict):
+                return isinstance(b, dict) and set(a) == set(b) and all(same(a[k], b[k]) for k in a)
+            if isinstance(a, list):
+                return isinstance(b, list) and len(a) == len(b) and all(map(same, a, b))
+            return type(a) is type(b) and a == b
+        if not same(json.loads(args.output.read_text()), json.loads(json.dumps(result))):
             raise SystemExit('finite-response receipt differs from independent replay')
         print('finite-response receipt verified')
     else:

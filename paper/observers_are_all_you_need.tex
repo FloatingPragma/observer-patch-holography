@@ -714,7 +714,7 @@ no continuity axiom.
 The theorem is checked in Lean~\cite{ophrepo}. Its premise, noncontextual
 additivity on all coexisting effects, is the load-bearing clause. Complete
 native record histories carry additive weights derived by counting supplied
-fair-coin branches. Their pushforwards determine a unique diagonal state on the record algebra;
+fair-coin branches from a supplied initial law. Their pushforwards determine a unique diagonal state on the record algebra;
 they do not determine off-diagonal entries in an ambient matrix algebra.
 The twelve declared central
 port atoms form one classical context with an eleven-dimensional weight
@@ -796,7 +796,7 @@ preparation, public outcome or readback. The record's natural-number digest
 and inhabited proposition fields are freely stipulable, so the schema
 authenticates no producer or custody artifact.
 
-The executable complex tomography in \texttt{model/native\_interface}
+The executable complex tomography~\cite{ophrepo}
 implements real and imaginary analyzers for all $4356$ Hermitian coordinates
 of its $66$-state sector, retaining export aborts and detector timeouts.
 Its coherent routing and density/Kraus semantics are supplied. The Lean
@@ -804,17 +804,21 @@ module \texttt{OperationalBornBridge} separates the operational obligation:
 complete record probabilities descend to a unique Born valuation if
 equal-effect implementations have equal event weights and every coexistent
 pair has a common implementation by disjoint events. Taking the second
-effect to be zero supplies an implementation of every effect. Finite-sum coarse graining derives additivity under these
-conditions. The native diagonal instance in \texttt{model/native\_born\_bridge}
+effect to be zero supplies an implementation of every effect. Exact realization
+of every effect needs uncountably many settings, so a finite-program source needs
+a dense-effect version of this theorem. Finite-sum coarse graining derives
+additivity under these conditions. The native diagonal instance
 derives its weights without a trace-probability call; the full complex
 conditions are not established by the finite tomography or by probabilities
 defined through the trace formula. Frequencies validate an operational law
 but do not prove its universal clauses.
 
 A separate reconstruction derives a full matrix functional from native
-classical histories. Count every repair attempt on the binary total-two
-sector and let $P_{xy}$ be the fraction of its sixty seam/coin choices
-taking $x$ to $y$. Then $P$ is symmetric and stochastic, with
+classical histories. Supply the binary total-two sector, independent uniform
+seam selection, fair coins and a uniform preparation, and let $P_{xy}$ be the
+fraction of the sixty seam/coin choices taking $x$ to $y$. A biased coin, the
+$78$-state carrier, a nonuniform preparation or the fixed preparation sweep
+below loses the symmetric form used here. Then $P$ is symmetric and stochastic, with
 $2I/3\leq P\leq I$. The twelve occupation fields generate the sixty-six
 configuration projectors $Q_x$. Along any positive token path,
 \[
@@ -832,10 +836,11 @@ count-derived matrix-unit moments gives
  \rho_L=\frac{P^L}{\operatorname{Tr}(P^L)}.
 \]
 Positivity of $P$ makes this a normalized positive functional on the full
-real matrix algebra and its chosen complexification. Thus its effect
-valuation and Born representation are conclusions of native counting.
-The proof and exact source certificates are in
-\texttt{model/native\_quantum\_reconstruction}.
+real matrix algebra and its chosen complexification. Its additivity and trace
+form follow from the chosen linear extension, and its positivity from
+$P\geq0$. Every connected positive-definite symmetric stochastic matrix gives
+the same result, a two-state lazy coin included. The proof and exact source
+certificates are in the repository~\cite{ophrepo}.
 
 Two native current censuses, the first restoring its input, implement the
 configuration comparison. Signed current continuity supplies the intervening
@@ -851,6 +856,9 @@ native acceptance events. The direct native record grammar has diagonal
 effects and cannot realize the full complex operational quotient. The
 positive reconstructed functional does not select a complex phase convention
 or identify the unitary continuation of $H=-\log P$ with native time.
+The entries of $\ell_L$ are classical endpoint probabilities divided by the
+return probability. Native C and E evolution converges to $I/66$ and does not
+prepare $\rho_L$.
 
 Ordered modular correlations admit a finite reconstruction from the same
 native words. Since $\|I-P\|\leq1/3$, the binomial polynomial
@@ -860,8 +868,8 @@ native words. Since $\|I-P\|\leq1/3$, the binomial polynomial
 \]
 converges to $P^{it}$. For $N=\lceil|t|\rceil\geq1$, its norm error is bounded by
 $\sum_{k>m}\binom{N+k-1}{k}3^{-k}$; it is zero at $t=0$.
-Expanding the polynomial in powers of $P$ turns each ordered correlation
-into a finite signed or complex sum of complete native return events.
+Expanding the polynomial in powers of $P$ turns each polynomial approximant
+of an ordered correlation into a finite signed or complex sum of complete native return events.
 For $r$ relative-time factors with errors $\epsilon_j$, telescoping bounds
 the correlation error by $\prod_j(1+\epsilon_j)-1$.
 Degree twenty gives errors below $4.302\times10^{-10}$ on the exhibited
@@ -879,8 +887,8 @@ connectedness forces a nonzero transition across the cut. This statement
 concerns coordinate corners, not arbitrary tensor-region algebras.
 The completed reference $\sum_aQ_a\rho_LQ_a$ has compatible modular flows
 on its direct-sum sector algebra, with each sector weight retained;
-it differs from $\rho_L$. These results and all data-error bounds are in
-\path{model/native_modular_dynamics/}.
+it differs from $\rho_L$. These results and all data-error bounds are in the
+repository~\cite{ophrepo}.
 
 \subsection{Record algebra, measurement, Bell correlations and checkpoints}
 \label{sec:record-measurement}
@@ -937,7 +945,7 @@ than one. Within the complete finite Kraus class, probability one for all
 these tests is equivalent to the L\"uders instrument, including its effects.
 Certified approximate probabilities give a uniform error for arbitrary
 references and adaptive continuations. The proof and exact countercontrols
-are in \path{model/finite_instrument_calibration}. Trusted preparation,
+are in the repository~\cite{ophrepo}. Trusted preparation,
 readback and quantum probability semantics are premises; finite observed
 success counts do not establish exact probability one.
 
@@ -971,8 +979,7 @@ allowance $\delta$, so its complete comparison to the exact stationary
 ideal reference is bounded by $\varepsilon+\delta$. Since the numerical
 binary mixer need not preserve trace exactly, individual event weights use
 $\varepsilon+2\delta$. The proofs and numerical-reference allowances are
-in \path{model/prepared_quantum_readout} and
-\path{model/clocked_quantum_readout}. The result supplies finite native
+in the repository~\cite{ophrepo}. The result supplies finite native
 preparation in place of exact $I_{66}/66$ and initial binary support.
 The total-two sector, quantum instrument semantics, coherent service and
 work action, preparation and clock retain their stated premises. This is
@@ -2282,8 +2289,8 @@ optimizer and the actual repair transitions without specifying a target
 equilibrium distribution. A single seam alone leaves its fibre masses free.
 
 The generic involution-to-resampling identity is checked in
-\texttt{NativeBinaryThermodynamics}; the native attachment
-\texttt{model/native\_thermodynamic\_bridge} enumerates both coin outcomes
+\texttt{NativeBinaryThermodynamics}; the native attachment~\cite{ophrepo}
+enumerates both coin outcomes
 at every binary input and carrier seam. For every probability law $p$, with
 zero terms treated by their limits, conditional resampling gives
 \[
@@ -2313,26 +2320,32 @@ A nonconstant cost calibration is supplied by a distinct observer-memory
 construction. A native coin prefix stops immediately on $0$ and otherwise
 after a second coin, producing labels $0,10,11$ with probabilities
 $w=(1/2,1/4,1/4)$. The observed attempt counts are $n=(1,2,2)$.
-Define the stored-prefix cost $E=n\log2$ before choosing an equilibrium law.
-An unconditional memory refresh by this procedure is exactly the global
-conditional-resampling kernel with reference $w=e^{-E}$, realized in at
-most two native attempts, independently of the hidden source configuration.
+Define the stored-prefix cost $E=n\log2$. At fair coins $n\log2$ equals label
+surprisal for every complete prefix code, so $w=e^{-E}$ holds by construction
+and the code is declared. An unconditional memory refresh by this procedure is
+exactly the global conditional-resampling kernel with reference $w$, realized
+in at most two native attempts. The label reads only coins, so the refresh
+ignores the source configuration.
 The module \texttt{NativeRecordFourLaws} constructs its
 repair data and calibration at multiplier one and applies the existing
-\texttt{finiteFourLawCore}. The resulting finite zeroth, first, second and
-third-law clauses, fluctuation identities and Landauer inequality concern
-this same three-state record-cost system. They require no cofinal refinement
-family. The energy gap is $\log2$ and the ground label is unique.
+\texttt{finiteFourLawCore}. The resulting clauses concern this register:
+$\beta$ injectivity at fixed $E$, the identity $\Delta U=\Delta Q$ at zero work,
+relative-entropy contraction and the fixed-spectrum $\beta$ limit of this kernel
+family, with fluctuation identities and a Landauer inequality. No contact
+relation or energy exchange with a second system occurs, and the same core holds
+for every full-support repair law with $E=-\log(\mathrm{ref})$. The clauses
+require no cofinal refinement family. The energy gap is $\log2$ and the ground label is unique.
 
 For a supplied positive integer $b$, agreement of $b$ independently generated
-prefixes has unnormalized weights $w_x^b=e^{-bE_x}$. Thus native replica
-comparison produces the Gibbs family of the same cost, with normalization
+prefixes has unnormalized weights $w_x^b=e^{-bE_x}$. Thus agreement
+filtering produces the Gibbs family of the same cost, as it does for any law
+$w$ and its surprisal, with normalization
 $Z_b=2^{-b}+2\,4^{-b}$. Keeping the old memory on disagreement gives the
 exact reversible kernel $(1-Z_b)I+Z_bP_b$, where $P_b$ resamples the Gibbs
 law. A cap of $M$ proposals gives error at most $(1-Z_b)^M$ from $P_b$;
 unbounded retry realizes $P_b$ almost surely with mean native cost
 $3b/(2Z_b)$. At $b>1$ these finite kernels are generally not idempotent.
-The executable \texttt{model/native\_record\_thermodynamics} retains
+The executable~\cite{ophrepo} retains
 rejected replicas and their tapes. Its energy is stored-prefix cost, not
 total implementation work or a laboratory Hamiltonian, and $b$ is a declared
 replica count. This concrete finite theorem instance supplies no universal
@@ -2342,7 +2355,7 @@ Closed native histories give another source-derived thermal description.
 The positive complete-attempt transfer above fixes $H=-\log P$ before the
 return length $L$ is chosen; its counted state is exactly
 $\rho_L=e^{-LH}/\operatorname{Tr}(e^{-LH})$.
-The current-only adapter \texttt{model/native\_thermal\_return} implements
+The current-only adapter~\cite{ophrepo} implements
 the return comparison with finite failure and conditioning bounds. Its
 separate incident-clock version uses $T=D^{-1/2}BD^{-1/2}$ and only fields
 commuting with $D$, rather than silently transferring the complete-attempt
@@ -2788,8 +2801,8 @@ $-E'_q(V_0)\in I_q$ give
 \]
 All native outcomes are retained; the census need not restore its input.
 These are model probabilities, and empirical frequency errors require a
-separate bound. Exact replay and controls are in
-\path{model/operational_strain}. The volume interventions, common held
+separate bound. Exact replay and controls are in the
+repository~\cite{ophrepo}. The volume interventions, common held
 state, energy calibration and work interpretation are supplies. Neither
 native moment conservation nor discrete cap changes select a physical
 strain law or equilibrium equation of state.
@@ -2857,7 +2870,7 @@ census, missing doubler-removal attachment, physical endpoint transport and
 interaction-dependent response prevent interpreting it as the observed
 fine-structure constant or a complete particle spectrum. Exact equations,
 interval bounds and alternative feedback domains are in the particle paper
-and \path{model/pixel_mass_closure/}.
+and the repository~\cite{ophrepo}.
 
 \subsection{Physical scale and calibration ancestry}
 If a dimensionless atomic calculation supplies the isolated cesium gap

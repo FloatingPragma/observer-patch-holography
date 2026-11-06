@@ -21,7 +21,7 @@ The [certificate](certificate.py) checks the prefix law on all 78 inputs,
 replays finite comparison histories, and verifies exact register stationarity,
 detailed balance, supported fluctuation identities and the entropy split.
 Copying one prefix instead of generating independent records is a retained
-negative control. The construction supplies the mathematical finite-core
+computed comparison. The construction supplies the mathematical finite-core
 premises for this declared observer register; it does not identify physical
 energy, temperature, erasure work or the native occupation Hamiltonian.
 

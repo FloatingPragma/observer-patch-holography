@@ -206,8 +206,8 @@ theorem ref_eq_gibbs [Nonempty Ω] (C : CalibrationData D) (x : Ω) :
 
 /-- **Zeroth law, thermometer form.** A nondegenerate thermometer
 identifies the multiplier: two Gibbs states of the calibrated energy
-that agree as distributions have equal `beta`. Contact of `A` with `B`
-and of `B` with `C` therefore forces one common temperature through any
+that agree as distributions have equal `beta`. No contact relation between
+systems is formalized; this statement is multiplier injectivity for any
 thermometer with two distinct calibrated energy levels. -/
 theorem zeroth_thermometer [Nonempty Ω] (C : CalibrationData D)
     (beta1 beta2 : ℝ) (i j : Ω) (hij : C.energy i ≠ C.energy j)

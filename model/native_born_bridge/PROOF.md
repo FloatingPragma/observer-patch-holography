@@ -167,4 +167,6 @@ coexistent sums by compatible disjoint event unions. The complete fair-coin
 tree proves those clauses for its classical record effects. Neither the
 classical theorem nor the conditional complex tomography proves them for all
 complex effects, selects the quantum representation, or establishes physical
-laboratory identification.
+laboratory identification. Exact realization of every effect needs uncountably
+many settings, so a finite-program source needs a dense-effect version of the
+operational theorem.

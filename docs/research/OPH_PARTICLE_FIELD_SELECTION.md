@@ -42,9 +42,12 @@ The complete-attempt kernel `P` is obtained from all 3960 native branches and
 satisfies `2I/3<=P<=I`. The twelve occupation fields and connected transfer
 paths generate all 4356 matrix units. Scaled closed-history counts determine
 their moments, whose linear extension has the unique positive density
-`rho_L=P^L/Tr(P^L)`. Its canonical complex-linear extension is normalized,
-positive and additive on all complex effects. The mathematical inputs of
-the Born theorem are thus derived for this reconstructed algebra.
+`rho_L=P^L/Tr(P^L)`. Its canonical complex-linear extension is additive by
+definition and positive because `P` is positive, so it meets the hypotheses of
+the Born theorem on this reconstructed algebra. Its entries are classical
+endpoint probabilities divided by the return probability, every connected
+positive-definite symmetric stochastic matrix gives the same result, and native
+C and E evolution converges to the uniform state without preparing it.
 
 The [current-only return adapter](../../model/native_thermal_return/PROOF.md)
 implements the required configuration comparison with one initial restored
@@ -109,16 +112,20 @@ conditions of the physical four-law interpretation retain their separate status.
 A [native observer-memory construction](../../model/native_record_thermodynamics/PROOF.md)
 supplies a nonconstant internal calibration. A stopped coin-prefix program
 records `0`, `10` or `11` after respectively one, two or two native attempts.
-Its weights are `w=(1/2,1/4,1/4)`, independently of the hidden configuration.
-Define the stored-prefix cost `E=n log(2)` before selecting a probability law.
-Then `w=exp(-E)` is normalized, and overwriting the memory with a fresh prefix
+Its weights are `w=(1/2,1/4,1/4)`; the label reads only coins, so they ignore
+the hidden configuration by construction. Define the stored-prefix cost
+`E=n log(2)`. At fair coins this equals label surprisal for every complete
+prefix code, so `w=exp(-E)` holds by construction, and overwriting the memory with a fresh prefix
 is exactly its global heat bath in at most two native attempts. The
 [typed finite-theorem instance](../../Lean/Thermodynamics/NativeRecordFourLaws.lean)
 constructs `RepairLawData` and `CalibrationData` from these counts and applies
-`finiteFourLawCore`. Its gap is `log(2)` with a unique ground label.
+`finiteFourLawCore`. That core holds for every full-support law with
+`E=-log(ref)`, and it formalizes no contact relation or energy exchange with a
+second system. Its gap is `log(2)` with a unique ground label.
 
 Agreement of `b` sequentially generated independent prefixes gives weights
-`w^b`, hence the Gibbs family of the same cost at integer multiplier `b`.
+`w^b`, hence the Gibbs family of the same cost at integer multiplier `b`, as it
+does for any law and its surprisal.
 The coin law is independent of source state, so separate source preparations
 are unnecessary. Keeping the old memory after disagreement gives a lazy
 reversible kernel with exactly that stationary reference. Bounded retries

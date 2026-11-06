@@ -167,10 +167,12 @@ les entrées restantes.
   ports a le type de Lie de jauge du Modèle standard, et une représentation de
   matière spécifiée donne une génération sans anomalies.
   [Dérivation de jauge](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
-- **La thermodynamique.** Une seule construction finie de réparation donne les
-  quatre lois, les relations de fluctuation et la borne d’effacement de
-  Landauer sous des prémisses énoncées de référence, de calibration de
-  l’énergie et de basse température.
+- **La thermodynamique.** Des théorèmes finis de réparation donnent une
+  inégalité de Clausius, des relations de fluctuation et une inégalité de
+  Landauer informationnelle sous une référence et une calibration de l’énergie
+  énoncées. La réparation binaire native réalise les lois d’entropie à énergie
+  constante, et un registre d’enregistrements déclaré réalise l’ensemble fini
+  en unités de coût internes.
   [Exposé thermodynamique](paper/observers_are_all_you_need.pdf).
 - **La capacité d’information.** Des résultats exacts comptent les registres
   qui restent distinguables après les opérations permises, bornent ce nombre

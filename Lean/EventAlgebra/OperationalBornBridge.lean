@@ -121,7 +121,9 @@ abbrev ImplementedRecordEvent (C : Type u) (Ω : C → Type v) :=
 /-- Operational conditions required to pass from implemented record events
 to the entire complex matrix effect algebra. The refinement clause supplies
 one common experiment for each coexistent pair; it asserts no probability
-equation. Probability additivity is derived from disjoint record sums. -/
+equation. Probability additivity is derived from disjoint record sums.
+Exact realization of every effect needs uncountably many settings, so a
+finite-program source needs a dense-effect version of this interface. -/
 structure OperationalEffectQuotient (W : CompleteRecordWeights C Ω)
     (R : CompleteRecordEffects d C Ω) : Prop where
   implementation_independent : ∀ (c c' : C) (S : Finset (Ω c)) (T : Finset (Ω c')),

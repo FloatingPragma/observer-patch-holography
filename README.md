@@ -154,9 +154,11 @@ remaining inputs.
   Model gauge Lie type, and a specified matter representation gives an
   anomaly-free generation.
   [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
-- **Thermodynamics.** One finite repair construction gives the four laws,
-  fluctuation relations and the Landauer erasure bound under stated reference,
-  energy-calibration and low-temperature premises.
+- **Thermodynamics.** Finite repair theorems give a Clausius inequality,
+  fluctuation relations and an information Landauer inequality under a stated
+  reference and energy calibration. Native binary repair realizes the entropy
+  laws at constant energy, and a declared record register realizes the finite
+  package in internal cost units.
   [Thermodynamics account](paper/observers_are_all_you_need.pdf).
 - **Information capacity.** Exact results count which records stay
   distinguishable after the allowed operations, bound that count by the

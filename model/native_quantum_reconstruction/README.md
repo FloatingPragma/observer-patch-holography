@@ -1,7 +1,9 @@
 # Quantum weights reconstructed from native histories
 
-Closed native repair histories determine a positive matrix state and the
-Born form on a reconstructed finite algebra. The complete-attempt transfer
+Closed native repair histories determine a positive matrix functional on a
+reconstructed finite algebra. Its trace form follows from the chosen linear
+extension of classical endpoint probabilities, and native C and E evolution
+converges to the uniform state without preparing it. The complete-attempt transfer
 and twelve occupation fields generate all 4356 matrix coordinates; the
 Hamiltonian is obtained from that same transfer. The [proof](PROOF.md)
 separates this count-derived quantum description from implementing arbitrary

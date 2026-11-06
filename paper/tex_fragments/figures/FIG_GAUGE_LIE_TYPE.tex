@@ -11,7 +11,7 @@
   $\mathfrak g=\mathfrak z\oplus[\mathfrak g,\mathfrak g]$};
 \node[chk=8.6cm, below=of resp] (fix) {$A_5$ acts on $\mathfrak g\cong P_{12}=\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$;
   only the uniform push is fixed: $\dim\mathfrak g^{A_5}=1$};
-\node[chk=8.6cm, below=of fix] (centre) {Endogeneity: every recharting acts by an inner automorphism, which fixes
+\node[dec=8.6cm, below=of fix] (centre) {Endogeneity: every recharting acts by an inner automorphism, which fixes
   $\mathfrak z$ pointwise, so $\dim\mathfrak z\le\dim\mathfrak g^{A_5}=1$};
 \node[dec, below left=7mm and -24mm of centre] (z0) {$\mathfrak z=0$: compact semisimple of dimension $12$,
   so $\mathfrak g\cong\mathfrak{su}(2)^4$ by classification};
@@ -21,7 +21,7 @@
   so $\dim\mathfrak g^{A_5}\in3\mathbb Z$, contradicting $\dim\mathfrak g^{A_5}=1$};
 \node[oph box=ophfail, text width=5.8cm, below=of excl] (no) {$\mathfrak{su}(2)^4$ excluded};
 \node[oph box=ophnative, text width=5.8cm, below=of z1, minimum height=14mm, line width=1pt] (yes) {$\mathfrak g\cong\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$;\\
-  $\mathfrak{su}(2)$ carries $\mathbf3$, $\mathfrak{su}(3)$ carries $\mathbf3'\oplus\mathbf5$};
+  $\mathfrak{su}(2)$ carries one triplet, $\mathfrak{su}(3)$ the other and $\mathbf5$};
 \draw[oph arrow] (resp)--(fix);
 \draw[oph arrow] (fix)--(centre);
 \draw[oph arrow] (centre.south) -- ++(0,-2.5mm) -| (z0.north);

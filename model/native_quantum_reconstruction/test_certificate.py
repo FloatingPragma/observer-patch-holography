@@ -1,5 +1,6 @@
 from fractions import Fraction as Q
 
+import numpy as np
 import pytest
 
 from . import certificate as c
@@ -108,3 +109,25 @@ def test_missing_native_connections_cannot_supply_full_reconstruction(monkeypatc
 def test_complex_coordinates_must_be_exact():
     with pytest.raises(ValueError,match='rational complex'):
         c.sparse_moment(1,{(0,0):(.5,0)})
+
+
+def test_reconstructed_density_is_not_the_native_stationary_state():
+    # Unread native repair has uniform stationary populations on this sector. The
+    # reconstructed closed-history density differs and purifies as L grows, so the
+    # functional is a statistical description that native evolution does not prepare.
+    counts,denominator = c.source_counts()
+    transfer = np.array(counts, dtype=float)/denominator
+    assert np.allclose(transfer.sum(axis=1), 1)
+    def density(steps):
+        power = np.linalg.matrix_power(transfer, steps)
+        return power/np.trace(power)
+    uniform = np.eye(len(counts))/len(counts)
+    def entropy(rho):
+        values = np.linalg.eigvalsh(rho)
+        values = values[values > 1e-300]
+        return float(-(values*np.log(values)).sum())
+    entropies = [entropy(density(steps)) for steps in (1, 4, 16, 64, 256)]
+    assert all(later < earlier for earlier,later in zip(entropies, entropies[1:]))
+    assert entropies[-1] < 1e-2 < np.log(len(counts)) - 1
+    for steps in (1, 4, 256):
+        assert np.linalg.norm(density(steps)-uniform) > 5e-3

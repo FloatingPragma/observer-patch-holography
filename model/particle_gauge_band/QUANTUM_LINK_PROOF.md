@@ -2,7 +2,7 @@
 
 1. The actual link representation
 
-The native matter space has five irreducible blocks
+The declared matter representation has five irreducible blocks
 
  Q:(3,2)_{q=1}, u^c:(bar3,1)_{q=-4}, d^c:(bar3,1)_{q=2},
  L:(1,2)_{q=-3}, e^c:(1,1)_{q=6}.

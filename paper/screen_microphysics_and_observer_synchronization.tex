@@ -576,12 +576,12 @@ Every off-diagonal entry of $S^2$ is an even integer, so $S^2=5I$
 exactly. The five-cycle argument applies again.
 \end{proof}
 
-The exact certificate in \path{model/carrier_selection_reduction} checks
+An exact certificate~\cite{ophrepo} checks
 the rational inequalities, all $2^{10}$ switched sign matrices and the
 resulting incidence. Stability gives combinatorics, without exact angles,
 equal weights or an isometric rotation action. The response dimension,
-quadratic readout, minimum-channel objective and inverse-port convention
-are supplied. Deriving a rank-three response from a carrier that assumes
+directional quadratic readout, minimum-channel and worst-direction objectives,
+inverse ports and positive-overlap edges are supplied. Deriving a rank-three response from a carrier that assumes
 this incidence cannot independently discharge the dimension premise.
 The theorem selects neither physical seams nor a native optimization law.
 
@@ -1691,7 +1691,7 @@ and rank 20 for the face-form embedding. Unequal face weights and
 $(C^{\mathsf T}C)^2$ respectively show that rotation invariance and strict
 face locality matter. This classification does not cover arbitrary
 finite-range locality or nonlinear curvature actions. The executable proof
-is in \path{model/maxwell_local_selection}; the underlying incidence
+is in the repository~\cite{ophrepo}; the underlying incidence
 identities are formalized in \texttt{LocalFaceMaxwellAction}.
 
 \begin{proposition}[Conservative evolution from Faraday and reversal]
@@ -1806,8 +1806,8 @@ This follows from energy confinement, $\|C\|_2\le\sqrt6$ and the cubic
 remainder. Exact nonlinear Gauss conservation is not implied by the
 general hypotheses: a rotation-covariant skew electric correction, odd
 and linear in $B$, preserves energy and reversal but can generate Gauss
-charge. The construction and counterexample are checked in
-\path{model/maxwell_weak_field}. Smoothness, the stated susceptibilities,
+charge. The construction and counterexample are checked in the
+repository~\cite{ophrepo}. Smoothness, the stated susceptibilities,
 field interpretation, conservation, reversal and clock are premises; no
 native implementation, photon pole or continuum identification follows.
 

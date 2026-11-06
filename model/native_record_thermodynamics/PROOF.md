@@ -18,8 +18,8 @@ and read its coin. The three terminal public prefixes are
 Every coin is part of an actual native endpoint/current record, including
 no-movement attempts. Their lengths are n=(1,2,2). Charge each attempted
 placement `log(2)` units and define `E(h)=n(h)log(2)` before selecting any
-reference. The complete source enumeration, on all 78 total-two inputs,
-gives the same prefix probabilities
+reference. Fair-coin path counting gives the prefix probabilities. The label
+reads only coins, so they are the same on all 78 total-two inputs by construction:
 
     w=(1/2,1/4,1/4)=exp(-E).
 

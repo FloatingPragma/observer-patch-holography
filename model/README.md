@@ -20,16 +20,18 @@ derives twelve paired icosahedral ports from a stated minimum-channel
 information objective in three dimensions. Its finite tolerance preserves
 the exact incidence without requiring exact angles.
 
-The [weak-field derivation](maxwell_weak_field/README.md) obtains Maxwell
-response from smooth local energy and reversible conservative evolution,
-with an explicit nonlinear error bound. The
+The [weak-field derivation](maxwell_weak_field/README.md) shows that smooth
+energy with stated vacuum-locality premises, Faraday kinematics, conservation
+and reversal has Maxwell form as its leading response, with an explicit
+nonlinear error bound. Native repair does not select these inputs. The
 [strain construction](operational_strain/README.md) identifies pressure from
-finite calibrated energy records and supplies native sector readout of the
-resulting work observable.
+finite calibrated energy records and supplies native sector readout of a
+supplied charge-diagonal strain Hamiltonian.
 
 The [native quantum reconstruction](native_quantum_reconstruction/README.md)
-derives a positive matrix functional and Born weights from closed repair
-histories. A [current-only return controller](native_thermal_return/README.md)
+derives a positive matrix functional from closed repair histories. Its trace
+form follows from a chosen linear extension of classical endpoint probabilities,
+and native C and E evolution does not prepare it. A [current-only return controller](native_thermal_return/README.md)
 implements the record comparison with bounded errors. The
 [native record bridge](native_born_bridge/README.md) supplies complete
 classical probabilities and coarse graining. Reconstructed effect statistics
@@ -40,10 +42,11 @@ The [native thermodynamic bridge](native_thermodynamic_bridge/README.md)
 identifies binary seam repair with conditional resampling and derives a
 shared equilibrium reference and entropy-increase law. Complete record
 accounting retains the input information. A separate
-[native record thermostat](native_record_thermodynamics/README.md) generates
+[native record register](native_record_thermodynamics/README.md) generates
 a nonconstant Gibbs family from prefix costs and record agreement. Its bounded
-three-state refresh supplies the inputs of the complete finite four-law
-theorem in internal cost units; physical heat and temperature need calibration.
+three-state refresh inhabits the finite four-law core in internal cost units, a
+core that holds for every full-support law with E=-log(ref); physical heat and
+temperature need calibration.
 
 The [prepared quantum readout](prepared_quantum_readout/README.md) uses native
 sweeps to replace exact stationary input by a certified error. The
