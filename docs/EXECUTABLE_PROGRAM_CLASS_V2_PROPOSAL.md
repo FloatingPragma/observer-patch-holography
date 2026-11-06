@@ -1,12 +1,11 @@
 # Proposed executable class and observer acceptance
 
-The [V2 contract](../model/completion/program_class_v2.json) proposes a concrete
+The [V2 contract](../model/completion/program_class_v2.json) defines the adopted
 class for CP-00 while preserving the full physical targets of the completion
-program. It is marked `PROPOSED_FOR_INDEPENDENT_REVIEW`. Its
-[checker](../model/completion/program_class_v2.py) does not accept a gate or
-change the program registry. The class, its actual interpreter and observer
-membership, and the theorem assignments require independent review before
-adoption.
+program. It is marked `ADOPTED_AFTER_REVIEW`. Its
+[checker](../model/completion/program_class_v2.py) verifies the bound review,
+interpreter membership and theorem assignments without accepting additional
+physical gates.
 
 The intended acceptance is limited but substantive: define which constructions
 are being tested, exhibit one complete continuing observer in that class, and
@@ -72,6 +71,13 @@ mass/mixing obligations, and the same-process Einstein G1--G6 target. It binds
 the existing particle, conditional quark and NuFIT source fixtures and all
 prior observation, forecast and physical-identification registers. The
 predecessor commit and tree identify the retained earlier evidence.
+
+The original observation and physical-identification registers are preserved
+as [immutable exposure snapshots](../model/completion/historical/exposure/provenance.json).
+Their original class hashes are verified directly. Live ledger commentary may
+evolve, but the live observation identities and targets must match the frozen
+71-row inventory. All other exposure pins and all interpreter and review-source
+bindings retain exact live-file verification.
 
 Every current physical target is exposed. V2 enables retrospective consistency
 comparisons and explicitly disables novel-prediction claims. A prospective

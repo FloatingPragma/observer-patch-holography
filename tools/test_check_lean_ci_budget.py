@@ -15,6 +15,15 @@ def test_current_wiring_passes() -> None:
     assert validate(workflow, lakefile) == []
 
 
+def test_native_thermodynamics_checks_cannot_be_removed_or_silenced() -> None:
+    workflow, lakefile = _inputs()
+    for source in ("NativeBinaryThermodynamics", "NativeRecordFourLaws"):
+        command = f"lake env lean Thermodynamics/{source}.lean"
+        for replacement in ("", command + " || true"):
+            errors = validate(workflow.replace(command, replacement), lakefile)
+            assert any(source in error for error in errors)
+
+
 def test_default_ophgap_target_is_rejected() -> None:
     workflow, lakefile = _inputs()
     mutated = lakefile.replace(

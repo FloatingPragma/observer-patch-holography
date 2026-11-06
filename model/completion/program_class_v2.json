@@ -7,8 +7,8 @@
     "independent_review": {
       "verdict": "PASS",
       "path": "model/completion/program_class_v2_review.json",
-      "sha256": "25b9cd63190a8965c6d69c30debd2bb2824e11df8421cbf0a075f00e7fe8bc40",
-      "reviewed_contract_digest": "a3bfbe176adb8a2bdc84b791cf12eb7888fde341a8d8d149c9d5fa174833a730"
+      "sha256": "b1f7cf129a8fa46cd18e86e166aec714d1957db65e6a1132460c1bce576012bd",
+      "reviewed_contract_digest": "3edda181fbcc33bb20ac681915e3526d055f32a2c2fc0e526a5cef42657a80d1"
     }
   },
   "predecessor": {
@@ -303,8 +303,9 @@
     "fresh_trillion_pulse_replay_claimed": false
   },
   "review_implementation_bindings": {
-    "model/completion/program_class_v2.py": "0aaa61eeadbfbe7bc98c8e25eeb31666a5e765f6bb706c1ac8295aee44257983",
-    "model/completion/test_program_class_v2.py": "88dbbb4ee53cf13548d74ffdd0d3a80daf4dcc43df5063c21f4364a177f681f6",
-    "docs/EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md": "d555593700bd9fab007c20345635910f832a9938ddc8ef165e6c95baaa810aa0"
+    "model/completion/program_class_v2.py": "38b44e3a0a76f6dbe261b6b277b2971b0cc1121e096e12a444f5be8164dc4319",
+    "model/completion/test_program_class_v2.py": "8035a133f08fe17c832749b27f134ab27e6f795b4872cca0342539335bb89d7a",
+    "docs/EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md": "71b8110e6835f7cfd606bc76ab3ba2af4326cc2ad89ffe1b645792b2d432db28",
+    "model/completion/historical/exposure/provenance.json": "6a2df257894e32619db093fc66ec2c60d14929e6ff4c9b840044d257aa9bef93"
   }
 }

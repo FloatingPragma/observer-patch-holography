@@ -1,0 +1,165 @@
+{
+  "all_pass": true,
+  "inherited_source_pins": {
+    "model/native_quantum_reconstruction/results.json": 13,
+    "model/native_thermal_return/results.json": 11
+  },
+  "matrix_stability_example": {
+    "Hermitian_contraction_hypothesis_required": true,
+    "correlation_error_upper": "3855181617584652722946688481/1000000000000000000000000000000000000000000",
+    "entry_error": "1/100000000000000000000"
+  },
+  "native_branch_counts": 3960,
+  "native_interaction_diagnosis": {
+    "all_native_sector_states_retained": 66,
+    "arbitrary_one_body_hoppings_and_potentials_allowed_in_excluded_class": true,
+    "arbitrary_reencoding_excluded": false,
+    "basis_indices": [
+      65,
+      44,
+      64,
+      53
+    ],
+    "local_generator_I_minus_P_contrast": "-1/15",
+    "local_generator_distance_from_all_quadratics_lower": "1/60",
+    "logarithm_contrast_interval": [
+      "-9303960476529561074846148083/117204168201120000000000000000",
+      "-9303960156209561074846148083/117204168201120000000000000000"
+    ],
+    "logarithm_operator_distance_from_all_quadratics_lower": "9303960156209561074846148083/468816672804480000000000000000",
+    "logarithm_order": 16,
+    "native_occupation_dictionary_fixed": true,
+    "occupation_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "relativistic_or_chiral_continuum_claim": false,
+    "strict_logarithm_distance_simple_lower": "992281/50000000"
+  },
+  "ordered_modular_histories": [
+    {
+      "budget": {
+        "complete_event_probability_error_upper": "399707/1000000000000000000000000000000000000000000",
+        "finite_sampling_error_included": false,
+        "maximum_body_attempts": 42,
+        "polynomial_bias_upper": "13947137605/48630661836227715204",
+        "record_amplification_error_upper": "18365868299765091/125000000000000000000000000000000000000000",
+        "total_attempts_max": 22792
+      },
+      "exact_correlation": [
+        "27553970499279523117374183568031015639727888951213939958791218983548645184345871010027236389981614457/18668759837594312572776358027332413303543010160684862863969823490048000000000000000000000000000000000000000",
+        "362911777171590258568599055231571627981891547054741290201671350812227006988306324873491109991388079/62229199458647708575921193424441377678476700535616209546566078300160000000000000000000000000000000000000"
+      ],
+      "indices": [
+        0,
+        6
+      ],
+      "spectral_diagnostic": {
+        "analytic_bias_bound": "13947137605/48630661836227715204",
+        "floating_evaluation_is_proof_premise": false,
+        "within_analytic_bound_plus_roundoff": true
+      },
+      "times_in_common_generator_units": [
+        "0",
+        "1/2"
+      ]
+    },
+    {
+      "budget": {
+        "complete_event_probability_error_upper": "399707/1000000000000000000000000000000000000000000",
+        "finite_sampling_error_included": false,
+        "maximum_body_attempts": 62,
+        "polynomial_bias_upper": "145891985529603852019/339129266201729628114355465608",
+        "record_amplification_error_upper": "6484009819713413002223/200000000000000000000000000000000000000000",
+        "total_attempts_max": 22812
+      },
+      "exact_correlation": [
+        "-2498200409994520543896922164880706501873472748660469102768096221635190554695110832289993210174953731644656437381260286055624064528971/4712447187515516612088513041209244183010358236492815910680974207678956512492786810880000000000000000000000000000000000000000000000000000000000",
+        "10755038741695679038727728147798047328574590720916992804908831040788732661501531198997079919116909272706260032266964036243603717580857/6479614882833835341621705431662710751639242575177621877186339535558565204677581864960000000000000000000000000000000000000000000000000000000000"
+      ],
+      "indices": [
+        0,
+        6,
+        3
+      ],
+      "spectral_diagnostic": {
+        "analytic_bias_bound": "145891985529603852019/339129266201729628114355465608",
+        "floating_evaluation_is_proof_premise": false,
+        "within_analytic_bound_plus_roundoff": true
+      },
+      "times_in_common_generator_units": [
+        "-1/2",
+        "0",
+        "1/2"
+      ]
+    }
+  ],
+  "same_generator_clock_relation": "t=L*s for U(t)=P^(it); Hamiltonian Heisenberg time tau=-L*s",
+  "schema": "oph.native_modular_dynamics.v1",
+  "scope": {
+    "coordinate_corner_obstruction_is_all_regional_algebras_no_go": false,
+    "modular_flow_executed_as_native_quantum_channel": false,
+    "native_weighted_record_statistics_constructed": true,
+    "physical_clock_or_energy_units_identified": false,
+    "same_state_as_unconditioned_native_working_carrier": false,
+    "time_shift_stationarity_in_reconstructed_reference": true
+  },
+  "sector_references": {
+    "completed_reference_differs_from_original": true,
+    "completed_sector_modular_intertwining": true,
+    "cross_sector_indices": [
+      0,
+      55
+    ],
+    "cross_sector_reference_entry": "1/1620",
+    "general_tensor_region_no_go_claimed": false,
+    "nested_sector_size": 45,
+    "nested_weight": "4883/7155",
+    "original_coordinate_corner_modular_intertwining": false,
+    "sector_sizes": [
+      55,
+      11
+    ],
+    "sector_weights": [
+      "5/6",
+      "1/6"
+    ],
+    "two_step_compression_leakage_diagonal": "1/1800",
+    "within_sector_indices": [
+      0,
+      6
+    ],
+    "within_sector_reference_entry": "13/21465"
+  },
+  "source_sha256": {
+    "model/native_effective_fields/construction.py": "d36c94c7b4aad45e8668139a320a45c6b120e841156b4426f195f69aadd51c03",
+    "model/native_modular_dynamics/PROOF.md": "ef41c21a3e14324a228096b8953a540c1f090cceac5af4f5ef3301af2aa60874",
+    "model/native_modular_dynamics/certificate.py": "7054f03620e989040dcb344a294ba543b48cc0068167ed15f754b6b365cc2afd",
+    "model/native_modular_dynamics/interaction.py": "f93750cd58b7d2c483b121cc591f48db718a1336e8ceca18e4ea0bb62bcc50f3",
+    "model/native_modular_dynamics/test_certificate.py": "475dc13a461bf9cfac99f8c8a214bf734f05654b4e2a2ae70fe27fb86d83da0c",
+    "model/native_quantum_reconstruction/certificate.py": "ffc51c1ab3b09dee9d5a004896b80ec40747a893a2ef1e05ae67cf7e123bf75b",
+    "model/native_quantum_reconstruction/results.json": "df496d10023c229ccecae2cb124d8b7f6c44321fd7f12475dc7006c2beb39b95",
+    "model/native_thermal_return/certificate.py": "ae0e2d8e2a15aa0e3f900c1ddaa30d2eca8bc5f92dc5d98f775df29b28e2c6e3",
+    "model/native_thermal_return/results.json": "034169d2b1bd5d10fce04383f9b999edfafa8ea578148b782117286e1fe71d3a"
+  },
+  "source_spectral_bounds": {
+    "lower": "2/3",
+    "minimum_diagonal": "5/6",
+    "strict_positive_definiteness_from_integer_counts": true,
+    "upper": "1"
+  }
+}

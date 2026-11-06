@@ -593,6 +593,49 @@ fixed-moment record stationarity, not the fixed-proper-volume
 generalized-entropy variation of (G4); joining the two requires an area,
 volume and stress attachment on the same process.
 
+\subsection{Regional first law from native return counts}
+
+The binary source supplies a finite regional entropy calculation from its
+own closed histories. Let $C$ count the sixty seam/coin choices per input.
+The length-two reconstructed state is
+\[
+ \sigma=\frac{C^2}{171720}\geq mI,\qquad m=\frac{40}{4293}.
+\]
+A two-port seam has fixed-load sectors with exterior dimensions
+$d_q=45,10,1$. If $R_q$ is the exterior partial trace in sector $q$, its
+regional density $R=\bigoplus_qR_q$ has trace one. The tracial completion
+$\mathcal E(\sigma)=\bigoplus_qR_q\otimes I_{d_q}/d_q$ gives
+\[
+ S_{\rm bulk}=H(p)+\sum_qp_qS(R_q/p_q),\qquad
+ S_{\rm edge}=\sum_qp_q\log d_q,\qquad p_q=\operatorname{Tr}R_q.
+\]
+The central Shannon term is in the bulk. The original full reference
+has nonzero cross-sector entries and differs from this completion.
+The edge multiplicities are not thereby gravitational area.
+
+For $|f|\leq1$ and $\operatorname{Tr}(C\operatorname{diag}(f)C)=0$,
+weighting a return history at its midpoint by $1+tf$ gives the faithful
+family $\rho_t=\sigma+tC\operatorname{diag}(f)C/171720$, $|t|<1$.
+Its regional restriction is $R+tY$. On this same algebra, with $K=-\log R$,
+\[
+ \Delta S_{\rm bulk}=t\operatorname{Tr}(YK)-D(R+tY\Vert R),\qquad
+ 0\leq D(R+tY\Vert R)\leq
+ \frac{t^2\|Y\|_{\rm HS}^2}{2(1-|t|)m}.
+\]
+The bound follows by integrating the positive noncommuting entropy Hessian
+along the faithful segment. It controls the first law without a numerical
+differentiation assumption. Exact native counting supplies sixty-five
+independent real symmetric filter directions. One filter preserves all
+twelve mean occupations and has strictly positive bulk entropy derivative,
+while the bare seam cut count stays eight. No positive constant multiple
+of that static cut count cancels the derivative.
+These are weighted or postselected-history states, not executed causal
+quantum interventions. Fixed mean occupation is not fixed proper volume.
+The calculation supplies finite entropy and variation inputs, without
+physical stress, responsive area or the common small-ball stationarity
+limit. Exact counts, rational logarithm bounds and independent tensor checks
+are in \path{model/native_gravity_response/}.
+
 \subsection{Finite modular covariance and compressed responses}
 \label{sec:finite-modular-covariance}
 

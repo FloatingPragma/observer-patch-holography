@@ -155,6 +155,14 @@ jobs:
       - name: Check native field receipt portability
         if: matrix.shard == 0
         run: python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json
+      - name: Replay native count-derived fields, defects and entropy
+        if: matrix.shard == 0
+        shell: python
+        run: |
+          import subprocess
+          import sys
+          for package in ("native_modular_dynamics", "native_quantum_defects", "native_gravity_response"):
+              subprocess.run([sys.executable, "-m", f"model.{package}.certificate", "--check"], check=True)
       - name: Check source field, object, spectroscopy and vacuum receipts
         if: matrix.shard == 0
         shell: python

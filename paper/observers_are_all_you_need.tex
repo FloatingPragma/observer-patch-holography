@@ -852,6 +852,36 @@ effects and cannot realize the full complex operational quotient. The
 positive reconstructed functional does not select a complex phase convention
 or identify the unitary continuation of $H=-\log P$ with native time.
 
+Ordered modular correlations admit a finite reconstruction from the same
+native words. Since $\|I-P\|\leq1/3$, the binomial polynomial
+\[
+ V_m(t)=\sum_{k=0}^m c_k(t)(I-P)^k,\qquad
+ c_0=1,\quad c_{k+1}=c_k\frac{k-it}{k+1},
+\]
+converges to $P^{it}$. For $N=\lceil|t|\rceil\geq1$, its norm error is bounded by
+$\sum_{k>m}\binom{N+k-1}{k}3^{-k}$; it is zero at $t=0$.
+Expanding the polynomial in powers of $P$ turns each ordered correlation
+into a finite signed or complex sum of complete native return events.
+For $r$ relative-time factors with errors $\epsilon_j$, telescoping bounds
+the correlation error by $\prod_j(1+\epsilon_j)-1$.
+Degree twenty gives errors below $4.302\times10^{-10}$ on the exhibited
+two- and three-time cases; the bounded current-census apparatus uses at most
+$22812$ attempts per event experiment. Normalization and coefficient
+amplification are charged separately; sampling uncertainty is not included.
+The references share the exact comparison
+$\rho_L^{is}A\rho_L^{-is}=P^{iLs}AP^{-iLs}$.
+Here $Ls$ is the exponent parameter; conventional Heisenberg time for
+$H$ is $-Ls$. No physical duration is inferred.
+
+Every proper nonempty coordinate corner fails to intertwine this full
+modular flow: intertwining its identity $Q$ would require $[Q,P]=0$, whereas
+connectedness forces a nonzero transition across the cut. This statement
+concerns coordinate corners, not arbitrary tensor-region algebras.
+The completed reference $\sum_aQ_a\rho_LQ_a$ has compatible modular flows
+on its direct-sum sector algebra, with each sector weight retained;
+it differs from $\rho_L$. These results and all data-error bounds are in
+\path{model/native_modular_dynamics/}.
+
 \subsection{Record algebra, measurement, Bell correlations and checkpoints}
 \label{sec:record-measurement}
 

@@ -1,0 +1,17 @@
+{
+  "scope": "Original frozen exposure bytes; live commentary is separately maintained. No target, source law, calibration or exposure classification is changed.",
+  "registers": {
+    "tracking/observation_ledger.json": {
+      "snapshot": "model/completion/historical/exposure/observation_ledger.json",
+      "sha256": "4c372d75b2a1dafeb11a773b37ef1a5a36e620f39326ad311a108a9bd4bd00d3",
+      "git_commit": "1db86257df5fcd6b9f578570c75c2b76b9a00c4c",
+      "git_blob": "2b1f598ee61be7f6f483c62736ea68dbbf775088"
+    },
+    "claims/physical_identification_registry.json": {
+      "snapshot": "model/completion/historical/exposure/physical_identification_registry.json",
+      "sha256": "7067d1a59ca45c877aae0760a2cdf19407bde64ce581065840805dd9845ed83c",
+      "git_commit": "83bc025e81d560c13303968092f010d814125f9e",
+      "git_blob": "3b51f4f0432ad58feeb9312bb7ea231eaa39a70d"
+    }
+  }
+}

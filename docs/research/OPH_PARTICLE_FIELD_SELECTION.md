@@ -59,6 +59,18 @@ configuration effects are diagonal. Choosing the complexification and
 identifying reconstructed unitary time with physical time are distinct
 requirements.
 
+The [modular-history construction](../../model/native_modular_dynamics/PROOF.md)
+reconstructs ordered modular correlations from finite combinations of these
+same native path counts. Exact binomial polynomials have explicit truncation,
+coefficient-amplification and return-normalization bounds. The displayed
+two- and three-time examples have systematic polynomial bias below
+`2.868e-10` and `4.302e-10`; sampling error is separate. All references use
+`H=-log(P)`, with modular parameter `s` corresponding to conventional
+Heisenberg time `-Ls`. Proper coordinate corners do not intertwine the full
+modular flow. Retaining a chosen sector label supplies compatible block
+flows for an explicitly completed reference. This changes the reference
+and does not implement a native unitary operation or identify physical time.
+
 ## Thermodynamics from native repair
 
 The [finite four-law core](../../Lean/Thermodynamics/CofinalSpectralTailFamily.lean)
@@ -125,6 +137,27 @@ These Gibbs functionals describe reconstructed history ensembles; they are
 not coherent working-state preparations or stationary Gibbs laws of the
 unchanged open source process.
 
+## Regional entropy and the Einstein premises
+
+The [regional response construction](../../model/native_gravity_response/PROOF.md)
+uses the same native length-two reference `sigma=C^2/171720`. Midpoint
+filters give 65 independent normalized, faithful state directions. These
+are postselected history ensembles with complete return and filter weights;
+no causal quantum preparation is inferred. Each native seam has regional
+sector dimensions `1,2,1` and exterior multiplicities `45,10,1`. Its canonical
+tracial completion obeys the exact bulk/edge entropy split, with the central
+Shannon term in the bulk. The modular first law has a quadratic remainder
+bound for the same states, including noncommuting perturbations.
+
+The full reference differs from that completion and has cross-sector
+coherence, which rules out a reference-preserving retraction onto the chosen
+regional algebra. A native pair-occupation filter preserving all twelve mean
+occupations has a strictly positive bulk-entropy slope, while the fixed
+geometric cut count has zero derivative. Thus these finite entropy premises
+do not supply geometric stationarity. Physical stress, responsive area,
+fixed proper volume, Newton normalization and a common small-ball refinement
+require their own derivations.
+
 ## Carrier from directional readout
 
 The [weighted carrier selector](../../model/carrier_selection_reduction/PROOF.md)
@@ -146,6 +179,27 @@ minimum-resource and worst-direction information criteria, and inverse-port
 convention are premises. The native rank-three construction depends on a
 declared carrier and cannot independently discharge this alternative
 selector's dimension premise.
+
+## Source-counted localization and spectrum
+
+The [native spectrum and localization search](../../model/native_quantum_defects/PROOF.md)
+retains all 66 transfer modes and classifies every one of the 4096 port
+cores. Six ten-port cores support three-dimensional confined amplitude
+spaces with transfer eigenvalues `4/5`, `5/6` and `13/15`; no such space
+fits on nine or fewer ports. These modes fail the reference-like exterior
+test, and confinement is lost under admitted changes of selector weights.
+Complete C/E record commitment also changes their transfer-sector weights.
+
+A distinct construction starts from the faithful reconstructed
+`rho=P/Tr(P)` and changes its one-port phase by `D=(-1)^n_a`.
+The functional `D rho D` has exactly the same eleven-port exterior and
+configuration probabilities, but positive `H=-log(P)` energy excess in
+`[1/1008,1/672]`. Every complete native history preserves equality of the
+exterior-plus-tape laws relative to the correspondingly evolved reference.
+The contrast decays by `5/6` per C attempt or `7/10` per E attempt under
+uniform scheduling. This is a count-derived localized functional; no native
+phase gate, prepared working state, protected moving particle or physical
+mass is established.
 
 ## Mass comparison and inverse coordinates
 
@@ -306,6 +360,17 @@ nonlinear conservative reversible flows need not preserve Gauss: the exact
 counterexample distinguishes the leading Maxwell constraint from a full
 nonlinear conservation law. The finite result supplies no native physical
 clock, field identification or continuum limit.
+
+The [full-sector interaction test](../../model/native_modular_dynamics/interaction.py)
+uses the unchanged native occupation dictionary and all 66 states. Every
+quadratic one-body operator has zero four-pair diagonal contrast, even with
+arbitrary hoppings, on-site potentials and a scalar offset. The native
+`J=I-P` has contrast `-1/15`, giving operator-norm distance at least `1/60`
+from this entire quadratic class. Exact logarithm bounds give distance
+greater than `0.01984562` for `H=-log(P)`. The unit-rate Poisson generator
+`J` and discrete-transfer logarithm `H` use different clocks. The result
+establishes finite interaction in this dictionary, without an interacting
+chiral relativistic limit or an exclusion of arbitrary re-encodings.
 
 ## Physical identification
 

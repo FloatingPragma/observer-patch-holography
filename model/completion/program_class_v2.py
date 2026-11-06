@@ -17,6 +17,12 @@ from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path('model/completion/program_class_v2.json')
+EXPOSURE_SNAPSHOTS = {
+    'tracking/observation_ledger.json':
+        'model/completion/historical/exposure/observation_ledger.json',
+    'claims/physical_identification_registry.json':
+        'model/completion/historical/exposure/physical_identification_registry.json',
+}
 
 
 def require(condition, message):
@@ -41,6 +47,16 @@ def bound_file(root, name, expected):
     path = (root/name).resolve()
     require(path.is_relative_to(root) and path.is_file(), f'missing or external bound file: {name}')
     require(hashlib.sha256(path.read_bytes()).hexdigest() == expected, f'stale reviewed source: {name}')
+
+
+def bound_exposure(root, name, expected):
+    """Check original exposure bytes, independently of mutable live commentary.
+
+    Only the two maintained registers use snapshots. All other exposure pins,
+    interpreter inputs and review sources keep their exact live-file checks.
+    The snapshot hash is the original class pin, never a regenerated value.
+    """
+    bound_file(root, EXPOSURE_SNAPSHOTS.get(name, name), expected)
 
 
 def exact_interval(value):
@@ -130,11 +146,15 @@ def validate(packet, root=ROOT):
     bindings = packet['exposure']['source_hashes']
     require(isinstance(bindings, dict) and bindings, 'missing exposure/source custody')
     for name, expected in bindings.items():
-        bound_file(root, name, expected)
+        bound_exposure(root, name, expected)
     for name in packet['exposure']['registers']:
         require(name in bindings, f'unbound prior exposure register: {name}')
     observations = strict_json.load(root/'tracking/observation_ledger.json')['rows']
     require(len(observations) == 71, 'observation target inventory changed; review successor contract')
+    frozen = strict_json.load(root/EXPOSURE_SNAPSHOTS['tracking/observation_ledger.json'])['rows']
+    require({r['id']: r['target'] for r in observations} ==
+            {r['id']: r['target'] for r in frozen},
+            'live observation identities or physical targets differ from frozen exposure')
     require(packet['targets']['structural_menu']['selection'].startswith('all71'),
             'physical target menu silently narrowed')
     require(packet['predecessor']['old_finite_campaigns_preserved'] is True and

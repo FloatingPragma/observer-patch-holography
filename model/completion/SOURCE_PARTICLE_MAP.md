@@ -11,6 +11,35 @@ The finite constructions supply no complete particle catalogue of nature.
 A finite certificate establishes its stated mathematics; it does not identify a
 mode, defect index or fitted coefficient with an observed species.
 
+## Direct native transfer and regional response
+
+The [count-derived spectrum and localization construction](../native_quantum_defects/PROOF.md)
+uses all sixty-six binary total-two states and all native endpoint branches.
+It classifies all 4096 port cores and constructs a faithful one-port
+phase-twisted functional with an unchanged full exterior and strictly
+positive transfer-energy excess. The complete native record law preserves
+that exterior comparison while its contrast decays. The construction is a
+positive functional of signed history statistics; it executes no native
+phase gate and identifies no physical particle mass.
+
+The [modular-history construction](../native_modular_dynamics/PROOF.md)
+expresses ordered modular correlations as finite combinations of the same
+native path counts, with truncation and data-error bounds. All loop-length
+references use a common transfer generator; sector completions supply
+compatible restricted flows only after their change of reference is
+declared. A four-pair diagonal test gives a positive distance from every
+quadratic operator in the fixed native occupation dictionary, retaining
+every source mode.
+
+The [regional response construction](../native_gravity_response/PROOF.md)
+derives central sectors, the bulk/edge entropy split and a quantitative
+noncommuting first law on filtered native histories. The full reference
+does not equal its tracial regional completion. A fixed-occupation filter
+has nonzero bulk-entropy slope with constant geometric cut count, excluding
+that static-area stationarity mechanism. Responsive geometry, common
+physical stress and a controlled Einstein refinement are separate
+requirements.
+
 ## Charged composite search and complete quadratic currents
 
 The [composite probe](../charged_composite_search/README.md) acts on the

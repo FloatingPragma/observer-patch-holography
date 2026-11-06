@@ -175,6 +175,9 @@ jobs:
                 # build remains nightly-only. The typed golden bridge has the
                 # dedicated change-aware lane below.
                 Screen/OPHScreen.lean|Screen/GoldenSectorPSL2F5Representations.lean) continue ;;
+                # These source attachments are checked directly below; their
+                # dependencies belong to the pinned thermodynamics library.
+                Thermodynamics/NativeBinaryThermodynamics.lean|Thermodynamics/NativeRecordFourLaws.lean) continue ;;
                 ObservableNormalForms/*) rel="${rel#ObservableNormalForms/}" ;;
                 Screen/*) rel="${rel#Screen/}" ;;
                 Thermodynamics/*) rel="${rel#Thermodynamics/}" ;;
@@ -206,6 +209,9 @@ jobs:
               echo "Building Lean target: $target"
               lake build "$target"
             done <<< "$LEAN_TARGETS"
+            lake build FourLawAdequacySurface CofinalSpectralTailFamily
+            lake env lean Thermodynamics/NativeBinaryThermodynamics.lean
+            lake env lean Thermodynamics/NativeRecordFourLaws.lean
           ' 2>&1 | tee lake-build.log || status=$?
           echo "status=$status" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ]; then

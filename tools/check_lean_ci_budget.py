@@ -69,6 +69,12 @@ def validate(workflow: str, lakefile: str) -> list[str]:
         errors.append("changed Lean modules must retain their 18-minute build budget")
     if re.search(r"(?m)^\s+lake build\s*$", changed_body):
         errors.append("per-change Lean CI must not run an exhaustive default Lake build")
+    for source in ("NativeBinaryThermodynamics", "NativeRecordFourLaws"):
+        command = f"lake env lean Thermodynamics/{source}.lean"
+        if not any(line.strip() == command for line in changed_body.splitlines()):
+            errors.append(f"the native thermodynamics attachment {source} must be checked without suppressing failures")
+    if "lake build FourLawAdequacySurface CofinalSpectralTailFamily" not in changed_body:
+        errors.append("native thermodynamics dependencies must be built before direct source checks")
 
     cache_step = re.search(
         r"(?ms)^      - name: Save Lake build cache\n"

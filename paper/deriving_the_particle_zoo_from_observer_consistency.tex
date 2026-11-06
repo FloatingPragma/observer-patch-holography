@@ -263,6 +263,61 @@ establish the physical spin and statistics of the bound modes constructed
 below. The source constructions are in \path{model/defect_protection} and
 \path{model/charged_defect}.
 
+\subsection{Native transfer modes and localized phase excitations}
+
+A source-counted search keeps all sixty-six binary total-two configurations.
+Uniform independent seam selection and fair placement give the complete
+attempt transfer $P=C/60$, with $2I/3\leq P\leq I$. Exact characteristic
+polynomial factorization, independently checked by sixty-six Newton traces,
+finds sixteen distinct eigenvalues and a unique constant ground vector.
+The largest nontrivial eigenvalue is $(55+\sqrt5)/60$.
+These are transfer eigenvalues, not measured particle masses.
+
+A compact amplitude core means that both loads lie in a selected port set.
+The largest confined invariant subspace is the kernel of the outgoing block
+and all its products with powers of the internal block. Exhausting all
+$4096$ subsets, with exact rank certificates, gives no nonzero such subspace
+on nine or fewer ports. Six ten-port cores support three modes, with
+transfer eigenvalues $4/5$, $5/6$, $13/15$ and integrated normalized native
+autocorrelations $5$, $6$, $15/2$ attempts. Their exterior differs from the
+reference. Admitted changes of seam weights destroy their confinement,
+and the full recorded native instruments do not conserve their transfer
+sector. A common invariant amplitude subspace under every native seam
+necessarily uses all twelve ports.
+
+There is a different localized excitation of the faithful reconstructed
+reference $\rho=P/\operatorname{Tr}P$, where $\operatorname{Tr}P=56$.
+Let $D=(-1)^{n_0}$ and $\rho'=D\rho D$. It has the same entropy,
+configuration probabilities and full eleven-port exterior as $\rho$.
+For the source-derived $H=-\log P$,
+\[
+ \frac1{1008}\leq\operatorname{Tr}\bigl(H(\rho'-\rho)\bigr)
+                  \leq\frac1{672}.
+\]
+The bounds follow from $\|[P,D]\|_{\rm HS}^2=1/9$ and the positive
+spectral bounds on $P$. The native C and E unread channels contract the
+state contrast by $5/6$ and $7/10$ per uniform attempt respectively.
+Complete tape-plus-exterior laws agree when compared with the equally
+evolved reference; the reference is not asserted stationary.
+The excitation is the reconstructed functional $A\mapsto\ell(DAD)$.
+No native phase gate or coherent preparation is inferred. These positive
+energy and locality statements therefore describe a decaying finite
+excitation, without establishing a protected physical particle.
+The exhaustive search and exact channel checks are in
+\path{model/native_quantum_defects/}.
+
+Interaction is also detectable without a fitted spectrum. Every quadratic
+operator in this fixed occupation dictionary has diagonal
+$K_{\{i,j\},\{i,j\}}=c+\epsilon_i+\epsilon_j$, regardless of its hopping
+terms. Its four-pair contrast on $01,23,02,13$ vanishes. For $I-P$ the same
+contrast is $-1/15$, so its norm distance from every such quadratic is at
+least $1/60$. A positive logarithm expansion with an explicit tail bounds
+the distance for $-\log P$ below by $0.01984562$.
+This retains every native state and permits arbitrary quadratic hoppings,
+on-site potentials and an energy offset. It does not exclude an arbitrary
+re-encoding or establish a chiral relativistic continuum; the exact witness
+is in \path{model/native_modular_dynamics/}.
+
 \section{The conditional field action and particle table}
 \label{sec:conditional-field-action}
 

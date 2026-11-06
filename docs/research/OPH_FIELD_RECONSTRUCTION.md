@@ -21,6 +21,19 @@ the producer, the information in accessible records, the inverse justified
 by those records, and the physical interpretation being tested. These are
 different steps even when one software implementation performs all of them.
 
+The unchanged binary native transfer also supports a
+[count-derived localization and spectrum construction](../../model/native_quantum_defects/PROOF.md).
+Its faithful one-port phase-twisted functional has an exactly matched full
+exterior and positive dimensionless transfer-energy excess. Complete native
+histories preserve the exterior comparison while the contrast decays; no
+native phase gate or physical preparation is inferred. The same source has
+an exhaustive 66-mode spectrum and compact-support classification. Its
+[nonquadratic interaction test](../../model/native_modular_dynamics/PROOF.md)
+excludes every one-body quadratic in the fixed native occupation dictionary.
+These direct source results use reconstructed history functionals. Their
+modular dynamics, regional entropy response and physical boundaries are
+spelled out in the [finite field-selection guide](OPH_PARTICLE_FIELD_SELECTION.md).
+
 ## The common finite particle operator
 
 The simulator carrier, memory rule and coherent pulse service are explicit

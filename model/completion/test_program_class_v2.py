@@ -108,6 +108,7 @@ def test_pass_review_cannot_be_reused_after_contract_change(tmp_path, damage):
             'member_receipt': 'model/native_program/results.json',
             'independent_check': 'model/native_program/test_interpreter.py'}
     paths = set(p['exposure']['source_hashes']) | set(p['interpreter_binding']['source_hashes'])
+    paths |= set(contract.EXPOSURE_SNAPSHOTS.values())
     paths |= set(p.get('review_implementation_bindings', {}))
     map_path = 'model/completion/finite_attachment_map.json'
     paths.add(map_path)
@@ -146,4 +147,42 @@ def test_pass_review_cannot_be_reused_after_contract_change(tmp_path, damage):
         target.write_text(json.dumps(review))
         p['adoption']['independent_review']['sha256'] = hashlib.sha256(target.read_bytes()).hexdigest()
     with pytest.raises(ValueError, match='exact class contract|stale reviewed source|actual theorem map'):
+        contract.validate(p, root=tmp_path)
+
+
+@pytest.mark.parametrize('name', list(contract.EXPOSURE_SNAPSHOTS))
+def test_exposure_snapshot_uses_original_pin_and_rejects_damage(tmp_path, name):
+    p = packet()
+    frozen_name = contract.EXPOSURE_SNAPSHOTS[name]
+    target = tmp_path/frozen_name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    original = (contract.ROOT/frozen_name).read_bytes()
+    target.write_bytes(original)
+    # A live register is not an alternate source for the immutable exposure.
+    live = tmp_path/name
+    live.parent.mkdir(parents=True, exist_ok=True)
+    live.write_text('{"commentary": "different live contents"}')
+    expected = p['exposure']['source_hashes'][name]
+    contract.bound_exposure(tmp_path, name, expected)
+    target.write_bytes(original+b' ')
+    with pytest.raises(ValueError, match='stale reviewed source'):
+        contract.bound_exposure(tmp_path, name, expected)
+    target.unlink()
+    live.write_bytes(original)
+    with pytest.raises(ValueError, match='missing or external bound file'):
+        contract.bound_exposure(tmp_path, name, expected)
+
+
+def test_live_target_replacement_is_rejected(tmp_path):
+    p = packet()
+    paths = set(p['exposure']['source_hashes']) | set(contract.EXPOSURE_SNAPSHOTS.values())
+    for name in paths:
+        target = tmp_path/name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(contract.ROOT/name, target)
+    target = tmp_path/'tracking/observation_ledger.json'
+    live = json.loads(target.read_text())
+    live['rows'][0]['target'] = 'a different physical prediction'
+    target.write_text(json.dumps(live))
+    with pytest.raises(ValueError, match='physical targets differ from frozen exposure'):
         contract.validate(p, root=tmp_path)
