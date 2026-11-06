@@ -1,0 +1,216 @@
+{
+  "all_pass": true,
+  "controls": {
+    "beta2_exact_sampler_uniformly_bounded_fair_coin_tree": false,
+    "copy_one_label_beta2_accepted_law": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "finite_beta_greater_than_one_kernel_idempotent": false,
+    "independent_beta2_accepted_law": [
+      "2/3",
+      "1/6",
+      "1/6"
+    ]
+  },
+  "native_prefix": {
+    "bounded_controller_padded_histories_checked": 486,
+    "conditional_prefix_law_independent_of_every_source_input": true,
+    "energy_coefficients_in_log2_units": [
+      1,
+      2,
+      2
+    ],
+    "independent_carrier_replicas_or_reset_required": false,
+    "native_stopped_paths_checked": 234,
+    "prefixes": [
+      [
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "source_inputs": 78,
+    "weights": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ]
+  },
+  "register_kernels": [
+    {
+      "agreement_probability_per_proposal": "1",
+      "beta": 1,
+      "cap": 1,
+      "excited_mass": "1/2",
+      "excited_mass_upper": "1",
+      "mean_attempts_until_agreement": "3/2",
+      "mean_attempts_with_cap": "3/2",
+      "native_attempts_max": 2,
+      "positive_support_fluctuation_average": "1",
+      "projector": true,
+      "reference": [
+        "1/2",
+        "1/4",
+        "1/4"
+      ],
+      "timeout_probability": "0"
+    },
+    {
+      "agreement_probability_per_proposal": "1",
+      "beta": 1,
+      "cap": 3,
+      "excited_mass": "1/2",
+      "excited_mass_upper": "1",
+      "mean_attempts_until_agreement": "3/2",
+      "mean_attempts_with_cap": "3/2",
+      "native_attempts_max": 6,
+      "positive_support_fluctuation_average": "1",
+      "projector": true,
+      "reference": [
+        "1/2",
+        "1/4",
+        "1/4"
+      ],
+      "timeout_probability": "0"
+    },
+    {
+      "agreement_probability_per_proposal": "3/8",
+      "beta": 2,
+      "cap": 1,
+      "excited_mass": "1/3",
+      "excited_mass_upper": "1/2",
+      "mean_attempts_until_agreement": "8",
+      "mean_attempts_with_cap": "3",
+      "native_attempts_max": 4,
+      "positive_support_fluctuation_average": "1",
+      "projector": false,
+      "reference": [
+        "2/3",
+        "1/6",
+        "1/6"
+      ],
+      "timeout_probability": "5/8"
+    },
+    {
+      "agreement_probability_per_proposal": "3/8",
+      "beta": 2,
+      "cap": 3,
+      "excited_mass": "1/3",
+      "excited_mass_upper": "1/2",
+      "mean_attempts_until_agreement": "8",
+      "mean_attempts_with_cap": "387/64",
+      "native_attempts_max": 12,
+      "positive_support_fluctuation_average": "1",
+      "projector": false,
+      "reference": [
+        "2/3",
+        "1/6",
+        "1/6"
+      ],
+      "timeout_probability": "125/512"
+    },
+    {
+      "agreement_probability_per_proposal": "5/32",
+      "beta": 3,
+      "cap": 1,
+      "excited_mass": "1/5",
+      "excited_mass_upper": "1/4",
+      "mean_attempts_until_agreement": "144/5",
+      "mean_attempts_with_cap": "9/2",
+      "native_attempts_max": 6,
+      "positive_support_fluctuation_average": "1",
+      "projector": false,
+      "reference": [
+        "4/5",
+        "1/10",
+        "1/10"
+      ],
+      "timeout_probability": "27/32"
+    },
+    {
+      "agreement_probability_per_proposal": "5/32",
+      "beta": 3,
+      "cap": 3,
+      "excited_mass": "1/5",
+      "excited_mass_upper": "1/4",
+      "mean_attempts_until_agreement": "144/5",
+      "mean_attempts_with_cap": "23553/2048",
+      "native_attempts_max": 18,
+      "positive_support_fluctuation_average": "1",
+      "projector": false,
+      "reference": [
+        "4/5",
+        "1/10",
+        "1/10"
+      ],
+      "timeout_probability": "19683/32768"
+    },
+    {
+      "agreement_probability_per_proposal": "129/32768",
+      "beta": 8,
+      "cap": 1,
+      "excited_mass": "1/129",
+      "excited_mass_upper": "1/128",
+      "mean_attempts_until_agreement": "131072/43",
+      "mean_attempts_with_cap": "12",
+      "native_attempts_max": 16,
+      "positive_support_fluctuation_average": "1",
+      "projector": false,
+      "reference": [
+        "128/129",
+        "1/258",
+        "1/258"
+      ],
+      "timeout_probability": "32639/32768"
+    },
+    {
+      "agreement_probability_per_proposal": "129/32768",
+      "beta": 8,
+      "cap": 3,
+      "excited_mass": "1/129",
+      "excited_mass_upper": "1/128",
+      "mean_attempts_until_agreement": "131072/43",
+      "mean_attempts_with_cap": "9625682691/268435456",
+      "native_attempts_max": 48,
+      "positive_support_fluctuation_average": "1",
+      "projector": false,
+      "reference": [
+        "128/129",
+        "1/258",
+        "1/258"
+      ],
+      "timeout_probability": "34770467733119/35184372088832"
+    }
+  ],
+  "schema": "oph.native_record_thermodynamics.v1",
+  "scope": {
+    "beta_greater_than_one_exact_heat_bath_requires_unbounded_retry": true,
+    "beta_one_exact_heat_bath_max_native_attempts": 2,
+    "beta_selected_by_integer_replica_comparison_controller": true,
+    "cofinal_spacetime_low_temperature_control": false,
+    "domain": "declared three-state observer record register",
+    "energy_defined_from_native_prefix_attempt_cost_before_reference": true,
+    "finite_caps_keep_every_rejection_and_timeout": true,
+    "full_source_and_growing_archive_stationary": false,
+    "physical_temperature_energy_work_or_erasure_cost_identified": false,
+    "same_H_as_occupation_or_transfer_reconstruction": false
+  },
+  "source_sha256": {
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "184b2ee4079088814b86aefdb82655b8f318da402ca29c456fa972cdd69e0b2e",
+    "model/native_born_bridge/certificate.py": "91c444b00554c7080d7172c7cd63cbd5a875f6b0d8cc7e6fb1c6b196ffe8873c",
+    "model/native_born_bridge/results.json": "3aca34ff97329f8570a7f6d479acf4dd570dab50ac40b31db7986bc1ed357064",
+    "model/native_record_thermodynamics/PROOF.md": "b0aa2cf7251acffc09bd77e6faea219c66392da1eff48e0df4f073c79737990a",
+    "model/native_record_thermodynamics/certificate.py": "e627715e6ca4d7bb018a5ad5e1b3f5372c8726c73fcdee5dc9bb5f68a9622cb4",
+    "model/native_record_thermodynamics/test_certificate.py": "642c47399090f4d2e77cb184621caa668d2f85ee947fc6708c8b97d32ea8b549",
+    "model/native_thermodynamic_bridge/certificate.py": "d53f4cf492de8ac9a9f962341d252a99d3702ced41213d110b92f1240ada3c47",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d"
+  }
+}

@@ -50,7 +50,24 @@
         "model/finite_instrument_calibration/PROOF.md",
         "model/finite_instrument_calibration/results.json",
         "model/finite_instrument_calibration/test_certificate.py",
-        "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean"
+        "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
+        "model/native_born_bridge/certificate.py",
+        "model/native_born_bridge/PROOF.md",
+        "model/native_born_bridge/results.json",
+        "model/native_born_bridge/test_certificate.py",
+        "Lean/EventAlgebra/OperationalBornBridge.lean",
+        "model/native_interface/tomography.py",
+        "model/native_interface/tomography_results.json",
+        "model/native_interface/construction.py",
+        "model/native_interface/coherence_budget.py",
+        "model/native_interface/test_construction.py",
+        "model/native_interface/test_coherence_budget.py",
+        "model/native_interface/results.json",
+        "model/native_interface/coherence_results.json",
+        "model/native_quantum_reconstruction/certificate.py",
+        "model/native_quantum_reconstruction/PROOF.md",
+        "model/native_quantum_reconstruction/results.json",
+        "model/native_quantum_reconstruction/test_certificate.py"
       ],
       "evidence_roles": {
         "Lean/EventAlgebra/PublicRecordAlgebra.lean": "conditional_consumer",
@@ -59,15 +76,41 @@
         "model/finite_instrument_calibration/PROOF.md": "conditional_consumer",
         "model/finite_instrument_calibration/results.json": "conditional_consumer",
         "model/finite_instrument_calibration/test_certificate.py": "conditional_consumer",
-        "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean": "conditional_consumer"
+        "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean": "conditional_consumer",
+        "model/native_born_bridge/certificate.py": "statement",
+        "model/native_born_bridge/PROOF.md": "statement",
+        "model/native_born_bridge/results.json": "statement",
+        "model/native_born_bridge/test_certificate.py": "statement",
+        "Lean/EventAlgebra/OperationalBornBridge.lean": "conditional_consumer",
+        "model/native_interface/tomography.py": "conditional_consumer",
+        "model/native_interface/tomography_results.json": "conditional_consumer",
+        "model/native_interface/construction.py": "no_go",
+        "model/native_interface/coherence_budget.py": "no_go",
+        "model/native_interface/test_construction.py": "no_go",
+        "model/native_interface/test_coherence_budget.py": "no_go",
+        "model/native_interface/results.json": "no_go",
+        "model/native_interface/coherence_results.json": "no_go",
+        "model/native_quantum_reconstruction/certificate.py": "statement",
+        "model/native_quantum_reconstruction/PROOF.md": "statement",
+        "model/native_quantum_reconstruction/results.json": "statement",
+        "model/native_quantum_reconstruction/test_certificate.py": "statement"
       },
-      "notes": "Promotion would state the algebra-state readout surface as a basis clause; a source-produced representation theorem would retire the row instead.\n\nFinite joint calibration can select an instrument only inside the supplied finite quantum/Kraus semantics. A complete finite Kraus instrument can instead be selected by finitely many trusted joint calibration probabilities, without prescribing its induced effects. For a supplied orthonormal basis partitioned into outcome blocks, correct-label survival of each basis state and one uniform coherent state per block of rank greater than one determines every map Phi_y(X)=P_y X P_y exactly when all scores equal one. From certified basis/coherent failure bounds, an explicit outward rational estimate bounds the complete channel in half diamond norm, including arbitrary untouched references and terminal states. Adaptive histories of at most N uses obey the preparation error plus N times that uniform bound. Nonprojective-effect, dephasing, label-swap and repeatability controls retain complete outcomes. Finite zero-failure samples need a sampling contract; quantum semantics, trusted preparation/readback and source custody are not derived. The single-channel unit-return-probability theorem and its scalar-Kraus core are Lean checked in FiniteProbeInstrumentSelection.lean. Complete multi-label probability-one selection and reference-uniform stability are analytic and executable; their quantum and trusted-calibration premises are retained.",
+      "notes": "Promotion would state the algebra-state readout surface as a basis clause; a source-produced representation theorem would retire the row instead.\n\nFinite joint calibration can select an instrument only inside the supplied finite quantum/Kraus semantics. A complete finite Kraus instrument can instead be selected by finitely many trusted joint calibration probabilities, without prescribing its induced effects. For a supplied orthonormal basis partitioned into outcome blocks, correct-label survival of each basis state and one uniform coherent state per block of rank greater than one determines every map Phi_y(X)=P_y X P_y exactly when all scores equal one. From certified basis/coherent failure bounds, an explicit outward rational estimate bounds the complete channel in half diamond norm, including arbitrary untouched references and terminal states. Adaptive histories of at most N uses obey the preparation error plus N times that uniform bound. Nonprojective-effect, dephasing, label-swap and repeatability controls retain complete outcomes. Finite zero-failure samples need a sampling contract; quantum semantics, trusted preparation/readback and source custody are not derived. The single-channel unit-return-probability theorem and its scalar-Kraus core are Lean checked in FiniteProbeInstrumentSelection.lean. Complete multi-label probability-one selection and reference-uniform stability are analytic and executable; their quantum and trusted-calibration premises are retained.\n\nComplete endpoint execution on all 78 total-two configurations derives finite public-record probabilities from a supplied exact classical initial law, independent fair placement coins and a bounded public-prefix policy, before any matrix or trace semantics. Zero-weight outcomes and early halts are retained. Disjoint event unions and record-map pullbacks are additive. Additional actual repair coins implement arbitrary dyadic acceptance on the finite record space; order bounds determine the unique extension to all real classical record effects without a continuity axiom. This derives the diagonal density representation on the commutative record algebra, without selecting a unique density matrix on an ambient noncommutative algebra. Independently, OperationalBornBridge.lean starts with complete nonnegative record laws and a separate positive complete complex matrix representation. If equal represented effects have equal event probabilities and every coexistent effect pair has disjoint event implementations in one experiment, the record-sum law descends to full effect additivity and the finite Busch-Gleason theorem gives one unique Born state. Joint refinement with zero also derives full effect realizability, so it is not an additional premise. The conditional compiled 66-state tomography spans all 4356 Hermitian coordinates under supplied coherent services and quantum semantics; this establishes informational completeness in that model, not universal implementation equivalence or native complex-effect refinement. The full complex bridge and physical quantum identification retain those explicit obligations.\n\nThe native C/E definite-record grammar has a separate exact obstruction: every event effect is diagonal, including finite composition, classical record feedback, coarse graining, finite stopping and diagonal auxiliary preparation. Such a grammar cannot realize a nonzero off-diagonal matrix effect. OperationalBornBridge.lean proves that diagonal outcome atoms rule out its full operational effect quotient whenever an off-diagonal effect is required; an explicit positive qubit projector supplies a checked witness. This excludes deriving the complete complex quotient from that unchanged record grammar. The compiled coherent proper-code services lie outside the restricted grammar and are not excluded by this result.\n\nOn the specified binary total-two source, independent uniform seam selection and fair placement coins determine the complete-attempt transfer P by all 3960 native branches. Exact diagonal dominance gives 2I/3 <= P <= I. The twelve occupation fields generate the 66 configuration projectors; connected native paths of at most four steps then generate all 4356 real matrix units. Native closed-path counts, divided by their known word coefficients and the separately measured return probability, determine a unique linear functional on this full real matrix algebra. Its canonical complexification has the derived representation ell_L(A)=Tr(P^L A)/Tr(P^L), for every integer L>=1. Positivity of P proves positivity, normalization and coexistent-effect additivity of this functional on the full complex effect algebra, supplying IsEffectValuation for this specified reconstructed dictionary without assuming a trace probability rule. H=-log P is derived before the loop length L selects its dimensionless Gibbs family. The current-only two-census adapter and native warm-up give a finite population-statistic attachment: for the displayed L in {1,2,4}, the stated settings require at most 11398 native attempts per experiment and bound every reconstructed effect statistic error by 3.76596e-6. Sampling uncertainty and the number of repetitions are separate. Matrix-unit statistics use rescaled filtered histories; arbitrary effects may require signed or complex linear combinations. They are not asserted to be individual native acceptance events. Thus the positive reconstructed effect valuation and the diagonal native measurement obstruction concern different representations. The construction supplies no arbitrary native effect implementation, source-selected complex phase, coherent working-state preparation, unitary real-time apparatus or physical quantum calibration.",
       "discharge": {
         "status": "declared",
         "evidence": [
-          "model/record_laws/README.md"
+          "model/record_laws/README.md",
+          "model/native_born_bridge/certificate.py",
+          "model/native_born_bridge/PROOF.md",
+          "model/native_born_bridge/results.json",
+          "model/native_born_bridge/test_certificate.py",
+          "Lean/EventAlgebra/OperationalBornBridge.lean",
+          "model/native_quantum_reconstruction/certificate.py",
+          "model/native_quantum_reconstruction/PROOF.md",
+          "model/native_quantum_reconstruction/results.json",
+          "model/native_quantum_reconstruction/test_certificate.py"
         ],
-        "note": "The carrier Hilbert space and the quantum instruments of the record laws are declared parts of the specification."
+        "note": "The native classical record law has a derived diagonal density representation on its commutative event algebra. The ambient complex Hilbert space, coherent controls and quantum instruments are declared; this finite classical representation does not discharge their physical selection. The definite-record native grammar has diagonal event effects and cannot realize the full complex quotient; coherent controls are a separate extension. Complete-attempt native history counts generate the full real 66-state matrix algebra and a unique positive normalized functional on its canonical complexification. The resulting full-effect additivity and Born density are derived for this reconstructed dictionary; arbitrary operational effect realizability and laboratory quantum identification are separate obligations."
       }
     },
     {
@@ -87,7 +130,24 @@
         "model/finite_instrument_calibration/certificate.py",
         "model/finite_instrument_calibration/PROOF.md",
         "model/finite_instrument_calibration/results.json",
-        "model/finite_instrument_calibration/test_certificate.py"
+        "model/finite_instrument_calibration/test_certificate.py",
+        "model/native_born_bridge/certificate.py",
+        "model/native_born_bridge/PROOF.md",
+        "model/native_born_bridge/results.json",
+        "model/native_born_bridge/test_certificate.py",
+        "Lean/EventAlgebra/OperationalBornBridge.lean",
+        "model/native_interface/tomography.py",
+        "model/native_interface/tomography_results.json",
+        "model/native_interface/construction.py",
+        "model/native_interface/coherence_budget.py",
+        "model/native_interface/test_construction.py",
+        "model/native_interface/test_coherence_budget.py",
+        "model/native_interface/results.json",
+        "model/native_interface/coherence_results.json",
+        "model/native_quantum_reconstruction/certificate.py",
+        "model/native_quantum_reconstruction/PROOF.md",
+        "model/native_quantum_reconstruction/results.json",
+        "model/native_quantum_reconstruction/test_certificate.py"
       ],
       "evidence_roles": {
         "Lean/EventAlgebra/FiniteBuschGleason.lean": "conditional_consumer",
@@ -97,15 +157,41 @@
         "model/finite_instrument_calibration/certificate.py": "conditional_consumer",
         "model/finite_instrument_calibration/PROOF.md": "conditional_consumer",
         "model/finite_instrument_calibration/results.json": "conditional_consumer",
-        "model/finite_instrument_calibration/test_certificate.py": "conditional_consumer"
+        "model/finite_instrument_calibration/test_certificate.py": "conditional_consumer",
+        "model/native_born_bridge/certificate.py": "statement",
+        "model/native_born_bridge/PROOF.md": "statement",
+        "model/native_born_bridge/results.json": "statement",
+        "model/native_born_bridge/test_certificate.py": "statement",
+        "Lean/EventAlgebra/OperationalBornBridge.lean": "conditional_consumer",
+        "model/native_interface/tomography.py": "conditional_consumer",
+        "model/native_interface/tomography_results.json": "conditional_consumer",
+        "model/native_interface/construction.py": "no_go",
+        "model/native_interface/coherence_budget.py": "no_go",
+        "model/native_interface/test_construction.py": "no_go",
+        "model/native_interface/test_coherence_budget.py": "no_go",
+        "model/native_interface/results.json": "no_go",
+        "model/native_interface/coherence_results.json": "no_go",
+        "model/native_quantum_reconstruction/certificate.py": "statement",
+        "model/native_quantum_reconstruction/PROOF.md": "statement",
+        "model/native_quantum_reconstruction/results.json": "statement",
+        "model/native_quantum_reconstruction/test_certificate.py": "statement"
       },
-      "notes": "Removal needs a source-produced complex-tomographically-complete effect/instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation. Lean/EventAlgebra/OperationalAdditivityBoundary.lean locates the row on the committed static effect/count fixture: the listed coexistent sums are precisely the unit resolutions, any assignment normalized in each context is additive on them, and an explicit non-Born countermodel matches every generated expected frequency while failing full additivity at a separate effect pair. Conversely, full additivity plus those static fit values forces the declared matrix's Born valuation. The fixture therefore cannot supply PR-03, PR-64, or PR-65; removal needs an operational derivation beyond context-wise normalization. SourceBoundInstrumentInterface sharpens the boundary: an injective affine continuum through the run Born valuation satisfies every committed clause with additivity residue exactly -(3/256) t, and full additivity holds precisely at the Born member; the premise is consumed only as the hypothesis of that characterization, so this row stays open.\n\nThe finite calibration theorem consumes joint quantum probabilities and does not derive Born valuation or effect additivity from scalar consensus.",
+      "notes": "Removal needs a source-produced complex-tomographically-complete effect/instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation. Lean/EventAlgebra/OperationalAdditivityBoundary.lean locates the row on the committed static effect/count fixture: the listed coexistent sums are precisely the unit resolutions, any assignment normalized in each context is additive on them, and an explicit non-Born countermodel matches every generated expected frequency while failing full additivity at a separate effect pair. Conversely, full additivity plus those static fit values forces the declared matrix's Born valuation. The fixture therefore cannot supply PR-03, PR-64, or PR-65; removal needs an operational derivation beyond context-wise normalization. SourceBoundInstrumentInterface sharpens the boundary: an injective affine continuum through the run Born valuation satisfies every committed clause with additivity residue exactly -(3/256) t, and full additivity holds precisely at the Born member; the premise is consumed only as the hypothesis of that characterization, so this row stays open.\n\nThe finite calibration theorem consumes joint quantum probabilities and does not derive Born valuation or effect additivity from scalar consensus.\n\nComplete endpoint execution on all 78 total-two configurations derives finite public-record probabilities from a supplied exact classical initial law, independent fair placement coins and a bounded public-prefix policy, before any matrix or trace semantics. Zero-weight outcomes and early halts are retained. Disjoint event unions and record-map pullbacks are additive. Additional actual repair coins implement arbitrary dyadic acceptance on the finite record space; order bounds determine the unique extension to all real classical record effects without a continuity axiom. This derives the diagonal density representation on the commutative record algebra, without selecting a unique density matrix on an ambient noncommutative algebra. Independently, OperationalBornBridge.lean starts with complete nonnegative record laws and a separate positive complete complex matrix representation. If equal represented effects have equal event probabilities and every coexistent effect pair has disjoint event implementations in one experiment, the record-sum law descends to full effect additivity and the finite Busch-Gleason theorem gives one unique Born state. Joint refinement with zero also derives full effect realizability, so it is not an additional premise. The conditional compiled 66-state tomography spans all 4356 Hermitian coordinates under supplied coherent services and quantum semantics; this establishes informational completeness in that model, not universal implementation equivalence or native complex-effect refinement. The full complex bridge and physical quantum identification retain those explicit obligations.\n\nThe native C/E definite-record grammar has a separate exact obstruction: every event effect is diagonal, including finite composition, classical record feedback, coarse graining, finite stopping and diagonal auxiliary preparation. Such a grammar cannot realize a nonzero off-diagonal matrix effect. OperationalBornBridge.lean proves that diagonal outcome atoms rule out its full operational effect quotient whenever an off-diagonal effect is required; an explicit positive qubit projector supplies a checked witness. This excludes deriving the complete complex quotient from that unchanged record grammar. The compiled coherent proper-code services lie outside the restricted grammar and are not excluded by this result.\n\nOn the specified binary total-two source, independent uniform seam selection and fair placement coins determine the complete-attempt transfer P by all 3960 native branches. Exact diagonal dominance gives 2I/3 <= P <= I. The twelve occupation fields generate the 66 configuration projectors; connected native paths of at most four steps then generate all 4356 real matrix units. Native closed-path counts, divided by their known word coefficients and the separately measured return probability, determine a unique linear functional on this full real matrix algebra. Its canonical complexification has the derived representation ell_L(A)=Tr(P^L A)/Tr(P^L), for every integer L>=1. Positivity of P proves positivity, normalization and coexistent-effect additivity of this functional on the full complex effect algebra, supplying IsEffectValuation for this specified reconstructed dictionary without assuming a trace probability rule. H=-log P is derived before the loop length L selects its dimensionless Gibbs family. The current-only two-census adapter and native warm-up give a finite population-statistic attachment: for the displayed L in {1,2,4}, the stated settings require at most 11398 native attempts per experiment and bound every reconstructed effect statistic error by 3.76596e-6. Sampling uncertainty and the number of repetitions are separate. Matrix-unit statistics use rescaled filtered histories; arbitrary effects may require signed or complex linear combinations. They are not asserted to be individual native acceptance events. Thus the positive reconstructed effect valuation and the diagonal native measurement obstruction concern different representations. The construction supplies no arbitrary native effect implementation, source-selected complex phase, coherent working-state preparation, unitary real-time apparatus or physical quantum calibration.",
       "discharge": {
         "status": "declared",
         "evidence": [
-          "model/CONSTRUCTION.md"
+          "model/CONSTRUCTION.md",
+          "model/native_born_bridge/certificate.py",
+          "model/native_born_bridge/PROOF.md",
+          "model/native_born_bridge/results.json",
+          "model/native_born_bridge/test_certificate.py",
+          "Lean/EventAlgebra/OperationalBornBridge.lean",
+          "model/native_quantum_reconstruction/certificate.py",
+          "model/native_quantum_reconstruction/PROOF.md",
+          "model/native_quantum_reconstruction/results.json",
+          "model/native_quantum_reconstruction/test_certificate.py"
         ],
-        "note": "Born readout is a declared service; the executed statistics are diagonal and do not test additivity across contexts."
+        "note": "Native endpoint records derive additivity and dyadic refinement on the commutative record domain. Phase-sensitive coherent instruments and complete complex tomography are executed under declared quantum semantics. Implementation-independent probabilities and common disjoint refinements for every coexistent complex effect pair remain explicit conditions; the conditional operational bridge derives Born form from them. The definite-record native grammar has diagonal event effects and cannot realize the full complex quotient; coherent controls are a separate extension. Complete-attempt native history counts generate the full real 66-state matrix algebra and a unique positive normalized functional on its canonical complexification. The resulting full-effect additivity and Born density are derived for this reconstructed dictionary; arbitrary operational effect realizability and laboratory quantum identification are separate obligations."
       }
     },
     {
@@ -259,7 +345,26 @@
         "model/moving_defect/README.md",
         "model/moving_defect/results.json",
         "model/record_action/README.md",
-        "model/record_action/results.json"
+        "model/record_action/results.json",
+        "model/native_thermodynamic_bridge/certificate.py",
+        "model/native_thermodynamic_bridge/PROOF.md",
+        "model/native_thermodynamic_bridge/results.json",
+        "model/native_thermodynamic_bridge/test_certificate.py",
+        "Lean/Thermodynamics/NativeBinaryThermodynamics.lean",
+        "Lean/Thermodynamics/CofinalSpectralTailFamily.lean",
+        "model/native_thermal_return/certificate.py",
+        "model/native_thermal_return/PROOF.md",
+        "model/native_thermal_return/results.json",
+        "model/native_thermal_return/test_certificate.py",
+        "model/native_quantum_reconstruction/certificate.py",
+        "model/native_quantum_reconstruction/PROOF.md",
+        "model/native_quantum_reconstruction/results.json",
+        "model/native_quantum_reconstruction/test_certificate.py",
+        "model/native_record_thermodynamics/certificate.py",
+        "model/native_record_thermodynamics/PROOF.md",
+        "model/native_record_thermodynamics/results.json",
+        "model/native_record_thermodynamics/test_certificate.py",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean"
       ],
       "evidence_roles": {
         "Lean/Thermodynamics/FiniteConditionalRepair.lean": "conditional_consumer",
@@ -272,9 +377,28 @@
         "model/moving_defect/README.md": "conditional_consumer",
         "model/moving_defect/results.json": "conditional_consumer",
         "model/record_action/README.md": "conditional_consumer",
-        "model/record_action/results.json": "conditional_consumer"
+        "model/record_action/results.json": "conditional_consumer",
+        "model/native_thermodynamic_bridge/certificate.py": "statement",
+        "model/native_thermodynamic_bridge/PROOF.md": "statement",
+        "model/native_thermodynamic_bridge/results.json": "statement",
+        "model/native_thermodynamic_bridge/test_certificate.py": "statement",
+        "Lean/Thermodynamics/NativeBinaryThermodynamics.lean": "conditional_consumer",
+        "Lean/Thermodynamics/CofinalSpectralTailFamily.lean": "conditional_consumer",
+        "model/native_thermal_return/certificate.py": "statement",
+        "model/native_thermal_return/PROOF.md": "statement",
+        "model/native_thermal_return/results.json": "statement",
+        "model/native_thermal_return/test_certificate.py": "statement",
+        "model/native_quantum_reconstruction/certificate.py": "statement",
+        "model/native_quantum_reconstruction/PROOF.md": "statement",
+        "model/native_quantum_reconstruction/results.json": "statement",
+        "model/native_quantum_reconstruction/test_certificate.py": "statement",
+        "model/native_record_thermodynamics/certificate.py": "statement",
+        "model/native_record_thermodynamics/PROOF.md": "statement",
+        "model/native_record_thermodynamics/results.json": "statement",
+        "model/native_record_thermodynamics/test_certificate.py": "statement",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean": "statement"
       },
-      "notes": "Promotion is the recorded axiomatization candidate of lane #732 with the B12/B20 bounded no-gos as its justification record; a simulator export realizing the law through the recorded-decision process would open the emergent rung. EinsteinBranchInhabitant takes a declared repair law as the hypothesis of a synthetic demo-tier inhabitant of the Einstein-branch register surface; the demo instance is not the source-generated pair.",
+      "notes": "Promotion is the recorded axiomatization candidate of lane #732 with the B12/B20 bounded no-gos as its justification record; a simulator export realizing the law through the recorded-decision process would open the emergent rung. EinsteinBranchInhabitant takes a declared repair law as the hypothesis of a synthetic demo-tier inhabitant of the Einstein-branch register surface; the demo instance is not the source-generated pair.\n\nFor the binary total-two native carrier, direct endpoint execution identifies every one of the thirty fair-coin seam kernels with uniform conditional resampling on its complete spectator-and-endpoint-sum fibre. Each fibre is a singleton or an exchange pair. The same normalized counting reference on all 66 configurations is faithful and preserved by every seam; connectivity makes it the unique stationary law for every strictly positive state-independent all-seam mixture and for a repeated covering word. The reference maximizes state entropy, and each native row maximizes conditional entropy on its own fibre. NativeBinaryThermodynamics.lean constructs RepairLawData from involution orbits and normalized counting, proves its repair kernel equals the fair hold/exchange kernel, and derives stationarity, detailed balance, exact local dissipation, the positive-support integral fluctuation identity and entropy monotonicity from the existing finite stack. For one local repair q=pP_s, H(q)-H(p)=D(p||q). For a state-independent random scan q=sum_s w_s q_s, the exact identity is H(q)-H(p)=sum_s w_s D(p||q_s)+sum_s w_s D(q_s||q); the mixture is not an idempotent heat bath. The complete endpoint and fair-coin/current tape retain initial classical information and have joint entropy H(X_0)+n log(2) for a fixed number of attempts with a deterministic public-prefix seam controller. A support-deficient fluctuation control has average exp(-sigma)=1/2, so equality requires its stated support condition. On the full 78-state startup, one repair of the uniform law instead changes entropy by -log(3)/26; a covering scan establishes the binary attachment before its common-reference theorem applies. Counting has constant modular energy, and every positive-beta thermal calibration compatible with it has constant energy. This branch therefore cannot supply a nondegenerate thermometer, nonconstant physical energy, physical heat, a laboratory clock or the cofinal low-temperature premise. It is a source realization of the stated finite population laws and does not discharge the complete physical four-law premise package.\n\nThe finiteFourLawCore theorem requires only a RepairLawData instance and its CalibrationData to prove the finite zeroth, first, second and third-law clauses and the Landauer bound. The cofinal spectral-tail premise is additional for regulator-uniform low-temperature and continuum statements; it is not a premise of those finite clauses. This separation does not identify a physical energy or supply a nondegenerate thermometer for the counting-reference branch.\n\nTwo finite native current censuses implement the full-configuration return test for a specified history ensemble. The first successful census reports and restores the binary input; signed currents then determine the intermediate field records without a supplied initial-bit oracle. The terminal census retrodicts the endpoint, and comparing the reported configurations gives full return. All initial-census failures, waiting timeouts, terminal-census failures and return rejections are retained in the declared public output marginal. At four seed scans and 32 retries, the two-census total-variation allowance is at most 17/2^29, with maximum costs 2648 and 2520 native attempts. A covering sweep and finite source mixing supply the uniform initial law to a stated error for arbitrary classical total-two input laws; conditioning on return pays its separate normalization bound. Incident-clock histories and complete-attempt histories have distinct native transfers and field words, and their clocks are not identified. In each admitted branch, the positive native transfer determines H=-log T before the supplied closed-history length L yields the reconstructed Gibbs functional rho_L=T^L/Tr(T^L), with internal inverse temperature L. The complete-record composition removes the initial and full-endpoint readout oracles on the stated classical source domain. It neither prepares rho_L as a coherent working state nor identifies the open stationary observer with that conditioned ensemble, and it supplies no physical temperature, laboratory clock, general complex-effect quotient or cofinal cooling theorem.\n\nOn the specified binary total-two source, independent uniform seam selection and fair placement coins determine the complete-attempt transfer P by all 3960 native branches. Exact diagonal dominance gives 2I/3 <= P <= I. The twelve occupation fields generate the 66 configuration projectors; connected native paths of at most four steps then generate all 4356 real matrix units. Native closed-path counts, divided by their known word coefficients and the separately measured return probability, determine a unique linear functional on this full real matrix algebra. Its canonical complexification has the derived representation ell_L(A)=Tr(P^L A)/Tr(P^L), for every integer L>=1. Positivity of P proves positivity, normalization and coexistent-effect additivity of this functional on the full complex effect algebra, supplying IsEffectValuation for this specified reconstructed dictionary without assuming a trace probability rule. H=-log P is derived before the loop length L selects its dimensionless Gibbs family. The current-only two-census adapter and native warm-up give a finite population-statistic attachment: for the displayed L in {1,2,4}, the stated settings require at most 11398 native attempts per experiment and bound every reconstructed effect statistic error by 3.76596e-6. Sampling uncertainty and the number of repetitions are separate. Matrix-unit statistics use rescaled filtered histories; arbitrary effects may require signed or complex linear combinations. They are not asserted to be individual native acceptance events. Thus the positive reconstructed effect valuation and the diagonal native measurement obstruction concern different representations. The construction supplies no arbitrary native effect implementation, source-selected complex phase, coherent working-state preparation, unitary real-time apparatus or physical quantum calibration.\n\nA separate three-state observer record register supplies a nonconstant source-cost calibration and a concrete finite four-law instance. A declared stopped native coin protocol records 0, 10 or 11; its attempt lengths define E=(1,2,2) log(2) before any reference is selected. Native source enumeration gives w=(1/2,1/4,1/4)=exp(-E) for every total-two input. One fresh prefix replaces the register by this law in at most two actual native attempts. NativeRecordFourLaws.lean proves the finite prefix count, constructs RepairLawData and CalibrationData with beta=1 and logZ=0, proves the repair kernel equals that counted register resampler, and instantiates FiniteFourLawCore with no unfilled calibration premise in this record-cost domain. Its nonzero energy gap log(2) gives multiplier identifiability and a zero-entropy finite Gibbs limit. For any supplied positive integer b, independent fresh prefixes on one continuing source carrier agree on h with probability w(h)^b, selecting pi_b(h)=exp(-b E(h))/Z_b with Z_b=2^(-b)+2*4^(-b). A controller capped at M proposals implements the complete lazy kernel (1-Z_b)^M I+[1-(1-Z_b)^M]P_b, retains every failed proposal and timeout, and has maximum cost 2bM native attempts. Exact P_b for b>1 is an almost-sure geometric-retry implementation with finite expected cost (3b/2)/Z_b and no finite worst-case memory bound; the nondyadic beta=2 law excludes an exact bounded fair-coin sampler. The same fixed spectrum has excited mass 2/(2^b+2), without a cofinal regulator assumption. These are theorems about a declared observer register and its stored prefix cost. The apparatus, full source tape, memory erasure and laboratory heat costs are separate; no physical energy, Kelvin temperature, occupation Hamiltonian or spacetime cofinal cooling law follows.",
       "discharge": {
         "status": "derived_from_native_records",
         "evidence": [
@@ -309,9 +433,27 @@
           "model/adaptive_sweep_reference/contract.json",
           "model/adaptive_sweep_reference/reference.py",
           "model/adaptive_sweep_reference/results.json",
-          "model/adaptive_sweep_reference/test_reference.py"
+          "model/adaptive_sweep_reference/test_reference.py",
+          "model/native_thermodynamic_bridge/certificate.py",
+          "model/native_thermodynamic_bridge/PROOF.md",
+          "model/native_thermodynamic_bridge/results.json",
+          "model/native_thermodynamic_bridge/test_certificate.py",
+          "Lean/Thermodynamics/NativeBinaryThermodynamics.lean",
+          "model/native_thermal_return/certificate.py",
+          "model/native_thermal_return/PROOF.md",
+          "model/native_thermal_return/results.json",
+          "model/native_thermal_return/test_certificate.py",
+          "model/native_quantum_reconstruction/certificate.py",
+          "model/native_quantum_reconstruction/PROOF.md",
+          "model/native_quantum_reconstruction/results.json",
+          "model/native_quantum_reconstruction/test_certificate.py",
+          "model/native_record_thermodynamics/certificate.py",
+          "model/native_record_thermodynamics/PROOF.md",
+          "model/native_record_thermodynamics/results.json",
+          "model/native_record_thermodynamics/test_certificate.py",
+          "Lean/Thermodynamics/NativeRecordFourLaws.lean"
         ],
-        "note": "On the binary shell each native repair resamples the seam within the fibre of its repaired visible datum for the uniform reference. Each seam preserves this reference; uniqueness concerns the stated source-independent all-seam mixture, not an individual seam. Record-controlled scheduling can correlate source and memory and need not preserve the source marginal. The finite completion campaign gives an exact two-attempt countercontrol with positive uniform exploration, then constructs the actual joint stationary source/current-bit law and its full-record observer lift. These are restricted finite constructions, not the common physical faithful reference required by the complete premise. The finite clock/defect/energy campaigns retain the C/E law and bind each extension separately. A 66-core reference frame survives current-driven updates and FIFO export; 66 supplied parameter-four source words cover that frame menu. The complete joint clock/field instrument and its failures use declared coherent services. This is neither an autonomous clock construction nor a replacement of the stationary source/FIFO reference by a transported ideal target. The bounded endpoint-biased C/E family has a unique quantum product-pair reference under each fixed positive source-independent selector. Exact mixing bounds prepare it from arbitrary source/reference inputs; a complete FIFO/export instrument has a supported joint stationary reference. The canonical member reaches half trace error below 10^-6 after 1600 preparation attempts plus one FIFO append. The exported preparation archive retains correlations and is excluded from the stationary product comparison. Under the unchanged fair-coin law, a different co-moving source/core measure is stationary only for the stated reduced uniform-seam population process. These use different state and law contracts; neither constructs the common physical reference of the full premise. The active-code sector control checks the unchanged C/E co-moving source/core population process: q is preserved by every complete raw block, so two distinct positive q-sector reweightings remain reversible on its connected components. This is reduced population stationarity, not stationarity of the growing record archive or selection of a physical faithful reference. The new ConservedSectorAction Lean module proves sector reweighting for any positive factor under independently checked finite-kernel premises: the complete reduced 4,356-state source/core C/E population kernel is faithful, reversible, stationary and connected separately in q=0,1,2. Conditioning removes the factor and any U(q) has zero native transition gradient. The growing record archive and common physical Gibbs reference remain outside this stationarity claim. The record-derived clock protocol infers relative endpoint weights from complete native coin records on one continuing carrier, with nineteen held-out cycle checks. Record confidence intervals also certify the subsequent source preparation without a private weight table. Its product comparison retains the training transcript and preexisting reference, and traces every later preparation record including the last FIFO slot. Source-weight selection and physical reference interpretation are separate obligations. The four-lane continuation uses this same endpoint-biased reference. Active moving recovery has a complete stopped core process but its sharp-q1 exterior cannot equal this reference. The reversible population kernel supplies a positive stochastic-matrix parent; that coherent operator does not preserve the actual biased reference and has not been source-executed. 29 October 2026 same-action finite attachment: The 29 October same-action attachment identifies the eta pair and a dark reference in one invariant M2 field corner with the heralded native source reference diag(25,8)/33. This is a supplied isometry with all source outcomes and errors retained; it does not prepare the full interacting-field Gibbs reference or identify native repair with the Hamiltonian. Every full native carrier and classical memory input converges at common sweep boundaries to a unique faithful reference, with an explicit arbitrary-reference error bound. An E covering sweep has rank-one fine-record paths; exact four-sweep counts imply Phi^4-alpha D is completely positive with 3/10<alpha<1/3. Completeness and incoming-row balance prove the stationary field/controller density and its thirty-phase extension. The full phase process is periodic and the growing archive is not stationary. This scoped result does not discharge the canonical physical premise."
+        "note": "On the binary shell each native repair resamples the seam within the fibre of its repaired visible datum for the uniform reference. Each seam preserves this reference; uniqueness concerns the stated source-independent all-seam mixture, not an individual seam. Record-controlled scheduling can correlate source and memory and need not preserve the source marginal. The finite completion campaign gives an exact two-attempt countercontrol with positive uniform exploration, then constructs the actual joint stationary source/current-bit law and its full-record observer lift. These are restricted finite constructions, not the common physical faithful reference required by the complete premise. The finite clock/defect/energy campaigns retain the C/E law and bind each extension separately. A 66-core reference frame survives current-driven updates and FIFO export; 66 supplied parameter-four source words cover that frame menu. The complete joint clock/field instrument and its failures use declared coherent services. This is neither an autonomous clock construction nor a replacement of the stationary source/FIFO reference by a transported ideal target. The bounded endpoint-biased C/E family has a unique quantum product-pair reference under each fixed positive source-independent selector. Exact mixing bounds prepare it from arbitrary source/reference inputs; a complete FIFO/export instrument has a supported joint stationary reference. The canonical member reaches half trace error below 10^-6 after 1600 preparation attempts plus one FIFO append. The exported preparation archive retains correlations and is excluded from the stationary product comparison. Under the unchanged fair-coin law, a different co-moving source/core measure is stationary only for the stated reduced uniform-seam population process. These use different state and law contracts; neither constructs the common physical reference of the full premise. The active-code sector control checks the unchanged C/E co-moving source/core population process: q is preserved by every complete raw block, so two distinct positive q-sector reweightings remain reversible on its connected components. This is reduced population stationarity, not stationarity of the growing record archive or selection of a physical faithful reference. The new ConservedSectorAction Lean module proves sector reweighting for any positive factor under independently checked finite-kernel premises: the complete reduced 4,356-state source/core C/E population kernel is faithful, reversible, stationary and connected separately in q=0,1,2. Conditioning removes the factor and any U(q) has zero native transition gradient. The growing record archive and common physical Gibbs reference remain outside this stationarity claim. The record-derived clock protocol infers relative endpoint weights from complete native coin records on one continuing carrier, with nineteen held-out cycle checks. Record confidence intervals also certify the subsequent source preparation without a private weight table. Its product comparison retains the training transcript and preexisting reference, and traces every later preparation record including the last FIFO slot. Source-weight selection and physical reference interpretation are separate obligations. The four-lane continuation uses this same endpoint-biased reference. Active moving recovery has a complete stopped core process but its sharp-q1 exterior cannot equal this reference. The reversible population kernel supplies a positive stochastic-matrix parent; that coherent operator does not preserve the actual biased reference and has not been source-executed. 29 October 2026 same-action finite attachment: The 29 October same-action attachment identifies the eta pair and a dark reference in one invariant M2 field corner with the heralded native source reference diag(25,8)/33. This is a supplied isometry with all source outcomes and errors retained; it does not prepare the full interacting-field Gibbs reference or identify native repair with the Hamiltonian. Every full native carrier and classical memory input converges at common sweep boundaries to a unique faithful reference, with an explicit arbitrary-reference error bound. An E covering sweep has rank-one fine-record paths; exact four-sweep counts imply Phi^4-alpha D is completely positive with 3/10<alpha<1/3. Completeness and incoming-row balance prove the stationary field/controller density and its thirty-phase extension. The full phase process is periodic and the growing archive is not stationary. This scoped result does not discharge the canonical physical premise. The actual binary endpoint kernels supply a common counting reference and their exact local conditional-resampling form. The source-bound entropy, supported fluctuation and complete-record identities follow without an independent heat-bath ansatz; a generic Lean RepairLawData instance connects them to the finite theorem stack. Random scans have an additional mixing term, the 78-state startup has an entropy-decrease control, and counting calibration forces constant energy. The physical calibration and cofinal low-temperature premises are not supplied. The bounded current-only restoration and terminal census realize closed-history return without initial-configuration or endpoint oracles. Transfer energy is reconstructed before the loop length selects internal inverse temperature. The approximation retains failures and charges conditioning, and applies to the declared classical public marginal rather than a full quantum instrument. The conditioned thermal functional is distinct from the open native reference and from a prepared coherent Gibbs state. Complete-attempt native history counts generate the full real 66-state matrix algebra and a unique positive normalized functional on its canonical complexification. The resulting full-effect additivity and Born density are derived for this reconstructed dictionary; arbitrary operational effect realizability and laboratory quantum identification are separate obligations. Native stopped prefixes supply a three-state nonconstant record-cost energy, its faithful counted reference and an exact bounded register heat bath at beta=1. Concrete Lean RepairLawData and CalibrationData instantiate the finite four-law core. Integer-temperature record comparison has a bounded lazy implementation and a distinct exact geometric-retry limit; laboratory calibration and cofinal regulator claims are separate."
       }
     },
     {
@@ -328,22 +470,37 @@
         "claims/claim_registry.yaml",
         "Lean/Thermodynamics/FourLawAdequacySurface.lean",
         "Lean/Thermodynamics/CoherentRefinementFamily.lean",
-        "Lean/Thermodynamics/CofinalSpectralTailFamily.lean"
+        "Lean/Thermodynamics/CofinalSpectralTailFamily.lean",
+        "model/native_record_thermodynamics/certificate.py",
+        "model/native_record_thermodynamics/PROOF.md",
+        "model/native_record_thermodynamics/results.json",
+        "model/native_record_thermodynamics/test_certificate.py",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean"
       ],
       "evidence_roles": {
         "Lean/Thermodynamics/LowTemperatureControl.lean": "conditional_consumer",
         "claims/claim_registry.yaml": "conditional_consumer",
         "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer",
         "Lean/Thermodynamics/CoherentRefinementFamily.lean": "conditional_consumer",
-        "Lean/Thermodynamics/CofinalSpectralTailFamily.lean": "conditional_consumer"
+        "Lean/Thermodynamics/CofinalSpectralTailFamily.lean": "conditional_consumer",
+        "model/native_record_thermodynamics/certificate.py": "statement",
+        "model/native_record_thermodynamics/PROOF.md": "statement",
+        "model/native_record_thermodynamics/results.json": "statement",
+        "model/native_record_thermodynamics/test_certificate.py": "statement",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean": "statement"
       },
-      "notes": "Removal needs a source-produced family with a proved uniform spectral-tail envelope and the regulator semantics required by the intended continuum claim; it does not require a uniform total-cardinality bound. CoherentRefinementFamily supplies the weaker directed-envelope layer and records its exact limitations. CofinalSpectralTailFamily adds an explicit nonempty ambient regulator preorder, an order-reflecting cofinal stage embedding, no maximal ambient stage, and data-level strict carrier growth. Its Nat ladder is nonconstant and unbounded, and constant finite carriers are formally excluded. fourLaws_composed_cofinal constructs the finite-law core directly and states every refinement conclusion on that same supplied family, including cofinal-tail concentration. Its calibrated-member theorem derives off-minimum-mass equality and the common envelope from a separately supplied calibrated-stage energy identification; it does not derive that identification. Strict cardinal growth is one sufficient genuine-refinement route, not a necessity claim for every possible physical regulator. No source produces this family or identifies its regulators, energy, inverse temperature, repair, or continuum interpretation, so PR-08 is substantially narrowed but not removed.",
+      "notes": "Removal needs a source-produced family with a proved uniform spectral-tail envelope and the regulator semantics required by the intended continuum claim; it does not require a uniform total-cardinality bound. CoherentRefinementFamily supplies the weaker directed-envelope layer and records its exact limitations. CofinalSpectralTailFamily adds an explicit nonempty ambient regulator preorder, an order-reflecting cofinal stage embedding, no maximal ambient stage, and data-level strict carrier growth. Its Nat ladder is nonconstant and unbounded, and constant finite carriers are formally excluded. fourLaws_composed_cofinal constructs the finite-law core directly and states every refinement conclusion on that same supplied family, including cofinal-tail concentration. Its calibrated-member theorem derives off-minimum-mass equality and the common envelope from a separately supplied calibrated-stage energy identification; it does not derive that identification. Strict cardinal growth is one sufficient genuine-refinement route, not a necessity claim for every possible physical regulator. No source produces this family or identifies its regulators, energy, inverse temperature, repair, or continuum interpretation, so PR-08 is substantially narrowed but not removed.\n\nThe finiteFourLawCore theorem requires only a RepairLawData instance and its CalibrationData to prove the finite zeroth, first, second and third-law clauses and the Landauer bound. The cofinal spectral-tail premise is additional for regulator-uniform low-temperature and continuum statements; it is not a premise of those finite clauses. This separation does not identify a physical energy or supply a nondegenerate thermometer for the counting-reference branch.\n\nA separate three-state observer record register supplies a nonconstant source-cost calibration and a concrete finite four-law instance. A declared stopped native coin protocol records 0, 10 or 11; its attempt lengths define E=(1,2,2) log(2) before any reference is selected. Native source enumeration gives w=(1/2,1/4,1/4)=exp(-E) for every total-two input. One fresh prefix replaces the register by this law in at most two actual native attempts. NativeRecordFourLaws.lean proves the finite prefix count, constructs RepairLawData and CalibrationData with beta=1 and logZ=0, proves the repair kernel equals that counted register resampler, and instantiates FiniteFourLawCore with no unfilled calibration premise in this record-cost domain. Its nonzero energy gap log(2) gives multiplier identifiability and a zero-entropy finite Gibbs limit. For any supplied positive integer b, independent fresh prefixes on one continuing source carrier agree on h with probability w(h)^b, selecting pi_b(h)=exp(-b E(h))/Z_b with Z_b=2^(-b)+2*4^(-b). A controller capped at M proposals implements the complete lazy kernel (1-Z_b)^M I+[1-(1-Z_b)^M]P_b, retains every failed proposal and timeout, and has maximum cost 2bM native attempts. Exact P_b for b>1 is an almost-sure geometric-retry implementation with finite expected cost (3b/2)/Z_b and no finite worst-case memory bound; the nondyadic beta=2 law excludes an exact bounded fair-coin sampler. The same fixed spectrum has excited mass 2/(2^b+2), without a cofinal regulator assumption. These are theorems about a declared observer register and its stored prefix cost. The apparatus, full source tape, memory erasure and laboratory heat costs are separate; no physical energy, Kelvin temperature, occupation Hamiltonian or spacetime cofinal cooling law follows.",
       "discharge": {
         "status": "not_addressed",
         "evidence": [
-          "model/CONSTRUCTION.md"
+          "model/CONSTRUCTION.md",
+          "model/native_record_thermodynamics/certificate.py",
+          "model/native_record_thermodynamics/PROOF.md",
+          "model/native_record_thermodynamics/results.json",
+          "model/native_record_thermodynamics/test_certificate.py",
+          "Lean/Thermodynamics/NativeRecordFourLaws.lean"
         ],
-        "note": "The current executable implementation neither supplies nor consumes this premise."
+        "note": "The current executable implementation neither supplies nor consumes this premise. Native stopped prefixes supply a three-state nonconstant record-cost energy, its faithful counted reference and an exact bounded register heat bath at beta=1. Concrete Lean RepairLawData and CalibrationData instantiate the finite four-law core. Integer-temperature record comparison has a bounded lazy implementation and a distinct exact geometric-retry limit; laboratory calibration and cofinal regulator claims are separate."
       }
     },
     {
@@ -589,7 +746,16 @@
         "model/operational_strain/certificate.py",
         "model/operational_strain/PROOF.md",
         "model/operational_strain/results.json",
-        "model/operational_strain/test_certificate.py"
+        "model/operational_strain/test_certificate.py",
+        "model/native_thermal_return/certificate.py",
+        "model/native_thermal_return/PROOF.md",
+        "model/native_thermal_return/results.json",
+        "model/native_thermal_return/test_certificate.py",
+        "model/native_record_thermodynamics/certificate.py",
+        "model/native_record_thermodynamics/PROOF.md",
+        "model/native_record_thermodynamics/results.json",
+        "model/native_record_thermodynamics/test_certificate.py",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean"
       ],
       "evidence_roles": {
         "claims/assumption_dictionary.md": "statement",
@@ -639,9 +805,18 @@
         "model/operational_strain/certificate.py": "conditional_consumer",
         "model/operational_strain/PROOF.md": "conditional_consumer",
         "model/operational_strain/results.json": "conditional_consumer",
-        "model/operational_strain/test_certificate.py": "conditional_consumer"
+        "model/operational_strain/test_certificate.py": "conditional_consumer",
+        "model/native_thermal_return/certificate.py": "statement",
+        "model/native_thermal_return/PROOF.md": "statement",
+        "model/native_thermal_return/results.json": "statement",
+        "model/native_thermal_return/test_certificate.py": "statement",
+        "model/native_record_thermodynamics/certificate.py": "statement",
+        "model/native_record_thermodynamics/PROOF.md": "statement",
+        "model/native_record_thermodynamics/results.json": "statement",
+        "model/native_record_thermodynamics/test_certificate.py": "statement",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean": "statement"
       },
-      "notes": "Laboratory-unit attachment is calibration against measured standards, so PR-15 stays an import. PhysicalCalibrationImport records exact SI definitions and conditional conversions around one declared positive tick duration; it derives no tick identification. The source-history Hamiltonians, finite record-conditioning maps, certified Maxwell step, formal same-index product, and formal direct-sum action remain dimensionless and do not select a clock or relative physical normalization. SourceClockCandidate supplies only overlapping-window action-incidence statistics 94/1754, 103/1754, and their multiplicity sum 197/1754. These are neither distinct event counts nor a periodic clock, and the calibration dictionary does not consume them. Consequently the candidate does not reduce this import. A viable source clock needs a source-selected periodic or otherwise operational time process plus a physical identification and uncertainty/custody contract. The recurrence precursor proves accepted repair hosts no periodic clock and exhibits on the committed source chain an exact recurrent process with a tick-free mean-return ratio; the composite-inertia module converts its ledger through the declared tick. Neither identifies a physical duration, so this premise stays an import. The proper-time internal action identifies the declared internal clock with the proper-length internal action and the carrier mode oscillators supply exact integer periods and tick-free ratios in the shared step index; both leave the step a declared count and identify no physical duration, so this premise stays an import. The Gibbs reference identification converts the ledger inverse temperature to a laboratory reading through the declared tick and proves two ticks give two readings; beta and the calibration row are declared, so this premise stays an import. The collar temperature reading proves the collar modular surface pins no inverse temperature without a declared energy scale and converts the declared value through the tick with two readings for two ticks; this premise stays an import. The seam-step speed limit rests on a declared identification of the worldline unit with the field step and proves the thresholds independent without it; no physical duration is identified, so this premise stays an import. The accrual-rule comparison shows that, at nonzero ledger, the source chain advancing per shared index is the per-step rule that refinement invariance excludes on moving worldlines, and that the proper-length rule is a declared principle; no rule is selected from the source, so this premise stays an import. The clocked chain realizes proper-length accrual with a declared internal unit; its no-constant-step-duration result applies only to uniform moving worldlines with at least one rest between crossings, while the all-crossing case is matched by a constant duration. It identifies no physical duration; this premise stays an import. CarrierEvolutionFlow, FieldSectorEnergyInnerProduct, and CurlSectorEigenbasis prove exact dimensionless coefficient flows and a full nineteen-mode finite Hilbert packet, but their h and t remain declared and no laboratory energy or duration is identified; this premise stays an import. CurlStoneClockBridge gives a selected curl mode the same discrete phase as the scalar clock under the sufficient equalities stepDuration=h and mass=theta_i/h, while the committed witness fails the duration equality. Phase aliases make those equalities non-necessary, and the theorem proves only that one identical scalar rate cannot equal all selected principal-branch curl frequencies. Shared time, aliases, harmonics, and mode-resolved or operator-valued readouts remain viable. No laboratory duration, energy, or source selection is obtained, so this premise stays an import. SeamMaxwellContinuum and its owning paper establish a mathematical real-L2 Maxwell limit on a supplied common Euclidean domain, with a declared reversible evolution, common time and prescribed forcing. They supply no source-selected event/field map, operational clock or laboratory identification; this premise is neither consumed nor discharged by the analytic theorem. Jacobi timing reconstructs a model-internal duration from ordered decoded configurations, the full kinetic metric and supplied conserved energy, excluding timestamps, velocities and repair counts from its integral. Physical units, laboratory clock comparison and source selection are not derived. The finite observer uses protocol event order; the N4 local-tick result counts incident attempts while remote events continue. Neither assigns laboratory duration or energy, so these completed finite calculations do not discharge PR-15. The current executable model also derives a Palm-reference modular-phase readout with frequency log(5/4) on a faithful three-state conditional support. Every native repair branch preserves real states, so it does not advance that phase; native-attempt, local-event, and modular parameters remain dimensionless, and positive rescaling of the attempt index does not alter source records. This finite result adds no laboratory clock calibration, so PR-15 remains an import. Model navigation, citation only: the host-clock attachment, the paired event/clock calibration contract and the public optical attachment audits supply finite instances of clock-calibration interfaces and retrospective tests of direct native-count and modular-gap attachments to published optical clock ratios. The optical tests reject those stated attachments under their readout assumptions, and no measured clock or energy standard is derived. The citation discharges nothing, and PR-15 stays an import. The Arithmon scale contract separates the record-derived clock and axial counter radius from physical units and RG subtraction scales. Positive length and time conversions preserve the native record law while changing dimensional diffusion and event rates. Even an independently validated physical calibration would require a separate subtraction prescription and threshold/running map for gauge comparison; this observation changes no empirical-import status.\n\nFinite operational strain data reduce the missing derivative under a declared response class. For H(V)=C+A(V/V0)^(-alpha), A>0 and alpha>=0, three held-state energies at V0,V0 r,V0 r^2 generically identify alpha,A,C and p(V0)=alpha A/V0, with exact outward rational logarithm enclosures under certified reading errors. Two settings leave positive examples with unequal pressure. Without that family, a supplied uniform second- or third-derivative bound gives a finite-difference pressure enclosure; positive smooth counterexamples give arbitrary derivatives at any finite fixed sampling stencil without such regularity. A complete two-event native E-instrument census reads the initial core charge on all 264 binary input branches, with aggregate effects equal to its three charge projectors, so independently calibrated charge-diagonal forces have a reference-uniform native outcome readout. Deformation law, held-state preparation, energy/volume metrology, work convention and calibrated coefficients are supplied. Generated strain examples are not native observations or a physical equation of state.",
+      "notes": "Laboratory-unit attachment is calibration against measured standards, so PR-15 stays an import. PhysicalCalibrationImport records exact SI definitions and conditional conversions around one declared positive tick duration; it derives no tick identification. The source-history Hamiltonians, finite record-conditioning maps, certified Maxwell step, formal same-index product, and formal direct-sum action remain dimensionless and do not select a clock or relative physical normalization. SourceClockCandidate supplies only overlapping-window action-incidence statistics 94/1754, 103/1754, and their multiplicity sum 197/1754. These are neither distinct event counts nor a periodic clock, and the calibration dictionary does not consume them. Consequently the candidate does not reduce this import. A viable source clock needs a source-selected periodic or otherwise operational time process plus a physical identification and uncertainty/custody contract. The recurrence precursor proves accepted repair hosts no periodic clock and exhibits on the committed source chain an exact recurrent process with a tick-free mean-return ratio; the composite-inertia module converts its ledger through the declared tick. Neither identifies a physical duration, so this premise stays an import. The proper-time internal action identifies the declared internal clock with the proper-length internal action and the carrier mode oscillators supply exact integer periods and tick-free ratios in the shared step index; both leave the step a declared count and identify no physical duration, so this premise stays an import. The Gibbs reference identification converts the ledger inverse temperature to a laboratory reading through the declared tick and proves two ticks give two readings; beta and the calibration row are declared, so this premise stays an import. The collar temperature reading proves the collar modular surface pins no inverse temperature without a declared energy scale and converts the declared value through the tick with two readings for two ticks; this premise stays an import. The seam-step speed limit rests on a declared identification of the worldline unit with the field step and proves the thresholds independent without it; no physical duration is identified, so this premise stays an import. The accrual-rule comparison shows that, at nonzero ledger, the source chain advancing per shared index is the per-step rule that refinement invariance excludes on moving worldlines, and that the proper-length rule is a declared principle; no rule is selected from the source, so this premise stays an import. The clocked chain realizes proper-length accrual with a declared internal unit; its no-constant-step-duration result applies only to uniform moving worldlines with at least one rest between crossings, while the all-crossing case is matched by a constant duration. It identifies no physical duration; this premise stays an import. CarrierEvolutionFlow, FieldSectorEnergyInnerProduct, and CurlSectorEigenbasis prove exact dimensionless coefficient flows and a full nineteen-mode finite Hilbert packet, but their h and t remain declared and no laboratory energy or duration is identified; this premise stays an import. CurlStoneClockBridge gives a selected curl mode the same discrete phase as the scalar clock under the sufficient equalities stepDuration=h and mass=theta_i/h, while the committed witness fails the duration equality. Phase aliases make those equalities non-necessary, and the theorem proves only that one identical scalar rate cannot equal all selected principal-branch curl frequencies. Shared time, aliases, harmonics, and mode-resolved or operator-valued readouts remain viable. No laboratory duration, energy, or source selection is obtained, so this premise stays an import. SeamMaxwellContinuum and its owning paper establish a mathematical real-L2 Maxwell limit on a supplied common Euclidean domain, with a declared reversible evolution, common time and prescribed forcing. They supply no source-selected event/field map, operational clock or laboratory identification; this premise is neither consumed nor discharged by the analytic theorem. Jacobi timing reconstructs a model-internal duration from ordered decoded configurations, the full kinetic metric and supplied conserved energy, excluding timestamps, velocities and repair counts from its integral. Physical units, laboratory clock comparison and source selection are not derived. The finite observer uses protocol event order; the N4 local-tick result counts incident attempts while remote events continue. Neither assigns laboratory duration or energy, so these completed finite calculations do not discharge PR-15. The current executable model also derives a Palm-reference modular-phase readout with frequency log(5/4) on a faithful three-state conditional support. Every native repair branch preserves real states, so it does not advance that phase; native-attempt, local-event, and modular parameters remain dimensionless, and positive rescaling of the attempt index does not alter source records. This finite result adds no laboratory clock calibration, so PR-15 remains an import. Model navigation, citation only: the host-clock attachment, the paired event/clock calibration contract and the public optical attachment audits supply finite instances of clock-calibration interfaces and retrospective tests of direct native-count and modular-gap attachments to published optical clock ratios. The optical tests reject those stated attachments under their readout assumptions, and no measured clock or energy standard is derived. The citation discharges nothing, and PR-15 stays an import. The Arithmon scale contract separates the record-derived clock and axial counter radius from physical units and RG subtraction scales. Positive length and time conversions preserve the native record law while changing dimensional diffusion and event rates. Even an independently validated physical calibration would require a separate subtraction prescription and threshold/running map for gauge comparison; this observation changes no empirical-import status.\n\nFinite operational strain data reduce the missing derivative under a declared response class. For H(V)=C+A(V/V0)^(-alpha), A>0 and alpha>=0, three held-state energies at V0,V0 r,V0 r^2 generically identify alpha,A,C and p(V0)=alpha A/V0, with exact outward rational logarithm enclosures under certified reading errors. Two settings leave positive examples with unequal pressure. Without that family, a supplied uniform second- or third-derivative bound gives a finite-difference pressure enclosure; positive smooth counterexamples give arbitrary derivatives at any finite fixed sampling stencil without such regularity. A complete two-event native E-instrument census reads the initial core charge on all 264 binary input branches, with aggregate effects equal to its three charge projectors, so independently calibrated charge-diagonal forces have a reference-uniform native outcome readout. Deformation law, held-state preparation, energy/volume metrology, work convention and calibrated coefficients are supplied. Generated strain examples are not native observations or a physical equation of state.\n\nTwo finite native current censuses implement the full-configuration return test for a specified history ensemble. The first successful census reports and restores the binary input; signed currents then determine the intermediate field records without a supplied initial-bit oracle. The terminal census retrodicts the endpoint, and comparing the reported configurations gives full return. All initial-census failures, waiting timeouts, terminal-census failures and return rejections are retained in the declared public output marginal. At four seed scans and 32 retries, the two-census total-variation allowance is at most 17/2^29, with maximum costs 2648 and 2520 native attempts. A covering sweep and finite source mixing supply the uniform initial law to a stated error for arbitrary classical total-two input laws; conditioning on return pays its separate normalization bound. Incident-clock histories and complete-attempt histories have distinct native transfers and field words, and their clocks are not identified. In each admitted branch, the positive native transfer determines H=-log T before the supplied closed-history length L yields the reconstructed Gibbs functional rho_L=T^L/Tr(T^L), with internal inverse temperature L. The complete-record composition removes the initial and full-endpoint readout oracles on the stated classical source domain. It neither prepares rho_L as a coherent working state nor identifies the open stationary observer with that conditioned ensemble, and it supplies no physical temperature, laboratory clock, general complex-effect quotient or cofinal cooling theorem.\n\nA separate three-state observer record register supplies a nonconstant source-cost calibration and a concrete finite four-law instance. A declared stopped native coin protocol records 0, 10 or 11; its attempt lengths define E=(1,2,2) log(2) before any reference is selected. Native source enumeration gives w=(1/2,1/4,1/4)=exp(-E) for every total-two input. One fresh prefix replaces the register by this law in at most two actual native attempts. NativeRecordFourLaws.lean proves the finite prefix count, constructs RepairLawData and CalibrationData with beta=1 and logZ=0, proves the repair kernel equals that counted register resampler, and instantiates FiniteFourLawCore with no unfilled calibration premise in this record-cost domain. Its nonzero energy gap log(2) gives multiplier identifiability and a zero-entropy finite Gibbs limit. For any supplied positive integer b, independent fresh prefixes on one continuing source carrier agree on h with probability w(h)^b, selecting pi_b(h)=exp(-b E(h))/Z_b with Z_b=2^(-b)+2*4^(-b). A controller capped at M proposals implements the complete lazy kernel (1-Z_b)^M I+[1-(1-Z_b)^M]P_b, retains every failed proposal and timeout, and has maximum cost 2bM native attempts. Exact P_b for b>1 is an almost-sure geometric-retry implementation with finite expected cost (3b/2)/Z_b and no finite worst-case memory bound; the nondyadic beta=2 law excludes an exact bounded fair-coin sampler. The same fixed spectrum has excited mass 2/(2^b+2), without a cofinal regulator assumption. These are theorems about a declared observer register and its stored prefix cost. The apparatus, full source tape, memory erasure and laboratory heat costs are separate; no physical energy, Kelvin temperature, occupation Hamiltonian or spacetime cofinal cooling law follows.",
       "discharge": {
         "status": "declared",
         "evidence": [
@@ -661,9 +836,18 @@
           "model/particle_clock/results.json",
           "model/bound_pair/README.md",
           "model/bound_pair/IDENTITY.md",
-          "model/completion/finite_attachment_map.json"
+          "model/completion/finite_attachment_map.json",
+          "model/native_thermal_return/certificate.py",
+          "model/native_thermal_return/PROOF.md",
+          "model/native_thermal_return/results.json",
+          "model/native_thermal_return/test_certificate.py",
+          "model/native_record_thermodynamics/certificate.py",
+          "model/native_record_thermodynamics/PROOF.md",
+          "model/native_record_thermodynamics/results.json",
+          "model/native_record_thermodynamics/test_certificate.py",
+          "Lean/Thermodynamics/NativeRecordFourLaws.lean"
         ],
-        "note": "Laboratory clock and energy calibration enter as declared standards; the construction derives no units. The finite energy diagnostics separate movement activity from stored energy: the adjacent pair has negative excess against the tested references, and a closed source cycle retains nonzero activity. Complete native currents give a positive quadratic form. The existing product symbol then compares rest gap and independent curvature, with exact finite split ratio chi*cot(chi). Physical action units, radial momentum interpretation, defect action and gravitational stress are not derived; the empirical-import disposition is unchanged. The sharp q=1 active code has native movement excess 1/66 per uniform-seam attempt against the uniform source, while the co-moving charge has zero native gradient cost. These are dimensionless diagnostics; recovery work, physical rest action, calibrated duration and stress remain unprovided. The source-pulse Ramsey density service also retains a dimensionless event parameter and supplied coherent apparatus. The active-code current is 1/6 per uniform-seam attempt; its excess depends on the stationary co-moving, fixed-core conditional or full fixed-core reference, and the source-executed recovery mean applies only to the prior code at one routed seam. Positive q-sector reweightings change modular contrasts without changing the native process. A compiled joint read reduces hidden incident-count risk under a matched-marginal control, but supplies no seconds, physical cost per pulse/current, common rest energy or stress. A four-event C/E source continuation gives strictly ordered conditional clock and field readouts on common retained events, but their raw probabilities fail the affine comparison after the first two; a model-conditioned response inversion supplies only a count label. The screened code has same-candidate source recovery counts and transient current, while arbitrary positive q-sector reference weights preserve the reduced kernel. The conditional SI dictionary gives L=cT/v and E=hbar omega0/T only after a specified model-clock duration, signal-speed identification and rest gap; seconds, physical action per pulse, kinetic mass and stress are not established. 29 October 2026 same-action finite attachment: The same interacting pair has an exact model energy difference U and rationally enclosed kinetic curvature kappa. U*kappa/c^2 differs from one and is invariant under common clock/length rescaling. The native M2 map fixes t=-beta s in model coordinates only; physical units and the whole-field propagation dictionary remain unprovided."
+        "note": "Laboratory clock and energy calibration enter as declared standards; the construction derives no units. The finite energy diagnostics separate movement activity from stored energy: the adjacent pair has negative excess against the tested references, and a closed source cycle retains nonzero activity. Complete native currents give a positive quadratic form. The existing product symbol then compares rest gap and independent curvature, with exact finite split ratio chi*cot(chi). Physical action units, radial momentum interpretation, defect action and gravitational stress are not derived; the empirical-import disposition is unchanged. The sharp q=1 active code has native movement excess 1/66 per uniform-seam attempt against the uniform source, while the co-moving charge has zero native gradient cost. These are dimensionless diagnostics; recovery work, physical rest action, calibrated duration and stress remain unprovided. The source-pulse Ramsey density service also retains a dimensionless event parameter and supplied coherent apparatus. The active-code current is 1/6 per uniform-seam attempt; its excess depends on the stationary co-moving, fixed-core conditional or full fixed-core reference, and the source-executed recovery mean applies only to the prior code at one routed seam. Positive q-sector reweightings change modular contrasts without changing the native process. A compiled joint read reduces hidden incident-count risk under a matched-marginal control, but supplies no seconds, physical cost per pulse/current, common rest energy or stress. A four-event C/E source continuation gives strictly ordered conditional clock and field readouts on common retained events, but their raw probabilities fail the affine comparison after the first two; a model-conditioned response inversion supplies only a count label. The screened code has same-candidate source recovery counts and transient current, while arbitrary positive q-sector reference weights preserve the reduced kernel. The conditional SI dictionary gives L=cT/v and E=hbar omega0/T only after a specified model-clock duration, signal-speed identification and rest gap; seconds, physical action per pulse, kinetic mass and stress are not established. 29 October 2026 same-action finite attachment: The same interacting pair has an exact model energy difference U and rationally enclosed kinetic curvature kappa. U*kappa/c^2 differs from one and is invariant under common clock/length rescaling. The native M2 map fixes t=-beta s in model coordinates only; physical units and the whole-field propagation dictionary remain unprovided. The bounded current-only restoration and terminal census realize closed-history return without initial-configuration or endpoint oracles. Transfer energy is reconstructed before the loop length selects internal inverse temperature. The approximation retains failures and charges conditioning, and applies to the declared classical public marginal rather than a full quantum instrument. The conditioned thermal functional is distinct from the open native reference and from a prepared coherent Gibbs state. Native stopped prefixes supply a three-state nonconstant record-cost energy, its faithful counted reference and an exact bounded register heat bath at beta=1. Concrete Lean RepairLawData and CalibrationData instantiate the finite four-law core. Integer-temperature record comparison has a bounded lazy implementation and a distinct exact geometric-retry limit; laboratory calibration and cofinal regulator claims are separate."
       }
     },
     {
@@ -29779,6 +29963,7 @@
         "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
         "Lean/EventAlgebra/NoBroadcastingAdapter.lean",
         "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
+        "Lean/EventAlgebra/OperationalBornBridge.lean",
         "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
         "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
         "Lean/EventAlgebra/PartitionAverage.lean",
@@ -30375,6 +30560,8 @@
         "Lean/Thermodynamics/LowTemperatureControl.lean",
         "Lean/Thermodynamics/MixingChainRealization.lean",
         "Lean/Thermodynamics/ModularEnergyAdditivity.lean",
+        "Lean/Thermodynamics/NativeBinaryThermodynamics.lean",
+        "Lean/Thermodynamics/NativeRecordFourLaws.lean",
         "Lean/Thermodynamics/NativeRepairFourCycle.lean",
         "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
         "Lean/Thermodynamics/PoissonizedRepair.lean",
@@ -31157,6 +31344,60 @@
           "controls": "trusted rank-one readback; full-matrix identity follows from the exact finite probe conditions",
           "clock": "none required for the static channel-selection theorem",
           "regime": "single-channel finite exact selection; complete multi-label and reference-uniform stability clauses have separate analytic proofs"
+        },
+        "native_classical_record_effects": {
+          "carrier": "All 78 elementary total-two configurations and complete finite public record trees.",
+          "law": "Deterministic floor/ceiling endpoint execution with supplied independent fair placement coins and a public-prefix adaptive seam policy.",
+          "preparation": "Any supplied exact classical initial distribution; source selection of that distribution is not asserted.",
+          "records": "Every seam, coin and current event, including zero weight outcomes and early halts; no success conditioning.",
+          "controls": "Finite declared policies and added actual native-coin acceptance suffixes realize dyadic record effects.",
+          "clock": "Native attempt count; no physical duration or energy dictionary.",
+          "regime": "Exact rational record laws and an analytic order extension on the commutative effect domain; no native complex operational quotient."
+        },
+        "operational_complex_effect_quotient": {
+          "carrier": "A supplied finite complex matrix algebra and a family of finite complete record experiments.",
+          "law": "Independent nonnegative normalized record weights and positive complete matrix effect families.",
+          "preparation": "A fixed family of event probabilities; no trace pairing is used to define those weights.",
+          "records": "Finite events with probabilities and matrix effects formed by their separate atomic sums.",
+          "controls": "Equal represented effects have equal probabilities; every coexistent complex pair admits a common disjoint refinement.",
+          "clock": "No evolution or physical clock enters the representation theorem.",
+          "regime": "Conditional unique density representation from the operational quotient; full complex source realization is not inferred from native classical records or finite tomography."
+        },
+        "native_binary_population_thermodynamics": {
+          "carrier": "The complete 66-state binary total-two carrier after the explicit binary attachment; all thirty committed carrier seams.",
+          "law": "Actual fair-coin floor/ceiling endpoint repair, exactly equal to one-half hold plus endpoint exchange on this sector.",
+          "preparation": "Any population law on the binary carrier; counting is derived as a common stationary reference, not assumed as the input law.",
+          "records": "Complete endpoint, seam, coin and signed-current records with failures and all no-movement outcomes retained.",
+          "controls": "Fixed exogenous seam words or state-independent probability mixtures. The full-tape identity separately permits deterministic public-prefix adaptation.",
+          "clock": "Native attempt counts. Counting has constant modular energy and does not select a nondegenerate thermometer or physical time scale.",
+          "regime": "Exact classical population thermodynamics and a generic Lean RepairLawData instance. Positive-support fluctuation equality, random-scan mixing information and the nonbinary startup countercontrol are separate clauses."
+        },
+        "native_current_census_thermal_return": {
+          "carrier": "The binary total-two native carrier; a covering sweep and bounded uniform-scan warm-up extend the stated population comparison to all total-two classical inputs.",
+          "law": "Actual native current-census restoration, a declared incident-clock or complete-attempt body, and terminal current-census retrodiction. The positive transfer is derived before selecting the closed-history length.",
+          "preparation": "Uniform binary preparation or a certified native warm-up approximation. Fine warm-up records are retained and ignored in the compared public marginal; no product independence from them is asserted.",
+          "records": "Initial census failure, waiting timeout where applicable, terminal census failure, return and nonreturn, together with the body field word. Every outcome is retained before optional return conditioning.",
+          "controls": "Declared current-driven restoration/measurement controllers, public current access, independent seam/coin choices in the body, finite retry and waiting caps, and a specified history length.",
+          "clock": "The incident-clock and complete-attempt variants have distinct reconstructed transfers. Loop length selects dimensionless inverse temperature; no laboratory time or temperature is identified.",
+          "regime": "Finite complete classical public-marginal comparison with explicit preparation, census, waiting and conditioning allowances. Reconstructed Gibbs cylinders are not coherent Gibbs preparation, an open-process thermal reference, or universal complex measurement probabilities."
+        },
+        "native_complete_attempt_matrix_reconstruction": {
+          "carrier": "The 66 binary total-two configurations, their twelve occupation fields and the matrix algebra generated by those fields and the native complete-attempt transfer.",
+          "law": "Independent uniform choice among thirty seams and independent fair placement coins. All sixty branches per configuration determine P before H=-log P and before selecting a positive integer closed-history length L.",
+          "preparation": "Uniform counting input for the exact identity; a covering sweep, finite native warm-up and two current-only censuses supply the stated approximate classical public-marginal attachment.",
+          "records": "Complete configuration histories reconstructed from an initial census and signed currents; return and nonreturn, and census failures are retained. Filtered path counts and a separate return experiment define scaled matrix-unit statistics.",
+          "controls": "Declared source scheduling, public current access, census controllers, finite preparation bounds, path-word dictionary and linear reconstruction. Canonical complexification is a declared mathematical construction.",
+          "clock": "Every native attempt, including zero current, advances the complete-attempt clock. Closed-history length L is internal inverse temperature. The incident-clock transfer and real-time unitary evolution are distinct.",
+          "regime": "Exact finite positive full-matrix functional and source count certificates, plus finite systematic apparatus-error bounds on population statistics. No arbitrary native quantum measurement or laboratory calibration is asserted."
+        },
+        "native_stopped_record_thermodynamics": {
+          "carrier": "One observer register with three stopped native prefix labels 0, 10 and 11. The underlying total-two source and retained growing record tape are separate carriers.",
+          "law": "The specified stopping rule reads independent fair placement coins from actual native repair attempts. Attempt length times log(2) fixes E before branch counting determines w=exp(-E).",
+          "preparation": "Any incoming register and any native total-two source configuration. Fresh prefixes have the same conditional label law after every prior source history; no source reset or independently prepared carrier replicas are required.",
+          "records": "Every attempted placement, stopped prefix, rejected comparison and timeout is retained. Ignoring the tape is an observation marginal rather than physical erasure.",
+          "controls": "A fixed committed seam, the prefix stopping rule, a positive integer comparison multiplicity b, and an optional finite proposal cap M. Register replacement on agreement and retention on disagreement are declared observer operations.",
+          "clock": "Native attempt count and stored record cost in dimensionless log(2) units. Parameter b controls an internal Gibbs family; neither cost nor multiplier is calibrated to laboratory standards.",
+          "regime": "An exact bounded full finite four-law instance at b=1, with a Lean typed calibration and repair law. For b>1 finite caps produce lazy reference-preserving kernels; exact resampling uses almost-sure unlimited retry. The fixed finite Gibbs low-temperature limit is distinct from a cofinal spacetime family."
         }
       },
       "bindings": [
@@ -38147,6 +38388,354 @@
             {
               "path": "model/finite_instrument_calibration/PROOF.md",
               "anchor": "## Stability with arbitrary references"
+            }
+          ]
+        },
+        {
+          "id": "native-classical-record-probability",
+          "domain": "native_classical_record_effects",
+          "claims": [
+            "OPH-FINITE-BORN-FRAME-RANK-GAP"
+          ],
+          "establishes": [
+            "native_complete_record_measure",
+            "dyadic_record_acceptance",
+            "unique_real_diagonal_valuation"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_binary_icosahedral_projector_adapter",
+            "declared_twelve_central_port_atom_context",
+            "orientation_transport_declared_typed_convention",
+            "six_disjoint_antipodal_binary_contexts",
+            "source_phase_sensitive_instrument_deferred",
+            "supplied_affine_celestial_binary_response"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "C1_celestial_unit_sphere",
+            "continuity_and_dense_subset_closure",
+            "exact_linear_algebra_over_Q_sqrt_5",
+            "finite_affine_constraint_rank",
+            "qubit_Bloch_density_criterion"
+          ],
+          "scope": "Endpoint branch counting, event union and record-map pullback supply the represented classical probability law before trace semantics; real record effects are fixed by dyadic order bounds.",
+          "limitations": "Initial distribution, fair independent coins and public policy are supplied. The result is commutative and does not select coherent matrix extensions or a physical apparatus.",
+          "sources": [
+            {
+              "path": "model/native_born_bridge/certificate.py",
+              "anchor": "def record_law("
+            },
+            {
+              "path": "model/native_born_bridge/certificate.py",
+              "anchor": "def dyadic_acceptance("
+            },
+            {
+              "path": "model/native_born_bridge/PROOF.md",
+              "anchor": "#"
+            }
+          ]
+        },
+        {
+          "id": "operational-complex-born-representation",
+          "domain": "operational_complex_effect_quotient",
+          "claims": [
+            "OPH-FINITE-BORN-FRAME-RANK-GAP"
+          ],
+          "establishes": [
+            "record_quotient_additive_valuation",
+            "unique_density_for_all_implemented_events",
+            "diagonal_native_grammar_complex_quotient_obstruction"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_binary_icosahedral_projector_adapter",
+            "declared_twelve_central_port_atom_context",
+            "orientation_transport_declared_typed_convention",
+            "six_disjoint_antipodal_binary_contexts",
+            "source_phase_sensitive_instrument_deferred",
+            "supplied_affine_celestial_binary_response"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "C1_celestial_unit_sphere",
+            "continuity_and_dense_subset_closure",
+            "exact_linear_algebra_over_Q_sqrt_5",
+            "finite_affine_constraint_rank",
+            "qubit_Bloch_density_criterion"
+          ],
+          "scope": "The formal event-sum proof derives the Busch-Gleason valuation hypotheses and a unique Born density from the two explicit operational quotient conditions. Refinement with zero implies full effect realizability.",
+          "limitations": "This is a conditional clause. The native_born_bridge package establishes its commutative record domain only; full complex tomography inside declared quantum semantics does not establish the universal quotient conditions. Implementation independence and coexistent refinement are supplied hypotheses, not outputs delivered by the native classical binding. The native C/E definite-record grammar has only diagonal event effects and cannot realize the full complex quotient; this does not exclude supplied coherent proper-code controls. The separate native_quantum_reconstruction count functional satisfies full complex effect additivity on a reconstructed algebra; it does not implement this operational quotient.",
+          "sources": [
+            {
+              "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+              "anchor": "theorem operationalEffectValuation_isEffectValuation"
+            },
+            {
+              "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+              "anchor": "theorem operational_record_probabilities_unique_born"
+            },
+            {
+              "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+              "anchor": "theorem no_operationalEffectQuotient_of_offDiagonal_effect"
+            },
+            {
+              "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+              "anchor": "theorem diagonal_qubit_records_no_operationalEffectQuotient"
+            },
+            {
+              "path": "model/native_interface/construction.py",
+              "anchor": "def exact_native_audit("
+            }
+          ]
+        },
+        {
+          "id": "native-binary-population-thermodynamics",
+          "domain": "native_binary_population_thermodynamics",
+          "claims": [
+            "OPH-THERMO-FOUR-LAW-PACKAGE"
+          ],
+          "establishes": [
+            "native_common_counting_reference",
+            "native_conditional_resampling_kernel",
+            "native_local_entropy_dissipation",
+            "native_random_scan_entropy_split",
+            "native_complete_record_entropy",
+            "counting_thermal_calibration_constant_energy"
+          ],
+          "requires": [],
+          "assumptions": [
+            "complete_repaired_visible_datum_fibre",
+            "faithful_common_reference_law",
+            "finite_regulator_stage",
+            "global_weighted_objective_representation_deferred",
+            "physical_energy_clock_identification_deferred",
+            "source_collar_transition_realization_deferred",
+            "transition_side_axiom_three_instantiation",
+            "uniform_low_temperature_spectral_tail_control_deferred"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "data_processing_inequality",
+            "finite_information_projection",
+            "finite_markov_kernel_theory",
+            "finite_matrix_trace_algebra"
+          ],
+          "scope": "Exact source binding of the binary population kernel to uniform conditional repair; derived common reference, finite entropy laws and supported fluctuation equality. The generic formal instance feeds the existing four-law surface without supplying thermal calibration or refinement data.",
+          "limitations": "This does not identify the full C/E quantum instrument with population resampling. The full 78-state startup can decrease entropy; feedback need not preserve a source marginal. Physical energy, a nondegenerate thermometer, laboratory time and cofinal cooling control are not derived.",
+          "sources": [
+            {
+              "path": "model/native_thermodynamic_bridge/certificate.py",
+              "anchor": "def heat_bath_certificate("
+            },
+            {
+              "path": "model/native_thermodynamic_bridge/certificate.py",
+              "anchor": "def random_scan_entropy("
+            },
+            {
+              "path": "Lean/Thermodynamics/NativeBinaryThermodynamics.lean",
+              "anchor": "def countingRepairLawData"
+            },
+            {
+              "path": "Lean/Thermodynamics/NativeBinaryThermodynamics.lean",
+              "anchor": "theorem counting_calibration_energy_constant"
+            }
+          ]
+        },
+        {
+          "id": "native-current-census-thermal-return",
+          "domain": "native_current_census_thermal_return",
+          "claims": [
+            "OPH-MODEL-NATIVE-PROCESS-RECOVERY"
+          ],
+          "establishes": [
+            "native_full_return_from_two_current_censuses",
+            "native_initial_field_from_retrodiction_and_currents",
+            "complete_thermal_return_public_marginal",
+            "conditional_return_error_accounting",
+            "native_transfer_before_internal_temperature"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_coherent_proper_code_services_and_analogue_source_controls",
+            "declared_incident_clock_field_protocol",
+            "declared_incident_screen_refinement_protocol",
+            "declared_native_binary_federation_instruments",
+            "declared_native_clock_field_and_initial_state_contract",
+            "declared_native_local_access_and_scheduler",
+            "declared_smooth_product_coefficient_density_for_smooth_interpretation"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "Caputo_Liggett_Richthammer_2010_weighted_exclusion_gap_Theorem_1_1_Equation_4_1",
+            "Caputo_Liggett_Richthammer_exclusion_spectral_gap",
+            "Davies_Gaffney_finite_wave_propagation_equivalence",
+            "Doob_L2_martingale_maximal_inequality",
+            "Gaussian_Green_covariance_and_generalized_free_field_construction",
+            "Hajek_finite_population_central_limit_theorem",
+            "Poisson_factorial_moments_and_finite_dependency_cones",
+            "Steklov_boundary_Weyl_law",
+            "classical_CHSH_local_response_bound_and_published_Bell_null_contract",
+            "classical_Weyl_eigenvalue_counting_law",
+            "conditional_law_sequential_coupling",
+            "densitized_scalar_wave_metric_identity",
+            "directed_integer_probability_enclosure",
+            "elliptic_coefficient_Mosco_convergence",
+            "finite_Kraus_Stinespring_construction",
+            "finite_matrix_block_elimination_and_stopped_instrument_resolvents",
+            "finite_state_martingale_functional_central_limit_theorem",
+            "integrated_short_time_local_Dirichlet_heat_asymptotics",
+            "irreducible_positive_self_adjoint_semigroup",
+            "ordered_subsequence_count_at_incident_stopping_time",
+            "positive_semigroup_fractional_extension",
+            "positive_transfer_spectral_logarithm",
+            "quantum_IID_fluctuation_Weyl_limit",
+            "quantum_relative_entropy_data_processing",
+            "round_sphere_finite_perimeter_isoperimetric_inequality",
+            "spectral_theorem_for_self_adjoint_operators",
+            "spherical_harmonic_orthogonality_and_Laplacian_spectrum",
+            "stationary_local_cylinder_similarity_under_commuting_interventions",
+            "strongly_local_Sobolev_form_tensor_representation",
+            "trace_distance_contraction_and_unitary_channel_composition"
+          ],
+          "scope": "Current-only source controls implement both end configuration reads and reconstruct the body fields on the stated classical histories. The full public marginal and conditioned return law have explicit finite errors; the positive native transfer supplies the reconstructed Gibbs functional.",
+          "limitations": "Native repair, accessible currents, controller policy, history length and ensemble selection remain specified. The result supplies no coherent Gibbs working state, laboratory heat or temperature, common open-process Gibbs reference, full complex effect quotient, or cofinal cooling control.",
+          "sources": [
+            {
+              "path": "model/native_thermal_return/certificate.py",
+              "anchor": "def success_tables("
+            },
+            {
+              "path": "model/native_thermal_return/certificate.py",
+              "anchor": "def _compose("
+            },
+            {
+              "path": "model/native_thermal_return/PROOF.md",
+              "anchor": "# Thermal return records from native current readout"
+            }
+          ]
+        },
+        {
+          "id": "native-complete-attempt-matrix-valuation",
+          "domain": "native_complete_attempt_matrix_reconstruction",
+          "claims": [
+            "OPH-FINITE-BORN-FRAME-RANK-GAP"
+          ],
+          "establishes": [
+            "native_complete_attempt_full_real_matrix_algebra",
+            "native_count_derived_complex_effect_valuation",
+            "native_count_derived_unique_born_density",
+            "native_transfer_derived_gibbs_functional",
+            "native_count_functional_systematic_error_bound"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_binary_icosahedral_projector_adapter",
+            "declared_twelve_central_port_atom_context",
+            "orientation_transport_declared_typed_convention",
+            "six_disjoint_antipodal_binary_contexts",
+            "source_phase_sensitive_instrument_deferred",
+            "supplied_affine_celestial_binary_response"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "C1_celestial_unit_sphere",
+            "continuity_and_dense_subset_closure",
+            "exact_linear_algebra_over_Q_sqrt_5",
+            "finite_affine_constraint_rank",
+            "qubit_Bloch_density_criterion"
+          ],
+          "scope": "The exact source-count dictionary yields all matrix units, a positive normalized complex-linear functional and full coexistent-effect additivity. The finite Busch-Gleason hypotheses hold for this reconstructed functional by the analytic proof and exact count certificates.",
+          "limitations": "The full native path reconstruction is not Lean formalized. Complexification is not a physical scalar-field selection. Linear combinations of scaled path statistics are not necessarily individual native outcomes; operational quotient conditions, coherent working-state preparation, real-time quantum apparatus and physical calibration are not supplied. The finite error bound excludes sampling uncertainty.",
+          "sources": [
+            {
+              "path": "model/native_quantum_reconstruction/certificate.py",
+              "anchor": "def source_counts("
+            },
+            {
+              "path": "model/native_quantum_reconstruction/certificate.py",
+              "anchor": "def matrix_unit_paths("
+            },
+            {
+              "path": "model/native_quantum_reconstruction/certificate.py",
+              "anchor": "def matrix_unit_moment("
+            },
+            {
+              "path": "model/native_quantum_reconstruction/certificate.py",
+              "anchor": "def configuration_attachment("
+            },
+            {
+              "path": "model/native_quantum_reconstruction/PROOF.md",
+              "anchor": "## Native count moments and their positive density representation"
+            },
+            {
+              "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+              "anchor": "structure IsEffectValuation"
+            }
+          ]
+        },
+        {
+          "id": "native-stopped-record-finite-four-laws",
+          "domain": "native_stopped_record_thermodynamics",
+          "claims": [
+            "OPH-THERMO-FOUR-LAW-PACKAGE"
+          ],
+          "establishes": [
+            "native_prefix_cost_gibbs_reference",
+            "native_bounded_nonconstant_record_heat_bath",
+            "native_concrete_finite_four_law_core",
+            "native_register_temperature_family",
+            "native_record_retry_cost_and_timeout",
+            "native_record_finite_ground_state_limit"
+          ],
+          "requires": [],
+          "assumptions": [
+            "complete_repaired_visible_datum_fibre",
+            "faithful_common_reference_law",
+            "finite_regulator_stage",
+            "global_weighted_objective_representation_deferred",
+            "physical_energy_clock_identification_deferred",
+            "source_collar_transition_realization_deferred",
+            "transition_side_axiom_three_instantiation",
+            "uniform_low_temperature_spectral_tail_control_deferred"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "data_processing_inequality",
+            "finite_information_projection",
+            "finite_markov_kernel_theory",
+            "finite_matrix_trace_algebra"
+          ],
+          "scope": "Actual native prefix counts supply the nonconstant register-cost calibration and the exact beta=1 heat bath. Lean constructs the two concrete inputs and proves FiniteFourLawCore. The analytic and executable comparison family derives its complete bounded lazy kernels, retry costs and fixed-spectrum Gibbs limit.",
+          "limitations": "Fair independent coins and the observer protocol are specified. The formal native endpoint binding is independently checked by Python rather than proved in Lean. The register model does not identify its energy with total source work, physical heat or laboratory units, and it supplies no regulator-cofinal cooling law. Unlimited exact retry has no finite worst-case memory budget.",
+          "sources": [
+            {
+              "path": "model/native_record_thermodynamics/certificate.py",
+              "anchor": "def source_law("
+            },
+            {
+              "path": "model/native_record_thermodynamics/certificate.py",
+              "anchor": "def enumerated_controller("
+            },
+            {
+              "path": "model/native_record_thermodynamics/certificate.py",
+              "anchor": "def expected_attempts("
+            },
+            {
+              "path": "model/native_record_thermodynamics/PROOF.md",
+              "anchor": "## Instantiating the finite thermodynamic core"
+            },
+            {
+              "path": "Lean/Thermodynamics/NativeRecordFourLaws.lean",
+              "anchor": "def recordCalibration"
+            },
+            {
+              "path": "Lean/Thermodynamics/NativeRecordFourLaws.lean",
+              "anchor": "theorem record_four_laws"
+            },
+            {
+              "path": "Lean/Thermodynamics/NativeRecordFourLaws.lean",
+              "anchor": "theorem record_third_entropy_limit"
             }
           ]
         }

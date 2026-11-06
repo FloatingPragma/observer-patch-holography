@@ -1,0 +1,137 @@
+{
+  "all_pass": true,
+  "closed_history_levels": [
+    {
+      "density_sha256": "43d54fa9f057f932e809c2206e11187bbc157a465e2a6a310755db8af7a95326",
+      "different_probability": "5/33",
+      "matrix_unit_moments_verified": 4356,
+      "native_attempts": 1,
+      "reconstructed_effects": {
+        "complex_conjugation_orientation_selected": false,
+        "indices": [
+          0,
+          6
+        ],
+        "real_reconstructed_coherence_resolved": true,
+        "these_effects_implemented_as_native_single_trial_readouts": false,
+        "weights": {
+          "minus": "5/336",
+          "plus": "13/840",
+          "y_minus": "17/1120",
+          "y_plus": "17/1120"
+        }
+      },
+      "return_probability": "28/33"
+    },
+    {
+      "density_sha256": "08bc263d4b36805ee65365be9cc219e9a88d6b6d395089d466d262ead17f23fa",
+      "different_probability": "61/220",
+      "matrix_unit_moments_verified": 4356,
+      "native_attempts": 2,
+      "reconstructed_effects": {
+        "complex_conjugation_orientation_selected": false,
+        "indices": [
+          0,
+          6
+        ],
+        "real_reconstructed_coherence_resolved": true,
+        "these_effects_implemented_as_native_single_trial_readouts": false,
+        "weights": {
+          "minus": "2507/171720",
+          "plus": "181/11448",
+          "y_minus": "2611/171720",
+          "y_plus": "2611/171720"
+        }
+      },
+      "return_probability": "159/220"
+    },
+    {
+      "density_sha256": "d91c4c3fa632c68c287675555b4fff82fcdf11aedf91d34a6c8f112bfb980afd",
+      "different_probability": "278791/594000",
+      "matrix_unit_moments_verified": 4356,
+      "native_attempts": 4,
+      "reconstructed_effects": {
+        "complex_conjugation_orientation_selected": false,
+        "indices": [
+          0,
+          6
+        ],
+        "real_reconstructed_coherence_resolved": true,
+        "these_effects_implemented_as_native_single_trial_readouts": false,
+        "weights": {
+          "minus": "13244/945627",
+          "plus": "312169/18912540",
+          "y_minus": "577049/37825080",
+          "y_plus": "577049/37825080"
+        }
+      },
+      "return_probability": "315209/594000"
+    }
+  ],
+  "current_only_configuration_attachment": {
+    "actual_source_transfer_and_controller_bound_compared": true,
+    "all_complex_effect_statistic_error_upper": "94149/25000000000",
+    "census_retries": 64,
+    "census_seed_scans": 8,
+    "clock": "complete native attempt",
+    "complete_law_error_upper": "741/100000000000000000000",
+    "coordinate_error_upper": "317/50000000000",
+    "discarded_warmup_attempts": 1024,
+    "finite_sampling_error_included": false,
+    "initial_collision_sweep": true,
+    "maximum_body_attempts": 8,
+    "minimum_word_coefficient": "1/12960000",
+    "native_attempts_per_experiment_max": 11398,
+    "raw_reconstructed_matrix_certified_positive": false,
+    "return_probability_lower": "1/66",
+    "source_census_controller_executed_by_this_packet": false
+  },
+  "generation": {
+    "all_projectors_generated_as_products_of_occupations_and_complements": true,
+    "configuration_projectors": 66,
+    "full_real_matrix_algebra_generated": true,
+    "matrix_units": 4356,
+    "maximum_token_path_length": 4,
+    "site_fields": 12
+  },
+  "schema": "oph.native_quantum_reconstruction.v1",
+  "scope": {
+    "arbitrary_complex_effect_native_implementation": false,
+    "born_form_on_reconstructed_complexification_derived": true,
+    "canonical_complexification_forced_as_physical_scalar_field": false,
+    "complete_configuration_service_executed_by_this_packet": false,
+    "native_count_moment_functional_derived": true,
+    "native_event_clock_identified_with_unitary_real_time": false,
+    "native_source_fields_same_as_incident_clock_dictionary": false,
+    "positive_reconstructed_density_derived": true,
+    "rho_L_prepared_on_native_quantum_working_carrier": false
+  },
+  "source": {
+    "actual_coin_branches": 3960,
+    "clock": "every native seam attempt, including zero current",
+    "integer_counts_sha256": "ac80340e2d3f11a62472a12822a2c115aff7cadf208aee505f6ed1817abe63bb",
+    "seams": 30,
+    "states": 66
+  },
+  "source_sha256": {
+    "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_quantum_reconstruction/PROOF.md": "b89daf641232a3a7e696c870e4b0f282a0e723f9a7b607cf87e274f076e68f86",
+    "model/native_quantum_reconstruction/certificate.py": "ffc51c1ab3b09dee9d5a004896b80ec40747a893a2ef1e05ae67cf7e123bf75b",
+    "model/native_quantum_reconstruction/test_certificate.py": "7e33cb8c3ecdcf7ff23941f8beea964b073d604165074685e1fa5f7f8227c903",
+    "model/native_thermal_return/certificate.py": "ae0e2d8e2a15aa0e3f900c1ddaa30d2eca8bc5f92dc5d98f775df29b28e2c6e3",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5"
+  },
+  "spectral_bounds": {
+    "lower": "2/3",
+    "minimum_diagonal": "5/6",
+    "strict_positive_definiteness_from_integer_counts": true,
+    "upper": "1"
+  }
+}

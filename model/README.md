@@ -27,6 +27,24 @@ with an explicit nonlinear error bound. The
 finite calibrated energy records and supplies native sector readout of the
 resulting work observable.
 
+The [native quantum reconstruction](native_quantum_reconstruction/README.md)
+derives a positive matrix functional and Born weights from closed repair
+histories. A [current-only return controller](native_thermal_return/README.md)
+implements the record comparison with bounded errors. The
+[native record bridge](native_born_bridge/README.md) supplies complete
+classical probabilities and coarse graining. Reconstructed effect statistics
+are distinct from implementing arbitrary complex measurements or identifying
+the reconstructed Hamiltonian with physical time evolution.
+
+The [native thermodynamic bridge](native_thermodynamic_bridge/README.md)
+identifies binary seam repair with conditional resampling and derives a
+shared equilibrium reference and entropy-increase law. Complete record
+accounting retains the input information. A separate
+[native record thermostat](native_record_thermodynamics/README.md) generates
+a nonconstant Gibbs family from prefix costs and record agreement. Its bounded
+three-state refresh supplies the inputs of the complete finite four-law
+theorem in internal cost units; physical heat and temperature need calibration.
+
 The [prepared quantum readout](prepared_quantum_readout/README.md) uses native
 sweeps to replace exact stationary input by a certified error. The
 [finite calibration theorem](finite_instrument_calibration/README.md)

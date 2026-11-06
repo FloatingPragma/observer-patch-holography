@@ -7,6 +7,124 @@ Each construction retains its own action, preparation, instrument and clock
 hypotheses. A physical composition must realize those hypotheses on the same
 process and compare the same records.
 
+## Born weights and the executable model
+
+The [finite effect-valuation theorem](../../Lean/EventAlgebra/FiniteBuschGleason.lean)
+derives the Born trace formula and its unique density matrix from normalized,
+nonnegative weights additive on every coexistent pair of complex matrix
+effects. It includes dimension two and assumes no continuity axiom. The
+formula itself is a conclusion under these hypotheses.
+
+The [operational bridge](../../Lean/EventAlgebra/OperationalBornBridge.lean)
+starts with complete finite outcome weights and derives their disjoint-event
+additivity by finite sums. If equal-effect implementations have equal weights and each coexistent
+pair has a disjoint common implementation, those weights descend to the valuation
+required by the theorem. Refining the pair `(E,0)` supplies an implementation
+of every effect. These universal operational conditions are explicit
+hypotheses, rather than consequences of finitely many calibration scores.
+
+The [native record construction](../../model/native_born_bridge/PROOF.md)
+computes record probabilities from endpoint repair and supplied fair coins
+without calling a trace-probability runtime. Complete record coarse graining
+selects a unique diagonal state on the record algebra. It does not determine
+the input state or select a full complex state.
+The [implemented tomography](../../model/native_interface/tomography.py)
+does include real and imaginary analyzers spanning all 4356 Hermitian
+coordinates of the 66-state sector, with aborts and timeouts retained.
+Its coherent routing and quantum state/instrument semantics are supplied.
+The distinction is between an implemented complex measurement system and
+an independent derivation of its universal operational probability laws.
+The complex representation and universal operational effect-additivity
+obligations retain their declared status in the premise register.
+
+There is also a [source-derived full matrix functional](../../model/native_quantum_reconstruction/PROOF.md).
+The complete-attempt kernel `P` is obtained from all 3960 native branches and
+satisfies `2I/3<=P<=I`. The twelve occupation fields and connected transfer
+paths generate all 4356 matrix units. Scaled closed-history counts determine
+their moments, whose linear extension has the unique positive density
+`rho_L=P^L/Tr(P^L)`. Its canonical complex-linear extension is normalized,
+positive and additive on all complex effects. The mathematical inputs of
+the Born theorem are thus derived for this reconstructed algebra.
+
+The [current-only return adapter](../../model/native_thermal_return/PROOF.md)
+implements the required configuration comparison with one initial restored
+census and one final census; signed currents supply intermediate configurations.
+At the stated reconstruction settings, at most 11398 attempts per experiment
+give complete-law error at most `7.41e-18`; charging the rare-path and return
+normalizations gives systematic error at most `3.76596e-6` for every
+reconstructed effect statistic. Sampling uncertainty is separate. Arbitrary
+effects require signed or complex combinations of statistics across
+experiments. They are not all single native acceptance events, whose direct
+configuration effects are diagonal. Choosing the complexification and
+identifying reconstructed unitary time with physical time are distinct
+requirements.
+
+## Thermodynamics from native repair
+
+The [finite four-law core](../../Lean/Thermodynamics/CofinalSpectralTailFamily.lean)
+derives finite thermodynamic laws from a conditional-resampling repair law
+and its energy calibration. Cofinal low-temperature control is required for
+the stronger regulator-uniform extension, not for this finite core. The laws
+are conclusions of these hypotheses. A physical interpretation must establish
+the hypotheses on the same source process.
+
+The [binary native attachment](../../model/native_thermodynamic_bridge/PROOF.md)
+obtains a direct conditional-resampling instance. On a fixed binary-load
+sector, averaging the native seam's two fair-coin outcomes gives
+`P_e=(I+swap_e)/2`. This is precisely uniform resampling conditional on the
+outside-seam loads. The [finite involution theorem](../../Lean/Thermodynamics/NativeBinaryThermodynamics.lean)
+connects this form to the conditional-repair library. The connected seam
+ensemble has one uniform stationary reference, which also uniquely maximizes
+entropy in that sector. One seam alone leaves the masses of its separate
+fibres undetermined.
+
+For the unread population, `S(pP_e)-S(p)=D(p||pP_e)>=0`. Fixed seam words
+telescope this identity. Independent random scan includes an additional
+nonnegative mixing term; its kernel need not be idempotent. Retaining the
+complete endpoint and coin/current tape gives
+`H(X_n,J)=H(X_0)+n log(2)` for a fixed word, so the marginal entropy increase
+does not imply loss of the initial information from the complete record.
+The source, binary sector and fair-coin/exogenous scheduling assumptions are
+explicit. Unbalanced configurations and record-dependent feedback require
+their own analysis.
+
+This closes the common-reference and local-resampling attachment on this
+restricted population branch. Its modular energy is constant, so it cannot
+identify a nontrivial temperature, heat reservoir, physical erasure cost or
+cooling protocol. The physical energy/temperature and cofinal-refinement
+conditions of the physical four-law interpretation retain their separate status.
+
+A [native observer-memory construction](../../model/native_record_thermodynamics/PROOF.md)
+supplies a nonconstant internal calibration. A stopped coin-prefix program
+records `0`, `10` or `11` after respectively one, two or two native attempts.
+Its weights are `w=(1/2,1/4,1/4)`, independently of the hidden configuration.
+Define the stored-prefix cost `E=n log(2)` before selecting a probability law.
+Then `w=exp(-E)` is normalized, and overwriting the memory with a fresh prefix
+is exactly its global heat bath in at most two native attempts. The
+[typed finite-theorem instance](../../Lean/Thermodynamics/NativeRecordFourLaws.lean)
+constructs `RepairLawData` and `CalibrationData` from these counts and applies
+`finiteFourLawCore`. Its gap is `log(2)` with a unique ground label.
+
+Agreement of `b` sequentially generated independent prefixes gives weights
+`w^b`, hence the Gibbs family of the same cost at integer multiplier `b`.
+The coin law is independent of source state, so separate source preparations
+are unnecessary. Keeping the old memory after disagreement gives a lazy
+reversible kernel with exactly that stationary reference. Bounded retries
+retain all rejection outcomes and give an explicit geometric error; almost
+sure retry gives the exact heat bath with finite expected cost. This supplies
+finite thermodynamic premises for the declared observer-memory protocol.
+Stored-prefix cost is not total implementation work, laboratory energy or a
+physical temperature calibration.
+
+Independently, complete-attempt closed histories give
+`rho_L=exp(-L H)/Tr(exp(-L H))` for `H=-log(P)`, which is reconstructed before
+the loop length `L` is chosen. The return adapter also supports a distinct
+incident-clock transfer and its permitted regional field dictionary.
+Both comparisons include census failures, nonreturns and any waiting cap.
+These Gibbs functionals describe reconstructed history ensembles; they are
+not coherent working-state preparations or stationary Gibbs laws of the
+unchanged open source process.
+
 ## Carrier from directional readout
 
 The [weighted carrier selector](../../model/carrier_selection_reduction/PROOF.md)

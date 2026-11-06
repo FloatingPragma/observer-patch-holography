@@ -1,0 +1,491 @@
+{
+  "all_pass": true,
+  "entropy_checks": {
+    "complete_two_attempt_tape_entropy_increment": "2 log(2)",
+    "exact_logarithmic_arithmetic": true,
+    "fixed_schedule_telescoping_checked": true,
+    "random_scan": {
+      "entropy_change": {
+        "101": "-1313/44220",
+        "109": "-2507/132660",
+        "1093": "-1093/44220",
+        "11": "161/4020",
+        "113": "-791/132660",
+        "1151": "-1151/66330",
+        "1229": "-1229/44220",
+        "127": "-127/14740",
+        "13": "-299/13266",
+        "131": "-917/26532",
+        "137": "-3151/132660",
+        "139": "-139/22110",
+        "149": "-149/66330",
+        "1601": "-1601/132660",
+        "167": "-167/11055",
+        "17": "3893/132660",
+        "173": "-173/13266",
+        "19": "-95/13266",
+        "1901": "-1901/132660",
+        "1933": "-1933/66330",
+        "2": "21848/11055",
+        "23": "-6647/132660",
+        "239": "-4063/132660",
+        "251": "-251/8844",
+        "269": "-269/66330",
+        "277": "-277/33165",
+        "29": "-203/33165",
+        "3": "22259/22110",
+        "31": "961/33165",
+        "311": "-2177/132660",
+        "3229": "-3229/66330",
+        "359": "-359/132660",
+        "3607": "-3607/132660",
+        "37": "-962/33165",
+        "41": "-1189/132660",
+        "43": "-43/26532",
+        "431": "-862/33165",
+        "439": "-439/22110",
+        "443": "-3101/132660",
+        "449": "-449/44220",
+        "47": "-141/7370",
+        "5": "8645/8844",
+        "53": "901/44220",
+        "569": "-569/26532",
+        "59": "118/11055",
+        "601": "-601/66330",
+        "61": "-61/4020",
+        "617": "-617/44220",
+        "677": "-677/33165",
+        "7": "-854/33165",
+        "83": "-3071/132660",
+        "89": "-623/132660"
+      },
+      "mean_local_dissipation": {
+        "101": "-101/22110",
+        "103": "-103/33165",
+        "107": "-107/66330",
+        "109": "-109/66330",
+        "11": "-1/1005",
+        "113": "-113/33165",
+        "127": "-127/66330",
+        "13": "13/2010",
+        "17": "-17/3685",
+        "19": "19/13266",
+        "2": "847/3015",
+        "23": "23/4422",
+        "29": "116/33165",
+        "3": "-359/22110",
+        "31": "31/6633",
+        "37": "-37/66330",
+        "41": "-41/22110",
+        "43": "43/33165",
+        "47": "47/13266",
+        "5": "-32/6633",
+        "53": "-53/66330",
+        "59": "-118/33165",
+        "61": "61/33165",
+        "67": "-1/165",
+        "7": "7/4422",
+        "71": "-142/33165",
+        "73": "-73/66330",
+        "79": "-79/13266",
+        "83": "-83/33165",
+        "89": "-89/22110",
+        "97": "-97/22110"
+      },
+      "mixing_information": {
+        "101": "-101/4020",
+        "103": "103/33165",
+        "107": "107/66330",
+        "109": "-763/44220",
+        "1093": "-1093/44220",
+        "11": "11/268",
+        "113": "-113/44220",
+        "1151": "-1151/66330",
+        "1229": "-1229/44220",
+        "127": "-889/132660",
+        "13": "-962/33165",
+        "131": "-917/26532",
+        "137": "-3151/132660",
+        "139": "-139/22110",
+        "149": "-149/66330",
+        "1601": "-1601/132660",
+        "167": "-167/11055",
+        "17": "901/26532",
+        "173": "-173/13266",
+        "19": "-19/2211",
+        "1901": "-1901/132660",
+        "1933": "-1933/66330",
+        "2": "56227/33165",
+        "23": "-667/12060",
+        "239": "-4063/132660",
+        "251": "-251/8844",
+        "269": "-269/66330",
+        "277": "-277/33165",
+        "29": "-29/3015",
+        "3": "11309/11055",
+        "31": "806/33165",
+        "311": "-2177/132660",
+        "3229": "-3229/66330",
+        "359": "-359/132660",
+        "3607": "-3607/132660",
+        "37": "-629/22110",
+        "41": "-943/132660",
+        "43": "-43/14740",
+        "431": "-862/33165",
+        "439": "-439/22110",
+        "443": "-3101/132660",
+        "449": "-449/44220",
+        "47": "-752/33165",
+        "5": "389/396",
+        "53": "2809/132660",
+        "569": "-569/26532",
+        "59": "472/33165",
+        "601": "-601/66330",
+        "61": "-2257/132660",
+        "617": "-617/44220",
+        "67": "1/165",
+        "677": "-677/33165",
+        "7": "-1813/66330",
+        "71": "142/33165",
+        "73": "73/66330",
+        "79": "79/13266",
+        "83": "-83/4020",
+        "89": "-89/132660",
+        "97": "97/22110"
+      }
+    },
+    "strictly_positive_fluctuation_average": "1",
+    "zero_support_fluctuation_control": "1/2"
+  },
+  "inherited_quantum_record_thermodynamics": {
+    "fresh_full_quantum_execution_or_new_quantum_entropy_proof": false,
+    "receipt": "model/native_equilibration/record_results.json",
+    "source_pins_verified": 6
+  },
+  "native_heat_bath": {
+    "common_stationary_weight": "1/66",
+    "connected_token_vertices": 66,
+    "local_heat_baths": [
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          0,
+          1
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          0,
+          5
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          0,
+          7
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          0,
+          10
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          0,
+          11
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          1,
+          5
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          1,
+          7
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          1,
+          8
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          1,
+          9
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          2,
+          3
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          2,
+          4
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          2,
+          6
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          2,
+          10
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          2,
+          11
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          3,
+          4
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          3,
+          6
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          3,
+          8
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          3,
+          9
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          4,
+          5
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          4,
+          9
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          4,
+          11
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          5,
+          9
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          5,
+          11
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          6,
+          7
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          6,
+          8
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          6,
+          10
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          7,
+          8
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          7,
+          10
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          8,
+          9
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      },
+      {
+        "exact_entries_checked": 4356,
+        "seam": [
+          10,
+          11
+        ],
+        "singleton_fibres": 46,
+        "two_point_fibres": 10
+      }
+    ],
+    "nonidempotence_witness": {
+      "P": "13/15",
+      "P_squared": "113/150",
+      "indices": [
+        0,
+        0
+      ]
+    },
+    "random_scan_idempotent": false,
+    "seams": 30,
+    "source_coin_branches": 3960,
+    "states": 66,
+    "token_root_eccentricity": 4
+  },
+  "same_reference_optimization": {
+    "full_78_state_claim": false,
+    "row_entropy_gap": "D(row || uniform_fibre)",
+    "state_entropy_gap": "D(p || uniform66)",
+    "state_optimizer": "uniform on the supplied connected binary total-two sector",
+    "transition_optimizer": "uniform on each actual native seam fibre"
+  },
+  "schema": "oph.native_thermodynamic_bridge.v1",
+  "scope": {
+    "arbitrary_record_feedback_has_same_unread_law": false,
+    "binary_sector_and_fair_coin_measure_supplied": true,
+    "exogenous_fixed_schedule_or_independent_random_scan": true,
+    "native_classical_heat_bath_attachment_derived": true,
+    "physical_energy_temperature_clock_or_cooling_derived": false,
+    "uniform_reference_modular_energy_is_constant": true,
+    "zero_temperature_or_refinement_limit_claim": false
+  },
+  "source_sha256": {
+    "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
+    "Lean/Thermodynamics/FluctuationTheorems.lean": "a53df2493f3f8b37d0cc1d8e52745dcee74de89d2299d014b3e30a40b73296c9",
+    "model/native_born_bridge/certificate.py": "91c444b00554c7080d7172c7cd63cbd5a875f6b0d8cc7e6fb1c6b196ffe8873c",
+    "model/native_born_bridge/results.json": "3aca34ff97329f8570a7f6d479acf4dd570dab50ac40b31db7986bc1ed357064",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_equilibration/record_results.json": "46d0b8e27b13493b5c68fd7e43ec37336b145dac746102a67e50a57a76d4a96c",
+    "model/native_equilibration/record_thermodynamics.py": "d3054c1f7f5a6d2cd8ad5c06a3f6f63d944d45b4d7c1eb194aca5e5155dce906",
+    "model/native_thermodynamic_bridge/PROOF.md": "90f151b3150fdfa92154fc2c62d7e14fbcdf2505da96c46071f39ac134c14fd9",
+    "model/native_thermodynamic_bridge/certificate.py": "d53f4cf492de8ac9a9f962341d252a99d3702ced41213d110b92f1240ada3c47",
+    "model/native_thermodynamic_bridge/test_certificate.py": "30dffcd08d7b569afcc35196891b0e67650eacf77a3a47749b2b90452b216ec6",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139"
+  },
+  "startup_control": {
+    "binary_sector_reference_cannot_be_used_before_attachment": true,
+    "one_covering_scan_collision_probability": "0",
+    "one_seam_entropy_change": "-log(3)/26",
+    "uniform_78_is_stationary": false
+  }
+}

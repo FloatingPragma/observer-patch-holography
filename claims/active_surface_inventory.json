@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1060,
+  "surface_count": 1070,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2966,6 +2966,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_born_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_born_bridge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_circulation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3106,6 +3116,26 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_quantum_reconstruction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quantum_reconstruction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_record_thermodynamics/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_record_thermodynamics/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_regional_modular/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3137,6 +3167,26 @@
     },
     {
       "path": "model/native_spin_observer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermal_return/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermal_return/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermodynamic_bridge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermodynamic_bridge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

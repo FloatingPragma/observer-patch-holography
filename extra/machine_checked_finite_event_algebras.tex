@@ -238,6 +238,55 @@ the orthogonal sum is an event, and its Born weight is the sum of the two Born
 weights. The event and orthogonality hypotheses carry the first conjunct; the
 weight identity is linear and uses none of them.
 
+\subsection{From complete records to Born weights}
+
+In \texttt{OperationalBornBridge}, a measurement context has finitely many
+complete outcomes with nonnegative weights summing to one. Its event weight
+is the sum over an outcome subset. Separately, outcome effects are positive
+matrices summing to the identity; an event effect is their sum. Neither
+definition identifies a probability with a trace.
+
+\begin{theorem}[Operational descent to the Born rule]
+Suppose implementations of the same effect have equal event weights and
+each pair of coexistent effects has an implementation as disjoint events
+of a common context. Then there
+is a unique density matrix $\rho$ such that every event with effect $E$
+has weight $\Tr(\rho E)$.
+\end{theorem}
+\begin{proof}
+Refining the pair $(E,0)$ supplies an implementation of every effect.
+Choose one such implementation for each effect. Equal-effect equivalence makes
+its weight independent of the choice. Positivity follows from the outcome
+weights, and a complete context gives weight one to the identity. For
+coexistent $E,F$, take their disjoint common implementation. The event
+union has effect $E+F$, and finite-sum additivity gives
+$v(E+F)=v(E)+v(F)$. The finite effect-valuation representation theorem
+therefore gives a unique density matrix. Effect realizability transfers
+uniqueness from the valuation to the operational representation.
+\end{proof}
+
+The native record construction in \texttt{model/native\_born\_bridge}
+derives complete finite-history weights directly from endpoint repair and
+supplied fair coins, including record-controlled schedules. Record coarse
+graining is additive and determines a unique diagonal density on the
+record algebra. This does
+not select off-diagonal matrix entries. The executable complex tomography
+uses coherent services and trace-based quantum semantics; it supplies no
+independent proof of the universal operational hypotheses above.
+
+The same module proves a direct obstruction: diagonal event effects cannot
+realize a non-diagonal effect, hence cannot satisfy the operational quotient
+on a matrix algebra containing one. An explicit qubit projection supplies
+the witness. This concerns the direct native record-effect representation.
+In the separate analytic construction
+\texttt{model/native\_quantum\_reconstruction}, occupation fields and a
+positive native transfer generate the full real matrix algebra. Scaled
+closed-path counts give its normalized positive functional
+$A\mapsto\operatorname{Tr}(P^L A)/\operatorname{Tr}(P^L)$, including a
+positive complex-linear extension. This supplies the mathematical
+effect-valuation hypotheses for a reconstructed algebra; signed combinations
+of count statistics are not asserted to be single native measurement events.
+
 \section{L\"uders update as a partial state interface}
 \label{sec:lueders}
 

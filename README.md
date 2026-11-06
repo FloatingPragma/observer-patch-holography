@@ -102,7 +102,7 @@ proof shows that the whole class of laws cannot work.
   responsive geometry remain open, with their premises stated in the
   [continuum construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
-  12700 public theorems and lemmas with no admitted proofs, and every retained
+  12800 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.
 - **Tests fixed in advance.** Predictions and their rejection rules enter the
   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) before the
