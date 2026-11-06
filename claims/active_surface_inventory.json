@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1070,
+  "surface_count": 1076,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3056,6 +3056,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_gravity_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gravity_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_interface/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3072,6 +3082,16 @@
     },
     {
       "path": "model/native_mass_channels/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_modular_dynamics/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_modular_dynamics/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3097,6 +3117,16 @@
     },
     {
       "path": "model/native_program/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quantum_defects/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quantum_defects/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
