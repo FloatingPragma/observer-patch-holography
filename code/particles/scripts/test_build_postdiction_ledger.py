@@ -13,6 +13,46 @@ import pytest
 import build_postdiction_ledger as ledger
 
 
+def test_finite_spectrum_comparison_projection_and_rendering():
+    rows = ledger._finite_spectrum_comparison_rows()
+    parent = json.loads((ledger.REPO / "model/particle_spectrum_audit/results.json").read_text())
+    assert rows["charged_leptons"]["ratios"] == parent["lepton_ratios"]
+    assert rows["quarks"]["inverse_coordinates"] == parent["quark_exponent_diagnostics"]
+    assert rows["neutrinos"]["comparison"] == parent["neutral"]
+    assert rows["neutrinos"]["prospective_FZ03_verdict"] is None
+    retained = json.loads(ledger.DEFAULT_OUT.read_text())
+    for section, row in rows.items():
+        retained["sections"][section] = [row] + [old for old in retained["sections"][section]
+                                                if old["id"] != row["id"]]
+    text = ledger._render_md(retained)
+    assert "105.6509313" in text and "+0.07249 ppm" in text
+    assert "u=6.63023" in text and "0.004988" in text
+    assert "MCPR conditional triple" in text  # The separate branch is retained.
+    assert "no prospective FZ-03 verdict" in rows["neutrinos"]["hypothesis_boundary"]
+    changed = deepcopy(rows["charged_leptons"])
+    changed["particles"][0]["value_GeV"] = 0.001
+    assert "masses are 1," in "\n".join(ledger._render_finite_spectrum_comparison(changed))
+
+
+@pytest.mark.parametrize("mutation", ["custody", "promotion"])
+def test_finite_spectrum_comparison_rejects_invalid_parent(monkeypatch, mutation):
+    original = ledger._public_receipt
+
+    def changed(relative, schema):
+        packet, checksum = original(relative, schema)
+        if schema == "oph.particle_spectrum_audit.result.v1":
+            packet = deepcopy(packet)
+            if mutation == "custody":
+                packet["source_sha256"]["derive.py"] = "0"*64
+            else:
+                packet["scope"]["physical_spectrum_identity_established"] = True
+        return packet, checksum
+
+    monkeypatch.setattr(ledger, "_public_receipt", changed)
+    with pytest.raises(SystemExit, match="finite spectrum comparison"):
+        ledger._finite_spectrum_comparison_rows()
+
+
 def test_retained_public_record_projection_is_current():
     """Check live receipt projection without rebuilding unrelated proof rows."""
     retained = json.loads(ledger.DEFAULT_OUT.read_text(encoding="utf-8"))

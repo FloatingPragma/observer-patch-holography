@@ -352,6 +352,24 @@ does not select the action's coherent component.
 
 ## A joint timed coherent prediction with charged operations
 
+The [prepared phase/work instrument](../../model/prepared_quantum_readout/PROOF.md)
+uses nineteen fixed thirty-seam sweeps before its capped readout. These
+570 native attempts admit any state on the 78-dimensional total-two carrier,
+including collisions and entanglement with an untouched reference, and
+prepare the binary uniform reference with half trace-norm error below
+`3.7187e-8`. The warm-up tape is ignored without selecting trials and cannot
+control the continuation. The original reference marginal is preserved.
+
+At cap 64 the suffix retains all 8,195 records, including failed heralds,
+both signs, phase and work records, and unmeasured timeouts. Preparation adds
+its error once to the complete output bound, independently of record count
+or herald yield. The full-carrier coherent-compiler allowance is retained
+separately; a conditional herald law needs its own error contract. This
+constructs finite input preparation while retaining the total-two sector,
+quantum instrument semantics, coherent service and work action/preparation/
+clock as premises. The uniform reference alone determines no physical
+temperature or equation of state.
+
 The [two-resource attachment](../../model/laboratory_clock/README.md#compiled-operations-require-separate-timing-coefficients)
 uses the same capped total-two history for its coherent response, incident
 clocks and operation costs. Its dimensionless prediction is independent of

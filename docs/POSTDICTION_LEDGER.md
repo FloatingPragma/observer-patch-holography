@@ -329,6 +329,15 @@ The closure map of the pixel lane has a certified fixed point in each declared m
 
 ## Charged leptons
 
+The [finite-order comparison package](../model/particle_spectrum_audit/README.md)
+evaluates a separate feedback point under an explicit pole-identification
+premise. Its charged masses are 0.5109629112, 105.6509313 and 1776.804795 MeV,
+about -70.5 ppm from the PDG references. The mu/e residual is +0.07249 ppm;
+the printed charged-lepton intervals do not admit a common scale factor. The
+exact balanced Brannen point instead misses mu/e by +9.83354 ppm, despite
+compatibility of its tau coordinate. These are target-informed diagnostics.
+Neither a physical pole map nor a total theoretical error bound is supplied.
+
 - Empirical closure value (T1_empirical_closure): the anchor-gap value `0.6379` closes the lane exactly on the measured triple (inversion machine-checked); the distance `+0.0070` to the on-shell reference deficit `0.6309` is the unfixed scheme term of the bridge. The certified width floor is the scheme-band ambiguity; no budget is shrunk without the source bridge. Measured-lepton information enters the remainder; this is calibration, not an independent mass prediction.
 - MCPR conditional triple (T2): electron `-84.1 ppm`, muon `-84 ppm`, tau `-84 ppm` against the PDG witness triple; its three spectral coordinates and eight-register architecture are historically target-informed. The display uses `P = 1.63097209585889737696451390350695562847912625` and the externally normalized Planck-energy decimal; a runtime-blind decoder does not remove that ancestry.
   - Scale-free PDG 2026 comparison: `m_mu/m_e = 206.768300595` versus `206.768282708` (`0.086506 ppm`); the candidate is outside the product of the displayed one-standard-uncertainty mass intervals, while `m_tau/m_e` is inside its wider interval. The necessary single-common-scale condition under an identity pole-mass map fails. This target-informed conditional comparison has no model-error or physical pole-map bound; it is not a physical exclusion.
@@ -352,6 +361,14 @@ W/Z rows are running/tree chart coordinates. The strict one-loop consumer has a 
 
 ## Quarks
 
+The separate [six-power comparison](../model/particle_spectrum_audit/results.json)
+has 5 of its 5 displayed quark outputs outside their printed reference intervals.
+For `m=A*6^(-n)` and a fixed multiplicative transport,
+`n_required=n+log_6(output/reference)`. The inverse coordinates are
+`u=6.63023, d=6.19375, s=4.52837, c=3.11653, b=2.25334`.
+Changing self-scale masses or threshold locations requires a coupled rerun;
+these inverse coordinates are diagnostic, not selected source parameters.
+
 - Absolute masses (source_only_nonidentifiability_obstruction_transport): No absolute quark mass is emitted. The two-modulus spread fiber (R>0)^2, obtained by granting a candidate-only ordered shape law, survives the 2026-07 certified structure set (historical matter receipt #314, historical port receipt #566, twelve frozen selector candidates, with input hashes pinned at emission), so the six source-only absolute masses are non-identifiable from that set, by an explicit rescaling symmetry of the registered data. Live cuts: a Yukawa-typed source equation through the physical bindings or the family attachment, a new selector under the frozen discipline, or the conditional Higgs/top criticality coordinate (live owner [#1134](https://github.com/FloatingPragma/observer-patch-holography/issues/1134) (historical lane #736, closed)).
 - Down-type register-Clebsch route, rejected (T2_conditional_rejected_candidate): `ms/md = 22.97` against FLAG 2024 (Nf=2+1+1: 19.94, Nf=2+1: 20.36); all six generation assignments are rejected by the retrospective conservative gate. The diagnostic `sqrt(md/ms) = 0.2086` is not a derived Cabibbo angle. Premise: a cross-sector register relation, independent Yukawa coefficient identification, and a physical generation order; the pairing receipt supplies channel compatibility only. The target-free F1/F2 scan fixes only the unordered multiset. All six assignments fail the retrospective conservative FLAG gate. The displayed GST value is sqrt(md/ms) under an assumed texture, not a derived CKM angle; a simultaneous diagonal mass ansatz would instead give the identity CKM matrix.
 - Conditional RSCC ratios (T0_retrospective_conditional_comparison): `m_s/m_d = 19.75576` versus FLAG-derived `19.94378`, `20.35935` across the two flavor ensembles; `m_s/m_ud = 27.09466` is outside the separately quoted PDG 2026 90% range `[27.19, 27.51]`. Even the arithmetic ratio of PDG's separately displayed individual mass centers is `27.08455`; the separately displayed centers do not themselves define a coherent joint mass estimate. All six individual quark coordinates lie within their separately quoted PDG 2026 marginal ranges, but those references mix mass scales and do not form a joint fit. FLAG input covariance and model uncertainty are unavailable; these ratios reuse the existing FLAG inputs, so they add no independent predictive evidence. The mass chart is conditional.
@@ -364,6 +381,15 @@ W/Z rows are running/tree chart coordinates. The strict one-loop consumer has a 
 - Nucleon mass (T2_conditional): `0.929112` GeV in `[0.82319, 1.04253]` against the measured proton mass `0.93827` GeV (compare-only), `-0.98%` relative, with the measured value inside the interval. The declared external lattice-theory ratio is `2.775` with uncertainty `0.105`. This is a conditional hadron mass: source transmutation times a declared external lattice-theory ratio. A source-only hadron mass requires the production hadron backend.
 
 ## Neutrinos
+
+The [finite-response bound](../model/particle_finite_response/PROOF.md)
+constrains a specified unshifted amplitude-phase attachment to an adjacent
+normal-order squared-gap ratio below 0.004988, under
+`p in [0,1/12], 0<h<=1/2, same-scale nonnegative unshifted eigenphases identified with masses; see particle_finite_response`.
+The compared PDG ratio is about 0.03108. The minimal declared
+action instead gives masses `[0, 0, 0]` GeV and squared gaps `[0, 0]` eV^2.
+These results exclude those specified attachments; they select no alternative
+neutral law and do not constitute a prospective FZ-03 verdict.
 
 - The target-informed weighted-cycle PMNS candidate is rejected by its declared retrospective NuFIT 6.1 gate in both atmospheric treatments. This rejects that template continuation, not the finite OPH construction. The separate precision candidate lock does not supply a source-only flavor law or an FZ-03 freeze; absolute mass attachment stays compare-only. The results surface records the scored coordinates and correlated-profile boundary (`code/particles/RESULTS_STATUS.md`).
 

@@ -1,0 +1,802 @@
+{
+  "common_factor": {
+    "WZ": {
+      "intersection_nonempty": false,
+      "lower_bound": 1.0066389185116387,
+      "lower_bound_species": "Z",
+      "scope": "Printed marginal interval rectangle; no joint confidence level or theory-error bound inferred.",
+      "upper_bound": 1.0064341692897116,
+      "upper_bound_species": "W"
+    },
+    "all": {
+      "intersection_nonempty": false,
+      "lower_bound": 1.0066389185116387,
+      "lower_bound_species": "Z",
+      "scope": "Printed marginal interval rectangle; no joint confidence level or theory-error bound inferred.",
+      "upper_bound": 0.33376021125945987,
+      "upper_bound_species": "u"
+    },
+    "leptons": {
+      "intersection_nonempty": false,
+      "lower_bound": 1.0000705321236596,
+      "lower_bound_species": "e",
+      "scope": "Printed marginal interval rectangle; no joint confidence level or theory-error bound inferred.",
+      "upper_bound": 1.000070481708131,
+      "upper_bound_species": "mu"
+    }
+  },
+  "forward_leptons": {
+    "chi": 3.304899678958019e-06,
+    "delta": 0.2222247631798357,
+    "determinant_over_v_cubed": 6.396209437416409e-12,
+    "kappa": 0.0008213911072482151,
+    "koide_Q": 0.6666644634074956,
+    "masses_GeV": {
+      "e": 0.0005109629112307596,
+      "mu": 0.1056509313418934,
+      "tau": 1.7768047952479873
+    },
+    "physical_pole_identification": "adopted comparison premise",
+    "rho": 1.41420888854687,
+    "target_informed_architecture": true,
+    "zeta": 2.540957613468169e-06
+  },
+  "lepton_ratios": {
+    "mu_over_e": {
+      "exact_Koide_Brannen_ratio": 206.7703159727294,
+      "exact_Koide_Brannen_residual_ppm": 9.833540403736407,
+      "exact_point_inside_rectangle": false,
+      "printed_rectangle_interval": [
+        206.76827814273778,
+        206.76828727419658
+      ],
+      "reference": 206.76828270846718,
+      "residual_ppm": 0.07249335842729465,
+      "value": 206.76829769779442,
+      "within_printed_rectangle": false
+    },
+    "tau_over_e": {
+      "exact_Koide_Brannen_ratio": 3477.472837104599,
+      "exact_Koide_Brannen_residual_ppm": 30.935835079182183,
+      "exact_point_inside_rectangle": true,
+      "printed_rectangle_interval": [
+        3477.1891352113134,
+        3477.5413886014894
+      ],
+      "reference": 3477.3652619063464,
+      "residual_ppm": 0.06619276127217688,
+      "value": 3477.365492082755,
+      "within_printed_rectangle": true
+    }
+  },
+  "lepton_replay_max_relative_error": 2.220446049250313e-16,
+  "lepton_shapes": {
+    "PDG_poles": {
+      "delta": 0.2222247618945926,
+      "koide_Q": 0.6666644634026367,
+      "rho": 1.4142088885365627
+    },
+    "declared": {
+      "delta": 0.2222247631798357,
+      "koide_Q": 0.6666644634074956,
+      "rho": 1.41420888854687
+    }
+  },
+  "massless_gauge": {
+    "gluon": {
+      "conditional_mass_GeV": 0,
+      "reference_kind": "theoretical_mass_parameter",
+      "separate_free_color_pole_masses_measured": false
+    },
+    "photon": {
+      "conditional_mass_GeV": 0,
+      "reference_kind": "upper_limit",
+      "reference_upper_limit_eV": "1e-18",
+      "zero_is_experimentally_resolved": false
+    }
+  },
+  "msbar_attachment_one_loop_controls": {
+    "e": {
+      "reference_GeV": 0.00051099895069,
+      "reference_interval_GeV": [
+        0.00051099895053,
+        0.00051099895085
+      ],
+      "residual_percent": 4.854129979766397,
+      "residual_ppm": 48541.299797663974,
+      "value_GeV": 0.000535803503951735,
+      "within_printed_interval": false
+    },
+    "mu": {
+      "reference_GeV": 0.1056583755,
+      "reference_interval_GeV": [
+        0.1056583732,
+        0.1056583778
+      ],
+      "residual_percent": 2.870265002431492,
+      "residual_ppm": 28702.65002431492,
+      "value_GeV": 0.10869105087411415,
+      "within_printed_interval": false
+    },
+    "tau": {
+      "reference_GeV": 1.77693,
+      "reference_interval_GeV": [
+        1.77684,
+        1.77702
+      ],
+      "residual_percent": 1.8200457566774888,
+      "residual_ppm": 18200.457566774887,
+      "value_GeV": 1.8092709390641293,
+      "within_printed_interval": false
+    }
+  },
+  "neutral": {
+    "arbitrary_neutral_models_excluded": false,
+    "bound_hypotheses": "p in [0,1/12], 0<h<=1/2, same-scale nonnegative unshifted eigenphases identified with masses; see particle_finite_response.",
+    "conditional_unshifted_phase_bound": 0.0049871977631631885,
+    "individual_neutrino_masses_measured": false,
+    "minimal_action_masses_GeV": [
+      0,
+      0,
+      0
+    ],
+    "minimal_action_squared_gaps_eV2": [
+      0,
+      0
+    ],
+    "normal_gap_ratio_reference": 0.031083844580777096,
+    "normal_gap_ratio_reference_rectangle": [
+      0.030105348460291732,
+      0.03208092485549133
+    ]
+  },
+  "outside_printed_intervals": 12,
+  "quark_exponent_diagnostics": {
+    "b": {
+      "declared_exponent": 2,
+      "frozen_transport_exponent": 2.253340889904017,
+      "shift": 0.2533408899040168
+    },
+    "c": {
+      "declared_exponent": 3,
+      "frozen_transport_exponent": 3.116527645912165,
+      "shift": 0.11652764591216513
+    },
+    "d": {
+      "declared_exponent": 6,
+      "frozen_transport_exponent": 6.193749676792811,
+      "shift": 0.19374967679281063
+    },
+    "s": {
+      "declared_exponent": 4,
+      "frozen_transport_exponent": 4.528368106207552,
+      "shift": 0.5283681062075516
+    },
+    "u": {
+      "declared_exponent": 6,
+      "frozen_transport_exponent": 6.630232939951593,
+      "shift": 0.6302329399515934
+    }
+  },
+  "quark_exponent_scope": "Multiplicative transport held fixed. Changing a Yukawa changes threshold feedback and c/b self-scale roots; these numbers are not exact source exponents.",
+  "quark_same_scale_ratios": {
+    "s_over_d": {
+      "reference_rectangle": [
+        19.329140461215932,
+        20.21598272138229
+      ],
+      "source": 35.99992577274764,
+      "source_in_rectangle": false
+    },
+    "u_over_d": {
+      "direct_reference_interval": [
+        0.442,
+        0.482
+      ],
+      "source": 1.0046294156918405,
+      "source_in_interval": false
+    }
+  },
+  "rows": [
+    {
+      "convention": "Pole identification adopted for the target-informed circulant coefficient",
+      "parameter": "e",
+      "reference_GeV": 0.00051099895069,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Physical electron mass (on-shell/pole mass convention), not an MSbar running Yukawa coefficient.",
+      "reference_interval_GeV": [
+        0.00051099895053,
+        0.00051099895085
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+      "residual_percent": -0.007052746232010076,
+      "residual_ppm": -70.52746232010075,
+      "value_GeV": 0.0005109629112307596,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "Pole identification adopted for the target-informed circulant coefficient",
+      "parameter": "mu",
+      "reference_GeV": 0.1056583755,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Physical muon mass (on-shell mass convention), not an MSbar running Yukawa coefficient.",
+      "reference_interval_GeV": [
+        0.1056583732,
+        0.1056583778
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+      "residual_percent": -0.00704549740744405,
+      "residual_ppm": -70.4549740744405,
+      "value_GeV": 0.1056509313418934,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "Pole identification adopted for the target-informed circulant coefficient",
+      "parameter": "tau",
+      "reference_GeV": 1.77693,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Physical tau mass (on-shell mass convention), not an MSbar running Yukawa coefficient.",
+      "reference_interval_GeV": [
+        1.77684,
+        1.77702
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+      "residual_percent": -0.007046127422729089,
+      "residual_ppm": -70.46127422729089,
+      "value_GeV": 1.7768047952479873,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+      "parameter": "u",
+      "reference_GeV": 0.00216,
+      "reference_confidence_level": "90%",
+      "reference_convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+      "reference_interval_GeV": [
+        0.00209,
+        0.00223
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "residual_percent": 209.3260887843909,
+      "residual_ppm": 2093260.8878439087,
+      "value_GeV": 0.006681443517742843,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+      "parameter": "d",
+      "reference_GeV": 0.0047,
+      "reference_confidence_level": "90%",
+      "reference_convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+      "reference_interval_GeV": [
+        0.00463,
+        0.00477
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "residual_percent": 41.503295142950925,
+      "residual_ppm": 415032.95142950927,
+      "value_GeV": 0.0066506548717186935,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+      "parameter": "s",
+      "reference_GeV": 0.0929,
+      "reference_confidence_level": "90%",
+      "reference_convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+      "reference_interval_GeV": [
+        0.0922,
+        0.0936
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "residual_percent": 157.7212935651619,
+      "residual_ppm": 1577212.935651619,
+      "value_GeV": 0.2394230817220354,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=1.56844906573 GeV",
+      "parameter": "c",
+      "reference_GeV": 1.2729,
+      "reference_confidence_level": "90%",
+      "reference_convention": "MSbar self-scale mass m_c(mu=m_c); not the charm pole mass.",
+      "reference_interval_GeV": [
+        1.2684,
+        1.2774
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "residual_percent": 23.218561216718257,
+      "residual_ppm": 232185.61216718258,
+      "value_GeV": 1.5684490657276067,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "MSbar QCD+QED mass with 5 active quarks and three active charged leptons, Q=6.5907790759 GeV",
+      "parameter": "b",
+      "reference_GeV": 4.186,
+      "reference_confidence_level": "90%",
+      "reference_convention": "MSbar self-scale mass m_b(mu=m_b); not the bottom pole mass.",
+      "reference_interval_GeV": [
+        4.18,
+        4.192
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "residual_percent": 57.44813845906682,
+      "residual_ppm": 574481.3845906681,
+      "value_GeV": 6.590779075896537,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "SMDR top pole mass, QCD four-loop / EW two-loop with retained matching truncations",
+      "parameter": "t",
+      "reference_GeV": 172.1,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Top pole mass extracted from cross-section measurements; the comparator for the source's specified QCD4/EW2 pole output.",
+      "reference_interval_GeV": [
+        171.5,
+        172.7
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "residual_percent": -0.8647200415141487,
+      "residual_ppm": -8647.200415141488,
+      "value_GeV": 170.61181680855415,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "SMDR Breit-Wigner W mass, specified EW two-loop plus explicit finite-light one-loop correction",
+      "parameter": "W",
+      "reference_GeV": 80.3625,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Conventional W Breit-Wigner mass parameter; excludes the CDF AALTONEN22 value in this PDG average.",
+      "reference_interval_GeV": [
+        80.3548,
+        80.3702
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-gauge-higgs-bosons.pdf",
+      "residual_percent": -0.6297832137083466,
+      "residual_ppm": -6297.832137083466,
+      "value_GeV": 79.85639046488363,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "SMDR Breit-Wigner Z mass, specified EW two-loop plus explicit finite-light one-loop correction",
+      "parameter": "Z",
+      "reference_GeV": 91.1879,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Z Breit-Wigner resonance parameter. PDG footnote [e] distinguishes it from the complex propagator-pole convention.",
+      "reference_interval_GeV": [
+        91.1859,
+        91.1899
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-gauge-higgs-bosons.pdf",
+      "residual_percent": -0.6616922039914287,
+      "residual_ppm": -6616.922039914287,
+      "value_GeV": 90.5845167747165,
+      "within_printed_interval": false
+    },
+    {
+      "convention": "SMDR specified Higgs pole mass, with retained matching truncations",
+      "parameter": "H",
+      "reference_GeV": 125.13,
+      "reference_confidence_level": "quoted error; no new statistical interpretation",
+      "reference_convention": "Reconstructed Higgs mass summary, compared with the specified perturbative Higgs pole calculation; quoted PDG scale factor S=1.5.",
+      "reference_interval_GeV": [
+        125.02,
+        125.24
+      ],
+      "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-gauge-higgs-bosons.pdf",
+      "residual_percent": -0.22972195438545512,
+      "residual_ppm": -2297.2195438545514,
+      "value_GeV": 124.84254891847748,
+      "within_printed_interval": false
+    }
+  ],
+  "schema": "oph.particle_spectrum_audit.result.v1",
+  "scope": {
+    "exact_equality_to_experimental_central_values_required": false,
+    "joint_statistical_significance_computed": false,
+    "particle_abundance_distribution_computed": false,
+    "physical_spectrum_identity_established": false,
+    "prospective_prediction": false,
+    "theory_error_bound": null
+  },
+  "source_sha256": {
+    "derive.py": "ce8b8d945de5b8634cceb82b61b64f5d2fcbdee76bf1e5b844b70b38644e8904",
+    "inputs.json": "08b03d310151fb51e17f9453fd1e2fbe8d2ca7cb008234f0027a01badee3e00b",
+    "pdg2026_reference.json": "58e2813e5cbd0416144b9135dd6a8db62c0134af03c7f56e2b04baffc30f4ad7"
+  },
+  "strong_coupling": {
+    "MZ_comparison_scale_GeV": 91.1879,
+    "alpha_Q0": 0.00781564896297739,
+    "alpha_s_5_Q0": 0.11936034572952339,
+    "alpha_s_5_at_PDG_MZ": 0.11944065953248842,
+    "reference_ratio_proxy": 0.119457423092123,
+    "scheme": "Five-flavour QCD+QED after corrected electroweak threshold, then 5-loop QCD+QED running to comparison scale."
+  },
+  "vev_controls_scope": "Reference substitutions diagnose sensitivity; they do not select an attachment scale. Controls omit the separately stored tiny finite-light W/Z shifts.",
+  "vev_substitution_controls": [
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": -0.22972195438545512,
+          "residual_ppm": -2297.2195438545514,
+          "value_GeV": 124.84254891847748,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": -0.6297853006702628,
+          "residual_ppm": -6297.853006702629,
+          "value_GeV": 79.85638878774886,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": -0.6617065642083215,
+          "residual_ppm": -6617.065642083215,
+          "value_GeV": 90.58450367993628,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": -0.8647200415269785,
+          "residual_ppm": -8647.200415269785,
+          "value_GeV": 170.61181680853207,
+          "within_printed_interval": false
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": []
+    },
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": 0.09912288489140095,
+          "residual_ppm": 991.2288489140094,
+          "value_GeV": 125.25403246586461,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": -0.025185416129538032,
+          "residual_ppm": -251.8541612953803,
+          "value_GeV": 80.3422603699629,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": -0.007817630143363319,
+          "residual_ppm": -78.17630143363318,
+          "value_GeV": 91.1807712672425,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": 0.20972549228113888,
+          "residual_ppm": 2097.254922811389,
+          "value_GeV": 172.46093757221584,
+          "within_printed_interval": true
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": [
+        "gY",
+        "g2",
+        "g3",
+        "yu",
+        "yc",
+        "yt",
+        "yd",
+        "ys",
+        "yb",
+        "ye",
+        "ymu",
+        "ytau",
+        "lam",
+        "v"
+      ]
+    },
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": 0.4362223829693359,
+          "residual_ppm": 4362.223829693359,
+          "value_GeV": 125.67584506780953,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": 0.07639540932205942,
+          "residual_ppm": 763.9540932205941,
+          "value_GeV": 80.42389326081644,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": 0.04693369191597789,
+          "residual_ppm": 469.33691915977886,
+          "value_GeV": 91.23069784805065,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": -0.20003654650429983,
+          "residual_ppm": -2000.3654650429983,
+          "value_GeV": 171.7557371034661,
+          "within_printed_interval": true
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": [
+        "v"
+      ]
+    },
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": -0.24068268732342363,
+          "residual_ppm": -2406.8268732342362,
+          "value_GeV": 124.8288337533522,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": -0.7173378714634313,
+          "residual_ppm": -7173.378714634313,
+          "value_GeV": 79.7860293530452,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": -0.6978064936053249,
+          "residual_ppm": -6978.064936053248,
+          "value_GeV": 90.55158491241767,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": -0.8985932375531203,
+          "residual_ppm": -8985.932375531203,
+          "value_GeV": 170.55352103817108,
+          "within_printed_interval": false
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": [
+        "gY",
+        "g2",
+        "g3"
+      ]
+    },
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": 0.4249509438359386,
+          "residual_ppm": 4249.509438359386,
+          "value_GeV": 125.66174111602191,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": -0.011786654292039197,
+          "residual_ppm": -117.86654292039198,
+          "value_GeV": 80.35302794994456,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": 0.010569663003633158,
+          "residual_ppm": 105.69663003633157,
+          "value_GeV": 91.19753825373009,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": -0.2333406418555491,
+          "residual_ppm": -2333.406418555491,
+          "value_GeV": 171.6984207553666,
+          "within_printed_interval": true
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": [
+        "v",
+        "gY",
+        "g2",
+        "g3"
+      ]
+    },
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": 0.4364485257949093,
+          "residual_ppm": 4364.485257949093,
+          "value_GeV": 125.67612804032717,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": 0.07667299420284336,
+          "residual_ppm": 766.7299420284337,
+          "value_GeV": 80.42411633496626,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": 0.07943836415946633,
+          "residual_ppm": 794.3836415946633,
+          "value_GeV": 91.26033817607137,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": -0.19988413903557814,
+          "residual_ppm": -1998.8413903557814,
+          "value_GeV": 171.75599939671977,
+          "within_printed_interval": true
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": [
+        "v",
+        "gY"
+      ]
+    },
+    {
+      "outputs": {
+        "H": {
+          "reference_GeV": 125.13,
+          "reference_interval_GeV": [
+            125.02,
+            125.24
+          ],
+          "residual_percent": 0.1102226001122033,
+          "residual_ppm": 1102.226001122033,
+          "value_GeV": 125.2679215395204,
+          "within_printed_interval": false
+        },
+        "W": {
+          "reference_GeV": 80.3625,
+          "reference_interval_GeV": [
+            80.3548,
+            80.3702
+          ],
+          "residual_percent": 0.06280241498411572,
+          "residual_ppm": 628.0241498411573,
+          "value_GeV": 80.41296959074161,
+          "within_printed_interval": false
+        },
+        "Z": {
+          "reference_GeV": 91.1879,
+          "reference_interval_GeV": [
+            91.1859,
+            91.1899
+          ],
+          "residual_percent": 0.0287350258418277,
+          "residual_ppm": 287.350258418277,
+          "value_GeV": 91.21410286662962,
+          "within_printed_interval": false
+        },
+        "t": {
+          "reference_GeV": 172.1,
+          "reference_interval_GeV": [
+            171.5,
+            172.7
+          ],
+          "residual_percent": 0.2452138442974724,
+          "residual_ppm": 2452.138442974724,
+          "value_GeV": 172.52201302603595,
+          "within_printed_interval": true
+        }
+      },
+      "prospective_prediction": false,
+      "substituted_reference_inputs": [
+        "v",
+        "yt",
+        "lam"
+      ]
+    }
+  ]
+}

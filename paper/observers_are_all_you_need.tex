@@ -846,6 +846,44 @@ elementary record-event probability by at most \(\varepsilon+\delta_{\mathrm{rec
 Records carried by central projectors are shareable without violating
 no-cloning for generic quantum states.
 
+\paragraph{Native preparation for a complete quantum readout.}
+The native total-two carrier has dimension 78, with a 66-dimensional binary
+subspace embedded by $J$. A fixed sweep of its thirty seams removes collision
+support. Eighteen further sweeps contract the diagonal deviation and
+off-diagonal coherence. For every initial density $\rho_{SR}$, including
+entanglement with an untouched finite reference $R$, the 570-attempt
+preparation satisfies
+\[
+ \frac12\left\|\Phi(\rho_{SR})-
+ J\frac{I_{66}}{66}J^*\otimes\rho_R\right\|_1
+ \leq\varepsilon<3.7187\times10^{-8}.
+\]
+The bound uses exact rational sweep powers and a uniform coherence
+contraction over the admitted native record laws; it does not claim exact
+equilibration at finite time.
+
+Compose this preparation with the complete capped phase/work instrument.
+At cap 64 its 8,195 suffix records retain failed heralds, both herald signs,
+phase bits, all work records and unmeasured timeouts. Contractivity adds
+$\varepsilon$ once to the complete output comparison, independently of
+the cap, record count or useful-herald probability. The warm-up tape is
+ignored without selecting trials, and subsequent controls cannot consult it.
+The original reference marginal is preserved. Conditioning on a suffix
+herald requires a separate error bound.
+
+The compiled coherent mixer has an additional full-carrier half trace-norm
+allowance $\delta$, so its complete comparison to the exact stationary
+ideal reference is bounded by $\varepsilon+\delta$. Since the numerical
+binary mixer need not preserve trace exactly, individual event weights use
+$\varepsilon+2\delta$. The proofs and numerical-reference allowances are
+in \path{model/prepared_quantum_readout} and
+\path{model/clocked_quantum_readout}. The result supplies finite native
+preparation in place of exact $I_{66}/66$ and initial binary support.
+The total-two sector, quantum instrument semantics, coherent service and
+work action, preparation and clock retain their stated premises. This is
+neither a Born-rule derivation from scalar consensus nor a physical thermal
+equation of state.
+
 \paragraph{Bell correlations.}
 On the declared fixed-cutoff observable algebra, fix commuting left and right
 wing subalgebras, central binary setting registers, binary projective readouts

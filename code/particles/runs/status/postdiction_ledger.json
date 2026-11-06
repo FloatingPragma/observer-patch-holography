@@ -45,7 +45,7 @@
       "status": "PROPOSED_NOT_ESTABLISHED"
     },
     "parents": {
-      "claims/claim_registry.yaml": "9331e54a949bb3d5663b88efececc5df732dbe5bdf39ddcce3a4e37d0a95e304",
+      "claims/claim_registry.yaml": "9cf5bfd0c01343290125d1a258c4649b121d9c2a91d791a7b558cbdfd559a406",
       "claims/completion_program.json": "3a6c5425755befc45c4c3edb8c0e4b1b49bf090839f3c2408aba25f3ab8c12ba",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
@@ -8772,6 +8772,110 @@
     ],
     "charged_leptons": [
       {
+        "artifact_ref": "model/particle_spectrum_audit/results.json",
+        "artifact_sha256": "175eb4fd1a153319175519825ae88490247f746bea9a3f5809f8eb06fbde4dc2",
+        "branch": "separate target-informed feedback point with explicit pole identification",
+        "common_factor": {
+          "intersection_nonempty": false,
+          "lower_bound": 1.0000705321236596,
+          "lower_bound_species": "e",
+          "scope": "Printed marginal interval rectangle; no joint confidence level or theory-error bound inferred.",
+          "upper_bound": 1.000070481708131,
+          "upper_bound_species": "mu"
+        },
+        "hypothesis_boundary": "No physical pole map or total theoretical error bound; distinct from the retained MCPR and conditional Koide lanes.",
+        "id": "finite_order_charged_lepton_comparison",
+        "particles": [
+          {
+            "convention": "Pole identification adopted for the target-informed circulant coefficient",
+            "parameter": "e",
+            "reference_GeV": 0.00051099895069,
+            "reference_confidence_level": "quoted error; no new statistical interpretation",
+            "reference_convention": "Physical electron mass (on-shell/pole mass convention), not an MSbar running Yukawa coefficient.",
+            "reference_interval_GeV": [
+              0.00051099895053,
+              0.00051099895085
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+            "residual_percent": -0.007052746232010076,
+            "residual_ppm": -70.52746232010075,
+            "value_GeV": 0.0005109629112307596,
+            "within_printed_interval": false
+          },
+          {
+            "convention": "Pole identification adopted for the target-informed circulant coefficient",
+            "parameter": "mu",
+            "reference_GeV": 0.1056583755,
+            "reference_confidence_level": "quoted error; no new statistical interpretation",
+            "reference_convention": "Physical muon mass (on-shell mass convention), not an MSbar running Yukawa coefficient.",
+            "reference_interval_GeV": [
+              0.1056583732,
+              0.1056583778
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+            "residual_percent": -0.00704549740744405,
+            "residual_ppm": -70.4549740744405,
+            "value_GeV": 0.1056509313418934,
+            "within_printed_interval": false
+          },
+          {
+            "convention": "Pole identification adopted for the target-informed circulant coefficient",
+            "parameter": "tau",
+            "reference_GeV": 1.77693,
+            "reference_confidence_level": "quoted error; no new statistical interpretation",
+            "reference_convention": "Physical tau mass (on-shell mass convention), not an MSbar running Yukawa coefficient.",
+            "reference_interval_GeV": [
+              1.77684,
+              1.77702
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+            "residual_percent": -0.007046127422729089,
+            "residual_ppm": -70.46127422729089,
+            "value_GeV": 1.7768047952479873,
+            "within_printed_interval": false
+          }
+        ],
+        "promotion_allowed": false,
+        "ratios": {
+          "mu_over_e": {
+            "exact_Koide_Brannen_ratio": 206.7703159727294,
+            "exact_Koide_Brannen_residual_ppm": 9.833540403736407,
+            "exact_point_inside_rectangle": false,
+            "printed_rectangle_interval": [
+              206.76827814273778,
+              206.76828727419658
+            ],
+            "reference": 206.76828270846718,
+            "residual_ppm": 0.07249335842729465,
+            "value": 206.76829769779442,
+            "within_printed_rectangle": false
+          },
+          "tau_over_e": {
+            "exact_Koide_Brannen_ratio": 3477.472837104599,
+            "exact_Koide_Brannen_residual_ppm": 30.935835079182183,
+            "exact_point_inside_rectangle": true,
+            "printed_rectangle_interval": [
+              3477.1891352113134,
+              3477.5413886014894
+            ],
+            "reference": 3477.3652619063464,
+            "residual_ppm": 0.06619276127217688,
+            "value": 3477.365492082755,
+            "within_printed_rectangle": true
+          }
+        },
+        "source_scope": {
+          "exact_equality_to_experimental_central_values_required": false,
+          "joint_statistical_significance_computed": false,
+          "particle_abundance_distribution_computed": false,
+          "physical_spectrum_identity_established": false,
+          "prospective_prediction": false,
+          "theory_error_bound": null
+        },
+        "tier": "retrospective_conditional_finite_order_comparison",
+        "verification": "source custody and retained comparison projection; mathematical replay owned by model/particle_spectrum_audit"
+      },
+      {
         "artifact_refs": [
           "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
           "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json"
@@ -15070,6 +15174,46 @@
     ],
     "neutrinos": [
       {
+        "artifact_ref": "model/particle_spectrum_audit/results.json",
+        "artifact_sha256": "175eb4fd1a153319175519825ae88490247f746bea9a3f5809f8eb06fbde4dc2",
+        "branch": "specified unshifted amplitude-phase attachment and separate minimal action",
+        "comparison": {
+          "arbitrary_neutral_models_excluded": false,
+          "bound_hypotheses": "p in [0,1/12], 0<h<=1/2, same-scale nonnegative unshifted eigenphases identified with masses; see particle_finite_response.",
+          "conditional_unshifted_phase_bound": 0.0049871977631631885,
+          "individual_neutrino_masses_measured": false,
+          "minimal_action_masses_GeV": [
+            0,
+            0,
+            0
+          ],
+          "minimal_action_squared_gaps_eV2": [
+            0,
+            0
+          ],
+          "normal_gap_ratio_reference": 0.031083844580777096,
+          "normal_gap_ratio_reference_rectangle": [
+            0.030105348460291732,
+            0.03208092485549133
+          ]
+        },
+        "hypothesis_boundary": "Excludes only the specified mass attachments; selects no alternative neutral law and supplies no prospective FZ-03 verdict.",
+        "id": "finite_order_neutral_attachment_comparison",
+        "promotion_allowed": false,
+        "proof_ref": "model/particle_finite_response/PROOF.md",
+        "prospective_FZ03_verdict": null,
+        "source_scope": {
+          "exact_equality_to_experimental_central_values_required": false,
+          "joint_statistical_significance_computed": false,
+          "particle_abundance_distribution_computed": false,
+          "physical_spectrum_identity_established": false,
+          "prospective_prediction": false,
+          "theory_error_bound": null
+        },
+        "tier": "retrospective_conditional_finite_order_comparison",
+        "verification": "source custody and retained comparison projection; mathematical replay owned by model/particle_spectrum_audit"
+      },
+      {
         "artifact_ref": "code/particles/RESULTS_STATUS.md",
         "id": "neutrino_dimensionless_pointer",
         "statement": "The target-informed weighted-cycle PMNS candidate is rejected by its declared retrospective NuFIT 6.1 gate in both atmospheric treatments. This rejects that template continuation, not the finite OPH construction. The separate precision candidate lock does not supply a source-only flavor law or an FZ-03 freeze; absolute mass attachment stays compare-only. The results surface records the scored coordinates and correlated-profile boundary"
@@ -15117,6 +15261,134 @@
       "scope": "The exact (2,16,2) vector contains differently typed conditional four-dimensional propagating-mode totals. Every quantum-particle row is explicitly not evaluable on the pinned declared corpus. The packet is target-named, comparison-value-free, and ineligible as a blind prediction."
     },
     "quarks": [
+      {
+        "artifact_ref": "model/particle_spectrum_audit/results.json",
+        "artifact_sha256": "175eb4fd1a153319175519825ae88490247f746bea9a3f5809f8eb06fbde4dc2",
+        "branch": "separate six-power Yukawa branch with the specified finite-order transport",
+        "hypothesis_boundary": "Multiplicative transport held fixed. Changing a Yukawa changes threshold feedback and c/b self-scale roots; these numbers are not exact source exponents.",
+        "id": "finite_order_six_power_quark_comparison",
+        "inverse_coordinates": {
+          "b": {
+            "declared_exponent": 2,
+            "frozen_transport_exponent": 2.253340889904017,
+            "shift": 0.2533408899040168
+          },
+          "c": {
+            "declared_exponent": 3,
+            "frozen_transport_exponent": 3.116527645912165,
+            "shift": 0.11652764591216513
+          },
+          "d": {
+            "declared_exponent": 6,
+            "frozen_transport_exponent": 6.193749676792811,
+            "shift": 0.19374967679281063
+          },
+          "s": {
+            "declared_exponent": 4,
+            "frozen_transport_exponent": 4.528368106207552,
+            "shift": 0.5283681062075516
+          },
+          "u": {
+            "declared_exponent": 6,
+            "frozen_transport_exponent": 6.630232939951593,
+            "shift": 0.6302329399515934
+          }
+        },
+        "inverse_formula": "n_required=n+log_6(output/reference)",
+        "particles": [
+          {
+            "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+            "parameter": "u",
+            "reference_GeV": 0.00216,
+            "reference_confidence_level": "90%",
+            "reference_convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+            "reference_interval_GeV": [
+              0.00209,
+              0.00223
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+            "residual_percent": 209.3260887843909,
+            "residual_ppm": 2093260.8878439087,
+            "value_GeV": 0.006681443517742843,
+            "within_printed_interval": false
+          },
+          {
+            "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+            "parameter": "d",
+            "reference_GeV": 0.0047,
+            "reference_confidence_level": "90%",
+            "reference_convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+            "reference_interval_GeV": [
+              0.00463,
+              0.00477
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+            "residual_percent": 41.503295142950925,
+            "residual_ppm": 415032.95142950927,
+            "value_GeV": 0.0066506548717186935,
+            "within_printed_interval": false
+          },
+          {
+            "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+            "parameter": "s",
+            "reference_GeV": 0.0929,
+            "reference_confidence_level": "90%",
+            "reference_convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+            "reference_interval_GeV": [
+              0.0922,
+              0.0936
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+            "residual_percent": 157.7212935651619,
+            "residual_ppm": 1577212.935651619,
+            "value_GeV": 0.2394230817220354,
+            "within_printed_interval": false
+          },
+          {
+            "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=1.56844906573 GeV",
+            "parameter": "c",
+            "reference_GeV": 1.2729,
+            "reference_confidence_level": "90%",
+            "reference_convention": "MSbar self-scale mass m_c(mu=m_c); not the charm pole mass.",
+            "reference_interval_GeV": [
+              1.2684,
+              1.2774
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+            "residual_percent": 23.218561216718257,
+            "residual_ppm": 232185.61216718258,
+            "value_GeV": 1.5684490657276067,
+            "within_printed_interval": false
+          },
+          {
+            "convention": "MSbar QCD+QED mass with 5 active quarks and three active charged leptons, Q=6.5907790759 GeV",
+            "parameter": "b",
+            "reference_GeV": 4.186,
+            "reference_confidence_level": "90%",
+            "reference_convention": "MSbar self-scale mass m_b(mu=m_b); not the bottom pole mass.",
+            "reference_interval_GeV": [
+              4.18,
+              4.192
+            ],
+            "reference_source": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+            "residual_percent": 57.44813845906682,
+            "residual_ppm": 574481.3845906681,
+            "value_GeV": 6.590779075896537,
+            "within_printed_interval": false
+          }
+        ],
+        "promotion_allowed": false,
+        "source_scope": {
+          "exact_equality_to_experimental_central_values_required": false,
+          "joint_statistical_significance_computed": false,
+          "particle_abundance_distribution_computed": false,
+          "physical_spectrum_identity_established": false,
+          "prospective_prediction": false,
+          "theory_error_bound": null
+        },
+        "tier": "retrospective_conditional_finite_order_comparison",
+        "verification": "source custody and retained comparison projection; mathematical replay owned by model/particle_spectrum_audit"
+      },
       {
         "artifact_ref": "code/particles/runs/flavor/quark_spread_fiber_structure_transport_obstruction.json",
         "fiber_cut_detected": false,

@@ -29,6 +29,9 @@ from verify_source_phase_lift import (
 
 
 PAYLOAD_PATH, SOURCE_ROOT = default_paths()
+SOURCE_PATH_KEYS = (
+    "receipt_path", "freezeout_path", "gauge_state_path", "e1_payload_path"
+)
 
 
 def load_payload() -> dict:
@@ -159,12 +162,29 @@ def test_payload_path_is_vendored_inside_the_theorem_repository() -> None:
     assert PAYLOAD_PATH.is_file()
 
 
-@pytest.mark.skipif(not SOURCE_ROOT.is_dir(), reason="optional sibling simulator absent")
 def test_optional_sibling_source_custody_rehash() -> None:
+    payload = load_payload()
+    missing = [payload["provenance"][key] for key in SOURCE_PATH_KEYS
+               if not (SOURCE_ROOT / payload["provenance"][key]).is_file()]
+    if missing:
+        pytest.skip("optional pinned sibling raw fixtures unavailable: " + ", ".join(missing))
     report = verify_payload(
-        load_payload(),
+        payload,
         SOURCE_ROOT,
         verify_hashes=True,
         payload_path=PAYLOAD_PATH,
     )
     assert report["source_hashes_verified"] is True
+
+
+def test_present_corrupted_sibling_fixtures_fail_instead_of_skip(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    payload = load_payload()
+    for key in SOURCE_PATH_KEYS:
+        path = tmp_path / payload["provenance"][key]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"corrupted optional fixture\n")
+    monkeypatch.setitem(globals(), "SOURCE_ROOT", tmp_path)
+    with pytest.raises(VerificationError, match="source hash mismatch"):
+        test_optional_sibling_source_custody_rehash()

@@ -1,0 +1,179 @@
+{
+  "all_checks_pass": true,
+  "alpha_s_5_at_comparison_MZ": 0.1194406595324884,
+  "criticality_boundary": {
+    "2": {
+      "Q": 486286771479976192,
+      "beta_lambda": 7.147831168117593e-10,
+      "beta_v": 0.4422269624759363,
+      "beta_yt": -0.0056300734660591975,
+      "g2": 0.5140449193452138,
+      "g3": 0.5050646843648664,
+      "gY": 0.4617023344687215,
+      "lambda": 2.3009016773487746e-08,
+      "loops": 2,
+      "v": 236.13943210315804,
+      "yt": 0.3892411730593367
+    },
+    "3": {
+      "Q": 486286771479976192,
+      "beta_lambda": 9.492159701172953e-07,
+      "beta_v": 0.4454973636758833,
+      "beta_yt": -0.005626323533954233,
+      "g2": 0.5141152215918241,
+      "g3": 0.505075877285562,
+      "gY": 0.46173380625735816,
+      "lambda": 0.0009742833996556605,
+      "loops": 3,
+      "v": 236.22250920789142,
+      "yt": 0.38837975369953415
+    }
+  },
+  "inputs_sha256": "08b03d310151fb51e17f9453fd1e2fbe8d2ca7cb008234f0027a01badee3e00b",
+  "library_sha256": {
+    "lib3vil.a": "a636bd4976190b5dcb2ca3fe92c2f9711823e5b8d64cb264675584294b103f6a",
+    "libsmdr.a": "5294c0f3823a044ddc80bb6c0e2966e618b015004ce8c9a5ff24eb9b4feee980",
+    "libtsil.a": "e3196fea81d5c221d327fff0afe96badc316486f731b32cf5c4c41418ef5e19d"
+  },
+  "outputs_GeV": {
+    "H": 124.84254891847748,
+    "W": 79.85639046483777,
+    "Z": 90.58451677471659,
+    "b": 6.590779075757325,
+    "c": 1.568449065642967,
+    "d": 0.0066506548713296115,
+    "s": 0.2394230817080285,
+    "t": 170.61181680853207,
+    "u": 0.006681443517351871
+  },
+  "reference_substitution_controls": [
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 124.84254891847748,
+        "W_BW_GeV": 79.85638878774886,
+        "Z_BW_GeV": 90.58450367993628,
+        "top_QCD4_EW2_pole_GeV": 170.61181680853207
+      },
+      "substituted_reference_inputs": []
+    },
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 125.25403246586461,
+        "W_BW_GeV": 80.3422603699629,
+        "Z_BW_GeV": 91.1807712672425,
+        "top_QCD4_EW2_pole_GeV": 172.46093757221584
+      },
+      "substituted_reference_inputs": [
+        "gY",
+        "g2",
+        "g3",
+        "yu",
+        "yc",
+        "yt",
+        "yd",
+        "ys",
+        "yb",
+        "ye",
+        "ymu",
+        "ytau",
+        "lam",
+        "v"
+      ]
+    },
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 125.67584506780953,
+        "W_BW_GeV": 80.42389326081644,
+        "Z_BW_GeV": 91.23069784805065,
+        "top_QCD4_EW2_pole_GeV": 171.7557371034661
+      },
+      "substituted_reference_inputs": [
+        "v"
+      ]
+    },
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 124.8288337533522,
+        "W_BW_GeV": 79.7860293530452,
+        "Z_BW_GeV": 90.55158491241767,
+        "top_QCD4_EW2_pole_GeV": 170.55352103817108
+      },
+      "substituted_reference_inputs": [
+        "gY",
+        "g2",
+        "g3"
+      ]
+    },
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 125.66174111602191,
+        "W_BW_GeV": 80.35302794994456,
+        "Z_BW_GeV": 91.19753825373009,
+        "top_QCD4_EW2_pole_GeV": 171.6984207553666
+      },
+      "substituted_reference_inputs": [
+        "v",
+        "gY",
+        "g2",
+        "g3"
+      ]
+    },
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 125.67612804032717,
+        "W_BW_GeV": 80.42411633496626,
+        "Z_BW_GeV": 91.26033817607137,
+        "top_QCD4_EW2_pole_GeV": 171.75599939671977
+      },
+      "substituted_reference_inputs": [
+        "v",
+        "gY"
+      ]
+    },
+    {
+      "max_relative_replay_error": 0.0,
+      "outputs": {
+        "Higgs_pole_GeV": 125.2679215395204,
+        "W_BW_GeV": 80.41296959074161,
+        "Z_BW_GeV": 91.21410286662962,
+        "top_QCD4_EW2_pole_GeV": 172.52201302603595
+      },
+      "substituted_reference_inputs": [
+        "v",
+        "yt",
+        "lam"
+      ]
+    }
+  ],
+  "relative_mass_replay_errors": {
+    "H": 0.0,
+    "W": -5.74207348336131e-13,
+    "Z": 8.881784197001252e-16,
+    "b": -2.1122215088098528e-11,
+    "c": -5.396394442414021e-11,
+    "d": -5.850275819341277e-11,
+    "s": -5.850275819341277e-11,
+    "t": -1.2945200467129325e-13,
+    "u": -5.851608086970828e-11
+  },
+  "schema": "oph.particle_spectrum_audit.smdr_replay.v1",
+  "scope": "Replay of a stipulated frozen boundary and retained perturbative approximations; no physical identity or complete theory-error bound.",
+  "sources_sha256": {
+    "__init__.py": "c88b20cd9ccf1c72fbabd9b33ad75432437fb73ff19b439ba04ed432ab07ae88",
+    "corrected_decouple_thZW.c": "4e4efdbf21a0b80054e1ee04cbf59f11b105cbdd88aa634afa70138d276b8ac6",
+    "derive.py": "ce8b8d945de5b8634cceb82b61b64f5d2fcbdee76bf1e5b844b70b38644e8904",
+    "light_driver.c": "6cc6cf8ebff4200b4c4f8201000f77d2eeef55c768c5512a2da7894df13e0087",
+    "light_fermion_wz.c": "62dd010fb655fd93a6de5d22135cfe24b7b621988632fa665d46495a4da59648",
+    "replay_smdr.py": "c113e89a7b8ee49485d95dfdc680f19039033096d6acba8d0384d3ad79b6af5e",
+    "rg_precise.c": "c8e9f2c3385aba81abcb4875629c2b2313795584f22b2a7feca24861dba74146",
+    "smdr_flavor_driver.c": "7432225e57230933bdc4f65dcea4d77ba5c0917f6aa3d5840c451e9e5cc9778a",
+    "source_ew_poison.h": "7b32498bde1243ae6ceced4bb45d318b79975844fd347ba61f42e1173417fdfb",
+    "test_spectrum.py": "e81979685857038e24f552516c1029f70fdbb73bf3a8633db607faf6dd19699e"
+  }
+}

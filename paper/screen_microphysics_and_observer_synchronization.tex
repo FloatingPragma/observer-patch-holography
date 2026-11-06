@@ -1574,6 +1574,69 @@ face boundary produces a machine-checked nonzero boundary-of-boundary
 control.
 \end{proof}
 
+\begin{proposition}[Selection of a local quadratic action]
+\label{prop:local-maxwell-selection}
+Let $S(A)=c+\ell^{\mathsf T}A+\tfrac12A^{\mathsf T}HA$ be a real
+source-free quadratic seam action, with $H=H^{\mathsf T}$. Require gauge
+invariance under $A\mapsto A+d\chi$, invariance under the sixty committed
+rotations with their seam-orientation signs, and strict face locality:
+$H_{ij}=0$ for distinct seams sharing no triangular face. Then
+\[
+ S(A)=c+\frac\kappa2\|CA\|^2.
+\]
+The real coefficient $\kappa$ is free; nonnegativity relative to $c$
+requires $\kappa\geq0$. Before rotation invariance is imposed, every such
+Hessian has the unique form $H=C^{\mathsf T}\operatorname{diag}(w)C$.
+\end{proposition}
+\begin{proof}
+Gauge invariance gives $Hd=0$. For an edge and the third vertex of an
+incident triangle, the corresponding entry of this identity contains
+exactly the other two edges of that face. It equates their signed
+off-diagonal Hessian weights. Symmetry propagates one weight to all three
+pairs of that triangle. Subtracting the twenty weighted face forms leaves
+a diagonal matrix annihilating $d$, which must vanish. Each off-diagonal
+pair belongs to one face, proving uniqueness. Transitive rotation of the
+faces makes all weights equal. The sum of the sixty signed seam
+permutations is zero, so no invariant linear term survives.
+\end{proof}
+
+Exact elimination on the committed incidence independently gives rank 70
+for the gauge constraints on the 90 face-local symmetric coefficients,
+and rank 20 for the face-form embedding. Unequal face weights and
+$(C^{\mathsf T}C)^2$ respectively show that rotation invariance and strict
+face locality matter. This classification does not cover arbitrary
+finite-range locality or nonlinear curvature actions. The executable proof
+is in \path{model/maxwell_local_selection}; the underlying incidence
+identities are formalized in \texttt{LocalFaceMaxwellAction}.
+
+\begin{proposition}[Conservative evolution from Faraday and reversal]
+Let $E\in\mathbb R^{30}$ and $B\in\operatorname{range}C$, and supply
+positive coefficients $\epsilon,\beta$ in
+$W=(\epsilon\|E\|^2+\beta\|B\|^2)/2$.
+Among real linear autonomous laws, Faraday evolution $\dot B=-CE$,
+conservation of $W$ for every initial field, and reversal with $E$ even
+and $B$ odd force
+\[
+ \dot E=(\beta/\epsilon)C^{\mathsf T}B,\qquad \dot B=-CE.
+\]
+\end{proposition}
+\begin{proof}
+Write $\dot E=AE+FB$. The energy identity for independent $E$ and closed
+$B$ gives $A^{\mathsf T}=-A$ and
+$FB=(\beta/\epsilon)C^{\mathsf T}B$. Reversal forbids the
+electric-electric block, so $A=0$. Without reversal, an arbitrary skew
+electric term survives energy conservation.
+\end{proof}
+
+The resulting law preserves Gauss data and closed flux. With
+$E=-\dot A-d\phi$, $B=CA$, Faraday follows from $Cd=0$; temporal gauge
+gives $\epsilon\ddot A+\beta C^{\mathsf T}CA=0$. The field definitions,
+energy weights, reversal and evolution parameter are explicit premises.
+The result selects neither their native implementation nor a finite-step
+integrator, and does not identify the seam leapfrog with a separately
+supplied Whitney evolution. A physical Maxwell interpretation additionally
+requires the source readout, current and clock maps.
+
 \begin{proposition}[Conditional temporal identities and continuity on the committed carrier]
 \label{prop:temporal-maxwell-evolution}
 Index seam potentials \(A_n\in\mathbb R^{30}\) and port potentials

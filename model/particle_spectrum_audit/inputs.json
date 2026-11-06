@@ -1,0 +1,408 @@
+{
+  "ancestry": {
+    "rer_commit": "07c7acb2e7003efd9e574b67b374dbc36171dc6b",
+    "smdr_commit": "5c4dd92c918cadb7f91ad3795694f8398b5c287a",
+    "source_sha256": {
+      "source_closure_round2/light_matching/light_forward.json": "36065db3de1096c934342f4139ad9471e375f365afce85e39f20d7357ef3d054",
+      "source_closure_round2/radiative/current_results.json": "a3abfe922f12837ed80ad6a822336967f8bcc94d9ffb5d945983d473fae20434",
+      "source_closure_round2/radiative/full_flavor_feedback.json": "915154906e0a34dc5f626d502ca2f586146f5ba0af6518c32dd6461b9cef762d",
+      "source_closure_round5/convention_audit/convention_audit.json": "7d753e9e7c26696e8b28ea54a6e051730482ec3f4db0ad6a94249373467d5e44"
+    },
+    "statement": "Boundary values and multiloop readouts are frozen inputs of a stipulated branch. Hashes record imported provenance; derive.py independently recomputes the charged coefficients and comparison arithmetic. Optional replay_smdr.py replays the frozen heavy outputs and strong-coupling transport against a supplied pinned SMDR build."
+  },
+  "boundary_packet": {
+    "E_star_GeV": 1.22089e+19,
+    "P": 1.630971465307864,
+    "P_decimal": "1.630971465307864",
+    "Q0_GeV": 91.58958701476675,
+    "UV_GeV": 4.862867714799784e+17,
+    "alpha_U_decimal": "0.0411242618415015299650728015868710526852798048601",
+    "clock_gap_GeV": 5.7799667709334015,
+    "gauge_Q0": [
+      0.4606426372698464,
+      0.6515095427099725,
+      1.2194476765272135
+    ],
+    "id": "full_flavor_MCPR_six_quark_feedback",
+    "old_top_lambda_Q0": [
+      0.962380076707067,
+      0.1400239007797603
+    ],
+    "physical_attachment": "Canonical full-SM running couplings at source Q0; v_Landau_MSbar(Q0)=v_source; CKM=I; massless-neutrino renormalizable theory.",
+    "source_ancestry": "Later MCPR/six-quark pixel law. The top kernel coefficient is the same full-flavor criticality yt(Q0)/sqrt(2) that is used in UV running and matching.",
+    "source_yukawa_order": [
+      "yu",
+      "yc",
+      "yt_six_power",
+      "yd",
+      "ys",
+      "yb",
+      "ye",
+      "ymu",
+      "ytau"
+    ],
+    "source_yukawas": [
+      2.143347050754458e-05,
+      0.004629629629629629,
+      1.0,
+      2.143347050754458e-05,
+      0.0007716049382716049,
+      0.027777777777777776,
+      2.930293526576252e-06,
+      0.0006058918042450383,
+      0.010189701590989739
+    ],
+    "v_GeV": 246.60010076754213
+  },
+  "couplings_Q0": {
+    "g1_GUT": 0.4606426372698464,
+    "g2": 0.6515095427099725,
+    "g3": 1.2194476765272135,
+    "lambda": 0.13996318581526215,
+    "yb": 0.027777777777777776,
+    "yc": 0.004629629629629629,
+    "yd": 2.143347050754458e-05,
+    "ye": 2.930293526576252e-06,
+    "ymu": 0.0006058918042450383,
+    "ys": 0.0007716049382716049,
+    "yt": 0.9623049116902788,
+    "ytau": 0.010189701590989739,
+    "yu": 2.143347050754458e-05
+  },
+  "criticality_imported_boundary_replay": {
+    "2": {
+      "beta_lambda_SMDR_Betas": 7.147831168117593e-10,
+      "beta_lambda_finite_difference": 7.140987537144279e-10,
+      "beta_yt": -0.0056300734660591975,
+      "g2": 0.5140449193452138,
+      "g3": 0.5050646843648664,
+      "gY": 0.4617023344687215,
+      "lambda": 2.3009016773487746e-08,
+      "v": 236.13943210315804,
+      "yt": 0.3892411730593367,
+      "yt_relative_difference_to_frozen": -2.5505022083205375e-07
+    },
+    "3": {
+      "beta_lambda_SMDR_Betas": 9.492159701172953e-07,
+      "beta_lambda_finite_difference": 9.492152154891818e-07,
+      "beta_yt": -0.005626323533954233,
+      "g2": 0.5141152215918241,
+      "g3": 0.505075877285562,
+      "gY": 0.46173380625735816,
+      "lambda": 0.0009742833996556605,
+      "v": 236.22250920789142,
+      "yt": 0.38837975369953415,
+      "yt_relative_difference_to_frozen": -0.002213328074656573
+    }
+  },
+  "finite_light_shifts_GeV": {
+    "W_BW_GeV": 1.6770889175177217e-06,
+    "Z_BW_GeV": 1.309478030009359e-05
+  },
+  "imported_readouts": {
+    "H": {
+      "convention": "SMDR specified Higgs pole mass, with retained matching truncations",
+      "value_GeV": 124.84254891847748
+    },
+    "W": {
+      "convention": "SMDR Breit-Wigner W mass, specified EW two-loop plus explicit finite-light one-loop correction",
+      "value_GeV": 79.85639046488363
+    },
+    "Z": {
+      "convention": "SMDR Breit-Wigner Z mass, specified EW two-loop plus explicit finite-light one-loop correction",
+      "value_GeV": 90.5845167747165
+    },
+    "b": {
+      "convention": "MSbar QCD+QED mass with 5 active quarks and three active charged leptons, Q=6.5907790759 GeV",
+      "value_GeV": 6.590779075896537
+    },
+    "c": {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=1.56844906573 GeV",
+      "value_GeV": 1.5684490657276067
+    },
+    "d": {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+      "value_GeV": 0.0066506548717186935
+    },
+    "s": {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+      "value_GeV": 0.2394230817220354
+    },
+    "t": {
+      "convention": "SMDR top pole mass, QCD four-loop / EW two-loop with retained matching truncations",
+      "value_GeV": 170.61181680855415
+    },
+    "u": {
+      "convention": "MSbar QCD+QED mass with 4 active quarks and three active charged leptons, Q=2 GeV",
+      "value_GeV": 0.006681443517742843
+    }
+  },
+  "lepton_msbar_attachment_control_GeV": {
+    "e": 0.000535803503951735,
+    "mu": 0.10869105087411414,
+    "tau": 1.809270939064129
+  },
+  "lepton_replay_reference_GeV": {
+    "e": 0.0005109629112307596,
+    "mu": 0.10565093134189339,
+    "tau": 1.776804795247987
+  },
+  "one_loop_lepton_relation": {
+    "Q0_GeV": 91.58958701476675,
+    "alpha_full": 0.007793732997476249,
+    "delta_EW": 0.001120418074005869,
+    "formula": "M = m(Q0) [1 + delta_EW + (alpha/pi)(1 + (3/2) log(Q0/m(Q0)))]"
+  },
+  "schema": "oph.particle_spectrum_audit.inputs.v1",
+  "scope": {
+    "particle_abundance_distribution_computed": false,
+    "physical_pole_identification_proved": false,
+    "prospective_prediction": false,
+    "source_selected_architecture": false,
+    "theory_error_bound": null
+  },
+  "sm_reference": {
+    "Qin_GeV": 172.4,
+    "v_Q0_GeV": 248.385639,
+    "v_Qin_GeV": 246.6002958636583
+  },
+  "strong_coupling": {
+    "MZ_comparison_scale_GeV": 91.1879,
+    "alpha_Q0": 0.00781564896297739,
+    "alpha_s_5_Q0": 0.11936034572952339,
+    "alpha_s_5_at_PDG_MZ": 0.11944065953248842,
+    "reference_ratio_proxy": 0.119457423092123,
+    "scheme": "Five-flavour QCD+QED after corrected electroweak threshold, then 5-loop QCD+QED running to comparison scale."
+  },
+  "substitution_controls": [
+    {
+      "inputs": {
+        "g2": 0.6515095427099725,
+        "g3": 1.2194476765272135,
+        "gY": 0.35681225253983584,
+        "lam": 0.13996318581526215,
+        "v": 246.60010076754213,
+        "yb": 0.027777777777777776,
+        "yc": 0.004629629629629629,
+        "yd": 2.143347050754458e-05,
+        "ye": 2.930293526576252e-06,
+        "ymu": 0.0006058918042450383,
+        "ys": 0.0007716049382716049,
+        "yt": 0.9623049116902788,
+        "ytau": 0.010189701590989739,
+        "yu": 2.143347050754458e-05
+      },
+      "label": "frozen source packet at Q0 (replay of the delivered branch)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.1829506346815652e-05,
+        "Higgs_pole_GeV": 124.84254891847748,
+        "W_BW_GeV": 79.85638878774886,
+        "W_over_Z": 0.8815678790922866,
+        "Z_BW_GeV": 90.58450367993628,
+        "top_QCD4_EW2_pole_GeV": 170.61181680853207
+      },
+      "substituted_from_SM_reference": []
+    },
+    {
+      "inputs": {
+        "g2": 0.65093,
+        "g3": 1.211986,
+        "gY": 0.357313,
+        "lam": 0.139559,
+        "v": 248.385639,
+        "yb": 0.016291,
+        "yc": 0.0035529,
+        "yd": 1.5377e-05,
+        "ye": 2.77725e-06,
+        "ymu": 0.000585069,
+        "ys": 0.00030591,
+        "yt": 0.966969,
+        "ytau": 0.00993819,
+        "yu": 7.0344e-06
+      },
+      "label": "SM reference model transported to Q0 by the pinned 5-loop RGE (pipeline validation)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.1665267256263524e-05,
+        "Higgs_pole_GeV": 125.25403246586461,
+        "W_BW_GeV": 80.3422603699629,
+        "W_over_Z": 0.8811316163852911,
+        "Z_BW_GeV": 91.1807712672425,
+        "top_QCD4_EW2_pole_GeV": 172.46093757221584
+      },
+      "substituted_from_SM_reference": [
+        "gY",
+        "g2",
+        "g3",
+        "yu",
+        "yc",
+        "yt",
+        "yd",
+        "ys",
+        "yb",
+        "ye",
+        "ymu",
+        "ytau",
+        "lam",
+        "v"
+      ]
+    },
+    {
+      "inputs": {
+        "g2": 0.6515095427099725,
+        "g3": 1.2194476765272135,
+        "gY": 0.35681225253983584,
+        "lam": 0.13996318581526215,
+        "v": 248.385639,
+        "yb": 0.027777777777777776,
+        "yc": 0.004629629629629629,
+        "yd": 2.143347050754458e-05,
+        "ye": 2.930293526576252e-06,
+        "ymu": 0.0006058918042450383,
+        "ys": 0.0007716049382716049,
+        "yt": 0.9623049116902788,
+        "ytau": 0.010189701590989739,
+        "yu": 2.143347050754458e-05
+      },
+      "label": "source packet with v replaced by the SM v(Q0)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.1661767454398963e-05,
+        "Higgs_pole_GeV": 125.67584506780953,
+        "W_BW_GeV": 80.42389326081644,
+        "W_over_Z": 0.8815442077924966,
+        "Z_BW_GeV": 91.23069784805065,
+        "top_QCD4_EW2_pole_GeV": 171.7557371034661
+      },
+      "substituted_from_SM_reference": [
+        "v"
+      ]
+    },
+    {
+      "inputs": {
+        "g2": 0.65093,
+        "g3": 1.211986,
+        "gY": 0.357313,
+        "lam": 0.13996318581526215,
+        "v": 246.60010076754213,
+        "yb": 0.027777777777777776,
+        "yc": 0.004629629629629629,
+        "yd": 2.143347050754458e-05,
+        "ye": 2.930293526576252e-06,
+        "ymu": 0.0006058918042450383,
+        "ys": 0.0007716049382716049,
+        "yt": 0.9623049116902788,
+        "ytau": 0.010189701590989739,
+        "yu": 2.143347050754458e-05
+      },
+      "label": "source packet with the three gauge couplings replaced by SM(Q0)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.1829568075183019e-05,
+        "Higgs_pole_GeV": 124.8288337533522,
+        "W_BW_GeV": 79.7860293530452,
+        "W_over_Z": 0.8811113513939594,
+        "Z_BW_GeV": 90.55158491241767,
+        "top_QCD4_EW2_pole_GeV": 170.55352103817108
+      },
+      "substituted_from_SM_reference": [
+        "gY",
+        "g2",
+        "g3"
+      ]
+    },
+    {
+      "inputs": {
+        "g2": 0.65093,
+        "g3": 1.211986,
+        "gY": 0.357313,
+        "lam": 0.13996318581526215,
+        "v": 248.385639,
+        "yb": 0.027777777777777776,
+        "yc": 0.004629629629629629,
+        "yd": 2.143347050754458e-05,
+        "ye": 2.930293526576252e-06,
+        "ymu": 0.0006058918042450383,
+        "ys": 0.0007716049382716049,
+        "yt": 0.9623049116902788,
+        "ytau": 0.010189701590989739,
+        "yu": 2.143347050754458e-05
+      },
+      "label": "source packet with v and the gauge couplings replaced by SM(Q0)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.166183218137032e-05,
+        "Higgs_pole_GeV": 125.66174111602191,
+        "W_BW_GeV": 80.35302794994456,
+        "W_over_Z": 0.8810876860117223,
+        "Z_BW_GeV": 91.19753825373009,
+        "top_QCD4_EW2_pole_GeV": 171.6984207553666
+      },
+      "substituted_from_SM_reference": [
+        "v",
+        "gY",
+        "g2",
+        "g3"
+      ]
+    },
+    {
+      "inputs": {
+        "g2": 0.6515095427099725,
+        "g3": 1.2194476765272135,
+        "gY": 0.357313,
+        "lam": 0.13996318581526215,
+        "v": 248.385639,
+        "yb": 0.027777777777777776,
+        "yc": 0.004629629629629629,
+        "yd": 2.143347050754458e-05,
+        "ye": 2.930293526576252e-06,
+        "ymu": 0.0006058918042450383,
+        "ys": 0.0007716049382716049,
+        "yt": 0.9623049116902788,
+        "ytau": 0.010189701590989739,
+        "yu": 2.143347050754458e-05
+      },
+      "label": "source packet with v and gY replaced by SM(Q0)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.1661770308440414e-05,
+        "Higgs_pole_GeV": 125.67612804032717,
+        "W_BW_GeV": 80.42411633496626,
+        "W_over_Z": 0.8812603365527919,
+        "Z_BW_GeV": 91.26033817607137,
+        "top_QCD4_EW2_pole_GeV": 171.75599939671977
+      },
+      "substituted_from_SM_reference": [
+        "v",
+        "gY"
+      ]
+    },
+    {
+      "inputs": {
+        "g2": 0.6515095427099725,
+        "g3": 1.2194476765272135,
+        "gY": 0.35681225253983584,
+        "lam": 0.139559,
+        "v": 248.385639,
+        "yb": 0.027777777777777776,
+        "yc": 0.004629629629629629,
+        "yd": 2.143347050754458e-05,
+        "ye": 2.930293526576252e-06,
+        "ymu": 0.0006058918042450383,
+        "ys": 0.0007716049382716049,
+        "yt": 0.966969,
+        "ytau": 0.010189701590989739,
+        "yu": 2.143347050754458e-05
+      },
+      "label": "source packet with v, yt and lambda replaced by SM(Q0)",
+      "outputs": {
+        "GF_local_chiral_external_legs_GeVm2": 1.1665279632771317e-05,
+        "Higgs_pole_GeV": 125.2679215395204,
+        "W_BW_GeV": 80.41296959074161,
+        "W_over_Z": 0.8815848324279297,
+        "Z_BW_GeV": 91.21410286662962,
+        "top_QCD4_EW2_pole_GeV": 172.52201302603595
+      },
+      "substituted_from_SM_reference": [
+        "v",
+        "yt",
+        "lam"
+      ]
+    }
+  ]
+}

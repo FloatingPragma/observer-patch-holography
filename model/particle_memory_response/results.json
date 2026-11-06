@@ -1,0 +1,1207 @@
+{
+  "T_symbolic": [
+    [
+      "-p*(1 - q) + 1",
+      "-p*q + 1",
+      "-p*(1 - q) + 1"
+    ],
+    [
+      "p*(1 - q)",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "p*q",
+      "p*(1 - q)"
+    ]
+  ],
+  "all_lag_sum_formula": "K=diag(w)/2-ww^T/2+E R diag(w), R=sum_(k>=0)(T^k-Pi)",
+  "convergence_diagnostics": [
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 0.0004298899483411995,
+      "covariance_min_eigenvalue_diagnostic": 4.0570777487369007e-19,
+      "duty_upper_exact": "1",
+      "gain_upper_exact": "1",
+      "h_exact": "1/8",
+      "initial_slip_bound_exact": "1539/5324",
+      "intertwining_defect_bound_exact": "3417410121/659664896",
+      "mean_unitary_normalized_Choi_trace_error": 0.008157272966736332,
+      "p_upper_exact": "1/12",
+      "policy": "always",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 8,
+      "unclipped_bound_exact": "3608098377/659664896",
+      "unhalved_diamond_bound_exact": "2"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 0.00010595007351293462,
+      "covariance_min_eigenvalue_diagnostic": 4.0570777487369007e-19,
+      "duty_upper_exact": "1",
+      "gain_upper_exact": "1",
+      "h_exact": "1/16",
+      "initial_slip_bound_exact": "2331/42592",
+      "intertwining_defect_bound_exact": "260401268491/253311320064",
+      "mean_unitary_normalized_Choi_trace_error": 0.004056887737410895,
+      "p_upper_exact": "1/12",
+      "policy": "always",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 16,
+      "unclipped_bound_exact": "274264639243/253311320064",
+      "unhalved_diamond_bound_exact": "274264639243/253311320064"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 2.6296744341257755e-05,
+      "covariance_min_eigenvalue_diagnostic": 4.0570777487369007e-19,
+      "duty_upper_exact": "1",
+      "gain_upper_exact": "1",
+      "h_exact": "1/32",
+      "initial_slip_bound_exact": "3915/340736",
+      "intertwining_defect_bound_exact": "2504397457137/10807949656064",
+      "mean_unitary_normalized_Choi_trace_error": 0.00202301292495192,
+      "p_upper_exact": "1/12",
+      "policy": "always",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 32,
+      "unclipped_bound_exact": "2628579002097/10807949656064",
+      "unhalved_diamond_bound_exact": "2628579002097/10807949656064"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 6.550318001965863e-06,
+      "covariance_min_eigenvalue_diagnostic": 4.0570777487369007e-19,
+      "duty_upper_exact": "1",
+      "gain_upper_exact": "1",
+      "h_exact": "1/64",
+      "initial_slip_bound_exact": "7083/2725888",
+      "intertwining_defect_bound_exact": "228877886293123/4150252667928576",
+      "mean_unitary_normalized_Choi_trace_error": 0.0010101531194806046,
+      "p_upper_exact": "1/12",
+      "policy": "always",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 64,
+      "unclipped_bound_exact": "239661982942339/4150252667928576",
+      "unhalved_diamond_bound_exact": "239661982942339/4150252667928576"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 1.6345952655676832e-06,
+      "covariance_min_eigenvalue_diagnostic": 4.0570777487369007e-19,
+      "duty_upper_exact": "1",
+      "gain_upper_exact": "1",
+      "h_exact": "1/128",
+      "initial_slip_bound_exact": "13419/21807104",
+      "intertwining_defect_bound_exact": "2383390382020641/177077447164952576",
+      "mean_unitary_normalized_Choi_trace_error": 0.0005047390028821608,
+      "p_upper_exact": "1/12",
+      "policy": "always",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 128,
+      "unclipped_bound_exact": "2492354977388577/177077447164952576",
+      "unhalved_diamond_bound_exact": "2492354977388577/177077447164952576"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 0.00041346695382427523,
+      "covariance_min_eigenvalue_diagnostic": 0.0010976928645371252,
+      "duty_upper_exact": "1/12",
+      "gain_upper_exact": "1",
+      "h_exact": "1/8",
+      "initial_slip_bound_exact": "105/85184",
+      "intertwining_defect_bound_exact": "1545073878329255/189095887182495744",
+      "mean_unitary_normalized_Choi_trace_error": 0.007380851931345013,
+      "p_upper_exact": "1/12",
+      "policy": "C",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 8,
+      "unclipped_bound_exact": "1778158356096935/189095887182495744",
+      "unhalved_diamond_bound_exact": "1778158356096935/189095887182495744"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 0.00010263947252264324,
+      "covariance_min_eigenvalue_diagnostic": 0.0010976928645371252,
+      "duty_upper_exact": "1/12",
+      "gain_upper_exact": "1",
+      "h_exact": "1/16",
+      "initial_slip_bound_exact": "193/681472",
+      "intertwining_defect_bound_exact": "47498899514147839/24204273559359455232",
+      "mean_unitary_normalized_Choi_trace_error": 0.0036782779286212886,
+      "p_upper_exact": "1/12",
+      "policy": "C",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 16,
+      "unclipped_bound_exact": "54353803012686847/24204273559359455232",
+      "unhalved_diamond_bound_exact": "54353803012686847/24204273559359455232"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 2.5568520855523615e-05,
+      "covariance_min_eigenvalue_diagnostic": 0.0010976928645371252,
+      "duty_upper_exact": "1/12",
+      "gain_upper_exact": "1",
+      "h_exact": "1/32",
+      "initial_slip_bound_exact": "369/5451776",
+      "intertwining_defect_bound_exact": "1489818805681868111/3098147015598010269696",
+      "mean_unitary_normalized_Choi_trace_error": 0.0018360559772567535,
+      "p_upper_exact": "1/12",
+      "policy": "C",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 32,
+      "unclipped_bound_exact": "1699514920994688335/3098147015598010269696",
+      "unhalved_diamond_bound_exact": "1699514920994688335/3098147015598010269696"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 6.380692337877078e-06,
+      "covariance_min_eigenvalue_diagnostic": 0.0010976928645371252,
+      "duty_upper_exact": "1/12",
+      "gain_upper_exact": "1",
+      "h_exact": "1/64",
+      "initial_slip_bound_exact": "721/43614208",
+      "intertwining_defect_bound_exact": "47199281730770997871/396562817996545314521088",
+      "mean_unitary_normalized_Choi_trace_error": 0.0009172535738434741,
+      "p_upper_exact": "1/12",
+      "policy": "C",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 64,
+      "unclipped_bound_exact": "53754984674534396527/396562817996545314521088",
+      "unhalved_diamond_bound_exact": "53754984674534396527/396562817996545314521088"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 1.593742766882729e-06,
+      "covariance_min_eigenvalue_diagnostic": 0.0010976928645371252,
+      "duty_upper_exact": "1/12",
+      "gain_upper_exact": "1",
+      "h_exact": "1/128",
+      "initial_slip_bound_exact": "1425/348913664",
+      "intertwining_defect_bound_exact": "1502836913477960558255/50760040703557800258699264",
+      "mean_unitary_normalized_Choi_trace_error": 0.00045843285720247615,
+      "p_upper_exact": "1/12",
+      "policy": "C",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 128,
+      "unclipped_bound_exact": "1710146243738439739055/50760040703557800258699264",
+      "unhalved_diamond_bound_exact": "1710146243738439739055/50760040703557800258699264"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 0.000669166497417849,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/6",
+      "gain_upper_exact": "1",
+      "h_exact": "1/8",
+      "initial_slip_bound_exact": "111/21296",
+      "intertwining_defect_bound_exact": "54724890480643/1477311618613248",
+      "mean_unitary_normalized_Choi_trace_error": 0.015630829475404756,
+      "p_upper_exact": "1/12",
+      "policy": "E",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 8,
+      "unclipped_bound_exact": "62425002692611/1477311618613248",
+      "unhalved_diamond_bound_exact": "62425002692611/1477311618613248"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 0.00016973410970400808,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/6",
+      "gain_upper_exact": "1",
+      "h_exact": "1/16",
+      "initial_slip_bound_exact": "199/170368",
+      "intertwining_defect_bound_exact": "551136224650817/63031962394165248",
+      "mean_unitary_normalized_Choi_trace_error": 0.007859352164524581,
+      "p_upper_exact": "1/12",
+      "policy": "E",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 16,
+      "unclipped_bound_exact": "624761321596481/63031962394165248",
+      "unhalved_diamond_bound_exact": "624761321596481/63031962394165248"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 4.275875349634973e-05,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/6",
+      "gain_upper_exact": "1",
+      "h_exact": "1/32",
+      "initial_slip_bound_exact": "375/1362944",
+      "intertwining_defect_bound_exact": "51414183476621491/24204273559359455232",
+      "mean_unitary_normalized_Choi_trace_error": 0.003941088682725498,
+      "p_upper_exact": "1/12",
+      "policy": "E",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 32,
+      "unclipped_bound_exact": "58073739984269491/24204273559359455232",
+      "unhalved_diamond_bound_exact": "58073739984269491/24204273559359455232"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 1.0731616295008177e-05,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/6",
+      "gain_upper_exact": "1",
+      "h_exact": "1/64",
+      "initial_slip_bound_exact": "727/10903552",
+      "intertwining_defect_bound_exact": "540621392919430001/1032715671866003423232",
+      "mean_unitary_normalized_Choi_trace_error": 0.001973451216878155,
+      "p_upper_exact": "1/12",
+      "policy": "E",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 64,
+      "unclipped_bound_exact": "609478247405618033/1032715671866003423232",
+      "unhalved_diamond_bound_exact": "609478247405618033/1032715671866003423232"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 2.688225961361038e-06,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/6",
+      "gain_upper_exact": "1",
+      "h_exact": "1/128",
+      "initial_slip_bound_exact": "1431/87228416",
+      "intertwining_defect_bound_exact": "51529535415933408403/396562817996545314521088",
+      "mean_unitary_normalized_Choi_trace_error": 0.0009874590471684514,
+      "p_upper_exact": "1/12",
+      "policy": "E",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 128,
+      "unclipped_bound_exact": "58035229530028709011/396562817996545314521088",
+      "unhalved_diamond_bound_exact": "58035229530028709011/396562817996545314521088"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 9.787124483138842e-05,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/72",
+      "gain_upper_exact": "1",
+      "h_exact": "1/8",
+      "initial_slip_bound_exact": "25/766656",
+      "intertwining_defect_bound_exact": "5622405832795883675/13233686568579782148096",
+      "mean_unitary_normalized_Choi_trace_error": 0.0015098063998108943,
+      "p_upper_exact": "1/12",
+      "policy": "CE",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 8,
+      "unclipped_bound_exact": "6053945094491474075/13233686568579782148096",
+      "unhalved_diamond_bound_exact": "6053945094491474075/13233686568579782148096"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 2.452149771203548e-05,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/72",
+      "gain_upper_exact": "1",
+      "h_exact": "1/16",
+      "initial_slip_bound_exact": "47/6133248",
+      "intertwining_defect_bound_exact": "177575239007521288741/1693911880778212114956288",
+      "mean_unitary_normalized_Choi_trace_error": 0.0007559588897980533,
+      "p_upper_exact": "1/12",
+      "policy": "CE",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 16,
+      "unclipped_bound_exact": "190555939999324647973/1693911880778212114956288",
+      "unhalved_diamond_bound_exact": "190555939999324647973/1693911880778212114956288"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 6.1361367022774845e-06,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/72",
+      "gain_upper_exact": "1",
+      "h_exact": "1/32",
+      "initial_slip_bound_exact": "91/49065984",
+      "intertwining_defect_bound_exact": "5645763026014138185449/216820720739611150714404864",
+      "mean_unitary_normalized_Choi_trace_error": 0.0003781690021280186,
+      "p_upper_exact": "1/12",
+      "policy": "CE",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 32,
+      "unclipped_bound_exact": "6047888571632557143785/216820720739611150714404864",
+      "unhalved_diamond_bound_exact": "6047888571632557143785/216820720739611150714404864"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 1.5346945122251747e-06,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/72",
+      "gain_upper_exact": "1",
+      "h_exact": "1/64",
+      "initial_slip_bound_exact": "179/392527872",
+      "intertwining_defect_bound_exact": "180084670242435660937009/27753052254670227291443822592",
+      "mean_unitary_normalized_Choi_trace_error": 0.00018912253261545387,
+      "p_upper_exact": "1/12",
+      "policy": "CE",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 64,
+      "unclipped_bound_exact": "192740577524316451010353/27753052254670227291443822592",
+      "unhalved_diamond_bound_exact": "192740577524316451010353/27753052254670227291443822592"
+    },
+    {
+      "corrected_semigroup_normalized_Choi_trace_error": 3.8375240599826377e-07,
+      "covariance_min_eigenvalue_diagnostic": 0.0,
+      "duty_upper_exact": "1/72",
+      "gain_upper_exact": "1",
+      "h_exact": "1/128",
+      "initial_slip_bound_exact": "355/3140222976",
+      "intertwining_defect_bound_exact": "5753485964118065849324225/3552390688597789093304809291776",
+      "mean_unitary_normalized_Choi_trace_error": 9.456960062563806e-05,
+      "p_upper_exact": "1/12",
+      "policy": "CE",
+      "scope": "Unread field with arbitrary reference, stationary product preparation; not a full-record or conditioned channel bound.",
+      "steps": 128,
+      "unclipped_bound_exact": "6155081234291713266176705/3552390688597789093304809291776",
+      "unhalved_diamond_bound_exact": "6155081234291713266176705/3552390688597789093304809291776"
+    }
+  ],
+  "domain": "0<=p<1, 0<=q<=1, all four declared duties; h>=0 and stationary product initial preparation for the reduced semigroup bound.",
+  "group_inverse_symbolic": [
+    [
+      "(-p*(1 - q) - 2*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + 2)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)",
+      "(-p*q - 2*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)",
+      "(-p*(1 - q) - 2*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)"
+    ],
+    [
+      "(-2*p*(1 - q)*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + p*(1 - q))/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)",
+      "(-2*p*(1 - q)*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)",
+      "-2*p*(1 - q)*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)**2"
+    ],
+    [
+      "-2*p**2*q*(1 - q)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)**2",
+      "(-2*p**2*q*(1 - q)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + p*q)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)",
+      "(-2*p**2*q*(1 - q)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1) + p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)"
+    ]
+  ],
+  "native_always_ordering_norm_diagnostic": 0.0005069709792586442,
+  "native_always_ordering_norm_exact": "603*sqrt(6*sqrt(5) + 18)/6666724",
+  "native_always_ordering_prefactor_exact": "603/6666724",
+  "native_policies_exact": {
+    "C": {
+      "A": [
+        [
+          "0",
+          "486*I*(-60673/31104 + 14633*sqrt(5)/93312)/1666681",
+          "14311*I*(-1 + sqrt(5))/320002752"
+        ],
+        [
+          "-486*I*(-60673/31104 + 14633*sqrt(5)/93312)/1666681",
+          "0",
+          "-14633*I/160001376"
+        ],
+        [
+          "-14311*I*(-1 + sqrt(5))/320002752",
+          "14633*I/160001376",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "5288779361/309842664624",
+          "8992545/4303370342",
+          "-88245/2151685171"
+        ],
+        [
+          "8992545/4303370342",
+          "1813760015/34426962736",
+          "24618145/34426962736"
+        ],
+        [
+          "-88245/2151685171",
+          "24618145/34426962736",
+          "38142095/34426962736"
+        ]
+      ],
+      "E": [
+        [
+          "1/72",
+          "5/72",
+          "1/72"
+        ],
+        [
+          "5/72",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/72",
+          "5/72"
+        ]
+      ],
+      "K": [
+        [
+          "5288779361/619685329248",
+          "533168245/206561776416",
+          "-3196505/206561776416"
+        ],
+        [
+          "-101526085/206561776416",
+          "1813760015/68853925472",
+          "-6520775/68853925472"
+        ],
+        [
+          "-5275015/206561776416",
+          "55757065/68853925472",
+          "38142095/68853925472"
+        ]
+      ],
+      "Y": [
+        [
+          "1/24 - 1261*sqrt(5)/154920",
+          "-367*sqrt(5)/38730",
+          "sqrt(5)/5164"
+        ],
+        [
+          "-367*sqrt(5)/38730",
+          "319*sqrt(5)/38730 + 319/7746",
+          "0"
+        ],
+        [
+          "sqrt(5)/5164",
+          "0",
+          "5/10328 - sqrt(5)/10328"
+        ]
+      ],
+      "w": [
+        [
+          "271/15492"
+        ],
+        [
+          "335/5164"
+        ],
+        [
+          "5/5164"
+        ]
+      ]
+    },
+    "CE": {
+      "A": [
+        [
+          "0",
+          "4819*I*(1 + sqrt(5))/7680066048",
+          "-4819*I*(-1 + sqrt(5))/7680066048"
+        ],
+        [
+          "-4819*I*(1 + sqrt(5))/7680066048",
+          "0",
+          "-4819*I/3840033024"
+        ],
+        [
+          "4819*I*(-1 + sqrt(5))/7680066048",
+          "4819*I/3840033024",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "2291732376461/178469374823424",
+          "0",
+          "-3746374105/178469374823424"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-3746374105/178469374823424",
+          "0",
+          "160074726005/178469374823424"
+        ]
+      ],
+      "E": [
+        [
+          "1/72",
+          "0",
+          "1/72"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/72",
+          "0"
+        ]
+      ],
+      "K": [
+        [
+          "2291732376461/356938749646848",
+          "0",
+          "-1506695665/356938749646848"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-5986052545/356938749646848",
+          "0",
+          "160074726005/356938749646848"
+        ]
+      ],
+      "Y": [
+        [
+          "1/144 - 749*sqrt(5)/619680",
+          "4829*sqrt(5)/1859040",
+          "67*sqrt(5)/371808"
+        ],
+        [
+          "4829*sqrt(5)/1859040",
+          "4829*sqrt(5)/3718080 + 4829/743616",
+          "0"
+        ],
+        [
+          "67*sqrt(5)/371808",
+          "0",
+          "335/743616 - 67*sqrt(5)/743616"
+        ]
+      ],
+      "w": [
+        [
+          "4829/371808"
+        ],
+        [
+          "0"
+        ],
+        [
+          "335/371808"
+        ]
+      ]
+    },
+    "E": {
+      "A": [
+        [
+          "0",
+          "54143*I*(1 + sqrt(5))/7680066048",
+          "-54143*I*(-1 + sqrt(5))/7680066048"
+        ],
+        [
+          "-54143*I*(1 + sqrt(5))/7680066048",
+          "0",
+          "-54143*I/3840033024"
+        ],
+        [
+          "54143*I*(-1 + sqrt(5))/7680066048",
+          "54143*I/3840033024",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "24729812592485/178469374823424",
+          "0",
+          "-51237074285/178469374823424"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-51237074285/178469374823424",
+          "0",
+          "160074726005/178469374823424"
+        ]
+      ],
+      "E": [
+        [
+          "1/6",
+          "11/72",
+          "1/6"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/72",
+          "0"
+        ]
+      ],
+      "K": [
+        [
+          "24729812592485/356938749646848",
+          "0",
+          "-26073573605/356938749646848"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-76400574965/356938749646848",
+          "0",
+          "160074726005/356938749646848"
+        ]
+      ],
+      "Y": [
+        [
+          "1/12 - 30649*sqrt(5)/1859040",
+          "61633*sqrt(5)/1859040",
+          "67*sqrt(5)/371808"
+        ],
+        [
+          "61633*sqrt(5)/1859040",
+          "61633*sqrt(5)/3718080 + 61633/743616",
+          "0"
+        ],
+        [
+          "67*sqrt(5)/371808",
+          "0",
+          "335/743616 - 67*sqrt(5)/743616"
+        ]
+      ],
+      "w": [
+        [
+          "61633/371808"
+        ],
+        [
+          "0"
+        ],
+        [
+          "335/371808"
+        ]
+      ]
+    },
+    "always": {
+      "A": [
+        [
+          "0",
+          "603*I*(sqrt(5) + 3)/6666724",
+          "0"
+        ],
+        [
+          "-603*I*(sqrt(5) + 3)/6666724",
+          "0",
+          "-603*I/3333362"
+        ],
+        [
+          "0",
+          "603*I/3333362",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "118821150/2151685171",
+          "-114898635/2151685171",
+          "-3922515/2151685171"
+        ],
+        [
+          "-114898635/2151685171",
+          "1813760015/34426962736",
+          "24618145/34426962736"
+        ],
+        [
+          "-3922515/2151685171",
+          "24618145/34426962736",
+          "38142095/34426962736"
+        ]
+      ],
+      "E": [
+        [
+          "67/72",
+          "71/72",
+          "67/72"
+        ],
+        [
+          "5/72",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/72",
+          "5/72"
+        ]
+      ],
+      "K": [
+        [
+          "59410575/2151685171",
+          "-233689635/8606740684",
+          "-3952665/8606740684"
+        ],
+        [
+          "-225904905/8606740684",
+          "1813760015/68853925472",
+          "-6520775/68853925472"
+        ],
+        [
+          "-11737395/8606740684",
+          "55757065/68853925472",
+          "38142095/68853925472"
+        ]
+      ],
+      "Y": [
+        [
+          "1/2 - 2577*sqrt(5)/25820",
+          "4489*sqrt(5)/25820",
+          "sqrt(5)/5164"
+        ],
+        [
+          "4489*sqrt(5)/25820",
+          "5159*sqrt(5)/51640 + 5159/10328",
+          "0"
+        ],
+        [
+          "sqrt(5)/5164",
+          "0",
+          "5/10328 - sqrt(5)/10328"
+        ]
+      ],
+      "w": [
+        [
+          "1206/1291"
+        ],
+        [
+          "335/5164"
+        ],
+        [
+          "5/5164"
+        ]
+      ]
+    }
+  },
+  "pi_symbolic": [
+    [
+      "(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)"
+    ],
+    [
+      "p*(1 - q)*(-p*(1 - q) + 1)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)"
+    ],
+    [
+      "p**2*q*(1 - q)/(p**2*q*(1 - q) - p**2*(1 - q)**2 + 1)"
+    ]
+  ],
+  "schema": "oph.particle_memory_response.v1",
+  "scope": {
+    "all_memory_lags_summed": true,
+    "finite_h_complete_channel_logarithm_asserted": false,
+    "finite_time_complete_reference_error_bound": true,
+    "full_record_semigroup_equivalence": false,
+    "physical_mass_or_CP_identification": false,
+    "positive_diffusion_retained": true
+  },
+  "source_join": {
+    "actual_source_transfer_residual_diagnostic": 2.1991224681226482e-16,
+    "all_old_memory_inputs": 12,
+    "full_CQ_dimension": 432,
+    "lumping_scope": "Stationary reduced experiment with identical P9=P10; full old-memory tape is not identified by this three-ray reduction.",
+    "native_raw_labels": 128,
+    "policies": {
+      "C": {
+        "E_raw_records_exact": true,
+        "T_source_exact": true,
+        "full12_lag_sum_equals_three_ray_exact": true
+      },
+      "CE": {
+        "E_raw_records_exact": true,
+        "T_source_exact": true,
+        "full12_lag_sum_equals_three_ray_exact": true
+      },
+      "E": {
+        "E_raw_records_exact": true,
+        "T_source_exact": true,
+        "full12_lag_sum_equals_three_ray_exact": true
+      },
+      "always": {
+        "E_raw_records_exact": true,
+        "T_source_exact": true,
+        "full12_lag_sum_equals_three_ray_exact": true
+      }
+    }
+  },
+  "source_sha256": {
+    "model/common_source/native_family_record_memory.py": "d81f97ae43160c838d7a0ba24dd6d7da26d7c0c1b079912667030c801cb64730",
+    "model/common_source/native_gauge_family_records.py": "d8baa95c9ce08ec86f1401b11e8305280714af23be32cd4fbee263185f51dc52",
+    "model/common_source/native_gauge_object.py": "ddbd9ced23e85e9755396dcc917eb744d62e98f64b89535dfff0066e53782733",
+    "model/common_source/native_repair_mass.py": "59e70327e4071e98fe3e005af8b3a94e62f0b17cf20cfcf2db22b637df80e87e",
+    "model/particle_memory_response/certificate.py": "0b3029364f50da21c8517da0da68d992b5c52c0f696661ed246b308bfad654c2"
+  },
+  "symbolic_policies": {
+    "C": {
+      "A": [
+        [
+          "0",
+          "-I*p**2*(q - 1)*(-6*p**3*q**3 + 2*sqrt(5)*p**3*q**3 - 3*sqrt(5)*p**3*q**2 + 17*p**3*q**2 - 15*p**3*q + sqrt(5)*p**3*q + 4*p**3 - 2*sqrt(5)*p**2*q**3 + 6*p**2*q**3 - 33*p**2*q**2 + 3*sqrt(5)*p**2*q**2 - sqrt(5)*p**2*q + 39*p**2*q - 12*p**2 + 2*sqrt(5)*p*q**2 + 22*p*q**2 - 33*p*q - sqrt(5)*p*q + 12*p + sqrt(5)*q + 9*q - 4)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "I*p**2*q*(-1 + sqrt(5))*(p - 1)*(q - 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "I*p**2*(q - 1)*(-6*p**3*q**3 + 2*sqrt(5)*p**3*q**3 - 3*sqrt(5)*p**3*q**2 + 17*p**3*q**2 - 15*p**3*q + sqrt(5)*p**3*q + 4*p**3 - 2*sqrt(5)*p**2*q**3 + 6*p**2*q**3 - 33*p**2*q**2 + 3*sqrt(5)*p**2*q**2 - sqrt(5)*p**2*q + 39*p**2*q - 12*p**2 + 2*sqrt(5)*p*q**2 + 22*p*q**2 - 33*p*q - sqrt(5)*p*q + 12*p + sqrt(5)*q + 9*q - 4)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0",
+          "I*p**2*q*(q - 1)*(2*p**3*q**2 - 3*p**3*q + p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 + 2*p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "-I*p**2*q*(-1 + sqrt(5))*(p - 1)*(q - 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "-I*p**2*q*(q - 1)*(2*p**3*q**2 - 3*p**3*q + p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 + 2*p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "-p*(2*p**2*q**2 - 3*p**2*q + p**2 - 2*p*q**2 + 3*p*q - p - q)*(4*p**5*q**4 - 12*p**5*q**3 + 13*p**5*q**2 - 6*p**5*q + p**5 + 6*p**3*q**3 - 19*p**3*q**2 + 18*p**3*q - 5*p**3 + 10*p**2*q**2 - 15*p**2*q + 5*p**2 + p*q - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "p**2*(q - 1)*(4*p**4*q**4 - 12*p**4*q**3 + 13*p**4*q**2 - 6*p**4*q + p**4 - 4*p**3*q**4 + 18*p**3*q**3 - 28*p**3*q**2 + 18*p**3*q - 4*p**3 - 10*p**2*q**3 + 27*p**2*q**2 - 23*p**2*q + 6*p**2 - 10*p*q**2 + 14*p*q - 4*p - 3*q + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "-2*p**3*q*(q - 1)*(2*p**2*q**3 - 7*p**2*q**2 + 7*p**2*q - 2*p**2 + 4*p*q**2 - 6*p*q + 2*p + q)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ],
+        [
+          "p**2*(q - 1)*(4*p**4*q**4 - 12*p**4*q**3 + 13*p**4*q**2 - 6*p**4*q + p**4 - 4*p**3*q**4 + 18*p**3*q**3 - 28*p**3*q**2 + 18*p**3*q - 4*p**3 - 10*p**2*q**3 + 27*p**2*q**2 - 23*p**2*q + 6*p**2 - 10*p*q**2 + 14*p*q - 4*p - 3*q + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "-p*(q - 1)*(p*q - p + 1)*(2*p**4*q**4 - 5*p**4*q**3 + 4*p**4*q**2 - p**4*q - 2*p**3*q**3 + 5*p**3*q**2 - 4*p**3*q + p**3 - 3*p**2*q**2 + 6*p**2*q - 3*p**2 - 3*p*q + 3*p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 + 3*p*q - 3*p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ],
+        [
+          "-2*p**3*q*(q - 1)*(2*p**2*q**3 - 7*p**2*q**2 + 7*p**2*q - 2*p**2 + 4*p*q**2 - 6*p*q + 2*p + q)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 + 3*p*q - 3*p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 + 3*p*q - 3*p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ]
+      ],
+      "E": [
+        [
+          "p*q",
+          "p*(1 - q)",
+          "p*q"
+        ],
+        [
+          "p*(1 - q)",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "p*q",
+          "p*(1 - q)"
+        ]
+      ],
+      "K": [
+        [
+          "-p*(2*p**2*q**2 - 3*p**2*q + p**2 - 2*p*q**2 + 3*p*q - p - q)*(4*p**5*q**4 - 12*p**5*q**3 + 13*p**5*q**2 - 6*p**5*q + p**5 + 6*p**3*q**3 - 19*p**3*q**2 + 18*p**3*q - 5*p**3 + 10*p**2*q**2 - 15*p**2*q + 5*p**2 + p*q - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p**2*(q - 1)*(p*q - p + 1)*(4*p**4*q**4 - 12*p**4*q**3 + 13*p**4*q**2 - 6*p**4*q + p**4 - 4*p**3*q**4 + 12*p**3*q**3 - 13*p**3*q**2 + 6*p**3*q - p**3 - 2*p**2*q**3 - 3*p**2*q**2 + 8*p**2*q - 3*p**2 + 10*p*q**2 - 15*p*q + 5*p + 5*q - 2)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p**3*q*(q - 1)*(4*p**4*q**4 - 12*p**4*q**3 + 13*p**4*q**2 - 6*p**4*q + p**4 - 4*p**3*q**4 + 12*p**3*q**3 - 13*p**3*q**2 + 6*p**3*q - p**3 + 6*p**2*q**3 - 19*p**2*q**2 + 18*p**2*q - 5*p**2 + 10*p*q**2 - 15*p*q + 5*p + q)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ],
+        [
+          "p**2*(q - 1)*(2*p**2*q**2 - 3*p**2*q + p**2 - 2*p*q**2 + 3*p*q - p - q)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 + 6*p**2*q**2 - 9*p**2*q + 3*p**2 + 3*p*q - 3*p + 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p*(q - 1)*(p*q - p + 1)*(2*p**4*q**4 - 5*p**4*q**3 + 4*p**4*q**2 - p**4*q - 2*p**3*q**3 + 5*p**3*q**2 - 4*p**3*q + p**3 - 3*p**2*q**2 + 6*p**2*q - 3*p**2 - 3*p*q + 3*p - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "p**3*q*(q - 1)**2*(p*q - p + 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 3)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ],
+        [
+          "p**3*q*(q - 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 3)*(2*p**2*q**2 - 3*p**2*q + p**2 - 2*p*q**2 + 3*p*q - p - q)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 4*p**2*q**2 + 6*p**2*q - 2*p**2 + 3*p*q - 3*p + 2)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 + 3*p*q - 3*p - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ]
+      ],
+      "Y": [
+        [
+          "-p*(-10*p**2*q**2 + 2*sqrt(5)*p**2*q**2 - 3*sqrt(5)*p**2*q + 15*p**2*q - 5*p**2 + sqrt(5)*p**2 - 2*sqrt(5)*p*q**2 + 2*sqrt(5)*p*q - sqrt(5) + 5)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "sqrt(5)*p*(2*p**2*q**2 - 3*p**2*q + p**2 - 3*p*q**2 + 5*p*q - 2*p - 2*q + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "sqrt(5)*p**2*q*(q - 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ],
+        [
+          "sqrt(5)*p*(2*p**2*q**2 - 3*p**2*q + p**2 - 3*p*q**2 + 5*p*q - 2*p - 2*q + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "p*(sqrt(5) + 5)*(2*p**2*q**2 - 3*p**2*q + p**2 - p*q**2 + p*q - 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0"
+        ],
+        [
+          "sqrt(5)*p**2*q*(q - 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0",
+          "-p**2*q*(-5 + sqrt(5))*(q - 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ]
+      ],
+      "w": [
+        [
+          "p*(2*p**2*q**2 - 3*p**2*q + p**2 - 2*p*q**2 + 3*p*q - p - q)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ],
+        [
+          "p*(q - 1)*(p*q - p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ],
+        [
+          "p**2*q*(q - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ]
+      ]
+    },
+    "CE": {
+      "A": [
+        [
+          "0",
+          "-I*p**3*q**2*(1 + sqrt(5))*(q - 1)*(p**2*q**2 - p**2*q + p*q - p + 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "I*p**3*q**2*(-1 + sqrt(5))*(q - 1)*(p**2*q**2 - p**2*q + p*q - p + 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "I*p**3*q**2*(1 + sqrt(5))*(q - 1)*(p**2*q**2 - p**2*q + p*q - p + 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0",
+          "I*p**3*q**2*(q - 1)*(p**2*q**2 - p**2*q + p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "-I*p**3*q**2*(-1 + sqrt(5))*(q - 1)*(p**2*q**2 - p**2*q + p*q - p + 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "-I*p**3*q**2*(q - 1)*(p**2*q**2 - p**2*q + p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "-p*q*(p**2*q**2 - p**2*q - p*q + p - 1)*(2*p**5*q**5 - 5*p**5*q**4 + 4*p**5*q**3 - p**5*q**2 - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 + p**3*q**3 - 4*p**3*q**2 + 3*p**3*q + 7*p**2*q**2 - 9*p**2*q + 2*p**2 + p*q - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "0",
+          "-p**3*q**2*(q - 1)*(2*p**5*q**5 - 7*p**5*q**4 + 9*p**5*q**3 - 5*p**5*q**2 + p**5*q - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 - 3*p**3*q**3 + 5*p**3*q**2 - p**3*q - p**3 + 5*p**2*q**2 - 12*p**2*q + 7*p**2 + 7*p*q - 7*p + 2)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-p**3*q**2*(q - 1)*(2*p**5*q**5 - 7*p**5*q**4 + 9*p**5*q**3 - 5*p**5*q**2 + p**5*q - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 - 3*p**3*q**3 + 5*p**3*q**2 - p**3*q - p**3 + 5*p**2*q**2 - 12*p**2*q + 7*p**2 + 7*p*q - 7*p + 2)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "0",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**5*q**5 - 7*p**5*q**4 + 9*p**5*q**3 - 5*p**5*q**2 + p**5*q - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 - 5*p**3*q**3 + 10*p**3*q**2 - 5*p**3*q - p**2*q**2 - p**2*q + 2*p**2 - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ]
+      ],
+      "E": [
+        [
+          "p*q",
+          "0",
+          "p*q"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "p*q",
+          "0"
+        ]
+      ],
+      "K": [
+        [
+          "-p*q*(p**2*q**2 - p**2*q - p*q + p - 1)*(2*p**5*q**5 - 5*p**5*q**4 + 4*p**5*q**3 - p**5*q**2 - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 + p**3*q**3 - 4*p**3*q**2 + 3*p**3*q + 7*p**2*q**2 - 9*p**2*q + 2*p**2 + p*q - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "0",
+          "-p**3*q**2*(q - 1)*(p*q - p + 1)*(2*p**4*q**4 - 5*p**4*q**3 + 4*p**4*q**2 - p**4*q - 2*p**3*q**3 + 5*p**3*q**2 - 4*p**3*q + p**3 + p**2*q**2 - 4*p**2*q + 3*p**2 + 5*p*q - 5*p + 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-p**3*q**2*(q - 1)*(p**2*q**2 - p**2*q - p*q + p - 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 - 5*p*q + 5*p - 3)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "0",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**5*q**5 - 7*p**5*q**4 + 9*p**5*q**3 - 5*p**5*q**2 + p**5*q - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 - 5*p**3*q**3 + 10*p**3*q**2 - 5*p**3*q - p**2*q**2 - p**2*q + 2*p**2 - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ]
+      ],
+      "Y": [
+        [
+          "p*q*(10*p**2*q**2 - 15*p**2*q - sqrt(5)*p**2*q + sqrt(5)*p**2 + 5*p**2 + 2*sqrt(5)*p*q - 2*sqrt(5)*p - 5 + sqrt(5))/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "sqrt(5)*p*q*(p**2*q**2 - p**2*q - p*q + p - 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "sqrt(5)*p**2*q*(q - 1)*(p*q - p + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ],
+        [
+          "sqrt(5)*p*q*(p**2*q**2 - p**2*q - p*q + p - 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "p*q*(sqrt(5) + 5)*(p**2*q**2 - p**2*q - p*q + p - 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0"
+        ],
+        [
+          "sqrt(5)*p**2*q*(q - 1)*(p*q - p + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0",
+          "-p**2*q*(-5 + sqrt(5))*(q - 1)*(p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ]
+      ],
+      "w": [
+        [
+          "p*q*(p**2*q**2 - p**2*q - p*q + p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ],
+        [
+          "0"
+        ],
+        [
+          "p**2*q*(q - 1)*(p*q - p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ]
+      ]
+    },
+    "E": {
+      "A": [
+        [
+          "0",
+          "I*p**2*q**2*(1 + sqrt(5))*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 - 2*p*q + 2*p - 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "-I*p**2*q**2*(-1 + sqrt(5))*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 - 2*p*q + 2*p - 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "-I*p**2*q**2*(1 + sqrt(5))*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 - 2*p*q + 2*p - 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0",
+          "-I*p**2*q**2*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 - 2*p*q + 2*p - 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "I*p**2*q**2*(-1 + sqrt(5))*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 - 2*p*q + 2*p - 1)/(20*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "I*p**2*q**2*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 - 2*p*q + 2*p - 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "-q*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)*(2*p**5*q**4 - 5*p**5*q**3 + 4*p**5*q**2 - p**5*q - 4*p**4*q**4 + 10*p**4*q**3 - 10*p**4*q**2 + 5*p**4*q - p**4 - 5*p**3*q**2 + 5*p**3*q + 4*p**2*q**2 - 9*p**2*q + 2*p**2 - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "0",
+          "p**2*q**2*(q - 1)*(2*p**6*q**5 - 9*p**6*q**4 + 16*p**6*q**3 - 14*p**6*q**2 + 6*p**6*q - p**6 - 4*p**5*q**5 + 18*p**5*q**4 - 32*p**5*q**3 + 28*p**5*q**2 - 12*p**5*q + 2*p**5 - 5*p**4*q**3 + 15*p**4*q**2 - 15*p**4*q + 5*p**4 + 8*p**3*q**3 - 29*p**3*q**2 + 34*p**3*q - 13*p**3 + 4*p**2*q**2 - 10*p**2*q + 6*p**2 - 3*p*q + 3*p - 2)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "p**2*q**2*(q - 1)*(2*p**6*q**5 - 9*p**6*q**4 + 16*p**6*q**3 - 14*p**6*q**2 + 6*p**6*q - p**6 - 4*p**5*q**5 + 18*p**5*q**4 - 32*p**5*q**3 + 28*p**5*q**2 - 12*p**5*q + 2*p**5 - 5*p**4*q**3 + 15*p**4*q**2 - 15*p**4*q + 5*p**4 + 8*p**3*q**3 - 29*p**3*q**2 + 34*p**3*q - 13*p**3 + 4*p**2*q**2 - 10*p**2*q + 6*p**2 - 3*p*q + 3*p - 2)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "0",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**5*q**5 - 7*p**5*q**4 + 9*p**5*q**3 - 5*p**5*q**2 + p**5*q - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 - 5*p**3*q**3 + 10*p**3*q**2 - 5*p**3*q - p**2*q**2 - p**2*q + 2*p**2 - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ]
+      ],
+      "E": [
+        [
+          "q",
+          "-p*q + q",
+          "q"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "p*q",
+          "0"
+        ]
+      ],
+      "K": [
+        [
+          "-q*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)*(2*p**5*q**4 - 5*p**5*q**3 + 4*p**5*q**2 - p**5*q - 4*p**4*q**4 + 10*p**4*q**3 - 10*p**4*q**2 + 5*p**4*q - p**4 - 5*p**3*q**2 + 5*p**3*q + 4*p**2*q**2 - 9*p**2*q + 2*p**2 - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "0",
+          "p**2*q**2*(q - 1)*(p*q - p + 1)*(2*p**5*q**4 - 7*p**5*q**3 + 9*p**5*q**2 - 5*p**5*q + p**5 - 4*p**4*q**4 + 14*p**4*q**3 - 18*p**4*q**2 + 10*p**4*q - 2*p**4 - 5*p**3*q**2 + 10*p**3*q - 5*p**3 + 4*p**2*q**2 - 11*p**2*q + 7*p**2 - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "p**2*q**2*(q - 1)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 - 5*p*q + 5*p - 3)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "0",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**5*q**5 - 7*p**5*q**4 + 9*p**5*q**3 - 5*p**5*q**2 + p**5*q - 2*p**4*q**4 + 7*p**4*q**3 - 9*p**4*q**2 + 5*p**4*q - p**4 - 5*p**3*q**3 + 10*p**3*q**2 - 5*p**3*q - p**2*q**2 - p**2*q + 2*p**2 - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ]
+      ],
+      "Y": [
+        [
+          "q*(2*sqrt(5)*p**3*q**2 - 4*sqrt(5)*p**3*q + 2*sqrt(5)*p**3 - 2*sqrt(5)*p**2*q**2 + 10*p**2*q**2 - 15*p**2*q + 5*sqrt(5)*p**2*q - 3*sqrt(5)*p**2 + 5*p**2 - 5 + sqrt(5))/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "-sqrt(5)*q*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "sqrt(5)*p**2*q*(q - 1)*(p*q - p + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ],
+        [
+          "-sqrt(5)*q*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "-q*(sqrt(5) + 5)*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0"
+        ],
+        [
+          "sqrt(5)*p**2*q*(q - 1)*(p*q - p + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0",
+          "-p**2*q*(-5 + sqrt(5))*(q - 1)*(p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ]
+      ],
+      "w": [
+        [
+          "-q*(p**3*q**2 - 2*p**3*q + p**3 - 2*p**2*q**2 + 4*p**2*q - 2*p**2 + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ],
+        [
+          "0"
+        ],
+        [
+          "p**2*q*(q - 1)*(p*q - p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ]
+      ]
+    },
+    "always": {
+      "A": [
+        [
+          "0",
+          "-I*p**2*q*(sqrt(5) + 3)*(q - 1)*(p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0"
+        ],
+        [
+          "I*p**2*q*(sqrt(5) + 3)*(q - 1)*(p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0",
+          "I*p**2*q*(q - 1)*(p*q - p + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)"
+        ],
+        [
+          "0",
+          "-I*p**2*q*(q - 1)*(p*q - p + 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**2)",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "p*(q - 1)*(p*q - p + 1)*(4*p**3*q**3 - 8*p**3*q**2 + 5*p**3*q - p**3 + 6*p**2*q**2 - 9*p**2*q + 3*p**2 + 6*p*q - 3*p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "p*(q - 1)*(p*q - p + 1)*(2*p**3*q**2 - 3*p**3*q + p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 - 4*p*q + 3*p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "-2*p**2*q*(q - 1)*(p*q - p + 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ],
+        [
+          "p*(q - 1)*(p*q - p + 1)*(2*p**3*q**2 - 3*p**3*q + p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 - 4*p*q + 3*p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "-p*(q - 1)*(p*q - p + 1)*(2*p**4*q**4 - 5*p**4*q**3 + 4*p**4*q**2 - p**4*q - 2*p**3*q**3 + 5*p**3*q**2 - 4*p**3*q + p**3 - 3*p**2*q**2 + 6*p**2*q - 3*p**2 - 3*p*q + 3*p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 + 3*p*q - 3*p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ],
+        [
+          "-2*p**2*q*(q - 1)*(p*q - p + 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 2*p**2*q**2 + 3*p**2*q - p**2 + 3*p*q - 3*p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 + 3*p*q - 3*p - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3"
+        ]
+      ],
+      "E": [
+        [
+          "-p*(1 - q) + 1",
+          "-p*q + 1",
+          "-p*(1 - q) + 1"
+        ],
+        [
+          "p*(1 - q)",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "p*q",
+          "p*(1 - q)"
+        ]
+      ],
+      "K": [
+        [
+          "p*(q - 1)*(p*q - p + 1)*(4*p**3*q**3 - 8*p**3*q**2 + 5*p**3*q - p**3 + 6*p**2*q**2 - 9*p**2*q + 3*p**2 + 6*p*q - 3*p + 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "p*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - p**3*q**2 - 2*p**3*q + p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 - 5*p*q + 3*p - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(6*p**2*q**2 - 9*p**2*q + 3*p**2 + 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ],
+        [
+          "-p*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 + 6*p**2*q**2 - 9*p**2*q + 3*p**2 + 3*p*q - 3*p + 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p*(q - 1)*(p*q - p + 1)*(2*p**4*q**4 - 5*p**4*q**3 + 4*p**4*q**2 - p**4*q - 2*p**3*q**3 + 5*p**3*q**2 - 4*p**3*q + p**3 - 3*p**2*q**2 + 6*p**2*q - 3*p**2 - 3*p*q + 3*p - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "p**3*q*(q - 1)**2*(p*q - p + 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 3)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ],
+        [
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**2*q**2 - 3*p**2*q + p**2 + 3)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 4*p**2*q**2 + 6*p**2*q - 2*p**2 + 3*p*q - 3*p + 2)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)",
+          "-p**2*q*(q - 1)*(p*q - p + 1)*(2*p**3*q**3 - 5*p**3*q**2 + 4*p**3*q - p**3 - 6*p**2*q**2 + 9*p**2*q - 3*p**2 + 3*p*q - 3*p - 1)/(2*(2*p**2*q**2 - 3*p**2*q + p**2 - 1)**3)"
+        ]
+      ],
+      "Y": [
+        [
+          "(10*p**2*q**2 - 15*p**2*q + sqrt(5)*p**2*q - sqrt(5)*p**2 + 5*p**2 - 5 + sqrt(5))/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "-sqrt(5)*(p*q - p + 1)**2/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "sqrt(5)*p**2*q*(q - 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ],
+        [
+          "-sqrt(5)*(p*q - p + 1)**2/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "(sqrt(5) + 5)*(p*q - p - 1)*(p*q - p + 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0"
+        ],
+        [
+          "sqrt(5)*p**2*q*(q - 1)/(5*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))",
+          "0",
+          "-p**2*q*(-5 + sqrt(5))*(q - 1)/(10*(2*p**2*q**2 - 3*p**2*q + p**2 - 1))"
+        ]
+      ],
+      "w": [
+        [
+          "-(p*q - p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ],
+        [
+          "p*(q - 1)*(p*q - p + 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ],
+        [
+          "p**2*q*(q - 1)/(2*p**2*q**2 - 3*p**2*q + p**2 - 1)"
+        ]
+      ]
+    }
+  }
+}

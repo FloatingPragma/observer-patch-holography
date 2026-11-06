@@ -1,0 +1,329 @@
+{
+  "duty": {
+    "C_and_always_differ_beyond_common_clock_scale": true,
+    "C_identity_exact": "Z_C=Y-(1-p)P2",
+    "C_is_p_times_Y": false,
+    "conditioning_changes_eigenvalue_ratios": false,
+    "conditioning_on_C_divides_Z_C_by_p": true,
+    "duty_changes_source_generator": true,
+    "physical_mass_map_derived": false,
+    "policies": {
+      "C": {
+        "eigenvalues_diagnostic": [
+          0.0002556307173971954,
+          0.013698741092255195,
+          0.06937896152368098
+        ],
+        "matrix_exact": [
+          [
+            "1/24 - 1261*sqrt(5)/154920",
+            "-367*sqrt(5)/38730",
+            "sqrt(5)/5164"
+          ],
+          [
+            "-367*sqrt(5)/38730",
+            "319*sqrt(5)/38730 + 319/7746",
+            "0"
+          ],
+          [
+            "sqrt(5)/5164",
+            "0",
+            "5/10328 - sqrt(5)/10328"
+          ]
+        ],
+        "normalized_trace_square_exact": "1200289/1666681",
+        "rank_exact": 3,
+        "ratios_diagnostic": [
+          1.0,
+          53.5880086389238,
+          271.40307013996653
+        ],
+        "trace_exact": "1/12"
+      },
+      "CE": {
+        "eigenvalues_diagnostic": [
+          3.0831775865313846e-19,
+          0.0007103757463796344,
+          0.013178513142509254
+        ],
+        "matrix_exact": [
+          [
+            "1/144 - 749*sqrt(5)/619680",
+            "4829*sqrt(5)/1859040",
+            "67*sqrt(5)/371808"
+          ],
+          [
+            "4829*sqrt(5)/1859040",
+            "4829*sqrt(5)/3718080 + 4829/743616",
+            "0"
+          ],
+          [
+            "67*sqrt(5)/371808",
+            "0",
+            "335/743616 - 67*sqrt(5)/743616"
+          ]
+        ],
+        "normalized_trace_square_exact": "3009819/3333362",
+        "rank_exact": 2,
+        "ratios_diagnostic": null,
+        "trace_exact": "1/72"
+      },
+      "E": {
+        "eigenvalues_diagnostic": [
+          7.403481585728194e-18,
+          0.0007200160048408073,
+          0.16594665066182596
+        ],
+        "matrix_exact": [
+          [
+            "1/12 - 30649*sqrt(5)/1859040",
+            "61633*sqrt(5)/1859040",
+            "67*sqrt(5)/371808"
+          ],
+          [
+            "61633*sqrt(5)/1859040",
+            "61633*sqrt(5)/3718080 + 61633/743616",
+            "0"
+          ],
+          [
+            "67*sqrt(5)/371808",
+            "0",
+            "335/743616 - 67*sqrt(5)/743616"
+          ]
+        ],
+        "normalized_trace_square_exact": "475874717/480004128",
+        "rank_exact": 2,
+        "ratios_diagnostic": null,
+        "trace_exact": "1/6"
+      },
+      "always": {
+        "eigenvalues_diagnostic": [
+          0.000264834486372571,
+          0.051673720427135375,
+          0.9480614450864917
+        ],
+        "matrix_exact": [
+          [
+            "1/2 - 2577*sqrt(5)/25820",
+            "4489*sqrt(5)/25820",
+            "sqrt(5)/5164"
+          ],
+          [
+            "4489*sqrt(5)/25820",
+            "5159*sqrt(5)/51640 + 5159/10328",
+            "0"
+          ],
+          [
+            "sqrt(5)/5164",
+            "0",
+            "5/10328 - sqrt(5)/10328"
+          ]
+        ],
+        "normalized_trace_square_exact": "3004995/3333362",
+        "rank_exact": 3,
+        "ratios_diagnostic": [
+          1.0,
+          195.11703756904387,
+          3579.826245713152
+        ],
+        "trace_exact": "1"
+      }
+    }
+  },
+  "memory_compression": {
+    "admitted_initial_states": "Every state supported in the four-address memory code, including arbitrary work/reference correlations; reset2 and stationary memory are included.",
+    "complete_history_identity": true,
+    "complete_raw_labels": 128,
+    "complete_raw_old_outcomes": 1536,
+    "compressed_memory_addresses": 4,
+    "embedding_ports": [
+      2,
+      3,
+      9,
+      10
+    ],
+    "full_memory_addresses": 12,
+    "full_quantum_identity": "K_y E = E B_y for every raw/old outcome, with identical U_destination(h); equality holds for every real h.",
+    "one_step_startup_domain": [
+      0,
+      1,
+      2,
+      3,
+      9,
+      10
+    ],
+    "physical_capacity_universality": false,
+    "positive_branch_intertwinings": 96,
+    "scope": "An encoding of the same declared source law. Transient initial memory outside the code, altered schedules, clocks or physical capacities are not identified.",
+    "stationary_exact": [
+      [
+        "1206/1291"
+      ],
+      [
+        "335/5164"
+      ],
+      [
+        "25/397628"
+      ],
+      [
+        "90/99407"
+      ]
+    ],
+    "transition_exact": [
+      [
+        "67/72",
+        "71/72",
+        "67/72",
+        "67/72"
+      ],
+      [
+        "5/72",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "5/72"
+      ],
+      [
+        "0",
+        "1/72",
+        "5/72",
+        "0"
+      ]
+    ],
+    "zero_outcomes_on_admitted_code": 1440,
+    "zero_start_memory_after_first_event": [
+      [
+        "71/72"
+      ],
+      [
+        "0"
+      ],
+      [
+        "1/72"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "zero_start_scope": "Initial address0 is admitted after retaining its full first-event instrument and original old0 record; its continuation then uses the same four-address encoding."
+  },
+  "poles": {
+    "changed_feedback_can_change_dynamics": true,
+    "exact_logical_resolvent": [
+      [
+        "-2/(z - 2)",
+        "0"
+      ],
+      [
+        "0",
+        "-3/(z - 3)"
+      ]
+    ],
+    "faithful_recovery_moves_logical_poles": false,
+    "full_visible_response": "-(5*z - 12)/((z - 3)*(z - 2))",
+    "lossy_observation_can_remove_residues": true,
+    "masked_poles": [
+      "3"
+    ],
+    "masked_response": "-2/(z - 2)",
+    "unreachable_carrier_pole": "5"
+  },
+  "readout": {
+    "burnin": 8,
+    "complete_pointer_records_retained": 82944,
+    "exact_memory_l1_error": "9765625/2001949865847816192",
+    "exact_memory_l1_upper": "1/2579890176",
+    "family_enclosure_method": "rational interval LDL inertia from native_flavor_orbit.spectrum.eigenvalue_boxes",
+    "family_root_enclosures_exact": [
+      [
+        "4770833976569/18014398509481984",
+        "9541667953139/36028797018963968"
+      ],
+      [
+        "1861741984483957/36028797018963968",
+        "930870992241979/18014398509481984"
+      ],
+      [
+        "34157513366526871/36028797018963968",
+        "4269689170815859/4503599627370496"
+      ]
+    ],
+    "finite_preparation_ratio_enclosures_exact": [
+      [
+        "36644667205719818687/187808925199541881",
+        "18322333877737826129/93904187721854155"
+      ],
+      [
+        "672322335318470494949/187808925199541881",
+        "67232233586822632852/18780837544370831"
+      ]
+    ],
+    "finite_ratios_diagnostic": [
+      1.0,
+      195.11703761431465,
+      3579.826246495107
+    ],
+    "inverse_has_zero_exact_finite_pulse_bias": true,
+    "mixing_only_stationary_ratio_diagnostic_intervals": [
+      [
+        195.1167505313491,
+        195.1173246075979
+      ],
+      [
+        3579.8210048012697,
+        3579.8314866407068
+      ]
+    ],
+    "operator_bias_upper": 3.876133989356297e-10,
+    "physical_service_errors_or_shot_noise_certified": false,
+    "ratio_endpoint_floats_are_outward_rounded": false,
+    "stationary_ratios_diagnostic": [
+      1.0,
+      195.11703756904387,
+      3579.826245713152
+    ],
+    "total_memory_transitions": 9,
+    "two_clock_inverse_error_diagnostic": 2.43420922029609e-15,
+    "two_clock_numerical_allowance": 1.8094265811981572e-11
+  },
+  "recovery": {
+    "arbitrary_reference_identity": true,
+    "branches_checked_including_zero": 1440,
+    "carrier_dimension": 512,
+    "codes": 2,
+    "compiled_service_error_set_to_zero": false,
+    "exact_branch_weights": [
+      "0",
+      "1/12",
+      "1/3",
+      "5/12"
+    ],
+    "exact_identity": "R_y K_y E = sqrt(w_y) E",
+    "laws": [
+      "C",
+      "E"
+    ],
+    "logical_dimension": 6,
+    "positive_branches": 600,
+    "record_independence_of_logical_state": true,
+    "scope": "Ideal recorded recovery on the specified matching code; source compilation and physical service errors retain their separate budgets.",
+    "seams_per_code": 30
+  },
+  "schema": "oph.particle_record_equivalence.v1",
+  "scope": "Exact ideal record and encoding identities for a declared finite source; no empirical correction is fitted.",
+  "source_sha256": {
+    "model/common_source/native_code_transport.py": "c068671558195838c5c93271dd47756630feb36a9c203cc9015bf3c4b066938a",
+    "model/common_source/native_family_record_memory.py": "d81f97ae43160c838d7a0ba24dd6d7da26d7c0c1b079912667030c801cb64730",
+    "model/common_source/native_gauge_object.py": "ddbd9ced23e85e9755396dcc917eb744d62e98f64b89535dfff0066e53782733",
+    "model/common_source/native_repair_mass.py": "59e70327e4071e98fe3e005af8b3a94e62f0b17cf20cfcf2db22b637df80e87e",
+    "model/common_source/record_code.py": "0359a77057cd38329bc696a1cc0566a1a8863f7cbf0a697312e4581cc5c10f7a",
+    "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
+    "model/native_flavor_orbit/spectrum.py": "5f793b5f50ce4ae931df0439c6987cdf6c62235a5103a227f948933e9017c0f2",
+    "model/particle_record_equivalence/certificate.py": "f98ec1502c9db7add68e2279af33cb585be802a2cedcb5fefb530343282b28ee"
+  }
+}

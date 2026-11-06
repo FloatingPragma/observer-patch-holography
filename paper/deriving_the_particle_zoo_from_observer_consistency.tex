@@ -389,22 +389,72 @@ The same masses and current normalization must appear on both sides.
 A fixed point of a declared response proves consistency of that map, without
 identifying it as the physical electromagnetic response.
 
-The mass law used here is a chosen finite response architecture with
-icosahedral incidence registers and a determinant normalization. Its charged
-shape has a three-phase form related to Koide-type parametrizations
-\cite{koide1983,brannen2006}. The architecture has target-informed provenance; its predictions are
-conditional postdictions even when
-its execution reads no measured masses. Choosing it as part of a simulator
-is allowed. Independent validation requires consequences not used to choose
-it. The following realization states both the operator identity and the
-complete-record error bound. Its displayed $\beta=4$ scale convention is one
-specified branch; the normalized coefficients and memory identities also
-apply to the explicit $\beta=7$ branch considered afterward.
+The mass law used here is a chosen response architecture with icosahedral
+registers and determinant normalization. Its charged shape uses a three-phase
+Koide-type parametrization \cite{koide1983,brannen2006}. The architecture has
+target-informed provenance: its numerical comparisons are conditional
+postdictions even when its execution reads no measured masses. The quark
+exponents, scalar quartic, neutrino operator and physical flavor mixing are
+not determined from A1--A3 here. Independent validation requires consequences
+not used to choose it. The following operator realization and complete-record
+bound apply to the displayed $\beta=4$ branch and the normalized coefficients
+of the explicit $\beta=7$ branch.
+
+The native event rates $p=1/12$, $q=1/6$ give
+$2\sqrt{p/q}=\sqrt2$ and $p+q-2pq=2/9$, but these identities do not
+turn a probability into a coherent phase. Replacing each Kraus operator
+$K_r$ by $e^{i\theta_r}K_r$ preserves every classical outcome map and
+record-dependent feedback experiment, including spectator correlations.
+Coherent record erasure can distinguish such lifts only through an additional
+phase-sensitive reference. Cyclic averaging also cannot select three distinct
+family values from a real symmetric kernel: for a real regular three-cycle
+$R$ and $P=(I+R+R^2)/3$,
+\[
+\tfrac13\sum_{j=0}^{2}R^jX(R^T)^j=aP+b(I-P),\qquad X=X^T\in M_3(\mathbb R).
+\]
+The two-dimensional rotation plane forces a repeated eigenvalue. Exact native
+checks and phase-distinct coherent counterexamples are supplied in
+\path{model/particle_source_selection}. A source-selected coherent reference
+is outside these exclusions.
 
 \begingroup
 \let\section\subsection
 \input{tex_fragments/MCPR_NATIVE_MEMORY_BRIDGE.tex}
 \endgroup
+
+\subsection{Memory correlations beyond the mean unitary}
+
+The native stationary memory has three distinct projector rays, because
+$P_9=P_{10}$. Summing their complete temporal correlations gives a controlled
+correction to the mean evolution. This three-ray reduction concerns unread
+output; retaining the two old-memory labels requires the four-address
+instrument of Section~\ref{sec:particle-joins}.
+
+Let $T$ be the reduced column-stochastic transition, $E$ its enabled-pulse
+part, $\pi$ its stationary column, $\Pi=\pi\mathbf1^T$ and $w=E\pi$.
+The reset identity contracts zero-sum memory vectors by $p<1$, so the
+group inverse $\mathcal R=(I-T+\Pi)^{-1}-\Pi$ sums every lag. The one-sided
+covariance and its positive symmetric part are
+\[
+ K=\tfrac12(\operatorname{diag}w-ww^T)+E\mathcal R\operatorname{diag}w,
+ \qquad D=K+K^T\succeq0.
+\]
+Positivity follows from the limiting covariance of accumulated pulse counts.
+For $H_i=gX\otimes P_i$ and $L_i=-i[H_i,\cdot]$, the reduced generator is
+$G_0+hG_1$, with $G_0=\sum_iw_iL_i$, $G_1=\sum_{ij}K_{ij}L_iL_j$.
+Its antisymmetric coefficient gives
+$H_{\rm ord}=-(i/2)\sum_{ij}K_{ij}[H_i,H_j]$; the symmetric part gives
+the dissipator $-\tfrac12\sum_{ij}D_{ij}[H_i,[H_j,\cdot]]$.
+Both belong to the same correction. Here $H_{\rm ord}=I_2\otimes A$ is
+a family potential, with a different auxiliary grading from a scalar mass.
+
+For stationary product preparation, any untouched reference, $h=t/N$, and
+fixed $t$, the corrected completely positive semigroup has an explicit
+$O(h^2)$ unread-channel error bound. The proof and rational bounds are in
+\path{model/particle_memory_response}. This statement supplies neither a
+semigroup of complete record tapes nor a physical mass assignment;
+correlated initial memory requires additional preparation terms.
+
 \input{tex_fragments/PIXEL_MASS_CLOSURE.tex}
 
 The beta coefficients in the feedback calculation are obtained from the
@@ -491,6 +541,40 @@ below provides the latter type of finite source example.
 \input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 \input{tex_fragments/COMPACT_BAND_WORK.tex}
 \input{tex_fragments/NATIVE_QUANTUM_GAUSS.tex}
+
+\subsection{Gauge-covariant paired compact bands}
+
+The full radius-three compact source has 343 sites. Supply classical unitary
+internal links and pairing with norm at most one. The hopping norm is at
+most three, independently of link holonomies. With onsite texture amplitude
+64, the complete Bogoliubov--de Gennes operator therefore has a 360-dimensional
+band in $[-4,4]$ and its complement outside $(-60,60)$ for the 45-dimensional
+internal carrier. Its spectral projector $\Pi_r$ includes the pairing on
+each retained record; a spatial-only projector need not reduce that pairing
+on a curved link background.
+
+Let $\tau_z$ be the particle grading and $\Pi_0$ the corresponding
+number-conserving band projector. A contour resolvent estimate gives
+$\|\Pi_r-\Pi_0\|\leq8/203$. Thus $C_r=\Pi_r\tau_z\Pi_r$ is invertible
+on the band. Its sign $J_r$ defines the complementary projectors
+$(\Pi_r\pm J_r)/2$, exchanged by particle-hole conjugation, each of rank
+180. They give canonical annihilation modes and integer occupation $N_r$,
+so $\lambda(N_r-90)^2$ is well-defined. At trivial links this is exactly
+the source compact interaction. Transforming the link and pairing together
+preserves the band and interaction covariantly. Explicit polar controllers
+transport the band grading between records; these are supplied operations
+with work and duration, not identities of the unmodified repair law.
+
+The separate 60-state quantum link has a conditional compact-group rotor
+completion. Projected coordinate multiplication preserves all native Gauss
+identities and the vacuum-raising amplitudes, while adding flux transitions
+to the dynamics. Endpoint covariance leaves five independent link-energy
+differences. Operator-valued spectral projectors also need a separate
+fermion-algebra proof: a literal native two-site raising-link example has a
+noninteger naive occupation even on a Gauss singlet. It is not the
+343-site compact projector. These exact constructions and their distinct
+domains are supplied in \path{model/particle_gauge_band}; a dynamical
+quantum-link realization of the interacting compact band is not established.
 
 \section{The conditional catalogue and the physical comparison}
 \label{sec:particle-joins}
@@ -585,6 +669,167 @@ independent tests use data or consequences not used in the choice.
 The finite source spectra reported here have no certified running-to-pole,
 confinement, or laboratory-clock map.
 
+\subsection{Complete records, neutral response and capacity}
+
+The complete instrument determines which spectral values an observer can
+read. A neutral two-address memory gives an exact example. Let
+\[
+ T=\begin{pmatrix}1-p&1\\p&0\end{pmatrix},\qquad
+ \pi=\frac{(1,p)}{1+p},\qquad
+ U_j=\exp(-ihX\otimes P_j),
+\]
+where $0\leq p\leq1/12$, $X$ is the two-dimensional exchange matrix with
+eigenvectors $|+\rangle,|-\rangle$, and the rank-one family
+projectors obey $\operatorname{tr}(P_2P_3)=1/5$. On their bright plane $B$,
+choose its antisymmetric area form $J$ and put
+$A=|+\rangle\langle-|\otimes J$, $O=A+A^*$,
+$P_B=I_2\otimes B$. Then $U_jAU_j^*=e^{-ih}A$ and $O^2=P_B$.
+The three projectors $(P_B+O)/2$, $(P_B-O)/2$ and $I-P_B$ give a complete
+readout with values $+1,-1,0$. Starting from $\pi$ and the stationary bright,
+dark or tracial response state $P_B/4$, $(I-P_B)/2$ or $I_6/6$ gives,
+respectively,
+\[
+ C_B(n)=\cos(nh),\qquad C_D(n)=0,\qquad
+ C_{\rm tr}(n)=\tfrac23\cos(nh).
+\]
+The first measurement operation is included. The same transfer frequency
+therefore has either a nonzero or zero measured residue, depending on the
+supplied state and detector. It does not supply three neutrino masses.
+
+There is a separate exact obstruction to reading absolute field frequencies
+from density records. Adjoin a reference line and extend each branch by
+\[
+ V_j(\delta)=1\oplus e^{-i\delta h}U_j.
+\]
+All complete record probabilities and conditional density matrices confined
+to the original response sector are independent of $\delta$. Coherences
+with the added reference instead acquire that phase, so their amplitude
+transfer is $F_\delta=e^{-i\delta h}F_0$. The density experiment cannot
+choose between these reference attachments. This counterexample supplies
+no Lorentz-scalar mass interpretation for the shift.
+
+The native twelve-address family memory admits an exact smaller encoding.
+Every raw branch preserves the recurrent set $S=\{2,3,9,10\}$. Let $E_S$
+embed four memory addresses into these source addresses. For all 128 raw
+labels, all twelve original old-memory labels and every real pulse size,
+the corresponding reduced branch $B_y$ obeys
+\[
+K_y(E_S\otimes I)=(E_S\otimes I)B_y.
+\]
+Multiplication proves equality of all joint records and terminal work states
+for any initially encoded state, including entanglement with an arbitrary
+reference. Reset to address 2 and stationary memory qualify. The other eight
+initial addresses are outside this direct embedding. Address 0 also admits
+one fully retained startup event, landing at 2 or 9, followed by exact
+recurrent encoding. These maps encode one complete law, without a general
+physical capacity-independence claim.
+
+The native matching code also obeys the ideal recovery identity
+$R_yK_yE=\sqrt{w_y}E$, with $\sum_yw_y=1$, for every retained branch.
+Hence specified logical evolution between corrected repairs is preserved
+even conditional on the records. Faithful recovery cannot shift its poles.
+Changing feedback duty changes the evolution: the native always-duty and
+C-duty generators have ratios approximately $1:195.117:3579.826$ and
+$1:53.588:271.403$, respectively. Their normalized quadratic traces differ
+exactly, so neither a family relabeling nor a common clock rescales one into
+the other. The proof and complete native checks are supplied in
+\path{model/particle_record_equivalence}. The specified nine-transition
+preparation and two-clock inverse have stationary-kernel error at most
+$1/2579890176$. Physical service errors and the source-to-mass attachment
+require separate bounds.
+
+Several finite identities restrict proposed mass corrections without a
+parameter search. For the native core-biased reference and nonnegative seam
+weights, stationarity forces all core-to-outer weights to vanish. Every
+retained branch conserves a nonzero core-charge
+coordinate. The Schur mass matrix therefore has a null vector; an invertible
+positive kinetic normalization preserves its rank. A different reference or
+active recovery changes the premises of this obstruction.
+
+For the unshifted neutral amplitude extension, put $z=e^{-ih}$,
+$U=I+(z-1)P_2$, $V=I+(z-1)P_3$ on the bright plane. Its full recurrent
+transfer is
+$F=\left(\begin{smallmatrix}(1-p)U&U\\pV&0\end{smallmatrix}\right)$.
+For $0\leq p\leq1/12$, $0<h\leq1/2$, its two roots of modulus above
+$1/2$ have phase coefficients $\omega,1-\omega$ with
+\[
+0\leq\omega\leq a=\tfrac12\left(1-\tfrac{95}{96}
+\sqrt{\tfrac{653}{848}}\right).
+\]
+The additional common-scale mass attachment $M(0,\omega,1-\omega)$ then
+has adjacent squared-gap ratio at most $a^2/(1-2a)<0.004988$. The retained
+memory roots and damping are part of this calculation; interpreting these
+phases as physical neutrino masses is an extra premise.
+
+A coherent family potential also need not be a scalar mass. For the supplied
+Dirac symbol $\alpha_i=Z\otimes\sigma_i\otimes I$, a potential
+$I_4\otimes A$ has zero projection onto the spin-invariant terms
+anticommuting with all $\alpha_i$. For Hermitian $A,M$ and
+$H_h(k)=\alpha\cdot k+X\otimes I_2\otimes M+hI_4\otimes A$,
+\[
+\operatorname{Tr}[(H_h(k)^2-|k|^2I)^2]-\operatorname{Tr}[H_h(0)^4]
+=16h^2|k|^2\operatorname{Tr}(A^2).
+\]
+Thus a nonzero potential in this truncated Hamiltonian cannot simply be
+read as a collection of constant relativistic masses. Finally, finite cyclic
+trace gives $\operatorname{Tr}([K,P]H)=\operatorname{Tr}(K[P,H])$.
+If $[P,H]=0$, $[K,P]=iH$ and $H$ is Hermitian, it follows that
+$\operatorname{Tr}(H^2)=0$ and $H=0$. Exact global finite translation and
+boost identities therefore require a different domain from a nonzero
+relativistic Hamiltonian. Controlled sectors and infinite limits need their
+own error bounds; none is excluded by this trace argument.
+
+\subsection{Mass conventions and the quantitative comparison}
+
+The comparison packet in \path{model/particle_spectrum_audit} separates
+conditional coefficients from their laboratory attachment. The lepton
+circulant is chosen near the measured pole-mass Koide coordinates. Reading
+its outputs as pole masses is a modeling premise, not a consequence of the
+finite memory theorem. Under that premise, the three relative residuals
+are approximately $(-70.527,-70.455,-70.461)$ parts per million against
+the Particle Data Group 2026 central values \cite{pdg2026masses}.
+The muon/electron ratio
+residual is $+0.0725$ parts per million. A common normalization cannot
+remove that ratio residual. Assigning the same outputs running masses at
+$91.589587\,\mathrm{GeV}$ and applying the retained one-loop matching
+relation instead shifts the pole comparisons by approximately
+$(4.854,2.870,1.820)$ percent. Proximity to pole coordinates does not
+derive either the scheme or a matching law.
+
+The declared quark texture has the transported light ratios
+$m_s/m_d\simeq35.99993$ and $m_u/m_d\simeq1.00463$.
+They use the modified minimal subtraction scheme with quantum
+chromodynamics and electrodynamics, four active quarks and three charged
+leptons at $2\,\mathrm{GeV}$.
+The same packet's measured central ratios are approximately $19.766$
+and $0.460$ from the separate mass entries; the independently quoted
+$m_u/m_d=0.462\pm0.020$ also excludes this texture. Thus a common energy
+unit cannot repair the light-quark shape in this comparison. Precise
+identification with the reference quantum-chromodynamic masses also needs
+an electromagnetic scheme conversion. Inferring replacement
+texture exponents by logarithms holds only with transport factors fixed;
+self-scale heavy masses and threshold dependence require a fresh running
+calculation after changing their source coefficients.
+
+For the adopted radiative branch the residuals of the displayed
+$W,Z,h,t$ readouts are approximately
+$(-0.630,-0.662,-0.230,-0.865)$ percent. Their values depend on the
+renormalization convention and attachment scale of the supplied vacuum
+expectation value. The weak vectors use the stated Breit--Wigner convention;
+the top comparison uses the $172.1\pm0.6\,\mathrm{GeV}$ cross-section pole
+extraction, not a direct event-generator mass. Substituting a measured Standard Model reference at the
+same scale diagnoses that dependence; it cannot derive the missing
+attachment. The loop-order truncation, reference-input uncertainties and
+physical model error are distinct from numerical replay precision.
+
+These are conditional comparisons, including target-informed choices.
+The finite gauge and matter results select no continuous mass spectrum,
+mixing matrices or population history. A joint physical test requires
+one source law, its state and complete record map, compatible mass
+conventions, and declared experimental and theoretical uncertainties.
+Exact equality to measured central values is not an experimental theorem;
+equality of observable laws is the stronger mathematical target.
+
 \subsection{Interaction, chiral continuum and responsive geometry}
 
 The quartic result gives a genuine connected interaction on a fixed localized
@@ -619,7 +864,13 @@ The executable sources and exact certificates accompany the public repository
 \path{model/compact_defect_transport},
 \path{model/compact_interacting_response},
 \path{model/compact_band_response}, and
-\path{model/native_quantum_gauss}.
+\path{model/native_quantum_gauss}, together with
+\path{model/particle_finite_response} and
+\path{model/particle_spectrum_audit},
+\path{model/particle_source_selection}, and
+\path{model/particle_record_equivalence}, together with
+\path{model/particle_memory_response} and
+\path{model/particle_gauge_band}.
 They distinguish exact algebra and rational interval proofs from floating
 spectral checks and empirical comparisons. A source hash identifies a
 calculation; its mathematical scope is the stated theorem and domain.
@@ -699,6 +950,13 @@ Particle Data Group,
 \emph{Resonances},
 Review of Particle Physics, 2025 update.
 \url{https://pdg.lbl.gov/2025/reviews/rpp2025-rev-resonances.pdf}
+
+\bibitem{pdg2026masses}
+Particle Data Group,
+\emph{Review of Particle Physics: Summary Tables}, 2026.
+\url{https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf};
+\url{https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf};
+\url{https://pdg.lbl.gov/2026/tables/rpp2026-sum-gauge-higgs-bosons.pdf}.
 
 \bibitem{buchholz1986}
 D. Buchholz,

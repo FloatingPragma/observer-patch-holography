@@ -1,0 +1,65 @@
+{
+  "all_pass": true,
+  "construction_dependency_sha256": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1",
+  "execution_complete": true,
+  "hopping": "1/2",
+  "low_complement_gap": "64",
+  "low_projector_rank": 60,
+  "matter_Fock_times_link_dimension": 240,
+  "naive_number_spectrum": {
+    "0": 120,
+    "1": 118,
+    "1+(1-64/sqrt(4097))/2": 1,
+    "1-(1-64/sqrt(4097))/2": 1
+  },
+  "native_link_block": "e^c",
+  "native_link_dimension": 60,
+  "native_link_excited_index": 59,
+  "native_primitive_charge": 6,
+  "noninteger_occupation_Gauss_singlet": {
+    "all_native_current_endpoint_checks": 72,
+    "includes_Gauss_reference_charges": true,
+    "occupation": "1+(1-64/sqrt(4097))/2",
+    "state": "both matter sites occupied; blank link; one static dual e^c reference at each endpoint"
+  },
+  "one_particle_dimension": 120,
+  "one_particle_spectrum": {
+    "(64+sqrt(4097))/2": 1,
+    "(64-sqrt(4097))/2": 1,
+    "0": 59,
+    "64": 59
+  },
+  "projector_block_formula": [
+    [
+      "I-t P_e",
+      "-U/(2 sqrt(4097))"
+    ],
+    [
+      "-U^dagger/(2 sqrt(4097))",
+      "t P_0"
+    ]
+  ],
+  "schema": "oph.native_link_spectral_CAR_witness.v1",
+  "scope": {
+    "actual_compact_343_site_projector_computed": false,
+    "native_60_state_raising_link_used_exactly": true,
+    "noninteger_naive_Fock_occupation_proved_exactly": true,
+    "physical_particle_mass_calculation": false,
+    "spectral_projector_of_explicit_two_site_Hamiltonian": true,
+    "universal_obstruction_to_all_quantum_link_CAR_constructions": false
+  },
+  "site_energies": [
+    0,
+    64
+  ],
+  "source_bindings": {
+    "model/interacting_defect_response/algebra.py": "4543993494c34a6ff5404110e547a417c019da4d3899ecf0f81774bb6d1e5d8c",
+    "model/native_quantum_gauss/algebra.py": "b201991787f2fcf1f79805ab2271e1aef0b8a389a2dd16bb79afa5787200361d",
+    "model/particle_gauge_band/NATIVE_LINK_CAR_WITNESS.md": "c68363402a13d897e2844dc8b16c2b4616b82d6ae1a6be7c31a4fd83683330c9",
+    "model/particle_gauge_band/native_link_projector_witness.py": "c612bcf3bb20c1e17c3ba83fcd8d5881935da7d9585bce90e5eb46305337a335",
+    "model/particle_gauge_band/quantum_link_completion.py": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1"
+  },
+  "t_decimal": "0.0000610239826523557528191315161577",
+  "t_exact": "(1-64/sqrt(4097))/2",
+  "upstream_source_commit": "07c7acb2e7003efd9e574b67b374dbc36171dc6b"
+}

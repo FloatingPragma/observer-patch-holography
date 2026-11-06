@@ -1,5 +1,25 @@
 # The runnable OPH model
 
+The [particle comparison](particle_spectrum_audit/README.md) reproduces the
+stipulated mass branch with explicit measurement conventions and input
+ancestry. The [finite response proofs](particle_finite_response/README.md)
+reduce its neutral response and record-equivalence tests to small exact
+calculations. Source-selected masses and the physical joint observation law
+require further construction. The [record equivalence](particle_record_equivalence/README.md)
+proves a four-address encoding for the specified native family process.
+
+The [phase selection bounds](particle_source_selection/README.md) identify what
+classical records and real cyclic averaging leave undetermined.
+The [gauge-band construction](particle_gauge_band/README.md) preserves a
+compact canonical particle sector under supplied classical links. The
+[memory correction](particle_memory_response/README.md) sums every lag into
+a coherent potential and positive diffusion with a finite-time error bound.
+
+The [local Maxwell selection](maxwell_local_selection/README.md) derives
+the quadratic magnetic action and conservative evolution from stated local
+symmetry and energy conditions. The [prepared quantum readout](prepared_quantum_readout/README.md)
+uses native sweeps to replace exact stationary input by a certified error.
+
 Start with the [common executable hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md)
 and [completion DAG](../docs/COMPLETION_PROGRAM.md). They specify the shared
 clock, defect/energy, interacting-field and Einstein-premise targets, and the

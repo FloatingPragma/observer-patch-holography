@@ -1,0 +1,331 @@
+{
+  "additional_observables": {
+    "Delta_m21_squared": {
+      "central": "7.60e-5",
+      "convention": "m2^2-m1^2 in the three-neutrino analysis.",
+      "error_minus": "0.17e-5",
+      "error_plus": "0.17e-5",
+      "page": 10,
+      "source": "leptons",
+      "unit": "eV^2"
+    },
+    "Delta_m32_squared_IO": {
+      "central": "-2.52e-3",
+      "convention": "m3^2-m2^2, inverted ordering; quoted scale factor S=1.3.",
+      "error_minus": "0.04e-3",
+      "error_plus": "0.04e-3",
+      "page": 11,
+      "source": "leptons",
+      "unit": "eV^2"
+    },
+    "Delta_m32_squared_NO": {
+      "central": "2.445e-3",
+      "convention": "m3^2-m2^2, normal ordering.",
+      "error_minus": "0.023e-3",
+      "error_plus": "0.023e-3",
+      "page": 11,
+      "source": "leptons",
+      "unit": "eV^2"
+    },
+    "W_over_Z": {
+      "central": "0.88136",
+      "convention": "Direct ratio row of the PDG boson summary. The separate W/Z rectangle test does not assume a covariance for this row.",
+      "error_minus": "0.00015",
+      "error_plus": "0.00015",
+      "page": 1,
+      "source": "bosons",
+      "unit": "dimensionless"
+    },
+    "m_beta": {
+      "confidence_level": "90%",
+      "convention": "Tritium beta-decay effective mass, m_beta^2=sum_i |U_ei|^2 m_i^2. This is not three measured individual masses.",
+      "page": 10,
+      "source": "leptons",
+      "unit": "eV",
+      "upper_limit": "0.45"
+    },
+    "top_direct": {
+      "central": "172.60",
+      "convention": "Direct reconstruction mass. Its Monte-Carlo/kinematic interpretation is not silently equated with the pole mass.",
+      "error_minus": "0.27",
+      "error_plus": "0.27",
+      "page": 2,
+      "source": "quarks",
+      "unit": "GeV",
+      "used_for_source_pole_residual": false
+    },
+    "u_over_d": {
+      "central": "0.462",
+      "confidence_level": "90%",
+      "convention": "Ratio of same-scale MSbar light-quark masses.",
+      "error_minus": "0.020",
+      "error_plus": "0.020",
+      "page": 1,
+      "source": "quarks",
+      "unit": "dimensionless"
+    }
+  },
+  "conjugate_mass_policy": "The standard comparison uses the common particle/conjugate mass parameter in the usual CPT-symmetric description. Repeating that parameter is not a claim of separate measurements of every conjugate or color coordinate.",
+  "masses": {
+    "H": {
+      "central": "125.13",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Reconstructed Higgs mass summary, compared with the specified perturbative Higgs pole calculation; quoted PDG scale factor S=1.5.",
+      "error_minus": "0.11",
+      "error_plus": "0.11",
+      "kind": "measured_resonance_mass",
+      "page": 4,
+      "source": "bosons",
+      "unit": "GeV"
+    },
+    "W": {
+      "central": "80.3625",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Conventional W Breit-Wigner mass parameter; excludes the CDF AALTONEN22 value in this PDG average.",
+      "error_minus": "0.0077",
+      "error_plus": "0.0077",
+      "kind": "measured_resonance_parameter",
+      "page": 1,
+      "source": "bosons",
+      "unit": "GeV"
+    },
+    "Z": {
+      "central": "91.1879",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Z Breit-Wigner resonance parameter. PDG footnote [e] distinguishes it from the complex propagator-pole convention.",
+      "error_minus": "0.0020",
+      "error_plus": "0.0020",
+      "kind": "measured_resonance_parameter",
+      "page": 2,
+      "source": "bosons",
+      "unit": "GeV"
+    },
+    "b": {
+      "central": "4.186",
+      "confidence_level": "90%",
+      "convention": "MSbar self-scale mass m_b(mu=m_b); not the bottom pole mass.",
+      "error_minus": "0.006",
+      "error_plus": "0.006",
+      "kind": "inferred_running_mass",
+      "page": 1,
+      "scale": "mu=m_b(mu)",
+      "source": "quarks",
+      "unit": "GeV"
+    },
+    "c": {
+      "central": "1.2729",
+      "confidence_level": "90%",
+      "convention": "MSbar self-scale mass m_c(mu=m_c); not the charm pole mass.",
+      "error_minus": "0.0045",
+      "error_plus": "0.0045",
+      "kind": "inferred_running_mass",
+      "page": 1,
+      "scale": "mu=m_c(mu)",
+      "source": "quarks",
+      "unit": "GeV"
+    },
+    "d": {
+      "central": "4.70",
+      "confidence_level": "90%",
+      "convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+      "error_minus": "0.07",
+      "error_plus": "0.07",
+      "kind": "inferred_running_mass",
+      "page": 1,
+      "scale_GeV": "2",
+      "source": "quarks",
+      "unit": "MeV"
+    },
+    "e": {
+      "central": "0.51099895069",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Physical electron mass (on-shell/pole mass convention), not an MSbar running Yukawa coefficient.",
+      "error_minus": "0.00000000016",
+      "error_plus": "0.00000000016",
+      "kind": "measured_mass",
+      "page": 1,
+      "source": "leptons",
+      "unit": "MeV"
+    },
+    "gluon": {
+      "central": "0",
+      "confidence_level": null,
+      "convention": "PDG explicitly labels gluon mass zero a theoretical value. Eight color-adjoint components do not supply eight separately measured free-particle pole masses.",
+      "error_minus": null,
+      "error_plus": null,
+      "footnote_page": 8,
+      "kind": "theoretical_mass_parameter",
+      "page": 1,
+      "source": "bosons",
+      "unit": "GeV"
+    },
+    "mu": {
+      "central": "105.6583755",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Physical muon mass (on-shell mass convention), not an MSbar running Yukawa coefficient.",
+      "error_minus": "0.0000023",
+      "error_plus": "0.0000023",
+      "kind": "measured_mass",
+      "page": 1,
+      "source": "leptons",
+      "unit": "MeV"
+    },
+    "nu1": {
+      "central": null,
+      "confidence_level": null,
+      "convention": "Individual neutrino mass eigenvalue not determined. The beta-decay effective-mass limit and oscillation differences are separate observables.",
+      "error_minus": null,
+      "error_plus": null,
+      "kind": "absolute_eigenmass_not_measured",
+      "page": 10,
+      "source": "leptons",
+      "unit": "eV"
+    },
+    "nu2": {
+      "central": null,
+      "confidence_level": null,
+      "convention": "Individual neutrino mass eigenvalue not determined. The beta-decay effective-mass limit and oscillation differences are separate observables.",
+      "error_minus": null,
+      "error_plus": null,
+      "kind": "absolute_eigenmass_not_measured",
+      "page": 10,
+      "source": "leptons",
+      "unit": "eV"
+    },
+    "nu3": {
+      "central": null,
+      "confidence_level": null,
+      "convention": "Individual neutrino mass eigenvalue not determined. The beta-decay effective-mass limit and oscillation differences are separate observables.",
+      "error_minus": null,
+      "error_plus": null,
+      "kind": "absolute_eigenmass_not_measured",
+      "page": 10,
+      "source": "leptons",
+      "unit": "eV"
+    },
+    "photon": {
+      "confidence_level": "not specified in the summary mass row",
+      "convention": "Photon mass bound; zero is the massless gauge-theory value, not an experimentally resolved nonzero mass.",
+      "kind": "upper_limit",
+      "page": 1,
+      "source": "bosons",
+      "unit": "eV",
+      "upper_limit": "1e-18"
+    },
+    "s": {
+      "central": "92.9",
+      "confidence_level": "90%",
+      "convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+      "error_minus": "0.7",
+      "error_plus": "0.7",
+      "kind": "inferred_running_mass",
+      "page": 1,
+      "scale_GeV": "2",
+      "source": "quarks",
+      "unit": "MeV"
+    },
+    "t": {
+      "central": "172.1",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Top pole mass extracted from cross-section measurements; the comparator for the source's specified QCD4/EW2 pole output.",
+      "error_minus": "0.6",
+      "error_plus": "0.6",
+      "kind": "inferred_pole_mass",
+      "page": 2,
+      "source": "quarks",
+      "unit": "GeV"
+    },
+    "tau": {
+      "central": "1776.93",
+      "confidence_level": "quoted error; no new statistical interpretation",
+      "convention": "Physical tau mass (on-shell mass convention), not an MSbar running Yukawa coefficient.",
+      "error_minus": "0.09",
+      "error_plus": "0.09",
+      "kind": "measured_mass",
+      "page": 2,
+      "source": "leptons",
+      "unit": "MeV"
+    },
+    "u": {
+      "central": "2.16",
+      "confidence_level": "90%",
+      "convention": "MSbar quark mass at renormalization scale 2 GeV, in the stated low-energy quark-mass convention; not a constituent or pole mass.",
+      "error_minus": "0.07",
+      "error_plus": "0.07",
+      "kind": "inferred_running_mass",
+      "page": 1,
+      "scale_GeV": "2",
+      "source": "quarks",
+      "unit": "MeV"
+    }
+  },
+  "no_absolute_neutrino_benchmark_inserted": true,
+  "primary_source_check": {
+    "date": "2026-11-06",
+    "method": "PDG 2026 primary PDFs read directly; all twelve central/error rows, neutrino gaps and mass bounds verified.",
+    "sources": {
+      "bosons": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-gauge-higgs-bosons.pdf",
+      "leptons": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+      "quarks": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf"
+    }
+  },
+  "retrieved_UTC_date": "2026-11-05",
+  "role": "External comparison values only. This file is excluded from the forward coefficient function; the stipulated architecture has target-informed design ancestry.",
+  "schema": "oph.pdg2026.mass_reference.v1",
+  "sources": {
+    "bosons": {
+      "URL": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-gauge-higgs-bosons.pdf",
+      "pages": {
+        "H": 4,
+        "W": 1,
+        "Z": 2,
+        "gluon": 1,
+        "mass_convention_notes": 8,
+        "photon": 1
+      },
+      "title": "PDG 2026 Gauge and Higgs bosons summary table"
+    },
+    "leptons": {
+      "URL": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf",
+      "pages": {
+        "Delta_m21_squared": 10,
+        "Delta_m32_squared": 11,
+        "e": 1,
+        "m_beta": 10,
+        "mu": 1,
+        "tau": 2
+      },
+      "title": "PDG 2026 Leptons summary table"
+    },
+    "neutrino_review": {
+      "URL": "https://pdg.lbl.gov/2026/reviews/rpp2026-rev-neutrino-mixing.pdf",
+      "purpose": "Distinguish three mass eigenvalues, flavor states, squared-mass differences and the beta-decay effective mass.",
+      "title": "PDG 2026 Neutrino Masses, Mixing, and Oscillations"
+    },
+    "quark_review": {
+      "URL": "https://pdg.lbl.gov/2026/reviews/rpp2026-rev-quark-masses.pdf",
+      "purpose": "Quark confinement and scheme/scale definitions; light-quark pole masses are not supplied as measured observables.",
+      "title": "PDG 2026 Quark Masses review"
+    },
+    "quarks": {
+      "URL": "https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf",
+      "pages": {
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "s": 1,
+        "t": 2,
+        "u": 1
+      },
+      "title": "PDG 2026 Quarks summary table"
+    }
+  },
+  "uncertainty_policy": {
+    "forward_theory_error_supplied_by_this_reference": false,
+    "infer_covariance": false,
+    "infer_joint_confidence_region": false,
+    "infer_sigma_or_p_value": false,
+    "note": "Unspecified confidence levels are left unspecified. An arithmetic comparison to the printed central-plus/minus-error interval is not a combined statistical test.",
+    "use_printed_plus_minus_as_interval": true
+  }
+}

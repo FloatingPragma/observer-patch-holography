@@ -7279,6 +7279,111 @@ def _particle_reconstruction_decisions(*, repo: Path = REPO) -> dict[str, Any]:
             "parents": parents, "rows": rows}
 
 
+def _finite_spectrum_comparison_rows() -> dict[str, dict[str, Any]]:
+    """Project the distinct finite-order branch; its own package owns replay."""
+    relative = "model/particle_spectrum_audit/results.json"
+    packet, checksum = _public_receipt(relative, "oph.particle_spectrum_audit.result.v1")
+    directory = (REPO / relative).parent
+    pins = packet.get("source_sha256")
+    if not isinstance(pins, dict) or not pins:
+        raise SystemExit("finite spectrum comparison lacks source custody")
+    for name, expected in pins.items():
+        source = (directory / name).resolve()
+        if (not source.is_relative_to(directory.resolve()) or not source.is_file()
+                or hashlib.sha256(source.read_bytes()).hexdigest() != expected):
+            raise SystemExit(f"finite spectrum comparison source custody mismatch: {name}")
+    scope = packet["scope"]
+    if (any(scope.get(flag) is not False for flag in (
+            "physical_spectrum_identity_established", "prospective_prediction",
+            "joint_statistical_significance_computed", "particle_abundance_distribution_computed"))
+            or scope.get("theory_error_bound") is not None
+            or packet["neutral"]["arbitrary_neutral_models_excluded"] is not False):
+        raise SystemExit("finite spectrum comparison cannot promote physical or prospective claims")
+    by_particle = {row["parameter"]: row for row in packet["rows"]}
+    if len(by_particle) != len(packet["rows"]):
+        raise SystemExit("finite spectrum comparison has duplicate particle rows")
+    common = {
+        "artifact_ref": relative, "artifact_sha256": checksum,
+        "tier": "retrospective_conditional_finite_order_comparison",
+        "source_scope": scope, "promotion_allowed": False,
+        "verification": "source custody and retained comparison projection; mathematical replay owned by model/particle_spectrum_audit",
+    }
+    return {
+        "charged_leptons": {
+            **common, "id": "finite_order_charged_lepton_comparison",
+            "branch": "separate target-informed feedback point with explicit pole identification",
+            "particles": [by_particle[p] for p in ("e", "mu", "tau")],
+            "ratios": packet["lepton_ratios"],
+            "common_factor": packet["common_factor"]["leptons"],
+            "hypothesis_boundary": "No physical pole map or total theoretical error bound; distinct from the retained MCPR and conditional Koide lanes.",
+        },
+        "quarks": {
+            **common, "id": "finite_order_six_power_quark_comparison",
+            "branch": "separate six-power Yukawa branch with the specified finite-order transport",
+            "particles": [by_particle[p] for p in ("u", "d", "s", "c", "b")],
+            "inverse_formula": "n_required=n+log_6(output/reference)",
+            "inverse_coordinates": packet["quark_exponent_diagnostics"],
+            "hypothesis_boundary": packet["quark_exponent_scope"],
+        },
+        "neutrinos": {
+            **common, "id": "finite_order_neutral_attachment_comparison",
+            "branch": "specified unshifted amplitude-phase attachment and separate minimal action",
+            "comparison": packet["neutral"],
+            "proof_ref": "model/particle_finite_response/PROOF.md",
+            "prospective_FZ03_verdict": None,
+            "hypothesis_boundary": "Excludes only the specified mass attachments; selects no alternative neutral law and supplies no prospective FZ-03 verdict.",
+        },
+    }
+
+
+def _render_finite_spectrum_comparison(row: dict[str, Any]) -> list[str]:
+    """Render parent-derived values while preserving each attachment boundary."""
+    if row["id"] == "finite_order_charged_lepton_comparison":
+        masses = [format(1000*p["value_GeV"], ".10g") for p in row["particles"]]
+        residual = sum(p["residual_ppm"] for p in row["particles"])/len(row["particles"])
+        ratio = row["ratios"]["mu_over_e"]
+        scale = "admit" if row["common_factor"]["intersection_nonempty"] else "do not admit"
+        tau = "compatibility" if row["ratios"]["tau_over_e"]["exact_point_inside_rectangle"] else "incompatibility"
+        return [
+            "The [finite-order comparison package](../model/particle_spectrum_audit/README.md)",
+            "evaluates a separate feedback point under an explicit pole-identification",
+            f"premise. Its charged masses are {masses[0]}, {masses[1]} and {masses[2]} MeV,",
+            f"about {residual:.3g} ppm from the PDG references. The mu/e residual is {ratio['residual_ppm']:+.4g} ppm;",
+            f"the printed charged-lepton intervals {scale} a common scale factor. The",
+            f"exact balanced Brannen point instead misses mu/e by {ratio['exact_Koide_Brannen_residual_ppm']:+.6g} ppm, despite",
+            f"{tau} of its tau coordinate. These are target-informed diagnostics.",
+            "Neither a physical pole map nor a total theoretical error bound is supplied.", "",
+        ]
+    if row["id"] == "finite_order_six_power_quark_comparison":
+        outside = sum(not p["within_printed_interval"] for p in row["particles"])
+        coordinates = ", ".join(f"{p}={row['inverse_coordinates'][p]['frozen_transport_exponent']:.5f}"
+                                for p in ("u", "d", "s", "c", "b"))
+        return [
+            "The separate [six-power comparison](../model/particle_spectrum_audit/results.json)",
+            f"has {outside} of its {len(row['particles'])} displayed quark outputs outside their printed reference intervals.",
+            "For `m=A*6^(-n)` and a fixed multiplicative transport,",
+            f"`{row['inverse_formula']}`. The inverse coordinates are",
+            f"`{coordinates}`.",
+            "Changing self-scale masses or threshold locations requires a coupled rerun;",
+            "these inverse coordinates are diagnostic, not selected source parameters.", "",
+        ]
+    comparison = row["comparison"]
+    bound = comparison["conditional_unshifted_phase_bound"]
+    rounded_upper = math.ceil(bound*1e6)/1e6
+    masses = ", ".join(str(x) for x in comparison["minimal_action_masses_GeV"])
+    gaps = ", ".join(str(x) for x in comparison["minimal_action_squared_gaps_eV2"])
+    return [
+        "The [finite-response bound](../model/particle_finite_response/PROOF.md)",
+        "constrains a specified unshifted amplitude-phase attachment to an adjacent",
+        f"normal-order squared-gap ratio below {rounded_upper:.6f}, under",
+        f"`{comparison['bound_hypotheses'].rstrip('.')}`.",
+        f"The compared PDG ratio is about {comparison['normal_gap_ratio_reference']:.5f}. The minimal declared",
+        f"action instead gives masses `[{masses}]` GeV and squared gaps `[{gaps}]` eV^2.",
+        "These results exclude those specified attachments; they select no alternative",
+        "neutral law and do not constitute a prospective FZ-03 verdict.", "",
+    ]
+
+
 def build(
     out_path: Path = DEFAULT_OUT,
     md_path: Path | None = DEFAULT_MD,
@@ -7315,6 +7420,7 @@ def build(
     lambda_scale = _load("lambda_transmutation")
     nucleon_ratio = _load("nucleon_external_ratio")
 
+    finite_comparisons = _finite_spectrum_comparison_rows()
     sections = {
         "forced_structure": _forced_structure(
             matter,
@@ -7333,13 +7439,15 @@ def build(
         ),
         "alpha": _alpha_rows(endpoint, bridge, alpha_hvp_verdict)
         + _alpha_closure_rows(endpoint, contraction),
-        "charged_leptons": _lepton_rows(surface, rectangle, coherent, koide, koide_identity),
+        "charged_leptons": [finite_comparisons["charged_leptons"]]
+        + _lepton_rows(surface, rectangle, coherent, koide, koide_identity),
         "electroweak": _ew_rows(conditional, surface),
-        "quarks": _quark_rows(obstruction, clebsch, selection, conditional_quark_comparison),
+        "quarks": [finite_comparisons["quarks"]]
+        + _quark_rows(obstruction, clebsch, selection, conditional_quark_comparison),
         "hadrons": _hadron_rows(
             payload, standby, lambda_scale, nucleon_ratio
         ),
-        "neutrinos": [
+        "neutrinos": [finite_comparisons["neutrinos"],
             {
                 "id": "neutrino_dimensionless_pointer",
                 "statement": (
@@ -7882,6 +7990,9 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("## Charged leptons")
     add("")
     for row in s["charged_leptons"]:
+        if row["id"] == "finite_order_charged_lepton_comparison":
+            lines.extend(_render_finite_spectrum_comparison(row))
+            continue
         if row["id"].endswith("closure_target"):
             wp = row["witness_point"]
             add(f"- Empirical closure value ({row['tier']}): the anchor-gap value "
@@ -7992,6 +8103,9 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("## Quarks")
     add("")
     for row in s["quarks"]:
+        if row["id"] == "finite_order_six_power_quark_comparison":
+            lines.extend(_render_finite_spectrum_comparison(row))
+            continue
         if row["id"].endswith("obstruction"):
             add(f"- Absolute masses ({row['tier']}): {row['statement']} "
                 f"(live owner {owner_text(row['historical_owner_issues'])}).")
@@ -8071,6 +8185,9 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("## Neutrinos")
     add("")
     for row in s["neutrinos"]:
+        if row["id"] == "finite_order_neutral_attachment_comparison":
+            lines.extend(_render_finite_spectrum_comparison(row))
+            continue
         add(f"- {row['statement']} (`{row['artifact_ref']}`).")
     add("")
     add("## Dispersion coefficients")

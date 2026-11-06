@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1033,
+  "surface_count": 1052,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1666,6 +1666,11 @@
       "allowlisted": false
     },
     {
+      "path": "docs/research/OPH_PARTICLE_FIELD_SELECTION.md",
+      "glob": "docs/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/research/OPH_PARTICLE_MASS_RESPONSE.md",
       "glob": "docs/**/*.md",
       "allowlisted": false
@@ -2866,6 +2871,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/maxwell_local_selection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/maxwell_local_selection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/mcpr_native_memory_bridge/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3276,12 +3291,62 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_finite_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_finite_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_gauge_band/GAUGE_BAND_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_gauge_band/NATIVE_LINK_CAR_WITNESS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_gauge_band/QUANTUM_LINK_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_gauge_band/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_identification/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/particle_memory_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_memory_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_obstruction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_record_equivalence/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_record_equivalence/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3296,7 +3361,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_source_selection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_source_selection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_species_detector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_spectrum_audit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_spectrum_audit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3347,6 +3432,16 @@
     },
     {
       "path": "model/predictions/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/prepared_quantum_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/prepared_quantum_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

@@ -1,0 +1,93 @@
+{
+  "carrier": {
+    "curl_rank": 19,
+    "faces": 20,
+    "gradient_rank": 11,
+    "ports": 12,
+    "rotations": 60,
+    "seams": 30
+  },
+  "controls": {
+    "H_squared_keeps_gauge_covariance_but_breaks_face_locality": true,
+    "distinct_reversible_symplectic_steps_at_h_half_lambda_two": {
+      "implicit_midpoint": [
+        [
+          "7/9",
+          "4/9"
+        ],
+        [
+          "-8/9",
+          "7/9"
+        ]
+      ],
+      "velocity_Verlet": [
+        [
+          "3/4",
+          "1/2"
+        ],
+        [
+          "-7/8",
+          "3/4"
+        ]
+      ]
+    },
+    "electric_magnetic_ratio_changes_generator": true,
+    "gyroscopic_term_keeps_energy_Faraday_Gauss_but_breaks_time_reversal": true,
+    "unequal_face_weights_keep_gauge_locality_but_break_covariance": true
+  },
+  "evolution": {
+    "canonical_ambient_zero_modes": 12,
+    "electric_time_reversal_parity": 1,
+    "energy": "(epsilon ||E||^2+beta ||B||^2)/2",
+    "free_coefficients": [
+      "electric energy epsilon>0",
+      "magnetic energy beta>0"
+    ],
+    "generator": "dE/dt=(beta/epsilon) C^T B; dB/dt=-C E",
+    "generator_rank_exact": 38,
+    "magnetic_time_reversal_parity": -1,
+    "transverse_oscillator_count": 19,
+    "unique_on_closed_flux_physical_carrier": true,
+    "uniqueness_inputs": [
+      "linear autonomous real evolution",
+      "Faraday identity",
+      "positive diagonal energy with supplied epsilon,beta",
+      "energy conservation for every state",
+      "specified electric/magnetic time reversal"
+    ]
+  },
+  "quadratic_classification": {
+    "analytic_triangle_equations_checked": 60,
+    "complete_form": "S(A)=constant+(kappa/2)||C A||^2",
+    "gauge_constraint_rank_exact": 70,
+    "invariant_linear_seam_dimension_exact": 0,
+    "local_gauge_quadratic_dimension_exact": 20,
+    "normalization_selected": false,
+    "positive_nonzero_form_iff": "kappa>0",
+    "rotation_covariant_local_gauge_dimension_exact": 1,
+    "rotation_weight_constraint_rank_exact": 19,
+    "symmetric_face_local_unknowns": 90,
+    "weighted_face_embedding_rank_exact": 20
+  },
+  "schema": "oph.maxwell_local_selection.v1",
+  "scope": {
+    "Ampere_is_derived_from_stated_energy_and_reversal": true,
+    "continuum_or_photon_pole_identification": false,
+    "local_quadratic_form_classified_exhaustively": true,
+    "native_incidence_and_rotation_tables_used": true,
+    "native_record_law_selects_field_action_hypotheses": false,
+    "native_repair_implements_this_conservative_flow": false,
+    "new_result_is_Lean_kernel_checked": false,
+    "relative_energy_normalization_or_clock_selected": false
+  },
+  "source_sha256": {
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/Screen/A5PortAction.lean": "5efd9ea0ca2d12f8beb3f20111e80d748984ec0cbef484dd3d7cbb766954f9cc",
+    "Lean/Screen/LocalFaceMaxwellAction.lean": "c54da8884d3a3d19ed73baab2218378795fa5f8f2681344d545f285a647cf763",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "5e617c445abd94e87d2edcd7adf210eeff49fd9c161bc9a312eb49525750d647",
+    "Lean/Screen/WhitneyMaxwellDynamics.lean": "a884dff86e39997e9ebf2fb9544d0b6228fee222553516327214381a0016bbc0",
+    "model/maxwell_local_selection/PROOF.md": "f3083d9c2a60e5a19a85ce510f1df5cc0fec3ee8b5a874b39915ddba65d1bb3c",
+    "model/maxwell_local_selection/certificate.py": "6d8bc2e46d22474d6aa80877a18b711df6b18c17309f00edc4d17978d81d6a1a"
+  }
+}
