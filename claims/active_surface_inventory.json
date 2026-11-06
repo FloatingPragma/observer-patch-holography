@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1052,
+  "surface_count": 1060,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1871,6 +1871,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/carrier_selection_reduction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/carrier_selection_reduction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/centered_native_preparation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2661,6 +2671,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/finite_instrument_calibration/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/finite_instrument_calibration/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/finite_modular_inclusion/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2877,6 +2897,16 @@
     },
     {
       "path": "model/maxwell_local_selection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/maxwell_weak_field/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/maxwell_weak_field/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3262,6 +3292,16 @@
     },
     {
       "path": "model/one_particle_search/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/operational_strain/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/operational_strain/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

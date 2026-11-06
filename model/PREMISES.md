@@ -42,7 +42,7 @@ explained in the [assumption dictionary](../claims/assumption_dictionary.md).
 | Canonical premise IDs represented in this crosswalk | 84/84 |
 | Model criteria represented | 12/12 |
 | Registered claims | 350 |
-| Unique ordinary `assumptions` names | 839 |
+| Unique ordinary `assumptions` names | 843 |
 | Unique `imported_results` names | 978 |
 | Workgroups | 27 |
 | Assumption names explicitly linked by optional group fields | 33 |
@@ -7534,12 +7534,12 @@ anchors are not proofs. No entry silently discharges a canonical premise.
 | Coverage | Count |
 | --- | ---: |
 | Canonical claims retained | 350 |
-| Claims with restricted bindings | 22 |
-| Claims with open common-model mapping | 328 |
-| Tracked Lean source modules retained | 671 |
-| Lean modules referenced by canonical evidence | 473 |
-| Public theorem/lemma declarations | 12768 |
-| Restricted bindings / sourced connections | 81 / 65 |
+| Claims with restricted bindings | 23 |
+| Claims with open common-model mapping | 327 |
+| Tracked Lean source modules retained | 672 |
+| Lean modules referenced by canonical evidence | 474 |
+| Public theorem/lemma declarations | 12779 |
+| Restricted bindings / sourced connections | 82 / 65 |
 
 ### Restricted model bindings
 
@@ -7631,6 +7631,7 @@ duplicated here.
 | compact-interacting-response (`compact_interacting_response`) | The compact four-mode spatial band and actual 45-slot native internal representation support one 180-annihilator core with every complete memory pairing and lambda(N-90)^2. Exact per-record factorization retains the nonzero spatial operator. A uniform Hamiltonian bound gives unread O(1/n) and complete-final-history O(1/sqrt(n)) memory estimates at fixed texture. Pair parities exhaust an exact sixteen-state charged slice. Rational source and exterior-volume bounds select its blocked ground for all three retained lepton coefficients at lambda=1/128, yielding two poles e1+lambda plus or minus m, each of residue one half. Full-core variational bounds do not identify its exact vacuum. | The full interacting vacuum is bounded but not determined by a reducing slice. Individual family-dependent memory pulses need not preserve that slice. The band-projector interaction is not a strictly onsite many-defect field law. Autonomous kinetic and chiral relativistic limits require construction. The pixel loop consumes quadratic coefficients, not the interacting current spectral measure. Physical masses, units and empirical identification are unproved. | [PROOF.md](../model/compact_interacting_response/PROOF.md) |
 | compact-band-response (`compact_band_response`) | For the same compact interacting action with h_s=sT+MV, M>=8 and s between one half and three halves, the isolated band satisfies norm(P_s prime)<=6/(M-6). Kato comparison preserves its pairing and uniform native currents. Differentiating the full Hamiltonian includes lambda{N_s-90,dGamma(P_s prime tensor I45)} as well as the hopping force. An exact CAR witness detects deletion of that term. The intrinsic force has norm at most360 and agrees with reference-subtracted full-source expectations on even product states. Its finite Gibbs work/entropy response uses the same Hamiltonian. | A physical metric variation, local conserved Lorentz stress and calibrated clock are not supplied by the scalar hopping drive. Finite Gibbs response supplies neither regional geometric modular flow, area coefficient nor fixed-volume generalized-entropy stationarity. The force observable and expectation bound are calculated; no native force-detector circuit or field-state-dependent moving-memory theorem is asserted. | [PROOF.md](../model/compact_band_response/PROOF.md) |
 | native-quantum-gauss (`native_quantum_gauss`) | The actual fifteen-state native matter representation has a declared 60-state link register consisting of a vacuum and the dual-times-fundamental factors of its five invariant multiplets. The same hopping and link-energy Hamiltonian commutes with all twelve local Gauss generators on the complete finite Fock space. A static dual reference gives nontrivial gauge-singlet transport sectors. Complete initial multiplet and endpoint records retain eighty histories, preserve Gauss and account for every field-plus-link energy change under readout. The link matrices are not unitary Wilson links. | The link/register, static dual reference and coherent instruments are explicit design; no bare C/E compilation or full detector reservoir is implemented. The compact localized states have no map into this Gauss sector. Their gauge dressing and common interacting action require a separate construction. Finite gauge covariance does not establish unitary Wilson links, propagating gauge bosons, a chiral measure, regulator anomaly cancellation or physical couplings. | [PROOF.md](../model/native_quantum_gauss/PROOF.md) |
+| finite-probe-channel-selection (`finite_probe_calibration`) | The Lean theorem derives the identity/Lueders-sure-event channel from probability-one returns of finitely many trusted pure states. The generic scalar-Kraus core requires only their matrix-fixation equations. This binds a restricted clause of the canonical instrument claim. | The canonical input inventory retains both certain-state and finite-calibration routes; it is not a discharge record. Complete multi-label selection, approximate reference-uniform bounds and adaptive histories are analytic. Quantum semantics, trusted preparations/readback and native or physical realization are not selected. | [FiniteProbeInstrumentSelection.lean](../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean); [FiniteProbeInstrumentSelection.lean](../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean); [PROOF.md](../model/finite_instrument_calibration/PROOF.md) |
 
 ### Sourced domain connections
 

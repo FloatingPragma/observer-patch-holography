@@ -7,6 +7,28 @@ Each construction retains its own action, preparation, instrument and clock
 hypotheses. A physical composition must realize those hypotheses on the same
 process and compare the same records.
 
+## Carrier from directional readout
+
+The [weighted carrier selector](../../model/carrier_selection_reduction/PROOF.md)
+starts with a supplied real three-dimensional response and directional
+quadratic measurements `tr(u u^T X)` of every symmetric response `X`.
+Its positive resource weights sum to one. Informational completeness needs
+at least six distinct unoriented channels. The smallest eigenvalue of the
+weighted information operator is at most `2/15`; at the minimum channel
+count, attaining that value forces equal weights and squared inter-axis
+overlaps `1/5`. Exposing both signs gives twelve icosahedral ports. Positive
+overlap adjacency has degree five, thirty edges and twenty triangular faces.
+Those counts are derived without a spherical triangulation, Euler-defect
+cost, preassigned port count or group action.
+
+A bound within `10^-7` of the information optimum forces the same discrete
+incidence through an integer sign-matrix gap. It does not force exact angles
+or exact metric symmetry. The response dimension, quadratic measurement law,
+minimum-resource and worst-direction information criteria, and inverse-port
+convention are premises. The native rank-three construction depends on a
+declared carrier and cannot independently discharge this alternative
+selector's dimension premise.
+
 ## Mass comparison and inverse coordinates
 
 The [particle comparison](../../model/particle_spectrum_audit/PROOF.md)
@@ -98,6 +120,24 @@ ignored without conditioning. The separate compiler allowance yields a
 complete comparison bound below `3.03719e-6`. The total-two sector, quantum
 instrument semantics, coherent services, work action and clock remain inputs.
 
+The [finite calibration theorem](../../model/finite_instrument_calibration/PROOF.md)
+replaces projective-effect equality and invariance of every certain state by
+finite joint tests. For a complete Kraus instrument, prepare each vector of
+a trusted basis and one uniform coherent vector per nontrivial outcome block.
+If the assigned outcome and a trusted return-to-input test occur with unit
+joint probability, every outcome map is its Lüders compression. A rational
+error bound controls the complete instrument with arbitrary untouched
+references, and hybrid replacement controls adaptive finite histories.
+Wrong labels and failed returns enter the errors without postselection.
+Exact examples with nonprojective effects exercise the approximate result.
+The trusted preparations/readbacks and quantum probability semantics are
+assumptions; finite zero-failure counts do not establish zero probability
+error or authenticate the apparatus.
+The [single-channel core](../../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean)
+is Lean checked: unit returns on the coordinate and uniform pure states force
+the identity channel. The complete multi-label and stability results have
+analytic proofs and exact controls.
+
 ## Gauge bands and local field dynamics
 
 The [gauge-band construction](../../model/particle_gauge_band/GAUGE_BAND_PROOF.md)
@@ -134,6 +174,21 @@ Removing reversal admits additional skew electric terms. The coefficients,
 field interpretation, native implementation and physical clock are not
 selected, and the theorem does not choose a discrete integrator.
 
+The [smooth weak-field theorem](../../model/maxwell_weak_field/PROOF.md)
+derives that quadratic form and linear generator as leading response without
+requiring an exactly quadratic action or linear law. For a smooth autonomous
+field law it assumes a smooth rotation-invariant energy with nonzero diagonal
+electric susceptibility and strict face locality of the pulled-back magnetic
+vacuum Hessian, Faraday kinematics, conservation and the stated reversal.
+The positive Hessian also forces the vacuum to be an equilibrium. In its
+energy norm, a supplied derivative bound and energy confinement give
+`||x(t)-exp(tG)x0|| <= (L/2) J0 r^2 |t|`. A local quartic model improves
+the amplitude dependence to cubic and preserves exact Gauss data. General
+nonlinear conservative reversible flows need not preserve Gauss: the exact
+counterexample distinguishes the leading Maxwell constraint from a full
+nonlinear conservation law. The finite result supplies no native physical
+clock, field identification or continuum limit.
+
 ## Physical identification
 
 Exact equality of complete observations is a stronger requirement than
@@ -147,6 +202,24 @@ exhibits fixed-volume energy histories compatible with different derivatives:
 `H_alpha(V)=Q(V/V0)^(-alpha)` gives `p/rho=alpha`. Constant changes of volume
 and energy units leave `p/rho` invariant. Consensus about identical
 fixed-volume records cannot select their unobserved strain derivative.
+
+The [operational strain theorem](../../model/operational_strain/PROOF.md)
+identifies that derivative from three geometrically spaced energy readings
+within the held-state family `H(V)=C+A(V/V0)^(-alpha)`, with `A>0` and
+`alpha>=0`. Successive energy differences determine the contraction and
+exponent; they also recover the amplitude and constant offset when the work
+is nonzero. Three settings are generically minimal when all three parameters
+are unknown. Exact logarithm intervals propagate meter error into pressure.
+For general response, a supplied curvature bound controls a two-point
+pressure stencil; without a response class or regularity bound, positive
+smooth counterexamples defeat every finite collection of energy readings.
+
+A complete two-attempt native E census reads the initial charge projectors
+on arbitrary coherent/reference inputs. It thereby measures independently
+calibrated charge-diagonal generalized forces. It does not supply the strain
+interventions or their energy readings. An additive energy offset changes
+`p/rho=alpha A/(C+A)` while leaving pressure unchanged, so identifying an
+absolute energy density requires more than identifying work.
 
 These finite results neither supply a source-selected physical mass spectrum
 nor a common interacting chiral 3+1-dimensional field and Einstein

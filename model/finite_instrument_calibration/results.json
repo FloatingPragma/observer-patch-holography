@@ -1,0 +1,155 @@
+{
+  "all_pass": true,
+  "controls": [
+    {
+      "all_matrix_units_equal_lueders": true,
+      "basis_joint_survival": [
+        "1",
+        "1",
+        "1"
+      ],
+      "case": "lueders_rank_two_plus_one",
+      "coherent_joint_survival": [
+        "1"
+      ],
+      "half_diamond_upper": "0",
+      "induced_effects_equal_target_projectors": true,
+      "passes_exact_protocol": true,
+      "ranks": [
+        2,
+        1
+      ]
+    },
+    {
+      "all_matrix_units_equal_lueders": false,
+      "basis_joint_survival": [
+        "1",
+        "1",
+        "1"
+      ],
+      "case": "dephasing_passes_basis_but_fails_coherent_probe",
+      "coherent_joint_survival": [
+        "1/2"
+      ],
+      "half_diamond_upper": "1",
+      "induced_effects_equal_target_projectors": true,
+      "passes_exact_protocol": false,
+      "ranks": [
+        2,
+        1
+      ]
+    },
+    {
+      "all_matrix_units_equal_lueders": false,
+      "basis_joint_survival": [
+        "0",
+        "0",
+        "1"
+      ],
+      "case": "same_effect_repeatable_twist",
+      "coherent_joint_survival": [
+        "1"
+      ],
+      "half_diamond_upper": "1",
+      "induced_effects_equal_target_projectors": true,
+      "passes_exact_protocol": false,
+      "ranks": [
+        2,
+        1
+      ]
+    },
+    {
+      "all_matrix_units_equal_lueders": false,
+      "basis_joint_survival": [
+        "9/25",
+        "9/25",
+        "1"
+      ],
+      "case": "trace_preserving_rational_kraus_mixture",
+      "coherent_joint_survival": [
+        "1"
+      ],
+      "half_diamond_upper": "1",
+      "induced_effects_equal_target_projectors": true,
+      "passes_exact_protocol": false,
+      "ranks": [
+        2,
+        1
+      ]
+    },
+    {
+      "all_matrix_units_equal_lueders": true,
+      "basis_joint_survival": [
+        "1",
+        "1"
+      ],
+      "case": "committed_pauli_y_lueders",
+      "coherent_joint_survival": [],
+      "half_diamond_upper": "0",
+      "induced_effects_equal_target_projectors": true,
+      "passes_exact_protocol": true,
+      "ranks": [
+        1,
+        1
+      ]
+    },
+    {
+      "all_matrix_units_equal_lueders": false,
+      "basis_joint_survival": [
+        "0",
+        "0"
+      ],
+      "case": "committed_pauli_y_swap_twist",
+      "coherent_joint_survival": [],
+      "half_diamond_upper": "1",
+      "induced_effects_equal_target_projectors": true,
+      "passes_exact_protocol": false,
+      "ranks": [
+        1,
+        1
+      ]
+    },
+    {
+      "all_matrix_units_equal_lueders": false,
+      "basis_joint_survival": [
+        "27487776014361/27487843123225",
+        "1",
+        "27487776014361/27487843123225"
+      ],
+      "case": "nonprojective_effect_pre_rotation_mixture",
+      "coherent_joint_survival": [
+        "27487809568777/27487843123225"
+      ],
+      "half_diamond_upper": "13793350082567279/1152921504606846976",
+      "induced_effects_equal_target_projectors": false,
+      "passes_exact_protocol": false,
+      "ranks": [
+        2,
+        1
+      ]
+    }
+  ],
+  "lean_scope": "single full-space channel from basis and uniform return probabilities",
+  "model_examples_are_not_observed_records": true,
+  "multi_label_selection_and_stability": "analytic proof and exact finite controls",
+  "physical_readout_selected": false,
+  "quantum_probability_and_CPTP_semantics_assumed": true,
+  "rational_error_example": {
+    "each_probability_error_upper": "1/1099511627776",
+    "half_diamond_upper": "45267020114885/4611686018427387904",
+    "hundred_use_complete_history_upper": "1131675502872125/1152921504606846976",
+    "ranks": [
+      2,
+      1
+    ]
+  },
+  "schema": "oph.finite_instrument_calibration.v1",
+  "source_sha256": {
+    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean": "8cc105eb8002222afa8419a2c38179899588654552478c8a2bdf9f45e5eda72d",
+    "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean": "14c45c9598979d795dad9bcc9b6cfbf35ef0057de8c8ba56af104b8cdc8550a8",
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "28ac9cd0261e65002303ca5d605ec6bb35b3740e23fc5d3826748c5ded8ad663",
+    "model/finite_instrument_calibration/certificate.py": "3765b70687dfde95310006322b246cc3adc9b310e981fe2b1955bba4f06e6ed3"
+  },
+  "theorem": "complete CPTP instrument selected by basis and block coherent survival",
+  "trusted_preparation_and_readback_assumed": true
+}

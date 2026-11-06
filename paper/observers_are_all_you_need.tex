@@ -846,6 +846,17 @@ elementary record-event probability by at most \(\varepsilon+\delta_{\mathrm{rec
 Records carried by central projectors are shareable without violating
 no-cloning for generic quantum states.
 
+Finite calibration can select the complete instrument. For a trusted basis
+partitioned into outcome blocks, test each basis state's joint correct-label
+and return event, and one uniform coherent state per block of rank greater
+than one. Within the complete finite Kraus class, probability one for all
+these tests is equivalent to the L\"uders instrument, including its effects.
+Certified approximate probabilities give a uniform error for arbitrary
+references and adaptive continuations. The proof and exact countercontrols
+are in \path{model/finite_instrument_calibration}. Trusted preparation,
+readback and quantum probability semantics are premises; finite observed
+success counts do not establish exact probability one.
+
 \paragraph{Native preparation for a complete quantum readout.}
 The native total-two carrier has dimension 78, with a 66-dimensional binary
 subspace embedded by $J$. A fixed sweep of its thirty seams removes collision
@@ -2524,6 +2535,94 @@ the work lies in the decomposition, which the certified strict-descent
 counterexample shows is necessary. On a source object discharging the named receipts,
 ordinary finite thermodynamic identities follow from the instantiated
 observer model rather than being postulated separately.
+
+\subsection{Work identified from finite strain records}
+
+Fixed-volume repair does not determine pressure. For
+$Q(x)=\frac12\sum_i x_i^2$, every extension
+$Q(x)(V/V_0)^{-\alpha}$ agrees on all scalar states at positive $V_0$ and,
+for $Q(x)>0$, has $p/\rho=\alpha$ under the supplied work convention. Added volume and
+energy records can determine the missing derivative within a stated
+response class, without inserting that derivative as a measurement.
+
+\begin{proposition}[Three-setting pressure identification]
+Assume the held-state energy is
+$H(V)=C+A(V/V_0)^{-\alpha}$, with $A>0$, $\alpha\ge0$ and $V_0>0$.
+Let $r>1$ and record $E_j=H(V_0r^j)$ for $j=0,1,2$. For $\alpha>0$,
+put $D_0=E_0-E_1$, $D_1=E_1-E_2$. Then
+\[
+ t=\frac{D_1}{D_0},\qquad
+ \alpha=-\frac{\log t}{\log r},\qquad
+ A=\frac{D_0}{1-t},\qquad C=E_0-A,
+\]
+\[
+ p(V_0)=\frac{\alpha A}{V_0},\qquad
+ \frac p\rho=\frac{\alpha A}{E_0}\quad(E_0>0).
+\]
+Three settings are generically minimal when amplitude, offset and exponent
+are all unknown. Exact constant readings identify $\alpha=0$ and zero
+pressure, but leave amplitude and offset inseparable.
+\end{proposition}
+\begin{proof}
+Writing $t=r^{-\alpha}$ gives $E_j=C+At^j$, so
+$D_1=tD_0$ and the formulas follow. Conversely any $0<t<1$ fits two
+decreasing readings through $A=(E_0-E_1)/(1-t)$ and $C=E_0-A$.
+For $V_0=3$, $r=64$ and $(E_0,E_1)=(144,90)$, contractions $1/4$
+and $1/8$ give positive amplitudes and offsets with pressures $8$ and
+$72/7$. Thus two readings need not determine even pressure. With
+$A>0$, constant exact readings force $t=1$.
+\end{proof}
+
+Outward rational energy intervals propagate through the formulas after
+strict positivity of both decrements and $0<t<1$ are certified. A
+positive-term logarithm series with a rational geometric remainder
+encloses the exponent. The implementation returns an unresolved result
+when the signal cannot separate the denominators from zero; noisy constant
+records are not assigned zero pressure. Within the assumed family the
+offset is determined, but this gives no independent physical vacuum-energy
+selection. Three readings do not verify that family at unsampled volumes.
+
+For a general held-state response, readings at $V_0\pm h>0$ with absolute
+errors $\varepsilon_\pm$ enclose $p=-H'(V_0)$ by the negative central
+secant with error
+\[
+ \frac{\varepsilon_-+\varepsilon_+}{2h}
+ +\frac{Lh}{2}\quad\text{if }|H''|\le L,
+ \qquad
+ \frac{\varepsilon_-+\varepsilon_+}{2h}
+ +\frac{Mh^2}{6}\quad\text{if }|H'''|\le M.
+\]
+The derivative bound holds throughout the interval. The first remainder
+follows by integrating $|H'(V_0+s)-H'(V_0)|\le L|s|$; symmetric
+Taylor expansion gives the second. Energy offsets cancel. Without such
+regularity or a response class, finitely many readings cannot bound
+pressure: for sampled $V_i$, the polynomial
+$u(V)=(V-V_0)\prod_{V_i\ne V_0}(V-V_i)/(V_0-V_i)$ has
+$u(V_i)=u(V_0)=0$ and $u'(V_0)=1$. For $B>0$ the positive smooth
+family $B\exp(du(V)/B)$ agrees at every sample and has arbitrary
+reference derivative $d$.
+
+The native charge census provides an independent readout attachment. On
+the binary total-two carrier, two E-instrument attempts at $(0,1)$ and
+$(0,5)$ resolve the initial core charge $q=n_0+n_1$ from their complete
+records. The 28 tapes contain 264 input branches; each is an injective
+partial permutation, and their grouped effects equal the projectors
+$P_q$ of ranks $45,20,1$. Thus for arbitrary coherent source states and
+untouched references the charge weights are $\operatorname{Tr}(P_q\rho)$.
+For an independently calibrated strain Hamiltonian
+$H(V)=\sum_q E_q(V)P_q$ with fixed projectors, sector slope enclosures
+$-E'_q(V_0)\in I_q$ give
+\[
+ -\operatorname{Tr}(\rho H'(V_0))
+ \in\sum_q\operatorname{Tr}(P_q\rho)I_q.
+\]
+All native outcomes are retained; the census need not restore its input.
+These are model probabilities, and empirical frequency errors require a
+separate bound. Exact replay and controls are in
+\path{model/operational_strain}. The volume interventions, common held
+state, energy calibration and work interpretation are supplies. Neither
+native moment conservation nor discrete cap changes select a physical
+strain law or equilibrium equation of state.
 
 \input{tex_fragments/ELEMENTARY_LAW_COROLLARIES.tex}
 

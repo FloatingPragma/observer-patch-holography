@@ -15,10 +15,23 @@ compact canonical particle sector under supplied classical links. The
 [memory correction](particle_memory_response/README.md) sums every lag into
 a coherent potential and positive diffusion with a finite-time error bound.
 
-The [local Maxwell selection](maxwell_local_selection/README.md) derives
-the quadratic magnetic action and conservative evolution from stated local
-symmetry and energy conditions. The [prepared quantum readout](prepared_quantum_readout/README.md)
-uses native sweeps to replace exact stationary input by a certified error.
+The [directional readout selector](carrier_selection_reduction/README.md)
+derives twelve paired icosahedral ports from a stated minimum-channel
+information objective in three dimensions. Its finite tolerance preserves
+the exact incidence without requiring exact angles.
+
+The [weak-field derivation](maxwell_weak_field/README.md) obtains Maxwell
+response from smooth local energy and reversible conservative evolution,
+with an explicit nonlinear error bound. The
+[strain construction](operational_strain/README.md) identifies pressure from
+finite calibrated energy records and supplies native sector readout of the
+resulting work observable.
+
+The [prepared quantum readout](prepared_quantum_readout/README.md) uses native
+sweeps to replace exact stationary input by a certified error. The
+[finite calibration theorem](finite_instrument_calibration/README.md)
+determines a complete projective instrument from finitely many joint
+survival tests under trusted quantum preparation/readback semantics.
 
 Start with the [common executable hypothesis](../docs/OPH_EXECUTABLE_HYPOTHESIS.md)
 and [completion DAG](../docs/COMPLETION_PROGRAM.md). They specify the shared

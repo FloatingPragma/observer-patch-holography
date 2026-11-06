@@ -1006,6 +1006,97 @@ effects on its active orientation corner changes a state certain of its
 outcome; the invariance premise fails there, so the selection theorem does
 not identify that detector with a L\"uders instrument \cite{ophnativeinterface}.
 
+\subsection{Finite calibration of effects and updates}
+
+Certain-state invariance can be replaced by finitely many joint tests.
+Supply a trusted orthonormal basis $e_i$ of an $n$-dimensional space and
+partition it into nonempty outcome blocks $I_y$ with projectors $P_y$ and
+ranks $d_y$. Let the candidate instrument have finite Kraus operators
+$K_{ya}$ with $\sum_{y,a}K_{ya}^{\dagger}K_{ya}=I$. Its effects need
+not be known beforehand. For every basis input test the joint event that
+the label is $y(i)$ and a trusted rank-one readback returns to $e_i$;
+call its probability $p_i$. For each $d_y>1$, also test the corresponding
+joint event on $u_y=d_y^{-1/2}\sum_{i\in I_y}e_i$, with probability
+$p_y^+$. Wrong labels and failed readbacks count as failures.
+
+\begin{theorem}[Finite complete-instrument selection]
+All $n+\#\{y:d_y>1\}$ listed probabilities equal one if and only if
+every outcome map is $\Phi_y(X)=P_yXP_y$.
+\end{theorem}
+\begin{proof}
+Trace preservation and $p_i=1$ exhaust the squared Kraus norm on each
+$e_i$. Wrong-label branches vanish there, and each correct branch has
+$K_{ya}e_i=c_{ya,i}e_i$. The positive Kraus sum on $u_y$ lies entirely
+in that pure ray when $p_y^+=1$, so each branch separately satisfies
+$K_{ya}u_y=c_{ya}u_y$. Its nonzero basis coefficients force
+$c_{ya,i}=c_{ya}$ throughout the block. Hence
+$K_{ya}=c_{ya}P_y$ with $\sum_a|c_{ya}|^2=1$. The converse is direct.
+\end{proof}
+
+The criterion determines effects and state updates together. Dephasing
+inside a block passes all basis tests and fails the coherent test. A
+within-block swap can preserve the effects, repeatability and the uniform
+coherent state while failing basis survival. Relabeling outcomes can leave
+the unread channel unchanged while failing these joint tests.
+
+The single-outcome case is proved in the Lean module
+\texttt{FiniteProbeInstrumentSelection}. In positive dimension, a finite
+Kraus channel with induced effect $I$ and exact unit Born-return probability
+on all coordinate pure states and the normalized uniform pure state is the
+identity. The proof derives pure-state fixation and scalar Kraus operators.
+The labeled multi-block theorem and quantitative bound are analytic.
+
+\pagebreak
+\begin{proposition}[Reference-uniform stability]
+Suppose certified failure allowances satisfy
+$p_i\ge1-\varepsilon_i$ and $p_y^+\ge1-\varepsilon_y^+$, with all
+allowances in $[0,1]$. Define
+\[
+ E_y=\sum_{i\in I_y}\varepsilon_i,\qquad
+ \eta=\sqrt{\sum_i\varepsilon_i}
+ +\sqrt{\sum_{y:d_y>1}d_y
+       (\sqrt{\varepsilon_y^+}+\sqrt{E_y})^2}.
+\]
+For the complete labeled channel and the complete L\"uders channel,
+$\tfrac12\|\Phi-\mathcal L\|_\diamond\le\delta:=\min(1,2\eta)$.
+\end{proposition}
+\begin{proof}
+Copy the outcome label to the environment of a Stinespring isometry and
+write its basis columns as
+$Ve_i=|y(i),e_i\rangle a_i+r_i$, with the remainder orthogonal to the
+specified output ray. The basis test gives $\|r_i\|^2\le\varepsilon_i$.
+Deleting these remainders costs at most $\sqrt{\sum_i\varepsilon_i}$
+in operator norm. For a block mean $\bar a_y=d_y^{-1}\sum_{i\in I_y}a_i$,
+the coherent test and the orthogonal variance identity give
+\[
+ \sum_{i\in I_y}\|a_i-\bar a_y\|^2
+ \le d_y(\sqrt{\varepsilon_y^+}+\sqrt{E_y})^2.
+\]
+Replacing by the block means therefore costs at most the second term
+in $\eta$. Normalizing each nonzero mean costs at most another $\eta$,
+because the output basis rays are orthogonal and $V$ is an isometry.
+The resulting isometry represents $\mathcal L$. If a mean vanishes,
+$\eta\ge1$ and the universal channel bound suffices. Otherwise vector
+distance, partial-trace contraction and purification give the claimed
+bound for arbitrary input references.
+\end{proof}
+
+For at most $N$ uses with the same arbitrary adaptive controls, hybrid
+replacement gives complete classical/quantum output distance at most
+$\min(1,\varepsilon_{\rm prep}+N\delta)$. The calibration bound must
+hold conditionally for every admitted device instance or history. No
+division by a selected-outcome probability is used. Finite observed
+zero-failure counts do not certify zero failure probability: under
+independent identically distributed calibration trials, $N_c$ successful
+trials per each of $m$ probes give simultaneous allowance
+$1-(\alpha/m)^{1/N_c}$ at confidence at least $1-\alpha$.
+
+The analytic multi-block reduction and exact controls are supplied by
+\path{model/finite_instrument_calibration}. The quantum instrument class, trusted
+preparations, trusted readback and probability semantics are hypotheses.
+The algebraic examples are not source-authenticated calibration records,
+and the result does not identify native repair as a L\"uders instrument.
+
 The companion module \texttt{SourcePhaseSelection} asks what phase-sensitive
 effect candidates can be built from source-attached algebraic fields. Its
 generator reads two inputs only, the six exact rows of the declared

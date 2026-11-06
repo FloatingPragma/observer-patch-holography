@@ -1,0 +1,138 @@
+{
+  "bound_example": {
+    "general_theorem": {
+      "caller_uniform_analytic_bounds_verified_by_this_API": false,
+      "energy_norm_squared_amplification": "3413/3363",
+      "energy_relative_radius": "25/3388",
+      "error_norm_upper": "177035580427348257/11043670711242588160000",
+      "norm": "positive vacuum energy-Hessian norm on R^30 x closed face flux",
+      "scope": "all exact trajectories covered by the stated analytic hypotheses and initial norm bound",
+      "trajectory_norm_squared_upper": "3413/33630000"
+    },
+    "parameters": {
+      "beta": "11/5",
+      "domain_radius": "1/4",
+      "epsilon": "7/3",
+      "initial_radius": "1/100",
+      "lambda": "2/7",
+      "time": "3/2"
+    },
+    "quartic_theorem": {
+      "absolute_amplitude_order_at_fixed_time": 3,
+      "all_real_times_in_supplied_clock": true,
+      "error_norm_squared_upper": "3150061765776248481/71017008102005504000000000000000",
+      "error_norm_upper": "29640679/140737488355328",
+      "relative_amplitude_order_at_fixed_time": 2,
+      "trajectory_norm_squared_upper": "338801/3388000000"
+    },
+    "quartic_uniform_derivative_bounds": {
+      "nonlinear_cubic_norm_coefficient_upper": "17290319408863/123145302310912",
+      "second_flow_derivative_upper": "51870958226589/246290604621824",
+      "third_energy_derivative_upper": "75/847"
+    }
+  },
+  "nonlinear": {
+    "full_nonlinear_Maxwell_uniqueness_claimed": false,
+    "nonlinear_Gauss_counterexample": {
+      "Gauss_derivative": [
+        "6",
+        "-6",
+        "0",
+        "0",
+        "-1",
+        "1",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "energy_Faraday_reversal_preserved": true,
+      "initial_Gauss_charge_zero": true,
+      "input_electric": "first oriented face cycle C[0,:]^T",
+      "input_magnetic": "curl of first seam potential C[:,0]",
+      "rotation_covariance_checks": 60
+    },
+    "quartic_componentwise_covariance_checks": 60,
+    "quartic_gradient_energy_Gauss_and_flux_identities_exact": true,
+    "quartic_nonzero_cubic_correction_exact": true,
+    "quartic_susceptibility_counterexample": "sum(B_f^4)/4 has zero magnetic Hessian"
+  },
+  "schema": "oph.maxwell_weak_field.v1",
+  "scope": {
+    "Lean_kernel_checked": false,
+    "continuum_or_particle_pole_identification": false,
+    "explicit_nonzero_susceptibility_and_locality_hypotheses": true,
+    "native_repair_selects_energy_or_flow": false,
+    "physical_clock_or_coefficients_selected": false
+  },
+  "smooth_evolution": {
+    "full_nonlinear_Gauss_conservation_derived_for_every_flow": false,
+    "generic_remainder_absolute_order": 2,
+    "linear_evolution_assumed": false,
+    "linear_generator": "G(E,B)=((beta/epsilon) C^T B,-C E) on closed flux",
+    "quadratic_action_assumed": false,
+    "vacuum_equilibrium_derived": true
+  },
+  "source_sha256": {
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/Screen/A5PortAction.lean": "5efd9ea0ca2d12f8beb3f20111e80d748984ec0cbef484dd3d7cbb766954f9cc",
+    "Lean/Screen/LocalFaceMaxwellAction.lean": "c54da8884d3a3d19ed73baab2218378795fa5f8f2681344d545f285a647cf763",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "5e617c445abd94e87d2edcd7adf210eeff49fd9c161bc9a312eb49525750d647",
+    "Lean/Screen/WhitneyMaxwellDynamics.lean": "a884dff86e39997e9ebf2fb9544d0b6228fee222553516327214381a0016bbc0",
+    "model/maxwell_local_selection/PROOF.md": "f3083d9c2a60e5a19a85ce510f1df5cc0fec3ee8b5a874b39915ddba65d1bb3c",
+    "model/maxwell_local_selection/certificate.py": "6d8bc2e46d22474d6aa80877a18b711df6b18c17309f00edc4d17978d81d6a1a",
+    "model/maxwell_weak_field/PROOF.md": "179fc50d6cbcdadd4d957514f6887fb28c8e9a32d826dde502fd43ba46f8393c",
+    "model/maxwell_weak_field/__init__.py": "532c7dbeb3a334737ff5b9881642898f85a6330cf3eb61d4a1c3a3d06044997e",
+    "model/maxwell_weak_field/certificate.py": "50c42d346a8b27b342902803bbc32be6f857bc2e39414c8e79b247296d879a02",
+    "model/maxwell_weak_field/test_certificate.py": "74f197f19ad7ce2c992a69fed59f7ce79f4c245f176ea99deb90a94262f55c69"
+  },
+  "vacuum": {
+    "ambient_constant_flux_extension_unique": false,
+    "closed_flux_basis_curl_columns": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      12,
+      13,
+      15,
+      16,
+      18,
+      19,
+      21,
+      23,
+      25,
+      27
+    ],
+    "closed_flux_dimension": 19,
+    "curl_operator_norm_squared_upper": 6,
+    "curl_preimages_verified_exactly": true,
+    "diagonal_electric_weights": 30,
+    "electric_invariant_diagonal_dimension": 1,
+    "electric_rotation_constraint_rank_exact": 29,
+    "energy_hessian": "diag(epsilon I_30,beta I_B0)",
+    "magnetic_vacuum_classification": {
+      "analytic_triangle_equations_checked": 60,
+      "complete_form": "S(A)=constant+(kappa/2)||C A||^2",
+      "gauge_constraint_rank_exact": 70,
+      "invariant_linear_seam_dimension_exact": 0,
+      "local_gauge_quadratic_dimension_exact": 20,
+      "normalization_selected": false,
+      "positive_nonzero_form_iff": "kappa>0",
+      "rotation_covariant_local_gauge_dimension_exact": 1,
+      "rotation_weight_constraint_rank_exact": 19,
+      "symmetric_face_local_unknowns": 90,
+      "weighted_face_embedding_rank_exact": 20
+    },
+    "nonzero_susceptibilities_are_premises": true,
+    "restricted_magnetic_hessian": "beta I on B0, by curl surjectivity and polarization"
+  }
+}

@@ -500,6 +500,91 @@ of Theorem~\ref{thm:z6-reserve-trace} have separate premises; the port and
 slot counts imply neither.
 \end{remark}
 
+\subsection{Minimum quadratic readout and stable incidence}
+
+The topology and defect-cost assumptions of the preceding sieve can be
+replaced by an operational information criterion. Supply a real
+three-dimensional inner-product response space. For unit directions $u_i$,
+write $P_i=u_iu_i^{\mathsf T}$, and assign positive resource weights
+$w_i$ with $\sum_iw_i=1$. Opposite directions define the same channel;
+duplicates are merged. Reading every $X\in\operatorname{Sym}(3)$ through
+$\operatorname{tr}(P_iX)$ gives the information operator
+\[
+ \mathcal M=\sum_iw_i|P_i\rangle\langle P_i|.
+\]
+Its least eigenvalue measures the weakest response in Frobenius norm.
+
+\begin{theorem}[Weighted minimum-channel selector]
+\label{thm:weighted-carrier-selector}
+Full quadratic informational completeness requires at least six distinct
+channels, and $\lambda_{\min}(\mathcal M)\le2/15$ for any channel count.
+At six channels equality holds exactly for equal weights and the six
+icosahedral axes, up to orthogonal frame changes, representative reversals
+and permutations. Thus minimizing the complete channel count and then
+maximizing its weakest information selects these six axes. Exposing both
+signs as inverse ports and joining positive overlaps gives twelve vertices,
+thirty edges and twenty triangular faces, with degree five, two faces per
+edge and a five-cycle vertex link.
+\end{theorem}
+\begin{proof}
+The response space has dimension six and each information summand has
+rank one. On its five-dimensional trace-free subspace, put
+$Q_i=P_i-I/3$. Since $\|Q_i\|_F^2=2/3$, the compression has trace $2/3$,
+proving the bound. At equality that compression is $(2/15)I$.
+Positivity of $\mathcal M-(2/15)I$ forces its scalar/trace-free cross
+block to vanish, so
+\[
+ \mathcal M_0(X)=\frac{2X+\operatorname{tr}(X)I}{15}.
+\]
+For six channels the square matrix with columns $\sqrt{w_i}P_i$ is
+invertible. Its identity $F^{\mathsf T}\mathcal M_0^{-1}F=I$ gives
+$6w_i=1$ on the diagonal and $(u_i\cdot u_j)^2=1/5$ off it.
+The explicit axes $(0,\pm1,\varphi)$, $(\pm1,\varphi,0)$ and
+$(\varphi,0,\pm1)$, normalized by $\sqrt{\varphi+2}$, attain this
+operator. Their Gram matrix is $G=I+S/\sqrt5$ with $S^2=5I$.
+After switching the first row positive, the negative graph on the other
+five indices is two-regular, hence a five-cycle. This fixes the Gram
+switching class and therefore the geometry. The positive-overlap graph
+of the paired representatives has the stated incidences.
+\end{proof}
+
+\begin{proposition}[Finite tolerance preserves the carrier incidence]
+With six positive normalized weights, if
+$\lambda_{\min}(\mathcal M)\ge2/15-10^{-7}$, then
+\[
+ \frac{50}{301}\le w_i\le\frac{50}{299},\qquad
+ \left|(u_i\cdot u_j)^2-\frac15\right|\le\frac1{375}\quad(i\ne j),
+\]
+and the paired positive-overlap graph has exactly the incidence of
+Theorem~\ref{thm:weighted-carrier-selector}.
+\end{proposition}
+\begin{proof}
+Set $\gamma=2/15$, $\varepsilon=10^{-7}$ and write the scalar/trace-free
+blocks as $(1/3,b^{\mathsf T};b,\gamma I+\Delta)$. The lower eigenvalue
+and fixed trace give $\|\Delta\|\le4\varepsilon$ and
+$\|b\|^2\le\varepsilon+5\varepsilon^2$. The inverse perturbation bound
+gives $\|\mathcal M^{-1}-\mathcal M_0^{-1}\|<1/50$; substituting in
+$F^{\mathsf T}\mathcal M^{-1}F=I$ yields the two displayed bounds.
+Let $S_{ij}=\operatorname{sign}(u_i\cdot u_j)$ off the diagonal and zero
+on it. The same estimates imply
+$\|\sum_iP_i-2I\|<3/125$ and
+$\|I+S/\sqrt5-G\|<3/100$. Consequently
+\[
+ \|S^2-5I\|<\frac{57729}{50000}<2.
+\]
+Every off-diagonal entry of $S^2$ is an even integer, so $S^2=5I$
+exactly. The five-cycle argument applies again.
+\end{proof}
+
+The exact certificate in \path{model/carrier_selection_reduction} checks
+the rational inequalities, all $2^{10}$ switched sign matrices and the
+resulting incidence. Stability gives combinatorics, without exact angles,
+equal weights or an isometric rotation action. The response dimension,
+quadratic readout, minimum-channel objective and inverse-port convention
+are supplied. Deriving a rank-three response from a carrier that assumes
+this incidence cannot independently discharge the dimension premise.
+The theorem selects neither physical seams nor a native optimization law.
+
 \subsection{The integer seam-current record}
 
 Give each of the thirty undirected seams a bookkeeping orientation and let an
@@ -1636,6 +1721,95 @@ The result selects neither their native implementation nor a finite-step
 integrator, and does not identify the seam leapfrog with a separately
 supplied Whitney evolution. A physical Maxwell interpretation additionally
 requires the source readout, current and clock maps.
+
+\paragraph{Smooth weak-field reduction.}
+The quadratic and linear classifications also determine leading responses
+of smooth laws, with a controlled finite-amplitude error.
+
+\begin{proposition}[Maxwell derivative of a smooth conservative field]
+\label{prop:smooth-maxwell-derivative}
+On $\mathcal X=\mathbb R^{30}\oplus\operatorname{range}C$, let $W$ be
+$C^3$, invariant under the committed rotations and
+$J(E,B)=(E,-B)$, with a local minimum at zero. Assume its electric Hessian
+is diagonal in the seam basis and nonzero. Assume the Hessian of
+$A\mapsto W(0,CA)$ is strictly face-local and nonzero. Then
+\[
+ dW(0)=0,\qquad d^2W(0)=K=\operatorname{diag}(\epsilon I,\beta I),
+ \qquad \epsilon,\beta>0.
+\]
+If a $C^2$ autonomous field $F$ obeys
+$F_B=-CE$, $dW(x)[F(x)]=0$ and $F(Jx)=-JF(x)$ throughout a neighborhood,
+then $F(0)=0$ and
+\[
+ dF(0)(E,B)=G(E,B)=((\beta/\epsilon)C^{\mathsf T}B,-CE).
+\]
+\end{proposition}
+\begin{proof}
+Differentiating gauge and rotation invariance applies
+Proposition~\ref{prop:local-maxwell-selection} to the magnetic Hessian.
+Since $C$ is onto its closed-flux range, equality after pullback identifies
+the restricted magnetic Hessian as $\beta I$. Transitivity on seams makes
+the diagonal electric Hessian $\epsilon I$; reversal removes the mixed
+block. The minimum and nonzero hypotheses make both coefficients positive.
+Differentiating $dW[F]=0$ once gives $KF(0)=0$, hence $F(0)=0$.
+Differentiating again gives $KG+G^{\mathsf T}K=0$. Faraday fixes its
+lower row and $JGJ=-G$ removes the diagonal blocks, leaving the displayed
+Maxwell derivative.
+\end{proof}
+
+The nonzero susceptibility matters: $\sum_f(CA)_f^4/4$ has a strict
+quotient minimum but a zero Hessian. More generally a $C^3$ magnetic
+action with third derivative bounded by $M_3$ on a quotient ball obeys
+\[
+ |S(a)-S(0)-\tfrac\beta2\|Ca\|^2|\le M_3\|a\|^3/6,
+ \qquad
+ \|\nabla S(a)-\beta C^{\mathsf T}Ca\|\le M_3\|a\|^2/2.
+\]
+Thus quadratic response follows to leading order without a quadratic
+ansatz; higher derivatives need not have face-local support.
+
+\begin{proposition}[Uniform finite-time weak-field bound]
+Use $\|x\|_K^2=x^{\mathsf T}Kx$ and its multilinear operator norms.
+Suppose $W,F$ are defined near the closed radius-$R$ ball, with
+$\|d^3W\|_K\le M$ and $\|d^2F\|_K\le L$ there. Put
+$a=MR/3<1$ and $\Gamma=(1+a)/(1-a)$. If
+$\|x_0\|_K\le r$ and $\Gamma r^2<R^2$, the complete flow exists for
+every finite time and
+\[
+ \|x(t)-e^{tG}x_0\|_K\le\tfrac L2\Gamma r^2|t|.
+\]
+\end{proposition}
+\begin{proof}
+Taylor's bound gives
+$(1-a)\|x\|_K^2\le2(W(x)-W(0))\le(1+a)\|x\|_K^2$.
+Conservation and the first-exit argument confine the orbit to
+$\|x\|_K^2\le\Gamma r^2<R^2$, giving continuation on an interior compact
+sublevel. Also $\|F(x)-Gx\|_K\le L\|x\|_K^2/2$.
+Since $KG+G^{\mathsf T}K=0$, the linear propagator is a $K$-isometry;
+integrating the remainder proves the bound without exponential growth.
+\end{proof}
+
+An explicit admissible nonlinear model is
+\[
+ W=\tfrac\epsilon2\|E\|^2+\tfrac\beta2\|B\|^2
+       +\tfrac\lambda4\sum_f B_f^4,\qquad
+ \dot E=\epsilon^{-1}C^{\mathsf T}(\beta B+\lambda B^3),\quad
+ \dot B=-CE,
+\]
+with $\lambda\ge0$ and componentwise cube. It conserves energy and Gauss
+data. For $A_2=r^2+\lambda r^4/(2\beta^2)$, its global comparison is
+\[
+ \|x(t)-e^{tG}x_0\|_K^2
+ \le\frac{6\lambda^2t^2 A_2^3}{\epsilon\beta^3}.
+\]
+This follows from energy confinement, $\|C\|_2\le\sqrt6$ and the cubic
+remainder. Exact nonlinear Gauss conservation is not implied by the
+general hypotheses: a rotation-covariant skew electric correction, odd
+and linear in $B$, preserves energy and reversal but can generate Gauss
+charge. The construction and counterexample are checked in
+\path{model/maxwell_weak_field}. Smoothness, the stated susceptibilities,
+field interpretation, conservation, reversal and clock are premises; no
+native implementation, photon pole or continuum identification follows.
 
 \begin{proposition}[Conditional temporal identities and continuity on the committed carrier]
 \label{prop:temporal-maxwell-evolution}

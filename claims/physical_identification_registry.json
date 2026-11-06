@@ -374,12 +374,14 @@
         "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
         "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
         "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
-        "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT"
+        "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+        "OPH-QUANTUM-INSTRUMENT-SELECTION-BY-CERTAIN-STATES"
       ],
       "source_anchors": [
         "PR-04 declared phase-sensitive effect",
         "PR-64 public-outcome readback and instrument selection; the CP/TNI outcome maps and trace-preserving summed channel are constructed by a declared Lüders instrument",
-        "PR-65 common preparation, outcome readback, and run custody"
+        "PR-65 common preparation, outcome readback, and run custody",
+        "model/finite_instrument_calibration selects effects and full outcome maps from trusted finite joint probes and supplies a reference-uniform error contract; authenticated preparation, probabilities, readback and custody are separate physical inputs."
       ],
       "blocking_issues": [
         {
@@ -426,7 +428,9 @@
       "source_anchors": [
         "PR-66 declared discrete kinetic term; the step-scaled update and the Gauss constraint are its Euler-Lagrange equations, and a derivation of the term from the axioms or repair dynamics is open",
         "physical time and calibration of the declared step below the sharp threshold h^2 (3 + sqrt(5)) < 4",
-        "physical field, current, frame, clock, continuum, and detector readback"
+        "physical field, current, frame, clock, continuum, and detector readback",
+        "model/maxwell_weak_field derives the Maxwell vacuum derivative and a controlled nonlinear remainder under smooth constitutive, nonzero susceptibility, locality, conservation and reversal premises; it selects no native energy, integrator, clock or physical field.",
+        "model/carrier_selection_reduction selects icosahedral incidence from a supplied three-dimensional weighted quadratic-readout objective; its response dimension, resource objective, inverse-port convention and native seam attachment are inputs."
       ],
       "blocking_issues": [
         {
@@ -512,6 +516,26 @@
           "number": 745,
           "scope": "unresolved_attachment",
           "role": "attach the neutral and charged current dictionaries to physical weak processes and readouts"
+        }
+      ]
+    },
+    {
+      "identification_id": "calibrated_strain_to_physical_pressure",
+      "label": "finite held-state energy intervention and charge-sector force readout / physical pressure",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-FINITE-WORK-RESPONSE-NONIDENTIFIABILITY"
+      ],
+      "source_anchors": [
+        "model/operational_strain identifies a pressure derivative from finite energy readings within a supplied power-response or bounded-regularity class.",
+        "Native charge-projector outcomes read a separately calibrated charge-diagonal force; deformation law, held-state protocol, energy/volume metrology and work convention require physical realization.",
+        "PR-15 supplies laboratory energy and clock calibration; physical volume metrology is an additional requirement, and a pressure-density ratio requires the physical reference energy including its offset."
+      ],
+      "blocking_issues": [
+        {
+          "number": 740,
+          "scope": "unresolved_attachment",
+          "role": "realize strain interventions and energy readback on the same held state, with response-class or derivative-bound justification and complete calibration uncertainty"
         }
       ]
     }

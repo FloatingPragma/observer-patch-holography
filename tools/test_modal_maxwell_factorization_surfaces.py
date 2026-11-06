@@ -93,6 +93,10 @@ OBSERVATION_EVIDENCE = [
     "Lean/Screen/WhitneySourceNaturality.lean",
     "Lean/Screen/WhitneyGeneratedCertificate.lean",
     "Lean/Screen/WhitneyOmittedCellCounterexample.lean",
+    "model/maxwell_weak_field/certificate.py",
+    "model/maxwell_weak_field/PROOF.md",
+    "model/maxwell_weak_field/results.json",
+    "model/maxwell_weak_field/test_certificate.py",
 ]
 
 POSTDICTION_ARTIFACTS = [
@@ -186,6 +190,15 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     assert "does not prove nonlinear trajectory convergence or select physical spacetime" in notes
     assert "all 81 decoded original position/velocity checkpoints" in notes
     assert "not intermediate probes, continuous observer evolution" in notes
+    assert "strict face-sharing support of its vacuum Hessian" in notes
+    assert "local minimum with nonzero quadratic susceptibility" in notes
+    assert "energy Hessian on closed flux is K=diag(epsilon I,beta I)" in notes
+    assert "exact nonlinear Gauss conservation does not follow for every allowed flow" in notes
+    assert (
+        "Nonzero susceptibilities, constitutive locality, energy, Faraday, reversal "
+        "and the clock remain supplied; no native law or discrete integrator is selected."
+        in notes
+    )
     for required_boundary in (
         "nonnegative under h^2 Lambda <= 4",
         "sharp constant Lambda = 3 + sqrt(5)",
