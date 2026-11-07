@@ -20,22 +20,22 @@ CLASS = 'model/completion/program_class_v2.json'
 MAP = 'model/completion/finite_attachment_map.json'
 PROGRAM = 'claims/completion_program.json'
 INTERFACES = 'model/completion/component_interfaces.json'
-BASE = '3274bf2f995ff2631a7ca56e448e222b95fc4fe4'
+BASE = '6b20cfa05ad82582bb1c8a786b32b7556b4008d6'
 PREVIOUS = '3cf3c14810671a16e61b7915f69079a1773a12a2'
-CLASS_DIGEST = '74ceb649290a345795adb92e6e796d8f81429d5620739a396c992f88074697ea'
+CLASS_DIGEST = 'ea7a6107552b3abbc141a9f774fd1301762853c96869a7a09db137bd296c5954'
 HISTORICAL_SCOPE = ('Complete 84-premise ownership and 145 reviewed domains, '
                     'including 140 realized scoped attachments. Canonical physical '
                     'discharge and gate statuses are unchanged.')
 # Derived from the immutable BASE/PREVIOUS Git objects, never from the renewal.
-EXPECTED_CONSERVED = {'completion_program': 'be6707e89b13cd67164e56794e5399b5e2be183b0b6478b9d7d0d6bd4627514f',
+EXPECTED_CONSERVED = {'completion_program': 'f0945c71f28e476e946506cc0cd5c03f0aead8c4624828bb239980132da81e22',
  'component_interfaces': '814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0',
- 'finite_map': '1a955504363ec1690dcad5c0840dd318500a6b8af28e5117a6c7d542188b1594',
- 'review_history': '5c84d0a9cf8e93d4c1baa9ab4c555e1582b3055ff918040e122b0e3c38fedbd6'}
-ADOPTION_DIGEST = '5e935518c7e99b3950cd7b5310b4aaf5a193fa7082d555a5c8b184a3dee61493'
+ 'finite_map': '36f79f223fe732f367869626c562a861241086d875763dbaef1bcae37f1f4d4a',
+ 'review_history': 'feca1d0a11e2ee50be6765a63b75de5f4a8c95a2f889547541f9f6949ea4f384'}
+ADOPTION_DIGEST = 'aa26ed1ce83214f06a23bc9ed4ea52f9b17cc808b1c9b33da4e60734239d63d6'
 BINDING_PATH_DIGESTS = {'model/completion/component_interfaces.json': '1f75d695f9419b42e21d83f586bcc5ef1397fe8b1c11ebc33764790b794d79f1',
  'model/completion/finite_attachment_map.json': 'c8ddcc7952b113f5739c715d065a81ff71670b384dab5b5699b61d3bc9fdd29a',
  'model/completion/program_class_v2_review.json': 'ce6d0c427a05e42f5d45d98888b9b646635b81ef56b3d534407ce15f0c5c3060'}
-PREDECESSOR_REVIEW_SHA256 = 'de8088697bb32703fdbb3b1013c86a42d406d26e8f8e58916949b5a585a70291'
+PREDECESSOR_REVIEW_SHA256 = 'c3afbb4442df07154d894707f43c171536117557c17e9a8329f0c52f1556e9d0'
 HISTORICAL_REVIEW_SHA256 = 'ad7a397e42666ecfd6a7be984f0b9443b4314a6aaf01fdf351a64f03c11471bf'
 CURRENT_SCOPE = (
     'Complete 84-premise ownership. The historical review covered 145 domains, '

@@ -18627,6 +18627,113 @@
         "boundary": [],
         "rationale": "All mathematical refinement levels under source combinatorial postconditions, with finite actual geometry/kernel controls and retained host limits; no physical spacetime, Lorentz field, interacting action or measured particle identification."
       }
+    },
+    {
+      "claim_id": "OPH-NATIVE-CORRELATION-PREPARATION",
+      "statement": "For the fair fixed-selector binary source on a connected graph and one fixed occupation 2<=q<=V-2, the complete reflected four-E experiment has a diagonal degree-at-most-four initial score effect A_t=H_e H_f[phi P^t phi]. Its centered uniform-sector L2 norm is at most sqrt(v_q), including measurement backaction and cross probes. The degree-four slice reproducing kernel and the imported exclusion gap give, after n actual native warmup attempts, reference-valued normalized signed-score error at most sqrt(N/v_q)(1-gamma)^n, where N=binomial(V,min(4,q,V-q))-1. This holds for arbitrary source states and untouched references, after ignoring the retained warmup archive without conditioning. Exact integer budgets and fixed-number polynomial Gram sums also cover specified degree-four score effects with proved norm bounds; retrospective snapshot effects retain their separate readback premise. Host stops and sampling errors have explicit additional allowances. This prepares specified expectations, without asserting full-state preparation or a physical vacuum.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_correlation_observable_preparation"
+      ],
+      "imported_results": [
+        "Boolean_slice_harmonic_decomposition",
+        "Caputo_Liggett_Richthammer_exclusion_spectral_gap",
+        "finite_graph_range_path_gap_bound",
+        "slice_reproducing_kernel_and_Cauchy_Schwarz",
+        "complete_reflected_E_score_pullback",
+        "fixed_number_monomial_Gram_formula"
+      ],
+      "oph_specific_delta": "Derives a polynomial-dimension preparation bound for actual complete native correlation scores, including arbitrary reference correlations, and attaches exact integer repair budgets without requiring global density-matrix equilibration.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_correlation_preparation/PROOF.md"
+      ],
+      "falsifier": "The complete native four-E score pullback has a missing backaction or off-diagonal effect, its stated norm or slice-kernel bound fails, exact fixed-number Gram moments disagree with enumeration, or a normalized arbitrary-reference score exceeds the proved warmup and stop allowances.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Finite observable preparation with an imported exclusion gap and explicit reference/normalization/sampling interface; no physical vacuum, field or particle identification."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "statement": "On the fair native federation at one fixed global occupation and canonical reference, complete reflected E probes yield the positive spatial response matrix C_ij(T)=c_q h_i*P_2^T h_j, with Gram normalization and measurement backaction retained. A finite local-window comparison controls selected complete records at the original clock, while a separate absorbing-collision pair kernel R=P_2-A/M gives an exact exclusion correction and a source-derived collision-probability response bound without survivor normalization. Smooth pair profiles have an exact primitive-degree-two projection that subtracts their constant and one-body parts on the same q sector. Global terminal E-tree readback with reverse currents measures these native trajectory functions and has a distinct observation map from local probes. Under the owning density limit at q=V/3, its spatial subsequence and bounded smearings, exact canonical moment bounds give joint convergence of the projected pair fields and their covariances to the second Gaussian chaos. These are native relaxation and collective-field results, without identifying chiral particles or a Lorentzian interacting action.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_spatial_pair_response"
+      ],
+      "imported_results": [
+        "native_primitive_degree_two_intertwiner",
+        "complete_reflected_E_cross_response",
+        "native_selected_record_cone_bound",
+        "killed_pair_Duhamel_identity",
+        "exact_Boolean_slice_degree_two_projection",
+        "canonical_elementary_symmetric_moment_bound",
+        "inherited_native_density_Gaussian_limit",
+        "continuous_mapping_and_uniform_integrability"
+      ],
+      "oph_specific_delta": "Connects a same-occupation spatial matrix to complete native reflected records, quantifies its finite exclusion correction, and derives the primitive pair-field limit from the owning native density theorem with explicit moment control and global readback.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_pair_response/PROOF.md"
+      ],
+      "falsifier": "A complete reflected cross-probe disagrees with its same-q transfer matrix, a collision flag is discarded or the killed-kernel identity or bound fails, the primitive projection retains a one-body component, authenticated tree readback disagrees with the body trajectory, or the inherited-limit hypotheses do not yield the stated uniformly integrable covariance convergence.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Finite source response and a conditional bounded-smearing second-chaos corollary, with unchanged resource limits; no physical metric, Lorentzian interaction or particle-spectrum identification."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-EXCHANGE-CLOCK",
+      "statement": "For the fair native federation, P_q=I-G_q/(2M) and P_q>=10I/21 imply the all-occupation endpoint bound norm(P_q^n-exp[-nG_q/(2M)])<=min(1,3/(5n)) for n>=1, with zero error at n=0. The counted time t_n=n/(2M) follows the source selector and fair endpoint normalization. Fractional-attempt rounding has a separate explicit bound. On primitive degrees at most r, norm(G_q)<=2r Delta and norm(-2M log P_q-G_q)<=r^2 Delta^2/(M-r Delta) for M>r Delta. On the full half-filled sector the generator difference is instead at least M/16, without contradicting all-sector endpoint convergence. Exact sparse moment intervals attach these comparisons to the complete reflected degree-two score and add its preparation error. The source state, transfer ground vector and return-conditioned references are distinct, and endpoint comparison is not equality of full record histories or an implemented real-time Hamiltonian.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_exchange_attempt_clock"
+      ],
+      "imported_results": [
+        "finite_positive_transfer_spectral_calculus",
+        "scalar_logarithm_and_exponential_remainder_bounds",
+        "Boolean_slice_primitive_intertwining",
+        "exclusion_configuration_graph_Laplacian_bound",
+        "native_complete_reflected_record_response",
+        "positive_spectral_moment_Taylor_enclosures"
+      ],
+      "oph_specific_delta": "Derives a controlled deterministic native-attempt comparison with the same local exchange response across every occupation sector, with a separate bounded-degree action estimate, exact source response enclosures and a full-generator obstruction that prevents an invalid unrestricted inference.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_exchange_clock/PROOF.md"
+      ],
+      "falsifier": "An allowed transfer eigenvalue violates the rational endpoint or rounding bound, the primitive block exceeds its exclusion spectral ceiling, a native source column differs from the attached local G, the exact moment enclosures miss a response, or the complete-history scope is used to identify deterministic and Poisson count laws.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "All-sector finite endpoint comparison and bounded-degree local-action approximation on each finite source graph; no common continuum, chiral gauge theory or particle masses are inferred."
+      }
     }
   ],
   "claim_context": {
@@ -32567,6 +32674,157 @@
         {
           "claim_id": "OPH-NATIVE-FULL-NUMBER-READOUT",
           "role": "supplies final tree readback and endpoint current reversal; the combined body program separately authenticates selectors, records, source state and host boundaries"
+        }
+      ]
+    },
+    "OPH-NATIVE-CORRELATION-PREPARATION": {
+      "prior_work": {
+        "summary": "Boolean-slice harmonic analysis, exclusion mixing and finite observation channels",
+        "overlap": "The Boolean-slice decomposition, exclusion spectral-gap theorem and finite-state mixing estimates are established. The source-specific result is the exact native scored effect and its polynomial-size arbitrary-reference preparation bound with retained records and unchanged execution limits.",
+        "imported_step": "Boolean_slice_harmonic_decomposition; Caputo_Liggett_Richthammer_exclusion_spectral_gap; finite_graph_range_path_gap_bound; slice_reproducing_kernel_and_Cauchy_Schwarz; complete_reflected_E_score_pullback; fixed_number_monomial_Gram_formula",
+        "citations": [
+          {
+            "work": "Orthogonal Boolean-slice harmonics",
+            "keys": [
+              "filmus2016orthogonal"
+            ]
+          },
+          {
+            "work": "Exclusion spectral-gap equality",
+            "keys": [
+              "caputo2010aldous"
+            ]
+          },
+          {
+            "work": "Finite reversible-chain estimates",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Owning native score, gap and program contracts",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Preparing native correlation records",
+      "falsifiers": {
+        "mathematical": "The complete native four-E score pullback has a missing backaction or off-diagonal effect, its stated norm or slice-kernel bound fails, exact fixed-number Gram moments disagree with enumeration, or a normalized arbitrary-reference score exceeds the proved warmup and stop allowances.",
+        "physical_identification": "The source is a connected finite binary graph with independent uniform seam choices, fair endpoint coins, repair probability one and a fixed C/E mixture. Global occupation is specified. The exclusion spectral gap is an explicitly imported theorem with a proved graph lower bound, and the degree-four harmonic space is the standard Boolean slice space. Four-E records use past outgoing and future incoming contrasts. Warmup records remain in the archive but are traced from this comparison and are not used for adaptive control or conditioning. The generic polynomial bound consumes a proved centered L2 norm and a positive normalization; exact Gram evaluation supplies these only in its bounded sparse domain. Retrospective snapshots need an authenticated native trajectory readout. Native total-attempt, description and host resource limits remain unchanged; unsupported sufficient budgets are not executed. Unit-bounded four-E stops add p_stop/v_q; a generic score bound S_max adds S_max*p_stop/normalization. Sampling bounds require independent repetitions. No full output-law, full source density, continuum state, laboratory clock or particle-spectrum preparation is inferred.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
+          "role": "supplies primitive-degree dimensions, the reflected complete E instrument and its stationary normalized response; the warmup theorem supplies the stated score preparation only"
+        },
+        {
+          "claim_id": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+          "role": "supplies the native endpoint semantics and finite graph/exclusion mixing attachment; no full-state, continuum or coherent-service conclusion is transferred"
+        }
+      ]
+    },
+    "OPH-NATIVE-SPATIAL-PAIR-RESPONSE": {
+      "prior_work": {
+        "summary": "Exclusion processes, harmonic projections and Gaussian second chaos",
+        "overlap": "Exclusion duality, Boolean-slice projection, positive transfer theory, Gaussian product covariances and uniform-integrability arguments are established. The claimed contribution attaches these steps to one native occupation sector, complete measured cross probes and authenticated trajectory readback with explicit finite collision and boundary controls.",
+        "imported_step": "native_primitive_degree_two_intertwiner; complete_reflected_E_cross_response; native_selected_record_cone_bound; killed_pair_Duhamel_identity; exact_Boolean_slice_degree_two_projection; canonical_elementary_symmetric_moment_bound; inherited_native_density_Gaussian_limit; continuous_mapping_and_uniform_integrability",
+        "citations": [
+          {
+            "work": "Harmonic analysis of fixed-number Boolean slices",
+            "keys": [
+              "filmus2016orthogonal"
+            ]
+          },
+          {
+            "work": "Interacting exclusion and finite Markov chains",
+            "keys": [
+              "liggett1985interacting",
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Weak convergence and moment control",
+            "keys": [
+              "billingsley1995probability"
+            ]
+          },
+          {
+            "work": "Owning native density limit and complete record interfaces",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Spatial pair responses",
+      "falsifiers": {
+        "mathematical": "A complete reflected cross-probe disagrees with its same-q transfer matrix, a collision flag is discarded or the killed-kernel identity or bound fails, the primitive projection retains a one-body component, authenticated tree readback disagrees with the body trajectory, or the inherited-limit hypotheses do not yield the stated uniformly integrable covariance convergence.",
+        "physical_identification": "Use the fair binary federation, one supplied canonical global-q reference or a separately proved observable preparation allowance, independent uniform seam selection, repair probability one and fixed C/E mixture. Each reflected setting has two disjoint actual seams; different settings need not be orthogonal. Local cone bounds retain selected local raw values and require matching joint cone/reference initial reductions; adaptive global archives and the global detector are outside that observation map. The auxiliary pair comparison kills collisions with a retained absorbing flag and does not identify its labels or quantum states with the q-source instrument. Mathematical graph statements and admitted evaluated geometry are distinct from full expanded host execution. Global readback uses the specified pure-E body, complete authenticated transcript and final tree, with native resource stops retained. The second-chaos corollary inherits the exact spatial subsequence, q=V/3 preparation, simultaneous native attempt scaling, auxiliary source measure and density-field convergence; bounded macroscopic profiles and uniform moments are required. It supplies neither a quantitative spatial rate nor an unsmeared-field or interacting relativistic continuum theorem.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
+          "role": "supplies the primitive-degree-two inclusion and complete reflected score; this result retains one working occupation and extends to cross probes"
+        },
+        {
+          "claim_id": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+          "role": "supplies the complete selected-record cone bound under the same fixed selector and matching reference reduction; it does not apply to the separately global tree readback"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FULL-NUMBER-READOUT",
+          "role": "supplies terminal configuration decoding and reverse currents; the combined body program separately binds probabilities, source digest and FIFO"
+        },
+        {
+          "claim_id": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+          "role": "supplies the actual source geometry attachment only; its one-unit preparation and displacement theorem are not transferred to the pair sector"
+        },
+        {
+          "claim_id": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+          "role": "supplies the conditional native density-field limit on its exact q=V/3 spatial subsequence and attempt scaling; no coherent scalar action or physical continuum identification is inherited"
+        }
+      ]
+    },
+    "OPH-NATIVE-EXCHANGE-CLOCK": {
+      "prior_work": {
+        "summary": "Finite transfer spectral calculus and local exchange dynamics",
+        "overlap": "Positive transfer reconstruction, logarithm series, exponential approximation and Laplacian spectral bounds are standard. The source-specific step is the explicit deterministic native attempt normalization, all-sector endpoint allowance and bounded-degree local-action relation for the same complete reflected record response.",
+        "imported_step": "finite_positive_transfer_spectral_calculus; scalar_logarithm_and_exponential_remainder_bounds; Boolean_slice_primitive_intertwining; exclusion_configuration_graph_Laplacian_bound; native_complete_reflected_record_response; positive_spectral_moment_Taylor_enclosures",
+        "citations": [
+          {
+            "work": "Finite reversible chains and spectral bounds",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Boolean-slice primitive decomposition",
+            "keys": [
+              "filmus2016orthogonal"
+            ]
+          },
+          {
+            "work": "Owning native exchange action and positive federation transfer",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Native attempt time and the local exchange action",
+      "falsifiers": {
+        "mathematical": "An allowed transfer eigenvalue violates the rational endpoint or rounding bound, the primitive block exceeds its exclusion spectral ceiling, a native source column differs from the attached local G, the exact moment enclosures miss a response, or the complete-history scope is used to identify deterministic and Poisson count laws.",
+        "physical_identification": "The source is the unchanged fair binary federation with independent uniform seam selection, fresh fair endpoint coins, repair probability one, fixed C/E mixture and a specified global occupation. The owning positive transfer floor is required for the uniform endpoint bound; arbitrary weighted sources are excluded. The bounded-degree generator estimate requires the exact primitive decomposition and M>r Delta. Reflected score comparisons use the canonical reference or a separately supplied score-preparation allowance, retain all fine probe records and backaction, and preserve Gram factors for cross-response matrices. Sparse finite moments and admitted programs do not replace expanded host execution or remove RESOURCE_STOP. Counted t_n is dimensionless native normalization, without laboratory calibration. An exponential endpoint representation does not identify deterministic and Poisson record-count laws, prepare a transfer Gibbs state, execute a unitary continuation, or identify a chiral field action or continuum.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
+          "role": "supplies the primitive block intertwiners and complete reflected score at the same occupation and attempt clock"
+        },
+        {
+          "claim_id": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+          "role": "supplies the actual fair federation transfer floor and local exchange action; its optional Poisson or coherent service clocks are not identified with the deterministic record process"
         }
       ]
     }

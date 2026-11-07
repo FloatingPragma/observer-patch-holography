@@ -200,6 +200,38 @@ clock-preserving field map before joining the native reference to the
 interacting chiral action. An algebraic transfer state, working stationary
 density and physical vacuum cannot substitute for one another.
 
+## One prepared native spatial response
+
+The [common response construction](../../model/particle_identification/NATIVE_FIELD_RESPONSE.md)
+joins the fair source, one `q`-sector reference target, reflected spatial
+probes and its counted exchange time. The
+[pair matrix](../../model/native_pair_response/PROOF.md) uses
+`C_ij(T)/v_q=h_i^*P_2^T*h_j/4`, where
+`v_q=4*binom(V-4,q-2)/binom(V,q)`. Its coefficient representation does not
+replace the working occupation by two. All probe flags and back-action
+remain in the same native program.
+
+[Observable preparation](../../model/native_correlation_preparation/PROOF.md)
+from arbitrary fixed-`q` input has normalized signed reference error
+`sqrt((binom(V,min(4,q,V-q))-1)/v_q)*(1-gamma_0)^n` after `n` warmup repairs.
+It sums those records without conditioning and does not prepare the full
+tracial density or a nontracial vacuum. The
+[local exchange response](../../model/native_exchange_clock/PROOF.md)
+at `t=T/(2M)` adds endpoint error at most `3/(5T)` for positive `T`, in
+every occupation sector. This uses the derived `G_q=sum_e(I-S_e)` and
+the same source/reference; it does not identify the working modular clock
+with that action or implement coherent evolution.
+
+The state/clock join therefore has a concrete finite response domain.
+Its errors include normalization by `v_q`, explicit local-window comparison
+when that observation is used, and any actual host-stop probability.
+The global final-tree decoder supplies general quadratic snapshots through
+complete current readback. Under the bounded-smearing density-limit
+hypotheses these converge to quadratic Wick observables of a Gaussian
+diffusive field; finite exclusion alone does not preserve an additional
+interaction in that limit. A common physical vacuum, relativistic action,
+mass convention and particle assignment require further maps.
+
 ## Complete finite Higgs experiment and its source boundary
 
 The [interacting Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)

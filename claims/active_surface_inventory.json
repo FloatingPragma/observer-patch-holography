@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1133,
+  "surface_count": 1140,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3121,6 +3121,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_correlation_preparation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_correlation_preparation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_correlation_sectors/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3157,6 +3167,16 @@
     },
     {
       "path": "model/native_equilibration/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_exchange_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_exchange_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3277,6 +3297,16 @@
     },
     {
       "path": "model/native_ordered_ground/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_pair_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_pair_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3662,6 +3692,11 @@
     },
     {
       "path": "model/particle_identification/NATIVE_CAPACITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/NATIVE_FIELD_RESPONSE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

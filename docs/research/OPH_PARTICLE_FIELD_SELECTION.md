@@ -309,6 +309,39 @@ field. Selection of a different observable net or state must include its
 joint-record comparison, action and physical clock before using it in the
 chiral gauge-field derivation.
 
+## Same-occupation fields and their collective limit
+
+The [prepared response join](../../model/particle_identification/NATIVE_FIELD_RESPONSE.md)
+fixes the fair native source, total `q`, reference target and counted time
+before combining its results. The
+[cross-probe matrix](../../model/native_pair_response/PROOF.md) has
+`C_ij(T)=c_q*h_i^*P_2^T*h_j`, `v_q=4c_q`, with all reflected native E
+flags retained. Its two-subset calculation is a coefficient-space
+intertwiner, not a different preparation. Local probe comparisons retain
+every endpoint in the dependency roots; global archive control requires
+its own dependencies.
+
+[Warmup repair](../../model/native_correlation_preparation/PROOF.md) controls
+this signed observable and an untouched reference through degree-at-most-four
+effects, with dimension `binom(V,min(4,q,V-q))`. It does not prove full-state
+preparation or universal quantum effect coverage. The
+[counted exchange clock](../../model/native_exchange_clock/PROOF.md)
+identifies the local action `G_q` for its endpoint response with error
+`3/(5T)` for `T>=1` at `t=T/(2M)`, retaining the difference between deterministic
+record length and a Poisson representation.
+
+Local seam-contrast products need not span the full primitive quadratic
+space. General profiles instead use complete final-tree readback and all
+body currents. Their exact primitive projection removes both constant and
+one-body components. Bounded smooth profiles at the inherited `q=V/3`
+diffusive scaling have a quadratic Wick limit, with moment bounds proving
+covariance convergence. These variables are generally non-Gaussian, but
+belong to the second chaos of the underlying Gaussian field; their
+generator is `A tensor I + I tensor A`. This identifies a collective
+response class without selecting an interacting chiral field, a physical
+dimension, or a particle species. The local four-E boundary theorem cannot
+be applied to that separate global readback experiment.
+
 ## Thermodynamics from native repair
 
 The [finite four-law core](../../Lean/Thermodynamics/CofinalSpectralTailFamily.lean)

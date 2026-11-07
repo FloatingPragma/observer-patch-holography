@@ -9,6 +9,7 @@ from pathlib import Path
 from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from . import capacity, dense_effects, native_capacity, passive_clock, uncertainty
+from . import native_field_response
 from ..native_causal_dataflow import dataflow
 from ..native_lorentz_transition import certificate as lorentz
 from ..field_cone_compatibility import certificate as field_cone
@@ -29,6 +30,9 @@ from ..native_effect_synthesis import packet as effect_synthesis
 from ..native_sector_readout import packet as sector_readout
 from ..native_correlation_sectors import packet as correlation_sectors
 from ..native_spatial_scaling import packet as spatial_scaling
+from ..native_correlation_preparation import packet as correlation_preparation
+from ..native_pair_response import packet as pair_response
+from ..native_exchange_clock import packet as exchange_clock
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -59,11 +63,14 @@ def source_bindings():
                      gauge_strings, clock_observables, weighted_family,
                      effect_coverage, clock_comparison, weighted_limit,
                      local_response, effect_synthesis, sector_readout,
-                     correlation_sectors, spatial_scaling):
+                     correlation_sectors, spatial_scaling,
+                     correlation_preparation, pair_response, exchange_clock):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
-        "DENSE_EFFECTS.md", "UNCERTAINTY.md", "SCATTERING.md", "ROADMAP.md"))
+        "DENSE_EFFECTS.md", "UNCERTAINTY.md", "SCATTERING.md", "ROADMAP.md",
+        "NATIVE_FIELD_RESPONSE.md", "native_field_response.py",
+        "test_native_field_response.py"))
     paths.update(("Lean/EventAlgebra/FiniteBuschGleason.lean",
                   "Lean/EventAlgebra/OperationalBornBridge.lean",
                   "Lean/EventAlgebra/Robertson.lean",
@@ -94,6 +101,9 @@ def report():
     sector_records = sector_readout.produce()
     correlation_records = correlation_sectors.produce()
     spatial_records = spatial_scaling.produce()
+    prepared_correlations = correlation_preparation.produce()
+    spatial_pairs = pair_response.produce()
+    exchange_responses = exchange_clock.produce()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
@@ -107,7 +117,10 @@ def report():
                             (effect_synthesis, synthesized_effects),
                             (sector_readout, sector_records),
                             (correlation_sectors, correlation_records),
-                            (spatial_scaling, spatial_records)):
+                            (spatial_scaling, spatial_records),
+                            (correlation_preparation, prepared_correlations),
+                            (pair_response, spatial_pairs),
+                            (exchange_clock, exchange_responses)):
         if not _same_json(value, strict_json.load(producer.OUTPUT)):
             raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
     if not _same_json(frames, strict_json.load(lorentz.OUTPUT)):
@@ -141,6 +154,11 @@ def report():
         "native_occupation_sector_readout": sector_records,
         "native_correlation_degree_responses": correlation_records,
         "native_routed_graph_motion": spatial_records,
+        "native_correlation_preparation": prepared_correlations,
+        "native_spatial_pair_response": spatial_pairs,
+        "native_exchange_clock_response": exchange_responses,
+        "common_native_field_response": native_field_response.compose(
+            prepared_correlations, exchange_responses),
         "passive_source_clock_boundary": passive_clock.certificate(),
         "causal_dataflow": dataflow.certificate(),
         "native_lorentz_transitions": frames,
@@ -168,6 +186,10 @@ def report():
                                            "complete native tree readout across occupation sectors",
                                            "native correlation-degree decomposition and reflected record probes",
                                            "routed graph halo and discrete native displacement bounds",
+                                           "arbitrary-input low-degree native response preparation",
+                                           "same-sector spatial pair responses and quadratic diffusive limit",
+                                           "native attempt comparison with the local exchange action",
+                                           "common-source preparation and exchange-response error composition",
                                            "finite null-transition and field-cone criteria"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
@@ -183,6 +205,9 @@ def report():
             "record_correlation_degree_is_particle_species": False,
             "stationary_single_load_motion_is_physical_light_propagation": False,
             "bounded_repair_only_exact_reset_derived": False,
+            "observable_preparation_is_full_state_preparation": False,
+            "exchange_endpoint_comparison_is_complete_history_equivalence": False,
+            "quadratic_diffusive_limit_is_interacting_relativistic_theory": False,
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,
