@@ -832,13 +832,26 @@ The executable complex tomography~\cite{ophrepo}
 implements real and imaginary analyzers for all $4356$ Hermitian coordinates
 of its $66$-state sector, retaining export aborts and detector timeouts.
 Its coherent routing and density/Kraus semantics are supplied. A bounded
-alternative detector reads the eleven edges of a native spanning tree.
+alternative detector reads the edges of a native spanning tree.
 Subtracting accumulated recorded currents from incoming contrasts recovers
-the initial occupation differences; total occupation two fixes the remaining
-constant. Every fine history is rank one, so the coarse effects are the
-$66$ basis projectors. Streamed native branch continuation and an exact lazy
-history evaluator retain all records; the expanded evaluator's resource stop
-is a distinct return. The nine-bit coherent words use the direct source
+the initial occupation differences; the conserved total in the source
+specification fixes the remaining constant. This holds on every fixed-number
+sector of a connected binary graph, with $V-1$ repairs for $V$ ports.
+Every nonzero fine history is rank one, including arbitrary untouched
+references, and its terminal basis state is an outcome-labelled preparation.
+The $66$-state member needs eleven repairs; the admitted connected levels
+zero through two need $239$, $959$ and $3839$. Exact lazy raw-word queries
+use the original continuation kernel and retain the archive; the expanded
+evaluator's resource stop is a distinct return. If the total is unknown,
+the empty and full states share one rank-two branch preserving their
+coherence. A known global total need not fix a smaller window's total.
+Appending the tree to a complete history also permits reverse-current
+reconstruction of its occupation path. With positive placement coins, a
+bounded repair-only controller retains a positive no-motion probability
+from each input, precluding exact reset of all inputs in a nontrivial sector
+to one fixed target
+(\path{model/native_sector_readout}, \cite{ophrepo}).
+The nine-bit coherent words use the direct source
 compiler, beyond the generic word evaluator's six-qubit host ceiling.
 Existing coherent routing of the known terminal code gives ideal basis
 L\"uders readout or fixed pure preparation. The rounded maps have bounded

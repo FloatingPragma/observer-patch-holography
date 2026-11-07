@@ -30117,7 +30117,10 @@
         "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON",
         "OPH-WEIGHTED-LOCAL-STATE-LIMIT",
         "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
-        "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS"
+        "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+        "OPH-NATIVE-FULL-NUMBER-READOUT",
+        "OPH-NATIVE-CORRELATION-SECTORS",
+        "OPH-NATIVE-SPATIAL-MOTION-SCALING"
       ],
       "lean_files": [
         "Lean/Computation/FixedFederationComplexity.lean",
@@ -31859,6 +31862,33 @@
           "controls": "Gaussian-rational vectors and rational strengths with 64-bit component bounds, certified binary angles and at most 23579 pulses on nine bits; the numerical complete-error claim requires the exact emitted-word primitive certificate to pass.",
           "clock": "Counted native pulse and repair resources; generic six-bit word and expanded-tree host limits retain their resource stops.",
           "regime": "Fixed-precision source synthesis of the stated rank-one domain with gain and complete-error bounds; no arbitrary positive-effect compiler, universal coexistent refinement, unbounded accuracy or Born-premise discharge."
+        },
+        "native_full_number_configuration_readout": {
+          "carrier": "Every fixed binary number sector on a connected finite graph; actual H66 and evaluated fair federations, with arbitrary untouched references.",
+          "law": "Original fixed-seam E instrument and positive endpoint placement coins; complete raw addresses and native current update.",
+          "preparation": "Record-labelled terminal basis preparation only; exact bounded repair-only fixed-target reset is obstructed on nontrivial number sectors.",
+          "records": "Full tree word, original raw slots, current/contrast/coin fields, program digest, archive/FIFO and arbitrary reference; unknown local totals retain the empty/full coherent block.",
+          "controls": "Known total and implementation specifications may be read; no initial census, added coherent register or silently supplied adaptive relocation policy.",
+          "clock": "Counted repairs and native resource admission, with original expanded RESOURCE_STOP and separate exact lazy continuation queries.",
+          "regime": "All connected binary graph sectors mathematically, with literal source attachment only on its admitted evaluated geometry; no physical quantum field or particle-mass identification."
+        },
+        "native_transfer_correlation_sectors": {
+          "carrier": "Full q-occupation population transfer space and its orthogonal primitive-degree blocks on one connected finite graph.",
+          "law": "Fair endpoint C/E repair, independent uniform seam selection and repair probability one, giving P=I-G/(2M).",
+          "preparation": "Uniform q-sector working reference or an explicit source preparation error; transfer-Hilbert references are separate objects.",
+          "records": "Four complete E readouts with past outgoing and future incoming contrasts, all raw flags, back-action and terminal records retained.",
+          "controls": "Disjoint probe seams and exact finite correlation computations; no raw-branch symmetry, degree-to-particle assignment or fitted physical pole.",
+          "clock": "Common integer attempt spacing on the same graph; logarithmic transfer and optional Poissonized generators are not native unitary time.",
+          "regime": "Exact primitive block and normalized response identities on finite fair graphs, with admitted evaluated federation controls; no continuum or physical particle identification."
+        },
+        "native_spatial_motion_and_local_clocks": {
+          "carrier": "The fair binary port-pair federation, with one-unit stationary working state for displacement bounds and a declared sender input for arrival witnesses.",
+          "law": "Original complete C/E repair with independent uniform seam selection and repair probability one; no Hamiltonian or kinetic term is inserted.",
+          "preparation": "Uniform one-unit reference is declared; the result does not choose total occupation or supply universal passive preparation.",
+          "records": "Complete body raw records, elapsed attempts, final E-tree readback, native archive/FIFO and all zero/timeout outcomes; detector disturbance is retained.",
+          "controls": "Existing affine comparison dictionary and fixed state-independent local seam clocks; no hidden initial census or adaptive dependency erasure.",
+          "clock": "Global attempts and completed or finitely capped incident-tick counts are separate; the stopped process is bounded by its own resolvent argument.",
+          "regime": "All mathematical refinement levels under source combinatorial postconditions, with finite actual geometry/kernel controls and retained host limits; no physical spacetime, Lorentz field, interacting action or measured particle identification."
         }
       },
       "bindings": [
@@ -40216,6 +40246,96 @@
             {
               "path": "model/native_effect_synthesis/PROOF.md",
               "anchor": "# Bounded native rank-one effect synthesis"
+            }
+          ]
+        },
+        {
+          "id": "native-full-number-configuration-readout",
+          "domain": "native_full_number_configuration_readout",
+          "claims": [
+            "OPH-NATIVE-FULL-NUMBER-READOUT"
+          ],
+          "establishes": [
+            "native_full_number_configuration_readout"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_full_number_configuration_readout"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "native_E_partial_injection_and_complete_Kraus_instrument",
+            "positive_no_motion_path_bound",
+            "recorded_current_reversal",
+            "spanning_tree_gradient_reconstruction_with_known_total"
+          ],
+          "scope": "On a connected binary source with conserved total m read from its specification, V-1 complete fixed E tree repairs decode every initial and terminal configuration after correcting recorded contrasts by prior currents. Each live fine map is sqrt(w)|terminal><initial| on that sector, with all zero addresses and untouched references retained. The actual fair federation at evaluated levels zero through two admits full 239,959,3839-command trees; lazy original-kernel queries are distinct from expanded host resource stops. Without known local total, only the all-empty/all-full subspace remains a rank-two coherent ambiguity. Final tree readback and validated reverse currents recover a body history without an input census. Every nonzero tree outcome prepares a record-labelled terminal basis state. On a nontrivial number sector, a positive no-motion path obstructs exact bounded repair-only fixed-target reset and restoration on a changed outcome; no coherent extension or physical field is inferred.",
+          "limitations": "The source is binary with a connected finite graph, positive endpoint coin probabilities, known conserved global occupation and fixed E tree repairs with repair probability one. Actual attachment is weighted H66 or the admitted fair federation at evaluated levels 0,1,2; mathematical general graphs do not enlarge fixed intercell admission. The full archive is exported and raw zero outcomes remain. Sparse exact operator queries use rational real components with complex-linear extension. Actual program digest, original raw slots, native records, trajectory weight and FIFO partition authenticate the detector. The body-plus-readback program must separately fit native node/attempt caps and bind its schedule, probabilities and memory; expanded and lazy interfaces are distinct. Unknown local totals retain the constant rank-two block. No-motion reset bounds on nontrivial number sectors concern bounded repair/hold controllers without coherent services or postselection and do not exclude approximate or unbounded preparation.",
+          "sources": [
+            {
+              "path": "model/native_sector_readout/PROOF.md",
+              "anchor": "# Full-number native configuration readout"
+            }
+          ]
+        },
+        {
+          "id": "native-transfer-correlation-sectors",
+          "domain": "native_transfer_correlation_sectors",
+          "claims": [
+            "OPH-NATIVE-CORRELATION-SECTORS"
+          ],
+          "establishes": [
+            "native_transfer_correlation_sectors"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_transfer_correlation_sectors"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "Boolean_slice_harmonic_decomposition",
+            "complete_reflected_E_instrument_identity",
+            "finite_self_adjoint_transfer_spectral_calculus",
+            "permutation_intertwining_of_exclusion_transfer",
+            "raising_lowering_commutator_and_inclusion_norm"
+          ],
+          "scope": "For the fair binary endpoint law on one fixed graph, the unread q-sector transfer has an exhaustive orthogonal decomposition by primitive correlation degree. Boolean raising/lowering gives dimension binomial(V,r)-binomial(V,r-1) and squared Euclidean inclusion norm factor binomial(V-2r,q-r), identifying each primitive block across allowed occupations. For two disjoint native seams, phi=(n_a-n_b)(n_c-n_d) is primitive degree two with variance 4(q)_2(V-q)_2/(V)_4. Its normalized stationary curve equals h*P_2^t h/4 for 2<=q<=V-2, independent of q on that graph and attempt clock. A complete four-E experiment reads this curve using outgoing contrasts on the past pair and incoming contrasts on the future pair, with back-action and all 625 two-read flags retained. Fair reference, time and geometry conditions remain explicit; degree labels and positive transfer poles are not physical particle sectors or working-clock energies.",
+          "limitations": "The graph is finite and connected, endpoint coins are fair, seam choices are independent and uniform, repair probability is one and the C/E mixture is fixed. The uniform q-sector source reference is supplied or has its own preparation error. Primitive decomposition is a standard Boolean-slice result and applies to unread population transfer, not each recorded quantum branch. The reflected four-read experiment uses two disjoint actual seams and the original complete E raw instrument. Its full mathematical duration family is separate from bounded generic execution and retained RESOURCE_STOP. Actual federation geometry is evaluated only at levels 0,1,2. Normalization excludes q=0,1,V-1,V and amplifies source-state error by 2/variance. No automatic capacity-independent state, sampling cost, continuum, working modular clock, chirality or particle identification is inferred.",
+          "sources": [
+            {
+              "path": "model/native_correlation_sectors/PROOF.md",
+              "anchor": "# Native transfer correlation sectors and reflected records"
+            }
+          ]
+        },
+        {
+          "id": "native-spatial-motion-and-local-clocks",
+          "domain": "native_spatial_motion_and_local_clocks",
+          "claims": [
+            "OPH-NATIVE-SPATIAL-MOTION-SCALING"
+          ],
+          "establishes": [
+            "native_spatial_motion_and_local_clocks"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_spatial_motion_and_local_clocks"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "finite_reversible_Markov_spectral_increment_bound",
+            "midpoint_subdivision_incidence_and_injective_port_assignment",
+            "native_full_number_terminal_readback",
+            "pathwise_squared_increment_inequality",
+            "positive_native_path_support",
+            "stationary_geometric_waiting_resolvent"
+          ],
+          "scope": "For the literal fair port-pair federation, combinatorial refinement and injective port routing prove the whole-cell halo geometry at every mathematical level. The declared affine cell-centroid dictionary has exact crossing energy E_l=20-4sqrt(5)+(-40+16sqrt(5))/(3*2^l)<12. In the supplied uniform one-unit stationary state, complete native attempts satisfy mean squared comparison displacement at most T/(12600*16^l). At k ticks of a fixed d-seam clock, the geometric waiting resolvent instead gives k^2/(10*d*4^l), without substituting a mean stopping time. A shortest-path native word gives positive first-incident-tick arrival probability at arbitrary graph distances, so that clock has no capacity-independent strict port-distance cone. Final complete E-tree readback and reverse currents identify the body path without initial occupation disclosure. These finite response statements preserve native resource stops and distinguish mathematical graph continuations, comparison coordinates and selected states from physical spacetime or particle motion.",
+          "limitations": "Use the original fair binary federation, independent uniform seam selection, repair probability one and the complete native C/E instrument. The mean-square theorem uses a declared uniform one-unit working reference and the existing auxiliary affine cell-centroid coordinates on a unit-radius icosahedron, not physical positions or the floating routing chart. All-level geometry is a combinatorial induction conditional on the source routing postconditions, not successful arbitrary-level allocation. Actual graph checks cover levels 0 through3; native fixed-address/evaluator attachment retains levels 0 through2 and its unchanged caps. Local ticks use a fixed input-independent seam set; completed geometric waiting laws and capped timeout laws are distinguished. Arrival witnesses require their stated sender input and do not prepare it. Full body-plus-tree records, source digest, FIFO and native kernel authenticate path readback; no initial census is supplied to the decoder. No Lorentz cone, physical clock, growing coherent service, selected density or interacting action follows.",
+          "sources": [
+            {
+              "path": "model/native_spatial_scaling/PROOF.md",
+              "anchor": "# Spatial displacement and local clocks from native records"
             }
           ]
         }

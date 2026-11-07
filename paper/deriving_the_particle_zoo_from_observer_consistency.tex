@@ -1069,8 +1069,8 @@ ports reached. With $M=630\,4^\ell$ seams, the only nonzero entries are
  \le\min\{1,15\tbinom{T}{2}/M^2\}.
 \]
 Here $Q^{\,T}$ denotes the $T$th power. At level zero and $T=30$ this
-probability is below $0.015$. Beyond the checked levels the formula is
-conditional on the stated halo geometry. Stopping immediately after the
+probability is below $0.015$. The combinatorial attachment below proves
+the halo geometry for every returned source routing. Stopping immediately after the
 $k$th internal repair instead gives
 \[
  R=30(D-B_0)^{-1},\qquad
@@ -1091,6 +1091,112 @@ extension has the same conditional locality construction but no native
 admission; its reference is not assigned to the fair source. The proof and
 bounded interpreter checks supply neither a physical clock nor a relativistic
 limit (\path{model/native_local_response}, \cite{ophrepo}).
+
+\paragraph{Occupation-sector readout.}
+On any connected binary source with $V$ ports, the conserved total $m$ and
+complete records of $V-1$ fixed-seam repairs along a spanning tree determine
+the initial configuration. If $s_i$ is the accumulated recorded displacement,
+the incoming contrast on $(a,b)$ gives the initial difference
+$d-s_a+s_b$. Propagate these differences to offsets $o_i$; the common
+offset is $(m-\sum_i o_i)/V$. Replaying the currents also determines the
+terminal configuration. Every nonzero complete word therefore has the map
+$\sqrt{w_h}|y_h\rangle\langle x_h|$, including arbitrary untouched
+references, and coarse graining by $x_h$ gives the configuration projectors.
+Without a supplied total, the empty and full configurations share one
+rank-two branch that preserves their coherence. All other supported words
+decode a unique configuration. This ambiguity cannot be removed by
+record-adaptive repair selectors.
+
+The actual connected members at levels zero through two admit trees with
+$239$, $959$ and $3839$ commands. An exact lazy query of a complete raw word
+uses the original continuation kernel and retains its archive; it does not
+turn the expanded evaluator's resource stop into a completed execution.
+A final tree read permits reverse-current reconstruction of a preceding
+complete repair history. Its terminal basis state is outcome-labelled.
+For any controller of at most $T$ repairs, positive placement probabilities
+retain a no-motion event from every basis input with probability at least
+$(1-r+rp_{\min})^T$, where $r$ is the repair probability. On a nontrivial
+fixed-number sector, this obstructs exact deterministic reset of every input
+to one target by bounded repair-only control. It permits approximate or
+heralded preparation and the separately declared coherent services
+(\path{model/native_sector_readout}, \cite{ophrepo}).
+
+\paragraph{Native correlation sectors.}
+For the fair connected source with $M$ seams, the population transfer is
+$P_q=I-\sum_{ab}(I-S_{ab})/(2M)$ on the $q$-occupation sector. Let $U$
+add a site to a subset, $D=U^*$ and $W_r=\ker D_r$. The standard harmonic
+decomposition of the Boolean slice~\cite{filmus2016orthogonal} follows from
+$DU-UD=(V-2r)I$ on degree $r$. Its source-preserved degree-$r$ subspace has
+dimension $\binom Vr-\binom V{r-1}$, for
+$r\le\min(q,V-q)$, and is unitarily equivalent to $P_r|_{W_r}$.
+This is a decomposition of the unread transfer, with no assertion that
+each recorded quantum branch preserves these subspaces.
+
+For two disjoint native seams $(a,b),(c,d)$, put
+$h=e_{ac}-e_{ad}-e_{bc}+e_{bd}$ and
+$\phi=(n_a-n_b)(n_c-n_d)$. Then $D_2h=0$, and in the uniform
+fixed-number reference
+\[
+ v_q=\mathbb E\phi^2=4\frac{\binom{V-4}{q-2}}{\binom Vq},
+ \qquad
+ \frac{\mathbb E[\phi(X_0)\phi(X_t)]}{v_q}
+ =\frac{h^*P_2^t h}{4},\qquad 2\le q\le V-2.
+\]
+An actual four-read experiment realizes this curve: read both seams,
+score their outgoing contrasts $(d_1-2j_1)(d_2-2j_2)$, run $t$ uniform
+attempts, then read both seams and score the incoming contrasts $d_3d_4$.
+The complete fair instruments are unital; the first scored output is
+$\phi\tau_q$ and the last scored effect is $\phi$. Thus their joint
+score equals the displayed covariance with measurement backaction included.
+Every raw flag is retained. Using incoming contrasts at both ends changes
+the experiment and fails this identity. A preparation error $\epsilon$ in
+half trace distance gives normalized error at most $2\epsilon/v_q$;
+$v_q$ decreases as $V^{-2}$ at fixed $q$. The normalized poles are independent
+of occupation on a fixed graph, not of graph size or clock. Different
+correlation degrees may share poles. Neither degree nor pole is assigned
+a particle identity (\path{model/native_correlation_sectors}, \cite{ophrepo}).
+
+\paragraph{Native spatial motion and clocks.}
+Midpoint subdivision preserves a simple closed triangular complex; each
+cell has three distinct neighbors. The source assigns their crossing
+edges to distinct ports, so each of the three halo ports has five seams
+leaving the halo and none joining another halo port. This proves the
+four-state halo premise at every combinatorial level for every returned
+routing. It does not assert successful floating-point construction or
+host execution at arbitrary levels.
+
+In the existing auxiliary affine cell-centroid dictionary, normalized to
+unit circumsphere, all ports of a cell share one coordinate. Writing
+$n=2^\ell$, there are $30(n^2-n)$ within-face and $30n$ original-face hinge
+crossings. Their exact total squared length is
+\[
+ E_\ell=20-4\sqrt5+\frac{-40+16\sqrt5}{3\,2^\ell}<12.
+\]
+For a stationary uniform single-unit source, $P=I-L/(2M)$ with
+$M=630\,4^\ell$ seams and $V=240\,4^\ell$ ports. Positivity gives
+$I-P^T\le T(I-P)$ and therefore
+\[
+ \mathbb E\|x(X_T)-x(X_0)\|^2
+ \le\frac{TE_\ell}{MV}\le\frac{T}{12600\,16^\ell}.
+\]
+Markov's inequality gives a displacement-probability bound by dividing
+by the squared threshold. At $T=\lfloor1260\,8^\ell t\rfloor$, this
+mean square is at most $t/(10\,2^\ell)$. It is a finite stationary path
+bound in comparison coordinates, with no physical light-speed assignment.
+
+For a fixed set of $d$ tick seams, a completed tick consists of a geometric
+number of remote repairs followed by one incident repair. Both conditional
+transfers preserve the uniform state. The squared triangle inequality and
+stationarity bound displacement after $k$ completed ticks by
+$k^2/(10d\,4^\ell)$. Substituting the mean elapsed time into the
+deterministic-time bound would not justify this result. A finite attempt
+cap retains timeout as a separate outcome. Along a shortest path of $D$
+edges to a receiver, one positive native history of weight $(2M)^{-D}$
+arrives at its first incident tick; that tick has no strict port-distance
+support bound uniform in capacity. Global attempt locality is unchanged.
+A final tree detector and the body currents reconstruct the recorded path;
+the prepared law, auxiliary coordinate dictionary and complete archive
+access are explicit inputs (\path{model/native_spatial_scaling}, \cite{ophrepo}).
 
 \subsection{Native clock observables}
 \label{sec:native-clock-observables}
@@ -2206,6 +2312,12 @@ Peskin, M. E., and Schroeder, D. V. (1995). \emph{An Introduction to Quantum Fie
 
 \bibitem{pwweinberg1967model}
 Weinberg, S. (1967). ``A model of leptons.'' \emph{Physical Review Letters} \textbf{19}, 1264--1266. \url{https://doi.org/10.1103/PhysRevLett.19.1264}
+
+\bibitem{filmus2016orthogonal}
+Y. Filmus,
+\emph{Orthogonal basis for functions over a slice of the Boolean hypercube},
+Electronic Journal of Combinatorics \textbf{23}(1), P1.23 (2016).
+\url{https://doi.org/10.37236/4567}
 
 \bibitem{ophbasis}
 B.\ M\"uller et al.,

@@ -170,6 +170,36 @@ their proposed outputs by more than `1/5000` in half trace norm under its stated
 preparation and service-error budgets. A different source-to-field encoding
 must supply its own prepared-state and complete-record comparison.
 
+## Connected source records and the reference-state join
+
+The [full-number detector](../../model/native_sector_readout/PROOF.md)
+uses the known conserved total and `V-1` E records to determine the initial
+and terminal configuration of the connected source. Its fine maps preserve
+the full reference-assisted back-action. A final detector also permits
+reverse-current readback of an authenticated body history. Unknown local
+number retains a coherent empty/full ambiguity. Outcome-labelled basis
+preparation is distinct from a predetermined reference: a positive
+no-motion path excludes exact bounded repair-only reset of all inputs on
+a nontrivial sector.
+
+The [native correlation sectors](../../model/native_correlation_sectors/PROOF.md)
+provide a same-source decomposition beyond the closed density means.
+The four-E probe isolates `phi=(n_a-n_b)*(n_c-n_d)`, orthogonal to all
+one-body fields. Its normalized correlation is independent of the global
+occupation on a fixed graph for `2<=q<=V-2`, with variance
+`4*binom(V-4,q-2)/binom(V,q)`. The measured quantity is a complete reflected
+record expectation, not a prepared nontracial quantum vacuum or a chosen
+Higgs state. Different correlation orders may share poles.
+
+The [spatial scaling bounds](../../model/native_spatial_scaling/PROOF.md)
+use the declared affine source readout and separate deterministic attempts
+from actual incident stopping. The source density continuum has
+[spectral dimension two](../../model/physical_space_time/README.md) in its
+specified dictionary. These results require a state-preserving,
+clock-preserving field map before joining the native reference to the
+interacting chiral action. An algebraic transfer state, working stationary
+density and physical vacuum cannot substitute for one another.
+
 ## Complete finite Higgs experiment and its source boundary
 
 The [interacting Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)

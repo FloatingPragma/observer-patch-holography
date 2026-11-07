@@ -276,6 +276,39 @@ the exterior does not force that local-clock bound to zero. These results
 give finite observation and boundary control, without identifying a
 Lorentzian causal quotient, physical clock or universal quantum field algebra.
 
+## Primitive transfer sectors and complete connected readout
+
+The fair native connected transfer admits the exhaustive
+[correlation-degree decomposition](../../model/native_correlation_sectors/PROOF.md)
+`H_q=direct_sum_r I_(r,q) ker(D_r)`, with primitive dimensions
+`binom(V,r)-binom(V,r-1)`. This reduces the source-derived population
+operator and its logarithm, using the existing strict transfer positivity.
+It does not intertwine every raw quantum branch across occupations or
+select a gauge representation, chirality or physical spin.
+
+Two disjoint E probes before and after a body read a primitive degree-two
+correlation using outgoing past contrasts and incoming future contrasts.
+Back-action is included. Normalized response is independent of `q` on the
+same graph, while its poles can overlap the one-body density poles.
+Therefore the degree label is an observable filtering rule, not a particle
+name or proof of a separate mass.
+
+The [tree readout](../../model/native_sector_readout/PROOF.md) extends basis
+configuration effects to every known global number using native repairs
+only. On an unknown local-number mixture, empty and full share a coherent
+rank-two outcome. On a nontrivial sector, exact finite repair-only reset to a prescribed
+target is excluded by a retained no-motion branch. These statements specify concrete
+measurement and preparation interfaces for quantum theorem premises;
+they do not establish universal complex effect access or a common vacuum.
+
+The [spatial attachment](../../model/native_spatial_scaling/PROOF.md)
+controls the routed graph, affine displacement and actual incident clock.
+It does not replace the [native density continuum's two-dimensional
+spectrum](../../model/physical_space_time/README.md) with a three-dimensional
+field. Selection of a different observable net or state must include its
+joint-record comparison, action and physical clock before using it in the
+chiral gauge-field derivation.
+
 ## Thermodynamics from native repair
 
 The [finite four-law core](../../Lean/Thermodynamics/CofinalSpectralTailFamily.lean)
