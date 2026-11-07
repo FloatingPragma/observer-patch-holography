@@ -220,3 +220,27 @@ def test_lineage_sanity_is_not_only_same_provider_comparison(executed, expected,
     monkeypatch.setattr(experiment, 'classify_phase_loss', lambda root: deepcopy(lineage))
     with pytest.raises(ValueError):
         verify(changed, expected)
+
+
+@pytest.mark.parametrize('mutation', ('recipe_mass', 'balanced_recipe_density', 'bit_record_mass'))
+def test_joint_profile_rejects_accumulated_scalar_errors(executed, expected, mutation):
+    changed = deepcopy(executed[0])
+    if mutation == 'recipe_mass':
+        for component in changed['preparation']['components']:
+            component['weight'] += 1.5e-10
+    elif mutation == 'balanced_recipe_density':
+        points = [item for item in changed['preparation']['components'] if item['kind'] == 'point']
+        for index, component in enumerate(points):
+            component['weight'] += 1.5e-10 if index < 33 else -1.5e-10
+    else:
+        changed['selector']['bit_record_probabilities'] = [
+            value + 1.5e-10 for value in changed['selector']['bit_record_probabilities']]
+    with pytest.raises(ValueError):
+        verify(changed, expected)
+
+
+def test_joint_profile_admits_errors_inside_unchanged_global_bounds(executed, expected):
+    changed = deepcopy(executed[0])
+    for component in changed['preparation']['components']:
+        component['weight'] += 1e-13
+    assert verify(changed, expected)['all_pass']

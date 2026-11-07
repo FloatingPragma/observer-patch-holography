@@ -58,7 +58,10 @@ The standalone verifier checks the complete receipt profile, including
 preparation slot labels and weights, selector bits, loss-quotient metadata
 and source-word resource counts. The density and outcome targets come from
 the separate rational implementation; source-word metadata is reconstructed
-from the emitted services. The package tests also check the retained receipt
+from the emitted services. Component weights also reconstruct a canonical
+point/pair mixture whose total mass and full density must satisfy the same
+global bounds and agree with the recorded preparation. Primitive selector
+bits have a complete probability budget. The package tests check the retained receipt
 against a fresh source execution.
 
 The measured quantity is a finite transfer contrast in native attempts.

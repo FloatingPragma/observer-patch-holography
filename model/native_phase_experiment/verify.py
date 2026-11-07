@@ -60,11 +60,35 @@ def _components(actual, carrier, q):
     _require(index == 1680, 'independent preparation slot count')
     _require(len(slots) == 366, 'independent preparation component count')
     _list(actual, len(slots), 'preparation components')
+    positions = {tuple(state): i for i, state in enumerate(carrier['states'])}
+    recipe = defaultdict(Fraction)
+    mass = Fraction(0)
     for item, ((kind, ports), indices) in zip(actual, sorted(slots.items()), strict=True):
         _keys(item, ('kind', 'ports', 'weight', 'selector_slots'), 'component fields')
         compare_receipt({'kind': kind, 'ports': list(ports), 'selector_slots': indices},
                         {key: item[key] for key in ('kind', 'ports', 'selector_slots')})
         _probability(item['weight'], q * len(indices) / 1680, 'component weight')
+        weight = Fraction(item['weight'])
+        mass += weight
+        if kind == 'point':
+            state = tuple(int(port in ports) for port in range(12))
+            i = positions[state]
+            recipe[i, i] += weight
+        else:
+            a, b, spectator = ports
+            i = positions[tuple(int(port in (a, spectator)) for port in range(12))]
+            j = positions[tuple(int(port in (b, spectator)) for port in range(12))]
+            for row, column in ((i, i), (i, j), (j, i), (j, j)):
+                recipe[row, column] += weight / 2
+    _exact_close(mass, q, 'preparation recipe mass')
+    return dict(recipe), mass
+
+
+def _recipe_density(recipe, target, label):
+    squared = sum((recipe.get(key, 0) - target.get(key, 0)) ** 2
+                  for key in recipe.keys() | target.keys())
+    if squared > TOLERANCE * TOLERANCE:
+        raise ValueError('independent comparison failed at ' + label + ' recipe density')
 
 
 def _density(actual, entries, q, label):
@@ -137,6 +161,8 @@ def verify(result, expected):
     _list(selection['bit_record_probabilities'], 6, 'selector bit records')
     for label, value in enumerate(selection['bit_record_probabilities']):
         _probability(value, Fraction(1, 2) if label < 2 else 0, 'selector bit record')
+    bit_mass = sum(map(Fraction, selection['bit_record_probabilities']), Fraction(0))
+    _exact_close(bit_mass, 1, 'selector complete bit mass')
     _list(selection['slot_probabilities'], 1680, 'selector slots')
     for index, value in enumerate(selection['slot_probabilities']):
         _probability(value, q / 1680, 'selector slot ' + str(index))
@@ -151,16 +177,35 @@ def verify(result, expected):
     preparation = result['preparation']
     _keys(preparation, ('components', 'source_failure_probability', 'success_probability', 'densities'),
           'preparation fields')
-    _components(preparation['components'], expected['carrier'], q)
+    recipe, recipe_mass = _components(preparation['components'], expected['carrier'], q)
     _probability(preparation['success_probability'], q, 'preparation unconditioned success')
     _probability(preparation['source_failure_probability'], 0, 'preparation source failure')
+    _exact_close(Fraction(preparation['success_probability'])
+                 + Fraction(preparation['source_failure_probability']), recipe_mass,
+                 'preparation recipe success budget')
     _keys(preparation['densities'], ('reference', 'twisted'), 'preparation settings')
+    density_masses = {}
     for setting, name in (('reference', 'rho'), ('twisted', 'sigma')):
-        _density(preparation['densities'][setting], expected['preparation'][name]['entries'], q, setting)
+        density = preparation['densities'][setting]
+        entries = expected['preparation'][name]['entries']
+        _density(density, entries, q, setting)
+        signed_recipe = {
+            (row, column): weight * (-1 if setting == 'twisted'
+             and expected['carrier']['states'][row][0] != expected['carrier']['states'][column][0]
+             else 1) for (row, column), weight in recipe.items()}
+        target = {(row, column): q * Fraction(value) for row, column, value in entries}
+        _recipe_density(signed_recipe, target, setting)
+        _density(density, [(row, column, value) for (row, column), value in signed_recipe.items()],
+                 Fraction(1), setting + ' recipe')
+        density_masses[setting] = (sum((Fraction(density['real'][i][i]) for i in range(66)), Fraction(0))
+                                    + Fraction(density['outside_total_two_probability']))
     runs = experiment.source_runs()
     _keys(result['source_execution'], runs, 'source execution names')
     for name, run in runs.items():
         compare_receipt(experiment._run_summary(run), result['source_execution'][name])
+    _exact_close(bit_mass + Fraction(result['source_execution']['selector']
+                                    ['all_input_export_failure_trace']), 1,
+                 'selector complete bit source budget')
     compare_receipt(_resources(runs, selector_expected), result['resource_envelope'])
     lineage = result['protected_obstruction_reuse']
     compare_receipt(experiment.classify_phase_loss(experiment.ROOT), lineage)
@@ -242,6 +287,8 @@ def verify(result, expected):
             _probability(trial[field], 0, field)
             failure_values.append(trial[field])
         failures = sum(map(Fraction, failure_values), Fraction(0))
+        _exact_close(density_masses[setting] + Fraction(trial['phase_source_failure_probability']),
+                     Fraction(preparation['success_probability']), 'preparation density trace budget')
         _exact_close(measured + failures, 1, 'complete probability')
         _close(trial['complete_probability_error'], abs(measured + failures - 1), 'balance diagnostic')
         _close(trial['regional_factorization_error'], 0, 'regional marginal')
