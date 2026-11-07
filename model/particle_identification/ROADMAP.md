@@ -81,6 +81,47 @@ corner is not an autonomous capacity limit. The complete boundary comparison
 has no-crossing weight `(10/11)^k` through the `k`th internal repair under
 the uniform seam selector.
 
+Its [controlled local state limit](../weighted_local_limit/PROOF.md) applies
+to declared total occupation `rB` on `B` repeated-weight cells, with `r=2`
+or `4`. Every local number sector is retained. The `k`-cell restriction
+differs from its mean-matched Bernoulli product by half trace distance at
+most `min(1,sqrt(k*log(240B)/(2B)))`. The proof uses exact conditioning,
+a `1/(240B)` lower bound for the conditioning probability, and finite
+relative entropy. It evaluates local bounds at cosmological port counts
+without enumerating that carrier. Physical capacity, density, preparation
+and weighted native admission are not selected. A common instrument must
+act on all retained number sectors; H66 coherent controls do not acquire
+that domain from the limit. Independent references preserve the bound;
+arbitrary correlated references require a joint estimate.
+
+The [local-response reduction](../native_local_response/PROOF.md) controls
+complete selected records and their terminal local state under fixed
+native selectors. Final measured ports and both endpoints of each observed
+record seed a conservative backward dependency cone. The source keeps its
+FIFO and archive; the stated observation traces remote raw values. An
+actual feedback witness shows that adaptive remote control can signal, so
+those dependencies must be retained in any proposed spatial quotient.
+The reduction is exact for arbitrary correlated references with the same
+initial cone/reference restriction.
+
+For a twelve-port cell with its three-port halo, checked at every cell of
+levels 0, 1 and 2, independent uniform seam choices with repair probability
+one give complete finite-window error at most
+`15*binom(T,2)/M^2` in `T` global attempts, capped at one. A four-state
+cone matrix gives the sharper exact value. Stopping at the `k`th internal
+repair instead gives `1-1^T R^k e_0`, where
+`R=30(D-B_0)^(-1)`, `D_nn=33+4n`, `(B_0)_(n+1,n)=3-n`.
+Its first value is `677/50061`; the bound `min(1,k(k+1)/120)` does not
+vanish with exterior capacity at fixed `k`. Elapsed global time and all
+observed outcomes are retained. Bounded Abel averages have an exact
+four-state resolvent bound, with no energy interpretation. At unevaluated
+levels the halo geometry is an explicit premise. These mathematical
+duration families do not bypass actual host stops or execute infinite
+histories. A weighted static bound composes only with the matching declared
+weighted law and the appropriate joint input-state estimate.
+The displayed cell bounds retain internal-cell record values; observing
+crossing records requires including their exterior endpoints in the roots.
+
 The [configuration protocol](../native_effect_coverage/PROOF.md) supplies a
 bounded eleven-repair detector from native E records and current corrections.
 Existing coherent routing gives repeatable basis preparation and the inherited
@@ -88,6 +129,22 @@ full finite tomographic menu. Its exact lazy/streamed execution and the stock
 expanded evaluator's resource stop are distinct outputs. Growing coherent
 service access and universal coexistent-effect implementation remain separate
 proof obligations.
+
+The [rank-one synthesis protocol](../native_effect_synthesis/PROOF.md)
+constructs `lambda*v*v^dagger/(v^dagger*v)` for a nonzero Gaussian-rational
+66-vector and rational `lambda` in `[0,1]`, with input numerators and
+denominators bounded to 64 bits. Its existing nine-bit pulse alphabet,
+export and complete tree detector use at most 23579 pulses and give complete
+half-diamond error below `10^-6` when the emitted word passes its exact
+primitive gates. A failed gate rejects the numerical certificate; no
+universal numerical-library rounding theorem is assumed. All first failures and the single observed
+padding-abort flag remain; 446 internal padding Kraus rows are not separately
+observed records. The unequal-weight `(3,4)/5` projector is a constructive
+example outside the single-balanced-analyzer positive cone. Direct
+compilation and lazy detector semantics retain the separate host resource
+stops. This bounded menu supplies neither arbitrary approximation accuracy,
+general effect/coexistence implementation nor a growing coherent-service
+embedding.
 
 The [clock-identification test](../native_clock_comparison/PROOF.md) uses
 that source's existing Y probe to reject the proposed identity map from the
@@ -180,13 +237,13 @@ but a physical particle claim depends on the entire relevant chain.
 
 | Interface | Established starting point | Required next result and acceptance condition |
 | --- | --- | --- |
-| 1. Source and capacity family | [Capacity definitions](../observer/CAPACITY.md) distinguish record capacity, global capacity and Hilbert dimension. [Canonical restriction](../native_capacity_restriction/PROOF.md) supplies exact static local states, nesting and finite-size bounds for the declared fair federation. | Give the actual family indexed by physical capacity, including its conserved occupation, preparation and clock. A capacity continuation from the weighted H66 record source to the fair federation requires an explicit comparison; they have different laws. |
-| 2. Observer state and complete experiments | [Native quantum reconstruction](../native_quantum_reconstruction/PROOF.md) constructs a positive matrix functional. [The Born bridge](../native_born_bridge/PROOF.md) separates finite consistency from the all-effect theorem. The interacting extension supplies complete Kraus maps. | Show which effect/instrument family the observer implements, including failures and back-action, and prove its equivalences and composition laws on the same state. Supply a source preparation or a controlled approximation to its local restriction. |
+| 1. Source and capacity family | [Capacity definitions](../observer/CAPACITY.md) distinguish record capacity, global capacity and Hilbert dimension. [Canonical restriction](../native_capacity_restriction/PROOF.md) supplies exact local mixtures for the fair federation; the [weighted local limit](../weighted_local_limit/PROOF.md) controls two declared densities of the weighted extension. | Give the actual family indexed by physical capacity, including its conserved occupation, preparation and clock. The weighted extension needs admission and a source preparation; the fair federation has a different law. A static state limit does not supply their dynamic comparison. |
+| 2. Observer state and complete experiments | [The tree detector](../native_effect_coverage/PROOF.md) supplies full H66 readout and coherent tomography. [Rank-one synthesis](../native_effect_synthesis/PROOF.md) constructs a bounded rational effect menu with complete failures and gated error below `10^-6`. [The Born bridge](../native_born_bridge/PROOF.md) separates such finite consistency from the all-effect theorem. | Extend required controls to the same growing local state, retaining all local number sectors, failures and back-action. Prove equal-effect equivalence and common implementation of the required coexistent effects. Fixed precision and a pulse ceiling do not give arbitrary-accuracy closure. |
 | 3. Quantum observables and uncertainty | [Robertson](../../Lean/EventAlgebra/Robertson.lean) proves the finite-state commutator inequality. [Prepared-clock fluctuations](../predictions/README.md#shared-state-fluctuation-field) supply a conditional quantitative canonical limit. | Bind actual source observables to the finite theorem. For physical position and momentum, additionally identify translations, spatial readout, the limiting domain and the common action unit. Merely assigning two matrices those names is insufficient. |
 | 4. Common reference, clock and energy | [Complete interacting records](../interacting_extension/PROOF.md) include the reference energy and cancel a common gauge offset. [Native records](../interacting_extension/source_selection/PROOF.md) give exact correlated attempt counts. | Derive the reference and clock used by all sectors, including preparation and comparison records. Show how dimensionless rates relate to one another before assigning units. A capacity count alone does not fix seconds or GeV. |
-| 5. Spatial field and relativistic limit | [The continuum CAR net](../continuum_field_net/README.md), [canonical spin field](../spin_canonical_field/README.md), and [free mass shells](../source_mass_shell/README.md) provide different controlled ingredients. | Recover local observables and translations in three spatial dimensions with a common time, positive energy and the required relativistic covariance. Prove the relevant convergence of joint records, not just agreement of a low-momentum dispersion curve. |
+| 5. Spatial field and relativistic limit | [Native local response](../native_local_response/PROOF.md) gives exact conservative cones and finite-window errors for selected complete local histories. [The continuum CAR net](../continuum_field_net/README.md), [canonical spin field](../spin_canonical_field/README.md), and [free mass shells](../source_mass_shell/README.md) provide different controlled ingredients. | Recover local observables and translations in three spatial dimensions with a common time, positive energy and relativistic covariance. Extend native geometric attachment beyond checked levels and retain observable controller dependencies. A finite graph cone does not identify the free field branches with the native process. |
 | 6. One interacting matter and gauge theory | [The finite Higgs join](../interacting_extension/higgs_join/PROOF.md) retains the complete 438/1596-state lepton sectors. [The local electric completion](../interacting_extension/chiral_electric/PROOF.md) includes the changing-projector kinetic term. | Extend the common carrier to the required colored matter and scalar sectors; derive its action and coupling placement from the source. Establish consistent chiral gauge dynamics, locality, anomaly cancellation and a nontrivial interacting limit on that same carrier. Separate free, abelian and local-projector controls do not compose automatically. |
-| 7. Controlled finite calculations | [Local simulation](../full_fock_field/LOCAL_SIMULATION.md) bounds complete local histories independently of ambient volume for its fixed supplied action and initial local restriction. | Control initial-state, local-coefficient, clock, volume, lattice-spacing and occupation errors together. Prove uniformity on the capacity family or an explicit finite-capacity correction. Increasing a cutoff without an error theorem is not an extrapolation certificate. |
+| 7. Controlled finite calculations | [Native boundary estimates](../native_local_response/PROOF.md) control actual repair histories in global and internal attempt counts; [local simulation](../full_fock_field/LOCAL_SIMULATION.md) gives separate bounds for its supplied field action. | Combine joint initial-state, coefficient, clock, volume, lattice-spacing and occupation errors on one family. The native internal-clock boundary bound does not vanish by enlarging the exterior alone. Relate the local response to the selected field process before using its supplied-action error theorem. |
 | 8. Physical particle definitions | Full finite response measures retain signed frequencies, residues and all complementary states. Conditional representation results constrain possible sectors. | Identify observable species through charge, spin, propagation and interactions, using the appropriate spectral or scattering definition. Explain missing and extra sectors. A topological defect is a particle candidate only if the same dynamics and records establish that identification. |
 | 9. Masses, mixing, widths and scattering | [Contact scattering](../contact_scattering/ONSHELL.md) has complete lattice wave operators and a unitary scattering matrix. [Moving contact scattering](../moving_contact_scattering/README.md) has a controlled nonrelativistic two-particle continuum. [Packet readout](../scattering_packet_readout/README.md) connects an incoming packet to a bounded finite detector contrast and executes a separate small source control. | Extend these results to the selected relativistic interacting theory and its common vacuum; the existing fine-spacing packet schedule has not been executed. Calculate gauge-consistent correlation and scattering observables with controlled errors, as specified in [the scattering interface](SCATTERING.md). Fix renormalization conventions where needed. Derive masses, mixing and decay laws from the selected action/state; do not choose couplings or labels to reproduce the target values. |
 | 10. Experimental comparison | The repository distinguishes simulated records, conditional calibrations and measured inputs. | Compare the predicted joint detector distributions with specified experiments using the same observable definitions, units, resolution and uncertainties. Collider rates also require the incoming state and luminosity; hadron collisions require the relevant hadron structure. Agreement of selected masses alone does not establish agreement of the theory. |
@@ -213,11 +270,11 @@ and a physical identification have different acceptance conditions.
 
 | Connection | Finite result available | Required producer on the common source |
 | --- | --- | --- |
-| Quantum operations (PR-02–04, PR-64–65) | Native counts reconstruct a positive matrix functional; coherent services implement specified instruments. The unchanged definite-record grammar has diagonal effects. | Give source preparation and readback of the required complex effects, equal-effect operational equivalence and common implementation of coexistent effects, with all outcomes retained. A reconstructed matrix functional alone is not an implementation of its arbitrary effects. |
+| Quantum operations (PR-02–04, PR-64–65) | Native counts reconstruct a positive matrix functional; coherent services implement finite Pauli, tomographic and bounded rational rank-one instruments. The unchanged definite-record grammar has diagonal effects. | Give the required all-sector source preparation and readback, equal-effect operational equivalence and common implementation of coexistent effects, with all outcomes retained. Neither a reconstructed functional nor bounded rank-one compilation supplies arbitrary complex effects. |
 | Thermodynamics and time (PR-07–08, PR-15, PR-23, PR-43) | Native balance gives a faithful stationary reference; exact finite entropy identities and the protected-reference modular covariance apply on their stated domains. | Supply the same prepared process across the required refinement and temperature regime, identify its physical energy/clock readout and account for work, retained records and reference resources. Stationarity of a noisy channel does not identify it with its reference's unitary modular flow. |
-| Spatial and causal fields (PR-16, PR-52–53, PR-58, PR-70–74) | Authenticated source causality, finite Lorentz transition tests and conditional continuum fields have explicit producers. | Produce one compatible spatial refinement, observation algebra, clock, causal cone and relativistic limit with controlled errors. Boundary sphere symmetry alone does not supply a three-dimensional bulk field net. |
+| Spatial and causal fields (PR-16, PR-52–53, PR-58, PR-70–74) | Authenticated source causality, exact selected-record cone reduction, local boundary bounds, finite Lorentz transition tests and conditional continuum fields have explicit producers. | Produce one compatible spatial refinement, observation algebra, clock and relativistic limit with controlled errors. The graph-cone theorem has a declared observation map and excludes omitted adaptive controller signals. Boundary sphere symmetry alone does not supply a three-dimensional bulk field net. |
 | Gauge, matter and action (PR-12, PR-41, PR-45–50, PR-54, PR-66–69) | Conditional gauge classification, complete literal-link transport and the finite Higgs experiment retain their exact carrier and action inputs. | Derive the common field representation, collision law, chiral dynamics, scalar/Yukawa terms and coupling placement from the selected source specification. The exact gauge-singlet parameter witness distinguishes two allowed complete operations, so covariance alone does not select the action. |
-| Capacity and physical scales (PR-15, PR-17, PR-28, PR-51) | Native FIFO equivalence compares complete records at fixed carrier, law and controls; canonical restriction supplies exact local number mixtures and static finite-size bounds for the fair federation. Carrier bounds constrain direct field encodings. | Give the physical capacity family and a controlled common local limit, then state the chosen unit calibration and independently predict dimensionless relations. FIFO slots, Hilbert dimension and global capacity are different quantities. |
+| Capacity and physical scales (PR-15, PR-17, PR-28, PR-51) | Native FIFO equivalence compares fixed-carrier records; fair canonical restriction and the declared weighted local limit give full local number mixtures with static finite-size bounds. Carrier bounds constrain direct field encodings. | Select the physical family, density and prepared state, attach the common dynamics and controls to its local limit, then state the unit calibration and independently predict dimensionless relations. FIFO slots, Hilbert dimension and global capacity are different quantities. |
 | Responsive gravity (PR-24–28, PR-52) | The matched regional Einstein theorem converts common geometric, stress and entropy estimates into a bounded tensor residual. | Construct those readouts on the same matter source, including geometric modular normalization, fixed-volume area response and generalized-entropy stationarity, with all errors vanishing faster than the fourth power of the regional radius. Global repair entropy production does not supply these regional estimates. |
 
 Discharge requires an actual producer and a proof that its output satisfies

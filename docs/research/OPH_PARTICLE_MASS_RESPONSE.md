@@ -105,6 +105,71 @@ size and occupation, while a recorded modular transfer gap is exactly
 number and dynamics even when this algebraic gap is size independent. These
 facts supply no physical pole mass or measured mass ratio.
 
+### Local response with controlled boundary error
+
+The [native local-response proof](../../model/native_local_response/PROOF.md)
+constructs a spatially restricted response directly from endpoint repairs.
+For fixed selectors, retain selected complete raw records, their command
+positions and the final local source with an arbitrary reference. Reversing
+the command list gives a conservative dependency cone; each observed record
+seeds both endpoints. The output depends only on the initial cone/reference
+restriction. Remote raw values and the final exterior are explicitly traced
+by this observation map. Adaptive FIFO-based control, archive readout and
+unmatched host stops require their actual dependencies and cannot be removed
+by this reduction.
+
+Replacing crossing repairs by identity at the same global selector rate
+gives an output half trace error bounded by cone escape. For the twelve-port
+cell and its three external neighbours, verified at levels 0, 1 and 2,
+independent uniform choices among `M=630*4^ell` seams and repair probability
+one give the four-state surviving matrix
+`Q_nn=1-(3+4n)/M`, `Q_(n+1,n)=(3-n)/M`. Thus the exact conservative-cone
+bound at `T` global attempts is `1-1^T Q^T e_0`, at most
+`min(1,15*binom(T,2)/M^2)`. General levels require the stated halo geometry;
+the bound is not an extrapolation of the finite geometry checks.
+Its root is the whole cell and retained record events are internal to it;
+observing crossing-record values requires a larger initial root set.
+
+Stopping immediately at the `k`th internal cell repair uses
+`R=30(D-B_0)^(-1)`, where `D_nn=33+4n` and `(B_0)_(n+1,n)=3-n`.
+The complete error is at most `1-1^T R^k e_0`, with upper bound
+`min(1,k(k+1)/120)` and first value `677/50061`. The elapsed global
+attempt count is retained; no rare-time or successful-outcome conditioning
+is used. For any score of magnitude at most one, the response error is
+at most twice this bound. The normalized Abel response has the rational estimate
+
+```math
+\left|(1-q)\sum_{k\geq0}q^k(C_k-C'_k)\right|
+\leq2\left[1-(1-q)\mathbf1^T(I-qR)^{-1}e_0\right]
+\leq\min\left(2,\frac{q}{30(1-q)^2}\right),\qquad 0\leq q<1.
+```
+
+Here `q` is an analysis parameter. The infinite response family is distinct
+from the finite returned interpreter domain. Neither its resolvent nor the
+repair clock is identified with a physical energy, scattering pole or mass.
+At fixed local repair count the displayed boundary bound is independent
+of `M`, so increasing capacity alone does not make this bound vanish.
+This upper bound is not a positive lower bound on the actual channel error.
+
+The [weighted local-limit bound](../../model/weighted_local_limit/PROOF.md)
+can supply a separate initial-state contribution: for declared occupation
+`2B` or `4B`, a `k`-cell local reference differs from its mean-matched
+product by at most `sqrt(k*log(240B)/(2B))`, capped at one. This is the
+declared weighted extension, not weighted stationarity of the admitted fair
+source. Composition with the cone estimate requires the same local law
+and all local number sectors. An independent reference or explicit joint
+input estimate is needed for a reference-assisted experiment.
+
+The [bounded rank-one readout compiler](../../model/native_effect_synthesis/PROOF.md)
+also supplies additional finite H66 probes with complete error below
+`10^-6` when each emitted word passes the exact primitive gates, for its
+64-bit rational input domain. It uses existing source words
+and the complete tree detector, keeping the single padding-abort flag and
+all first processor failures. Its bounded-gain numerical maps require
+their stated normalization allowance. These probes do not automatically
+extend to the fluctuating-number local reference, derive the field action,
+or turn the native relaxation poles into measured masses.
+
 ## Declared mass operators and comparison inputs
 
 The executable construction has both an empirically calibrated Standard Model

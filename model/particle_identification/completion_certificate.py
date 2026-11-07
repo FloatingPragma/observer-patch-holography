@@ -23,10 +23,20 @@ from ..native_clock_observables import packet as clock_observables
 from ..weighted_source_family import packet as weighted_family
 from ..native_effect_coverage import packet as effect_coverage
 from ..native_clock_comparison import packet as clock_comparison
+from ..weighted_local_limit import packet as weighted_limit
+from ..native_local_response import packet as local_response
+from ..native_effect_synthesis import packet as effect_synthesis
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "completion_results.json"
+
+
+def _same_json(left, right):
+    """Preserve JSON scalar types when authenticating a scientific receipt."""
+    encode = lambda value: json.dumps(value, sort_keys=True, allow_nan=False,
+                                      separators=(",", ":"))
+    return encode(left) == encode(right)
 
 
 def source_bindings():
@@ -44,7 +54,8 @@ def source_bindings():
     paths.update(uncertainty.source_bindings())
     for producer in (capacity_restriction, record_response, record_causality,
                      gauge_strings, clock_observables, weighted_family,
-                     effect_coverage, clock_comparison):
+                     effect_coverage, clock_comparison, weighted_limit,
+                     local_response, effect_synthesis):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
@@ -73,6 +84,9 @@ def report():
     weighted = weighted_family.produce()
     effects = effect_coverage.produce()
     clocks = clock_comparison.produce()
+    local_states = weighted_limit.produce()
+    local_records = local_response.produce()
+    synthesized_effects = effect_synthesis.produce()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
@@ -80,16 +94,19 @@ def report():
                             (clock_observables, observables),
                             (weighted_family, weighted),
                             (effect_coverage, effects),
-                            (clock_comparison, clocks)):
-        if value != strict_json.load(producer.OUTPUT):
+                            (clock_comparison, clocks),
+                            (weighted_limit, local_states),
+                            (local_response, local_records),
+                            (effect_synthesis, synthesized_effects)):
+        if not _same_json(value, strict_json.load(producer.OUTPUT)):
             raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
-    if frames != strict_json.load(lorentz.OUTPUT):
+    if not _same_json(frames, strict_json.load(lorentz.OUTPUT)):
         raise ValueError("retained Lorentz transition receipt differs")
-    if cones != strict_json.load(field_cone.OUTPUT):
+    if not _same_json(cones, strict_json.load(field_cone.OUTPUT)):
         raise ValueError("retained field-cone receipt differs")
-    if gauge != strict_json.load(ROOT / "model/gauge_defect_transport/results.json"):
+    if not _same_json(gauge, strict_json.load(ROOT / "model/gauge_defect_transport/results.json")):
         raise ValueError("retained gauge-defect transport receipt differs")
-    if protected != strict_json.load(ROOT / "model/protected_reference/results.json"):
+    if not _same_json(protected, strict_json.load(ROOT / "model/protected_reference/results.json")):
         raise ValueError("retained protected-reference receipt differs")
     result = {
         "schema": "oph.particle_identification.finite_interfaces.v1",
@@ -108,6 +125,9 @@ def report():
         "weighted_connected_source_extension": weighted,
         "native_operational_effect_coverage": effects,
         "native_clock_comparison": clocks,
+        "weighted_canonical_local_limit": local_states,
+        "native_local_record_response": local_records,
+        "native_rank_one_effect_synthesis": synthesized_effects,
         "passive_source_clock_boundary": passive_clock.certificate(),
         "causal_dataflow": dataflow.certificate(),
         "native_lorentz_transitions": frames,
@@ -129,6 +149,9 @@ def report():
                                            "weighted connected repair references and boundary comparison",
                                            "complete native configuration readout and coherent effect coverage",
                                            "operational separation of working and record-transfer clocks",
+                                           "weighted canonical local limit without global enumeration",
+                                           "native dependency cones and complete local response bounds",
+                                           "bounded-precision native rank-one effect synthesis",
                                            "finite null-transition and field-cone criteria"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
@@ -139,6 +162,8 @@ def report():
             "record_transfer_and_working_modular_clocks_identified": False,
             "coherent_clock_services_lifted_to_growing_family": False,
             "weighted_connected_extension_admitted_by_native_program": False,
+            "physical_occupation_density_selected": False,
+            "full_global_record_archive_identified_as_local": False,
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,
@@ -162,7 +187,7 @@ def main():
     if args.write is not None:
         args.write.write_text(json.dumps(value, sort_keys=True, indent=2,
                                         allow_nan=False) + "\n")
-    elif strict_json.load(args.check) != value:
+    elif not _same_json(strict_json.load(args.check), value):
         raise ValueError("particle interface receipt differs from complete replay")
     print("Verified finite effect, uncertainty and local-history interfaces; physical joins remain explicit.")
 

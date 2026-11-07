@@ -30114,7 +30114,10 @@
         "OPH-NATIVE-CLOCK-OBSERVABLES",
         "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY",
         "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
-        "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON"
+        "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON",
+        "OPH-WEIGHTED-LOCAL-STATE-LIMIT",
+        "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+        "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS"
       ],
       "lean_files": [
         "Lean/Computation/FixedFederationComplexity.lean",
@@ -31829,6 +31832,33 @@
           "controls": "The existing Y analyzer and a hypothetical candidate clock with explicitly bounded complete error; reading declared source and clock specifications is allowed.",
           "clock": "Transfer parameter 1/10 is compared against any modular parameter under the proposed reference-preserving identification; no physical time calibration.",
           "regime": "Finite complete-output separation and a restricted encoding obstruction; no selected common physical clock, general encoding no-go, relativistic dynamics or particle masses."
+        },
+        "weighted_canonical_local_state_limit": {
+          "carrier": "Full binary fixed-number canonical state on B repeated twelve-port cells, with every sector in each local restriction.",
+          "law": "The literal weighted endpoint law through its declared connected extension; the result concerns its stationary diagonal reference.",
+          "preparation": "A specified canonical reference at mean occupation two or four; no implemented preparation or mixing-time bound.",
+          "records": "All outcomes of a common specified local instrument, including failure and stop outcomes; no successful-outcome renormalization.",
+          "controls": "Common instruments defined on the entire retained local mixture, exactly trace preserving or supplied with separate completely positive gain and implementation errors; H66-only services and correlated exterior access need their own interfaces.",
+          "clock": "Static state comparison at a common local labeling; no autonomous local repair-clock or coherent time evolution is inferred.",
+          "regime": "All finite capacities and retained cell counts, with explicit fixed-window convergence; no selected physical density, weighted native admission, spacetime law or measured particle spectrum."
+        },
+        "native_complete_local_record_response": {
+          "carrier": "The literal binary H66 source or evaluated fair federation, represented on binary tensor factors with all local number sectors and arbitrary untouched references.",
+          "law": "Complete native C/E endpoint instruments under fixed or independently sampled selectors; no weighted connected admission or changed local repair rule.",
+          "preparation": "Arbitrary initial source/reference states for the exact cone theorem; initial-state comparisons require the joint window/reference error stated separately.",
+          "records": "Selected complete raw records, global command positions, final local source and elapsed attempts; other raw values and the terminal exterior are explicitly traced.",
+          "controls": "No source- or FIFO-dependent selector, no omitted storage ancestor, no implicit host-stop success; finite comparison retains full-selector rates.",
+          "clock": "Global attempts or immediate stopping at the kth internal repair with the complete elapsed-time record; Abel weights are analysis parameters.",
+          "regime": "Exact finite cone and halo comparisons on verified source geometry, with all-domain conditional kernel bounds; no physical dimension, Lorentz clock, continuum field or particle-mass identification."
+        },
+        "native_bounded_rank_one_effect_synthesis": {
+          "carrier": "The weighted H66 source embedded in all 512 existing work addresses, with arbitrary untouched references and retained padding.",
+          "law": "Existing coherent native pulse requests followed by the complete eleven-repair E-record detector; bare repair does not issue the coherent word.",
+          "preparation": "An ideal amplitude-tree column defines the target effect; the implemented measurement uses its independently executed inverse word and no survivor normalization.",
+          "records": "Every native detector outcome, first processor failure and complete address export, with one observed padding-abort flag and no address-resolved padding measurement.",
+          "controls": "Gaussian-rational vectors and rational strengths with 64-bit component bounds, certified binary angles and at most 23579 pulses on nine bits; the numerical complete-error claim requires the exact emitted-word primitive certificate to pass.",
+          "clock": "Counted native pulse and repair resources; generic six-bit word and expanded-tree host limits retain their resource stops.",
+          "regime": "Fixed-precision source synthesis of the stated rank-one domain with gain and complete-error bounds; no arbitrary positive-effect compiler, universal coexistent refinement, unbounded accuracy or Born-premise discharge."
         }
       },
       "bindings": [
@@ -40096,6 +40126,96 @@
             {
               "path": "model/native_clock_comparison/PROOF.md",
               "anchor": "# Comparing the working clock with record transfer"
+            }
+          ]
+        },
+        {
+          "id": "weighted-canonical-local-state-limit",
+          "domain": "weighted_canonical_local_state_limit",
+          "claims": [
+            "OPH-WEIGHTED-LOCAL-STATE-LIMIT"
+          ],
+          "establishes": [
+            "weighted_canonical_local_state_limit"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_weighted_canonical_local_state_limit"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "binomial_mode_and_Chebyshev_bounds",
+            "canonical_conditioning_of_independent_Bernoulli_variables",
+            "complete_positive_map_trace_gain_composition",
+            "exchangeable_cell_entropy_chain_inequality",
+            "finite_log_sum_and_Pinsker"
+          ],
+          "scope": "For B repeated native weight cells and a declared mean occupation r in {2,4}, the canonical state at total rB is the corresponding Bernoulli product conditioned on that total. An elementary binomial-mode bound gives conditioning probability at least 1/(240B). Exchangeable-cell entropy and finite Pinsker imply half trace distance at most min(1,sqrt(k log(240B)/(2B))) from the product reference on any k cells, including nondivisor windows and every local number sector. The bound evaluates huge capacities without constructing the global carrier. A common exact trace-preserving quantum instrument inherits it; a bounded-gain implementation instead has error G epsilon plus its separate implementation allowance. The mean-two single-cell canonical state matches H66, but growing restrictions have number fluctuations. Density, weighted admission, preparation and connected dynamics are not selected by this static limit.",
+          "limitations": "The repeated native word is (25,25,8,8,8,8,8,8,8,8,8,8), with B a positive integer and declared total 2B or 4B. Each mean uses its own positive fugacity root. The canonical diagonal reference is supplied by the declared weighted connected extension, which the unchanged native interpreter rejects. Restrictions retain all local number sectors and compare a common port labeling. Operational contraction uses a common exactly trace-preserving completely positive instrument and an independently appended reference; rounded maps require an explicit gain and implementation bound. No arbitrary correlated exterior comparison, postselection normalization, preparation time, physical capacity in nats or dynamic refinement is inferred. Any compared local instrument must act on the entire retained number mixture; a service defined only on H66 does not acquire that extension from the state limit.",
+          "sources": [
+            {
+              "path": "model/weighted_local_limit/PROOF.md",
+              "anchor": "# A controlled local limit for weighted repair"
+            }
+          ]
+        },
+        {
+          "id": "native-complete-local-record-response",
+          "domain": "native_complete_local_record_response",
+          "claims": [
+            "OPH-NATIVE-LOCAL-RECORD-RESPONSE"
+          ],
+          "establishes": [
+            "native_complete_local_record_response"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_complete_local_record_response"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "backward_support_induction_for_complete_record_channels",
+            "bounded_score_Abel_response",
+            "finite_local_Kraus_completeness_and_partial_trace",
+            "geometric_failure_block_resolvent",
+            "independent_selector_coupling_and_ordered_path_bounds"
+          ],
+          "scope": "For the literal weighted H66 instrument and admitted fair binary federation, a fixed selector tape has an exact backward dependency cone for selected complete raw records, their command positions, final local source and an untouched reference. Tracing unselected remote record values permits a finite-volume comparison at the original selector rates, bounded in half diamond norm by conservative cone escape. On the actual one-cell halo at evaluated levels zero through two, a four-state chain gives exact cone escape and the ordered-pair upper bound 15 binomial(T,2)/M^2. Stopping immediately at the kth internal repair gives the reversed geometric-block kernel R=30(D-B0)^(-1), escape 1-1^T R^k e0 and upper bound k(k+1)/120, with elapsed global attempts retained. Bounded Abel record-response errors follow. Adaptive FIFO dependence, global archive observation and host resource stops retain their separate domains; no Lorentzian field or vanishing fixed-local-clock error is inferred.",
+          "limitations": "The source is admitted binary H66 or the fair port-pair federation at evaluated levels zero, one and two. Selectors are fixed or independent of source and record values. The declared output retains selected local raw records and their original command positions, final retained vertices and an arbitrary untouched reference, while tracing other raw values and terminal exterior. Both endpoints of every observed state-dependent event belong to the root set. Storage exports records or has enough capacity to avoid intrinsic halt. Halo formulas require the verified cell geometry, independent uniform seam selection and repair probability one. Internal stopping is immediately after the kth local choice, without conditioning on elapsed time. Finite-kernel bounds do not turn a generic host resource stop into a completed execution; unevaluated refinement levels need their own geometry premise.",
+          "sources": [
+            {
+              "path": "model/native_local_response/PROOF.md",
+              "anchor": "# Local response from complete native repair records"
+            }
+          ]
+        },
+        {
+          "id": "native-bounded-rank-one-effect-synthesis",
+          "domain": "native_bounded_rank_one_effect_synthesis",
+          "claims": [
+            "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS"
+          ],
+          "establishes": [
+            "native_bounded_rank_one_effect_synthesis"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_bounded_rank_one_effect_synthesis"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "Walsh_diagonal_and_controlled_Pauli_decomposition",
+            "binary_amplitude_tree_state_synthesis",
+            "complete_processor_first_failure_instrument",
+            "completely_positive_gain_and_diamond_error_composition",
+            "finite_directed_trigonometric_enclosures"
+          ],
+          "scope": "For the weighted H66 carrier, every nonzero 66-component Gaussian-rational vector and rational strength between zero and one in the stated 64-bit input domain has a bounded source construction of its ideal rank-one effect. A certified binary-angle amplitude tree and phase word use existing nine-bit coherent services and at most 23579 native pulses, then route the selected work address to a source code and apply the eleven-repair native detector. Complete source export, one observed padding-abort flag and all processor first failures remain present. For emitted words whose exact stored-primitive certificate passes, the angle and primitive bounds give complete half-diamond error below one millionth with an explicit gain bound; a failed primitive certificate rejects the word. A short 80-pulse sequence realizes the unequal-weight pair projector excluded by the specified balanced single-analyzer menu. This bounded construction consumes coherent services and Kraus trace semantics; it does not implement every positive effect, universal coexistence, arbitrary accuracy or a foundational Born derivation.",
+          "limitations": "The existing weighted H66 carrier, original nine-bit source code, proper-code load/export services, coherent X,Y,Z,I,H,J requests and eleven-repair detector are declared. Each Gaussian-rational input component and the rational strength have numerators and denominators of at most 64 bits. The bounded compiler retains all 512 work addresses and selects a genuine source-code output after routing; 446 internal padding rows form one observed abort flag. Complete first-failure branches retain spectators and references. The complete numerical bound requires certify_word to pass exact checks for every emitted stored primitive; failed checks reject the word. The ideal synthesis and resource bound hold over the stated rational input domain, without an all-input SciPy/expm rounding theorem. Directed rational angle and primitive-array certificates bound exact products of stored primitive maps; floating propagation arrays are diagnostics and hardware error is outside scope. The direct nine-bit compiler and exact lazy native detector are distinct from generic word and expanded-tree evaluators that return resource stops. Rounded completely positive maps have a certified gain and are not asserted exactly trace preserving.",
+          "sources": [
+            {
+              "path": "model/native_effect_synthesis/PROOF.md",
+              "anchor": "# Bounded native rank-one effect synthesis"
             }
           ]
         }

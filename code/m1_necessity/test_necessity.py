@@ -27,8 +27,25 @@ def test_complete_reference_execution_and_counts(packet):
     assert {k:actual[k] for k in ('routes','route_steps','executed_events','executed_reads','consumer_claims')} == {
         "routes":298,"route_steps":2215,"executed_events":149760,"executed_reads":13479912,"consumer_claims":8}
     assert actual['balanced_routes']==161 and actual['balanced_steps']>0
-    assert actual['downstream_claims']==149
+    assert actual['downstream_claims']==150
 
+
+
+def test_native_rank_one_synthesis_retains_its_bounded_service_contract():
+    downstream = audit.downstream_audit()
+    name = 'OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS'
+    row = downstream['claims'][name]
+    assert row['assumptions'] == ['declared_native_bounded_rank_one_effect_synthesis']
+    assert row['disposition'] == 'existing_contract_retained_without_automatic_transfer'
+    assert not (set(row['assumptions']) & audit.KEYS)
+    assert [edge for edge in downstream['links'] if edge['to'] == name] == [{
+        'from': 'OPH-NATIVE-FINITE-EFFECT-COVERAGE', 'to': name,
+        'role': 'supplies the existing eleven-repair detector and separately declared coherent-service framework; finite positive-menu exclusion is limited to that menu and universal Born premises are not transferred'}]
+    registry = check.strict_load(ROOT/'claims/claim_registry.yaml')
+    claim = next(item for item in registry['claims'] if item['claim_id'] == name)
+    assert claim['premise_dependencies']['classification'] == 'explicit_non_consumer'
+    assert claim['premise_dependencies']['consumed'] == []
+    assert claim['gates'] == []
 
 
 def test_native_finite_effect_coverage_retains_its_declared_service_contract():

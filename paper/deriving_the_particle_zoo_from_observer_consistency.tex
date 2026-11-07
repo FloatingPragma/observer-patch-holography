@@ -994,6 +994,104 @@ native program admission rule rejects weighted connected federations; no
 source selection, prepared coherent ground or relativistic limit is inferred
 (\path{model/weighted_source_family}, \cite{ophrepo}).
 
+\paragraph{Local weighted state limits.}
+The repeated native weight word admits a controlled local limit without
+enumerating its global carrier. Let $B$ be the number of twelve-port cells,
+declare total occupation $rB$ with $r\in\{2,4\}$, and choose the positive
+fugacity solving
+\[
+ 1000z^2+32z-1=0\quad(r=2),\qquad
+ 800z^2-z-2=0\quad(r=4).
+\]
+The product reference $Q_B=Q_1^{\otimes B}$ then has mean $rB$, and its
+conditioning on that total is exactly the canonical reference $P_B$.
+A binomial-mode bound gives $Q_B(S=rB)\ge 1/(240B)$. Cell exchangeability
+and the finite entropy chain rule distribute this conditioning cost:
+for every set of $k$ cells, including $k$ that do not divide $B$,
+\[
+ D(P_k\Vert Q_1^{\otimes k})\le\frac{k\log(240B)}{B},\qquad
+ \tfrac12\|P_k-Q_1^{\otimes k}\|_1
+ \le\min\left\{1,\sqrt{\frac{k\log(240B)}{2B}}\right\}.
+\]
+Here $D$ is classical relative entropy, the second inequality is finite
+Pinsker, and every local number sector
+is retained. A common trace-preserving local instrument contracts the bound;
+a numerical map with bounded gain requires that gain in the comparison.
+The instrument must act on every retained local number sector: a two-load
+coherent service does not automatically extend to this mixture. Correlated
+references require a joint input-state bound.
+For $B=20\,4^{200}$ the one-cell bound is below $2\,10^{-60}$, computed
+with integer and rational enclosures. Matching mean occupation two does not
+confine a cell to its two-load sector. The theorem selects neither density
+nor physical capacity and supplies no preparation time or connected dynamical
+limit (\path{model/weighted_local_limit}, \cite{ophrepo}).
+
+\paragraph{Local records and finite-volume response.}
+For a fixed repair schedule, a local observation consists of a final port
+region and selected complete local records at their original event positions.
+An untouched reference is retained; remote record values and the final
+exterior are traced. Reverse scanning the schedule adds the endpoints of
+each retained read and each unread command touching the accumulated support.
+Every disjoint unread complete channel cancels under partial trace. Thus the
+complete observed instrument factors exactly through the initial state on
+this dependency cone and its reference, including initial coherences and
+correlations. State-independent random selectors can be averaged afterward.
+Record-adaptive selectors and intrinsic queue halts require separate analysis;
+the full global archive is a different observable.
+
+Compare with a finite port region whose crossing and exterior commands act
+as holds, retaining the original selector and clock. Coupling the selector
+tapes bounds half the diamond distance of the two local output channels by
+the probability that the dependency cone exits the region. An initial joint
+state error adds to this bound. For independent seam choices, root set $S$,
+maximum degree $d$, maximum seam probability $q_*$ and graph-distance margin
+$r$, a union over ordered
+paths gives the sufficient bound
+\[
+ p_{\mathrm{exit}}\le
+ \min\{1,|S|\tbinom{T}{r+1}(dq_*)^{r+1}\}.
+\]
+The roots include both endpoints of every retained state-dependent read.
+This conservative cone can exceed the support obtained from the precise
+record times.
+
+For independent uniform seam selection and repair probability one, on the
+actual fair connected source at levels zero through two, each cell
+has thirty internal seams and three distinct exterior neighbors, each with
+five seams leaving the one-neighbor halo. For a whole-cell root with retained
+internal-cell records, this reduces
+cone exit to four transient states $n=0,1,2,3$, with $n$ counting the halo
+ports reached. With $M=630\,4^\ell$ seams, the only nonzero entries are
+\[
+ Q_{nn}=1-\frac{3+4n}{M},\qquad
+ Q_{n+1,n}=\frac{3-n}{M},\qquad
+ p_{\mathrm{exit}}=1-\mathbf1^\top Q^{\,T}e_0
+ \le\min\{1,15\tbinom{T}{2}/M^2\}.
+\]
+Here $Q^{\,T}$ denotes the $T$th power. At level zero and $T=30$ this
+probability is below $0.015$. Beyond the checked levels the formula is
+conditional on the stated halo geometry. Stopping immediately after the
+$k$th internal repair instead gives
+\[
+ R=30(D-B_0)^{-1},\qquad
+ D_{nn}=33+4n,\quad (B_0)_{n+1,n}=3-n,
+ \qquad p_{\mathrm{exit}}=1-\mathbf1^\top R^k e_0.
+\]
+The elapsed global time is retained without conditioning. The exit
+probability is independent of $M$, equals $677/50061$ at $k=1$, and is
+at most $\min\{1,k(k+1)/120\}$. For bounded scores $|f|\le1$ and an
+analysis parameter $0\le q<1$, the normalized Abel response error is at most
+\[
+ 2\left[1-(1-q)\mathbf1^\top(I-qR)^{-1}e_0\right]
+ \le\min\{2,q/[30(1-q)^2]\}.
+\]
+At $q=1/2$ the sharper value is $151/3432$. These are complete local-record
+response bounds, with no pole-energy interpretation. The weighted connected
+extension has the same conditional locality construction but no native
+admission; its reference is not assigned to the fair source. The proof and
+bounded interpreter checks supply neither a physical clock nor a relativistic
+limit (\path{model/native_local_response}, \cite{ophrepo}).
+
 \subsection{Native clock observables}
 \label{sec:native-clock-observables}
 
@@ -1075,6 +1173,47 @@ renormalization. Coherent service semantics are declared, and finite
 tomographic coverage does not prove universal coexistent-effect realization
 or a growing field-observable family
 (\path{model/native_effect_coverage}, \cite{ophrepo}).
+
+\paragraph{Rank-one measurement synthesis.}
+The supplied coherent services implement more than the fixed tomographic
+menu. For any nonzero Gaussian-rational vector $v$ on the $66$ source states
+and rational $0\le\lambda\le1$, with each input numerator and denominator
+of at most $64$ bits, consider
+$E=\lambda|v\rangle\langle v|/\langle v,v\rangle$.
+In the existing $512$-address register, append the amplitude
+$\sqrt{1-\lambda}$ at one padding address. A binary amplitude tree and
+diagonal phase word prepare the resulting normalized vector from address
+zero. Executing the inverse word and routing zero to a genuine source code
+before complete export and tree readout gives $E$ as the ideal selected
+effect. All other source outcomes, padding aborts and processor failures
+are retained. No extra register or conditioning on source-code success is
+used, and an effect alone specifies no L\"uders update.
+
+Directed integer trigonometric enclosures select a $41$-bit angle grid;
+exact Walsh identities compile its layers into existing native pulses.
+The full-register operator error from target angles is at most $11\,2^{-41}$.
+The emitted word uses at most $23579$ pulses, below the unchanged source-word
+limit. The certificate checks every emitted stored six-dimensional primitive,
+including negative inverse requests and fixed basis-change angles, against
+its full ideal matrix and rejects a failed bound. For a passing word with
+$N$ pulses and $g=2\,10^{-11}$, put
+\[
+ x=Ng,\qquad e=\frac{x}{1-x}+11\,2^{-41},\qquad
+ F_N=\frac{Ng^2}{(1-x)^2}.
+\]
+Telescoping the good-code products and retaining every first processor
+failure gives complete half-diamond error at most
+$[e(2+e)+F_N]/2<10^{-6}$, including arbitrary untouched references.
+These are bounds on the stored primitive maps; floating propagation arrays
+are diagnostics. The direct nine-bit compiler executes the tape, while the
+generic six-bit word evaluator returns its resource stop. The real projector
+onto $(3|0\rangle+4|65\rangle)/5$ also has an $80$-pulse construction
+with error below $2\,10^{-9}$, despite lying outside the positive cone of
+the fixed balanced-analyzer menu. Fixed precision and word length supply
+neither arbitrary-accuracy dense effects nor universal coexistent refinement.
+The composition consumes the declared coherent services and Kraus probability
+semantics; it does not derive those premises from repair counting
+(\path{model/native_effect_synthesis}, \cite{ophrepo}).
 
 \subsection{Protected charge and its native reference}
 \label{sec:protected-native-reference}

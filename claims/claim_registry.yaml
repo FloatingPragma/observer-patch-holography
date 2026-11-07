@@ -18423,6 +18423,108 @@
         "boundary": [],
         "rationale": "Finite complete-output separation and a restricted encoding obstruction; no selected common physical clock, general encoding no-go, relativistic dynamics or particle masses."
       }
+    },
+    {
+      "claim_id": "OPH-WEIGHTED-LOCAL-STATE-LIMIT",
+      "statement": "For B repeated native weight cells and a declared mean occupation r in {2,4}, the canonical state at total rB is the corresponding Bernoulli product conditioned on that total. An elementary binomial-mode bound gives conditioning probability at least 1/(240B). Exchangeable-cell entropy and finite Pinsker imply half trace distance at most min(1,sqrt(k log(240B)/(2B))) from the product reference on any k cells, including nondivisor windows and every local number sector. The bound evaluates huge capacities without constructing the global carrier. A common exact trace-preserving quantum instrument inherits it; a bounded-gain implementation instead has error G epsilon plus its separate implementation allowance. The mean-two single-cell canonical state matches H66, but growing restrictions have number fluctuations. Density, weighted admission, preparation and connected dynamics are not selected by this static limit.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_weighted_canonical_local_state_limit"
+      ],
+      "imported_results": [
+        "canonical_conditioning_of_independent_Bernoulli_variables",
+        "binomial_mode_and_Chebyshev_bounds",
+        "exchangeable_cell_entropy_chain_inequality",
+        "finite_log_sum_and_Pinsker",
+        "complete_positive_map_trace_gain_composition"
+      ],
+      "oph_specific_delta": "Supplies an explicit all-capacity local-state error bound for two declared continuations of the native weight word, including mean-two H66 attachment and exact huge-capacity arithmetic without full-state enumeration.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/weighted_local_limit/PROOF.md"
+      ],
+      "falsifier": "The mean fugacity equation, conditioning lower bound, exchangeable entropy inequality or complete local trace-distance envelope fails under its stated inputs, or a retained finite canonical comparison escapes its exact rational enclosure.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "All finite capacities and retained cell counts, with explicit fixed-window convergence; no selected physical density, weighted native admission, spacetime law or measured particle spectrum."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "statement": "For the literal weighted H66 instrument and admitted fair binary federation, a fixed selector tape has an exact backward dependency cone for selected complete raw records, their command positions, final local source and an untouched reference. Tracing unselected remote record values permits a finite-volume comparison at the original selector rates, bounded in half diamond norm by conservative cone escape. On the actual one-cell halo at evaluated levels zero through two, a four-state chain gives exact cone escape and the ordered-pair upper bound 15 binomial(T,2)/M^2. Stopping immediately at the kth internal repair gives the reversed geometric-block kernel R=30(D-B0)^(-1), escape 1-1^T R^k e0 and upper bound k(k+1)/120, with elapsed global attempts retained. Bounded Abel record-response errors follow. Adaptive FIFO dependence, global archive observation and host resource stops retain their separate domains; no Lorentzian field or vanishing fixed-local-clock error is inferred.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_complete_local_record_response"
+      ],
+      "imported_results": [
+        "finite_local_Kraus_completeness_and_partial_trace",
+        "backward_support_induction_for_complete_record_channels",
+        "independent_selector_coupling_and_ordered_path_bounds",
+        "geometric_failure_block_resolvent",
+        "bounded_score_Abel_response"
+      ],
+      "oph_specific_delta": "Derives complete local-record finite-volume bounds and a source-specific internal-clock halo kernel from the admitted native endpoint and federation graph, preserving storage, selector, reference and evaluator boundaries.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_local_response/PROOF.md"
+      ],
+      "falsifier": "A fixed native raw map fails its local tensor identity, a complete observed history differs from its cone reduction, an exact selector escape or reversed stopping calculation exceeds the stated bound, or an omitted remote record or controller ancestor changes the declared local output.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Exact finite cone and halo comparisons on verified source geometry, with all-domain conditional kernel bounds; no physical dimension, Lorentz clock, continuum field or particle-mass identification."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+      "statement": "For the weighted H66 carrier, every nonzero 66-component Gaussian-rational vector and rational strength between zero and one in the stated 64-bit input domain has a bounded source construction of its ideal rank-one effect. A certified binary-angle amplitude tree and phase word use existing nine-bit coherent services and at most 23579 native pulses, then route the selected work address to a source code and apply the eleven-repair native detector. Complete source export, one observed padding-abort flag and all processor first failures remain present. For emitted words whose exact stored-primitive certificate passes, the angle and primitive bounds give complete half-diamond error below one millionth with an explicit gain bound; a failed primitive certificate rejects the word. A short 80-pulse sequence realizes the unequal-weight pair projector excluded by the specified balanced single-analyzer menu. This bounded construction consumes coherent services and Kraus trace semantics; it does not implement every positive effect, universal coexistence, arbitrary accuracy or a foundational Born derivation.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_bounded_rank_one_effect_synthesis"
+      ],
+      "imported_results": [
+        "binary_amplitude_tree_state_synthesis",
+        "Walsh_diagonal_and_controlled_Pauli_decomposition",
+        "finite_directed_trigonometric_enclosures",
+        "complete_processor_first_failure_instrument",
+        "completely_positive_gain_and_diamond_error_composition"
+      ],
+      "oph_specific_delta": "Constructs bounded ideal native source words for the stated rational rank-one effect domain, including an unequal-weight positive-menu countercontrol, with full address/failure accounting and a complete implementation bound conditional on the emitted primitive certificate passing.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_effect_synthesis/PROOF.md"
+      ],
+      "falsifier": "The ideal full-register target, selected source effect or inverse Walsh relation fails; an emitted angle or pulse exceeds its resource domain; a complete padding/failure output is omitted; a failing primitive certificate is accepted; or an accepted word violates its certified gain or half-diamond bound.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Fixed-precision source synthesis of the stated rank-one domain with gain and complete-error bounds; no arbitrary positive-effect compiler, universal coexistent refinement, unbounded accuracy or Born-premise discharge."
+      }
     }
   ],
   "claim_context": {
@@ -32133,6 +32235,124 @@
         {
           "claim_id": "OPH-NATIVE-CLOCK-OBSERVABLES",
           "role": "supplies the executed full-carrier Y instrument, prepared reference and complete error allowances"
+        }
+      ]
+    },
+    "OPH-WEIGHTED-LOCAL-STATE-LIMIT": {
+      "prior_work": {
+        "summary": "Equivalence of ensembles and finite information inequalities",
+        "overlap": "Canonical conditioning, entropy chain inequalities, Pinsker bounds and quantum-channel contraction are standard. The native two-weight mean choices, explicit constant and source-bound large-capacity certificates provide the conditional attachment.",
+        "imported_step": "canonical_conditioning_of_independent_Bernoulli_variables; binomial_mode_and_Chebyshev_bounds; exchangeable_cell_entropy_chain_inequality; finite_log_sum_and_Pinsker; complete_positive_map_trace_gain_composition",
+        "citations": [
+          {
+            "work": "Finite entropy and conditioning inequalities",
+            "keys": [
+              "cover2006elements"
+            ]
+          },
+          {
+            "work": "Finite quantum channels with reference systems",
+            "keys": [
+              "watrous2018theory"
+            ]
+          }
+        ]
+      },
+      "owner_section": "Local weighted state limits",
+      "falsifiers": {
+        "mathematical": "The mean fugacity equation, conditioning lower bound, exchangeable entropy inequality or complete local trace-distance envelope fails under its stated inputs, or a retained finite canonical comparison escapes its exact rational enclosure.",
+        "physical_identification": "The repeated native word is (25,25,8,8,8,8,8,8,8,8,8,8), with B a positive integer and declared total 2B or 4B. Each mean uses its own positive fugacity root. The canonical diagonal reference is supplied by the declared weighted connected extension, which the unchanged native interpreter rejects. Restrictions retain all local number sectors and compare a common port labeling. Operational contraction uses a common exactly trace-preserving completely positive instrument and an independently appended reference; rounded maps require an explicit gain and implementation bound. No arbitrary correlated exterior comparison, postselection normalization, preparation time, physical capacity in nats or dynamic refinement is inferred. Any compared local instrument must act on the entire retained number mixture; a service defined only on H66 does not acquire that extension from the state limit.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY",
+          "role": "supplies the declared canonical weighted reference and full number-sector restriction; does not select its occupation, admit the connected bias or transfer a dynamic refinement"
+        }
+      ]
+    },
+    "OPH-NATIVE-LOCAL-RECORD-RESPONSE": {
+      "prior_work": {
+        "summary": "Local quantum channels, causal dependency cones and finite Markov stopping bounds",
+        "overlap": "Support propagation, no-signalling under unread local operations, coupling and geometric-block resolvents are standard. The exact native raw-address attachment, observation map and verified four-state cell halo provide the source-specific result.",
+        "imported_step": "finite_local_Kraus_completeness_and_partial_trace; backward_support_induction_for_complete_record_channels; independent_selector_coupling_and_ordered_path_bounds; geometric_failure_block_resolvent; bounded_score_Abel_response",
+        "citations": [
+          {
+            "work": "Finite quantum channels with reference systems",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Finite heat-bath chains and coupling",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Owning native controller and disjoint-record constructions",
+            "keys": [],
+            "internal": true
+          },
+          {
+            "work": "Finite unread-channel no-signalling in Lean/ObserverPatchHolography/Locality/NoSignalling.lean",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Local records and finite-volume response",
+      "falsifiers": {
+        "mathematical": "A fixed native raw map fails its local tensor identity, a complete observed history differs from its cone reduction, an exact selector escape or reversed stopping calculation exceeds the stated bound, or an omitted remote record or controller ancestor changes the declared local output.",
+        "physical_identification": "The source is admitted binary H66 or the fair port-pair federation at evaluated levels zero, one and two. Selectors are fixed or independent of source and record values. The declared output retains selected local raw records and their original command positions, final retained vertices and an arbitrary untouched reference, while tracing other raw values and terminal exterior. Both endpoints of every observed state-dependent event belong to the root set. Storage exports records or has enough capacity to avoid intrinsic halt. Halo formulas require the verified cell geometry, independent uniform seam selection and repair probability one. Internal stopping is immediately after the kth local choice, without conditioning on elapsed time. Finite-kernel bounds do not turn a generic host resource stop into a completed execution; unevaluated refinement levels need their own geometry premise.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-DISJOINT-RECORD-EXCHANGE",
+          "role": "supplies the complete native endpoint locality and disjoint-record comparison; chronological records are retained and no Lorentzian quotient is transferred"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CONTROLLER-DATAFLOW",
+          "role": "supplies the actual FIFO feedback countercontrol; record-dependent selectors require controller ancestors and are excluded from the independent-selector spatial bound"
+        }
+      ]
+    },
+    "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS": {
+      "prior_work": {
+        "summary": "Finite state preparation, diagonal circuit synthesis and complete measurement dilation",
+        "overlap": "Amplitude trees, Walsh diagonal decompositions, rank-one dilation and channel-error composition are standard. The existing native pulse alphabet, bounded angle adapter, final source-code routing and complete numerical failure bounds supply the source attachment.",
+        "imported_step": "binary_amplitude_tree_state_synthesis; Walsh_diagonal_and_controlled_Pauli_decomposition; finite_directed_trigonometric_enclosures; complete_processor_first_failure_instrument; completely_positive_gain_and_diamond_error_composition",
+        "citations": [
+          {
+            "work": "Walsh diagonal decomposition without ancillary qubits",
+            "keys": [
+              "welch2014efficient"
+            ]
+          },
+          {
+            "work": "Finite quantum channels with reference systems",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Owning weighted native detector and coherent-service interface",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Rank-one measurement synthesis",
+      "falsifiers": {
+        "mathematical": "The ideal full-register target, selected source effect or inverse Walsh relation fails; an emitted angle or pulse exceeds its resource domain; a complete padding/failure output is omitted; a failing primitive certificate is accepted; or an accepted word violates its certified gain or half-diamond bound.",
+        "physical_identification": "The existing weighted H66 carrier, original nine-bit source code, proper-code load/export services, coherent X,Y,Z,I,H,J requests and eleven-repair detector are declared. Each Gaussian-rational input component and the rational strength have numerators and denominators of at most 64 bits. The bounded compiler retains all 512 work addresses and selects a genuine source-code output after routing; 446 internal padding rows form one observed abort flag. Complete first-failure branches retain spectators and references. The complete numerical bound requires certify_word to pass exact checks for every emitted stored primitive; failed checks reject the word. The ideal synthesis and resource bound hold over the stated rational input domain, without an all-input SciPy/expm rounding theorem. Directed rational angle and primitive-array certificates bound exact products of stored primitive maps; floating propagation arrays are diagnostics and hardware error is outside scope. The direct nine-bit compiler and exact lazy native detector are distinct from generic word and expanded-tree evaluators that return resource stops. Rounded completely positive maps have a certified gain and are not asserted exactly trace preserving.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+          "role": "supplies the existing eleven-repair detector and separately declared coherent-service framework; finite positive-menu exclusion is limited to that menu and universal Born premises are not transferred"
         }
       ]
     }
