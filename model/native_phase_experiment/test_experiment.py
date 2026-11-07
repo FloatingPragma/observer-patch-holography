@@ -244,3 +244,27 @@ def test_joint_profile_admits_errors_inside_unchanged_global_bounds(executed, ex
     for component in changed['preparation']['components']:
         component['weight'] += 1e-13
     assert verify(changed, expected)['all_pass']
+
+
+@pytest.mark.parametrize('mutation', ('bit_to_selector', 'opposite_stage_masses', 'balanced_slot_recipe'))
+def test_source_assembly_edges_reject_joint_inconsistency(executed, expected, mutation):
+    changed = deepcopy(executed[0])
+    if mutation == 'bit_to_selector':
+        bits = changed['selector']['bit_record_probabilities']
+        bits[0] -= 1.5e-10
+        bits[1] -= 1.5e-10
+        bits[2] += 1.5e-10
+        bits[3] += 1.5e-10
+    elif mutation == 'opposite_stage_masses':
+        changed['selector']['slot_probabilities'] = [
+            value - 1.6e-10 / 1680 for value in changed['selector']['slot_probabilities']]
+        for component in changed['preparation']['components']:
+            component['weight'] += 1.6e-10 / 366
+    else:
+        points = [item for item in changed['preparation']['components'] if item['kind'] == 'point']
+        for index, component in enumerate(points):
+            bias = (1.5e-10 if index < 33 else -1.5e-10) / len(component['selector_slots'])
+            for slot in component['selector_slots']:
+                changed['selector']['slot_probabilities'][slot] += bias
+    with pytest.raises(ValueError):
+        verify(changed, expected)

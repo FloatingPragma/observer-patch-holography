@@ -44,7 +44,7 @@ def _probability(actual, expected, label, tolerance=experiment.TOLERANCE):
     _close(actual, expected, label, tolerance)
 
 
-def _components(actual, carrier, q):
+def _components(actual, carrier, q, slot_probabilities):
     """Reconstruct slot labels from the independent carrier, not the producer."""
     slots = defaultdict(list)
     index = 0
@@ -62,6 +62,7 @@ def _components(actual, carrier, q):
     _list(actual, len(slots), 'preparation components')
     positions = {tuple(state): i for i, state in enumerate(carrier['states'])}
     recipe = defaultdict(Fraction)
+    slot_recipe = defaultdict(Fraction)
     mass = Fraction(0)
     for item, ((kind, ports), indices) in zip(actual, sorted(slots.items()), strict=True):
         _keys(item, ('kind', 'ports', 'weight', 'selector_slots'), 'component fields')
@@ -69,19 +70,24 @@ def _components(actual, carrier, q):
                         {key: item[key] for key in ('kind', 'ports', 'selector_slots')})
         _probability(item['weight'], q * len(indices) / 1680, 'component weight')
         weight = Fraction(item['weight'])
+        slot_weight = sum((Fraction(slot_probabilities[i]) for i in indices), Fraction(0))
+        _exact_close(weight, slot_weight, 'component selector-slot weight')
         mass += weight
         if kind == 'point':
             state = tuple(int(port in ports) for port in range(12))
             i = positions[state]
             recipe[i, i] += weight
+            slot_recipe[i, i] += slot_weight
         else:
             a, b, spectator = ports
             i = positions[tuple(int(port in (a, spectator)) for port in range(12))]
             j = positions[tuple(int(port in (b, spectator)) for port in range(12))]
             for row, column in ((i, i), (i, j), (j, i), (j, j)):
                 recipe[row, column] += weight / 2
+                slot_recipe[row, column] += slot_weight / 2
     _exact_close(mass, q, 'preparation recipe mass')
-    return dict(recipe), mass
+    _recipe_density(dict(recipe), dict(slot_recipe), 'selector-slot to component')
+    return dict(recipe), mass, dict(slot_recipe)
 
 
 def _recipe_density(recipe, target, label):
@@ -89,6 +95,30 @@ def _recipe_density(recipe, target, label):
                   for key in recipe.keys() | target.keys())
     if squared > TOLERANCE * TOLERANCE:
         raise ValueError('independent comparison failed at ' + label + ' recipe density')
+
+
+def _selector_relations(selection, primitive_failure):
+    """Rebuild the existing finite selector law from its recorded primitive."""
+    p = list(map(Fraction, selection['bit_record_probabilities']))
+    bits, attempts = selection['bits_per_draw'], selection['maximum_draws']
+    accepted_count = selection['accepted_slots']
+    words = [p[0] ** (bits - count) * p[1] ** count for count in range(bits + 1)]
+    draws = [words[index.bit_count()] for index in range(1 << bits)]
+    retry = sum(draws[accepted_count:], Fraction(0))
+    series = sum((retry ** step for step in range(attempts)), Fraction(0))
+    bit_success = p[0] + p[1]
+    bit_failure = Fraction(primitive_failure) + sum(p[2:], Fraction(0))
+    failure = bit_failure * sum((bit_success ** step for step in range(bits)), Fraction(0)) * series
+    timeout = retry ** attempts
+    accepted = sum(draws[:accepted_count], Fraction(0)) * series
+    _close(selection['accepted_probability'], accepted, 'selector reconstructed accepted')
+    _close(selection['source_failure_probability'], failure, 'selector reconstructed failure')
+    _close(selection['timeout_probability'], timeout, 'selector reconstructed timeout', 2e-20)
+    for index, value in enumerate(selection['slot_probabilities']):
+        _close(value, draws[index] * series, 'selector reconstructed slot')
+    _exact_close(sum(map(Fraction, selection['slot_probabilities']), Fraction(0)), accepted,
+                 'selector reconstructed slot mass')
+    _exact_close(accepted + failure + timeout, 1, 'selector reconstructed total budget')
 
 
 def _density(actual, entries, q, label):
@@ -177,12 +207,17 @@ def verify(result, expected):
     preparation = result['preparation']
     _keys(preparation, ('components', 'source_failure_probability', 'success_probability', 'densities'),
           'preparation fields')
-    recipe, recipe_mass = _components(preparation['components'], expected['carrier'], q)
+    recipe, recipe_mass, slot_recipe = _components(
+        preparation['components'], expected['carrier'], q, selection['slot_probabilities'])
     _probability(preparation['success_probability'], q, 'preparation unconditioned success')
     _probability(preparation['source_failure_probability'], 0, 'preparation source failure')
     _exact_close(Fraction(preparation['success_probability'])
                  + Fraction(preparation['source_failure_probability']), recipe_mass,
                  'preparation recipe success budget')
+    masses = (q, Fraction(selection['accepted_probability']), slot_mass, recipe_mass,
+              Fraction(preparation['success_probability'])
+              + Fraction(preparation['source_failure_probability']))
+    _exact_close(max(masses), min(masses), 'selector and preparation joint mass')
     _keys(preparation['densities'], ('reference', 'twisted'), 'preparation settings')
     density_masses = {}
     for setting, name in (('reference', 'rho'), ('twisted', 'sigma')):
@@ -195,8 +230,15 @@ def verify(result, expected):
              else 1) for (row, column), weight in recipe.items()}
         target = {(row, column): q * Fraction(value) for row, column, value in entries}
         _recipe_density(signed_recipe, target, setting)
+        signed_slots = {
+            (row, column): weight * (-1 if setting == 'twisted'
+             and expected['carrier']['states'][row][0] != expected['carrier']['states'][column][0]
+             else 1) for (row, column), weight in slot_recipe.items()}
+        _recipe_density(signed_slots, target, setting + ' selector-slot')
         _density(density, [(row, column, value) for (row, column), value in signed_recipe.items()],
                  Fraction(1), setting + ' recipe')
+        _density(density, [(row, column, value) for (row, column), value in signed_slots.items()],
+                 Fraction(1), setting + ' selector-slot recipe')
         density_masses[setting] = (sum((Fraction(density['real'][i][i]) for i in range(66)), Fraction(0))
                                     + Fraction(density['outside_total_two_probability']))
     runs = experiment.source_runs()
@@ -206,6 +248,8 @@ def verify(result, expected):
     _exact_close(bit_mass + Fraction(result['source_execution']['selector']
                                     ['all_input_export_failure_trace']), 1,
                  'selector complete bit source budget')
+    _selector_relations(selection, result['source_execution']['selector']
+                        ['all_input_export_failure_trace'])
     compare_receipt(_resources(runs, selector_expected), result['resource_envelope'])
     lineage = result['protected_obstruction_reuse']
     compare_receipt(experiment.classify_phase_loss(experiment.ROOT), lineage)
