@@ -379,7 +379,10 @@
     "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
     "OPH-NATIVE-FULL-NUMBER-READOUT",
     "OPH-NATIVE-CORRELATION-SECTORS",
-    "OPH-NATIVE-SPATIAL-MOTION-SCALING"
+    "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+    "OPH-NATIVE-CORRELATION-PREPARATION",
+    "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+    "OPH-NATIVE-EXCHANGE-CLOCK"
   ],
   "edges": [
     {
@@ -3141,6 +3144,51 @@
       "from": "OPH-NATIVE-FULL-NUMBER-READOUT",
       "to": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
       "role": "supplies final tree readback and endpoint current reversal; the combined body program separately authenticates selectors, records, source state and host boundaries"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-SECTORS",
+      "to": "OPH-NATIVE-CORRELATION-PREPARATION",
+      "role": "supplies primitive-degree dimensions, the reflected complete E instrument and its stationary normalized response; the warmup theorem supplies the stated score preparation only"
+    },
+    {
+      "from": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+      "to": "OPH-NATIVE-CORRELATION-PREPARATION",
+      "role": "supplies the native endpoint semantics and finite graph/exclusion mixing attachment; no full-state, continuum or coherent-service conclusion is transferred"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-SECTORS",
+      "to": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "role": "supplies the primitive-degree-two inclusion and complete reflected score; this result retains one working occupation and extends to cross probes"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "role": "supplies the complete selected-record cone bound under the same fixed selector and matching reference reduction; it does not apply to the separately global tree readback"
+    },
+    {
+      "from": "OPH-NATIVE-FULL-NUMBER-READOUT",
+      "to": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "role": "supplies terminal configuration decoding and reverse currents; the combined body program separately binds probabilities, source digest and FIFO"
+    },
+    {
+      "from": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+      "to": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "role": "supplies the actual source geometry attachment only; its one-unit preparation and displacement theorem are not transferred to the pair sector"
+    },
+    {
+      "from": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+      "to": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "role": "supplies the conditional native density-field limit on its exact q=V/3 spatial subsequence and attempt scaling; no coherent scalar action or physical continuum identification is inherited"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-SECTORS",
+      "to": "OPH-NATIVE-EXCHANGE-CLOCK",
+      "role": "supplies the primitive block intertwiners and complete reflected score at the same occupation and attempt clock"
+    },
+    {
+      "from": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
+      "to": "OPH-NATIVE-EXCHANGE-CLOCK",
+      "role": "supplies the actual fair federation transfer floor and local exchange action; its optional Poisson or coherent service clocks are not identified with the deterministic record process"
     }
   ]
 }

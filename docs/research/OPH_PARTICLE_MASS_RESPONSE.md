@@ -199,6 +199,44 @@ source coordinate readout. A physical momentum/energy convention, common
 prepared state and interacting field map are required before either class
 of records becomes a mass or scattering measurement.
 
+### Prepared spatial matrix and counted exchange response
+
+The [common native experiment](../../model/particle_identification/NATIVE_FIELD_RESPONSE.md)
+keeps one fair `q`-sector source through warmup, two past E reads, `T`
+uniform repairs and two future E reads. Its
+[spatial matrix](../../model/native_pair_response/PROOF.md) is
+`C_ij(T)/v_q=h_i^*P_2^T*h_j/4`; Gram factors are retained when settings
+overlap. Source occupation, reference target and clock are common rather
+than inferred from the equality of unrelated eigenvalue lists.
+
+For `N=binom(V,min(4,q,V-q))-1`, a certified population gap `gamma_0`
+gives [preparation error](../../model/native_correlation_preparation/PROOF.md)
+`sqrt(N/v_q)*(1-gamma_0)^n` on the normalized signed reference-valued
+observation, from arbitrary initial fixed-`q` input. The
+[exchange comparison](../../model/native_exchange_clock/PROOF.md) adds
+`3/(5T)` for `T>=1`, at counted time `t=T/(2M)`. The underlying action is
+the native `G=sum_e(I-S_e)`. The full-sector generator difference is at least
+`M/16` at half occupation even though this endpoint response converges.
+This distinction prevents identifying all native logarithmic energies
+with a uniform local Hamiltonian approximation.
+
+The exact killed independent-pair kernel is `R=P_2-A_adj/M`. Absorbing
+collisions remain in its complete comparison law; no survivor is
+renormalized. The finite four-port contrast distinguishes it from exclusion
+by `1/12` at one attempt. A collision probability bounds the normalized
+cross-response difference. The local-window error adds `2*p_escape/v_q`
+only for its specified local observation. Assigning zero to genuine host
+stops adds `p_stop/v_q`; sampling error also scales with `1/v_q`.
+
+General smooth quadratic fields are measured by one final native tree and
+reverse-current reconstruction of the full body tape. Their exact
+constant/one-body subtraction has a controlled correction of order
+`V^-1/2` in L2 at fixed density. Under the existing bounded-profile density
+limit, uniform moments yield the second Gaussian chaos and covariance
+`K(f,h)K(g,k)+K(f,k)K(g,h)`. The quadratic variables need not be Gaussian.
+This is a diffusive collective-field result, not a nontrivial scattering
+amplitude or a mass assignment to the finite exclusion correction.
+
 ## Declared mass operators and comparison inputs
 
 The executable construction has both an empirically calibrated Standard Model

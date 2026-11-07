@@ -198,6 +198,58 @@ Derive the interacting action and its controlled poles before assigning
 particle quantum numbers, masses or measured scattering channels. None of
 these finite interfaces discharges the canonical physical premises.
 
+## Prepared spatial pair response on one source
+
+The [finite composition proof](NATIVE_FIELD_RESPONSE.md) provides a common
+fair federation, fixed `2<=q<=V-2`, reference target `tau_q`, reflected
+probe menu and native attempt count. It consumes three owning results:
+
+1. [Observable preparation](../native_correlation_preparation/PROOF.md)
+   from arbitrary fixed-`q` input controls the signed reference-valued
+   four-E score after unconditioned warmup. With
+   `N=binom(V,min(4,q,V-q))-1`, its normalized error is
+   `sqrt(N/v_q)*(1-gamma_0)^n`. The source gap is certified; this is a
+   polynomial-observable bound, not a full-density preparation claim.
+2. [Spatial pair response](../native_pair_response/PROOF.md) gives
+   `C_ij(T)/v_q=h_i^*P_2^T*h_j/4` and separate local-window and complete
+   collision-comparison errors. The fixed `q` is preserved. `P_2` is the
+   exact coefficient representation and does not import the single-unit
+   displacement estimate. Retain Gram factors and L1 weights for a menu.
+3. [Native exchange time](../native_exchange_clock/PROOF.md) compares this
+   endpoint response with `exp(-t*G_2)` at `t=T/(2M)`, with all-sector
+   error at most `3/(5T)` for `T>=1`. A bounded-degree generator estimate
+   is separate; full-sector logarithmic generators do not converge in
+   operator norm at half occupation.
+
+The total four-E cost is `n+T+4` with exported records. Add `p_stop/v_q`
+for actual stopped prefixes scored zero, rather than conditioning on
+success. The warmup result ignores preparation records only in its stated
+signed observation. Adaptive use of that archive or a complete-output
+claim needs a different estimate. The physical capacity family, vacuum,
+quantum field algebra and calibrated energy convention are not supplied
+by this finite join.
+
+For arbitrary quadratic profiles, use a pure-E uniform body followed by
+one E spanning tree. The public global `q` fixes the final configuration;
+reverse every retained body current to recover snapshots without an initial
+census. This global observation has its own roots and resource limits;
+the local four-E cone allowance cannot be transferred to it.
+
+Exact projection onto primitive degree two subtracts constant and one-body
+terms from products of density profiles. On the existing spatial subsequence
+with `q=V/3` and counts `floor(1260*16^ell*tau)`, bounded mean-zero profiles
+have uniform canonical moments. These prove joint Wick-quadratic and
+covariance convergence from the density Gaussian limit. The quadratic
+variables are generally non-Gaussian; their transfer is the symmetric
+tensor square of the diffusive field. This does not prove the same limit
+for microscopic seam probes or an interacting relativistic sector.
+
+Continuation must select a source observable and scaling whose interactions
+and physical interpretation survive the controlled limit, then establish
+the common state/clock/record map for it. The eight physical requirements
+retain their existing status. The finite exclusion-versus-collision
+difference alone does not discharge particle or scattering identification.
+
 ## How a protected defect becomes an observable particle
 
 A candidate starts as an operation on a specified source state, rather than

@@ -1156,6 +1156,47 @@ of occupation on a fixed graph, not of graph size or clock. Different
 correlation degrees may share poles. Neither degree nor pole is assigned
 a particle identity (\path{model/native_correlation_sectors}, \cite{ophrepo}).
 
+\paragraph{Preparing native correlation records.}
+The stationary response can be prepared at the level of its complete signed
+score from an arbitrary quantum input in the same fixed-number sector.
+For possibly different past and future seam contrasts $\phi_i,\phi_j$, let
+$H_e=(I+S_e)/2$ on occupation functions. Pulling the entire four-read
+experiment back to its initial cut gives the diagonal effect
+\[
+ A_{ij,t}=H_{e_i}H_{f_i}[\phi_i P_q^t\phi_j],\qquad
+ \|A_{ij,t}-\mathbb E_{\tau_q}A_{ij,t}\|_2\le\sqrt{v_q}.
+\]
+The two past seam averages include measurement backaction. This effect has
+squarefree degree at most four. Put $s=\min(4,q,V-q)$ and
+$N_s=\binom Vs-1$. The mean-zero polynomial space is invariant under all
+site permutations, even when the graph is not vertex-transitive. Its
+orthogonal projector therefore has constant diagonal $N_s$ in the uniform
+$L^2$ normalization. Cauchy--Schwarz and the exclusion gap
+$\gamma=\lambda_1(L)/(2M)$ give, after $n$ independent fair warmup repairs,
+\[
+ \frac{\|Z_R-C_{ij}(t)\rho_R\|_1}{v_q}
+ \le\sqrt{N_s/v_q}\,(1-\gamma)^n.
+\]
+Here $Z_R$ is the terminal reference operator weighted by the complete score,
+and $R$ is any untouched reference initially correlated with the source.
+The diagonal input blocks on $R$ are positive and have total trace one,
+which proves this extension. Warmup records are summed without conditioning;
+their full joint law is not asserted to be stationary.
+
+Integer square roots and the bound $(1-\gamma_0)^{\lceil1/\gamma_0\rceil}
+\le1/2$ give sufficient attempt budgets from a rational gap lower bound.
+On the fair $66$-state source, $352$ warmup repairs followed by four reads
+and two lag attempts give normalized error at most $33/65536$; exact
+propagation of all input columns gives a tighter rational enclosure.
+At fixed density the prefactor grows polynomially rather than with the
+full sector dimension. The gap and sample cost retain their capacity
+dependence. All raw records and host stops are retained; assigning score
+zero to stopped runs adds $p_{\rm stop}/v_q$ to the bound. Single-program
+budgets retain the original $2^{32}$-attempt limit. The same argument applies
+to any separately implemented degree-four scored effect using its exact
+centered norm. It supplies neither full-density preparation nor a physical
+vacuum (\path{model/native_correlation_preparation}, \cite{ophrepo}).
+
 \paragraph{Native spatial motion and clocks.}
 Midpoint subdivision preserves a simple closed triangular complex; each
 cell has three distinct neighbors. The source assigns their crossing
@@ -1197,6 +1238,89 @@ support bound uniform in capacity. Global attempt locality is unchanged.
 A final tree detector and the body currents reconstruct the recorded path;
 the prepared law, auxiliary coordinate dictionary and complete archive
 access are explicit inputs (\path{model/native_spatial_scaling}, \cite{ophrepo}).
+
+\paragraph{Spatial pair responses.}
+Use one declared $2\le q\le V-2$ and its reference $\tau_q$, the same fair
+graph and the same attempt clock for a menu of disjoint-seam contrast pairs.
+The complete reflected probes give
+\[
+ C_{ij}(T)=\frac{v_q}{4}h_i^*P_2^T h_j,\qquad
+ B_{ij}(T)=C_{ij}(T)/v_q.
+\]
+The matrix $B(T)$ is positive semidefinite; $B(0)$ is the probe Gram matrix,
+not necessarily the identity. The two-subset coefficients implement the
+exact intertwiner without changing the working occupation to two. For a
+radius-$r$ local comparison containing every probe endpoint, maximum degree
+$\Delta$ gives normalized response error at most
+$2\min\{1,|S|\binom{T}{r+1}(\Delta/M)^{r+1}\}/v_q$.
+The compared window retains all local number sectors, and remote raw values
+are traced at this observation boundary. A global archive-dependent
+controller is outside that locality bound.
+
+The source also fixes a finite exclusion correction. Compressing the
+independent two-walker generator to distinct symmetric pairs gives
+$G_{\rm ind}=G_2+2A$, where $A$ projects onto adjacent pairs. Its
+collision-retaining control has surviving transfer $R=P_2-A/M$ and an
+absorbing collision flag. The identity
+\[
+ P_2^T-R^T=\sum_{k=0}^{T-1}P_2^{T-1-k}(A/M)R^k
+\]
+is entrywise nonnegative. Its column sum is the complete collision
+probability, bounding the normalized probe-response difference under the
+initial coefficient law $|h_j|/4$. No survivor renormalization occurs.
+On a four-port path, the one-attempt discrepancy is $1/12$; matching the
+one-body transfer therefore does not determine the pair response.
+
+For bounded macroscopic profiles, subtracting the constant and one-body
+components of a product of native density fields gives an exact primitive
+degree-two field on the same $q$ slice. With $V_\ell=240\,4^\ell$,
+$q_\ell=V_\ell/3$ and $\lfloor1260\,16^\ell\tau\rfloor$ attempts,
+along the existing native density subsequence, these fields
+converge to $W_\tau(f,g)={:}Y_\tau(f)Y_\tau(g){:}$, with
+\[
+ \operatorname{Cov}(W_\tau(f,g),W_u(h,k))
+ =K_{\tau,u}(f,h)K_{\tau,u}(g,k)
+  +K_{\tau,u}(f,k)K_{\tau,u}(g,h).
+\]
+Here $Y$ is the inherited Gaussian density field and $K$ its heat covariance.
+Canonical exponential-moment bounds give uniform eighth moments and justify
+the product and covariance limits. A final native spanning-tree detector
+and reverse-current readback access these occupation snapshots; this global
+observation is distinct from the local four-read menu. The result is the
+quadratic sector of a Gaussian diffusive field. The finite exclusion
+correction does not by itself establish an interacting relativistic
+continuum (\path{model/native_pair_response}, \cite{ophrepo}).
+
+\paragraph{Native attempt time and the local exchange action.}
+The same source fixes $G_q=\sum_e(I-S_e)$ and $P_q=I-G_q/(2M)$.
+Its bound $10I/21\le P_q\le I$ gives, by scalar spectral calculus,
+\[
+ \left\|P_q^n-e^{-nG_q/(2M)}\right\|\le\frac{3}{5n},
+ \qquad n\ge1.
+\]
+Indeed, for $p\ge10/21$ and $\delta=1-p$,
+$0\le-\log p-\delta\le21\delta^2/20$; maximizing
+$n\delta^2e^{-n\delta}$ proves the bound. It holds on every occupation
+sector, independent of its dimension, and bounds each entry of the normalized
+stationary response matrix. The rescaled time is the exact count
+$t_n=n/(2M)$, without a replacement Poisson scheduler or a physical time unit.
+
+Generator convergence has a narrower domain. On correlation degrees at
+most $r$, $\|G_q\|\le2r\Delta$ and, for $M>r\Delta$,
+\[
+ 0\le-2M\log P_q-G_q
+ \le\frac{r^2\Delta^2}{M-r\Delta}I.
+\]
+At half occupation the full-sector generator difference is at least $M/16$,
+although its endpoint semigroups obey the dimension-independent bound above.
+Exact sparse moments give rational enclosures of both response functions.
+Preparation and local-window errors add with their stated normalizations.
+The Poisson-count representation of this exponential has a different complete
+history-length law;
+the endpoint estimate identifies neither that law nor a native unitary
+implementation. These results fix a finite local exchange response, with
+no chiral matter, Lorentzian action or physical mass assignment
+(\path{model/native_exchange_clock}, \cite{ophrepo}).
 
 \subsection{Native clock observables}
 \label{sec:native-clock-observables}

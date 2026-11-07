@@ -851,6 +851,30 @@ bounded repair-only controller retains a positive no-motion probability
 from each input, precluding exact reset of all inputs in a nontrivial sector
 to one fixed target
 (\path{model/native_sector_readout}, \cite{ophrepo}).
+For the fair connected source, the same record grammar prepares a correlation
+at $2\le q\le V-2$ from arbitrary quantum input without preparing the
+entire density matrix. Two reflected past E reads and two future E reads
+have a diagonal scored effect of degree at most four, with the past
+measurement disturbance included. If $v_q$ is the contrast variance and
+$N=\binom{V}{\min(4,q,V-q)}-1$, then $n$ unconditioned native warmup
+attempts give normalized signed-score error at most
+$\sqrt{N/v_q}(1-\gamma)^n$, including an arbitrary untouched reference.
+The proof uses the constant diagonal of the low-degree polynomial projector
+and the existing exclusion gap. Preparation records are retained but summed
+at this comparison boundary. The fair $66$-state example uses $352$ warmup
+repairs; all source and host limits remain explicit. A final tree and the
+body currents alternatively read retrospective polynomial snapshots, with
+their own observation map
+(\path{model/native_correlation_preparation}, \cite{ophrepo}).
+At the same stationary reference, spatial pair responses retain finite
+exclusion corrections. Their bounded collective density products inherit
+the quadratic sector of a Gaussian diffusive field. The local exchange
+operator $G$ and $M$-seam transfer $P$ also obey
+$\|P^n-e^{-nG/(2M)}\|\le3/(5n)$ for $n\ge1$ on every occupation sector.
+This compares endpoint observations in counted time, with no identification
+of complete record-length laws or physical relativistic dynamics
+(\path{model/native_pair_response}, \path{model/native_exchange_clock},
+\cite{ophrepo}).
 The nine-bit coherent words use the direct source
 compiler, beyond the generic word evaluator's six-qubit host ceiling.
 Existing coherent routing of the known terminal code gives ideal basis
