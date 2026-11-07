@@ -733,7 +733,7 @@
     "model/completion/adaptive_reference.py": "b7acada7572f55c81fa8754658d3f7d592ee007dc38d2a421ba6d19de8247804",
     "model/completion/campaign.json": "1161eeb638d997b8bd1c3337c85fab17bf664f10c8a5af59670b327c2423fcb6",
     "model/completion/common_action_campaign.json": "dd0ae22c9c5184453501f70f383dda08562eeba0c2fa2f4c398c07fe83b8e8d6",
-    "model/completion/component_interfaces.json": "a53ce4c53e498280aba655740ff4ee5c6a5564d14a3357e783a359a272f98676",
+    "model/completion/component_interfaces.json": "3f73c2a7566f49a688b21ffceb4bcdc23ab6608dd12c886c121e1e341ff1aafd",
     "model/completion/continuing_spectrum_campaign.json": "c2da42adec941688f95f57584e4a7e88e90f1b932817d321b46344a02f48b082",
     "model/completion/continuum_field_campaign.json": "f7fd154f99dd54acf3212091847d81cb46b8a40943ea3fc9a9b759e803138679",
     "model/completion/defect_algebra.py": "1a19f00c64e89a65eb18bd335f59776ee522c1e6c35ae53508ee4b57aa9c7cf3",
@@ -2152,9 +2152,9 @@
     "model/native_regional_modular/test_flow.py": "380d446be8a93a48596a42a0aeb96778871b7153aa7c31e0db02acfbcaa0730c",
     "model/composite_spatial_response/__init__.py": "11f696c4d37d55c82155ccb07924a1e39e599fd58465fdd1ba6ba2da8cdab00f",
     "model/interacting_observation_process/PROOF.md": "cbde98c04643fb024edce9f5995a88d9877618dc31a6e69819d50596da54326b",
-    "model/completion/custody_renewal_20261107.json": "f13c7c90ef98d96dd4456cd8cad877d6cf68fb822529cddc0d08c1ecb6bd44f8",
-    "model/completion/custody_renewal.py": "9e42ed40ab8c257194c3e7d8ad64e16666ea6ef8d2acd93666813e742a3f1fc9",
-    "model/completion/test_custody_renewal.py": "05370331ea6a6b00694d087015105bc0b6a50b68da73512ef8a004aab8e71f6e"
+    "model/completion/custody_renewal_20261107.json": "dfcbddd20b9732eaa4f275134b1d926030ae80fe9654c739aeb7ab84a332e464",
+    "model/completion/custody_renewal.py": "d4d5252c5d50865c9cbc0dfcf299b3b977bc7906ce18e5dc9a3db42f01c7b4e2",
+    "model/completion/test_custody_renewal.py": "ff3d02b5b14450d4e1418d5caf72d4c356a043c6e045dbb71b81227813b31af6"
   },
   "verdict": "PASS",
   "audit_refresh": {
@@ -5214,7 +5214,7 @@
   "current_source_custody_renewal": {
     "date": "2026-11-07",
     "path": "model/completion/custody_renewal_20261107.json",
-    "sha256": "f13c7c90ef98d96dd4456cd8cad877d6cf68fb822529cddc0d08c1ecb6bd44f8",
+    "sha256": "dfcbddd20b9732eaa4f275134b1d926030ae80fe9654c739aeb7ab84a332e464",
     "role": "CUSTODY_ONLY_NO_NEW_MATHEMATICAL_ACCEPTANCE"
   }
 }
