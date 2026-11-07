@@ -7,6 +7,121 @@ complete finite coefficient map and its physical boundaries. The
 [completion program](../COMPLETION_PROGRAM.md) separates these results from
 acceptance of a physical interacting theory.
 
+## Complete finite Higgs experiment and its source boundary
+
+The [interacting Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)
+uses a two-vertex graph, native 60-state gauge-link factors, three lepton
+families, a conjugate Higgs scalar and a compensating dual reference.
+The scalar occupation cap of one defines the finite model; it is not
+proved to be an invariant truncation of an unbounded scalar theory.
+Colored occupations and quark vertices are absent. Exact Gauss reduction
+gives dimensions 438 for the neutral sector and 1596 for the sector with
+the reference. The audit retains all generated complementary columns and
+checks the fermion signs, spin action, CAR and Gauss constraints there.
+
+The source interface is explicit. The
+[family loader](../../model/interacting_extension/higgs_join/interacting_carrier.py)
+uses the exact `Y,D,J` data, reconstructed by the source-algebra test, to
+obtain `Y` and the prepared family reference. The ordered-control angle is
+`log(5/4)`. The response producer sets electric, magnetic, hopping and
+scalar-energy coefficients to one, and fermion/reference energies to zero.
+It selects the unique neutral ground by diagonalization. The graph,
+families, coupling placement, scalar cap and ground preparation are thus
+declared specifications. There is no global-capacity argument in this
+Hamiltonian constructor.
+
+The full Schur correction is nonzero, with norm approximately
+`1.793879153064` at `z=1+0.5i`. The three primary addition lines are near
+`2.58004293348e-8`, `0.00100665351072` and `0.452014700448` in this model's
+time unit. The 50/80-digit agreement is a precision diagnostic, not an
+interval enclosure. All frequencies, residues, zero directions and
+complementary modes belong to the response. None of these three numbers
+has a derived assignment to an observed lepton mass.
+
+The [complete record instrument](../../model/interacting_extension/PROOF.md)
+uses six compensated family/spin creation probes and both Ramsey sign
+settings. It retains blocked creation and both X/Y detector outcomes,
+including their postmeasurement states. The compound probe is even and
+gauge neutral because its explicit reference has the compensating charge
+and odd parity. A common gauge-energy shift cancels only when that
+reference is calibrated with the matter sector. The resulting experiment
+is distinct from the compact texture and dimer experiments below; it
+does not retroactively identify their excitations with its charged states.
+
+### References and clock statistics from the native instrument
+
+The [native reference calculation](../../model/interacting_extension/source_selection/PROOF.md)
+retains 240 raw C labels or 480 raw E labels, including zero Kraus maps,
+on the full 66-state binary sector. Its 78-state extension also retains
+the twelve double-load configurations and proves their population decays
+by `5/6` per attempt. On the binary sector the unique unread quantum
+stationary state is `I_66/66`; all 4356 operator directions are included.
+
+A declared complete chart transducer applied after a moving record selects
+the faithful three-dimensional reference
+`I/5+(9P_b-P_a)/20`, with spectrum
+`{(20-sqrt(145))/50, 1/5, (20+sqrt(145))/50}`. Every transducer outcome and
+the no-current companions are retained. The unconditioned reference is
+`I_3/3`. Two-record references can have rank one or two, so taking a
+full-space modular logarithm requires an explicit support restriction or
+faithful refresh. This calculation selects a conditional reference through
+a specified instrument; it supplies no interacting Higgs vacuum.
+
+For stationary native records the actual move count `A_n` has mean
+`5n/33` and asymptotic variance rate `1597/11979`. Independent Bernoulli
+variance would give a different value. A positive activity tilt has exact
+three-orbit Perron data and a trace-preserving Doob instrument. Its native
+filter implementation includes all failures; successful conditioning is
+not the unconditional channel. The tilt, its physical meaning and the
+event duration are inputs, and no equation identifies them with the
+public coupling or capacity. Appending unused future trace-preserving
+steps leaves every fixed-prefix probability unchanged; a capacity effect
+requires an actual change of law, resource condition or observation.
+
+The [passive-clock theorem](../../model/particle_identification/PASSIVE_CLOCK.md)
+quantifies another boundary. For the unread binary channel `Phi`,
+`half_diamond(Phi^n, replacement)<=min(1,33r^n)` with
+`r=(55+sqrt(5))/60`. Static encoding and decoding through `k` independent
+carriers consequently have distance at least
+`max(0,1-1/d²-33k r^n)` from an arbitrary-state logical unitary in dimension
+`d`. One qubit and 200 attempts give a lower bound above `0.74`.
+This excludes the reduced passive carrier as that clock. It excludes
+neither retained archives nor active recovery, coherent memory or an
+explicit source implementation using them.
+
+### The required common-source maps
+
+The source specifications may be read and used in the proof. Three maps
+are required to turn the finite Higgs benchmark into a native effective
+theory: the continuing program must produce its carrier and action; its
+actual state must prepare the proposed interacting reference with a bound;
+and its complete pulse/readout history must implement the same dynamics
+and probes in one clock. Each map must retain auxiliary resources and
+failure outcomes. A finite programmed simulator establishes an
+implementation on that declared program, without showing that the fixed
+observer program selects it.
+
+The [field-reconstruction guide](OPH_FIELD_RECONSTRUCTION.md#one-source-complete-records-and-a-common-spacetime)
+adds the spatial acceptance conditions. Native adaptive dataflow must
+include controller reads; twelve source null tests determine a conformal
+Lorentz transition only for a supplied invertible map and physical null
+lift; and a wave principal matrix matches that cone only when its
+readback and clock satisfy the exact compatibility equation. These are
+three separate checked interfaces. They supply no automatic 3+1-dimensional
+continuum, source-selected massive sector or Einstein limit.
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.interacting_extension.higgs_join.certificate --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.interacting_extension.source_selection.certificate --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.interacting_extension.certificate --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.particle_identification.completion_certificate --check
+```
+
+The extension verifies consumed source bytes against its immutable
+`source_manifest.json`; an unrelated descendant commit does not invalidate
+the calculation. Source hashes certify provenance, while the independent
+tests verify the stated mathematics and complete experimental law.
+
 ## Consistent coefficients, finite texture energy and interactions
 
 [Pixel/mass feedback](../../model/pixel_mass_closure/PROOF.md) has certified

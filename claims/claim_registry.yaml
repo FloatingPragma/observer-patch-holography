@@ -17641,6 +17641,408 @@
         "boundary": [],
         "rationale": "The actual fifteen-state native matter representation has a declared 60-state link register consisting of a vacuum and the dual-times-fundamental factors of its five invariant multiplets. The claim concerns the displayed finite mathematical specification; physical identification and the completion gate are outside its conclusion."
       }
+    },
+    {
+      "claim_id": "OPH-INTERACTING-LEPTON-HIGGS-RESPONSE",
+      "statement": "The specified two-vertex native-link model with a vacuum-or-one-quantum conjugate Higgs register has complete Gauss-singlet sectors of dimensions 438 and 1596 for three supplied lepton families. Exact CAR, spin and Gauss checks retain the complementary states. Its nonzero Higgs Schur self-energy and full addition response are replayed; numerical frequency windows are acceptance tolerances, not rigorous spectral enclosures. A complete forward-only Ramsey instrument retains blocked paths, both detector outcomes and every signed spectral row. For the stated independent-shot schedule a commuting charged-sector shift of magnitude at most 3e-8 changes the detector-record law by total variation less than 1/2500. This last bound concerns those records alone; access to simulator specifications supplies additional information.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "finite_declared_source_operator_and_record_theorem",
+      "assumptions": [
+        "declared_finite_lepton_Higgs_Ramsey_model"
+      ],
+      "imported_results": [
+        "finite_CAR_and_quantum_link_covariance",
+        "Schur_complement_and_spectral_response",
+        "complete_quantum_instruments_and_fidelity_contraction"
+      ],
+      "oph_specific_delta": "The native current representation, finite scalar interaction, complete Gauss sectors and complete Ramsey instrument share one explicit finite Hamiltonian; all complementary states and spectral rows remain available.",
+      "novelty_type": "source_specific_composition",
+      "evidence": [
+        "model/interacting_extension/higgs_join/PROOF.md",
+        "model/interacting_extension/higgs_join/interacting_carrier.py",
+        "model/interacting_extension/higgs_join/joined_exact_operators.json",
+        "model/interacting_extension/higgs_join/results.json",
+        "model/interacting_extension/higgs_join/test_higgs_join.py",
+        "model/interacting_extension/PROOF.md",
+        "model/interacting_extension/recorded_response.py",
+        "model/interacting_extension/certificate.py",
+        "model/interacting_extension/test_recorded_response.py"
+      ],
+      "falsifier": "A stated Gauss or CAR identity fails, a retained basis is incomplete, the Higgs block is replaced by another complement, the partial-isometry Ramsey instrument loses blocked probability, or the analytic record-only variation bound fails under its fixed-preparation hypotheses.",
+      "scope_if_false": "Reject the specified finite construction or bound. No conclusion about all OPH realizations or empirical physics follows.",
+      "status": "proved_and_replayed_on_declared_finite_domain",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This claim proves identities for the explicitly supplied finite lepton/Higgs Hamiltonian and its specified detector law. It does not consume or discharge the physical state, clock, mass-matching or chiral continuum premises."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-RECORD-REFERENCE-CLOCK",
+      "statement": "For the unchanged binary total-two endpoint law under independent uniform seam and fair-coin scheduling, the complete C/E instruments have unique stationary state I/66. The full 78-state carrier retains transient double loads with exact survival factor (5/6)^n. A declared complete chart transducer gives the directed-move-conditioned reference I/5+(9 Pi_b-Pi_a)/20, whose exact spectrum is ((20-sqrt(145))/50,1/5,(20+sqrt(145))/50). Retaining both native records gives exact rank-loss probabilities 3/220 for C and 3/55 for E. The move count has mean rate 5/33 and asymptotic variance rate 1597/11979. Positive tilts produce complete quantum Doob instruments with explicit failed filter outcomes; the unconditioned native-plus-filter channel differs from the success-conditioned channel. No physical clock, vacuum or tilt selection follows.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "finite_declared_source_operator_and_record_theorem",
+      "assumptions": [
+        "declared_native_record_chart_and_activity_tilt"
+      ],
+      "imported_results": [
+        "finite_Markov_Poisson_equation",
+        "complete_quantum_instruments",
+        "discrete_time_quantum_Doob_transform"
+      ],
+      "oph_specific_delta": "Exact event-conditioned reference spectra, two-record rank counts and correlated count variance are derived from native endpoint columns; a three-orbit reduction determines the full tilted Perron data.",
+      "novelty_type": "source_specific_composition",
+      "evidence": [
+        "model/interacting_extension/source_selection/PROOF.md",
+        "model/interacting_extension/source_selection/native_record_dynamics.py",
+        "model/interacting_extension/source_selection/certificate.py",
+        "model/interacting_extension/source_selection/results.json",
+        "model/interacting_extension/source_selection/test_native_records.py"
+      ],
+      "falsifier": "An endpoint or raw record differs from the pinned source, a complete branch is discarded, a direct path census disagrees with the exact reference or rank law, a full-state Poisson solve disagrees with the count variance, or the claimed Doob channel requires omitting recorded filter failures.",
+      "scope_if_false": "Reject the specified finite construction or bound. No conclusion about all OPH realizations or empirical physics follows.",
+      "status": "proved_and_replayed_on_declared_finite_domain",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This claim concerns a finite native endpoint instrument, a declared chart readout and count-conditioned channels. Its exact references and dimensionless attempt statistics do not instantiate the physical reference state or spacetime clock premises."
+      }
+    },
+    {
+      "claim_id": "OPH-FREE-SPATIAL-ABELIAN-FLUX-CONTROLS",
+      "statement": "Two distinct finite controls are replayed. The free flat-gauge spatial overlap Hamiltonian retains all 30720 components on the L=8 grid and has the stated fixed-momentum continuum dispersion limit. A separate four-edge U(1) matter/electric/loop Hamiltonian retains all five native charge sectors and exact Gauss and electric Ward identities at each executed flux cutoff, including its boundary defects. For initial loop-flux support inside K0, the complete-record cutoff error is bounded by min(1,2 sum from n=r to infinity of (BT)^n/n!), with r=ceil((K-K0+1)/max(1,abs(q))). At K=48, K0=0, T=1/2 and B=3 this bound is below 0.000248607 for every native charge. The bound requires a separate initial-state estimate for ground-state preparations. These are a free vectorlike spatial control and a separate abelian interacting control, not one chiral continuum theory.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "finite_declared_source_operator_and_record_theorem",
+      "assumptions": [
+        "declared_free_spatial_and_abelian_flux_controls"
+      ],
+      "imported_results": [
+        "Ginsparg_Wilson_overlap_fermions",
+        "finite_quantum_link_covariance",
+        "Dyson_series_and_trace_distance_contraction"
+      ],
+      "oph_specific_delta": "Complete spatial component counts and the native charge menu are joined to explicit finite controls; the abelian graph has a uniform all-record cutoff estimate, while its boundary transport defects remain visible.",
+      "novelty_type": "source_specific_composition",
+      "evidence": [
+        "model/interacting_extension/chiral_lattice/PROOF.md",
+        "model/interacting_extension/chiral_lattice/light_branch.py",
+        "model/interacting_extension/chiral_lattice/rotor_response.py",
+        "model/interacting_extension/chiral_lattice/certificate.py",
+        "model/interacting_extension/chiral_lattice/results.json",
+        "model/interacting_extension/chiral_lattice/test_controls.py"
+      ],
+      "falsifier": "A component or flux-boundary defect is omitted, the free dispersion limit fails, a Gauss or electric Ward identity fails, or an admitted bounded-support recorded experiment exceeds the analytic cutoff estimate.",
+      "scope_if_false": "Reject the specified finite construction or bound. No conclusion about all OPH realizations or empirical physics follows.",
+      "status": "proved_and_replayed_on_declared_finite_domain",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The free flat-fibre lattice and the abelian flux ring are specified mathematical controls on distinct state spaces. Their limits and Ward identities do not consume or establish the full nonabelian chiral measure, physical vacuum, clock or capacity-refinement premises."
+      }
+    },
+    {
+      "claim_id": "OPH-LOCAL-CHIRAL-ELECTRIC-COMPRESSION",
+      "statement": "For the specified smooth finite overlap projector P, the anti-Hermitian connection C=[P,P prime] preserves its moving chiral subspace. In a local orthonormal frame V, compression of the parent second-order electric kinetic operator contains the covariant derivative and the positive scalar Phi=V prime adjoint (I-P) V prime. A complete nine-point grid retains all 576 parent states and 288 compressed states. For the positive parent K+Lambda Q, the low eigenvalues satisfy the stated Schur-complement bound below Lambda. The differential Phi is positive; a finite-grid compressed-minus-polar correction need not be positive. This is a local projector and electric-motion construction, without a global chiral gauge measure or an interacting continuum claim.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "finite_declared_source_operator_and_record_theorem",
+      "assumptions": [
+        "declared_local_chiral_projector_electric_parent"
+      ],
+      "imported_results": [
+        "smooth_spectral_projector_transport",
+        "Ginsparg_Wilson_chiral_projectors",
+        "Schur_complement_and_min_max_principle"
+      ],
+      "oph_specific_delta": "The native charge-six overlap family realizes the missing connection and positive differential scalar in a complete finite parent with an explicit controlled complement estimate.",
+      "novelty_type": "source_specific_composition",
+      "evidence": [
+        "model/interacting_extension/chiral_electric/PROOF.md",
+        "model/interacting_extension/chiral_electric/covariant_kinetic.py",
+        "model/interacting_extension/chiral_electric/certificate.py",
+        "model/interacting_extension/chiral_electric/results.json",
+        "model/interacting_extension/chiral_electric/test_kinetic.py"
+      ],
+      "falsifier": "The connection fails to preserve the projector range, the differential compression omits its scalar term, a frame change alters the compressed law, or a positive finite parent violates the stated low-energy Schur bound.",
+      "scope_if_false": "Reject the specified finite construction or bound. No conclusion about all OPH realizations or empirical physics follows.",
+      "status": "proved_and_replayed_on_declared_finite_domain",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This claim is a local differential identity and finite positive-parent comparison for a supplied overlap projector family. It does not construct or discharge the global gauge-equivariant chiral measure, physical continuation or interacting QFT premises."
+      }
+    },
+    {
+      "claim_id": "OPH-DENSE-RATIONAL-EFFECT-EXTENSION",
+      "statement": "For any fixed positive finite dimension, a nonnegative normalized valuation on all Gaussian-rational matrix effects that is additive on every compatible sum is 1-Lipschitz in operator norm. It has a unique continuous additive extension to all complex effects, so the finite Busch-Gleason theorem supplies a unique density-matrix representation. Rational regularization preserves positivity and compatible sums, including at singular boundaries. This is a prose theorem with exact finite controls, not a derivation of the source effect representation or of its all-menu implementation equivalences.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "conditional_finite_mathematical_interface",
+      "assumptions": [
+        "declared_dense_rational_effect_valuation"
+      ],
+      "imported_results": [
+        "finite_Busch_Gleason_representation",
+        "order_unit_norm_and_dense_continuous_extension"
+      ],
+      "oph_specific_delta": "Reduces the all-effect quantifier to a countable exact domain and derives continuity from positivity and compatible additivity; separates this theorem from native effect realization.",
+      "novelty_type": "finite_domain_premise_reduction",
+      "evidence": [
+        "model/particle_identification/DENSE_EFFECTS.md"
+      ],
+      "falsifier": "An admitted rational-effect valuation violates the operator-norm Lipschitz bound, compatible regularization fails, or its extension is not uniquely represented by a density matrix.",
+      "scope_if_false": "Reject this conditional finite theorem or its stated application. The remaining source-realization and physical-identification obligations are unchanged.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a conditional finite-dimensional representation theorem on a specified rational effect domain. It reduces a quantifier but supplies no native effect menu, implementation equivalence, source state or physical Born-premise discharge."
+      },
+      "proof_medium": "paper_prose"
+    },
+    {
+      "claim_id": "OPH-COMPENSATED-PROBE-UNCERTAINTY",
+      "statement": "The six actual family/spin addition maps of the finite Higgs model are signed rank-384 partial permutations between the complete 438- and 1596-state sectors. Their charge-compensated quadratures obey X squared equals Y squared equals D squared equals P and [X,Y]=2iD. Each complete projective instrument has outcome ranks 384,1266,384. Every neutral-supported density, including a reduced state entangled with a reference, has outcome law (w/2,1-w,w/2), w=Tr(rho b-adjoint b), and saturates the Robertson bound Delta X Delta Y=w. A native compiler for these projective instruments, physical position/momentum and a physical Planck scale are outside the result.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_mathematical_interface",
+      "assumptions": [
+        "declared_compensated_Higgs_probe_uncertainty"
+      ],
+      "imported_results": [
+        "finite_state_Robertson_inequality",
+        "partial_isometry_spectral_projectors",
+        "complete_projective_instruments"
+      ],
+      "oph_specific_delta": "Binds the finite-state uncertainty theorem to the actual complete compensated source probes, retaining every blocked direction and reference output.",
+      "novelty_type": "finite_domain_premise_reduction",
+      "evidence": [
+        "model/particle_identification/UNCERTAINTY.md",
+        "model/particle_identification/uncertainty.py",
+        "model/particle_identification/test_uncertainty.py",
+        "Lean/EventAlgebra/Robertson.lean"
+      ],
+      "falsifier": "An actual compensated probe violates the partial-isometry identities, a blocked outcome is missing, or a neutral-supported density fails the stated probabilities or Robertson saturation.",
+      "scope_if_false": "Reject this conditional finite theorem or its stated application. The remaining source-realization and physical-identification obligations are unchanged.",
+      "status": "proved_and_replayed_on_declared_finite_domain",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This claim applies the finite-state uncertainty theorem to specified compensated Higgs probes and matrix readout. It does not identify physical position, momentum or action units and does not consume or discharge a physical continuum or Born-source premise."
+      }
+    },
+    {
+      "claim_id": "OPH-CAPACITY-LOCAL-HISTORY-COMPOSITION",
+      "statement": "For the specified fixed-spacing Weyl/contact action and complete adaptive local instruments, nested finite buffers give final joint-state and complete-record error at most min(1,epsilon0+sum_i(delta_i/2+eta_i+a_i+zeta_i)). Here epsilon0 controls the joint initial buffer/memory/reference restriction, delta_i is the existing complete locality error, eta_i is the actual simulator splitting error, zeta_i is a uniform complete-instrument half-diamond error, and a_i=E_i abs(t_i c-s_i c-prime)+V_i abs(t_i U-s_i U-prime) bounds local action and clock changes. No ambient-volume factor occurs. Capacity-uniform conclusions additionally require source maps and convergence of those local quantities; volume independence alone does not imply capacity-independent physical masses.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_mathematical_interface",
+      "assumptions": [
+        "declared_local_history_capacity_comparison"
+      ],
+      "imported_results": [
+        "finite_locality_and_nested_buffer_simulation",
+        "Duhamel_unitary_perturbation_bound",
+        "trace_distance_and_complete_channel_contraction"
+      ],
+      "oph_specific_delta": "Composes existing complete local simulation bounds with joint preparation, actual generator/clock and complete-instrument errors, and retains an explicit volume-independent counterexample with different local contact laws.",
+      "novelty_type": "finite_domain_premise_reduction",
+      "evidence": [
+        "model/particle_identification/CAPACITY.md"
+      ],
+      "falsifier": "A comparison satisfying the joint-state, complete-instrument and local-generator hypotheses exceeds the composed error bound, or the claimed bound requires an unaccounted ambient-volume factor.",
+      "scope_if_false": "Reject this conditional finite theorem or its stated application. The remaining source-realization and physical-identification obligations are unchanged.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This theorem compares finite complete local experiments under explicit state, action, clock and instrument error hypotheses. It supplies no capacity-to-source map, source-selected coupling or state convergence, long-time particle pole or physical mass premise."
+      },
+      "proof_medium": "paper_prose"
+    },
+    {
+      "claim_id": "OPH-UNREAD-NATIVE-UNITARY-OBSTRUCTION",
+      "statement": "For the unread 66-state native C/E channel, exact quantum-direction checks give contraction to the replacement channel at I/66 with rate r=(55+sqrt(5))/60. After n attempts on each of k independent carriers, every fixed CPTP encoder and decoder has half-diamond distance at least max(0,1-1/d^2-33 k r^n) from any d-dimensional unitary channel, d>=2. The bound permits arbitrary static coding but excludes record/environment access, a noiseless bypass and intermediate active recovery. It is an obstruction for that reduced passive process, not for the complete observer with retained records and coherent services.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "conditional_finite_quantum_channel_obstruction",
+      "assumptions": [
+        "declared_unread_native_static_coding_domain"
+      ],
+      "imported_results": [
+        "finite_quantum_channel_mixing",
+        "complete_channel_norm_contraction",
+        "maximally_entangled_channel_witness"
+      ],
+      "oph_specific_delta": "Combines an exact all-quantum-direction native mixing calculation with an encoder/decoder-independent lower bound; separates the unread passive process from admitted active observer services.",
+      "novelty_type": "source_specific_finite_obstruction",
+      "evidence": [
+        "model/particle_identification/PASSIVE_CLOCK.md"
+      ],
+      "falsifier": "An admitted native quantum direction exceeds the claimed contraction, or static CPTP coding with no bypass or retained record achieves a smaller unitary-channel distance than the bound.",
+      "scope_if_false": "Reject this unread-channel obstruction. Its failure would not establish an interacting field theory or physical clock for the full observer.",
+      "status": "proved_in_prose_with_exact_quantum_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a finite quantum-channel no-go theorem for the specified unread native process under static coding. It does not obstruct the full record-retaining source, select a physical clock or discharge any continuum, state or particle-identification premise."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-CONTROLLER-DATAFLOW",
+      "statement": "For complete bounded local H66/H78 executions from a classical total-two basis preparation, the adapter retains all raw native interpreter histories and authenticates endpoint, controller, FIFO and archive dependencies on every positive branch. The full single-FIFO read/write footprint order is a chain; this conservative implementation dependency is not identified with physical causal order. An exact two-step record-adaptive control changes a disjoint-seam receiver probability from 0 to 1/4 while preserving all 625 raw histories, demonstrating a controller communication path omitted by endpoint-only cones.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_classical_dataflow_domain"
+      ],
+      "imported_results": [
+        "finite_authenticated_read_after_write_provenance",
+        "acyclic_parent_order_and_height",
+        "full_support_independent_event_swap_criterion"
+      ],
+      "oph_specific_delta": "Authenticates complete controller and storage dependencies against actual native branches and separates an observable adaptive communication path from mere FIFO serialization.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_causal_dataflow/README.md"
+      ],
+      "falsifier": "An accepted positive-branch log has a false last-writer/value witness, omits an executed control/storage dependency, fails strict parent ordering, or the stated complete adaptive distributions disagree with the exact probabilities.",
+      "scope_if_false": "Reject the stated finite implication or its executable attachment; no broader physical completion claim is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This source-specific finite execution audit neither assigns physical causal order nor supplies spatial placement, a proper clock, a Lorentz cone, count-volume limits or field propagation. FIFO serialization alone does not exclude a physical Lorentzian limit or justified observer-visible quotient."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-TWELVE-NULL-TRANSITION",
+      "statement": "For the twelve exact source directions u_p, declared lifts k_p=(1,u_p) and G=diag(-(phi+2),1,1,1), an invertible real matrix L satisfying (L k_p)^T G(L k_p)=0 for all twelve ports obeys L^T G L=lambda G with lambda>0. The normalized map is Lorentz; future orientation is separately tested by L00>0 and properness by det L>0. Metric factors multiply under composition. The exact decoder bounds the entrywise residual after fixing the time-time component by (1-sqrt(5)/5) times the largest null-evaluation residual.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_null_linear_transition"
+      ],
+      "imported_results": [
+        "native_twelve_direction_rank_nine_tensor_decoder",
+        "real_quadratic_form_inertia",
+        "Lorentz_cone_component_and_determinant_orientation"
+      ],
+      "oph_specific_delta": "Uses the exact native twelve-port tensor kernel to reduce an all-direction conformal Lorentz check to twelve source evaluations, with separate orientation and finite-error controls.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_lorentz_transition/PROOF.md"
+      ],
+      "falsifier": "An invertible real transition passes all twelve source-null tests but is not a positive metric similarity, the orientation classification fails, or a common-form residual exceeds the exact decoder bound.",
+      "scope_if_false": "Reject the stated finite implication or its executable attachment; no broader physical completion claim is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This theorem supplies no source-selected chart transition, physical null record, proper clock, volume normalization or dynamics. The finite source PSL(2,F5) action is not the continuous PSL(2,C) correspondence; no new continuous group formalization is asserted."
+      }
+    },
+    {
+      "claim_id": "OPH-FIELD-PRINCIPAL-CONE-COMPATIBILITY",
+      "statement": "For a supplied static wave principal tensor a>0, invertible spatial readback Jacobian J and clock conversion alpha>0, the pulled-back tangent form K=diag(-alpha^2,J^T a^-1 J) passes all twelve native null tests exactly when K=(alpha^2/(phi+2))G, equivalently a=((phi+2)/alpha^2)JJ^T. The criterion is covariant when both field and observer forms are pulled back by the same frame map. Under the fixed polar dictionary x=r n and one global clock conversion, the round radial product cannot match the same flat native cone at two distinct positive radii. These are local principal-cone statements, not a source-selected field law.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_field_clock_jacobian_match"
+      ],
+      "imported_results": [
+        "principal_covector_and_tangent_metric_duality",
+        "native_twelve_direction_rank_nine_tensor_decoder",
+        "positive_definite_matrix_factorization"
+      ],
+      "oph_specific_delta": "Makes the spatial-readback and clock requirements for matching the native null cone to the existing static field principal symbol explicit and finitely testable, with a restricted radial-product countercontrol.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/field_cone_compatibility/PROOF.md"
+      ],
+      "falsifier": "An admitted a,J,alpha passes all twelve tests without satisfying the displayed matrix identity, common pullback breaks a matched cone, or the fixed round polar product matches both distinct radii with one clock.",
+      "scope_if_false": "Reject the stated finite implication or its executable attachment; no broader physical completion claim is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Principal-cone equality does not determine masses, lower-order interactions, boundary conditions, state preparation or complete experiments. No source derivation of J, alpha or the field service is supplied. The radial-product countercontrol does not obstruct curved spacetime, local frames or another coordinate dictionary."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-FIFO-CAPACITY-EQUIVALENCE",
+      "statement": "For the actual native interpreter with export_oldest and admitted FIFO capacities K,K-prime in {1,...,8}, fixing the carrier, preparation, parameters, commands and evaluator limits gives the identical complete recorded quantum channel after reversible archive/FIFO resegmentation. The induction retains arbitrary reference systems, adaptive selectors, zero blocks and common evaluator stop records, so the complete-channel and half-diamond errors are zero. Program digests, readable capacity specifications, memory layout and resource accounting can differ. An observer reading the capacity itself can distinguish the programs; that readout is outside this equal-channel comparison. Under halt, two hold attempts at capacities one and two instead have disjoint completion/timeout statuses. No identification of FIFO capacity with physical global N or particle-mass invariance is asserted.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_native_complete_instrument_equivalence",
+      "assumptions": [
+        "declared_export_oldest_complete_record_capacity_domain"
+      ],
+      "imported_results": [
+        "finite_instrument_composition_with_reference",
+        "classical_record_label_reindexing",
+        "induction_on_native_interpreter_outcomes"
+      ],
+      "oph_specific_delta": "Derives exact FIFO-capacity equivalence from the actual native selector/outcome/commit implementation, including complete raw records and a separating halt-policy control.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/particle_identification/NATIVE_CAPACITY.md"
+      ],
+      "falsifier": "An admitted export_oldest comparison with fixed noncapacity inputs produces a different complete raw quantum block or stopping status after record resegmentation, or the two-hold halt control lacks the stated disjoint statuses.",
+      "scope_if_false": "Reject the stated native storage-capacity equivalence; no physical global-capacity or mass conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This source theorem compares FIFO storage representations of the same complete native experimental output under export_oldest. It supplies no relation between FIFO slots and physical global N, no carrier/refinement identification, and no common field Hamiltonian, physical energy unit or particle-mass premise."
+      }
     }
   ],
   "claim_context": {
@@ -30622,6 +31024,400 @@
         "mathematical": "An admitted source violates the displayed operator identity, exact complete-record normalization, spectral bound or retained countercontrol. General all-occupation CAR cancellation proof, exact native-current singlet checks, independent full80-state non-Abelian Fock control, exact complete-history probabilities and energy exchange.",
         "physical_identification": "No physical identification is asserted. The link/register, static dual reference and coherent instruments are explicit design; no bare C/E compilation or full detector reservoir is implemented.",
         "phenomenological": "No independent measured particle or gravitational value is predicted by this finite result."
+      },
+      "depends_on": []
+    },
+    "OPH-INTERACTING-LEPTON-HIGGS-RESPONSE": {
+      "prior_work": {
+        "summary": "finite_CAR_and_quantum_link_covariance; Schur_complement_and_spectral_response; complete_quantum_instruments_and_fidelity_contraction",
+        "overlap": "The operator, probability and limiting methods are established. The contribution is their explicit realization and complete retained controls on the stated source domain.",
+        "imported_step": "finite_CAR_and_quantum_link_covariance; Schur_complement_and_spectral_response; complete_quantum_instruments_and_fidelity_contraction",
+        "citations": [
+          {
+            "work": "Finite quantum links",
+            "keys": [
+              "chandrasekharan1997quantum"
+            ]
+          },
+          {
+            "work": "Schur complement",
+            "keys": [
+              "zhang2005schur"
+            ]
+          },
+          {
+            "work": "Quantum instruments and fidelity",
+            "keys": [
+              "watrous2018theory"
+            ]
+          }
+        ]
+      },
+      "owner_section": "A finite gauge--Higgs response with complete detector records",
+      "falsifiers": {
+        "mathematical": "A stated Gauss or CAR identity fails, a retained basis is incomplete, the Higgs block is replaced by another complement, the partial-isometry Ramsey instrument loses blocked probability, or the analytic record-only variation bound fails under its fixed-preparation hypotheses.",
+        "physical_identification": "Two vertices, two directed 60-state native links, three lepton families and two spin components, a vacuum-or-one-quantum conjugate Higgs scalar, specified couplings, neutral and dual-reference Gauss sectors, fixed state preparation, partial-isometry creation probes and complete forward-only Ramsey readout are supplied. Colored occupation and quark vertices are absent. The record comparison uses fixed probes, identical prepared states and independent fresh trials; its alternative Hamiltonian need not share the readable simulator specification. No physical clock, vacuum selection, observed mass or interacting continuum is inferred.",
+        "phenomenological": "No independently predicted measured particle mass or gravitational observable is asserted."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-BLOCK-QUANTUM-GAUSS",
+          "role": "Uses the native current representation and finite link factors; the scalar register, families and Ramsey preparation are additional declared inputs."
+        }
+      ]
+    },
+    "OPH-NATIVE-RECORD-REFERENCE-CLOCK": {
+      "prior_work": {
+        "summary": "finite_Markov_Poisson_equation; complete_quantum_instruments; discrete_time_quantum_Doob_transform",
+        "overlap": "The operator, probability and limiting methods are established. The contribution is their explicit realization and complete retained controls on the stated source domain.",
+        "imported_step": "finite_Markov_Poisson_equation; complete_quantum_instruments; discrete_time_quantum_Doob_transform",
+        "citations": [
+          {
+            "work": "Finite Markov chains",
+            "keys": [
+              "kemeny1976finite"
+            ]
+          },
+          {
+            "work": "Quantum instruments",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Discrete-time quantum trajectory biasing",
+            "keys": [
+              "cilluffo2021microscopic"
+            ]
+          }
+        ]
+      },
+      "owner_section": "Native event-conditioned references",
+      "falsifiers": {
+        "mathematical": "An endpoint or raw record differs from the pinned source, a complete branch is discarded, a direct path census disagrees with the exact reference or rank law, a full-state Poisson solve disagrees with the count variance, or the claimed Doob channel requires omitting recorded filter failures.",
+        "physical_identification": "The literal total-two endpoint law, independent uniform seam scheduling and fair placement coins define the native process. Its positive-real coherent lift and all raw C/E outcomes are retained. A complete rank-one chart transducer and conditioning on specified native records define the three-dimensional reference; conditioning also on the fine chart output defines a different reference. A positive move-count tilt is a declared parameter; filter failures remain recorded. No physical time, energy scale, autonomous vacuum or identification of the tilt with P or capacity N is supplied.",
+        "phenomenological": "No independently predicted measured particle mass or gravitational observable is asserted."
+      },
+      "depends_on": []
+    },
+    "OPH-FREE-SPATIAL-ABELIAN-FLUX-CONTROLS": {
+      "prior_work": {
+        "summary": "Ginsparg_Wilson_overlap_fermions; finite_quantum_link_covariance; Dyson_series_and_trace_distance_contraction",
+        "overlap": "The operator, probability and limiting methods are established. The contribution is their explicit realization and complete retained controls on the stated source domain.",
+        "imported_step": "Ginsparg_Wilson_overlap_fermions; finite_quantum_link_covariance; Dyson_series_and_trace_distance_contraction",
+        "citations": [
+          {
+            "work": "Ginsparg-Wilson relation",
+            "keys": [
+              "ginsparg1982remnant"
+            ]
+          },
+          {
+            "work": "Finite quantum links",
+            "keys": [
+              "chandrasekharan1997quantum"
+            ]
+          },
+          {
+            "work": "Complete-record contraction",
+            "keys": [
+              "watrous2018theory"
+            ]
+          }
+        ]
+      },
+      "owner_section": "Interaction, chiral continuum and responsive geometry",
+      "falsifiers": {
+        "mathematical": "A component or flux-boundary defect is omitted, the free dispersion limit fails, a Gauss or electric Ward identity fails, or an admitted bounded-support recorded experiment exceeds the analytic cutoff estimate.",
+        "physical_identification": "A flat-gauge free overlap Hamiltonian with specified lattice spacing, mass regulator and complete position instruments is supplied. Independently, a four-edge U(1) ring uses native integer charges, a static dual reference, specified electric/hopping/loop coefficients, symmetric loop-flux cutoffs and complete records. The record cutoff estimate assumes bounded initial flux support or a separately bounded initial-state error. No normalizable joint nonabelian gauge vacuum, common interacting chiral continuum, physical clock or capacity-to-cutoff map is supplied.",
+        "phenomenological": "No independently predicted measured particle mass or gravitational observable is asserted."
+      },
+      "depends_on": []
+    },
+    "OPH-LOCAL-CHIRAL-ELECTRIC-COMPRESSION": {
+      "prior_work": {
+        "summary": "smooth_spectral_projector_transport; Ginsparg_Wilson_chiral_projectors; Schur_complement_and_min_max_principle",
+        "overlap": "The operator, probability and limiting methods are established. The contribution is their explicit realization and complete retained controls on the stated source domain.",
+        "imported_step": "smooth_spectral_projector_transport; Ginsparg_Wilson_chiral_projectors; Schur_complement_and_min_max_principle",
+        "citations": [
+          {
+            "work": "Spectral projector transport",
+            "keys": [
+              "kato1995perturbation"
+            ]
+          },
+          {
+            "work": "Ginsparg-Wilson projectors",
+            "keys": [
+              "ginsparg1982remnant"
+            ]
+          },
+          {
+            "work": "Schur complement",
+            "keys": [
+              "zhang2005schur"
+            ]
+          }
+        ]
+      },
+      "owner_section": "Interaction, chiral continuum and responsive geometry",
+      "falsifiers": {
+        "mathematical": "The connection fails to preserve the projector range, the differential compression omits its scalar term, a frame change alters the compressed law, or a positive finite parent violates the stated low-energy Schur bound.",
+        "physical_identification": "A smooth admissible 64-dimensional Euclidean overlap family with rank-32 chiral projector, a local orthonormal frame, a prescribed positive electric kinetic operator and complement penalty Lambda are supplied. The numerical grid has nine points and retains the full 576-state parent; its 288-state compression is compared below the complement threshold. The derivative scalar is a continuum local identity; positivity is not transferred to an arbitrary finite-grid correction. A global gauge-equivariant measure, anomaly-compatible many-body lift and physical clock remain outside this finite construction.",
+        "phenomenological": "No independently predicted measured particle mass or gravitational observable is asserted."
+      },
+      "depends_on": []
+    },
+    "OPH-DENSE-RATIONAL-EFFECT-EXTENSION": {
+      "prior_work": {
+        "summary": "finite_Busch_Gleason_representation; order_unit_norm_and_dense_continuous_extension",
+        "overlap": "Established finite operator and probability methods are reused; the contribution is the stated interface reduction or source-specific application.",
+        "imported_step": "finite_Busch_Gleason_representation; order_unit_norm_and_dense_continuous_extension",
+        "citations": [
+          {
+            "work": "Finite effect valuation representation",
+            "keys": [
+              "busch2003quantum"
+            ]
+          },
+          {
+            "work": "Finite operator and quantum information methods",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Machine-checked full finite-effect theorem",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Countable effect domains",
+      "falsifiers": {
+        "mathematical": "An admitted rational-effect valuation violates the operator-norm Lipschitz bound, compatible regularization fails, or its extension is not uniquely represented by a density matrix.",
+        "physical_identification": "A fixed finite-dimensional complex matrix representation and its positive order, every Gaussian-rational effect, and one nonnegative normalized valuation additive on all compatible sums are hypotheses. A source application requires a realized countable menu, equal-effect record equivalence, compatible complete instruments and controlled limits across resource ceilings. Neither finite tomography nor a dense gate set alone establishes those conditions.",
+        "phenomenological": "No measured particle, physical Planck scale or gravitational observable is predicted by this conditional result."
+      },
+      "depends_on": []
+    },
+    "OPH-COMPENSATED-PROBE-UNCERTAINTY": {
+      "prior_work": {
+        "summary": "finite_state_Robertson_inequality; partial_isometry_spectral_projectors; complete_projective_instruments",
+        "overlap": "Established finite operator and probability methods are reused; the contribution is the stated interface reduction or source-specific application.",
+        "imported_step": "finite_state_Robertson_inequality; partial_isometry_spectral_projectors; complete_projective_instruments",
+        "citations": [
+          {
+            "work": "Robertson uncertainty inequality",
+            "keys": [
+              "robertson1929uncertainty"
+            ]
+          },
+          {
+            "work": "Complete projective instruments",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Exact native Higgs and compensated addition construction",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Compensated probe uncertainty and collision records",
+      "falsifiers": {
+        "mathematical": "An actual compensated probe violates the partial-isometry identities, a blocked outcome is missing, or a neutral-supported density fails the stated probabilities or Robertson saturation.",
+        "physical_identification": "The complete finite Higgs source, its exact reference-compensated addition maps, a density on the neutral sector, and standard complex-matrix projective readout are supplied. All 2034 states and zero outcomes are retained. The actual all-sector Robertson inequality is distinct from saturation on neutral-supported states. No native three-outcome pulse compiler, canonical physical position/momentum, Planck scale or relativistic particle assignment is inferred.",
+        "phenomenological": "No measured particle, physical Planck scale or gravitational observable is predicted by this conditional result."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-INTERACTING-LEPTON-HIGGS-RESPONSE",
+          "role": "Uses the same complete finite Higgs sectors and compensated addition probes; its three-outcome projective instruments are distinct from the Ramsey instrument."
+        }
+      ]
+    },
+    "OPH-CAPACITY-LOCAL-HISTORY-COMPOSITION": {
+      "prior_work": {
+        "summary": "finite_locality_and_nested_buffer_simulation; Duhamel_unitary_perturbation_bound; trace_distance_and_complete_channel_contraction",
+        "overlap": "Established finite operator and probability methods are reused; the contribution is the stated interface reduction or source-specific application.",
+        "imported_step": "finite_locality_and_nested_buffer_simulation; Duhamel_unitary_perturbation_bound; trace_distance_and_complete_channel_contraction",
+        "citations": [
+          {
+            "work": "Quantum dynamical locality",
+            "keys": [
+              "poulin2010locality"
+            ]
+          },
+          {
+            "work": "Finite quantum channels and trace distance",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Specified Weyl/contact full-Fock local simulation theorem",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Capacity and complete local experiments",
+      "falsifiers": {
+        "mathematical": "A comparison satisfying the joint-state, complete-instrument and local-generator hypotheses exceeds the composed error bound, or the claimed bound requires an unaccounted ambient-volume factor.",
+        "physical_identification": "The supplied even-CAR Weyl/contact action at fixed spacing, common local algebra, finite nested buffers, fixed chronological durations and coefficients, and complete adaptive instruments are hypotheses. Joint initial restrictions are close in trace distance; instrument errors are uniformly bounded over all incoming states, references and earlier records. A capacity family must separately supply its couplings, clock, preparations, instrument convergence and cutoff maps. Fixed-time local convergence is not a mass-pole or long-time theorem.",
+        "phenomenological": "No measured particle, physical Planck scale or gravitational observable is predicted by this conditional result."
+      },
+      "depends_on": []
+    },
+    "OPH-UNREAD-NATIVE-UNITARY-OBSTRUCTION": {
+      "prior_work": {
+        "summary": "Quantum-channel contraction and entangled distance witnesses",
+        "overlap": "The channel norm and entangled witness methods are established. The source-specific content is the exact native quantum contraction and the resulting coding-independent bound.",
+        "imported_step": "finite_quantum_channel_mixing; complete_channel_norm_contraction; maximally_entangled_channel_witness",
+        "citations": [
+          {
+            "work": "Finite quantum-channel norms and entangled witnesses",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Complete native endpoint channel",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Unread repair and unitary clocks",
+      "falsifiers": {
+        "mathematical": "An admitted native quantum direction exceeds the claimed contraction, or static CPTP coding with no bypass or retained record achieves a smaller unitary-channel distance than the bound.",
+        "physical_identification": "The complete binary 66-state native C or E channel is iterated with independent uniform seams and fair coins, and its record/environment output is discarded. Fixed CPTP encoding and decoding may surround n attempts on each of k independent carriers. No retained recovery record, environment, noiseless bypass or intermediate active service is admitted. The target is an arbitrary unitary channel on dimension d>=2. This domain excludes the full record-retaining observer and active coherent source implementations.",
+        "phenomenological": "No physical Lorentz violation, observed loss of unitarity or particle-mass prediction is asserted."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-RECORD-REFERENCE-CLOCK",
+          "role": "Uses the same complete binary native channel; the quantum mixing directions are independently recomputed for the unread process."
+        }
+      ]
+    },
+    "OPH-NATIVE-CONTROLLER-DATAFLOW": {
+      "prior_work": {
+        "summary": "finite_authenticated_read_after_write_provenance; acyclic_parent_order_and_height; full_support_independent_event_swap_criterion",
+        "overlap": "The finite mathematical methods are established; the contribution is the stated native-source attachment and explicit interface test.",
+        "imported_step": "finite_authenticated_read_after_write_provenance; acyclic_parent_order_and_height; full_support_independent_event_swap_criterion",
+        "citations": [
+          {
+            "work": "Distributed event order and program dataflow",
+            "keys": [
+              "lamport1978time",
+              "broy2001specification"
+            ]
+          },
+          {
+            "work": "Finite authenticated semantic provenance and supported event swaps",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Complete controller dataflow",
+      "falsifiers": {
+        "mathematical": "An accepted positive-branch log has a false last-writer/value witness, omits an executed control/storage dependency, fails strict parent ordering, or the stated complete adaptive distributions disagree with the exact probabilities.",
+        "physical_identification": "The existing local native interpreter, its admitted bounded commands, source coin and law mixtures, selectors, FIFO/archive policy and a classical basis preparation are specified. Only complete executions are covered; coherent initial states, federations, pulse services and truncated runs are excluded. Positive branches have authenticated value logs; zero branches retain labels and zero weights without invented executed values. The read/write relation is conservative implementation dataflow, not a physical spacetime order.",
+        "phenomenological": "This source-specific finite execution audit neither assigns physical causal order nor supplies spatial placement, a proper clock, a Lorentz cone, count-volume limits or field propagation. FIFO serialization alone does not exclude a physical Lorentzian limit or justified observer-visible quotient."
+      },
+      "depends_on": []
+    },
+    "OPH-NATIVE-TWELVE-NULL-TRANSITION": {
+      "prior_work": {
+        "summary": "native_twelve_direction_rank_nine_tensor_decoder; real_quadratic_form_inertia; Lorentz_cone_component_and_determinant_orientation",
+        "overlap": "The finite mathematical methods are established; the contribution is the stated native-source attachment and explicit interface test.",
+        "imported_step": "native_twelve_direction_rank_nine_tensor_decoder; real_quadratic_form_inertia; Lorentz_cone_component_and_determinant_orientation",
+        "citations": [
+          {
+            "work": "Finite-dimensional Lorentz geometry",
+            "keys": [
+              "naber2012geometry",
+              "penrose1984spinors"
+            ]
+          },
+          {
+            "work": "Exact native null-tensor decoder and finite null tomography",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Finite tests for chart transitions",
+      "falsifiers": {
+        "mathematical": "An invertible real transition passes all twelve source-null tests but is not a positive metric similarity, the orientation classification fails, or a common-form residual exceeds the exact decoder bound.",
+        "physical_identification": "The twelve source directions and their registered Gram are fixed. A real linear invertible transition, one declared time coordinate and a physical null interpretation are additional inputs. For approximate tests the residual is evaluated on one common symmetric form; no distance-to-Lorentz, positivity or conditioning guarantee follows from small residuals alone. The conformal factor does not select a physical clock or length scale.",
+        "phenomenological": "This theorem supplies no source-selected chart transition, physical null record, proper clock, volume normalization or dynamics. The finite source PSL(2,F5) action is not the continuous PSL(2,C) correspondence; no new continuous group formalization is asserted."
+      },
+      "depends_on": []
+    },
+    "OPH-FIELD-PRINCIPAL-CONE-COMPATIBILITY": {
+      "prior_work": {
+        "summary": "principal_covector_and_tangent_metric_duality; native_twelve_direction_rank_nine_tensor_decoder; positive_definite_matrix_factorization",
+        "overlap": "The finite mathematical methods are established; the contribution is the stated native-source attachment and explicit interface test.",
+        "imported_step": "principal_covector_and_tangent_metric_duality; native_twelve_direction_rank_nine_tensor_decoder; positive_definite_matrix_factorization",
+        "citations": [
+          {
+            "work": "Wave principal symbols and characteristics",
+            "keys": [
+              "evans2010partial",
+              "courant1967partial"
+            ]
+          },
+          {
+            "work": "Exact native null-tensor decoder",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Matching the field principal cone",
+      "falsifiers": {
+        "mathematical": "An admitted a,J,alpha passes all twelve tests without satisfying the displayed matrix identity, common pullback breaks a matched cone, or the fixed round polar product matches both distinct radii with one clock.",
+        "physical_identification": "A static positive definite wave tensor, an independently supplied invertible spatial readback Jacobian, a positive common clock conversion and the declared native null lifts are specified. Pointwise chosen frames need not integrate to a global chart. The two-radius control is restricted to x=r n, a fixed round product coefficient and one global clock scaling; curved Lorentzian descriptions and other dictionaries are not excluded.",
+        "phenomenological": "Principal-cone equality does not determine masses, lower-order interactions, boundary conditions, state preparation or complete experiments. No source derivation of J, alpha or the field service is supplied. The radial-product countercontrol does not obstruct curved spacetime, local frames or another coordinate dictionary."
+      },
+      "depends_on": []
+    },
+    "OPH-NATIVE-FIFO-CAPACITY-EQUIVALENCE": {
+      "prior_work": {
+        "summary": "Complete instruments, record-label equivalence and dataflow induction",
+        "overlap": "The channel equivalence and induction methods are standard; the source-specific content is the actual native selector and commit dependence on FIFO capacity.",
+        "imported_step": "finite_instrument_composition_with_reference; classical_record_label_reindexing; induction_on_native_interpreter_outcomes",
+        "citations": [
+          {
+            "work": "Finite quantum channels with retained references",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Program dataflow and storage refinement",
+            "keys": [
+              "broy2001specification"
+            ]
+          },
+          {
+            "work": "Actual native interpreter complete outcome semantics",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Capacity and complete local experiments",
+      "falsifiers": {
+        "mathematical": "An admitted export_oldest comparison with fixed noncapacity inputs produces a different complete raw quantum block or stopping status after record resegmentation, or the two-hold halt control lacks the stated disjoint statuses.",
+        "physical_identification": "The actual admitted native grammar, export_oldest memory policy, fixed carrier and complete archive-plus-FIFO output are supplied. Capacities range from one through eight; command parameters, input and evaluator limits agree. Selectors inspect only the last committed current as allowed by this grammar. The comparison reversibly resegments storage labels and excludes claims of equal program digests, resource costs or observations restricted to the FIFO. Physical global capacity, changes of carrier or scheduler and a field Hamiltonian require separate maps.",
+        "phenomenological": "No independence of observed particle masses from physical global N or of resource costs from memory size is claimed."
       },
       "depends_on": []
     }

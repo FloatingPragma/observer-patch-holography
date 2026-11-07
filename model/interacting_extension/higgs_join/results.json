@@ -1,0 +1,78 @@
+{
+  "configured_response": {
+    "Schur_resolvent_tolerance": 1e-10,
+    "all_final_states_retained": 1596,
+    "all_initial_final_pairs_retained": 1596,
+    "complete_eigensystem_residual_tolerance": 2e-11,
+    "complete_spectral_sum_tolerance": 1e-11,
+    "first_three_distinct_frequency_replay_windows": [
+      {
+        "lower": "2579/100000000000",
+        "upper": "2581/100000000000"
+      },
+      {
+        "lower": "1006653/1000000000",
+        "upper": "1006654/1000000000"
+      },
+      {
+        "lower": "4520147/10000000",
+        "upper": "4520148/10000000"
+      }
+    ],
+    "probe_count": 6,
+    "replay_windows_are_rigorous_interval_enclosures": false,
+    "self_energy_norm_at_1_plus_half_i_replay_window": {
+      "lower": "1793879/1000000",
+      "upper": "1793880/1000000"
+    }
+  },
+  "exact": {
+    "complete_Gauss_dimensions": {
+      "0": 438,
+      "1": 1596
+    },
+    "full_basis_checks": {
+      "car": 15768,
+      "gauss": 48816,
+      "reference": 12204,
+      "spin": 36612
+    },
+    "operator_complement_columns_checked": 126108,
+    "source_family_expressions_reconstructed": true
+  },
+  "schema": "oph.interacting.higgs_join.replay.v1",
+  "scope": {
+    "finite_declared_control": true,
+    "interacting_chiral_continuum_derived": false,
+    "measured_particle_masses_derived": false,
+    "physical_clock_or_GeV_unit_derived": false,
+    "quark_pair_vertices_enabled": false,
+    "scalar_occupancy_cap": 1,
+    "source_selected_common_vacuum": false,
+    "source_selected_couplings": false
+  },
+  "source_sha256": {
+    "model/interacting_extension/__init__.py": "73990c10fdb30b21031f7c09415cede4d0fc0e1cd4eb2cc3266e6d57ad90add7",
+    "model/interacting_extension/_source.py": "22d8901b31df309ceb727de865cab9e59f88ce82a8ef8012f9b19459840e9b55",
+    "model/interacting_extension/dependencies/__init__.py": "73990c10fdb30b21031f7c09415cede4d0fc0e1cd4eb2cc3266e6d57ad90add7",
+    "model/interacting_extension/dependencies/exact_family_operators.json": "7cf8c61dd76fd8eb44486925e4fda695e2f64a1fe573ec03129dc8816dd769c6",
+    "model/interacting_extension/dependencies/source_reference.py": "9c4e4840a633b830b6a7ecd5332c15b2a0722ef9111729814309d79c67c3429d",
+    "model/interacting_extension/higgs_join/PROOF.md": "2347bab6e8a85852b46893968ce799c406fe3570ed1e91b5e79efebd702af552",
+    "model/interacting_extension/higgs_join/README.md": "24089b9bfef47abe303642311361e65fae61718f10f3a689079b458ba20f1141",
+    "model/interacting_extension/higgs_join/__init__.py": "ad6f8a1ab3da9997433933a3ade7c7c23b1733ef2cdbedaf89871899420496de",
+    "model/interacting_extension/higgs_join/audit_exact_join.py": "5d00921c43eff3fd82dbe443fa262391ebcf31fefe1b4b83c7c0b8a656d64707",
+    "model/interacting_extension/higgs_join/certificate.py": "17feacbb38b43aed6b122ed3f2e3be270306d528c2b87777bb71ef20b9c07c23",
+    "model/interacting_extension/higgs_join/interacting_carrier.py": "835a7f341b7f1dfd37ab673218fa51aa5aa680cb7560d94a76c33b831d553d60",
+    "model/interacting_extension/higgs_join/joined_basis.json": "28238c0f54ccca2b1c69df5a28e8d47b1440dee8c9a025b6a31a75a5429a8223",
+    "model/interacting_extension/higgs_join/joined_exact_operators.json": "115abd484405a0cdeec02441fb66901a8dd7452fd2e3ba03e157217bd0d321ea",
+    "model/interacting_extension/higgs_join/joined_operator_receipt.json": "9322d3c12141f6e21cd0b42d2f221314f05c97f0fe7ea4a8fd671f7cb55d1a74",
+    "model/interacting_extension/higgs_join/joined_operators.npz": "a01d0f5291bd7076e9190aedc30463883fc6ba1d79092682b491cb83c3377bff",
+    "model/interacting_extension/higgs_join/native_inputs.py": "e39d0bc9b0a3bbccb0638bfe92830da585b5818606d13b9511373b69e5eacb74",
+    "model/interacting_extension/higgs_join/precision_audit.py": "eba77b62faf1a791590028500ef376126a5f6bc3c5576034c22eec65ced4d6c2",
+    "model/interacting_extension/higgs_join/run_joined_response.py": "4780556f58dc0153225f297d23403e12824690fd4bb2cfab7b1e2284249c993a",
+    "model/interacting_extension/higgs_join/source_algebra.py": "8629f4f7e63c376bdfe66ec1287b4d20d724406f356b1b372e979028750fd402",
+    "model/interacting_extension/higgs_join/test_higgs_join.py": "dbc00aa9dc2428eedb93a28d101799916490d11bd687b6d25dda3829eefdc61f",
+    "model/interacting_extension/source_manifest.json": "2afee1f86001e778588836e6e79b2decf714a5b43f5bb83fc57f1ba34d08b53b",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2"
+  }
+}

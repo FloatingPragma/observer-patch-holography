@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1076,
+  "surface_count": 1097,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2636,6 +2636,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/field_cone_compatibility/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_cone_compatibility/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/field_protocols/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2757,6 +2767,56 @@
     },
     {
       "path": "model/interacting_defect_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/chiral_electric/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/chiral_electric/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/chiral_lattice/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/chiral_lattice/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/higgs_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/higgs_join/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/source_selection/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_extension/source_selection/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2976,6 +3036,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_causal_dataflow/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_circulation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3077,6 +3142,16 @@
     },
     {
       "path": "model/native_localization/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_lorentz_transition/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_lorentz_transition/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3441,7 +3516,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_identification/CAPACITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/DENSE_EFFECTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/PASSIVE_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_identification/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/ROADMAP.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/SCATTERING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/UNCERTAINTY.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

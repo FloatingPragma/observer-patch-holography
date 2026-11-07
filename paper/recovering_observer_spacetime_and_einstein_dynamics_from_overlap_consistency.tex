@@ -214,6 +214,30 @@ trust the native compiler and runtime as well as the kernel and are not
 kernel-only receipts. The source metric does not choose a preferred Cartesian
 frame or identify record addition with physical translation.
 
+\paragraph{Finite tests for chart transitions.}
+Let $u_p$ be the twelve exact source vectors, of squared radius
+$R^2=\varphi+2$, and declare $k_p=(1,u_p)$ and
+$G=\operatorname{diag}(-R^2,1,1,1)$. The source tensor decoder has rank nine
+and kernel $\mathbb RG$ on symmetric four-matrices. Thus a supplied invertible
+real map $L$ passes all twelve null tests $(Lk_p)^TG(Lk_p)=0$ exactly when
+\[
+ L^TGL=\lambda G\qquad\hbox{for a unique }\lambda>0.
+\]
+The kernel gives proportionality; inertia gives positivity. Normalizing by
+$\sqrt\lambda$ gives a Lorentz isometry. Future preservation requires
+$L_{00}>0$, and properness requires $\det L>0$ separately: parity and time
+reversal pass the null tests, and a singular null collapse shows why
+invertibility is necessary. Conformal factors multiply under composition.
+For any symmetric $B$, the same exact decoder gives
+\[
+ \max_{i,j}|B_{ij}-(B_{00}/G_{00})G_{ij}|
+ \leq(1-\sqrt5/5)\max_p|k_p^TBk_p|.
+\]
+This bounds a metric residual, not distance to a Lorentz transformation.
+The prose theorem and exact controls are in
+\path{model/native_lorentz_transition} \cite{ophrepo}. It supplies no
+source-derived chart transition or physical-null interpretation.
+
 \begin{figure}[!htb]
 \centering
 \input{tex_fragments/figures/FIG_EINSTEIN_CHAIN.tex}
@@ -274,6 +298,42 @@ radius nor present observations select the radial product. This description
 asserts no exact smooth native metric, no responsive geometry and no physical
 stress, and discharges none of (G2)--(G6). It is the static geometry that fails
 null balance for its own scalar excitation.
+
+\paragraph{Matching the field principal cone.}
+The causal order and the field must share a clock and spatial dictionary.
+For a positive spatial principal tensor $a$, the static field symbol is
+$-\omega^2+\xi^Ta\xi$; its dual tangent form is
+$-dt^2+dx^Ta^{-1}dx$. Supply an invertible readback Jacobian $dx=J\,dz$
+and a positive clock conversion $dt=\alpha\,d\tau$. The twelve null tests
+above are equivalent to
+\[
+ K=\operatorname{diag}(-\alpha^2,J^Ta^{-1}J)
+   =\frac{\alpha^2}{R^2}G,
+ \qquad a=\frac{R^2}{\alpha^2}JJ^T.
+\]
+This criterion is nonvacuous: for any positive $a$, the pointwise choice
+$J=(\alpha/R)a^{1/2}$ works. It does not show that this Jacobian is the
+observer's readback or that a varying frame integrates to a global chart.
+A common invertible frame change preserves the equality by congruence;
+transforming only one side changes the proposed identification.
+
+The unwarped radial product illustrates the distinction. In its round
+control $A=\kappa(-\Delta_{S^2})$, the fixed map $x=rn$ gives spatial
+tangent form
+\[
+ H_r=nn^T+(\kappa r^2)^{-1}(I-nn^T).
+\]
+One global clock scaling matches flat radial and tangential cones only if
+$\alpha^2=R^2$ and $\kappa r^2=1$. Distinct positive radii cannot both
+satisfy this; exact controls at radii one and two retain the mismatch.
+This excludes that fixed polar identification, not the product's curved
+Lorentzian description, other coordinates or local orthonormal frames.
+No radial action is replaced. The algebraic criterion and controls are in
+\path{model/field_cone_compatibility} \cite{ophrepo}. Applying them requires
+event placements and the same field's actual clock and readback from one
+source. Principal-cone agreement alone fixes neither lower-order dynamics
+nor masses: $-\omega^2+\xi^Ta\xi+m^2$ has the same principal cone for every
+$m^2\geq0$.
 
 Kinematic and Newtonian precursors are finite identities. On the declared
 Hermitian Lorentz module, $p=m\,u$ has Lorentz square $m^2$ and
@@ -493,6 +553,22 @@ probes, with a generator graph core and convergent selected relative
 entropies. No uniform lattice covariance gap is assumed. The source and
 proofs are in the repository~\cite{ophrepo}.
 
+A separate local electric completion concerns a changing Euclidean overlap
+projector $P(\theta)$, rather than a space-time metric. The connection
+$C=[P,P']$ satisfies $P'+[C,P]=0$. For an orthonormal frame $V$ of its range,
+\[
+ V^\dagger(-\partial_\theta^2)V=-(\partial_\theta+V^\dagger V')^2
+       +V'^\dagger(I-P)V'.
+\]
+The final positive term is the differential Born--Huang scalar. A finite parent
+$K+\Lambda Q$, $K\succeq0$, retains the complementary states; if $a_k$ is the
+$k$th eigenvalue of $PKP$ and $\Lambda>a_k$, its first $k$ eigenvalues lie within
+$\|PKQ\|^2/(\Lambda-a_k)$ below the compressed eigenvalues. The complete
+$576$-component control verifies this bound. Its coordinate, boundary and kinetic
+law are supplied. Separate free overlap propagation and a $438$/$1596$-state
+interacting gauge--Higgs response supply no common interacting stress tensor or
+responsive metric \cite{ophparticles}.
+
 A separate fixed-spacing spin construction is interacting and admits
 ordered gapless continuum observables; a surviving connected interaction
 and sharp relativistic continuum mass shell are not established. The compact
@@ -671,6 +747,16 @@ weights, and no causal quantum preparation is inferred. Fixed mean occupation
 is not fixed proper volume, so these identities supply neither responsive area
 nor fixed-proper-volume stationarity. Exact counts, rational logarithm bounds
 and independent tensor checks are in the repository~\cite{ophrepo}.
+
+A reference conditional on a recorded native current is another finite construction.
+The binary current instrument relaxes to $I_{66}/66$; a declared complete chart
+transducer, reduced conditional on the current alone, gives a faithful
+three-dimensional state. Conditioning additionally on the chart outcome gives a pure
+state, and two-record conditioning can reduce rank. Consequently the logarithm and
+first-law domain must follow the chosen reference support. The associated move-count
+clock has mean $5/33$ per attempt and asymptotic variance $1597/11979$, including
+correlations. Neither this count nor the conditional modular generator fixes a
+physical time, temperature, or gravitational area coefficient \cite{ophobservers}.
 
 \subsection{Regional entropy of a prepared interacting state}
 \label{sec:prepared-regional-entropy}

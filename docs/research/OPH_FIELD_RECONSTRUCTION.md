@@ -34,6 +34,159 @@ These direct source results use reconstructed history functionals. Their
 modular dynamics, regional entropy response and physical boundaries are
 spelled out in the [finite field-selection guide](OPH_PARTICLE_FIELD_SELECTION.md).
 
+## One source, complete records and a common spacetime
+
+The [interacting extension](../../model/interacting_extension/README.md)
+supplies a complete finite lepton/Higgs experiment, conditional native
+references, a free spatial control, an interacting abelian flux control and
+a local chiral-projector electric calculation. These occupy distinct
+carriers and states. The [native mass join](OPH_NATIVE_PARTICLE_MASS_JOIN.md)
+specifies their inputs; the [mass-response guide](OPH_PARTICLE_MASS_RESPONSE.md)
+gives the signed response and its numerical interpretation. None of these
+finite calculations identifies a physical interacting chiral field by itself.
+
+Reading the simulator, scheduler, observer, repair and memory specifications
+is allowed. To establish an effective field description, identify a source
+preparation or encoding `E`, its complete experimental process `S_M`, a
+record/state readout `R`, and the field experiment `T_M`, for each admitted
+menu `M`. One sufficient comparison is
+
+```math
+\tfrac12\|R\circ S_M\circ E-T_M\|_\diamond\leq\epsilon_M.
+```
+
+The output includes all records and the remaining accessible state. A
+restricted-state or energy-constrained statement is legitimate when its
+domain is explicit and preserved by each intervention. A continuum claim
+requires compatible menus covering the claimed local observable algebra
+and errors tending to zero in the declared refinement. Determinism, equal
+matrix dimensions or a match of isolated spectra does not supply these maps.
+
+The [source trace](../../model/particle_identification/ROADMAP.md#the-central-common-model-test)
+locates the gap concretely. `native_program.members.record_clock_member`
+constructs a native record-clock program; its interpreter applies the
+specified endpoint law and record-dependent selectors. It does not emit
+the 438/1596-dimensional Higgs Hamiltonians or prepare their chosen ground.
+The Higgs producer separately reads exact family matrices, sets its scalar
+and interaction coefficients, and diagonalizes the resulting Hamiltonian.
+A common-model proof must connect this action, preparation and pulse clock
+to one source program, including every failure and continuation record.
+
+### Native event order and observable influence
+
+The [native dataflow calculation](../../model/native_causal_dataflow/README.md)
+replays complete bounded H66/H78 programs from classical basis preparations.
+It authenticates positive-branch endpoint values, selector reads, FIFO
+memory and archive writes, retaining zero-weight branches in the full law.
+Last-writer dependencies always point to an earlier emitted event, giving
+an acyclic graph and the hypotheses of the finite
+[semantic provenance construction](../../Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean).
+
+The endpoint footprint alone is insufficient for adaptive programs. A
+first repair on `(0,1)`, followed by `(2,3)` for positive recorded current
+and `(2,10)` otherwise, gives final port-3 occupancy probabilities `1/4`
+and `0` for preparations `{0,2}` and `{1,2}`. Both distributions retain
+all 625 raw histories. The second seam is disjoint from the first in
+every branch; the controller carries the influence. With fixed second
+seam `(2,3)`, both probabilities are `1/2`.
+
+The full single-FIFO read/write graph is a chain. It is a conservative
+operational dependency relation: writing a shared archive does not by
+itself prove physical influence. That exact chain cannot be identified
+order-preservingly and order-reflectingly with an open Lorentzian region
+containing spacelike pairs. This does not exclude a physical Lorentzian
+limit. Extracting an observer-visible causal relation by identifying
+record-equivalent histories requires a separate semantics proof; the
+finite swap theorem cannot erase a shared write merely because the
+endpoint updates commute.
+
+### Twelve-direction transitions and the field cone
+
+The [finite transition theorem](../../model/native_lorentz_transition/PROOF.md)
+uses the actual twelve spatial vectors `u_p` with squared radius
+`R²=phi+2`, where `phi=(1+sqrt(5))/2`. Supply the lifts `k_p=(1,u_p)`,
+the metric `G=diag(-R²,1,1,1)` and an invertible real linear transition
+`L`. The exact native evaluation matrix has rank nine on symmetric
+four-dimensional forms and kernel `span(G)`. Therefore
+
+```math
+(Lk_p)^T G(Lk_p)=0\ (\text{all twelve }p)
+\quad\Longrightarrow\quad L^TGL=\lambda G,\qquad\lambda>0.
+```
+
+Normalizing by `sqrt(lambda)` gives a Lorentz isometry. Future orientation
+(`L_00>0`) and properness (`det L>0`) are separate requirements. Conformal
+factors multiply under composition. After subtracting
+`((L^T G L)_00/G_00)G` from `L^T G L`, the exact decoder bounds the
+entrywise residual by `(1-sqrt(5)/5)` times the largest absolute null reading.
+These are algebraic consequences for supplied transitions and null lifts;
+the native source must produce their physical readout, linear overlap
+maps and common scale. The finite `PSL(2,F5)` action is not the continuous
+spinor group `PSL(2,C)`.
+
+The [field-cone criterion](../../model/field_cone_compatibility/PROOF.md)
+tests whether the same cone belongs to a given static wave equation.
+Let its spatial principal matrix be `a>0`, with supplied invertible
+readback `dx=J dz` and positive clock conversion `dt=alpha d tau`, `alpha>0`.
+Its pulled-back tangent
+form is `K=diag(-alpha²,J^T a^(-1)J)`. All twelve rays are null exactly when
+
+```math
+K=(\alpha^2/R^2)G,
+\qquad a=(R^2/\alpha^2)JJ^T.
+```
+
+This closes a conditional cone-comparison calculation. It selects no
+source clock, mass term, vacuum or interaction. In the fixed dictionary
+`x=r n`, an unwarped radial product with one angular coefficient and one
+global clock cannot equal this flat cone at both `r=1` and `r=2`; the
+angular tangent metric scales as `1/r²`. The exclusion concerns that
+dictionary, not curved spacetime, variable coefficients or other frames.
+
+### Acceptance conditions for a common field limit
+
+The [golden-source order limit](../../Lean/Geometry/GoldenSourceCausalLimit.lean)
+has an eventual causal-order equivalence away from the null boundary for
+its specified `Fin 3 -> Fin(fib n)` populations, neighbourhood read law
+and layer durations. Its volume companion and flat-diamond fraction
+provide further conditional geometric data. Neither the single-FIFO
+program nor a rank-three response Gram proves those population and read
+premises. The native occupation-field limit has spectral dimension two
+on the sphere; the three-dimensional radial product and active wave
+service have additional declared inputs.
+
+A common source construction must therefore produce the observer-visible
+event relation, spatial readback and clock, prove their cone/coverage and
+count-volume estimates, and show that the field propagator on those same
+histories has the matching principal form. It must also control state
+preparation, interactions, gauge/chiral structure and refinement. Equal
+cones alone cannot determine a mass spectrum or Einstein dynamics. For
+gravity the same state must supply stress, geometric entropy variation,
+volume constraint and the responsive metric limit.
+
+The [local-history bound](../../model/particle_identification/CAPACITY.md)
+allows a finite buffered calculation at fixed spacing, with error
+`min(1, epsilon_0 + sum_i(delta_i/2 + eta_i + a_i + zeta_i))` for
+initial joint-state error, locality, splitting, coefficient/clock mismatch
+and complete instrument error. It requires these inputs uniformly on the
+claimed source family. No identification of global capacity with volume,
+spacing, copies or regulator cutoffs is made. This gives a precise test
+for when a manageable simulation suffices; it supplies no missing
+capacity-to-action or state-selection law.
+
+Reproduce the finite spacetime interfaces from the repository root:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -W error -m pytest -q \
+  model/native_causal_dataflow model/native_lorentz_transition model/field_cone_compatibility
+python -m model.native_lorentz_transition.certificate --check
+python -m model.field_cone_compatibility --check
+```
+
+The dataflow certificate is `model.native_causal_dataflow.dataflow.certificate()`;
+its tests check the complete probability law and JSON roundtrip. These
+finite checks do not certify the conditional continuum hypotheses.
+
 ## The common finite particle operator
 
 The simulator carrier, memory rule and coherent pulse service are explicit

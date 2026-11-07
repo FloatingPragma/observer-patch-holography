@@ -810,6 +810,210 @@ own budget.
 
 \input{tex_fragments/COMPACT_BAND_WORK.tex}
 
+\subsection{A finite gauge--Higgs response with complete detector records}
+\label{sec:finite-gauge-higgs-records}
+
+A separate two-vertex control joins leptonic fermion hopping, two oppositely oriented
+native $60$-state gauge links and the charged-lepton Higgs tensor. There are three
+families and two spin components. The scalar at vertex zero has vacuum or one
+conjugate-doublet quantum; colored fermions have zero occupation and the up/down
+vertices are disabled. Colored link sectors are retained. The conserved quantity is
+$Q_*=N_F-2N_H$, and Gauss constraints imply $N_L=N_H$, $N_e=Q_*+N_H$ and bulk
+hypercharge $6Y=6Q_*$. A reference of charge $-6Q_*$ makes the complete state neutral.
+The scalar cap defines this finite model, rather than an invariant truncation of an
+unrestricted bosonic field.
+
+For $F$ families the complete physical dimensions are
+\[
+ d_0=6+48F^2,\qquad d_1=16F+64F^3-20F^2.
+\]
+At $F=3$ these are $438$ and $1596$. Exact Gauss kernels, independent representation
+counts and the full operator images verify completeness and zero complement leakage.
+The charged scalar-vacuum subspace has dimension $48$, with its entire $1548$-dimensional
+occupied complement retained. Writing $A=PHP$, $C=QHP$ and $D=QHQ$ gives
+\[
+ P(z-H)^{-1}P=[z-A-\Sigma(z)]^{-1},\qquad
+ \Sigma(z)=C^\dagger(z-D)^{-1}C.
+\]
+For $\operatorname{Im}z>0$, $-\operatorname{Im}\Sigma(z)\succeq0$. In the declared
+unit-strength control, $\|\Sigma(1+0.5i)\|\simeq1.793879153064$ and the hopping/Higgs
+commutator is nonzero. This verifies interaction in the finite system.
+
+Let $H_0\Omega=E_0\Omega$ be its prepared neutral ground and
+$b_j=c_j^\dagger d_{\rm ref}^\dagger$ the six family/spin creation maps. The odd
+reference makes $b_j$ even. Each is a partial isometry, and the full signed response is
+\[
+ C_{jk}(t)=\langle\Omega|b_j^\dagger e^{-i(H_1-E_0)t}b_k|\Omega\rangle
+ =\sum_n e^{-i(E_{1n}-E_0)t}
+   \langle b_j\Omega|n\rangle\langle n|b_k\Omega\rangle.
+\]
+Every spectral row and zero residue is retained. For the specified family matrices,
+unit dynamical strengths and scalar energy, and zero fermion/reference energies,
+the first three distinct numerical addition frequencies are
+$2.58004293348\times10^{-8}$, $0.001006653510723$ and $0.452014700447579$.
+Exact-input $50$/$80$-digit residual refinement supports the tiny positive first
+difference; it supplies no interval-certified enclosure or ordering.
+
+These frequencies enter a complete measurement, not a postselected creation curve.
+On the direct sum of the two sectors set
+\[
+ G_j=\begin{pmatrix}0&b_j^\dagger\\b_j&0\end{pmatrix},\qquad
+ W_{s,j}=I-G_j^2-isG_j,\qquad s=\pm1.
+\]
+Since $G_j^3=G_j$, $W_{s,j}$ is unitary. With $U(t)=e^{-it(H_0\oplus H_1)}$,
+a detector ancilla compares the forward paths $W_{+,j}U(t)$ and $U(t)W_{s,k}$. Their overlap is
+$F_{s,jk}=A_{jk}+sC_{jk}$, where
+$A_{jk}=\langle a_j|e^{-i(H_0-E_0)t}|a_k\rangle$ and
+$a_j=(I-b_j^\dagger b_j)\Omega$ retains blocked creation. The two detector bases give
+\[
+ p_\pm^X=\tfrac12(1\pm\operatorname{Re}F_{s,jk}),\qquad
+ p_\pm^Y=\tfrac12(1\pm\operatorname{Im}F_{s,jk}),\qquad
+ C_{jk}=\tfrac12(F_{+,jk}-F_{-,jk}).
+\]
+The maps $(W_{+,j}U\pm UW_{s,k})/2$ and
+$(W_{+,j}U\mp iUW_{s,k})/2$ retain both outcomes and their back-action on arbitrary
+inputs, including purifications. The controlled ancilla, quarter-turn probes and
+ground preparation are supplied services.
+
+For independent prepared shots at times $t_i$, compare $H_1$ with
+$H_1-\delta\Pi$, where $\Pi$ is a spectral projector. The two pre-readout pure states
+have overlap $z=1+(e^{i\delta t}-1)w/2$, $w=\|\Pi b_k\Omega\|^2\leq1$, hence
+$1-|z|^2\leq\delta^2t^2/4$. Multiplication of fidelities and contraction under the
+complete measurement give the record-only bound
+\[
+ \operatorname{TV}\leq\min\left\{1,\frac{|\delta|}{2}
+                                  \sqrt{\sum_i t_i^2}\right\}.
+\]
+The supplied schedule has $24\times4096$ shots at each $t=i/10$, $0\leq i\leq128$:
+$12{,}681{,}216$ retained bits. For $|\delta|\leq3\times10^{-8}$ the bound is strictly
+below $1/2500$. An observer who reads the simulator specification can have further
+information excluding that comparison Hamiltonian. Applying this bound to an exactly
+vanishing smallest line also requires an enclosure absent from the numerical
+precision ladder.
+
+Finally,
+$\epsilon_FN_F+\epsilon_HN_H=\epsilon_FQ_*+(2\epsilon_F+\epsilon_H)N_H$.
+Changing $(\epsilon_F,\epsilon_H)$ by $(\delta,-2\delta)$ shifts addition frequencies
+if the reference energy is fixed. A common gauge-potential shift changes the
+compensating reference by $-\delta$ and cancels exactly in the complete Hamiltonian.
+This is a reference-calibration distinction, not freedom to fit intrinsic masses.
+The graph, scalar cap, couplings, preparation and physical clock are not selected by
+these finite identities. Full certificates and record instruments are in the
+repository package \texttt{model/interacting\_extension} \cite{ophrepo}.
+
+\subsection{Compensated probe uncertainty and collision records}
+\label{sec:probe-uncertainty-collisions}
+
+The six creation maps above also supply an exact uncertainty relation on the
+complete finite carrier. For any one map $b$, set
+\[
+ P_0=b^\dagger b,\quad P_1=bb^\dagger,\quad P=\operatorname{diag}(P_0,P_1),
+ \quad D=\operatorname{diag}(P_0,-P_1),
+\]
+\[
+ X=\begin{pmatrix}0&b^\dagger\\b&0\end{pmatrix},\quad
+ Y=\begin{pmatrix}0&-ib^\dagger\\ib&0\end{pmatrix}.
+\]
+Each normalized $b$ is a signed partial permutation of rank $384$.
+Consequently $X^2=Y^2=D^2=P$, $[X,Y]=2iD$ and $\{X,Y\}=0$.
+For either $A=X$ or $Y$, the spectral projectors
+$(P-A)/2$, $I-P$ and $(P+A)/2$ have ranks $384$, $1266$ and $384$.
+The zero outcome retains $54$ neutral blocked states and $1212$ charged states
+outside the range. These identities are checked in exact rational complex
+arithmetic for all six source maps.
+
+For any density supported on the neutral sector, including a reduced density
+entangled with an arbitrary reference, let $w=\operatorname{Tr}(\rho P_0)
+=1-\langle n_j\rangle$. Both means vanish, both variances equal $w$, and
+\[
+ (p_{-1},p_0,p_{+1})=(w/2,1-w,w/2),\qquad
+ \Delta X\,\Delta Y=w=\tfrac12|\langle[X,Y]\rangle|.
+\]
+Thus the supplied finite density saturates Robertson's inequality
+\cite{robertson1929}. The tracial neutral state gives
+$(32/73,9/73,32/73)$. The complete maps $\rho\mapsto E_a\rho E_a$ preserve
+the untouched reference marginal when outcomes are summed. These are exact
+projective instruments, distinct from the two-outcome Ramsey readout; a native
+pulse compiler for them is not asserted. The density and complex measurement
+semantics are those of the specified finite Higgs source.
+
+These even charge-compensated quadratures do not identify physical position
+and momentum. Finite matrices satisfy
+$\operatorname{Tr}[Q,P]=0$, hence
+$\|[Q,P]-i\hbar I\|\geq|\hbar|$ for nonzero $\hbar$.
+The source's separate fluctuation and ordered-spin constructions obtain
+canonical field limits on their stated states and domains; the number of
+independently prepared fluctuation copies is not the physical memory capacity.
+Finite uncertainty alone selects no Planck scale or particle interpretation.
+The proof, full instruments and source bindings are in the
+\path{model/particle_identification} package \cite{ophrepo}.
+
+\paragraph{Capacity and complete local experiments.}
+The native interpreter has an exact record-capacity result. Under its
+\texttt{export\_oldest} policy, capacities one through eight give the same
+complete experimental channel after reversible resegmentation of archive and
+queue, with carrier, commands, parameters and evaluator limits fixed. Each
+adaptive selector reads only the last retained record; export preserves it.
+Induction over raw branches therefore gives zero channel distance, including
+arbitrary references and resource-stop outcomes. The archive is part of the
+output; readable capacity specifications and resource costs differ. With the
+\texttt{halt} policy, two holds at capacities one and two
+instead have disjoint timeout/completion statuses. This theorem concerns
+record slots, not physical global capacity or a capacity-dependent particle
+action; its proof and exact controls are in
+\path{model/particle_identification/NATIVE_CAPACITY.md} \cite{ophrepo}.
+
+For the specified full-Fock Weyl/contact action at fixed spacing, nested local
+buffers give a stronger comparison than agreement of a few frequencies.
+Let $\epsilon_0$ bound the initial trace distance of the joint largest-buffer,
+observer and reference state. At stage $i$, let $\delta_i$ be the complete
+operator locality error, $\eta_i$ the unitary splitting error, and $\zeta_i$
+the half-diamond error of the complete instrument, uniform over incoming states,
+references and previous records. For target $(t_i,c,U)$ and simulator
+$(s_i,c',U')$, let $E_i,V_i$ count buffer edges and sites. Then
+\[
+ a_i=E_i|t_ic-s_ic'|+V_i|t_iU-s_iU'|,\qquad
+ D_{\mathrm{final}}\leq
+ \min\left\{1,\epsilon_0+\sum_i(\delta_i/2+\eta_i+a_i+\zeta_i)\right\}.
+\]
+Here $D_{\mathrm{final}}$ is trace distance on the entire retained local quantum
+state and classical record. Each edge has two hopping terms of norm $c/2$;
+each site has a contact projector. Duhamel's formula bounds the local action
+change by $a_i$, and complete-channel contraction telescopes all stages,
+including adaptive instruments and failure records. Durations are fixed by
+stage. The bound has no ambient-volume factor, but comparison across physical
+capacities requires a common local identification and controlled couplings,
+clock, joint input and instruments. No such capacity-to-action map follows
+from volume independence. Nor does convergence at fixed time imply control
+of arbitrarily small spectral gaps.
+
+\paragraph{Spatial scattering and physical identification.}
+The contact source has complete two-body lattice wave operators and a unitary
+scattering matrix on its absolutely continuous subspace. Critical tuning of
+the moving-contact family gives a nontrivial two-body continuum limit in
+three dimensions, with all eight edge valleys retained. This limit is
+nonrelativistic. Its separated
+bound pairs prevent identifying the empty additive Fock state as a ground
+vacuum. The accompanying packet construction controls incoming and outgoing
+time tails, packet truncation, preparation, finite volume, splitting and
+native readout, and separates a retained interaction event from its matched
+free law by more than $3/10$. That fine-spacing finite schedule is constructive;
+the executed five-qubit control is an interaction echo, not an executed
+asymptotic collision. The respective packages are
+\path{model/contact_scattering}, \path{model/moving_contact_scattering}
+and \path{model/scattering_packet_readout} \cite{ophrepo}.
+
+A collider identification requires one source-selected state, spatial action,
+clock and detector family to join these ingredients. Separated incoming
+packets, their interacting propagation and complete outgoing bins must share
+quantitative errors, including soft and failed events. The effective theory
+must control its relevant relativistic symmetries, regulator sectors and
+resolution window. An infinite ultraviolet limit is not required merely to
+compare a finite-resolution experiment, but a free dispersion relation cannot
+replace the interacting record law. Stable neutral shells, charged inclusive
+thresholds, resonance line shapes and scheme-dependent confined parameters
+then require their respective physical definitions, as described below.
+
 \section{Comparison with the measured spectrum}
 \label{sec:comparison}
 
@@ -1192,6 +1396,48 @@ designs is not a prerequisite.
 
 \subsection{Interaction, chiral continuum and responsive geometry}
 
+Two controls separate spatial propagation from electric motion of a chiral subspace.
+The complete free three-dimensional overlap Hamiltonian on a flat gauge fiber has
+$E(p)\to|p|$ and modified axial weight tending to one under refinement; all spatial
+momenta and internal components are retained. It is vectorlike. A flat fiber has
+zero Haar measure and supplies no normalizable vacuum for a dynamical gauge field.
+A separate four-edge compact Abelian flux ring retains all five native charges,
+with electric energy, matter hopping $J$ and a loop term $\kappa$. For initial flux
+support $|\ell|\leq K_0$, cutoff $K>K_0$, total time $T$ and
+$r=\lceil(K-K_0+1)/\max(1,|q|)\rceil$, a Dyson bound for complete position records, including untouched auxiliary
+references, gives
+\[
+ \operatorname{TV}(\hbox{complete records})
+ \leq\min\left\{1,2\sum_{n\geq r}
+                 \frac{[(2|J|+|\kappa|)T]^n}{n!}\right\}.
+\]
+At $J=\kappa=1$, $K=48$, $K_0=0$, $T=1/2$, this is below $0.000248607$ uniformly
+for the five charges. It controls the stated finite-time preparation and complete
+observations, not an unbounded-flux ground state without a tail bound.
+
+For the source Euclidean overlap projector $P(\theta)$ on a local admissible
+charge-six patch, electric differentiation must preserve its range. With
+$C=[P,P']$, $\nabla=\partial_\theta+C$ obeys $\nabla P=0$; parallel transport has
+generator $-C$. For $VV^\dagger=P$, $V^\dagger V=I$, the compressed parent kinetic
+energy is
+\[
+ V^\dagger(-\partial_\theta^2)V=-(\partial_\theta+A)^2+\Phi,\qquad
+ A=V^\dagger V',\qquad
+ \Phi=V'^\dagger(I-P)V'=V'^\dagger V'+A^2\succeq0.
+\]
+Omitting $\Phi$ changes the parent model. A nine-point Dirichlet control keeps all
+$576$ parent components and its $288$-dimensional chiral subspace. For positive parent
+kinetic matrix $K$ and $H_\Lambda=K+\Lambda Q$, let $a_j$ be the eigenvalues of $PKP$.
+The entire complement is controlled by
+\[
+ 0\leq a_j-\lambda_j(H_\Lambda)
+ \leq\frac{\|PKQ\|^2}{\Lambda-a_k},\qquad j\leq k,\quad\Lambda>a_k.
+\]
+The differential scalar $\Phi$ is positive; the finite-grid difference from a polar-link
+connection-only discretization need not be. Local frame covariance supplies neither
+a global anomaly-compatible chiral measure nor physical axial conservation. These
+spatial, flux and electric constructions are separate controlled models \cite{ophrepo}.
+
 The quartic result gives a connected interaction on a fixed localized algebra, with a bound uniform in the
 surrounding radial volume. Its spatial tails and fixed number of localized modes do not define an interacting
 local $3+1$ field theory. A controlled common field limit must also establish the intended chiral measure,
@@ -1312,6 +1558,12 @@ Particle Data Group,
 D. Buchholz,
 \emph{Gauss' law and the infraparticle problem},
 Physics Letters B \textbf{174}, 331--334 (1986).
+
+\bibitem{robertson1929}
+H. P. Robertson,
+\emph{The Uncertainty Principle},
+Physical Review \textbf{34}, 163--164 (1929).
+\url{https://doi.org/10.1103/PhysRev.34.163}
 
 \bibitem{duch2023}
 P. Duch and W. Dybalski,

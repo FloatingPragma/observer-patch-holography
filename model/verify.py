@@ -410,6 +410,12 @@ REPLAYS = (
     ("model.interacting_defect_response", None, "model/interacting_defect_response/results.json"),
     ("model.completion.source_flavor_comparison", None, "model/completion/source_flavor_comparison.json"),
     ("model.regional_clock.verify", None, "model/regional_clock/results.json"),
+    ("model.interacting_extension.certificate", None, "model/interacting_extension/results.json"),
+    ("model.interacting_extension.higgs_join.certificate", None, "model/interacting_extension/higgs_join/results.json"),
+    ("model.interacting_extension.source_selection.certificate", None, "model/interacting_extension/source_selection/results.json"),
+    ("model.interacting_extension.chiral_lattice.certificate", None, "model/interacting_extension/chiral_lattice/results.json"),
+    ("model.interacting_extension.chiral_electric.certificate", None, "model/interacting_extension/chiral_electric/results.json"),
+    ("model.particle_identification.completion_certificate", None, "model/particle_identification/completion_results.json"),
 )
 
 

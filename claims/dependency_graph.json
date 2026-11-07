@@ -350,7 +350,19 @@
     "OPH-COMPACT-DEFECT-GUARDED-TRANSPORT",
     "OPH-COMPACT-DEFECT-INTERACTING-READOUT",
     "OPH-COMPACT-DEFECT-HOPPING-WORK",
-    "OPH-NATIVE-BLOCK-QUANTUM-GAUSS"
+    "OPH-NATIVE-BLOCK-QUANTUM-GAUSS",
+    "OPH-INTERACTING-LEPTON-HIGGS-RESPONSE",
+    "OPH-NATIVE-RECORD-REFERENCE-CLOCK",
+    "OPH-FREE-SPATIAL-ABELIAN-FLUX-CONTROLS",
+    "OPH-LOCAL-CHIRAL-ELECTRIC-COMPRESSION",
+    "OPH-DENSE-RATIONAL-EFFECT-EXTENSION",
+    "OPH-COMPENSATED-PROBE-UNCERTAINTY",
+    "OPH-CAPACITY-LOCAL-HISTORY-COMPOSITION",
+    "OPH-UNREAD-NATIVE-UNITARY-OBSTRUCTION",
+    "OPH-NATIVE-CONTROLLER-DATAFLOW",
+    "OPH-NATIVE-TWELVE-NULL-TRANSITION",
+    "OPH-FIELD-PRINCIPAL-CONE-COMPATIBILITY",
+    "OPH-NATIVE-FIFO-CAPACITY-EQUIVALENCE"
   ],
   "edges": [
     {
@@ -3037,6 +3049,21 @@
       "from": "OPH-COMPACT-DEFECT-INTERACTING-READOUT",
       "to": "OPH-COMPACT-DEFECT-HOPPING-WORK",
       "role": "same_declared_compact_action"
+    },
+    {
+      "from": "OPH-NATIVE-BLOCK-QUANTUM-GAUSS",
+      "to": "OPH-INTERACTING-LEPTON-HIGGS-RESPONSE",
+      "role": "Uses the native current representation and finite link factors; the scalar register, families and Ramsey preparation are additional declared inputs."
+    },
+    {
+      "from": "OPH-INTERACTING-LEPTON-HIGGS-RESPONSE",
+      "to": "OPH-COMPENSATED-PROBE-UNCERTAINTY",
+      "role": "Uses the same complete finite Higgs sectors and compensated addition probes; its three-outcome projective instruments are distinct from the Ramsey instrument."
+    },
+    {
+      "from": "OPH-NATIVE-RECORD-REFERENCE-CLOCK",
+      "to": "OPH-UNREAD-NATIVE-UNITARY-OBSTRUCTION",
+      "role": "Uses the same complete binary native channel; the quantum mixing directions are independently recomputed for the unread process."
     }
   ]
 }

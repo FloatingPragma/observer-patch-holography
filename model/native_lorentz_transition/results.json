@@ -1,0 +1,912 @@
+{
+  "all_pass": true,
+  "checks": {
+    "conformal_factors_compose": true,
+    "metric_error_bound_exact": true,
+    "native_kernel_replayed": true,
+    "properness_and_future_orientation_separate": true,
+    "singular_null_collapse_rejected": true,
+    "twelve_null_tests_imply_conformal_identity": true
+  },
+  "controls": {
+    "boost": {
+      "determinant": [
+        "1",
+        "0"
+      ],
+      "future_preserving": true,
+      "matrix": [
+        [
+          [
+            "251/181",
+            "16/181"
+          ],
+          [
+            "108/181",
+            "4/181"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "280/181",
+            "64/181"
+          ],
+          [
+            "251/181",
+            "16/181"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "1",
+        "0"
+      ],
+      "proper": true
+    },
+    "dilation": {
+      "determinant": [
+        "81/16",
+        "0"
+      ],
+      "future_preserving": true,
+      "matrix": [
+        [
+          [
+            "3/2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "3/2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "3/2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "3/2",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "9/4",
+        "0"
+      ],
+      "proper": true
+    },
+    "identity": {
+      "determinant": [
+        "1",
+        "0"
+      ],
+      "future_preserving": true,
+      "matrix": [
+        [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "1",
+        "0"
+      ],
+      "proper": true
+    },
+    "native_cyclic_rotation": {
+      "determinant": [
+        "1",
+        "0"
+      ],
+      "future_preserving": true,
+      "matrix": [
+        [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "1",
+        "0"
+      ],
+      "proper": true
+    },
+    "parity": {
+      "determinant": [
+        "-1",
+        "0"
+      ],
+      "future_preserving": true,
+      "matrix": [
+        [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "1",
+        "0"
+      ],
+      "proper": false
+    },
+    "rotation": {
+      "determinant": [
+        "1",
+        "0"
+      ],
+      "future_preserving": true,
+      "matrix": [
+        [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "3/5",
+            "0"
+          ],
+          [
+            "-4/5",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "4/5",
+            "0"
+          ],
+          [
+            "3/5",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "1",
+        "0"
+      ],
+      "proper": true
+    },
+    "time_reversal": {
+      "determinant": [
+        "-1",
+        "0"
+      ],
+      "future_preserving": false,
+      "matrix": [
+        [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ]
+      ],
+      "metric_factor": [
+        "1",
+        "0"
+      ],
+      "proper": false
+    }
+  },
+  "exact_scalar_encoding": "rational pair [a,b] denotes a+b*sqrt(5)",
+  "native_cyclic_port_permutation": [
+    8,
+    9,
+    10,
+    11,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "native_design_rank": 9,
+  "native_kernel_dimension": 1,
+  "native_metric": [
+    [
+      [
+        "-5/2",
+        "-1/2"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ]
+  ],
+  "noncommuting_composition_with_cancelled_scales": {
+    "determinant": [
+      "1",
+      "0"
+    ],
+    "future_preserving": true,
+    "matrix": [
+      [
+        [
+          "251/181",
+          "16/181"
+        ],
+        [
+          "108/181",
+          "4/181"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "168/181",
+          "192/905"
+        ],
+        [
+          "753/905",
+          "48/905"
+        ],
+        [
+          "-4/5",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "224/181",
+          "256/905"
+        ],
+        [
+          "1004/905",
+          "64/905"
+        ],
+        [
+          "3/5",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "metric_factor": [
+      "1",
+      "0"
+    ],
+    "proper": true
+  },
+  "perturbed_boost_metric_residual": {
+    "bound": [
+      "320181/181000000",
+      "2124181/905000000"
+    ],
+    "decoder_norm": [
+      "1",
+      "-1/5"
+    ],
+    "maximum_charge": [
+      "1862543/362000000",
+      "1222181/362000000"
+    ],
+    "maximum_metric_residual": [
+      "7/4525",
+      "8/22625"
+    ],
+    "metric_factor": [
+      "1",
+      "0"
+    ],
+    "residual": [
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "7/4525",
+          "8/22625"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "251/181000",
+          "2/22625"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "7/4525",
+          "8/22625"
+        ],
+        [
+          "251/181000",
+          "2/22625"
+        ],
+        [
+          "1/1000000",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    ]
+  },
+  "schema": "oph.native_lorentz_transition.v1",
+  "scope": {
+    "continuous_spinor_group_isomorphism_formalized": false,
+    "linear_transition_supplied": true,
+    "physical_null_lift_supplied": true,
+    "physical_spacetime_dynamics_derived": false,
+    "source_selected_boost": false,
+    "source_selected_clock_or_conformal_scale": false
+  },
+  "source_bindings": {
+    "Lean/Geometry/CelestialSoldering.lean": "8d0ac8a061ea73c09869bfc74c5c60e1204e8a0d825e6fe9a259d4ebad74ecb1",
+    "Lean/Geometry/LorentzOverlapCocycle.lean": "c86d3f7eb320490bd944d3c05bb838115c3400e297a0731e311cf4c6b24ef025",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
+    "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+    "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/common_source/null_tomography.py": "7120491eb4d9ca841a5b519a61aa97c747ae68c0151d4b365e3ca3221ad1e5d1",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/native_lorentz_transition/PROOF.md": "7c539590890400a7ff7841e84e0ba00eaeaf40091046ff36e3df70bc62e3e385",
+    "model/native_lorentz_transition/certificate.py": "961ca159c21774a40973062b63c54c1cd2f40f5fdb5d7bfc49613ed5c1e2f854",
+    "model/native_lorentz_transition/transition.py": "3d9b7e0037e4e7334a7aab92f8fc78a9f7bbd179d92e4a329afeab3f6d83a8be"
+  }
+}

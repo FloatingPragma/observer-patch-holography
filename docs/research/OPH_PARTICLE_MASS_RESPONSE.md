@@ -83,6 +83,148 @@ The numerical comparison table classifies the retained results; historical recei
 An unsuccessful prescription is evidence about its stated class, rather than
 an exclusion of all mechanisms on this carrier.
 
+## Complete interacting response and its numerical scope
+
+The [finite Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)
+and its [complete Ramsey instrument](../../model/interacting_extension/PROOF.md)
+provide an interacting lepton response with dynamical finite gauge links.
+The neutral/reference sectors have dimensions 438 and 1596. Exact checks
+cover their Gauss kernels, fermion signs, spin action, CAR and every
+generated complementary column. Three families, a two-vertex graph, two
+native 60-state link factors and scalar occupation at most one define
+this model. The scalar cap is a model definition, not a proved invariant
+sector of an unlimited scalar oscillator.
+
+The family matrices come from the exact source packet; the chosen ordered
+control uses angle `log(5/4)`. The evaluated Hamiltonian sets electric,
+magnetic, hopping and scalar-energy coefficients to one, and fermion and
+reference energies to zero. Its unique neutral ground is the prescribed
+preparation. These settings and the complete source/data path are recorded
+in the [native join](OPH_NATIVE_PARTICLE_MASS_JOIN.md#complete-finite-higgs-experiment-and-its-source-boundary).
+No measured-mass table is used by this evaluation. That fact does not
+prove that the continuing native program selects its action or ground.
+
+For compensated probes `b_j` and the prepared ground `Omega`, the response is
+
+```math
+C_{jk}(t)=\langle\Omega|b_j^\dagger
+e^{-i(H_1-E_0)t}b_k|\Omega\rangle
+=\sum_n e^{-i(E_n-E_0)t}R_{n,jk}.
+```
+
+All 1596 charged rows and six family/spin probes are retained. Signed
+frequencies, including nonpositive values if present, are part of the
+measure; taking absolute values changes the comparison. Degenerate
+subspaces require projectors or invariant sums of residues. For a mixed
+or degenerate initial preparation each initial energy belongs in its own
+transition difference, rather than being replaced by the lowest value.
+
+The primary dimensionless lines and the numerical status are:
+
+| Quantity | Evaluated value | What the calculation establishes |
+| --- | --- | --- |
+| Smallest primary addition line | `0.00000002580042933478883849674556692269352217103` | 50/80-digit agreement for the specified finite action |
+| Second primary addition line | `0.001006653510723061229602511764314750894411` | Same action, reference and energy convention |
+| Third primary addition line | `0.4520147004475785523283542118959776596649` | Same action, reference and energy convention |
+| Full Higgs Schur self-energy norm at `z=1+0.5i` | approximately `1.793879153064` | Nonzero correction from the retained complementary block |
+
+The displayed precision is a convergence diagnostic, not a rigorous
+eigenvalue enclosure. The three rows are not assigned to electron, muon
+and tau masses. The complete spectrum contains additional transitions;
+primary detector overlap does not prove other sectors are absent. A
+physical comparison needs a common clock, preparation, spatial propagation
+and particle definition before any unit conversion or target matching.
+
+The Ramsey calculation uses forward evolution, both sign settings and
+complete X/Y measurements. Blocked creation contributes to the law and is
+removed from the desired correlation by a difference of complete
+experiments, not by discarding outcomes. The exported sample contains
+12,681,216 simulated bits. Under fixed probes and preparation, replacing
+`H1` by `H1-delta P`, where `P` is an orthogonal spectral projector and
+`|delta|<=3e-8`, changes the joint record law by less than `1/2500` in total
+variation for this schedule of independent fresh trials. Thus this finite
+sample does not resolve such a shift. This bound neither assigns a physical
+linewidth nor prevents an observer from inspecting the exact simulator
+specification and computing its spectrum.
+
+The conserved charge `Q*=N_F-2N_H` also exposes reference calibration:
+changing the fermion energy by `delta` and the scalar energy by `-2delta`
+shifts each sector by `delta Q*` while preserving within-sector dynamics.
+An inter-sector addition frequency changes unless the compensating
+reference carries the corresponding opposite shift. A mass comparison
+must specify this complete gauge-neutral reference, rather than infer an
+absolute addition energy from within-sector records alone.
+
+### Spatial controls, error budgets and physical matching
+
+The [overlap and electric-flux controls](../../model/interacting_extension/chiral_lattice/PROOF.md)
+are separate calculations. The free flat-gauge overlap model retains
+30,720 components at `L=8` and has its stated fixed-momentum free limit.
+It is vectorlike and supplies no dynamical nonabelian vacuum. The four-edge
+U(1) ring has exact local Gauss/Ward identities, all native charges and a
+complete-record flux-tail bound. At cutoff `K=48`, initial flux bound
+`K0=0`, time `T=1/2` and hopping bound `B=3`, the error is below
+`0.000248607`; a ground-state input needs a separate preparation estimate.
+
+The [local chiral-electric calculation](../../model/interacting_extension/chiral_electric/PROOF.md)
+adds the changing-projector connection `[P,P']` and positive continuum
+compression term `V'^*(I-P)V'`. It checks a 576-state parent and
+288-state compressed finite control, plus a Schur estimate for a gapped
+complement. The positive differential term does not make an arbitrary
+finite-grid subtraction positive. This local identity does not construct
+a global chiral measure or join that regulator to the finite Higgs model.
+
+The [four finite identification interfaces](../../model/particle_identification/ROADMAP.md)
+supply a countable-effect Born extension, exact compensated-probe
+uncertainty, a complete local-history error budget and a passive-source
+clock obstruction. The first is conditional on all-domain rational-effect
+consistency; the second identifies actual probe matrices, not physical
+position and momentum. The local-history bound requires the initial joint
+state, local couplings, clock and complete instruments to be controlled.
+The passive bound excludes only static coding through the unread carrier,
+allowing separately accounted active or record-assisted implementations.
+
+Global capacity, record capacity, lattice spacing, volume, scalar/flux
+cutoffs and copy/shot count are different variables. No theorem in this
+calculation maps global capacity to the three displayed frequencies or
+proves that they converge to measured lepton masses. Fixed-time local
+record convergence alone also does not imply spectral-gap convergence
+or an isolated particle pole. A spectral claim requires its own uniform
+long-time or resolvent control and its physical particle definition.
+
+The [spacetime comparison](OPH_FIELD_RECONSTRUCTION.md#one-source-complete-records-and-a-common-spacetime)
+identifies three checked geometric interfaces: native adaptive dataflow,
+twelve-direction conformal transition reconstruction, and equality of a
+declared wave cone with that reconstructed cone. The latter two require
+the source's physical null readout, overlap map and clock. The native
+storage chain is not itself physical causality. Their composition with
+the same interacting state and field action is a further theorem.
+
+A successful mass calculation must provide the source-selected action
+and preparation, a common spatial/energy clock, the complete response with
+all species and residues, and controlled regulator/state errors. It must
+then fix the appropriate pole, threshold, resonance or running-parameter
+definition and compare joint observables in compatible conventions.
+The [scattering interface](../../model/particle_identification/SCATTERING.md)
+provides exact contact controls and a constructive finite packet schedule;
+it does not provide a relativistic Standard Model collider calculation.
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.interacting_extension.higgs_join.certificate --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.interacting_extension.certificate --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.particle_identification.completion_certificate --check
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -W error -m pytest -q \
+  model/interacting_extension model/particle_identification/test_completion_certificate.py
+```
+
+`python -m model.interacting_extension.certificate --check --export /tmp/oph-records`
+exports the complete spectral measure, probabilities, postmeasurement
+vectors and simulated bits from freshly built Hamiltonians. The
+[owning package](../../model/interacting_extension/higgs_join/README.md)
+gives the precision-ladder command. Each receipt distinguishes exact
+algebra, numerical tolerances and physical nonclaims; source hashes alone
+do not validate an interpretation.
+
 ## Candidate construction
 
 ### Carrier, currents and the finite Standard Model interface
@@ -662,7 +804,7 @@ preferred working hypothesis is a persistent localized topological defect in
 native overlap transport, with its excess maintenance action/energy producing
 the same rest energy measured by propagation. An autonomous native invariant and physical energy/clock map are unproved; stable massive matter is the first
 target, with unstable defect excitations requiring derived decay channels.
-The [concrete hypothesis and tests](OPH_FIELD_RECONSTRUCTION.md#leading-working-hypothesis-localized-defects-of-native-repair)
+The [concrete hypothesis and tests](OPH_FIELD_RECONSTRUCTION.md#the-hypothesis-of-particles-as-localized-defects)
 keep this proposal separate from established results. The
 [native defect decision](../../model/common_source/native_defect_decision.py)
 tests the double-load candidate on the actual 78-state C/E

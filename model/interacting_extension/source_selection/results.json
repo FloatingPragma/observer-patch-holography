@@ -1,0 +1,1080 @@
+{
+  "array_contract": {
+    "C_coherent_pointer_original": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240
+      ]
+    },
+    "C_coherent_pointer_phased": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240
+      ]
+    },
+    "C_costs": {
+      "integer_values_sha256": "4fcaab5407160144c71c8d938372c523bf118f28f13b0f4270b7e6adf689f899",
+      "kind": "i",
+      "shape": [
+        240
+      ]
+    },
+    "C_destinations": {
+      "integer_values_sha256": "aefa4c24255744f8afc0d7b20e61cecc49a8e1a93dea54ee4147a7a12aa0ef6c",
+      "kind": "i",
+      "shape": [
+        240,
+        66
+      ]
+    },
+    "C_first_record_family_spectra": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240,
+        3
+      ]
+    },
+    "C_first_record_family_substates": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "c",
+      "shape": [
+        240,
+        3,
+        3
+      ]
+    },
+    "C_full78_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240,
+        78
+      ]
+    },
+    "C_full78_destinations": {
+      "integer_values_sha256": "1f8b0b09808d15029ce7cf2e545234f65b7b60d0767f78be3a5e759f74dad104",
+      "kind": "i",
+      "shape": [
+        240,
+        78
+      ]
+    },
+    "C_full78_states": {
+      "integer_values_sha256": "da56fcccc030d11fc88a180c77df232262c84a3af559c910a0bee959883f8d6c",
+      "kind": "i",
+      "shape": [
+        78,
+        12
+      ]
+    },
+    "C_labels": {
+      "integer_values_sha256": "23962eb98a7cb8a91eec094b2f2a102600b74618dd4c1064d21dfa2fd5e94245",
+      "kind": "i",
+      "shape": [
+        240,
+        3
+      ]
+    },
+    "C_transducer_complete_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240,
+        66,
+        12
+      ]
+    },
+    "C_two_record_family_exact_ranks": {
+      "integer_values_sha256": "7b7e3ee4faa085b0b0cac0df8510845d7c4b93f37f2cfbeb6add471d3823a1bb",
+      "kind": "i",
+      "shape": [
+        240,
+        240
+      ]
+    },
+    "C_two_record_family_spectra": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        13740,
+        3
+      ]
+    },
+    "C_two_record_probability_numerators": {
+      "integer_values_sha256": "2d6da19c0daa80393302b456518d143d62c8d474ad754bbd836066f7013165bd",
+      "kind": "i",
+      "shape": [
+        240,
+        240
+      ]
+    },
+    "C_two_record_reference_port_numerators": {
+      "integer_values_sha256": "9b33bc366868015a4d8e9dbb41906310b07ce5ca758e8d574c0c0e630ea4fd98",
+      "kind": "i",
+      "shape": [
+        240,
+        240,
+        12
+      ]
+    },
+    "C_z0_25_all_transfer_eigenvalues": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        4356
+      ]
+    },
+    "C_z0_25_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240,
+        66
+      ]
+    },
+    "C_z0_25_count_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        6
+      ]
+    },
+    "C_z0_25_stationary_state": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        66,
+        66
+      ]
+    },
+    "C_z0_5_all_transfer_eigenvalues": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        4356
+      ]
+    },
+    "C_z0_5_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240,
+        66
+      ]
+    },
+    "C_z0_5_count_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        6
+      ]
+    },
+    "C_z0_5_stationary_state": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        66,
+        66
+      ]
+    },
+    "C_z1_0_all_transfer_eigenvalues": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        4356
+      ]
+    },
+    "C_z1_0_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        240,
+        66
+      ]
+    },
+    "C_z1_0_count_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        6
+      ]
+    },
+    "C_z1_0_stationary_state": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        66,
+        66
+      ]
+    },
+    "E_coherent_pointer_original": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480
+      ]
+    },
+    "E_coherent_pointer_phased": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480
+      ]
+    },
+    "E_costs": {
+      "integer_values_sha256": "d767c2a4e7fb93d024dcc3415edb8cd3a2089406806a1d0a3e2bca9c2a184b6d",
+      "kind": "i",
+      "shape": [
+        480
+      ]
+    },
+    "E_destinations": {
+      "integer_values_sha256": "24ca174c4e12e4d68392a2c4432f603f252f7442fb34410bdebf0314e27ee891",
+      "kind": "i",
+      "shape": [
+        480,
+        66
+      ]
+    },
+    "E_first_record_family_spectra": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480,
+        3
+      ]
+    },
+    "E_first_record_family_substates": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "c",
+      "shape": [
+        480,
+        3,
+        3
+      ]
+    },
+    "E_full78_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480,
+        78
+      ]
+    },
+    "E_full78_destinations": {
+      "integer_values_sha256": "f2be461b71047af5e904040eec26b357c85629ff86c9360e0facb0c83667eccf",
+      "kind": "i",
+      "shape": [
+        480,
+        78
+      ]
+    },
+    "E_full78_states": {
+      "integer_values_sha256": "da56fcccc030d11fc88a180c77df232262c84a3af559c910a0bee959883f8d6c",
+      "kind": "i",
+      "shape": [
+        78,
+        12
+      ]
+    },
+    "E_labels": {
+      "integer_values_sha256": "ab6323b1d59f714c774bfccd40bd85d6b18bcc967374f71ed60d1815335252e8",
+      "kind": "i",
+      "shape": [
+        480,
+        3
+      ]
+    },
+    "E_transducer_complete_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480,
+        66,
+        12
+      ]
+    },
+    "E_two_record_family_exact_ranks": {
+      "integer_values_sha256": "9214b83b2496b632f5af08d1f94c35930137ee1776ba07574d74b3f47427aa82",
+      "kind": "i",
+      "shape": [
+        480,
+        480
+      ]
+    },
+    "E_two_record_family_spectra": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        29760,
+        3
+      ]
+    },
+    "E_two_record_probability_numerators": {
+      "integer_values_sha256": "72866d6dd494f251fc77b581bdaa1a45cf1557931ce87ff51b8a3775de3bb368",
+      "kind": "i",
+      "shape": [
+        480,
+        480
+      ]
+    },
+    "E_two_record_reference_port_numerators": {
+      "integer_values_sha256": "abe6361b395334f73eb4b5e3eb8c8dc7a9c22861645db8b4072b93e6bf421b4d",
+      "kind": "i",
+      "shape": [
+        480,
+        480,
+        12
+      ]
+    },
+    "E_z0_25_all_transfer_eigenvalues": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        4356
+      ]
+    },
+    "E_z0_25_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480,
+        66
+      ]
+    },
+    "E_z0_25_count_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        6
+      ]
+    },
+    "E_z0_25_stationary_state": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        66,
+        66
+      ]
+    },
+    "E_z0_5_all_transfer_eigenvalues": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        4356
+      ]
+    },
+    "E_z0_5_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480,
+        66
+      ]
+    },
+    "E_z0_5_count_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        6
+      ]
+    },
+    "E_z0_5_stationary_state": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        66,
+        66
+      ]
+    },
+    "E_z1_0_all_transfer_eigenvalues": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        4356
+      ]
+    },
+    "E_z1_0_amplitudes": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        480,
+        66
+      ]
+    },
+    "E_z1_0_count_probabilities": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        6
+      ]
+    },
+    "E_z1_0_stationary_state": {
+      "comparison_absolute_tolerance": "3/1000000000000",
+      "kind": "f",
+      "shape": [
+        66,
+        66
+      ]
+    }
+  },
+  "candidates": {
+    "C": {
+      "all_native_event_columns": 3960,
+      "all_operator_directions": 4356,
+      "all_record_labels": 240,
+      "arbitrary_complex_input_normalization_residual_within_bound": true,
+      "dimension": 66,
+      "full_native_carrier_all_event_columns": 4680,
+      "full_native_carrier_dimension": 78,
+      "full_native_carrier_nonzero_record_labels": 180,
+      "full_native_carrier_tp_residual_within_bound": true,
+      "full_native_double_load_survival_probability_after_n_attempts": "(5/6)**n times initial double-load population",
+      "full_native_to_binary_population_law_exact": true,
+      "metadata": {
+        "binary_shell_invariant": true,
+        "candidate": "C",
+        "input_restricted_to_binary_shell": true,
+        "native_endpoint_rule_unchanged": true,
+        "native_quantum_record_convention": "real positive lift",
+        "phase_exact_source_compiler_rerun_in_this_extension": false,
+        "physical_state_or_time_selected": false,
+        "raw_pointer_dimension_per_seam_coin": 4,
+        "seam_policy": "uniform independent choices on all thirty native seams",
+        "seam_policy_uniqueness": "within memoryless seam-only policies under transitive carrier covariance",
+        "source_commit": "3cf3c14810671a16e61b7915f69079a1773a12a2",
+        "source_hashes": {
+          "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+          "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+          "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+          "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+          "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+          "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+          "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+          "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+          "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+          "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+          "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+          "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+          "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+          "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+          "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+          "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+          "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+          "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+          "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+          "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+          "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+          "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+          "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+          "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+          "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+          "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+          "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+          "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+          "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+          "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+          "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+          "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+          "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+          "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+          "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+          "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+          "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+          "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+          "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+          "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+          "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+          "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+          "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+          "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+          "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+          "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+          "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+          "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+          "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+          "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+          "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+          "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+          "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+          "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+          "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+          "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+          "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+          "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+          "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+          "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+          "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+          "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+          "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+          "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+          "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+          "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+          "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+          "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+          "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+          "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+          "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+          "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+          "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+          "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+          "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+          "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+          "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
+        },
+        "zero_labels_retained": true
+      },
+      "nonzero_record_labels": 120,
+      "one_activity_quotient_counts": [
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          4,
+          10
+        ],
+        [
+          0,
+          2,
+          0
+        ]
+      ],
+      "operator_block_size_counts": {
+        "1": 2970,
+        "10": 132,
+        "66": 1
+      },
+      "orbit_sizes": [
+        30,
+        30,
+        6
+      ],
+      "record_conditioned_geometric_reference": {
+        "all_nonzero_first_record_reference_spectra_max_residual_within_bound": true,
+        "all_oriented_edge_native_rotation_residual_within_bound": true,
+        "chart_measurement_preparation_transducer_declared": true,
+        "complete_transducer_outcome_count": 190080,
+        "exact_reference_orbit_spectra": {
+          "C_zero_current": {
+            "characteristic_polynomial": "(14*x - 5)*(15680*x**2 - 10080*x + 1591)/219520",
+            "eigenvalues": [
+              "9/28 - sqrt(145)/280",
+              "5/14",
+              "sqrt(145)/280 + 9/28"
+            ]
+          },
+          "E_even_contrast": {
+            "characteristic_polynomial": "(23*x - 9)*(2645*x**2 - 1610*x + 241)/60835",
+            "eigenvalues": [
+              "7/23 - 2*sqrt(5)/115",
+              "2*sqrt(5)/115 + 7/23",
+              "9/23"
+            ]
+          },
+          "one_occupied_endpoint": {
+            "characteristic_polynomial": "(5*x - 1)*(500*x**2 - 400*x + 51)/2500",
+            "eigenvalues": [
+              "2/5 - sqrt(145)/50",
+              "1/5",
+              "sqrt(145)/50 + 2/5"
+            ]
+          }
+        },
+        "faithful_reference_conditions_only_on_native_record_and_traces_transducer_records": true,
+        "full_quantum_outcome_family_states_are_pure": true,
+        "rank_deficient_histories_must_not_use_a_full_space_modular_log": true,
+        "raw_record_support_size_counts_including_zero_labels": {
+          "0": 120,
+          "10": 60,
+          "56": 60
+        },
+        "reference_selected_as_an_autonomous_vacuum": false,
+        "small_negative_float_eigenvalues_are_roundoff_of_exact_positive_sums": true,
+        "transducer_total_probability_residual_within_bound": true,
+        "two_record_all_record_pairs": 57600,
+        "two_record_complete_probability_numerator_sum": 237600,
+        "two_record_conditional_eigenvalue_minimum_within_bound": true,
+        "two_record_conditional_reference_exact_rank_counts": {
+          "1": 300,
+          "2": 2940,
+          "3": 10500
+        },
+        "two_record_conditional_reference_rank_probability_numerators": {
+          "1": 300,
+          "2": 2940,
+          "3": 234360
+        },
+        "two_record_nonzero_record_pairs": 13740,
+        "two_record_probability_denominator": 237600,
+        "two_record_rank_probability_denominator": 237600,
+        "two_record_unconditional_family_residual_to_I_over_3_within_bound": true,
+        "unconditional_family_state_residual_to_I_over_3_within_bound": true
+      },
+      "record_phase_audit": {
+        "all_pointer_outcomes": 240,
+        "coherent_pointer_total_variation_greater_than": "1/1000",
+        "committed_and_count_laws_phase_invariant_within_bound": true,
+        "seam_and_coin_randomizers_remain_committed": true
+      },
+      "tilts": [
+        {
+          "all_operator_eigenvalues_count": 4356,
+          "complete_filter_record_labels": 721,
+          "euclidean_gap_is_a_physical_particle_mass": false,
+          "positive_transfer_diagnostic": true,
+          "simple_perron_diagnostic": true,
+          "trace_preservation_stationarity_and_herald_residuals_within_bound": true,
+          "z": "1"
+        },
+        {
+          "all_operator_eigenvalues_count": 4356,
+          "complete_filter_record_labels": 721,
+          "euclidean_gap_is_a_physical_particle_mass": false,
+          "positive_transfer_diagnostic": true,
+          "simple_perron_diagnostic": true,
+          "trace_preservation_stationarity_and_herald_residuals_within_bound": true,
+          "z": "1/2"
+        },
+        {
+          "all_operator_eigenvalues_count": 4356,
+          "complete_filter_record_labels": 721,
+          "euclidean_gap_is_a_physical_particle_mass": false,
+          "positive_transfer_diagnostic": true,
+          "simple_perron_diagnostic": true,
+          "trace_preservation_stationarity_and_herald_residuals_within_bound": true,
+          "z": "1/4"
+        }
+      ],
+      "tp_residual_within_bound": true,
+      "unital_residual_within_bound": true,
+      "zero_activity_quotient_counts": [
+        [
+          52,
+          0,
+          0
+        ],
+        [
+          0,
+          50,
+          0
+        ],
+        [
+          0,
+          0,
+          50
+        ]
+      ],
+      "zero_tilt_exact_gershgorin_lower_bound_numerator_over_60": 40
+    },
+    "E": {
+      "all_native_event_columns": 3960,
+      "all_operator_directions": 4356,
+      "all_record_labels": 480,
+      "arbitrary_complex_input_normalization_residual_within_bound": true,
+      "dimension": 66,
+      "full_native_carrier_all_event_columns": 4680,
+      "full_native_carrier_dimension": 78,
+      "full_native_carrier_nonzero_record_labels": 300,
+      "full_native_carrier_tp_residual_within_bound": true,
+      "full_native_double_load_survival_probability_after_n_attempts": "(5/6)**n times initial double-load population",
+      "full_native_to_binary_population_law_exact": true,
+      "metadata": {
+        "binary_shell_invariant": true,
+        "candidate": "E",
+        "input_restricted_to_binary_shell": true,
+        "native_endpoint_rule_unchanged": true,
+        "native_quantum_record_convention": "real positive lift",
+        "phase_exact_source_compiler_rerun_in_this_extension": false,
+        "physical_state_or_time_selected": false,
+        "raw_pointer_dimension_per_seam_coin": 8,
+        "seam_policy": "uniform independent choices on all thirty native seams",
+        "seam_policy_uniqueness": "within memoryless seam-only policies under transitive carrier covariance",
+        "source_commit": "3cf3c14810671a16e61b7915f69079a1773a12a2",
+        "source_hashes": {
+          "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+          "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+          "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+          "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+          "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+          "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+          "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+          "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+          "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+          "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+          "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+          "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+          "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+          "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+          "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+          "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+          "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+          "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+          "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+          "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+          "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+          "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+          "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+          "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+          "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+          "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+          "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+          "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+          "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+          "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+          "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+          "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+          "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+          "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+          "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+          "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+          "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+          "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+          "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+          "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+          "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+          "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+          "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+          "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+          "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+          "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+          "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+          "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+          "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+          "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+          "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+          "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+          "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+          "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+          "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+          "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+          "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+          "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+          "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+          "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+          "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+          "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+          "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+          "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+          "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+          "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+          "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+          "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+          "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+          "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+          "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+          "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+          "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+          "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+          "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+          "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+          "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
+        },
+        "zero_labels_retained": true
+      },
+      "nonzero_record_labels": 180,
+      "one_activity_quotient_counts": [
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          4,
+          10
+        ],
+        [
+          0,
+          2,
+          0
+        ]
+      ],
+      "operator_block_size_counts": {
+        "1": 2970,
+        "10": 132,
+        "66": 1
+      },
+      "orbit_sizes": [
+        30,
+        30,
+        6
+      ],
+      "record_conditioned_geometric_reference": {
+        "all_nonzero_first_record_reference_spectra_max_residual_within_bound": true,
+        "all_oriented_edge_native_rotation_residual_within_bound": true,
+        "chart_measurement_preparation_transducer_declared": true,
+        "complete_transducer_outcome_count": 380160,
+        "exact_reference_orbit_spectra": {
+          "C_zero_current": {
+            "characteristic_polynomial": "(14*x - 5)*(15680*x**2 - 10080*x + 1591)/219520",
+            "eigenvalues": [
+              "9/28 - sqrt(145)/280",
+              "5/14",
+              "sqrt(145)/280 + 9/28"
+            ]
+          },
+          "E_even_contrast": {
+            "characteristic_polynomial": "(23*x - 9)*(2645*x**2 - 1610*x + 241)/60835",
+            "eigenvalues": [
+              "7/23 - 2*sqrt(5)/115",
+              "2*sqrt(5)/115 + 7/23",
+              "9/23"
+            ]
+          },
+          "one_occupied_endpoint": {
+            "characteristic_polynomial": "(5*x - 1)*(500*x**2 - 400*x + 51)/2500",
+            "eigenvalues": [
+              "2/5 - sqrt(145)/50",
+              "1/5",
+              "sqrt(145)/50 + 2/5"
+            ]
+          }
+        },
+        "faithful_reference_conditions_only_on_native_record_and_traces_transducer_records": true,
+        "full_quantum_outcome_family_states_are_pure": true,
+        "rank_deficient_histories_must_not_use_a_full_space_modular_log": true,
+        "raw_record_support_size_counts_including_zero_labels": {
+          "0": 300,
+          "10": 120,
+          "46": 60
+        },
+        "reference_selected_as_an_autonomous_vacuum": false,
+        "small_negative_float_eigenvalues_are_roundoff_of_exact_positive_sums": true,
+        "transducer_total_probability_residual_within_bound": true,
+        "two_record_all_record_pairs": 230400,
+        "two_record_complete_probability_numerator_sum": 237600,
+        "two_record_conditional_eigenvalue_minimum_within_bound": true,
+        "two_record_conditional_reference_exact_rank_counts": {
+          "1": 1200,
+          "2": 11760,
+          "3": 16800
+        },
+        "two_record_conditional_reference_rank_probability_numerators": {
+          "1": 1200,
+          "2": 11760,
+          "3": 224640
+        },
+        "two_record_nonzero_record_pairs": 29760,
+        "two_record_probability_denominator": 237600,
+        "two_record_rank_probability_denominator": 237600,
+        "two_record_unconditional_family_residual_to_I_over_3_within_bound": true,
+        "unconditional_family_state_residual_to_I_over_3_within_bound": true
+      },
+      "record_phase_audit": {
+        "all_pointer_outcomes": 480,
+        "coherent_pointer_total_variation_greater_than": "1/1000",
+        "committed_and_count_laws_phase_invariant_within_bound": true,
+        "seam_and_coin_randomizers_remain_committed": true
+      },
+      "tilts": [
+        {
+          "all_operator_eigenvalues_count": 4356,
+          "complete_filter_record_labels": 1441,
+          "euclidean_gap_is_a_physical_particle_mass": false,
+          "positive_transfer_diagnostic": true,
+          "simple_perron_diagnostic": true,
+          "trace_preservation_stationarity_and_herald_residuals_within_bound": true,
+          "z": "1"
+        },
+        {
+          "all_operator_eigenvalues_count": 4356,
+          "complete_filter_record_labels": 1441,
+          "euclidean_gap_is_a_physical_particle_mass": false,
+          "positive_transfer_diagnostic": true,
+          "simple_perron_diagnostic": true,
+          "trace_preservation_stationarity_and_herald_residuals_within_bound": true,
+          "z": "1/2"
+        },
+        {
+          "all_operator_eigenvalues_count": 4356,
+          "complete_filter_record_labels": 1441,
+          "euclidean_gap_is_a_physical_particle_mass": false,
+          "positive_transfer_diagnostic": true,
+          "simple_perron_diagnostic": true,
+          "trace_preservation_stationarity_and_herald_residuals_within_bound": true,
+          "z": "1/4"
+        }
+      ],
+      "tp_residual_within_bound": true,
+      "unital_residual_within_bound": true,
+      "zero_activity_quotient_counts": [
+        [
+          52,
+          0,
+          0
+        ],
+        [
+          0,
+          50,
+          0
+        ],
+        [
+          0,
+          0,
+          50
+        ]
+      ],
+      "zero_tilt_exact_gershgorin_lower_bound_numerator_over_60": 22
+    }
+  },
+  "capacity_theorem": {
+    "attempt_count_symbol": "n",
+    "complete_native_record_support_bounds": "60**n <= R_n <= min(m**n,66*60**n); m=120 (C),180 (E)",
+    "finite_capacity_changes_native_masses_without_additional_feedback": false,
+    "necessary_capacity_for_n_retained_attempts": "N_rec >= n*log(60)",
+    "prefix_law_capacity_independent_if_k_le_n": true,
+    "public_P_or_N_enters_native_transition_or_its_spectrum": false,
+    "record_capacity_symbol": "N_rec=log(D_rec)",
+    "simple_fixed_alphabet_sufficient_capacity": "N_rec >= n*log(m)"
+  },
+  "exact_activity_quotient": {
+    "characteristic_polynomial": "u**3 - u**2*(8*z + 2) + u*(-20*z**2 + 8*z) + 80*z**3 + 40*z**2",
+    "first_lag_activity_covariance": "1/3630",
+    "iid_variance_would_be": "140/1089",
+    "independent_Poisson_equation_variance": "1597/11979",
+    "native_asymptotic_activity_variance_per_attempt": "1597/11979",
+    "native_clock_is_iid": false,
+    "native_mean_activity_per_attempt": "5/33",
+    "polynomial_at_z_one": "(u - 10)*(u**2 - 12)",
+    "positive_lag_activity_covariance_sum": "19/7986",
+    "u_definition": "u=60*lambda-50"
+  },
+  "exact_native_preparation": {
+    "binary_input_trace_distance_bound_after_n_attempts": "sqrt(65)/2 * ((55+sqrt(5))/60)**n",
+    "characteristic_polynomial_of_60_times_population_transfer": "(x - 60)*(x - 54)**5*(x - 52)**5*(x - 50)**11*(x - 48)**5*(x**2 - 110*x + 3020)**3*(x**2 - 100*x + 2488)*(x**2 - 100*x + 2490)**4*(x**2 - 100*x + 2498)**4*(x**3 - 150*x**2 + 7480*x - 124024)**5",
+    "exact_nonconstant_quantum_channel_spectral_radius": "sqrt(5)/60 + 11/12",
+    "reference_stable_half_diamond_bound_after_n_attempts": "min(1,33*((55+sqrt(5))/60)**n)",
+    "retained_tape_capacity_separately_required": true,
+    "stationary_native_preparation_is_limit_of_complete_recorded_channel": true
+  },
+  "exact_perron_root_certificates": [
+    {
+      "certification": "exact rational real-root isolation; no empirical input",
+      "floating_perron_value_absolute_error_upper_rational": "1/100000000000000",
+      "lambda_lower_rational": "1",
+      "lambda_upper_rational": "1",
+      "root_interval_width_less_than_1e_minus_60": true,
+      "z_exact": "1"
+    },
+    {
+      "certification": "exact rational real-root isolation; no empirical input",
+      "floating_perron_value_absolute_error_upper_rational": "1/100000000000000",
+      "lambda_lower_rational": "65249943104421207507596921122219/70507428425615291477145260490180",
+      "lambda_upper_rational": "15770480123652064419197614250789/17041179588103639779532706008000",
+      "root_interval_width_less_than_1e_minus_60": true,
+      "z_exact": "1/2"
+    },
+    {
+      "certification": "exact rational real-root isolation; no empirical input",
+      "floating_perron_value_absolute_error_upper_rational": "1/100000000000000",
+      "lambda_lower_rational": "31194927349230247280543151715489/35002502739925680526083969035640",
+      "lambda_upper_rational": "136408329326396161075542753359231/153057991369666805529209477347020",
+      "root_interval_width_less_than_1e_minus_60": true,
+      "z_exact": "1/4"
+    }
+  ],
+  "floating_diagnostic_absolute_tolerance": "3/1000000000000",
+  "implementation_sha256": {
+    "../_source.py": "22d8901b31df309ceb727de865cab9e59f88ce82a8ef8012f9b19459840e9b55",
+    "../source_manifest.json": "2afee1f86001e778588836e6e79b2decf714a5b43f5bb83fc57f1ba34d08b53b",
+    "certificate.py": "ee30027779ad3215c6ffcb75efdfa16fd03bf09bc45d9ca1bf9d56367efb9c27",
+    "native_record_dynamics.py": "21ba506f1376002b651b0f8a6a4681b960e3edd19f67fd6a9a1d426773146d13"
+  },
+  "schema": "oph.native_record_dynamics.certificate.v1",
+  "source_commit": "3cf3c14810671a16e61b7915f69079a1773a12a2",
+  "source_sha256": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+    "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+    "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+    "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+    "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+    "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+    "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+    "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+    "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+    "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+    "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+    "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+    "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+    "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94"
+  },
+  "source_status": {
+    "all_filter_failures_retained": true,
+    "native_interacting_3plus1_field_or_twelve_particle_masses_recovered": false,
+    "native_quantum_record_instrument_reconstructed": true,
+    "nontrivial_conditioned_state_and_dynamics_derived_given_one_tilt": true,
+    "positive_native_euclidean_transfer_and_logarithm_constructed": true,
+    "real_time_continuation_is_the_native_repair_process": false,
+    "tilt_or_pressure_to_tilt_identification_source_selected": false,
+    "unique_stationary_native_state_on_invariant_binary_shell": "I_66/66"
+  }
+}

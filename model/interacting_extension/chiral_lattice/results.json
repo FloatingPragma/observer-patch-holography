@@ -1,0 +1,82 @@
+{
+  "flux_control": {
+    "all_Gauss_and_electric_shift_identities_passed": true,
+    "all_complete_records_and_cutoff_checks_passed": true,
+    "cutoff_boundary_vectors_retained": true,
+    "cutoffs": [
+      4,
+      8,
+      12,
+      24,
+      48
+    ],
+    "dimension_per_charge": "4(2K+1)",
+    "hamiltonian": "sum_e E_e^2/2-(T+T^dagger)-(W+W^dagger)/2",
+    "independent_cutoff_record_comparisons": 20,
+    "native_charges": [
+      -4,
+      -3,
+      1,
+      2,
+      6
+    ],
+    "quantum_loop_correction_checked": true,
+    "record_bound_K48_T_half": "2 sum_(n>=9) (3/2)^n/n!",
+    "record_histories_per_run": 16,
+    "response_diagnostic_window_tolerance": "1e-9"
+  },
+  "free_control": {
+    "all_component_count_L8": 30720,
+    "all_free_operator_and_record_checks_passed": true,
+    "complete_binary_law": "C(t)=b_h^2+(1-b_h^2)cos(2Et)",
+    "direct_source_momentum_blocks_checked": 27,
+    "direct_source_operator_tolerance": "1e-11",
+    "dispersion": "E^2=2(1+B/R)/a^2",
+    "fixed_momentum": [
+      1,
+      1,
+      1
+    ],
+    "kernel_gap_identity": "R^2=1+2 sum_(i<j)(1-cos k_i)(1-cos k_j)>=1",
+    "lattice_sides": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "numerical_energy_and_weight_windows": "absolute error <= 1e-9 against the declared controls",
+    "spatial_dimensions": 3,
+    "zero_momentum_spin_internal_multiplicity": 60
+  },
+  "schema": "oph.interacting_extension.propagation_certificate.v1",
+  "scope": {
+    "abelian_flux_and_free_spatial_controls_are_one_interacting_theory": false,
+    "floating_diagnostics_are_interval_certificates": false,
+    "free_flat_fiber_is_a_normalizable_rotor_state": false,
+    "interacting_chiral_continuum_or_physical_masses": false,
+    "rotor_completion_and_couplings_are_declared": true,
+    "source_selected_state_clock_or_P_N_map": false
+  },
+  "source_commit": "3cf3c14810671a16e61b7915f69079a1773a12a2",
+  "source_sha256": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/interacting_extension/__init__.py": "73990c10fdb30b21031f7c09415cede4d0fc0e1cd4eb2cc3266e6d57ad90add7",
+    "model/interacting_extension/_source.py": "22d8901b31df309ceb727de865cab9e59f88ce82a8ef8012f9b19459840e9b55",
+    "model/interacting_extension/chiral_lattice/PROOF.md": "6ebad18a35c53aa32dd32367f92e804bd5294ffe89824fcad5fc9d74934095b3",
+    "model/interacting_extension/chiral_lattice/README.md": "6ba5ef0cf7a833e4f28e87e33ae3abeaf9631f0fb49beb295b542647b56b2307",
+    "model/interacting_extension/chiral_lattice/__init__.py": "e67f1b07d73362e031ef6d9018b4ffe46593fc6043e427bcd2c96cf2005b599d",
+    "model/interacting_extension/chiral_lattice/certificate.py": "07b7fd3bb66b321f30565d5e1d95a30abf6be6def0dcadb2a20f989464226167",
+    "model/interacting_extension/chiral_lattice/independent_audit.py": "10b6319fff59678d1918f98e6b1973a886e6d90a0d5f58aa7b0da67c918bc237",
+    "model/interacting_extension/chiral_lattice/light_branch.py": "3c93c679c98a36045a6da3097d833d34671f71dd7e2440589e826cf4fafc5e88",
+    "model/interacting_extension/chiral_lattice/rotor_response.py": "27bba224da65d275c44b4ff22a124d81d83bf0987b74f9a13d3c64ca7acded34",
+    "model/interacting_extension/chiral_lattice/source_data.py": "b09044e27b0f9c27612b82c07888f859bb4e6220ede9f58f60ecfffd2e770665",
+    "model/interacting_extension/chiral_lattice/test_controls.py": "ffadbcdc2077c1e1bf19b07ed4233fae7b98abbe299c212c0fdc8e2d3cdbfae4",
+    "model/interacting_extension/source_manifest.json": "2afee1f86001e778588836e6e79b2decf714a5b43f5bb83fc57f1ba34d08b53b",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122"
+  }
+}

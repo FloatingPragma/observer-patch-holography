@@ -1,0 +1,443 @@
+{
+  "all_pass": true,
+  "constructive_match": {
+    "all_twelve_charges_zero": true,
+    "clock_squared": [
+      "5/2",
+      "1/2"
+    ],
+    "factor": [
+      "1",
+      "0"
+    ],
+    "form": [
+      [
+        [
+          "-5/2",
+          "-1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "jacobian": [
+      [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "0"
+        ],
+        [
+          "1/3",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "3",
+          "0"
+        ]
+      ]
+    ],
+    "spatial_tensor": [
+      [
+        [
+          "5/4",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "37/9",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "9",
+          "0"
+        ]
+      ]
+    ]
+  },
+  "frame_covariance": {
+    "boost_factor": "1",
+    "dilated_boost_factor": "4",
+    "same_change_must_act_on_both_forms": true
+  },
+  "native_null_design_rank": 9,
+  "native_source": {
+    "all_pass": true,
+    "coordinate_witness_theorem": "OPH.PrimitivePortFrameQuotient.rawAxis_dot_eq_sourceGram",
+    "registered_gram_entries_checked_exactly": 144,
+    "source_to_registered_lean_port": [
+      8,
+      10,
+      1,
+      3,
+      7,
+      11,
+      0,
+      4,
+      6,
+      9,
+      2,
+      5
+    ]
+  },
+  "radial_control": {
+    "angular_coefficient": "1",
+    "clock_squared": [
+      "5/2",
+      "1/2"
+    ],
+    "first_form": [
+      [
+        [
+          "-5/2",
+          "-1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "fixed_dictionary": "x=r*n; t=sqrt(clock_squared)*tau",
+    "one_clock_cannot_match_both_radii": true,
+    "radii": [
+      "1",
+      "2"
+    ],
+    "second_form": [
+      [
+        [
+          "-5/2",
+          "-1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "second_null_charges": [
+      [
+        "-15/8",
+        "-3/8"
+      ],
+      [
+        "-15/8",
+        "-3/8"
+      ],
+      [
+        "-15/8",
+        "-3/8"
+      ],
+      [
+        "-15/8",
+        "-3/8"
+      ],
+      [
+        "-3/4",
+        "0"
+      ],
+      [
+        "-3/4",
+        "0"
+      ],
+      [
+        "-3/4",
+        "0"
+      ],
+      [
+        "-3/4",
+        "0"
+      ],
+      [
+        "-9/8",
+        "-3/8"
+      ],
+      [
+        "-9/8",
+        "-3/8"
+      ],
+      [
+        "-9/8",
+        "-3/8"
+      ],
+      [
+        "-9/8",
+        "-3/8"
+      ]
+    ]
+  },
+  "schema": "oph.field_cone_compatibility.v1",
+  "scope": {
+    "coordinate_clock_and_spatial_tensor_are_supplied": true,
+    "curved_Lorentzian_or_other_coordinate_descriptions_excluded": false,
+    "full_field_law_or_interacting_continuum_derived": false,
+    "principal_cone_criterion": true,
+    "source_radial_action_changed": false,
+    "source_selected_common_causal_field_clock": false
+  },
+  "source_bindings": {
+    "Lean/Geometry/CelestialSoldering.lean": "8d0ac8a061ea73c09869bfc74c5c60e1204e8a0d825e6fe9a259d4ebad74ecb1",
+    "Lean/Geometry/LorentzOverlapCocycle.lean": "c86d3f7eb320490bd944d3c05bb838115c3400e297a0731e311cf4c6b24ef025",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
+    "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+    "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/common_source/null_tomography.py": "7120491eb4d9ca841a5b519a61aa97c747ae68c0151d4b365e3ca3221ad1e5d1",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/field_cone_compatibility/PROOF.md": "f4ba430d0945d4a4f27b4e8b981c5b88b530827ca5451b7f6feb970582807344",
+    "model/field_cone_compatibility/README.md": "ad104539af8f4f92c7b6e3b90424b513c06be6c91eb7618f0bb31d918cd7ecf6",
+    "model/field_cone_compatibility/__init__.py": "7139839a5fdcca96cd32970c0bd3d7c8c9aea806cd675110dc3dbdbf8f43b02f",
+    "model/field_cone_compatibility/__main__.py": "e4c359e5590f007e0ce32aa075a65ae456d680414d9e34eeacca430df484ccfd",
+    "model/field_cone_compatibility/certificate.py": "98c527fa30347ca645658efce0d683752398f68e28c92209fbb953453c466846",
+    "model/field_cone_compatibility/cone.py": "ae16fda7741e6b684c624c7a5867a813e714b3db0aa8f69632774e5228e866c7",
+    "model/field_cone_compatibility/test_cone.py": "652217ed442e6d06a1d70e62f6630ac1d94967c00ecc11c918551a8b31bfb6e6",
+    "model/native_lorentz_transition/PROOF.md": "7c539590890400a7ff7841e84e0ba00eaeaf40091046ff36e3df70bc62e3e385",
+    "model/native_lorentz_transition/certificate.py": "961ca159c21774a40973062b63c54c1cd2f40f5fdb5d7bfc49613ed5c1e2f854",
+    "model/native_lorentz_transition/transition.py": "3d9b7e0037e4e7334a7aab92f8fc78a9f7bbd179d92e4a329afeab3f6d83a8be"
+  }
+}
