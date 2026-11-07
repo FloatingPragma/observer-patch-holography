@@ -71,6 +71,31 @@ are not identified by that comparison. This supplies one finite
 observation equivalence, without selecting physical space, a causal
 quotient, or a common field clock.
 
+The [weighted connected extension](../weighted_source_family/PROOF.md)
+uses the actual endpoint map on the source federation graph and supplies
+exact canonical restrictions, compatible product references, local positive
+population generators and capacity-independent modular current gaps. Its
+weight assignment is declared and the native program class rejects weighted
+federations. Cross-cell seams exchange local number; the conditional H66
+corner is not an autonomous capacity limit. The complete boundary comparison
+has no-crossing weight `(10/11)^k` through the `k`th internal repair under
+the uniform seam selector.
+
+The [configuration protocol](../native_effect_coverage/PROOF.md) supplies a
+bounded eleven-repair detector from native E records and current corrections.
+Existing coherent routing gives repeatable basis preparation and the inherited
+full finite tomographic menu. Its exact lazy/streamed execution and the stock
+expanded evaluator's resource stop are distinct outputs. Growing coherent
+service access and universal coexistent-effect implementation remain separate
+proof obligations.
+
+The [clock-identification test](../native_clock_comparison/PROOF.md) uses
+that source's existing Y probe to reject the proposed identity map from the
+record transfer clock to the working modular clock, with finite-time and
+complete implementation-error bounds. It gives an acceptance condition for
+the common-state map. It supplies no transfer-clock service, physical clock
+normalization or exclusion of different reference/encoding maps.
+
 ## How a protected defect becomes an observable particle
 
 A candidate starts as an operation on a specified source state, rather than

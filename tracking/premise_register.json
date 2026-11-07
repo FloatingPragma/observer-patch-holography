@@ -30111,7 +30111,10 @@
         "OPH-NATIVE-DISJOINT-RECORD-EXCHANGE",
         "OPH-NATIVE-GAUGE-TREE-PROPAGATION",
         "OPH-NATIVE-CANONICAL-RESTRICTION",
-        "OPH-NATIVE-CLOCK-OBSERVABLES"
+        "OPH-NATIVE-CLOCK-OBSERVABLES",
+        "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY",
+        "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+        "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON"
       ],
       "lean_files": [
         "Lean/Computation/FixedFederationComplexity.lean",
@@ -31799,6 +31802,33 @@
           "controls": "An explicit analyzer/native-read/record-controlled-correction protocol built only from existing coherent services.",
           "clock": "The named working-state modular clock and its stated compiled parameter domain; distinct from the reflected-record transfer Hamiltonian and uncalibrated as physical time.",
           "regime": "Finite noncommuting instruments and Robertson inputs; universal operational Born premises, physical CCR, growing coherent-service embedding and physical particle identity are not established."
+        },
+        "weighted_connected_native_repair_family": {
+          "carrier": "Complete binary tensor space on the declared finite graph, each invariant total-number sector, and arbitrary untouched references.",
+          "law": "Literal native endpoint translations and C/E raw codes with declared positive endpoint and seam weights; connected weighted bias is an extension rejected by the original native admission rule.",
+          "preparation": "The exact canonical diagonal reference or declared grand-canonical product family; no uniform finite preparation or unique coherent stationary-state theorem.",
+          "records": "Every raw, zero, hold and reserved-abort outcome, including terminal source/reference and complete boundary records.",
+          "controls": "Fixed independent seam selection and the stated boundary-hold comparison; no adaptive selector theorem or suppression of local number fluctuations.",
+          "clock": "Global attempts or immediate stopping at a specified internal repair count; algebraic product-reference modular covariance has separate execution requirements.",
+          "regime": "Finite weighted source consistency and exact comparisons; no selected physical capacity trajectory, coherent clock embedding, relativistic theory or measured particle identification."
+        },
+        "native_finite_effect_and_preparation_coverage": {
+          "carrier": "The complete weighted H66 carrier, its full encoded register and arbitrary untouched quantum references.",
+          "law": "Eleven fixed-seam native E repairs on a connected tree, retaining measured displacement and all complete raw outcomes.",
+          "preparation": "Record-controlled ideal basis reset and inherited quadrature preparations, with complete bounded-gain implementation errors; retained archives may stay correlated with the reference, and preparation separation uses one fixed identical input.",
+          "records": "All raw tree words, zero slots, FIFO exports, source-code failures and declared resource stops; decoded labels use only retained records.",
+          "controls": "The native tree, separately declared coherent reset and inherited tomography words, and at most 53 fair native suffix coins for diagonal dyadic refinements; no universal effect compiler.",
+          "clock": "Finite native attempts and stated coherent-service resources, represented by an exact lazy continuation evaluator distinct from generic expanded execution.",
+          "regime": "Finite exact ideal instruments, stable full-rank actual record functionals and separating successful preparation blocks with complete error bounds; no normalized numerical POVM assertion, universal operational Born discharge, physical clock or particle identification."
+        },
+        "native_operational_clock_comparison": {
+          "carrier": "The actual H66 working carrier and reference; identifying the separate scalar-record Hilbert space with it is the tested hypothesis.",
+          "law": "The fixed weighted native record transfer and the declared coherent Y readout, without introducing an executed transfer unitary.",
+          "preparation": "The faithful stationary working density or its certified finite native preparation; preparation-archive conditioning is excluded.",
+          "records": "All raw outcomes, zero slots, address exports and bounded clock/compiler failures; complete numerical outputs are not renormalized.",
+          "controls": "The existing Y analyzer and a hypothetical candidate clock with explicitly bounded complete error; reading declared source and clock specifications is allowed.",
+          "clock": "Transfer parameter 1/10 is compared against any modular parameter under the proposed reference-preserving identification; no physical time calibration.",
+          "regime": "Finite complete-output separation and a restricted encoding obstruction; no selected common physical clock, general encoding no-go, relativistic dynamics or particle masses."
         }
       },
       "bindings": [
@@ -39974,6 +40004,98 @@
             {
               "path": "model/native_clock_observables/PROOF.md",
               "anchor": "# Native clock observables"
+            }
+          ]
+        },
+        {
+          "id": "weighted-connected-native-repair-family",
+          "domain": "weighted_connected_native_repair_family",
+          "claims": [
+            "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY"
+          ],
+          "establishes": [
+            "weighted_connected_native_repair_family"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_weighted_connected_native_repair_family"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "complete_channel_boundary_coupling",
+            "elementary_symmetric_canonical_restriction",
+            "finite_conditional_repair_detailed_balance",
+            "product_reference_modular_covariance",
+            "reversible_population_symmetrization"
+          ],
+          "scope": "On a specified finite connected graph with positive vertex and seam weights, the literal native endpoint translations and complete C/E codes define a weighted number-preserving instrument. Its canonical fixed-number population law is proportional to the product of occupied vertex weights. Exact restriction gives every local number sector, with nesting and a consistent grand-canonical product family at a declared fugacity. Recorded modular current gaps depend on endpoint weight ratios and not global size or occupation; product-reference modular conjugation commutes with partial trace. Complete histories admit a boundary-cut error bound for fixed independent selectors, while the retained federation under its uniform seam selector with repair probability one gives no-boundary probability (10/11)^k through the kth internal cell repair. The symmetrized population generator is a sum of local positive projectors. The connected weighted extension is explicitly rejected by the unchanged native interpreter and is not a selected physical capacity family or coherent field Hamiltonian.",
+          "limitations": "The finite graph, positive weights, seam selector, total occupation and any fugacity are declared. Weighted local cells agree with the literal native interpreter; connected weighted federations are a specified extension, not admitted original programs. Reference restrictions retain all local number sectors. Complete boundary comparisons use independent fixed selectors, repair probability one, matching raw alphabets and arbitrary correlated source/exterior/reference inputs. Local-clock stopping is immediately at the kth internal repair. Modular covariance is algebraic and supplies no growing compiled clock service. Population relaxation is not identified with a physical Hamiltonian or relativistic propagation.",
+          "sources": [
+            {
+              "path": "model/weighted_source_family/PROOF.md",
+              "anchor": "# Weighted repair across connected cells"
+            }
+          ]
+        },
+        {
+          "id": "native-finite-effect-and-preparation-coverage",
+          "domain": "native_finite_effect_and_preparation_coverage",
+          "claims": [
+            "OPH-NATIVE-FINITE-EFFECT-COVERAGE"
+          ],
+          "establishes": [
+            "native_finite_effect_and_preparation_coverage"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_finite_effect_and_preparation_coverage"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "finite_informationally_complete_tomography",
+            "finite_partial_injection_measurement_instruments",
+            "finite_rank_perturbation_bounds",
+            "proper_code_complete_error_composition",
+            "rank_one_positive_cone_support",
+            "record_counting_diagonal_coexistent_refinement",
+            "tree_contrast_reconstruction_with_recorded_displacement"
+          ],
+          "scope": "For the fixed weighted H66 source, eleven actual E repairs on a connected seam tree reconstruct the initial occupation from retained contrasts and currents and supply all 66 basis effects. Every nonzero fine branch maps its decoded initial basis vector to its decoded terminal vector. Separately declared coherent words controlled only by records supply ideal basis restoration or preparation of a chosen basis state, with complete implementation allowances. Combining this detector and reset with inherited tomography yields 4291 measurement settings and 4356 spanning preparations. Exact perturbation bounds also preserve full rank of the stored-primitive record functionals and separation by their successful preparation blocks; rounded maps are not asserted to be normalized POVMs or exact pure replacements. Up to 53 fair native suffix coins give shared refinements of declared diagonal dyadic effects. An exact lazy continuation-kernel representation retains all raw words; the generic expanded interpreter retains its resource stop. The specified ideal positive menu omits an explicit unequal-weight rank-one effect. These results do not establish universal effect realization, coexistence or operational Born premises.",
+          "limitations": "The source is the fixed weighted H66 member with its declared native endpoint laws, full E records and admitted fixed tree commands. The factorized continuation evaluator represents all raw words, including zeros; it is distinct from generic expanded execution and its resource stops. Coherent restoration, preparation and tomography use separately declared proper-code services with complete error, padding and processor-failure accounting. Hidden initial labels verify the record decoder but are not observer controls. Exact ideal effects and pure replacements are distinguished from bounded-gain stored-primitive functionals and positive successful preparation blocks with bounded normalization error; no normalization is imposed. Preparation separation uses one fixed identical initial input across settings. Diagonal refinement uses at most 53 exact fair native coins, and its suffix can disturb the source. The positive-menu obstruction concerns the specified single-analyzer ideal menu, not all admitted protocols. The runtime Kraus trace semantics is consumed; universal Born and coexistence premises remain separate.",
+          "sources": [
+            {
+              "path": "model/native_effect_coverage/PROOF.md",
+              "anchor": "# Native measurement and preparation coverage"
+            }
+          ]
+        },
+        {
+          "id": "native-operational-clock-comparison",
+          "domain": "native_operational_clock_comparison",
+          "claims": [
+            "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON"
+          ],
+          "establishes": [
+            "native_operational_clock_comparison"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_operational_clock_comparison"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "Hermitian_commutator_Taylor_bound",
+            "complete_channel_error_composition",
+            "finite_spectral_logarithm_remainder",
+            "partial_injection_record_phase_cancellation",
+            "positive_finite_record_transfer_logarithm"
+          ],
+          "scope": "For the fixed weighted H66 source, identifying its scalar-record transfer generator H=-log(S) with the working carrier in the existing configuration basis fails an operational stationary-reference test. The actual complete Y readout has mean greater than 1/2000 at transfer parameter 1/10 under this proposed unitary, whereas every modular-clock parameter leaves the working reference and its zero Y mean unchanged. Exact logarithm and Taylor bounds, native preparation error and complete detector allowances retain half trace separation greater than 1/5000 when each hypothetical clock service meets the stated 1/100000 error budget. Reference-preserving unitary intertwinings are excluded; general encodings or different references are not. Bare repair-record/reference outputs are insensitive to interleaved diagonal phases after tracing the working carrier. Reading clock specifications remains allowed. No transfer-clock implementation, physical time or particle mass is derived.",
+          "limitations": "The source is the fixed biased H66 member with its faithful working reference and declared compiled Y instrument. Scalar-record transfer and working Hilbert spaces are identified only as a hypothesis under test; their pure ground direction and mixed preparation are not equated. Preparation-archive conditioning is excluded by the inherited reduced-reference bound. Every native outcome and compiler/clock failure is retained, with zero abort score and no numerical normalization. The clock-service approximation is a conditional budget, not a supplied implementation. Phase blindness concerns bare repair records under a common policy and allows source/specification access. General reference-changing encodings and physical time calibration need independent comparisons.",
+          "sources": [
+            {
+              "path": "model/native_clock_comparison/PROOF.md",
+              "anchor": "# Comparing the working clock with record transfer"
             }
           ]
         }

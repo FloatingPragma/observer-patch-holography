@@ -20,6 +20,9 @@ from ..native_record_response import response as record_response
 from ..native_record_causality import packet as record_causality
 from ..native_gauge_strings import certificate as gauge_strings
 from ..native_clock_observables import packet as clock_observables
+from ..weighted_source_family import packet as weighted_family
+from ..native_effect_coverage import packet as effect_coverage
+from ..native_clock_comparison import packet as clock_comparison
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -40,7 +43,8 @@ def source_bindings():
     })
     paths.update(uncertainty.source_bindings())
     for producer in (capacity_restriction, record_response, record_causality,
-                     gauge_strings, clock_observables):
+                     gauge_strings, clock_observables, weighted_family,
+                     effect_coverage, clock_comparison):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
@@ -66,11 +70,17 @@ def report():
     causal_records = record_causality.produce()
     strings = gauge_strings.produce()
     observables = clock_observables.produce()
+    weighted = weighted_family.produce()
+    effects = effect_coverage.produce()
+    clocks = clock_comparison.produce()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
                             (gauge_strings, strings),
-                            (clock_observables, observables)):
+                            (clock_observables, observables),
+                            (weighted_family, weighted),
+                            (effect_coverage, effects),
+                            (clock_comparison, clocks)):
         if value != strict_json.load(producer.OUTPUT):
             raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
     if frames != strict_json.load(lorentz.OUTPUT):
@@ -95,6 +105,9 @@ def report():
         "disjoint_native_complete_record_equivalence": causal_records,
         "declared_gauge_tree_propagation": strings,
         "native_coherent_clock_observables": observables,
+        "weighted_connected_source_extension": weighted,
+        "native_operational_effect_coverage": effects,
+        "native_clock_comparison": clocks,
         "passive_source_clock_boundary": passive_clock.certificate(),
         "causal_dataflow": dataflow.certificate(),
         "native_lorentz_transitions": frames,
@@ -113,6 +126,9 @@ def report():
                                            "reflected native record transfer and clock distinction",
                                            "adaptive independent-product dynamic restriction",
                                            "native coherent Pauli instruments and finite uncertainty",
+                                           "weighted connected repair references and boundary comparison",
+                                           "complete native configuration readout and coherent effect coverage",
+                                           "operational separation of working and record-transfer clocks",
                                            "finite null-transition and field-cone criteria"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
@@ -122,6 +138,7 @@ def report():
             "native_record_relaxation_factors_are_particle_masses": False,
             "record_transfer_and_working_modular_clocks_identified": False,
             "coherent_clock_services_lifted_to_growing_family": False,
+            "weighted_connected_extension_admitted_by_native_program": False,
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,

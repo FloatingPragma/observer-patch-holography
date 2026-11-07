@@ -109,6 +109,26 @@ interfaces within the declared coherent service model. Universal effect
 coverage, a growing service embedding, physical momentum and the common
 interacting vacuum are separate requirements.
 
+The [connected weighted construction](../../model/weighted_source_family/PROOF.md)
+gives a precise capacity continuation candidate for the native endpoint law.
+Its fixed-number reference uses weighted elementary symmetric polynomials;
+the local modular current gap `j*log(w_a/w_b)` is independent of total
+occupation and graph size. The repeated weight assignment is declared and
+weighted connected federations are outside the native program admission rule.
+The source graph's three crossing seams per cell exchange loads, so conditioning
+a cell to H66 does not make that corner invariant. At fixed local repair count
+`k` under the uniform seam selector, the no-crossing probability is `(10/11)^k`
+at every federation level.
+Neither capacity independence of a modular gap nor this conditional H66
+reference identifies a Higgs vacuum, physical energy or particle mass.
+
+The [operational clock test](../../model/native_clock_comparison/PROOF.md)
+excludes equating the record transfer evolution with the working modular clock
+on the same reference and readout. A complete native Y experiment separates
+their proposed outputs by more than `1/5000` in half trace norm under its stated
+preparation and service-error budgets. A different source-to-field encoding
+must supply its own prepared-state and complete-record comparison.
+
 ## Complete finite Higgs experiment and its source boundary
 
 The [interacting Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)

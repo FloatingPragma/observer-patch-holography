@@ -872,6 +872,27 @@ Physical time, spatial locality, operator-valued history positivity and
 particle masses require additional maps
 (\path{model/native_record_response/TRANSFER.md}, \cite{ophrepo}).
 
+\paragraph{Operational clock comparison.}
+The distinction has a finite operational witness. For the accessible $Y$
+probe on seam $(1,7)$, the working state $\Pi$ has zero mean under every
+modular-clock time. The proposed identity identification with
+$e^{-itH_{\rm tr}}$ instead gives
+\[
+ f(t)=\operatorname{Tr}(Y e^{-itH_{\rm tr}}\Pi e^{itH_{\rm tr}}),
+ \qquad f'(0)>\frac7{1000},\qquad f(1/10)>\frac1{2000}.
+\]
+A rational degree-ten logarithm enclosure proves the derivative bound.
+Reality makes $f$ odd, and $\|H_{\rm tr}\|<103/200$ controls the cubic
+remainder. The native preparation and complete analyzer bounds leave an
+output half-trace separation greater than $1/5000$ if both proposed clock
+services have half-diamond error at most $10^{-5}$. This rejects their
+identification on the same working reference, including reference-preserving
+unitary changes of basis. It neither executes the transfer unitary nor
+excludes a different state/readout map. Bare repair records, with the final
+carrier traced, are insensitive to any interleaved diagonal phases; the
+declared coherent analyzer supplies the phase-sensitive readout
+(\path{model/native_clock_comparison}, \cite{ophrepo}).
+
 \paragraph{Complete records for disjoint repairs.}
 For two fixed native commands with disjoint endpoints, every pair of actual
 raw Kraus operators commutes on the full $66$- or $78$-state carrier.
@@ -936,6 +957,43 @@ fair federation fails: the same coin record has probabilities $25/33$
 and $1/2$, giving total variation at least $17/66$
 (\path{model/native_capacity_restriction/PRODUCT.md}, \cite{ophrepo}).
 
+\paragraph{Connected weighted references.}
+The same endpoint rule has a consistent weighted extension on the retained
+connected federation graph. For positive vertex weights $w_i$, write $e_m(w)$
+for the elementary symmetric polynomial and set
+$\pi_m(S)=\prod_{i\in S}w_i/e_m(w)$ on $|S|=m$. Every seam preserves this
+reference by conditional heat-bath detailed balance. Its full restriction to
+$A$ has number weights
+\[
+ h_A(k)=\frac{e_k(w_A)e_{m-k}(w_{A^c})}{e_m(w)}.
+\]
+These restrictions compose. Repeating the local weight word gives the H66
+reference conditional on two loads in a cell; cross-cell repair changes
+that local number. The faithful product family with occupations
+$p_i=zw_i/(1+zw_i)$ also restricts exactly for fixed fugacity $z$ and inherited
+weights. The modular transfer $j\log(w_a/w_b)$ is independent of total
+occupation and graph size. It is not a particle mass.
+
+For a fixed independent seam selector, replacing crossing repairs by a complete
+hold control changes the $t$-attempt channel by at most
+$1-(1-\beta)^t$ in half diamond norm, where $\beta$ is its boundary-selection
+probability. Each cell has thirty internal and three crossing seams. Under
+the uniform seam selector, through
+the $k$th internal repair, the no-crossing probability is $(10/11)^k$ at every
+federation level; increasing exterior capacity does not establish vanishing
+error in that local clock. Symmetrizing the same population law gives local
+positive terms
+\[
+ h_{ab}=\frac1{w_a+w_b}
+ \begin{pmatrix}w_b&-\sqrt{w_aw_b}\\-\sqrt{w_aw_b}&w_a\end{pmatrix}
+\]
+on $|10\rangle,|01\rangle$, zero on $|00\rangle,|11\rangle$.
+Their weighted sum annihilates $\sqrt{\pi_m}$. This is a relaxation
+representation. The weight assignment and fugacity are declared, and the
+native program admission rule rejects weighted connected federations; no
+source selection, prepared coherent ground or relativistic limit is inferred
+(\path{model/weighted_source_family}, \cite{ophrepo}).
+
 \subsection{Native clock observables}
 \label{sec:native-clock-observables}
 
@@ -984,6 +1042,39 @@ they are outside the bare repair/hold grammar. This finite measurement menu
 supplies neither universal implementation independence for every complex
 effect nor a physical position--momentum relation
 (\path{model/native_clock_observables}, \cite{ophrepo}).
+
+\paragraph{Configuration readout and repeatable preparation.}
+There is a bounded contrast-record detector on this same sector. Perform
+one native E repair on each edge of a fixed spanning tree of the twelve
+ports. Let $u_i$ be the accumulated recorded change of occupation at port
+$i$. An incoming contrast $d$ on $(a,b)$ gives the initial difference
+$n_a(0)-n_b(0)=d-u_a+u_b$; the retained current updates $u$ after that read.
+The eleven differences and $\sum_i n_i(0)=2$ determine the initial
+configuration. Thus every nonzero fine history has a rank-one map
+$K_h=\sqrt{p_h}\,|x_h\rangle\langle x_0|$, and coarse graining by the
+decoded $x_0$ gives the full computational projective measurement.
+All $25^{11}$ formal raw words are retained in an exact lazy representation;
+$66\,2^{11}=135168$ words have nonzero maps. One queue slot and ten exports
+suffice for the eleven-step record protocol. Streamed branch continuation
+uses the existing native transition kernel and authenticates its records.
+The stock expanded evaluator's resource stop after three steps is retained
+as a separate return; it is not equated with the lazy evaluator.
+The nine-bit coherent words use the direct source compiler; the generic
+word evaluator has a six-qubit host ceiling.
+
+The terminal configuration is also known from the currents. Existing coherent
+bit routing maps its code either back to $x_0$ or to a fixed target code.
+The ideal corrected maps therefore give the basis L\"uders instrument or the
+replacement channel $\rho\mapsto|x_*\rangle\langle x_*|\operatorname{Tr}\rho$,
+including untouched references. This supplies repeatable preparation to the
+existing pair-analyzer architecture: its $4291$ settings span all $4356$
+Hermitian coordinates. Complete compiler bounds and export outcomes accompany
+these compositions. The rounded maps have bounded normalization error;
+their positive record functionals retain full rank without output
+renormalization. Coherent service semantics are declared, and finite
+tomographic coverage does not prove universal coexistent-effect realization
+or a growing field-observable family
+(\path{model/native_effect_coverage}, \cite{ophrepo}).
 
 \subsection{Protected charge and its native reference}
 \label{sec:protected-native-reference}

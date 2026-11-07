@@ -89,6 +89,22 @@ bounds. Neither this finite Robertson application nor the positive
 transfer reconstruction identifies a position–momentum pair or converts
 the 65 relaxation/transfer levels into physical rest masses.
 
+The [same-reference clock test](../../model/native_clock_comparison/PROOF.md)
+provides a quantitative boundary for converting response poles into energies.
+The native Y mean stays zero under the working modular clock. The proposed
+transfer continuation on the working density gives a mean greater than
+`1/2000` at parameter `1/10`; preparation and readout bounds preserve complete
+output separation greater than `1/5000` under the specified clock allowances.
+This tests a candidate identification and does not implement the transfer
+unitary. Different state/readout maps require separate proofs.
+
+The [weighted connected family](../../model/weighted_source_family/PROOF.md)
+also separates two capacity effects. The stationary normalization depends on
+size and occupation, while a recorded modular transfer gap is exactly
+`j*log(w_a/w_b)` and loses that normalization. Boundary exchange changes local
+number and dynamics even when this algebraic gap is size independent. These
+facts supply no physical pole mass or measured mass ratio.
+
 ## Declared mass operators and comparison inputs
 
 The executable construction has both an empirically calibrated Standard Model

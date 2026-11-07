@@ -103,6 +103,30 @@ is distinct from passive repair and from the repair-only product lift.
 This finite menu also does not implement every complex effect or every
 coexistent pair required by the universal operational Born bridge.
 
+The [eleven-attempt configuration detector](../../model/native_effect_coverage/PROOF.md)
+uses all incoming contrasts on a spanning tree, corrected by previously
+recorded currents. It determines the initial configuration on the full
+66-state sector and gives rank-one complete history maps. Existing coherent
+routing then produces ideal basis Lueders readout or a fixed pure basis
+preparation. The rounded maps have bounded normalization error, and their
+positive record functionals retain full rank. The inherited pair-analyzer tomography has all 4356 Hermitian
+coordinates and 4291 settings; its detector can use this bounded tree protocol.
+All exports and compiler failures are retained. The exact lazy evaluator and
+streamed branch continuation are distinguished from the expanded evaluator's
+resource stop. The nine-bit coherent words use the direct source compiler;
+the generic `execute_word` host is limited to six qubits. The coherent
+services and quantum semantics are declared.
+Finite tomographic completeness does not establish arbitrary-effect realization
+or coexistent-event refinement on a growing field family.
+
+The [clock comparison](../../model/native_clock_comparison/PROOF.md) makes
+one field-selection condition operational: the working modular clock fixes
+the prepared reference, whereas the proposed transfer evolution on that same
+state changes an accessible Y mean. Their complete outputs have a certified
+separation under explicit errors. Reading the simulator is permitted; the
+phase blindness theorem concerns bare repair records with the working carrier
+traced, not source-code or clock-specification readout.
+
 ## Born weights and the executable model
 
 The [finite effect-valuation theorem](../../Lean/EventAlgebra/FiniteBuschGleason.lean)
