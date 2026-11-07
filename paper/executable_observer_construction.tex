@@ -162,6 +162,10 @@ algebras. For a binary configuration occupied at ports $u$ and $w$ we also write
 
 Ports are numbered $0$ to $11$ by the frame vectors $u_p$: $(-1,\varphi,0)$, $(1,\varphi,0)$, $(-1,-\varphi,0)$, $(1,-\varphi,0)$, $(0,-1,\varphi)$, $(0,1,\varphi)$, $(0,-1,-\varphi)$, $(0,1,-\varphi)$, $(\varphi,0,-1)$, $(\varphi,0,1)$, $(-\varphi,0,-1)$, $(-\varphi,0,1)$, with $\varphi=(1+\sqrt5)/2$. The thirty seams are the pairs with $\lvert u_a-u_b\rvert^2=4$, each written $(a,b)$ with $a<b$, and that order is the orientation used by the repair law below \cite{csSLOW,csCAUS}.
 
+The construction takes this incidence as a design input. The carrier paper gives
+a conditional selector of the same unoriented incidence from a supplied
+three-dimensional quadratic readout \cite{ophmicro}.
+
 Premise A1 of the theorem library is the layer of carriers, their federation
 through typed seams and coherent triple overlaps, the oriented spherical
 support and the complete reversible port response \cite{axref}. The
@@ -199,14 +203,7 @@ random choice independent of the loads, and (iv) be invariant under exchange
 of the two endpoints. Then it is \eqref{eq:native} with a fair coin.
 \end{proposition}
 
-\begin{proof}
-By (i) and (ii) the outputs are the floor and the ceiling of the mean. An odd
-total leaves two outputs, and by (iii) endpoint $a$ receives the ceiling with
-a constant probability $q$. Exchange of the endpoints maps $q$ to $1-q$, so
-(iv) gives $q=\tfrac12$.
-\end{proof}
-
-Without (iii), the rule that leaves the extra unit with the endpoint holding
+The carrier paper proves this characterization \cite{ophmicro}. Without (iii), the rule that leaves the extra unit with the endpoint holding
 more satisfies the other three requirements. It fixes every binary
 configuration, so the binary shell carries no motion and the records carry
 no geometry. Requirement (iii) is an independent restriction on the
@@ -312,7 +309,7 @@ On $\Hil_{78}$ the free entries are five multipliers: $k$ between the empty
 and the full seam, $g$ between the empty seam and a waiting single load, $h$
 between the full seam and a waiting single load, a real $m$ between the two
 waiting orientations, and $n$ between a moving single load and a moving
-collision. Positivity gives $\lvert g\rvert,\lvert h\rvert,\lvert
+collision. Positivity gives $\lvert k\rvert\le1$, $\lvert g\rvert,\lvert h\rvert,\lvert
 n\rvert\le2^{-1/2}$ and $\lvert m\rvert\le\frac12$, and $k=1$ forces
 $g=h$. Repairing one seam with $(k,g,h,m,n)$ and then with
 $(k',g',h',m',n')$ gives $(kk',gg',hh',mm',n\bar h')$. Exactly two admissible
@@ -320,19 +317,8 @@ laws are idempotent, those with $g=h=m=n=0$ and $k\in\{0,1\}$, and every law
 with $k=1$ converges under repetition to the idempotent law with $k=1$.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-Covariance places $\Phi(\ket x\bra{x'})$ in the span of units $\ket
-y\bra{y'}$ with $y-y'=x-x'$. Complete positivity confines nonzero Choi
-entries to pairs with nonzero diagonal, which the classical law makes
-$(x,x+jD)$, so both sides carry the same current and the Choi matrix is the
-direct sum of the $G_j$. Trace preservation and the classical law fix the
-diagonals, and spectator invariance makes each $G_j$ a function of the seam
-keys. Under repetition every coherence keeps its seam key, so each multiplier
-applies again; idempotence requires $k,g,h,m\in\{0,1\}$ and $n=n\bar h$, and
-the bounds leave $g=h=m=n=0$. Exact arithmetic in $\mathbb Q(\sqrt2)(i)$
-checks the composition law on every pair of seam keys for 64 ordered pairs
-of tables and on all 6,084 matrix units for two pairs \cite{mRECORDLAWS}.
-\end{proof}
+The carrier paper proves this classification \cite{ophmicro}, and the exact
+composition checks are retained with the record-law receipt \cite{mRECORDLAWS}.
 
 \begin{figure}[!htb]
 \centering
@@ -495,7 +481,13 @@ instrument of Section~\ref{sec:common-construction} uses native integer
 repair as a declared primitive, and Section~\ref{sec:continued-native}
 attaches the compiled 78-dimensional C/E channels, routing and encoded
 recovery to the continuing work history. The processor algebra is $M_6$; its twelve generators are the exact source generators of the compiler, one per port \cite{ssREADME,csDERIV}; a proper code is a two- or four-dimensional subspace of $\C^6$ with its load and export channels and the complementary failure outcome; and the service error model is the compositional contract of Section~\ref{sec:ce-source}. Exact certificates exclude numerical execution error
-and physical service error unless a component states otherwise.
+and physical service error unless a component states otherwise. Direct native
+acceptance effects are diagonal, so complex tomography of the binary shell, with
+real and imaginary analyzers on all $4{,}356$ Hermitian coordinates, uses these
+coherent services \cite{nativeInterface}. A finite native warm-up replaces exact
+stationary input for one complete readout (Section~\ref{sec:prepared-readout}), and
+Table~\ref{tab:native-supplied} separates what repair and its counts supply from
+what each result declares.
 
 \subsection{The closure inputs \texorpdfstring{$P$}{P} and \texorpdfstring{$N$}{N}}
 \label{sec:closure-inputs}
@@ -513,12 +505,13 @@ construction does not make.
 
 The construction keeps the time parameters of Table~\ref{tab:time} distinct.
 Conversions between them need explicit maps. The
-construction uses three: the fixed-reference relation $t=-\beta s$ of
+construction uses four: the fixed-reference relation $t=-\beta s$ of
 Section~\ref{sec:readouts} between a model coordinate and a modular
-parameter, the instrument-valued conversion between two local event clocks
-of Section~\ref{sec:event-clocks}, which keeps their whole count law, and
-the rescaling of native attempt count along the refining screens of
-Section~\ref{sec:native-history}. A calibration of native calls against a
+parameter, the closed-history relation $\tau=-Ls$ of the observers paper
+\cite{ophobservers}, the instrument-valued conversion between two
+local event clocks of Section~\ref{sec:event-clocks}, which keeps their whole
+count law, and the rescaling of native attempt count along the refining screens
+of Section~\ref{sec:native-history}. A calibration of native calls against a
 monotonic host counter is an engineered software correspondence. No
 preferred universal physical clock is required.
 
@@ -535,10 +528,11 @@ Host time & Runtime of a software execution; a resource cost & A software calibr
 Solver counter & Position in a search or repair schedule; the attempt count of a declared schedule & History repair (Section~\ref{sec:history-repair}); attempt counts in the observer theorems\\
 Causal order & Precedence of recorded events; counts of native operations & Observers, detectors, phase protocol, local ticks\\
 Local event count & Attempted repairs incident to an observer region, or occupation changes at a port & Overlapping observers, local and active event clocks, matched screens (Section~\ref{sec:native-process})\\
+Closed-history length & Integer attempt count $L$ of a closed native return, the inverse-temperature multiplier of the closed-history functional & Closed-history functional and modular correlations (Section~\ref{sec:native-counts})\\
 Scaled attempt count & Native attempt count $n$ at level $l$ rescaled to $\tau=n/(1260\cdot16^l)$ on the refining screens & Native density limits and the controlled repair response (Sections~\ref{sec:density}, \ref{sec:prediction})\\
 Coherent wave parameter & Parameter of the admitted coherent continuation $\cos(t\sqrt A)$ & Native waves and the return reference (Sections~\ref{sec:continuum}, \ref{sec:product-interacting})\\
-Model coordinate & Parameter of a declared Hamiltonian or action & Scalar detectors, two-site apparatus, common source\\
-Modular parameter & Parameter of the modular automorphisms of an algebra-state pair & Modular clock and fixed-reference relation (Section~\ref{sec:readouts})\\
+Model coordinate & Parameter of a declared Hamiltonian or action & Scalar detectors, two-site apparatus, common source, compact interacting core\\
+Modular parameter & Parameter of the modular automorphisms of an algebra-state pair & Modular clock and fixed-reference relation (Section~\ref{sec:readouts}), closed-history and regional references (Sections~\ref{sec:native-counts}, \ref{sec:interacting-instruments})\\
 Operational clock & Observer-accessible reading with calibrated duration & Supplied by no component\\
 \bottomrule
 \end{tabular}
@@ -1144,7 +1138,7 @@ for the actual successful marginal $S_{\rm raw}$, without a reducing-band
 premise. The derived partition bound permits $N=2^l$ copies with copy,
 preparation and detector errors tending to zero on a fixed positive band.
 Growing execution, spectral tails, accurate source services and a zero-energy
-anchor for the radial product remain obligations, and fixed caps with
+anchor for the radial product lie outside these bounds, and fixed caps with
 $N_ch\to0$ force the bounded-band generator to zero; the uncapped sampler has
 infinite expected work because the constant sector survives every filter
 \cite{nativePredictions}.
@@ -1425,6 +1419,29 @@ C and E give identical classical records in this protocol and different
 reference coherences \cite{nativeScreenObserver}. The native continuum
 operator of the refining screens and its density, wave and response limits
 are stated in Section~\ref{sec:native-history}.
+
+\subsection{What the native counts supply}
+\label{sec:native-counts}
+
+Let $C_{xy}$ count the sixty seam and coin branches taking a binary configuration
+$x$ to $y$ and put $P=C/60$. Every attempt counts, including zero currents, so this
+complete-attempt transfer differs from the incident transfer $F$ of
+Proposition~\ref{prop:correspondence}. Its closed histories give the positive
+functional $\rho_L=P^L/\Tr P^L$ on the $66$-state matrix algebra through a chosen
+linear extension, and the same path counts give ordered modular correlations with
+generator $H=-\log P$ and conventional Heisenberg time $\tau=-Ls$. The entries of
+$\rho_L$ are classical endpoint probabilities divided by the return probability,
+native C and E evolution converges to $I/66$ without preparing it, and the
+current-only adapter uses at most $11{,}398$ attempts per experiment; the observers
+paper proves these statements \cite{ophobservers}.
+
+Binary repair is exact conditional resampling at constant energy under the declared
+fair coin. A stopped coin prefix with stored cost $E=n\log2$ gives a bounded register
+refresh that inhabits the finite four-law core in internal record-cost units; that core
+holds for every full-support law with $E=-\log(\mathrm{ref})$ and formalizes no contact
+relation \cite{ophobservers}. The transfer spectrum and compact cores of the same
+kernel are in the particle paper \cite{ophparticles}, and regional entropy on the
+reference $C^2/171720$ is in the Einstein paper \cite{ophspacetime}.
 
 \section{Field detectors on supplied actions}
 \label{sec:fields}
@@ -2098,8 +2115,8 @@ or an autonomous observer.
 
 The readouts below extract observer representations, modular flow and
 regional structure from the same executed history \cite{csOBS}. The quantum
-algebra, state pairing and access choices are premises; the Born rule is not
-derived from native repair.
+algebra, state pairing and access choices are premises, and the Born readout of
+these instruments is a declared service (Section~\ref{sec:services}).
 
 \begin{proposition}[Observer representations of the executed history]
 \label{prop:gns}
@@ -2226,6 +2243,46 @@ auxiliary solver is a host computation distinct from a native hardware
 process.
 
 \input{tex_fragments/SAME_ACTION_FINITE_INTERFACES.tex}
+
+\subsection{Compiled instruments on interacting sources}
+\label{sec:interacting-instruments}
+
+Three executed components act on specified interacting sources. This subsection gives
+their resources, retained records and error bounds; the owning papers give the
+mathematics.
+
+\paragraph{The composite probe.}
+On the authenticated hidden-frame ground preparation of the open eight-site
+Weyl/contact source, whose inherited $262{,}137$ pulses are not reexecuted, a selector
+word of $1{,}008$ source pulses in $56$ contraction blocks with five work bits implements
+the success Kraus operator $C_0/3$ of the composite charged probe of the particle paper
+\cite{ophparticles}. It retains all $7{,}776$ raw selector records, native export
+failures, inherited preparation aborts and $2{,}097{,}152$ coherent joint amplitudes over
+$256$ reference columns. Its complete operator error is below $1.6\times10^{-13}$ on every
+field input and untouched reference, and its success probability is approximately
+$0.08261623248916$ \cite{compositeProbe}. It detects the total response, with no executed
+clock resolving the $138$ spectral lines.
+
+\paragraph{Intervening observations.}
+On the compact $180$-mode core the complete-history comparison of the particle paper
+\cite{ophparticles} retains every native record, detector result, feedback choice and
+the final field and reference state, with the memory continuing by its actual transition
+law. Its rational schedule for three intervals of duration $1/3$ and complete accuracy
+$1/100$ requires $46{,}370{,}150{,}349$ native steps, a finite resource bound. An independent
+execution of the $128$-record law with binary filters of probability $3/8$ retains all $12$
+old memory inputs and $512$ fine labels on a four-mode probe, reaching $52{,}488$
+class-history rows at four steps per interval, and obeys the bound
+\cite{interactingObservation}.
+
+\paragraph{The regional modular actuator.}
+On the prepared open plaquette, a palindromic source word for the regional modular
+polynomial at dimensionless parameter $1/2$ executes all $39$ Pauli terms on all $16$
+regional input columns in $37{,}568$ pulses, with the same number of proper-code loads and
+exports. It retains the eight preparation record bits, every earlier abort, every
+first-failure output, the exterior field bits and any untouched reference, and its
+complete half-diamond error is below $6.4\times10^{-9}$, with no postselection on source
+success \cite{regionalModular}. The Einstein paper states the theorem \cite{ophspacetime};
+this operational clock identifies no geometric flow or physical duration.
 
 \section{One repair history: geometry, continuum, clocks and fields}
 \label{sec:native-history}
@@ -2729,7 +2786,21 @@ commutator in this bounded-overlap regime is zero. Refinement-rescaled time,
 other states and other fluctuation regimes are not excluded
 \cite{nativeContinuum}.
 
-\input{tex_fragments/COMMON_MATTER_METRIC_AND_RESPONSE.tex}
+\section{A common matter metric and its gravitational response}
+\label{sec:common-matter-metric-response}
+
+The conditional scalar description supplies a concrete dictionary for comparing
+matter and geometry. With coefficient density $C=\mu\operatorname{diag}(-1,1,a)$
+and metric $g=\sqrt{-\det C}\,C^{-1}$, the scalar wave symbol, both Weyl principal
+determinants and the Maxwell symbol share one characteristic cone, and the product
+has induced measures $dA=\mu\,d^2x$ and $dV=\mu N\,dr\,d^2x$ with
+$N^2=\mu\sqrt{\det a}$. The same dictionary yields a control. Both radial null
+Einstein contractions of a smooth static product vanish, while a coherent scalar
+excitation has positive relative null stress, so that geometry cannot satisfy the
+Einstein balances for the reference and the excitation at positive coupling with
+other sources fixed. The spacetime paper \cite{ophspacetime} proves these statements,
+gives the finite field operators and entropy variations, and derives the necessary
+area-response equations.
 
 \section{Prediction protocols}
 \label{sec:prediction}
@@ -2980,6 +3051,25 @@ $1/1570800$ per complete trial would suffice for a one-percent bound, and
 that allowance is not authenticated \cite{nativeProtocol}. Two consecutive
 trials per candidate and their reference controls are executed.
 
+\subsection{Native preparation and calibration of a complete readout}
+\label{sec:prepared-readout}
+
+The clocked phase and work readout is a complete instrument at cap $N$: an independent
+work preparation, a fixed-seam native herald of useful yield $5/33$, stopping slots, a
+supplied balanced mixer, the native phase pointer, all sixteen work records and their
+feedback, the failed herald and two unmeasured timeouts, with $128N+3$ joint suffix
+records \cite{clockedReadout}. Nineteen fixed-order sweeps of the thirty seams, $570$
+native attempts with the tape ignored and no conditioning, replace its exact input
+$I/66$ and initial binary support: every density on $\Hil_{78}$, with any finite untouched
+reference, reaches the stationary reference within half trace norm
+$3.7187\times10^{-8}$, and at cap $64$ all $8{,}195$ suffix records enter a complete comparison
+below $3.03719\times10^{-6}$ \cite{preparedReadout}. Joint preparation-and-return tests on a
+trusted basis and on one uniform coherent vector per outcome block of rank above one
+determine a complete L\"uders instrument, with a reference-uniform error bound
+\cite{instrumentCalibration}. The observers paper proves both theorems
+\cite{ophobservers}. The total-two sector, the quantum instrument semantics, the coherent
+mixer, the work action, the trusted tests and the model clock are inputs.
+
 \subsection{Native records against public data}
 \label{sec:public-records}
 
@@ -3028,9 +3118,37 @@ model, whose action and apparatus do not follow from native repair.
 A conclusion supplies a subsequent theorem's premise only on the same
 state, algebra, operation, clock and refinement domain, with compatible
 error bounds. The model--theorem crosswalk records these maps
-\cite{mPREMISES,mMAP}. Finite realization does not establish its physical
-interpretation. The following entropy bounds and countermodels constrain
-that interpretation without excluding other specified designs.
+\cite{mPREMISES,mMAP}, and Table~\ref{tab:native-supplied} states the division of
+supply for the main results. No measured particle mass is derived anywhere in this
+construction, and its finite energies carry no physical unit. Finite realization
+does not establish its physical interpretation. The following entropy bounds and
+countermodels constrain that interpretation without excluding other specified
+designs.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{What native repair and its counts supply and what each result declares.}
+\label{tab:native-supplied}
+\begin{tabular}{@{}L{0.22\linewidth}L{0.37\linewidth}L{0.35\linewidth}@{}}
+\toprule
+\textbf{Result} & \textbf{From native repair and counts} & \textbf{Declared input}\\
+\midrule
+Seam rule and record family & Current law, coherence table, uniform stationary density, gap $(5-\sqrt5)/60$ & Tie-break and covariance premises, uniform schedule, fair coin\\
+Binary repair \cite{ophobservers} & Conditional resampling at constant energy, entropy identities, complete tape accounting & Total-two sector, fair coin, exogenous schedule\\
+Record costs \cite{ophobservers} & Prefix weights, Gibbs register reference, bounded refresh kernels & Fair coin, stopping rule, multiplier $b$, comparison controller\\
+Closed-history functional \cite{ophobservers} & Count moments, $H=-\log P$, modular correlations from path counts & Linear extension, complexification, census settings; $\rho_L$ is unprepared\\
+Measurement & Diagonal acceptance effects, complete classical record laws & Complex tomography: coherent services and quantum semantics\\
+Preparation (Section~\ref{sec:prepared-readout}) & Finite warm-up to $I/66$ with a reference-uniform bound & Total-two sector, fair coin, instrument semantics\\
+Compiled instruments (Section~\ref{sec:interacting-instruments}) & Source pulses, raw records, aborts, complete-output bounds & Source generators, load and export services, target action, prepared reference\\
+Strain and pressure \cite{ophobservers} & Charge weights from a complete two-attempt E census & Volume control, energy meter, response class, calibrated sector forces\\
+Interacting fields and mass law \cite{ophparticles} & None & Weyl/contact action, texture, memory law, couplings, links, mass-law architecture\\
+Maxwell form \cite{ophmicro} & Incidence tables and their exact ranks & Locality, Faraday, conservation, reversal, field definitions, coefficients\\
+Carrier & Rank-three response band of the given incidence & Incidence and response layer (premise A1); the readout selector takes a supplied three-dimensional quadratic readout\\
+Physical units & None & Laboratory clock, energy scale, temperature, measured masses: supplied by no component\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \paragraph{Finite entropy and the gravitational premise.}
 For positive sector counts $d_i$, normalized probabilities $p_i$ and fixed
@@ -3106,7 +3224,51 @@ third-mode fit residual $6\gamma\varepsilon$, while the actual acceleration is
 $-Yq$. The theorem identifying inertia with the same capacity keeps that
 premise, and equal equilibrium configurations do not select the kinetic law.
 
+\subsection{Native relaxation and static-geometry obstructions}
+\label{sec:negative-controls}
 
+Three results exclude specified mechanisms of the tested law. Each is a fact
+about that law and its stated class.
+
+\paragraph{The native double-load defect is transient.} On the twelve-port
+carrier, the only configuration functions invariant under every admitted
+seam and coin are constants, and the binary shell is the unique closed
+sector. A collision state carries one double load above that shell. Under
+the uniform seam probe, the complete C and E instruments both satisfy
+$\sum_hK_h^\dagger P_{\rm coll}K_h=\frac56P_{\rm coll}$ for the projector onto
+the twelve collisions, so after $n$ attempts the collision probability is
+$(5/6)^n\Tr[(P_{\rm coll}\otimes I)\rho]$ for arbitrary quantum inputs and
+untouched references. The mean number of attempts to split is six, and the
+double load never hops before splitting. Load differences telescope around
+all twenty faces for all 78 states, so this gradient map carries no
+holonomy. Holding one port fixed creates sectors only by disabling its five
+repairs, which changes the law. The record costs of the corrected memory code
+have expectations independent of the logical state, so they cannot split
+logical-state masses \cite{nativeDefect}. No persistent quantum subspace
+supported on the collisions exists under this evolution, and
+the particle paper classifies the compact amplitude subspaces of the binary transfer
+\cite{ophparticles}; the theorem covers no other record-encoded sector.
+
+\paragraph{The static radial product fails null balance.} For the smooth
+static product metrics of the conditional scalar description, both radial
+null Einstein contractions vanish, while a coherent scalar excitation in the
+restored angular-constant Dirichlet sector has positive relative null
+stress. That geometry cannot satisfy the Einstein balances for the reference
+and the excitation at positive coupling with other sources fixed
+\cite{ophspacetime}. A responsive geometry is required.
+
+\paragraph{Passive repair has no wave sector.} The record-discarded native
+channels are Hilbert--Schmidt self-adjoint with spectrum in $[0,1]$ and
+scalar fixed algebra (Theorem~\ref{thm:gap}). The executed quantum channel
+strictly attenuates a coherent mode, which rules out unitary conjugation on
+this carrier, and the half-step map of its principal logarithm is not
+positive, so it generates no completely positive semigroup \cite{mREADME}.
+The closed mean law is damped (Proposition~\ref{prop:fields}(iv)), ballistic
+rescaling freezes the density paths, and the native decay rates grow like
+Laplacian eigenvalues, so no common clock factor gives a wave dispersion
+(Section~\ref{sec:density}). Every wave in this paper is declared record
+processing or a compiled apparatus step on supplied codes; other dilations
+or generators are not excluded.
 
 \section{Particles, interacting fields and gravity}
 \label{sec:joins}
@@ -3129,111 +3291,33 @@ claimed observation and intervention response, and are fixed independently
 of the comparison data. Matching
 separate marginals or isolated eigenvalues does not prove this statement.
 
-\subsection{The common-current particle construction}
-The particle paper constructs a finite link between the twelve native
-current operators, localized fermion modes and a pixel-dependent charged
-mass operator \cite{ophparticles}. Its specified memory realizes the
-quadratic coefficients by a controlled weak-step limit. Certified roots
-close a declared charged-fermion feedback model using those same
-coefficients. They do not identify the kernel with the complete physical
-electromagnetic response.
+The companion papers state the results on each side of that target. The gauge paper
+derives the compact Lie type and the conditional matter module from complete-response
+premises and constructs finite local Gauss constraints and a gauge-covariant band on
+classical links \cite{ophgauge}. The particle paper joins the twelve native currents,
+localized fermion modes and a pixel-dependent charged mass operator on a specified design,
+proves the transfer and charged spectra, memory limits, compact-defect bounds and
+interacting poles, and compares twelve outputs with measured values \cite{ophparticles}.
+The Einstein paper gives regional entropy on native and prepared references, null
+tomography and causal counts, and the conditional Einstein implication, which requires
+geometrically normalized modular flow, the same conserved matter stress, a universal
+positive area coefficient and fixed-proper-volume entropy stationarity with controlled
+small-ball remainders and sufficient independent directions \cite{ophspacetime}. These
+conditions must hold together for the same source, state, clocks and refinement maps. A
+chiral continuum also requires controlled spatial refinement, locality, positivity and a
+complete accounting of tastes and residues; the photon-containing theory must retain
+massless sectors, and massive poles, unstable resonances and confined observables require
+their appropriate spectral conventions.
 
-A compact opposite-degree texture has finite excess-energy bounds and four
-isolated localized modes. Its 180-mode native internal extension admits
-$\lambda(N_W-90)^2$ on that same band, with a controlled comparison of
-the complete final history and core state. Its exact sixteen-state reducing
-slices retain the compact splitting and have interaction-dependent poles.
-A guarded complete texture instrument preserves both local winding charges;
-a declared polar control transports the band, currents and interaction at
-its endpoints. Differentiating the hopping also differentiates the
-interaction projector, giving a common work and entropy response. A separate
-60-state link design supplies local non-Abelian operator Gauss constraints
-for the native matter multiplets. Their physical pixel response, autonomous
-defect dynamics, relativistic propagation and matched laboratory spectrum
-require compatible source and physical maps.
-The full constructions and conditions are given in Ref.~\cite{ophparticles}.
-
-\subsection{Common energy and the continuum limit}
-For a coherent rest angular frequency $\omega_0$, a physical clock
-calibration $T$ seconds per model unit and the physical relation
-$E=\hbar\omega$, the conditional rest mass is
-\[
- m=\frac{\hbar\omega_0}{Tc^2}.
-\]
-Assigning the model signal speed $v$ to $c$ sets the length unit $L=cT/v$;
-it does not determine $T$ or supply $\omega_0$ \cite{siConstants}.
-A necessary small-momentum test of a massive relativistic branch is
-$\omega_0\omega''(0)/v^2=1$. Host work, relaxation rates and maintenance
-counts acquire no mass interpretation from a unit choice alone.
-
-The interacting lattice action and fixed-band occupation limits proved
-here retain their full state and record spaces. A chiral continuum also
-requires controlled spatial refinement, locality, positivity and a
-complete accounting of tastes and residues. The photon-containing theory
-must retain massless sectors; massive poles, unstable resonances and
-confined observables require their appropriate spectral conventions.
-
-\subsection{Responsive geometry}
-The common-metric construction gives compatible principal symbols and
-conditional area and volume formulas. A finite Gibbs reference proves a
-thermal first law on its stated Hamiltonian; this is not stationarity of
-geometric generalized entropy. The Einstein implication requires
-geometrically normalized modular flow, the same conserved matter stress,
-a universal positive area coefficient and fixed-proper-volume entropy
-stationarity with controlled small-ball remainders and sufficient
-independent directions \cite{ophspacetime}. These must hold together for
-the same source, state, clocks and refinement maps.
-
-Independent physical comparisons then test that complete dictionary.
-A failed candidate rejects the stated realization and interpretation;
-a whole-class exclusion requires coverage of every admitted realization.
-
-\subsection{Native relaxation and static-geometry obstructions}
-\label{sec:negative-controls}
-
-Three results exclude specified mechanisms of the tested law. Each is a fact
-about that law and its stated class.
-
-\paragraph{The native double-load defect is transient.} On the twelve-port
-carrier, the only configuration functions invariant under every admitted
-seam and coin are constants, and the binary shell is the unique closed
-sector. A collision state carries one double load above that shell. Under
-the uniform seam probe, the complete C and E instruments both satisfy
-$\sum_hK_h^\dagger P_{\rm coll}K_h=\frac56P_{\rm coll}$ for the projector onto
-the twelve collisions, so after $n$ attempts the collision probability is
-$(5/6)^n\Tr[(P_{\rm coll}\otimes I)\rho]$ for arbitrary quantum inputs and
-untouched references. The mean number of attempts to split is six, and the
-double load never hops before splitting. Load differences telescope around
-all twenty faces for all 78 states, so this gradient map carries no
-holonomy. Holding one port fixed creates sectors only by disabling its five
-repairs, which changes the law. The record costs of the corrected memory code
-have expectations independent of the logical state, so they cannot split
-logical-state masses \cite{nativeDefect}. No persistent quantum subspace
-supported on the collisions exists under this evolution; other quantum and
-record-encoded sectors are untested.
-
-\paragraph{The static radial product fails null balance.} For the smooth
-static product metrics of the conditional scalar description, both radial
-null Einstein contractions vanish, while a coherent scalar excitation in the
-restored angular-constant Dirichlet sector has positive relative null
-stress. That geometry cannot satisfy the Einstein balances for the reference
-and the excitation at positive coupling with other sources fixed
-(Proposition~\ref{prop:static-product}). A responsive geometry is required.
-
-\paragraph{Passive repair has no wave sector.} The record-discarded native
-channels are Hilbert--Schmidt self-adjoint with spectrum in $[0,1]$ and
-scalar fixed algebra (Theorem~\ref{thm:gap}). The executed quantum channel
-strictly attenuates a coherent mode, which rules out unitary conjugation on
-this carrier, and the half-step map of its principal logarithm is not
-positive, so it generates no completely positive semigroup \cite{mREADME}.
-The closed mean law is damped (Proposition~\ref{prop:fields}(iv)), ballistic
-rescaling freezes the density paths, and the native decay rates grow like
-Laplacian eigenvalues, so no common clock factor gives a wave dispersion
-(Section~\ref{sec:density}). Every wave in this paper is declared record
-processing or a compiled apparatus step on supplied codes; other dilations
-or generators are not excluded.
-
-
+For a coherent rest angular frequency $\omega_0$, a physical clock calibration $T$ seconds
+per model unit and the physical relation $E=\hbar\omega$, the conditional rest mass is
+$m=\hbar\omega_0/(Tc^2)$. Assigning the model signal speed $v$ to $c$ sets the length unit
+$L=cT/v$ and determines neither $T$ nor $\omega_0$ \cite{siConstants}, and a necessary
+small-momentum test of a massive relativistic branch is $\omega_0\omega''(0)/v^2=1$. Host
+work, relaxation rates and maintenance counts acquire no mass interpretation from a unit
+choice alone. Independent physical comparisons then test the complete dictionary: a failed
+candidate rejects the stated realization and interpretation, and a whole-class exclusion
+requires coverage of every admitted realization.
 
 \section{Reproducibility}
 \label{sec:repro}
@@ -3328,7 +3412,7 @@ Mueller, B., Osika, A., Xue, K., Cassie, B., de La Fourni\`ere, B., and Friedman
 
 \bibitem{mREADME}
 FloatingPragma (2026). \emph{The runnable OPH model}. Model document.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/d85db928b240224c1306ada12961f18d9df9d199/model/README.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/README.md}
 
 \bibitem{nativeContinuum}
 FloatingPragma (2026). \emph{A common native continuum operator, wave
@@ -3438,6 +3522,41 @@ collision-survival, load-gradient and memory-cost controls on the twelve-port
 carrier.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/model/common_source/native_defect_decision_results.json}
 
+\bibitem{nativeInterface}
+FloatingPragma (2026). \emph{Native interface and complex tomography}. Model document and
+receipts.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/native_interface/README.md}
+
+\bibitem{clockedReadout}
+FloatingPragma (2026). \emph{A native phase measurement on the stopped interacting work
+history}. Model document and receipt.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/clocked_quantum_readout/README.md}
+
+\bibitem{preparedReadout}
+FloatingPragma (2026). \emph{Native preparation followed by the complete phase/work
+instrument}. Proof and exact receipt.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/prepared_quantum_readout/PROOF.md}
+
+\bibitem{instrumentCalibration}
+FloatingPragma (2026). \emph{Selecting a complete instrument with finitely many probes}.
+Proof, Lean core and exact controls.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/finite_instrument_calibration/PROOF.md}
+
+\bibitem{interactingObservation}
+FloatingPragma (2026). \emph{A complete adaptive observation law for the compact
+interacting source}. Proof, execution and receipt.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/interacting_observation_process/PROOF.md}
+
+\bibitem{compositeProbe}
+FloatingPragma (2026). \emph{Native coherent detection of the cubic charged response}.
+Proof, execution and receipt.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/native_composite_probe/PROOF.md}
+
+\bibitem{regionalModular}
+FloatingPragma (2026). \emph{Complete native action of the corrected regional modular
+generator}. Proof, execution and receipt.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/native_regional_modular/PROOF.md}
+
 \bibitem{mCONSTRUCTION}
 FloatingPragma (2026). \emph{OPH model construction from local repair}.
 Construction guide with completion target, acceptance criteria and audit
@@ -3462,12 +3581,12 @@ register.
 \bibitem{mPREMISES}
 FloatingPragma (2026). \emph{OPH reverse-engineering table: model and theorem
 premises}. Generated premise map and concrete theorem bindings.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/d85db928b240224c1306ada12961f18d9df9d199/model/PREMISES.md}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/model/PREMISES.md}
 
 \bibitem{mMAP}
 FloatingPragma (2026). \emph{Machine-readable premise crosswalk}. Source of
 the generated premise map.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/d85db928b240224c1306ada12961f18d9df9d199/tracking/premise_register.json}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/4a3f9a6bdfd51867dcda8786c418ffea34bfec8f/tracking/premise_register.json}
 
 
 \bibitem{oREADME}

@@ -116,7 +116,10 @@ These are finite-dimensional theorems on declared matrices and states.
 They do not select physical instruments or produce an experimental CHSH
 state. The static phase-POVM model and its exact conformance fixture retain
 that boundary explicitly. Companion \texttt{Dynamics.ChoiCPTP} proofs
-establish complete positivity through a custom finite-matrix interface.
+establish complete positivity through a custom finite-matrix interface. Two
+further companion modules give the Born form from complete record laws under
+stated operational conditions and select the identity channel from finitely
+many pure-state return probabilities.
 
 Monospaced names identify exact declarations in the \texttt{EventAlgebra}
 source; remove only TeX's protective backslash before underscores when
@@ -240,7 +243,8 @@ weight identity is linear and uses none of them.
 
 \subsection{From complete records to Born weights}
 
-In \texttt{OperationalBornBridge}, a measurement context has finitely many
+In the companion module \texttt{OperationalBornBridge}, outside the
+fifteen-module count and scale table, a measurement context has finitely many
 complete outcomes with nonnegative weights summing to one. Its event weight
 is the sum over an outcome subset. Separately, outcome effects are positive
 matrices summing to the identity; an event effect is their sum. Neither
@@ -265,31 +269,44 @@ therefore gives a unique density matrix. Effect realizability transfers
 uniqueness from the valuation to the operational representation.
 \end{proof}
 
-The native record construction in the accompanying repository
-derives complete finite-history weights directly from endpoint repair, a
-supplied initial law and supplied fair coins, including record-controlled schedules. Record coarse
-graining is additive and determines a unique diagonal density on the
-record algebra. This does
-not select off-diagonal matrix entries. The executable complex tomography
-uses coherent services and trace-based quantum semantics; it supplies no
-independent proof of the universal operational hypotheses above. Exact
+The theorem is \texttt{operational\_record\_probabilities\_unique\_born}; its
+realizability step is
+\texttt{Operational\allowbreak Effect\allowbreak Quotient.\allowbreak realizes}. Exact
 realization of every effect needs uncountably many settings, so a finite-program
 source needs a dense-effect version of this theorem.
 
-The same module proves a direct obstruction: diagonal event effects cannot
+An analytic native record construction outside this library
+\cite{observerPatchHolographyRepo} derives complete finite-history weights
+directly from endpoint repair, a supplied initial law and supplied fair coins,
+including record-controlled schedules. Record coarse graining is additive and
+determines a unique diagonal density on the record algebra. Appended native
+coins implement every dyadic classical effect as a finite acceptance event,
+disjoint integer intervals realize coexistent dyadic sums, and dyadic enclosures
+extend the weight uniquely to every real classical effect. These are the
+operational conditions on the commutative domain; they select no off-diagonal
+matrix entries. The executable complex tomography
+uses coherent services and trace-based quantum semantics and supplies no
+independent proof of the universal operational hypotheses above.
+
+\texttt{OperationalBornBridge} also proves a direct obstruction: diagonal event effects cannot
 realize a non-diagonal effect, hence cannot satisfy the operational quotient
-on a matrix algebra containing one. An explicit qubit projection supplies
-the witness. This concerns the direct native record-effect representation.
-In the separate analytic construction, occupation fields and a
-positive native transfer generate the full real matrix algebra. Scaled
-closed-path counts give its normalized positive functional
-$A\mapsto\operatorname{Tr}(P^L A)/\operatorname{Tr}(P^L)$, including a
-positive complex-linear extension. The linear extension meets the
+on a matrix algebra containing one
+(\texttt{no\_operationalEffectQuotient\_of\_offDiagonal\_effect}). An explicit
+qubit projection supplies the witness
+(\texttt{diagonal\_qubit\_records\_no\_operationalEffectQuotient}). This concerns
+the direct native record-effect representation.
+A separate analytic construction supplies the binary total-two native sector,
+independent uniform seam selection, fair coins and a uniform preparation. Its
+occupation fields and positive transfer $P$, with $2I/3\leq P\leq I$, generate
+the full real matrix algebra. Scaled closed-path counts give its normalized
+positive functional $A\mapsto\operatorname{Tr}(P^L A)/\operatorname{Tr}(P^L)$,
+including a positive complex-linear extension. The linear extension meets the
 effect-valuation hypotheses on this reconstructed algebra. Its entries are
-classical endpoint probabilities divided by the return probability, and every
-connected positive-definite symmetric stochastic matrix gives the same result.
-Signed combinations of count statistics are not asserted to be single native
-measurement events.
+classical endpoint probabilities divided by the return probability, every
+connected positive-definite symmetric stochastic matrix gives the same result,
+and native evolution converges to the uniform state without preparing this
+functional. Signed combinations of count statistics are not asserted to be
+single native measurement events.
 
 \section{L\"uders update as a partial state interface}
 \label{sec:lueders}
@@ -1090,13 +1107,20 @@ The criterion determines effects and state updates together. Dephasing
 inside a block passes all basis tests and fails the coherent test. A
 within-block swap can preserve the effects, repeatability and the uniform
 coherent state while failing basis survival. Relabeling outcomes can leave
-the unread channel unchanged while failing these joint tests.
+the unread channel unchanged while failing these joint tests. Any trusted
+coherent vector with nonzero coefficients throughout a block selects exactly,
+and several pure probes suffice when their supports connect the basis indices;
+across two disconnected components a relative phase passes every such test and
+changes the instrument.
 
-The single-outcome case is proved in the Lean module
-\texttt{FiniteProbeInstrumentSelection}. In positive dimension, a finite
+The single-outcome case is proved in the companion module
+\texttt{FiniteProbeInstrumentSelection}, outside the fifteen-module count and
+scale table. In positive dimension, a finite
 Kraus channel with induced effect $I$ and exact unit Born-return probability
 on all coordinate pure states and the normalized uniform pure state is the
-identity. The proof derives pure-state fixation and scalar Kraus operators.
+identity (\texttt{finite\_pure\_return\_probabilities\_select\_lueders\_one}). The
+proof derives pure-state fixation and scalar Kraus operators
+(\texttt{kraus\_eq\_smul\_one\_of\_finite\_pure\_probes}).
 The labeled multi-block theorem and quantitative bound are analytic.
 
 \pagebreak
@@ -1144,8 +1168,8 @@ independent identically distributed calibration trials, $N_c$ successful
 trials per each of $m$ probes give simultaneous allowance
 $1-(\alpha/m)^{1/N_c}$ at confidence at least $1-\alpha$.
 
-The analytic multi-block reduction and exact controls are supplied by
-the accompanying repository. The quantum instrument class, trusted
+The analytic multi-block reduction and exact controls are in the repository
+\cite{observerPatchHolographyRepo}. The quantum instrument class, trusted
 preparations, trusted readback and probability semantics are hypotheses.
 The algebraic examples are not source-authenticated calibration records,
 and the result does not identify native repair as a L\"uders instrument.
@@ -1307,9 +1331,9 @@ Module & Lines & Audited declarations \\
 \texttt{OperationalPhaseInstrument} & 878 & 40 \\
 \texttt{PhaseInstrumentDetermination} & 504 & 24 \\
 \texttt{OperationalPhaseAttainment} & 373 & 22 \\
-\texttt{EventAlgebra} (root) & 172 & 0 \\
+\texttt{EventAlgebra} (root) & 174 & 0 \\
 \midrule
-Total & 5994 & 277 \\
+Total & 5996 & 277 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the

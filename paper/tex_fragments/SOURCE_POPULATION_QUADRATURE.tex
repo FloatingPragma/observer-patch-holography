@@ -53,7 +53,7 @@ with Lebesgue measure, one representative at zero and $f(x)=x$, the error
 and displacement integral both equal $H^2/2$.
 \end{proof}
 
-The Lean module \texttt{SourcePopulationQuadrature} proves the actual
+A Lean formalization~\cite{ophrepo} proves the actual
 Bochner-integral estimates for finite cell measures, their specialization
 to measurable disjoint partitions, and convergence under a vanishing
 assignment bound. It also checks that a constant detector exposes any
@@ -71,7 +71,7 @@ An unmatched endpoint layer contributes at most
 $L^3\Delta_q\|f\|_\infty$. This application retains the declared event
 population and time-cell convention; extra routing or bookkeeping events
 cannot be inserted into its density without another count estimate.
-The module \texttt{GoldenSourceAssignment} proves the Fibonacci
+The formalization also proves the Fibonacci
 approximation and floor agreement, constructs the residue-permuted
 rectangular partition, and derives its equal Lebesgue masses and Euclidean
 assignment bound. For each fixed globally Lipschitz Banach-valued detector,
@@ -104,23 +104,19 @@ bounds the excess over any selected cells. The golden and time-coordinate
 maps are injective, so the label sums are point counts.
 \end{proof}
 These steps, the actual $\Delta_n$ specialization and the endpoint control
-are kernel-checked in \texttt{GoldenSourceCountLimit}.
-Causal frontiers have zero volume by the Fubini argument in
-\texttt{SourceCausalBoundary}. The actual count measure
+are kernel-checked in Lean.
+Causal frontiers have zero volume by a Fubini argument. The actual count measure
 converges on moving generated-order intervals; the finite window is part of
 the reference volume. Strict-pair counts converge to the geometric product
-measure with the pair endpoint error retained. The corresponding proofs are
-in \texttt{GoldenSourceCausalLimit} and
-\texttt{GoldenSourcePairLimit}.
+measure with the pair endpoint error retained. These proofs are also
+formalized.
 
-The Lean module \texttt{FlatDiamondPairIntegral} evaluates the geometric
+The Lean formalization evaluates the geometric
 pair measure by Fubini and radial integration. For a timelike diamond
 contained in the supplied window, the ordering fraction tends to $1/10$;
-this normalization is proved in
-\texttt{FlatDiamondNormalization}. The explicit vertical
-Alexandrov error and the general weighted-family limit are proved in
-\texttt{SourceNetVolumeError}, and the golden
-specialization in \texttt{GoldenSourceVolumeLimit}. Extra
+this normalization is formalized as well, with the explicit vertical
+Alexandrov error, the general weighted-family limit and the golden
+specialization. Extra
 routing events require another count estimate. These theorems select no
 physical measure or clock.
 

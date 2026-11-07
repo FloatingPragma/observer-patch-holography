@@ -72,7 +72,10 @@ specification; it does not alone select these choices or identify the
 finite response metric with physical space.
 
 The counting-and-incidence theorem fixes the carrier within its declared
-grammar. Its rank-three Gram band, angular isotropy, integer current image,
+grammar, premise A1 declares the oriented carrier layer, and the weighted
+readout selector of Section~\ref{subsec:minimum-quadratic-readout} gives the
+same unoriented incidence from a supplied three-dimensional quadratic readout.
+The carrier's rank-three Gram band, angular isotropy, integer current image,
 Coulomb solution and stable discrete action are distinct results with their
 own hypotheses. A Euclidean continuum domain, a physical clock and a
 current-to-field interpretation enter only where stated. The observer,
@@ -371,22 +374,65 @@ the binary shell the rule is the lazy symmetric simple exclusion process with
 two particles; the twelve collision states of the \(78\)-configuration
 carrier are transient.
 
+\paragraph{Binary repair as conditional resampling.}
+On the \(66\) binary configurations of total load two, the rule with a fair coin
+has seam kernel \(P_s=(I+S_s)/2\), where \(S_s\) exchanges the endpoint occupancies.
+A seam total of zero or two has one endpoint configuration and a total of one has
+two, each of probability one half. Hence \(P_s\) is symmetric, bistochastic and
+idempotent and resamples uniformly on each fibre of fixed outside bits and seam
+total, with \(46\) singleton and ten two-point fibres per seam. The uniform law is
+the unique stationary law of every mixture with positive seam weights and of every
+fixed word visiting all thirty seams. This is exact conditional resampling at
+constant energy: the reference has the constant modular energy \(\log66\) and the
+fair coin is declared, so the rule fixes no nontrivial Hamiltonian, temperature or
+heat. The observers paper proves the resulting entropy laws and tape accounting and
+gives the nonconstant record cost~\cite{ophobservers}.
+
+\paragraph{Record laws.}
 A quantum seam event may also keep or destroy coherence between
-configurations that move the same way. Require of a one-seam channel seam
-locality, the exact classical law, local number-phase covariance
-(commutation with \(\exp(i\sum_pt_pN_p)\) for every real \(t\)) and
-endpoint-swap covariance; both covariances are declared premises. Every
-admissible channel then has the form
+configurations that move the same way. Call a one-seam channel \(\Phi\) on the
+total-two carrier admissible if it acts as the identity on the ten spectator
+ports, reproduces the classical law on every diagonal input, commutes with
+\(\exp(i\sum_pt_pN_p)\) for every real \(t\), and is covariant under the endpoint
+swap with the current reversed; both covariances are declared premises. Write
+\(\kappa(x)=(x_a,x_b)\) for the seam key and \(D=\delta_b-\delta_a\).
+
+\begin{theorem}[Coherence tables of the record laws]
+\label{thm:record-law-tables}
+A channel \(\Phi\) is admissible if and only if
 \[
 \Phi(|x\rangle\langle x'|)=\sum_jG_j\bigl(\kappa(x),\kappa(x')\bigr)\,
-|x+jD\rangle\langle x'+jD|,
+|x+jD\rangle\langle x'+jD|
 \]
-where \(\kappa(x)=(x_a,x_b)\) is the seam key, \(D\) moves one load from
-\(a\) to \(b\), and each \(G_j\) is positive semidefinite with diagonal equal
-to the classical probability of current \(j\). On the total-two carrier these
-laws form one convex family, classified exactly by five coherence
-multipliers \(k,g,h,m,n\), with \(|k|\le1\), \(|g|,|h|,|n|\le1/\sqrt2\),
-\(h=g\) when \(k=1\), and \(m\) real with \(|m|\le1/2\)~\cite{ophmodel}. The
+for endpoint-symmetric positive semidefinite matrices \(G_j\) on the seam keys
+that can carry the current \(j\), with \(G_j(\kappa,\kappa)=\Pr(j\mid\kappa)\). The
+free entries are five multipliers: \(k\) between the empty and the full seam, \(g\)
+between the empty seam and a waiting single load, \(h\) between the full seam and a
+waiting single load, a real \(m\) between the two waiting orientations, and \(n\)
+between a moving single load and a moving collision. Positivity gives \(|k|\le1\),
+\(|g|,|h|,|n|\le1/\sqrt2\) and \(|m|\le1/2\), and \(k=1\) forces \(g=h\). Repairing one
+seam with \((k,g,h,m,n)\) and then with \((k',g',h',m',n')\) gives
+\((kk',gg',hh',mm',n\bar h')\). Exactly two admissible laws are idempotent, those
+with \(g=h=m=n=0\) and \(k\in\{0,1\}\), and every law with \(k=1\) converges under
+repetition to the idempotent law with \(k=1\).
+\end{theorem}
+
+\begin{proof}
+Covariance places \(\Phi(|x\rangle\langle x'|)\) in the span of units
+\(|y\rangle\langle y'|\) with \(y-y'=x-x'\). Complete positivity confines nonzero
+Choi entries to pairs with nonzero diagonal, which the classical law makes
+\((x,x+jD)\), so both sides carry the same current and the Choi matrix is the
+direct sum of the \(G_j\). Trace preservation and the classical law fix the
+diagonals, and spectator invariance makes each \(G_j\) a function of the seam keys.
+Under repetition every coherence keeps its seam key, so each multiplier applies
+again; idempotence requires \(k,g,h,m\in\{0,1\}\) and \(n=n\bar h\), and the bounds
+leave \(g=h=m=n=0\). Exact arithmetic in \(\mathbb Q(\sqrt2)(i)\) checks the
+composition law on every pair of seam keys for \(64\) ordered pairs of tables and on
+all \(6{,}084\) matrix units for two pairs~\cite{ophrepo}.
+\end{proof}
+
+These laws form one convex family, classified exactly by the five coherence
+multipliers. The
 executed law C records coin and current (\(k=1\), \(g=1/2\)); the comparison
 law E also records the seam parity (\(k=1\), \(g=0\)) and is idempotent.
 Forgetting a label afterwards does not undo its dephasing, so C is not a
@@ -501,6 +547,7 @@ slot counts imply neither.
 \end{remark}
 
 \subsection{Minimum quadratic readout and stable incidence}
+\label{subsec:minimum-quadratic-readout}
 
 The topology and defect-cost assumptions of the preceding sieve can be
 replaced by an operational information criterion. Supply a real
@@ -579,11 +626,17 @@ exactly. The five-cycle argument applies again.
 An exact certificate~\cite{ophrepo} checks
 the rational inequalities, all $2^{10}$ switched sign matrices and the
 resulting incidence. Stability gives combinatorics, without exact angles,
-equal weights or an isometric rotation action. The response dimension,
-directional quadratic readout, minimum-channel and worst-direction objectives,
-inverse ports and positive-overlap edges are supplied. Deriving a rank-three response from a carrier that assumes
-this incidence cannot independently discharge the dimension premise.
-The theorem selects neither physical seams nor a native optimization law.
+equal weights or an isometric rotation action. The premises each do work:
+tetrahedral and octahedral readouts are rank deficient on the six symmetric
+coordinates, a union of two rotated optimal frames attains the bound with
+twenty-four paired ports, and a two-dimensional response gives three channels
+and six paired directions. The response dimension, directional quadratic
+readout, minimum-channel and worst-direction objectives, inverse ports and
+positive-overlap edges are supplied. The result is the unoriented incidence;
+premise A1 declares the oriented carrier, federation and response layer.
+Deriving a rank-three response from a carrier that assumes this incidence
+cannot independently discharge the dimension premise. The theorem selects
+neither physical seams nor a native optimization law.
 
 \subsection{The integer seam-current record}
 
@@ -1669,9 +1722,10 @@ $H_{ij}=0$ for distinct seams sharing no triangular face. Then
 \[
  S(A)=c+\frac\kappa2\|CA\|^2.
 \]
-The real coefficient $\kappa$ is free; nonnegativity relative to $c$
-requires $\kappa\geq0$. Before rotation invariance is imposed, every such
-Hessian has the unique form $H=C^{\mathsf T}\operatorname{diag}(w)C$.
+The real coefficient $\kappa$ is free; nonnegativity relative to $c$ is
+equivalent to $\kappa\geq0$, and a nonzero nonnegative form to $\kappa>0$.
+Before rotation invariance is imposed, every such Hessian has the unique form
+$H=C^{\mathsf T}\operatorname{diag}(w)C$ with twenty independent face weights.
 \end{proposition}
 \begin{proof}
 Gauge invariance gives $Hd=0$. For an edge and the third vertex of an
@@ -1692,7 +1746,7 @@ $(C^{\mathsf T}C)^2$ respectively show that rotation invariance and strict
 face locality matter. This classification does not cover arbitrary
 finite-range locality or nonlinear curvature actions. The executable proof
 is in the repository~\cite{ophrepo}; the underlying incidence
-identities are formalized in \texttt{LocalFaceMaxwellAction}.
+identities are formalized in the Lean library.
 
 \begin{proposition}[Conservative evolution from Faraday and reversal]
 Let $E\in\mathbb R^{30}$ and $B\in\operatorname{range}C$, and supply
@@ -1713,14 +1767,17 @@ electric-electric block, so $A=0$. Without reversal, an arbitrary skew
 electric term survives energy conservation.
 \end{proof}
 
-The resulting law preserves Gauss data and closed flux. With
+The resulting law preserves Gauss data and closed flux, with nineteen
+oscillator pairs on source-free Gauss data and closed flux. With
 $E=-\dot A-d\phi$, $B=CA$, Faraday follows from $Cd=0$; temporal gauge
-gives $\epsilon\ddot A+\beta C^{\mathsf T}CA=0$. The field definitions,
-energy weights, reversal and evolution parameter are explicit premises.
-The result selects neither their native implementation nor a finite-step
-integrator, and does not identify the seam leapfrog with a separately
-supplied Whitney evolution. A physical Maxwell interpretation additionally
-requires the source readout, current and clock maps.
+gives $\epsilon\ddot A+\beta C^{\mathsf T}CA=0$. Selection rests on the
+stated locality, Faraday, conservation and reversal premises. The field
+definitions, the coefficients $\kappa,\epsilon,\beta$ and the evolution
+parameter are inputs, and native repair supplies none of them; its relaxation
+is a different object from this conservative energy. The result selects no
+finite-step integrator and does not identify the seam leapfrog with a
+separately supplied Whitney evolution. A physical Maxwell interpretation
+additionally requires the source readout, current and clock maps.
 
 \paragraph{Smooth weak-field reduction.}
 The quadratic and linear classifications also determine leading responses
@@ -2920,11 +2977,12 @@ is not a physical mass gap.
 
 The declared carrier supports a characterized C/E law, a rank-three slow
 response band, an exact integer current image and discrete action and
-continuity identities. Icosahedral symmetry fixes isotropy through angular
-rank five and the possible rank-six residue. The displayed continuum
-Maxwell implication retains its spatial, reversible-dynamics and clock
-premises. Record and checkpoint theorems concern their specified accessible
-algebras and instruments.
+continuity identities. Binary seam repair is conditional resampling toward
+one uniform reference at constant energy. Icosahedral symmetry fixes isotropy
+through angular rank five and the possible rank-six residue. The finite Maxwell
+selection results and the displayed continuum Maxwell implication retain their
+locality, spatial, reversible-dynamics and clock premises. Record and checkpoint
+theorems concern their specified accessible algebras and instruments.
 
 A physical realization must join these structures through refinement-natural
 routing, common position and clock maps, conserved matter currents and

@@ -86,7 +86,13 @@ Einstein contractions while an admitted scalar excitation has positive relative
 null stress, so it cannot balance both; a responsive geometry is required.
 Stationary Markov or record entropy is not the fixed-volume
 generalized-entropy variation that (G4) requires
-(Section~\ref{sec:continuing-record-entropy}). The native screen generator $A$
+(Section~\ref{sec:continuing-record-entropy}). The finite regional calculations
+supply a bulk/edge entropy split and a quantitative noncommuting first law on
+native return histories, two-sided entropy variations of one prepared
+interacting region, and a complete native action of that region's modular
+polynomial (Sections~\ref{sec:regional-return-first-law}
+to~\ref{sec:native-regional-modular}); their modular parameter is dimensionless
+and carries no area or stress identification. The native screen generator $A$
 has spectral dimension two, and the $1+3$ scalar description uses a declared
 radial extension. The Fibonacci population, read law and model clock of the
 causal limit are premises until the native process produces them.
@@ -232,8 +238,7 @@ source-causal continuum, count--volume, stress, small-ball, coupling, scale
 and remainder receipts on one family, together with either a tensor-curvature
 reconstruction converging to the Einstein tensor or the independent continuum
 small-ball/null-balance identification. Scalar-curvature convergence alone is
-diagnostic. In the machine-checked continuum composition
-\texttt{composedEinsteinBranch} the premise is the null-contracted Einstein
+diagnostic. In the machine-checked continuum composition the premise is the null-contracted Einstein
 relation itself, or nine of its null components; the composition adds the
 constancy of the metric residue, the vacuum reference fixing $\Lambda$ and the
 $8\pi G$ label. The small-ball step is Jacobson's entanglement-equilibrium
@@ -287,7 +292,6 @@ $c=0$, so the depth cutoff is explicit.
 \def\OPHSkipEmbeddedReferences{1}
 \input{tex_fragments/COMMON_MATTER_METRIC_AND_RESPONSE.tex}
 \input{tex_fragments/SOURCE_PARTICLE_EINSTEIN_JOIN.tex}
-\input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 
 \section{The modular input to gravitational response}
 \label{sec:modular-einstein-input}
@@ -492,11 +496,44 @@ proofs are in the repository~\cite{ophrepo}.
 A separate fixed-spacing spin construction is interacting and admits
 ordered gapless continuum observables; a surviving connected interaction
 and sharp relativistic continuum mass shell are not established. The compact
-quartic construction supplies exact finite charged slice poles and a
-same-Hamiltonian work and Gibbs response. It does not turn the free Weyl stress
-theorem into an interacting stress theorem or provide a physical metric.
+quartic construction of the particle paper~\cite{ophparticles} supplies exact
+finite charged slice poles and one interacting localized Hamiltonian, whose
+mean form $\bar H_W$ on $180$ localized annihilators contains the band kinetic
+term, the memory pairing and the quartic $\lambda(N_W-90)^2$, $\lambda\geq0$. It
+does not turn the free Weyl stress theorem into an interacting stress theorem
+or provide a physical metric. Gravity needs two of its finite identities. For
+the declared faithful Gibbs reference $\rho_\beta=Z^{-1}e^{-\beta\bar H_W}$,
+$\beta>0$, and $H(s)=\bar H_W+sX$, with $X$ not assumed to commute with
+$\bar H_W$,
+\[
+ \rho'_\beta(0)=-\beta\int_0^1\rho_\beta^{u}(X-\langle X\rangle)\rho_\beta^{1-u}\,du,
+ \qquad
+ S'=\beta(E'-\langle X\rangle).
+\]
+A hopping control $h_s=sT+MV$, with $1/2\leq s\leq3/2$, $M\geq8$ and $\|T\|<2$,
+moves the four-dimensional band, with projector $P_s$ and
+$N_s=\mathrm d\Gamma(P_s\otimes I_{45})$. On a complete memory record $\omega$
+its exact work operator is
+\[
+ \partial_sH_{\omega,s}=\mathrm d\Gamma(T\otimes I_{45})
+ +\lambda\{N_s-90,\mathrm d\Gamma(P'_s\otimes I_{45})\},
+\]
+and in a transported comparison frame $W_s$ the intrinsic force
+$J_s=\mathrm d\Gamma((W_s^*TW_s)\otimes I_{45})$ obeys $\|J_s\|\leq360$ uniformly
+in the exterior volume, equals that work operator in contrasts of even localized
+states with a common complement reference, and enters the Gibbs derivative
+$S'=\beta(E'-\operatorname{Tr}(\rho_sJ_s))$. The hopping amplitude is a declared
+control, so this work derivative supplies no identification with a metric
+variation or conserved Lorentz stress, and these finite identities supply no
+geometric modular flow, area normalization or fixed-volume generalized-entropy
+stationarity.
 
-\input{tex_fragments/COMPACT_BAND_WORK.tex}
+Pressure in (G2) also needs a common energy and a strain law. Consensus about
+identical fixed-volume records cannot select their unobserved strain derivative:
+$H_\alpha(V)=Q(V/V_0)^{-\alpha}$ gives $p/\rho=\alpha$. Three geometrically spaced
+energy readings identify the response within the held-state family
+$H(V)=C+A(V/V_0)^{-\alpha}$, $A>0$, $\alpha\geq0$, and an additive energy offset
+changes $p/\rho$ while leaving pressure unchanged~\cite{ophobservers}.
 
 These results close specified matter inputs on their own domains.
 Conditions (G1)--(G6) require a common event geometry, reference,
@@ -593,6 +630,7 @@ generalized-entropy variation of (G4); joining the two requires an area,
 volume and stress attachment on the same process.
 
 \subsection{Regional first law from native return counts}
+\label{sec:regional-return-first-law}
 
 The binary source supplies a finite regional entropy calculation from its
 own closed histories. Let $C$ count the sixty seam/coin choices per input.
@@ -628,12 +666,147 @@ independent real symmetric filter directions. One filter preserves all
 twelve mean occupations and has strictly positive bulk entropy derivative,
 while the bare seam cut count stays eight. No positive constant multiple
 of that static cut count cancels the derivative.
-These are weighted or postselected-history states, not executed causal
-quantum interventions. Fixed mean occupation is not fixed proper volume.
-The calculation supplies finite entropy and variation inputs, without
-physical stress, responsive area or the common small-ball stationarity
-limit. Exact counts, rational logarithm bounds and independent tensor checks
-are in the repository~\cite{ophrepo}.
+These are postselected history ensembles with complete return and filter
+weights, and no causal quantum preparation is inferred. Fixed mean occupation
+is not fixed proper volume, so these identities supply neither responsive area
+nor fixed-proper-volume stationarity. Exact counts, rational logarithm bounds
+and independent tensor checks are in the repository~\cite{ophrepo}.
+
+\subsection{Regional entropy of a prepared interacting state}
+\label{sec:prepared-regional-entropy}
+
+The open four-site Weyl/contact plaquette has eight signed canonical
+anticommutation modes, speed $c=1/8$, contact coefficient $U=1$ and inverse
+temperature $\beta=1/32$. Its source preparation executes 256 classical column
+records and retains every abort outcome. Write $\Sigma$ for the unnormalized
+success field marginal, summed over those records, and
+$\sigma=\operatorname{Tr}_{\rm out}\Sigma$ for its signed restriction to the
+complete sixteen-dimensional matrix algebra on modes $(0,1,2,3)$, so that
+$\operatorname{Tr}\Sigma=\operatorname{Tr}\sigma=p\leq1$. Exact rational
+certificates bound the complete preparation error below $1.7\times10^{-12}$
+and give
+\[
+ \sigma\geq mI,\quad \Sigma\geq m_{\rm full}I,\quad
+ m>\frac1{20},\quad 16\,m_{\rm full}>\frac1{20},\quad
+ \|K-P_8-aI\|\leq E<2\times10^{-9},\quad K=-\log\sigma,
+\]
+where $P_8$ is the eighth-order regional logarithm polynomial of the same
+action and $a$ is the Gibbs normalization scalar. The polynomial retains the
+noncommuting boundary corrections of the reduced logarithm; it differs from
+$\beta$ times the isolated two-site Hamiltonian.
+
+\begin{proposition}[Two-sided regional entropy response]
+\label{prop:prepared-regional-entropy}
+Let $X=X^*$ on the region, with $\operatorname{Tr}X=0$ and $r=\|X\|\leq1/40$,
+and let $V$ be the signed Fock factorization of the field into the region and
+its sixteen-dimensional complement. For $|t|\leq1$,
+\[
+ \sigma+tX\geq(m-r)I>\frac{I}{40},\qquad
+ \Sigma_t=\Sigma+tV^*\Bigl(X\otimes\frac{I_{16}}{16}\Bigr)V
+ \geq\Bigl(m_{\rm full}-\frac{r}{16}\Bigr)I>\frac{I}{640},
+\]
+and $\Sigma_t$ has signed regional restriction $\sigma+tX$ and trace $p$. With
+$S(A)=-\operatorname{Tr}(A\log A)$ and
+$D(\sigma+X\Vert\sigma)=\operatorname{Tr}((\sigma+X)(\log(\sigma+X)-\log\sigma))$,
+\begin{align*}
+ S(\sigma+X)-S(\sigma)&=\operatorname{Tr}(XK)-D(\sigma+X\Vert\sigma),\\
+ \tfrac12\|X\|_{\rm HS}^2\leq D(\sigma+X\Vert\sigma)
+ &\leq\frac{\|X\|_{\rm HS}^2}{2(m-r)}\leq20\|X\|_{\rm HS}^2,\\
+ |S(\sigma+X)-S(\sigma)-\operatorname{Tr}(XP_8)|
+ &\leq E\|X\|_1+\frac{\|X\|_{\rm HS}^2}{2(m-r)}.
+\end{align*}
+For Hermitian trace-zero $\Delta$, $h>0$ and $l=m-h\|\Delta\|>0$,
+\[
+ \left|\frac{S(\sigma+h\Delta)-S(\sigma-h\Delta)}{2h}
+ -\operatorname{Tr}(\Delta P_8)\right|
+ \leq E\|\Delta\|_1+\frac{h^2\|\Delta\|\,\|\Delta\|_{\rm HS}^2}{6l^2}.
+\]
+\end{proposition}
+\begin{proof}
+Equal traces give the entropy identity. Differentiating
+$\log A=\int_0^\infty[(1+s)^{-1}I-(A+sI)^{-1}]\,ds$ at $A>0$ gives
+$D\log_A[X]=\int_0^\infty(A+sI)^{-1}X(A+sI)^{-1}\,ds$, and the entropy Hessian
+is minus $g_A(X,X)=\operatorname{Tr}(X\,D\log_A[X])$. In an eigenbasis of $A$
+its coefficient on $|X_{ij}|^2$ lies between the reciprocals of the largest and
+least eigenvalues. Along $\sigma+tX$ the trace $p\leq1$ bounds the largest
+eigenvalue by one and the least eigenvalue is at least $m-r$. Integrating the
+Hessian twice gives the relative-entropy bounds. Trace duality gives the
+polynomial estimate, and $a$ drops out because $\operatorname{Tr}X=0$. For
+$f(t)=S(\sigma+t\Delta)$ and $R=(\sigma+t\Delta+sI)^{-1}$, one further
+differentiation gives
+$f'''(t)=2\int_0^\infty\operatorname{Tr}(\Delta R\Delta R\Delta R)\,ds$.
+Schatten inequalities bound it by $\|\Delta\|\,\|\Delta\|_{\rm HS}^2/l^2$ on
+$|t|\leq h$, and Taylor's integral remainder gives the symmetric estimate.
+\end{proof}
+
+The $255$ matrices $E_{ii}-E_{15,15}$, $E_{ij}+E_{ji}$ and $i(E_{ij}-E_{ji})$
+each have operator norm one, trace norm two and squared Hilbert--Schmidt norm
+two, and their Gram determinant is $16\cdot2^{240}$. They span every trace-zero
+Hermitian regional variation, including number-changing and noncommuting ones,
+and every bound holds on the parity-preserving subspace of dimension $127$ and
+the number-preserving subspace of dimension $69$. For one of these directions
+the symmetric estimator has error below $4\times10^{-9}+(1600/3)h^2$ on
+$0<h\leq1/40$. The abort block is held fixed and contributes zero to entropy
+differences. The variations are field-marginal lifts at fixed success
+probability, without a record-resolved lift or an executed native intervention,
+and the plaquette is a source site region rather than a geometric diamond, so
+these identities supply neither responsive area nor fixed-proper-volume
+stationarity.
+
+\subsection{A complete native action of the regional modular polynomial}
+\label{sec:native-regional-modular}
+
+The same prepared region admits an executed modular clock. In the convention
+$\alpha_s(A)=\sigma^{is}A\sigma^{-is}$ the state unitary is $W_s=e^{isK}$. The
+polynomial has an exact real Pauli decomposition $P_8=\sum_jb_jP_j$ with $39$
+nonzero terms, its scalar identity term among them, and $B=\sum_j|b_j|<0.051$.
+It commutes with regional number and parity. For $h=s/n$, let $S(h)$ execute
+each factor $e^{ihb_jP_j/2}$ in listed order and then in reverse order, every
+factor being the source compiler's literal word of basis changes, parity
+controls, one phase rotation and uncomputation.
+
+\begin{proposition}[Native regional modular actuator]
+\label{prop:native-regional-modular}
+For real $s$ and integer $n\geq1$,
+\[
+ \|e^{isP_8}-e^{-isa}W_s\|\leq|s|E,\qquad
+ \|S(s/n)^n-e^{isP_8}\|\leq\frac{B^3|s|^3}{3n^2}.
+\]
+At $s=1/2$ and $n=32$ the native word has $37{,}568$ pulses. It defines a
+complete map with successful output $W$ and first-failure outputs $F_f$,
+$W^*W+\sum_fF_f^*F_f=I$. Up to the scalar phase, which cancels from every
+channel, its half-diamond distance from conjugation by $W_{1/2}$ is below
+$6.4\times10^{-9}$ on all inputs, including the prepared columns, the four
+exterior field bits and an arbitrary untouched reference.
+\end{proposition}
+\begin{proof}
+Anti-Hermitian Duhamel and $\|K-P_8-aI\|\leq E$ give the first bound. The
+palindrome obeys $S(-h)=S(h)^{-1}$ and $S'(0)=iP_8$, hence $S''(0)=S'(0)^2$, so
+$S(h)$ and $e^{ihP_8}$ agree through second order. All factors are unitary, and
+the multinomial rule bounds both third derivatives by $B^3$. Taylor's remainder
+gives $B^3|h|^3/3$ per step and unitary telescoping gives the second bound. For
+each pulse with emitted generator $G_e$ and ideal proper-code generator $T_e$,
+$\|e^{G_e}-e^{T_e}\|\leq\|G_e-T_e\|$, with the outward enclosure taken over all
+six processor inputs. Isometric telescoping bounds the literal word, with every
+failure output retained, by the sum $d_{\rm lit}$ of those errors. The total
+$d_{\rm lit}+B^3|s|^3/(3n^2)+|s|E$ has exact rational value near
+$6.385\times10^{-9}$: $5.34\times10^{-12}$ for the literal word,
+$5.388\times10^{-9}$ for the product and $9.92\times10^{-10}$ for the bridge to
+the prepared logarithm.
+\end{proof}
+
+All sixteen regional input columns are executed. Continuing the preparation is
+exact channel composition: each unnormalized success column becomes
+$v'_j=(I_{\rm ext}\otimes W)v_j$, $j=0,\ldots,255$, with the eight preparation
+record bits, every earlier abort output and all first-failure labels retained
+and no source reset in between. The target $W_s$ preserves $\sigma$, so the
+same bound controls regional stationarity. On the full plaquette a regional
+unitary can change correlations and need not preserve $\Sigma$, so it does not
+intertwine the regional modular group with the global one, in accord with
+Proposition~\ref{prop:finite-modular-dilation}. The load, export and source
+services are the admitted simulator specification and $s$ is dimensionless, so
+this operational clock identifies no geometric flow, stress charge or physical
+duration. The certificates and replays are in the repository~\cite{ophrepo}.
 
 \subsection{Finite modular covariance and compressed responses}
 \label{sec:finite-modular-covariance}
@@ -707,6 +880,15 @@ B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
 \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Observable Fields},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/executable_observer_construction.pdf}.
+
+\bibitem{ophparticles}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
+\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{ophobservers}
+B.~M\"uller et al., \emph{Observers Are All You Need}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/observers_are_all_you_need.pdf}.
 
 \bibitem{bombelli1987}
 L.~Bombelli, J.~Lee, D.~Meyer, and R.~D.~Sorkin,

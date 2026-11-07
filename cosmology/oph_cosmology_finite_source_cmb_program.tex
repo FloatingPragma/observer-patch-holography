@@ -358,7 +358,13 @@ single-field slow roll has no universal positive tensor floor.
 Given a completed source map, the transfer calculation must declare the
 background species, equations of state, collision terms, recombination model,
 initial modes, gauge convention, numerical tolerances, and observable
-projection. Standard Einstein--Boltzmann software can test this interface with
+projection. The finite particle comparison computes no particle abundance or
+early-Universe population distribution, so those background species densities are
+imported~\cite{ophparticles}. An equation of state needs its own strain response:
+identical fixed-volume records admit \(H_\alpha(V)=Q(V/V_0)^{-\alpha}\) with
+\(p/\rho=\alpha\), and an additive energy offset changes \(p/\rho\) while leaving
+pressure unchanged~\cite{ophobservers}.
+Standard Einstein--Boltzmann software can test this interface with
 imported inputs. Such a run tests the solver path rather than an OPH source
 theorem.
 
@@ -421,6 +427,15 @@ boundary-trace test.
 \bibitem{ophtimefields}
 FloatingPragma (2026). Joint time and field laws on matched source screens.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/model/observer_time_fields/REFINEMENT.md}.
+
+\bibitem{ophobservers}
+B.~M\"uller et al., \emph{Observers Are All You Need}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/observers_are_all_you_need.pdf}.
+
+\bibitem{ophparticles}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
+\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
 
 \bibitem{ophcausality}
 FloatingPragma (2026). Exact native causal cones.

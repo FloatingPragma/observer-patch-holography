@@ -62,7 +62,7 @@ dimensions, and gravity on large scales. Particles are meant to be knots in
 that network, localized defects that local repairs cannot undo, and their
 mass is the extra upkeep they cost.
 
-That is the target. The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
+The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
 what would count as success, and the
 [completion program](docs/COMPLETION_PROGRAM.md) splits the work into gates
 with stopping rules. Either the pieces join up on one running process, or a
@@ -79,28 +79,29 @@ proof shows that the whole class of laws cannot work.
   radial extension of the refining screen, one action fixes correlations,
   response and a modular clock, and a smooth (1+3)-dimensional scalar field
   theory reproduces any finite set of joint readouts. The radial direction
-  and the physical units are inputs. The
-  [integrated verdict](model/CONSTRUCTION.md#integrated-effective-description)
-  has the details.
+  and the physical units are inputs.
+  [Integrated verdict](model/CONSTRUCTION.md#integrated-effective-description).
 - **Standard physics from finite agreement.** Under stated premises, finite
   theorems give public records that do not depend on the order of repairs,
   the Born rule and the Tsirelson bound, a carrier that is three-dimensional
   in its slow response, the Standard Model gauge Lie algebra with an
-  anomaly-free matter representation, a (1+3)-dimensional causal order and
-  the Einstein equation from null balance.
-- **Common-action constructions.** One original action on the
-  three-dimensional cube has a certified global ground, an infinite-lattice
-  ground with positive excitation energy, and a regular positive-energy
-  continuum spin field net with finite propagation. At zero coupling, finite
-  regional entropy changes converge to the free-field stress response used
-  by the Einstein derivation, with a controlled fixed-amplitude small-ball
-  remainder. Filtered spin readout includes every rejection outcome; the
-  [mass and energy table](model/completion/PARTICLE_MASS_TABLE.md) records
-  the certified finite spectra. The charged continuum is provably free for
-  `U=o(c^(2/7))`, with massless Weyl energies in all eight valleys. A sharp
-  mass shell, surviving continuum interaction, measured particle species and
-  responsive geometry remain open, with their premises stated in the
-  [continuum construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
+  anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
+  balance.
+- **Particles with certified spectra.** A specified interacting cube has 228
+  charged lines visible to single-fermion probes and 138 composite lines
+  invisible to them, every weight proved positive. One set of localized modes
+  carries all twelve gauge currents and a memory-realized lepton mass matrix.
+  The tested mass branch puts the charged leptons within 71 parts per million
+  (its lepton law is target-informed), the W, Z, Higgs and top within one
+  percent, and the lighter quarks off by 23 to 209 percent. Selecting the
+  spectrum from the source is the main remaining step.
+  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [mass comparison](model/particle_spectrum_audit/README.md).
+- **Free fields and the matter side of gravity.** One original action on the
+  cube has an infinite-lattice ground with positive excitation energy and a
+  continuum spin field with finite propagation. Its charged continuum is provably free for `U=o(c^(2/7))`, with
+  massless Weyl energies in all eight valleys, and at zero coupling regional
+  entropy changes converge to the stress response the Einstein derivation uses.
+  [Continuum construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12800 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.
@@ -109,12 +110,10 @@ proof shows that the whole class of laws cannot work.
   eligible comparison data, with OpenTimestamps proofs, most of them anchored in
   Bitcoin; the
   dispersion prediction for the primitive port orbit is one of them. The
-  [postdiction ledger](docs/POSTDICTION_LEDGER.md) and the
-  [falsification programme](docs/OPH_FALSIFICATION_PROGRAM.md) keep comparisons
-  with measurements apart from tests of the mathematics.
-  The [cross-scale audit](docs/EMPIRICAL_STATUS.md) tests shared numerical
-  maps and records the physical identifications needed before separate
-  comparisons can count as evidence for one construction.
+  [postdiction ledger](docs/POSTDICTION_LEDGER.md), the
+  [falsification programme](docs/OPH_FALSIFICATION_PROGRAM.md) and the
+  [cross-scale audit](docs/EMPIRICAL_STATUS.md) keep comparisons with
+  measurements apart from tests of the mathematics.
 
 **Agreement with the full range of observed measurement statistics has not
 been established.** The theorems hold under stated premises, and the
@@ -129,25 +128,25 @@ python3 -m model.observer run --trials 10000 --seed 42
 ```
 
 This runs the minimal record-and-feedback experiment and prints forecast
-scores and a result hash. The [model guide](model/README.md) covers the richer
-observers, clocks, fields and data comparisons; the
-[construction guide](model/CONSTRUCTION.md) states the verified scope and
-remaining inputs.
+scores and a result hash. The [model guide](model/README.md) covers the rest.
 
 ## Mathematical results
 
 - **Agreement and stable records.** Under explicit termination and consistency
-  conditions, local repairs reach one shared public result whatever their
-  order. Further results control which records survive refinement.
+  conditions, local repairs reach one shared public result whatever their order.
   [Consensus paper](paper/reality_as_consensus_protocol.pdf).
 - **Quantum observations.** Within the stated finite quantum algebra, verified
   results cover repeatable measurements, classical records that later
   operations cannot disturb, uncertainty and the Bell correlation bound, with
-  a state that attains it.
-  [Finite quantum event algebras](extra/machine_checked_finite_event_algebras.pdf).
-- **Three spatial directions.** The fixed twelve-port carrier and its mean
-  repair rule give an exact three-dimensional slow response with Euclidean
-  geometry, which an observer's current records recover.
+  a state that attains it. Native repair histories reconstruct a positive
+  functional on the full 66-state matrix algebra, where the Born trace rule
+  holds; native evolution does not prepare that state.
+  [Finite quantum event algebras](extra/machine_checked_finite_event_algebras.pdf),
+  [native reconstruction](model/native_quantum_reconstruction/PROOF.md).
+- **Three spatial directions.** Optimal readout of a supplied three-dimensional
+  response selects the twelve-port incidence, and the carrier's mean repair rule
+  gives an exact three-dimensional slow response with Euclidean geometry, which
+  an observer's current records recover.
   [Carrier construction](code/a5_closure/README.md).
 - **Gauge symmetry.** Under stated premises on complete reversible response
   and observer transport, the twelve-port response algebra has the Standard
@@ -156,9 +155,10 @@ remaining inputs.
   [Gauge derivation](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **Thermodynamics.** Finite repair theorems give a Clausius inequality,
   fluctuation relations and an information Landauer inequality under a stated
-  reference and energy calibration. Native binary repair realizes the entropy
-  laws at constant energy, and a declared record register realizes the finite
-  package in internal cost units.
+  reference and energy calibration. Fair-coin seam repair is exact conditional
+  resampling, so entropy never falls on binary populations while the complete
+  tape keeps every bit. A native memory refresh realizes the machine-checked
+  finite four-law core in internal cost units.
   [Thermodynamics account](paper/observers_are_all_you_need.pdf).
 - **Information capacity.** Exact results count which records stay
   distinguishable after the allowed operations, bound that count by the
@@ -174,9 +174,9 @@ remaining inputs.
 - **Matter and fields.** A supplied charged-scalar and Maxwell action with its
   geometry and quantization give an interacting Hamiltonian after gauge
   reduction, and controlled scalar refinement connects classical detector
-  readouts to a nonlinear field equation.
-  A common metric dictionary is constructed; the tested static radial product
-  fails its relative-stress gravity test and requires a geometry response.
+  readouts to a nonlinear field equation. Gauge invariance, face locality and
+  carrier rotations select the Maxwell action on the seams.
+  A common metric dictionary is constructed.
   [Matter continuum](paper/observers_are_all_you_need.pdf).
 
 These are conditional mathematical results. Making their premises hold for
@@ -187,9 +187,7 @@ specification supplies and which it takes as inputs.
 ## Papers
 
 - **[Observers Who Read Their Universe into Existence](flagship/from_observer_consensus_to_standard_physics.pdf)**
-  is the main synthesis: the closure hypothesis, the executable-model
-  hypothesis and the tower of results built on it, layer by layer, with what
-  each layer needs. Cite its released version, the
+  is the main synthesis: the closure hypothesis, the executable-model hypothesis and the tower of results built on it. Cite its released version, the
   [PhilPapers record](https://philpapers.org/rec/MUEFOC).
 - **[An Executable Observer for Observer Patch Holography](paper/executable_observer_construction.pdf)**
   states the specification, the executed components and the ordered joins
@@ -197,7 +195,8 @@ specification supplies and which it takes as inputs.
 - **The theorem library** holds the long proofs, from
   [consensus](paper/reality_as_consensus_protocol.pdf) and
   [observers and records](paper/observers_are_all_you_need.pdf) to
-  [spacetime and Einstein dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
+  [spacetime and Einstein dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+  and [particles](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
   The [paper index](paper/README.md) and the [paper set](docs/PAPER_SET.md)
   list every paper and its role.
 - **Companion papers** carry focused results. A lepton-mass relation, the
@@ -225,9 +224,8 @@ specification supplies and which it takes as inputs.
 ## Reproduce and verify
 
 The [reproduction guide](REPRODUCE.md) runs the verification suite from a
-clean clone. The model verifier checks artifact bindings and replays the
-receipt inventory declared in `model/verify.py`; the model regression suite
-also checks separately retained results and adversarial cases:
+clean clone. The model verifier replays the receipt inventory declared in `model/verify.py`;
+the regression suite also checks adversarial cases:
 
 ```sh
 python -m pip install -r model/requirements.txt
@@ -236,8 +234,7 @@ python -m pytest -q -W error model
 ```
 
 The guide also lists the standalone particle and source-field checks used by
-the [observer workflow](.github/workflows/observer-model.yml). These checks
-have distinct scopes; the verifier alone is not the complete model gate.
+the [observer workflow](.github/workflows/observer-model.yml).
 
 The [Lean library](Lean/) builds with Lake, the [documentation index](docs/README.md)
 lists the registers and policies, and the [book](book/) gives a longer road
@@ -249,10 +246,8 @@ the gentlest introductions.
 ## Contributing
 
 The task is to make one observation-and-repair process supply the effective
-physics: connect the observer's clock, spatial interpretation and field
-measurements on the same histories, then compare outcome probabilities,
-correlations and responses to interventions with independent observations.
-A supplied field equation remains an input even when its simulation works.
+physics: the observer's clock, spatial interpretation and field measurements
+on the same histories, compared with independent observations.
 Contributions should resolve a named connection or expose a failure in the
 shared model; the [construction guide](model/CONSTRUCTION.md), the
 [repair-law guide](model/CANDIDATES.md) and the

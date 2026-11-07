@@ -24,11 +24,11 @@ controlled field limits. The [basis](../docs/BASIS.md) distinguishes closure,
 operational agreement, and the adopted state and response principles.
 
 The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
-develops the finite gauge and matter inputs, pixel-dependent mass law,
-native memory realization, common localized current/mass operator, quartic
-interaction and compact finite-energy defect pair. Its conditional catalogue
-states the unresolved physical identifications without surveying separate
-mass prescriptions.
+gives the native transfer and charged spectra, the complete conserved
+quadratics, the pixel-dependent mass law and its memory realization, the common
+localized current/mass operator, the compact finite-energy defect pair and its
+quartic interaction, the twelve mass comparison values and the exact exclusions.
+It takes the gauge type and matter module from the gauge paper.
 The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
 states the corresponding conditional stress and generalized-volume entropy
 relation. The [source particle map](../model/completion/SOURCE_PARTICLE_MAP.md)
@@ -50,7 +50,7 @@ do not establish a common physical spectrum or geometric entropy law.
 | [Observers Are All You Need](observers_are_all_you_need.pdf) ([source](observers_are_all_you_need.tex)) | Layer 3: observers, records, quantum and thermodynamic identities, and the closure equations |
 | [Recovering Observer Spacetime and Einstein Dynamics](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) ([source](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)) | Layers 4 and 6: clocks, causal order and geometry from the same process, and the conditional Einstein implication with its realization premises |
 | [Standard Model Gauge Structure under Complete-Response and Observer-Transport Premises](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) ([source](deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex)) | Layer 5, gauge half: gauge structure as overlap transport and the compact Lie type under complete-response premises |
-| [Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Layer 5, matter half: common gauge currents, defect modes, the pixel-dependent mass operator and its physical matching conditions |
+| [Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator](deriving_the_particle_zoo_from_observer_consistency.pdf) ([source](deriving_the_particle_zoo_from_observer_consistency.tex)) | Layer 5, matter half: native charged spectra, common gauge currents, defect modes, the pixel-dependent mass operator, the mass comparison and its exclusions |
 | [Twelve-Port Icosahedral Carriers and Native Seam Repair](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Layer 2: the twelve-port carrier, seam rule, record laws and federation |
 
 The flavor theorem is developed in [The Positive-Chamber Koide Identity for

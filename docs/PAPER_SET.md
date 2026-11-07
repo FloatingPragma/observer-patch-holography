@@ -54,7 +54,8 @@ in the specialist paper that owns the result.
 - **Negative results on the tested law:** the native double-load defect is
   transient; the static radial product fails the null-balance comparison;
   passive repair has no wave sector; the tested uncalibrated family and mass
-  laws miss the charged hierarchy; no nontrivial source-only charge commutes
+  laws miss the charged hierarchy; all twelve comparison values of the
+  target-informed mass branch lie outside their printed intervals; no nontrivial source-only charge commutes
   with every complete C/E branch; real native operations cannot implement the
   nontrivial modular action of the constructed reference on its full support
   algebra; no measured particle spectrum is derived.
@@ -72,11 +73,11 @@ standard results used in a new interface remain standard results.
 | [Flagship synthesis](../flagship/from_observer_consensus_to_standard_physics.tex) | A common specification, selected conditional results, negative controls and ordered completion tests | The synthesis constructs no common realized Standard Model and gravity theory; closure, state selection and response endogeneity have distinct logical content |
 | [Executable observer](../paper/executable_observer_construction.tex) | Finite record-controlled operations, complete outcome laws, continuing observer/reference constructions and scoped error bounds | Supplied coherent services, preparations, actions, clocks and physical units retain their individual contracts |
 | [Consensus protocol](../paper/reality_as_consensus_protocol.tex) | Protected-observation normal forms, accepted repair, provenance and quantitative finite/refinement interfaces | Termination, confluence, scheduler and protected-record hypotheses must hold on the actual source; Newman's theorem is an imported ingredient |
-| [Observers and records](../paper/observers_are_all_you_need.tex) | Finite record, entropy, capacity and instrument constructions with explicit composition boundaries | Quantum algebra, reference, energy calibration and field actions are premises where supplied; familiar quantum and thermal identities do not alone select a physical source |
+| [Observers and records](../paper/observers_are_all_you_need.tex) | Finite record, entropy, capacity and instrument constructions with explicit composition boundaries, a positive functional reconstructed from native histories, the entropy laws of fair-coin repair and the operational strain theorem | Quantum algebra, reference, energy calibration and field actions are premises where supplied; familiar quantum and thermal identities do not alone select a physical source |
 | [Spacetime and Einstein dynamics](../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) | Finite causal/count interfaces, null tomography, tensor completion and same-metric obstruction tests | The geometric/stress/entropy balance and common physical clock require a source realization; the static radial product fails the tested null balance |
-| [Gauge structure](../paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex) | Compact Lie-type selection under complete-response/endogeneity premises and a specified matter/tensor witness | Complete source currents, physical chirality, matter selection, global form and field dynamics remain separate obligations |
-| [Particle defects](../paper/deriving_the_particle_zoo_from_observer_consistency.tex) | A common finite current/mass carrier, pixel-dependent memory coefficients, compact-defect modes and interacting core response | The response kernel, physical pole matching, autonomous defects, chiral continuum and complete measured spectrum require further derivation |
-| [Carrier and seam repair](../paper/screen_microphysics_and_observer_synchronization.tex) | Exact carrier incidence, classical seam rule, record-law classification and rank-three response | The selected architecture, response menu and physical spatial/refinement interpretation remain explicit |
+| [Gauge structure](../paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex) | Compact Lie-type selection under complete-response/endogeneity premises, a specified matter/tensor witness, a gauge-covariant band on classical links and a local Gauss construction | Complete source currents, physical chirality, matter selection, global form and field dynamics remain separate obligations |
+| [Particle defects](../paper/deriving_the_particle_zoo_from_observer_consistency.tex) | Native transfer and charged spectra, complete conserved quadratics, a common finite current/mass carrier, pixel-dependent memory coefficients, compact-defect modes, interacting core response, the twelve mass comparison values and exact exclusions | The mass branch is target-informed and all twelve values miss their printed intervals; the response kernel, physical pole matching, autonomous defects, chiral continuum and a source-selected spectrum require further derivation |
+| [Carrier and seam repair](../paper/screen_microphysics_and_observer_synchronization.tex) | Exact carrier incidence and its optimal-readout selector, classical seam rule, record-law classification, rank-three response and local Maxwell selection | The selected architecture, response menu and physical spatial/refinement interpretation remain explicit |
 | [Finite event algebra](../extra/machine_checked_finite_event_algebras.tex) | A checked projection-event API, expectation range/uniqueness results and measurement/CHSH adapters | The underlying finite quantum algebra is supplied; the contribution is formalization and interface design, not a new quantum probability law |
 | [Observation-determined normal forms](../extra/observable_normal_forms.tex) | Observable reconstruction, stability/receipt and refinement certificates with necessity counterexamples | Each quantitative estimate retains its stated error-bound witnesses and domain hypotheses; it assumes no physical interpretation |
 | [de Sitter capacity](../extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex) | Finite entropy, capacity-transfer, shock-normalization and spectrum identities | Horizon-area, capacity, mass and dynamical-shock identifications are conditional |
@@ -91,6 +92,16 @@ standard results used in a new interface remain standard results.
 | [Black-hole ledger](../cosmology/oph_black_hole_information_ledger.tex) | Finite record-channel identities and declared crossing-count scaling | The horizon-entropy coefficient, thermality and physical information-return mechanism are not established |
 | [Data and likelihood contracts](../cosmology/oph_cosmology_data_likelihood_contracts.tex) | Explicit comparison classes, data contracts and independently replayed retrospective values | Exposure, calibration and supplied cosmology remain visible; a posterior comparison is not a derivation of its source model |
 
+## How the papers share results
+
+One paper owns each result and gives its full statement and proof. Another
+paper states what it consumes, in words and formulas sufficient for its own
+argument, and cites the owner. Every paper reads on its own, so a citation
+never replaces a definition its argument needs. Values quoted in two papers
+agree exactly. The flagship is the exception by design: it states the strongest
+theorems of the whole tower with short proofs and cites their owners for the
+rest.
+
 ## How the papers change
 
 - Model results enter the [model directory](../model/README.md) first, with
@@ -98,8 +109,8 @@ standard results used in a new interface remain standard results.
   paper states them in its next revision.
 - Library papers receive errata, correctness fixes and links to the premise
   map. New results go to the model or to a companion paper.
-- The flagship changes zero-sum: a stronger result replaces a weaker one
-  within the 60-page ceiling.
+- The flagship carries the strongest derivations within its 60-page ceiling:
+  a stronger result replaces a weaker one.
 - A new paper release follows the owner's approval of a recorded model
   milestone. Deposited releases retain their original bytes.
 

@@ -63,7 +63,9 @@ an interface without supporting a physical OPH claim.
 \end{enumerate}
 
 The cosmology comparisons in scope are diagnostic or imported. No source-derived
-joint cosmology likelihood exists. The retrospective comparison ledger of
+joint cosmology likelihood exists. The finite particle comparison computes no
+particle abundance or early-Universe population distribution, so every species
+density in these comparisons is imported or fitted~\cite{ophparticles}. The retrospective comparison ledger of
 Section~\ref{sec:ledger} classifies every recorded comparison by these
 classes and by whether the compared value is shared with the standard
 baseline.
@@ -252,6 +254,11 @@ capacity displays differ from the DESI coordinate by \(-2.64\) and
 registered comparison protocols. Only a complete prospectively fixed
 protocol, its eligible release, statistic and thresholds defines a test;
 the frozen prediction register specifies those separate contracts~\cite{ophladder}.
+The compared \(w\) is the effective-fluid quantity of the continuity relation
+read from \(\rho\propto1/N\), so a posterior on it is no measurement of screen
+work: identical fixed-volume records admit \(H_\alpha(V)=Q(V/V_0)^{-\alpha}\) with
+\(p/\rho=\alpha\), and an additive energy offset changes \(p/\rho\) while leaving
+pressure unchanged~\cite{ophobservers}.
 A failure of a conditional branch rejects the full proposal only if that
 branch's premises are shown necessary.
 
@@ -308,6 +315,15 @@ FloatingPragma (2026). OPH predictions and public-data comparisons.
 \bibitem{ophladder}
 FloatingPragma (2026). Frozen prediction register.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/claims/frozen_prediction_register.json}.
+
+\bibitem{ophobservers}
+B.~M\"uller et al., \emph{Observers Are All You Need}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/observers_are_all_you_need.pdf}.
+
+\bibitem{ophparticles}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
+\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
 
 \bibitem{ophobsdyn}
 FloatingPragma (2026). Observer-dynamics analysis archive: native-repair

@@ -7,7 +7,7 @@ $(x,y,z^2-a^2)$ inside the cube of radius $a+1$ and a constant outside,
 with zero amplitude at the two cores $(0,0,\pm a)$.
 The four-band bound is $r=b^2/(M-4)$, where $b^2=7/4$ for $a=1$
 and $b^2=3/2$ otherwise. The spectral and particle--hole identities
-are proved for this source in \path{model/compact_defect_pair/PROOF.md}.
+hold for this source by the compact-pair construction.
 Let $W$ contain the four localized modes and set $A=W^\dagger hW$. The isometry $E=W\otimes I_{45}$ embeds 180 annihilators
 into the complete finite field. The current and pairing intertwiners hold
 for every complete memory record, with $A$ retained in the quadratic core.
@@ -207,7 +207,5 @@ derivative.  These are finite identities for one nonquadratic
 Hamiltonian.  They supply no geometric modular flow, local
 relativistic stress, area normalization or geometric entropy
 stationarity, and therefore imply no Einstein dynamics.
-The exact characteristic polynomial, complete finite spectra,
-record control and source-bound replay are implemented in
-\texttt{model/compact\_interacting\_response}; the radial controls and
-onsite leakage calculation are in \texttt{model/interacting\_defect\_response}.
+Exact characteristic polynomials, complete finite spectra, record controls and
+the onsite leakage calculation accompany the proof.

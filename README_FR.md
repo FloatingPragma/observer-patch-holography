@@ -68,7 +68,7 @@ quantiques en interaction en 3+1 dimensions, et la gravitation aux grandes
 que les réparations locales ne peuvent pas défaire, et leur masse serait le
 coût d’entretien supplémentaire qu’ils imposent.
 
-C’est l’objectif. L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
+L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
 compterait comme un succès, et le [programme d’achèvement](docs/COMPLETION_PROGRAM.md)
 découpe le travail en étapes avec des règles d’arrêt : soit les pièces se
 rejoignent sur un même processus, soit une preuve montre que toute la classe
@@ -85,10 +85,8 @@ de lois échoue.
 - **Un champ scalaire lorentzien à partir des registres.** Sur une extension
   radiale déclarée de l’écran raffiné, une seule action fixe corrélations,
   réponse et horloge modulaire, et une théorie lisse de champ scalaire en
-  dimension (1+3) reproduit tout ensemble fini de lectures conjointes. La
-  direction radiale et les unités physiques sont des entrées. Le
-  [verdict intégré](model/CONSTRUCTION.md#integrated-effective-description)
-  donne les détails.
+  dimension (1+3) reproduit tout ensemble fini de lectures conjointes. La direction radiale et les unités physiques sont des entrées.
+  [Verdict intégré](model/CONSTRUCTION.md#integrated-effective-description).
 - **La physique standard à partir d’un accord fini.** Sous des prémisses
   énoncées, des théorèmes finis donnent à la spécification des structures
   familières : des registres publics indépendants de l’ordre des réparations ;
@@ -97,21 +95,20 @@ de lois échoue.
   Modèle standard et une représentation de matière sans anomalies
   conditionnelle ; un ordre causal de dimension (1+3) avec un temps propre lu
   dans les comptages ; et l’équation d’Einstein à partir d’un bilan nul.
-- **Des constructions à action commune.** Une action originale sur le cube
-  tridimensionnel possède un fondamental global certifié, un fondamental sur
-  réseau infini à énergie d’excitation positive, et un réseau régulier de
-  champs de spin continus à énergie positive et propagation finie. À couplage
-  nul, les variations finies d’entropie régionale convergent vers la réponse de
-  contrainte du champ libre utilisée par la dérivation d’Einstein, avec un
-  reste contrôlé sur les petites boules à amplitude fixée. La lecture filtrée
-  des spins inclut chaque issue de rejet ; la
-  [table des masses et énergies](model/completion/PARTICLE_MASS_TABLE.md)
-  consigne les spectres finis certifiés. Le continuum chargé est démontrablement
-  libre pour `U=o(c^(2/7))`, avec des énergies de Weyl sans masse dans les huit
-  vallées. Une couche de masse nette, une interaction continue survivante, des
-  espèces de particules mesurées et une géométrie qui répond restent ouvertes,
-  avec leurs prémisses énoncées dans la
-  [construction du continuum](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
+- **Des particules aux spectres certifiés.** Un cube en interaction spécifié
+  possède 228 raies chargées visibles par des sondes à un fermion et 138 raies
+  composites qui leur sont invisibles, chaque poids étant démontré positif. Un
+  même ensemble de modes localisés porte les douze courants de jauge et une
+  matrice de masse des leptons réalisée par la mémoire. La branche de masse testée
+  place les leptons chargés à moins de 71 parties par million (sa loi leptonique
+  est informée par la cible), les W, Z, Higgs et top à moins d’un pour cent, et
+  les quarks plus légers à 23 à 209 pour cent. Sélectionner le spectre à partir de la source est la principale étape restante.
+  [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [comparaison des masses](model/particle_spectrum_audit/README.md).
+- **Les champs libres et le côté matière de la gravitation.** Une action originale sur le cube possède un fondamental sur réseau infini à énergie d’excitation positive et un champ de spin continu à propagation finie. Son continuum chargé est démontrablement libre pour
+  `U=o(c^(2/7))`, avec des énergies de Weyl sans masse dans les huit vallées, et à
+  couplage nul les variations d’entropie régionale convergent vers la réponse de
+  contrainte qu’utilise la dérivation d’Einstein.
+  [Construction du continuum](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
 - **Des mathématiques vérifiables.** La [bibliothèque Lean](Lean/) contient
   plus de 12800 théorèmes et lemmes publics sans preuve admise, et chaque reçu
   de calcul conservé est rejoué en intégration continue.
@@ -119,13 +116,9 @@ de lois échoue.
   entrent dans l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md)
   avant les données de comparaison admissibles, avec des preuves OpenTimestamps,
   pour la plupart ancrées dans Bitcoin ; la prédiction de dispersion pour l’orbite des ports
-  primitifs en fait partie. Le [registre des postdictions](docs/POSTDICTION_LEDGER.md)
-  et le [programme de falsification](docs/OPH_FALSIFICATION_PROGRAM.md)
-  séparent les comparaisons avec des mesures des tests des mathématiques.
-  L’[audit inter-échelles](docs/EMPIRICAL_STATUS.md) teste des
-  correspondances numériques partagées et consigne les identifications
-  physiques nécessaires avant que des comparaisons séparées puissent compter
-  comme éléments de preuve pour une même construction.
+  primitifs en fait partie. Le [registre des postdictions](docs/POSTDICTION_LEDGER.md), le [programme de falsification](docs/OPH_FALSIFICATION_PROGRAM.md)
+  et l’[audit inter-échelles](docs/EMPIRICAL_STATUS.md) séparent les comparaisons
+  avec des mesures des tests des mathématiques.
 
 **L’accord avec l’ensemble des statistiques de mesure observées n’est pas
 établi.** Les théorèmes valent sous des prémisses énoncées, et l’observateur
@@ -141,26 +134,26 @@ python3 -m model.observer run --trials 10000 --seed 42
 
 Cette commande exécute l’expérience minimale d’enregistrement et de
 rétroaction et affiche les scores des prévisions et l’empreinte du résultat.
-Le [guide du modèle](model/README.md) couvre les observateurs plus riches, les
-horloges, les champs et les comparaisons aux données ; le
-[guide de construction](model/CONSTRUCTION.md) énonce la portée vérifiée et
-les entrées restantes.
+Le [guide du modèle](model/README.md) couvre le reste.
 
 ## Fondements mathématiques
 
 - **L’accord et les registres stables.** Sous des conditions explicites de
   terminaison et de cohérence, les réparations locales atteignent un même
-  résultat public quel que soit leur ordre. D’autres résultats contrôlent
-  quels registres survivent au raffinement.
+  résultat public quel que soit leur ordre.
   [Article sur le consensus](paper/reality_as_consensus_protocol.pdf).
 - **Les observations quantiques.** Dans l’algèbre quantique finie énoncée, des
   résultats vérifiés couvrent les mesures répétables, les registres classiques
   que les opérations ultérieures ne peuvent perturber, l’incertitude et la
-  borne de corrélation de Bell, avec un état qui l’atteint.
-  [Algèbres finies d’événements quantiques](extra/machine_checked_finite_event_algebras.pdf).
-- **Trois directions spatiales.** Le support fixe à douze ports et sa règle de
-  réparation moyenne donnent une réponse lente exactement tridimensionnelle de
-  géométrie euclidienne, que retrouvent les registres de courant d’un observateur.
+  borne de corrélation de Bell, avec un état qui l’atteint. Les histoires de
+  réparation natives reconstruisent une fonctionnelle positive sur toute
+  l’algèbre de matrices à 66 états, où vaut la règle de trace de Born ; l’évolution native ne prépare pas cet état.
+  [Algèbres finies d’événements quantiques](extra/machine_checked_finite_event_algebras.pdf),
+  [reconstruction native](model/native_quantum_reconstruction/PROOF.md).
+- **Trois directions spatiales.** La lecture optimale d’une réponse
+  tridimensionnelle fournie sélectionne l’incidence à douze ports, et la règle de
+  réparation moyenne du support donne une réponse lente exactement tridimensionnelle
+  de géométrie euclidienne, que retrouvent les registres de courant d’un observateur.
   [Construction du support](code/a5_closure/README.md).
 - **La symétrie de jauge.** Sous des prémisses énoncées de réponse réversible
   complète et de transport entre observateurs, l’algèbre de réponse à douze
@@ -170,9 +163,11 @@ les entrées restantes.
 - **La thermodynamique.** Des théorèmes finis de réparation donnent une
   inégalité de Clausius, des relations de fluctuation et une inégalité de
   Landauer informationnelle sous une référence et une calibration de l’énergie
-  énoncées. La réparation binaire native réalise les lois d’entropie à énergie
-  constante, et un registre d’enregistrements déclaré réalise l’ensemble fini
-  en unités de coût internes.
+  énoncées. La réparation de couture à pièce équilibrée est un rééchantillonnage
+  conditionnel exact : l’entropie ne décroît jamais sur les populations binaires,
+  et la bande complète garde chaque bit. Un rafraîchissement natif de la mémoire
+  réalise le noyau fini des quatre lois, vérifié par machine, en unités de coût
+  internes.
   [Exposé thermodynamique](paper/observers_are_all_you_need.pdf).
 - **La capacité d’information.** Des résultats exacts comptent les registres
   qui restent distinguables après les opérations permises, bornent ce nombre
@@ -190,9 +185,8 @@ les entrées restantes.
   Maxwell, avec sa géométrie et sa quantification, donne un hamiltonien en
   interaction après réduction de jauge, et un raffinement scalaire contrôlé
   relie les lectures classiques d’un détecteur à une équation de champ non
-  linéaire. Un dictionnaire métrique commun est construit ; le produit radial
-  statique testé échoue à son test gravitationnel de contrainte relative et
-  nécessite une réponse géométrique.
+  linéaire. L’invariance de jauge, la localité par faces et les rotations du
+  support sélectionnent l’action de Maxwell sur les coutures. Un dictionnaire métrique commun est construit.
   [Continuum de matière](paper/observers_are_all_you_need.pdf).
 
 Ce sont des résultats mathématiques conditionnels. Faire tenir leurs prémisses
@@ -205,8 +199,7 @@ entrées.
 
 - **[Observers Who Read Their Universe into Existence](flagship/from_observer_consensus_to_standard_physics.pdf)**
   est la synthèse principale : l’hypothèse de clôture, l’hypothèse du modèle
-  exécutable et la tour des résultats, couche par couche, avec ce qu’il manque
-  à chaque couche. Citez sa version publiée, la
+  exécutable et la tour des résultats. Citez sa version publiée, la
   [fiche PhilPapers](https://philpapers.org/rec/MUEFOC).
 - **[An Executable Observer for Observer Patch Holography](paper/executable_observer_construction.pdf)**
   énonce la spécification, les composants exécutés et les jonctions
@@ -214,7 +207,8 @@ entrées.
 - **La bibliothèque de théorèmes** contient les preuves longues, du
   [consensus](paper/reality_as_consensus_protocol.pdf) et des
   [observateurs et registres](paper/observers_are_all_you_need.pdf) jusqu’à
-  l’[espace-temps et la dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf).
+  l’[espace-temps et la dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+  et aux [particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
   L’[index des articles](paper/README.md) et l’[ensemble des articles](docs/PAPER_SET.md)
   donnent chaque article et son rôle.
 - **Les articles compagnons** portent des résultats ciblés. Une relation entre
@@ -243,9 +237,8 @@ entrées.
 ## Reproduire et vérifier
 
 Le [guide de reproduction](REPRODUCE.md) lance la suite de vérification depuis
-un clone propre. Le vérificateur du modèle contrôle les empreintes des
-artefacts et rejoue les reçus déclarés dans `model/verify.py` ; la suite de
-régression vérifie aussi des résultats conservés séparément et des cas adverses :
+un clone propre. Le vérificateur du modèle rejoue les reçus déclarés dans `model/verify.py` ;
+la suite de régression vérifie aussi des cas adverses :
 
 ```sh
 python -m pip install -r model/requirements.txt
@@ -255,8 +248,6 @@ python -m pytest -q -W error model
 
 Le guide donne aussi les contrôles autonomes des particules et des champs
 sources utilisés par le [workflow de l’observateur](.github/workflows/observer-model.yml).
-Ces contrôles ont des portées distinctes ; le vérificateur seul ne constitue
-pas la validation complète du modèle.
 
 La [bibliothèque Lean](Lean/) se compile avec Lake, l’[index de la documentation](docs/README.md)
 donne les registres et les politiques, et le [livre](book/) offre un chemin
@@ -268,11 +259,9 @@ les introductions les plus accessibles.
 ## Contribuer
 
 La tâche consiste à faire qu’un seul processus d’observation et de réparation
-fournisse la physique effective : relier l’horloge de l’observateur, son
-interprétation spatiale et ses mesures de champ sur les mêmes histoires, puis
-comparer les probabilités de résultats, les corrélations et les réponses aux
-interventions avec des observations indépendantes. Une équation de champ
-fournie reste une entrée même lorsque sa simulation fonctionne. Les
+fournisse la physique effective : l’horloge de l’observateur, son interprétation
+spatiale et ses mesures de champ sur les mêmes histoires, comparées à des
+observations indépendantes. Les
 contributions doivent résoudre une connexion nommée ou révéler un défaut du
 modèle commun ; le [guide de construction](model/CONSTRUCTION.md), le
 [guide des lois de réparation](model/CANDIDATES.md) et les

@@ -182,7 +182,8 @@ No sum of such terms equals one, so this branch is excluded. Hence
 compact-simple classification gives the unique split \(11=3+8\).
 \end{proof}
 
-The port count fixes the dimension twelve by declaration; the content of the
+The twelve ports are premise content of A1, so the port count fixes the
+dimension twelve by declaration; the content of the
 theorem is the exclusion of \(\mathfrak{su}(2)^4\) and a one-dimensional
 centre. The dimension arithmetic, the one-dimensional fixed subspace and the
 dimension-six exclusion below are machine checked in the accompanying Lean
@@ -212,6 +213,11 @@ produces \(R=-J\). Its restrictions to
 signs; simultaneous reversal is an algebraic response convention and is not
 identified with matter charge conjugation. These facts constrain the
 response without constructing the current derivative.
+
+The carrier paper gives a conditional selector of the same unoriented incidence from
+a supplied three-dimensional directional quadratic readout and its listed information
+objectives~\cite{ophmicrophysics}. A1 declares the oriented carrier and response layer
+used in Theorem~\ref{thm:current-algebra}.
 
 \paragraph{Exact negative controls.}
 The registered single-recurrence interface generates the commutative algebra
@@ -349,7 +355,11 @@ specified current acts on it, each generator containing the frame rotation
 The paper keeps these roles distinct. Premise A2 places the finite carrier
 rechartings inside the connected internal current group, up to centralizer
 elements and phases; this is a finite covariance statement and it is a
-premise. No result here identifies those
+premise. On the specified current a proper recharting acts by conjugation inside
+the stated factors: through its frame rotation on the triplet of the
+\(\mathfrak{su}(3)\) block and through the Galois-conjugate rotation on the
+triplet of the \(\mathfrak{so}(3)\) block, with the central generator
+\(\operatorname{diag}(iI_3,0)\) fixed. No result here identifies those
 rechartings with spatial rotations of a recovered interacting field, and
 representation equivalence alone proves neither an identification nor an
 independence of physical colour, family and spatial actions. Equivalent
@@ -1279,6 +1289,14 @@ at cubic order. These calculations establish (C1)--(C4) and none of
 (Q1)--(Q3).
 \end{proof}
 
+On the finite seam complex the abelian quadratic action and its conservative
+evolution have selection theorems~\cite{ophmicrophysics}: gauge invariance, strict
+face locality and covariance under the sixty proper rotations give
+\(S=c+\frac\kappa2\|CA\|^2\), and Faraday kinematics, energy conservation and the stated
+reversal give the linear Maxwell generator with supplied coefficients, also as the
+leading response of a smooth conservative law. The field action and its coefficients
+are inputs, and native repair supplies none of those premises.
+
 Calling these modes photons or gluons requires the quantum-particle receipt.
 The perturbative mode does not produce a gauge-invariant asymptotic gluon, and
 in a confining phase the coloured free pole need not occur in the physical
@@ -1327,28 +1345,162 @@ continuum theorem. Cartan scalar reductions likewise retain both gauge
 variations of the action rather than deleting a force by setting its field
 to zero.
 
-The particle construction gives a stronger same-operator finite attachment:
-the actual twelve current matrices act on an isolated spatial band tensored
-with the exterior matter module and the declared family space
-\cite{ophparticles}. For the radial zero-mode band, the localized CAR map
-intertwines those currents and the specified $P$-dependent pairing operator.
-A compact defect pair instead has a four-dimensional band with nonzero
-spatial matrix $A$, and its one-body energies are shifted by $\lambda(A)$.
-A projected quartic interaction has an exact CAR restriction to the same
-compact band. Its complete memory estimates, charged slice poles and
-full-core energy bounds retain $A$; the interaction changes the spectral
-readout relative to the quadratic coefficients. None of these identities
-selects a continuum chiral field, removes spatial doublers or derives a
-physical spin-statistics attachment from the gauge algebra alone.
+The particle construction gives a stronger same-operator finite attachment: the twelve
+current matrices act on an isolated spatial band tensored with the exterior matter module
+and the declared family space, and a localized CAR map intertwines those currents with
+the specified $P$-dependent pairing operator~\cite{ophparticles}. None of these identities
+selects a continuum chiral field, removes spatial doublers or derives a physical
+spin-statistics attachment from the gauge algebra alone.
 
 \input{tex_fragments/NATIVE_QUANTUM_GAUSS.tex}
+
+\subsection{A gauge-covariant band on classical links and the quantum-link boundary}
+\label{sec:gauge-band}
+
+The compact particle source localizes modes at two opposite-degree cores
+\cite{ophparticles}, and this subsection admits local internal frames on it through
+supplied classical links~\cite{ophrepo}. The lattice is the radius-three cube, with
+\(343\) sites, \(882\) undirected edges and two spin coordinates per site, tensored with an
+internal representation of dimension \(d\); the charged source has \(d=45\), from the
+fifteen-state exterior module and three family coordinates. The onsite term is
+\(64\,n(x)\cdot\sigma\), with \(n\) the normalized direction \((x,y,z^2-1)\) inside its
+prescribed support and constant outside, so its amplitude vanishes only at the cores
+\(c_\pm=(0,0,\pm1)\), of shell degrees \(\pm1\) and exterior degree zero. Supply unitary
+links \(U_{yx}=U_{xy}^\dagger\); the hopping from \(x\) to \(x+e_j\) is
+\((i\sigma_j/2)\otimes U_{xy}\). For local unitaries \(g_x\) and
+\(G=\bigoplus_x(I\otimes g_x)\), the transformed links \(U^g_{xy}=g_xU_{xy}g_y^\dagger\) give
+\(h[U^g]=Gh[U]G^\dagger\).
+
+A retained memory record \(r\) supplies a symmetric all-left kernel \(K_r\): the disabled
+kernel or one of twelve obtained by inserting \(gP_j\) in the lepton family block, with
+exact rank-one projectors \(P_j\), an exact interval calculation giving \(g<1\), and
+\(\|K_r\|\le1\). With the staggered spatial pairing \(C_{\rm s}\),
+\[
+ B_r[U]=\begin{pmatrix}h[U]&\Delta_r\\ \Delta_r^\dagger&-\overline{h[U]}\end{pmatrix},
+ \qquad \Delta_r=C_{\rm s}\otimes\overline{K_r},\qquad \Delta_r^{\mathsf T}=-\Delta_r .
+\]
+At \(d=45\) the complete field has \(61{,}740\) Nambu rows. Write \(\Psi=(c,c^\dagger)\),
+\(\tau_z=\operatorname{diag}(I,-I)\) and \(\Xi\) for particle-hole conjugation, so that
+\(\Xi B_r\Xi=-B_r\).
+
+\begin{proposition}[A canonical band under classical links]
+\label{prop:gauge-band}
+For every classical unitary link field on this lattice:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item \(h[U]\) has exactly \(4d\) eigenvalues in \([-3,3]\) and the rest outside
+\((-61,61)\), and its Riesz projector \(P_h[U]\) on \(|z|=32\) obeys
+\(P_h[U^g]=GP_h[U]G^\dagger\);
+\item for the core-to-exterior block \(\Gamma\) of \(h[U]\), one has \(\|\Gamma\|^2=7/4\);
+every low eigenvalue obeys \(|E|\le7/232\), and every low eigenvector has
+exterior-to-core probability ratio at most \(94192/200081025\);
+\item the symmetric spectral projector \(\Pi_r\) of \(B_r[U]\) has rank \(8d\), energies
+in \([-4,4]\) and complement outside \((-60,60)\), which at \(d=45\) is a
+\(360\)-coordinate band;
+\item \(C_r=\Pi_r\tau_z\Pi_r\) is invertible on the band, its sign \(J_r\) defines orthogonal
+projectors \(Q_{r,\pm}=(\Pi_r\pm J_r)/2\) of rank \(4d\) exchanged by \(\Xi\), and
+\(N_r=\tfrac12\Psi^\dagger J_r\Psi+2d\) is a basis-independent number operator with spectrum
+\(\{0,\dots,4d\}\);
+\item at \(d=45\) this gives \(180\) canonical annihilation modes with centre \(90\); the
+positive even quartic \(V_r=\lambda(N_r-90)^2\), \(\lambda\ge0\), is covariant under local
+frames with \(\Delta_r\mapsto G\Delta_rG^{\mathsf T}\), and at \(U_{xy}=I\) it equals the
+original compact interaction;
+\item for two raw records on one link field, \(\|\Pi_r-\Pi_s\|\le4/49\), and with
+\(Q_{r,0}=I-\Pi_r\) the alignment \(A_{rs}=\sum_{a\in\{+,-,0\}}Q_{r,a}Q_{s,a}\) obeys
+\(\|A_{rs}-I\|\le16/49+512/41209<1\), so its polar unitary
+\(U_{rs}=A_{rs}(A_{rs}^\dagger A_{rs})^{-1/2}\) satisfies
+\(U_{rs}Q_{s,a}U_{rs}^\dagger=Q_{r,a}\) and \(\Xi U_{rs}\Xi=U_{rs}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+At most six neighbours with blocks of norm \(1/2\) bound the hopping by \(3\), and the
+onsite term has \(4d\) zeros with every other eigenvalue \(\pm64\); ordered Weyl
+inequalities give (i). For (ii), each core has six neighbours and the cores share one,
+whose cross block is one quarter of a unitary, so \(\|\Gamma\|^2=7/4\) for arbitrary links,
+and the exterior block \(W\) has spectrum of modulus at least \(61\). The Feshbach equation
+\(Eu=-\Gamma^\dagger(W-E)^{-1}\Gamma u\) gives both bounds. Adding the pairing raises the perturbation
+bound to \(4\), which gives (iii). On \(|z|=32\) the resolvent identity gives
+\(\|\Pi_r-\Pi_0\|\le\eta=8/203\) against the number-conserving projector, hence
+\(C_r^2\ge(1-4\eta^2)\Pi_r\) and (iv). An orthonormal frame \(F\) of \(Q_{r,+}\) has
+\(F^\dagger\Xi F=0\), so \(b=F^\dagger\Psi\) obeys the canonical anticommutation relations. At
+trivial links \(\operatorname{diag}(P_W\otimes I_{45},\overline{P_W}\otimes I_{45})\) reduces every
+raw record, with \(P_W\) the rank-four spatial projector, so \(N_r=d\Gamma(P_W\otimes I_{45})\);
+no small-perturbation step enters. Covariance of \(B_r\) under
+\(G_N=\operatorname{diag}(G,\overline G)\), which commutes with \(\tau_z\) and \(\Xi\), passes to
+\(\Pi_r\), \(J_r\), \(N_r\) and \(V_r\). For (vi), the contour gives \(\xi=4/49\) from
+\(\|\Delta_r-\Delta_s\|\le2\), and \(\|J_r-C_r\|\le\beta=4\eta^2\) gives
+\(\|A_{rs}-I\|\le4\xi+2\beta\). Since \(A_{rs}Q_{s,a}=Q_{r,a}A_{rs}\), the polar part intertwines.
+\end{proof}
+
+The pairing has to enter the band definition, since the scalar projector \(P_h\) generally
+fails to reduce it on a curved link field. An execution with exact Gaussian-rational
+colour, weak and central links on one plaquette retains all five matter blocks, of low
+ranks \(12,8,24,12,4\), and checks \(91\) unordered projector comparisons of the thirteen
+kernels and two representative polar transports. On that field the scalar-band pairing
+leakage has Frobenius norm about \(0.0123\) and the complete projector differs from the
+number-conserving one by about \(9.65\times10^{-5}\); these floating residuals are
+execution checks, and the proof uses the exact bounds above~\cite{ophrepo}. Gauge transport
+preserves the texture degrees and need not preserve individual energies or colour
+degeneracies, so a curved background is physical data beyond a gauge choice.
+
+The polar unitary lies in the identity component of the real Majorana orthogonal group, so
+it has an even Gaussian Fock implementation. For differentiable link and scalar data put
+\(K=\frac12\sum_a[\dot Q_a,Q_a]\); then \(K^\dagger=-K\), \([K,Q_a]=\dot Q_a\), and the quadratic
+control \(B_{\rm track}=iK\) alone transports all three projectors. The sum
+\(B+B_{\rm track}\) transports the low band, while the retained pairing can give \([B,J]\ne0\),
+so band occupation need not be conserved, and \(\dot V=\lambda\{N-90,\dot N\}\) for the
+interaction. With a temporal connection replace \(\dot Q\) by \(\dot Q+i[A_0,Q]\) under
+\(A_0^g=G_NA_0G_N^\dagger+i\dot G_NG_N^\dagger\). This is a static background result with added
+apparatus: links, polar alignment and tracking control are supplied, with no native pulse
+compilation, and the construction selects no link field, gauge state, physical Higgs
+background or particle mass.
+
+\paragraph{The sixty-state quantum link.}
+The link of Section~\ref{sec:native-quantum-gauss} is nonunitary: its combined operator
+\(A_r=\sum_{ab}|a\rangle\langle b|\otimes U^r_{ab}\) on a block of dimension \(d_r\) obeys
+\(A_r^\dagger A_r=d_rI\otimes|0\rangle\langle0|\) and has norm \(\sqrt{d_r}\). Placing it on all
+\(882\) edges gives a one-particle band of rank \(180\cdot60^{882}\) with \(|E|\le3\sqrt6\), gap at
+least \(64-6\sqrt6\) and commutation with every local Gauss generator, on the joint matter
+and link space. A link Hamiltonian of spectral width \(W\) lowers this sufficient gap to
+\(64-6\sqrt6-W\), so \(882\) independent penalties \(\epsilon(I-|0\rangle\langle0|)\) stay in the
+domain \(0\le\epsilon<(64-6\sqrt6)/882\).
+
+A compact-group rotor attachment completes the raising rule on the same sixty states. With
+\(M(D^r_{ab})\) the multiplication by a matrix coefficient on \(L^2(G)\) and \(P_{\rm menu}\) the
+projector onto the selected span,
+\[
+ \widetilde U^r_{ab}=\sqrt{d_r}\,P_{\rm menu}M(D^r_{ab})P_{\rm menu}
+\]
+recovers \(\widetilde U^r_{ab}|0\rangle=|r;\bar a,b\rangle\) and adds the exact flux transitions
+\(Q\otimes Q\to d^c\), \(Q\otimes u^c\to L\), \(u^c\otimes Q\to L\), \(u^c\otimes e^c\to d^c\) and
+\(e^c\otimes u^c\to d^c\), each of multiplicity one, with product factors
+\(2\sqrt3,3,3,1,1\). All \(1{,}416\) local covariance identities hold, so the Gauss commutators
+of Section~\ref{sec:native-quantum-gauss} persist, and
+\((\widetilde A_r^\dagger\widetilde A_r)^2=d_r\widetilde A_r^\dagger\widetilde A_r\). Schur's lemma gives the
+complete Hermitian commutant \(\epsilon_0P_0+\sum_r\epsilon_rP_r\), which leaves five link-energy
+differences unselected. The rotor is an added attachment and changes the raising-only law:
+the combined-operator ranks for \(u^c,L,Q,d^c,e^c\) become \(18,2,30,3,10\) against \(3,2,6,3,1\),
+and finite compression does not preserve coordinate multiplication.
+
+\paragraph{Occupation needs a separate construction on operator-valued links.}
+Take the literal \(e^c\) raising operator \(U=|e\rangle\langle0|\) on two sites, with onsite
+energies \(0,64\) and hopping \(1/2\). The \(120\)-dimensional one-particle Hamiltonian has an
+isolated rank-\(60\) spectral projector \(P\) with gap \(64\), exact over
+\(\mathbb Q(\sqrt{4097})\), whose entries are link operators. Its Fock lift
+\(N(P)=\sum_{ij}c_i^\dagger P_{ij}c_j\) has spectrum \(0,1,1\pm t\) with
+\(t=(1-64/\sqrt{4097})/2\), and the noninteger value \(1+t\) occurs on a total Gauss singlet
+with static dual references. Canonical classical-band occupation therefore does not
+transfer to the native quantum link by Gauss invariance, and that link needs its own
+canonical construction. The witness tests the operator algebra on two sites and is not the
+spectral projector of the \(343\)-site texture.
 
 \section{Scope of the gauge conclusion}
 The complete-response and inner-transport premises determine the compact
 Lie type. The declared matrix embedding, exterior module and band rule give
 a conditional one-generation representation and family architecture. The
 local action and finite current identities join those algebraic data to
-explicit operators. A physical realization must additionally identify the
+explicit operators, and supplied classical links carry the compact band with a
+canonical integer occupation. A physical realization must additionally identify the
 same local gauge field, constrained state space and renormalized current on
 one interacting continuum limit. Coupling selection, the vacuum, defect
 species, pole masses and gravitational response require that common model;

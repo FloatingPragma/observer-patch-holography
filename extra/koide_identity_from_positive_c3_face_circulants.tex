@@ -355,21 +355,63 @@ Using the Particle Data Group 2026 central masses
 \]
 gives
 \[
-Q_{\mathrm{PDG}}=0.6666644634026367.
+Q_{\mathrm{PDG}}=0.6666644634026367,
+\qquad
+\rho/a=0.7071044442682813,
+\qquad
+\delta=0.2222247618945926.
 \]
-The declared minimal complete public response model gives
+The declared minimal complete public response (MCPR) law attenuates the balance
+and shifts the phase through three coefficients of a declared unified coupling
+\(u\) and pixel coordinate \(P\):
+\[
+\kappa=\frac{u/50}{1+u/31+u^2/310},
+\qquad
+\chi=\frac{u^2/512}{1-u/77},
+\qquad
+\zeta=\frac{(P-\varphi)^2/(21\pi)}{1-u/27-u^2/135},
+\]
+with \(\varphi=(1+\sqrt5)/2\),
+\[
+\frac{\rho}{a}=\frac{e^{-\chi}}{\sqrt2},
+\qquad
+\delta=\frac29+\zeta,
+\]
+and a common multiplier chosen so that the product of the three masses divided
+by the cube of a declared electroweak scale \(v\) equals
+\(e^{3\kappa}/(2\cdot6^{14})\). Inside the positive chamber,
+Eq.~\eqref{eq:koideformula} gives the exact circulant identity
+\begin{equation}
+Q=\frac{1+e^{-2\chi}}{3}
+\label{eq:koideattenuated}
+\end{equation}
+at every phase. The comparison packet of the particle
+construction~\cite{ophparticles} has
 \[
 \begin{aligned}
-Q_{\mathrm{MCPR}}&=0.6666644634090389,\\
-\rho/a&=0.7071044442750720,\\
+\chi&=3.304899678958019\times10^{-6},
+\qquad
+\zeta=2.540957613468169\times10^{-6},\\
+Q_{\mathrm{MCPR}}&=0.6666644634074956,\\
+\rho/a&=0.7071044442734351,\\
 \frac{\rho/a-1/\sqrt2}{1/\sqrt2}
 &=-3.3049\times10^{-6}.
 \end{aligned}
 \]
-The response dimensions, path table, amplitude, phase, and determinant
-exponent are target-informed inputs. The numerical response is therefore
-neither blind nor source-derived. The proximity of the two displayed \(Q\)
-values carries no significance or predictive weight.
+Its constants \(50,31,310,512,77,21,27,135\), amplitude, phase and determinant
+exponent are target-informed inputs, so the response is neither blind nor
+source-derived. The proximity of the two displayed \(Q\) values carries no
+significance or predictive weight.
+
+Reading the three outputs, in the external energy unit \(E_*\), as charged-lepton
+pole masses is an adopted physical premise, which similarity of dimensionless circulant coordinates does not
+derive. Under it the discrepancies are about \(-70.5\) parts per million, almost
+entirely a common scale, and the muon/electron ratio differs by \(+0.0725\) parts
+per million. The exact point \(\rho/a=1/\sqrt2\), \(\delta=2/9\) of the same
+circulant gives a muon/electron discrepancy of \(+9.83\) parts per million. The
+particle paper gives the full comparison table, in which all twelve nonzero
+outputs lie outside their printed intervals, and no measured particle mass is
+derived~\cite{ophparticles}.
 
 \begin{center}
 \begin{tabular}{@{}p{0.30\textwidth}p{0.58\textwidth}@{}}
@@ -382,7 +424,9 @@ Icosahedral face fiber & exact local \(A_5/C_3\) bundle and unordered spectrum \
 Tau window, Eq.~\eqref{eq:tauwindow} & exact quadratic consequence of the balance and ordering premises; registered decision rule \\
 Physical family attachment & absent from the theorems; a premise of any physical reading \\
 Phase and numerical ratios & balance leaves one phase controlling both scale-free ratios \\
+Eq.~\eqref{eq:koideattenuated} & exact circulant identity in the chamber \\
 MCPR numerical proximity & target-informed comparison-only diagnostic \\
+Charged pole comparison & adopted premise; outputs outside their printed intervals \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -486,6 +530,11 @@ FloatingPragma,
 FloatingPragma,
 \emph{Independent alpha/tau reproduction and the first bounded natural comparison}, 2026.
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2061/code/independent_postdictions}
+
+\bibitem{ophparticles}
+B.~M\"uller, M.~Poneder, A.~Osika, K.~Xue, and D.~A.~Friedman,
+\emph{Particles from Native Overlap Transport: Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2061/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
 
 \bibitem{ophmodel}
 FloatingPragma,

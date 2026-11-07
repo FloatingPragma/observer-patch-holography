@@ -77,10 +77,13 @@ A pixel fixed point constrains an electromagnetic coupling only when its
 return map is the response of the same physical system. We state this
 conditional identification, its scale and heat equations, and the
 same-scheme spectral transport needed at the Thomson endpoint. The common
-native-current and memory-mass construction has a certified conditional
-root $P\simeq1.628533369611833$, $\alpha^{-1}\simeq168.815082928453$
-for a declared charged-fermion kernel and color-scale coefficient $7$.
-It is not a complete electromagnetic response. Explicit phenomenological
+native-current and memory-mass construction has two certified conditional
+roots for a declared charged-fermion kernel:
+$P\simeq1.630971514159316$, $\alpha^{-1}\simeq137.000994766342$ with a
+supersymmetric running proxy, and
+$P\simeq1.628533369611833$, $\alpha^{-1}\simeq168.815082928453$ with the
+minimal census and color-scale coefficient $7$.
+Neither is a complete electromagnetic response. Explicit phenomenological
 transport maps give certified inverse couplings $136.994835177413\ldots$
 and $137.035660136947\ldots$; replacing their quark-screening ansatz by
 measured hadronic data gives a value near $136.3827548$, excluding the
@@ -109,13 +112,16 @@ its parameter ancestry and independent physical validation.
 
 The main executable connection uses the common current and charged-lepton
 mass operator of the particle construction \cite{oph-particle}. Its
-charged-fermion feedback kernel, with the retained memory mass law, gives a
-certified conditional root $P\simeq1.628533369611833$ and
-$\alpha^{-1}\simeq168.815082928453$ for the minimal three-family census and
+charged-fermion feedback kernel, with the retained memory mass law, gives two
+certified conditional roots (Section~\ref{sec:pixel-feedback}):
+$P\simeq1.630971514159316$ and $\alpha^{-1}\simeq137.000994766342$ with the
+supersymmetric running proxy and coefficient $4$, whose extra fields are absent
+from the native matter carrier, and $P\simeq1.628533369611833$ and
+$\alpha^{-1}\simeq168.815082928453$ with the minimal three-family census and
 chosen color transmutation coefficient $7$. With the same minimal census,
 coefficient $4$, positive couplings, $P\ge1$, $M_U\ge m_Z$ and no intervening
 thresholds, the heat/scale equations have no solution. Both memory inverse
-branches are certified at the coefficient-$7$ root. These statements close
+branches are certified at each root. These statements close
 a finite design consistency question; they identify no physical Thomson
 coupling. The count assumes the intended chiral continuum multiplicities,
 and the response omits charged-boson terms, confinement and full threshold
@@ -395,8 +401,8 @@ The triple \((33/5,1,-3)\) is the one-loop MSSM beta-coefficient set. Its
 census requires superpartners beyond the native fifteen-state matter
 carrier. No supersymmetric threshold matching enters this map, so it is a
 declared running proxy rather than the response of that carrier. The
-minimal-census exclusion and alternative color-scale closure are described
-in the particle construction \cite{oph-particle}.
+minimal-census exclusion and the color-scale closure are in
+Section~\ref{sec:pixel-feedback}.
 
 
 \subsection{The Self-Consistent \(Z\)-Scale}
@@ -789,8 +795,9 @@ The CODATA/NIST central coupling is
 
 
 \paragraph{Two-\(P\) provenance audit.}
-There are two distinct pixel numerals in this paper.  The declared-kernel
-solve gives \(P_{\mathrm{root}}\) in Eq.~\eqref{eq:Prootnum}; it is the
+Two distinct pixel numerals enter this transport comparison, and the feedback
+roots of Section~\ref{sec:pixel-feedback} are separate from both.  The
+declared-kernel solve gives \(P_{\mathrm{root}}\) in Eq.~\eqref{eq:Prootnum}; it is the
 branch that audits what the OPH source chain emits before a same-scheme
 hadronic endpoint correction is supplied.  The comparison value \(\Ppub\) in
 Eq.~\eqref{eq:Ppub} is different by about \(3.9\times10^{-6}\) in \(P\)-space
@@ -1207,6 +1214,96 @@ disjoint from its declared total endpoint is inconsistent. Such inputs are
 rejected, and a consistent but unreplayed contract is non-promoting. The separate
 executable interval certificates for the two incomplete declared maps
 retain their stated mathematical scope.
+
+\section{Pixel feedback with the memory mass law}
+\label{sec:pixel-feedback}
+
+The transport maps above use a supplied phenomenological charged spectrum. A
+common feedback loop instead evaluates one charged-fermion kernel on the mass
+coefficients that the memory construction realizes. Keep
+Eqs.~\eqref{eq:MU}, \eqref{eq:v}, \eqref{eq:running}, \eqref{eq:mZtree} and the
+heat equation~\eqref{eq:pixelclosure} with infinite representation sums. Let
+$u=\alpha_U$, let $E_*$ be a declared energy unit in the role of $E_P$, and write
+$\beta$ for the transmutation coefficient $\beta_{\mathrm{EW}}$. The charged
+leptons use the conditional minimal complete public response law
+\[
+\begin{aligned}
+\kappa&=\frac{u/50}{1+u/31+u^2/310},&
+\chi&=\frac{u^2/512}{1-u/77},&
+\zeta&=\frac{\alpha_P^2/21}{1-u/27-u^2/135},\\
+\alpha_P&=\frac{P-\varphi}{\sqrt\pi},&
+s_j&=\Bigl[1+\sqrt2\,\e^{-\chi}\cos\Bigl(\frac29+\zeta+\frac{2\pi j}{3}\Bigr)\Bigr]^2,&
+t_j&=s_j\Bigl[\frac{\e^{3\kappa}}{2\cdot6^{14}\prod_ks_k}\Bigr]^{1/3},
+\end{aligned}
+\]
+with masses $m_j=vt_j$. The quark coefficients are
+$(6^{-6},6^{-3},1)/\sqrt2$ and $(6^{-6},6^{-4},6^{-2})/\sqrt2$ in units of $v$.
+With $K_f$ from Eq.~\eqref{eq:kernelint} at $Q^2=m_Z^2$, for all three charged
+leptons and all six quarks including the top, the response is
+\[
+A=\alpha_2^{-1}+\frac53\alpha_1^{-1}+\sum_\ell K_\ell
++\Bigl(1-\frac{3\alpha_3}{\pi}\Bigr)\sum_qK_q,
+\qquad \alpha\mapsto P=\varphi+\sqrt\pi\,\alpha\mapsto(u,m_Z,v,t_j)\mapsto A\mapsto\frac1A.
+\]
+The quark factor is an inherited prescription. The mass architecture has
+target-informed provenance, with constants $50,31,310,512,77,21,27,135$, while its
+execution reads no measured mass, measured coupling, GeV calibration or stored
+pixel root.
+
+\begin{theorem}[Two certified feedback designs]
+\label{thm:pixel-feedback}
+For the two designs in Table~\ref{tab:pixel-feedback} the loop has a locally
+unique fixed point. Outward interval arithmetic with enclosed infinite heat
+tails gives a strict self-map on an $\alpha$ interval of radius $10^{-14}$ with
+$|g'|<0.00734$, so Banach's theorem gives one root in that interval. Every running
+coupling and response denominator is positive on the enclosure, and both
+native-memory inverse branches are admissible throughout it.
+\end{theorem}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Design & $(b_1,b_2,b_3),\ \beta$ & $P$ & $\alpha^{-1}$ & $u$\\
+\midrule
+Supersymmetric proxy & $(33/5,\,1,\,-3),\ 4$ & $1.630971514159316$ & $137.000994766342$ & $0.041124260725897$\\
+Minimal census & $(41/10,\,-19/6,\,-7),\ 7$ & $1.628533369611833$ & $168.815082928453$ & $0.019531387695090$\\
+\bottomrule
+\end{tabular}
+\caption{Certified conditional roots of the feedback loop. The ratio $v/E_*$ is
+$2.01983668924449\times10^{-17}$ for the first design and
+$8.61718526720080\times10^{-21}$ for the second.}
+\label{tab:pixel-feedback}
+\end{table}
+
+An independent replay solves the three simultaneous equations in
+$(1/u,\log(M_U/m_Z),\alpha)$ with direct quadrature of each fermion integral.
+The minimal coefficients are exact traces of the native fifteen-state internal
+currents with the intended chiral multiplicities. The first design requires a
+supplied running proxy whose extra fields are absent from the native matter
+carrier; its value differs from the measured endpoint by about $0.0350$. The second
+uses the native census and sets $\beta$ to the magnitude of its color
+coefficient, a choice that no theorem identifies with the Higgs scale.
+
+\begin{proposition}[Minimal census with coefficient four]
+\label{prop:minimal-census-exclusion}
+With $b=(41/10,-19/6,-7)$, $\beta=4$, $P\ge1$, $M_U\ge m_Z$, positive running
+couplings and no intermediate thresholds, the heat and scale equations have no
+solution. This excludes that combined census and scale prescription, and leaves
+other scale laws, intermediate thresholds and other censuses outside its statement.
+\end{proposition}
+
+The proof is in the particle construction~\cite{oph-particle}: the scale law forces
+$\alpha_2^{-1}<6$ and $\alpha_3^{-1}\le\alpha_2^{-1}$, so the combined left side of
+Eq.~\eqref{eq:pixelclosure} lies below $1/80$, whereas closure requires at least
+$P/4\ge1/4$. The same construction gives the memory attachment: on each enclosure
+both inverse controllers obey $0<p<1/12$ and $0<q<1/6$ and feed the complete-record
+mass operator. The kernel supplies no charged-vector or charged-scalar terms,
+supersymmetric threshold matching, confining hadronic spectral measure, pole-mass
+convention or native-current derivation of the Thomson limit, and the particle paper's
+comparison table derives no measured mass, so neither root is a physical value of
+$\alpha$.
 
 \section{The conditional physical theorem}
 \subsection{The Conditional Pure Source Theorem}
