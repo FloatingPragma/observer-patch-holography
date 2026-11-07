@@ -1,0 +1,80 @@
+{
+  "checks": {
+    "bare_identical_link_frame_covariance": false,
+    "differential_identities": true,
+    "full_compression_assembly": true,
+    "independent_centered_derivative": true,
+    "independent_frame_covariance": true,
+    "raw_float_residuals_stored_in_equality_receipt": false
+  },
+  "complete_parent": {
+    "Schur_checks_passed": true,
+    "all_complementary_states_retained": true,
+    "compressed_dimension": 288,
+    "dimension": 576,
+    "eigenvalues_compared": 8
+  },
+  "declared_controls": {
+    "boundary": "Dirichlet",
+    "grid_sizes": [
+      5,
+      9,
+      17
+    ],
+    "holonomy_halfwidth": 0.16,
+    "kinetic_coefficient": 0.01,
+    "penalty_factors": [
+      10,
+      40,
+      160
+    ],
+    "toron_per_link": [
+      0.17,
+      -0.11,
+      0.07,
+      0.03
+    ]
+  },
+  "identities": {
+    "compression": "V^dagger(-d^2)V=-(d+A)^2+Phi",
+    "connection": "C=[P,P']; P'+[C,P]=0",
+    "finite_parent_bound": "0<=a_j-lambda_j<=norm(QKV)^2/(Lambda-a_k), j<=k, Lambda>a_k",
+    "geometric_term": "Phi=V'^dagger(I-P)V'=V'^dagger V'+A^2>=0",
+    "parallel_transport_generator": "-C=[P',P]"
+  },
+  "schema": "oph.interacting_extension.chiral_electric_certificate.v1",
+  "scope": {
+    "finite_grid_geometric_difference_positive_semidefinite": false,
+    "global_chiral_measure_or_continuum": false,
+    "interval_arithmetic_certificate": false,
+    "local_Euclidean_projector_patch": true,
+    "microscopic_kinetic_law_selected": false,
+    "physical_axial_conservation_proved": false,
+    "physical_masses_or_clock": false
+  },
+  "source_commit": "3cf3c14810671a16e61b7915f69079a1773a12a2",
+  "source_domain": {
+    "Euclidean_sites": 16,
+    "charge": 6,
+    "chiral_rank": 32,
+    "spin_site_dimension": 64
+  },
+  "source_sha256": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/interacting_extension/__init__.py": "73990c10fdb30b21031f7c09415cede4d0fc0e1cd4eb2cc3266e6d57ad90add7",
+    "model/interacting_extension/_source.py": "22d8901b31df309ceb727de865cab9e59f88ce82a8ef8012f9b19459840e9b55",
+    "model/interacting_extension/chiral_electric/PROOF.md": "d50ee6c8d7fe699e0a55962f1963b967447ec89d33fb9b63b040b33620d48a60",
+    "model/interacting_extension/chiral_electric/README.md": "8c5edd1ddfc56c8599ef2f74afe28b9b187991bf811ae35f68cf81f95dfe68ff",
+    "model/interacting_extension/chiral_electric/__init__.py": "2f39c15c30c43e8235254d41bfb8041831c6be3ad7a7146ece89439d55eb918b",
+    "model/interacting_extension/chiral_electric/certificate.py": "e77de81b93deef1eb1575191cd594d4fba8a31b1876c760d179021c3bb1e4ce9",
+    "model/interacting_extension/chiral_electric/covariant_kinetic.py": "fafa4361967112dad6f9012deee5ed82812fc01c5dbe251491ff344a9d587479",
+    "model/interacting_extension/chiral_electric/test_kinetic.py": "3167955cc7ce1cbe413867fe2cb2971c361186bb0a5a6f14238463cd211146da",
+    "model/interacting_extension/dependencies/__init__.py": "73990c10fdb30b21031f7c09415cede4d0fc0e1cd4eb2cc3266e6d57ad90add7",
+    "model/interacting_extension/dependencies/chiral_patch.py": "cf16d5995a86de9fcfcb021cc22c053fb7fc09152112db44233a232333704ad0",
+    "model/interacting_extension/source_manifest.json": "2afee1f86001e778588836e6e79b2decf714a5b43f5bb83fc57f1ba34d08b53b",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
+  }
+}

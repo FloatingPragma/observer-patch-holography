@@ -328,6 +328,36 @@ rank-three port-record completion use Lean's \texttt{native\_decide}, so those
 subreceipts trust the native compiler and runtime in addition to the kernel
 and are not kernel-only proofs.
 
+\paragraph{Complete controller dataflow.}
+For the executable local native interpreter, read-after-write authentication
+can be checked on every positive classical branch while retaining every raw
+zero-probability branch in the complete law. Each repair reads and writes
+its endpoints; a record-controlled selector also reads the current in the
+last retained record of the first-in-first-out (FIFO) queue. Every completed operation reads and
+updates the shared FIFO and accesses its export archive. The resulting full
+dependency order is a chain. The endpoint-only relation omits these controller
+and storage dependencies and is a different relation.
+
+An exact two-repair example isolates the controller path. First repair seam
+$(0,1)$; then repair $(2,3)$ if that recorded current is positive, and $(2,10)$
+otherwise. Starting with occupied ports $\{0,2\}$ or $\{1,2\}$ gives final
+probability $1/4$ or $0$ of an occupied port $3$, respectively, although both
+possible second seams are disjoint from the first. Each law retains all $625$
+raw histories, including zero weights. Replacing the second selector by the
+fixed seam $(2,3)$ gives probability $1/2$ for both inputs. This is native
+controller communication, not a failure of endpoint locality. The exact
+adapter and tests are in \path{model/native_causal_dataflow} \cite{ophrepo}.
+
+The logged chain is not identified with physical spacetime. An order-reflecting
+image of a total order has no spacelike pair and cannot become dense in an
+open Minkowski region while preserving its closed cone relation.
+A physical event quotient or distributed read architecture therefore needs
+its own source justification. The golden-population order limit uses its
+specified population, read rule and layer clock; it is not a limit of this
+unmodified single-FIFO dataflow. The adapter covers positive classical basis
+branches and complete local runs, not arbitrary coherent preparations or
+federated implementations.
+
 \begin{definition}[Observer registry groupoid and namespaces]\label{def:observer-registry-groupoid}
 Observer identities live in a registry groupoid, not in a flat UUID table. Objects are observer
 tokens
@@ -805,9 +835,49 @@ complete record probabilities descend to a unique Born valuation if
 equal-effect implementations have equal event weights and every coexistent
 pair has a common implementation by disjoint events. Taking the second
 effect to be zero supplies an implementation of every effect. Exact realization
-of every effect needs uncountably many settings, so a finite-program source needs
-a dense-effect version of this theorem. Finite-sum coarse graining derives
-additivity under these conditions.
+of every effect needs uncountably many settings. Finite-sum coarse graining
+derives additivity under these conditions; the countable-domain result below
+reduces the required mathematical domain.
+
+\paragraph{Countable effect domains.}
+Let $\mathcal E_{\mathbb Q}$ consist of all Hermitian effects with entries in
+$\mathbb Q(i)$ on a fixed finite-dimensional complex space. Every nonnegative,
+normalized valuation $v$ additive whenever $A,B,A+B\in\mathcal E_{\mathbb Q}$
+has a unique density representation. In particular, continuity is a consequence.
+Additivity first gives rational homogeneity and monotonicity. For rational
+$\delta\geq\|A-B\|$, compare the effects
+\[
+ \frac{A}{1+\delta}\preceq\frac{B+\delta I}{1+\delta}\preceq I.
+\]
+Their values imply $v(A)\leq v(B)+\delta$. Interchanging $A,B$ and taking
+rational $\delta$ down to $\|A-B\|$ proves
+$|v(A)-v(B)|\leq\|A-B\|$. This bound gives a unique continuous extension
+once density of the domain is established.
+
+For any complex effect $A$, choose a rational Hermitian $R$ with
+$\|R-A\|\leq\delta$, where $\delta>0$ is rational. Then
+$(R+\delta I)/(1+2\delta)$ is a rational effect within
+$2\delta/(1+2\delta)$ of $A$. Compatible additivity also survives extension:
+if $A+B\preceq I$, approximate $A,B$ by $R,S$ within $\delta$ and use
+\[
+ \widehat A=\frac{R+\delta I}{1+4\delta},\qquad
+ \widehat B=\frac{S+\delta I}{1+4\delta}.
+\]
+Both are positive, their sum is at most $I$, and they converge to $A,B$.
+The extension therefore satisfies Theorem~\ref{thm:finite-effect-valuation},
+which supplies the unique density matrix. This is a prose proof with exact
+rational controls in \texttt{model/particle\_identification}; the full-effect
+theorem it invokes is machine checked \cite{ophrepo}.
+
+Applying this reduction to a source requires realization of the entire
+countable domain, equal probabilities for equal effects across implementations,
+and every compatible sum represented by disjoint complete events, or a controlled
+approximation theorem. A finite tomographic menu does not establish those
+universal conditions. For example,
+$v(E)=f(\operatorname{Tr}E/2)$ on qubit effects, with
+$f(t)=3t-6t^2+4t^3$, is normalized, positive and complement-preserving and agrees
+with the maximally mixed state on every rank-one projector. Yet at $E=F=I/8$,
+$v(E+F)-v(E)-v(F)=-9/64$. Countability removes no source-equivalence premise.
 
 The native record tree meets these conditions on its commutative domain and
 derives its weights without a trace-probability call. Append $m$ native
@@ -893,9 +963,9 @@ $\rho_L^{is}A\rho_L^{-is}=P^{iLs}AP^{-iLs}$.
 Here $Ls$ is the exponent parameter; conventional Heisenberg time for
 $H$ is $-Ls$. No physical duration is inferred.
 
-Compression by a nonzero coordinate projection $Q$ gives the faithful sector
-reference $Q\rho_LQ/\operatorname{Tr}(Q\rho_L)$, whose entries are native count
-moments; nested compressions condition associatively, with their acceptance
+For any nonzero coordinate projection $Q$, the compressed reference is
+$Q\rho_LQ/\operatorname{Tr}(Q\rho_L)$. It is faithful on that sector, with
+native count moments as entries. Nested compressions condition associatively, with their acceptance
 probabilities multiplying. These restrictions are compatible while their
 modular flows are not. Every proper nonempty coordinate corner fails to
 intertwine the full modular flow: intertwining its identity $Q$ would require
@@ -920,6 +990,57 @@ order sixteen give $\|H-K\|>0.01984562$, with all sixty-six states retained. The
 unit-rate Poisson generator $G$ and the discrete-transfer logarithm $H$ use
 different clocks. The result excludes no re-encoding of states and supplies no
 interacting chiral relativistic limit.
+
+\paragraph{Unread repair and unitary clocks.}
+The unread binary $66$-state C or E channel $\Phi$ has unique stationary
+density $I_{66}/66$. Its complete operator-space contraction factor is
+$r=(55+\sqrt5)/60$, including coherences. For $k$ independently evolving
+carriers, arbitrary static completely positive trace-preserving encoding
+$\mathcal E$ of a logical space of dimension $d\geq2$ and decoding
+$\mathcal D$ obey, for every target unitary channel $\mathcal U$,
+\[
+ \tfrac12\|\mathcal D(\Phi^n)^{\otimes k}\mathcal E-\mathcal U\|_\diamond
+ \geq\max\{0,1-d^{-2}-33kr^n\}.
+\]
+Indeed the repaired channel is within $33kr^n$ of replacement, while a
+maximally entangled test separates any replacement from a unitary by at least
+$1-d^{-2}$. For one carrier, a logical qubit and $200$ attempts the error
+exceeds $0.74$. The decoder here receives only the reduced carrier output:
+no repair archive, coherent environment, noiseless bypass or intermediate
+active correction is admitted. Reading records and using active coherent
+services are separate possibilities, not excluded by this bound. The exact
+channel certificate and controls are in
+\path{model/particle_identification} \cite{ophrepo}.
+
+\paragraph{Native event-conditioned references.}
+A different reference construction uses the complete native current instrument on
+the same binary sector. For each seam, fair placement coin and raw pointer outcome,
+let $K_r=60^{-1/2}\sum_{x:r(x)=r}|f_r(x)\rangle\langle x|$. Each recorded map is
+injective, so $\sum_rK_r^\dagger K_r=I_{66}$. The current and contrast policies retain
+all $240$ and $480$ raw outcomes, including zero maps. The unique stationary state is
+$I_{66}/66$; with $r_*=(55+\sqrt5)/60$, its reference-stable half-diamond distance
+after $n$ attempts is at most $\min\{1,33r_*^n\}$. On the full $78$-state carrier,
+double-load probability contracts exactly by $5/6$ per attempt, so this stationary
+state has binary support and is not faithful on the larger carrier.
+
+For the twelve unit frame rays $v_i$, write $\Pi_i=|v_i\rangle\langle v_i|$ and
+supply the complete chart transducer
+$L_{x,i}=\sqrt{x_i/2}|v_i\rangle\langle x|$. Its completeness follows from
+$\sum_i x_i=2$. Starting at the native stationary state, a recorded nonzero current
+from $a$ to $b$ gives the reduced chart state
+\[
+ F_{a\to b}=\frac15I+\frac9{20}\Pi_b-\frac1{20}\Pi_a,
+ \qquad
+ \operatorname{spec}F_{a\to b}
+ =\left\{\frac{20-\sqrt{145}}{50},\frac15,
+          \frac{20+\sqrt{145}}{50}\right\}.
+\]
+This state is faithful. Averaging every native record gives $I_3/3$, while conditioning
+on every transducer outcome gives a pure state. Two-record conditioning can also
+reduce the rank. Thus faithfulness belongs to the stated reduced conditioning,
+not to every finer record. This derives an event-selected reference within the
+supplied chart service, not a physical vacuum or a universal Born-rule premise
+\cite{ophrepo}.
 
 \subsection{Record algebra, measurement, Bell correlations and checkpoints}
 \label{sec:record-measurement}
@@ -1851,6 +1972,19 @@ physical duration is identified; the abstract rate non-identifiability
 result concerns transition systems whose bridge to the repair layer fails,
 and it forbids nothing here
 (\texttt{SourceRecurrenceClock}).
+
+The complete native current record also carries a count clock. If $M_n$ counts
+nonzero moves in $n$ stationary attempts, exact event counting and the tilted
+transfer operator give
+\[
+ \mathbb E M_n=\frac5{33}n,\qquad
+ \lim_{n\to\infty}\frac{\operatorname{Var}M_n}{n}=\frac{1597}{11979}.
+\]
+The latter differs from the independent-Bernoulli value $140/1089$: consecutive
+moves are correlated. A supplied positive counting tilt determines a trace-preserving
+quantum Doob instrument \cite{cilluffo2021}. Its native filter implementation retains every failure;
+conditioning on successful filtering is a separate service. Neither the tilt nor
+a physical duration per attempt is selected by these identities \cite{ophrepo}.
 
 The field sector, by contrast, hosts periodic processes. Every eigenvector
 \(v\) of the local operator \(C^{\mathsf T}C\) with eigenvalue \(\lambda\)
@@ -3126,6 +3260,22 @@ paper give the detailed field, clock and approximation hypotheses
 \cite{ophmodel,ophEinstein}; the source packages retain their complete
 trajectory and readout checks.
 
+A separate finite gauge--Higgs control has complete physical sectors of dimensions
+$438$ and $1596$ at $N_F-2N_H=0,1$. The two native gauge links retain colored flux,
+while mobile fermions are leptonic and the scalar occupation cap is one. A nonzero
+Higgs self-energy verifies interaction. Six fermion-creation probes include an odd
+compensating reference, making each compound probe even. Their forward-only Ramsey
+instrument keeps blocked creation, both detector outcomes and all back-action;
+sign-reversed settings isolate the charged correlator without postselection.
+The $12{,}681{,}216$ simulated independent shots retain the complete binary record.
+For a charged spectral-projector shift $|\delta|\leq3\times10^{-8}$, their total
+variation distance from the unshifted record law is below $1/2500$. This bounds
+information in that finite record experiment, not inference from known simulator
+specifications. Graph, couplings, scalar cap, ground preparation and clock are
+supplied, so neither those response lines nor the separate free spatial and local
+chiral-electric controls establish physical masses or an interacting chiral
+continuum \cite{ophparticles}.
+
 \input{tex_fragments/OBSERVERS_APPENDICES.tex}
 
 \begin{thebibliography}{99}
@@ -3254,6 +3404,12 @@ Closure-loop evidence package:
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2062/evidence/closure_loop}.
 Evidence index:
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2062/evidence}.
+
+\bibitem{cilluffo2021}
+D.~Cilluffo et al.,
+``Microscopic biasing of discrete-time quantum trajectories,''
+\emph{Quantum Science and Technology} \textbf{6}, 045011 (2021).
+\url{https://doi.org/10.1088/2058-9565/ac15e2}.
 
 \end{thebibliography}
 

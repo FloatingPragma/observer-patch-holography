@@ -74,6 +74,25 @@ modular flow. Retaining a chosen sector label supplies compatible block
 flows for an explicitly completed reference. This changes the reference
 and does not implement a native unitary operation or identify physical time.
 
+The [countable-effect extension](../../model/particle_identification/DENSE_EFFECTS.md)
+reduces the all-effect requirement to the Hermitian effects over Gaussian
+rationals. A nonnegative normalized valuation additive whenever `A`, `B`
+and `A+B` are such effects is automatically 1-Lipschitz in operator norm.
+Compatible rational approximations then give its unique additive extension
+to all complex effects, to which the finite Born theorem applies. Continuity
+is a conclusion. The complex ordered matrix representation and exact
+additivity on the whole countable domain are hypotheses.
+
+This extension is a mathematical prose proof with exact executable
+algebraic controls; the extension is not formalized in Lean. Its nonlinear qubit
+counterexample agrees with the tracial state on every rank-one projector
+but violates compatible effect additivity. Thus projective tomography
+alone cannot discharge the hypothesis. An actual observer construction
+must realize the countable menu, equal-effect equivalences and disjoint
+sum operations, or provide a uniform approximation and compatible limit
+across increasing resource ceilings. The source's finite calibration
+records do not by themselves establish that universal claim.
+
 ## Thermodynamics from native repair
 
 The [finite four-law core](../../Lean/Thermodynamics/CofinalSpectralTailFamily.lean)
@@ -261,6 +280,32 @@ Neither result excludes a separately specified coherent source and reference.
 
 ## Complete records, memory and preparation
 
+The [native conditional-reference construction](../../model/interacting_extension/source_selection/PROOF.md)
+uses the literal total-two endpoint rule with independent uniform seams and
+fair placement coins. Its complete C/E instruments have the unique binary
+stationary state `I/66`. The twelve double-load states remain in the full
+78-state instrument; their total probability decays exactly as `(5/6)^n`.
+A declared complete chart transducer gives, conditional on a directed move
+`a -> b`,
+
+```math
+F_{a\to b}=I/5+(9\Pi_b-\Pi_a)/20,\qquad
+\operatorname{spec}F_{a\to b}
+=\{(20-\sqrt{145})/50,\;1/5,\;(20+\sqrt{145})/50\}.
+```
+
+The chart projectors come from the source geometry. The mixed reference
+conditions on the native record; also resolving the fine chart outcome
+produces a different, pure reference. Complete two-record enumeration gives
+rank-loss probability `3/220` for C and `3/55` for E. The move count has
+mean rate `5/33` and asymptotic variance rate `1597/11979`; ignoring its
+serial correlations gives a different variance. Positive count tilts define
+quantum Doob instruments. Their native-plus-filter realization retains
+every failure, and its unconditioned channel differs from the successful
+conditional channel. These exact finite references and count statistics
+supply neither a physical vacuum nor an identification of tilt or time with
+`P`, capacity `N` or laboratory units.
+
 The [native record proof](../../model/particle_record_equivalence/PROOF.md)
 constructs a four-address encoding of the twelve-address family memory on
 its recurrent support. Every native raw outcome and old-memory label is
@@ -379,7 +424,152 @@ greater than `0.01984562` for `H=-log(P)`. The unit-rate Poisson generator
 establishes finite interaction in this dictionary, without an interacting
 chiral relativistic limit or an exclusion of arbitrary re-encodings.
 
+## Finite gauge, Higgs and spatial controls
+
+The [complete native-reference construction](../../model/interacting_extension/source_selection/PROOF.md)
+derives conditional chart references and correlated movement counts from
+the binary endpoint instrument. It retains the full 240/480-label C/E
+alphabets, the 78-state double-load extension and every chart-transducer
+outcome. The unread binary stationary state is uniquely `I_66/66`.
+A moving record selects a faithful reference with spectrum
+`{(20-sqrt(145))/50,1/5,(20+sqrt(145))/50}`; finer histories can have smaller
+rank. The unconditioned chart state is `I_3/3`, so this conditional reference
+does not select a family hierarchy or an interacting vacuum.
+
+At the native stationary state the recorded move count has mean `5n/33`
+and asymptotic variance per attempt `1597/11979`. A supplied activity
+multiplier determines a quantum Doob
+instrument through exact three-orbit Perron data; its native-plus-filter
+implementation retains every rejection. The multiplier, reference
+transducer and physical event duration are separate specifications.
+On classical stationary paths, relative-entropy-rate minimization selects
+this tilted event law conditional on the multiplier. It selects neither
+the multiplier nor the C/E coherence backaction. The associated
+Euclidean logarithm acts on operator space; it is not the bare source's
+unitary Schrödinger generator.
+
+The [lepton/Higgs construction](../../model/interacting_extension/higgs_join/PROOF.md)
+joins the native 60-state link factors, a conjugate Higgs scalar and fermions
+on a two-vertex graph. With three supplied families and scalar occupation
+restricted to zero or one, the complete neutral and dual-reference Gauss
+sectors have dimensions 438 and 1596. Exact checks retain all complementary
+columns and verify the CAR, spin and Gauss identities. The full Higgs Schur
+self-energy is nonzero; its norm is approximately `1.793879153064` at
+`z=1+0.5i`. The charged-lepton addition response has three primary
+dimensionless lines near `2.58004293348e-8`, `0.00100665351072` and
+`0.452014700448`. Agreement of 50- and 80-digit calculations is a precision
+diagnostic, not a rigorous spectral enclosure or a measured-mass prediction.
+The scalar cap, graph, families, couplings and state preparation are inputs;
+colored occupations and quark vertices are absent.
+
+The [complete Ramsey readout](../../model/interacting_extension/PROOF.md)
+uses partial-isometry probes, retains blocked paths and both X/Y outcomes,
+and reproduces the full 1596-row response for the specified unique initial
+ground state. In a degenerate or mixed preparation each initial energy must
+remain in its own transition difference. For fixed probes, prepared states
+and independent fresh trials, replacing the charged Hamiltonian by
+`H1-delta P`, with `[P,H1]=0` and `|delta|<=3e-8`, changes any event
+probability in the specified 12,681,216 detector records by less than
+`1/2500`. This bound concerns information in those records. An observer
+allowed to read the simulator specification has additional information and
+may exclude that alternative Hamiltonian. Neither bound assigns a physical
+energy scale.
+
+The [spatial and flux controls](../../model/interacting_extension/chiral_lattice/PROOF.md)
+are distinct models. A free flat-gauge overlap Hamiltonian retains all
+30,720 components at `L=8`; its fixed-momentum dispersion and axial weight
+approach the stated free limits under refinement. It is a vectorlike free
+control, without a normalizable dynamical nonabelian gauge vacuum. A separate
+four-edge U(1) ring retains every native charge, exact Gauss and electric
+Ward identities, and the flux-cutoff boundary defects. For initial loop-flux
+support `|ell|<=K0`, the error in the complete record law is bounded by
+
+```math
+\min\!\left(1,2\sum_{n\ge r}\frac{(BT)^n}{n!}\right),\qquad
+r=\left\lceil\frac{K-K_0+1}{\max(1,|q|)}\right\rceil.
+```
+
+For `K=48`, `K0=0`, `T=1/2` and `B=3`, this is below `0.000248607`
+uniformly over the native charges. A ground-state preparation needs its own
+initial-state approximation bound. Neither the lattice spacing nor the flux
+cutoff has a derived map to the observer's memory capacity or physical units.
+
+The [local chiral-electric construction](../../model/interacting_extension/chiral_electric/PROOF.md)
+addresses a specific missing term in such joins. For a smooth projector
+`P`, the connection `[P,P']` transports its range. Compression of the parent
+second-order electric operator in an orthonormal frame `V` includes the
+positive scalar `Phi=V'*(I-P)V'` as well as the covariant derivative. This is
+a differential identity; an arbitrary finite-grid compressed-minus-polar
+correction need not be positive. The nine-point control retains all 576
+parent states and 288 compressed states. A positive parent `K+Lambda Q`
+has an explicit Schur bound on the low-energy compression error below
+`Lambda`. These are local projector identities and finite comparisons;
+a global gauge-equivariant chiral measure, a common interacting continuum
+and the physical observer correspondence require their own construction.
+
 ## Physical identification
+
+The [particle-identification route](../../model/particle_identification/ROADMAP.md)
+requires one source, state, clock and complete experimental law across the
+capacity, field, particle and scattering constructions. Its finite interfaces
+include a countable rational-effect extension of the Born representation,
+exact Robertson saturation for the six compensated Higgs probes, and a
+local-history error bound combining preparation, action, clock, cutoff and
+instrument errors. The latter needs no ambient-volume factor, but it does
+not derive the dependence of local source data on physical capacity.
+
+For the [compensated probes](../../model/particle_identification/UNCERTAINTY.md),
+the exact signed partial isometry `b` gives quadratures `X,Y` with
+`X²=Y²=P` and `[X,Y]=2iD`. Their three-outcome projective instruments have
+ranks `384,1266,384` on the complete 2034-dimensional direct sum. For every
+neutral-supported state, including the reduction of an entangled state,
+`Delta X Delta Y = |<[X,Y]>|/2 = Tr(rho b* b)`.
+The zero outcome is essential. These finite matrix instruments and the
+Robertson attachment are proved; their native pulse compilation and a
+physical position/momentum interpretation are separate requirements.
+
+The [capacity composition](../../model/particle_identification/CAPACITY.md)
+gives a quantitative complete-history bound for the supplied local
+Weyl/contact action:
+
+```math
+D_{\rm history}\leq\min\left(1,\epsilon_0+
+\sum_i(\delta_i/2+\eta_i+a_i+\zeta_i)\right),\qquad
+a_i=E_i|t_i c-s_i c'|+V_i|t_i U-s_i U'|.
+```
+
+Here `epsilon_0` includes the initial observer/reference correlations,
+`delta_i` is the locality bound, `eta_i` the simulator's splitting error,
+and `zeta_i` the uniform error of its complete instrument. `E_i,V_i` count
+buffer edges and sites. The fixed-time helper permits adaptive instruments,
+not unbounded record-dependent durations. A physical capacity theorem must
+derive or bound local state, coefficients and clocks uniformly. An exact
+neutral pair-transfer control shows that changing a local contact
+coefficient can change a record probability by more than `0.2298` even
+when the ambient volume has no effect.
+
+The [passive-clock bound](../../model/particle_identification/PASSIVE_CLOCK.md)
+excludes another shortcut: static encoding and decoding around the unread
+binary native carrier cannot recover an arbitrary-state unitary clock at
+long times. Retained records, active recovery and coherent memory are outside
+that obstruction. The actual observer program must supply any such services
+and the common action, reference and detector correspondence. Existing
+two-particle scattering results supply useful controlled examples; their
+nonrelativistic limit is not a Standard Model collider prediction.
+
+The [spatial interface](OPH_FIELD_RECONSTRUCTION.md#one-source-complete-records-and-a-common-spacetime)
+has three additional finite results. Actual native program traces
+authenticate endpoint, controller and storage dependencies; an adaptive
+disjoint-seam experiment has receiver probabilities `1/4` and `0`.
+The shared-FIFO chain is an operational overapproximation, not a derived
+physical causal order. The twelve exact source null tests imply
+`L^T G L=lambda G`, `lambda>0`, for a supplied invertible transition;
+time and orientation signs are checked separately. For a supplied positive
+wave principal matrix `a`, invertible readback `J` and time scale `alpha>0`,
+matching that cone is equivalent to `a=(R²/alpha²) J J^T`.
+The source construction must supply those readbacks and a compatible
+observer-visible order. Neither the finite symmetry nor cone matching
+supplies a mass term, state, chiral gauge measure or Einstein response.
 
 Exact equality of complete observations is a stronger requirement than
 matching response matrices, isolated spectra or marginal outputs. Compatible
@@ -415,3 +605,31 @@ These finite results neither supply a source-selected physical mass spectrum
 nor a common interacting chiral 3+1-dimensional field and Einstein
 realization. They state the controlled constructions and the same-process
 attachments needed to make those comparisons meaningful.
+
+## Reproduction and acceptance criteria
+
+From the repository root, using the model requirements:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -W error -m pytest -q \
+  model/interacting_extension model/particle_identification/test_dense_effects.py \
+  model/particle_identification/test_uncertainty.py \
+  model/particle_identification/test_capacity.py \
+  model/particle_identification/test_passive_clock.py
+python -m model.interacting_extension.certificate --check
+python -m model.interacting_extension.source_selection.certificate --check
+python -m model.interacting_extension.chiral_lattice.certificate --check
+python -m model.interacting_extension.chiral_electric.certificate --check
+python -m model.particle_identification.completion_certificate --check
+```
+
+The Higgs receipt has its own check in the
+[mass-response guide](OPH_PARTICLE_MASS_RESPONSE.md#complete-interacting-response-and-its-numerical-scope).
+The field guide lists the three spacetime package checks. A check passes
+only the package's declared finite or conditional claim. Physical premise
+discharge requires one source preparation, action, clock and complete
+instrument comparison across the relevant algebra and controlled limits.
+For the Born rule this includes the countable-domain operational laws;
+for thermodynamics it includes physical energy, temperature and response;
+for particles it includes spatial dynamics and the appropriate spectral
+or scattering definition. These are distinct proof obligations.
