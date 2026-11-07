@@ -376,7 +376,10 @@
     "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON",
     "OPH-WEIGHTED-LOCAL-STATE-LIMIT",
     "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
-    "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS"
+    "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+    "OPH-NATIVE-FULL-NUMBER-READOUT",
+    "OPH-NATIVE-CORRELATION-SECTORS",
+    "OPH-NATIVE-SPATIAL-MOTION-SCALING"
   ],
   "edges": [
     {
@@ -3118,6 +3121,26 @@
       "from": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
       "to": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
       "role": "supplies the existing eleven-repair detector and separately declared coherent-service framework; finite positive-menu exclusion is limited to that menu and universal Born premises are not transferred"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-FULL-NUMBER-READOUT",
+      "role": "supplies the literal binary endpoint adapter and complete native raw-address interface; no spatial limit or arbitrary controller equivalence is transferred"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-CORRELATION-SECTORS",
+      "role": "supplies the actual fair binary endpoint instrument and complete raw-address comparison; the correlation theorem retains its own stationary preparation and fixed selector hypotheses"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+      "role": "supplies complete local-record cone and four-state halo formulas; the combinatorial proof establishes their geometry premise without transferring a physical spatial interpretation"
+    },
+    {
+      "from": "OPH-NATIVE-FULL-NUMBER-READOUT",
+      "to": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+      "role": "supplies final tree readback and endpoint current reversal; the combined body program separately authenticates selectors, records, source state and host boundaries"
     }
   ]
 }

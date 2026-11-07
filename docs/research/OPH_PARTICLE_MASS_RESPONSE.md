@@ -170,6 +170,35 @@ their stated normalization allowance. These probes do not automatically
 extend to the fluctuating-number local reference, derive the field action,
 or turn the native relaxation poles into measured masses.
 
+### Occupation-independent primitive response and its limits
+
+The [native correlation probe](../../model/native_correlation_sectors/PROOF.md)
+reads `phi=(n_a-n_b)*(n_c-n_d)` with four complete E repairs, correcting
+the first pair to outgoing contrasts. This filters a primitive degree-two
+transfer block, orthogonal to constants and all one-body density fields.
+For fixed graph and attempt clock,
+`C_q(t)/C_q(0)=h^T*P_2^t*h/4` for every `2<=q<=V-2`.
+Changing total occupation therefore changes its variance, not this normalized
+curve. Changing the graph capacity or clock can change the curve. Equal
+poles in different correlation blocks are permitted, and no pole is assigned
+to a measured particle by the decomposition.
+
+The exact variance is `4*binom(V-4,q-2)/binom(V,q)`. It vanishes in the
+empty, single-unit, single-hole and full sectors. With fixed small `q`
+it scales as `V^-2`; preparation and sampling errors must be controlled
+before normalization. The population identity supplies neither a physical
+mass scale nor a practical large-capacity sampling guarantee.
+
+The [known-total E-tree detector](../../model/native_sector_readout/PROOF.md)
+and reverse-current body readback supply complete configuration-based
+observables on the connected source, with back-action and host stops.
+Unknown local number preserves the empty/full ambiguity. The
+[affine displacement bounds](../../model/native_spatial_scaling/PROOF.md)
+separate global attempts from incident stopping and constrain that specified
+source coordinate readout. A physical momentum/energy convention, common
+prepared state and interacting field map are required before either class
+of records becomes a mass or scattering measurement.
+
 ## Declared mass operators and comparison inputs
 
 The executable construction has both an empirically calibrated Standard Model

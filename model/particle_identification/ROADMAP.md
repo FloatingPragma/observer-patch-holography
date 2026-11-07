@@ -153,6 +153,51 @@ complete implementation-error bounds. It gives an acceptance condition for
 the common-state map. It supplies no transfer-clock service, physical clock
 normalization or exclusion of different reference/encoding maps.
 
+## Connected source interfaces and acceptance conditions
+
+[Native correlation sectors](../native_correlation_sectors/PROOF.md) split
+all fixed-number transfer spaces into primitive degrees, with exact
+occupation-normalized inclusion. A complete reflected four-E experiment
+isolates a degree-two contrast; its normalized response is independent of
+total occupation on the same graph. All zero records and measurement
+back-action are retained. Distinct degrees can share poles. Graph capacity,
+clock, variance, preparation and sample costs are separate inputs, so this
+identity does not supply a physical mass ratio.
+
+[Full-number E-tree readout](../native_sector_readout/PROOF.md) supplies exact
+basis effects and outcome-labelled terminal preparation on a known global
+sector with `V-1` commands. The evaluated source levels require
+239,959,3839 commands. A terminal tree plus every authenticated body current
+recovers the body configurations without an initial census. The detector
+changes the terminal state. Unknown local number preserves one coherent
+empty/full ambiguity, and bounded repair alone cannot reset every input on a nontrivial sector
+exactly to a prescribed basis target. Lazy raw-word semantics and expanded
+host stops retain distinct statuses.
+
+[Source spatial scaling](../native_spatial_scaling/PROOF.md) supplies the
+combinatorial halo attachment under successful routing and exact affine
+crossing energy. Stationary single-unit displacement is bounded by
+`T/(12600*16^ell)` in deterministic global attempts and by
+`k^2/(10*s*4^ell)` at the actual `k`th choice from a fixed `s`-seam clock.
+The literal routed checks cover levels 0 through 3, while the native expanded
+host evaluates only levels 0 through 2. The all-level combinatorial theorem
+requires a source return with the stated routing postconditions. A specified
+sender also has a positive distant-arrival word at the first receiver tick;
+local tick counts do not create a one-hop support cone. These are source
+coordinate and clock bounds, not a physical metric or substitution of mean
+stopping time. The existing native density continuum has
+[spectral dimension two](../physical_space_time/README.md) in that dictionary.
+
+To compose these results, fix one admitted source member, occupation or
+full-number mixture, prepared reference and observer output. Authenticate
+all body, clock and detector records and retain their resource stops.
+Establish a state/clock/observable refinement comparison for that joint
+experiment. A three-dimensional relativistic claim must derive its distinct
+field dictionary or explain the relation to the native density continuum.
+Derive the interacting action and its controlled poles before assigning
+particle quantum numbers, masses or measured scattering channels. None of
+these finite interfaces discharges the canonical physical premises.
+
 ## How a protected defect becomes an observable particle
 
 A candidate starts as an operation on a specified source state, rather than

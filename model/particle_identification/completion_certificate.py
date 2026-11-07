@@ -26,6 +26,9 @@ from ..native_clock_comparison import packet as clock_comparison
 from ..weighted_local_limit import packet as weighted_limit
 from ..native_local_response import packet as local_response
 from ..native_effect_synthesis import packet as effect_synthesis
+from ..native_sector_readout import packet as sector_readout
+from ..native_correlation_sectors import packet as correlation_sectors
+from ..native_spatial_scaling import packet as spatial_scaling
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -55,7 +58,8 @@ def source_bindings():
     for producer in (capacity_restriction, record_response, record_causality,
                      gauge_strings, clock_observables, weighted_family,
                      effect_coverage, clock_comparison, weighted_limit,
-                     local_response, effect_synthesis):
+                     local_response, effect_synthesis, sector_readout,
+                     correlation_sectors, spatial_scaling):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
@@ -87,6 +91,9 @@ def report():
     local_states = weighted_limit.produce()
     local_records = local_response.produce()
     synthesized_effects = effect_synthesis.produce()
+    sector_records = sector_readout.produce()
+    correlation_records = correlation_sectors.produce()
+    spatial_records = spatial_scaling.produce()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
@@ -97,7 +104,10 @@ def report():
                             (clock_comparison, clocks),
                             (weighted_limit, local_states),
                             (local_response, local_records),
-                            (effect_synthesis, synthesized_effects)):
+                            (effect_synthesis, synthesized_effects),
+                            (sector_readout, sector_records),
+                            (correlation_sectors, correlation_records),
+                            (spatial_scaling, spatial_records)):
         if not _same_json(value, strict_json.load(producer.OUTPUT)):
             raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
     if not _same_json(frames, strict_json.load(lorentz.OUTPUT)):
@@ -128,6 +138,9 @@ def report():
         "weighted_canonical_local_limit": local_states,
         "native_local_record_response": local_records,
         "native_rank_one_effect_synthesis": synthesized_effects,
+        "native_occupation_sector_readout": sector_records,
+        "native_correlation_degree_responses": correlation_records,
+        "native_routed_graph_motion": spatial_records,
         "passive_source_clock_boundary": passive_clock.certificate(),
         "causal_dataflow": dataflow.certificate(),
         "native_lorentz_transitions": frames,
@@ -152,6 +165,9 @@ def report():
                                            "weighted canonical local limit without global enumeration",
                                            "native dependency cones and complete local response bounds",
                                            "bounded-precision native rank-one effect synthesis",
+                                           "complete native tree readout across occupation sectors",
+                                           "native correlation-degree decomposition and reflected record probes",
+                                           "routed graph halo and discrete native displacement bounds",
                                            "finite null-transition and field-cone criteria"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
@@ -164,6 +180,9 @@ def report():
             "weighted_connected_extension_admitted_by_native_program": False,
             "physical_occupation_density_selected": False,
             "full_global_record_archive_identified_as_local": False,
+            "record_correlation_degree_is_particle_species": False,
+            "stationary_single_load_motion_is_physical_light_propagation": False,
+            "bounded_repair_only_exact_reset_derived": False,
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,
