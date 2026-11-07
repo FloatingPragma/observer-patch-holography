@@ -87,15 +87,16 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Particles with certified spectra.** A specified interacting cube has 228
-  charged lines visible to single-fermion probes and 138 composite lines
-  invisible to them, every weight proved positive. One set of localized modes
-  carries all twelve gauge currents and a memory-realized lepton mass matrix.
-  The tested mass branch puts the charged leptons within 71 parts per million
-  (its lepton law is target-informed), the W, Z, Higgs and top within one
-  percent, and the lighter quarks off by 23 to 209 percent. Selecting the
-  spectrum from the source is the main remaining step.
-  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [mass comparison](model/particle_spectrum_audit/README.md).
+- **Particles with certified spectra.** A specified interacting cube connects
+  a prepared ground state, local charge creation and complete detector records.
+  Its spectral lines have certified energies and positive weights. A native
+  protected memory charge has a classified stationary reference; a finite
+  gauge transport construction gives complete outcomes and a compatible
+  preparation. These constructions explain how a declared defect reaches a
+  measurement. Selecting their common action from the source and identifying
+  physical particle species and masses require further proofs. The tested
+  mass branch uses a target-informed lepton law.
+  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
 - **Free fields and the matter side of gravity.** One original action on the
   cube has an infinite-lattice ground with positive excitation energy and a
   continuum spin field with finite propagation. Its charged continuum is provably free for `U=o(c^(2/7))`, with

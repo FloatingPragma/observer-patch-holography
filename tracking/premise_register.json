@@ -30103,7 +30103,15 @@
         "OPH-NATIVE-CONTROLLER-DATAFLOW",
         "OPH-NATIVE-TWELVE-NULL-TRANSITION",
         "OPH-FIELD-PRINCIPAL-CONE-COMPATIBILITY",
-        "OPH-NATIVE-FIFO-CAPACITY-EQUIVALENCE"
+        "OPH-NATIVE-FIFO-CAPACITY-EQUIVALENCE",
+        "OPH-NATIVE-STATE-CARRIER-BOUNDS",
+        "OPH-PROTECTED-NATIVE-REFERENCE",
+        "OPH-GAUGE-DEFECT-TRANSPORT",
+        "OPH-NATIVE-RECORD-RESPONSE",
+        "OPH-NATIVE-DISJOINT-RECORD-EXCHANGE",
+        "OPH-NATIVE-GAUGE-TREE-PROPAGATION",
+        "OPH-NATIVE-CANONICAL-RESTRICTION",
+        "OPH-NATIVE-CLOCK-OBSERVABLES"
       ],
       "lean_files": [
         "Lean/Computation/FixedFederationComplexity.lean",
@@ -30742,6 +30750,7 @@
         "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
         "Lean/Thermodynamics/PoissonizedRepair.lean",
         "Lean/Thermodynamics/PoissonizedRepairOperatorExp.lean",
+        "Lean/Thermodynamics/ProtectedGaugeCorner.lean",
         "Lean/Thermodynamics/RepairCurrentOrientation.lean",
         "Lean/Thermodynamics/StationaryRealization.lean",
         "Lean/Thermodynamics/TemporalFilterMonotonicity.lean",
@@ -31718,6 +31727,78 @@
           "controls": "Commands, source parameters and evaluator limits are fixed; only admitted FIFO capacity changes. Latest-current selectors cannot inspect older retained records.",
           "clock": "Attempt/evaluator prefixes agree, including common resource-stop outputs. No physical time calibration or cost equality is inferred.",
           "regime": "Exact complete-channel equality with zero half-diamond error for export_oldest; halt is separated by an exact timeout/completion control. No physical global-N or mass-pole premise is discharged."
+        },
+        "native_state_carrier_bounds": {
+          "carrier": "The native 66-state binary total-two carrier and the complete 438- and 1596-dimensional benchmark targets.",
+          "law": "The fixed declared positive native repair instrument; ideal modular derivation of its stationary marginal.",
+          "preparation": "The exact stationary source marginal, or its finite preparation with the separately bounded error subtracted.",
+          "records": "All outcomes and arbitrary classical flags remain in the channel comparison; no heralded success normalization.",
+          "controls": "Full-state isometries or complete single-cut encoders and decoders with arbitrary reference input.",
+          "clock": "The ideal modular target has five gaps up to one common rescaling; compiled clocks retain their independent errors.",
+          "regime": "Necessary finite interface bounds. No exclusion of larger quantum work registers, pure subsystem preparation or restricted detector menus."
+        },
+        "protected_native_reference": {
+          "carrier": "The 66-dimensional source tensored with one coherent orientation bit; all 132 states are retained.",
+          "law": "The explicit biased ordered lift of all native C/E branches with their complete raw outcome slots.",
+          "preparation": "Declared sharp memory preparation followed by 1600 repair attempts gives a source/reference marginal error below 10^-6; general mixture weight is conserved.",
+          "records": "The complete preparation tape exists; only the stated marginal comparison traces it. All raw zero and abort slots are retained.",
+          "controls": "Actual source branches, declared coherent memory preparation, charge flip and full two-outcome readout.",
+          "clock": "The faithful rho_a modular reference or the sharp-sector support-corner reference; repair attempts are not equated with physical time.",
+          "regime": "Complete finite fixed-state and covariance theorem for this composed process. Protected memory information has no proved spatial core or relativistic mass interpretation."
+        },
+        "complete_gauge_defect_transport": {
+          "carrier": "Each actual matter block with its full 60-state link and two positions, or the declared 66-source-state, orientation-memory and link-fiber attachment.",
+          "law": "Exact forward/reverse transport plus held outcomes. The source-attached law uses the actual 25/33 and 8/33 endpoint coins with flux-dependent holds.",
+          "preparation": "Explicit neutralizing dual reference and singlet corner; one unread biased attempt prepares the 25:8 corner state. The faithful full reference is gauge invariant without a Gauss-singlet support assertion.",
+          "records": "Transported and held outcomes for both directions are complete and retained; reference systems are untouched. Unread means a stated marginal, not erased records.",
+          "controls": "Declared finite gauge-covariant transport, coherent completions and complete target-support detector.",
+          "clock": "The same joined stationary reference gives exact modular transfer covariance; the coherent hopping family is not selected as its modular flow.",
+          "regime": "Finite complete gauge transport and a conditional common reference/preparation. No source selection, full Fock collision extension, chiral continuum or physical species map."
+        },
+        "native_weighted_complete_record_response": {
+          "carrier": "The complete H66 occupation sector, all 721 raw outcomes and arbitrary untouched references before the stated marginal readout.",
+          "law": "The actual fixed weighted native program and its complete C/E attempt instrument.",
+          "preparation": "The exact stationary marginal or a finite native preparation with its certified trace error.",
+          "records": "All raw outcomes, zero slots, reserved aborts and FIFO exports; response scores are unconditional signed statistics.",
+          "controls": "The actual record decoder and fixed source selection; no additional kinetic or Higgs control.",
+          "clock": "Discrete attempted repairs, including zero-current events; no physical time or momentum calibration.",
+          "regime": "Exact finite population response and backaction; no quantum tomography, relativistic field or physical mass identification. A finite positive Euclidean record reconstruction supplies no implemented real-time field."
+        },
+        "native_disjoint_complete_record_exchange": {
+          "carrier": "Either the complete H66 or H78 native carrier and arbitrary untouched quantum references.",
+          "law": "The actual fixed-seam native commands with their stated endpoint biases, repair probability and C/E mixture.",
+          "preparation": "The same arbitrary source/reference operator, with initially empty record memory.",
+          "records": "Every hold, coin, raw zero/abort address, FIFO entry and exported record; command-instance slots are compared by an explicit bijection.",
+          "controls": "Fixed disjoint commands and fixed schedules generated by adjacent disjoint exchanges; no record-dependent selector.",
+          "clock": "The compared schedules both complete; literal chronology and resource-stop behavior are not equated.",
+          "regime": "Exact finite complete-output equivalence after reversible relabeling; no physical event quotient or Lorentz limit."
+        },
+        "declared_native_gauge_tree_sector": {
+          "carrier": "The full literal-link and matter/reference carrier on a specified finite rooted tree, reduced only by the complete Gauss constraints in the one-fermion sector.",
+          "law": "The existing coherent hopping plus electric-projector Hamiltonian and its explicitly configured Cayley update.",
+          "preparation": "A specified dressed state or supported wave packet with its static dual charge reference; autonomous native creation is not inferred.",
+          "records": "All position outcomes and complete histories, including detector energy changes and blocked motion.",
+          "controls": "The configured graph, reference, J, epsilon and coherent update/readout services.",
+          "clock": "A specified Cayley step; comparison with continuous Hamiltonian time uses a separate operator-error bound.",
+          "regime": "Exact finite sector identification and model propagation; conditional volume control without physical graph, chiral continuum or mass identification."
+        },
+        "native_canonical_capacity_restriction": {
+          "carrier": "The declared geodesic binary federation with V_l=240*4^l ports, its full fixed-number sector and every retained local occupation sector.",
+          "law": "The actual fair endpoint repair with a fixed source-independent selector; the unread marginal preserves the canonical state.",
+          "preparation": "A declared canonical fixed-number state; its finite physical preparation and number trajectory are not selected.",
+          "records": "Any common complete retained-region instrument, without postselection or access to the correlated exterior.",
+          "controls": "A declared region and independent common quantum reference; exact integer evaluation is not an executed large-history source.",
+          "clock": "A static state restriction; no physical time or global capacity clock is selected.",
+          "regime": "Exact finite restrictions, nesting and local error bounds; no cosmological capacity map or identification with the biased H66 source. Dynamic independent-product restriction does not identify connected space or lift coherent services."
+        },
+        "native_coherent_clock_observables": {
+          "carrier": "All 66 native two-occupation configurations, including the full 46-dimensional zero sector, the existing proper-code workspace and arbitrary untouched references.",
+          "law": "The actual native E repair and existing compiled cap/quadrature service words; the coherent service primitives are declared.",
+          "preparation": "The full faithful weighted stationary source or its certified finite reduced preparation, without odd-sector postselection.",
+          "records": "All 25 native slots, retained coin/current, address exports and separately bounded first primitive failures; no survivor normalization.",
+          "controls": "An explicit analyzer/native-read/record-controlled-correction protocol built only from existing coherent services.",
+          "clock": "The named working-state modular clock and its stated compiled parameter domain; distinct from the reflected-record transfer Hamiltonian and uncalibrated as physical time.",
+          "regime": "Finite noncommuting instruments and Robertson inputs; universal operational Born premises, physical CCR, growing coherent-service embedding and physical particle identity are not established."
         }
       },
       "bindings": [
@@ -39633,6 +39714,266 @@
             {
               "path": "model/particle_identification/NATIVE_CAPACITY.md",
               "anchor": "# Record capacity in the executable observer"
+            }
+          ]
+        },
+        {
+          "id": "native-state-carrier-bounds",
+          "domain": "native_state_carrier_bounds",
+          "claims": [
+            "OPH-NATIVE-STATE-CARRIER-BOUNDS"
+          ],
+          "establishes": [
+            "native_state_carrier_bounds"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_full_state_and_single_quantum_cut"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "Kraus_rank_entanglement_fidelity_bound",
+            "finite_rank_variational_bound",
+            "polynomial_intertwining",
+            "trace_distance_contractivity"
+          ],
+          "scope": "The declared native 66-state stationary density has eigenvalues (625,200 repeated 20 times,64 repeated 45 times)/7505. Its normalized modular derivation obeys D(D^2-I)(D^2-4I)=0, inherited by an injective target-to-native intertwiner. Every full isometric image is at trace distance at least 1376/1501 from a pure state. A complete encoding and decoding through a single retained quantum carrier of dimension 66, with arbitrary classical flags but no quantum bypass or shared entanglement, has half-diamond error at least 1-66/D against a D-dimensional identity channel, giving 62/73 and 255/266 for the complete benchmark sectors. These are necessary interface bounds; subsystem purification and larger observer work registers are outside the restricted comparison.",
+          "limitations": "The declared endpoint weights, positive selector and 66-dimensional source factor are fixed. Modular intertwining is injective from the target into the source. Purity compares the entire isometric image. The channel bound assumes a single quantum cut with dimension 66, no other retained quantum memory or entanglement assistance, and complete unconditioned outcomes. The actual larger coherent work services are not ruled out.",
+          "sources": [
+            {
+              "path": "model/source_state_bridge/PROOF.md",
+              "anchor": "# Direct identification of the native state and a field model"
+            }
+          ]
+        },
+        {
+          "id": "protected-native-reference",
+          "domain": "protected_native_reference",
+          "claims": [
+            "OPH-PROTECTED-NATIVE-REFERENCE"
+          ],
+          "establishes": [
+            "protected_native_reference"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_biased_ordered_cover_reference"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "complete_record_off_diagonal_contraction",
+            "faithful_invariant_state_fixed_point_commutant",
+            "finite_Doeblin_bound",
+            "finite_linear_map_adjoint_nullity",
+            "modular_eigenoperator_covariance",
+            "stationary_Petz_reversal_and_KMS_detailed_balance"
+          ],
+          "scope": "For the explicitly composed biased native source and ordered-cover memory, all stationary density operators on the 132-dimensional carrier are rho_* tensor (a P_plus+(1-a)P_minus). The fixed observable algebra is span{I,Q}. In either prepared sharp charge sector the existing reference-uniform contraction bound is below 10^-6 after 1600 attempts. For 0<a<1, every complete raw branch is an eigenoperator of the same faithful reference modular generator, with gap equal to its actual signed current times log(theta_a/theta_b). At a=0 or a=1 the generator is restricted to the supported charge corner. The finite interior charge offset log(a/(1-a)) is fixed by the conserved preparation weight; an odd exchange loop has zero net modular transfer. Complete native source/tape records do not distinguish the two sharp stationary charges, while coherent memory readout does. No localized particle or physical rest mass follows from this memory protection. The actual weighted branches are closed under stationary Petz reversal by an explicit raw-label involution, giving KMS detailed balance and equal reversed fixed-length stationary history probabilities. Endpoint charge references use their invariant support corners; arbitrary adaptive control is outside the reversal theorem.",
+          "limitations": "The native biased endpoint law is explicitly composed with one ordered-cover orientation bit. The fixed positive all-seam selector supplies stationary-state classification and preparation. Sharp-sector initialization and coherent memory readout are declared services. Interior mixture weights give faithful modular references; endpoint weights use support-corner logarithms. Literal execution of a biased ten-qubit compiled implementation is not asserted.",
+          "sources": [
+            {
+              "path": "model/protected_reference/PROOF.md",
+              "anchor": "# State, clock and motion of a protected native charge"
+            },
+            {
+              "path": "model/protected_reference/REVERSAL.md",
+              "anchor": "# Weighted reversal of complete repair records"
+            }
+          ]
+        },
+        {
+          "id": "complete-gauge-defect-transport",
+          "domain": "complete_gauge_defect_transport",
+          "claims": [
+            "OPH-GAUGE-DEFECT-TRANSPORT"
+          ],
+          "establishes": [
+            "complete_gauge_defect_transport"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_literal_gauge_transport_and_reference_attachment"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "finite_CAR_spectator_sign",
+            "finite_detailed_balance",
+            "finite_four_law_core_with_same_kernel_adapter",
+            "finite_quantum_link_endpoint_covariance",
+            "partial_isometry_complete_instrument",
+            "reference_extended_replacement_channel"
+          ],
+          "scope": "Each of the five declared matter blocks on the literal 60-state gauge link admits an exact endpoint-Gauss-covariant partial isometry B=A/sqrt(d). Positioned transport T gives complete forward and reverse instruments including their held outcomes, a reversible completion and a coherent family. A common neutralized singlet input and detector distinguish probabilities 16/25 and 144/169, proving covariance and completeness do not select the coherent action parameter. Attaching this edge to the actual source pairs {0,5} and {5,11}, with ordered-memory flip and native coins 25/33 and 8/33, gives a complete stationary process with the same modular transfer gap. In the explicitly admitted neutralized two-state corner a single unread attempt prepares its stationary 25:8 mixture even from reference-entangled input in a sharp charge sector. The faithful gauge-invariant reference and the Gauss-singlet corner are distinguished. No full collision law, source-selected field action or physical chiral particle identity is claimed. The exact four-outcome diagonal kernel on that admitted corner equals the biased two-state heat bath. A Lean adapter supplies RepairLawData and CalibrationData and proves FiniteFourLawCore for the same kernel at modular multiplier one, with energy -log(25/33,8/33). The fixed-spectrum Gibbs entropy limit is mathematical; no native temperature-control family or physical heat calibration is inferred.",
+          "limitations": "The five matter representations, literal link register, optional coordinate completion, spatial attachment of one designated moving token, ordered memory and neutralizing dual reference are declared. Full source configurations and held outcomes are retained. The singlet replacement theorem restricts the admitted input to its reducing corner and a sharp protected charge; its source marginal is conditional on the two active configurations. The extended flux-dependent holds differ from the original C/E law.",
+          "sources": [
+            {
+              "path": "model/gauge_defect_transport/PROOF.md",
+              "anchor": "# Complete local transport of a charged defect"
+            },
+            {
+              "path": "model/protected_reference/GAUGE_JOIN.md",
+              "anchor": "# One native reference with gauge transport"
+            },
+            {
+              "path": "Lean/Thermodynamics/ProtectedGaugeCorner.lean",
+              "anchor": "corner_same_kernel_four_laws"
+            }
+          ]
+        },
+        {
+          "id": "native-weighted-complete-record-response",
+          "domain": "native_weighted_complete_record_response",
+          "claims": [
+            "OPH-NATIVE-RECORD-RESPONSE"
+          ],
+          "establishes": [
+            "native_weighted_complete_record_response"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_weighted_complete_record_response"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "complete_finite_instrument_statistics",
+            "exact_polynomial_observability_and_reachability",
+            "finite_reversible_record_reflection_positivity",
+            "finite_state_linear_response_realization",
+            "finite_state_preparation_contractivity",
+            "positive_transfer_spectral_functional_calculus"
+          ],
+          "scope": "For the actual default weighted H66 source, all 721 raw slots determine a complete 30-by-30 multi-time contrast-record response with measurement backaction. Exact transition and insertion matrices give its resolvent and all 65 simple positive nonstationary population-relaxation factors. Twenty-two equal-weight seam contrast columns have zero correlation with every later source record in stationarity. Weighted occupation means do not close: their exact one-step span grows from dimension 12 to 19. Complete records observe the full 66-dimensional population space, while bare record effects are diagonal and do not provide quantum-state tomography. A controlled native preparation error bounds every bounded future record moment. These poles are decay factors in repair-attempt time, not particle masses or a selected field propagator. With the actual raw-label reversal, every stationary scalar record cylinder has a positive reflection form. Their reflection quotient is exactly 66-dimensional by native record observability. Weighted detailed balance gives the positive transfer S=Pi^(-1/2) P Pi^(1/2), with (296/495)I<=S<=I, and its unique nonnegative generator -log(S). Correctly reflected contrast residues are positive; a complete exact negative control excludes reflection that incorrectly leaves incoming contrast unchanged. This is a finite Euclidean record reconstruction, not an implemented real-time quantum field or mass spectrum.",
+          "limitations": "The named weighted H66 member, uniform seam selector, fixed tagged C/E mixture, native endpoint coins and complete exported record grammar are used. Stationary formulas use its exact source marginal; finite preparation retains its explicit error and excludes the preparation archive from the product target. Scaled signed record scores are statistics, without success conditioning. Coherent services, physical coordinates, momentum and a physical clock are not inferred. Reflection uses the complete native raw-label involution, the stationary fixed-selector population law and scalar complex record-cylinder statistics. Positivity of operator-valued quantum histories, arbitrary operational effects, continuous fractional stochastic updates, spatial locality of the logarithm and implemented unitary continuation are not inferred.",
+          "sources": [
+            {
+              "path": "model/native_record_response/PROOF.md",
+              "anchor": "# Complete record response of the weighted native source"
+            },
+            {
+              "path": "model/native_record_response/TRANSFER.md",
+              "anchor": "# Positive transfer from reflected native records"
+            }
+          ]
+        },
+        {
+          "id": "native-disjoint-complete-record-exchange",
+          "domain": "native_disjoint_complete_record_exchange",
+          "claims": [
+            "OPH-NATIVE-DISJOINT-RECORD-EXCHANGE"
+          ],
+          "establishes": [
+            "native_disjoint_complete_record_exchange"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_disjoint_complete_record_exchange"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "disjoint_local_operator_commutation",
+            "finite_partial_commutation_of_fixed_schedules",
+            "finite_tensor_reference_channel_equality"
+          ],
+          "scope": "For two fixed native commands with disjoint endpoint sets on either full H66 or H78, each pair of their 25 complete raw-slot Kraus operators commutes. After a bijection permuting command-instance records and their known program identifiers, the completed classical-quantum output channels coincide exactly for all inputs and arbitrary untouched references. FIFO exports, holds and zero/abort slots are retained. Adjacent disjoint exchanges give the corresponding finite fixed-schedule equivalence with zero diamond error. Exact adaptive, overlapping-seam and early-timeout controls separate the processes outside this domain. This is a completed-observation equivalence, not equality of literal chronological records or a physical spacetime quotient.",
+          "limitations": "Commands, source parameters and input agree apart from the stated permutation. Selectors are fixed and do not consume reordered records. Every command completes; the memory either exports its oldest record or has adequate space. The record bijection retains the full archive and relabels the known program identity. Adaptive control, overlapping endpoints, timeouts and identification of implementation provenance with physical causality require separate proofs.",
+          "sources": [
+            {
+              "path": "model/native_record_causality/PROOF.md",
+              "anchor": "# Independent repairs and complete records"
+            }
+          ]
+        },
+        {
+          "id": "declared-native-gauge-tree-sector",
+          "domain": "declared_native_gauge_tree_sector",
+          "claims": [
+            "OPH-NATIVE-GAUGE-TREE-PROPAGATION"
+          ],
+          "establishes": [
+            "declared_native_gauge_tree_sector"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_gauge_tree_sector"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "Schur_intertwiner_dimension",
+            "bounded_hopping_Dyson_tail",
+            "finite_complete_projective_record_instruments",
+            "tree_leaf_Gauss_reduction"
+          ],
+          "scope": "For the existing literal sixty-state gauge-link Hamiltonian on a specified rooted tree, the complete one-fermion Gauss sector with a static dual reference of a fixed native irreducible type has one normalized dressed state at each vertex. Leaf Gauss constraints remove off-path flux and exact current-intertwiner ranks exhaust the path contractions. The restricted Hamiltonian is J sqrt(d_r) times tree adjacency plus epsilon times distance from the root, using the owning electric-projector law. Complete position records and detector work are retained. A nearest-neighbor Dyson bound controls full finite-volume position histories for the continuous evolution; the configured Cayley step has a separate discretization bound. These are reference-bound model excitations, not identified asymptotic particles, relativistic masses or a chiral continuum.",
+          "limitations": "The rooted tree, static dual reference, native matter/link representation, one-fermion sector, electric-projector law, coherent hopping coefficient and clock are declared by the configured experiment. No other link blocks are discarded before Gauss reduction. Infinite-tree statements use bounded degree, finite-support initial data and the stated vacuum representation. Continuous and finite Cayley evolutions retain separate error accounting.",
+          "sources": [
+            {
+              "path": "model/native_gauge_strings/PROOF.md",
+              "anchor": "# Gauge-invariant propagation of one dressed fermion"
+            }
+          ]
+        },
+        {
+          "id": "native-canonical-capacity-restriction",
+          "domain": "native_canonical_capacity_restriction",
+          "claims": [
+            "OPH-NATIVE-CANONICAL-RESTRICTION"
+          ],
+          "establishes": [
+            "native_canonical_capacity_restriction"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_canonical_capacity_restriction"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "adaptive_record_history_induction",
+            "canonical_fixed_number_partial_trace",
+            "hypergeometric_sampling_and_nesting",
+            "nested_partial_trace_composition",
+            "sampling_collision_coupling",
+            "tensor_local_complete_instrument_intertwining",
+            "trace_distance_contractivity"
+          ],
+          "scope": "The declared fixed-number stationary state of the fair native federation restricts exactly to a hypergeometric mixture of all retained occupation sectors. These partial traces compose exactly under nested restrictions. The half trace distance to the matching sharp-sector canonical state is one minus that sector weight; an arbitrary state in that sector obeys the corresponding lower bound. A finite-window Bernoulli comparison has error at most v(v-1)/(2V), and fixed total occupation gives a local vacuum bound vm/V. Contractivity transfers these state errors to any common complete local instrument, including arbitrary independent coherent references. Exact integer formulas evaluate declared local marginals at large population without executing the full source. The interface does not select the conserved number, preparation or cosmological capacity map, and does not identify the fair federation with the biased H66 clock member. Separately, the actual independent-product grammar admits exact dynamic lifting of any local or lower-factor repair/hold program. Partial trace over appended unused factors intertwines the complete adaptive recorded process for arbitrary correlated inputs and references, with explicit program-identifier comparison and common evaluator limits. Nested dynamic restrictions compose. The 65-factor host stop and a one-attempt weighted/fair coin-record difference of 17/66 bound its domain. This extends the weighted native repair program to independent spectators without deriving connected space or lifting the compiled coherent clock services.",
+          "limitations": "The connected fair federation geometry, total number, canonical preparation, retained ports and local observation channel are declared. The canonical state is invariant under the unread fixed-selector fair channel; complete records can remain correlated with the source. Local readout comparisons use the same channel on the retained region and an independent common reference; access to the actual correlated exterior needs separate control. Arbitrary integer populations are a combinatorial domain, not an added admitted geometry or executed large-history program. Physical capacity, FIFO length, port count and conserved occupation are distinct inputs. Product lifting preserves the admitted repair/hold grammar, parameters, active cell addresses and memory controller. It compares returned histories in a common admitted/evaluated domain, traces unused factors and checks the exact lifted program identifier before relabeling it. Allocation/specification queries and resource-dependent host failures remain distinguishable. Coherent source-word services and a physical capacity map are separate obligations.",
+          "sources": [
+            {
+              "path": "model/native_capacity_restriction/PROOF.md",
+              "anchor": "# Canonical restriction of the native source"
+            },
+            {
+              "path": "model/native_capacity_restriction/PRODUCT.md",
+              "anchor": "# Exact dynamic restriction of independent native products"
+            }
+          ]
+        },
+        {
+          "id": "native-coherent-clock-observables",
+          "domain": "native_coherent_clock_observables",
+          "claims": [
+            "OPH-NATIVE-CLOCK-OBSERVABLES"
+          ],
+          "establishes": [
+            "native_coherent_clock_observables"
+          ],
+          "requires": [],
+          "assumptions": [
+            "declared_native_coherent_clock_observables"
+          ],
+          "additional_assumptions": {},
+          "imports": [
+            "finite_projective_instrument_algebra",
+            "finite_state_robertson_commutator",
+            "proper_code_complete_error_composition",
+            "source_specific_modular_covariance"
+          ],
+          "scope": "The named biased H66 clock observer has complete local X, Y and Z measurement instruments using its existing compiled cap/quadrature services followed by the actual native E records. Their ideal effects are three projectors of ranks 10, 10 and 46 on the full carrier. The raw measuring repair is destructive. A specified feedback protocol using only existing cap rotations, retained current and inverse analyzer gives the exact ideal Luders instrument, including coherence throughout the entire zero sector and arbitrary untouched references. Complete compiler, address-export and first-failure bounds quantify the stated numerical implementation without survivor conditioning. The same full stationary source supplies a nonzero finite Robertson uncertainty bound with exact margin 301088/2253001 and its existing modular-clock action on these observables. This constructs a finite noncommuting menu, not universal operational Born premises, physical position-momentum commutators, spatial propagation or particle masses.",
+          "limitations": "The fixed weighted H66 source, full stationary density or certified reduced preparation, existing nine-qubit proper-code coherent services and their load/export resources are declared. The retained-record feedback composition is an explicit observer protocol, not part of the bare repair/hold grammar. Numerical operator bounds distinguish returned arrays, exact products of stored primitive matrices under stated binary64 arithmetic, and unproved analytic-pulse or hardware accuracy. Intermediate compiler pulses are not proved spatially local. Arbitrary-parameter clock identities are ideal algebra; existing compiled clock certificates cover their stated parameter values. Preparation-archive conditioning, universal effect coverage and growing coherent-service embedding need separate proofs.",
+          "sources": [
+            {
+              "path": "model/native_clock_observables/PROOF.md",
+              "anchor": "# Native clock observables"
             }
           ]
         }

@@ -1,4 +1,4 @@
-# What the current particle constructions identify
+# What the finite particle constructions identify
 
 **The model energies, binding energy and inertial mass can be identified.**
 The cube has eight exactly characterized interacting spectral energies;
@@ -8,6 +8,15 @@ has dispersion epsilon(P)=P²/4-gamma² for the reflected generator
 J_a=6/a²-H_a, so its model binding energy is gamma²
 and its inertial mass is2 in those coordinates when hbar_model=1. These are derived model
 quantities, not assignments to an observed species.
+
+The [source-prepared charged defect](../ground_spectral_source/README.md)
+provides a separate constructive chain: prepare the ground of the specified
+full cube action, create a localized odd excitation, preserve its number
+flag through the declared repair waits, and read its same-action spectral
+response with complete pointer outcomes and a certified error. This identifies
+a measurable excitation of that finite model. The
+[identification route](ROADMAP.md) states what connects such a construction
+to propagating particle sectors and measured species.
 
 Converting them to joules or kilograms needs a common independently
 identified energy unit Eunit and length unit Lunit. With
@@ -46,8 +55,11 @@ hidden-spin-polarized six-orbital Slater state, which has zero contact.
 Thus all eight lines have strictly positive gaps from the actual N6
 ground. The receipt gives rigorous gap intervals and separately records
 an approximate sparse ground estimate of -0.366904154; its small residual
-is a numerical diagnostic, not a certified enclosure. No global ground
-across different number sectors or physical vacuum is selected.
+is a numerical diagnostic, not a certified enclosure. This N6 response
+uses an excited reference. The separate
+[full-Fock ground theorem](../interacting_vacuum/README.md) supplies a ground
+across number sectors for the specified cube action; its physical-vacuum
+identification requires a source and continuum argument.
 
 | Required physical identification | Cube local density response | Moving bound pair |
 | --- | --- | --- |
@@ -57,7 +69,7 @@ across different number sectors or physical vacuum is selected.
 | Spin and exchange | Local density probe has hidden spin zero; the larger eta3 sector contains hidden singlets and triplets | Antisymmetric two-fermion wavefunction, contact singlet source; no derived physical Lorentz spin or many-composite exchange law |
 | Vacuum | Prepared reference R has H energy3 and is not a ground state, even within N6 | No common physical vacuum identified; energy reflection and subtraction are essential supplied conventions |
 | Propagation and mass | Eight exact finite transition frequencies, not eight invariant rest masses | Controlled dispersion epsilon(P)=P²/4-gamma²; model inertial mass2 when hbar_model=1, not a physical relativistic rest mass |
-| Physical clock, units and detector | Reference and local phase kick source-executed; time-dependent Ramsey detector remains analytic | Explicit bound-band isometry and propagator estimate; no physical detector or unit calibration |
+| Physical clock, units and detector | Complete finite Ramsey detector source-executed; certified accelerated emulation resolves weights on the supplied eight-line support; no physical clock or unit calibration | Explicit bound-band isometry and propagator estimate; no physical detector or unit calibration |
 | Interactions and empirical comparison | Contact-shifted finite energies; no observed-species comparison | One composite sector, not interacting many-composite dynamics; no observed-species comparison |
 
 The Standard Model comparison requires physical quantum numbers and a common

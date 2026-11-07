@@ -792,6 +792,353 @@ occupation even on a Gauss singlet, so the canonical band above does not transfe
 operator-valued links by substitution. A dynamical quantum-link realization of the
 interacting compact band is not established here.
 
+\subsection{Native record response}
+
+The fixed biased binary source also supplies an observable response without
+an attached field action. Give ports $0,1$ weight $25$ and the other ten weight
+$8$, select each of the thirty seams uniformly, and tag current and contrast
+repairs with equal probability. Let $P$ be its column-stochastic occupation
+transition and $\pi(x)\propto\prod_a\theta_a^{n_a(x)}$ its stationary law.
+On every complete record define
+$Y_e=60\,\mathbf1[\text{contrast law, seam }e](n_a-n_b)$ for $e=(a,b)$,
+with zero score on reserved addresses. This uses the reported incoming
+contrast. If $B_e$ is the transition weighted by that score, then
+\[
+ \mathbf1^TB_e=d_e^T,\qquad
+ B_e\pi=\operatorname{diag}(\pi)g_e,\qquad
+ g_e=\frac{\theta_a-\theta_b}{\theta_a+\theta_b}
+       \mathbf1[n_a+n_b=1].
+\]
+The second identity includes the measuring repair's backaction. With rows
+$d_e^T$ and $g_e^T$ collected in $D,G$, and $m=D\pi$, the ordered stationary
+covariance and its discrete-attempt resolvent are
+\[
+ \begin{aligned}
+ C(k)&=DP^{k-1}A\quad(k\geq1),\qquad
+ A=\operatorname{diag}(\pi)G^T-\pi m^T,\\
+ \sum_{k\geq1}z^{-k}C(k)&=D(zI-P)^{-1}A.
+ \end{aligned}
+\]
+All $22$ equal-weight seams have zero columns in $C(k)$, despite nonzero
+same-time shot noise. A passive occupation correlator omits this backaction.
+Exact ranks $66$ for $[\mathbf1^T;D;\ldots;DP^{12}]$ and $65$ for
+$[A,PA,\ldots,P^{10}A]$, together with the squarefree characteristic
+polynomial, show that all $65$ nonstationary population relaxation poles
+appear. They are positive real decay factors, without a particle-mass
+interpretation. The biased occupation means require pair correlations:
+adjoining one-step images raises their span from $12$ to $19$.
+
+The calculation retains all $721$ interpreter slots and arbitrary untouched
+references. Complete record probabilities observe only diagonal source
+blocks, so the rank statement is population observability, not quantum-state
+tomography. After $1600$ unread preparation attempts, the reduced
+source/reference half trace distance is at most $\varepsilon=542159/10^{12}$; any fixed
+future $r$-fold score moment has error at most $2\,60^r\varepsilon$.
+The preparation archive can remain correlated. No finite sampling or stable
+pole-inversion bound is asserted
+(\path{model/native_record_response}, \cite{ophrepo}).
+
+\paragraph{Positive transfer from complete records.}
+Write $\Pi=\operatorname{diag}(\pi)$. Detailed balance gives the symmetric
+transfer $S=\Pi^{-1/2}P\Pi^{1/2}$, and the actual minimum diagonal
+$\min_xP_{xx}=791/990$ gives
+\[
+ \frac{296}{495}I\leq S\leq I,\qquad H_{\rm tr}=-\log S\geq0.
+\]
+For each raw flag the native reversal satisfies
+$T_{\bar h}=\Pi T_h^T\Pi^{-1}$. It reverses word order and exchanges incoming
+and outgoing contrast using the retained current. If $F$ is any scalar
+future-record cylinder and $f_F$ its conditional expectation on the initial
+configuration, its reflected form across $n$ unread attempts is
+$\langle f_F,(P^T)^nf_F\rangle_\pi\geq0$. The preceding observability rank
+makes the reflection quotient exactly $66$-dimensional. Centered contrasts
+therefore have the positive reflected spectral representation
+\[
+ DP^n\Pi D^T-mm^T
+   =\sum_{j=1}^{65}\lambda_j^n v_jv_j^\dagger,\qquad v_j\ne0.
+\]
+The ordinary oriented covariance $C(1)$ is different: the centered score
+$Y_{(0,5)}-Y_{(0,1)}$ has the naive unreflected quadratic form
+$-83481968/1858725825$. Reflection must use the actual record dictionary.
+
+This is a finite Euclidean reconstruction from scalar records. Spectral
+calculus defines a unitary continuation but supplies no native protocol
+executing it. Its pure ground direction $\sqrt\pi$ is not the native
+faithful working state, and $H_{\rm tr}$ differs from that state's modular
+generator $K=-\log\Pi$. For $x=\{0,1\}$ and $y=\{1,5\}$ the exact element
+$[S,K]_{yx}=\sqrt2\log(8/25)/99$ is nonzero; hence $[H_{\rm tr},K]\ne0$.
+The two clocks cannot be scalar rescalings and shifts of one another.
+Physical time, spatial locality, operator-valued history positivity and
+particle masses require additional maps
+(\path{model/native_record_response/TRANSFER.md}, \cite{ophrepo}).
+
+\paragraph{Complete records for disjoint repairs.}
+For two fixed native commands with disjoint endpoints, every pair of actual
+raw Kraus operators commutes on the full $66$- or $78$-state carrier.
+Both executions must finish. The comparison permutes command-instance
+slots with their exported and retained records, and relabels the known
+program identifiers; their literal digests differ. The resulting
+complete classical-quantum channels are identical for every initial state
+and untouched reference. All $25^2$ raw-slot pairs, including holds and
+zero addresses, are retained. Adjacent swaps extend the identity to fixed
+schedules related by such disjoint interchanges. The literal chronological
+tapes need not agree, and the shared queue's implementation dependencies
+are unchanged. Overlapping endpoints, selectors using earlier records and
+memory timeouts give explicit failures. This is a finite equivalence of
+observation protocols; it supplies no physical event quotient, spatial
+dimension or light cone
+(\path{model/native_record_causality}, \cite{ophrepo}).
+
+\paragraph{Canonical source restriction.}
+The fair connected federation has $V_\ell=240\,4^\ell$ ports and a declared
+global occupation $m$. Its canonical state
+$\rho_{V,m}=\Pi_m/\binom Vm$, where $\Pi_m$ projects onto total occupation $m$, is preserved by each fixed fair native seam's unread source channel.
+Tracing to any $v$ ports gives the full number mixture
+\[
+ \rho_W=\sum_{k=0}^v h(k)\rho_{v,k},\qquad
+ h(k)=\frac{\binom vk\binom{V-v}{m-k}}{\binom Vm},
+\]
+with impossible binomial coefficients zero. These restrictions compose
+exactly for nested regions. Orthogonal number sectors give the half trace
+distance $D(\rho_W,\rho_{v,q})=1-h(q)$; imposing a sharp local number is
+a different state. For $p=m/V$ and $\beta_p=\operatorname{diag}(1-p,p)$,
+sampling with and without replacement gives
+\[
+ D(\rho_W,\beta_p^{\otimes v})\leq\min\{1,v(v-1)/(2V)\},\qquad
+ D(\rho_W,|0\rangle\langle0|^{\otimes v})\leq\min\{1,vm/V\}.
+\]
+A common complete local instrument contracts these bounds, including its
+records; a correlated external reference needs a joint input bound.
+The number law requires $O(v)$ rational operations. All thirteen outcomes
+of a twelve-port restriction at $\ell=200$ are evaluated exactly with the
+$408$-bit population integer, without allocating the global state.
+These are static state comparisons. They select no physical capacity map,
+occupation trajectory $m(V)$, finite preparation, clock or dynamical
+restriction. The fair federation is distinct from the biased local member
+used above (\path{model/native_capacity_restriction}, \cite{ophrepo}).
+
+The existing independent-cell grammar supplies a distinct dynamic
+extension. Append unused $66$- or $78$-state factors to any admitted native
+repair/hold program, preserving its parameters, active cell addresses and
+record controller. Every raw branch is $K_h\otimes I_B$. Consequently
+partial trace over $B$ intertwines the complete adaptive instrument for
+arbitrary correlated inputs and untouched references. The comparison
+retains chronological records, FIFO exports and matched stopping outcomes,
+and checks the exact lifted program identifier before relabeling it.
+These restrictions also compose. Declared allocation and specification
+queries can distinguish the programs. The host evaluator stops before
+executing products above $64$ cells, so equality of executed histories
+requires a common admitted and evaluated domain. Compiled coherent
+source-word services have a separate grammar and are not lifted by this
+theorem. This proves a spectator-factor extension without connected
+geometry or interactions. A direct single-attempt comparison with the
+fair federation fails: the same coin record has probabilities $25/33$
+and $1/2$, giving total variation at least $17/66$
+(\path{model/native_capacity_restriction/PRODUCT.md}, \cite{ophrepo}).
+
+\subsection{Native clock observables}
+\label{sec:native-clock-observables}
+
+The declared coherent clock services also give operational noncommuting
+measurements on the same biased $66$-state source. On the existing seam
+$(1,7)$, pair $|1,k\rangle$ with $|7,k\rangle$ for each of the ten spectators.
+Let $X,Y,Z$ be the direct sum of the usual Pauli matrices on these pairs,
+zero on the $46$-dimensional complement $P_0=I-Q$. The existing balanced
+cap and quadrature words give analyzers $U_A$ with $U_A^\dagger ZU_A=A$.
+One native contrast-reading repair after the analyzer therefore has effects
+\[
+ P_{A,\pm}=\frac{Q\pm A}{2},\qquad P_{A,0}=P_0,
+ \qquad A\in\{X,Y,Z\}.
+\]
+All $25$ raw addresses are retained, including $19$ zero maps. The six live
+maps have coin factors $8/33$ and $25/33$. The zero-contrast maps preserve
+all coherences within $P_0$, including coherence between empty and doubly
+occupied endpoints. The raw update is destructive. Its retained displacement
+record permits an explicit correction: apply two existing balanced cap
+rotations when the repair moved, then undo the analyzer. Every fine corrected
+Kraus operator is a scalar sign times $\sqrt{p_{\rm coin}}P_{A,\delta}$ on
+all $66$ states. This gives the three-outcome L\"uders instrument, with its
+coin refinement and arbitrary untouched references.
+
+For the full normalized stationary density, no odd-sector conditioning is
+needed:
+\[
+ \langle X\rangle=\langle Y\rangle=0,\quad
+ \langle Z\rangle=\frac{1649}{7505},\quad
+ \operatorname{Var}X=\operatorname{Var}Y=\frac{3201}{7505},\quad
+ \frac{|\langle[X,Y]\rangle|^2}{4}
+ =\left(\frac{1649}{7505}\right)^2.
+\]
+These actual observables and state supply the finite Robertson theorem's
+inputs. With $\Delta=\log(25/8)$, the working modular clock acts by
+\[
+ U_s=\rho_*^{-is},\qquad
+ U_s^\dagger XU_s=\cos(s\Delta)X-\sin(s\Delta)Y.
+\]
+The literal nine-qubit analyzer words have full-address certificates,
+retained export failures and a separate multiplication-rounding allowance.
+These bounds concern the stored numerical primitive matrices, with no
+hardware or unrounded analytic exponential error claim. The coherent
+services and their feedback composition are declared observer operations;
+they are outside the bare repair/hold grammar. This finite measurement menu
+supplies neither universal implementation independence for every complex
+effect nor a physical position--momentum relation
+(\path{model/native_clock_observables}, \cite{ophrepo}).
+
+\subsection{Protected charge and its native reference}
+\label{sec:protected-native-reference}
+
+An explicit composition of the biased native repair and its persistent ordering
+bit connects protection to a state and a modular clock. For the binary total-two
+source, let $\theta_0=\theta_1=25$ and $\theta_i=8$ otherwise. Its reference is
+$\rho_*=7505^{-1}\sum_x\prod_i\theta_i^{x_i}|x\rangle\langle x|$.
+The ordered branch is a weighted partial injection with an ordering flip $X$
+when transport crosses the occupied spectator. All branches commute with
+$Q=I_{66}\otimes X$. Their complete star algebra has commutant
+$\operatorname{span}\{I,Q\}$. A faithful invariant state makes this the
+adjoint fixed space, so the stationary densities are exactly
+\[
+ \rho_\alpha=\rho_*\otimes[\alpha P_++(1-\alpha)P_-],\qquad
+ P_\pm=(I\pm X)/2,\quad 0\leq\alpha\leq1.
+\]
+The weight $\alpha$ is conserved. With the ordering bit prepared in either
+sharp sector, $1600$ unread attempts prepare the source/reference marginal
+within $10^{-6}$ of its stationary product; the complete archive is not
+claimed independent. The proof includes arbitrary untouched references.
+
+For $0<\alpha<1$, put $K_\alpha=-\log\rho_\alpha$. A recorded current $j$
+on seam $(a,b)$ obeys
+$[K_\alpha,K_h]=j\log(\theta_a/\theta_b)K_h$.
+Thus every complete branch is covariant under the same modular clock.
+The negative exchange sector has the actual two-occupation CAR transport
+sign. Its closed odd exchange returns to the initial occupation and has zero
+modular energy change. The two protected sectors differ in mean
+modular energy by $\log[\alpha/(1-\alpha)]$, set by their conserved reference
+weight. Protection therefore supplies no nonzero rest energy. The potential
+commutes with occupations; its unitary flow is not the stochastic motion.
+These statements concern the composed $132$-state source, whose ordering
+memory is an additional declared service
+(\path{model/protected_reference}, \cite{ophrepo}).
+
+For this fixed selector the actual raw branches also have an exact weighted
+reverse: $\rho_\alpha^{1/2}K_h^\dagger\rho_\alpha^{-1/2}=K_{\bar h}$,
+where a label involution exchanges each moving outcome with its reverse
+and fixes the holding and zero slots. This proves Kubo--Martin--Schwinger detailed balance and
+equality of stationary fixed-length record probabilities under reversed
+order and labels. At $\alpha=0,1$ the identity uses the invariant supported
+corner. It concerns stationary preparation and this selector; it supplies
+neither a reversal theorem for arbitrary feedback nor physical time reversal
+(\path{model/protected_reference/REVERSAL.md}, \cite{pwpetz1986sufficient,ophrepo}).
+
+\paragraph{Complete gauge transport.}
+The same literal quantum-link matrices supply a complete locally covariant
+operation for each of the five matter blocks, including colored matter.
+For a block of dimension $d$, let
+$A=\sum_{ab}|a\rangle\langle b|\otimes U_{ab}$ and $B=A/\sqrt d$.
+Both the raising coordinates and their conditional rotor completion obey
+$(A^\dagger A)^2=dA^\dagger A$. On the two-position edge define
+\[
+ T=|x\rangle\langle y|\otimes B,\qquad P_y=T^\dagger T,
+ \quad P_x=TT^\dagger.
+\]
+The endpoint intertwining equations imply that $T,P_x,P_y$ commute with
+the total local Gauss action. Since $P_xP_y=0$, the complete directional
+instrument is $\{T,I-P_y\}$, its reverse is $\{T^\dagger,I-P_x\}$, and
+$W=T+T^\dagger+I-P_x-P_y$ is a Hermitian unitary. Every blocked flux state
+is retained. The exact identities cover all sixty link states and all
+twelve currents; the hard-core spectator contributes the usual CAR sign.
+
+The covariant unitaries
+$U(c,s)=I+(c-1)(P_x+P_y)-is(T+T^\dagger)$, $c^2+s^2=1$, expose the
+unselected operation parameter. On a fixed gauge-singlet preparation with
+a dual charge reference at $y$, the complete detector $\{P_x,I-P_x\}$ gives
+probability $s^2$. The rational choices $(c,s)=(3/5,4/5)$ and $(5/13,12/13)$
+give $16/25$ and $144/169$ on that same experiment. Covariance and completeness
+therefore do not determine its evolution. This finite operation uses a
+declared matter/link extension, without equivalence to the original C/E
+law or a full collision extension
+(\path{model/gauge_defect_transport}, \cite{ophrepo}).
+
+The protected reference and this transport admit a specified common edge
+process. On native seam $(0,11)$ the move $\{5,11\}\to\{0,5\}$ crosses
+the spectator, so its joint operator is
+$\widetilde T=|\{0,5\}\rangle\langle\{5,11\}|\otimes X\otimes B$.
+The forward and reverse coins have probabilities $25/33$ and $8/33$.
+Their complete transport/hold instruments preserve $Q$ and the reference
+$\rho_*\otimes\sigma_\alpha\otimes I_{60d}/(60d)$, where
+$\sigma_\alpha=\alpha P_++(1-\alpha)P_-$, by exact endpoint detailed
+balance. They retain the other $64$ configurations as holds.
+This full reference is gauge invariant without support on the joint Gauss kernel.
+A declared dual reference gives an orthonormal Gauss-singlet pair
+$\psi_x,\psi_y$ and stationary corner state
+$(25|\psi_x\rangle\langle\psi_x|+8|\psi_y\rangle\langle\psi_y|)/33$.
+In a fixed memory-charge sector one unread attempt replaces every admitted
+corner input by this mixture, including reference-entangled inputs.
+Its complete records are retained before taking that marginal.
+The same modular reference assigns forward energy change $\log(8/25)$.
+This is a declared one-edge law, with a designated moving internal fiber
+and separate singlet preparation. It supplies no all-seam gauge network,
+global mixing theorem, two-particle colored identity or selected coherent
+Hamiltonian (\path{model/protected_reference/GAUGE_JOIN.md}, \cite{ophrepo}).
+
+The same corner supplies a finite thermodynamic instance. Summing all four
+outcomes gives the diagonal kernel $P(i,j)=p_j$, $p=(25/33,8/33)$.
+With $E_i=-\log p_i$ and multiplier one, the Lean theorem
+\texttt{corner\_same\_kernel\_four\_laws} identifies this kernel with the
+heat bath consumed by the finite four-law core
+(\path{Lean/Thermodynamics/ProtectedGaugeCorner.lean}, \cite{ophrepo}).
+It gives the first-law split, relative-entropy contraction and multiplier
+identifiability. The energy is nonconstant, so the replacement exchanges
+modular heat for some inputs. Its fixed-spectrum mathematical Gibbs family has zero
+low-temperature entropy; the fixed native coin supplies no implemented
+temperature variation, physical calibration or uniform capacity limit.
+
+\paragraph{Gauge-invariant propagation on trees.}
+The configured sixty-state quantum-link Hamiltonian has a complete spatial
+sector on a finite rooted tree $\mathcal T$. Retain all five native matter
+blocks, fix total fermion number one, and put a static dual reference for
+one block $r$ of dimension $d_r$ at the root. Every block has nonzero
+central charge and scalar current commutant. Leaf elimination therefore
+forces all links off the root-to-fermion path to vacuum; irreducibility and
+inequivalent central charges leave one contraction along that path.
+The entire Gauss kernel has an orthonormal basis $|v;r\rangle$, one state
+for every vertex, including the root.
+
+For the owning literal raising-link hopping of strength $J$ and the electric
+occupation-projector cost $\epsilon\geq0$, the exact restriction is
+\[
+ H\big|_{\ker G}=J\sqrt{d_r}\,\operatorname{Adj}(\mathcal T)
+       +\epsilon\operatorname{diag}(\operatorname{dist}(0,v)).
+\]
+The factor $\sqrt{d_r}$ comes from the norm of the contracted flux string;
+substituting normalized partial-isometry hopping would change the configured
+action. Position projectors commute with Gauss and form a complete detector,
+with every position and repeated-position outcome retained. Their readout
+can change hopping energy, whose exact work balance is accounted for.
+
+On an additionally specified infinite bounded-degree tree, positive
+$\epsilon$ gives a self-adjoint operator with compact resolvent: its diagonal
+potential tends to infinity and hopping is bounded. For initial support
+inside radius $R_0$, compression to radius $R$ gives the complete continuous-time
+position-record total-variation bound
+\[
+ \min\!\left\{1,\;2\sum_{n\geq R-R_0+1}
+          \frac{(D_{\max}|J|\sqrt{d_r}\,t)^n}{n!}\right\},
+\]
+where $D_{\max}$ bounds degree and $t$ is the total evolution time across
+all readouts. The executed Cayley clock has a separate finite-step comparison
+allowance. These reference-bound dressed levels use a specified graph, link,
+coupling and clock. They supply no freely propagating asymptotic particles,
+relativistic dispersion or physical mass
+(\path{model/native_gauge_strings}, \cite{ophrepo}).
+
+For a protected defect to become an identified particle, one preparation
+must create its supported state, the same dynamics must preserve or control
+its charge while propagating it, and complete detectors must recover its
+energy, momentum and interactions. The memory charge above, the compact
+texture band and the gauge--Higgs response below have different carriers
+and actions. Their separate identities do not establish this common map.
+
 \input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 
 \paragraph{Intervening observations.}
@@ -900,6 +1247,33 @@ This is a reference-calibration distinction, not freedom to fit intrinsic masses
 The graph, scalar cap, couplings, preparation and physical clock are not selected by
 these finite identities. Full certificates and record instruments are in the
 repository package \texttt{model/interacting\_extension} \cite{ophrepo}.
+
+\paragraph{Native state and carrier bounds.}
+The $66$-dimensional occupation factor $\rho_*$ of
+Section~\ref{sec:protected-native-reference} has
+eigenvalues $625/7505$, $200/7505$ and $64/7505$, with multiplicities
+$1,20,45$. Its ideal modular commutator, divided by $\log(25/8)$, obeys
+$D(D^2-I)(D^2-4I)=0$. Any injective target-algebra map into this source
+that intertwines the two derivations must preserve that polynomial identity.
+This is a condition on an exact common clock, without a numerical exclusion
+of the Higgs response lines. The full $\rho_\alpha$ also carries its
+reference-dependent memory gap.
+
+An isometric image of $\rho_*$ retains its $66$ nonzero eigenvalues, so it
+has trace distance at least $1-625/7505=1376/1501$ from every pure target.
+A pure field subsystem is possible if other retained quantum memory carries
+the mixedness; its preparation and records must then be supplied. Separately,
+if an entire quantum channel crosses a single $66$-dimensional carrier,
+arbitrary classical records cannot raise its entanglement fidelity above
+$66/D$ on a $D$-dimensional input. With no additional quantum path or
+entanglement assistance, its half-diamond distance from the identity is
+therefore at least $62/73$ for $D=438$, or $255/266$ for $D=1596$.
+The bound concerns all inputs and references, rather than one prepared
+ground-state experiment. The named observer's coherent work register is
+an additional quantum resource. These exact tests rule out direct
+identifications while leaving explicit active preparations and larger
+encodings to their own comparison theorems
+(\path{model/source_state_bridge}, \cite{ophrepo}).
 
 \subsection{Compensated probe uncertainty and collision records}
 \label{sec:probe-uncertainty-collisions}
@@ -1564,6 +1938,12 @@ H. P. Robertson,
 \emph{The Uncertainty Principle},
 Physical Review \textbf{34}, 163--164 (1929).
 \url{https://doi.org/10.1103/PhysRev.34.163}
+
+\bibitem{pwpetz1986sufficient}
+D. Petz,
+\emph{Sufficient subalgebras and the relative entropy of states of a von Neumann algebra},
+Communications in Mathematical Physics \textbf{105}, 123--131 (1986).
+\url{https://doi.org/10.1007/BF01212345}
 
 \bibitem{duch2023}
 P. Duch and W. Dybalski,

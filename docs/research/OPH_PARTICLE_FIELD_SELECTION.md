@@ -7,6 +7,102 @@ Each construction retains its own action, preparation, instrument and clock
 hypotheses. A physical composition must realize those hypotheses on the same
 process and compare the same records.
 
+The maintained [source-to-field requirements and status](OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
+separate the eight required connections and their proof boundaries. This
+page details action selection and operational measurement premises; its
+finite constructions do not discharge the physical particle identification.
+
+## What the finite constraints select about defect transport
+
+The [literal-link transport theorem](../../model/gauge_defect_transport/PROOF.md)
+uses all five declared matter blocks and all 60 link states. Its normalized
+coordinate is a partial isometry `B`; the directional move `T` and hold
+`I-T†T` form a complete instrument. Both commute with the combined endpoint
+Gauss actions. The reverse move and reversible completion retain all flux
+supports. This establishes local covariance and complete motion on the
+declared extension, including colored blocks, without substituting a
+classical link matrix for the quantum link.
+
+These identities admit a family of coherent operations. On one exact
+neutralized singlet preparation, the same gauge-invariant detector gives
+`16/25` or `144/169` for two rationally specified members. Thus the proved
+finite constraints do not determine that operation parameter. Reading its
+value in a simulator specification is allowed; deriving its value from
+the source requires an additional producer. The edge calculation supplies
+no collision extension, chiral continuum or physical species assignment.
+
+The [common reference construction](../../model/protected_reference/GAUGE_JOIN.md)
+composes this transport with the native ordered-memory flip and its actual
+biased endpoint coins. The complete instrument preserves a common stationary
+reference; each moved/held outcome is covariant under its modular clock.
+A declared neutralized singlet corner admits exact
+one-attempt marginal preparation with weights `25/33,8/33`, including
+reference-entangled inputs in either sharp memory-charge sector. Its
+source marginal is conditional on the active pair. The full stationary
+tracial-fiber state is gauge invariant without being Gauss-singlet
+supported. The edge attachment and input corner are supplied; this common
+finite process does not select the coherent action parameter or the
+many-particle gauge–Higgs theory.
+
+The [native state and carrier bounds](../../model/source_state_bridge/PROOF.md)
+also constrain proposed direct dictionaries. A full isometric image of
+the named native stationary state stays at trace distance at least
+`1376/1501` from any pure full-state target. Extra quantum memory can hold
+its mixedness while leaving a field subsystem pure, so this is not a
+prohibition of active preparation. A source-to-field construction must
+specify that preparation and its complete retained resources.
+
+## Propagation in the complete tree sector
+
+The [tree propagation theorem](../../model/native_gauge_strings/PROOF.md)
+extends the existing literal-link Hamiltonian to a specified rooted tree.
+With one fermion and a static dual reference of native irreducible type
+`r`, the complete Gauss sector has one dressed state at each vertex. Leaf
+constraints remove off-path flux; exact intertwiner ranks exhaust the
+path states while retaining all five matter blocks and all 60 ambient
+link states. In that sector the owning action is
+`H_r=J sqrt(d_r) A_tree + epsilon diag(dist(root,v))`.
+
+Complete position histories and detector work are retained. Continuous
+Hamiltonian propagation has a finite-volume Dyson bound; finite Cayley
+steps carry a separate time-discretization error. The graph, static
+reference, coefficients and coherent clock are declared. Positive
+`epsilon` on an infinite bounded-degree tree confines this object to its
+reference, so these levels do not identify free asymptotic particles.
+The construction derives a configured object's propagation without
+selecting a many-body chiral action from bare native repair.
+
+## Local noncommuting measurements on the clock source
+
+The [clock-observable construction](../../model/native_clock_observables/PROOF.md)
+uses the named biased 66-state source, its existing compiled cap/quadrature
+services and one actual E read on seam `(1,7)`. It supplies full-carrier
+`X,Y,Z` with `X^2=Y^2=Z^2=Q` and `[X,Y]=2iZ`. The three measurement
+projectors have ranks 10, 10 and 46; the last retains both empty and
+doubly occupied endpoints without postselection. Every native raw slot
+and its coin/current are retained.
+
+The raw E repair resets the active pair. Its projective effects therefore
+do not make the state update a Lüders instrument. A specified correction
+uses the recorded current, two existing cap rotations when needed, and
+the inverse analyzer. Each ideal fine branch becomes a scalar multiple
+of its measured projector, preserving arbitrary spectator and reference
+coherence, including the entire 46-dimensional zero sector. Complete
+compiler, address-export and first-failure bounds accompany the protocol.
+Their arithmetic assumptions and scope distinguish numerical source
+matrices from unproved analytic-pulse or hardware accuracy.
+
+On the full stationary density, `Var(X)=Var(Y)=3201/7505` and
+`<Z>=1649/7505`. These actual finite observables supply inputs to the
+existing Robertson theorem, with strict variance-product margin
+`301088/2253001`. The existing modular clock acts on the same observables
+with gap `log(25/8)`. This is a finite uncertainty relation, without
+physical position, momentum or canonical commutator identification.
+The coherent services are declared observer resources; their protocol
+is distinct from passive repair and from the repair-only product lift.
+This finite menu also does not implement every complex effect or every
+coexistent pair required by the universal operational Born bridge.
+
 ## Born weights and the executable model
 
 The [finite effect-valuation theorem](../../Lean/EventAlgebra/FiniteBuschGleason.lean)
@@ -464,8 +560,9 @@ colored occupations and quark vertices are absent.
 
 The [complete Ramsey readout](../../model/interacting_extension/PROOF.md)
 uses partial-isometry probes, retains blocked paths and both X/Y outcomes,
-and reproduces the full 1596-row response for the specified unique initial
-ground state. In a degenerate or mixed preparation each initial energy must
+and reproduces the full 1596-row response for the specified numerical
+low-energy preparation. Ground uniqueness has no interval certificate.
+In a degenerate or mixed preparation each initial energy must
 remain in its own transition difference. For fixed probes, prepared states
 and independent fresh trials, replacing the charged Hamiltonian by
 `H1-delta P`, with `[P,H1]=0` and `|delta|<=3e-8`, changes any event

@@ -13,6 +13,139 @@ used in a derivation. A laboratory identification, a selected initial state,
 or a continuum limit must still be proved from them; knowledge of the code
 does not turn a separately chosen effective Hamiltonian into its output.
 
+## Source capacity, record response and causal comparison
+
+The [canonical restriction](../native_capacity_restriction/PROOF.md) gives
+an exact static interface for the fair federation's declared global
+fixed-number state. Restriction to any finite port set retains the full
+hypergeometric mixture of local numbers and composes under nested partial
+traces. Its half trace distance to a Bernoulli product of density `m/V` is
+at most `v(v-1)/(2V)` for a `v`-port window. All thirteen number outcomes
+for twelve ports are evaluated exactly at a declared 408-bit population,
+without constructing the global carrier. The same local state bound passes
+through a common complete local instrument. A physical capacity map,
+occupation trajectory, preparation and dynamic refinement are separate
+requirements; FIFO capacity and federation port count do not define them.
+
+The [complete native record response](../native_record_response/PROOF.md)
+belongs to the distinct weighted H66 source. Actual E-record contrasts,
+including their measurement back-action, observe every population mode
+and expose 65 relaxation poles in native attempt time. This is neither
+full quantum tomography nor a particle spectrum. The biased occupation
+means require pair correlations, so the fair federation's closed mean law
+cannot replace this response. There is no proved capacity continuation
+identifying the two source branches.
+
+The [independent-product theorem](../native_capacity_restriction/PRODUCT.md)
+does give an exact dynamic continuation of native repair/hold programs by
+unused cells, including adaptive records and arbitrary correlated inputs.
+It preserves the active law, without constructing interactions or connected
+space. Its comparison excludes the separate compiled coherent-service
+grammar and unmatched host resource stops. A direct one-attempt comparison
+with the fair federation fails its complete coin-record test by `17/66`.
+
+Correct [raw-record reflection](../native_record_response/TRANSFER.md)
+reconstructs a 66-dimensional positive-transfer Hilbert space from the
+weighted scalar histories themselves. The derived `H=-log(S)>=0` is a
+Euclidean transfer generator. It is inequivalent to the native working
+state's modular generator; an exact noncommuting matrix element separates
+them. Real-time implementation, a common physical clock and spatial
+locality require their own maps.
+
+The [clock-observable protocol](../native_clock_observables/PROOF.md) uses
+existing coherent services and actual native E records to implement a
+finite noncommuting Pauli menu on all 66 source states. Retained-record
+correction gives its ideal Lüders maps, with explicit complete compiler
+error bounds. The full stationary source supplies a nonzero Robertson
+uncertainty bound without sector postselection. This connects finite
+quantum measurements and uncertainty to the declared working observer;
+it does not supply every complex effect, physical position/momentum,
+or a growing embedding of the coherent services.
+
+The [independent-repair comparison](../native_record_causality/PROOF.md)
+proves equality of complete H66/H78 channels for completed fixed schedules
+related by disjoint-command swaps, after a reversible record-slot
+permutation. It retains the source, arbitrary reference and every raw
+outcome. Literal chronological records, adaptive selectors and timeouts
+are not identified by that comparison. This supplies one finite
+observation equivalence, without selecting physical space, a causal
+quotient, or a common field clock.
+
+## How a protected defect becomes an observable particle
+
+A candidate starts as an operation on a specified source state, rather than
+as a name attached to a spectral line. Its identification requires the
+following connected argument on the same carrier and dynamics.
+
+1. **Formation and local distinction.** Give the admitted operation that
+   creates the candidate from the reference. Show which local records
+   distinguish it and bound the change of the exterior state. Retain the
+   preparation outcomes, compensating charges and any phase reference.
+2. **Protection with a stated mechanism.** Identify the conserved charge,
+   topology or recovery code and prove its preservation under the actual
+   repair and memory operations. Preservation of a net charge does not by
+   itself preserve a particular excitation: it can spread or decay into
+   other states with the same charge. Quantum memory protection also does
+   not establish a spatially localized core.
+3. **Propagation and coupling.** Construct the motion of this same defect
+   and its coupling to observable currents or fields. Verify the complete
+   operation, including blocked motion, collisions and failure outcomes.
+   Derive the applicable energy and momentum generators using a common
+   clock and reference. A repair-attempt counter or decay rate is not a
+   rest energy merely because it is an inverse time.
+4. **Particle sector.** From the resulting space-time correlations, show
+   which asymptotic, stable, resonant or bound sector the excitation occupies.
+   Establish its charge representation, exchange and physical spin with the
+   required dynamical hypotheses. A local creation operation can produce a
+   wave packet with many energies even within one species, and can also
+   overlap several species and a multiparticle continuum. Counting its
+   finite-volume spectral lines does not decide between these possibilities.
+5. **Measured consequence.** Use the derived creation, propagation and
+   detection operations to predict complete experimental records with
+   controlled errors. The identification with an observed species follows
+   from those quantum numbers and responses together, without choosing
+   parameters to fit the quantity presented as a prediction.
+
+There are explicit finite examples of parts of this chain. The
+[charged cube experiment](../ground_spectral_source/README.md) prepares the
+ground of its specified full-Fock action, creates `gamma_1 G=c_1^dagger G`
+at one site, leaves the entire initial exterior CAR restriction unchanged,
+and measures the characteristic function of its 78-line charged response
+with complete source outcomes and probability error below `3/5000`.
+Its mean energy increase `1/2` and variance `67/256` are properties of that
+prepared excitation, not an identified rest mass. Two measured quadratures
+at one time do not independently reconstruct all 78 lines. During its
+declared repair waits, protection follows because the complete extended
+repair is the identity on the relevant number sectors through its outside
+branch. This does not establish protection under arbitrary repairs or
+autonomous formation from the original binary source.
+
+The [exchange-charge construction](../defect_protection/README.md) proves
+protection of a coherent orientation-memory charge under actual ordered
+native repair. Its distinguishing information resides in the memory bit;
+it has no source-derived localized spatial core. The
+[eight-line protected detector](../protected_particle_readout/README.md)
+and [resolved finite response](../resolved_particle_spectrum/README.md)
+concern a different, neutral density excitation above an excited cube
+reference. Their measurable lines are not automatically the exchange-charge
+defects or eight particle species. These domain distinctions are part of
+the derivation and must be preserved by any proposed common-model map.
+
+The [protected reference](../protected_reference/PROOF.md) classifies every
+stationary state of the biased ordered cover and proves that each complete
+repair outcome is covariant under that state's modular clock. The
+[common gauge edge](../protected_reference/GAUGE_JOIN.md) attaches the literal
+gauge link to a designated moving token, including its orientation flip and
+all held outcomes. The native endpoint probabilities fix a stationary
+`25:8` mixture. In a declared neutralized two-singlet corner with sharp
+memory charge, one unread attempt prepares that mixture exactly, including
+for inputs entangled with a reference. Its conditional two-configuration
+source marginal differs from the full native stationary state. The full
+tracial-fiber reference is gauge invariant but is not Gauss-singlet supported.
+These are constructive common-state and transport results. The fiber
+attachment, dual reference and input corner are supplied; this edge law
+does not derive a many-particle field action from the original repair law.
+
 ## Required interfaces and their order
 
 The interfaces below concern the same source family, observer algebra,
@@ -22,7 +155,7 @@ but a physical particle claim depends on the entire relevant chain.
 
 | Interface | Established starting point | Required next result and acceptance condition |
 | --- | --- | --- |
-| 1. Source and capacity family | [Capacity definitions](../observer/CAPACITY.md), the executable repair law, and source-bound finite packets distinguish record capacity, global capacity and Hilbert dimension. | Give the actual family of source programs and states indexed by physical capacity. Derive every dependence of local couplings, preparation and clock on that parameter. A chosen lattice size or number of repeated trials is not such a derivation. |
+| 1. Source and capacity family | [Capacity definitions](../observer/CAPACITY.md) distinguish record capacity, global capacity and Hilbert dimension. [Canonical restriction](../native_capacity_restriction/PROOF.md) supplies exact static local states, nesting and finite-size bounds for the declared fair federation. | Give the actual family indexed by physical capacity, including its conserved occupation, preparation and clock. A capacity continuation from the weighted H66 record source to the fair federation requires an explicit comparison; they have different laws. |
 | 2. Observer state and complete experiments | [Native quantum reconstruction](../native_quantum_reconstruction/PROOF.md) constructs a positive matrix functional. [The Born bridge](../native_born_bridge/PROOF.md) separates finite consistency from the all-effect theorem. The interacting extension supplies complete Kraus maps. | Show which effect/instrument family the observer implements, including failures and back-action, and prove its equivalences and composition laws on the same state. Supply a source preparation or a controlled approximation to its local restriction. |
 | 3. Quantum observables and uncertainty | [Robertson](../../Lean/EventAlgebra/Robertson.lean) proves the finite-state commutator inequality. [Prepared-clock fluctuations](../predictions/README.md#shared-state-fluctuation-field) supply a conditional quantitative canonical limit. | Bind actual source observables to the finite theorem. For physical position and momentum, additionally identify translations, spatial readout, the limiting domain and the common action unit. Merely assigning two matrices those names is insufficient. |
 | 4. Common reference, clock and energy | [Complete interacting records](../interacting_extension/PROOF.md) include the reference energy and cancel a common gauge offset. [Native records](../interacting_extension/source_selection/PROOF.md) give exact correlated attempt counts. | Derive the reference and clock used by all sectors, including preparation and comparison records. Show how dimensionless rates relate to one another before assigning units. A capacity count alone does not fix seconds or GeV. |
@@ -43,6 +176,80 @@ geometry task, with the same stress and reference data, rather than a
 consequence of finding particle masses.
 
 ## The central common-model test
+
+The [premise register](../../tracking/premise_register.json) contains
+hypotheses for several theorem branches. Its 84 entries are not 84 jointly
+required laws of one source. Some branches have explicit native
+counterexamples, and some concern schedulers or comparison conventions
+unused by a proposed field construction. The
+[physical identification register](../../claims/physical_identification_registry.json)
+separately records 21 undischarged identifications. A finite theorem instance
+and a physical identification have different acceptance conditions.
+
+| Connection | Finite result available | Required producer on the common source |
+| --- | --- | --- |
+| Quantum operations (PR-02–04, PR-64–65) | Native counts reconstruct a positive matrix functional; coherent services implement specified instruments. The unchanged definite-record grammar has diagonal effects. | Give source preparation and readback of the required complex effects, equal-effect operational equivalence and common implementation of coexistent effects, with all outcomes retained. A reconstructed matrix functional alone is not an implementation of its arbitrary effects. |
+| Thermodynamics and time (PR-07–08, PR-15, PR-23, PR-43) | Native balance gives a faithful stationary reference; exact finite entropy identities and the protected-reference modular covariance apply on their stated domains. | Supply the same prepared process across the required refinement and temperature regime, identify its physical energy/clock readout and account for work, retained records and reference resources. Stationarity of a noisy channel does not identify it with its reference's unitary modular flow. |
+| Spatial and causal fields (PR-16, PR-52–53, PR-58, PR-70–74) | Authenticated source causality, finite Lorentz transition tests and conditional continuum fields have explicit producers. | Produce one compatible spatial refinement, observation algebra, clock, causal cone and relativistic limit with controlled errors. Boundary sphere symmetry alone does not supply a three-dimensional bulk field net. |
+| Gauge, matter and action (PR-12, PR-41, PR-45–50, PR-54, PR-66–69) | Conditional gauge classification, complete literal-link transport and the finite Higgs experiment retain their exact carrier and action inputs. | Derive the common field representation, collision law, chiral dynamics, scalar/Yukawa terms and coupling placement from the selected source specification. The exact gauge-singlet parameter witness distinguishes two allowed complete operations, so covariance alone does not select the action. |
+| Capacity and physical scales (PR-15, PR-17, PR-28, PR-51) | Native FIFO equivalence compares complete records at fixed carrier, law and controls; canonical restriction supplies exact local number mixtures and static finite-size bounds for the fair federation. Carrier bounds constrain direct field encodings. | Give the physical capacity family and a controlled common local limit, then state the chosen unit calibration and independently predict dimensionless relations. FIFO slots, Hilbert dimension and global capacity are different quantities. |
+| Responsive gravity (PR-24–28, PR-52) | The matched regional Einstein theorem converts common geometric, stress and entropy estimates into a bounded tensor residual. | Construct those readouts on the same matter source, including geometric modular normalization, fixed-volume area response and generalized-entropy stationarity, with all errors vanishing faster than the fourth power of the regional radius. Global repair entropy production does not supply these regional estimates. |
+
+Discharge requires an actual producer and a proof that its output satisfies
+the consuming theorem's hypotheses. A record of successful finite tests
+does not establish a cofinal limit. Reading an explicit simulator parameter
+establishes its value in that simulator; identifying the resulting predictions
+with measured physics requires the corresponding joint-record comparison.
+The conditional finite constructions here do not discharge any of the 21
+physical identifications by themselves.
+
+The gravity connection can reuse the
+[matched regional theorem](../matched_einstein_limit/PROOF.md). For ten
+timelike probes of the same region, put `C_ell=4*pi*ell^4/15`. Its producer
+must bound the three deficits
+
+```math
+|s-2\pi C_\ell T_{uu}|\leq e_{\rm bulk},\qquad
+|a+C_\ell(G_{uu}-\Lambda)|\leq e_{\rm area},\qquad
+|s+\eta a|\leq e_{\rm stat}.
+```
+
+Here the regional entropy `s`, fixed-volume area contrast `a`, action stress
+`T`, actual geometric Einstein tensor `G` and proper radius use the same
+source state and clock. Every error divided by `ell^4` must vanish and
+`eta` must tend to a positive spacetime constant. The existing exact inverse
+then bounds every Einstein-residual component by
+`255*(e_bulk+eta*e_area+e_stat)/(32*pi*eta*ell^4)`; tensor tomography need not
+be derived again. A tangent first law supplies a linearized equation unless
+finite deficits or a controlled integration argument are also proved.
+
+The matter estimate has stronger existing input on the exact `U=0`
+filled-band source: [shrinking regional entropy](../shrinking_modular_entropy/README.md)
+controls actual lattice modular entropy on natural exterior-shell vectors
+without a uniform covariance gap, and the
+[fixed-amplitude estimate](../small_ball_entropy_asymptotic/README.md)
+bounds the relative-entropy remainder by `O((R/L)^6)`. These results supply
+the matter-side small-ball control on their admitted free-source states.
+The [geometric Weyl modular construction](../weyl_geometric_modular/README.md)
+also supplies the conserved symmetric action stress and double-cone modular
+group on its free continuum branch, so those structures need not be
+reconstructed independently for that branch.
+They retain all eight valleys and use rest-ball algebras with observer-frame
+preparations, rather than a common family of physically boosted regions.
+The missing joint estimates concern responsive area and entropy-area
+stationarity on that same source, together with the interacting matter
+extension and the physical geometric attachment.
+
+The [native causal analysis](../native_causal_dataflow/README.md) identifies
+a preceding source issue: full authenticated dependencies of the single-FIFO
+controller form a chain, while outcome feedback can transmit information
+between disjoint endpoint repairs. The complete chain cannot itself be an
+order-reflecting dense image of an open four-dimensional Lorentzian region.
+A distributed source or a justified observer-visible quotient needs its own
+complete-record semantics; dropping controller dependencies by inspection
+does not supply that quotient.
+
+### Comparing complete processes
 
 For each admitted finite experimental menu `M`, specify the source
 preparation/encoding `E`, the complete source process `S_M`, the proposed

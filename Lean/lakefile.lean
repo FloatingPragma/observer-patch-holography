@@ -66,6 +66,7 @@ lean_lib «OPHThermodynamics» where
     `CommonReferenceObstruction, `RepairCurrentOrientation,
     `FourLawAdequacySurface, `GibbsEntropyLimit, `HorizonThermalitySurface,
     `CoherentRefinementFamily, `CofinalSpectralTailFamily,
+    `ProtectedGaugeCorner,
     `PhysicalCalibrationImport,
     `KolmogorovCriterion]
 

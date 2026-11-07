@@ -7,6 +7,108 @@ complete finite coefficient map and its physical boundaries. The
 [completion program](../COMPLETION_PROGRAM.md) separates these results from
 acceptance of a physical interacting theory.
 
+The maintained [source-to-field requirements and status](OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
+give the eight-step common derivation. This page supplies its state, clock
+and mass-operator details. None of its conditional matrix or transition
+ratios is identified with the final measured particle-mass ratios.
+
+## A protected charge with a native reference and clock
+
+The [protected reference calculation](../../model/protected_reference/PROOF.md)
+combines the declared coherent ordering-memory law with the actual biased
+native endpoint law. On its 132-state cover the complete branch algebra is
+`M_66 direct_sum M_66`; the protected charge is `Q=I_66 tensor X`. Every
+stationary density is
+
+```math
+\rho_a=\rho_*\otimes\left(aP_++(1-a)P_-\right),\qquad 0\leq a\leq1,
+```
+
+where `rho_*` is the derived binary product-weight state and `P_±` are the
+memory-charge projectors. The proof uses the full quantum fixed algebra,
+not only diagonal population mixing. For `0<a<1`, the modular generator
+is the native occupation potential plus a charge offset; the minus-sector
+energy relative to the plus sector is `log(a/(1-a))`. At the endpoints,
+the logarithm is defined only on the occupied support corner.
+
+Every complete native branch has a definite modular-current difference.
+This gives covariance of the complete recorded instrument under this same
+derived reference clock. The charge weight `a` is conserved preparation
+data. Passive repair does not select it or turn its modular offset into a
+particle mass. Native token motion, a memory-charge flip and propagation
+under a relativistic Hamiltonian are distinct operations. The
+[defect identification route](../../model/particle_identification/ROADMAP.md#how-a-protected-defect-becomes-an-observable-particle)
+states the required common creation and observation maps.
+
+The [joint gauge process](../../model/protected_reference/GAUGE_JOIN.md)
+puts this reference and the literal gauge transport on one declared carrier.
+On native seam `(0,11)` with spectator 5, the configurations `{0,5}` and
+`{5,11}` have weights `200/7505` and `64/7505`; the actual endpoint coins
+`25/33` and `8/33` satisfy detailed balance. Transport applies the native
+orientation flip and the gauge-link partial isometry. Its blocked outcomes
+retain all other source configurations and flux sectors. The full product
+reference is stationary and gauge invariant, without a Gauss-singlet
+support claim. With an explicit dual reference, a reducing two-singlet
+corner has stationary weights `25/33,8/33`. In a sharp memory-charge
+sector one unread attempt prepares this corner mixture exactly, even from
+reference-entangled input. The records remain part of the complete process.
+The corner's source marginal is conditional on the active pair; its
+supported modular transfer gap is `log(8/25)`. This supplies a finite
+common reference and preparation, with a declared field attachment and
+flux-dependent law. It selects neither a coherent hopping Hamiltonian nor
+the full gauge–Higgs benchmark.
+
+## Capacity, actual records and the common-source requirement
+
+The [canonical restriction theorem](../../model/native_capacity_restriction/PROOF.md)
+computes the exact local mixture of every occupation sector in the fair
+federation's declared fixed-number state. Nested restrictions compose, and
+trace-distance bounds control any common complete local instrument with an
+independent reference. Integer evaluation avoids constructing the whole
+carrier. The global occupation, preparation and map from physical capacity
+to federation level remain inputs; a correlated exterior is not an
+independent reference. The named biased clock member has no proved
+identification with this growing fair family.
+
+There is an [exact dynamic extension](../../model/native_capacity_restriction/PRODUCT.md)
+to independent unused cells. The same native repair/hold programs, including
+adaptive selectors, have identical complete restricted channels on arbitrary
+correlated inputs, after checking the known program-identifier comparison.
+This proves insensitivity to unused spectator factors within the common
+execution domain. It neither supplies connected space nor lifts the
+separate coherent clock-service grammar.
+
+For that biased member itself, the
+[actual record response](../../model/native_record_response/PROOF.md)
+retains every raw outcome and its measurement backaction. Its population
+relaxation poles are in repair-attempt units. The
+[disjoint-command theorem](../../model/native_record_causality/PROOF.md)
+establishes equality of completed output channels after an explicit
+reversible record and program-identifier relabeling, including arbitrary
+untouched references and FIFO exports. It applies to fixed completed
+schedules. Adaptive control and stopping can distinguish their orders.
+These finite results supply precise source interfaces, without identifying
+the implementation's chronological tape with physical spacetime.
+
+The [positive record transfer](../../model/native_record_response/TRANSFER.md)
+also reconstructs a 66-dimensional Hilbert space and `H=-log(S)>=0` from
+correctly reflected stationary scalar histories. It does not identify
+that reconstructed pure ground direction with the faithful working state.
+The transfer generator and native modular generator `K=-log(rho_*)` are
+inequivalent: an exact source element gives `[S,K]!=0`, hence `[H,K]!=0`.
+A common physical clock requires an additional comparison map.
+
+The [native clock observables](../../model/native_clock_observables/PROOF.md)
+attach noncommuting local measurements to the working-state clock itself.
+Existing coherent analyzers followed by native E records give complete
+Pauli effects; a retained-record correction gives the ideal Lüders
+instrument with stated compiler bounds. On the full source they satisfy
+the finite Robertson inequality with a nonzero bound, without selecting
+an odd-occupation subensemble. These are actual finite measurement
+interfaces within the declared coherent service model. Universal effect
+coverage, a growing service embedding, physical momentum and the common
+interacting vacuum are separate requirements.
+
 ## Complete finite Higgs experiment and its source boundary
 
 The [interacting Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)
@@ -25,7 +127,9 @@ uses the exact `Y,D,J` data, reconstructed by the source-algebra test, to
 obtain `Y` and the prepared family reference. The ordered-control angle is
 `log(5/4)`. The response producer sets electric, magnetic, hopping and
 scalar-energy coefficients to one, and fermion/reference energies to zero.
-It selects the unique neutral ground by diagonalization. The graph,
+It selects a numerical neutral low-energy projector by diagonalization,
+retaining each included component's energy. This does not certify ground
+uniqueness by interval arithmetic. The graph,
 families, coupling placement, scalar cap and ground preparation are thus
 declared specifications. There is no global-capacity argument in this
 Hamiltonian constructor.
