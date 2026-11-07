@@ -109,6 +109,67 @@ interfaces within the declared coherent service model. Universal effect
 coverage, a growing service embedding, physical momentum and the common
 interacting vacuum are separate requirements.
 
+The [connected weighted construction](../../model/weighted_source_family/PROOF.md)
+gives a precise capacity continuation candidate for the native endpoint law.
+Its fixed-number reference uses weighted elementary symmetric polynomials;
+the local modular current gap `j*log(w_a/w_b)` is independent of total
+occupation and graph size. The repeated weight assignment is declared and
+weighted connected federations are outside the native program admission rule.
+The source graph's three crossing seams per cell exchange loads, so conditioning
+a cell to H66 does not make that corner invariant. At fixed local repair count
+`k` under the uniform seam selector, the no-crossing probability is `(10/11)^k`
+at every federation level.
+Neither capacity independence of a modular gap nor this conditional H66
+reference identifies a Higgs vacuum, physical energy or particle mass.
+
+The [weighted local limit](../../model/weighted_local_limit/PROOF.md) controls
+that extension's full local number mixture. For `B` repeated-weight cells
+and declared total `rB`, `r=2` or `4`, the restriction to `k` cells differs
+from its mean-matched Bernoulli product by half trace distance at most
+`min(1,sqrt(k*log(240B)/(2B)))`. The fixed-density limit avoids global
+state enumeration and does not require a simulated cosmological carrier.
+It supplies neither a physical choice of density nor preparation or dynamic
+refinement. A common local instrument must act on all retained number
+sectors; an H66-only coherent detector cannot be applied to this mixture
+without an additional extension. An independent reference preserves the
+bound, while a correlated reference requires a joint input estimate.
+
+The [local-response construction](../../model/native_local_response/PROOF.md)
+also bounds connected repair without discarding complete local back-action.
+For fixed selectors, observed raw-record endpoints and the final local state
+seed a conservative backward cone. A common cone/reference restriction
+determines the observed channel exactly. Remote raw values are explicitly
+traced by the chosen observation; FIFO/control dependencies and specification
+access are not declared unobservable. In the checked fifteen-port cell halo,
+independent uniform seam choices and repair probability one give comparison
+error with crossing repairs held at most
+`15*binom(T,2)/M^2` in `T` global attempts, capped at one. At the first
+internal cell repair the sharper exact bound is `677/50061`, independent
+of the total seam count `M`. Bounds at later internal counts come from the
+same four-state matrix. Halo attachment is checked at levels 0, 1 and 2;
+unevaluated levels require its stated geometry. This is a finite response
+and clock-error estimate for retained internal-cell records and the final
+cell state. Observing crossing records enlarges the roots. No physical
+rest-energy identification follows.
+
+The [bounded rank-one compiler](../../model/native_effect_synthesis/PROOF.md)
+enlarges the H66 coherent measurement menu: existing nine-bit source words
+target `lambda*|v><v|/<v,v>` for the stated 64-bit rational input domain,
+using at most 23579 pulses and, when the emitted word passes its exact
+primitive gates, complete error below `10^-6`. Native records,
+all first failures and the single observed padding-abort flag are retained.
+The numerical maps have a trace-gain allowance; effect synthesis alone
+does not choose their measurement back-action. This finite service does not
+select the interacting reference, implement every coexistent pair, or lift
+the coherent controls to the growing connected source.
+
+The [operational clock test](../../model/native_clock_comparison/PROOF.md)
+excludes equating the record transfer evolution with the working modular clock
+on the same reference and readout. A complete native Y experiment separates
+their proposed outputs by more than `1/5000` in half trace norm under its stated
+preparation and service-error budgets. A different source-to-field encoding
+must supply its own prepared-state and complete-record comparison.
+
 ## Complete finite Higgs experiment and its source boundary
 
 The [interacting Higgs join](../../model/interacting_extension/higgs_join/PROOF.md)

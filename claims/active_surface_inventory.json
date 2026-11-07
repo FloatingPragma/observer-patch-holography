@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1115,
+  "surface_count": 1127,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3091,6 +3091,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_clock_comparison/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_clock_comparison/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_clock_observables/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3107,6 +3117,26 @@
     },
     {
       "path": "model/native_composite_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_effect_coverage/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_effect_coverage/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_effect_synthesis/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_effect_synthesis/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3177,6 +3207,16 @@
     },
     {
       "path": "model/native_joint_spin_spectroscopy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4207,6 +4247,26 @@
     },
     {
       "path": "model/transfer_modular_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/weighted_local_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/weighted_local_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/weighted_source_family/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/weighted_source_family/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

@@ -2,7 +2,7 @@
   "a5_inventory_renewal": {
     "changed_hash_leaves": 52,
     "changed_snapshot_rows": 26,
-    "current_custody_base": "98391cb29e965cc7338acf5852f6b95b15c27f3c",
+    "current_custody_base": "4d490051313821b654244efaf74d5bbef7562f6d",
     "new_manifest_sha256": "316bd2e5f305aeebb4a9cff7d672ed6d4368ba2204596987ad1ce5399bb0f765",
     "paths_after": 945,
     "paths_before": 945,
@@ -12,25 +12,25 @@
     "renewal_since_historical_snapshot_base": "3cf3c14810671a16e61b7915f69079a1773a12a2",
     "repair_is_already_in_canonical_base": true
   },
-  "canonical_base": "98391cb29e965cc7338acf5852f6b95b15c27f3c",
+  "canonical_base": "4d490051313821b654244efaf74d5bbef7562f6d",
   "canonical_physical_premises_discharged": [],
   "conserved": {
-    "completion_program": "527cfa584f03553b2176aa83f107dc8b7fcd2b65379fa3bb038a337d00ebea99",
+    "completion_program": "68f4a44dbd0cb852127280407a0b6abd3672088b91580ea963aa34e89f267d3e",
     "component_interfaces": "814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0",
-    "finite_map": "bd427658c18f1e22184a416bd09366d058189f5d6f987ffd79354838fd705c9c",
-    "review_history": "c8393c7a436fe1abed5e967dd0dfa3a7d1539ffcecbc82174eec874ce23b7aa0"
+    "finite_map": "d07d8c54dd745f39cf4a2ea8f6a324c33da09c4d104966f6975234023a32b081",
+    "review_history": "847b9bfd9e7b5cd679ae9b57f7ebc26d14923b35a40805e4c45f13774d26402d"
   },
   "current_bindings": {
     "code/a5_closure/manifests/source_current_order_sensitive_inventory.json": "316bd2e5f305aeebb4a9cff7d672ed6d4368ba2204596987ad1ce5399bb0f765",
     "code/a5_closure/source_current_order_sensitive_inventory.py": "e77c3bd7b4498acc7e6030ba6f1ebdfc0b0a9e4f24069902421114ec9ddd8d54",
     "code/a5_closure/verify_source_current_order_sensitive_inventory.py": "5026fcc68adf1365b54cf9fa7bd3ded95cdbe4a33f87b05139ed79125319854d",
-    "model/completion/component_interfaces.json": "3f73c2a7566f49a688b21ffceb4bcdc23ab6608dd12c886c121e1e341ff1aafd",
-    "model/completion/custody_renewal.py": "d4d5252c5d50865c9cbc0dfcf299b3b977bc7906ce18e5dc9a3db42f01c7b4e2",
-    "model/completion/finite_attachment_map.json": "dc4befe9c9a00628cce8c3256d77b8460b36ce3571d36d44c76058fa818d4f20",
+    "model/completion/component_interfaces.json": "e5dde31c5238331cc55432dc226b9e0858a7969e29d838e4c680383b6106c663",
+    "model/completion/custody_renewal.py": "a86963dcda76731f5b9bbfeb71fb78aa224836eb2b2ce928df1edc8a8ae04a23",
+    "model/completion/finite_attachment_map.json": "ae61c0ba91aad982f4700179e04d4882e475db5fe016914de2e97a50aa867228",
     "model/completion/spectrum_einstein_campaign.json": "04000e34a40cb6bc2f659807e96bb4ef61a4e3bef04ce83a28b153c51425faa8",
     "model/completion/test_custody_renewal.py": "ff3d02b5b14450d4e1418d5caf72d4c356a043c6e045dbb71b81227813b31af6",
     "model/matched_einstein_limit/results.json": "1fc551892b67f4378890e823a26e6ad1f2092b081506654928275fb76e7c324f",
-    "model/native_program/results.json": "b58481df5d9abca9478438a31981a7835edf38d7a496fd682238066c5ce5813f"
+    "model/native_program/results.json": "db73a7c2aade1a551b858885dd91db0d54e400bddcea47fcfdec8d37e1831a05"
   },
   "current_classification_counts": {
     "domains": 156,
@@ -94,8 +94,8 @@
     "scientific_result_body_changed": false,
     "source": "model/matched_einstein_limit/results.json"
   },
-  "predecessor_review_sha256": "be2e6f3d79b85a65442375c5e5b83642df1658d25ea6b74446abb43840fbdcd6",
-  "reviewed_contract_digest": "cdbf861edd24dd8139509f1dde3f9769ab67f4e0636cd0393a090ba044c16480",
+  "predecessor_review_sha256": "2dd0a9314f37fbf50ff738988f2e3232ad6b8cbe009ae107cc5fa10cce00c9e2",
+  "reviewed_contract_digest": "6af294f17f07452f7dbd8df62793324e76f6b5b8d53b95785a152ba9b570575d",
   "schema": "oph.current_custody_renewal.v1",
   "scope": "Current source custody and conserved classifications, not a new mathematical audit of every component.",
   "validation_commands": [

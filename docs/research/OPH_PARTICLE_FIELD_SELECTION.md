@@ -103,6 +103,60 @@ is distinct from passive repair and from the repair-only product lift.
 This finite menu also does not implement every complex effect or every
 coexistent pair required by the universal operational Born bridge.
 
+The [eleven-attempt configuration detector](../../model/native_effect_coverage/PROOF.md)
+uses all incoming contrasts on a spanning tree, corrected by previously
+recorded currents. It determines the initial configuration on the full
+66-state sector and gives rank-one complete history maps. Existing coherent
+routing then produces ideal basis Lueders readout or a fixed pure basis
+preparation. The rounded maps have bounded normalization error, and their
+positive record functionals retain full rank. The inherited pair-analyzer tomography has all 4356 Hermitian
+coordinates and 4291 settings; its detector can use this bounded tree protocol.
+All exports and compiler failures are retained. The exact lazy evaluator and
+streamed branch continuation are distinguished from the expanded evaluator's
+resource stop. The nine-bit coherent words use the direct source compiler;
+the generic `execute_word` host is limited to six qubits. The coherent
+services and quantum semantics are declared.
+Finite tomographic completeness does not establish arbitrary-effect realization
+or coexistent-event refinement on a growing field family.
+
+The [rank-one synthesis construction](../../model/native_effect_synthesis/PROOF.md)
+uses the same nine-bit work register and source pulse alphabet to implement
+unequal-weight effects beyond one balanced analyzer. Its concrete projector
+onto `(3|a>+4|b>)/5` has entries `[[9,12],[12,16]]/25` on the selected pair.
+The eighty-pulse example therefore resolves the positive-cone obstruction
+for that single-analyzer menu by composing additional existing controls.
+
+For a nonzero Gaussian-rational 66-vector `v` and rational `lambda` in
+`[0,1]`, with numerators and denominators bounded to 64 bits, the general
+protocol targets `lambda*v*v^dagger/(v^dagger*v)`. Padding carries the
+complementary amplitude. A binary preparation tree and phase word, inverted
+and routed to a genuine source address, use at most 23579 pulses. Certified
+41-bit angle intervals and exact Walsh coefficients bound ideal full-carrier
+error by `11/2^41`. The stored-primitive checks and all first-failure maps
+give complete half-diamond error below `10^-6` for each word passing its
+exact primitive gates, with an explicit trace-gain allowance. A gate failure
+rejects that numerical certificate; the construction assumes no universal
+rounding guarantee for the library. Export occurs after the whole word;
+its 446 padding Kraus rows
+are internal modes summed into one observed abort outcome. No successful
+branch is renormalized or identified with a Lueders instrument from its
+effect alone.
+
+The direct nine-bit compiler and lazy eleven-repair detector have their
+declared execution domains. The generic word and expanded-history hosts
+retain their resource stops. Fixed input precision, primitive accuracy and
+pulse limits give neither arbitrary precision nor a universal positive-effect
+compiler. General coexistence and equal-effect operational equivalence
+cannot be inferred by linearly combining this menu's output statistics.
+
+The [clock comparison](../../model/native_clock_comparison/PROOF.md) makes
+one field-selection condition operational: the working modular clock fixes
+the prepared reference, whereas the proposed transfer evolution on that same
+state changes an accessible Y mean. Their complete outputs have a certified
+separation under explicit errors. Reading the simulator is permitted; the
+phase blindness theorem concerns bare repair records with the working carrier
+traced, not source-code or clock-specification readout.
+
 ## Born weights and the executable model
 
 The [finite effect-valuation theorem](../../Lean/EventAlgebra/FiniteBuschGleason.lean)
@@ -188,6 +242,39 @@ must realize the countable menu, equal-effect equivalences and disjoint
 sum operations, or provide a uniform approximation and compatible limit
 across increasing resource ceilings. The source's finite calibration
 records do not by themselves establish that universal claim.
+
+## Local states, records and quantum-premise scope
+
+The [weighted reference limit](../../model/weighted_local_limit/PROOF.md)
+controls complete local number mixtures on the declared weighted connected
+extension. With `B` cells and mean occupation two or four, its `k`-cell
+restriction has half trace distance at most
+`min(1,sqrt(k*log(240B)/(2B)))` from the corresponding product reference.
+This bound contracts through a common exact local instrument defined on
+every retained sector. It does not apply an H66-only coherent service to
+the fluctuating local number mixture. A rounded implementation needs its
+own gain and approximation allowance, and arbitrary reference correlations
+need a joint input bound. Weighted admission, preparation and density
+selection are separate requirements.
+
+The [native local-response theorem](../../model/native_local_response/PROOF.md)
+supplies a complementary dynamic comparison. Selected complete records and
+their final local quantum state depend only on a conservative backward cone,
+including both endpoints of every observed record event. The source's FIFO
+and exports remain intact. The observation map traces unselected raw values;
+fixed selectors make those values irrelevant to subsequent control. A native
+feedback witness distinguishes receiving records with probabilities `1/4`
+and zero, so dropping adaptive controller dependencies is invalid.
+
+For the checked twelve-port cell plus three-port halo, the exact four-state
+cone calculation with independent uniform seam choices and repair
+probability one bounds complete output errors in global attempt time and
+at the `k`th internal repair. It retains arbitrary correlated references
+when the compared initial cone/reference states match or have a stated
+joint error. The first internal-repair bound is `677/50061`; increasing
+the exterior does not force that local-clock bound to zero. These results
+give finite observation and boundary control, without identifying a
+Lorentzian causal quotient, physical clock or universal quantum field algebra.
 
 ## Thermodynamics from native repair
 

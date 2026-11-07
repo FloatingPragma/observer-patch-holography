@@ -20,26 +20,22 @@ CLASS = 'model/completion/program_class_v2.json'
 MAP = 'model/completion/finite_attachment_map.json'
 PROGRAM = 'claims/completion_program.json'
 INTERFACES = 'model/completion/component_interfaces.json'
-BASE = '98391cb29e965cc7338acf5852f6b95b15c27f3c'
+BASE = '4d490051313821b654244efaf74d5bbef7562f6d'
 PREVIOUS = '3cf3c14810671a16e61b7915f69079a1773a12a2'
-CLASS_DIGEST = 'cdbf861edd24dd8139509f1dde3f9769ab67f4e0636cd0393a090ba044c16480'
+CLASS_DIGEST = '6af294f17f07452f7dbd8df62793324e76f6b5b8d53b95785a152ba9b570575d'
 HISTORICAL_SCOPE = ('Complete 84-premise ownership and 145 reviewed domains, '
                     'including 140 realized scoped attachments. Canonical physical '
                     'discharge and gate statuses are unchanged.')
 # Derived from the immutable BASE/PREVIOUS Git objects, never from the renewal.
-EXPECTED_CONSERVED = {
-    'finite_map': 'bd427658c18f1e22184a416bd09366d058189f5d6f987ffd79354838fd705c9c',
-    'component_interfaces': '814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0',
-    'completion_program': '527cfa584f03553b2176aa83f107dc8b7fcd2b65379fa3bb038a337d00ebea99',
-    'review_history': 'c8393c7a436fe1abed5e967dd0dfa3a7d1539ffcecbc82174eec874ce23b7aa0',
-}
-ADOPTION_DIGEST = '7016de906864709fff95b960063e50640fd6540c07d64cfd54c6fc161655625f'
-BINDING_PATH_DIGESTS = {
-    MAP: 'c8ddcc7952b113f5739c715d065a81ff71670b384dab5b5699b61d3bc9fdd29a',
-    INTERFACES: '1f75d695f9419b42e21d83f586bcc5ef1397fe8b1c11ebc33764790b794d79f1',
-    REVIEW: 'ce6d0c427a05e42f5d45d98888b9b646635b81ef56b3d534407ce15f0c5c3060',
-}
-PREDECESSOR_REVIEW_SHA256 = 'be2e6f3d79b85a65442375c5e5b83642df1658d25ea6b74446abb43840fbdcd6'
+EXPECTED_CONSERVED = {'completion_program': '68f4a44dbd0cb852127280407a0b6abd3672088b91580ea963aa34e89f267d3e',
+ 'component_interfaces': '814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0',
+ 'finite_map': 'd07d8c54dd745f39cf4a2ea8f6a324c33da09c4d104966f6975234023a32b081',
+ 'review_history': '847b9bfd9e7b5cd679ae9b57f7ebc26d14923b35a40805e4c45f13774d26402d'}
+ADOPTION_DIGEST = 'aa8c233064c1c1bd40031fee45e7122b9ff7b718ca75c3e1b81bab2b3b839949'
+BINDING_PATH_DIGESTS = {'model/completion/component_interfaces.json': '1f75d695f9419b42e21d83f586bcc5ef1397fe8b1c11ebc33764790b794d79f1',
+ 'model/completion/finite_attachment_map.json': 'c8ddcc7952b113f5739c715d065a81ff71670b384dab5b5699b61d3bc9fdd29a',
+ 'model/completion/program_class_v2_review.json': 'ce6d0c427a05e42f5d45d98888b9b646635b81ef56b3d534407ce15f0c5c3060'}
+PREDECESSOR_REVIEW_SHA256 = '2dd0a9314f37fbf50ff738988f2e3232ad6b8cbe009ae107cc5fa10cce00c9e2'
 HISTORICAL_REVIEW_SHA256 = 'ad7a397e42666ecfd6a7be984f0b9443b4314a6aaf01fdf351a64f03c11471bf'
 CURRENT_SCOPE = (
     'Complete 84-premise ownership. The historical review covered 145 domains, '
@@ -54,28 +50,24 @@ HISTORICAL_FIELDS = (
     (11, 'model/protected_particle_readout/results.json'),
     (12, 'model/resolved_particle_spectrum/results.json'),
 )
-EXPECTED_RESTORATIONS = (
-    ('71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64',
-     '81f4a4482812bab17f96c2c9e93146d12c02a7177a02447832b78b2b22575864'),
-    ('71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64',
-     '812b5cd7c70dcca7c3a585fa86858d645a8bd6f734ee41acdccd5a8eaad51ac5'),
-    ('61d0b99e000dfd336f0b3264c69c8552e3096ced154cf50cad22dc37603ecff1',
-     'd89f9bef2a6f059bf2e4d738bc390e7ab050e29eb29873764c61c6d48eab06de'),
-    ('d46c07cae1ddb684d0de31fefe334f31cdbe2bb8d99b037deaa2eb00e6fae259',
-     'dadd4fd2b5958478a7adb8b70015222848f6dad730588dacd71184aca22f5fa6'),
-)
-PROGRAM_POINTERS = (
-    (('stages', 0, 'accepted_evidence', 0), CLASS),
-    (('stages', 0, 'accepted_evidence', 1), REVIEW),
-    (('stages', 1, 'accepted_evidence', 1), REVIEW),
-    (('stages', 2, 'accepted_evidence', 0), MAP),
-    (('stages', 2, 'accepted_evidence', 1), REVIEW),
-    (('stages', 2, 'progress_evidence', 22), MAP),
-    (('component_campaigns', 21, 'contract'), INTERFACES),
-    (('next_wave', 'evidence', 49), MAP),
-    (('adopted_class',), CLASS),
-    (('acceptance_review',), REVIEW),
-)
+EXPECTED_RESTORATIONS = (('71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64',
+  '81f4a4482812bab17f96c2c9e93146d12c02a7177a02447832b78b2b22575864'),
+ ('71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64',
+  '812b5cd7c70dcca7c3a585fa86858d645a8bd6f734ee41acdccd5a8eaad51ac5'),
+ ('61d0b99e000dfd336f0b3264c69c8552e3096ced154cf50cad22dc37603ecff1',
+  'd89f9bef2a6f059bf2e4d738bc390e7ab050e29eb29873764c61c6d48eab06de'),
+ ('d46c07cae1ddb684d0de31fefe334f31cdbe2bb8d99b037deaa2eb00e6fae259',
+  'dadd4fd2b5958478a7adb8b70015222848f6dad730588dacd71184aca22f5fa6'))
+PROGRAM_POINTERS = ((('stages', 0, 'accepted_evidence', 0), 'model/completion/program_class_v2.json'),
+ (('stages', 0, 'accepted_evidence', 1), 'model/completion/program_class_v2_review.json'),
+ (('stages', 1, 'accepted_evidence', 1), 'model/completion/program_class_v2_review.json'),
+ (('stages', 2, 'accepted_evidence', 0), 'model/completion/finite_attachment_map.json'),
+ (('stages', 2, 'accepted_evidence', 1), 'model/completion/program_class_v2_review.json'),
+ (('stages', 2, 'progress_evidence', 22), 'model/completion/finite_attachment_map.json'),
+ (('component_campaigns', 21, 'contract'), 'model/completion/component_interfaces.json'),
+ (('next_wave', 'evidence', 49), 'model/completion/finite_attachment_map.json'),
+ (('adopted_class',), 'model/completion/program_class_v2.json'),
+ (('acceptance_review',), 'model/completion/program_class_v2_review.json'))
 REQUIRED_BINDINGS = {
     MAP, INTERFACES, 'model/native_program/results.json',
     'model/completion/spectrum_einstein_campaign.json',

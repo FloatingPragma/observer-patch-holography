@@ -370,7 +370,13 @@
     "OPH-NATIVE-DISJOINT-RECORD-EXCHANGE",
     "OPH-NATIVE-GAUGE-TREE-PROPAGATION",
     "OPH-NATIVE-CANONICAL-RESTRICTION",
-    "OPH-NATIVE-CLOCK-OBSERVABLES"
+    "OPH-NATIVE-CLOCK-OBSERVABLES",
+    "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY",
+    "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+    "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON",
+    "OPH-WEIGHTED-LOCAL-STATE-LIMIT",
+    "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+    "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS"
   ],
   "edges": [
     {
@@ -3072,6 +3078,46 @@
       "from": "OPH-NATIVE-RECORD-REFERENCE-CLOCK",
       "to": "OPH-UNREAD-NATIVE-UNITARY-OBSTRUCTION",
       "role": "Uses the same complete binary native channel; the quantum mixing directions are independently recomputed for the unread process."
+    },
+    {
+      "from": "OPH-NATIVE-CANONICAL-RESTRICTION",
+      "to": "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY",
+      "role": "supplies the equal-weight restriction comparison; the connected weighted extension retains separate admission and dynamics boundaries"
+    },
+    {
+      "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
+      "to": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+      "role": "supplies the separately declared proper-code coherent-service framework used by reset and analyzer words"
+    },
+    {
+      "from": "OPH-NATIVE-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON",
+      "role": "supplies the actual positive scalar-record transfer and its exact logarithm bounds"
+    },
+    {
+      "from": "OPH-NATIVE-CLOCK-OBSERVABLES",
+      "to": "OPH-NATIVE-OPERATIONAL-CLOCK-COMPARISON",
+      "role": "supplies the executed full-carrier Y instrument, prepared reference and complete error allowances"
+    },
+    {
+      "from": "OPH-WEIGHTED-CONNECTED-SOURCE-FAMILY",
+      "to": "OPH-WEIGHTED-LOCAL-STATE-LIMIT",
+      "role": "supplies the declared canonical weighted reference and full number-sector restriction; does not select its occupation, admit the connected bias or transfer a dynamic refinement"
+    },
+    {
+      "from": "OPH-NATIVE-DISJOINT-RECORD-EXCHANGE",
+      "to": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "role": "supplies the complete native endpoint locality and disjoint-record comparison; chronological records are retained and no Lorentzian quotient is transferred"
+    },
+    {
+      "from": "OPH-NATIVE-CONTROLLER-DATAFLOW",
+      "to": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "role": "supplies the actual FIFO feedback countercontrol; record-dependent selectors require controller ancestors and are excluded from the independent-selector spatial bound"
+    },
+    {
+      "from": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+      "to": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+      "role": "supplies the existing eleven-repair detector and separately declared coherent-service framework; finite positive-menu exclusion is limited to that menu and universal Born premises are not transferred"
     }
   ]
 }
