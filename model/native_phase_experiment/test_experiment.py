@@ -7,6 +7,8 @@ import sys
 import numpy as np
 import pytest
 
+from tools import strict_json
+from ..observer.scalar_response.experiment import compare_receipt
 from . import experiment
 from .independent import compute
 from .verify import verify, _close
@@ -132,3 +134,89 @@ def test_source_closure_includes_transitive_runtime_and_package_inputs():
     assert 'model/reference_recovery/recovery.py' in paths
     assert 'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py' in paths
     assert set(source_hashes()) == paths
+
+
+@pytest.mark.parametrize('mutation', (
+    'component_weight', 'component_ports', 'component_slots', 'success_zero',
+    'success_two', 'success_nan', 'success_missing', 'bit_distribution',
+    'selector_diagnostic_nan', 'lineage_pair_count', 'lineage_kernel',
+    'hold_extra_kernel', 'resource_missing', 'resource_zero', 'source_extra_run',
+    'target_boolean_port', 'raw_boolean_coin'))
+def test_complete_verifier_rejects_profile_metadata_changes(executed, expected, mutation):
+    changed = deepcopy(executed[0])
+    if mutation == 'component_weight':
+        changed['preparation']['components'][0]['weight'] += 0.01
+    elif mutation == 'component_ports':
+        changed['preparation']['components'][0]['ports'][0] = 11
+    elif mutation == 'component_slots':
+        changed['preparation']['components'][0]['selector_slots'].clear()
+    elif mutation.startswith('success_'):
+        if mutation == 'success_missing':
+            del changed['preparation']['success_probability']
+        else:
+            changed['preparation']['success_probability'] = {
+                'success_zero': 0., 'success_two': 2., 'success_nan': float('nan')}[mutation]
+    elif mutation == 'bit_distribution':
+        changed['selector']['bit_record_probabilities'][0] += 0.1
+    elif mutation == 'selector_diagnostic_nan':
+        changed['selector']['normalization_error'] = float('nan')
+    elif mutation == 'lineage_pair_count':
+        changed['protected_obstruction_reuse']['C']['pair_count'] = 0
+    elif mutation == 'lineage_kernel':
+        changed['protected_obstruction_reuse']['C']['kernel'][0] = [60, 0]
+    elif mutation == 'hold_extra_kernel':
+        changed['protected_obstruction_reuse']['hold_control']['kernel'] = [[0, 0], [0, 0]]
+    elif mutation == 'resource_missing':
+        del changed['resource_envelope']
+    elif mutation == 'resource_zero':
+        changed['resource_envelope']['maximum_trial_source_pulses']['C'] = 0
+    elif mutation == 'source_extra_run':
+        changed['source_execution']['unexecuted'] = {}
+    elif mutation == 'target_boolean_port':
+        changed['target']['analyzer_ports'][1] = True
+    else:
+        changed['trials'][1]['records'][0]['coin'] = False
+    with pytest.raises(ValueError):
+        verify(changed, expected)
+
+
+def test_density_admission_uses_exact_global_frobenius_bound(executed, expected):
+    changed = deepcopy(executed[0])
+    values = ('0x1.fb1fb2061bdf6p-7', '0x1.38138ee4deee9p-12')
+    for column, value in zip((0, 6), values, strict=True):
+        changed['preparation']['densities']['reference']['real'][0][column] = float.fromhex(value)
+    q = Fraction(expected['finite_selector']['accepted_probability'])
+    target = {(row, column): q * Fraction(value)
+              for row, column, value in expected['preparation']['rho']['entries']}
+    density = changed['preparation']['densities']['reference']
+    exact_error = sum((Fraction(density['real'][row][column]) - target.get((row, column), 0)) ** 2
+                      + Fraction(density['imag'][row][column]) ** 2
+                      for row in range(66) for column in range(66))
+    assert exact_error > Fraction(str(experiment.TOLERANCE)) ** 2
+    with pytest.raises(ValueError, match='reference full density'):
+        verify(changed, expected)
+
+
+def test_density_inside_the_declared_bound_is_admitted(executed, expected):
+    changed = deepcopy(executed[0])
+    changed['preparation']['densities']['reference']['real'][0][0] += 1e-10
+    assert verify(changed, expected)['all_pass']
+
+
+def test_retained_receipt_is_bound_to_current_source_and_observations(executed, expected):
+    retained = strict_json.load(experiment.ROOT / 'model/native_phase_experiment/results.json')
+    assert verify(retained, expected)['all_pass']
+    compare_receipt(retained, executed[0])
+
+
+@pytest.mark.parametrize('control', ('loss', 'hold'))
+def test_lineage_sanity_is_not_only_same_provider_comparison(executed, expected, monkeypatch, control):
+    changed = deepcopy(executed[0])
+    lineage = changed['protected_obstruction_reuse']
+    if control == 'loss':
+        lineage['C']['classification']['almostSure'] = False
+    else:
+        lineage['hold_control']['closedTrap'] = False
+    monkeypatch.setattr(experiment, 'classify_phase_loss', lambda root: deepcopy(lineage))
+    with pytest.raises(ValueError):
+        verify(changed, expected)
