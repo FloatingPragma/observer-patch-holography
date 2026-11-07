@@ -1830,6 +1830,13 @@
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "04bce88de7c6249b87437fb0dbead4a03c1536c5066a8628a62ab4da99a86d6d"
       },
+      "OPH-NATIVE-FINITE-EFFECT-COVERAGE": {
+        "assumptions": [
+          "declared_native_finite_effect_and_preparation_coverage"
+        ],
+        "disposition": "existing_contract_retained_without_automatic_transfer",
+        "original_claim_sha256": "ed03e6bfddc740493e1b901ef708c8c2b56a1fcb79144fe1f1cfec67c9c8672a"
+      },
       "OPH-OBSERVER-COMMON-FIELD-WITNESS": {
         "assumptions": [
           "declared_common_field_operator_contract"
@@ -3206,6 +3213,11 @@
       },
       {
         "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
+        "role": "supplies the separately declared proper-code coherent-service framework used by reset and analyzer words",
+        "to": "OPH-NATIVE-FINITE-EFFECT-COVERAGE"
+      },
+      {
+        "from": "OPH-SOURCE-COHERENT-CODE-COMPLETION",
         "role": "Supplies the full named axiom-model, native controls, proper instruments and unchanged refinement used by the two source-conditioned policies.",
         "to": "OPH-SOURCE-ADMISSIBLE-CLOCK-SPATIAL-NONSELECTION"
       },
@@ -4011,10 +4023,10 @@
     "Lean/Geometry/M1Necessity.lean": "2b282b25fe3f82153d2780366b36e6eea8cd4f7685d0e08a9ebd15355062ff98",
     "Lean/Geometry/M1NecessityAxiomAudit.lean": "41f1652a454b94dde7f3a198b4c45badba075a54d13f4ed5a23ac533c3c4f677",
     "code/m1_necessity/BALANCED_REPLACEMENT.md": "166af4d120d3dae4f3d077d1160434d4650d7dc5cc7c48d56c8f7f1defb95fce",
-    "code/m1_necessity/CONSUMERS.md": "87bc0c2bc9f70e8f697802ba3d958547605c152bddb035e5dc1675eec64bf5d2",
+    "code/m1_necessity/CONSUMERS.md": "6dca16a312436034bf5cda2fbd9606e1cf7b9d8406d469f5a5271a397cdecd67",
     "code/m1_necessity/CONTRACT.md": "f3186f4911ea004fcad0058dbc0a526d359c623d42bdb4bf279fc6dd43ea1670",
     "code/m1_necessity/DERIVATION.md": "13754829bb642c0e48c4ae8cfb8f69d56baa8de90c36dfcb18ae0ff0a8dcca9c",
-    "code/m1_necessity/README.md": "79e953fdfa239b38dcf51fb31618dfd17a9c87d1e628b999db5ed3b61a02b607",
+    "code/m1_necessity/README.md": "8ea55e3f5282f2b4249f99e95c97fffd2ec521baa17ff5849aafd17bbe86a302",
     "code/m1_necessity/SPECTRAL_COMPLETION.md": "1e633dcbe37a26401ef7c81c158f47d164b5ffb03ae6631da4e42b431ea19f54",
     "code/m1_necessity/__init__.py": "a49a6656f96a30bd6343e498a0ca5302dae30515d4cf458d45c172933a0247ac",
     "code/m1_necessity/audit.py": "d6a0df2ca2ab885fa8cb7c527f3a74ac17b748847524f4cec7d8df7a049a50c0",
@@ -4023,9 +4035,9 @@
     "code/m1_necessity/build.py": "02da13ead4ae1dda4bbce10d2d54fd3868e11a9c772675df85fedb8f85af9bd6",
     "code/m1_necessity/check.py": "5b32a5391dbbdd4f2ea428b8913ff0f7359234757eaa675f85d40e49a42d26e3",
     "code/m1_necessity/consumers.json": "388204f13cda0b8fbe804ef544cdaf7092a2dbc64e90f5849ba4fc3ed7569996",
-    "code/m1_necessity/downstream.json": "b8df9cd99dca15268e8b0282df6daabb0cee56adf000e59d58c81ebfe7e70b9c",
+    "code/m1_necessity/downstream.json": "c3c7ffcb774f652edb021ea8866496d88fa12544a54fed4585298bb9f4746f55",
     "code/m1_necessity/model.py": "8193f1ebd30f00ee4ba5616839899b2dac86e6ee9ca2f3dfd71fe2022f65cb89",
-    "code/m1_necessity/test_necessity.py": "fd59a6f372e9fe7085eeffbaef3eff8e16b51acbd9a647d8e78a3a4d760951c3",
+    "code/m1_necessity/test_necessity.py": "9f6ee9bfbdda1cbb46f31135e766cd8680544012d2c849d7dffa6cb7a2cb97f0",
     "code/m1_necessity/verify.py": "b49005bbb65ceee876ba76dd3242dcc7e6729bcc35c1e54a1050b5832ddff3f0",
     "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex": "7407e8a7e107ecbc444f5e1354cd648767213e00cfb9269b9365917a4f2988a0",
     "paper/tex_fragments/M1_NECESSITY.tex": "b153dca6015888c4db7968b4610f933b05e058b4198b36664e91171bb6c7f2c2",

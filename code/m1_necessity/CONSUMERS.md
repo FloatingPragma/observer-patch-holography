@@ -10,7 +10,7 @@ silently shortened list. The dispositions concern the named results below;
 several registry rows collect much broader mixed-scope conclusions.
 
 The audit also closes the registered dependency graph forward from these
-eight claims: 146 downstream rows, including the eight direct consumers, are
+eight claims: 149 downstream rows, including the eight direct consumers, are
 enumerated in `downstream.json`. The receipt retains each row's exact
 assumptions, original full-row hash and every internal dependency edge with
 its stated role. A missing row or newly reachable claim fails verification.
@@ -86,3 +86,12 @@ its biased carrier, known faithful preparation and exact flagged-code domain.
 Neither inherits the dense M1 read law, a physical continuum, particle mass
 or source-selected field interpretation from these contextual dependencies.
 The current closure audit retains their full assumptions and edge roles.
+
+The native finite-effect coverage claim is a contextual descendant of the
+coherent-code construction. It retains its fixed weighted H66 carrier,
+eleven-repair record decoder, declared coherent reset and analyzer services,
+complete output bounds and separate evaluator limits. Its finite effect span
+and diagonal refinements neither inherit the dense M1 read law nor discharge
+universal Born premises, a growing field family or physical particle
+identification. The receipt preserves that claim's own assumptions and the
+role of its coherent-service dependency.
