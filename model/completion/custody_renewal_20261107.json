@@ -1,0 +1,112 @@
+{
+  "a5_inventory_renewal": {
+    "changed_hash_leaves": 52,
+    "changed_snapshot_rows": 26,
+    "current_custody_base": "19dcd90a171aacda3211e86770212f3b4a959999",
+    "new_manifest_sha256": "316bd2e5f305aeebb4a9cff7d672ed6d4368ba2204596987ad1ce5399bb0f765",
+    "paths_after": 945,
+    "paths_before": 945,
+    "preserved_audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
+    "previous_manifest_sha256": "3c548b9b524cee98eacd87efd3518e1f1977e5d1ee5e082ba58315252ea49637",
+    "qualification_and_classification_body_changed": false
+  },
+  "canonical_base": "19dcd90a171aacda3211e86770212f3b4a959999",
+  "canonical_physical_premises_discharged": [],
+  "conserved": {
+    "completion_program": "8a41a23ae63f97ac68c65d26fb4d8dc876dc144563e49ea909fa36140a73bacc",
+    "component_interfaces": "814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0",
+    "finite_map": {
+      "attachments": "016a229250fe9e84e32f304482b1112390a2b0d33064c60fed997834ecfba35d",
+      "canonical_ownership": "76d2882f9ab64c16ae9b567c7cc81cf9f56f5fcbef3beaf12371063cb13b994a",
+      "issue_closure_review": "a6e90cbfbb01880ecdc23eb13805dd5db47d9c612cf949727b269116ee85f837",
+      "reviewed_sources": "c21ca5d5050404b32a477a279f190ea0a5a448f7cedaaf73ac778d0625d2d1da"
+    },
+    "review_history": "c8393c7a436fe1abed5e967dd0dfa3a7d1539ffcecbc82174eec874ce23b7aa0"
+  },
+  "current_bindings": {
+    "code/a5_closure/manifests/source_current_order_sensitive_inventory.json": "316bd2e5f305aeebb4a9cff7d672ed6d4368ba2204596987ad1ce5399bb0f765",
+    "code/a5_closure/source_current_order_sensitive_inventory.py": "e77c3bd7b4498acc7e6030ba6f1ebdfc0b0a9e4f24069902421114ec9ddd8d54",
+    "code/a5_closure/verify_source_current_order_sensitive_inventory.py": "5026fcc68adf1365b54cf9fa7bd3ded95cdbe4a33f87b05139ed79125319854d",
+    "model/completion/component_interfaces.json": "9fe8fbd254fa3c623a5484484208eb7b78c27efda599ba56fca497ca70fa8990",
+    "model/completion/custody_renewal.py": "7d6e30e199c0019d87237cc3afae791690bef127d3c6acb35cb925767dcf15be",
+    "model/completion/finite_attachment_map.json": "dc4befe9c9a00628cce8c3256d77b8460b36ce3571d36d44c76058fa818d4f20",
+    "model/completion/spectrum_einstein_campaign.json": "04000e34a40cb6bc2f659807e96bb4ef61a4e3bef04ce83a28b153c51425faa8",
+    "model/completion/test_custody_renewal.py": "05370331ea6a6b00694d087015105bc0b6a50b68da73512ef8a004aab8e71f6e",
+    "model/matched_einstein_limit/results.json": "1fc551892b67f4378890e823a26e6ad1f2092b081506654928275fb76e7c324f",
+    "model/native_program/results.json": "b58481df5d9abca9478438a31981a7835edf38d7a496fd682238066c5ce5813f"
+  },
+  "current_classification_counts": {
+    "domains": 156,
+    "realized": 151
+  },
+  "current_scope_text": "Complete 84-premise ownership. The historical review covered 145 domains, including 140 realized scoped attachments. The current map contains 156 domains, including 151 realized classifications. The 2026-11-07 renewal checks custody and preserves these classifications; it does not add mathematical acceptance or discharge canonical physical premises.",
+  "date": "2026-11-07",
+  "gate_statuses_changed": false,
+  "historical_review_sha256": "ad7a397e42666ecfd6a7be984f0b9443b4314a6aaf01fdf351a64f03c11471bf",
+  "historical_scope": {
+    "domains": 145,
+    "realized": 140
+  },
+  "historical_scope_text": "Complete 84-premise ownership and 145 reviewed domains, including 140 realized scoped attachments. Canonical physical discharge and gate statuses are unchanged.",
+  "historical_snapshot_base": "3cf3c14810671a16e61b7915f69079a1773a12a2",
+  "historical_snapshot_restorations": [
+    {
+      "pre_renewal_sha256": "71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64",
+      "receipt": "model/particle_identification/results.json",
+      "refresh_index": 10,
+      "restored_sha256": "81f4a4482812bab17f96c2c9e93146d12c02a7177a02447832b78b2b22575864"
+    },
+    {
+      "pre_renewal_sha256": "71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64",
+      "receipt": "model/particle_identification/results.json",
+      "refresh_index": 11,
+      "restored_sha256": "812b5cd7c70dcca7c3a585fa86858d645a8bd6f734ee41acdccd5a8eaad51ac5"
+    },
+    {
+      "pre_renewal_sha256": "61d0b99e000dfd336f0b3264c69c8552e3096ced154cf50cad22dc37603ecff1",
+      "receipt": "model/protected_particle_readout/results.json",
+      "refresh_index": 11,
+      "restored_sha256": "d89f9bef2a6f059bf2e4d738bc390e7ab050e29eb29873764c61c6d48eab06de"
+    },
+    {
+      "pre_renewal_sha256": "d46c07cae1ddb684d0de31fefe334f31cdbe2bb8d99b037deaa2eb00e6fae259",
+      "receipt": "model/resolved_particle_spectrum/results.json",
+      "refresh_index": 12,
+      "restored_sha256": "dadd4fd2b5958478a7adb8b70015222848f6dad730588dacd71184aca22f5fa6"
+    }
+  ],
+  "integration_source_extension": {
+    "added_sources": [
+      "model/completion/custody_renewal.py",
+      "model/completion/test_custody_renewal.py"
+    ],
+    "contract": "model/completion/component_interfaces.json",
+    "scientific_scope_changed": false
+  },
+  "new_mathematical_acceptance": false,
+  "ordinary_campaign_renewal": {
+    "changed_source_bindings": [
+      "Lean/lakefile.lean"
+    ],
+    "new_pin": "1fc551892b67f4378890e823a26e6ad1f2092b081506654928275fb76e7c324f",
+    "path": "model/completion/spectrum_einstein_campaign.json",
+    "previous_pin": "58074adb67fa3572bc9892b20b42053328e6fa50d4ef9170249cf35828d5eeb4",
+    "scientific_body_sha256": "6dc5b5c84b61be9eefd9862c11a52ec4be2c4497a7e5f00fffce9859e1039d27",
+    "scientific_result_body_changed": false,
+    "source": "model/matched_einstein_limit/results.json"
+  },
+  "predecessor_review_sha256": "e4d99df1cb5000392ef9a17b6028bc30f4562963c8500e01f527b9433faf520e",
+  "reviewed_contract_digest": "cdbf861edd24dd8139509f1dde3f9769ab67f4e0636cd0393a090ba044c16480",
+  "schema": "oph.current_custody_renewal.v1",
+  "scope": "Current source custody and conserved classifications, not a new mathematical audit of every component.",
+  "validation_commands": [
+    "python -m model.completion.custody_renewal",
+    "python -m model.completion.program_class_v2 --check",
+    "python -m model.completion.finite_attachment_map",
+    "python tools/build_completion_program.py --check",
+    "python -m pytest -q -W error tools/test_completion_program.py model/completion",
+    "python code/a5_closure/source_current_order_sensitive_inventory.py verify",
+    "python code/a5_closure/verify_source_current_order_sensitive_inventory.py",
+    "python -m pytest -q -W error code/a5_closure/tests/test_source_current_order_sensitive_inventory.py"
+  ]
+}

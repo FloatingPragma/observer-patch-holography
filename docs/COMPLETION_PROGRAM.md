@@ -578,7 +578,7 @@ Retained starting evidence:
 
 Reviewed acceptance evidence:
 
-- [finite_attachment_map.json](../model/completion/finite_attachment_map.json): Complete 84-premise ownership and 145 reviewed domains, including 140 realized scoped attachments. Canonical physical discharge and gate statuses are unchanged.
+- [finite_attachment_map.json](../model/completion/finite_attachment_map.json): Complete 84-premise ownership. The historical review covered 145 domains, including 140 realized scoped attachments. The current map contains 156 domains, including 151 realized classifications. The 2026-11-07 renewal checks custody and preserves these classifications; it does not add mathematical acceptance or discharge canonical physical premises.
 - [program_class_v2_review.json](../model/completion/program_class_v2_review.json): Independent exact class, actual declared-service observer and complete finite-attachment theorem-map review. Closes no canonical physical premise or downstream particle/field/gravity gate.
 
 Current component progress (not gate acceptance):
