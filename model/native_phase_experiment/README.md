@@ -10,6 +10,13 @@ Uniform independent seam selection is the supplied native scheduling
 condition. The experiment contracts every seam's executed local instrument
 with that classical weight.
 
+The exact ideal readouts are `+/-1/168` before repair, `+/-5/1008` after C
+and `+/-1/240` after E. The source word execution uses complex128 arithmetic;
+its admission tolerance is `2e-10` in absolute probability and readout units
+(`2e-20` for selector timeout). The comparison keeps the rational target
+exact until it subtracts the represented floating-point value. These are
+bounded numerical checks, with no certified outward rounding interval.
+
 The preparation selects a seam and one of its 56 symmetric-basis vectors.
 A source fair-bit selector accepts 1680 of 2048 words per draw, for at most
 16 draws. Its timeout has probability `(368/2048)^16`. Successful outputs
@@ -42,6 +49,8 @@ protected-obstruction classifier in
 `Lean/ObservableNormalForms/tools/verify_protected_obstruction_models.py`.
 The mathematical transfer context uses the SourceLaw results described in
 `model/native_effective_fields/README.md`.
+The receipt binds the experiment's local Python import closure, package
+initializers and declared source data. It replays without Lean installed.
 
 The measured quantity is a finite transfer contrast in native attempts.
 Physical particle identification requires the common protection, transport,

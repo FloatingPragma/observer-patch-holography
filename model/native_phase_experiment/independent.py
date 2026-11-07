@@ -2,7 +2,8 @@
 """Portable v2 exact independent OPH expectations, including all 36 pointers.
 
 API: compute(repository_root, compact=True).
-CLI: python portable_oracle_v2.py --root <OPH repository> --output <JSON file>
+CLI: python -m model.native_phase_experiment.independent --root <OPH repository>
+     --output <JSON file>
      Add --full for matrix entries and complete raw branch matrices.
      --output - writes the JSON to standard output without creating a file.
 

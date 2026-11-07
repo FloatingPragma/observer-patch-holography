@@ -9,7 +9,8 @@ import pytest
 
 from . import experiment
 from .independent import compute
-from .verify import verify
+from .verify import verify, _close
+from .provenance import source_graph, source_hashes
 from .__main__ import _persist
 
 
@@ -116,3 +117,18 @@ def test_exclusive_receipt_preserves_concurrent_file(tmp_path):
     with pytest.raises(FileExistsError):
         _persist({'result': True}, {}, receipt, None)
     assert receipt.read_bytes() == b'concurrent receipt'
+
+
+def test_exact_rational_comparison_does_not_round_the_target_first():
+    with pytest.raises(ValueError):
+        _close(0.3, Fraction(3, 10), 'exact rational target', tolerance=1e-20)
+
+
+def test_source_closure_includes_transitive_runtime_and_package_inputs():
+    graph = source_graph()
+    paths = set(graph['files'])
+    assert 'model/native_phase_experiment/__init__.py' in paths
+    assert 'model/native_phase_experiment/provenance.py' in paths
+    assert 'model/reference_recovery/recovery.py' in paths
+    assert 'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py' in paths
+    assert set(source_hashes()) == paths

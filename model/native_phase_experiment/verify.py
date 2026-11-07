@@ -14,7 +14,7 @@ from ..observer.scalar_response.experiment import compare_receipt
 
 def _close(actual, expected, label, tolerance=experiment.TOLERANCE):
     if (type(actual) not in (int, float) or not math.isfinite(actual)
-            or abs(actual - float(expected)) > tolerance):
+            or abs(Fraction(actual) - Fraction(expected)) > Fraction(str(tolerance))):
         raise ValueError('independent comparison failed at ' + label)
 
 

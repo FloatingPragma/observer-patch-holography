@@ -9,7 +9,6 @@ from __future__ import annotations
 
 from collections import defaultdict
 from fractions import Fraction
-import hashlib
 from itertools import product
 import math
 from pathlib import Path
@@ -21,7 +20,8 @@ from ..observer import native, quantum_mixing
 from ..observer.source_discrimination import circuit
 from ..observer.source_scalar import compiler
 from ..reference_recovery import recovery
-from .lineage import CLASSIFIER_PATH, classify_phase_loss
+from .lineage import classify_phase_loss
+from .provenance import source_hashes
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -224,26 +224,7 @@ def _run_summary(run):
 
 
 def _dependencies():
-    names = [
-        'model/native_phase_experiment/experiment.py',
-        'model/native_phase_experiment/independent.py',
-        'model/native_phase_experiment/verify.py',
-        'model/native_phase_experiment/lineage.py',
-        'model/native_phase_experiment/__main__.py',
-        CLASSIFIER_PATH,
-        'model/native_fixed_algebra/occupation_service.py',
-        'model/reference_recovery/recovery.py',
-        'model/reference_observation/observation.py',
-        'model/observer/source_scalar/compiler.py',
-        'model/observer/source_discrimination/circuit.py',
-        'model/observer/quantum_mixing.py', 'model/observer/native.py',
-        'model/common_source/slow_geometry.py',
-        'code/source_selection_model/response.json', 'code/m1_source_realization/receipt.json',
-        'evidence/native_geometric_source_20260925/spec.json',
-        'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py',
-        'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py',
-    ]
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in names}
+    return source_hashes()
 
 
 def report(*, keep_arrays=False):
