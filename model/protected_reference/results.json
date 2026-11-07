@@ -1,0 +1,636 @@
+{
+  "schema": "oph.protected_reference.v1",
+  "source_sha256": {
+    "model/protected_reference/__init__.py": "a2f99596805943318fe3eb4d1e48f427531326c060b6a19e383d23f0b0a73bb8",
+    "model/protected_reference/reference.py": "6edde542a1cf0b4f4be063a6d5f32729aaaf0dec534d2273d956d05c4dc6fe7a",
+    "model/protected_reference/test_reference.py": "eaea623bab3b0b70fc56173e66c0ecda06995dfbee586aed32a75abf8631ae1f",
+    "model/protected_reference/PROOF.md": "02f3c9ab132635af522a5cc8a2aa8a2ee1d856763c60adf12228c6aa5bb47b8e",
+    "model/protected_reference/gauge_join.py": "c9455ecabcf6ec55cb32ef9a4ff11a2b6f27b3152eb92e4a20acb21c010f7549",
+    "model/protected_reference/test_gauge_join.py": "cbf126d35bffe5f0b8d292c391f1f03385acc2f0c29ad170ad73a28a15709f96",
+    "model/protected_reference/GAUGE_JOIN.md": "29e103ea32521bd53760a39fd6aef580713d56b139d14a70fc25e923bdf8eac2",
+    "model/protected_reference/reversal.py": "60f0ce72d4f9c211f687b2fd51a6dab5e9d18c1b8ff5c73d6ab74feb83d4d885",
+    "model/protected_reference/test_reversal.py": "c56895744e5afe11aa6eac8e8bb409ae57b4c9b54fa6c2c471ac68db2c19c2b1",
+    "model/protected_reference/REVERSAL.md": "40278c444a34960032859e772be00e96cb4c6b635f02c9412eeb3c2f1d5c2fb0",
+    "Lean/Thermodynamics/ProtectedGaugeCorner.lean": "118be196d3caece361391c5b98698893c8fa5ecee61ff1ad994580dca3949ea8",
+    "Lean/Thermodynamics/CofinalSpectralTailFamily.lean": "0f4b0dc8d3dd917b481b2e3886658b9d77442e718465dda18a7452d1fa076de8",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "95c766ddab75d126121193d2067f674123bc9b977124d8b2dc13eefe37206305",
+    "model/native_program/interpreter.py": "312dfd30f67e27dbb697bcd5419d9c00ae1be1631c112570954e39091fbc27e8",
+    "model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
+    "model/local_repair_family/mixing.py": "2843d85b7c6c34e0ecc50124f3cf3461fd8917b8263ed96ef1a1574537eaa660",
+    "model/defect_protection/protection.py": "9255f6ff64ff37a51c51dddcdf08e204d8a1e94dfa83c8e6bda6cf238804c9f7",
+    "model/defect_protection/service.py": "06b51c5c3b7a1c1d5330c60afbe07e72afdd0ee0923d542f66db9ea92b7cc021",
+    "model/exchange_sector/statistics.py": "9bbfd1384e7e9800e010b5123591da85c23d6b114d8093f28606deb32e3214e5",
+    "model/gauge_defect_transport/__init__.py": "41a49e0dad3a5a2aa4e12c531b6033cdcb2aef84c87839f6e858aaba475ab5f3",
+    "model/gauge_defect_transport/transport.py": "0091fe4e9031e5ea1a02e437db410e1a11e5294f65ec38358011d667bba29d63",
+    "model/gauge_defect_transport/test_transport.py": "634754dc313d1df1d72ad042265da88b510dc3282c62038dcf0729e55a022d06",
+    "model/gauge_defect_transport/PROOF.md": "ecc437b3989cd88113c8b8bb43af32be596324c976247818c6a8977b15d0c3b2",
+    "model/particle_gauge_band/quantum_link_completion.py": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1",
+    "model/native_quantum_gauss/algebra.py": "b201991787f2fcf1f79805ab2271e1aef0b8a389a2dd16bb79afa5787200361d",
+    "model/common_source/native_matter_attachment.py": "e09be6c457cd29aaa31e03f6109b52ccd93b592833daab8ec0b3bb9648163339",
+    "model/common_source/native_sm_current.py": "8ed16b421726dd460800d86846e5684163716cadc61c7cc2e8c21151d49593f1",
+    "model/defect_field_bridge/colored.py": "c0893ff0e6d1c8b70fbc4d4b4dcaa0f3740dba7f919144c8b020b4321ec792a3",
+    "model/defect_field_bridge/full_domain.py": "7e131b9f73c7bc369f56dce91767bc1651be26bff76d087845bb64aab7ca13e7"
+  },
+  "domain": "native biased H66 endpoint law with the explicit persistent ordered-cover bit",
+  "dimension": 132,
+  "parameters": {
+    "port_weights": [
+      25,
+      25,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "seam_weights": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "c_weight": "1/2",
+    "repair_probability": "1"
+  },
+  "current_and_energy": {
+    "raw_slots": 720,
+    "zero_slots": 420,
+    "abort_slots": 240,
+    "source_columns": 7920,
+    "current_columns": {
+      "-1": 600,
+      "0": 6720,
+      "1": 600
+    },
+    "continuity": "n_k(output)-n_k(input) = j*(1[k=b]-1[k=a])",
+    "negative_character_moving_operator": "c_b^dagger c_a for j=+1; c_a^dagger c_b for j=-1",
+    "modular_energy_change": "j*log(theta_a/theta_b)",
+    "branch_modular_eigenoperator": "[K_a,K_h] = j*log(theta_a/theta_b)*K_h",
+    "complete_record_instrument_covariant_under_same_modular_clock": true,
+    "one_complete_attempt_counted_including_holds": true,
+    "native_motion_identified_with_modular_unitary_evolution": false
+  },
+  "stationary_family": "rho_* tensor (a P_plus + (1-a) P_minus), 0<=a<=1",
+  "complete_stationary_space_complex_dimension": 2,
+  "full_stationary_classification_proof": "faithful invariant state, Schwarz equality, exact existing branch commutant, equal adjoint nullities",
+  "preserved_plus_weight": "a=Tr(P_plus rho_input)",
+  "faithful_reference_for_fixed_algebra_proof": "rho_* tensor I2/2",
+  "sharp_sector_preparation": {
+    "attempts": 1600,
+    "population_block": 20,
+    "population_minorization_lower": "33/200",
+    "common_record_survival_upper": "793/990",
+    "source_and_untouched_reference_half_trace_distance_upper": "135787/250000000000",
+    "domain": "arbitrary input in one fixed Q=+1 or Q=-1 sector",
+    "target": "rho_* tensor P_charge tensor input_reference_marginal",
+    "preparation_archive_traced_only_for_this_comparison": true,
+    "fresh_full_biased_source_pulse_execution_claimed": false
+  },
+  "modular_generator": "-sum_i log(theta_i)n_i + log(Z)I - log(a)P_plus - log(1-a)P_minus",
+  "charge_flip": "I66 tensor Z_orientation; QF=-FQ; F rho_plus F=rho_minus",
+  "plus_to_minus_modular_energy": "log(a/(1-a))",
+  "exp_plus_to_minus_energy_controls": {
+    "1/4": "1/3",
+    "1/2": "1",
+    "3/4": "3"
+  },
+  "endpoint_reference_domain": "a=0 or 1 admits only its supported charge corner",
+  "source_and_complete_classical_tape_distance_between_sharp_references": "0",
+  "joint_source_memory_trace_distance_between_sharp_references": "1",
+  "closed_native_exchange_loop": {
+    "C": {
+      "history": [
+        [
+          "C",
+          [
+            0,
+            5
+          ],
+          0,
+          1
+        ],
+        [
+          "C",
+          [
+            0,
+            11
+          ],
+          1,
+          2
+        ],
+        [
+          "C",
+          [
+            5,
+            11
+          ],
+          0,
+          1
+        ]
+      ],
+      "source_return": true,
+      "orientation_action": "X",
+      "modular_energy_change": "0"
+    },
+    "E": {
+      "history": [
+        [
+          "E",
+          [
+            0,
+            5
+          ],
+          0,
+          5
+        ],
+        [
+          "E",
+          [
+            0,
+            11
+          ],
+          1,
+          6
+        ],
+        [
+          "E",
+          [
+            5,
+            11
+          ],
+          0,
+          5
+        ]
+      ],
+      "source_return": true,
+      "orientation_action": "X",
+      "modular_energy_change": "0"
+    }
+  },
+  "gauge_transport_join": {
+    "schema": "oph.protected_reference.gauge_join.v1",
+    "source_pair": [
+      5,
+      11
+    ],
+    "target_pair": [
+      0,
+      5
+    ],
+    "native_seam": [
+      0,
+      11
+    ],
+    "crossed_spectator_port": 5,
+    "native_columns": [
+      {
+        "law": "C",
+        "coin": 1,
+        "raw": 2,
+        "orientation_flip": 1
+      },
+      {
+        "law": "C",
+        "coin": 0,
+        "raw": 1,
+        "orientation_flip": 1
+      },
+      {
+        "law": "E",
+        "coin": 1,
+        "raw": 6,
+        "orientation_flip": 1
+      },
+      {
+        "law": "E",
+        "coin": 0,
+        "raw": 5,
+        "orientation_flip": 1
+      }
+    ],
+    "forward_coin_probability": "25/33",
+    "reverse_coin_probability": "8/33",
+    "target_reference_weight": "40/1501",
+    "source_reference_weight": "64/7505",
+    "forward_modular_energy_change": "log(8/25)",
+    "stationary_reference": "rho_* tensor (a P_plus+(1-a)P_minus) tensor I_(60d)/(60d)",
+    "full_source_dimension": 66,
+    "persistent_orientation_dimension": 2,
+    "inactive_native_configurations_retained_as_identity": 64,
+    "rows": [
+      {
+        "primitive_charge": -4,
+        "matter_dimension": 3,
+        "link_dimension": 60,
+        "active_dimension": 720,
+        "retained_inactive_dimension": 23040,
+        "full_dimension": 23760,
+        "transport_rank_per_memory_character": 3,
+        "complete_outcomes": 4,
+        "complete_effect_identity": true,
+        "all_maps_preserve_protected_charge": true,
+        "stationary_reference_checked_including_memory_coherences": true,
+        "same_state_modular_gap_multiples": {
+          "forward": -1,
+          "reverse": 1,
+          "forward_hold": 0,
+          "reverse_hold": 0
+        },
+        "literal_endpoint_Gauss_intertwiner_checks": 72
+      },
+      {
+        "primitive_charge": -3,
+        "matter_dimension": 2,
+        "link_dimension": 60,
+        "active_dimension": 480,
+        "retained_inactive_dimension": 15360,
+        "full_dimension": 15840,
+        "transport_rank_per_memory_character": 2,
+        "complete_outcomes": 4,
+        "complete_effect_identity": true,
+        "all_maps_preserve_protected_charge": true,
+        "stationary_reference_checked_including_memory_coherences": true,
+        "same_state_modular_gap_multiples": {
+          "forward": -1,
+          "reverse": 1,
+          "forward_hold": 0,
+          "reverse_hold": 0
+        },
+        "literal_endpoint_Gauss_intertwiner_checks": 72
+      },
+      {
+        "primitive_charge": 1,
+        "matter_dimension": 6,
+        "link_dimension": 60,
+        "active_dimension": 1440,
+        "retained_inactive_dimension": 46080,
+        "full_dimension": 47520,
+        "transport_rank_per_memory_character": 6,
+        "complete_outcomes": 4,
+        "complete_effect_identity": true,
+        "all_maps_preserve_protected_charge": true,
+        "stationary_reference_checked_including_memory_coherences": true,
+        "same_state_modular_gap_multiples": {
+          "forward": -1,
+          "reverse": 1,
+          "forward_hold": 0,
+          "reverse_hold": 0
+        },
+        "literal_endpoint_Gauss_intertwiner_checks": 72
+      },
+      {
+        "primitive_charge": 2,
+        "matter_dimension": 3,
+        "link_dimension": 60,
+        "active_dimension": 720,
+        "retained_inactive_dimension": 23040,
+        "full_dimension": 23760,
+        "transport_rank_per_memory_character": 3,
+        "complete_outcomes": 4,
+        "complete_effect_identity": true,
+        "all_maps_preserve_protected_charge": true,
+        "stationary_reference_checked_including_memory_coherences": true,
+        "same_state_modular_gap_multiples": {
+          "forward": -1,
+          "reverse": 1,
+          "forward_hold": 0,
+          "reverse_hold": 0
+        },
+        "literal_endpoint_Gauss_intertwiner_checks": 72
+      },
+      {
+        "primitive_charge": 6,
+        "matter_dimension": 1,
+        "link_dimension": 60,
+        "active_dimension": 240,
+        "retained_inactive_dimension": 7680,
+        "full_dimension": 7920,
+        "transport_rank_per_memory_character": 1,
+        "complete_outcomes": 4,
+        "complete_effect_identity": true,
+        "all_maps_preserve_protected_charge": true,
+        "stationary_reference_checked_including_memory_coherences": true,
+        "same_state_modular_gap_multiples": {
+          "forward": -1,
+          "reverse": 1,
+          "forward_hold": 0,
+          "reverse_hold": 0
+        },
+        "literal_endpoint_Gauss_intertwiner_checks": 72
+      }
+    ],
+    "Gauss_singlet_stationary_corners": [
+      {
+        "primitive_charge": -4,
+        "dual_reference_dimension": 3,
+        "full_source_memory_link_matter_reference_dimension": 71280,
+        "endpoint_singlet_checks": 48,
+        "two_orthonormal_singlets_form_reducing_corner": true,
+        "target_probability": "25/33",
+        "source_probability": "8/33",
+        "corner_state": "(25|psi_x><psi_x|+8|psi_y><psi_y|)/33 tensor sigma_orientation",
+        "state_is_annihilated_by_endpoint_Gauss_generators": true,
+        "full_native_source_marginal_replaced_by_active_conditional_marginal": true,
+        "dual_reference_and_singlet_preparation_are_declared": true,
+        "literal_singlet_preparation_pulses_executed": false,
+        "one_unread_attempt_exact_preparation_in_each_sharp_charge_corner": true,
+        "preparation_domain": "arbitrary supported two-singlet state with untouched reference and one fixed Q character",
+        "preparation_archive_traced_only_for_replacement_comparison": true,
+        "clock_domain": "supported singlet and memory-charge corner only",
+        "forward_modular_energy_change": "log(8/25)"
+      },
+      {
+        "primitive_charge": -3,
+        "dual_reference_dimension": 2,
+        "full_source_memory_link_matter_reference_dimension": 31680,
+        "endpoint_singlet_checks": 48,
+        "two_orthonormal_singlets_form_reducing_corner": true,
+        "target_probability": "25/33",
+        "source_probability": "8/33",
+        "corner_state": "(25|psi_x><psi_x|+8|psi_y><psi_y|)/33 tensor sigma_orientation",
+        "state_is_annihilated_by_endpoint_Gauss_generators": true,
+        "full_native_source_marginal_replaced_by_active_conditional_marginal": true,
+        "dual_reference_and_singlet_preparation_are_declared": true,
+        "literal_singlet_preparation_pulses_executed": false,
+        "one_unread_attempt_exact_preparation_in_each_sharp_charge_corner": true,
+        "preparation_domain": "arbitrary supported two-singlet state with untouched reference and one fixed Q character",
+        "preparation_archive_traced_only_for_replacement_comparison": true,
+        "clock_domain": "supported singlet and memory-charge corner only",
+        "forward_modular_energy_change": "log(8/25)"
+      },
+      {
+        "primitive_charge": 1,
+        "dual_reference_dimension": 6,
+        "full_source_memory_link_matter_reference_dimension": 285120,
+        "endpoint_singlet_checks": 48,
+        "two_orthonormal_singlets_form_reducing_corner": true,
+        "target_probability": "25/33",
+        "source_probability": "8/33",
+        "corner_state": "(25|psi_x><psi_x|+8|psi_y><psi_y|)/33 tensor sigma_orientation",
+        "state_is_annihilated_by_endpoint_Gauss_generators": true,
+        "full_native_source_marginal_replaced_by_active_conditional_marginal": true,
+        "dual_reference_and_singlet_preparation_are_declared": true,
+        "literal_singlet_preparation_pulses_executed": false,
+        "one_unread_attempt_exact_preparation_in_each_sharp_charge_corner": true,
+        "preparation_domain": "arbitrary supported two-singlet state with untouched reference and one fixed Q character",
+        "preparation_archive_traced_only_for_replacement_comparison": true,
+        "clock_domain": "supported singlet and memory-charge corner only",
+        "forward_modular_energy_change": "log(8/25)"
+      },
+      {
+        "primitive_charge": 2,
+        "dual_reference_dimension": 3,
+        "full_source_memory_link_matter_reference_dimension": 71280,
+        "endpoint_singlet_checks": 48,
+        "two_orthonormal_singlets_form_reducing_corner": true,
+        "target_probability": "25/33",
+        "source_probability": "8/33",
+        "corner_state": "(25|psi_x><psi_x|+8|psi_y><psi_y|)/33 tensor sigma_orientation",
+        "state_is_annihilated_by_endpoint_Gauss_generators": true,
+        "full_native_source_marginal_replaced_by_active_conditional_marginal": true,
+        "dual_reference_and_singlet_preparation_are_declared": true,
+        "literal_singlet_preparation_pulses_executed": false,
+        "one_unread_attempt_exact_preparation_in_each_sharp_charge_corner": true,
+        "preparation_domain": "arbitrary supported two-singlet state with untouched reference and one fixed Q character",
+        "preparation_archive_traced_only_for_replacement_comparison": true,
+        "clock_domain": "supported singlet and memory-charge corner only",
+        "forward_modular_energy_change": "log(8/25)"
+      },
+      {
+        "primitive_charge": 6,
+        "dual_reference_dimension": 1,
+        "full_source_memory_link_matter_reference_dimension": 7920,
+        "endpoint_singlet_checks": 48,
+        "two_orthonormal_singlets_form_reducing_corner": true,
+        "target_probability": "25/33",
+        "source_probability": "8/33",
+        "corner_state": "(25|psi_x><psi_x|+8|psi_y><psi_y|)/33 tensor sigma_orientation",
+        "state_is_annihilated_by_endpoint_Gauss_generators": true,
+        "full_native_source_marginal_replaced_by_active_conditional_marginal": true,
+        "dual_reference_and_singlet_preparation_are_declared": true,
+        "literal_singlet_preparation_pulses_executed": false,
+        "one_unread_attempt_exact_preparation_in_each_sharp_charge_corner": true,
+        "preparation_domain": "arbitrary supported two-singlet state with untouched reference and one fixed Q character",
+        "preparation_archive_traced_only_for_replacement_comparison": true,
+        "clock_domain": "supported singlet and memory-charge corner only",
+        "forward_modular_energy_change": "log(8/25)"
+      }
+    ],
+    "scope": {
+      "derived_native_coin_and_modular_energy_ratios": true,
+      "faithful_full_reference_is_Gauss_singlet_supported": false,
+      "matter_and_link_registers_are_declared": true,
+      "flux_dependent_gauge_extension_is_original_C_E_law": false,
+      "single_moving_internal_fiber_is_two_particle_colored_code": false,
+      "all_native_seams_have_a_common_gauge_network": false,
+      "stationary_state_is_unique_or_mixing_proved": false,
+      "same_stationary_reference_selects_coherent_hopping_Hamiltonian": false,
+      "particle_species_or_masses_identified": false
+    }
+  },
+  "same_corner_finite_thermodynamics": {
+    "Lean_module": "Lean/Thermodynamics/ProtectedGaugeCorner.lean",
+    "Lean_theorem": "OPH.Thermodynamics.ProtectedGaugeCorner.corner_four_laws",
+    "same_kernel_Lean_theorem": "OPH.Thermodynamics.ProtectedGaugeCorner.corner_same_kernel_four_laws",
+    "source_coin_counts": [
+      25,
+      8
+    ],
+    "source_coin_denominator": 33,
+    "retained_outcomes": [
+      {
+        "input": 1,
+        "output": 0,
+        "probability": "25/33"
+      },
+      {
+        "input": 0,
+        "output": 0,
+        "probability": "25/33"
+      },
+      {
+        "input": 0,
+        "output": 1,
+        "probability": "8/33"
+      },
+      {
+        "input": 1,
+        "output": 1,
+        "probability": "8/33"
+      }
+    ],
+    "kernel": [
+      [
+        "25/33",
+        "8/33"
+      ],
+      [
+        "25/33",
+        "8/33"
+      ]
+    ],
+    "energy": [
+      "log(33)-log(25)",
+      "log(33)-log(8)"
+    ],
+    "positive_modular_gap": "log(25/8)",
+    "inverse_temperature_in_modular_units": "1",
+    "log_partition": "0",
+    "finite_four_law_core_inputs_constructed": true,
+    "nonconstant_modular_energy_is_conserved_by_replacement": false,
+    "zeroth_law_domain": "multiplier identifiability for this fixed nondegenerate spectrum",
+    "fixed_two_state_Gibbs_entropy_limit": "0",
+    "native_inverse_temperature_variation_implemented": false,
+    "domain": "diagonal marginal of each declared two-singlet corner at one fixed Q character",
+    "record_archive_traced_only_for_this_marginal": true,
+    "physical_energy_calibration_proved": false,
+    "refinement_uniform_low_temperature_family_produced": false,
+    "canonical_physical_premises_discharged": []
+  },
+  "weighted_quantum_record_reversal": {
+    "schema": "oph.protected_reference.reversal.v1",
+    "branches": {
+      "raw_slots": 720,
+      "abort_slots": 240,
+      "cover_columns": 15840,
+      "holding_slots": 180,
+      "moving_slots": 120,
+      "zero_slots": 420,
+      "exp_modular_transfer_columns": {
+        "1": 15200,
+        "25/8": 320,
+        "8/25": 320
+      },
+      "moving_label_pairs": {
+        "C": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "E": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            6
+          ]
+        ]
+      },
+      "other_labels_fixed_including_zero_and_abort": true,
+      "zero_operator_reverse_unique": false,
+      "same_seam_and_law": true,
+      "weighted_identity": "w_h*pi_in = w_reverse*pi_out",
+      "petz_kraus_identity": "rho_alpha^(1/2) K_h^dagger rho_alpha^(-1/2) = K_reverse(h)",
+      "holds_self_dual": true,
+      "reverse_modular_transfer": "-Delta_h",
+      "complete_reverse_channel_equals_original": true,
+      "heisenberg_channel_kms_self_adjoint": true,
+      "identity_extends_to_arbitrary_untouched_reference": true
+    },
+    "histories": {
+      "empty_history": {
+        "length": 0,
+        "cover_rank": 132,
+        "stationary_probability": "1",
+        "forward_squared_amplitude": "1",
+        "reverse_squared_amplitude": "1"
+      },
+      "all_two_event_raw_histories_on_two_declared_seams": 576,
+      "zero_two_event_histories_retained": 494,
+      "odd_exchange_loops": {
+        "C": {
+          "length": 3,
+          "cover_rank": 2,
+          "stationary_probability": "1/88267806",
+          "forward_squared_amplitude": "1/2352240",
+          "reverse_squared_amplitude": "1/2352240",
+          "orientation_action": "X",
+          "modular_transfer": "0"
+        },
+        "E": {
+          "length": 3,
+          "cover_rank": 2,
+          "stationary_probability": "1/88267806",
+          "forward_squared_amplitude": "1/2352240",
+          "reverse_squared_amplitude": "1/2352240",
+          "orientation_action": "X",
+          "modular_transfer": "0"
+        }
+      },
+      "all_finite_history_proof": "iterate the exact Petz branch identity with reversed label order",
+      "stationary_complete_history_probabilities_equal": true,
+      "initial_state": "rho_alpha; 0<alpha<1, or its invariant supported corner at alpha=0,1",
+      "selector": "fixed native state-independent seam/law/biased-coin selector",
+      "arbitrary_input_forward_reverse_record_probabilities_equal": false,
+      "arbitrary_record_adaptive_policy_included": false
+    },
+    "irreversibility_control": {
+      "input_half_trace_distance": "1",
+      "output_half_trace_distance": "949/990",
+      "initial_cover_indices": [
+        127,
+        15
+      ],
+      "unread_channel_has_a_cptp_left_inverse_on_all_states": false,
+      "petz_self_duality_is_samplewise_or_unitary_rewind": false
+    },
+    "scope": {
+      "same_weighted_132_state_source_and_raw_instrument": true,
+      "full_reference_requires_0_lt_alpha_lt_1": true,
+      "alpha_endpoints_use_invariant_support_corner": true,
+      "quantum_operator_identity_not_only_population_balance": true,
+      "protected_charge_preserved": true,
+      "detailed_balance_selects_coherent_hamiltonian": false,
+      "petz_reversal_is_physical_time_reversal": false,
+      "modular_parameter_identified_with_native_attempt_or_laboratory_time": false,
+      "physical_stress_split_or_interacting_qft_derived": false
+    }
+  },
+  "scope": {
+    "full_native_record_slots_retained": true,
+    "original_record_clock_member_contains_this_memory_extension": false,
+    "sharp_charge_sector_is_a_spatially_localized_source_defect": false,
+    "charge_protection_selects_nonzero_mass": false,
+    "modular_clock_equals_repair_attempt_time_proved": false,
+    "interacting_Higgs_action_or_state_selected": false,
+    "physical_particle_identification_proved": false
+  }
+}

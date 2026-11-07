@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1100,
+  "surface_count": 1115,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2716,6 +2716,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/gauge_defect_transport/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/gauged_field/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3036,6 +3041,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_capacity_restriction/PRODUCT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_capacity_restriction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_capacity_restriction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_causal_dataflow/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3067,6 +3087,16 @@
     },
     {
       "path": "model/native_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_clock_observables/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_clock_observables/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3117,6 +3147,16 @@
     },
     {
       "path": "model/native_fluctuations/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gauge_strings/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gauge_strings/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3232,6 +3272,26 @@
     },
     {
       "path": "model/native_quantum_reconstruction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_record_causality/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_record_causality/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_record_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_record_response/TRANSFER.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3712,6 +3772,21 @@
     },
     {
       "path": "model/protected_particle_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_reference/GAUGE_JOIN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_reference/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_reference/REVERSAL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

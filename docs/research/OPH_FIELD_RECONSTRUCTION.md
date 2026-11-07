@@ -13,6 +13,98 @@ numerical constructions and hierarchy exclusions; the
 [construction contract](../../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
 sets the larger observational target.
 
+## Source-to-field requirements and status
+
+The statuses below concern the common source-to-field derivation, not
+whether a finite test suite passes. The
+[claim registry](../../claims/claim_registry.yaml),
+[premise register](../../tracking/premise_register.json) and
+[physical identification register](../../claims/physical_identification_registry.json)
+retain the exact hypotheses. The 84 premise entries include alternative
+theorem branches; they are not 84 jointly required laws. The 21 physical
+identifications are undischarged. No final measured particle-mass ratio is
+derived by the constructions below.
+
+| Step | Status and established result | Required result for the common source |
+| --- | --- | --- |
+| **1. Fix the executable source family.** | **Static fair-state and dynamic independent-product restrictions established; physical capacity family unproved.** The native program declares its repair, memory, scheduler and observer services. [Canonical restriction](../../model/native_capacity_restriction/PROOF.md) gives every local number sector, exact nesting and finite-size bounds for the fair federation. [Dynamic product restriction](../../model/native_capacity_restriction/PRODUCT.md) preserves complete biased repair/hold records under unused-factor extension. [FIFO equivalence](../../model/particle_identification/NATIVE_CAPACITY.md) concerns a fixed carrier and law. | Select one family indexed by physical capacity, including its conserved occupation, preparation, controls and clock. The fair federation is not a proved capacity continuation of the weighted H66 observer. Port count, FIFO slots and cosmological capacity are distinct inputs. |
+| **2. Construct accessible local observables.** | **Native population readout and a finite noncommuting clock menu established; universal field-observable access unproved.** [Complete E records](../../model/native_record_response/PROOF.md) measure incoming occupation contrasts of the weighted H66 source, with exact back-action and rank-66 population observability. [Native counts](../../model/native_quantum_reconstruction/PROOF.md) also determine a positive matrix functional. Bare repair-record effects remain diagonal. The [coherent clock protocol](../../model/native_clock_observables/PROOF.md) adds complete Pauli instruments and finite Robertson inputs using existing declared services. | Produce local field preparation and complete readout from the actual observer, including failures and back-action. Establish the operational equivalences and effect coverage required by the quantum theorems. Population observability is not full quantum tomography or implementation of arbitrary effects. |
+| **3. Derive space and a common clock.** | **Finite interfaces and a fixed-schedule record comparison established; physical spatial limit unproved.** [Authenticated dataflow](../../model/native_causal_dataflow/README.md) retains the full single-FIFO chain. [Independent repairs](../../model/native_record_causality/PROOF.md) have equal complete channels after a specified reversible record permutation, for fixed completed schedules. [Lorentz transition tests](../../model/native_lorentz_transition/README.md) constrain supplied transitions. | Derive spatial readouts, translations, causal cones and clock normalization on one refinement family. The reconstructed transfer generator and working modular generator are inequivalent. A physical quotient must preserve observable controller signals; adaptive selectors and timeouts are outside the independent-repair equivalence. The sphere/Lorentz correspondence alone supplies neither a three-dimensional field net nor this limit. |
+| **4. Produce the reference state.** | **Specified finite preparations established; common interacting vacuum unproved.** The [protected native reference](../../model/protected_reference/PROOF.md) classifies stationary states, bounds sharp-charge preparation and joins actual repair to its modular reference. Its [gauge-singlet corner](../../model/protected_reference/GAUGE_JOIN.md) has exact replacement preparation and a Lean finite-thermodynamic adapter. | Prepare the state used by all field sectors on the same source and clock, with positive-energy and refinement control. A native stationary density, a chosen Higgs ground and a physical vacuum cannot be identified without a state-preserving map. |
+| **5. Calculate source responses.** | **Complete weighted-native record response established; common spatial response unproved.** The [native record resolvent](../../model/native_record_response/PROOF.md) has 65 observable population-relaxation poles, with actual measurement back-action. [Correct record reflection](../../model/native_record_response/TRANSFER.md) derives a positive 66-dimensional transfer Hamiltonian; its clock differs from the native modular clock. [Matrix spectroscopy](../../model/matrix_spectral_response/README.md) reads a distinct supplied cube action. | Derive the common spatial response `G_N(z,p)` with controlled state, clock, record and numerical errors. Native attempt relaxation factors require a separate connection to relativistic energy and momentum. Inserting a desired Dirac or Higgs inverse propagator assumes this connection. |
+| **6. Prove the field limit and action.** | **Free relativistic branch and finite gauge operations established; interacting chiral theory unproved.** The [controlled continuum](../../model/continuum_free_limit/README.md) is a free eight-valley Weyl vacuum net on its stated scaling. [Literal gauge transport](../../model/gauge_defect_transport/PROOF.md) is complete on its declared extension. | Prove positive energy, locality, relativistic covariance and joint-record convergence for the same source. Derive its action and demonstrate that the required interactions survive. Gauge dynamics, chiral matter, anomaly conditions and cutoff control must hold on that construction; Lie-algebra classification does not select them. |
+| **7. Identify particle sectors and mass ratios.** | **Model sectors identified; measured massive spectrum unproved.** The controlled free branch has massless particle/hole sectors. [Massive Dirac shells](../../model/source_mass_shell/README.md) use supplied onsite mass coefficients. Protected memory charges and finite response lines are distinct objects. | Identify stable poles, resonances, thresholds or bound sectors using creation, propagation, quantum numbers and complete detectors. Derive their energies from the selected action/state. Ratios cancel a common unit choice; they do not remove unspecified couplings, preparations or sector assignments. |
+| **8. Compare complete predictions with measurements.** | **Not established for the source-derived particle spectrum.** Conditional calibrations and numerical mass comparisons have separate provenance. | Freeze the observable dictionary, calibration inputs and error model, then compare predicted joint records, masses, mixing, widths and scattering where applicable. No target-informed choice may be reported as an independent prediction of that target. |
+
+The detailed [construction route](../../model/particle_identification/ROADMAP.md)
+states the complete-channel comparison and the defect formation-to-readout
+criteria. Steps 1–5 determine the process whose field limit is being claimed;
+steps 6–8 determine whether its excitations are the measured particles.
+Calculations for different source actions or reference states do not fill
+one another's rows without an explicit comparison map.
+
+### Local states across capacity
+
+The [canonical restriction](../../model/native_capacity_restriction/PROOF.md)
+uses the actual fair federation with `V=240*4^ell` ports and a declared
+conserved global occupation `m`. Its stationary canonical state
+`rho_(V,m)=I_m/binom(V,m)` restricts to any `v` ports as
+
+```math
+\rho_W=\sum_{k=0}^{v}
+\frac{\binom vk\binom{V-v}{m-k}}{\binom Vm}\rho_{v,k}.
+```
+
+All number sectors, including zero-weight sectors, are retained. These
+restrictions nest exactly. The half trace distance to the canonical
+sharp-`q` coarse state is `1-h(q)`, where `h` is the displayed number law;
+for an arbitrary state supported in that sector this is a lower bound.
+Thus choosing one fixed number independently at each size is not an exact
+state-refinement map for a nontrivial global canonical family.
+
+A fixed local window has a different comparison: its distance to the
+Bernoulli product state of density `m/V` is at most `v(v-1)/(2V)`, capped
+at one, and its distance to vacuum is at most `vm/V`. The exact local law
+can be evaluated using integer arithmetic without constructing the full
+carrier. At declared level 200, all thirteen number outcomes of twelve
+ports are evaluated at a 408-bit population with density `1/3`; the
+Bernoulli bound is `66/V`. Any common complete local instrument preserves
+this state-error bound. Boundary-crossing repairs require a larger
+dependency region or a separate locality bound; correlated references
+require a joint input-state bound.
+
+This supplies a static local calculation and a precise state-compatibility
+test. It selects no physical relation between `V` and cosmological capacity,
+no occupation trajectory `m(V)`, and no exact finite preparation or dynamic
+refinement map. The weighted H66 source behind the native record response
+has weights `(25,25,8,...,8)`; the growing federation is fair. Their
+different laws and references cannot be combined as one capacity family
+without an explicit source comparison.
+
+The [dynamic product restriction](../../model/native_capacity_restriction/PRODUCT.md)
+supplies an exact growing embedding of the biased repair/hold program into
+the admitted independent-cell products. Appended factors can be correlated
+with the active source and reference: tracing them out intertwines every
+complete adaptive history, including raw records, FIFO exports and matched
+stops. The comparison verifies and relabels the known program identifier;
+allocation and specification queries remain distinguishable. Returned host
+executions require the common evaluated domain, at most 64 cells. This
+result covers repair/hold programs, not the separate compiled coherent
+clock services. It creates no interactions or connected physical geometry.
+A direct same-record, single-attempt replacement by the fair federation
+fails: its coin probability is `1/2`, while the biased seam gives `25/33`,
+so the complete-output total variation is at least `17/66`.
+
+Reading simulator specifications is permitted. The
+[field-attachment audit](../../model/common_source/repair_field_attachment.py),
+[staggered field](../../model/common_source/native_staggered_field.py) and
+[native feedback matrix](../../model/common_source/native_repair_mass.py)
+distinguish supplied controls from outputs of repair. The feedback matrix's
+six-row work-register evolution does not itself provide spatial propagation.
+Adding a kinetic or Higgs coupling would define an extension whose predictions
+must be labelled accordingly; it would not derive that coupling from the
+unextended source.
+
 **The construction supplies a common finite defect, gauge-current and
 pixel-dependent mass operator, with a complete record service and a controlled
 quartic extension on its localized algebra. It does not establish the physical interacting
@@ -33,6 +125,38 @@ excludes every one-body quadratic in the fixed native occupation dictionary.
 These direct source results use reconstructed history functionals. Their
 modular dynamics, regional entropy response and physical boundaries are
 spelled out in the [finite field-selection guide](OPH_PARTICLE_FIELD_SELECTION.md).
+
+## The defect-to-particle argument
+
+The [identification route](../../model/particle_identification/ROADMAP.md#how-a-protected-defect-becomes-an-observable-particle)
+starts with a source operation creating a locally distinguishable state,
+then requires protection, propagation, field coupling and complete detection
+on that same state. Charge conservation alone does not establish a stable
+particle: the charge can spread or be carried by other excitations. A
+spatially localized wave packet can also contain many energies without
+representing many species.
+
+The [charged cube experiment](../../model/ground_spectral_source/README.md)
+provides an explicit finite formation-to-readout chain for its supplied
+action. It prepares the full-Fock ground, applies a local odd creation
+operation preserving the initial exterior restriction, and measures the
+same-action response with complete records and probability error below
+`3/5000`. Its protection holds during the declared repair waits; its
+78 spectral gaps are not 78 identified particles. The native ordering-memory
+charge and the cube number flag are different constructions. Their proposed
+identification requires a map preserving creation, motion and records.
+
+The [protected reference theorem](../../model/protected_reference/PROOF.md)
+joins the actual biased ordered-cover repair, conserved memory charge,
+stationary state and modular-current covariance. The
+[complete gauge transport](../../model/gauge_defect_transport/PROOF.md)
+supplies a locally covariant edge operation on a declared matter/link
+extension, including blocked motion. Their
+[joint process](../../model/protected_reference/GAUGE_JOIN.md) has a common
+stationary reference and an exactly preparable neutralized singlet corner,
+with its field attachment and corner admission declared. These finite
+results test parts of the required connection. Neither supplies a source-selected interacting
+relativistic Hamiltonian or a physical particle assignment.
 
 ## One source, complete records and a common spacetime
 
@@ -74,6 +198,30 @@ to one source program, including every failure and continuation record.
 
 ### Native event order and observable influence
 
+The [complete native record response](../../model/native_record_response/PROOF.md)
+uses the weighted H66 program with its actual uniform seam selector and
+tagged C/E records. Unconditional E-record scores measure incoming
+occupation contrasts. Their ordered correlations include the repair that
+produces each record, and give the exact response
+`R(z)=D(zI-P)^(-1)A`. All 65 nonstationary population modes occur as poles.
+They are relaxation factors in attempted repairs, with diagonal record
+effects; neither full quantum tomography nor particle masses follow.
+The weighted occupation means do not close under a twelve-component
+linear law: one attempted repair enlarges their span from dimension 12
+to 19. The fair source's closed mean equation is therefore not a substitute.
+
+The [reflected-record reconstruction](../../model/native_record_response/TRANSFER.md)
+gives a positive transfer on the 66-dimensional Hilbert space generated by
+these stationary scalar records. With `Pi=diag(pi)`, it is
+`S=Pi^(-1/2) P Pi^(1/2)`, with `(296/495)I<=S<=I`, and `H=-log(S)>=0`.
+Actual raw-label reversal makes every scalar cylinder reflection form
+positive. Leaving incoming contrasts unchanged under reflection instead
+gives an exact negative control. This supplies a finite Euclidean
+representation, not a spatial field or implemented real-time evolution.
+The working source's modular generator `K=-log(Pi)` is a different clock:
+an exact source matrix element has `[S,K]!=0`. The reconstructed ground
+direction `sqrt(pi)` is not a preparation of the native full working state.
+
 The [native dataflow calculation](../../model/native_causal_dataflow/README.md)
 replays complete bounded H66/H78 programs from classical basis preparations.
 It authenticates positive-branch endpoint values, selector reads, FIFO
@@ -95,10 +243,16 @@ operational dependency relation: writing a shared archive does not by
 itself prove physical influence. That exact chain cannot be identified
 order-preservingly and order-reflectingly with an open Lorentzian region
 containing spacelike pairs. This does not exclude a physical Lorentzian
-limit. Extracting an observer-visible causal relation by identifying
-record-equivalent histories requires a separate semantics proof; the
-finite swap theorem cannot erase a shared write merely because the
-endpoint updates commute.
+limit. A [complete-record comparison](../../model/native_record_causality/PROOF.md)
+supplies a narrower semantics result: disjoint fixed endpoint commands
+commute on all H66/H78 input operators after a reversible permutation of
+their complete record slots, archive/FIFO resplitting and known program
+identifier relabeling. The compared channels have diamond distance zero,
+including arbitrary references. Literal chronological records can differ.
+The theorem requires completed fixed schedules without a controller
+consuming the reordered records; adaptive feedback, timeouts and
+overlapping repairs have explicit counterexamples. It does not erase
+storage dependencies or select a physical causal quotient.
 
 ### Twelve-direction transitions and the field cone
 

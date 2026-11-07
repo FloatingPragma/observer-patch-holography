@@ -6,6 +6,91 @@ realize gravity. The [completion DAG](../COMPLETION_PROGRAM.md) orders the
 construction and validation gates; the evidence below supplies components
 and exclusions, without declaring those gates complete.
 
+The maintained [source-to-field requirements and status](OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
+separate the eight required connections. This page records response and
+mass-operator results within their specified models; none supplies the
+final measured particle-mass ratios.
+
+## From a created defect to a mass observable
+
+The [defect-to-particle route](../../model/particle_identification/ROADMAP.md#how-a-protected-defect-becomes-an-observable-particle)
+requires an admitted local creation operation, its protection mechanism,
+propagation and complete detector records on one common source. A mass
+assignment additionally requires the appropriate energy-momentum sector,
+reference and clock. A protected memory label, a relaxation rate and a
+finite transition energy satisfy different parts of this argument.
+
+For the supplied cube action, the
+[source-prepared charged response](../../model/ground_spectral_source/README.md)
+is a concrete example: a local creation changes number from four to five,
+leaves the initial exterior state unchanged, and yields a complete measured
+characteristic function with a certified error. Its energy mean `1/2` and
+variance `67/256` characterize the created state; they are not a rest-mass
+identification. Its 78 calculated lines require an energy-momentum and
+sector analysis before any species labels can be assigned. The separately
+resolved eight-line response is neutral and uses an excited reference.
+
+The [protected native reference](../../model/protected_reference/PROOF.md)
+derives a common stationary state and modular-current law for a conserved
+ordering-memory charge. The [gauge transport](../../model/gauge_defect_transport/PROOF.md)
+gives complete endpoint-covariant operations on a declared matter/link
+extension. Their source and coupling boundaries prevent treating either
+result as a completed derivation of an observed mass.
+
+Their [joint finite process](../../model/protected_reference/GAUGE_JOIN.md)
+has a stationary native reference and an exactly preparable, explicitly
+neutralized singlet corner. The actual endpoint coins fix its `25:8`
+mixture and modular transfer gap `log(8/25)`. These are properties of the
+declared stochastic edge law; they do not select a coherent Hamiltonian
+or identify that dimensionless gap with a particle rest energy.
+
+## The actual native record response
+
+The [complete weighted-source response](../../model/native_record_response/PROOF.md)
+uses all 721 raw output slots of the named biased 66-state source. If `P`
+is its actual attempt transition and `B_e` inserts the signed score of the
+observed exchange record on seam `e`, the stationary ordered correlation is
+`R_ef(k)=1^T B_e P^(k-1) B_f pi` for `k>=1`. The insertion includes
+measurement backaction. Replacing it by a passive occupation probe changes
+the experiment. The resulting 30-by-30 response observes 65 distinct
+positive nonstationary population-relaxation factors. Twenty-two
+equal-weight seam contrast columns have zero later correlations under the
+stationary fixed-selector law. Bare record effects are diagonal, so full
+population observability does not imply quantum tomography.
+
+These decay factors use attempted repairs as time. Their conversion into
+positive-energy momentum-dependent particle poles requires the common
+spatial readout, coherent dynamics and physical clock in the eight-step
+derivation. The [fair-family restriction](../../model/native_capacity_restriction/PROOF.md)
+provides exact local states and finite-population error bounds for a
+different admitted source branch. Its capacity formulas cannot be applied
+to the biased response without proving that family connection.
+
+There is a [positive transfer reconstruction](../../model/native_record_response/TRANSFER.md)
+for the same stationary scalar records. The actual reversal exchanges
+incoming and outgoing contrast according to the recorded current. With
+that reversal, complete cylinder functions have a positive reflection
+form and generate a 66-dimensional Hilbert space. Its transfer satisfies
+`(296/495)I<=S<=I`, so `H=-log(S)` has one zero and 65 positive eigenvalues.
+The ordinary oriented response is a different statistic: the centered
+score `Y_(0,5)-Y_(0,1)` has lag-one form
+`-83481968/1858725825` under an incorrect reflection-even assignment.
+Thus positive spectral weights require the derived record reversal.
+These are finite transfer energies. Neither unitary continuation nor
+identification with the observer's noncommuting modular clock is an
+implemented physical propagation law.
+
+The [clock-observable protocol](../../model/native_clock_observables/PROOF.md)
+provides noncommuting `X,Y,Z` measurements and a nonzero finite uncertainty
+bound on the same biased working source, using its declared coherent
+services and complete native records. Its corrected ideal instrument
+preserves each measured eigenspace, with complete numerical-service error
+bounds. Neither this finite Robertson application nor the positive
+transfer reconstruction identifies a position–momentum pair or converts
+the 65 relaxation/transfer levels into physical rest masses.
+
+## Declared mass operators and comparison inputs
+
 The executable construction has both an empirically calibrated Standard Model
 action and a chosen memory realization of the retained pixel-dependent
 charged-lepton law. An explicit localized CAR inclusion places the latter
@@ -98,8 +183,9 @@ sector of an unlimited scalar oscillator.
 The family matrices come from the exact source packet; the chosen ordered
 control uses angle `log(5/4)`. The evaluated Hamiltonian sets electric,
 magnetic, hopping and scalar-energy coefficients to one, and fermion and
-reference energies to zero. Its unique neutral ground is the prescribed
-preparation. These settings and the complete source/data path are recorded
+reference energies to zero. A numerical neutral low-energy projector defines
+the prescribed preparation, with each included component's energy retained.
+Ground uniqueness has no interval certificate. These settings and the complete source/data path are recorded
 in the [native join](OPH_NATIVE_PARTICLE_MASS_JOIN.md#complete-finite-higgs-experiment-and-its-source-boundary).
 No measured-mass table is used by this evaluation. That fact does not
 prove that the continuing native program selects its action or ground.
