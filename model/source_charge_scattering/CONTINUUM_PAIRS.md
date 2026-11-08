@@ -1,146 +1,214 @@
-# Separated charge-pair preparations on the same field source
+# Separated source charge configurations
 
 The [bounded source creator](../spin_charge_dispersion/PROOF.md) supplies
 normal operators B_+=B and B_-=B* in the joint configuration-field algebra,
 with charges±1 and norms at most1/2. They use one ordered source ground Ω,
 positive energy L and commuting spatial translations U(x). At a momentum
-scale r>0, its complete three-outcome instrument is
+scale r>0, the complete three-outcome instrument is
 
     B_+, B_-, B_0=sqrt(I-B_+*B_+-B_-*B_-).
 
 The source order bound m>1/10 follows from the replayed infrared/biased
 state certificate in `spin_charge_dispersion/order.py`. Its bounded
-creator theorem gives, for each sign, an original probability at least
+creator theorem gives each sign an original probability at least
 
-    kappa=m0²/17576=1/1757600                              (1)
+    p_*=m0²/17576=1/1757600                                (1)
 
 in the specified positive joint energy-momentum band. In particular the
-full unfiltered creation norm squared is at least kappa. This is an
-input proved on the same source, without a fitted particle wavefunction.
+full unfiltered creation norm squared is at least p_*. This is an
+established input on the same source. The probability p_* is distinct
+from the microscopic current coefficient denoted kappa elsewhere.
 
-## 1. A nonzero pair at arbitrarily large separation
+## 1. Every record in a finite sequence of creations
+
+Fix an integer n>=1 and positions x_1,...,x_n. The complete preparation
+has all3^n Kraus operators
+
+    K_s=alpha_(x_n)(B_(s_n)) ... alpha_(x_1)(B_(s_1)),
+    s_j in{-1,0,+1}.                                     (2)
+
+Their adjoint products sum to I by iterating the complete three-branch
+instrument. This identity does not require the operations to commute.
+Every classical sequence and every native implementation failure is
+retained. There is no conditioning on a selected success history.
+The zero-branch operator has source charge zero, so a record s carries
+total charge sum_j s_j.
 
 Set A=B*B. The whole equal-time configuration algebra is commutative,
-including spatial translates and their adjoints. Therefore
+including all translates and adjoints. Normality also gives BB*=A.
+Consequently every one of the2^n sign sequences using only±1 has the
+same original probability
 
-    w(x)=||alpha_x(B) B Ω||²
-        =omega(A alpha_x(A))
-        =<AΩ,U(x) AΩ> >=0.                                (2)
+    w_n(x_1,...,x_n)=omega(product_(j=1)^n alpha_(x_j)(A))
+                    =||K_s Ω||² >=0.                     (3)
 
-This uses the actual field translation group. It does not use a separate
-coordinate system or assume that the state factors. Source charge
-covariance makes the prepared vector in (2) an exact charge+2 vector.
-The conjugate preparation has charge-2 and the same norm, because source
-conjugation fixes Ω and commutes with the spatial translations.
+Each factor is positive and at most I/4. Hence w_n<=4^-n. A tuple with
+positive w_n simultaneously supports all these sign sequences, whose
+total charges are -n,-n+2,...,n. This is a statement about source charge;
+the number of creation operations is not identified with particle number.
 
-Average (2) over the cube [-R,R]^3. The joint spectral calculus of the
-three commuting translation generators gives the averaging multiplier
+## 2. A finite averaging inequality without clustering
 
-    product_(j=1)^3 sinc(R P_j).
+Let C_R=[-R,R]^3, R>0, and let
 
-Its absolute value is at most1, and it tends pointwise to the projection
-onto joint momentum zero. Dominated convergence on each vector proves
-strong convergence of these averages to the invariant projection P_inv.
-Consequently
+    A_R=average_(x in C_R) alpha_x(A).
 
-    lim_(R->infinity) average_(x in [-R,R]^3) w(x)
-        =||P_inv AΩ||² >=|<Ω,AΩ>|² >=kappa².               (3)
+The bounded strong operator integral exists by source translation
+continuity. It is positive, at most I/4, and omega(A_R)=omega(A)>=p_*
+by invariance of the selected state. Independent averaging of (3) over
+n positions gives exactly
 
-The middle inequality uses the invariant unit vector Ω; it does not
-assume P_inv is one-dimensional. This is a mean statement, not a
-clustering limit. In particular, the limit need not equal omega(A)².
+    average_(x_1,...,x_n in C_R) w_n=omega(A_R^n).
 
-The contribution of any fixed bounded set of separations to the average
-tends to zero: 0<=w(x)<=||A||²<=1/16 and its volume fraction tends to
-zero. Thus beyond every prescribed separation there exists a translation
-with w(x)>kappa²/2. Strong translation continuity makes w continuous.
-A nearby rational translation, with slack in the distance, therefore has
+Fubini applies to bounded matrix coefficients. The scalar spectral
+measure of the positive operator A_R and convexity of t->t^n give
 
-    w(x)>=kappa²/4.                                      (4)
+    omega(A_R^n)>=omega(A_R)^n>=p_*^n.                    (4)
 
-Equation (4) is an existence result at arbitrarily large separations.
-It asserts neither that every large separation works nor an effective
-sufficient separation. The packet includes exact periodic and
-nonergodic algebraic controls that prevent either unjustified inference.
-They are implication controls, not substitutes for the spin source.
+Equation (4) holds for every R. It uses neither a mean-ergodic limit nor
+a one-dimensional invariant subspace. No clustering or asymptotic state
+factorization is assumed. The receipt includes exact controls in which
+some translations give zero probability or an invariant mixture gives a
+mean larger than the squared first moment, preventing stronger inferences
+from an averaging inequality.
 
-Apply the complete three-branch preparation, then its spatial translate.
-All nine Kraus operators are
+## 3. An explicit cube containing a separated rational configuration
 
-    K_(s,t)=alpha_x(B_s) B_t,     s,t in{-1,0,+1}.
+Prescribe D>0. Independent points uniform in C_R have, for each pair,
 
-Their adjoint products sum to I by completeness, even without appealing
-to commutativity. Retain all nine classical records and every native
-implementation failure. The (+1,+1) and(-1,-1) records have the original
-probability (4); the other seven records are not removed or used to
-renormalize that bound. This constructs a separated pair of source
-charge excitations. Two units of internal charge are not identified
-with two particles or with a Fock occupation number.
+    Pr(||x_i-x_j||_infinity<=D) <=(D/R)^3,
 
-## 2. An energy bound on the entire prepared pair
+since the forbidden conditional volume is at most(2D)^3. A union bound
+therefore bounds the near-tuple fraction by binomial(n,2)(D/R)^3.
+Its contribution to the averaged original probability is at most
 
-The parent creator has
+    4^-n binomial(n,2)(D/R)^3.                            (5)
+
+Choose the least positive integer K satisfying
+
+    K³ >= 4 binomial(n,2)/(4p_*)^n,       R=D K.           (6)
+
+For n=1, K=1 and the pairwise constraint is empty. The integer K is
+computed by exact doubling and bisection, with every comparison rational.
+Equations(4)-(6) imply that the integral restricted to tuples with every
+pairwise infinity distance strictly greater than D is at least3p_*^n/4.
+Since its normalized volume is at most1, an interior allowed tuple has
+w_n>p_*^n/2. Boundary sets have zero volume. Strong continuity then permits
+a nearby rational tuple inside C_R, with the same strict separations and
+
+    w_n>=p_*^n/4.                                        (7)
+
+A common translation can place the first centre at zero; the other
+relative centres then lie in [-2R,2R]^3, with every separation and
+probability unchanged. The same tuple works for every±1 sign sequence. Since D is arbitrary,
+this supplies configurations at arbitrarily large pairwise separation.
+Equation(6) is an explicit finite search domain, not a computation of a
+good tuple or a modulus for evaluating the infinite selected-state
+probability. Success is not asserted for every separated tuple.
+
+The positions are centres of translates of the source's Schwartz
+smearing profile. An annular Fourier support is not compact spatial
+support. Thus (7) does not assert disjoint compact operator supports or
+independence of the smeared states. Their equal-time commutativity comes
+from the configuration-field construction, not from discarding tails.
+
+For n=2, equation(7) is the original charge-pair bound p_*²/4. Both
+(+1,+1) and(-1,-1) records have that weight; the opposite-sign records
+have it as well. All nine original preparation records are retained.
+The finite source cube's local A_q(x) operators have a different finite
+preparation law and are not substituted for these field B_q operators.
+
+## 4. Energy of the entire unnormalized configuration
+
+The source creator is the bounded form integral
 
     B=(1/2pi) integral exp(-i theta)
         integral_0^infinity exp(-u) sin(u X_theta) du dtheta,
 
-where X_theta=sqrt(r)[Q3(F)cos(theta)+Q2(F)sin(theta)].
-For ell=L/r the inherited all-input energy-form kick estimate gives
+with X_theta=sqrt(r)[Q3(F)cos(theta)+Q2(F)sin(theta)].
+For ell=L/r, the inherited all-input energy-form kick estimate gives
 
     sqrt(q_ell(exp(±iu X_theta)psi))
         <=sqrt(q_ell(psi))+sqrt(3)|u| ||psi||.
 
-Taking the sine difference and using the energy-form triangle inequality
-preserves that upper bound. The Laplace and angular integrals are
-convergent in the closed form norm: integral exp(-u)du=1 and
-integral u exp(-u)du=1. Thus
+Taking the sine difference and the energy-form triangle inequality
+preserves that upper bound. The Laplace and angular integrals converge
+in the closed form norm: integral exp(-u)du=1 and
+integral u exp(-u)du=1. Therefore, for every form-domain input,
 
-    sqrt(q_ell(B psi)) <=sqrt(q_ell(psi))+sqrt(3)||psi||.   (5)
+    sqrt(q_ell(B psi)) <=sqrt(q_ell(psi))+sqrt(3)||psi||.   (8)
 
-The same estimate holds for B*, all translates, and every form-domain
-input. In particular q_ell(BΩ)<=3 and ||BΩ||<=1/2. Applying (5) a second
-time gives the original, unnormalized pair bound
+The same estimate holds for B*, and for all spatial translates because
+translations commute with L. In a unit-sign sequence, after j operations
+the vector norm is at most2^-j. Starting from q_ell(Ω)=0, iteration of(8)
+gives
 
-    q_L(alpha_x(B)BΩ) <=(sqrt(3)+sqrt(3)/2)² r=27r/4.     (6)
+    sqrt(q_ell(K_s Ω)) <=sqrt(3)sum_(j=0)^(n-1)2^-j,
+    q_L(K_s Ω) <=12r(1-2^-n)².                            (9)
 
-No state-specific form assumption is inserted between the two creations.
-The spatial translation commutes with L, so the bound is independent of
-which large separation satisfies (4).
+No intermediate state is normalized or assumed to be a ground state.
+This energy bound concerns the±1 sequences in (3); it is not an assertion
+that every other preparation record has the same energy.
 
-For the upper energy cut E_max=54r/kappa², spectral Markov gives
-original weight above E_max at most kappa²/8. Combining this with (4)
-proves original pair weight at least kappa²/8 in
+For a separated rational tuple from (7), define
 
-    0<=L<=54r/kappa².                                    (7)
+    E_max=96r(1-2^-n)²/p_*^n.
 
-The lower endpoint is zero. Neither (6) nor (7) excludes a zero-energy
-pair component or proves a positive two-particle threshold. The nonlinear
-creators need not have total momentum confined to the original single
-field annulus. Every energy and momentum complement is retained.
+Spectral Markov bounds the original weight above E_max by p_*^n/8.
+Thus the original joint record and energy event has probability at least
+p_*^n/8 in
 
-## 3. Operational attachment and scattering boundary
+    0<=L<=96r(1-2^-n)²/p_*^n.                             (10)
+
+At n=2, (9) gives27r/4 and (10) gives the pair cutoff54r/p_*².
+The lower endpoint is zero. Neither result excludes a zero-energy
+component or confines the nonlinear total momentum to the one-field
+annulus. Every energy and momentum complement remains an outcome.
+
+## 5. Nonzero integer-charge sectors and their energy infima
+
+For any nonzero integer q choose n=|q| with all signs equal to its sign.
+Equation(7) gives a nonzero source vector of exact charge q. The vacuum
+supplies the charge-zero sector. Hence every integer source-charge sector
+is nonzero. Exact circle covariance puts these vectors in the stated
+charge eigenspaces; no unbounded product-domain assumption is needed.
+
+The normalized vector from (7) has mean energy at most
+
+    48r(1-2^-n)²/p_*^n.
+
+The probability floor is independent of r. Letting r decrease to zero
+proves that the energy infimum in each integer-charge sector is zero.
+The actual L commutes with source charge, so each such sector is reducing.
+This conclusion allows a zero-energy kernel. It does not prove that
+positive spectrum accumulates at zero for every charge, exclude a gap
+above zero eigenvectors, or identify a positive-frequency particle.
+The single-charge positive-band theorem is a separate stronger statement
+about its specified preparation and detector.
+
+## 6. Operational attachment and scattering boundary
 
 The parent bounded creators and their adjoints are common strong limits
-of finite bounded source histories. Their translated products and the
-continuous positive square-root complement therefore belong to that same
-history construction. Every finite source approximation has the complete
-nine-branch instrument. The existing native finite-instrument compiler
-supplies its arbitrary-input/reference error bound with all first-failure
-labels. This does not supply an effective infinite-ground preparation
-modulus or a numerical value of a sufficient separation in (4).
+of finite bounded source histories. Their finitely many translated
+products and positive square-root complements belong to that same
+history construction. Every finite approximation has the complete3^n
+branch instrument. The existing finite-instrument compiler supplies its
+arbitrary-input/reference error with all first-failure labels.
+No effective infinite-ground preparation modulus or good-location search
+oracle is supplied by the explicit domain(6).
 
-For an implemented full experiment whose unhalved trace error is delta,
-the original probability bound for a stated event is reduced by at most
-delta/2 before any conditioning. The source-continuum approximation must
-be controlled separately from the finite native pulse error. Existence
-of the limiting nonzero event does not assert that its full tape or a
-laboratory experiment has been executed.
+A complete experiment with unhalved trace error delta reduces the stated
+original event probability by at most delta/2 before conditioning.
+Source-continuum approximation and finite native pulse error are separate
+budgets. Existence of a limiting nonzero record is not an executed native
+tape or a laboratory observation.
 
-The construction supplies nonzero separated source charge-pair records
-with finite energy on the actual field clock. Scattering additionally
-requires identified stable one-excitation channels, an asymptotic
-identification into this same Hilbert space, quantitative incoming and
-outgoing wave-operator tails, and the associated complete detectors.
-No such particle assignment, asymptotic factorization or scattering
-matrix follows from the mean existence argument. The exact finite
-response and the conditional Cook attachment are given in [PROOF.md](PROOF.md).
+The construction supplies arbitrarily separated, finite-energy source
+charge configurations. Scattering additionally requires identified
+stable one-excitation channels, an asymptotic identification into this
+same Hilbert space, quantitative incoming and outgoing wave-operator
+tails, and the associated complete detectors. Charge sectors, repeated
+creation operations and positive original probabilities do not alone
+supply a particle count, Fock factorization, mass shell or scattering
+matrix. The exact finite response and conditional Cook attachment are
+proved in [PROOF.md](PROOF.md).

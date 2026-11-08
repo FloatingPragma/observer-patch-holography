@@ -220,3 +220,52 @@ def test_pair_bounds_follow_the_actual_replayed_order_certificate(receipt):
     assert row['positive_original_weight_at_arbitrarily_large_separation']
     assert not row['zero_energy_pair_weight_excluded']
     assert not row['asymptotic_particle_states_or_scattering_matrix_constructed']
+
+
+def test_exact_positive_cube_ceiling_controls_rounding():
+    from . import continuum
+    for value in(F(),F(1),F(8),F(9),F(27,8),F(10**20,7)):
+        k=continuum.positive_cube_ceiling(value)
+        assert k>=1 and k**3>=value
+        assert k==1 or (k-1)**3<value
+    with pytest.raises(ValueError):continuum.positive_cube_ceiling(F(-1))
+    with pytest.raises(ValueError):continuum.positive_cube_ceiling(.5)
+
+
+@pytest.mark.parametrize('n',[1,2,3,4,8])
+def test_complete_n_creation_search_box_and_energy_budget(n):
+    from . import continuum
+    row=continuum.configuration_bounds(n,F(3,2),F(1,8))
+    p=F(1,1757600);mean=p**n;k=row['least_positive_integer_cube_multiplier']
+    assert F(row['explicit_cube_half_width'])==F(3,2)*k
+    assert F(row['anchored_relative_configuration_half_width'])==3*k
+    assert row['first_center_can_be_translated_to_zero']
+    assert F(row['near_tuple_original_weight_upper'])<=mean/4
+    assert F(row['separated_tuple_integral_lower'])>=3*mean/4
+    assert F(row['some_rational_separated_tuple_original_weight_lower'])==mean/4
+    assert row['unit_sign_record_count']==2**n
+    assert row['all_complete_preparation_record_count']==3**n
+    assert row['nonzero_unit_sign_total_charges']==list(range(-n,n+1,2))
+    energy=F(row['unnormalized_first_energy_moment_upper'])
+    cutoff=F(row['same_source_upper_energy_cut'])
+    assert energy==F(3,2)*(1-F(1,2**n))**2
+    assert mean/4-energy/cutoff==F(row['original_weight_below_energy_cut_lower'])==mean/8
+    assert row['zero_energy_included']
+    assert not row['specified_good_tuple_computed']
+
+
+def test_general_two_creation_bound_matches_retained_pair_convention():
+    from . import continuum
+    pair=continuum.pair_bounds(F(1,8));general=continuum.configuration_bounds(2,F(1),F(1,8))
+    assert general['some_rational_separated_tuple_original_weight_lower']==pair['arbitrarily_far_rational_shift_pair_probability_lower']
+    assert general['unnormalized_first_energy_moment_upper']==pair['each_pair_unnormalized_first_energy_moment_upper']
+    assert general['same_source_upper_energy_cut']==pair['same_source_pair_upper_energy_cut']
+    assert general['original_weight_below_energy_cut_lower']==pair['original_pair_weight_below_cut_lower']
+
+
+def test_configuration_count_is_not_a_particle_count(receipt):
+    result=receipt['separated_continuum_charge_pairs']
+    assert result['every_integer_source_charge_sector_nonzero']
+    assert result['each_integer_charge_energy_infimum_zero']
+    assert not result['zero_energy_eigenstate_or_positive_frequency_particle_inferred']
+    assert all(not row['charge_count_identified_with_particle_number'] for row in result['finite_configuration_bounds'])
