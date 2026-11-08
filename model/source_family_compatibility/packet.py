@@ -1,0 +1,123 @@
+"""Exact same-source clock, grading and gauge-attachment controls."""
+import argparse
+import ast
+from fractions import Fraction as F
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+
+from tools import strict_json
+from . import algebra,bounds,rotations
+
+ROOT=Path(__file__).resolve().parents[2]
+HERE=Path(__file__).parent
+
+
+def serialize(value):
+    if type(value)is F:return str(value)
+    if isinstance(value,dict):return {k:serialize(v)for k,v in value.items()}
+    if isinstance(value,(list,tuple)):return [serialize(v)for v in value]
+    return value
+
+
+def bindings():
+    paths=set(HERE.glob('*.py'));queue=list(paths)
+    def include(path):
+        if path.is_file()and path not in paths:paths.add(path);queue.append(path)
+    while queue:
+        path=queue.pop();package='.'.join(path.relative_to(ROOT).with_suffix('').parts[:-1])
+        for node in ast.walk(ast.parse(path.read_text())):
+            names=[]
+            if isinstance(node,ast.Import):names=[a.name for a in node.names]
+            elif isinstance(node,ast.ImportFrom):
+                name='.'*node.level+(node.module or '')
+                base=importlib.util.resolve_name(name,package)if node.level else name
+                names=[base]+[base+'.'+a.name for a in node.names]
+            for name in names:
+                parts=name.split('.');include(ROOT.joinpath(*parts).with_suffix('.py'))
+                for j in range(1,len(parts)+1):include(ROOT.joinpath(*parts[:j])/'__init__.py')
+    paths.update(ROOT/p for p in (
+        'model/strong_coupling_refinement/README.md','model/protected_spin_limit/README.md',
+        'model/bipartite_spin_limit/README.md','model/bipartite_spin_limit/LOCAL_LIMIT.md',
+        'model/particle_mass_readout_gate/README.md','model/spin_canonical_field/README.md',
+        'model/spin_canonical_energy/README.md','model/ballistic_free_boundary/README.md',
+        'model/standard_model_source_map/PROOF.md','model/gauge_defect_transport/PROOF.md',
+        'model/color_effective_action/PROOF.md','model/particle_gauge_band/QUANTUM_LINK_PROOF.md',
+        'model/common_source/chiral_candidate/README.md','model/interacting_extension/chiral_electric/PROOF.md',
+        'Lean/Screen/GaugeSectorBracketCompletion.lean','Lean/Screen/AssembledActionComposition.lean',
+        'Lean/Screen/QuantumMatterIntegration.lean','Lean/Screen/FermionSectorAssembly.lean',
+        'Lean/Screen/MatterGrammarIndexBridge.lean','Lean/Screen/ExteriorComponentBridge.lean',
+        'Lean/Screen/SL2F5PortCover.lean','Lean/QFT/SectorInheritance.lean',
+        'paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex'))
+    # The literal representation additionally reads its source geometry fixtures.
+    from model.common_source import native_matter_attachment as matter
+    paths.update(ROOT/name for name in matter.source_bindings())
+    paths.update((HERE/'README.md',HERE/'PROOF.md'))
+    return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
+
+
+def claims():
+    return {'same_source_full_ground_gap_reused':True,
+        'all_U_at_least_four_cE_clock_constraint':True,
+        'complete_charged_weight_and_original_odd_probability_bound':True,
+        'chemical_shift_conjugate_sum_invariant':True,
+        'finite_source_odd_and_spin_excitations_both_retained':True,
+        'actual_internal_currents_and_Gauss_countercontrol_replayed':True,
+        'selected_spin_source_proper_cubic_scalar_pullback':True,
+        'local_even_source_creators_disjointly_commute':True,
+        'excluded_all_OPH_fermionic_sectors':False,
+        'local_dressed_theorem_assumed_full_ground_gap':False,
+        'neutral_spin_fields_identified_with_original_odd_CAR':False,
+        'negative_reference_excitation_relabelled_as_ground_gap':False,
+        'internal_even_occupation_identified_as_physical_statistics':False,
+        'same_source_nonabelian_chiral_spin_continuum_derived':False,
+        'capacity_law_or_couplings_selected_by_gauge_covariance':False,
+        'physical_particle_mass_or_Lorentz_spin_assigned':False,
+        'cubic_scalar_profile_alone_proves_continuum_spin_zero':False,
+        'source_DHR_category_or_physical_chirality_instantiated':False,
+        'conditioning_used_to_restore_vanishing_original_weight':False}
+
+
+def build():
+    before=bindings();clocks=[]
+    for edges in (1,2,12,96):
+        ratio=F(4*edges)
+        for p in (F(1,4),F(1,16),F(1,256)):
+            # This is a theorem-bound specialization, not a selected trajectory.
+            # c=R,U=R² gives J_eff=1; q=1/p preserves its ballistic clock.
+            clocks.append(bounds.common_clock(ratio,ratio*ratio,edges,p,1/p))
+    value={'schema':'oph.source_family_compatibility.v1','all_pass':True,
+        'source_bindings':before,'same_clock_controls':serialize(clocks),
+        'chemical_reference_controls':serialize([bounds.chemical_pair(F(3),F(4),F(n),F(2))for n in (-5,-1,0,2,5)]),
+        'actual_full_CAR_dimer':algebra.dimer(),
+        'actual_internal_current_and_complete_gauge_control':algebra.internal_and_transport(),
+        'actual_source_spatial_rotation_and_exchange_control':rotations.certificate(),
+        'claims':claims(),
+        'replay_scope':{'actual_finite_graph_bound_producer_called':True,
+            'actual_full_sixteen_state_source_reconstructed':True,
+            'literal_M15_currents_and_color_transport_recomputed':True,
+            'new_Hamiltonian_or_empirical_fit_introduced':False,
+            'all_ancestral_native_words_replayed':False}}
+    if before!=bindings():raise ValueError('source changed during source-family checks')
+    return value
+
+
+def validate(value):
+    expected=build()
+    if json.dumps(value,sort_keys=True,allow_nan=False)!=json.dumps(expected,sort_keys=True,allow_nan=False):
+        raise ValueError('source, exact compatibility bound or physical scope changed')
+    return expected
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__);g=p.add_mutually_exclusive_group(required=True)
+    g.add_argument('--write',nargs='?',type=Path,const=HERE/'results.json')
+    g.add_argument('--check',nargs='?',type=Path,const=HERE/'results.json')
+    a=p.parse_args()
+    if a.write:a.write.write_text(json.dumps(build(),indent=2,sort_keys=True,allow_nan=False)+'\n')
+    else:validate(strict_json.load(a.check))
+    print('PASS: common-clock charge bounds and scoped gauge/matter source attachments')
+
+
+if __name__=='__main__':main()
