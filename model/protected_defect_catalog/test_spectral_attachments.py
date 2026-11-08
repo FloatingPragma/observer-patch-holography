@@ -1,0 +1,152 @@
+"""Consumer scope guards reject matching forged scientific owner payloads.
+
+The full owner replay is tested separately. These tests isolate the consumer
+boundary with genuine retained payloads and explicitly matched producer data,
+so a failed test cannot be hidden by a receipt mismatch or an expensive solve.
+"""
+import copy
+
+import pytest
+
+from model.protected_defect_catalog import packet
+
+
+def _set(payload, path, value):
+    for key in path[:-1]:
+        payload = payload[key]
+    payload[path[-1]] = value
+
+
+@pytest.fixture(scope='module')
+def kinetic_payload():
+    return packet.serialize(packet.kinetic_nodes.certificate())
+
+
+def test_kinetic_consumer_accepts_matching_scoped_source(kinetic_payload, monkeypatch):
+    value = copy.deepcopy(kinetic_payload)
+    monkeypatch.setattr(packet.kinetic_nodes, 'certificate', lambda: value)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: {'kinetic_node_to_free_field_map': value})
+    assert packet.kinetic_field_attachment() == value
+
+
+@pytest.mark.parametrize('path,value', [
+    (('scope', 'default_interacting_Green_function_winding_derived'), True),
+    (('scope', 'physical_Standard_Model_assignment'), True),
+    (('scope', 'all_native_repair_protected_charge'), True),
+    (('scope', 'real_space_defect_classification'), True),
+    (('free_field_scope', 'default_U_over_c_eight_in_this_class'), True),
+    (('nodes', 0, 'physical_particle_assignment'), 'electron'),
+])
+def test_kinetic_scope_forgery_rejected_despite_matching_owner(kinetic_payload, monkeypatch, path, value):
+    changed = copy.deepcopy(kinetic_payload)
+    _set(changed, path, value)
+    monkeypatch.setattr(packet.kinetic_nodes, 'certificate', lambda: changed)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: {'kinetic_node_to_free_field_map': changed})
+    with pytest.raises(ValueError, match='kinetic-field map exceeds its physical scope'):
+        packet.kinetic_field_attachment()
+
+
+def test_kinetic_replay_mismatch_is_rejected_separately(kinetic_payload, monkeypatch):
+    changed = copy.deepcopy(kinetic_payload)
+    changed['nodes'][0]['kinetic_winding'] *= -1
+    monkeypatch.setattr(packet.kinetic_nodes, 'certificate', lambda: changed)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: {'kinetic_node_to_free_field_map': kinetic_payload})
+    with pytest.raises(ValueError, match='kinetic-field owning source receipt differs'):
+        packet.kinetic_field_attachment()
+
+
+@pytest.fixture(scope='module')
+def joint_payload():
+    parent = packet.strict_json.load(packet.joint_field.OUTPUT)
+    if 'bounded_joint_charged_energy_momentum_bands' not in parent:
+        parent['bounded_joint_charged_energy_momentum_bands'] = packet.serialize(
+            packet.joint_field.arctan_bands.certificate())
+    return parent
+
+
+def test_joint_consumer_accepts_complete_scoped_bands(joint_payload, monkeypatch):
+    value = copy.deepcopy(joint_payload)
+    monkeypatch.setattr(packet.joint_field, 'build', lambda: value)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: value)
+    result = packet.joint_field_attachment()
+    assert result['bounded_charged_joint_bands']['actual_finite_source']['complete_record_count'] == 9
+    assert result['physical_species'] == [] and result['physical_masses'] == []
+
+
+@pytest.mark.parametrize('path,value', [
+    (('continuum_band', 'each_original_charge_probability_lower'), '1'),
+    (('continuum_band', 'joint_positive_field_clock_used'), False),
+    (('continuum_band', 'sharp_shell_or_physical_mass_inferred'), True),
+    (('continuum_band', 'old_zero_field_clock_substituted'), True),
+    (('continuum_band', 'original_odd_CAR_identification'), True),
+    (('full_history_linear_force_closure_proved',), True),
+    (('continuum_limit_error_rate_supplied',), True),
+    (('physical_species',), ['electron']),
+    (('physical_mass_prediction',), '1'),
+])
+def test_joint_band_forgery_rejected_despite_matching_owner(joint_payload, monkeypatch, path, value):
+    changed = copy.deepcopy(joint_payload)
+    _set(changed['bounded_joint_charged_energy_momentum_bands'], path, value)
+    monkeypatch.setattr(packet.joint_field, 'build', lambda: changed)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: changed)
+    with pytest.raises(ValueError, match='joint-field charged response exceeds its owning scope'):
+        packet.joint_field_attachment()
+
+
+_CENTERED_PRODUCERS = {
+    'local_matter': 'local_interacting_matter_history',
+    'charge_bands': 'centered_original_charged_bands',
+    'composite': 'source_generated_composite_CAR_response',
+    'cube_response': 'default_cube_composite_response',
+    'charge_scaling': 'volume_uniform_charged_scaling',
+    'boost_current': 'full_source_energy_dipole',
+    'cube_spectrum': 'complete_cube_wavepacket_spectrum',
+    'momentum_response': 'actual_cubic_momentum_response',
+    'charge_escape': 'default_original_charge_escape',
+    'uv_tail': 'uniform_original_energy_tails',
+    'local_spectral': 'complete_local_source_energy_readout',
+    'nodal_memory': 'actual_nodal_response_memory',
+    'ground_marginals': 'ground_marginal_preparation_and_native_records',
+    'cube_memory': 'full_cube_frequency_dependent_memory',
+}
+
+
+@pytest.fixture(scope='module')
+def centered_payload():
+    parent = packet.strict_json.load(packet.ROOT/'model/source_family_compatibility/results.json')
+    # The official owner write precedes catalogue admission. Its complete
+    # scientific replay is not duplicated by these scope-only mutations.
+    assert all(key in parent for key in _CENTERED_PRODUCERS.values())
+    return parent
+
+
+def _stub_centered_producers(monkeypatch, parent):
+    for name, key in _CENTERED_PRODUCERS.items():
+        monkeypatch.setattr(getattr(packet, name), 'certificate', lambda key=key: copy.deepcopy(parent[key]))
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: copy.deepcopy(parent))
+
+
+def test_centered_consumer_accepts_original_records_without_thermodynamic_promotion(centered_payload, monkeypatch):
+    parent = copy.deepcopy(centered_payload)
+    _stub_centered_producers(monkeypatch, parent)
+    result = packet.centered_matter_attachment()
+    assert result['physical_species'] == [] and result['physical_masses'] == []
+    assert result['ground_marginal_preparation_and_native_records']['cut_ground_substituted_for_infinite_ground'] is False
+
+
+@pytest.mark.parametrize('key,path,value,error', [
+    ('actual_nodal_response_memory', ('physical_species_identified',), ['electron'], 'energy readout promotes'),
+    ('actual_nodal_response_memory', ('default_source_result', 'zero_frequency_residue_inferred'), True, 'energy readout promotes'),
+    ('ground_marginal_preparation_and_native_records', ('thermodynamic_local_marginal_convergence_modulus_proved',), True, 'finite preparation promotes'),
+    ('ground_marginal_preparation_and_native_records', ('cut_ground_substituted_for_infinite_ground',), True, 'finite preparation promotes'),
+    ('ground_marginal_preparation_and_native_records', ('physical_state_selection_proved',), True, 'finite preparation promotes'),
+    ('full_cube_frequency_dependent_memory', ('physical_mass_assigned',), 'electron', 'cube memory exceeds'),
+    ('full_cube_frequency_dependent_memory', ('thermodynamic_charge_gap_proved',), True, 'cube memory exceeds'),
+    ('full_cube_frequency_dependent_memory', ('native_large_filter_tape_executed',), True, 'cube memory exceeds'),
+])
+def test_centered_memory_and_state_scope_forgery_rejected(centered_payload, monkeypatch, key, path, value, error):
+    changed = copy.deepcopy(centered_payload)
+    _set(changed[key], path, value)
+    _stub_centered_producers(monkeypatch, changed)
+    with pytest.raises(ValueError, match=error):
+        packet.centered_matter_attachment()
