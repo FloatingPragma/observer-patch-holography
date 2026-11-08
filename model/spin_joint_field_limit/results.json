@@ -2003,13 +2003,16 @@
     "joint_continuum_subsequence_uniqueness_proved": false,
     "large_preparation_circuits_executed": false,
     "mean_magnetization_or_bond_convergence_rate_proved": false,
+    "original_weight_energy_tube_bound_from_filtered_Ward_data": true,
     "physical_particle_assignment": null,
     "positive_field_order_and_bond_variance_bounds_quantitative": true,
+    "positive_full_pair_slack_excludes_sharp_subbranches": false,
     "same_clock_ground_vector_filtered_current_O_p_squared_bound": true,
     "second_canonical_pair_on_same_joint_history_subsequence": true,
     "sequence_forced_by_unread_repair": false,
     "sequence_is_a_chosen_source_preparation_prescription": true,
     "sharp_particle_mass_shell_proved": false,
+    "source_Ward_reduction_of_two_force_form_defects": true,
     "source_field_sequence": "p=n^-2, B=J*n^-5, n>=2",
     "state": "the unique positive-B infinite-volume source ground at each n"
   },
@@ -2355,6 +2358,436 @@
       "mixed_history_Duhamel_estimate_proved": false
     }
   },
+  "source_Ward_susceptibilities_and_force_equations": {
+    "actual_source": {
+      "actual_source_frame_and_full_spectrum_checked": true,
+      "continuum_particle_or_mass_inferred": false,
+      "coupling": "1",
+      "field": "1/32",
+      "p": "1/4",
+      "positive_clock": "(H_B-E_B)/(Jp)",
+      "profiles": [
+        {
+          "all_original_energy_weight_on_that_line": true,
+          "complete_preparation_energy_records": {
+            "additional_native_tape_executed": false,
+            "complete_record_count": 16,
+            "finite_effects_specified": true,
+            "original_cross_moment_by_retained_outcome": {
+              "0": "0",
+              "2 + sqrt(257)/8": "sqrt(257)/32896",
+              "sqrt(257)/4": "0"
+            },
+            "original_interference_cross_moment": "sqrt(257)/32896",
+            "preparation_success_renormalized": false,
+            "probability_sum": "1",
+            "records": [
+              {
+                "original_probability": "1/8 - 2*sqrt(257)/257",
+                "outcome": "preparation_failure",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "2*sqrt(257)/257 + 1/8",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "2*sqrt(257)/257 + 1/8",
+                "outcome": "preparation_failure",
+                "setting": "P"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "P"
+              },
+              {
+                "original_probability": "1/8 - 2*sqrt(257)/257",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "P"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "P"
+              },
+              {
+                "original_probability": "29*sqrt(257)/6425 + 33/200",
+                "outcome": "preparation_failure",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "17/200 - 29*sqrt(257)/6425",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "31*sqrt(257)/6425 + 33/200",
+                "outcome": "preparation_failure",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "17/200 - 31*sqrt(257)/6425",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "Q_plus_iP"
+              }
+            ],
+            "setting_probability": "1/4",
+            "settings": 4,
+            "zero_probability_records_retained": true
+          },
+          "one_retained_positive_energy": "2 + sqrt(257)/8",
+          "order_cross_moment": "sqrt(257)/32896",
+          "original_Q_creation_weight": "8*sqrt(257)/257 + 1/2",
+          "positive_form_slacks": [
+            "0",
+            "0"
+          ],
+          "positive_pair_slack_excludes_a_sharp_component": false,
+          "profile": [
+            1,
+            1
+          ],
+          "source_coefficients_u_b": [
+            "sqrt(257) + 513/32",
+            "1/2"
+          ],
+          "source_first_moments": [
+            "1/128 + 513*sqrt(257)/1052672",
+            "sqrt(257)/65792"
+          ],
+          "source_inverse_moments": [
+            "sqrt(257)/16448",
+            "-8 + 513*sqrt(257)/1028"
+          ],
+          "source_norms_squared": [
+            "sqrt(257)/8224 + 1/512",
+            "1/32 - sqrt(257)/514"
+          ]
+        },
+        {
+          "actual_charge_resolved_force_pairs": [
+            {
+              "filtered_cross_moment": "-3/512 + 5*sqrt(257)/131584",
+              "force_form_slacks": [
+                "0",
+                "0"
+              ],
+              "internal_source_charge": -1,
+              "original_P_branch_probability": "5/18 - 67*sqrt(257)/4626",
+              "original_Q_branch_probability": "61*sqrt(257)/4626 + 5/18",
+              "original_probability_floor_for_each": "1/25",
+              "source_coefficients_u_b": [
+                "-9*sqrt(257)/88 - 577/352",
+                "-2*sqrt(257)/13 - 63/26"
+              ],
+              "source_excitation_energy": "2 + sqrt(257)/8"
+            },
+            {
+              "filtered_cross_moment": "5*sqrt(257)/131584 + 3/512",
+              "force_form_slacks": [
+                "0",
+                "0"
+              ],
+              "internal_source_charge": 1,
+              "original_P_branch_probability": "5/18 - 61*sqrt(257)/4626",
+              "original_Q_branch_probability": "67*sqrt(257)/4626 + 5/18",
+              "original_probability_floor_for_each": "1/25",
+              "source_coefficients_u_b": [
+                "577/416 + 9*sqrt(257)/104",
+                "63/22 + 2*sqrt(257)/11"
+              ],
+              "source_excitation_energy": "2 + sqrt(257)/8"
+            }
+          ],
+          "all_original_energy_weight_on_that_line": true,
+          "complete_preparation_charge_records": {
+            "additional_native_tape_executed": false,
+            "complete_record_count": 16,
+            "finite_effects_specified": true,
+            "original_cross_moment_by_retained_outcome": {
+              "-1": "-3/512 + 5*sqrt(257)/131584",
+              "1": "5*sqrt(257)/131584 + 3/512",
+              "complement": "0"
+            },
+            "original_interference_cross_moment": "5*sqrt(257)/65792",
+            "preparation_success_renormalized": false,
+            "probability_sum": "1",
+            "records": [
+              {
+                "original_probability": "1/9 - 16*sqrt(257)/2313",
+                "outcome": "preparation_failure",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "61*sqrt(257)/18504 + 5/72",
+                "outcome": "charge_-1",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "67*sqrt(257)/18504 + 5/72",
+                "outcome": "charge_1",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "charge_complement",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "16*sqrt(257)/2313 + 1/9",
+                "outcome": "preparation_failure",
+                "setting": "P"
+              },
+              {
+                "original_probability": "5/72 - 67*sqrt(257)/18504",
+                "outcome": "charge_-1",
+                "setting": "P"
+              },
+              {
+                "original_probability": "5/72 - 61*sqrt(257)/18504",
+                "outcome": "charge_1",
+                "setting": "P"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "charge_complement",
+                "setting": "P"
+              },
+              {
+                "original_probability": "46*sqrt(257)/11565 + 7/45",
+                "outcome": "preparation_failure",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "61/1800 - 971*sqrt(257)/462600",
+                "outcome": "charge_-1",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "109/1800 - 869*sqrt(257)/462600",
+                "outcome": "charge_1",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "charge_complement",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "10*sqrt(257)/2313 + 7/45",
+                "outcome": "preparation_failure",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "109/1800 - 1051*sqrt(257)/462600",
+                "outcome": "charge_-1",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "61/1800 - 949*sqrt(257)/462600",
+                "outcome": "charge_1",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "charge_complement",
+                "setting": "Q_plus_iP"
+              }
+            ],
+            "setting_probability": "1/4",
+            "settings": 4,
+            "zero_probability_records_retained": true
+          },
+          "complete_preparation_energy_records": {
+            "additional_native_tape_executed": false,
+            "complete_record_count": 16,
+            "finite_effects_specified": true,
+            "original_cross_moment_by_retained_outcome": {
+              "0": "0",
+              "2 + sqrt(257)/8": "5*sqrt(257)/65792",
+              "sqrt(257)/4": "0"
+            },
+            "original_interference_cross_moment": "5*sqrt(257)/65792",
+            "preparation_success_renormalized": false,
+            "probability_sum": "1",
+            "records": [
+              {
+                "original_probability": "1/9 - 16*sqrt(257)/2313",
+                "outcome": "preparation_failure",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "16*sqrt(257)/2313 + 5/36",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "Q"
+              },
+              {
+                "original_probability": "16*sqrt(257)/2313 + 1/9",
+                "outcome": "preparation_failure",
+                "setting": "P"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "P"
+              },
+              {
+                "original_probability": "5/36 - 16*sqrt(257)/2313",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "P"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "P"
+              },
+              {
+                "original_probability": "46*sqrt(257)/11565 + 7/45",
+                "outcome": "preparation_failure",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "17/180 - 46*sqrt(257)/11565",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "Q_minus_iP"
+              },
+              {
+                "original_probability": "10*sqrt(257)/2313 + 7/45",
+                "outcome": "preparation_failure",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_0",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "17/180 - 10*sqrt(257)/2313",
+                "outcome": "energy_2 + sqrt(257)/8",
+                "setting": "Q_plus_iP"
+              },
+              {
+                "original_probability": "0",
+                "outcome": "energy_sqrt(257)/4",
+                "setting": "Q_plus_iP"
+              }
+            ],
+            "setting_probability": "1/4",
+            "settings": 4,
+            "zero_probability_records_retained": true
+          },
+          "one_retained_positive_energy": "2 + sqrt(257)/8",
+          "order_cross_moment": "5*sqrt(257)/65792",
+          "original_Q_creation_weight": "64*sqrt(257)/2313 + 5/9",
+          "positive_form_slacks": [
+            "81/4658 + 20781*sqrt(257)/19153696",
+            "72/2329 + 2349*sqrt(257)/1197106"
+          ],
+          "positive_pair_slack_excludes_a_sharp_component": false,
+          "profile": [
+            1,
+            2
+          ],
+          "source_coefficients_u_b": [
+            "45*sqrt(257)/4658 + 11545/74528",
+            "40*sqrt(257)/2329 + 1305/4658"
+          ],
+          "source_first_moments": [
+            "9/512 + 2309*sqrt(257)/2105344",
+            "1/32 + 261*sqrt(257)/131584"
+          ],
+          "source_inverse_moments": [
+            "-1/8 + 261*sqrt(257)/32896",
+            "-18 + 2309*sqrt(257)/2056"
+          ],
+          "source_norms_squared": [
+            "sqrt(257)/4112 + 5/1024",
+            "5/64 - sqrt(257)/257"
+          ]
+        }
+      ],
+      "sites": 2,
+      "source_current_identities_checked_on_all_rows": true,
+      "uniform_spin_Ward_susceptibility_exact": true
+    },
+    "complete_score_error_example": "2/125",
+    "empirical_velocity_fit_or_physical_mass_used": false,
+    "filtered_cross_moment_replaced_by_full_commutator": false,
+    "rational_tube_example": {
+      "frequency_squared": "4",
+      "original_filtered_preparation_weight": "1/4",
+      "original_tube_probability_lower": "1211/5000",
+      "outside_tube_source_norm_squared_upper": "39/5000",
+      "source_slack_vanishing_assumed_or_proved_here": false,
+      "success_probability_divided_out": false
+    },
+    "static_Ward_data_reduce_both_form_force_defects": true,
+    "susceptibility_interval_example": {
+      "empirical_coefficient_fit_used": false,
+      "force_form_slack_interval": [
+        "1/4",
+        "11/30"
+      ],
+      "source_coefficient_interval": [
+        "7/3",
+        "5/2"
+      ],
+      "susceptibility_floor": "1/5"
+    },
+    "uniform_continuum_slack_vanishing_proved": false
+  },
   "source_bindings": {
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
@@ -2639,8 +3072,9 @@
     "model/spin_joint_field_limit/CLOCK_COMPARISON.md": "27b72c38cff297dffce4c9c2c70b31c755dfc70777b4d142bf8cb508c34c714f",
     "model/spin_joint_field_limit/FORCE_READOUT.md": "876ed6ba21da5534c0428bd540698de94db9fb84ef1df8f28aa975aec3c2235b",
     "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
-    "model/spin_joint_field_limit/README.md": "90859153ee1f38e251e468a66412b9c112e66a94766c9590422f701e311d088e",
+    "model/spin_joint_field_limit/README.md": "2b854aed31dc11bd785176816df212f82b0cfc80d8c300e5be09d91e1f3249c4",
     "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
+    "model/spin_joint_field_limit/WARD_DYNAMICS.md": "c4a4bf1afb0e0f3fefd0e337405f64d69ae738a561fbefb7f9fd52a67da2ddc7",
     "model/spin_joint_field_limit/__init__.py": "4642f35854e6e530b6cf9b4912068956c46a9f71a68d39881a2e1541f3f248c4",
     "model/spin_joint_field_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_joint_field_limit/algebra.py": "e2432c398757d27a81479ac204a5e1ab58e72791d80e236ba948b6853ed73c69",
@@ -2649,12 +3083,15 @@
     "model/spin_joint_field_limit/construction.py": "3181c73283abe007b4cb89d6be75225643d1a7d97bfa94e5f0b727c86b88e3b9",
     "model/spin_joint_field_limit/force.py": "a833d96800bb543e2b3e8fb5d4c36d10a303c40bca737f60015a7840680d3bf1",
     "model/spin_joint_field_limit/joint_symmetry.py": "a989dc9e675f1f15c6603d3fa7da95b175a11408e1fe61544c5bf5ba1f120eb6",
-    "model/spin_joint_field_limit/packet.py": "cf112bae329f9f971c3c3a1034dc1d784eb9277f2203473a6ee6e8704e976aaa",
+    "model/spin_joint_field_limit/packet.py": "6927d9648cbb8b3fb39d2c3b936bdc11391ecc6cefa145a12927fad1d48c73a9",
     "model/spin_joint_field_limit/test_clock_comparison.py": "48222ad1b5474cda3e57e73e6b906b176b3cd62cfd04f5904dfa3648787439b2",
     "model/spin_joint_field_limit/test_construction.py": "d6f640daf0cd6f9ae6bcb7d248787b7db9afba6e4d41662aecf61e3f022f4d1b",
     "model/spin_joint_field_limit/test_force.py": "84b1cb61b67304932143a2d6576b57b9ea18bc527d34e055225af4da7d2ba5eb",
     "model/spin_joint_field_limit/test_joint_family.py": "19498b31a6e2d83c470b2e3a158b7dd0b522e648a7b1bb26f16eb395030e1c2e",
     "model/spin_joint_field_limit/test_joint_symmetry.py": "1db3ee11b445e2faa4b0b02839a805c84dee7c6071cac424d073cc01b82b8199",
+    "model/spin_joint_field_limit/test_ward.py": "e7afcf9d73fafb9e3e092dcd89dea4f2afbf6ba5ed7ddb865beaac6b4e0bc1e2",
+    "model/spin_joint_field_limit/ward.py": "7bfa44e3cbc680d68d02ec067b8edc11d0f113a7283da00fd96c33050e039739",
+    "model/spin_relaxed_response/README.md": "82e902603fa1ab14893c5a9ca5a8cbb45da54ceef8404442442e302db7d0c51f",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
     "model/spin_twist_closure/FINITE_FIELD_GAP.md": "e65f87ee6fec35c1f3a07b61bb3022739491206c5b8bf867e882e176d2d75b35",
     "model/spin_twist_closure/PROOF.md": "a7ab3fbea7ba7e3634bd04b545398cb7615943f1a06cc65c9468c5ec1afebca4",

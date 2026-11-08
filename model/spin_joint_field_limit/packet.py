@@ -8,7 +8,7 @@ from fractions import Fraction as F
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry
+from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -21,6 +21,7 @@ PARENTS=('model/spin_twist_closure/FINITE_FIELD_GAP.md',
          'model/spin_canonical_field/README.md',
          'model/spin_canonical_field/results.json',
          'model/spin_canonical_energy/README.md',
+         'model/spin_relaxed_response/README.md',
          'model/spin_shell_diagnostic/README.md',
          'model/spin_goldstone_sector/README.md',
          'model/spin_goldstone_sector/algebra.py',
@@ -92,6 +93,7 @@ def build():
             (('X',(0,0,0)),('Z',(1,0,0))),(F(1,32),F(1,16),F()),F(1,10)),
         'second_canonical_pair_and_full_internal_circle':joint_symmetry.certificate(),
         'same_clock_filtered_current_and_complete_force_readout':force.certificate(),
+        'source_Ward_susceptibilities_and_force_equations':ward.certificate(),
         'scope':{'source_field_sequence':'p=n^-2, B=J*n^-5, n>=2',
             'sequence_is_a_chosen_source_preparation_prescription':True,
             'sequence_forced_by_unread_repair':False,
@@ -107,6 +109,9 @@ def build():
             'fixed_scale_complete_prepared_H_B_probe_history_constructed':True,
             'same_clock_ground_vector_filtered_current_O_p_squared_bound':True,
             'complete_finite_original_weight_force_defect_readout_constructed':True,
+            'source_Ward_reduction_of_two_force_form_defects':True,
+            'original_weight_energy_tube_bound_from_filtered_Ward_data':True,
+            'positive_full_pair_slack_excludes_sharp_subbranches':False,
             'filtered_linear_force_residual_proved_o_p_squared':False,
             'mean_magnetization_or_bond_convergence_rate_proved':False,
             'joint_continuum_subsequence_uniqueness_proved':False,

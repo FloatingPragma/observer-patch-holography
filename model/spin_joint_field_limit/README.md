@@ -9,6 +9,13 @@ record protocols at each finite scale. It is distinct from the field defined
 by a different order of limits; no sharp dispersion or physical particle
 assignment follows from this result.
 
+[Source Ward identities](WARD_DYNAMICS.md) reduce both force errors to
+static source scores and two inverse-energy susceptibilities. Their
+filtered values give an explicit original-probability energy-window bound.
+The complete finite source exhibits both exact force closure and a
+polarization mismatch beside a sharp energy line; no vanishing continuum
+force error follows from those controls.
+
 ```sh
 python -W error -m pytest -q model/spin_joint_field_limit
 python -W error -m model.spin_joint_field_limit --write
