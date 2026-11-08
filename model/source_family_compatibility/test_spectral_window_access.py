@@ -1,5 +1,6 @@
 """Independent complete-source and error-budget controls for Lorentzian access."""
 from fractions import Fraction as F
+import json
 
 import numpy as np
 import pytest
@@ -224,3 +225,15 @@ def test_invalid_moment_and_pressure_inputs_rejected():
         m.pressure_score_interval(8, 1, 1, (0, 0), (0, 0), (0, 0), (8, 0, 0))
     with pytest.raises(ArithmeticError):
         m.pressure_score_interval(8, 0, 1, (0, 0), (1000, 1000), (-1000, -1000), (0, 0, 0))
+
+
+def test_owner_serialization_is_compact_and_keeps_exact_outward_budget(control):
+    from .packet import serialize
+    certificate = m.certificate()
+    instance = certificate['actual_fixed_source_terminating_pressure_instance']
+    exact = m.time_error(1, F(1, 256), 2048, F(35, 128), F(3, 4))['original_score_error']
+    assert exact <= instance['time_error_upper'] < exact+F(1, 10**12)
+    assert instance['uniform_score_lower'] <= F(128, 163)-exact-F(1, 128)
+    encoded = json.dumps(serialize(certificate), allow_nan=False)
+    assert len(encoded) < 30000
+    assert json.loads(encoded)['physical_mass_assigned'] is None

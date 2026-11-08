@@ -194,7 +194,13 @@ def default_terminating_instance():
     service = cayley_service_bound(times['duration'], dt, hnorm, n)
     if service['complete_output_halftrace_error'] > F(1, 512):
         raise ArithmeticError('algebraic source clock subdivision budget failed')
-    error = te['original_score_error']+F(1, 128)
+    # Keep the exact 2048th-power admission, but publish a short outward
+    # rational envelope. Its exact numerator is thousands of digits long.
+    grid = 10**12
+    time_upper = F((te['original_score_error']*grid).__ceil__(), grid)
+    if not te['original_score_error'] <= time_upper < F(1, 256):
+        raise ArithmeticError('compact outward time budget failed')
+    error = time_upper+F(1, 128)
     jensen = 1/(1+second)
     if not error < F(3, 256) < F(1, 64) or jensen-error <= F(3, 4):
         raise ArithmeticError('uniform pressure-stopping margin failed')
@@ -205,7 +211,7 @@ def default_terminating_instance():
             'operational_floor_improves_analytic_moment_bound': False,
             'eta': eta, 'time_step': dt, 'time_count': m,
             'complete_records': times['complete_records'],
-            'time_error_upper': te['original_score_error'],
+            'time_error_upper': time_upper,
             'cut_radius': radius, 'cut_sites': sites,
             'cut_Hamiltonian_norm_upper': hnorm,
             'Cayley_subdivisions_per_time_step': n,
