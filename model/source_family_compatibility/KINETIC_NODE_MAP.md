@@ -28,7 +28,7 @@ For an outward-oriented sphere `|q|=r`, `0<r<=1`, the homotopy
 `A_b((1-t) sin(q)+t q)`, `0<=t<=1`, never vanishes: each nonzero
 coordinate keeps the sign of the corresponding coordinate of `A_b q`.
 The normalized source symbol therefore has the same degree as the linear
-map `A_b`. Moreover `|sin q| >= (1-r^2/6)|q|`, giving the explicit boundary
+map `A_b`. The bound `|sin q| >= (1-r^2/6)|q|` gives the explicit boundary
 gap `c r(1-r^2/6)`. A continuous traceless Hermitian perturbation of norm
 strictly below this bound preserves the degree by the straight homotopy.
 The statement requires a nonzero symbol on that sphere. A scalar identity
