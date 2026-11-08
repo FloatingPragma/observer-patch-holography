@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
 # Full 66-word replay established at 97633a11f; audited metadata-only renewals
 # preserve its scientific payload. A live input check remains mandatory.
-MEASUREMENT_RECEIPT_SHA256 = 'c492ea21fd2adecc224b1674f5699d1e12243efe9ab9cf0459d583311ff0a9bc'
+MEASUREMENT_RECEIPT_SHA256 = '77e0d13c3156b8bd6bf92106a56750effbd44383701316743a3dca39b60aa0c4'
 OWNED_FILES = tuple('model/native_fair_ground_readout/' + name for name in (
     '__init__.py', 'preparation.py', 'reference.py', 'packet.py',
     'test_preparation.py', 'test_reference.py', 'test_packet.py', 'PROOF.md', 'README.md'))

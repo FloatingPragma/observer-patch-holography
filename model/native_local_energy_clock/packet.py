@@ -20,7 +20,7 @@ SOURCE_FILES = tuple('model/native_local_energy_clock/'+name for name in (
     'PROOF.md','README.md'))
 # Full 66-word replay established at 97633a11f; audited metadata-only renewals
 # preserve its scientific payload. A live input check remains mandatory.
-AUDITED_MEASUREMENT_SHA256 = 'c492ea21fd2adecc224b1674f5699d1e12243efe9ab9cf0459d583311ff0a9bc'
+AUDITED_MEASUREMENT_SHA256 = '77e0d13c3156b8bd6bf92106a56750effbd44383701316743a3dca39b60aa0c4'
 
 
 def canonical(value):
