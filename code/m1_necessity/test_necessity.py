@@ -27,7 +27,7 @@ def test_complete_reference_execution_and_counts(packet):
     assert {k:actual[k] for k in ('routes','route_steps','executed_events','executed_reads','consumer_claims')} == {
         "routes":298,"route_steps":2215,"executed_events":149760,"executed_reads":13479912,"consumer_claims":8}
     assert actual['balanced_routes']==161 and actual['balanced_steps']>0
-    assert actual['downstream_claims']==155
+    assert actual['downstream_claims']==156
 
 
 
@@ -643,30 +643,53 @@ def test_all_public_lean_results_have_transitive_audits_and_ci():
     assert re.search(r'^\s*"Geometry.M1NecessityAxiomAudit"\s*$',ci,re.M)
 
 
-@pytest.mark.parametrize('target,parent,assumption', (
-    ('OPH-NATIVE-FAIR-LOCAL-PREPARATION','OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS',
+@pytest.mark.parametrize('target,parents,assumption', (
+    ('OPH-NATIVE-FAIR-LOCAL-PREPARATION',('OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS',),
      'declared_native_fair_local_preparation_and_declared_occupation_coupling'),
-    ('OPH-NATIVE-FAIR-LOCAL-CLOCK','OPH-NATIVE-FAIR-LOCAL-PREPARATION',
-     'declared_native_fair_local_counted_clock_complete_protocol')))
-def test_fair_local_descendants_keep_their_declared_contracts(target,parent,assumption):
+    ('OPH-NATIVE-FAIR-LOCAL-CLOCK',('OPH-NATIVE-FAIR-LOCAL-PREPARATION','OPH-NATIVE-FAIR-LOCAL-READOUT'),
+     'declared_native_fair_local_counted_clock_complete_protocol'),
+    ('OPH-NATIVE-FAIR-LOCAL-READOUT',('OPH-NATIVE-FAIR-LOCAL-PREPARATION',),
+     'declared_native_fair_local_complete_occupation_readout')))
+def test_fair_local_descendants_keep_their_declared_contracts(target,parents,assumption):
     downstream=audit.downstream_audit();row=downstream['claims'][target]
     assert row['assumptions']==[assumption]
     assert row['disposition']=='existing_contract_retained_without_automatic_transfer'
     assert not (set(row['assumptions']) & audit.KEYS)
     edges=[edge for edge in downstream['links'] if edge['to']==target]
-    assert len(edges)==1 and edges[0]['from']==parent
+    assert tuple(edge['from'] for edge in edges)==parents
     registry=check.strict_load(ROOT/'claims/claim_registry.yaml')
     claim=next(row for row in registry['claims'] if row['claim_id']==target)
     assert claim['premise_dependencies']['classification']=='explicit_non_consumer'
     assert claim['premise_dependencies']['consumed']==[] and claim['gates']==[]
-    assert 'OPH-NATIVE-FAIR-LOCAL-READOUT' not in downstream['claims']
 
 
 @pytest.mark.parametrize('target,parent', (
     ('OPH-NATIVE-FAIR-LOCAL-PREPARATION','OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS'),
-    ('OPH-NATIVE-FAIR-LOCAL-CLOCK','OPH-NATIVE-FAIR-LOCAL-PREPARATION')))
-def test_fair_local_descendant_dependency_removal_is_rejected(target,parent):
-    graph=check.strict_load(ROOT/'claims/dependency_graph.json')
+    ('OPH-NATIVE-FAIR-LOCAL-CLOCK','OPH-NATIVE-FAIR-LOCAL-PREPARATION'),
+    ('OPH-NATIVE-FAIR-LOCAL-CLOCK','OPH-NATIVE-FAIR-LOCAL-READOUT'),
+    ('OPH-NATIVE-FAIR-LOCAL-READOUT','OPH-NATIVE-FAIR-LOCAL-PREPARATION')))
+def test_fair_local_descendant_dependency_removal_is_rejected(packet,monkeypatch,target,parent):
+    graph_path=ROOT/'claims/dependency_graph.json'
+    original=audit.strict_load
+    graph=original(graph_path)
     graph['edges']=[edge for edge in graph['edges'] if not(edge['to']==target and edge['from']==parent)]
-    with pytest.raises(ValueError,match='coverage'):
-        audit.downstream_audit(graph=graph)
+    def mutated(path):
+        return deepcopy(graph) if Path(path).resolve()==graph_path else original(path)
+    monkeypatch.setattr(audit,'strict_load',mutated)
+    with pytest.raises(ValueError,match='coverage|downstream'):
+        verify.verify(packet)
+
+
+def test_fair_local_readout_context_retains_coherent_loading_boundary():
+    downstream = audit.downstream_audit()
+    name = 'OPH-NATIVE-FAIR-LOCAL-READOUT'
+    assert [edge for edge in downstream['links'] if edge['to'] == name] == [{
+        'from': 'OPH-NATIVE-FAIR-LOCAL-PREPARATION', 'to': name,
+        'role': 'supplies the explicit versioned coherent occupation service and complete native Bell herald, with the known input and quantum loading interfaces retained'}]
+    registry = check.strict_load(ROOT/'claims/claim_registry.yaml')
+    claim = next(row for row in registry['claims'] if row['claim_id'] == name)
+    assert claim['premise_dependencies']['rationale'] == (
+        'Exact local occupation readout with unconditional erasure accounting, '
+        'including perfect fixed-cell readout at global q<12. No all-effect '
+        'coherent tomography, QFT reconstruction or measured spectrum mapping is inferred.')
+    assert 'Settings and the finite controller are supplied interfaces.' in claim['statement']

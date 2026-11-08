@@ -10,7 +10,7 @@ silently shortened list. The dispositions concern the named results below;
 several registry rows collect much broader mixed-scope conclusions.
 
 The audit also closes the registered dependency graph forward from these
-eight claims: 155 downstream rows, including the eight direct consumers, are
+eight claims: 156 downstream rows, including the eight direct consumers, are
 enumerated in `downstream.json`. The receipt retains each row's exact
 assumptions, original full-row hash and every internal dependency edge with
 its stated role. A missing row or newly reachable claim fails verification.
@@ -127,6 +127,11 @@ clock concerns complete native attempts and a declared local observation;
 its Poisson comparison and conditional-reference readout use their own state
 and record premises. Neither dependency imports the dense M1 read law,
 selects a physical density or clock, or identifies an interacting field or
-particle. The separate local occupation-readout claim has no path from the
-eight direct M1 consumers. All three retain explicit non-consumer premise
-classifications and their own finite-source assumptions.
+particle. The local occupation-readout claim is also a contextual descendant
+through preparation's versioned coherent occupation service and complete Bell
+herald. It retains the known input, quantum loading, supplied settings and
+finite controller. Its complete local occupation records, all abort outcomes
+and finite quantum correlation do not identify a physical gauge charge,
+spacelike Bell experiment, interacting continuum or measured spectrum. All
+three retain explicit non-consumer premise classifications and their own
+finite-source assumptions; reachability supplies no automatic M1 transfer.
