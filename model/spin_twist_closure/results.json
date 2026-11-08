@@ -1,4 +1,30 @@
 {
+  "actual_finite_gap_boundary_controls": [
+    {
+      "Doeblin_bound_is_an_upper_bound_on_the_true_gap": false,
+      "actual_finite_Doeblin_gap_lower_over_J": "1/89678901399667308297501138655117312",
+      "regional_excited_subspace_probability_upper_from_boundary_and_gap": "1",
+      "selection_field_over_J": "1/4",
+      "side": 2,
+      "this_bound_certifies_a_pure_regional_ground": false
+    },
+    {
+      "Doeblin_bound_is_an_upper_bound_on_the_true_gap": false,
+      "actual_finite_Doeblin_gap_lower_over_J": "1/714473137485690940518401500538291767865782141339090487941139107167227743754627157664360510490313220130618953577986455155559365967878856911180907033919488",
+      "regional_excited_subspace_probability_upper_from_boundary_and_gap": "1",
+      "selection_field_over_J": "1/4",
+      "side": 3,
+      "this_bound_certifies_a_pure_regional_ground": false
+    },
+    {
+      "Doeblin_bound_is_an_upper_bound_on_the_true_gap": false,
+      "actual_finite_Doeblin_gap_lower_over_J": "1/389812560455999963214135295515007532435049074303800301074716258288517947630657044098624602635280410369012196649256346727338366794608123761863119491852506136781251107998258921194831586219602145934111983739168735154947423917015794997829854544618758624513109552124171101883273143599676564439040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "regional_excited_subspace_probability_upper_from_boundary_and_gap": "1",
+      "selection_field_over_J": "1/4",
+      "side": 4,
+      "this_bound_certifies_a_pure_regional_ground": false
+    }
+  ],
   "actual_product_state_residual_countercontrol": {
     "exact_mesh_controls": [
       {
@@ -23,6 +49,73 @@
     "residual_expectation_limit": "16384/99225",
     "same_spin_source_and_same_current_operator": true,
     "source_residual_converges_in_operator_norm": false
+  },
+  "actual_source_energy_only_phase_control": {
+    "both_states_are_the_same_plus_field_selected_state": false,
+    "one_site_half_trace_distance": "2m",
+    "one_site_half_trace_distance_strict_lower": "11/50",
+    "replayed_source_magnetization_bound": {
+      "complete_inverse_current_measure_over_J_lower": "1/240",
+      "conservative_default_readout_order_lower": "1/10",
+      "empirical_ground_energy_or_magnetization_used": false,
+      "exact_pair_source_certificate": {
+        "inter_dimer_spin_dot_expectation": "-6/25",
+        "intra_dimer_spin_dot_expectation": "-7/20",
+        "pair_state": "[(sqrt(3)+sqrt(2))|up down>-(sqrt(3)-sqrt(2))|down up>]/sqrt(10)",
+        "staggered_single_site_spin_mean_squared": "6/25",
+        "state_norm_squared": "1",
+        "trial_shifted_H_over_J_per_site": "-61/40",
+        "trial_spin_dot_energy_per_site": "-31/40",
+        "twice_amplitude_product": "1/5"
+      },
+      "fixed_trial_bias": "9",
+      "periodic_ground_projector_symmetry_changed": false,
+      "periodic_source_count_controls": [
+        {
+          "dimer_bonds": 32,
+          "distinct_source_bonds": 192,
+          "inter_dimer_bonds": 160,
+          "periodic_wrap_bonds_retained": true,
+          "side": 4,
+          "sites": 64,
+          "spin_dot_energy_density": "-31/40"
+        },
+        {
+          "dimer_bonds": 108,
+          "distinct_source_bonds": 648,
+          "inter_dimer_bonds": 540,
+          "periodic_wrap_bonds_retained": true,
+          "side": 6,
+          "sites": 216,
+          "spin_dot_energy_density": "-31/40"
+        }
+      ],
+      "selected_magnetization_decimal_lower": "0.110154073297",
+      "selected_magnetization_lower": "99759709722345093271058197765002409286139099574/905637955416460081658413400166349285430104867763",
+      "simple_strict_magnetization_lower": "11/100",
+      "source_current_coefficient_is_a_pole_speed": false,
+      "source_current_coefficient_kappa_lower": "1/120",
+      "sqrt_e_over_18_outward_interval": [
+        "263035378302860142035720955815/1267650600228229401496703205376",
+        "32879422287857517754465119477/158456325028528675187087900672"
+      ],
+      "staggered_Bragg_weight_lower": "49879854861172546635529098882501204643069549787/4110473354993164457447863592014545992782310277120",
+      "unchanged_256_mesh_infrared_certificate": {
+        "cosine_grid_scale": 1099511627776,
+        "divisions": 256,
+        "integral_below_two_fifths": true,
+        "integral_upper": "205516974698726101/576460752303423488",
+        "nonorigin_cells": 16777215,
+        "origin_cell_upper": "33/65536",
+        "pi_lower": "1711071886550596401052327862175270608234798687175596045891863355149564059431025741677300663301488044886924700750486004/544651097460204324729505646356491148072961547248870053795740492422760518540468532844300852957530878484249114990234375",
+        "pi_upper": "48677225812655926046638412773495119805002501124642807326089415979310491527162261560047969239954403496009632679447288/15494442208169185197833488127471474862459734848469281655049426658969308006306986325029129147878848016262054443359375",
+        "regular_upper": "205226703628993237/576460752303423488"
+      },
+      "unshifted_ground_spin_energy_e_lower": "31/40"
+    },
+    "source_Hamiltonian_and_all_its_energy_statistics_equal": true,
+    "source_energy_convergence_implies_regional_state_convergence": false,
+    "states": "opposite maximal-order phases of the same zero-field source"
   },
   "actual_source_force": {
     "actual_three_site_path": [
@@ -501,6 +594,56 @@
     "separate_unbounded_boost_generator_or_commutator_limits_proved": false,
     "sharp_dispersion_or_Lorentz_covariance_proved": false
   },
+  "selected_ground_region_energy_controls": [
+    {
+      "best_density_second_moment_over_J2_upper": "9/4",
+      "crossing_bonds": 96,
+      "full_regional_density_matrix_convergence_modulus": false,
+      "regional_excitation_first_moment_over_J_upper": "96",
+      "regional_excitation_second_moment_over_J2_upper": "9216",
+      "requires_selected_state_limit_of_finite_source_grounds": true,
+      "selected_ground_equation_density_second_moment_over_J2_upper": "9/4",
+      "side": 4,
+      "sites": 64,
+      "volume_limit_precedes_zero_selection_field": true
+    },
+    {
+      "best_density_second_moment_over_J2_upper": "9/64",
+      "crossing_bonds": 1536,
+      "full_regional_density_matrix_convergence_modulus": false,
+      "regional_excitation_first_moment_over_J_upper": "1536",
+      "regional_excitation_second_moment_over_J2_upper": "2359296",
+      "requires_selected_state_limit_of_finite_source_grounds": true,
+      "selected_ground_equation_density_second_moment_over_J2_upper": "9/64",
+      "side": 16,
+      "sites": 4096,
+      "volume_limit_precedes_zero_selection_field": true
+    },
+    {
+      "best_density_second_moment_over_J2_upper": "9/1024",
+      "crossing_bonds": 24576,
+      "full_regional_density_matrix_convergence_modulus": false,
+      "regional_excitation_first_moment_over_J_upper": "24576",
+      "regional_excitation_second_moment_over_J2_upper": "603979776",
+      "requires_selected_state_limit_of_finite_source_grounds": true,
+      "selected_ground_equation_density_second_moment_over_J2_upper": "9/1024",
+      "side": 64,
+      "sites": 262144,
+      "volume_limit_precedes_zero_selection_field": true
+    },
+    {
+      "best_density_second_moment_over_J2_upper": "9/16384",
+      "crossing_bonds": 393216,
+      "full_regional_density_matrix_convergence_modulus": false,
+      "regional_excitation_first_moment_over_J_upper": "393216",
+      "regional_excitation_second_moment_over_J2_upper": "154618822656",
+      "requires_selected_state_limit_of_finite_source_grounds": true,
+      "selected_ground_equation_density_second_moment_over_J2_upper": "9/16384",
+      "side": 256,
+      "sites": 16777216,
+      "volume_limit_precedes_zero_selection_field": true
+    }
+  ],
   "source_bindings": {
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
@@ -771,27 +914,34 @@
     "model/spin_canonical_energy/results.json": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
     "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
     "model/spin_canonical_field/results.json": "842a0516bfce2f06faef4cddd88aa3d3cf15094b8f637af58a07445d2e2e86e3",
+    "model/spin_charge_dispersion/DIMER_BOUND.md": "baf3e7e7511baa9033f4503e8e1b1f0fed58227fc56c36b63a274cee9636525d",
+    "model/spin_charge_dispersion/__init__.py": "81fab3a1d62f1ad4efbaa2f168b5ff5bb88c7d74721662ffdab1de6654c28e9a",
+    "model/spin_charge_dispersion/dimer.py": "c12ec83bf9899079a769c033a1c33098a6052c35f47b5d372edf09ce241c5e2f",
     "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
     "model/spin_energy_polarization/PROOF.md": "dad66bd860a2f1f4321c49f5e2baa708bcee4f7f67c3fa04a2fb2208a1f53d32",
     "model/spin_energy_polarization/__init__.py": "ea304431d444ab898c8799a000c391fdc7db7507cd6df67325463b576a9c33bb",
     "model/spin_energy_polarization/algebra.py": "124027dccf8c1c972aefbdbaa517713e63cf3ea1f87bee7838e8da4a94e6f138",
     "model/spin_energy_polarization/samples.py": "d6b3945f787e9106302834896a7e38cad40a5a31ebb952130d1a8d9192ee8b84",
     "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "model/spin_goldstone_sector/__init__.py": "d497a6791e48b90de7d1d2548906880cbf8cf1de17d6be4159a08f5c1c80d4de",
+    "model/spin_goldstone_sector/infrared.py": "19089d96ca3d233e1949b7df3c59c37aca23c4d2e1ca84dd1b1b651c6bbc8ca9",
     "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
     "model/spin_operational_position/__init__.py": "6ade1e4638d5a010428b0e7ab7dcca167ac930503005f645f74a9ba32cb8bf7f",
     "model/spin_operational_position/generic.py": "14564c31509eb1abcda9fe7dc06cab90ab2bdcc7aa92b994602f36812dbe3e80",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
     "model/spin_twist_closure/POLARIZATION_LIMIT.md": "dbed2375156228dc0f3f9d52ed28da53e04df7c90cc2255c68fe99bb0203a823",
     "model/spin_twist_closure/PROOF.md": "a7ab3fbea7ba7e3634bd04b545398cb7615943f1a06cc65c9468c5ec1afebca4",
-    "model/spin_twist_closure/README.md": "89eb676f18a836bfc2081055d832ded65ef4dd57f085ebd3a727260c2f7de3ca",
+    "model/spin_twist_closure/README.md": "cf2ddf8c94945beb367e79feac1e464fc4adb4971dd2b5d4db0827f5e1949867",
+    "model/spin_twist_closure/STATE_CONTROL.md": "bc415f4d8031aacff83bb74ce984b18008048ceec45f2d8da07a58b2fbc78456",
     "model/spin_twist_closure/__init__.py": "daf275031a3a936bb68c3dfe120622cb986bd741fa7822931b46da2467102074",
     "model/spin_twist_closure/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_twist_closure/algebra.py": "2011e0f06296992dd697afe43a8a56fc3ca3ea9ead7c0f653388809a5c032230",
     "model/spin_twist_closure/bounds.py": "c0a68c2a543a0a6f74f15d3968576c0024222411c78dc8290d4516af6eeb84f3",
-    "model/spin_twist_closure/packet.py": "0bde59bd14316933eadfffc5a4865528955dda83528eab830b30e00eb0e82029",
+    "model/spin_twist_closure/packet.py": "38d02ca94df089152af3578ce45939a4730d9b3700c3e7d2cc9f3c6897af6936",
     "model/spin_twist_closure/polarization.py": "5087ed5279950027eac40c801e8df8f1ec92a94767deba192dad582ba1a3f278",
     "model/spin_twist_closure/readout.py": "c62919ff5ad87c1e95e4ef821be0bd08f1e80ad2a89b2aa9cdcf73f6c2fd45d6",
-    "model/spin_twist_closure/test_twist.py": "3ae1ebf818f4afe6946bdf1bd80e936b25cb8ed4393db61465c5fe6a1b60aee3",
+    "model/spin_twist_closure/state_bounds.py": "53085c286a8f9158fec9cf1e56e249cb94d4b26584da74b7e27740164811eb64",
+    "model/spin_twist_closure/test_twist.py": "bb0a9e07edf2e875847ef457f674fc5180f7c874b1adcd56f766077256c28ea2",
     "model/strong_coupling_refinement/__init__.py": "c4445add1d4bbd5fa806c9aecb362a09b594579ed724206374eb80a4d5250a2d",
     "model/strong_coupling_refinement/algebra.py": "9b98d6aead64e3a0a4f32a5d8842e4195e687696e7e7b29a5337e6f2bb121fb1",
     "model/strong_coupling_refinement/bounds.py": "ed9f3c0641e9c86308c6482106401e2f0231e5f9180084fe5b881e9cc3637dbd",

@@ -9,7 +9,7 @@ import pytest
 import sympy as s
 from scipy.linalg import expm
 
-from . import algebra, bounds, packet, polarization, readout
+from . import algebra, bounds, packet, polarization, readout, state_bounds
 
 
 def test_exact_spin_algebra_and_actual_source_frame():
@@ -166,6 +166,58 @@ def test_actual_product_input_excludes_operator_norm_residual_limit():
     assert all(F(item['exact_actual_source_product_expectation']) > F(1,10)
                for item in row['exact_mesh_controls'])
     assert not row['source_residual_converges_in_operator_norm']
+
+
+def test_selected_ground_boundary_second_moment_and_tail():
+    for side in (1,2,3,4,16,64):
+        row = state_bounds.regional_second_moment(side)
+        assert row['selected_ground_equation_density_second_moment_over_J2_upper'] == F(36,side**2)
+        assert row['best_density_second_moment_over_J2_upper'] <= F(36,side**2)
+        assert row['volume_limit_precedes_zero_selection_field']
+        threshold = F(12*side**2)
+        assert state_bounds.excitation_tail(side,threshold) <= F(1,4)
+    with pytest.raises(ValueError):
+        state_bounds.excitation_tail(4,0)
+
+
+def test_same_source_finite_ground_split_has_bounded_crossing_perturbation():
+    from model.native_ordered_ground import source
+    whole,scale = source.matrix(3,((0,1),(1,2)),F(1),F(1,4))
+    inside,sinside = source.matrix(2,((0,1),),F(1),F(1,4))
+    outside,soutside = source.matrix(1,(),F(1),F(1,4))
+    h = whole/scale
+    a = np.kron(np.eye(2),inside/sinside)
+    b = np.kron(outside/soutside,np.eye(4))
+    crossing = h-a-b
+    assert np.array_equal(crossing@crossing,-crossing)
+    assert np.array_equal(a@b,b@a)
+    energies,vectors = np.linalg.eigh(h)
+    ea,eb = np.linalg.eigvalsh(a)[0],np.linalg.eigvalsh(b)[0]
+    vector = vectors[:,0]
+    delta = a-ea*np.eye(8)
+    assert -1-1e-14 <= energies[0]-ea-eb <= 1e-14
+    assert np.linalg.norm(delta@vector) <= 1+1e-14
+    assert np.linalg.norm((a+b-(ea+eb)*np.eye(8))@vector) <= 1+1e-14
+
+
+def test_source_energy_phase_control_keeps_different_selected_phase_explicit():
+    row = state_bounds.source_phase_control()
+    assert row['source_Hamiltonian_and_all_its_energy_statistics_equal']
+    assert row['one_site_half_trace_distance_strict_lower'] == '11/50'
+    assert not row['both_states_are_the_same_plus_field_selected_state']
+
+
+def test_actual_finite_gap_bound_does_not_prove_regional_purity():
+    for side in (2,3,4):
+        row = state_bounds.source_gap_control(side)
+        assert row['regional_excited_subspace_probability_upper_from_boundary_and_gap'] == '1'
+        assert not row['this_bound_certifies_a_pure_regional_ground']
+
+
+def test_full_pauli_tomography_bound_uses_all_observables():
+    assert state_bounds.regional_tomography_bound((F(1,3),F(1,4),0)) == F(25,576)
+    assert state_bounds.regional_tomography_bound((2,2,2)) == 1
+    assert state_bounds.regional_tomography_bound(()) == 0
 
 
 @pytest.mark.parametrize('args',[(0,1,1,'P'),(F(1,2),0,1,'P'),(F(1,2),1,-1,'Q'),(1,1,1,'X')])

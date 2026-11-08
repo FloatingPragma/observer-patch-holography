@@ -8,7 +8,7 @@ from fractions import Fraction as F
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra, bounds, polarization, readout
+from . import algebra, bounds, polarization, readout, state_bounds
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -26,6 +26,7 @@ PARENTS = ('model/protected_spin_limit/README.md',
            'model/spin_shell_diagnostic/README.md',
            'model/spin_current_spectrum/README.md',
            'model/spin_energy_polarization/PROOF.md',
+           'model/spin_charge_dispersion/DIMER_BOUND.md',
            'model/native_spin_observer/README.md',
            'model/spin_operational_position/PROOF.md',
            'model/spin_operational_position/generic.py',
@@ -82,6 +83,10 @@ def build():
         'actual_source_force':algebra.source_force_certificate(),
         'actual_source_reset_identity':algebra.reset_energy_certificate(),
         'scalar_total_energy_controls':[bounds.ground_energy_cube(n) for n in (4,16,64,256)],
+        'selected_ground_region_energy_controls':[state_bounds.regional_second_moment(n)
+                                                   for n in (4,16,64,256)],
+        'actual_source_energy_only_phase_control':state_bounds.source_phase_control(),
+        'actual_finite_gap_boundary_controls':[state_bounds.source_gap_control(n) for n in (2,3,4)],
         'vanishing_scalar_polarization_residual':polarization.exact_checks(),
         'actual_product_state_residual_countercontrol':polarization.product_source_control(),
         'scalar_residual_history_bounds':[polarization.compact_bounds(F(1,n),1,1,1)

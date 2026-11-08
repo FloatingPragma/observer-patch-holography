@@ -13,6 +13,11 @@ closed equation on the original canonical fields are separate statements.
 The aggregate bond-energy coefficient is scalar without ergodicity:
 the source ground inequality and complete finite-region reset give an
 explicit surface-to-volume fluctuation bound and finite-box energy bracket.
+The [selected finite-ground equation](STATE_CONTROL.md) sharpens the
+regional energy-density squared error to `36J^2/L^2` and bounds its
+complete excitation tail. Opposite ordered source phases have identical
+energy statistics and distinct local spin readouts, so this energy
+estimate does not select a full regional state.
 Exact source force checks and a positive two-oscillator control distinguish
 quadratic control response from a single-frequency dynamical law.
 
