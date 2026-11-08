@@ -42,6 +42,17 @@ scattering behavior on that same representation.
 
 ## Spatial readout and momentum
 
+The [positive-energy multipacket theorem](../../model/spin_multipacket_comparison/POSITIVE_MULTIPACKETS.md)
+provides nonzero separated charge-n states on the same continuum clock,
+with explicit original probabilities and energy-transfer intervals.
+It does not select a mass or the number of elementary particles in the
+state. For a packet with actual joint measure mu and proposed energy w(k),
+the squared dynamical defect is
+`integral |E-w(k)|^2 |fhat(k)|^2 dmu(E,k)`. A fixed broad energy band leaves
+a time-independent defect and cannot by itself justify an asymptotic
+scattering limit. Physical mass entries require a branch or controlled
+resonance of this actual measure, rather than the centre of a chosen filter.
+
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
 uses the actual ordered-spin field correlations to obtain a covariant
 coordinate and the existing spatial momentum on its field-vector subspace.

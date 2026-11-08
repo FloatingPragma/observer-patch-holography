@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1244,
+  "surface_count": 1257,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4551,6 +4551,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_mass_shell/CALIBRATION_PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4681,6 +4691,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_energy_polarization/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_energy_polarization/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_goldstone_sector/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4692,6 +4712,31 @@
     },
     {
       "path": "model/spin_modular_geometry/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_multipacket_comparison/COMPARISON_DEFECT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_multipacket_comparison/LOCAL_CREATORS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_multipacket_comparison/POSITIVE_MULTIPACKETS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_multipacket_comparison/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_multipacket_comparison/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4782,6 +4827,26 @@
     },
     {
       "path": "model/spin_texture_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_twist_closure/POLARIZATION_LIMIT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_twist_closure/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_twist_closure/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_twist_closure/STATE_CONTROL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

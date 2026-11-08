@@ -204,6 +204,69 @@ infinite-volume limit on the selected state, with volume taken to infinity
 before the selection field vanishes. An asymptotic scattering limit needs
 an actual comparison dynamics and an integrable long-time error estimate.
 
+### Local charged inputs and positive multipacket energies
+
+The [configuration theorem](../../model/spin_multipacket_comparison/PROOF.md)
+uses the existing P2 Weyl shifts and the configuration U1 to prove that
+every finite independent Q3/Q2 vacuum configuration law is absolutely
+continuous. It does not assume a second canonical momentum. Nonzero
+polynomials in distinct bounded charged configuration creators therefore
+have strictly positive vacuum norm. This gives nondegenerate finite Gram
+matrices without Gaussianity, clustering or a tensor-product particle space.
+
+The [local creator construction](../../model/spin_multipacket_comparison/LOCAL_CREATORS.md)
+cuts off an annular profile in physical space and proves its response
+directly from the surviving canonical commutator. The operators have compact
+spatial supports, exact charges +-1 and norms at most1/2. With
+`d=3m0/1000`, `m0=1/10`, `a=3d^2/2` and `b=2/d^2`, each original joint
+event in `r/2<=|P|<=r`, `ar<=L<=br` has probability at least
+`9/200000000`. No small unknown probability is divided out.
+
+A smooth positive-energy filter of the same clock gives operators C_+ and
+C_- with energy transfer in `[ar/2,2br]`. Analytic Fourier bounds supply a
+scale-independent normalization M, retaining probability
+`p=9/(200000000 M^2)` in the inner band. Both are raising operators; they
+are exchanged by charge conjugation and are not each other's adjoints.
+Their positive third effect retains a complete three-record instrument.
+The inherited cone gives explicit almost-local commutator and derivative
+tails for these operators on every input and reference.
+
+Finite Jensen averaging plus those commutator bounds gives separated
+equal-sign n-fold preparations of original weight at least `p^n/4`,
+with all `3^n` records. The selected n-charge branch has its entire energy
+in `[nar/2,2nbr]`; this interval is not imposed on the complementary records.
+Thus every nonzero integer internal-charge sector has positive spectrum
+approaching zero. This statement excludes a kernel-only explanation of
+that particular construction; it neither counts elementary species nor
+assigns rest masses. The filtered proof applies to equal-sign strings;
+the unfiltered commuting construction above has the separate all-sign scope.
+
+The [comparison estimate](../../model/spin_multipacket_comparison/POSITIVE_MULTIPACKETS.md)
+isolates the scattering dependency. For a candidate dispersion w(k), the
+one-packet derivative norm squared is exactly
+`integral |E-w(k)|^2 |fhat(k)|^2 dmu_C(E,k)`. It is independent of time.
+A fixed broad band alone cannot make this error integrable on an infinite
+time tail. Actual dispersion control and comparison-space normalization
+are required in addition to the proved inter-packet locality bounds.
+The [source dispersion diagnostic](../../model/spin_multipacket_comparison/COMPARISON_DEFECT.md)
+identifies the least scalar comparison error as the conditional energy
+variance at fixed momentum. Narrowing a window onto a graph of zero
+source weight loses its original success probability. On the selected
+cube the complete four-character cube-symmetry readout has strictly positive
+optimal defects for both local charge preparations. This concerns the
+whole chosen prepared vector; it does not exclude a spectral subbranch.
+
+An exact branch-selection criterion uses nested momentum cells K_l and
+energy bins I_j: `A_j,l=sum_K max_I mu(I x K)`. Refining momentum first
+and energy second gives the integral of the largest conditional energy
+atom at each momentum. A positive limit therefore selects a genuine
+reducing graph projection, even beside a continuum; repeated selection
+resolves all conditional atoms. The finite statistic is stable under
+complete probability error. No positive limiting value, smooth velocity,
+uniform branch residue or effective source/refinement error follows from
+this criterion. Its sharp continuum projectors need not be local or have
+a proved native implementation.
+
 ### The energy-flux and boost test
 
 The [source stress construction](../../model/spin_boost_stress/PROOF.md)
@@ -219,6 +282,43 @@ errors are controlled by integrals of that same defect, so taking many
 small steps does not remove it. A relativistic continuum construction
 requires the relevant scaled defect to vanish on actual low-energy field
 histories, together with the momentum and coarse-dipole identifications.
+
+The [weighted source energy](../../model/spin_energy_polarization/PROOF.md)
+has an exactly cutoff-independent change on compact preparation supports
+and an affine spatial translation law on the same clock. Its Q and P
+Weyl-kick expectations converge to the spatial first moments of
+`6 kappa F^2` and `kappa |grad G|^2/2`, respectively, with explicit mesh
+errors and Schwartz-tail bounds. These are microscopic expectation limits;
+energy-moment tightness is required to identify them with continuum boost
+operators. A finite energy first moment need not survive a weak limit.
+
+The [actual quadratic twist](../../model/spin_twist_closure/PROOF.md)
+has operator-norm remainder O(p^2). Its quadratic bond coefficients become
+central, time-invariant variables in an enlarged source-history
+representation. Their sum is scalar by the ground-energy inequality;
+individual scalarity and closure of the original canonical algebra do not
+follow. Exact source forces and a positive oscillator comparison retain
+this distinction.
+The [selected-ground energy bound](../../model/spin_twist_closure/STATE_CONTROL.md)
+gives `||(H_Lambda/|Lambda|-e0) Omega|| <= 9J/L` on a cube of side L,
+with complete regional energy-tail bounds. It does not control every
+regional observable: opposite ordered source phases have identical energy
+statistics but one-site half trace distance greater than `11/50`.
+The actual P-field drift contains a different current average amplified
+by `p^-2`. Qualitative mean-ergodic cancellation of that average supplies
+no force closure without the corresponding quantitative correlation bound.
+
+For the candidate energy polarization B_i, the exact source identity is
+`[B_i,Q_p(F)]-[L_p,Q_p(X_i F)]=i R_i,p(F)`. The
+[current remainder theorem](../../model/spin_twist_closure/POLARIZATION_LIMIT.md)
+proves `R_i,p(F) W_p Omega -> 0` for every fixed finite bounded canonical
+time-history word. Its derivative test has integral zero, removing the
+entire mean-ergodic current component without assuming ergodicity.
+The source phase-transport bound extends this cancellation through time.
+An actual product-source control excludes operator-norm vanishing on all
+states. The theorem concerns the difference of the two commutators; it
+does not establish their separate unbounded limits, the P-field action,
+vacuum boost invariance or a Lorentz-covariant particle shell.
 
 ### Existing theorem connections
 

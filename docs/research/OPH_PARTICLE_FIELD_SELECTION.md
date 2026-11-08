@@ -63,6 +63,24 @@ localization instrument.
 
 ## Strong coupling from the configured color source
 
+The [source-family compatibility theorem](../../model/source_family_compatibility/PROOF.md)
+separates finite gauge covariance from action selection. On the same
+extended finite gauge source, two admitted rotations preserve endpoint
+Gauss singlets and complete target/hold records, but give target
+probabilities `16/25` and `144/169`. Thus those finite theorem premises
+do not determine the operation parameter. A specified simulator determines
+which operation runs; the physical reconstruction also needs its selected
+capacity dependence, common clock and field attachment.
+
+For the ordered-spin projection, `U>=4cE` implies that original odd CAR
+matter leaves finite-energy windows on the ballistic spin clock. Its
+even charged configuration creators and the separate fifteen-weight
+internal gauge register cannot be identified with one interacting chiral
+matter field without an explicit source map. Proper-cubic spatial
+covariance, source parity and local exchange are proved; Lorentz spin,
+physical gauge charge and asymptotic statistics require their common
+spectral-sector attachment.
+
 The [source color proof](../../model/source_strong_coupling/PROOF.md) fixes
 fundamental generator normalization `tr3(T_a T_b)=delta_ab/2`; the actual
 fifteen-state lift has `Tr15(T_a T_b)=2 delta_ab`. Its complete Gauss-singlet

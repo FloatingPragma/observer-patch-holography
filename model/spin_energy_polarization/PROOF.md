@@ -32,7 +32,7 @@ For plateau radius at least r+p, its **energy-polarization increment**
 of its commutator with any operator on that preparation support. No
 large-cutoff norm limit of B itself is needed for these local identities.
 The half-bond density, source energy Ward identity and its block transport
-are the ones already verified in `native_spin_clock_join/energy.py` and
+are the ones verified in `native_spin_clock_join/energy.py` and
 `QFT/CoarseEnergyWard.lean`.
 
 ## 2. Exact weighted work and controlled limit
@@ -55,7 +55,7 @@ Taylor bounds and midpoint Riemann sums yield, respectively,
     Delta B_i(P_p(G)) -> (kappa/2) integral X_i |grad G|².             (2)
 
 These are limits of the actual microscopic expectation differences. They
-are not asserted to equal matrix elements of an already reconstructed
+are not asserted to equal matrix elements of a reconstructed
 continuum boost. In particular `spin_canonical_energy` proves only an
 upper bound for continuum energy when first energy can escape the limiting
 representation. Weighted source expectation convergence does not remove
@@ -158,6 +158,13 @@ state-covariance limits, transfers the scalar-field action. Positive
 spectral filtering may be retained explicitly when second energy moments
 are unavailable. No unbounded product domain is inferred from a first
 energy moment alone.
+
+The selected-history theorem in
+`spin_twist_closure/POLARIZATION_LIMIT.md` supplies vanishing of this
+specific remainder: a zero-integral derivative test removes its invariant
+mean-ergodic component, and the source energy bound transports the result
+through every fixed finite canonical history. Separate unbounded-generator
+limits and vacuum covariance do not follow from that cancellation.
 
 This reduces a physical boost premise to actual current matrix elements
 and an actual vacuum/history covariance condition. The finite cube defect

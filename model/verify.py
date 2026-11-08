@@ -454,6 +454,10 @@ REPLAYS = (
     ("model.spin_charge_dispersion", None, "model/spin_charge_dispersion/results.json"),
     ("model.source_charge_scattering", None, "model/source_charge_scattering/results.json"),
     ("model.spin_boost_stress", None, "model/spin_boost_stress/results.json"),
+    ("model.spin_energy_polarization", None, "model/spin_energy_polarization/results.json"),
+    ("model.spin_twist_closure", None, "model/spin_twist_closure/results.json"),
+    ("model.spin_multipacket_comparison", None, "model/spin_multipacket_comparison/results.json"),
+    ("model.source_family_compatibility", None, "model/source_family_compatibility/results.json"),
 )
 
 

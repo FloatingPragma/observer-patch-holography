@@ -17,10 +17,15 @@ The [proof](PROOF.md) establishes:
 - Schwartz weighted-energy tails and complete charged-preparation truncation.
 
 The field-limit readout is a source energy-polarization functional. Its
-identification with a continuum boost operator still requires control of
+identification with a continuum boost operator requires control of
 the actual propagated source current correlations and energy transport into
 the limiting representation. The existing finite-rotation/one-boost theorem
 consumes operational covariance; this construction does not assert it.
+
+The [selected-history remainder theorem](../spin_twist_closure/POLARIZATION_LIMIT.md)
+proves vanishing of the Q-field current remainder on fixed finite canonical
+histories. Separate generator limits and vacuum boost invariance retain
+their additional hypotheses.
 
 ```sh
 python -W error -m pytest -q model/spin_energy_polarization

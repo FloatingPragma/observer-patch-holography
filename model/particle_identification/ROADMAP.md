@@ -61,6 +61,25 @@ the actual dispersion and spectral residue, an operational boost on field
 histories, and asymptotic multiparticle scattering. The finite algebra,
 quantum readout and existing field representation are reused.
 
+The [local charged construction](../spin_multipacket_comparison/README.md)
+supplies compact spatial creators, nondegenerate finite configuration Gram
+matrices and analytically controlled positive-energy filters. Separated
+equal-sign n-charge preparations have original weight at least `p_*^n/4`
+and all energies in `[nar/2,2nbr]`, for explicit constants and the retained
+single-creation floor p_*. This proves positive spectrum approaching zero
+in every nonzero integer internal-charge sector. The exact comparison
+estimate isolates the time-independent one-packet energy--momentum defect
+that a source dispersion theorem must remove; it is not a particle count.
+
+The [source polarization theorem](../spin_twist_closure/POLARIZATION_LIMIT.md)
+removes one actual Q-field boost-action remainder on all fixed finite
+canonical histories. The [common-family constraint](../source_family_compatibility/PROOF.md)
+proves proper-cubic scalar profile covariance and local even exchange,
+while excluding original odd CAR matter from bounded-energy windows on
+the full-ground protected spin trajectory. These results sharpen the
+physical identification conditions below without supplying a common
+interacting chiral continuum or measured masses.
+
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
 used in a derivation. A laboratory identification, a selected initial state,
@@ -86,8 +105,13 @@ the required dynamical and physical attachments are:
    protection under the same chosen dynamics.
 3. **Dispersion and relativistic covariance.** Determine the actual joint
    energy--momentum measures and prove a stable spectral branch or a
-   controlled resonance with nonvanishing original weight. Attach one
-   operational boost to the same field histories and clock, using the
+   controlled resonance with nonvanishing original weight. The actual
+   [subbranch criterion](../spin_multipacket_comparison/COMPARISON_DEFECT.md)
+   extracts conditional energy atoms from complete joint probabilities;
+   its strictly positive limiting weight is an unproved source estimate.
+   The existing shell theorem also accepts a commuting subprojection
+   with fixed original weight and a vanishing projected force residual.
+   Attach one operational boost to the same field histories and clock, using the
    existing finite-rotation and celestial results for its geometric
    consequences. A finite propagation bound does not fix its light speed.
 4. **Multiparticle dynamics.** Extend the proved separated charged

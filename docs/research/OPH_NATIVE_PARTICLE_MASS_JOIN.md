@@ -104,6 +104,23 @@ are separate physical identification conditions.
 
 ## Spin, statistics and the meaning of charge
 
+The [local charged construction](../../model/spin_multipacket_comparison/LOCAL_CREATORS.md)
+provides compactly supported bounded source operators with original
+positive energy--momentum probability at least `9/200000000`. Filtering
+with the same clock preserves a certified positive probability and gives
+strictly positive energy transfer. Almost-locality controls separated
+products, whose charge is +-n and whose entire energy lies in an interval
+proportional to n times the momentum scale. All nonzero integer internal
+charges therefore have positive spectral values approaching zero. These
+are complete source-charge preparations, not a census of massless species.
+
+The [actual spatial action](../../model/source_family_compatibility/PROOF.md)
+rotates these fields by scalar test-function pullback under the proper
+cubic group. Its binary-cubic lift has trivial central two-pi action.
+A cubic singlet alone does not prove spin zero: an explicit harmonic
+spin-four polynomial is also cubic invariant. A physical spin assignment
+needs the continuous spacetime representation on the identified branch.
+
 The source has different conserved labels. The spin creators and their
 bounded collective limits change internal spin charge by +-1 while
 preserving occupation excess `N-|V|`. They are even native CAR operators;
@@ -134,6 +151,20 @@ source's spacetime spin, chiral propagating fields, family copies or
 physical gauge currents. CERN comparisons require the resulting complete
 production and detector probabilities, with the same physical units and
 controlled volume, time and detector errors.
+
+The [general source-family bound](../../model/source_family_compatibility/PROOF.md)
+applies throughout the proved full-ground projection domain `U>=4cE`,
+where E counts graph edges. Set `R=U/c`, `J_eff=c^2/U` and use the same
+ballistic clock with spatial scale p. The occupation-charge gap relative
+to this clock is at least `R(R/2-E)/p >= 4E^2/p`. Thus those original odd
+CAR sectors lose every fixed finite-energy window while this spin clock
+is retained. A chemical shift cannot keep both conjugate branches finite,
+because their gap sum is unchanged. The result does not apply outside its
+projection hypotheses or exclude separately constructed emergent sectors.
+Finite-c source odd excitations do exist, as the exact full-Fock dimer
+control demonstrates. Their survival in a common interacting continuum
+requires a different justified limit, rather than a relabeling of the
+even spin creators.
 
 ## Position and the source sector
 
