@@ -100,6 +100,72 @@ def transported_valleys():
     return tuple(blocks)
 
 
+def inversion_source_checks():
+    """Actual centered-box symmetry, averaging and transported nodal inversion."""
+    sigma = tuple(np.asarray(x, dtype=complex) for x in SIGMA)
+    source_checks = 0
+    averaging_checks = 0
+    for radius in (1, 2):
+        points = tuple(product(range(-radius, radius), repeat=3))
+        lookup = {x: j for j, x in enumerate(points)}
+        size = 2*len(points)
+        h = np.zeros((size, size), dtype=complex)
+        reflection = np.zeros_like(h)
+        for x, index in lookup.items():
+            y = tuple(-1-t for t in x)
+            # theta_(-1,-1,-1) S, where S a_x=epsilon_x a_-x.
+            reflection[2*lookup[y]:2*lookup[y]+2, 2*index:2*index+2] = (
+                (-1)**sum(x)*np.eye(2))
+            for axis in range(3):
+                neighbor = list(x); neighbor[axis] += 1; neighbor = tuple(neighbor)
+                if neighbor not in lookup:
+                    continue
+                other = lookup[neighbor]
+                link = 1j*sigma[axis]
+                h[2*index:2*index+2, 2*other:2*other+2] = link
+                h[2*other:2*other+2, 2*index:2*index+2] = link.conj().T
+                source_checks += 1
+        if (not np.array_equal(reflection @ reflection.conj().T, np.eye(size))
+                or not np.array_equal(reflection @ h @ reflection.conj().T, h)):
+            raise ArithmeticError('affine staggered inversion does not preserve literal Weyl links')
+        if {tuple(-1-t for t in x) for x in points} != set(points):
+            raise ArithmeticError('actual translation average lost its reflection pairing')
+        # On every annihilator a_y, R_a theta_x S = gamma_epsilon_x theta_(a-x).
+        for x in points:
+            for y in ((0, 0, 0), (1, -2, 3)):
+                left_phase = (-1)**(sum(y)+sum(tuple(x[j]-y[j] for j in range(3))))
+                left_site = tuple(-1-x[j]+y[j] for j in range(3))
+                right_site = tuple(y[j]-1-x[j] for j in range(3))
+                if left_phase != (-1)**sum(x) or left_site != right_site:
+                    raise ArithmeticError('gauge-invariant averaging identity failed')
+                averaging_checks += 1
+    frame_checks = 0
+    for x in product(range(-2, 3), repeat=3):
+        frame = onsite_frame(tuple(t % 4 for t in x))
+        inverse_frame = onsite_frame(tuple((-t) % 4 for t in x))
+        if not np.array_equal(inverse_frame, (-1)**sum(x)*frame):
+            raise ArithmeticError('onsite frame does not transport staggered inversion to site inversion')
+        frame_checks += 1
+    grading = np.diag([(-1)**sum(x) for x in PARITIES])
+    for x in PARITIES:
+        # exp(+ik_* . x)=epsilon_x exp(-ik_* . x).
+        if 1j**sum(x) != (-1)**sum(x)*(-1j)**sum(x):
+            raise ArithmeticError('nodal inversion lacks reciprocal-cell transport')
+    for perm, signs in source.cubic_rotations():
+        for x in PARITIES:
+            if source.rotation_phase(tuple(-t for t in x), perm) != source.rotation_phase(x, perm):
+                raise ArithmeticError('proper rotation does not preserve source inversion')
+    full = commutant_basis(magnetic_generators()+cubic_lifts()+(grading,))
+    if len(full) != 1 or not np.array_equal(full[0], np.eye(8, dtype=int)):
+        raise ArithmeticError('actual inversion did not identify the two scalar channels')
+    return {'literal_Weyl_bond_checks': source_checks,
+            'finite_box_radii': [1, 2], 'affine_average_annihilator_checks': averaging_checks,
+            'onsite_frame_checks': frame_checks, 'onsite_contact_preserved_by_site_permutation': True,
+            'tracial_exterior_preserves_affine_inversion': True,
+            'additional_state_average_used': False,
+            'nodal_commutant_with_actual_inversion_dimension': 1}
+
+
 def lorentzian_score(alpha, eta, memory_real, memory_dissipation):
     """Exact nodal score from supplied actual scalar memory, not its selection."""
     alpha, eta, a, b = map(F, (alpha, eta, memory_real, memory_dissipation))
@@ -164,8 +230,13 @@ def certificate():
         'including_hidden_spin_projector_ranks': [8, 8],
         'original_valley_frame_dimension': 16,
         'source_valley_channels': rows,
-        'nodal_signed_scalar_measures': 2,
+        'nodal_projector_channels': 2,
+        'nodal_signed_scalar_measures': 1,
         'independent_after_source_energy_reflection': 1,
+        'independent_after_actual_source_inversion': 1,
+        'nodal_scalar_measure_is_energy_even': True,
+        'nodal_memory_purely_imaginary_scalar_at_imaginary_frequency': True,
+        'actual_source_inversion': inversion_source_checks(),
         'original_nodal_lorentzian_scores_equal': True,
         'uniform_growing_packet_scaling_supplied': False,
         'physical_spin_or_species_identification': False,

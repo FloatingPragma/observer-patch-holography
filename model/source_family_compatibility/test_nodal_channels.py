@@ -108,12 +108,53 @@ def test_original_valley_transport_and_source_scope():
     assert row['including_hidden_spin_projector_ranks'] == [8, 8]
     assert [r['kinetic_degree'] for r in row['source_valley_channels']].count(1) == 4
     assert row['independent_after_source_energy_reflection'] == 1
+    assert row['nodal_signed_scalar_measures'] == 1
+    assert row['independent_after_actual_source_inversion'] == 1
+    assert row['nodal_scalar_measure_is_energy_even']
     assert row['original_nodal_lorentzian_scores_equal']
     assert not row['uniform_growing_packet_scaling_supplied']
     assert not row['physical_spin_or_species_identification']
     assert not row['physical_mass_prediction']
     row['source_valley_channels'].clear()
     assert len(n.certificate()['source_valley_channels']) == 8
+
+
+def test_actual_box_average_and_frame_inversion():
+    row = n.inversion_source_checks()
+    assert row['finite_box_radii'] == [1, 2]
+    assert row['literal_Weyl_bond_checks'] == 156
+    assert row['affine_average_annihilator_checks'] == 144
+    assert row['onsite_frame_checks'] == 125
+    assert row['nodal_commutant_with_actual_inversion_dimension'] == 1
+    assert not row['additional_state_average_used']
+
+
+def test_actual_periodic_site_inversion_has_nodal_gluing():
+    points = tuple(product(range(4), repeat=3))
+    index = {x: j for j, x in enumerate(points)}
+    frame = np.zeros((64, 8), complex)
+    inversion = np.zeros((64, 64), dtype=int)
+    for x in points:
+        frame[index[x], n.INDEX[tuple(t % 2 for t in x)]] = 1j**sum(x)
+        inversion[index[x], index[tuple((-t) % 4 for t in x)]] = 1
+    grading = np.diag([(-1)**sum(x) for x in n.PARITIES])
+    np.testing.assert_array_equal(inversion @ frame, frame @ grading)
+    gamma = n.gamma_matrices()
+    channel = 1j*gamma[0] @ gamma[1] @ gamma[2]
+    np.testing.assert_array_equal(grading @ channel @ grading, -channel)
+    assert not np.array_equal(inversion @ frame, frame)
+
+
+def test_inversion_removes_real_channel_memory_from_actual_symmetry_class():
+    eta = F(1, 3); alpha = F(4); hidden_weight = F(2, 5)
+    dissipation = hidden_weight/eta
+    value = n.lorentzian_score(alpha, eta, 0, dissipation)
+    assert value == (eta*eta+hidden_weight)/(alpha*alpha+eta*eta+hidden_weight)
+    # The weaker proper-group control permits real C memory, but violates
+    # the actual inversion that the full-ground prescription preserves.
+    gamma = n.gamma_matrices(); channel = 1j*gamma[0] @ gamma[1] @ gamma[2]
+    grading = np.diag([(-1)**sum(x) for x in n.PARITIES])
+    assert not np.array_equal(grading @ channel @ grading, channel)
 
 
 def test_scalar_memory_score_against_full_block_resolvent_with_real_memory():
