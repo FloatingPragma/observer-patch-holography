@@ -22,7 +22,7 @@ PROGRAM = 'claims/completion_program.json'
 INTERFACES = 'model/completion/component_interfaces.json'
 BASE = '6b20cfa05ad82582bb1c8a786b32b7556b4008d6'
 PREVIOUS = '3cf3c14810671a16e61b7915f69079a1773a12a2'
-CLASS_DIGEST = 'b6bcea47eeef27e3bd09102d0ea94a9f3222690f76face79d833ff56cf29c77b'
+CLASS_DIGEST = '362874f9c008200f69121a243acf500e8aeb832458d49df3884ba94b5fb5d924'
 INTEGRATION_CLASS_DIGEST = '54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877'
 INTEGRATION_BASELINE = {'commit': '85a0cc208f52b385cfa674b288bcb079156abfec',
  'source_sha256': {'claims/completion_program.json': '1847a49457e31b84894fda42dd59c1ec04fc7a5fe800bc52320b6222ea0d7338',
