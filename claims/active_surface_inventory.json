@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1173,
+  "surface_count": 1210,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1871,6 +1871,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/carrier_position_translation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/carrier_position_translation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/carrier_selection_reduction/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3121,6 +3131,31 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_coherent_occupation_control/DERIVED_CONTROL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_coherent_occupation_control/DIAGONAL_CONTROL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_coherent_occupation_control/LITERAL_CONTROL_AUDIT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_coherent_occupation_control/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_coherent_occupation_control/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_composite_probe/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3167,6 +3202,16 @@
     },
     {
       "path": "model/native_correlation_sectors/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_dilute_ground_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_dilute_ground_limit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3227,6 +3272,16 @@
     },
     {
       "path": "model/native_exchange_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_ground_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_ground_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3347,6 +3402,16 @@
     },
     {
       "path": "model/native_local_charge_history/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_energy_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_energy_clock/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3526,6 +3591,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_regional_modular_clock/COLLAR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_regional_modular_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_regional_modular_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_relational_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3561,6 +3641,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_source_chsh/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_source_chsh/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_spatial_scaling/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3572,6 +3662,11 @@
     },
     {
       "path": "model/native_spectral_detector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_spin_clock_join/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3887,6 +3982,16 @@
     },
     {
       "path": "model/particle_identification/UNCERTAINTY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_mass_readout_gate/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_mass_readout_gate/table.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4371,6 +4476,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_strong_coupling/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_strong_coupling/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spatial_interaction/DERIVATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4396,12 +4511,52 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_covariant_localization/CONTINUUM_POSITION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_covariant_localization/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_covariant_localization/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_current_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/spin_dynamical_localization/FINITE_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_dynamical_localization/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_dynamical_localization/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_goldstone_sector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_operational_position/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_operational_position/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4416,6 +4571,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_position_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_position_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_reference_limit/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4426,12 +4591,32 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_relaxed_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_resolved_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/spin_shell_diagnostic/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_shell_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_shell_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_source_chain/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
