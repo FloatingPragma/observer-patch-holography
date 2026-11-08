@@ -15,6 +15,7 @@ Completeness applies only to the explicit domains in the table; there is no exha
 | compact_opposite_texture_cores | opposite shell degrees +1 and -1, constant exterior, four localized band modes | declared transported four-mode band and current readout | Unidentified |
 | one_hole_spin_readout | hole-position projectors and internal spin information carried by the recorded signed transport; conditional block dimension 2^(V-1) | complete initial-hole position detector preserves internal spin/reference blocks; uniform global attempts give a 4/n archive bound relative to identical propagation with identity repair | Unidentified |
 | centered_full_CAR_charge_response | odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair | complete local interacting records and positive original charged energy-band weight on one centered full-ground clock | Unidentified |
+| kinetic_Weyl_nodes_and_free_fields | eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields | exact winding, chirality and particle/hole dictionary for the proved weak-contact free vacuum; no Standard Model assignment | Unidentified |
 
 ## The source-to-observation chain
 
@@ -105,7 +106,7 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Preparation and readout:** finite positive-field ground preparation, local marginal modulus, source spin-rotation observables and complete native local Pauli histories with all pointer and failure records.
 
-**Propagation and energy:** continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; the volume-wide uniform mode has inverse-weighted centre and energy-square variance tending to zero, with a volume-dependent original probability bound; no nonzero-momentum shell or rest mass.
+**Propagation and energy:** continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; bounded conjugate charge records each retain original probability at least 1/387200 in momentum [r/2,r] and energy [3r/387200,387200r], uniformly at small r; no sharp shell or rest mass.
 
 **Topology:** internal source spin rotation, no spatial winding or identified electromagnetic charge.
 
@@ -192,6 +193,38 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 **Boundary:** the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established.
 
 [Owning proof or construction](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md).
+
+## kinetic Weyl nodes and free fields
+
+**Source:** original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7)).
+
+**Classification domain:** all zeros of the stated one-body symbol on its momentum torus; not all interacting excitations or repair-protected charges.
+
+**Preparation and readout:** the same centered free-limit ground hierarchy, spatial wavepackets and positive clock; exact source spin-frame and Pauli-band projector dictionary.
+
+**Propagation and energy:** free positive particle and antiparticle energies v|p|, zero rest mass and opposite helicities on the stated weak-contact family; can be paired into four massless Dirac fields.
+
+**Topology:** momentum-space kinetic winding with explicit boundary-gap stability; period-two onsite mass channels couple opposite winding sectors.
+
+**Boundary:** the default U/c=8 family is outside this free theorem; neither a selected mass coefficient nor an interacting pole nor a measured species is inferred from winding.
+
+[Owning proof or construction](../../model/source_family_compatibility/KINETIC_NODE_MAP.md).
+
+## Exact kinetic-node to free-field map
+
+This table uses the centered weak-contact family c=v/a, 0<=U=o(c^(2/7)).
+Its free energies are v|p|. It assigns no measured particle; U/c=8 is outside this free theorem.
+
+| Source node / pi | Kinetic winding | Free particle helicity | Antiparticle helicity | Free rest mass |
+| --- | ---: | ---: | ---: | ---: |
+| (0, 0, 0) | -1 | -1/2 | 1/2 | 0 |
+| (0, 0, 1) | 1 | 1/2 | -1/2 | 0 |
+| (0, 1, 0) | 1 | 1/2 | -1/2 | 0 |
+| (0, 1, 1) | -1 | -1/2 | 1/2 | 0 |
+| (1, 0, 0) | 1 | 1/2 | -1/2 | 0 |
+| (1, 0, 1) | -1 | -1/2 | 1/2 | 0 |
+| (1, 1, 0) | -1 | -1/2 | 1/2 | 0 |
+| (1, 1, 1) | 1 | 1/2 | -1/2 | 0 |
 
 Source family, state, clock, physical spin/statistics, dispersion or resonance,
 detector coupling and experimental units must be joined before a catalogue

@@ -37,6 +37,11 @@ ground and clock. Complete local records have an explicit repair and boundary
 error for the original Weyl action with its bare repair; distant raw repair
 values are inaccessible to that protocol. No alignment-sector invariance
 or frame covariance of that repair is assumed.
+The [ground preparation and marginal bounds](GROUND_MARGINALS.md) construct
+finite algebraic preparations, computable pressure-secant enclosures and
+uniform one-site faithfulness at U/c=8. Six additional native tagging pulses
+read the prepared full cube with all pointer and failure records retained.
+These finite records do not supply an arbitrary-accuracy growing-state modulus.
 [Original charged energy bands](CHARGED_SPECTRAL_BANDS.md) have positive
 volume-independent weight for both addition and removal. The exact dimer
 also generates its own composite response clock. These are source energies
@@ -94,3 +99,11 @@ An interacting relativistic limit requires a source-selected scaling and
 controlled spatial spectral branches on this common field. The fixed-spacing
 construction does not identify its centered state with the ordered spin
 limit or derive the Standard Model's chiral gauge representations.
+
+The [kinetic-node map](KINETIC_NODE_MAP.md) identifies all eight winding
+numbers with the Weyl fields of the proved weak-contact free limit, including
+opposite particle/hole helicities. Period-two source masses pair opposite
+windings with supplied coefficients. On the default interacting ground,
+the [nodal memory bound](NODAL_MEMORY.md) instead proves a nonzero omitted
+response throughout a neighbourhood of every kinetic node. Its imaginary
+frequency response cannot be replaced by the two-block compression.

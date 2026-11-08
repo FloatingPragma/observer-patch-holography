@@ -23,6 +23,14 @@ Complete finite cube spectra retain all charge, reflection and energy
 records; they cannot replace the growing-volume field or establish a
 nonzero-momentum particle branch.
 
+The [bounded charged preparation](ARCTAN_CHARGED_BANDS.md) has two conjugate
+records, each with original probability at least `1/387200` jointly in
+momentum `[r/2,r]` and energy `[3r/387200,387200r]`, uniformly at small r.
+It uses this positive-field ground and clock, including a finite-source
+commutator error and every complementary record. The complete dimer
+control retains nine preparation/energy labels. These broad response bands
+supply no sharp dispersion or physical mass.
+
 ```sh
 python -W error -m pytest -q model/spin_joint_field_limit
 python -W error -m model.spin_joint_field_limit --write

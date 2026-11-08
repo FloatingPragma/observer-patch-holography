@@ -210,6 +210,148 @@
       "variance_upper": "3483252836794371/2251799813685248"
     }
   ],
+  "bounded_joint_charged_energy_momentum_bands": {
+    "actual_finite_source": {
+      "additional_native_pulse_tape_executed": false,
+      "all_input_effect_sum_identity": true,
+      "allocated_zero_probability_records": 5,
+      "bounded_projection_probability_bound_saturated_on_middle_level": true,
+      "canonical_P_outside_middle_norm_squared": "0",
+      "charged_preparation_probability_formula": "atan(1/16)^2/(4*pi^2)*(1+16/sqrt(257))",
+      "charged_scaled_energy": "2 + sqrt(257)/8",
+      "complete_record_count": 9,
+      "complete_source_spectrum": [
+        "-sqrt(257)/32 - 1/2",
+        "0",
+        "0",
+        "-1/2 + sqrt(257)/32"
+      ],
+      "dimension": 4,
+      "field_over_J": "1/32",
+      "finite_control_has_continuum_momentum_assignment": false,
+      "finite_weak_commutator_formula": "atan(1/16)/(8*pi*sqrt(257))",
+      "p": "1/4",
+      "whole_source_and_charge_rotated_together": true
+    },
+    "bounded_Ward_projection_transfer": {
+      "each_original_probability_lower": "max(0,d-eta)^2/(2*||P Omega||^2)",
+      "growing_Pauli_sum_normalization_used": false,
+      "leakage_from_same_clock_Ward_tube_required": true,
+      "shrinking_continuum_width_proved": false
+    },
+    "complete_finite_probabilities": {
+      "charged_scaled_energy_interval": [
+        "800780488547/200000000000",
+        "250243902671/62500000000"
+      ],
+      "preparation_success_probability_divided_out": false,
+      "records": [
+        {
+          "energy_label": "ground",
+          "original_probability_interval": [
+            "0",
+            "0"
+          ],
+          "preparation": "charge_minus"
+        },
+        {
+          "energy_label": "middle",
+          "original_probability_interval": [
+            "24648367357309/125000000000000000",
+            "197186938858473/1000000000000000000"
+          ],
+          "preparation": "charge_minus"
+        },
+        {
+          "energy_label": "upper",
+          "original_probability_interval": [
+            "0",
+            "0"
+          ],
+          "preparation": "charge_minus"
+        },
+        {
+          "energy_label": "ground",
+          "original_probability_interval": [
+            "0",
+            "0"
+          ],
+          "preparation": "charge_plus"
+        },
+        {
+          "energy_label": "middle",
+          "original_probability_interval": [
+            "24648367357309/125000000000000000",
+            "197186938858473/1000000000000000000"
+          ],
+          "preparation": "charge_plus"
+        },
+        {
+          "energy_label": "upper",
+          "original_probability_interval": [
+            "0",
+            "0"
+          ],
+          "preparation": "charge_plus"
+        },
+        {
+          "energy_label": "ground",
+          "original_probability_interval": [
+            "499802813042189089/500000000000000000",
+            "999605626084378179/1000000000000000000"
+          ],
+          "preparation": "complement"
+        },
+        {
+          "energy_label": "middle",
+          "original_probability_interval": [
+            "0",
+            "0"
+          ],
+          "preparation": "complement"
+        },
+        {
+          "energy_label": "upper",
+          "original_probability_interval": [
+            "303239/8000000000000000",
+            "9476219/250000000000000000"
+          ],
+          "preparation": "complement"
+        }
+      ],
+      "scalar_bounds_are_exact_rational": true
+    },
+    "continuum_band": {
+      "complete_preparation_records": [
+        "charge_minus",
+        "charge_plus",
+        "complement"
+      ],
+      "configuration_second_moment_upper": "6",
+      "each_original_charge_probability_lower": "1/387200",
+      "full_created_scaled_first_moment_upper": "1/3",
+      "joint_positive_field_clock_used": true,
+      "old_zero_field_clock_substituted": false,
+      "order_floor": "1/10",
+      "original_odd_CAR_identification": false,
+      "scaled_energy_band": [
+        "3/387200",
+        "387200"
+      ],
+      "sharp_shell_or_physical_mass_inferred": false,
+      "spatial_momentum_band": [
+        "1/2",
+        "1"
+      ],
+      "weak_commutator_lower": "1/440"
+    },
+    "continuum_limit_error_rate_supplied": false,
+    "finite_source_commutator_error": "(sigma+C/2)/(2*pi)",
+    "full_history_linear_force_closure_proved": false,
+    "physical_mass_prediction": null,
+    "physical_species": [],
+    "source_family": "joint p=n^-2, B=J*n^-5; same H_B ground and clock"
+  },
   "complete_finite_uniform_spectral_readout": {
     "finite_cases": [
       {
@@ -9527,6 +9669,7 @@
   "schema": "oph.spin_joint_field_limit.v1",
   "scope": {
     "Lorentz_covariance_proved": false,
+    "bounded_charged_joint_band_original_weight_uniform_in_momentum_scale": true,
     "clock": "K_B/(Jp) at each n",
     "closed_linear_field_equation_proved": false,
     "complete_finite_original_weight_force_defect_readout_constructed": true,
@@ -9535,6 +9678,7 @@
     "equality_to_ordered_zero_field_state_clock_limit_proved": false,
     "filtered_linear_force_residual_proved_o_p_squared": false,
     "finite_positive_field_preparation_and_local_accuracy_computable": true,
+    "finite_source_monotone_creator_commutator_error_controlled": true,
     "finite_source_uniform_order_floor_computable": true,
     "finite_spectral_table_all_original_records_certified": true,
     "fixed_cube_spectrum_identified_with_growing_volume_field": false,
@@ -10658,22 +10802,25 @@
     "model/spin_goldstone_sector/__init__.py": "d497a6791e48b90de7d1d2548906880cbf8cf1de17d6be4159a08f5c1c80d4de",
     "model/spin_goldstone_sector/algebra.py": "db981083ea50d41914fd228e84dc7155afe85ab4c18c1f74d275454c62646173",
     "model/spin_goldstone_sector/infrared.py": "19089d96ca3d233e1949b7df3c59c37aca23c4d2e1ca84dd1b1b651c6bbc8ca9",
+    "model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md": "b3a39c70aacf09edc3d1640bb9076a111d9c55622417fdc6887900f7bf172b77",
     "model/spin_joint_field_limit/CLOCK_COMPARISON.md": "27b72c38cff297dffce4c9c2c70b31c755dfc70777b4d142bf8cb508c34c714f",
     "model/spin_joint_field_limit/FORCE_READOUT.md": "876ed6ba21da5534c0428bd540698de94db9fb84ef1df8f28aa975aec3c2235b",
     "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
-    "model/spin_joint_field_limit/README.md": "281441bfad1f3f7bcb2d581000b6819f03e9e3ef6a34ad5a1eebe7f66de1d34e",
+    "model/spin_joint_field_limit/README.md": "b7f1a9396b3879bb7e68ad1bfd6fdaa81f349c089cddbdd897da94ec9bb48235",
     "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
     "model/spin_joint_field_limit/UNIFORM_MODE.md": "6c88f4458bce56f67f00269eaac808272820d27bc673c4eb565a20837b10374d",
     "model/spin_joint_field_limit/WARD_DYNAMICS.md": "266dc9d34140ba345a361edf3e7d508cf4dd83bd7a8891932e9d4fc8167fa156",
     "model/spin_joint_field_limit/__init__.py": "4642f35854e6e530b6cf9b4912068956c46a9f71a68d39881a2e1541f3f248c4",
     "model/spin_joint_field_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_joint_field_limit/algebra.py": "e2432c398757d27a81479ac204a5e1ab58e72791d80e236ba948b6853ed73c69",
+    "model/spin_joint_field_limit/arctan_bands.py": "fc4e5b5c7ae195ce1385d45ee813e0f8af3be5399b84dd39b3f84b0b70d5ec16",
     "model/spin_joint_field_limit/bounds.py": "86143035b1507381b101e100b78b8461fd5ba880f8864446cf409f404f149b63",
     "model/spin_joint_field_limit/clock_comparison.py": "c9669235f2c5b9d8fa0d21150508a278adbcb6874c06a49d8e3f86d2cb4243ee",
     "model/spin_joint_field_limit/construction.py": "3181c73283abe007b4cb89d6be75225643d1a7d97bfa94e5f0b727c86b88e3b9",
     "model/spin_joint_field_limit/force.py": "a833d96800bb543e2b3e8fb5d4c36d10a303c40bca737f60015a7840680d3bf1",
     "model/spin_joint_field_limit/joint_symmetry.py": "a989dc9e675f1f15c6603d3fa7da95b175a11408e1fe61544c5bf5ba1f120eb6",
-    "model/spin_joint_field_limit/packet.py": "d99e7f5cd4fede710eec6a91b235863f7f3481f8695a93d21294ad8ace2bab99",
+    "model/spin_joint_field_limit/packet.py": "5e2cd4224515b1df95a9c282df7d5c924f9f8c471405f9ea3eebe8ba6d287f2c",
+    "model/spin_joint_field_limit/test_arctan_bands.py": "35a258349468ec90a5e5b040043b5e0c7e897b85fd05978353176b009cdb6d34",
     "model/spin_joint_field_limit/test_clock_comparison.py": "48222ad1b5474cda3e57e73e6b906b176b3cd62cfd04f5904dfa3648787439b2",
     "model/spin_joint_field_limit/test_construction.py": "d6f640daf0cd6f9ae6bcb7d248787b7db9afba6e4d41662aecf61e3f022f4d1b",
     "model/spin_joint_field_limit/test_force.py": "84b1cb61b67304932143a2d6576b57b9ea18bc527d34e055225af4da7d2ba5eb",

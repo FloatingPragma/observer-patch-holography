@@ -59,7 +59,15 @@ def test_no_double_counting_or_physical_assignments(produced):
     assert all(not row['identified_Standard_Model_species'] and row['physical_mass'] is None for row in entries)
     assert not produced['physical_particle_map']
     assert len(next(row for row in entries if row['id']=='ordered_exchange_charge')['same_object_realizations']) == 2
-    assert len(entries)==10
+    assert len(entries)==11
+
+
+def test_free_node_map_keeps_complete_valleys_and_empirical_boundary(produced):
+    value=produced['kinetic_node_free_field_attachment']
+    assert len(value['nodes'])==8 and value['total_kinetic_winding']==0
+    assert value['free_field_scope']['default_U_over_c_eight_in_this_class']is False
+    assert all(row['physical_particle_assignment']is None for row in value['nodes'])
+    assert value['replayed_free_parent_theorem']['physical_species_identified']is False
 
 
 def test_hole_sector_keeps_position_spin_scope_and_complete_archive(produced):
@@ -115,6 +123,10 @@ def test_joint_family_has_literal_observables_and_distinct_state_clock(produced)
     assert uniform['weighted_centre_and_variance_tend_to_zero']
     assert not uniform['uniform_original_continuum_residue_lower_proved']
     assert not uniform['nonzero_momentum_shell_proved']
+    charged=attached['bounded_charged_joint_bands']
+    assert charged['continuum_band']['each_original_charge_probability_lower']=='1/387200'
+    assert charged['actual_finite_source']['complete_record_count']==9
+    assert not charged['continuum_band']['sharp_shell_or_physical_mass_inferred']
 
 
 def test_centered_charge_response_has_original_weight_and_local_record_scope(produced):

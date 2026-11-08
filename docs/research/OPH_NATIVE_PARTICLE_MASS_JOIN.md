@@ -44,6 +44,22 @@ two-step magnetic translations, while the cube sign patterns are finite
 preparation profiles. Neither the three correlations nor this Gram
 specifies the full frequency-dependent memory.
 
+The [source nodal bound](../../model/source_family_compatibility/NODAL_MEMORY.md)
+uses an exact full-CAR star inequality and a dimer variational bound on
+that same ground. At U/c=8 it gives `R*R>=18c^2/125` throughout
+`sum_j cos(k_j)^2<=3/250`, plus a positive dissipative-memory lower bound
+at every imaginary frequency. The two-block compression therefore cannot
+supply the full response near those nodes. A surviving pole or a
+zero-frequency memory atom requires its actual spectral measure.
+
+The [kinetic winding dictionary](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
+separately maps `k_b=pi b` to chirality `-(-1)^|b|` in the proved centered
+free family `c=v/a`, `0<=U=o(c^(2/7))`. Both conjugate helicities and all
+eight nodes are retained. The period-two source mass channels pair opposite
+windings; their coefficients are supplied. This exact internal catalogue
+does not promote the default interacting source to a free theory or fill
+the measured-particle correspondence.
+
 The [complete local energy clock](../../model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md)
 uses addition and removal operators evolved by the same centered source.
 All phase records form one instrument on every input; no ground energy
@@ -85,6 +101,16 @@ weight, preserve all complementary outcomes, and control the same state's
 momentum-resolved spectral limit. A positive band in fixed source units
 does not establish that shrinking-window weight or a measured mass.
 
+The [centered ground construction](../../model/source_family_compatibility/GROUND_MARGINALS.md)
+gives a finite algebraic preparation procedure and computable pressure-secant
+bounds for local marginals. The symmetric default reference has all four
+one-site eigenvalues above `1/90000`. Six native tagging pulses on the
+prepared full cube retain 36 pointer pairs, 84 additional first-failure
+records and the inherited preparation failures. Its one-site half-trace
+comparison to every stated symmetric thermodynamic ground is below `13/50`.
+This coarse one-site bound is insufficient for small spectral windows;
+multisite marginal convergence with the required accuracy is unproved.
+
 ## A prepared field on one state and clock
 
 The [joint positive-field family](../../model/spin_joint_field_limit/PROOF.md)
@@ -95,6 +121,24 @@ explicit combined error bounds. The catalogue records this as a distinct
 constructed field sector. It assigns no Standard Model species or mass.
 This does not identify its histories with the ordered-zero-field
 prescription or give a computable continuum-history convergence rate.
+
+On this joint family, the
+[bounded monotone creators](../../model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md)
+give each conjugate charge original probability at least `1/387200` in
+momentum `[r/2,r]` and energy `[3r/387200,387200r]`, uniformly at small r.
+Their finite-source commutator error is controlled by actual longitudinal
+variance. All preparation complements and all nine dimer energy records
+are retained. This supplies broad low-energy collective bands on the
+prepared clock, without an asserted mass shell or identification with
+the original odd CAR excitations.
+
+For a charge- and conjugation-invariant spectral tube Pi, the same bounded
+preparation gives each original charge probability at least
+`max(0,d-eta)^2/(2v)`, where `d<=|<[P,A]>|`, `v=||P Omega||^2` and
+`eta^2=||(I-Pi)P Omega||^2`. Here P is the canonical internal field.
+The existing source Ward readout bounds eta when its actual filtered
+moments are supplied. This removes a growing Pauli-sum normalization from
+that implication; it does not prove the continuum tube leakage is small.
 
 The [force readout](../../model/spin_joint_field_limit/FORCE_READOUT.md)
 measures the unnormalized energy-filtered current or linear-force residual.

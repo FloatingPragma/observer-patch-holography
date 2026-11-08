@@ -11,6 +11,7 @@ from model.defect_protection import protection
 from model.spin_joint_field_limit import packet as joint_field
 from model.source_family_compatibility import hole_records, hole_dispersion, local_matter, charge_bands, composite, cube_response, charge_scaling, boost_current, cube_spectrum
 from model.source_family_compatibility import momentum_response, charge_escape, uv_tail, local_spectral
+from model.source_family_compatibility import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -94,13 +95,14 @@ def rows():
          'protected_object':'two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories',
          'completeness':'specified field subnet along a common history subsequence; neither all continuum observables nor all protected defects are classified',
          'preparation_readout':'finite positive-field ground preparation, local marginal modulus, source spin-rotation observables and complete native local Pauli histories with all pointer and failure records',
-         'propagation_energy':'continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; the volume-wide uniform mode has inverse-weighted centre and energy-square variance tending to zero, with a volume-dependent original probability bound; no nonzero-momentum shell or rest mass',
+         'propagation_energy':'continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; bounded conjugate charge records each retain original probability at least 1/387200 in momentum [r/2,r] and energy [3r/387200,387200r], uniformly at small r; no sharp shell or rest mass',
          'topology':'internal source spin rotation, no spatial winding or identified electromagnetic charge',
          'boundary':'B(n) is a supplied preparation prescription; unread repair does not select it; equality to the ordered zero-field history limit, physical Lorentz spin, sharp poles and scattering are unproved',
          'evidence':'model/spin_joint_field_limit/PROOF.md',
          'same_object_realizations':['model/spin_joint_field_limit/SECOND_PAIR.md',
                                      'model/spin_joint_field_limit/CLOCK_COMPARISON.md',
-                                     'model/spin_joint_field_limit/UNIFORM_MODE.md']},
+                                     'model/spin_joint_field_limit/UNIFORM_MODE.md',
+                                     'model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md']},
         {'id':'common_hidden_spin_factor', 'kind':'joint_noiseless_subsystem',
          'source':'same six-site Weyl/contact field and complete charged-block repair',
          'protected_object':'at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315',
@@ -156,7 +158,19 @@ def rows():
                                      'model/source_family_compatibility/MOMENTUM_RESPONSE.md',
                                      'model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md',
                                      'model/source_family_compatibility/UV_TAIL.md',
-                                     'model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md']},
+                                     'model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md',
+                                     'model/source_family_compatibility/NODAL_MEMORY.md',
+                                     'model/source_family_compatibility/GROUND_MARGINALS.md',
+                                     'model/source_family_compatibility/CUBE_MEMORY.md']},
+        {'id':'kinetic_Weyl_nodes_and_free_fields', 'kind':'kinetic_topology_and_conditional_field_map',
+         'source':'original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))',
+         'protected_object':'eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields',
+         'completeness':'all zeros of the stated one-body symbol on its momentum torus; not all interacting excitations or repair-protected charges',
+         'preparation_readout':'the same centered free-limit ground hierarchy, spatial wavepackets and positive clock; exact source spin-frame and Pauli-band projector dictionary',
+         'propagation_energy':'free positive particle and antiparticle energies v|p|, zero rest mass and opposite helicities on the stated weak-contact family; can be paired into four massless Dirac fields',
+         'topology':'momentum-space kinetic winding with explicit boundary-gap stability; period-two onsite mass channels couple opposite winding sectors',
+         'boundary':'the default U/c=8 family is outside this free theorem; neither a selected mass coefficient nor an interacting pole nor a measured species is inferred from winding',
+         'evidence':'model/source_family_compatibility/KINETIC_NODE_MAP.md'},
     ]
 
 
@@ -183,6 +197,16 @@ def joint_field_attachment():
     history = value['complete_prepared_local_history']
     uniform=value['uniform_mode_original_weight_and_concentration']
     spectral=value['complete_finite_uniform_spectral_readout']
+    charged=value['bounded_joint_charged_energy_momentum_bands']
+    if (charged['continuum_band']['each_original_charge_probability_lower']!='1/387200'
+            or charged['continuum_band']['joint_positive_field_clock_used']is not True
+            or charged['continuum_band']['sharp_shell_or_physical_mass_inferred']is not False
+            or charged['continuum_band']['old_zero_field_clock_substituted']is not False
+            or charged['continuum_band']['original_odd_CAR_identification']is not False
+            or charged['full_history_linear_force_closure_proved']is not False
+            or charged['continuum_limit_error_rate_supplied']is not False
+            or charged['physical_species']!=[] or charged['physical_mass_prediction']is not None):
+        raise ValueError('joint-field charged response exceeds its owning scope')
     if (uniform['uniform_mode_centre_and_weighted_variance_vanish_on_joint_clock']is not True
             or uniform['uniform_original_probability_floor_proved']is not False
             or uniform['nonzero_momentum_or_physical_mass_shell_proved']is not False
@@ -211,6 +235,7 @@ def joint_field_attachment():
                 'all_native_failure_and_pointer_records_retained':history['all_native_failure_and_pointer_records_retained'],
                 'large_history_executed':history['large_history_executed']},
             'ordered_zero_field_history_identity_proved':False,
+            'bounded_charged_joint_bands':charged,
             'uniform_mode_response':{'weighted_centre_and_variance_tend_to_zero':True,
                 'original_window_probability_lower':'m/(8N); finite order floor m>1/20',
                 'uniform_original_continuum_residue_lower_proved':False,
@@ -305,15 +330,30 @@ def centered_matter_attachment():
         'actual_cubic_momentum_response':serialize(momentum_response.certificate()),
         'default_original_charge_escape':serialize(charge_escape.certificate()),
         'uniform_original_energy_tails':serialize(uv_tail.certificate()),
-        'complete_local_source_energy_readout':serialize(local_spectral.certificate())}
+        'complete_local_source_energy_readout':serialize(local_spectral.certificate()),
+        'actual_nodal_response_memory':serialize(nodal_memory.certificate()),
+        'ground_marginal_preparation_and_native_records':ground_marginals.certificate(),
+        'full_cube_frequency_dependent_memory':serialize(cube_memory.certificate())}
     if any(canonical(value)!=canonical(parent[key]) for key,value in local_energy.items()):
         raise ValueError('centered-matter local energy or momentum receipt differs from the replay')
     if (local_energy['actual_cubic_momentum_response']['continuum_poles_or_physical_species_derived']is not False
             or local_energy['uniform_original_energy_tails']['positive_shrinking_window_weight_proved']is not False
             or local_energy['complete_local_source_energy_readout']['physical_mass_prediction']is not None
             or local_energy['default_original_charge_escape']['physical_particle_species']!=[]
-            or local_energy['default_original_charge_escape']['physical_particle_masses']!=[]):
+            or local_energy['default_original_charge_escape']['physical_particle_masses']!=[]
+            or local_energy['actual_nodal_response_memory']['physical_species_identified']!=[]
+            or local_energy['actual_nodal_response_memory']['default_source_result']['zero_frequency_residue_inferred']is not False):
         raise ValueError('centered-matter energy readout promotes its physical scope')
+    ground=local_energy['ground_marginal_preparation_and_native_records']
+    if any(ground[name]is not False for name in (
+            'thermodynamic_local_marginal_convergence_modulus_proved',
+            'cut_ground_substituted_for_infinite_ground','physical_state_selection_proved')):
+        raise ValueError('centered-matter finite preparation promotes its infinite-state scope')
+    memory=local_energy['full_cube_frequency_dependent_memory']
+    if (memory['physical_mass_assigned']is not None
+            or memory['thermodynamic_charge_gap_proved']is not False
+            or memory['native_large_filter_tape_executed']is not False):
+        raise ValueError('centered-matter cube memory exceeds its finite-source scope')
     if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
             or canonical(bands)!=canonical(parent['centered_original_charged_bands'])
             or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])
@@ -372,6 +412,21 @@ def centered_matter_attachment():
             'physical_species':[],'physical_masses':[]}
 
 
+def kinetic_field_attachment():
+    parent=strict_json.load(ROOT/'model/source_family_compatibility/results.json')
+    value=serialize(kinetic_nodes.certificate())
+    if canonical(value)!=canonical(parent['kinetic_node_to_free_field_map']):
+        raise ValueError('kinetic-field owning source receipt differs')
+    if (value['scope']['default_interacting_Green_function_winding_derived']is not False
+            or value['scope']['physical_Standard_Model_assignment']is not False
+            or value['scope']['all_native_repair_protected_charge']is not False
+            or value['scope']['real_space_defect_classification']is not False
+            or value['free_field_scope']['default_U_over_c_eight_in_this_class']is not False
+            or any(row['physical_particle_assignment']is not None for row in value['nodes'])):
+        raise ValueError('kinetic-field map exceeds its physical scope')
+    return value
+
+
 def build():
     pins = bindings()
     bare = defect_algebra.report()
@@ -392,6 +447,7 @@ def build():
     hole_attachment = hole_source_attachment()
     aligned_attachment = aligned_hole_attachment()
     centered_attachment = centered_matter_attachment()
+    kinetic_attachment = kinetic_field_attachment()
     if bindings() != pins:
         raise RuntimeError('catalogue source changed during construction')
     return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':pins,
@@ -406,6 +462,7 @@ def build():
             'one_hole_source_attachment':hole_attachment,
             'aligned_hole_source_attachment':aligned_attachment,
             'centered_full_CAR_source_attachment':centered_attachment,
+            'kinetic_node_free_field_attachment':kinetic_attachment,
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,
@@ -433,6 +490,7 @@ def render(value):
         'compact_opposite_texture_cores':'declared transported four-mode band and current readout',
         'one_hole_spin_readout':'complete initial-hole position detector preserves internal spin/reference blocks; uniform global attempts give a 4/n archive bound relative to identical propagation with identity repair',
         'centered_full_CAR_charge_response':'complete local interacting records and positive original charged energy-band weight on one centered full-ground clock',
+        'kinetic_Weyl_nodes_and_free_fields':'exact winding, chirality and particle/hole dictionary for the proved weak-contact free vacuum; no Standard Model assignment',
     }
     lines = ['# Protected sectors and defect candidates', '',
              'The catalogue records separate source architectures. It is not a list of physical species.',
@@ -462,6 +520,14 @@ def render(value):
                   '**Topology:** '+row['topology']+'.', '',
                   '**Boundary:** '+row['boundary']+'.', '',
                   '[Owning proof or construction](../../'+row['evidence']+').']
+    lines += ['', '## Exact kinetic-node to free-field map', '',
+              'This table uses the centered weak-contact family c=v/a, 0<=U=o(c^(2/7)).',
+              'Its free energies are v|p|. It assigns no measured particle; U/c=8 is outside this free theorem.', '',
+              '| Source node / pi | Kinetic winding | Free particle helicity | Antiparticle helicity | Free rest mass |',
+              '| --- | ---: | ---: | ---: | ---: |']
+    for row in value['kinetic_node_free_field_attachment']['nodes']:
+        lines.append('| '+str(tuple(row['source_node_pi_units']))+' | '+str(row['kinetic_winding'])
+                     +' | '+row['positive_charge_free_helicity']+' | '+row['conjugate_free_helicity']+' | 0 |')
     lines += ['', 'Source family, state, clock, physical spin/statistics, dispersion or resonance,',
               'detector coupling and experimental units must be joined before a catalogue',
               'entry can fill the [Standard Model correspondence](../standard_model_source_map/PARTICLE_MAP.md).', '']

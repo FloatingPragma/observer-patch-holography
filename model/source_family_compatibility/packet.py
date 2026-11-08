@@ -10,9 +10,10 @@ from pathlib import Path
 from tools import strict_json
 from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion,composite,charge_scaling,boost_current,cube_response,cube_spectrum
 from . import momentum_response, charge_escape, uv_tail, local_spectral
+from . import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
 
 ROOT=Path(__file__).resolve().parents[2]
-HERE=Path(__file__).parent
+HERE=Path(__file__).resolve().parent
 
 
 def serialize(value):
@@ -27,9 +28,13 @@ def bindings():
     roots=(ROOT/'evidence/observer_dynamics_20260925/oph-physics-sim',
            ROOT/'code/capacity_readback',ROOT)
     def include(path):
-        if path.is_file()and path not in paths:paths.add(path);queue.append(path)
+        if path.is_file()and path not in paths:
+            paths.add(path)
+            if path.suffix=='.py':queue.append(path)
     # These source modules are loaded by the capacity adapter using its explicit path.
     for name in program_selection.record_capacity.PUBLIC_SOURCES:include(ROOT/name)
+    for name in kinetic_nodes.free_parent.bindings():include(ROOT/name)
+    for name in ground_marginals.NATIVE_INPUTS:include(ROOT/name)
     while queue:
         path=queue.pop();base_root=next(root for root in roots if path.is_relative_to(root))
         package='.'.join(path.relative_to(base_root).with_suffix('').parts[:-1])
@@ -73,7 +78,10 @@ def bindings():
                   HERE/'COMPOSITE_CAR.md',HERE/'CUBE_RESPONSE.md',
                   HERE/'STRONG_CHARGE_SCALING.md',HERE/'ENERGY_DIPOLE.md',HERE/'CUBE_SPECTRUM.md',
                   HERE/'MOMENTUM_RESPONSE.md',HERE/'LOCAL_CHARGE_ESCAPE.md',
-                  HERE/'UV_TAIL.md',HERE/'LOCAL_SPECTRAL_READOUT.md'))
+                  HERE/'UV_TAIL.md',HERE/'LOCAL_SPECTRAL_READOUT.md',HERE/'KINETIC_NODE_MAP.md',
+                  ROOT/'model/weyl_geometric_modular/README.md',
+                  ROOT/'model/native_mass_channels/README.md',ROOT/'model/source_mass_shell/README.md',
+                  HERE/'NODAL_MEMORY.md',HERE/'GROUND_MARGINALS.md',HERE/'CUBE_MEMORY.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -109,6 +117,11 @@ def claims():
         'original_CAR_UV_tails_uniform_in_volume_and_packet':True,
         'default_ballistic_entire_unfiltered_unit_mass_regular_limit_excluded':True,
         'default_filtered_finite_physical_energy_weight_proved':False,
+        'kinetic_node_winding_attached_to_proved_free_Weyl_family':True,
+        'default_interacting_memory_positive_near_all_kinetic_nodes':True,
+        'default_symmetric_ground_one_site_faithfulness_uniform':True,
+        'complete_native_prepared_cube_local_occupation_records_executed':True,
+        'full_default_cube_frequency_dependent_memory_certified':True,
         'cube_profile_labels_identified_with_momentum_eigenvalues':False,
         'energy_dipole_establishes_interacting_geometric_boost':False,
         'canonical_composite_family_appends_independent_source_flavours':False,
@@ -162,6 +175,10 @@ def build():
         'default_original_charge_escape':serialize(charge_escape.certificate()),
         'uniform_original_energy_tails':serialize(uv_tail.certificate()),
         'complete_local_source_energy_readout':serialize(local_spectral.certificate()),
+        'kinetic_node_to_free_field_map':serialize(kinetic_nodes.certificate()),
+        'actual_nodal_response_memory':serialize(nodal_memory.certificate()),
+        'ground_marginal_preparation_and_native_records':ground_marginals.certificate(),
+        'full_cube_frequency_dependent_memory':serialize(cube_memory.certificate()),
         'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,

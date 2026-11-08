@@ -2646,7 +2646,11 @@ on disjoint sites. A physical spin-statistics assignment requires their
 continuous spacetime representation and spectral-sector attachment.
 
 The centered Hubbard ground has interacting local CAR histories and
-complete energy readouts with controlled locality, marginal and alias errors.
+complete energy readouts. Finite full-ground projectors admit algebraic
+preparation; pressure secants enclose infinite-ground local expectations
+without assuming their convergence to a unique state. At $U/c=8$ its
+symmetric one-site density is $\operatorname{diag}(d,1/2-d,1/2-d,d)$,
+with $1/90000<d<233/1600$.
 Its proper-cubic average has the actual magnetic Bloch reduction. Put
 $Q_{xy}=S_x\cdot S_y+\eta_x\cdot\eta_y$, and let
 $r_s=6^{-1/2}\sum_{|y|_1=1}a_{ys}$ be its normalized neighbour orbital, with opposite-sublattice eta sign.
@@ -2662,8 +2666,11 @@ $g_0/c^2=9/2-12\langle Q_{0r}\rangle$ and
 $g_2/c^2=\langle Q_{0,2e_1}\rangle$. Source anticommutators and cubic gauge phases remove mixed-axis terms.
 Positivity at every momentum is equivalent to
 $g_0-6g_2\geq0$ and $g_0+6g_2-3\kappa^2c^2\geq0$; the source bound is
-$0\leq G(k)\leq18c^2I$. These local measurements supply no
-frequency-dependent memory or pole.
+$0\leq G(k)\leq18c^2I$. The exact star inequality
+$|T_\star|\leq4r(1/4-Q_{0r})$, $r=c\sqrt6/2$, and the dimer variational
+gain imply $R^*R\geq18c^2/125$ where $\sum_j\cos^2k_j\leq3/250$
+at $U/c=8$. Source derivative bounds then give strictly positive dissipative
+memory at every positive imaginary frequency. A mass pole does not follow.
 
 At $U/c=8$, $c=v/a$, ground-response orthogonality gives every unit packet
 $\limsup_{a\to0}[\mu_+([0,E])+\mu_-([0,E])]\leq9/17$
@@ -2673,14 +2680,15 @@ Homogeneity $K(c,U)=cK(1,U/c)$ fixes the shrinking unit-hopping windows;
 no volume-uniform charged gap follows
 (\path{model/source_family_compatibility}, \cite{ophrepo}).
 
-On the cube at $c=1/8,U=1$, rational ground-fidelity bounds prove
-\[
- \frac{3}{80}I_{16}<R^*R<\frac{61}{1000}I_{16}.
-\]
-The first three cyclic levels span $48$ dimensions of the existing CAR response. The fourth original moment differs from
-the two-block compression by $(U^2/4)R^*R$. The dimer's $C=-3h$, $R=0$
-closure therefore cannot be imposed on this cube
-(\path{model/source_family_compatibility/CUBE_RESPONSE.md}, \cite{ophrepo}).
+The cube at $c=1/8,U=1$ has $3I_{16}/80<R^*R<61I_{16}/1000$;
+its three response levels span 48 dimensions without adding species.
+The eight kinetic nodes separately have winding $-(-1)^{|b|}$,
+$b\in\{0,1\}^3$. On the proved centered free family
+$c=v/a$, $0\leq U=o(c^{2/7})$, their Weyl fields have helicities
+$-(-1)^{|b|}/2$ and conjugate holes of opposite helicity. Period-two
+source masses pair opposite windings with supplied coefficients.
+Neither construction identifies measured particles
+(\path{model/source_family_compatibility/KINETIC_NODE_MAP.md}, \cite{ophrepo}).
 
 Complete clock records also resolve the same full-ground response to
 $a(f_{k,s})$, where $f_{k,s}(x)=(-1)^{k\cdot x}/\sqrt8$ and

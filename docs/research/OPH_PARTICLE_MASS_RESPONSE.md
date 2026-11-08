@@ -50,6 +50,27 @@ dispersion, physical particle mass or mass ratio has been obtained from it.
 The chosen `p=n^-2`, `B=J n^-5` family is not a theorem that the unread
 source selects this continuum prescription.
 
+The [bounded charged-band theorem](../../model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md)
+does supply each conjugate charge an original weight at least `1/387200`
+jointly in momentum `[r/2,r]` and energy `[3r/387200,387200r]` on this
+prepared family. The bound is uniform at small r, and all preparation
+complements are retained. The actual finite-source commutator error and
+nine-record dimer control are explicit. Broad bands leave the fixed-momentum
+energy distribution undetermined; their ratio endpoints are not masses.
+For an actual invariant spectral tube, a Ward leakage estimate transfers
+directly to these bounded preparations as
+`p_each>=max(0,d-eta)^2/(2v)`, with the source commutator d, canonical-field
+variance v and complementary field-vector norm eta. The complete dimer
+saturates this inequality. A vanishing continuum leakage is a separate
+source estimate, rather than a consequence of the broad-band bound.
+
+The separate [kinetic-node catalogue](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
+maps all eight windings to the proved free Weyl fields and their conjugate
+helicities on `0<=U=o(c^(2/7))`, `c=v/a`. Its zero rest masses describe
+that mathematical free family. They are not entries in the eighteen-channel
+measured-particle correspondence, and the default ratio U/c=8 is outside
+that theorem.
+
 The [resolvent defect](../../model/spin_dynamical_memory/RESOLVENT_CLOSURE.md)
 provides a bounded closure test for a specified source response. Its
 vanishing and a separate actual-momentum identification would fix that
@@ -75,6 +96,22 @@ edge theorem. It does require a source tail modulus, the same operational
 energy and momentum, physical quantum numbers and a proved relativistic
 lower boundary. The exact finite-source edge `9/8` and the analytic
 non-atomic example are explicitly not measured particle masses.
+
+The [full-cube frequency response](../../model/source_family_compatibility/CUBE_MEMORY.md)
+resolves a dynamical correction on the complete centered ground. Its
+four-record Lorentzian charge filter retains both successes and failures.
+At imaginary frequency `eta=1/4`, the combined original success is
+`[0.2175,0.2177]`; dropping the composite memory gives `[0.1943,0.1945]`.
+Their certified difference exceeds `23/1000`, including ground, clock,
+linear-solve and inverse errors. The large native filter tape is not
+executed. These are finite-source probabilities, not masses.
+
+The [complete odd-force preparation](../../model/source_family_compatibility/NODAL_MEMORY.md)
+uses the actual `Y(f)=[b(f),T]` and its adjoint, with a retained square-root
+complement. Its combined original charge success is at least `9/625000`
+for unit packets in the default nodal region. The preparation does not
+need an unknown ground correlation as a control. Its positive total
+weight does not prove retention in a shrinking physical-energy window.
 
 ## Explicit source energies and their references
 

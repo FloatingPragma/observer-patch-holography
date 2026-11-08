@@ -9,6 +9,7 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward, uniform_mode, uniform_spectral
+from . import arctan_bands
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -97,6 +98,7 @@ def build():
         'source_Ward_susceptibilities_and_force_equations':ward.certificate(),
         'uniform_mode_original_weight_and_concentration':uniform_mode.certificate(),
         'complete_finite_uniform_spectral_readout':uniform_spectral.certificate(),
+        'bounded_joint_charged_energy_momentum_bands':arctan_bands.certificate(),
         'scope':{'source_field_sequence':'p=n^-2, B=J*n^-5, n>=2',
             'sequence_is_a_chosen_source_preparation_prescription':True,
             'sequence_forced_by_unread_repair':False,
@@ -117,6 +119,8 @@ def build():
             'uniform_mode_weighted_centre_and_variance_concentrate_at_zero':True,
             'finite_source_uniform_order_floor_computable':True,
             'finite_spectral_table_all_original_records_certified':True,
+            'bounded_charged_joint_band_original_weight_uniform_in_momentum_scale':True,
+            'finite_source_monotone_creator_commutator_error_controlled':True,
             'uniform_mode_nonvanishing_original_continuum_residue_proved':False,
             'fixed_cube_spectrum_identified_with_growing_volume_field':False,
             'positive_full_pair_slack_excludes_sharp_subbranches':False,

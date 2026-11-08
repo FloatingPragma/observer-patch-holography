@@ -31,6 +31,15 @@ The [proof](PROOF.md) gives the graph classification and the remaining
 source-to-particle requirements. A complete catalogue over unspecified source
 architectures is not claimed.
 
+The [kinetic-node map](../source_family_compatibility/KINETIC_NODE_MAP.md)
+adds all eight momentum-space windings and their conditional free Weyl-field
+dictionary, including helicity and conjugate holes. It does not assign them
+to measured species. On the separate prepared collective field,
+[bounded charged records](../spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md)
+retain a uniform positive probability in explicit energy--momentum bands.
+The same-state dispersion and scattering determine whether those records
+contain a particle branch.
+
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.protected_defect_catalog --check
 python -m pytest -q -W error model/protected_defect_catalog

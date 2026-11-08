@@ -12,6 +12,15 @@ separate the eight required connections and their proof boundaries. This
 page details action selection and operational measurement premises; its
 finite constructions do not discharge the physical particle identification.
 
+The [kinetic winding map](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
+joins each zero of the literal Weyl symbol to a field of chirality
+`-(-1)^|b|` on the proved centered weak-contact vacuum. Its eight fields
+have explicit particle/hole helicities; period-two onsite mass terms join
+opposite windings with supplied coefficients. This is a complete map for
+that kinetic family, without a Standard Model assignment. The default
+interacting source has [nonzero nodal memory](../../model/source_family_compatibility/NODAL_MEMORY.md),
+so its one-body winding does not determine its interacting particle poles.
+
 ## Position selection from the same field
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)

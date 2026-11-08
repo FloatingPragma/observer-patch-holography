@@ -80,9 +80,10 @@ Equation (3) establishes a computable energy density, with error at most
 `3c/L` plus the certified finite eigenvalue error. Onsite terms are all
 retained. Their norm does not enter the surface term.
 
-Let `A=A*` be an even local observable of norm at most `a`. Its coordinate
+Let `A=A*` be an even local observable with algebraic matrix entries and
+norm at most a known rational `a`. Its coordinate
 spans are `s_i=max(X_i)-min(X_i)`. Add, only as a variational diagnostic,
-`h sum_x theta_x(A)` to the Hamiltonian. The preparation and clock in (1)
+`h sum_x theta_x(A)`, with rational h, to the Hamiltonian. The preparation and clock in (1)
 are unchanged. The finite diagnostic keeps every translate whose support
 lies inside the cube. For `L>max s_i`, the density of omitted translates is
 
