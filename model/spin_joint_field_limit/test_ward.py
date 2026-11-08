@@ -21,6 +21,52 @@ def test_actual_joint_source_uniform_ward_closes_both_finite_equations():
     assert not result['continuum_particle_or_mass_inferred']
 
 
+def test_actual_uniform_variance_uses_the_complete_unscaled_source_measure():
+    row = ward.finite_source()['uniform_source_weighted_energy_variance']
+    h, chi, chi3 = map(s.sympify, (row['first_moment'], row['inverse_moment'],
+                                  row['third_inverse_moment']))
+    energy = (16+s.sqrt(257))/32
+    weight = s.sympify(row['original_preparation_weight'])
+    assert s.simplify(h-energy*weight) == 0
+    assert s.simplify(chi-weight/energy) == 0
+    assert s.simplify(chi3-weight/energy**3) == 0
+    assert s.simplify(chi/chi3-energy**2) == 0
+    assert row['Q_force_form_slack'] == row['P_force_form_slack'] == '0'
+    assert row['weighted_energy_squared_variance'] == '0'
+    assert not row['auxiliary_weight_changes_original_event_probabilities']
+
+
+def test_uniform_ward_equation_allows_a_genuine_two_energy_measure():
+    k = s.diag(1, 2)
+    q = s.Matrix([1, 1])/s.sqrt(2)
+    b = s.Rational(1, 3)
+    a = s.I*b*k.inv()*q
+    assert k*a-s.I*b*q == s.zeros(2, 1)
+    chi = (q.H*k.inv()*q)[0]
+    chi3 = (q.H*k.inv()**3*q)[0]
+    h = (q.H*k*q)[0]
+    exact = lambda x: F(int(x.p), int(x.q))
+    row = ward.uniform_variance_slack(exact(h), exact(chi), exact(chi3), exact(b))
+    assert row['Q_force_form_slack'] == F(1, 2)
+    assert row['P_force_form_slack'] == 0
+    assert row['weighted_energy_squared_variance'] == F(8, 9)
+    assert row['weighted_energy_squared_mean'] == F(4, 3)
+    assert row['source_cross_moment'] == F(1, 4)
+    u = s.Rational(row['source_coefficients_u_b'][0])
+    # Independent inverse-form residual squared, without a chosen square root.
+    residual = s.I*k*q-u*a
+    assert s.simplify((residual.H*k.inv()*residual)[0]-s.Rational(1, 2)) == 0
+    assert not row['continuum_variance_vanishing_inferred']
+    smaller = ward.uniform_variance_slack(exact(h/4), exact(chi/4), exact(chi3/4), exact(b))
+    assert smaller['Q_force_form_slack'] == row['Q_force_form_slack']/4
+    assert smaller['source_cross_moment'] == row['source_cross_moment']/4
+    assert smaller['weighted_energy_squared_variance'] == row['weighted_energy_squared_variance']
+    with pytest.raises(ValueError, match='variance'):
+        ward.uniform_variance_slack(1, 2, 1, 1)
+    with pytest.raises(ValueError):
+        ward.uniform_variance_slack(1, 1, 0, 1)
+
+
 def test_positive_force_slack_does_not_exclude_an_actual_sharp_line():
     row = ward.finite_source()['profiles'][1]
     assert row['profile'] == [1, 2]

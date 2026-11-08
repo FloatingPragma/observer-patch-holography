@@ -2760,6 +2760,19 @@
       ],
       "sites": 2,
       "source_current_identities_checked_on_all_rows": true,
+      "uniform_source_weighted_energy_variance": {
+        "P_force_form_slack": "0",
+        "Q_force_form_slack": "0",
+        "auxiliary_weight_changes_original_event_probabilities": false,
+        "clock": "K=H_B-E_B",
+        "first_moment": "1/2 + 513*sqrt(257)/16448",
+        "inverse_moment": "(8*sqrt(257)/257 + 1/2)/(1/2 + sqrt(257)/32)",
+        "original_preparation_weight": "8*sqrt(257)/257 + 1/2",
+        "preparation": "M3=-S1^3+S0^3; normalization Lambda=1",
+        "third_inverse_moment": "-524288 + 8404992*sqrt(257)/257",
+        "weighted_energy_squared_mean": "sqrt(257)/32 + 513/1024",
+        "weighted_energy_squared_variance": "0"
+      },
       "uniform_spin_Ward_susceptibility_exact": true
     },
     "complete_score_error_example": "2/125",
@@ -2785,6 +2798,35 @@
         "5/2"
       ],
       "susceptibility_floor": "1/5"
+    },
+    "uniform_Ward_broad_measure_implication_control": {
+      "actual_native_source_or_continuum_measure": false,
+      "calculation": {
+        "P_first_moment": "1/12",
+        "P_force_form_slack": "0",
+        "P_inverse_moment": "1/16",
+        "Q_force_form_slack": "1/2",
+        "auxiliary_weight": "E^-3 dnu/M_-3; original event probabilities unchanged",
+        "continuum_variance_vanishing_inferred": false,
+        "source_coefficients_u_b": [
+          "4",
+          "1/3"
+        ],
+        "source_cross_moment": "1/4",
+        "weighted_energy_squared_mean": "4/3",
+        "weighted_energy_squared_variance": "8/9"
+      },
+      "measure": [
+        [
+          "1",
+          "1/2"
+        ],
+        [
+          "2",
+          "1/2"
+        ]
+      ],
+      "source": "abstract K=diag(1,2), q=(1,1)/sqrt(2), a=iB K^-1 q"
     },
     "uniform_continuum_slack_vanishing_proved": false
   },
@@ -3072,9 +3114,9 @@
     "model/spin_joint_field_limit/CLOCK_COMPARISON.md": "27b72c38cff297dffce4c9c2c70b31c755dfc70777b4d142bf8cb508c34c714f",
     "model/spin_joint_field_limit/FORCE_READOUT.md": "876ed6ba21da5534c0428bd540698de94db9fb84ef1df8f28aa975aec3c2235b",
     "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
-    "model/spin_joint_field_limit/README.md": "2b854aed31dc11bd785176816df212f82b0cfc80d8c300e5be09d91e1f3249c4",
+    "model/spin_joint_field_limit/README.md": "3d918dafd48d99963a4ca7edcafebcf597fe2f4921b8d68ae82a30f5ddbe87ea",
     "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
-    "model/spin_joint_field_limit/WARD_DYNAMICS.md": "c4a4bf1afb0e0f3fefd0e337405f64d69ae738a561fbefb7f9fd52a67da2ddc7",
+    "model/spin_joint_field_limit/WARD_DYNAMICS.md": "266dc9d34140ba345a361edf3e7d508cf4dd83bd7a8891932e9d4fc8167fa156",
     "model/spin_joint_field_limit/__init__.py": "4642f35854e6e530b6cf9b4912068956c46a9f71a68d39881a2e1541f3f248c4",
     "model/spin_joint_field_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_joint_field_limit/algebra.py": "e2432c398757d27a81479ac204a5e1ab58e72791d80e236ba948b6853ed73c69",
@@ -3089,8 +3131,8 @@
     "model/spin_joint_field_limit/test_force.py": "84b1cb61b67304932143a2d6576b57b9ea18bc527d34e055225af4da7d2ba5eb",
     "model/spin_joint_field_limit/test_joint_family.py": "19498b31a6e2d83c470b2e3a158b7dd0b522e648a7b1bb26f16eb395030e1c2e",
     "model/spin_joint_field_limit/test_joint_symmetry.py": "1db3ee11b445e2faa4b0b02839a805c84dee7c6071cac424d073cc01b82b8199",
-    "model/spin_joint_field_limit/test_ward.py": "e7afcf9d73fafb9e3e092dcd89dea4f2afbf6ba5ed7ddb865beaac6b4e0bc1e2",
-    "model/spin_joint_field_limit/ward.py": "7bfa44e3cbc680d68d02ec067b8edc11d0f113a7283da00fd96c33050e039739",
+    "model/spin_joint_field_limit/test_ward.py": "c364d2130655c8c9bb46466a377bac7a573b69a1bfa475dea464a3b0f26eef26",
+    "model/spin_joint_field_limit/ward.py": "c9584b7a0269441632aa27c7064e7cc2a008efa72184ab23460abebb9264a2ef",
     "model/spin_relaxed_response/README.md": "82e902603fa1ab14893c5a9ca5a8cbb45da54ceef8404442442e302db7d0c51f",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
     "model/spin_twist_closure/FINITE_FIELD_GAP.md": "e65f87ee6fec35c1f3a07b61bb3022739491206c5b8bf867e882e176d2d75b35",

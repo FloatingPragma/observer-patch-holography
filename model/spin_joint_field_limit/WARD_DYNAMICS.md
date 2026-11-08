@@ -185,6 +185,40 @@ the first-force slack in (4) measures the independent obstruction.
 The mode is uniform on the finite graph. It is not a nonzero-momentum
 continuum particle or a replacement for spatially localized preparation.
 
+The remaining obstruction for this uniform pair is an explicit weighted
+energy variance. Let q=R M_3 Omega be nonzero, a=R A_0 Omega, where R
+commutes with K and is supported in a positive energy window. For the
+original measure nu(dE)=||E_K(dE)q||^2 put M_j=int E^j nu(dE).
+Equation (14) gives a=iB K^-1 q, hence
+
+    c=B M_-1, chi_P=B^2 M_-3, h_P=B^2 M_-1,
+    delta_P=0,
+    delta_Q=M_1-M_-1^2/M_-3
+           =M_-3 Var_pi(E^2),
+    pi(dE)=E^-3 nu(dE)/M_-3,  u b=M_-1/M_-3.          (15a)
+
+All moments exist on the positive window. The same identities hold on a
+finite positive-gap source without the window. The auxiliary probability
+pi proves the variance identity; it does not renormalize any preparation
+or retained detector outcome. Since E>0, delta_Q=0 is equivalent to this
+specific response measure being supported at one positive energy.
+The exact susceptibility (15) fixes M_-1 only. It supplies neither M_-3
+nor the determinant M_1 M_-3-M_-1^2. For a spectral or charge filter the
+full susceptibility (15) cannot be substituted for its filtered value.
+
+For example the abstract measure (delta_1+delta_2)/2, with
+a=iB K^-1 q, obeys the exact first Ward equation but has
+M_-1=3/4, M_-3=9/16, delta_Q=1/2 and Var_pi(E^2)=8/9.
+This is an implication control, not a claim about the native continuum
+measure. The actual dimer instead has zero weighted variance, checked
+from its complete source spectrum. Higher-volume charge blocks need not
+be one dimensional, so their conserved charge alone supplies no such
+vanishing estimate. A useful continuum estimate must retain original
+response weight and use the same scaled clock: replacing K by K/(Jp)
+divides the weighted mean of E^2 by (Jp)^2 and its variance by (Jp)^4.
+Collapse of an unscaled energy to zero is insufficient for a sharp
+nonzero scaled response.
+
 ## 6. Reading the source quantities without conditional renormalization
 
 At finite volume Q and P are known Pauli sums. A declared coherent source
@@ -211,6 +245,12 @@ certified score/energy-discretization error. The factors in (16) and any
 fixed setting probabilities are explicit additional multipliers.
 Certified positive susceptibility intervals permit interval inversion in
 (3); a merely positive numerical central value does not.
+The third inverse moment in (15a) is read by the additional complete
+score |R(E)|^2/E^3, bounded by ell^-3 on the same retained window.
+Its error is therefore charged to the same original preparation and
+setting probability by the complete-score bound, with score bound ell^-3. The kernel
+and every unretained outcome have score zero; no division at zero energy
+or implicit removal of preparation failure is used.
 
 The existing source inverse-response filter and fixed-scale positive-field
 preparation/clock interfaces supply the finite ingredients under their

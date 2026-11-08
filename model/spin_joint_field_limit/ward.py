@@ -77,6 +77,25 @@ def moment_error(normalization, score_bound, half_trace_error, setting_probabili
     return 2*lam*lam*cap*eta/pi
 
 
+def uniform_variance_slack(first, inverse, third_inverse, field):
+    """The uniform Ward pair's exact residual from original energy moments."""
+    h = _rational(first, 'first moment', True)
+    chi = _rational(inverse, 'inverse moment', True)
+    chi3 = _rational(third_inverse, 'third inverse moment', True)
+    b = _rational(field, 'selection field', True)
+    delta = h-chi*chi/chi3
+    if delta < 0:
+        raise ValueError('moments contradict the positive uniform Ward variance')
+    return {'Q_force_form_slack': delta, 'P_force_form_slack': F(0),
+            'source_cross_moment': b*chi,
+            'P_inverse_moment': b*b*chi3, 'P_first_moment': b*b*chi,
+            'source_coefficients_u_b': [chi/(b*chi3), b],
+            'weighted_energy_squared_mean': chi/chi3,
+            'weighted_energy_squared_variance': delta/chi3,
+            'auxiliary_weight': 'E^-3 dnu/M_-3; original event probabilities unchanged',
+            'continuum_variance_vanishing_inferred': False}
+
+
 def _expect(ground, operator):
     return _simple(s.trace(ground*operator))
 
@@ -210,6 +229,26 @@ def finite_source():
             selected_order = _expect(ground, (_tensor('XI')-_tensor('IX'))/2)
             if _simple(chi_m-selected_order/(2*field)) != 0:
                 raise ArithmeticError('exact staggered susceptibility Ward identity differs')
+            unscaled_energy = _simple(-e0)
+            m1 = _expect(ground, m3*(hb-e0*s.eye(4))*m3)
+            mm3 = _expect(ground, m3*middle*m3)/unscaled_energy**3
+            weighted_mean = _simple(chi_m/mm3)
+            uniform_slack = _simple(m1-chi_m**2/mm3)
+            variance = _simple(m1/mm3-weighted_mean**2)
+            if (uniform_slack != 0 or variance != 0
+                    or _simple(weighted_mean-unscaled_energy**2) != 0
+                    or _simple(uniform_slack-mm3*variance) != 0):
+                raise ArithmeticError('actual uniform source weighted-energy variance differs')
+            uniform_variance = {'clock': 'K=H_B-E_B',
+                'preparation': 'M3=-S1^3+S0^3; normalization Lambda=1',
+                'original_preparation_weight': str(_expect(ground, m3*m3)),
+                'first_moment': str(m1), 'inverse_moment': str(chi_m),
+                'third_inverse_moment': str(_simple(mm3)),
+                'weighted_energy_squared_mean': str(weighted_mean),
+                'weighted_energy_squared_variance': str(variance),
+                'Q_force_form_slack': str(uniform_slack),
+                'P_force_form_slack': '0',
+                'auxiliary_weight_changes_original_event_probabilities': False}
         else:
             if _quadratic_interval(deltaq)[0] <= 0 or _quadratic_interval(deltap)[0] <= 0:
                 raise ArithmeticError('positive-slack sharp-line control lost its strict margin')
@@ -273,6 +312,7 @@ def finite_source():
             'positive_clock': '(H_B-E_B)/(Jp)', 'actual_source_frame_and_full_spectrum_checked': True,
             'source_current_identities_checked_on_all_rows': True,
             'uniform_spin_Ward_susceptibility_exact': True,
+            'uniform_source_weighted_energy_variance': uniform_variance,
             'profiles': rows, 'continuum_particle_or_mass_inferred': False}
 
 
@@ -283,6 +323,11 @@ def certificate():
             'complete_score_error_example': moment_error(2, 5, F(1, 10000), F(1, 4)),
             'susceptibility_interval_example': interval_slack((F(3, 2), F(151, 100)),
                 (F(49, 100), F(1, 2)), (F(1, 5), F(21, 100))),
+            'uniform_Ward_broad_measure_implication_control': {
+                'source': 'abstract K=diag(1,2), q=(1,1)/sqrt(2), a=iB K^-1 q',
+                'actual_native_source_or_continuum_measure': False,
+                'measure': [['1', '1/2'], ['2', '1/2']],
+                'calculation': uniform_variance_slack(F(3, 2), F(3, 4), F(9, 16), F(1, 3))},
             'static_Ward_data_reduce_both_form_force_defects': True,
             'filtered_cross_moment_replaced_by_full_commutator': False,
             'uniform_continuum_slack_vanishing_proved': False,
