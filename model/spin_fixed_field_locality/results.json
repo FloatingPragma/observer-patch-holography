@@ -1,0 +1,347 @@
+{
+  "all_pass": true,
+  "box_certificates": [
+    {
+      "binary_decay_exponent": 113,
+      "common_decay_rate": "1/2304",
+      "crossing_edges_upper": 1649273733126,
+      "doubling_steps": 18,
+      "exterior_volume_in_bound": false,
+      "gap_lower": "1/8",
+      "gaussian_alpha": "1/29127",
+      "half_trace_upper": "904960620550569015/166153499473114484112975882535043072",
+      "observation_radius": 1,
+      "rational_prefactor": "904960620550569015/16",
+      "source_radius": 262144,
+      "source_sites": 144116012711149569,
+      "state_diagonalization_used": false,
+      "target_accuracy": "1/100",
+      "time_cutoff": "29127/16",
+      "uncapped_half_trace_upper": "904960620550569015/166153499473114484112975882535043072",
+      "zero_field_modulus_claimed": false
+    },
+    {
+      "binary_decay_exponent": 113,
+      "common_decay_rate": "1/2304",
+      "crossing_edges_upper": 1649273733126,
+      "doubling_steps": 18,
+      "exterior_volume_in_bound": false,
+      "gap_lower": "1/8",
+      "gaussian_alpha": "1/29127",
+      "half_trace_upper": "904960620550569015/166153499473114484112975882535043072",
+      "observation_radius": 1,
+      "rational_prefactor": "904960620550569015/16",
+      "source_radius": 262144,
+      "source_sites": 144116012711149569,
+      "state_diagonalization_used": false,
+      "target_accuracy": "1/10000",
+      "time_cutoff": "29127/16",
+      "uncapped_half_trace_upper": "904960620550569015/166153499473114484112975882535043072",
+      "zero_field_modulus_claimed": false
+    },
+    {
+      "binary_decay_exponent": 113,
+      "common_decay_rate": "1/9216",
+      "crossing_edges_upper": 26388304232454,
+      "doubling_steps": 20,
+      "exterior_volume_in_bound": false,
+      "gap_lower": "1/32",
+      "gaussian_alpha": "3/1398100",
+      "half_trace_upper": "107107530563597692887/166153499473114484112975882535043072",
+      "observation_radius": 1,
+      "rational_prefactor": "107107530563597692887/16",
+      "source_radius": 1048576,
+      "source_sites": 9223385231000600577,
+      "state_diagonalization_used": false,
+      "target_accuracy": "1/100",
+      "time_cutoff": "349525/48",
+      "uncapped_half_trace_upper": "107107530563597692887/166153499473114484112975882535043072",
+      "zero_field_modulus_claimed": false
+    },
+    {
+      "binary_decay_exponent": 113,
+      "common_decay_rate": "1/9216",
+      "crossing_edges_upper": 26388304232454,
+      "doubling_steps": 20,
+      "exterior_volume_in_bound": false,
+      "gap_lower": "1/32",
+      "gaussian_alpha": "3/1398100",
+      "half_trace_upper": "107107530563597692887/166153499473114484112975882535043072",
+      "observation_radius": 1,
+      "rational_prefactor": "107107530563597692887/16",
+      "source_radius": 1048576,
+      "source_sites": 9223385231000600577,
+      "state_diagonalization_used": false,
+      "target_accuracy": "1/10000",
+      "time_cutoff": "349525/48",
+      "uncapped_half_trace_upper": "107107530563597692887/166153499473114484112975882535043072",
+      "zero_field_modulus_claimed": false
+    },
+    {
+      "binary_decay_exponent": 113,
+      "common_decay_rate": "1/36864",
+      "crossing_edges_upper": 422212565729286,
+      "doubling_steps": 22,
+      "exterior_volume_in_bound": false,
+      "gap_lower": "1/128",
+      "gaussian_alpha": "3/22369616",
+      "half_trace_upper": "19447838976885527920215/166153499473114484112975882535043072",
+      "observation_radius": 1,
+      "rational_prefactor": "19447838976885527920215/16",
+      "source_radius": 4194304,
+      "source_sites": 590296021464963350529,
+      "state_diagonalization_used": false,
+      "target_accuracy": "1/100",
+      "time_cutoff": "1398101/48",
+      "uncapped_half_trace_upper": "19447838976885527920215/166153499473114484112975882535043072",
+      "zero_field_modulus_claimed": false
+    },
+    {
+      "binary_decay_exponent": 113,
+      "common_decay_rate": "1/36864",
+      "crossing_edges_upper": 422212565729286,
+      "doubling_steps": 22,
+      "exterior_volume_in_bound": false,
+      "gap_lower": "1/128",
+      "gaussian_alpha": "3/22369616",
+      "half_trace_upper": "19447838976885527920215/166153499473114484112975882535043072",
+      "observation_radius": 1,
+      "rational_prefactor": "19447838976885527920215/16",
+      "source_radius": 4194304,
+      "source_sites": 590296021464963350529,
+      "state_diagonalization_used": false,
+      "target_accuracy": "1/10000",
+      "time_cutoff": "1398101/48",
+      "uncapped_half_trace_upper": "19447838976885527920215/166153499473114484112975882535043072",
+      "zero_field_modulus_claimed": false
+    }
+  ],
+  "claims": {
+    "Gaussian_flow_bound_derived_for_actual_ground": true,
+    "actual_source_Lee_Yang_hypotheses_instantiated": true,
+    "arbitrary_boundary_fields_covered": false,
+    "arbitrary_source_reference_correlations_covered": false,
+    "complete_local_instrument_and_independent_reference_bound": true,
+    "exterior_volume_independent_marginal_modulus": true,
+    "fixed_positive_field_uniform_boundary_path_gap": true,
+    "imported_Lee_Yang_theorem_reproved_or_Lean_checked_here": false,
+    "large_planned_source_box_actually_simulated": false,
+    "locality_bound_identified_as_physical_light_speed": false,
+    "positive_field_gap_identified_as_particle_mass": false,
+    "rational_source_box_search_terminates": true,
+    "zero_field_ordered_state_selection_modulus_supplied": false
+  },
+  "external_theorem": {
+    "authors": [
+      "Chaithanya Rayudu",
+      "Jun Takahashi"
+    ],
+    "consumed": "Definition1 and Theorem11; real nonnegative longitudinal coefficients and strictly positive uniform field",
+    "title": "Spectral gap of Lee-Yang Hamiltonians",
+    "url": "https://arxiv.org/html/2607.10765v1",
+    "version": "2607.10765v1"
+  },
+  "finite_source_derivative_controls": {
+    "crossing_bonds": 1,
+    "crossing_perturbation_norm": "1.0000000000",
+    "cut_ground_factors_exact_source_numeric_control": true,
+    "field": "1/4",
+    "finite_controls_prove_arbitrary_volume_theorem": false,
+    "flow_controls": [
+      {
+        "actual_gap": "1.0590169944",
+        "alpha": "0.0100000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0000000000",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.0000000000",
+        "spectral_error_identity": "0.0000000000",
+        "uniform_gap_bound_error_upper": "31.2282096043"
+      },
+      {
+        "actual_gap": "1.0590169944",
+        "alpha": "0.1000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0055576319",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.0000000000",
+        "spectral_error_identity": "0.0055576319",
+        "uniform_gap_bound_error_upper": "31.9219702899"
+      },
+      {
+        "actual_gap": "1.0590169944",
+        "alpha": "0.5000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0708141334",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.0000000000",
+        "spectral_error_identity": "0.0708141334",
+        "uniform_gap_bound_error_upper": "31.9843788141"
+      },
+      {
+        "actual_gap": "1.0022104112",
+        "alpha": "0.0100000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0000000000",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.2500000000",
+        "spectral_error_identity": "0.0000000000",
+        "uniform_gap_bound_error_upper": "31.2282096043"
+      },
+      {
+        "actual_gap": "1.0022104112",
+        "alpha": "0.1000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0075567973",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.2500000000",
+        "spectral_error_identity": "0.0075567973",
+        "uniform_gap_bound_error_upper": "31.9219702899"
+      },
+      {
+        "actual_gap": "1.0022104112",
+        "alpha": "0.5000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0846113829",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.2500000000",
+        "spectral_error_identity": "0.0846113829",
+        "uniform_gap_bound_error_upper": "31.9843788141"
+      },
+      {
+        "actual_gap": "0.9348930048",
+        "alpha": "0.0100000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0000000000",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.5000000000",
+        "spectral_error_identity": "0.0000000000",
+        "uniform_gap_bound_error_upper": "31.2282096043"
+      },
+      {
+        "actual_gap": "0.9348930048",
+        "alpha": "0.1000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0101999523",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.5000000000",
+        "spectral_error_identity": "0.0101999523",
+        "uniform_gap_bound_error_upper": "31.9219702899"
+      },
+      {
+        "actual_gap": "0.9348930048",
+        "alpha": "0.5000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0965396239",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "0.5000000000",
+        "spectral_error_identity": "0.0965396239",
+        "uniform_gap_bound_error_upper": "31.9843788141"
+      },
+      {
+        "actual_gap": "0.7924478855",
+        "alpha": "0.0100000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0000000000",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "1.0000000000",
+        "spectral_error_identity": "0.0000000000",
+        "uniform_gap_bound_error_upper": "31.2282096043"
+      },
+      {
+        "actual_gap": "0.7924478855",
+        "alpha": "0.1000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.0163293492",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "1.0000000000",
+        "spectral_error_identity": "0.0163293492",
+        "uniform_gap_bound_error_upper": "31.9219702899"
+      },
+      {
+        "actual_gap": "0.7924478855",
+        "alpha": "0.5000000000",
+        "finite_difference_derivative_admission_passed": true,
+        "flow_error": "0.1057931908",
+        "projector_derivative_finite_difference_error_interval": [
+          "0.0000000000",
+          "0.0000000100"
+        ],
+        "s": "1.0000000000",
+        "spectral_error_identity": "0.1057931908",
+        "uniform_gap_bound_error_upper": "31.9843788141"
+      }
+    ],
+    "full_dimension": 16,
+    "interior_two_site_half_trace_distance": "0.1384910067",
+    "source": "actual native_ordered_ground four-site open chain and its exact middle-bond cut"
+  },
+  "schema": "oph.spin_fixed_field_locality.v1",
+  "source_attachment": {
+    "Lee_Yang_condition": "J_e/4=(abs(J_e/2)+abs(0))/2 for J_e>=0",
+    "actual_source_dimension": 16,
+    "edge_coefficients_wz_wx_wy_cross": [
+      "J_e/4",
+      "J_e/4",
+      "-J_e/4",
+      "0",
+      "0"
+    ],
+    "field_parameter_h": "B/2",
+    "full_gap_lower": "B/8",
+    "integer_Hadamard_identity_exact": true,
+    "nonnegative_boundary_interpolation_preserves_hypotheses": true,
+    "scalar_bond_offset_changes_ground_or_gap": false
+  },
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/native_ordered_ground/README.md": "4703ac848280b9a4aa1fd2ea28f4507d515cae184935997dffe728940785e691",
+    "model/native_ordered_ground/__init__.py": "7e558f590da8216098ee28352b00d298e7082cb70e11b03560c10428c2480acf",
+    "model/native_ordered_ground/source.py": "e0ca9a40181637bc9263b55ff41dc9b6aa895f723a6d497d182a011b80097dc2",
+    "model/native_spin_clock_join/README.md": "ca76582f9084e7ecd00052bd178c4a22ffd13286c7bfc3b5faf02f70e4918fc2",
+    "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_fixed_field_locality/PROOF.md": "443abbac724e800f559582558aa994b903689f75f8d98b169980ebbec3570bb2",
+    "model/spin_fixed_field_locality/README.md": "363f63ffa7d83fb2ef732c42f3f904ca55096d01846cdd3eedbb123af8e3291b",
+    "model/spin_fixed_field_locality/__init__.py": "2a5a9e3de8b0c2fe2caf20202d178329fd4fe14d9b8e5765875ee7df6bba8e82",
+    "model/spin_fixed_field_locality/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/spin_fixed_field_locality/bounds.py": "99230559428c8fd18cf1f4500da241494e44ad809519d1578bf7aeae7f879bef",
+    "model/spin_fixed_field_locality/finite.py": "678c6e20917e1eb9780e1188e38c568106126d809576bb030825c0145ed7475e",
+    "model/spin_fixed_field_locality/packet.py": "9329609776118ede82a9652fa00c9f0ec0e8b788d83be5fde6c4ad6ac63f9e7a",
+    "model/spin_fixed_field_locality/test_locality.py": "b74b42de4b2207fd1e1de02410a2ccfe3f9f44d278e91585be9a7e08c9265b95",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}
