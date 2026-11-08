@@ -686,14 +686,17 @@
     "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
     "model/spin_canonical_field/__init__.py": "3441c9f7e3cc711c3f7ab7a2fbfe240e7673ab8ebc3a3fea2248cd9de60caab9",
     "model/spin_canonical_field/algebra.py": "789a5cda2a01a5fe5509fcd3784e577963b7cf155f156f9d0c7854640a766120",
+    "model/spin_charge_dispersion/DIMER_BOUND.md": "baf3e7e7511baa9033f4503e8e1b1f0fed58227fc56c36b63a274cee9636525d",
     "model/spin_charge_dispersion/PROOF.md": "4b8a586622b6bc121da30d94866df90ea8e4820f7c60ad380d78ac566702270b",
     "model/spin_charge_dispersion/README.md": "049227520cdc89768048219a88d95f88e22bfda6587ce9f94bd9ad8f1912d8bb",
     "model/spin_charge_dispersion/__init__.py": "81fab3a1d62f1ad4efbaa2f168b5ff5bb88c7d74721662ffdab1de6654c28e9a",
     "model/spin_charge_dispersion/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_charge_dispersion/bounds.py": "f5a9b7b100b2913a2a61b0cc5d297fc44c97a945693eb08a5ff12df11b508fcb",
+    "model/spin_charge_dispersion/dimer.py": "c12ec83bf9899079a769c033a1c33098a6052c35f47b5d372edf09ce241c5e2f",
     "model/spin_charge_dispersion/finite.py": "f71633f7c6154e79925a1b4e4c3301fb87fc8f90d7d5ccfd90120edd6eff1650",
     "model/spin_charge_dispersion/order.py": "1314b0ae8a11f4a0deb782408c35f231c20cf6ad569ae85bb013948e8d1c2be8",
-    "model/spin_charge_dispersion/packet.py": "df11a0d7c9171b85470e31a58d952292c1f2f7f3f0a0dbe2a34fbd442fafc507",
+    "model/spin_charge_dispersion/packet.py": "ed3ece733d1442d4d75c65cd634ddd91a4d1c293ba732bb3e8a9cf7925ef4d14",
+    "model/spin_charge_dispersion/test_dimer.py": "47902af67ef9772279ba484226c2beb45cb06f4ec3d13b42e93b9c239d1a1069",
     "model/spin_charge_dispersion/test_dispersion.py": "1ef27c5cf33dcba8cef13a037a4d74c4520dfc809a242c0cf35a8887d543e54f",
     "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
     "model/spin_dynamical_memory/CHARGE_READOUT.md": "e344419fb03631b062ea64ee4522a443e9c06d3b01b047d2095f595af7ec7825",
@@ -725,6 +728,65 @@
     "model/strong_coupling_refinement/bounds.py": "ed9f3c0641e9c86308c6482106401e2f0231e5f9180084fe5b881e9cc3637dbd",
     "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "source_dimer_energy_and_current_bound": {
+    "complete_inverse_current_measure_over_J_lower": "1/240",
+    "conservative_default_readout_order_lower": "1/10",
+    "empirical_ground_energy_or_magnetization_used": false,
+    "exact_pair_source_certificate": {
+      "inter_dimer_spin_dot_expectation": "-6/25",
+      "intra_dimer_spin_dot_expectation": "-7/20",
+      "pair_state": "[(sqrt(3)+sqrt(2))|up down>-(sqrt(3)-sqrt(2))|down up>]/sqrt(10)",
+      "staggered_single_site_spin_mean_squared": "6/25",
+      "state_norm_squared": "1",
+      "trial_shifted_H_over_J_per_site": "-61/40",
+      "trial_spin_dot_energy_per_site": "-31/40",
+      "twice_amplitude_product": "1/5"
+    },
+    "fixed_trial_bias": "9",
+    "periodic_ground_projector_symmetry_changed": false,
+    "periodic_source_count_controls": [
+      {
+        "dimer_bonds": 32,
+        "distinct_source_bonds": 192,
+        "inter_dimer_bonds": 160,
+        "periodic_wrap_bonds_retained": true,
+        "side": 4,
+        "sites": 64,
+        "spin_dot_energy_density": "-31/40"
+      },
+      {
+        "dimer_bonds": 108,
+        "distinct_source_bonds": 648,
+        "inter_dimer_bonds": 540,
+        "periodic_wrap_bonds_retained": true,
+        "side": 6,
+        "sites": 216,
+        "spin_dot_energy_density": "-31/40"
+      }
+    ],
+    "selected_magnetization_decimal_lower": "0.110154073297",
+    "selected_magnetization_lower": "99759709722345093271058197765002409286139099574/905637955416460081658413400166349285430104867763",
+    "simple_strict_magnetization_lower": "11/100",
+    "source_current_coefficient_is_a_pole_speed": false,
+    "source_current_coefficient_kappa_lower": "1/120",
+    "sqrt_e_over_18_outward_interval": [
+      "263035378302860142035720955815/1267650600228229401496703205376",
+      "32879422287857517754465119477/158456325028528675187087900672"
+    ],
+    "staggered_Bragg_weight_lower": "49879854861172546635529098882501204643069549787/4110473354993164457447863592014545992782310277120",
+    "unchanged_256_mesh_infrared_certificate": {
+      "cosine_grid_scale": 1099511627776,
+      "divisions": 256,
+      "integral_below_two_fifths": true,
+      "integral_upper": "205516974698726101/576460752303423488",
+      "nonorigin_cells": 16777215,
+      "origin_cell_upper": "33/65536",
+      "pi_lower": "1711071886550596401052327862175270608234798687175596045891863355149564059431025741677300663301488044886924700750486004/544651097460204324729505646356491148072961547248870053795740492422760518540468532844300852957530878484249114990234375",
+      "pi_upper": "48677225812655926046638412773495119805002501124642807326089415979310491527162261560047969239954403496009632679447288/15494442208169185197833488127471474862459734848469281655049426658969308006306986325029129147878848016262054443359375",
+      "regular_upper": "205226703628993237/576460752303423488"
+    },
+    "unshifted_ground_spin_energy_e_lower": "31/40"
   },
   "stronger_rigorous_source_order": {
     "bias_changes_source_Hamiltonian": false,

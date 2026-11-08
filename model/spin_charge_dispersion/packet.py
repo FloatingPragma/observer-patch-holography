@@ -7,7 +7,7 @@ from pathlib import Path
 from tools import strict_json
 from model.spin_dynamical_memory import packet as memory_packet
 from model.protected_defect_catalog import field
-from . import bounds, finite, order
+from . import bounds, dimer, finite, order
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -44,6 +44,7 @@ def build():
     value = {'schema': 'oph.spin_charge_dispersion.v1', 'source_bindings': before,
         'actual_configuration_charge': field.configuration_charge(),
         'stronger_rigorous_source_order': order.certificate(),
+        'source_dimer_energy_and_current_bound': dimer.certificate(),
         'bounded_creator_positive_joint_band': bounds.band(),
         'complete_event_error_example': bounds.event_budget(),
         'exact_finite_source_creator': finite.build(),
