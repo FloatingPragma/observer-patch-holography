@@ -43,6 +43,58 @@ Its excitation energy is a filtered mean. It does not identify a spectral
 atom or prove a vanishing relative width. The argument below uses its
 matched source inequalities through (1).
 
+### A certified stronger order constant
+
+The existing infrared producer in `spin_goldstone_sector/infrared.py`
+bounds the same normalized three-dimensional integral I by exact rational
+Darboux sums, with the origin cell retained and outward cosine/square-root
+bounds. At256 divisions per direction its exact output satisfies
+`I<0.356515121`. An outward enclosure of sqrt(24) therefore proves
+
+    b_* =1/12-I_upper/sqrt(24)_lower >0.010559989>1/100.    (1a)
+
+Here b_* is a lower bound for the liminf of the full-volume invariant
+ground expectation b_N=<M²>, where M=N^(-1)sum epsilon_x Sx^1.
+It is not a magnetization measurement or an inferred structure-measure
+atom without volume control. The parent's finite-volume infrared estimate
+and its singular Riemann-sum bound establish precisely this liminf.
+
+The same variational ground argument admits any fixed rational bias t>0.
+For a purification G of the invariant finite-volume ground projector,
+symmetry gives <M>=<M³>=0 and ||M||<=1/2. The normalized vector
+
+    psi_t=(I+tM)G/sqrt(1+t²b_N)
+
+has norm1 and magnetization `2t b_N/(1+t²b_N)`. The exact source double
+commutator bounds <M K M> by3J/N, so its excitation expectation is at
+most `3J t²/[N(1+t²b_N)]`. The bias changes a trial state, not the source
+Hamiltonian or the selected-state principle.
+
+Project to energies `[0,J/sqrt(N)]` and normalize. The removed probability
+is at most `3t²/sqrt(N)`, and the normalized-vector error tends to zero.
+The projected vector has excitation-generator norm at most J/sqrt(N).
+For every local operator A this makes its ground-state inequality defect
+at most `(J/sqrt(N))||A||²`; every weak local limit is a ground state.
+The invariant ground density, M and the spectral projection preserve the
+source's even translations and odd-translation/axis-reversal symmetry.
+Consequently the averaged magnetization equals the local staggered mean
+and survives this limit. The actual field-selected state's maximal-order
+theorem then bounds its magnetization by
+
+    m >= 2t b_* /(1+t² b_*).
+
+This expression is increasing in b_*. With t=10 and (1a) it is larger
+than0.102723683, hence the exact selected source has
+
+    m>m0=1/10,       kappa>1/200.                         (1b)
+
+The second inequality consumes the inherited exact kappa>=m²/2 relation;
+neither m nor kappa is assigned an approximate numerical value. As a
+lower-cost independent control, the unchanged64-mesh integral and t=14
+certify m>7/100. These are rational inequality certificates on the same
+source. No empirical magnetization enters, and the biased finite vectors
+are not identified as exact selected ground states.
+
 ## 2. Two bounded, exact-charge creation operators
 
 Take the fixed scalar function
@@ -139,6 +191,9 @@ ar and br on the actual L clock, while its momentum lies between r/2
 and r. The nonlinear B_±Omega need not have all their momentum in this
 annulus; every momentum, energy and preparation complement is retained.
 The positive lower bound is derived with that complement present.
+Using the certified m0=1/10, the original weight is at least1/1757600,
+and the energy interval is `[3r/1757600,1757600r]`. These deliberately
+coarse band endpoints are not measured energies or a fitted dispersion.
 
 The source energy form also bounds the full created state. From the
 Laplace representation in (2), the source sine energy bound and the

@@ -9,7 +9,7 @@ import pytest
 import sympy as s
 from scipy.integrate import quad
 
-from . import bounds, finite, packet
+from . import bounds, finite, order, packet
 
 
 @pytest.fixture(scope='module')
@@ -90,6 +90,50 @@ def test_band_scaling_and_original_probability():
             assert list(map(F,row['energy_window_in_same_scaled_clock']))==[radius*a,radius*b]
             assert a<b
     assert F(bounds.event_budget()['observed_original_probability_lower'])>0
+
+
+def test_stronger_source_order_uses_outward_exact_integral(result):
+    certificate=result['stronger_rigorous_source_order']
+    assert certificate['selected_magnetization_strict_lower']=='1/10'
+    assert certificate['source_twist_kappa_strict_lower']=='1/200'
+    controls=certificate['controls']
+    for row in controls:
+        proof=row['biased_ground_bound']
+        low,high=map(F,proof['sqrt24_outward_interval'])
+        assert low*low<=24<=high*high
+        b=F(proof['staggered_Bragg_weight_lower'])
+        t=F(proof['fixed_trial_bias'])
+        assert F(proof['selected_magnetization_lower'])==2*t*b/(1+t*t*b)
+        assert F(proof['selected_magnetization_lower'])>F(row['simple_strict_magnetization_lower'])
+    assert F(controls[1]['biased_ground_bound']['staggered_Bragg_weight_lower'])>F(1,100)
+    # The lower-cost control does not justify the stronger declared constant.
+    assert F(controls[0]['biased_ground_bound']['selected_magnetization_lower'])<F(1,10)
+    assert F(result['bounded_creator_positive_joint_band']['each_charge_original_joint_band_probability_lower'])==F(1,1757600)
+
+
+def test_trial_bias_identity_and_energy_on_actual_invariant_cube_ground():
+    from model.spin_dynamical_memory import zero_field
+    h,scale=zero_field.matrix()
+    energies,vectors=np.linalg.eigh(h/scale)
+    ground=vectors[:,0]
+    identity=np.eye(256)
+    indices=np.arange(256)
+    # The physical staggered axis1 becomes uniform X in this Marshall frame.
+    m=sum((identity[indices^(1<<x)] for x in range(8)),np.zeros_like(identity))/16
+    b=float(ground@m@m@ground)
+    assert abs(ground@m@ground)<1e-14
+    assert abs(ground@m@m@m@ground)<1e-14
+    k=h/scale-energies[0]*identity
+    for bias in (1,10,14):
+        trial=(ground+bias*m@ground)/np.sqrt(1+bias*bias*b)
+        assert abs(np.linalg.norm(trial)-1)<1e-14
+        assert abs(trial@m@trial-2*bias*b/(1+bias*bias*b))<1e-13
+        assert trial@k@trial<=3*bias*bias/(8*(1+bias*bias*b))+1e-13
+
+
+def test_insufficient_infrared_margin_is_rejected():
+    with pytest.raises(ValueError):
+        order.biased_margin(F(1,2),F(10))
 
 
 @pytest.mark.parametrize('m0,radius', [(0,1),(F(3,4),1),(F(1,4),0),(F(1,4),-1)])

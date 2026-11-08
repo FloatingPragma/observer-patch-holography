@@ -1,8 +1,9 @@
 """Exact original-probability and common-clock bounds from source theorems."""
 from fractions import Fraction as F
+from .order import CERTIFIED_M0
 
 
-def band(m0=F(1, 1000), radius=F(1)):
+def band(m0=CERTIFIED_M0, radius=F(1)):
     if any(type(x) not in (int, F) for x in (m0, radius)) or not 0 < m0 <= F(1, 2) or radius <= 0:
         raise ValueError('positive rational order lower bound and momentum radius required')
     m0, radius = F(m0), F(radius)
@@ -26,7 +27,7 @@ def band(m0=F(1, 1000), radius=F(1)):
         'sharp_speed_or_mass_shell_derived': False}
 
 
-def event_budget(m0=F(1, 1000), complete_trace_error=F(1, 10**12)):
+def event_budget(m0=CERTIFIED_M0, complete_trace_error=F(1, 10**12)):
     row = band(m0)
     if type(complete_trace_error) not in (int, F) or not 0 <= complete_trace_error <= 2:
         raise ValueError('complete unhalved trace error must lie in [0,2]')
