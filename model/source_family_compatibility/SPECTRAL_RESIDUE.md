@@ -240,9 +240,11 @@ and chiral symmetry; they are not realizations of the full Hubbard source.
 Tensoring the finite controls with internal symmetry multiplicities
 preserves the comparison. No independent source modes are appended.
 
-The finite graph gap from `strong_coupling_refinement` requires
-`U>=4c|edges|`. At U/c=8 this means at most two edges, excluding growing
-cubic sources. The complete default cube has its separately certified
+The extensive finite-graph charged separation in `strong_coupling_refinement`
+is positive under `U>2c|edges|`; its canonical-isometry and dynamics bound
+requires `U>=4c|edges|`. At U/c=8 these permit fewer than four edges and
+at most two edges respectively, excluding growing cubic sources.
+The complete default cube has its separately certified
 finite charged gap; it supplies no volume-uniform gap. The positive-field
 spin gap concerns a different selected action and state. None of these
 premises discharges a centered full-CAR low-frequency estimate.
