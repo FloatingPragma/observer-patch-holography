@@ -733,7 +733,7 @@
     "model/completion/adaptive_reference.py": "b7acada7572f55c81fa8754658d3f7d592ee007dc38d2a421ba6d19de8247804",
     "model/completion/campaign.json": "3a1a922957ef87e3759e1ebd7c9617c9eb55b0225b479f444783ff98143cf9d6",
     "model/completion/common_action_campaign.json": "dd0ae22c9c5184453501f70f383dda08562eeba0c2fa2f4c398c07fe83b8e8d6",
-    "model/completion/component_interfaces.json": "1ddf4f6ff53ea5541828e05f5132594bca4c587bd5b42ca2f61f71ee57924a5d",
+    "model/completion/component_interfaces.json": "220b389f0b6f956969d0226c2ac121bb6728ec7b979bdf29319c59771279ac72",
     "model/completion/continuing_spectrum_campaign.json": "c2da42adec941688f95f57584e4a7e88e90f1b932817d321b46344a02f48b082",
     "model/completion/continuum_field_campaign.json": "f7fd154f99dd54acf3212091847d81cb46b8a40943ea3fc9a9b759e803138679",
     "model/completion/defect_algebra.py": "1a19f00c64e89a65eb18bd335f59776ee522c1e6c35ae53508ee4b57aa9c7cf3",
@@ -2151,7 +2151,10 @@
     "model/composite_spatial_response/source.py": "72d70a640592c83a2b8758ce4fe68358d3741b470eaa1edc82969bac9b0e9e20",
     "model/native_regional_modular/test_flow.py": "380d446be8a93a48596a42a0aeb96778871b7153aa7c31e0db02acfbcaa0730c",
     "model/composite_spatial_response/__init__.py": "11f696c4d37d55c82155ccb07924a1e39e599fd58465fdd1ba6ba2da8cdab00f",
-    "model/interacting_observation_process/PROOF.md": "cbde98c04643fb024edce9f5995a88d9877618dc31a6e69819d50596da54326b"
+    "model/interacting_observation_process/PROOF.md": "cbde98c04643fb024edce9f5995a88d9877618dc31a6e69819d50596da54326b",
+    "model/completion/custody_renewal.py": "2ef536f614e7ef038447a997903f3048bb936313e0fcfad9dc41f6f3d28e3194",
+    "model/completion/custody_renewal_20261107.json": "ac4665183969ad1f414db6fc797f1669b99aba7a0f8f947d454bd28504c6c71c",
+    "model/completion/test_custody_renewal.py": "9554aa1e5a633beb5a600b92822d5da07a0652a7567fe451e77dca53c353aed7"
   },
   "verdict": "PASS",
   "audit_refresh": {
@@ -2854,7 +2857,7 @@
         "model/adaptive_reference/results.json": "3b38e27094165e50a35e467aa391b90565eae65a94bdc0b9acabffad344488b0",
         "model/moving_bound_pair/results.json": "ee56f76754f7d988c62b22cf5be316b2e47755a90bbe92d3436eb988c51a8380",
         "model/dilute_momentum_ward/results.json": "6498b3445f647510ba0936d9149f133cd0014a97f2a12cc2409da1c339392440",
-        "model/particle_identification/results.json": "71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64"
+        "model/particle_identification/results.json": "81f4a4482812bab17f96c2c9e93146d12c02a7177a02447832b78b2b22575864"
       },
       "source_validation": [
         {
@@ -3038,8 +3041,8 @@
         "charged_dynamics": 179
       },
       "source_receipt_snapshots": {
-        "model/protected_particle_readout/results.json": "61d0b99e000dfd336f0b3264c69c8552e3096ced154cf50cad22dc37603ecff1",
-        "model/particle_identification/results.json": "71dd82b993200f13b5bb3b9924021231074dc97da58f1d76881dd67be8c20c64",
+        "model/protected_particle_readout/results.json": "d89f9bef2a6f059bf2e4d738bc390e7ab050e29eb29873764c61c6d48eab06de",
+        "model/particle_identification/results.json": "812b5cd7c70dcca7c3a585fa86858d645a8bd6f734ee41acdccd5a8eaad51ac5",
         "model/charged_dynamics/results.json": "22e84739b9c5370da6a27e9d99315a41e7b137d84391a6e89484b4fc551f7b3d"
       },
       "complete_record_archive": {
@@ -3198,7 +3201,7 @@
         "charged_dynamics": 179
       },
       "source_receipt_snapshots": {
-        "model/resolved_particle_spectrum/results.json": "d46c07cae1ddb684d0de31fefe334f31cdbe2bb8d99b037deaa2eb00e6fae259",
+        "model/resolved_particle_spectrum/results.json": "dadd4fd2b5958478a7adb8b70015222848f6dad730588dacd71184aca22f5fa6",
         "model/relativistic_sector_audit/results.json": "d108b639d6ffda0c5c146fd9a80f7bcb77475fd13b859b142557882ca6e3a9fb",
         "model/particle_species_detector/results.json": "7bd331949756f9a98cc17985bb4514447b986d03272b12e1cc82c03a15b15043",
         "model/charged_dynamics/results.json": "99fc6cbc221e302a57e54389b6cb604c78bf4ffd71c49005a81f19ab7497d303"
@@ -5207,5 +5210,11 @@
     "physical_class_clauses_changed": false,
     "canonical_physical_premises_discharged": [],
     "tests": "model/completion/test_program_class_v2.py"
+  },
+  "current_source_custody_renewal": {
+    "date": "2026-11-07",
+    "path": "model/completion/custody_renewal_20261107.json",
+    "role": "CUSTODY_ONLY_NO_NEW_MATHEMATICAL_ACCEPTANCE",
+    "sha256": "ac4665183969ad1f414db6fc797f1669b99aba7a0f8f947d454bd28504c6c71c"
   }
 }

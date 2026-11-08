@@ -12,6 +12,30 @@ give the eight-step common derivation. This page supplies its state, clock
 and mass-operator details. None of its conditional matrix or transition
 ratios is identified with the final measured particle-mass ratios.
 
+## Prepared phase contrast and repair
+
+The [one-port phase experiment](../../model/native_phase_experiment/README.md)
+executes preparation, passive repair and coherent readout on the fair
+binary total-two source. Its mixed reference is `rho=P/Tr(P)`, with
+`P=(1/30)*sum_e Q_e` and the rank-56 seam projectors `Q_e=(I+swap_e)/2`.
+This differs from the pure transfer ground and from the weighted observer's
+stationary reference. Declared occupation-register controls target the ideal
+successful blocks `q*rho` and `q*D*rho*D`, where `D=(-1)^n0`.
+The exact signed exchange readouts are
+`+/-q/168` before repair, `+/-5q/1008` after C and `+/-q/240` after E,
+with unconditional selector acceptance `q=1-(368/2048)^16`.
+
+The independent rational reconstruction checks the executed complex128
+output against full density and outcome targets at the stated tolerances.
+Selector exhaustion, source failures and all terminal labels are retained.
+These numerical admission checks are not a complete arbitrary-reference
+error bound. The exact difference operator decays by `5/6` under C and
+`7/10` under E. These are coherence survival factors per attempt, with no
+particle-mass or permanent-protection identification. C and E share their
+population transfer while differing on this coherent observable; a common
+field dictionary must therefore preserve the full instrument and state,
+including preparation and readout.
+
 ## A positive ground response with an operational state test
 
 The [native transfer-ground construction](../../model/native_vacuum_response/PROOF.md)

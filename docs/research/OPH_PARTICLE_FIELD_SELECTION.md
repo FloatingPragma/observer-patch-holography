@@ -12,6 +12,25 @@ separate the eight required connections and their proof boundaries. This
 page details action selection and operational measurement premises; its
 finite constructions do not discharge the physical particle identification.
 
+## Equal populations and distinct phase response
+
+The [one-port phase experiment](../../model/native_phase_experiment/README.md)
+provides a finite operational distinction between the fair C and E repairs.
+They induce the same population transfer `P`, but the prepared difference
+`delta=P/Tr(P)-D*(P/Tr(P))*D`, with `D=(-1)^n0`, satisfies the exact
+identities `Phi_C(delta)=(5/6)*delta` and `Phi_E(delta)=(7/10)*delta`.
+Declared coherent apparatus reads the contrast through complete terminal
+records. A separate rational implementation checks the prepared densities
+and each outcome of the numerical source execution. The preparation,
+apparatus and tolerance checks are explicit; no arbitrary-input channel
+approximation is inferred.
+
+Thus population spectra alone do not determine the observation process.
+The phase-loss classifier concerns the stated auxiliary absorbing quotient;
+its decaying contrast is not a protected particle sector. A source-to-field
+map must match the preparation and complete instruments as well as the
+population transfer, on one common growing carrier.
+
 ## What the finite constraints select about defect transport
 
 The [literal-link transport theorem](../../model/gauge_defect_transport/PROOF.md)
