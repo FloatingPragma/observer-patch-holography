@@ -143,7 +143,7 @@
     "trial_vector_claimed_exact_selected_ground": false
   },
   "actual_source_scalar_dispersion_diagnostic": {
-    "actual_H_charge_translation_commutation_exact": true,
+    "actual_H_charge_reflection_commutation_exact": true,
     "all_original_records_retained": true,
     "all_source_basis_rows_retained": 256,
     "any_scalar_energy_function_on_these_four_characters_excluded_for_this_full_preparation": true,
@@ -161,7 +161,7 @@
               "1.147324618171",
               "1.147324618189"
             ],
-            "even_translation_character": 0,
+            "even_cube_reflection_character": 0,
             "original_probability_interval": [
               "0.280434976599",
               "0.280434976601"
@@ -180,7 +180,7 @@
               "2.196946245728",
               "2.196946245751"
             ],
-            "even_translation_character": 1,
+            "even_cube_reflection_character": 1,
             "original_probability_interval": [
               "0.185013364776",
               "0.185013364778"
@@ -199,7 +199,7 @@
               "2.196946245728",
               "2.196946245751"
             ],
-            "even_translation_character": 2,
+            "even_cube_reflection_character": 2,
             "original_probability_interval": [
               "0.185013364776",
               "0.185013364778"
@@ -218,7 +218,7 @@
               "2.196946245728",
               "2.196946245751"
             ],
-            "even_translation_character": 3,
+            "even_cube_reflection_character": 3,
             "original_probability_interval": [
               "0.185013364776",
               "0.185013364778"
@@ -255,7 +255,7 @@
               "1.195371828803",
               "1.195371828846"
             ],
-            "even_translation_character": 0,
+            "even_cube_reflection_character": 0,
             "original_probability_interval": [
               "0.112697441134",
               "0.112697441136"
@@ -274,7 +274,7 @@
               "2.894268095799",
               "2.894268096059"
             ],
-            "even_translation_character": 1,
+            "even_cube_reflection_character": 1,
             "original_probability_interval": [
               "0.017275829311",
               "0.017275829312"
@@ -293,7 +293,7 @@
               "2.894268095799",
               "2.894268096059"
             ],
-            "even_translation_character": 2,
+            "even_cube_reflection_character": 2,
             "original_probability_interval": [
               "0.017275829311",
               "0.017275829312"
@@ -312,7 +312,7 @@
               "2.894268095799",
               "2.894268096059"
             ],
-            "even_translation_character": 3,
+            "even_cube_reflection_character": 3,
             "original_probability_interval": [
               "0.017275829311",
               "0.017275829312"
@@ -343,8 +343,9 @@
     "finite_selection_field_replaced_by_zero_field_continuum": false,
     "four_characters_after_each_of_two_coherent_charge_preparations": 8,
     "full_native_joint_energy_character_tape_executed": false,
+    "open_cube_reflection_labels_claimed_as_translation_momenta": false,
     "physical_dispersion_or_mass_fit_supplied": false,
-    "source_even_translation_group": [
+    "source_even_cube_reflection_group": [
       [
         0,
         0,
@@ -869,12 +870,13 @@
     "model/spin_charge_dispersion/PROOF.md": "4b8a586622b6bc121da30d94866df90ea8e4820f7c60ad380d78ac566702270b",
     "model/spin_charge_dispersion/__init__.py": "81fab3a1d62f1ad4efbaa2f168b5ff5bb88c7d74721662ffdab1de6654c28e9a",
     "model/spin_charge_dispersion/order.py": "1314b0ae8a11f4a0deb782408c35f231c20cf6ad569ae85bb013948e8d1c2be8",
+    "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
     "model/spin_energy_polarization/PROOF.md": "dad66bd860a2f1f4321c49f5e2baa708bcee4f7f67c3fa04a2fb2208a1f53d32",
     "model/spin_energy_polarization/__init__.py": "ea304431d444ab898c8799a000c391fdc7db7507cd6df67325463b576a9c33bb",
     "model/spin_energy_polarization/bounds.py": "1660db31816f42aa9aee9ed63f4a525bd4722eef6444c53557c34b6f79f58d1f",
     "model/spin_goldstone_sector/__init__.py": "d497a6791e48b90de7d1d2548906880cbf8cf1de17d6be4159a08f5c1c80d4de",
     "model/spin_goldstone_sector/infrared.py": "19089d96ca3d233e1949b7df3c59c37aca23c4d2e1ca84dd1b1b651c6bbc8ca9",
-    "model/spin_multipacket_comparison/COMPARISON_DEFECT.md": "22f250ebd9d8134fa434d4331a07922149632a14a5d1bb260f723a515dbdfcce",
+    "model/spin_multipacket_comparison/COMPARISON_DEFECT.md": "5a12d5a9d0bfb22fc79d5d5dae9dc762ecba96dc81f77e4711e0be39dd89300e",
     "model/spin_multipacket_comparison/LOCAL_CREATORS.md": "89c72e0fccbc833f41ea792c81c688baf9eabbb51abb1c5e66c2a2922e161567",
     "model/spin_multipacket_comparison/POSITIVE_MULTIPACKETS.md": "4ab18f807554bac5efb83cab4d773d8c03c4947fdbe8257eabcb17cc4d259c16",
     "model/spin_multipacket_comparison/PROOF.md": "cb5f8c4ea4815283be9733c275b5069475374ceaa9cbc79720d33eae4c042870",
@@ -882,14 +884,16 @@
     "model/spin_multipacket_comparison/__init__.py": "7fd2a2e35f1fa0287fc6c5f17a7710df4d2d82d20bf5f87fe2a495324dd4520b",
     "model/spin_multipacket_comparison/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_multipacket_comparison/bounds.py": "82fa926350928c77342cef59d593248efb674415f16a53e56625f35d3b0d541e",
-    "model/spin_multipacket_comparison/dispersion.py": "80929afdb5a141419613d97bf9a8a2a3fcdea6c6d0e76ed1e06a53a0588540ec",
+    "model/spin_multipacket_comparison/dispersion.py": "90d7a14a014f4d51c95e885197ccd13234cf65009666ca620ccb66b417673576",
     "model/spin_multipacket_comparison/finite.py": "5fe58125c5a2048158a5efae7eb3db04756b8ae9a020c03fe913dda5718f0b02",
-    "model/spin_multipacket_comparison/packet.py": "913ca709ab60a275add0790563d023356e6cec7b9d3077cc3341413e7a9b6459",
-    "model/spin_multipacket_comparison/test_dispersion.py": "74e99ccd30c73fdd83576c6acef38fe93625067794801e40d454b4e0d41d42bf",
+    "model/spin_multipacket_comparison/packet.py": "c3ce682b4ba400acc4c3be55839ed9aa8d5c47b17500f27ea41b42c243579aa8",
+    "model/spin_multipacket_comparison/test_dispersion.py": "b2c926b894d3960893bfbc51d7a66cd3dbbdb77c2bca176e8feaa3f5a78b94ca",
     "model/spin_multipacket_comparison/test_source.py": "1771a3092dfb9aa34974afe6133b630be34f1e5fe06d8f9dbca16aa40e467a65",
     "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
     "model/spin_operational_position/__init__.py": "6ade1e4638d5a010428b0e7ab7dcca167ac930503005f645f74a9ba32cb8bf7f",
     "model/spin_operational_position/bounds.py": "0fa337dc1caa26bcbb6119e7860afb5cfe52a18d3b9264a3524e90df4bfae6c2",
+    "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
+    "model/spin_shell_readout/PROOF.md": "4ab001af4cf69f9dd2b05772fe08e7869f4896020d454359d2b6edfcb843a5ba",
     "model/strong_coupling_refinement/__init__.py": "c4445add1d4bbd5fa806c9aecb362a09b594579ed724206374eb80a4d5250a2d",
     "model/strong_coupling_refinement/algebra.py": "9b98d6aead64e3a0a4f32a5d8842e4195e687696e7e7b29a5337e6f2bb121fb1",
     "model/strong_coupling_refinement/bounds.py": "ed9f3c0641e9c86308c6482106401e2f0231e5f9180084fe5b881e9cc3637dbd",

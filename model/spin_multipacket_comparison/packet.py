@@ -17,6 +17,8 @@ PROOFS=('model/spin_canonical_field/README.md','model/spin_canonical_energy/READ
         'model/protected_defect_catalog/PROOF.md','model/spin_charge_dispersion/PROOF.md',
         'model/spin_energy_polarization/PROOF.md','model/source_charge_scattering/CONTINUUM_PAIRS.md',
         'model/source_charge_scattering/PROOF.md','model/particle_mass_readout_gate/README.md',
+        'model/spin_shell_readout/PROOF.md','model/spin_shell_diagnostic/README.md',
+        'model/spin_current_spectrum/README.md',
         'model/spin_operational_position/PROOF.md','model/native_ordered_ground/README.md',
         'model/native_ordered_ground/witness.npz','model/requirements.txt',
         'Lean/QFT/FiniteUnitaryScatteringNoGo.lean','Lean/Dynamics/ProtectedCharge.lean')

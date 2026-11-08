@@ -69,8 +69,9 @@ H_B at J=1 and B=1/4. Its coherent local inputs are
 A_q Omega=Z_0(I-q epsilon_0 X_0)Omega/2, q=±1.
 This is the local two-record instrument, without fine-site dephasing.
 
-The even cube translations a in {000,011,101,110} act by permuting
-sites x to x xor a. Each commutes exactly with H_B and Q. The four
+The even cube reflections a in {000,011,101,110} act by permuting
+sites x to x xor a. These are graph symmetries of the open cube, not
+small translation momenta. Each commutes exactly with H_B and Q. The four
 character projections are
 
     P_k=(1/4)sum_a (-1)^(k dot a)T_a,
@@ -106,7 +107,7 @@ The receipt gives narrower intervals and conditional means for every
 character. They are excitation energies in the selected finite source
 clock, not particle rest masses. This excludes fitting a single scalar
 energy to the whole chosen finite preparation using these four common
-translation labels. It does not exclude a different interpolator,
+reflection-character labels. It does not exclude a different interpolator,
 a spectral subbranch, or a sharp excitation in the zero-field continuum.
 The two local finite charge inputs are not asserted to have identical
 weights or energy measures.
@@ -114,3 +115,88 @@ weights or energy measures.
 The variance test specifies the spectral quantity in the asymptotic
 estimate. It does not supply a Lorentz dispersion, boost covariance,
 a waveoperator or an experimental cross section.
+
+## 4. Selecting atomic subbranches without guessing a dispersion
+
+Restrict the same measure mu to a compact momentum window and its bounded
+positive transfer band, retaining all other records as complementary
+outcomes. Its mass need not be one. Let K_l be nested finite dyadic
+partitions generating the momentum Borel sets, and I_j nested dyadic
+energy partitions of the transfer band. Use half-open bins, with the last
+endpoint included, so atoms on boundaries are counted once. Define the
+statistic of original complete joint probabilities
+
+    A_(j,l)=sum_(K in K_l) max_(I in I_j) mu(I times K).    (5)
+
+For fixed j this increases under momentum refinement and is at most
+mu(total). Disintegrate mu=mu_k sigma(dk), with mu_k normalized only as
+a mathematical conditional kernel. Conditional expectations with respect
+to K_l converge in L1 to each of the finitely many functions mu_k(I).
+The finite maximum is Lipschitz in their l1 distance. Consequently
+
+    lim_l A_(j,l)=integral max_(I in I_j) mu_k(I) dsigma.  (6)
+
+The maximum mass of nested energy bins decreases to the largest atom
+of a finite measure. To see this, an atom gives the corresponding lower
+bound at every depth. Conversely, bins carrying a fixed positive weight
+have a convergent subsequence of centres on the compact energy band;
+every neighbourhood of the limit eventually contains such a bin and
+has at least that weight. Continuity from above gives an atom. The same
+argument applies to the restriction to any half-open parent bin; an
+excluded boundary cannot carry a positive mass of that restricted measure.
+Dominated convergence gives
+
+    A_* := lim_j lim_l A_(j,l)
+         =integral m(k) dsigma,
+    m(k)=max_E mu_k({E}), with max(empty)=0.               (7)
+
+Thus A_*>0 is equivalent to a nonzero atomic dispersion subbranch in
+this actual prepared measure. A continuous component and multiple atomic
+branches are allowed. The order of limits is essential. For the measure
+uniform on E=k, k in[0,1], aligned dyadic partitions give
+A_(j,l)=min(1,2^(l-j)). Equation(7) is1, whereas reversing the two limits
+is0. A finite-width momentum bin can conceal an exact moving branch.
+
+The branch can be selected measurably from the source measure itself.
+For every dyadic parent energy bin I, let m_I(k) be the limit of the
+largest masses among its descendant bins. It is a measurable function
+and equals the largest atom within I by the preceding argument. On
+m(k)>0 start at the whole band. Choose the left child when its m_I equals
+m(k), and otherwise choose the right child. At least one child has that
+value. Each choice is measurable. At fixed k only finitely many atoms
+can have weight m(k)>0, and the nested bins retain at least one of them;
+their vanishing diameter selects exactly one such atom. Their endpoints
+converge to a measurable value e_*(k), with
+mu_k({e_*(k)})=m(k). No measurability of an unspecified maximizer is assumed.
+
+The joint spectral projection onto
+{(E,k):m(k)>0 and E=e_*(k)} is therefore a genuine reducing projection
+for the same L and P. Its original weight in C Omega is A_*. Its
+complement retains the rest of the response. Subtract this graph from
+the conditional kernels, without renormalizing them, and repeat the same
+construction. The resulting disjoint graph projections resolve every
+conditional atom: an atom of weight w>0 can be preceded by only finitely
+many atoms of weight at least w. The sum of all branch weights is at
+most the original preparation probability. A zero first value A_*
+means that this prepared measure has no atomic branch.
+
+For any fixed finite partitions, (5) is also the maximum probability of
+a record event choosing one energy bin in each momentum cell. Therefore
+complete output half-trace error epsilon changes A_(j,l) by at most
+epsilon. Sampling requires simultaneous probability guarantees before
+maximization. The source joint-clock constructions supply particular
+finite joint-cell readouts and their full error bounds; this argument
+does not declare arbitrary continuum graph projections local or natively
+implemented. Sharp projections can be nonlocal, and the double limit has
+no derived effective source-size or observation-time modulus.
+
+The source estimates used here prove neither A_*>0 nor a positive
+shrinking-bin lower bound uniform in both required limits. They also do
+not supply branch smoothness, separated velocities, a uniform residue
+bound on a usable momentum region or the source-error estimates needed
+for scattering. The moment and current identities in
+`spin_shell_diagnostic` and `spin_current_spectrum` admit atom-free
+positive-measure controls; those controls are not alternative source
+ground states. The exact source's projected current/force estimate is
+the additional physical premise. Finite observability and finite
+spectral projectors alone do not prove it.

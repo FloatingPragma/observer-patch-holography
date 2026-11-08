@@ -35,7 +35,7 @@ def test_actual_source_complete_eight_record_instrument():
     assert np.array_equal(summed,64*np.eye(256,dtype=np.int64))
     omitted=projectors[0]@op['twice_creation'][1]
     assert not np.array_equal(summed-omitted.T@omitted,summed)
-    # An odd translation preserves H but reverses Q, so it cannot be
+    # An odd cube reflection preserves H but reverses Q, so it cannot be
     # silently added as a charge-preserving character resolution.
     perm=np.array([sum(((word>>j)&1)<<(j^1)for j in range(8))for word in range(256)])
     assert np.array_equal(op['H'][np.ix_(perm,perm)],op['H'])
@@ -60,3 +60,4 @@ def test_exact_source_moment_intervals_against_independent_eigensolver():
         assert residual>float(F(row['strict_simple_original_weight_defect_lower']))
     assert not value['source_spectral_subbranch_or_distinct_interpolator_excluded']
     assert not value['physical_dispersion_or_mass_fit_supplied']
+    assert not value['open_cube_reflection_labels_claimed_as_translation_momenta']

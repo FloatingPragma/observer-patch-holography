@@ -11,12 +11,12 @@ def source_projectors():
     group=(0,3,5,6)
     permutations={a:np.array([sum(((word>>j)&1)<<(j^a)for j in range(8))for word in range(256)])for a in group}
     for a,p in permutations.items():
-        if not np.array_equal(op['H'][np.ix_(p,p)],op['H']):raise ArithmeticError('translation does not preserve source clock')
-        if not np.array_equal(op['twice_charge'][np.ix_(p,p)],op['twice_charge']):raise ArithmeticError('translation mixes the source charge')
+        if not np.array_equal(op['H'][np.ix_(p,p)],op['H']):raise ArithmeticError('cube reflection does not preserve source clock')
+        if not np.array_equal(op['twice_charge'][np.ix_(p,p)],op['twice_charge']):raise ArithmeticError('cube reflection mixes the source charge')
         for b in group:
-            if not np.array_equal(p[permutations[b]],permutations[a^b]):raise ArithmeticError('source translations fail their group law')
+            if not np.array_equal(p[permutations[b]],permutations[a^b]):raise ArithmeticError('cube reflections fail their group law')
     numerators=[sum((-1)**((k&a).bit_count())*identity[permutations[a]]for a in group)for k in range(4)]
-    if not np.array_equal(sum(numerators),4*identity):raise ArithmeticError('complete translation characters lost a sector')
+    if not np.array_equal(sum(numerators),4*identity):raise ArithmeticError('complete cube-reflection characters lost a sector')
     for i,p in enumerate(numerators):
         for j,q in enumerate(numerators):
             if not np.array_equal(p@q,4*p if i==j else np.zeros_like(p)):
@@ -63,7 +63,7 @@ def build():
             e0=tuple(F(x)for x in certificate['ground_energy_interval'])
             excitation=(conditional_mean[0]-6-e0[1],conditional_mean[1]-6-e0[0])
             conditional_variance=divide_interval(residual,wi)
-            characters.append({'even_translation_character':k,
+            characters.append({'even_cube_reflection_character':k,
                 'original_probability_interval':decimal_bounds(*wi,12),
                 'conditional_excitation_mean_interval':decimal_bounds(*excitation,12),
                 'conditional_energy_variance_interval':decimal_bounds(*conditional_variance,12),
@@ -77,10 +77,11 @@ def build():
             'optimal_conditional_squared_dispersion_defect_interval':decimal_bounds(*divide_interval((rlo,rhi),(wlo,whi)),12),
             'strict_simple_original_weight_defect_lower':str(floor)})
     return {'source_ground_certificate':certificate,
-            'source_even_translation_group':[[0,0,0],[0,1,1],[1,0,1],[1,1,0]],
-            'actual_H_charge_translation_commutation_exact':True,
+            'source_even_cube_reflection_group':[[0,0,0],[0,1,1],[1,0,1],[1,1,0]],
+            'actual_H_charge_reflection_commutation_exact':True,
             'character_projector_numerators_and_completeness_checked':True,
             'four_characters_after_each_of_two_coherent_charge_preparations':8,
+            'open_cube_reflection_labels_claimed_as_translation_momenta':False,
             'all_original_records_retained':True,'all_source_basis_rows_retained':256,
             'centered_H_operator_norm_upper':'7','centered_H_definition':'H_B+6I',
             'channels':rows,
