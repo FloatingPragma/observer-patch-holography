@@ -23,7 +23,7 @@ OUTPUT = HERE/'occupation_results.json'
 CAMPAIGN = 'OPH-NATIVE-OCCUPATION-PROTECTION-2026-11-01-v1'
 CONTRACT_SHA256 = '3faa6913fabd0fe22c3fba0104c1315dcc7815ee778fed5a9c478f0241111d67'
 # Reviewed exposure-snapshot verification; physical class clauses are unchanged.
-CLASS_CONTRACT_SHA256 = '9aaf8e659cfe15137deb178646198b581a6cdcb9a375e00464571d963c917d19'
+CLASS_CONTRACT_SHA256 = 'b4751d545f25c3e057b2294c09686d98811929535816af811d76127dfb94d853'
 FALSE_KEYS = frozenset(('physical_particle_identification', 'integrated_gate_accepted',
                        'program_class_changed', 'cross_number_cat_admitted_by_v2',
                        'localized_topological_defect_constructed'))
