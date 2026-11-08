@@ -18,6 +18,33 @@ free branch's eight massless valleys are not eight identified physical
 particles. No measured-particle mass table is filled by their zero rest
 energies or by finite spin excitation gaps.
 
+The [exported Standard Model correspondence](../../model/standard_model_source_map/PARTICLE_MAP.md)
+contains all eighteen target species or flavor channels. Its exact fifteen-state
+internal weights match the comparison representations, including conjugate
+right-handed components. It supplies no source-selected family indices, physical
+mass eigenstates or topological assignments; those fields are explicitly empty.
+
+## A created local symmetry-sector excitation
+
+The [complete spin experiment](../../model/defect_localization_readout/PROOF.md)
+uses the actual eight-site selected ground at `J=1,B=1/4`. A local Z pulse
+preserves every initial exterior expectation and changes the global internal
+X-parity from even to odd. Every complete C/E branch and the chosen centered
+Hamiltonian preserve this parity. The ideal ground-state pointer contrast exceeds
+`0.670950141860`, and the complete implemented contrast exceeds `0.67` after
+its error allowance. The ideal selected-Hamiltonian energy excess lies between
+`1.825861195059` and `1.825861195062`. Comparing the zero-field Hamiltonian on
+the same prepared input gives a different positive excess, without asserting
+that input is its ground.
+
+The all-input source/spin estimate and local commutator bound retain contrast
+greater than `2/5` through at most ten complete repairs and time `T<=1/16`
+on `c=12^4,U=12^8`. Preparation and final readout are executed; this lifetime
+tape is an analytic construction. Coherent controls can change the parity,
+and autonomous evolution spreads the response. The finite symmetry label
+does not establish winding protection, an infinite-volume superselection
+sector or a rest mass.
+
 ## Position and the source sector
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)

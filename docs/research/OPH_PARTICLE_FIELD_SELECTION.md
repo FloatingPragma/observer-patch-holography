@@ -85,6 +85,29 @@ the curvature F uses the rescaled connection `A_cal=g_s A` and
 renormalization map is proved here. The inherited numerical coupling
 branches are declared inputs to conditional running calculations.
 
+The separate [complete color-loop construction](../../model/color_loop_readout/PROOF.md)
+uses the actual Casimir-weighted electric term and magnetic loops in the
+438- and 1596-state gauge--Higgs sectors. For colored blocks with dimensions
+`d_r=3,6,3` and one-link Casimirs `c_r=4,25/8,3`, complete loop probabilities
+on the specified vacuum/addition input pair obey
+
+```
+p_r(t)/d_r^2 = m^2 t^2
+  - m^2 [e^2 c_r^2/3 + 18m^2 + q h^2/3] t^4 + O(t^6), q=0,1.
+```
+
+All scalar/link record outcomes and the full matter state space are retained.
+The Higgs contribution cancels
+at fourth order, while an exact sixth-order control detects its interaction.
+Differences of the dimension-three channels isolate `e^2 m^2`; the quadratic
+coefficient gives `m^2`. Six finite times with rational Taylor bounds enclose
+`e/abs(m)=1` at the literal defaults. The factor two in the two-link electric
+energy and the source color-Casimir normalization does not convert this ratio
+to `alpha_s`. The source declares its clock and complete flux instrument;
+their repair-only compilation, a growing chiral colored field and physical
+renormalization are separate requirements. The uniform-electric-projector
+obstruction above does not apply to this different Casimir-weighted action.
+
 The [conditional QCD producer](../../code/particles/qcd/derive_lambda_qcd_source_transmutation.py)
 uses the high-flavor to low-flavor matching relation, whose quadratic
 coefficient is `+11/72` at the running heavy-quark mass. Its external

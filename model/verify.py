@@ -441,6 +441,10 @@ REPLAYS = (
     ("model.spin_position_limit", None, "model/spin_position_limit/results.json"),
     ("model.particle_mass_readout_gate", None, "model/particle_mass_readout_gate/table.json"),
     ("model.source_strong_coupling", None, "model/source_strong_coupling/results.json"),
+    ("model.standard_model_source_map", None, "model/standard_model_source_map/particle_map.json"),
+    ("model.defect_localization_readout", None, "model/defect_localization_readout/results.json"),
+    ("model.spin_stress_response", None, "model/spin_stress_response/results.json"),
+    ("model.color_loop_readout", None, "model/color_loop_readout/results.json"),
 )
 
 

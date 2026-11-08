@@ -6,6 +6,22 @@ realize gravity. The [completion DAG](../COMPLETION_PROGRAM.md) orders the
 construction and validation gates; the evidence below supplies components
 and exclusions, without declaring those gates complete.
 
+The [Standard Model source correspondence](../../model/standard_model_source_map/PARTICLE_MAP.md)
+exports all target channels beside exact internal source weights. Family
+indices, physical sources, topological assignments and predicted masses are
+empty unless an identification is proved. A single representation shared
+by three comparison rows does not generate a family hierarchy.
+
+The [local spin response](../../model/defect_localization_readout/PROOF.md)
+has positive energy and repair-preserved parity on its specified finite
+ground, with complete native detector records and a finite signal-lifetime
+bound. Its energy excess is not entered as a rest mass. The
+[color-loop response](../../model/color_loop_readout/PROOF.md) recovers bare
+electric/magnetic coefficients from the complete gauge--Higgs system; those
+coefficients are not substituted for a physical running strong coupling.
+Both constructions require a common relativistic field and spectral
+identification before supplying a measured-particle mass table.
+
 The maintained [source-to-field requirements and status](OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
 separate the eight required connections. This page records response and
 mass-operator results within their specified models; none supplies the

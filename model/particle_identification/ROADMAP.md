@@ -7,6 +7,34 @@ examples does not establish that target. The finite interacting extension
 provides a complete finite gauge–lepton–Higgs control and its detector records.
 It does not identify its response lines with nature's particles.
 
+The [Standard Model source correspondence](../standard_model_source_map/PARTICLE_MAP.md)
+exports eighteen particle or flavor target channels and their computed internal
+source weights. The fifteen-state register is matched completely, including
+color conjugation, without an empirical mass input. Repeated family rows share
+one source block; source-selected generations and neutrino mass eigenstates are
+not inferred. The machine export admits zero physical particle assignments.
+
+The [local spin experiment](../defect_localization_readout/PROOF.md) constructs
+an actual local excitation with unchanged initial exterior, positive energy
+and a finite global parity preserved by every repair branch. Its complete
+detector has a same-clock finite-lifetime bound. This supplies a symmetry-sector
+candidate for requirements 2--4 below, without a topological boundary charge,
+permanent localization or a relativistic particle pole. The
+[full color-loop readout](../color_loop_readout/PROOF.md) measures electric and
+magnetic source coefficients in the complete interacting Higgs sectors; a
+continuum color action and renormalized coupling need a separate limit.
+
+These constructions address five independent issue owners. Their finite
+results do not accept the integrated physical gates or alter a frozen campaign.
+
+| Issue | Verified finite input | Required physical connection |
+|---|---|---|
+| [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139), local defect | Local parity-changing source preparation, exterior equality and complete detector lifetime bound | Scalable localized sector, a protecting topological invariant if claimed, and gauge-charge identification |
+| [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140), energy and stress | Same spin action, driven energy continuity and retarded response | Vacuum-relative energy, kinetic response and conserved continuum stress for the same excitation and clock |
+| [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142), interacting field | Complete color/Higgs records and bounded coefficient inversion | Local three-dimensional refinement, Lorentz covariance, surviving interactions and selected masses |
+| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143), particle dictionary | Exact internal weights and eighteen unassigned target channels | Physical spin/statistics, families, poles and residues, common units and independent experimental comparisons |
+| [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145), gravity | Source-executed regional entropy/modular equality | Boost-normalized symmetric stress, area/edge identification, Newton normalization and entropy stationarity on one refinement |
+
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
 used in a derivation. A laboratory identification, a selected initial state,

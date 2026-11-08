@@ -89,13 +89,13 @@ proof shows that the whole class of laws cannot work.
   balance.
 - **Particle candidates and energy readouts.** A specified interacting cube connects
   a prepared ground state, local charge creation and complete detector records.
-  On the native fair source, declared coherent services prepare a ground state,
-  create a local excitation and detect its energy with every failure retained.
-  The growing source has controlled local clock comparisons and exact exchange-energy
-  currents. A complete finite correlation experiment exceeds the classical Bell
-  bound under its stated preparation and control premises. A common relativistic
-  action and identification of physical species and masses require further proofs.
-  The tested mass branch uses a target-informed lepton law.
+  A local spin pulse has positive excitation energy, exact repair-preserved
+  parity and a certified detector lifetime. Complete color-loop records recover
+  the specified electric-to-magnetic coefficient ratio in the finite gauge--Higgs
+  source. A common relativistic action and physical particle identities require
+  further proofs. The [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
+  lists Standard Model targets beside computed internal representations;
+  physical sources and masses are unassigned.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.

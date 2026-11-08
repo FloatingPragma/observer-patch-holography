@@ -70,6 +70,36 @@ The [current sum rule](../../model/spin_current_spectrum/README.md) and
 missing correlation estimates. Neither an additional finite theorem with
 those estimates as hypotheses nor a fitted dispersion discharges them.
 
+The [local spin creation](../../model/defect_localization_readout/PROOF.md)
+supplies a finite excitation on the actual selected cube ground. A local Z
+leaves the exterior marginal unchanged at preparation and flips a global
+internal spin parity preserved by every C/E record and the centered source
+Hamiltonian. Complete native preparation and detection give contrast above
+`0.67`; a source-clock estimate retains contrast above `0.4` through ten
+repairs on its declared short-time trajectory. This is a finite symmetry
+sector with controlled spreading, without a topological boundary charge or
+a particle dispersion theorem.
+
+The [driven spin response](../../model/spin_stress_response/PROOF.md) gives
+`H_a=sum_x a_x e_x`, currents `J_xy=a_x a_y i[e_x,e_y]` and work densities
+`dot(a_x)e_x` on the same finite action. Exact continuity and retarded
+response use the actual initial state. A separate two-site source instance
+prepares its selected `J=1,B=3/8` ground and evolves it under the exchange
+clock; its one-site marginal is `(I+(3/5)cos(t)X)/2`, with spectral floor
+`1/5`. Three complete 144-pulse experiments implement a nonzero regional
+entropy/modular response with every failure retained.
+
+For a faithful reference with floor `mu` and half-trace perturbation
+`epsilon<mu`, the general bound
+`0<=D(rho||sigma)<=epsilon^2/(mu-epsilon)` proves the finite first-law
+differential on these source tangents. The physical exchange-energy response
+in the displayed experiment is zero despite nonzero regional entropy
+response. The result supplies the entropy/modular equality premise of the
+finite first-law theorem. The boost/edge split, a symmetric Lorentz stress,
+responsive area and fixed-proper-volume stationarity require additional
+maps. The two-site reference is not substituted for the infinite ordered
+state in the six requirements above.
+
 ### Position, translations and uncertainty
 
 Uniform native repair has mean load transition `I-L/60`. Its smallest
