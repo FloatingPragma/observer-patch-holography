@@ -9,6 +9,7 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion,composite,charge_scaling,boost_current,cube_response,cube_spectrum
+from . import momentum_response, charge_escape, uv_tail, local_spectral
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -70,7 +71,9 @@ def bindings():
                   HERE/'DEFECT_BUDGET.md',HERE/'LOCAL_MATTER_READOUT.md',
                   HERE/'CHARGED_SPECTRAL_BANDS.md',HERE/'ALIGNED_HOLE_DISPERSION.md',
                   HERE/'COMPOSITE_CAR.md',HERE/'CUBE_RESPONSE.md',
-                  HERE/'STRONG_CHARGE_SCALING.md',HERE/'ENERGY_DIPOLE.md',HERE/'CUBE_SPECTRUM.md'))
+                  HERE/'STRONG_CHARGE_SCALING.md',HERE/'ENERGY_DIPOLE.md',HERE/'CUBE_SPECTRUM.md',
+                  HERE/'MOMENTUM_RESPONSE.md',HERE/'LOCAL_CHARGE_ESCAPE.md',
+                  HERE/'UV_TAIL.md',HERE/'LOCAL_SPECTRAL_READOUT.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -101,6 +104,11 @@ def claims():
         'strong_contact_original_charge_weight_bound_uniform_in_volume':True,
         'full_centered_source_energy_dipole_identity':True,
         'complete_cube_wavepacket_energy_record_enclosures':True,
+        'cubic_ground_composite_momentum_symbol_from_three_local_correlations':True,
+        'complete_local_clock_recovers_original_energy_measures':True,
+        'original_CAR_UV_tails_uniform_in_volume_and_packet':True,
+        'default_ballistic_entire_unfiltered_unit_mass_regular_limit_excluded':True,
+        'default_filtered_finite_physical_energy_weight_proved':False,
         'cube_profile_labels_identified_with_momentum_eigenvalues':False,
         'energy_dipole_establishes_interacting_geometric_boost':False,
         'canonical_composite_family_appends_independent_source_flavours':False,
@@ -150,6 +158,10 @@ def build():
         'volume_uniform_charged_scaling':serialize(charge_scaling.certificate()),
         'full_source_energy_dipole':serialize(boost_current.certificate()),
         'complete_cube_wavepacket_spectrum':serialize(cube_spectrum.certificate()),
+        'actual_cubic_momentum_response':serialize(momentum_response.certificate()),
+        'default_original_charge_escape':serialize(charge_escape.certificate()),
+        'uniform_original_energy_tails':serialize(uv_tail.certificate()),
+        'complete_local_source_energy_readout':serialize(local_spectral.certificate()),
         'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,

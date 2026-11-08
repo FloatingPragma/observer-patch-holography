@@ -54,8 +54,9 @@ translation-invariant ground. Ground inequalities are linear in the state,
 and each automorphism preserves K, so the result is a ground state on the
 same action. It retains hidden spin, eta spin, particle-hole symmetry,
 reality and magnetic translations. All expectations below use this one
-averaged state omega. The finite average keeps its original probabilities;
-there is no momentum-dependent conditioning or change of state. A
+averaged state omega. Record probabilities are arithmetic averages of the
+original branch probabilities. The same averaged state is used at every
+momentum, without conditioning. A
 symmetry-broken pure ground is not silently identified with this average.
 The compactness construction supplies no effective volume convergence rate.
 

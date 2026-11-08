@@ -247,6 +247,4424 @@
   },
   "catalogue_is_exhaustive_over_all_OPH_sources_or_defects": false,
   "centered_full_CAR_source_attachment": {
+    "actual_cubic_momentum_response": {
+      "C_is_kappa_times_actual_h_on_invariant_ground_average": true,
+      "Y_Gram_symbol": "[g0+2 g2 sum_j cos(2 k_j)] I8 tensor Ispin",
+      "coefficient_ground_values_assigned_from_finite_cube": false,
+      "coefficient_identities": {
+        "g0_over_c_squared": "9/2-12 qstar",
+        "g2_over_c_squared": "q2",
+        "kappa": "4 q1"
+      },
+      "complete_finite_phase_profiles_are_translation_eigenstates": false,
+      "continuum_poles_or_physical_species_derived": false,
+      "invariant_correlator_readouts": {
+        "q1": {
+          "all_plus_minus_outcomes_retained": true,
+          "score_absolute_bound": "3/4",
+          "setting_probabilities": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "terms": [
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                5
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                7
+              ]
+            }
+          ],
+          "zero_observable_identity_record": false
+        },
+        "q2": {
+          "all_plus_minus_outcomes_retained": true,
+          "score_absolute_bound": "3/4",
+          "setting_probabilities": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "terms": [
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                8,
+                10
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                9,
+                10
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                8,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                9,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                11
+              ]
+            }
+          ],
+          "zero_observable_identity_record": false
+        },
+        "qstar": {
+          "all_plus_minus_outcomes_retained": true,
+          "score_absolute_bound": "9/2",
+          "setting_probabilities": [
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216",
+            "1/216"
+          ],
+          "terms": [
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                5
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                7
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                8
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                8
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                8
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                9
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                10
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                11
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                11
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                13
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                13
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                14
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                14
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                17,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                18,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                19,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                18,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                19,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                20,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                19,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                20,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                21,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                20,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                21,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                22,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                17,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                18,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                19,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                1,
+                21,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                3,
+                22,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                2,
+                23,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                18,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                19,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                20,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                3,
+                22,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                2,
+                23,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                1,
+                24,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                19,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                20,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                21,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                2,
+                3,
+                23,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                1,
+                3,
+                24,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                0,
+                3,
+                25,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                20,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                21,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                22,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/48",
+              "majorana_indices": [
+                1,
+                2,
+                24,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                0,
+                2,
+                25,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/48",
+              "majorana_indices": [
+                2,
+                3,
+                26,
+                27
+              ]
+            }
+          ],
+          "zero_observable_identity_record": false
+        }
+      },
+      "local_algebra": {
+        "disjoint_odd_anticommutator_zero": true,
+        "local_commutators_checked": 4,
+        "observable_readouts": {
+          "g0_over_c_squared": {
+            "all_plus_minus_outcomes_retained": true,
+            "score_absolute_bound": "117/2",
+            "setting_probabilities": [
+              "1/13",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117",
+              "1/234",
+              "1/234",
+              "1/117"
+            ],
+            "terms": [
+              {
+                "coefficient": "9/2",
+                "majorana_indices": []
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  4,
+                  6
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  5,
+                  6
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  4,
+                  7
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  5,
+                  7
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  6,
+                  7
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  6,
+                  8
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  7,
+                  8
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  6,
+                  9
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  7,
+                  9
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  4,
+                  10
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  5,
+                  10
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  7,
+                  10
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  8,
+                  10
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  9,
+                  10
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  4,
+                  11
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  5,
+                  11
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  6,
+                  11
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  8,
+                  11
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  9,
+                  11
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  10,
+                  11
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  6,
+                  12
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  7,
+                  12
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  10,
+                  12
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  11,
+                  12
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  6,
+                  13
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  7,
+                  13
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  10,
+                  13
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  11,
+                  13
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  4,
+                  14
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  5,
+                  14
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  7,
+                  14
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  8,
+                  14
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  9,
+                  14
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  11,
+                  14
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  12,
+                  14
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  13,
+                  14
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  4,
+                  15
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  5,
+                  15
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  6,
+                  15
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  8,
+                  15
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  9,
+                  15
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  10,
+                  15
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  12,
+                  15
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  13,
+                  15
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  14,
+                  15
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  6,
+                  16
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  7,
+                  16
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  10,
+                  16
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  11,
+                  16
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  14,
+                  16
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  15,
+                  16
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  6,
+                  17
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  7,
+                  17
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  10,
+                  17
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  11,
+                  17
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  14,
+                  17
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  15,
+                  17
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  4,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  5,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  7,
+                  18
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  8,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  9,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  11,
+                  18
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  12,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  13,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  15,
+                  18
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  16,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  17,
+                  18
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  4,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  5,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  6,
+                  19
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  8,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  9,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  10,
+                  19
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  12,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  13,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  14,
+                  19
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  16,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  17,
+                  19
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  18,
+                  19
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  6,
+                  20
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  7,
+                  20
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  10,
+                  20
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  11,
+                  20
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  14,
+                  20
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  15,
+                  20
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  18,
+                  20
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  19,
+                  20
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  6,
+                  21
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  7,
+                  21
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  10,
+                  21
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  11,
+                  21
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  14,
+                  21
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  15,
+                  21
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  18,
+                  21
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  19,
+                  21
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  4,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  5,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  7,
+                  22
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  8,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  9,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  11,
+                  22
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  12,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  13,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  15,
+                  22
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  16,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  17,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  19,
+                  22
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  20,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  21,
+                  22
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  4,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  5,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  6,
+                  23
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  8,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  9,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  10,
+                  23
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  12,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  13,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  14,
+                  23
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  16,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  17,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  18,
+                  23
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  20,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  21,
+                  23
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  22,
+                  23
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  6,
+                  24
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  7,
+                  24
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  10,
+                  24
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  11,
+                  24
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  14,
+                  24
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  15,
+                  24
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  18,
+                  24
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  19,
+                  24
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  22,
+                  24
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  23,
+                  24
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  6,
+                  25
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  7,
+                  25
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  10,
+                  25
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  11,
+                  25
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  14,
+                  25
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  15,
+                  25
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  18,
+                  25
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  19,
+                  25
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  22,
+                  25
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  23,
+                  25
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  4,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  5,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  7,
+                  26
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  8,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  9,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  11,
+                  26
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  12,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  13,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  15,
+                  26
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  16,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  17,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  19,
+                  26
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  20,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  21,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  23,
+                  26
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  1,
+                  3,
+                  24,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  0,
+                  3,
+                  25,
+                  26
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  4,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  5,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  6,
+                  27
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  8,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  9,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  10,
+                  27
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  12,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  13,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  14,
+                  27
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  16,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  17,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  18,
+                  27
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  20,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  21,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  22,
+                  27
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  1,
+                  2,
+                  24,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/4",
+                "majorana_indices": [
+                  0,
+                  2,
+                  25,
+                  27
+                ]
+              },
+              {
+                "coefficient": "-1/2",
+                "majorana_indices": [
+                  2,
+                  3,
+                  26,
+                  27
+                ]
+              }
+            ],
+            "zero_observable_identity_record": false
+          },
+          "g2_over_c_squared": {
+            "all_plus_minus_outcomes_retained": true,
+            "score_absolute_bound": "3/4",
+            "setting_probabilities": [
+              "1/6",
+              "1/6",
+              "1/6",
+              "1/6",
+              "1/3"
+            ],
+            "terms": [
+              {
+                "coefficient": "1/8",
+                "majorana_indices": [
+                  0,
+                  2,
+                  8,
+                  10
+                ]
+              },
+              {
+                "coefficient": "1/8",
+                "majorana_indices": [
+                  1,
+                  2,
+                  9,
+                  10
+                ]
+              },
+              {
+                "coefficient": "1/8",
+                "majorana_indices": [
+                  0,
+                  3,
+                  8,
+                  11
+                ]
+              },
+              {
+                "coefficient": "1/8",
+                "majorana_indices": [
+                  1,
+                  3,
+                  9,
+                  11
+                ]
+              },
+              {
+                "coefficient": "1/4",
+                "majorana_indices": [
+                  2,
+                  3,
+                  10,
+                  11
+                ]
+              }
+            ],
+            "zero_observable_identity_record": false
+          }
+        },
+        "tracial_control_g0_over_c_squared": "9/2",
+        "tracial_control_g2_over_c_squared": "0",
+        "tracial_control_is_a_ground_state": false
+      },
+      "momentum_is_genuine_two_step_magnetic_translation": true,
+      "residual_symbol": "[g0-6g2+(4g2-kappa^2 c^2) sum_j cos(k_j)^2] I",
+      "source_symmetry": {
+        "exact_link_rotation_checks": 9000,
+        "exact_link_translation_checks": 1125,
+        "exact_rotation_translation_normalizations": 9000,
+        "mixed_axis_cancellations": [
+          {
+            "axis_signs": [
+              1,
+              1,
+              -1
+            ],
+            "displacement": [
+              -1,
+              -1,
+              0
+            ],
+            "permutation": [
+              1,
+              0,
+              2
+            ]
+          },
+          {
+            "axis_signs": [
+              1,
+              -1,
+              1
+            ],
+            "displacement": [
+              -1,
+              0,
+              -1
+            ],
+            "permutation": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "displacement": [
+              -1,
+              0,
+              1
+            ],
+            "permutation": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "displacement": [
+              -1,
+              1,
+              0
+            ],
+            "permutation": [
+              1,
+              0,
+              2
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              1,
+              1
+            ],
+            "displacement": [
+              0,
+              -1,
+              -1
+            ],
+            "permutation": [
+              0,
+              2,
+              1
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "displacement": [
+              0,
+              -1,
+              1
+            ],
+            "permutation": [
+              0,
+              2,
+              1
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "displacement": [
+              0,
+              1,
+              -1
+            ],
+            "permutation": [
+              0,
+              2,
+              1
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              1,
+              1
+            ],
+            "displacement": [
+              0,
+              1,
+              1
+            ],
+            "permutation": [
+              0,
+              2,
+              1
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "displacement": [
+              1,
+              -1,
+              0
+            ],
+            "permutation": [
+              1,
+              0,
+              2
+            ]
+          },
+          {
+            "axis_signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "displacement": [
+              1,
+              0,
+              -1
+            ],
+            "permutation": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "axis_signs": [
+              1,
+              -1,
+              1
+            ],
+            "displacement": [
+              1,
+              0,
+              1
+            ],
+            "permutation": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "axis_signs": [
+              1,
+              1,
+              -1
+            ],
+            "displacement": [
+              1,
+              1,
+              0
+            ],
+            "permutation": [
+              1,
+              0,
+              2
+            ]
+          }
+        ],
+        "proper_rotations": 24
+      },
+      "uniform_Y_Gram_over_c_squared_upper": "18"
+    },
     "catalogue_entry": "centered_full_CAR_charge_response",
     "chart": "original Weyl action with bare repair, or separately signed Hubbard action with same-chart repair; whole-protocol transport conjugates both",
     "clock": "its positive centered GNS generator",
@@ -284,6 +4702,776 @@
         "tolerance": "1/1000"
       }
     ],
+    "complete_local_source_energy_readout": {
+      "actual_dimer_complete_clock": {
+        "actual_original_weight_intervals": [
+          [
+            "310633906259/1000000000000",
+            "15531695313/50000000000"
+          ],
+          [
+            "9468304687/50000000000",
+            "189366093741/1000000000000"
+          ]
+        ],
+        "actual_positive_energy_intervals": [
+          [
+            "226444101601/500000000000",
+            "452888203203/1000000000000"
+          ],
+          [
+            "288944101601/500000000000",
+            "577888203203/1000000000000"
+          ]
+        ],
+        "all_input_completeness": "Fourier Parseval and the full source CAR identity",
+        "all_phase_records": [
+          {
+            "each_charge_original_probability": [
+              "2063788283/500000000000",
+              "4127576567/1000000000000"
+            ],
+            "phase_record": 0
+          },
+          {
+            "each_charge_original_probability": [
+              "12655982493/1000000000000",
+              "6327991247/500000000000"
+            ],
+            "phase_record": 1
+          },
+          {
+            "each_charge_original_probability": [
+              "226474715423/1000000000000",
+              "7077334857/31250000000"
+            ],
+            "phase_record": 2
+          },
+          {
+            "each_charge_original_probability": [
+              "231539550853/1000000000000",
+              "115769775427/500000000000"
+            ],
+            "phase_record": 3
+          },
+          {
+            "each_charge_original_probability": [
+              "800856129/100000000000",
+              "8008561291/1000000000000"
+            ],
+            "phase_record": 4
+          },
+          {
+            "each_charge_original_probability": [
+              "784463499/250000000000",
+              "3137853997/1000000000000"
+            ],
+            "phase_record": 5
+          },
+          {
+            "each_charge_original_probability": [
+              "845790671/500000000000",
+              "1691581343/1000000000000"
+            ],
+            "phase_record": 6
+          },
+          {
+            "each_charge_original_probability": [
+              "268199401/250000000000",
+              "214559521/200000000000"
+            ],
+            "phase_record": 7
+          },
+          {
+            "each_charge_original_probability": [
+              "752677053/1000000000000",
+              "376338527/500000000000"
+            ],
+            "phase_record": 8
+          },
+          {
+            "each_charge_original_probability": [
+              "141619209/250000000000",
+              "566476837/1000000000000"
+            ],
+            "phase_record": 9
+          },
+          {
+            "each_charge_original_probability": [
+              "224669713/500000000000",
+              "449339427/1000000000000"
+            ],
+            "phase_record": 10
+          },
+          {
+            "each_charge_original_probability": [
+              "74308353/200000000000",
+              "185770883/500000000000"
+            ],
+            "phase_record": 11
+          },
+          {
+            "each_charge_original_probability": [
+              "39740729/125000000000",
+              "317925833/1000000000000"
+            ],
+            "phase_record": 12
+          },
+          {
+            "each_charge_original_probability": [
+              "280131739/1000000000000",
+              "14006587/50000000000"
+            ],
+            "phase_record": 13
+          },
+          {
+            "each_charge_original_probability": [
+              "253275799/1000000000000",
+              "1266379/5000000000"
+            ],
+            "phase_record": 14
+          },
+          {
+            "each_charge_original_probability": [
+              "11719507/50000000000",
+              "234390141/1000000000000"
+            ],
+            "phase_record": 15
+          },
+          {
+            "each_charge_original_probability": [
+              "221635993/1000000000000",
+              "110817997/500000000000"
+            ],
+            "phase_record": 16
+          },
+          {
+            "each_charge_original_probability": [
+              "106943511/500000000000",
+              "213887023/1000000000000"
+            ],
+            "phase_record": 17
+          },
+          {
+            "each_charge_original_probability": [
+              "105252103/500000000000",
+              "210504207/1000000000000"
+            ],
+            "phase_record": 18
+          },
+          {
+            "each_charge_original_probability": [
+              "211219287/1000000000000",
+              "26402411/125000000000"
+            ],
+            "phase_record": 19
+          },
+          {
+            "each_charge_original_probability": [
+              "54022097/250000000000",
+              "216088389/1000000000000"
+            ],
+            "phase_record": 20
+          },
+          {
+            "each_charge_original_probability": [
+              "45100317/200000000000",
+              "112750793/500000000000"
+            ],
+            "phase_record": 21
+          },
+          {
+            "each_charge_original_probability": [
+              "30031411/125000000000",
+              "240251289/1000000000000"
+            ],
+            "phase_record": 22
+          },
+          {
+            "each_charge_original_probability": [
+              "261680843/1000000000000",
+              "65420211/250000000000"
+            ],
+            "phase_record": 23
+          },
+          {
+            "each_charge_original_probability": [
+              "291964001/1000000000000",
+              "145982001/500000000000"
+            ],
+            "phase_record": 24
+          },
+          {
+            "each_charge_original_probability": [
+              "334623401/1000000000000",
+              "167311701/500000000000"
+            ],
+            "phase_record": 25
+          },
+          {
+            "each_charge_original_probability": [
+              "395523719/1000000000000",
+              "9888093/25000000000"
+            ],
+            "phase_record": 26
+          },
+          {
+            "each_charge_original_probability": [
+              "484885623/1000000000000",
+              "60610703/125000000000"
+            ],
+            "phase_record": 27
+          },
+          {
+            "each_charge_original_probability": [
+              "155425413/250000000000",
+              "621701653/1000000000000"
+            ],
+            "phase_record": 28
+          },
+          {
+            "each_charge_original_probability": [
+              "13194811/15625000000",
+              "168893581/200000000000"
+            ],
+            "phase_record": 29
+          },
+          {
+            "each_charge_original_probability": [
+              "1241125009/1000000000000",
+              "124112501/100000000000"
+            ],
+            "phase_record": 30
+          },
+          {
+            "each_charge_original_probability": [
+              "1025280953/500000000000",
+              "2050561907/1000000000000"
+            ],
+            "phase_record": 31
+          }
+        ],
+        "all_source_energy_projectors": 6,
+        "charge_labels": [
+          "addition",
+          "removal"
+        ],
+        "complete_original_total_weight": "1",
+        "complete_record_count": 64,
+        "each_charge_original_total_weight": "1/2",
+        "excited_input_has_ground_spectral_interpretation": false,
+        "full_Fock_dimension": 16,
+        "ground_energy_needed_by_instrument": false,
+        "local_mode": 0,
+        "native_transfer_or_large_clock_tape_executed": false,
+        "phase_clock_is_sharp_spectral_PVM": false,
+        "phase_count": 32,
+        "physical_particle_or_mass_identified": false,
+        "same_ground_same_clock": true,
+        "source_U": "1",
+        "source_U_over_c": "8",
+        "source_c": "1/8",
+        "source_duration": "31",
+        "time_amplitude_convolutions": 1,
+        "time_amplitude_square_sum": 32,
+        "time_step": "1"
+      },
+      "actual_dimer_tapered_complete_clock": {
+        "actual_original_weight_intervals": [
+          [
+            "310633906259/1000000000000",
+            "15531695313/50000000000"
+          ],
+          [
+            "9468304687/50000000000",
+            "189366093741/1000000000000"
+          ]
+        ],
+        "actual_positive_energy_intervals": [
+          [
+            "226444101601/500000000000",
+            "452888203203/1000000000000"
+          ],
+          [
+            "288944101601/500000000000",
+            "577888203203/1000000000000"
+          ]
+        ],
+        "all_input_completeness": "Fourier Parseval and the full source CAR identity",
+        "all_phase_records": [
+          {
+            "each_charge_original_probability": [
+              "1186745583/1000000000000",
+              "74171599/62500000000"
+            ],
+            "phase_record": 0
+          },
+          {
+            "each_charge_original_probability": [
+              "41768093673/1000000000000",
+              "20884046837/500000000000"
+            ],
+            "phase_record": 1
+          },
+          {
+            "each_charge_original_probability": [
+              "196076596913/1000000000000",
+              "98038298457/500000000000"
+            ],
+            "phase_record": 2
+          },
+          {
+            "each_charge_original_probability": [
+              "41262320459/200000000000",
+              "25788950287/125000000000"
+            ],
+            "phase_record": 3
+          },
+          {
+            "each_charge_original_probability": [
+              "5230711807/100000000000",
+              "52307118071/1000000000000"
+            ],
+            "phase_record": 4
+          },
+          {
+            "each_charge_original_probability": [
+              "2340551303/1000000000000",
+              "292568913/125000000000"
+            ],
+            "phase_record": 5
+          },
+          {
+            "each_charge_original_probability": [
+              "2155089/500000000000",
+              "4310179/1000000000000"
+            ],
+            "phase_record": 6
+          },
+          {
+            "each_charge_original_probability": [
+              "509/15625000000",
+              "32577/1000000000000"
+            ],
+            "phase_record": 7
+          },
+          {
+            "each_charge_original_probability": [
+              "21981/15625000000",
+              "281357/200000000000"
+            ],
+            "phase_record": 8
+          },
+          {
+            "each_charge_original_probability": [
+              "18483/25000000000",
+              "739321/1000000000000"
+            ],
+            "phase_record": 9
+          },
+          {
+            "each_charge_original_probability": [
+              "9079/1000000000000",
+              "227/25000000000"
+            ],
+            "phase_record": 10
+          },
+          {
+            "each_charge_original_probability": [
+              "239/500000000000",
+              "479/1000000000000"
+            ],
+            "phase_record": 11
+          },
+          {
+            "each_charge_original_probability": [
+              "43093/1000000000000",
+              "21547/500000000000"
+            ],
+            "phase_record": 12
+          },
+          {
+            "each_charge_original_probability": [
+              "33209/1000000000000",
+              "3321/100000000000"
+            ],
+            "phase_record": 13
+          },
+          {
+            "each_charge_original_probability": [
+              "671/1000000000000",
+              "21/31250000000"
+            ],
+            "phase_record": 14
+          },
+          {
+            "each_charge_original_probability": [
+              "19/250000000000",
+              "77/1000000000000"
+            ],
+            "phase_record": 15
+          },
+          {
+            "each_charge_original_probability": [
+              "10049/1000000000000",
+              "201/20000000000"
+            ],
+            "phase_record": 16
+          },
+          {
+            "each_charge_original_probability": [
+              "2411/250000000000",
+              "1929/200000000000"
+            ],
+            "phase_record": 17
+          },
+          {
+            "each_charge_original_probability": [
+              "13/50000000000",
+              "261/1000000000000"
+            ],
+            "phase_record": 18
+          },
+          {
+            "each_charge_original_probability": [
+              "1/20000000000",
+              "51/1000000000000"
+            ],
+            "phase_record": 19
+          },
+          {
+            "each_charge_original_probability": [
+              "2253/250000000000",
+              "9013/1000000000000"
+            ],
+            "phase_record": 20
+          },
+          {
+            "each_charge_original_probability": [
+              "419/40000000000",
+              "2619/250000000000"
+            ],
+            "phase_record": 21
+          },
+          {
+            "each_charge_original_probability": [
+              "181/500000000000",
+              "363/1000000000000"
+            ],
+            "phase_record": 22
+          },
+          {
+            "each_charge_original_probability": [
+              "3/25000000000",
+              "121/1000000000000"
+            ],
+            "phase_record": 23
+          },
+          {
+            "each_charge_original_probability": [
+              "14927/500000000000",
+              "5971/200000000000"
+            ],
+            "phase_record": 24
+          },
+          {
+            "each_charge_original_probability": [
+              "4393/100000000000",
+              "43931/1000000000000"
+            ],
+            "phase_record": 25
+          },
+          {
+            "each_charge_original_probability": [
+              "1023/500000000000",
+              "2047/1000000000000"
+            ],
+            "phase_record": 26
+          },
+          {
+            "each_charge_original_probability": [
+              "1427/1000000000000",
+              "357/250000000000"
+            ],
+            "phase_record": 27
+          },
+          {
+            "each_charge_original_probability": [
+              "38139/62500000000",
+              "24409/40000000000"
+            ],
+            "phase_record": 28
+          },
+          {
+            "each_charge_original_probability": [
+              "141217/100000000000",
+              "1412171/1000000000000"
+            ],
+            "phase_record": 29
+          },
+          {
+            "each_charge_original_probability": [
+              "56131/500000000000",
+              "112263/1000000000000"
+            ],
+            "phase_record": 30
+          },
+          {
+            "each_charge_original_probability": [
+              "464799/1000000000000",
+              "581/1250000000"
+            ],
+            "phase_record": 31
+          }
+        ],
+        "all_source_energy_projectors": 6,
+        "charge_labels": [
+          "addition",
+          "removal"
+        ],
+        "complete_original_total_weight": "1",
+        "complete_record_count": 64,
+        "each_charge_original_total_weight": "1/2",
+        "excited_input_has_ground_spectral_interpretation": false,
+        "full_Fock_dimension": 16,
+        "ground_energy_needed_by_instrument": false,
+        "local_mode": 0,
+        "native_transfer_or_large_clock_tape_executed": false,
+        "phase_clock_is_sharp_spectral_PVM": false,
+        "phase_count": 32,
+        "physical_particle_or_mass_identified": false,
+        "same_ground_same_clock": true,
+        "source_U": "1",
+        "source_U_over_c": "8",
+        "source_c": "1/8",
+        "source_duration": "31",
+        "time_amplitude_convolutions": 4,
+        "time_amplitude_square_sum": 1012664,
+        "time_step": "1"
+      },
+      "default_complete_inverse_energy_window": {
+        "all_other_records_retained": true,
+        "charge_phase_records": 16384,
+        "each_ideal_group_probability_lower": "176664214515047368943435787/740491916738560000000000000000",
+        "each_local_measured_group_probability_lower": "11367562631960810987445410854156593/49693571333507346595840000000000000000",
+        "each_original_true_window_probability_lower": "1034530160786433212558497057462333/4969357133350734659584000000000000000",
+        "excluded_centre_distance_lower": "1/4",
+        "local_cut_plan": {
+          "boundary_operator_error": "3775298042325/576460752303423488",
+          "charge_phase_records": 16384,
+          "complete_output_halftrace_upper": "11325894126975/1152921504606846976",
+          "complete_records_and_untouched_reference_retained": true,
+          "complete_service_error": "0",
+          "cut_Fock_dimension_exponent": 3808637059750,
+          "cut_radius": 6197,
+          "cut_sites": 1904318529875,
+          "error_has_phase_count_prefactor": false,
+          "ground_marginal_prepared_by_planner": false,
+          "large_native_tape_executed": false,
+          "marginal_halftrace_error": "0",
+          "phase_count": 8192,
+          "requested_accuracy": "25/1605632",
+          "source_duration": "8191/16",
+          "support_radius": 0,
+          "support_sites": 1,
+          "time_step": "1/16"
+        },
+        "native_tapered_clock_executed": false,
+        "original_source_band_weight_lower": "25/100352",
+        "original_total_UV_tail_above_20": "1647837513/156250000000000",
+        "phase_count": 8192,
+        "phase_records": [
+          0,
+          1665
+        ],
+        "phase_step": "1/16",
+        "physical_mass_assigned": null,
+        "published_each_original_true_window_probability_lower": "75/401408",
+        "rectangle_length": 2048,
+        "same_full_ground_marginal_required": true,
+        "source_U": "1",
+        "source_UV_bound_is_conditional": false,
+        "source_U_over_c": "8",
+        "source_c": "1/8",
+        "taper_leakage_upper": "19487171/48358655787008",
+        "time_amplitude_convolutions": 4,
+        "time_amplitude_square_sum": 72439610689658215577600,
+        "time_amplitude_sum": 17592186044416,
+        "time_register_normalized_exactly": true,
+        "true_energy_window": [
+          "0",
+          "24988922533539858068798505/1208925819614629174706176"
+        ]
+      },
+      "growing_default_source_local_positive_event": {
+        "Fejer_leakage_upper": "11/202",
+        "all_other_charge_phase_records_retained": true,
+        "cut_ground_substituted": false,
+        "each_cut_group_probability_lower": "34897028771766205/178306516446852677632",
+        "each_ideal_group_probability_lower": "4775/20271104",
+        "each_original_source_band_weight_lower": "25/100352",
+        "excluded_centre_distance_lower": "1/4",
+        "local_cut_plan": {
+          "boundary_operator_error": "478501745085/18014398509481984",
+          "charge_phase_records": 8192,
+          "complete_output_halftrace_upper": "1435505235255/36028797018963968",
+          "complete_records_and_untouched_reference_retained": true,
+          "complete_service_error": "0",
+          "cut_Fock_dimension_exponent": 486174911042,
+          "cut_radius": 3120,
+          "cut_sites": 243087455521,
+          "error_has_phase_count_prefactor": false,
+          "ground_marginal_prepared_by_planner": false,
+          "large_native_tape_executed": false,
+          "marginal_halftrace_error": "0",
+          "phase_count": 4096,
+          "requested_accuracy": "25/401408",
+          "source_duration": "4095/16",
+          "support_radius": 0,
+          "support_sites": 1,
+          "time_step": "1/16"
+        },
+        "local_degree": 6,
+        "outer_source_volume_independent": true,
+        "phase_records": [
+          0,
+          1025
+        ],
+        "published_each_cut_group_probability_lower": "25/200704",
+        "same_full_ground_required": true,
+        "shrinking_unit_hopping_energy_floor": false,
+        "source_U": "1",
+        "source_U_over_c": "8",
+        "source_c": "1/8",
+        "source_energy_band_squared": [
+          "35/256",
+          "2744/5"
+        ]
+      },
+      "infinite_ground_preparation_or_subsequence_modulus_derived": false,
+      "local_clock_isometry_error": "sqrt(2)*B_R(T)",
+      "phase_count_prefactor_in_local_error": false,
+      "physical_mass_prediction": null,
+      "shrinking_unit_hopping_spectral_weight_proved": false,
+      "spatial_Walsh_label_identified_as_momentum": false,
+      "specified_ground_marginal_error_required": true
+    },
+    "cubic_momentum_and_escape_state": "the explicit proper-cubic arithmetic average of that ground, used at every momentum without conditioning",
+    "default_original_charge_escape": {
+      "cubic_ground_all_packet_zero_scaled_window": {
+        "all_packet_force_squared_upper": "18",
+        "cubic_ground_symmetry_and_range_two_force_symbol_required": true,
+        "full_many_body_charge_gap_proved": false,
+        "individual_smeared_charge_has_half_weight": false,
+        "local_force_coefficient_upper": "27/2",
+        "original_signed_low_window_probability_upper": "9/17",
+        "original_signed_outside_probability_lower": "8/17",
+        "second_neighbor_coefficient_absolute_upper": "3/4"
+      },
+      "cubic_ground_time_average_at_c_1024": {
+        "complete_signed_response_mass": "1",
+        "filtered_response_excluded": false,
+        "one_minus_real_time_average_lower": "66182347674011/281474976710656",
+        "physical_energy_cutoff": "2",
+        "real_time_average_upper": "215292629036645/281474976710656",
+        "time_halfwidth": "1"
+      },
+      "default_ballistic_time_average_deficit_liminf": "4/17",
+      "default_ratio": "8",
+      "degree_six_fixed_window_at_c_1024": {
+        "alpha_squared": "16777216",
+        "arbitrary_packet_bound_from_local_estimate": false,
+        "each_local_PH_charge_low_window_probability_upper": "128861010396765/562949953421312",
+        "each_local_PH_charge_outside_probability_lower": "152613966313891/562949953421312",
+        "force_operator_norm_squared": "7864320",
+        "force_retarded_norm_squared_upper": "14155776",
+        "full_many_body_charge_gap_proved": false,
+        "neighbor_orbital_norm_squared": "1572864",
+        "original_signed_low_window_probability_upper": "128861010396765/281474976710656",
+        "original_signed_outside_probability_lower": "152613966313891/281474976710656"
+      },
+      "degree_six_zero_scaled_window": {
+        "alpha_squared": "16",
+        "arbitrary_packet_bound_from_local_estimate": false,
+        "each_local_PH_charge_low_window_probability_upper": "27/118",
+        "each_local_PH_charge_outside_probability_lower": "16/59",
+        "force_operator_norm_squared": "15/2",
+        "force_retarded_norm_squared_upper": "27/2",
+        "full_many_body_charge_gap_proved": false,
+        "neighbor_orbital_norm_squared": "3/2",
+        "original_signed_low_window_probability_upper": "27/59",
+        "original_signed_outside_probability_lower": "32/59"
+      },
+      "exact_local_force": {
+        "central_and_neighbor_CAR_modes": 4,
+        "force_anticommutator_eigenvalues": {
+          "1": 10,
+          "5": 4,
+          "9": 2
+        },
+        "force_squared_eigenvalues": {
+          "0": 8,
+          "1": 4,
+          "5": 4
+        },
+        "full_Fock_dimension": 16,
+        "full_contact_equation_exact": true,
+        "operator_force_factor": 5,
+        "retarded_force_factor": 9
+      },
+      "literal_Weyl_source_controls": [
+        {
+          "U": "8",
+          "axis": 0,
+          "both_original_flavours_checked": true,
+          "c": "1",
+          "full_Fock_dimension": 64,
+          "neighbor_orbital_norm_squared": "1/2",
+          "original_Weyl_action_used": true,
+          "probe_site_degree": 2
+        },
+        {
+          "U": "8",
+          "axis": 1,
+          "both_original_flavours_checked": true,
+          "c": "1",
+          "full_Fock_dimension": 64,
+          "neighbor_orbital_norm_squared": "1/2",
+          "original_Weyl_action_used": true,
+          "probe_site_degree": 2
+        },
+        {
+          "U": "8",
+          "axis": 2,
+          "both_original_flavours_checked": true,
+          "c": "1",
+          "full_Fock_dimension": 64,
+          "neighbor_orbital_norm_squared": "1/2",
+          "original_Weyl_action_used": true,
+          "probe_site_degree": 2
+        }
+      ],
+      "physical_particle_masses": [],
+      "physical_particle_species": [],
+      "sharp_orthogonal_projection_countercontrol": {
+        "actual_Hubbard_source_realization_claimed": false,
+        "dimension": 3,
+        "force_orthogonal_to_original_vector": true,
+        "gap_follows_from_response_bounds": false,
+        "original_probabilities": [
+          "8/25",
+          "9/25",
+          "8/25"
+        ],
+        "signed_energies": [
+          -5,
+          0,
+          5
+        ],
+        "zero_window_bound_attained": true
+      },
+      "unfiltered_unit_mass_regular_limit_excluded_on_stated_cubic_family": true
+    },
     "effective_ground_subsequence_preparation_modulus": false,
     "finite_complete_cube_wavepacket_spectrum": {
       "U": "1",
@@ -12205,6 +17393,184 @@
     },
     "state": "particle-hole and hidden-spin invariant centered thermodynamic ground subsequence",
     "topological_invariant_assigned": false,
+    "uniform_original_energy_tails": {
+      "default_exponential_moment_half_strip": "169/8",
+      "default_original_charge_tails": [
+        {
+          "conditional_probability_used": false,
+          "energy_cutoff": "8",
+          "finite_search_orders": 64,
+          "moment_order": 2,
+          "original_total_charge_tail_upper": "25/4096",
+          "uniform_in_volume_and_unit_smearing": true
+        },
+        {
+          "conditional_probability_used": false,
+          "energy_cutoff": "16",
+          "finite_search_orders": 64,
+          "moment_order": 14,
+          "original_total_charge_tail_upper": "405731025/1099511627776",
+          "uniform_in_volume_and_unit_smearing": true
+        },
+        {
+          "conditional_probability_used": false,
+          "energy_cutoff": "20",
+          "finite_search_orders": 64,
+          "moment_order": 18,
+          "original_total_charge_tail_upper": "1647837513/156250000000000",
+          "uniform_in_volume_and_unit_smearing": true
+        },
+        {
+          "conditional_probability_used": false,
+          "energy_cutoff": "24",
+          "finite_search_orders": 64,
+          "moment_order": 22,
+          "original_total_charge_tail_upper": "7615671875/27390260577042432",
+          "uniform_in_volume_and_unit_smearing": true
+        },
+        {
+          "conditional_probability_used": false,
+          "energy_cutoff": "32",
+          "finite_search_orders": 64,
+          "moment_order": 30,
+          "original_total_charge_tail_upper": "3363367433682361730625/20282409603651670423947251286016",
+          "uniform_in_volume_and_unit_smearing": true
+        }
+      ],
+      "explicit_exponential_tail_controls": [
+        {
+          "energy_cutoff": 24,
+          "original_tail_upper": "66787/12582912"
+        },
+        {
+          "energy_cutoff": 48,
+          "original_tail_upper": "1217993/618475290624"
+        },
+        {
+          "energy_cutoff": 96,
+          "original_tail_upper": "935361/4611686018427387904"
+        }
+      ],
+      "finite_moment_list_identifies_a_pole": false,
+      "full_source_controls": [
+        {
+          "U": "4",
+          "arbitrary_precision_integer_products": true,
+          "c": "3/2",
+          "full_Fock_dimension": 16,
+          "moments": [
+            {
+              "actual_original_moment_trace": "73/4",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 2,
+              "uniform_operator_bound": "73/16"
+            },
+            {
+              "actual_original_moment_trace": "7633/64",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 4,
+              "uniform_operator_bound": "390225/4"
+            },
+            {
+              "actual_original_moment_trace": "1059481/1024",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 6,
+              "uniform_operator_bound": "28510625"
+            },
+            {
+              "actual_original_moment_trace": "167757985/16384",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 8,
+              "uniform_operator_bound": "14174015625"
+            },
+            {
+              "actual_original_moment_trace": "27797678569/262144",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 10,
+              "uniform_operator_bound": "10624556250000"
+            },
+            {
+              "actual_original_moment_trace": "4670690054257/4194304",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 12,
+              "uniform_operator_bound": "11166503906250000"
+            }
+          ],
+          "normalized_full_ground_rank": 1,
+          "sites": 2,
+          "spectral_pole_or_mass_inferred": false
+        },
+        {
+          "U": "3/7",
+          "arbitrary_precision_integer_products": true,
+          "c": "2",
+          "full_Fock_dimension": 64,
+          "moments": [
+            {
+              "actual_original_moment_trace": "811/98",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 2,
+              "uniform_operator_bound": "793/196"
+            },
+            {
+              "actual_original_moment_trace": "8280709/441784",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 4,
+              "uniform_operator_bound": "1639490025/9604"
+            },
+            {
+              "actual_original_moment_trace": "28918677937/432948320",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 6,
+              "uniform_operator_bound": "63365971735625/470596"
+            },
+            {
+              "actual_original_moment_trace": "51610217757977/84857870720",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 8,
+              "uniform_operator_bound": "340096263552140625/1882384"
+            },
+            {
+              "actual_original_moment_trace": "158203399224756817/16632142661120",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 10,
+              "uniform_operator_bound": "59000199885963783984375/161414428"
+            },
+            {
+              "actual_original_moment_trace": "109537768301305122757/651979992315904",
+              "full_original_Gram_bound_checked": true,
+              "local_operator_derivative_bound_checked": true,
+              "moment_order": 12,
+              "uniform_operator_bound": "32803152052629107757568359375/31637227888"
+            }
+          ],
+          "normalized_full_ground_rank": 2,
+          "sites": 3,
+          "spectral_pole_or_mass_inferred": false
+        }
+      ],
+      "local_derivative_constants": [
+        "7/8",
+        "2"
+      ],
+      "physical_masses": [],
+      "physical_species": [],
+      "positive_shrinking_window_weight_proved": false,
+      "separate_charge_measures_determined_by_all_their_moments": true,
+      "source": "same centered full invariant cubic ground and original CAR fields",
+      "uniform_in_volume_and_normalized_wavepacket": true
+    },
     "volume_uniform_charged_scaling": {
       "all_smearings_have_exact_separate_half_weights": false,
       "arbitrary_input_channel_bound": false,
@@ -12934,15 +18300,15 @@
       "topology": "one-unit occupation deficit, without a topological invariant or physical particle assignment"
     },
     {
-      "boundary": "the invariant ground subsequence has no effective preparation modulus; inaccessible remote raw values cannot drive feedback; a global sharp energy PVM is not supplied by the local bound; no selected relativistic scaling, particle pole or physical spin is established",
+      "boundary": "the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established",
       "completeness": "complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive",
       "evidence": "model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md",
       "id": "centered_full_CAR_charge_response",
       "identified_Standard_Model_species": [],
       "kind": "scoped_interacting_response_family",
       "physical_mass": null,
-      "preparation_readout": "local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors",
-      "propagation_energy": "same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder; the default full cube has a strictly positive remainder on every original mode direction; complete wavepacket energy windows retain both charges and all clock records; strong-contact scaling and the energy-dipole identity constrain the physical continuation",
+      "preparation_readout": "local addition and removal each have original weight 1/2; a complete local time instrument recovers their original energy measures with explicit boundary, marginal and alias errors; odd transfer and coherent clock services are declared",
+      "propagation_energy": "same positive centered ground clock, interacting local histories and positive original charged bands; the default cube has positive composite memory on every original mode; on the explicitly cubic-averaged ground, three local correlations determine the magnetic-momentum second block and residual Gram; complete source energy windows retain both charges and all clock records, with ultraviolet alias bounds; the energy-dipole current and spectral-weight constraints govern the physical continuation",
       "protected_object": "odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair",
       "same_object_realizations": [
         "model/source_family_compatibility/LOCAL_MATTER_READOUT.md",
@@ -12950,7 +18316,11 @@
         "model/source_family_compatibility/CUBE_RESPONSE.md",
         "model/source_family_compatibility/STRONG_CHARGE_SCALING.md",
         "model/source_family_compatibility/ENERGY_DIPOLE.md",
-        "model/source_family_compatibility/CUBE_SPECTRUM.md"
+        "model/source_family_compatibility/CUBE_SPECTRUM.md",
+        "model/source_family_compatibility/MOMENTUM_RESPONSE.md",
+        "model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md",
+        "model/source_family_compatibility/UV_TAIL.md",
+        "model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md"
       ],
       "same_source_relativistic_particle_attachment_proved": false,
       "source": "fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance",
@@ -14063,12 +19433,12 @@
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
     "model/protected_defect_catalog/mechanism.py": "cdfff939f72ebe3ffc5fcd7a4e3cca58374e790a9412bf58061e9dd6b2b40478",
-    "model/protected_defect_catalog/packet.py": "43c43940bc12246fdc20bae63d93314808e0efe5e7de403b17740be40b62153f",
+    "model/protected_defect_catalog/packet.py": "a9c04d73d498792f2fe819c1eb921b0ebc64e222b473588d50ff1b8973a0549a",
     "model/protected_defect_catalog/pauli.py": "20b0c6af00fc4e214e75e08845094da8513cbe0bf35db89c744bfe46a29b6a53",
     "model/protected_defect_catalog/test_charge.py": "8a3b7ba6f51f6025aca2eb273b8bae08dfa3d780dc57412e1eab4a29c400ec2e",
     "model/protected_defect_catalog/test_field.py": "abf03cfdec765d17a1ee7471173f18867cfcf78eaa78cac5a90ed1be5c8aa602",
     "model/protected_defect_catalog/test_mechanism.py": "7d5db4331edaced485bdf10524f3d77ef21436ebd52a4b8abc15004af7a9759b",
-    "model/protected_defect_catalog/test_packet.py": "a1b278dd345870547b3c812d3ac5658310bbe2fdb72ced63cb7b9e332102e4fa",
+    "model/protected_defect_catalog/test_packet.py": "f633ddeed3bca97473f1589a4e4ec8c80759ddf951b6e619255ff48870273a5c",
     "model/protected_defect_catalog/test_pauli.py": "fb1ce88125e8022a0bdd5f28e11f26428cf2b3006b58710bbf42125ba9b516a4",
     "model/protected_particle_readout/__init__.py": "ab534209428d3f76755fe46750df47fdcdfbcc88542acb03602059438a95adce",
     "model/protected_particle_readout/execute.py": "e5cb9ccf2ed7f19f01d330656ecd633c9e0958945767d75e08b5eda5539a5fc7",
@@ -14128,17 +19498,22 @@
     "model/source_family_compatibility/CUBE_SPECTRUM.md": "f59983752f906c0ae1e32bf8f3e48cc945480168e247a77d8d9b609a9e808263",
     "model/source_family_compatibility/DEFECT_BUDGET.md": "e250a7ca4fc94b76f8da34b298c92b22e099c27d9f7a77761c12902592520c23",
     "model/source_family_compatibility/ENERGY_DIPOLE.md": "d8f8df68ad27ab3a71e04a0d17ee9ee64afc1d5ae5258afaf631d26fb8538116",
+    "model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md": "2cbf59249ce5326d50a76e541219d2a67bad9acb8102a3e55f4ac9a55082552a",
     "model/source_family_compatibility/LOCAL_MATTER_READOUT.md": "f75965f77281fd46c4e195dfad6c99356fba6c605dd115efecf72081eadac96e",
+    "model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md": "ca427ef06bc7abd9238adff5fa138a1d990dc25b33f4731f451d673d41972c9f",
+    "model/source_family_compatibility/MOMENTUM_RESPONSE.md": "453c79f46fcb24f0d50847a677e0b06eec4c554fdb6e849d9acd5ef12e7e9ab9",
     "model/source_family_compatibility/PROOF.md": "d90854378288c8dff532da487774bc843f393cba2d501246ab57e6241f8d90d6",
-    "model/source_family_compatibility/README.md": "4145f03303f706bbadd3d60b9aec52823a36961f011cfbcd6db25dd080bf5266",
+    "model/source_family_compatibility/README.md": "309d0f448e616d231e88b65b1e6d679cf59416b06d60d502838d9441d1940a6f",
     "model/source_family_compatibility/REPAIR_TRAJECTORY.md": "fb1f62c74eda428210fadbd042ec144c77b5380ac50442111982a2d56499b3bb",
     "model/source_family_compatibility/STRONG_CHARGE_SCALING.md": "4596f26e1ee8769eb4a3168cc274e0ca7546403763bb001b2643a76921343ba4",
+    "model/source_family_compatibility/UV_TAIL.md": "ab44b2fd1e7db458c35fdc3b1b4e68192d4b6c558091f87db49dd4dfb20af932",
     "model/source_family_compatibility/__init__.py": "2d2b50e3aa3b28a139cebb1ca2f8dd8aafa41a41c44a0d37b195ae9512679ffb",
     "model/source_family_compatibility/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/source_family_compatibility/algebra.py": "44b75e0431714c308ddea11b8267b4e42fe571cf97a58b49dc7d47fd3b50d553",
     "model/source_family_compatibility/boost_current.py": "7cb44fb837d79788066fa9e2317f353d7b3f3d49c581440dacae4b2182e3f67d",
     "model/source_family_compatibility/bounds.py": "99c872882dab0b178c30863b45da4221a397b556d81f1c83926a41d90a4d05c6",
     "model/source_family_compatibility/charge_bands.py": "149d68567b336517f1c7b1e3b7b385ad33051bbfcc8f3ef111612034e1c8511b",
+    "model/source_family_compatibility/charge_escape.py": "bd20791e303fe4e1e049ddbfe8d9ec0589f6f7f87618774c8fd6ef3d1a74535e",
     "model/source_family_compatibility/charge_scaling.py": "196c935677a529772fe3b24af90784d971e4efb681abfda1d750b37b5b725c10",
     "model/source_family_compatibility/composite.py": "34ba6c49b18c9fb7d51f02dabdb2d0ccb6421818cb69cb1592c99bc9fd0bf3ee",
     "model/source_family_compatibility/cube_response.py": "453cf4f21ef373242385da80644cfcd0fd0b292bffd8f68c197c3210b72216fc",
@@ -14147,12 +19522,15 @@
     "model/source_family_compatibility/hole_dispersion.py": "f2802e96014b8cbbdc78994e141c44d36b06e88f2c5592661a52ad526d1c8ef6",
     "model/source_family_compatibility/hole_records.py": "e9226e3ba7b04142af808b1745552fd0fdb74d246ec83e86ae9f83ad60120019",
     "model/source_family_compatibility/local_matter.py": "02afbeb2cb3ecd00a6276188475562e6ca0d2594251986139222c065cfc887e9",
-    "model/source_family_compatibility/packet.py": "189279cbf569a7ae460b813b94254dcb6bad7d1a0d1f7a7ec7ff64eb779c7895",
+    "model/source_family_compatibility/local_spectral.py": "baee9177327c20d4a12502688bf2586b93ada7ac599c9690ff1f09c696eece8c",
+    "model/source_family_compatibility/momentum_response.py": "437aef14234046d62dee5da408ccd481eb679670158a0427a8b0ddac097d086c",
+    "model/source_family_compatibility/packet.py": "dbd8d38cbca826647cf8eee010fbee4620b5235ae738bc8a3d8b81e3f52af6ba",
     "model/source_family_compatibility/program_selection.py": "2ccdd7d1ac7b86ad70426102cb35434881fe670910d6234bfd8a70cb24552e2e",
-    "model/source_family_compatibility/results.json": "c0445a4c0ae3c05bd1181ebd703f0f4a1d5aaa00a94f4b96cc310be83511beca",
+    "model/source_family_compatibility/results.json": "673364a73aa640c04795d2a95ef3933d8c4ccdbfc35d52b9dd8d1a733903bcc7",
     "model/source_family_compatibility/rotations.py": "a1c77d93b5bb95cc32b8878dfc65308f60c31e9031abb61d9ecb0a8253da854e",
     "model/source_family_compatibility/test_boost_current.py": "8f4f36ffd4318b0d8b5eee05bacf8731a9322a7539d4e20a5b7099d952f1404a",
     "model/source_family_compatibility/test_charge_bands.py": "a77a95cb673124d4e3ad62c403428dcd3c774dc6385df19647a09ff100d6a7ab",
+    "model/source_family_compatibility/test_charge_escape.py": "a6c1059ef8813868027a85ba9ed376eebac244336e230fb0925e1af37c8d25e3",
     "model/source_family_compatibility/test_charge_scaling.py": "e9fd75df09680531936bd0620120d98a815cc7543d0a042507333497488fcbff",
     "model/source_family_compatibility/test_compatibility.py": "e7081b88d03906603352b40e666e4bf8637a302880ac6c166a5cdacdbbfa328d",
     "model/source_family_compatibility/test_composite.py": "7ffd128d8ffe5cee602562615690cfa64a8398629ad7ef0d887fdd65d9bdd18b",
@@ -14162,6 +19540,10 @@
     "model/source_family_compatibility/test_hole_dispersion.py": "7007eaabb56c48c89e58d4db00cde888e47b068be7da37d8a6fa2c13453c7a66",
     "model/source_family_compatibility/test_hole_records.py": "c8879aa6085bf1bf51014d132c6108dd27160d79e50d86d679b85062b0477d50",
     "model/source_family_compatibility/test_local_matter.py": "230ee9353e5e24663d44049f40aae5162d9d56cf8de3575b5ddfbb54255b18de",
+    "model/source_family_compatibility/test_local_spectral.py": "b6e70a5639d27ee09877b8d10931eea186f2938dbe9bad4fa63f18231fc1bb59",
+    "model/source_family_compatibility/test_momentum_response.py": "0c8f5655b1830042153ecd32ec78d8a9d65852f4be5c687ff6bcbb9e75a4c657",
+    "model/source_family_compatibility/test_uv_tail.py": "570002cf2c86ac78f22730a8a49fd3ffeb96c3964891f05710c72191d7333580",
+    "model/source_family_compatibility/uv_tail.py": "d0e591a4b4ba546010f0c22d803a69be078e777ddc0bfacb1fb2a8d4951b6fa1",
     "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
     "model/spin_canonical_energy/__init__.py": "8570d911006ff29d1febaab74e1aa1ff3400ab2859f318f6f381ff4f5d980e3c",
     "model/spin_canonical_energy/__main__.py": "ff708e8788656de2cddcfc4b66d9c81f7781d03955cf267e76ae1e572fbc669a",

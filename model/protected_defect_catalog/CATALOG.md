@@ -183,13 +183,13 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Classification domain:** complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive.
 
-**Preparation and readout:** local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors.
+**Preparation and readout:** local addition and removal each have original weight 1/2; a complete local time instrument recovers their original energy measures with explicit boundary, marginal and alias errors; odd transfer and coherent clock services are declared.
 
-**Propagation and energy:** same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder; the default full cube has a strictly positive remainder on every original mode direction; complete wavepacket energy windows retain both charges and all clock records; strong-contact scaling and the energy-dipole identity constrain the physical continuation.
+**Propagation and energy:** same positive centered ground clock, interacting local histories and positive original charged bands; the default cube has positive composite memory on every original mode; on the explicitly cubic-averaged ground, three local correlations determine the magnetic-momentum second block and residual Gram; complete source energy windows retain both charges and all clock records, with ultraviolet alias bounds; the energy-dipole current and spectral-weight constraints govern the physical continuation.
 
 **Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
 
-**Boundary:** the invariant ground subsequence has no effective preparation modulus; inaccessible remote raw values cannot drive feedback; a global sharp energy PVM is not supplied by the local bound; no selected relativistic scaling, particle pole or physical spin is established.
+**Boundary:** the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established.
 
 [Owning proof or construction](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md).
 

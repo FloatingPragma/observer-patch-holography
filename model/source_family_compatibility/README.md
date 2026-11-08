@@ -53,6 +53,26 @@ retains both charges and every finite-clock outcome for eight spatial
 profiles. It bounds actual source spectral windows; those profiles are
 not momentum eigenstates or identified particles.
 
+On one explicitly cubic-averaged centered ground, the
+[actual magnetic momentum response](MOMENTUM_RESPONSE.md) reduces its
+second block and residual Gram to three local spin/eta correlations.
+Complete finite local readouts measure these correlations with uniform
+symbol-error bounds. The [local clock instrument](LOCAL_SPECTRAL_READOUT.md)
+reads the original charge energy measures without knowing the ground energy.
+It retains every charge/time outcome and has a complete-output error
+independent of the number of phase records. [Source commutator bounds](UV_TAIL.md)
+control ultraviolet aliases and determine each charge measure from its
+entire moment sequence. Ground marginal preparation and coherent services
+are explicit premises of these readouts.
+
+At the default ratio U/c=8, the [sharp force bound](LOCAL_CHARGE_ESCAPE.md)
+limits original fixed-energy weight to 9/17 in the ballistic limit on
+that cubic ground family. At least 8/17 escapes every fixed energy window,
+excluding a regular continuum limit of the entire normalized unfiltered
+CAR response. Energy-filtered branches and source-even collective fields
+are not excluded. Their original retained weight, dispersion and scattering
+require separate source estimates.
+
 The [volume-uniform scaling theorem](STRONG_CHARGE_SCALING.md) bounds charged
 response near U/2 and excludes finite-energy original odd matter when U/c
 diverges on a ballistic spacing law. The [energy-dipole identity](ENERGY_DIPOLE.md)

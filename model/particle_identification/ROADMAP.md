@@ -132,6 +132,46 @@ with joint spatial momentum and controlled errors. The default finite
 cube cannot substitute for this limit. No volume-uniform gap at fixed
 U/c is assumed, and collective gapless sectors are permitted.
 
+The [magnetic momentum construction](../source_family_compatibility/MOMENTUM_RESPONSE.md)
+uses the actual commuting two-step translations on one cubic-averaged
+centered ground. Three local correlations determine C(k) and the entire
+residual Gram R*R(k), with complete local score instruments and uniform
+momentum errors. The frequency-dependent memory is retained. The
+[local energy instrument](../source_family_compatibility/LOCAL_SPECTRAL_READOUT.md)
+recovers the original charge energy measures through bounded Lipschitz
+tests, using a finite cut for each accuracy. The
+[source UV bounds](../source_family_compatibility/UV_TAIL.md) control aliases;
+the selected infinite-ground marginal has no effective preparation modulus.
+
+The [default-ratio constraint](../source_family_compatibility/LOCAL_CHARGE_ESCAPE.md)
+proves that at least 8/17 of every normalized original packet's signed
+weight escapes every fixed physical-energy window under c=v/a,U=8c on
+the specified cubic ground family. The entire unfiltered unit-mass response
+therefore has no regular limit. A sound continuation must use a proved
+energy-filtered branch, a source-even collective field, or a separately
+justified source trajectory. These alternatives require a positive original
+readout weight; dropping the complementary outcomes is not a derivation.
+
+For this centered route the dependency order is concrete:
+
+1. Select the capacity trajectory and prepare the same ground marginals
+   with effective errors on the required growing supports and times.
+2. Use the complete spatial/time probes to prove nonzero original weight
+   in the shrinking unit-hopping window, including the rejected records.
+3. Control the frequency-dependent residual on that retained branch and
+   prove its joint energy--momentum dispersion and relativistic covariance.
+4. Derive its physical spin/statistics and gauge representation from the
+   transformation of those same fields; an internal source label is insufficient.
+5. Construct asymptotic interacting preparations, inclusive scattering and
+   decay readouts, with errors and a common clock/energy calibration.
+6. Compare the complete predictions with experiment and fill the particle
+   correspondence only for channels whose preceding attachments are proved.
+
+Steps 1--3 are the source estimates feeding the existing conditional
+continuum and particle theorems. The exact three-correlation reduction and
+complete energy-measure readout address their measurement interfaces, not
+the required positive shrinking-window weight or relativistic dynamics.
+
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
 used in a derivation. A laboratory identification, a selected initial state,

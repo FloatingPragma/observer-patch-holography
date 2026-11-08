@@ -207,3 +207,18 @@ assert not missing, sorted(set(missing))
 '''
     subprocess.run([sys.executable, '-c', script], cwd=packet.ROOT,
                    capture_output=True, text=True, check=True)
+
+
+@pytest.mark.parametrize('module,key,field,value',[
+    ('momentum_response','actual_cubic_momentum_response','continuum_poles_or_physical_species_derived',True),
+    ('uv_tail','uniform_original_energy_tails','positive_shrinking_window_weight_proved',True),
+    ('local_spectral','complete_local_source_energy_readout','physical_mass_prediction','electron'),
+    ('charge_escape','default_original_charge_escape','physical_particle_species',['electron'])])
+def test_energy_readout_does_not_admit_matching_forged_physical_scope(monkeypatch,module,key,field,value):
+    parent=copy.deepcopy(packet.strict_json.load(packet.ROOT/'model/source_family_compatibility/results.json'))
+    altered=parent[key]
+    altered[field]=value
+    monkeypatch.setattr(getattr(packet,module),'certificate',lambda:altered)
+    monkeypatch.setattr(packet.strict_json,'load',lambda path:parent)
+    with pytest.raises(ValueError,match='centered-matter energy readout promotes'):
+        packet.centered_matter_attachment()

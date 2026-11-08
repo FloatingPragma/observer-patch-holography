@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1280,
+  "surface_count": 1284,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4586,7 +4586,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/LOCAL_MATTER_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/MOMENTUM_RESPONSE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4607,6 +4622,11 @@
     },
     {
       "path": "model/source_family_compatibility/STRONG_CHARGE_SCALING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/UV_TAIL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
