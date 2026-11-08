@@ -12,19 +12,60 @@ give the eight-step common derivation. This page supplies its state, clock
 and mass-operator details. None of its conditional matrix or transition
 ratios is identified with the final measured particle-mass ratios.
 
+The [full identification requirements](../../model/particle_identification/ROADMAP.md#defect-to-particle-identification-requirements)
+keep defect-to-field attachment separate from spectral calculations. The
+free branch's eight massless valleys are not eight identified physical
+particles. No measured-particle mass table is filled by their zero rest
+energies or by finite spin excitation gaps.
+
 ## Position and the source sector
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
 uses the actual ordered-spin field correlations to obtain a covariant
 coordinate and the existing spatial momentum on its field-vector subspace.
 Their canonical commutator holds on an explicit dense domain. The complete
-field-space detector includes a no-position outcome. Its operational native
-implementation and invariance under the time generator are unproved.
+field-space detector includes a no-position outcome. The
+[finite source compiler](../../model/spin_operational_position/PROOF.md)
+implements computable finite instruments through the declared coherent
+services. The [finite-mode limit](../../model/spin_position_limit/PROOF.md)
+connects bounded complete position statistics to this same field by ordered
+limits, without an effective source-size modulus or moment-tail bound.
+The [time-invariant response construction](../../model/spin_dynamical_localization/PROOF.md)
+extends localization to all time-evolved field responses, with a persistent
+dark complement. This larger response space need not be a particle sector;
+its full continuum detector has no operational convergence theorem.
 The [carrier operator identities](../../model/carrier_position_translation/PROOF.md)
 give exact recorded partial shifts, while total-load coordinates become
 scalar on the protected spin sector. Thus the native load centroid cannot
 be substituted for this field position. The construction supplies no mass
 shell, mass ratio or experimental particle assignment.
+
+## Conserved charge and the physical mass gate
+
+The [source charge construction](../../model/particle_mass_readout_gate/README.md)
+uses `Q=N-|V|` on the centered Weyl/contact source. Complete repair branches
+and the chosen Hamiltonian preserve Q; creation and removal shift it by one.
+An explicit number-conserving donor completion retains success and failure,
+including the fermionic signs. The actual dimer ground has sharp Q=0;
+unread repair returns it with probability `33/34`, so conservation of Q
+does not imply stationarity of that ground under repair. Q is an occupation
+excess, with no electromagnetic or real-space topological identification.
+
+On the ordered-spin trajectory, the same positive ground-subtracted clock
+has charged-sector gap at least `J|E|^8/4`. A state with mean excitation
+energy at most C therefore has charged weight at most
+`min(1,4C/(J|E|^8))`. At fixed J these charged sectors cannot supply a
+nonvanishing finite-energy particle signal along this limit. Protected spin
+responses are neutral under this Q. The package's physical mass table is
+empty; its eight free valleys and finite excitation bands are separate
+mathematical controls.
+
+The [configured color-source readout](OPH_PARTICLE_FIELD_SELECTION.md#strong-coupling-from-the-configured-color-source)
+recovers its electric-to-hopping ratio from complete records, but its
+uniform electric projector is not a quadratic gauge Casimir. A physical
+strong coupling therefore requires a common continuum color action and
+renormalization map. Conditional QCD running with an inserted boundary
+coupling cannot supply that source derivation or physical hadron masses.
 
 ## One ordered-spin source, reference and clock
 

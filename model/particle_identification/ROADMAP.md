@@ -13,6 +13,53 @@ used in a derivation. A laboratory identification, a selected initial state,
 or a continuum limit must still be proved from them; knowledge of the code
 does not turn a separately chosen effective Hamiltonian into its output.
 
+## Defect-to-particle identification requirements
+
+A Hilbert-space representation supplies states and operators. A particle
+identification additionally needs a source-created excitation, its observable
+quantum numbers and a stable dispersion or controlled resonance. A protected
+defect label is not itself an energy eigenstate, and a particle sector need
+not carry a nontrivial topological label. The claimed relation must be proved
+for the actual source operators and reconstructed observations.
+
+| Requirement | Established interface | Required identification |
+| --- | --- | --- |
+| **1. One source, state and clock** | Declared native families, finite ground preparations and source-specific clock comparisons. | A capacity/refinement law selects one common action and state for all sectors. |
+| **2. Protected defect labels** | Finite repair invariants, charge algebras and defect candidates on their stated source domains. | A complete relevant defect census, protection under the chosen dynamics, and an operational charge measurement. |
+| **3. Defect creation and field attachment** | Finite source probes and separately constructed effective field operators. | A nonzero state-preserving map from each candidate's creation/detection instrument to the same field, preserving its measured label and complete records. |
+| **4. Position, momentum and uncertainty** | Exact native partial-shift covariance; source-Gram position conjugate to the existing field translations; complete finite native detectors and ordered finite-mode limits; time-invariant response localization. | Effective continuum detector and moment-error bounds, attached to the candidate sector. The total-load centroid is scalar on the protected spin sector. |
+| **5. A common relativistic limit** | A free eight-valley Weyl branch; a separate ordered-spin continuum with positive energy and finite propagation. | Lorentz covariance and one physical light cone for the interacting candidate on the same state and clock. |
+| **6. Particle or resonance sectors** | Complete finite spectral-tube bounds and a time-invariant field-response space. | Nonvanishing isolated branch weight or a controlled resonance. A response space can contain several branches and continua. |
+| **7. Quantum numbers** | Conditional finite gauge and representation theorems; source symmetry actions. | Spin, statistics and charges derived from how the candidate's actual field and detector transform. An internal spin index is not automatically Lorentz spin. |
+| **8. Interactions and masses** | Finite interacting sources and conditional field actions. | Surviving continuum interactions, the required chiral matter and anomaly conditions, and source-derived mass-generating coefficients. |
+| **9. Controlled predictions** | Finite error certificates and several source-specific limit bounds. | Common volume, cutoff, preparation, clock and detector error budgets for masses, mixing, scattering and decays, including the required growing-time limits. |
+| **10. Experimental identity** | Model-sector descriptions and separately declared calibrations. | One frozen observable dictionary and predictions compared with measured joint data before assigning empirical species names. |
+
+Requirements 2--4 can be tested on finite sources while the common field
+limit is studied. Requirements 6--9 must refer to the result of 1 and 5;
+results from different actions or reference states cannot fill those rows
+without an explicit comparison map. Numerical agreement alone does not
+supply requirement 3 or 10.
+
+### Free branches, excitation energies and the mass-table gate
+
+The bounded-contact centered scaling has eight kinetic Weyl valleys. Each
+one-particle and hole sector has dispersion `E=v|p|` and model rest energy
+zero. The entire valley Fock space also contains multiparticle continua.
+This is a free-branch census, not eight identified particles of nature.
+That scaling has no surviving connected scattering interaction and cannot
+supply the full observed interacting massive spectrum. The ordered-spin
+source has a different refinement and cannot lend its interactions to that
+free spectrum.
+
+A finite source gap, a relaxation pole, a packet's mean energy and a rest
+mass are different quantities. A physical particle mass row requires the
+common energy-momentum convention, a stable branch or controlled resonance,
+nonzero complete detector response, controlled limiting errors and an
+observable species assignment. A ratio requires two admitted nonzero masses
+in the same convention; `0/0` supplies no ratio. No physical particle mass
+row is discharged by the free-branch census or the finite spin gaps.
+
 ## Source capacity, record response and causal comparison
 
 The [canonical restriction](../native_capacity_restriction/PROOF.md) gives
@@ -502,7 +549,7 @@ but a physical particle claim depends on the entire relevant chain.
 | --- | --- | --- |
 | 1. Source and capacity family | [Capacity definitions](../observer/CAPACITY.md) distinguish record capacity, global capacity and Hilbert dimension. [Canonical restriction](../native_capacity_restriction/PROOF.md) supplies exact local mixtures for the fair federation; the [weighted local limit](../weighted_local_limit/PROOF.md) controls two declared densities of the weighted extension. | Give the actual family indexed by physical capacity, including its conserved occupation, preparation and clock. The weighted extension needs admission and a source preparation; the fair federation has a different law. A static state limit does not supply their dynamic comparison. |
 | 2. Observer state and complete experiments | [The tree detector](../native_effect_coverage/PROOF.md) supplies full H66 readout and coherent tomography. [Rank-one synthesis](../native_effect_synthesis/PROOF.md) constructs a bounded rational effect menu with complete failures and gated error below `10^-6`. [The Born bridge](../native_born_bridge/PROOF.md) separates such finite consistency from the all-effect theorem. | The [fair local construction](#local-fair-preparation-and-complete-readout) supplies all-sector mixed preparation and complete occupation readout on one attempt counter, with a separately supplied local quantum coupling. Extend this to the required interacting state and coherent field observables. Prove equal-effect equivalence and common implementation of the required coexistent effects. Fixed precision and a pulse ceiling do not give arbitrary-accuracy closure. |
-| 3. Quantum observables and uncertainty | [Robertson](../../Lean/EventAlgebra/Robertson.lean) proves the finite-state commutator inequality. [Prepared-clock fluctuations](../predictions/README.md#shared-state-fluctuation-field) supply a conditional quantitative canonical limit. | Bind actual source observables to the finite theorem. For physical position and momentum, additionally identify translations, spatial readout, the limiting domain and the common action unit. Merely assigning two matrices those names is insufficient. |
+| 3. Quantum observables and uncertainty | [Robertson](../../Lean/EventAlgebra/Robertson.lean) proves the finite-state commutator inequality. [Prepared-clock fluctuations](../predictions/README.md#shared-state-fluctuation-field) supply a conditional quantitative canonical limit. The [ordered-spin position](../spin_covariant_localization/CONTINUUM_POSITION.md) uses the same spatial generator; [native finite instruments](../spin_operational_position/PROOF.md) and [ordered limits](../spin_position_limit/PROOF.md) attach bounded complete readouts. | Prove effective source-limit and moment-tail errors for the candidate particle sector and calibrate the common action unit. Merely assigning two matrices those names is insufficient. |
 | 4. Common reference, clock and energy | [Controlled transfer preparation](../native_transfer_control/PROOF.md) implements the weighted finite ground and evolution under declared services, without a growing physical vacuum. [Complete interacting records](../interacting_extension/PROOF.md) include the reference energy and cancel a common gauge offset. [Native records](../interacting_extension/source_selection/PROOF.md) give exact correlated attempt counts. | Derive the reference and clock used by all sectors, including preparation and comparison records. Show how dimensionless rates relate to one another before assigning units. A capacity count alone does not fix seconds or GeV. |
 | 5. Spatial field and relativistic limit | [Rooted refinement](../native_rooted_refinement/PROOF.md) supplies exact corner cell topology and finite certified routed windows; its arithmetic continuation remains explicit. [Native local response](../native_local_response/PROOF.md) gives exact conservative cones and finite-window errors for selected complete local histories. [The continuum CAR net](../continuum_field_net/README.md), [canonical spin field](../spin_canonical_field/README.md), and [free mass shells](../source_mass_shell/README.md) provide different controlled ingredients. | Recover local observables and translations in three spatial dimensions with a common time, positive energy and relativistic covariance. Extend native geometric attachment beyond checked levels and retain observable controller dependencies. A finite graph cone does not identify the free field branches with the native process. |
 | 6. One interacting matter and gauge theory | [The finite Higgs join](../interacting_extension/higgs_join/PROOF.md) retains the complete 438/1596-state lepton sectors. [The local electric completion](../interacting_extension/chiral_electric/PROOF.md) includes the changing-projector kinetic term. | Extend the common carrier to the required colored matter and scalar sectors; derive its action and coupling placement from the source. Establish consistent chiral gauge dynamics, locality, anomaly cancellation and a nontrivial interacting limit on that same carrier. Separate free, abelian and local-projector controls do not compose automatically. |

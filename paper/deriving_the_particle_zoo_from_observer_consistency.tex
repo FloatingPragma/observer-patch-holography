@@ -2257,6 +2257,53 @@ coupling and clock. They supply no freely propagating asymptotic particles,
 relativistic dispersion or physical mass
 (\path{model/native_gauge_strings}, \cite{ophrepo}).
 
+\paragraph{Source coupling readout and its color-action boundary.}
+On one link, the same Gauss-singlet source states give the exact block
+\[
+ H_r=\begin{pmatrix}0&J\sqrt{d_r}\\J\sqrt{d_r}&\epsilon\end{pmatrix},
+ \qquad
+ p_1(t)=\frac{4d_rJ^2}{\epsilon^2+4d_rJ^2}
+       \sin^2\!\left(\frac{t\sqrt{\epsilon^2+4d_rJ^2}}2\right).
+\]
+Here $p_1$ is an unconditional endpoint probability; the other outcome and
+all measurement back-action are retained. For $J\ne0$,
+$p_1''(0)=2d_rJ^2$ and
+$\epsilon^2=-p_1''''(0)/p_1''(0)-2p_1''(0)$.
+Two finite-time probability intervals at $t$ and $2t$ supply rational
+Taylor enclosures, avoiding an assumed derivative oracle. The configured
+source sets $J=\epsilon=1$ in its model clock, hence determines the
+clock-independent ratio $\epsilon/|J|=1$. Reading these specifications is
+sufficient to fix that model ratio.
+
+The admitted color currents have
+$\operatorname{tr}_3(T_aT_b)=\delta_{ab}/2$, whereas their selected
+fifteen-state matter lift has
+$\operatorname{Tr}_{15}(T_aT_b)=2\delta_{ab}$. These trace conventions
+must not be interchanged. The five nonvacuum source link sectors have
+$(C_3,C_2,Y^2)$ equal to
+\[
+ \begin{gathered}
+ (0,0,1),\ (4/3,0,1/9),\ (4/3,3/4,1/36),\\
+ (0,3/4,1/4),\ (4/3,0,4/9).
+ \end{gathered}
+\]
+Their configured electric energies are all one. No coefficients
+$a,b,c$ give this vector as $aC_3+bC_2+cY^2$: the second and fifth entries
+force $c=0$, contradicting the first. The zero-energy link vacuum excludes
+an added common identity. Thus the source electric law cannot be directly
+identified with a quadratic gauge Laplacian. This does not exclude an
+emergent color action after a controlled coarse-graining.
+
+For a separately justified continuum action
+$S_E=(\kappa/2)\int\operatorname{tr}_3\mathcal F_{\mu\nu}
+\mathcal F_{\mu\nu}$, with $\mathcal A=g_sA$,
+$\alpha_s=1/(4\pi\kappa)$ in the specified normalization.
+The finite gauge-invariance theorem permits every positive $\kappa$.
+The missing source identification is the continuum action coefficient and
+its renormalization scheme and scale. Running a supplied coupling does
+not select this boundary value. The exact finite readout and coefficient
+comparison are in \path{model/source_strong_coupling} \cite{ophrepo}.
+
 For a protected defect to become an identified particle, one preparation
 must create its supported state, the same dynamics must preserve or control
 its charge while propagating it, and complete detectors must recover its
@@ -2445,10 +2492,15 @@ canonical field limits on their stated states and domains; the number of
 independently prepared fluctuation copies is not the physical memory capacity.
 The ordered field's Gram form constructs a position conjugate to its existing
 spatial translation generator, on an explicit field-vector domain. A complete
-extension includes a no-position outcome. Its native implementation and
-invariance under time evolution are unproved; protected total-load coordinates
-are scalar and cannot supply that position. Finite uncertainty alone selects
-no Planck scale or particle interpretation \cite{ophmodel}.
+extension includes a no-position outcome. Declared coherent source services
+implement complete finite detectors, and finite Gram compressions give
+ordered convergence on fixed states and references. This gives no effective
+source-size modulus or moment-tail bound. A larger response space, generated
+by all time-evolved field vectors, admits a covariant position measure and a
+time-invariant dark complement. It need not be a particle sector. Protected
+total-load coordinates are scalar and cannot supply that position. Finite
+uncertainty alone selects no Planck scale or particle interpretation
+\cite{ophmodel}.
 The proof, full instruments and source bindings are in the
 \path{model/particle_identification} package \cite{ophrepo}.
 

@@ -99,8 +99,8 @@ proof shows that the whole class of laws cannot work.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
-  Complete experiments compare its preparation and evolution clocks, measure relaxed
-  response and bound spectral weight near a proposed particle dispersion.
+  Its position observable is conjugate to the same spatial momentum, with complete
+  finite detectors and ordered source limits. Spectral measurements retain all outcomes.
   Proving Lorentz symmetry and surviving interactions on that same state is the
   central field requirement. A separate scaling gives free massless Weyl fields
   and the matter stress response used by the conditional gravity derivation.

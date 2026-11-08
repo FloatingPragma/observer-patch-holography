@@ -2564,12 +2564,61 @@ The coordinate spectral measure extends to the full field space with the
 no-position effect $I-\Pi_Q$. A normalized, translation-covariant measure
 on all of space without this outcome would give the invariant vacuum a
 translation-invariant probability measure on $\mathbb R^3$, which is
-impossible. This source-defined coordinate is generally nonlocal; its
-native detector implementation and preservation of $\mathcal H_Q$ by
-the time evolution are unproved. It is distinct from the carrier load
-coordinate and from the field quadrature $Q(F)$. The proofs and complete
-finite controls are in \path{model/carrier_position_translation} and
-\path{model/spin_covariant_localization} \cite{ophrepo}.
+impossible. This source-defined coordinate is generally nonlocal and differs
+from the carrier load coordinate and the field quadrature $Q(F)$.
+
+Complete finite detectors use the declared coherent load, pointer and
+refinable six-level control services. For $q$ spins and $b$ fine Kraus
+branches, a computable Stinespring completion has dimension
+$D=2^{q+\lceil\log_2 b\rceil}$. Complex rank-one elimination and rational
+angle synthesis give at most $20D^2+4D+10q$ native pulses. Their precision
+and complete load/export failures enter the channel bound. The eight-site
+coordinate detector executes a 49,228-pulse decoded core with an untouched
+reference; its 49,324-pulse encoded completion has analytic half-diamond
+error below $1.53\times10^{-10}$. The full encoded tape is not claimed
+executed. This construction consumes the coherent service specification;
+bare occupation repair does not supply it.
+
+Let $R_n$ exhaust a computable Fourier basis and write $C=T^*T$.
+The compressed polar maps
+\[
+ V_n=T R_n(R_n C R_n)^{-1/2},\qquad m^2I\leq C\leq3I,
+\]
+use the inverse on $\operatorname{Ran}R_n$, extended by zero. They
+converge strongly to $V$, with their adjoints converging on the field
+representation. For a fixed computable spatial partition, compress its
+ordinary coordinate effects by $R_n$, conjugate by $V_n$, and retain
+$I-V_nV_n^*$. These complete effects and their positive square roots
+converge strongly. The associated Lueders instruments therefore converge
+in trace norm on each fixed state and reference. Source vectors
+$\sin(sQ_p(F))\Omega/s$ realize each finite Gram through bounded histories,
+first taking the source limit at fixed $s,n$, then $s\downarrow0$, then
+$n\to\infty$. Positive finite Gram gaps and the compiler control each
+fixed stage. No effective box-size modulus, uniform infinite-dimensional
+channel norm or second-moment tail bound follows from this ordered limit.
+
+A localization space invariant under the actual time generator is
+\[
+ \mathcal H_{\rm resp}=\overline{\operatorname{span}}\{
+ e^{-itL}Vf:t\in\mathbb R,\ f\in L^2(\mathbb R^3)\}.
+\]
+Its spatial spectral measure is absolutely continuous: a momentum-null
+projector kills $\mathcal H_Q$ and commutes with every $e^{-itL}$.
+The countable rational-time history Gram consequently constructs an
+isometry $J:\mathcal H_{\rm resp}\to L^2(\mathbb R^3;\ell^2)$ that
+intertwines the same spatial translations and satisfies $JVf=f\otimes e_0$.
+Compressing ordinary position gives $E(B)=J^*E_0(B)J$, with the invariant
+dark effect $I-\Pi_{\rm resp}$. For normalized states in $\mathcal H_{\rm resp}$, its position-outcome
+and momentum spreads obey $\Delta_E x_i\Delta P_i^{\rm space}\geq\hbar/2$
+whenever both moments are finite. The measure restricts to the preceding sharp coordinate on
+$\mathcal H_Q$. Its general outcomes need not be projections, and its
+effects alone do not determine measurement back-action. No time invariance
+of $\mathcal H_Q$, preservation of finite moments, sharp particle shell or
+operational continuum realization of the entire response measure is
+inferred. Proofs and finite certificates are in
+\path{model/spin_dynamical_localization},
+\path{model/spin_operational_position} and
+\path{model/spin_position_limit} \cite{ophrepo}.
 
 The recovered frame also supplies an unbounded three-component \emph{axial
 circulation}. With oriented incidence matrix $B$, seam current $J_n$ and

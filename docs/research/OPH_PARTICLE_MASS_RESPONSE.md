@@ -17,8 +17,16 @@ The [position construction](../../model/spin_covariant_localization/CONTINUUM_PO
 uses the actual ordered-spin field correlations to obtain a covariant
 coordinate and the existing spatial momentum on its field-vector subspace.
 Their canonical commutator holds on an explicit dense domain. The complete
-field-space detector includes a no-position outcome. Its operational native
-implementation and invariance under the time generator are unproved.
+field-space detector includes a no-position outcome. The
+[finite source compiler](../../model/spin_operational_position/PROOF.md)
+implements computable finite instruments through the declared coherent
+services. The [finite-mode limit](../../model/spin_position_limit/PROOF.md)
+connects bounded complete position statistics to this same field by ordered
+limits, without an effective source-size modulus or moment-tail bound.
+The [time-invariant response construction](../../model/spin_dynamical_localization/PROOF.md)
+extends localization to all time-evolved field responses, with a persistent
+dark complement. This larger response space need not be a particle sector;
+its full continuum detector has no operational convergence theorem.
 The [carrier operator identities](../../model/carrier_position_translation/PROOF.md)
 give exact recorded partial shifts, while total-load coordinates become
 scalar on the protected spin sector. Thus the native load centroid cannot

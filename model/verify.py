@@ -436,6 +436,11 @@ REPLAYS = (
     ("model.carrier_position_translation", None, "model/carrier_position_translation/results.json"),
     ("model.spin_covariant_localization", None, "model/spin_covariant_localization/results.json"),
     ("model.spin_source_chain", None, "model/spin_source_chain/results.json"),
+    ("model.spin_dynamical_localization", None, "model/spin_dynamical_localization/results.json"),
+    ("model.spin_operational_position", None, "model/spin_operational_position/results.json"),
+    ("model.spin_position_limit", None, "model/spin_position_limit/results.json"),
+    ("model.particle_mass_readout_gate", None, "model/particle_mass_readout_gate/table.json"),
+    ("model.source_strong_coupling", None, "model/source_strong_coupling/results.json"),
 )
 
 

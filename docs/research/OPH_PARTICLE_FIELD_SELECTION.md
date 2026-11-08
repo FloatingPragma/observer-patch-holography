@@ -18,8 +18,16 @@ The [position construction](../../model/spin_covariant_localization/CONTINUUM_PO
 uses the actual ordered-spin field correlations to obtain a covariant
 coordinate and the existing spatial momentum on its field-vector subspace.
 Their canonical commutator holds on an explicit dense domain. The complete
-field-space detector includes a no-position outcome. Its operational native
-implementation and invariance under the time generator are unproved.
+field-space detector includes a no-position outcome. The
+[finite source compiler](../../model/spin_operational_position/PROOF.md)
+implements computable finite instruments through the declared coherent
+services. The [finite-mode limit](../../model/spin_position_limit/PROOF.md)
+connects bounded complete position statistics to this same field by ordered
+limits, without an effective source-size modulus or moment-tail bound.
+The [time-invariant response construction](../../model/spin_dynamical_localization/PROOF.md)
+extends localization to all time-evolved field responses, with a persistent
+dark complement. This larger response space need not be a particle sector;
+its full continuum detector has no operational convergence theorem.
 The [carrier operator identities](../../model/carrier_position_translation/PROOF.md)
 give exact recorded partial shifts, while total-load coordinates become
 scalar on the protected spin sector. Thus the native load centroid cannot
@@ -52,6 +60,37 @@ carrier displacement records is a separate source-interface requirement,
 spelled out in the [position and uncertainty construction](OPH_FIELD_RECONSTRUCTION.md#position-translations-and-uncertainty).
 Field canonical commutators do not by themselves identify a particle's
 localization instrument.
+
+## Strong coupling from the configured color source
+
+The [source color proof](../../model/source_strong_coupling/PROOF.md) fixes
+fundamental generator normalization `tr3(T_a T_b)=delta_ab/2`; the actual
+fifteen-state lift has `Tr15(T_a T_b)=2 delta_ab`. Its complete Gauss-singlet
+link blocks are `H_r=[[0,J sqrt(d_r)],[J sqrt(d_r),epsilon]]`.
+Complete endpoint records give
+`p(t)=4 d_r J^2 sin^2(t sqrt(epsilon^2+4 d_r J^2)/2)/(epsilon^2+4 d_r J^2)`.
+Rational two-time enclosures recover the coefficients without postselection.
+The literal configured defaults `J=epsilon=1` fix the model ratio
+`epsilon/abs(J)=1`. Allowing observers to read the specification determines
+these constants; symmetry alone is not used to select them.
+
+The uniform nonvacuum electric energy is inconsistent with every quadratic
+combination `a C3+b C2+c Y^2` on the same five multiplets, including the
+vacuum normalization. A direct heat-kernel coupling identification fails.
+A different emergent color action needs a controlled coarse-graining of
+this actual source, with its state and clock. In the specified fundamental
+continuum convention `S_E=(kappa/2) integral tr3(F^2)`,
+the curvature F uses the rescaled connection `A_cal=g_s A` and
+`alpha_s=1/(4 pi kappa)`; no source-to-continuum coefficient or physical
+renormalization map is proved here. The inherited numerical coupling
+branches are declared inputs to conditional running calculations.
+
+The [conditional QCD producer](../../code/particles/qcd/derive_lambda_qcd_source_transmutation.py)
+uses the high-flavor to low-flavor matching relation, whose quadratic
+coefficient is `+11/72` at the running heavy-quark mass. Its external
+threshold brackets and perturbative truncation are distinct uncertainties.
+They do not bound the missing source-to-field identification. Conventions
+are those of the [PDG QCD review](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf).
 
 ## Exact coherent controls and state-dependent field limits
 
