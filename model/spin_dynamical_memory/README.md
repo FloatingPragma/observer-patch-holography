@@ -7,6 +7,8 @@ own ground and clock. Both conserved spin-charge channels have nonzero memory;
 the full response retains memory after finite field removal. Bounded resolvent
 filters transfer the response equation
 to the same canonical continuum histories without an unbounded-moment shortcut.
+A [coherent charge pointer](CHARGE_READOUT.md) preserves each charge class
+and bounds aliases in the same continuum field.
 The [proof](PROOF.md) distinguishes these source results from Lorentz covariance
 and surviving continuum scattering, whose dynamical limits are unproved.
 

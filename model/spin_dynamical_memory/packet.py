@@ -7,7 +7,7 @@ import importlib.util
 import json
 from pathlib import Path
 from tools import strict_json
-from . import algebra, asymptotic, charge_memory, finite, zero_field
+from . import algebra, asymptotic, charge_detector, charge_memory, finite, zero_field
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -19,6 +19,7 @@ PROOFS = ('model/spin_canonical_field/README.md',
           'model/spin_shell_readout/PROOF.md',
           'model/spin_relaxed_response/README.md',
           'model/native_spin_observer/README.md',
+          'model/spin_operational_position/PROOF.md',
           'model/native_ordered_ground/README.md',
           'model/protected_defect_catalog/PROOF.md')
 
@@ -40,6 +41,8 @@ def canonical(value):
 def bindings():
     legacy = 'evidence/observer_dynamics_20260925/oph-physics-sim/'
     names = set(PROOFS)|{finite.WITNESS, zero_field.WITNESS,
+                        'code/source_selection_model/response.json',
+                        'code/m1_source_realization/receipt.json',
                         legacy+'oph_exact/carrier.py', legacy+'oph_exact/__init__.py'}
     names.update(path.relative_to(ROOT).as_posix() for path in HERE.iterdir()
                  if path.suffix in ('.py', '.md'))
@@ -80,12 +83,14 @@ def bindings():
 def build():
     before = bindings()
     finite.verified_source.cache_clear()
+    charge_detector.native_two_site_execution.cache_clear()
     value = {'schema': 'oph.spin_dynamical_memory.v1', 'source_bindings': before,
         'exact_spectral_controls': algebra.exact_controls(),
         'complete_source_memory': finite.memory_certificate(),
         'complete_source_noncentral_history': finite.bounded_history_certificate(),
         'complete_same_box_zero_field_memory': zero_field.build(),
         'complete_source_charge_resolved_memory': charge_memory.build(),
+        'complete_coherent_charge_class_readout': charge_detector.build(),
         'complete_memory_score_error_example': algebra.readout_memory_error(
             F(1, 4), F(28), F(1, 10**8), F(1, 10**8)),
         'actual_source_asymptotic_filter_bounds': asymptotic.source_filter_bounds(),

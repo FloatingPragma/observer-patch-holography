@@ -20,6 +20,266 @@
     "unfiltered_scaled_energy_limsup_upper": "12000000",
     "vanishing_memory_inferred": false
   },
+  "complete_coherent_charge_class_readout": {
+    "complete_8_site_modulo_16_records": [
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 70,
+        "record": 0,
+        "represented_charges": [
+          0
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.164524929069",
+          "0.164524929070"
+        ],
+        "projector_rank": 56,
+        "record": 1,
+        "represented_charges": [
+          1
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 28,
+        "record": 2,
+        "represented_charges": [
+          2
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 8,
+        "record": 3,
+        "represented_charges": [
+          3
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 1,
+        "record": 4,
+        "represented_charges": [
+          4
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 5,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 6,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 7,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 8,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 9,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 10,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 0,
+        "record": 11,
+        "represented_charges": []
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 1,
+        "record": 12,
+        "represented_charges": [
+          -4
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 8,
+        "record": 13,
+        "represented_charges": [
+          -3
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.000000000000",
+          "0.000000000001"
+        ],
+        "projector_rank": 28,
+        "record": 14,
+        "represented_charges": [
+          -2
+        ]
+      },
+      {
+        "original_Z0_ground_probability_interval": [
+          "0.835475070930",
+          "0.835475070931"
+        ],
+        "projector_rank": 56,
+        "record": 15,
+        "represented_charges": [
+          -1
+        ]
+      }
+    ],
+    "continuum_absolute_alias_example": {
+      "absolute_original_weight_wrong_charge_probability_upper": "2/1431612075",
+      "all_modulus_records_retained": true,
+      "both_target_charge_classes": [
+        1,
+        65535
+      ],
+      "modulus": 65536,
+      "same_bound_after_any_commuting_contractive_energy_filter": true,
+      "sine_amplitude": "1",
+      "unit_annulus_configuration_variance_upper": "6",
+      "unnormalized_charge_second_moment_upper": "6"
+    },
+    "eight_site_native_program": {
+      "arbitrary_untouched_reference": true,
+      "coherent_load_export_service_required": true,
+      "complete_trace_error_upper": "3219/4294967296",
+      "dyadic_port_fraction_bits": 34,
+      "fixed_binary64_port_interface_claimed_arbitrarily_precise": false,
+      "full_occupation_and_record_bits": 20,
+      "record_bits": 4,
+      "source_pulses": 222
+    },
+    "literal_two_site_reference_execution": {
+      "all_first_failure_weights_evaluated_and_retained": true,
+      "all_physical_pointer_outcomes": 36,
+      "coherent_reference_dimension": 4,
+      "complete_class_records": [
+        {
+          "ideal_Choi_probability": "1/2",
+          "literal_native_probability_check_passed": true,
+          "record": 0
+        },
+        {
+          "ideal_Choi_probability": "1/4",
+          "literal_native_probability_check_passed": true,
+          "record": 1
+        },
+        {
+          "ideal_Choi_probability": "0",
+          "literal_native_probability_check_passed": true,
+          "record": 2
+        },
+        {
+          "ideal_Choi_probability": "1/4",
+          "literal_native_probability_check_passed": true,
+          "record": 3
+        }
+      ],
+      "complete_isometry_error_upper": "168813192916233446109184994263529412095566423197908323227475380893/3705346855594118253554271520278013051304639509300498049262642688253220148477952",
+      "complete_source_work_rows": 64,
+      "complete_trace_error_upper": "168813192916233446109184994263529412095566423197908323227475380893/1852673427797059126777135760139006525652319754650249024631321344126610074238976",
+      "literal_native_complete_output_check_passed": true,
+      "modulus": 4,
+      "native_first_failure_slots": 196,
+      "native_pulses": 55,
+      "numerical_execution_comparison_admission": "3022314549036573/151115727451828646838272",
+      "reference_columns_dephased": false,
+      "reserved_pointer_outcomes": 32,
+      "sites": 2,
+      "successful_output_renormalized": false,
+      "word_sha256": "1ca15e2fe3577fac4dfa5ad77c02f668bac9430a717f885b03c11fa7e20f0c97"
+    },
+    "same_source_charge_and_clock_replayed": true,
+    "same_source_prelimit_charge_tail_example": {
+      "below_seven_amplitude_squared": true,
+      "charge_second_moment_upper": "27562500",
+      "scale": "1/4000",
+      "small_scale_threshold": "1/4000"
+    },
+    "scope": {
+      "all_8_site_native_pulse_tape_executed_here": false,
+      "coherence_within_each_record_class_preserved": true,
+      "continuum_charge_bound_uses_actual_Stone_field_moments": true,
+      "finite_charge_class_projectors_and_H_commutation_exact": true,
+      "finite_p_scale_threshold_for_ground_preparation_supplied": false,
+      "physical_electric_charge_or_particle_species_identified": false,
+      "source_U1_configuration_subnet_consumed": true
+    },
+    "uniform_odd_branch_conditional_alias_example": {
+      "absolute_original_weight_wrong_charge_probability_upper": "12800/644760437126629414107",
+      "all_modulus_records_retained": true,
+      "both_target_charge_classes": [
+        1,
+        1099511627775
+      ],
+      "conditional_wrong_charge_probability_upper": "393216000000/214920145708876471369",
+      "modulus": 1099511627776,
+      "original_preparation_probability_lower": "1/92160000",
+      "same_bound_after_any_commuting_contractive_energy_filter": true,
+      "sine_amplitude": "2000",
+      "unit_annulus_configuration_variance_upper": "6",
+      "unnormalized_charge_second_moment_upper": "24000000"
+    }
+  },
   "complete_memory_score_error_example": "319324999887/9999988700000000",
   "complete_same_box_zero_field_memory": {
     "all_spectral_levels_retained": 256,
@@ -321,6 +581,8 @@
     "strictly_positive_finite_source_memory": true
   },
   "source_bindings": {
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
@@ -372,9 +634,21 @@
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/centered_native_preparation/__init__.py": "7efc03723287f6327022d24452760f7881a9bbcb859a193b2fcb2ca0b10aed3d",
+    "model/centered_native_preparation/target.py": "470147797343f57e8484e7573375df5a66bdeb1736ffbab923d230994a5125a0",
+    "model/centered_native_preparation/tree.py": "c9e84141aaabc370a452d9ec350ccc9ef2d36c791e3b0ad84277f5411b369684",
     "model/centered_particle_spectrum/__init__.py": "7402a6037eaa04c58a44841422ff32cf54391e43576b2bf3470878605ed8fcb4",
     "model/centered_particle_spectrum/certificate.py": "e9684391067c1a3d855fc56572c3929ed3235118fdd7fb59ea1e8e8eb500ee04",
+    "model/centered_particle_spectrum/comparison.py": "8d77167bd39435c31c767d92e0fcb7c7af84eab884ea7e7463a91dfd9c1553e5",
+    "model/centered_particle_spectrum/packet.py": "f4553b5ec9a771375bfe5f70d2320540f072947d208ec919ebfeb6e9e430b81e",
+    "model/centered_particle_spectrum/proposal.py": "ae9ac7374b26dc0d3d78d4f0de058ff88b0c6b55d810b416a1273c43db760daf",
     "model/centered_particle_spectrum/source.py": "e69e16fa1e4a99d78518184b287dc519ece50fe31cb9b49692f9ec705ec1bf53",
+    "model/centered_source_ground/__init__.py": "bc6ede7c86f02898041d1cca67876e59a81f2fd024bf085bf752cf499b8147cf",
+    "model/centered_source_ground/cube.py": "84d2911eebd09ae6655a184ab08e6d125cb9f9de0965477eee950a9a2107a1fd",
+    "model/certified_reference/__init__.py": "3692519f2def0a9c1f808ff1db21bbb93e6bf9b28b4283d7bdf34aff8661edf9",
+    "model/certified_reference/certificate.py": "5f40516d46d9d17ccb093727d4aec64ae455e6a549a615001a2c4d737da0a9e3",
+    "model/certified_reference/interval.py": "9309359ad336ca95c478499fa12cb66389809ffb0104ff3e6ec64623cf032bb1",
+    "model/certified_reference/source.py": "f01634916ee9a2cc82c29521f240ddf9ae889eadd67227202c2d7de3cb9078c4",
     "model/clock_defect_energy/__init__.py": "c6bf096f1127a87265e5d2dc0524df6768a91d2090da83a39ff081c5aebcefad",
     "model/clock_defect_energy/contract.py": "c6ca5b9964c9958f482d55458c3cad7503b7e3c7398ddfb9c88c6348e56935f2",
     "model/clock_defect_energy/defect_history.py": "b0976dcd8266e0d3aa85d8d84b41c85e7504192884e01299c6ed23346d2ca4fb",
@@ -430,10 +704,14 @@
     "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
     "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
     "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/field_regions/__init__.py": "695fca56b85459b4b7196e439c4e9485d888431f1df0334289d0c49ca54419ea",
+    "model/field_regions/regions.py": "82620a99ed565ab0371295700f828151133d863d92e7fb12330d57a3a7603dc9",
     "model/field_stress/__init__.py": "89e3ba97dfe717d1cc21ba86a406a7c58e74eb4db402daaa835d2703bc32bf34",
     "model/field_stress/energy.py": "f44f67d25d9738230966dc4c9e64eecc2792f0bf07d33b4ca4ac5cb9db90cf72",
     "model/field_symmetry/__init__.py": "5f2c249b87b7a2fca59ea8146cc5baa475ce58a2148a0dc8fec9d4ee4e49a122",
     "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
+    "model/field_thermal/__init__.py": "1cf22d9bda9bf4055a9702347799c51fb1ffdb447fabba1ab4a629ae0461b480",
+    "model/field_thermal/thermal.py": "79279646ac75e1ed7254003435c650f37ab259f8ca5133fe683a2f8b8a9ffcd9",
     "model/full_fock_field/__init__.py": "72004e140b0027d10517e53abc04bc56164e10b665fd5adf0f64294fe0e2515f",
     "model/full_fock_field/bounds.py": "7a90b91236c7a27c62da7db222f7e7928b683f027a8b77af22d74bbd6224431c",
     "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
@@ -444,6 +722,7 @@
     "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
     "model/interacting_field/source.py": "39735bf7a86e3fa309b2a3d01c3e64b146be8d2f280445731c146b984f73e5be",
     "model/interacting_vacuum/__init__.py": "5466a1a93e7d8d31d32a698bbdb6a178ea71081f3844e3339723686af9fc1097",
+    "model/interacting_vacuum/global_ground.py": "dd6043d09db7299c745430643f7a9c354997b2280d5f39f6a6bba5da4da1a866",
     "model/interacting_vacuum/ground.py": "98af19731f5f5e7d208953f58a778244b65a65d054b352e89f82cc1d4b81ce0d",
     "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
     "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
@@ -483,7 +762,14 @@
     "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
     "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
     "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/native_spectral_detector/__init__.py": "42eaa4b71d5a3a20881f4928d67b6615836bec6fb780bc41b31e3bca72edf55e",
+    "model/native_spectral_detector/contraction.py": "c6afc4f7d2f3353d682b76742ab9baa6100091e8abfe927c53c64b794379fa98",
     "model/native_spin_observer/README.md": "6d7ce7c5bb1aa8843cc5d605e3ea06c07100d0f5c91dccac5a00bae89e73e181",
+    "model/native_spin_observer/__init__.py": "b3f0d1318e5bd2bbf33d6eb4fc7c97e04fae8a97c6622ef68385c6519173542b",
+    "model/native_spin_observer/algebra.py": "b1d0f93d786d3ec1c6eae28617e928ee462dca66535fc7e97468e6dbbee0f036",
+    "model/native_spin_observer/circuits.py": "0b849c1e76be8cc3bc5812ba2f56c247061a82971a042e24adc7a9d839d63dde",
+    "model/native_spin_observer/execute.py": "6fbf31ca6467779001e7a82f0ca11e0563e316d6c8fd96fd540c40050cbe4df6",
+    "model/native_spin_observer/precision.py": "a58567b65ae57a4ba902121e64b849bc0944d8661f1feb57c2a0a0d60843bd6c",
     "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
     "model/observer/adaptive_record_recovery.py": "40a2bb9b242eda70680ed75704a302c6d201fa6e3346f566e834dc4c8dc927c5",
     "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
@@ -522,6 +808,8 @@
     "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
     "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
     "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/plaquette_reference/__init__.py": "bc4ed0c86e106836cb646eff21d583f5e466005e750adcdf0ae3e37c5245ad89",
+    "model/plaquette_reference/preparation.py": "29985e7b79dc457cf00d06931bfa76e9e02ea45654803b938f2a3205fdf685ca",
     "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
     "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
     "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
@@ -530,10 +818,12 @@
     "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
-    "model/protected_defect_catalog/PROOF.md": "77cd40b36071ba7786c4ade7f5ff7430a660e134fe4870f4b3b2d5f4a78ba552",
+    "model/protected_defect_catalog/PROOF.md": "703778904e4a9d837349bc06fd565bb8867a053395b81499995101cf89949051",
     "model/protected_defect_catalog/__init__.py": "53f25646e289f3cd86b18d4fe4e625794015f9cc3460ddd352de7649218d184b",
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
+    "model/protected_particle_readout/__init__.py": "ab534209428d3f76755fe46750df47fdcdfbcc88542acb03602059438a95adce",
+    "model/protected_particle_readout/execute.py": "e5cb9ccf2ed7f19f01d330656ecd633c9e0958945767d75e08b5eda5539a5fc7",
     "model/protected_spin_limit/__init__.py": "7dab84dc21c349cdba9e8a67731400ed445c0405b76c0a04bb3bcae1af0d6a12",
     "model/protected_spin_limit/algebra.py": "b55427b2442d4f21256a11995b91278f2ff60fa5db10d7de2f20dce736776f81",
     "model/protected_spin_limit/bounds.py": "8e4cabe29492f86fd95d7516a1063376036a94a41a0a9f8ca84ec23b5006a74f",
@@ -541,6 +831,10 @@
     "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/reference_observation/__init__.py": "432bf96c6222f4daac7c102f27c33d6eb212c417c894ad27999bd806eca3373f",
+    "model/reference_observation/observation.py": "bfa8f88bdb13d256f9e61d2156bf7d3238ca98a970d39c0f664174bcaa0c6df6",
+    "model/reference_recovery/__init__.py": "31e911fe4ef0617e42c57214b4afa0c2a4f7c0e189ffc18e0d832b90158bbb28",
+    "model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b",
     "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
     "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
     "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
@@ -565,24 +859,29 @@
     "model/spin_canonical_field/__init__.py": "3441c9f7e3cc711c3f7ab7a2fbfe240e7673ab8ebc3a3fea2248cd9de60caab9",
     "model/spin_canonical_field/algebra.py": "789a5cda2a01a5fe5509fcd3784e577963b7cf155f156f9d0c7854640a766120",
     "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_dynamical_memory/CHARGE_READOUT.md": "e344419fb03631b062ea64ee4522a443e9c06d3b01b047d2095f595af7ec7825",
     "model/spin_dynamical_memory/PROOF.md": "61ab0dcd9429da4668d6f0fb200140ab3a3bf5fd9412e6894ecb02fc1521e0d0",
-    "model/spin_dynamical_memory/README.md": "d2bea3da39fa5c278106008d1cdf23e37ea11ad6166983a5ca5d7dbf082a41fe",
+    "model/spin_dynamical_memory/README.md": "21e3640d1fb73295bc3d62ddde389aec7e9b05625a395590bb4cbb95495523e6",
     "model/spin_dynamical_memory/__init__.py": "eed35352bc86452f97893dcd981adc2c2d284d1e36c6191313c71f3dcd1515f7",
     "model/spin_dynamical_memory/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_dynamical_memory/algebra.py": "caf94e9f48bb35584c19536b1b0a0b81b3af862dbe5d9222fb0631b2df3d2d96",
     "model/spin_dynamical_memory/asymptotic.py": "90899f6afb1cc4bc782504f986e3580539d0ef57ee8ea2eb6e73723e11c4be18",
+    "model/spin_dynamical_memory/charge_detector.py": "acb6eeff30f79424c8838d5b1d7f63804d4e61ccc8bae4b8b10722f52f0ea369",
     "model/spin_dynamical_memory/charge_memory.py": "e7999165e68b2c4e8d03682f8d4d5bb693be51630c1782c3bee9825567aeb311",
     "model/spin_dynamical_memory/finite.py": "c304f2f5a05d8f3b73907826583af2171ac23ea91aea8905f56cf35d6e25e1c7",
-    "model/spin_dynamical_memory/packet.py": "170b7ec8d68456e05fcc148047005515f96dd1129d04df286422acea2c37a0d9",
+    "model/spin_dynamical_memory/packet.py": "179083b3a24589f6f2cf3bb70fbd28a24deb5b754e0853cfef5bb9a50748895a",
+    "model/spin_dynamical_memory/test_charge_detector.py": "0785101430f38afd1d265c91577da5ad997ebe125caf6951113721610ab54e79",
     "model/spin_dynamical_memory/test_memory.py": "0e706b41372c6cfe2c244f7436b5a26f7efd5a2ff6bf23459b8277b582818ac5",
     "model/spin_dynamical_memory/zero_field.py": "ef8713ef75747921e0cd753f68383d4d46fab3032e55997b14877b94d9a1541f",
     "model/spin_dynamical_memory/zero_field_witness.npz": "77c2ec0af0b05185bbca1021ac1718af3e2b53ab89ab2f9f75f7abffc9dbbfa3",
+    "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
     "model/spin_relaxed_response/README.md": "82e902603fa1ab14893c5a9ca5a8cbb45da54ceef8404442442e302db7d0c51f",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
     "model/spin_shell_readout/PROOF.md": "4ab001af4cf69f9dd2b05772fe08e7869f4896020d454359d2b6edfcb843a5ba",
     "model/strong_coupling_refinement/__init__.py": "c4445add1d4bbd5fa806c9aecb362a09b594579ed724206374eb80a4d5250a2d",
     "model/strong_coupling_refinement/algebra.py": "9b98d6aead64e3a0a4f32a5d8842e4195e687696e7e7b29a5337e6f2bb121fb1",
     "model/strong_coupling_refinement/bounds.py": "ed9f3c0641e9c86308c6482106401e2f0231e5f9180084fe5b881e9cc3637dbd",
+    "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "two_speed_local_field_implication_control": {
