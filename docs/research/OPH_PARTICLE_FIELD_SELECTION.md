@@ -63,6 +63,13 @@ localization instrument.
 
 ## Strong coupling from the configured color source
 
+For the selected spin action, the
+[positive-field preparation theorem](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
+and [interior marginal bound](../../model/spin_fixed_field_locality/PROOF.md)
+fix finite preparation and volume errors at B>0. They preserve the stated
+action, fresh-input control services and clock. They do not select the
+zero-field continuum action, its gauge coupling or the B-to-zero state rate.
+
 The [source-family compatibility theorem](../../model/source_family_compatibility/PROOF.md)
 separates finite gauge covariance from action selection. On the same
 extended finite gauge source, two admitted rotations preserve endpoint

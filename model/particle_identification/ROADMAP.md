@@ -96,7 +96,10 @@ the required dynamical and physical attachments are:
 1. **Common source and preparation.** Relate every retained candidate to one
    specified source family, state prescription and clock. Give effective
    finite preparation/observation bounds for the growing supports and times
-   used below. The spin, color and prescribed-texture constructions do not
+   used below. For the spin source, positive-field adiabatic preparation
+   and interior marginal bounds supply this interface at fixed B>0;
+   comparison to the selected zero-field state needs its own modulus.
+   The spin, color and prescribed-texture constructions do not
    acquire a common action merely by appearing in the catalogue.
 2. **Observable excitation sectors.** Carry each candidate's creation,
    conserved label and complete readout into that field representation.

@@ -168,6 +168,15 @@ even spin creators.
 
 ## Position and the source sector
 
+The actual positive-field reference has a
+[source-derived preparation path](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
+with a full finite gap at least `B/8` and complete native error budget.
+A [boundary-locality estimate](../../model/spin_fixed_field_locality/PROOF.md)
+controls its interior marginal against the infinite-volume state at
+each fixed B. It uses the same source couplings and selection field.
+The zero-field state comparison and spectral-branch estimate are separate;
+the positive-field gap is not entered as a physical particle mass.
+
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
 uses the actual ordered-spin field correlations to obtain a covariant
 coordinate and the existing spatial momentum on its field-vector subspace.

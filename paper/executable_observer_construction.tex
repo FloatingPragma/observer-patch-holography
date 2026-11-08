@@ -2285,6 +2285,39 @@ statements concern the same ordered state and clock $K/(Jp)$; they do not
 identify its limiting dynamics with the separate free Weyl branch.
 
 \paragraph{Selection-field and zero-field clocks.}
+The actual finite source admits a uniform positive-field preparation
+bound. In its Marshall frame, global Hadamard conjugation gives
+\[
+ \widetilde H_B=\frac J4\sum_{xy}(X_xX_y-Y_xY_y-Z_xZ_y-I)
+                    -\frac B2\sum_x Z_x.
+\]
+Its Lee--Yang coefficients satisfy $w_z=|w_x|=|w_y|=J/4$,
+so the full spectral gap is at least $g=B/8$ \cite{rayuduGap2026}.
+The same bound holds when all bonds are multiplied by $s\in[0,1]$.
+This gives a gapped path from the staggered product ground to the actual
+selected ground. With $D=J|\mathcal E|$, the rank-one adiabatic error
+in half trace norm is at most $(2D/g^2+7D^2/g^3)/T$
+\cite{jansenAdiabatic2007}. Time discretization, bond-product splitting
+and native port synthesis have explicit additional bounds. Their sum
+gives a polynomial finite-volume resource bound at fixed B, using the
+declared fresh blank input and coherent services. A complete two-site
+140-pulse witness is executed; the large adiabatic tapes are specified
+(\path{model/spin_twist_closure/FINITE_FIELD_GAP.md}, \cite{ophrepo}).
+
+The gap also persists when only the bonds crossing a box boundary are
+interpolated. Gaussian approximate spectral flow and the source locality
+bound then compare an interior marginal with the cut-box ground.
+For m observation sites at distance d from M crossing bonds, set
+$u=d/(144J)$. The half trace distance is at most
+\[
+ \min\!\left\{1,JM\left[\frac{mu}{2}e^{-d/3}
+       +\left(\sqrt{\frac{2u}{\pi g}}+\frac1g\right)e^{-gu/2}\right]\right\}.
+\]
+This is uniform in exterior volume and tends effectively to zero with
+the box radius at fixed B. It passes to complete local instruments and
+independent references. It supplies no B-to-zero marginal rate
+(\path{model/spin_fixed_field_locality}, \cite{ophrepo}).
+
 For the same finite input on $N$ sites and $m$ interventions, let
 $T_{\rm abs}$ bound the sum of absolute controlled evolution durations on
 every branch. Replacing $H_B$ by $H_J$ changes the complete
@@ -4266,6 +4299,17 @@ Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
 \bibitem{pwvisser1998acoustic}Visser, M. (1998). ``Acoustic black holes: horizons, ergospheres, and Hawking radiation.'' \emph{Classical and Quantum Gravity} \textbf{15}, 1767--1791. \url{https://doi.org/10.1088/0264-9381/15/6/024}
 
 \bibitem{pwwelch2014efficient}Welch, J., Greenbaum, D., Mostame, S., and Aspuru-Guzik, A. (2014). ``Efficient quantum circuits for diagonal unitaries without ancillas.'' \emph{New Journal of Physics} \textbf{16}, 033040. \url{https://doi.org/10.1088/1367-2630/16/3/033040}
+
+\bibitem{rayuduGap2026}
+C.~Rayudu and J.~Takahashi, ``Spectral gap of Lee--Yang Hamiltonians,''
+arXiv:2607.10765v1 (2026), Definition~1 and Theorem~11.
+\url{https://arxiv.org/abs/2607.10765v1}.
+
+\bibitem{jansenAdiabatic2007}
+S.~Jansen, M.-B.~Ruskai and R.~Seiler,
+``Bounds for the adiabatic approximation with applications to quantum computation,''
+arXiv:quant-ph/0603175v3 (2007), Theorem~3.
+\url{https://arxiv.org/abs/quant-ph/0603175v3}.
 
 \bibitem{komaDispersion}
 T.~Koma, ``Dispersion Relations of Nambu--Goldstone Modes,''

@@ -42,6 +42,14 @@ scattering behavior on that same representation.
 
 ## Spatial readout and momentum
 
+The full finite source gap at positive selection field obeys `gap>=B/8`.
+It supplies a controlled preparation path and a fixed-B infinite-volume
+marginal bound through
+[the actual source theorem](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
+and [boundary-locality construction](../../model/spin_fixed_field_locality/PROOF.md).
+The proved lower bound vanishes as B tends to zero. It does not determine
+the zero-field gap or a particle rest mass.
+
 The [positive-energy multipacket theorem](../../model/spin_multipacket_comparison/POSITIVE_MULTIPACKETS.md)
 provides nonzero separated charge-n states on the same continuum clock,
 with explicit original probabilities and energy-transfer intervals.

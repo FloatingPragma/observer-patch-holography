@@ -458,6 +458,7 @@ REPLAYS = (
     ("model.spin_twist_closure", None, "model/spin_twist_closure/results.json"),
     ("model.spin_multipacket_comparison", None, "model/spin_multipacket_comparison/results.json"),
     ("model.source_family_compatibility", None, "model/source_family_compatibility/results.json"),
+    ("model.spin_fixed_field_locality", None, "model/spin_fixed_field_locality/results.json"),
 )
 
 

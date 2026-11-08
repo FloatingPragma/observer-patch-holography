@@ -36,6 +36,36 @@ state takes volume to infinity and then `B` to zero. The canonical field uses
 The finite native construction has an explicit precision budget. The selected
 infinite state has no proved effective finite-box preparation modulus.
 
+At strictly positive selection field the
+[uniform gap and native ramp](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
+give a stronger preparation interface. An exact Hadamard change of basis
+puts the actual source in the Lee--Yang theorem's class, with full gap at
+least `B/8`, uniformly in volume and along a nonnegative bond ramp from
+the product state. The adiabatic, time-splitting and native pulse errors
+have one explicit complete-output budget. The large tape is specified;
+the complete small native compilation witness is executed.
+
+The [positive-field marginal theorem](../../model/spin_fixed_field_locality/PROOF.md)
+also gives a computable volume modulus. Interpolating only the bonds across
+a box boundary preserves that gap. Gaussian approximate spectral flow
+and the actual source locality bound control an interior marginal,
+independently of the exterior volume. For a support of m sites at distance
+d from M crossing bonds, set `g=B/8`, `T=d/(144J)`. Its half trace error is
+at most
+
+```
+min(1, JM[(mT/2) exp(-d/3)
+          +(sqrt(2T/(pi g))+1/g) exp(-gT/2)]).
+```
+
+For fixed B, the surface factor grows polynomially while the last exponent
+is `-Bd/(2304J)`. Finite open-source marginals therefore converge to one
+positive-field state, with a rational box-size planner. Complete local
+instruments preserve the bound, including independent reference systems.
+This is a state comparison, not an arbitrary-input channel bound.
+The constants diverge as B tends to zero; comparison with the selected
+zero-field state requires a separate rate.
+
 [Clock comparison and energy continuity](../../model/native_spin_clock_join/README.md)
 control complete histories of `H_B` and `H_J` on the same prepared input and
 construct finite local energy currents. They do not identify that finite input
@@ -49,8 +79,10 @@ A finite energy band is not a proof of a continuum particle pole.
 
 For this chain the precise additional requirements are:
 
-1. Control finite prepared marginals against the selected infinite state at
-   the growing times and spatial supports required by spectroscopy.
+1. Extend the proved positive-field preparation and volume bounds to the
+   selected zero-field state at the growing times and spatial supports
+   required by spectroscopy. The B-to-zero state error is distinct from
+   the controlled fixed-B finite-volume error.
 2. Prove the ground-specific inverse-current tail bound, or another estimate
    that controls the continuum energy and current responses. Finite positive
    relaxed susceptibility does not establish that tail bound.
