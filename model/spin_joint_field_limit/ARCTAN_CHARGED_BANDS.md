@@ -182,17 +182,66 @@ integral at u=0. The Laplace integral in (4) proves the analytic bounds;
 the finite spectral table specifies the instrument. No large native tape
 is executed by the bound producer.
 
-## 4. Spatial cutoff and finite resolution
+## 4. A bounded original-probability Ward test
+
+Let Pi be any actual joint spectral projection commuting with the source
+circle and charge conjugation. Put `v=||P Omega||^2`,
+`eta=||(I-Pi)P Omega||`, and let `d<=|<[P,A]>|` be a certified lower
+bound, from (6) or its finite-source version (11). The same decomposition
+used in section 2 proves
+
+    ||Pi B_+ Omega||^2=||Pi B_- Omega||^2
+       >=max(0,d-eta)^2/(2v),   v>0.                  (13)
+
+The outside contribution is at most eta because `||A||<=1/2`. The inside
+contribution is at most `2 sqrt(v)||Pi A Omega||`. Charge orthogonality
+then gives (13). Upper bounds on v and eta and a lower bound on d preserve
+the inequality. These are original probabilities of the bounded instrument
+(5); there is no Pauli-sum preparation normalization growing with volume.
+
+For a concrete Ward input choose a compact original source energy window
+R supported in `[ell_0,M]`, within the actual momentum annulus. Use
+`WARD_DYNAMICS.md` to measure the two filtered inverse susceptibilities,
+first moments and original cross moment c_R for the pair X,P. They determine
+`u=c_R/chi_P`, `b=c_R/chi_Q`, `omega^2=ub>0` and the positive force slacks
+`delta_Q,delta_P`. Let Pi retain `|E-omega|<epsilon` inside R. For sharp
+commuting window projections the existing force estimate gives
+
+    eta^2 <= ||(I-R)P Omega||^2
+          +M (|b|sqrt(delta_Q)+M sqrt(delta_P))^2
+                                     /(omega^2 epsilon^2).    (14)
+
+All quantities in (14) use the same clock and retained filtered cross
+moment. Smooth detector effects require the existing boundary-weight and
+resolution errors before a spectral projection is inferred. Equations
+(13)-(14) turn a small measured or proved Ward-tube leakage into an original
+charged preparation probability. The broad-band theorem establishes no
+vanishing force slack or shrinking relative spectral width. In particular
+the nonlinear bounded creator can have multiparticle spectral weight even
+in a free field. Only the selected projection's original weight enters
+(13); the complete created state is not required to be a single pole.
+
+The actual uniform dimer in section 6 saturates (13) with Pi its complete
+middle-energy projector. It has `eta=0`, `v=p^2(1-s)` and
+`d=p k/sqrt(257)`, and
+
+    d^2/(2v)=2k^2 s.
+
+This is exactly each original charged record's probability, with both
+complementary energy outcomes retained. No continuum saturation follows
+from this finite equality.
+
+## 5. Spatial cutoff and finite resolution
 
 For `F_R=chi_R F` the configurations at a fixed angle commute. The scalar
 Lipschitz constant of f is 1/pi, so
 
     ||(B_+(F)-B_+(F_R))Omega||
-       <=sqrt(r)/pi ||Q3(F-F_R)Omega||.                (13)
+       <=sqrt(r)/pi ||Q3(F-F_R)Omega||.                (15)
 
 The same estimate holds for B_-. In the limiting commuting configuration
 algebra, (5) and its cutoff have complete isometry difference at most twice
-the right side of (13): the two charged amplitudes each cost delta and the
+the right side of (15): the two charged amplitudes each cost delta and the
 complement costs at most sqrt(2)delta, because its square is bounded below
 by 1/2. The inherited covariance bound makes delta tend to zero for Schwartz
 tails. This supplies strictly local approximations retaining all three
@@ -207,7 +256,7 @@ and service errors must be charged before inferring a sharp spectral event.
 The analytic joint-history limit gives no effective n-to-continuum rate or
 unique limiting state; the band theorem does not supply those stronger claims.
 
-## 5. Complete source control
+## 6. Complete source control
 
 The executable reconstructs the actual two-site `native_ordered_ground`
 Hamiltonian at n=2, J=1, B=1/32 and p=1/4. A global rotation places the

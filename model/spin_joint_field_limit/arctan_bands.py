@@ -99,6 +99,37 @@ def longitudinal_errors(n, bond_square_sum, cubic_sum, momentum_scale=F(1)):
                 sqrt_interval(r)[1]*p**5*cubes/2}
 
 
+def bounded_projection_weight(commutator_lower, canonical_p_norm_squared_upper,
+                              outside_canonical_p_norm_squared_upper):
+    """Transfer actual P leakage to an original bounded charge probability."""
+    d = rational(commutator_lower)
+    v = rational(canonical_p_norm_squared_upper, positive=True)
+    outside = rational(outside_canonical_p_norm_squared_upper)
+    if 2*d*d > v:
+        raise ValueError('commutator floor contradicts the charged creator norm')
+    eta = sqrt_interval(min(outside, v))[1]
+    return {'each_original_charge_probability_lower': max(F(), d-eta)**2/(2*v),
+            'outside_canonical_p_norm_upper': eta,
+            'actual_joint_projection_and_charge_symmetries_required': True,
+            'growing_Pauli_sum_normalization_used': False,
+            'source_leakage_vanishing_proved': False}
+
+
+def ward_tube_leakage(cutoff, u, b, delta_q, delta_p, tube_radius, outside_window):
+    """Source Ward bound for the canonical P vector, with its outer tail."""
+    m = rational(cutoff, positive=True)
+    dq, dp, tail = map(rational, (delta_q, delta_p, outside_window))
+    eps = rational(tube_radius, positive=True)
+    if type(u) not in (int, F) or type(b) not in (int, F) or u*b <= 0:
+        raise ValueError('source coefficients must have positive frequency squared')
+    u, b = F(u), F(b)
+    error = abs(b)*sqrt_interval(dq)[1]+m*sqrt_interval(dp)[1]
+    return {'outside_canonical_p_norm_squared_upper': tail+m*error*error/(u*b*eps*eps),
+            'source_frequency_squared': u*b,
+            'original_filtered_cross_moment_required': True,
+            'source_slack_saturation_assumed_or_proved': False}
+
+
 def _tensor(left, right):
     # Native site zero is the least-significant source bit.
     return s.kronecker_product(right, left)
@@ -182,6 +213,11 @@ def finite_source_control():
     weak_commutator = s.simplify(s.I*s.trace(ground*(canonical_p*(bplus+bminus)/2
                                                    -(bplus+bminus)*canonical_p/2)))
     assert s.simplify(weak_commutator-p*k/root) == 0
+    p_norm_squared = s.simplify(s.trace(ground*canonical_p**2))
+    assert s.simplify(p_norm_squared-p*p*(1-singlet_weight)) == 0
+    assert _zero((s.eye(4)-middle)*canonical_p*ground)
+    assert s.simplify(weak_commutator**2/(2*p_norm_squared)-
+                      expected_probabilities['charge_plus', 'middle']) == 0
     return {'dimension': 4, 'p': F(1, 4), 'field_over_J': F(1, 32),
             'complete_source_spectrum': [str(e0), '0', '0', str(e1)],
             'charged_scaled_energy': str((16+root)/8),
@@ -190,6 +226,8 @@ def finite_source_control():
             'finite_weak_commutator_formula': 'atan(1/16)/(8*pi*sqrt(257))',
             'complete_record_count': 9, 'allocated_zero_probability_records': 5,
             'all_input_effect_sum_identity': True,
+            'bounded_projection_probability_bound_saturated_on_middle_level': True,
+            'canonical_P_outside_middle_norm_squared': F(),
             'whole_source_and_charge_rotated_together': True,
             'finite_control_has_continuum_momentum_assignment': False,
             'additional_native_pulse_tape_executed': False}
@@ -234,6 +272,11 @@ def certificate():
             'actual_finite_source': finite_source_control(),
             'complete_finite_probabilities': dimer_intervals(),
             'finite_source_commutator_error': '(sigma+C/2)/(2*pi)',
+            'bounded_Ward_projection_transfer': {
+                'each_original_probability_lower': 'max(0,d-eta)^2/(2*||P Omega||^2)',
+                'leakage_from_same_clock_Ward_tube_required': True,
+                'growing_Pauli_sum_normalization_used': False,
+                'shrinking_continuum_width_proved': False},
             'continuum_limit_error_rate_supplied': False,
             'full_history_linear_force_closure_proved': False,
             'physical_species': [], 'physical_mass_prediction': None}

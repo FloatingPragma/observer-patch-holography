@@ -79,6 +79,26 @@ def test_actual_source_clock_charge_and_nine_record_identity():
     assert row['whole_source_and_charge_rotated_together']
     assert not row['finite_control_has_continuum_momentum_assignment']
     assert not row['additional_native_pulse_tape_executed']
+    assert row['bounded_projection_probability_bound_saturated_on_middle_level']
+    assert row['canonical_P_outside_middle_norm_squared'] == 0
+
+
+def test_Ward_tube_transfer_keeps_outer_tail_and_original_preparation():
+    d = F(1, 440)
+    outside = a.ward_tube_leakage(10, 2, 2, 0, 0, F(1, 10), d*d/4)
+    assert outside['outside_canonical_p_norm_squared_upper'] == d*d/4
+    row = a.bounded_projection_weight(d, F(1, 4), outside['outside_canonical_p_norm_squared_upper'])
+    assert row['each_original_charge_probability_lower'] <= F(1, 387200)
+    assert row['each_original_charge_probability_lower'] > F(1, 387201)
+    assert not row['growing_Pauli_sum_normalization_used']
+    assert not row['source_leakage_vanishing_proved']
+    noisy = a.ward_tube_leakage(10, 2, 2, F(1, 10**20), F(1, 10**20), F(1, 10), d*d/4)
+    assert noisy['outside_canonical_p_norm_squared_upper'] > outside['outside_canonical_p_norm_squared_upper']
+    assert a.bounded_projection_weight(d, F(1, 4), 100)['each_original_charge_probability_lower'] == 0
+    with pytest.raises(ValueError):
+        a.bounded_projection_weight(1, 1, 0)
+    with pytest.raises(ValueError):
+        a.ward_tube_leakage(1, 1, -1, 0, 0, 1, 0)
 
 
 def test_native_source_mutation_is_rejected(monkeypatch):
