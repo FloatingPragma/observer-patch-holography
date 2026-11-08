@@ -2404,20 +2404,24 @@ output half-trace error is at most
 $\min\{1,m[6(2R+1)^3/|\mathcal E|+\epsilon_R]\}$.
 All local fine records and arbitrary references remain; distant raw
 records are retained in the source archive but unavailable to feedback.
-With supplied coherent probe services, the centered full ground supports
-interacting local CAR histories. On the original-default cube,
-$c=1/8,U=1$, complete $256$-bin clock records give genuine spectral-window
-bounds, retaining both charge branches and detector complements. The
-sign profiles $f_k(x)=(-1)^{k\cdot x}/\sqrt8$, $k\in\{0,1\}^3$, have
-original addition weights for $k_3=0,1$ in
-$[0.583370,0.584440]$ and $[0.415560,0.416630]$; at least $0.466330$ and
-$0.335250$ lie in $0.125\leq K-E_0\leq0.935390$. These labels specify
-spatial probes, not momentum eigenstates. The full source composite
-response satisfies $3I/80<R^*R<61I/1000$, so a two-block closure loses
-actual response. Its first three cyclic levels span $48$ response dimensions,
-without adding CAR flavours or physical species
-(\path{model/source_family_compatibility/CUBE_RESPONSE.md},
-\path{model/source_family_compatibility/CUBE_SPECTRUM.md}, \cite{ophrepo}).
+Supplied coherent services give the centered ground interacting local
+CAR histories. For a unit packet $A_+=a^*(f)$, $A_-=a(f)$, its complete
+energy instrument is
+\[
+ K_{qj}=\frac1n\sum_{l=0}^{n-1}e^{2\pi ijl/n}
+ \tau_{-l\Delta}(A_q),\qquad \sum_{q,j}K_{qj}^*K_{qj}=I.
+\]
+A spatial cut costs output half-trace distance at most
+$\sqrt2 B_R+\delta_R+\epsilon_{\rm service}$, independently of $n$. Here
+$B_R$ bounds clock locality and $\delta_R$ the actual ground marginal;
+the cut ground is not substituted. Ultraviolet tails control phase aliases.
+At $c=1/8,U=1$, a $4096$-phase event has original probability greater
+than $25/200704$ per charge. The tape and ground preparation are not
+executed. Complete cube records certify windows, while
+$3I/80<R^*R<61I/1000$ excludes two-block closure. The first three cyclic levels
+span $48$ dimensions of the existing CAR response
+(\path{model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md},
+\path{model/source_family_compatibility/CUBE_RESPONSE.md}, \cite{ophrepo}).
 
 On its aligned-hole subspace the same signed source is exactly free, with
 bands $U/2\pm c\sqrt{\sum_j\cos^2k_j}$. The complete native vacancy
