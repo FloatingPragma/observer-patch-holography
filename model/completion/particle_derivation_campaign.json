@@ -20,7 +20,7 @@
   },
   "downstream_comparison": {
     "path": "model/completion/source_flavor_comparison.json",
-    "sha256": "9f3e19878424a6ab85c5d68a52a07c0a201677275b33d3834cce5fe1dd1828b8"
+    "sha256": "1de518e2b51aee926ebb65af317ee0d573b3675c655ebe88da65d212a47f300c"
   },
   "composition_boundary": {
     "simulator_observer_scheduler_repair_memory_specs_admitted": true,
@@ -82,7 +82,7 @@
         "model/certified_winding_core/core.py": "c3f907d0738e949a1b089bef19f8a5e7ceabb7a3de916375d9f70cbb749e2443",
         "model/certified_winding_core/intervals.py": "10c01d1646bef7c347315af1074ad69738e8c226c5c907f359b2e01cd3caff4c",
         "model/certified_winding_core/packet.py": "0f86d33710fdd6539438f2194ab2aa4987fb9febff772e8925b17c4505d3a834",
-        "model/certified_winding_core/results.json": "47a5b19730ee6d6cef347682e4b5bdeba0902bd8c797196f108425808c1b4ba5",
+        "model/certified_winding_core/results.json": "7a15053b4f3b366157876a2a50af35373cae1c98d0586fff2daf11fad5e542a2",
         "model/certified_winding_core/spectrum.py": "0b1bd87f5f22e767baf3179ce93ee0599c298faa0275f72b72e306c5909886c9",
         "model/certified_winding_core/test_packet.py": "a290c65a316001f37702bf5046e0480733e60c6d82486406311820561f3da8f5",
         "model/certified_winding_core/test_spectrum.py": "01bf5e17a9c268ef2f95f95ab6fd23a95013d3496fa8fa34bceb07e6dc665e46"
@@ -120,7 +120,7 @@
         "model/radial_current_map/controls.py": "adfded38bc28fec19c3b9e7691eefcdb9c718ba894fe0b37bd182a90113b5377",
         "model/radial_current_map/packet.py": "c3cae2fa32a13ce49da4898d11aa1c91d22c748691ee05e4be40c66f465be833",
         "model/radial_current_map/representation.py": "82f095ddfacd43cb23cf20dc988b4633adf97447b81fbf0352630f4b3fe92862",
-        "model/radial_current_map/results.json": "3f4bc609109e5b9624c4130ac798bf4f1f7d513a06442ed4d7892d632b76c602",
+        "model/radial_current_map/results.json": "554fab92d26cee661fa3c305b029b7c5119c629d7bf8aed1d20ac0380bd6ad22",
         "model/radial_current_map/test_currents.py": "6dcdc737b8c61e0af37191f8fcb3733611d026406eab05d34e4ddc352e5c1b6e",
         "model/radial_current_map/test_packet.py": "31661b1f173b582232b2f9bbcb0d965126530e993eebf4cca5ff481a06285412"
       }
@@ -157,7 +157,7 @@
         "model/native_flavor_orbit/correlated.py": "4d87b6da9b2bd3e7ca52b9889d450c1250dd2779d59b1479801bc6b65e958dee",
         "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
         "model/native_flavor_orbit/packet.py": "7a464078e75630e38fcbf896d7db5da3a1d98db44a129d1e01f89c28d6013c0c",
-        "model/native_flavor_orbit/results.json": "e5493f0101b74926a921df73dfb723d9bb95e616a9ddcabb8a73d221fc4dd18e",
+        "model/native_flavor_orbit/results.json": "bf3c62226b55a96d79202a52aaf7906254cbea4a7ef11ac5cb619947d387e6af",
         "model/native_flavor_orbit/spectrum.py": "5f793b5f50ce4ae931df0439c6987cdf6c62235a5103a227f948933e9017c0f2",
         "model/native_flavor_orbit/test_algebra.py": "7b84ec73c89c41ae58f2694f35251aed68241cdec5aae75faa884f68f6494c93",
         "model/native_flavor_orbit/test_correlated.py": "1f4f464b3901d00606933a719e95f0150c4ac6bb854e6aa389af4dfd4d78bae0",
@@ -195,7 +195,7 @@
         "model/lattice_texture_selection/energy.py": "a89942e484d5b6855121f2b378d4b9678c85b115967a9500d7abbe3744729248",
         "model/lattice_texture_selection/packet.py": "f386b967a1f39ae6638b70ea3f0c7efb1e6e11160f7daa708b431d9db7bbbaf7",
         "model/lattice_texture_selection/repair.py": "09cb72ceac4af6c613241f0a4b6a0f1beab53df1808f365570f725c491a63f60",
-        "model/lattice_texture_selection/results.json": "e5bd5dba013cbb390e5a92f565297f77b269efd89901d6365389ab4430625571",
+        "model/lattice_texture_selection/results.json": "b44aaa4f1043e8685b7f7987253708147dae6b1763f187144866628da7f212c4",
         "model/lattice_texture_selection/shells.py": "11186ebe495245d7d12860a643e82a0938a5f382800bb32257898502f10e2e98",
         "model/lattice_texture_selection/test_energy.py": "370ceb89433d413488299e426ab8d7cc3dab622eeb2f3d595998387db98fc95c",
         "model/lattice_texture_selection/test_packet.py": "43872f00adcf232299e04d31b82cb256faf0dfe976aedc3cb5d44d8ed938579f",
@@ -233,7 +233,7 @@
         "model/mcpr_native_memory_bridge/certificate.py": "5d0e13de9bf8c286525d4f1d8e9aceb93cf6cbf838d70e98a0ff5e576ea5c262",
         "model/mcpr_native_memory_bridge/construction.py": "caa4d3f58893a692d1a563263d56443efa8e3129deeae488ac31c13255968438",
         "model/mcpr_native_memory_bridge/packet.py": "0d80fe266773671f1c111efbe9ab8cb0e760fd00819f6e40cef6f579a6574825",
-        "model/mcpr_native_memory_bridge/results.json": "1f7994fa5df2910f87dc005f540b55e9f9140d3993c01abd7507d3c8751af237",
+        "model/mcpr_native_memory_bridge/results.json": "dc372cacc2e0a58f1409d8d59c77f082e7434048bb1d1642d8e85f2b205dc13d",
         "model/mcpr_native_memory_bridge/test_bridge.py": "82a44830858ded47f2381167328136f67e61ef58c6aba8f4e200a61c30192688"
       }
     },
@@ -270,7 +270,7 @@
         "model/defect_current_bridge/construction.py": "c68b7c5e97384d7b954f2cf8e40e83e0748f5c01da60dd849ea81d50715758d3",
         "model/defect_current_bridge/controls.py": "0d9d8dcadf99655daf1be377b010c87731805ed811c54f418bd6016083f5ab78",
         "model/defect_current_bridge/packet.py": "fccc74f9b20164a5814e16f4a4b82908a414dd1b4028a8db6420f6e78d632f83",
-        "model/defect_current_bridge/results.json": "33219ffe31caf74395b2bf97b6fc6dde234533273940191c7d89fce6aa64e9ef",
+        "model/defect_current_bridge/results.json": "02f91b4cb12dea9ce822b5662d392057de755bd6b6b51a8892b1ad17824add7d",
         "model/defect_current_bridge/test_bridge.py": "48f1dc2b0daaa298444c2e7368600dd008f58c56becb250f3499c11208f9ba0c",
         "model/defect_current_bridge/test_packet.py": "de4554e000d6202b4f82342810d9bcc07feda62fef6dfc31b41423070ea11567"
       }

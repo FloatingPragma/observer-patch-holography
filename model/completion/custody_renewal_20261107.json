@@ -24,13 +24,13 @@
     "code/a5_closure/manifests/source_current_order_sensitive_inventory.json": "316bd2e5f305aeebb4a9cff7d672ed6d4368ba2204596987ad1ce5399bb0f765",
     "code/a5_closure/source_current_order_sensitive_inventory.py": "e77c3bd7b4498acc7e6030ba6f1ebdfc0b0a9e4f24069902421114ec9ddd8d54",
     "code/a5_closure/verify_source_current_order_sensitive_inventory.py": "5026fcc68adf1365b54cf9fa7bd3ded95cdbe4a33f87b05139ed79125319854d",
-    "model/completion/component_interfaces.json": "821f157a3255d878210dedbcfc1c21e9c7e81c973088b5b2080ff9efecab6c5f",
-    "model/completion/custody_renewal.py": "9cb0f3018f9d1b39f4970bf9835d897aba8170a6988b3f3b13691b4f583c9a95",
-    "model/completion/finite_attachment_map.json": "2fb030aa452b6c1e94636e14a6cb8fdaa292cebb65c31e55960a28b713256c24",
-    "model/completion/spectrum_einstein_campaign.json": "04000e34a40cb6bc2f659807e96bb4ef61a4e3bef04ce83a28b153c51425faa8",
-    "model/completion/test_custody_renewal.py": "c0721624d0776260fa1b58e5e795f66ca99d69da36a2828d2d49f0d2f3ed5c82",
+    "model/completion/component_interfaces.json": "824136360dc38e0f4753f39b984d71966588140c831f532b2d186e8d86ff2d37",
+    "model/completion/custody_renewal.py": "a1377fbcfb3aab42fa4772863c501e6f77df2c944ea2f5a9b249f4f26e82a158",
+    "model/completion/finite_attachment_map.json": "11472f00a90a2c0cd179253778f06db7d0d087130636186d83d1eae6a4c50d5b",
+    "model/completion/spectrum_einstein_campaign.json": "ae7ed52d4000d2ce061789cddbafb0a5fd194a12eb99ef7ae8fe4b52baa8a0ab",
+    "model/completion/test_custody_renewal.py": "f5b0ff0f137b3ff9b5eefc5213d766ff6cece5b1fd5c1816a7ec63410495d614",
     "model/matched_einstein_limit/results.json": "1fc551892b67f4378890e823a26e6ad1f2092b081506654928275fb76e7c324f",
-    "model/native_program/results.json": "9a93c1484ecfd7680e7675b1c97034d1549956d599c04cbac1be67f6e3ac3862"
+    "model/native_program/results.json": "0386ea8928ae62911a48481e95e054930c23f35ebf34b5739eb83528e89766c6"
   },
   "current_classification_counts": {
     "domains": 156,
@@ -117,7 +117,7 @@
     "sha256": "978680d08bfdf6c35fedacd5c26043436d27a6865d071a8252c422676a80e433",
     "targets": 267
   },
-  "reviewed_contract_digest": "670f4a68256909eda316bf6b73845b12a957514f4b56fd10aae04a6cf504d0a0",
+  "reviewed_contract_digest": "bb481d67619697a56e96f8cb042a74b2fc5d35fbff3b5913cb6d8bec6710fe04",
   "schema": "oph.current_custody_renewal.v1",
   "scope": "Current source custody and conserved classifications, not a new mathematical audit of every component.",
   "validation_commands": [
