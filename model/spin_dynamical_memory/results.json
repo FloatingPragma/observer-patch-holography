@@ -20,6 +20,173 @@
     "unfiltered_scaled_energy_limsup_upper": "12000000",
     "vanishing_memory_inferred": false
   },
+  "bounded_response_closure": {
+    "actual_continuum_response_defect_proved_zero": false,
+    "actual_source_dispersion_identified": false,
+    "arbitrary_response_projection_implemented": false,
+    "bounded_resolvent_reducing_identity": "D=R*R",
+    "energy_moment_domain_required": false,
+    "general_positive_coefficient_control": {
+      "P_first_energy_coefficient_over_momentum_squared": "1/8",
+      "P_inverse_energy_moment": "1/96",
+      "P_norm_coefficient_over_momentum": "sqrt(6)/192 + sqrt(2)/64",
+      "Q_first_energy_moment": "3/2",
+      "Q_inverse_energy_coefficient_over_inverse_momentum_squared": "1/6",
+      "Q_norm_coefficient_over_inverse_momentum": "sqrt(2)/8 + sqrt(6)/8",
+      "actual_OPH_source_limit_claimed": false,
+      "bond_coefficient": "1/4",
+      "canonical_coefficient": "1/4",
+      "gradient_coefficients": [
+        "1/2",
+        "3/2"
+      ],
+      "hidden_Delta_coefficient": "-6",
+      "kinetic_coefficient": "12",
+      "source_coefficients_selected_by_this_control": false,
+      "sufficient_l1_cone_speed_squared": "54",
+      "two_speeds_squared": [
+        "6",
+        "18"
+      ],
+      "visible_Delta_coefficient": "12",
+      "within_stated_joint_source_parameter_range": true
+    },
+    "high_energy_control": [
+      {
+        "defect": "1/64",
+        "energy_scale": "1",
+        "escape_time": "pi/2",
+        "original_probability_outside_response": "1",
+        "resolution": "1",
+        "uniform_time_control_from_small_resolvent_defect": false
+      },
+      {
+        "defect": "100/116281",
+        "energy_scale": "10",
+        "escape_time": "pi/20",
+        "original_probability_outside_response": "1",
+        "resolution": "1",
+        "uniform_time_control_from_small_resolvent_defect": false
+      },
+      {
+        "defect": "10000/924220801",
+        "energy_scale": "100",
+        "escape_time": "pi/200",
+        "original_probability_outside_response": "1",
+        "resolution": "1",
+        "uniform_time_control_from_small_resolvent_defect": false
+      }
+    ],
+    "native_dimer": {
+      "complete_record_names": [
+        "preparation_failure",
+        "filter_failure",
+        "success"
+      ],
+      "complete_record_probabilities": [
+        "1/2",
+        "7999/48400",
+        "16201/48400"
+      ],
+      "continuum_Gram_projection_implemented": false,
+      "coupling": "1",
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "field": "3/8",
+      "finite_complete_instrument_specified": true,
+      "ground_energy": "-9/8",
+      "native_pulse_tape_executed": false,
+      "normalized_rank_one_defect": "5184/262472401",
+      "original_first_bounded_score": "171811/5324000",
+      "original_second_bounded_score": "1825921/585640000",
+      "original_success_energies": [
+        "9/8",
+        "5/4"
+      ],
+      "original_success_probability": "16201/48400",
+      "original_success_spectral_weights": [
+        "81/400",
+        "16/121"
+      ],
+      "physical_particle_mass": null,
+      "positive_clock": "K=H_B+9I/8",
+      "resolution": "1/8",
+      "sharp_local_Z_defect": "0",
+      "sharp_local_Z_positive_energy": "9/8",
+      "sites": 2,
+      "source_producer": "model.native_ordered_ground.source.matrix",
+      "source_spectrum": [
+        "-9/8",
+        "0",
+        "0",
+        "1/8"
+      ],
+      "two_component_response_defect": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "two_pair_internal_circle_control": {
+      "actual_OPH_source_limit_claimed": false,
+      "full_internal_U1_preserves_clock_and_vacuum": true,
+      "gradient_matrix": [
+        [
+          "1",
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          "1"
+        ]
+      ],
+      "hidden_force_coefficient": "-6",
+      "inherited_single_pair_control": {
+        "P_energy_over_momentum_ratio_defect": "7 - 4*sqrt(3)",
+        "P_first_energy_coefficient_over_momentum_squared": "1/8",
+        "P_inverse_energy_moment": "1/96",
+        "P_norm_coefficient_over_momentum": "sqrt(6)/192 + sqrt(2)/64",
+        "Q_first_energy_moment": "3/2",
+        "Q_inverse_energy_coefficient_over_inverse_momentum_squared": "1/6",
+        "Q_norm_coefficient_over_inverse_momentum": "sqrt(2)/8 + sqrt(6)/8",
+        "bond_coefficient": "1/4",
+        "canonical_commutator_coefficient": "1/4",
+        "gradient_coefficients": [
+          "1/2",
+          "3/2"
+        ],
+        "is_a_state_or_scaling_limit_of_the_OPH_spin_source": false,
+        "kinetic_coefficient": "12",
+        "nonzero_scattering": false,
+        "one_common_Lorentz_speed": false,
+        "order": "1/4",
+        "positive_energy_spatial_rotations_and_finite_cone": true,
+        "source_leading_first_moments_and_stated_bounds_satisfied": true,
+        "two_speeds_squared": [
+          "6",
+          "18"
+        ]
+      },
+      "projected_memory_proves_scattering": false,
+      "scalar_pure_direction_twist_Hessians": true,
+      "source_specific_force_estimate_replaced": false,
+      "two_speeds_squared": [
+        "6",
+        "18"
+      ],
+      "visible_regular_CCR_pairs": 2,
+      "visible_wave_equation": "d_t^2 Q=12 Delta Q-6 Delta X"
+    }
+  },
   "complete_coherent_charge_class_readout": {
     "complete_8_site_modulo_16_records": [
       {
@@ -565,10 +732,14 @@
   },
   "schema": "oph.spin_dynamical_memory.v1",
   "scope": {
+    "actual_continuum_response_reducing_defect_proved_zero": false,
     "all_256_finite_spectral_levels_retained": true,
+    "arbitrary_Gram_response_projection_implemented": false,
     "arbitrary_reference_complete_control_error_bound": true,
+    "bounded_resolvent_reducing_criterion_proved": true,
     "continuum_memory_numerically_evaluated": false,
     "declared_coherent_controller_interface_required": true,
+    "exact_native_dimer_complete_closure_controls": true,
     "exact_response_complement_memory_and_causal_equation": true,
     "finite_gap_identified_as_physical_particle_mass": false,
     "infinite_ground_preparation_effective_modulus": false,
@@ -578,9 +749,12 @@
     "sharp_mass_shell_Lorentz_covariance_or_scattering_proved": false,
     "source_ground_witness_and_complete_Hamiltonian_replayed": true,
     "strictly_positive_finite_noncentral_history": true,
-    "strictly_positive_finite_source_memory": true
+    "strictly_positive_finite_source_memory": true,
+    "two_pair_U1_twists_alone_identify_a_wave_equation": false
   },
   "source_bindings": {
+    "Lean/Dynamics/PrivateInner.lean": "05d3ef9300bb4e34ca25031d6c3bfb47b2dcbb065930354eb5a080e96f7f036f",
+    "Lean/Screen/FieldSectorEnergyInnerProduct.lean": "51615fd3ce49abecb74aeb02266c0504f8d5a09f05c624aa86f1f81a5e10bc3e",
     "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
     "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
@@ -861,19 +1035,24 @@
     "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
     "model/spin_dynamical_memory/CHARGE_READOUT.md": "e344419fb03631b062ea64ee4522a443e9c06d3b01b047d2095f595af7ec7825",
     "model/spin_dynamical_memory/PROOF.md": "61ab0dcd9429da4668d6f0fb200140ab3a3bf5fd9412e6894ecb02fc1521e0d0",
-    "model/spin_dynamical_memory/README.md": "21e3640d1fb73295bc3d62ddde389aec7e9b05625a395590bb4cbb95495523e6",
+    "model/spin_dynamical_memory/README.md": "81b39aca07d091e8c485471b765c4e4a42bfea00dd9f0ea699015d00d700dca2",
+    "model/spin_dynamical_memory/RESOLVENT_CLOSURE.md": "a8e5a975d1dd0656f0ac80c4964aa1227085cd06587549e1bb44189495d4796c",
     "model/spin_dynamical_memory/__init__.py": "eed35352bc86452f97893dcd981adc2c2d284d1e36c6191313c71f3dcd1515f7",
     "model/spin_dynamical_memory/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_dynamical_memory/algebra.py": "caf94e9f48bb35584c19536b1b0a0b81b3af862dbe5d9222fb0631b2df3d2d96",
     "model/spin_dynamical_memory/asymptotic.py": "90899f6afb1cc4bc782504f986e3580539d0ef57ee8ea2eb6e73723e11c4be18",
     "model/spin_dynamical_memory/charge_detector.py": "acb6eeff30f79424c8838d5b1d7f63804d4e61ccc8bae4b8b10722f52f0ea369",
     "model/spin_dynamical_memory/charge_memory.py": "e7999165e68b2c4e8d03682f8d4d5bb693be51630c1782c3bee9825567aeb311",
+    "model/spin_dynamical_memory/closure.py": "a7ca06c52e9773f04b2516fb69eee7718ba6815de14e6b866bb5d989a5370ae1",
     "model/spin_dynamical_memory/finite.py": "c304f2f5a05d8f3b73907826583af2171ac23ea91aea8905f56cf35d6e25e1c7",
-    "model/spin_dynamical_memory/packet.py": "179083b3a24589f6f2cf3bb70fbd28a24deb5b754e0853cfef5bb9a50748895a",
+    "model/spin_dynamical_memory/packet.py": "edf3d8add412cacf07652f9366c70fc6677c72e847ba3086e11ee9286b64d25d",
     "model/spin_dynamical_memory/test_charge_detector.py": "0785101430f38afd1d265c91577da5ad997ebe125caf6951113721610ab54e79",
-    "model/spin_dynamical_memory/test_memory.py": "0e706b41372c6cfe2c244f7436b5a26f7efd5a2ff6bf23459b8277b582818ac5",
+    "model/spin_dynamical_memory/test_closure.py": "07a9f9d03353cadab652bd8eb3deba3b0dd8ff77d60b7e501b2a85a2a721db98",
+    "model/spin_dynamical_memory/test_memory.py": "0db1abd22989878cf78fa9543fc73dc63f904ff7683186af52e607edbdef40b7",
     "model/spin_dynamical_memory/zero_field.py": "ef8713ef75747921e0cd753f68383d4d46fab3032e55997b14877b94d9a1541f",
     "model/spin_dynamical_memory/zero_field_witness.npz": "77c2ec0af0b05185bbca1021ac1718af3e2b53ab89ab2f9f75f7abffc9dbbfa3",
+    "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
+    "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
     "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
     "model/spin_relaxed_response/README.md": "82e902603fa1ab14893c5a9ca5a8cbb45da54ceef8404442442e302db7d0c51f",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",

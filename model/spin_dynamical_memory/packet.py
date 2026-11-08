@@ -7,7 +7,7 @@ import importlib.util
 import json
 from pathlib import Path
 from tools import strict_json
-from . import algebra, asymptotic, charge_detector, charge_memory, finite, zero_field
+from . import algebra, asymptotic, charge_detector, charge_memory, closure, finite, zero_field
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -21,7 +21,11 @@ PROOFS = ('model/spin_canonical_field/README.md',
           'model/native_spin_observer/README.md',
           'model/spin_operational_position/PROOF.md',
           'model/native_ordered_ground/README.md',
-          'model/protected_defect_catalog/PROOF.md')
+          'model/protected_defect_catalog/PROOF.md',
+          'model/spin_joint_field_limit/PROOF.md',
+          'model/spin_joint_field_limit/SECOND_PAIR.md',
+          'Lean/Dynamics/PrivateInner.lean',
+          'Lean/Screen/FieldSectorEnergyInnerProduct.lean')
 
 
 def encode(value):
@@ -95,11 +99,17 @@ def build():
             F(1, 4), F(28), F(1, 10**8), F(1, 10**8)),
         'actual_source_asymptotic_filter_bounds': asymptotic.source_filter_bounds(),
         'two_speed_local_field_implication_control': asymptotic.two_speed_control(),
+        'bounded_response_closure': closure.certificate(),
         'scope': {
             'source_ground_witness_and_complete_Hamiltonian_replayed': True,
             'all_256_finite_spectral_levels_retained': True,
             'exact_response_complement_memory_and_causal_equation': True,
             'strictly_positive_finite_source_memory': True,
+            'bounded_resolvent_reducing_criterion_proved': True,
+            'exact_native_dimer_complete_closure_controls': True,
+            'two_pair_U1_twists_alone_identify_a_wave_equation': False,
+            'actual_continuum_response_reducing_defect_proved_zero': False,
+            'arbitrary_Gram_response_projection_implemented': False,
             'strictly_positive_finite_noncentral_history': True,
             'arbitrary_reference_complete_control_error_bound': True,
             'same_bounded_history_filtered_continuum_memory_identification': True,

@@ -335,3 +335,23 @@ print(json.dumps(sorted(set(missing))))
     process = subprocess.run([sys.executable, '-W', 'error', '-c', script],
                              cwd=packet.ROOT, check=True, capture_output=True, text=True)
     assert json.loads(process.stdout) == []
+
+
+def test_response_closure_retains_original_scores_and_physical_boundaries(result, monkeypatch):
+    expected = copy.deepcopy(result)
+    monkeypatch.setattr(packet, 'build', lambda: expected)
+    native = result['bounded_response_closure']['native_dimer']
+    assert F(native['original_success_probability']) == F(16201, 48400)
+    assert F(native['normalized_rank_one_defect']) == F(5184, 262472401)
+    assert result['scope']['bounded_resolvent_reducing_criterion_proved'] is True
+    for field in ('two_pair_U1_twists_alone_identify_a_wave_equation',
+                  'actual_continuum_response_reducing_defect_proved_zero',
+                  'arbitrary_Gram_response_projection_implemented'):
+        changed = copy.deepcopy(result)
+        changed['scope'][field] = True
+        with pytest.raises(ValueError):
+            packet.validate(changed)
+    changed = copy.deepcopy(result)
+    changed['bounded_response_closure']['native_dimer']['complete_record_probabilities'].pop()
+    with pytest.raises(ValueError):
+        packet.validate(changed)

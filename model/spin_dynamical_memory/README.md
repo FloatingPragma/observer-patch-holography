@@ -12,6 +12,15 @@ and bounds aliases in the same continuum field.
 The [proof](PROOF.md) distinguishes these source results from Lorentz covariance
 and surviving continuum scattering, whose dynamical limits are unproved.
 
+A [bounded reducing defect](RESOLVENT_CLOSURE.md) tests whether a specified
+response space is preserved by the actual positive source clock. Exact dimer
+controls retain all preparation and filter outcomes and distinguish a
+nonreducing prepared vector from a reducing space with two energies. Two
+canonical pairs and an internal U1 do not determine the source wave equation:
+a local two-speed field control satisfies these inputs with a hidden force.
+The criterion does not certify a vanishing continuum defect or implement an
+arbitrary Gram projection as a detector.
+
 ```sh
 python -W error -m pytest -q model/spin_dynamical_memory
 python -W error -m model.spin_dynamical_memory --write
