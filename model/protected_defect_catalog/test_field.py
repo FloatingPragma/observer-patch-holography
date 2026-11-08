@@ -42,3 +42,32 @@ def test_uniform_probability_retains_normalization_cost():
 @pytest.mark.parametrize('args',[(0,1,1),(1,1,1),(F(1,4),0,1),(F(1,4),1,0)])
 def test_invalid_field_filter_domain(args):
     with pytest.raises(ValueError):field.preparation_bounds(*args)
+
+
+def test_configuration_rotation_and_charge_conjugation_on_source():
+    result=field.configuration_charge()
+    assert result['source_transverse_charge_orientation_checked']
+    assert result['source_combined_translation_rotation_checked']
+    assert not result['second_canonical_momentum_pair_attached']
+    assert not result['physical_antiparticle_or_Lorentz_spin_identified']
+
+
+def test_configuration_commutator_bound_on_independent_tensor_spins():
+    y=np.array([[0,-1j],[1j,0]])/2; z=np.diag([.5,-.5])
+    one=np.eye(2)
+    def site(a,x):
+        out=np.ones((1,1))
+        for j in range(4):out=np.kron(out,a if j==x else one)
+        return out
+    f=(F(1,2),F(-2,3),F(1,5),F(4,7))
+    g=(F(1,3),F(1,2),F(-3,2),F(1,7))
+    for p in (F(1,2),F(1,4),F(1,8)):
+        a=sum((float(p*p*f[x])*(-1)**x*site(y,x) for x in range(4)))
+        b=sum((float(p*p*g[x])*(-1)**x*site(z,x) for x in range(4)))
+        bound=field.configuration_commutator_bound(p,sum(abs(u*v) for u,v in zip(f,g)))
+        assert np.isclose(np.linalg.norm(a@b-b@a,2),float(bound),rtol=1e-13,atol=1e-17)
+
+
+@pytest.mark.parametrize('args',[(0,1),(-1,1),(1,-1)])
+def test_invalid_configuration_domain(args):
+    with pytest.raises(ValueError):field.configuration_commutator_bound(*args)

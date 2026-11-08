@@ -102,7 +102,7 @@ def operators():
                     for label in range(256))
     if (not np.array_equal(walsh.T @ walsh, 256*np.eye(256, dtype=np.int64))
             or not np.array_equal(twice_charge @ walsh, walsh*np.array(charges)[None, :]*2)):
-        raise ArithmeticError('complete X readout is not the charge spectral instrument')
+        raise ArithmeticError('complete X readout does not resolve the charge spectral effects')
     parity = np.eye(256, dtype=np.int64)[indices ^ 255]
     if not np.array_equal(parity @ walsh, walsh*np.array([1 if q % 2 == 0 else -1 for q in charges])[None, :]):
         raise ArithmeticError('global parity is not the charge-parity subgroup')
@@ -159,6 +159,10 @@ def report():
             'proposal_reference_outside_Q0_probability':str(sum(p for q,p in reference.items() if q)),
             'proposal_created_outside_Qplusminus1_probability':str(sum(p for q,p in created.items() if abs(q)!=1)),
             'complete_ideal_charge_instrument_constructed':True,
+            'coherent_creation_instrument':'A_q=Pi_(q epsilon_0 X_0) Z_0; two local pointer outcomes',
+            'coherent_creation_complete_effect_sum_is_identity':True,
+            'coherent_creation_native_parent':'model/defect_localization_readout/results.json',
+            'fine_X_outcome_grouping_is_coherent_charge_preparation':False,
             'full_native_256_record_charge_tape_executed':False,
             'native_pointer_composition_bound':'at most sum of the eight complete local-pointer channel errors; all failures retained',
             'two_charge_channels_claimed_as_two_physical_particles':False}

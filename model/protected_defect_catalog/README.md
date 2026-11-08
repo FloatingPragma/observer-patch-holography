@@ -6,15 +6,18 @@ prepared, protected and measured, together with its exact classification
 domain. The producer replays complete bare-source and ordered-cover charge
 classifications and exhausts all 65,536 Pauli-product charges of the selected
 spin cube. The same source also has an exact integer spin charge; a local
-creation has two nonzero charge-resolved outcomes with certified weights.
-The ideal complete charge instrument retains all 256 records. No Standard
-Model particle or physical mass is identified.
+creation followed by one native local pointer prepares two coherent charge
+channels with certified weights. A separate fine readout audits their total
+charge probabilities. No Standard Model particle or physical mass is identified.
 
 The same native parity acts on the reconstructed canonical field. Its odd
 Stone-field excitations have the inherited positive-energy spectrum. A
 complete odd/even bounded preparation has a uniformly nonzero probability
-in the source scaling, including its filter cost. A sharp particle shell
-and the full continuous charge action require further source estimates.
+in the source scaling, including its filter cost. The continuous internal
+charge acts on the transverse configuration-field subnet. Its conjugate
+charge excitations have equal nonzero energy-momentum measures on the same
+state and clock. A sharp particle shell and physical spin require further
+source estimates.
 
 The [proof](PROOF.md) gives the graph classification and the remaining
 source-to-particle requirements. A complete catalogue over unspecified source

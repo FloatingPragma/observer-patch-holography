@@ -51,3 +51,30 @@ def test_full_source_including_empty_and_doubly_occupied_sites():
     result = charge.full_source_charge()
     assert result['complete_all_seam_full_Fock_columns'] == 6976
     assert result['source_charge_pulled_through_spin_and_Marshall_maps']
+
+
+def test_local_two_outcome_instrument_prepares_coherent_charge_branches():
+    op=charge.operators(); identity=np.eye(256,dtype=np.int64)
+    total=sum((a.T@a for a in op['twice_creation'].values()), np.zeros_like(identity))
+    assert np.array_equal(total,4*identity)
+    x=identity[np.arange(256)^1]
+    basis=op['walsh']; charges=np.array(op['charges'])
+    p0=basis[:,charges==0]@basis[:,charges==0].T
+    for q, twice_a in op['twice_creation'].items():
+        assert np.array_equal(twice_a,(identity+q*op['signs'][0]*x)@op['local_Z'])
+        pq=basis[:,charges==q]@basis[:,charges==q].T
+        # Spectral projectors here have the shared exact denominator256.
+        assert np.array_equal(2*pq@op['local_Z']@p0,256*twice_a@p0)
+
+
+def test_fine_record_grouping_loses_within_charge_coherence():
+    op=charge.operators(); basis=op['walsh']/16
+    labels=[i for i,q in enumerate(op['charges']) if q==1]
+    v=(basis[:,labels[0]]+basis[:,labels[1]])/np.sqrt(2)
+    coherent=np.outer(v,v)
+    fine=(np.outer(basis[:,labels[0]],basis[:,labels[0]])
+          +np.outer(basis[:,labels[1]],basis[:,labels[1]]))/2
+    assert np.linalg.norm(coherent-fine) > .7
+    assert np.isclose(np.trace(coherent),np.trace(fine))
+    assert np.isclose(np.trace(coherent@coherent),1)
+    assert np.isclose(np.trace(fine@fine),.5)

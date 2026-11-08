@@ -122,23 +122,34 @@ A_- = (Z + i epsilon_0 Y)/2,
 
 The two created vectors have sharp charges +1 and -1 and are orthogonal.
 Their original probabilities are (1 minus/plus epsilon_0 <X_0>)/2. Both
-exceed 4/25 on the certified actual ground. A complete Q measurement after
-the unitary Z creation retains both outcomes and their original weights;
-normalizing a selected outcome requires its explicit herald probability.
-All other ideal charge outcomes have zero weight, and every such record
-is retained. Each nonzero channel is orthogonal to the ground and has energy
-at least the same finite ground gap. That bound is not a particle mass.
+exceed 4/25 on the certified actual ground. The local instrument
+
+```text
+A_q = Pi_(q epsilon_0 X_0) Z_0 = Z_0 Pi_(-q epsilon_0 X_0),
+sum_(q=+/-1) A_q^dagger A_q = I,
+```
+
+prepares these coherent branches. Apply Z_0 and then measure only X_0,
+retaining both outcomes and their original weights. This is the complete
+1,092-pulse created experiment in `defect_localization_readout/execution.py`,
+with its certified preparation and channel error. Normalizing a selected
+branch requires its explicit herald probability. Each nonzero ideal branch
+is orthogonal to the ground and has energy at least the same finite ground
+gap. That bound is not a particle mass.
 
 The numerical ground proposal is checked against the exact source. If its
 normalized vector error is e, its probability outside the exact Q=0 sector,
 or outside Q=+/-1 after Z, is at most e². The producer verifies these bounds
 with exact rational sums and encloses both nonzero creation probabilities.
-The ideal charge instrument is the joint measurement of eight commuting
-local X operators. Composing the declared complete native local-pointer
-channels gives error at most the sum of their eight channel errors, with
-all failures retained. This package does not execute that full native tape.
-The executed local-Z preparation and single-pointer experiment are the
-separately retained parent result.
+An independent charge-probability audit measures all eight commuting local
+X operators and groups their 256 fine records by total Q. It has the correct
+charge effects, including every zero-weight record. Its state update
+dephases within each charge sector: grouping fine records is not the
+coherent Lueders projection Pi_Q and does not prepare A_q Omega. Composing
+the declared complete native local-pointer channels gives error at most
+the sum of their eight channel errors, with all failures retained. This
+package does not execute that full fine-readout tape. The coherent local
+two-outcome preparation is the separately retained parent experiment.
 
 These are internal source spin charges. A physical electromagnetic charge,
 Lorentz spin, stable mass shell and Standard Model identity require the
@@ -166,9 +177,9 @@ in admitted annuli. Thus the conserved native parity has an actual odd
 field sector on the same state and clock. It is not merely an internal
 label assigned to a separately supplied free field. A sharp particle pole,
 Lorentz spin and a physical species do not follow from an invariant sector.
-This argument attaches Z2 only: the full U1 rotation mixes in the second
-transverse field pair, whose joint canonical limit has additional unresolved
-longitudinal-fluctuation estimates. That pair is not appended here.
+This parity acts on the full inherited canonical history net. The continuous
+charge has the configuration-subnet construction below; no second canonical
+pair is needed for that smaller algebra.
 
 There is a complete bounded preparation of an odd field vector with a
 uniformly positive original probability. Let F=G be a real unit-L2 annular
@@ -224,6 +235,106 @@ spectral projection with nonzero inherited Q weight proves that some
 rational-amplitude odd sine preparation has nonzero weight in that same
 positive-energy window. This supplies a source field excitation and a
 complete readout criterion, not its numerical mass or a single energy shell.
+
+## The continuous charge and conjugate configuration fields
+
+The symmetry-breaking selection fixes internal axis1 and preserves rotations
+about that axis. In the same zero-field ordered state, define
+
+```text
+Q3_p(F)=p^2 sum_x epsilon_x F(px) Sx^3,
+Q2_p(F)=p^2 sum_x epsilon_x F(px) Sx^2,
+P2_p(G)=-p sum_x G(px) Sx^2.
+```
+
+Q3 and P2 are the inherited canonical pair. Add the bounded exponentials
+of Q2 to the common history compactness construction. Rotation invariance
+gives Q2 precisely the same source variance and energy-kick bounds as Q3.
+At equal time,
+
+```text
+||[Q2_p(F),Q3_p(G)]|| <= (p^4/2) sum_x |F(px)G(px)| = O(p),
+[Q2_p(F),P2_p(G)]=0.
+```
+
+For bounded selfadjoint A,B the unitary Duhamel bound
+`||exp(i(A+B))-exp(iA)exp(iB)||<=||[A,B]||/2` therefore controls
+the linear combination of transverse configurations. The operator-norm
+commutator also controls their group reordering. The inherited energy-form
+transport proof propagates amplitude and test continuity through every
+finite time history, including the added Q2 factors. After a further common
+subsequence, Q2 and Q3 have strongly commuting equal-time unitary groups.
+Their joint spectral calculus is defined. This does not require a common
+domain for every unbounded field product. The original canonical history
+representation embeds without changing any of its correlation functions.
+
+Take the closed subspace generated from Omega by time histories of these
+two configuration groups. It is reducing for the actual positive scaled
+generator L and continuum spatial translations. The finite source rotation
+alpha_theta, induced by `exp(i theta sum_x Sx^1)`, acts as
+
+```text
+alpha_theta(Q3)=cos(theta) Q3+sin(theta) Q2,
+alpha_theta(Q2)=cos(theta) Q2-sin(theta) Q3.
+```
+
+The O(p) product bound passes this action to the limiting configuration
+histories. Source-state invariance preserves their Gram inner products,
+so `R_theta A Omega=alpha_theta(A) Omega` defines a unitary on this subspace.
+Test continuity makes R strongly continuous in theta, and the exact source
+group law gives R_(theta+phi)=R_theta R_phi and R_(2pi)=I. It fixes Omega
+and commutes with L and continuum translations. This proves U1 covariance
+of the configuration subnet. It does not assert U1 covariance of the entire
+original Q3,P2 history net: rotating P2 introduces the additional uniform
+momentum whose joint commutator requires a separate fluctuation estimate.
+
+The actual configuration Stone vectors in this common representation obey
+
+```text
+Phi_+(F)Omega=(Q3(F)-i Q2(F))Omega,   R_theta Phi_+Omega=e^(i theta) Phi_+Omega,
+Phi_-(F)Omega=(Q3(F)+i Q2(F))Omega,   R_theta Phi_-Omega=e^(-i theta) Phi_-Omega.
+```
+
+Their domains on Omega follow from the source second moments and the
+inherited weak-differentiation proof. They carry charges +1 and -1 of the
+same total internal spin symmetry as the local A_+ and A_- source channels.
+This connects the source charge to field excitations, without identifying
+the finite selected-cube state with an infinite-volume pole state.
+
+There is also a source-induced charge conjugation. For a one-cell odd
+translation e, the state-preserving automorphism beta_e=tau_e gamma2 combines
+translation with the pi rotation about internal axis2. It sends Q2_p(F) to
+-Q2_p(F shifted by pe) and Q3_p(F) to Q3_p(F shifted by pe). Test continuity
+removes the vanishing envelope shift. On the configuration history subspace
+the resulting unitary C satisfies
+
+```text
+C Omega=Omega,  C^2=I,  C R_theta C=R_(-theta),
+C Q2 C=-Q2,    C Q3 C=Q3,    C Phi_+ Omega=Phi_- Omega.
+```
+
+It commutes with L and the continuum translations. C^2 follows from the
+finite beta_e^2=tau_(2e) and the same vanishing-shift bound. It is an internal
+charge conjugation of this limiting subnet, not a reversal of continuum
+spatial momentum or of time.
+
+Let mu_v be the joint positive-energy and momentum spectral measure of v.
+The pi/2 rotation gives mu_(Q2 Omega)=mu_(Q3 Omega). Conjugation C makes the
+mixed spectral measure between Q2 Omega and Q3 Omega zero. Consequently
+
+```text
+mu_(Phi_+ Omega) = mu_(Phi_- Omega) = 2 mu_(Q3 Omega).
+```
+
+Both charged vectors are nonzero, have no zero-energy atom, and inherit the
+positive annulus weights and gapless accumulation proved for Q3 in
+`spin_canonical_energy/README.md`. For a unit-L2 test supported in
+`r/2<=|k|<=r`, each charged vector has weight at least `m0^2/r` in
+`m0^2*r/16<=E<=12*r/m0^2`. These are equal spectral measures with explicit
+nonzero bounds. They do not assert a sharp relativistic dispersion, Lorentz
+spin, a scattering pole or a physical particle-antiparticle identification.
+The source's broken internal symmetry supplies these collective charged
+excitations; no winding number is assigned to them.
 
 ## Catalogue semantics and the particle join
 

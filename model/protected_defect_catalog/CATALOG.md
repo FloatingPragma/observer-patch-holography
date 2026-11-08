@@ -45,7 +45,7 @@ Completeness applies only to the explicit domains in the table; there is no exha
 
 **Source:** actual eight-site selected spin cube, J=1, B=1/4; inherited two-flavor repair.
 
-**Preparation and readout:** complete native local-Z programs and ideal 256-outcome X-basis charge instrument; full native charge tape not executed.
+**Preparation and readout:** complete native local-Z followed by one X pointer prepares coherent Q=+/-1 branches; separate ideal 256-outcome X audit resolves charge weights and dephases within sectors.
 
 **Propagation and energy:** positive finite same-H_B energy; contrast bound through ten repairs for T<=1/16 under the stated source scaling.
 
