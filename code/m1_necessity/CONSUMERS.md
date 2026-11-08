@@ -10,7 +10,7 @@ silently shortened list. The dispositions concern the named results below;
 several registry rows collect much broader mixed-scope conclusions.
 
 The audit also closes the registered dependency graph forward from these
-eight claims: 150 downstream rows, including the eight direct consumers, are
+eight claims: 151 downstream rows, including the eight direct consumers, are
 enumerated in `downstream.json`. The receipt retains each row's exact
 assumptions, original full-row hash and every internal dependency edge with
 its stated role. A missing row or newly reachable claim fails verification.
@@ -95,3 +95,13 @@ and diagonal refinements neither inherit the dense M1 read law nor discharge
 universal Born premises, a growing field family or physical particle
 identification. The receipt preserves that claim's own assumptions and the
 role of its coherent-service dependency.
+
+The bounded coexistent-measurement menu is a contextual descendant of both
+finite effect coverage and rank-one synthesis. It retains the declared
+weighted H66 code, nine-bit coherent services, complete source export and
+Kraus semantics. Its sequential weak filters include their disturbance,
+processor failures and padding aborts, with a complete error bound conditional
+on every emitted primitive passing its certificate. This dependency does not
+transfer the dense M1 read law, universal Born premises, a growing coherent
+field family or a physical particle identification. Both dependency roles
+and the menu's own assumption are retained in the receipt.

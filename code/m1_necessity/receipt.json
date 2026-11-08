@@ -1809,6 +1809,13 @@
         "disposition": "existing_contract_retained_without_automatic_transfer",
         "original_claim_sha256": "3dc5cd2fe8b9123920c8839a1374c6282a0f8e19efe12b81a41f823dab2b228d"
       },
+      "OPH-NATIVE-COEXISTENT-EFFECTS": {
+        "assumptions": [
+          "declared_native_bounded_coexistent_measurement_menus"
+        ],
+        "disposition": "existing_contract_retained_without_automatic_transfer",
+        "original_claim_sha256": "1189630684d057134d2bb1311776ee732e9e2e38c62781aac482b824b225db5e"
+      },
       "OPH-NATIVE-CONDITIONAL-STORED-PROGRAM": {
         "assumptions": [
           "declared_native_stored_program_banks_and_global_error_budget"
@@ -3065,8 +3072,18 @@
       },
       {
         "from": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+        "role": "supplies the declared source-code and coherent-service semantics; its destructive E-tree readout is not inserted between the weak-filter stages, and universal Born premises are not transferred",
+        "to": "OPH-NATIVE-COEXISTENT-EFFECTS"
+      },
+      {
+        "from": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
         "role": "supplies the existing eleven-repair detector and separately declared coherent-service framework; finite positive-menu exclusion is limited to that menu and universal Born premises are not transferred",
         "to": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS"
+      },
+      {
+        "from": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+        "role": "supplies the native amplitude-tree and diagonal-phase words, exact angle intervals and per-emitted-primitive checks; the sequential update and common menu are proved separately",
+        "to": "OPH-NATIVE-COEXISTENT-EFFECTS"
       },
       {
         "from": "OPH-QFT-EFFECTIVE-QUANTUM-COMPARISON",
@@ -4035,10 +4052,10 @@
     "Lean/Geometry/M1Necessity.lean": "2b282b25fe3f82153d2780366b36e6eea8cd4f7685d0e08a9ebd15355062ff98",
     "Lean/Geometry/M1NecessityAxiomAudit.lean": "41f1652a454b94dde7f3a198b4c45badba075a54d13f4ed5a23ac533c3c4f677",
     "code/m1_necessity/BALANCED_REPLACEMENT.md": "166af4d120d3dae4f3d077d1160434d4650d7dc5cc7c48d56c8f7f1defb95fce",
-    "code/m1_necessity/CONSUMERS.md": "ee07bcf4932cc14d6a11129ba16be72414b3cbc9756c4a0af2a79c353edd61ed",
+    "code/m1_necessity/CONSUMERS.md": "9eee1f1f754edc13d9da4a1eaf0804d01b4ab4fb4d2151271d14bb489b3362c7",
     "code/m1_necessity/CONTRACT.md": "f3186f4911ea004fcad0058dbc0a526d359c623d42bdb4bf279fc6dd43ea1670",
     "code/m1_necessity/DERIVATION.md": "13754829bb642c0e48c4ae8cfb8f69d56baa8de90c36dfcb18ae0ff0a8dcca9c",
-    "code/m1_necessity/README.md": "ffe9eaf010526f65752f9549113a1f72dacb2889c9848391d3417fb56152525f",
+    "code/m1_necessity/README.md": "e19c6c1fc95354bec25d402bd10ecfb837ba5900d8068a71ded4c6896e80b90e",
     "code/m1_necessity/SPECTRAL_COMPLETION.md": "1e633dcbe37a26401ef7c81c158f47d164b5ffb03ae6631da4e42b431ea19f54",
     "code/m1_necessity/__init__.py": "a49a6656f96a30bd6343e498a0ca5302dae30515d4cf458d45c172933a0247ac",
     "code/m1_necessity/audit.py": "d6a0df2ca2ab885fa8cb7c527f3a74ac17b748847524f4cec7d8df7a049a50c0",
@@ -4047,9 +4064,9 @@
     "code/m1_necessity/build.py": "02da13ead4ae1dda4bbce10d2d54fd3868e11a9c772675df85fedb8f85af9bd6",
     "code/m1_necessity/check.py": "5b32a5391dbbdd4f2ea428b8913ff0f7359234757eaa675f85d40e49a42d26e3",
     "code/m1_necessity/consumers.json": "388204f13cda0b8fbe804ef544cdaf7092a2dbc64e90f5849ba4fc3ed7569996",
-    "code/m1_necessity/downstream.json": "2aed3dad91a81d59788f9fedc0f3e388f9b17e7c5ac0018f3ea646b4a5ba9c3b",
+    "code/m1_necessity/downstream.json": "e4a306828acc6bacbc01d5c24c8a28e4d83a09a0bc1cea497d63ee6765ba810a",
     "code/m1_necessity/model.py": "8193f1ebd30f00ee4ba5616839899b2dac86e6ee9ca2f3dfd71fe2022f65cb89",
-    "code/m1_necessity/test_necessity.py": "b7405d67f02a8f54c5ed8b433402e271b4d94f0b7ae2a73d31870f193ac3b08d",
+    "code/m1_necessity/test_necessity.py": "6b8be391b4212aecd8820c030bc4bfbb7f47197e93a765a233155d9ab70e422b",
     "code/m1_necessity/verify.py": "b49005bbb65ceee876ba76dd3242dcc7e6729bcc35c1e54a1050b5832ddff3f0",
     "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex": "7407e8a7e107ecbc444f5e1354cd648767213e00cfb9269b9365917a4f2988a0",
     "paper/tex_fragments/M1_NECESSITY.tex": "b153dca6015888c4db7968b4610f933b05e058b4198b36664e91171bb6c7f2c2",

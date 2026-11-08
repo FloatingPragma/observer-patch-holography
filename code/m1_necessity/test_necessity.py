@@ -27,7 +27,7 @@ def test_complete_reference_execution_and_counts(packet):
     assert {k:actual[k] for k in ('routes','route_steps','executed_events','executed_reads','consumer_claims')} == {
         "routes":298,"route_steps":2215,"executed_events":149760,"executed_reads":13479912,"consumer_claims":8}
     assert actual['balanced_routes']==161 and actual['balanced_steps']>0
-    assert actual['downstream_claims']==150
+    assert actual['downstream_claims']==151
 
 
 
@@ -64,6 +64,29 @@ def test_native_finite_effect_coverage_retains_its_declared_service_contract():
     assert claim['premise_dependencies']['classification'] == 'explicit_non_consumer'
     assert claim['premise_dependencies']['consumed'] == []
     assert claim['gates'] == []
+
+
+def test_native_coexistent_menu_retains_its_scoped_service_dependencies():
+    downstream = audit.downstream_audit()
+    name = 'OPH-NATIVE-COEXISTENT-EFFECTS'
+    row = downstream['claims'][name]
+    assert row['assumptions'] == ['declared_native_bounded_coexistent_measurement_menus']
+    assert row['disposition'] == 'existing_contract_retained_without_automatic_transfer'
+    assert not (set(row['assumptions']) & audit.KEYS)
+    assert [edge for edge in downstream['links'] if edge['to'] == name] == [
+        {'from': 'OPH-NATIVE-FINITE-EFFECT-COVERAGE', 'to': name,
+         'role': 'supplies the declared source-code and coherent-service semantics; its destructive E-tree readout is not inserted between the weak-filter stages, and universal Born premises are not transferred'},
+        {'from': 'OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS', 'to': name,
+         'role': 'supplies the native amplitude-tree and diagonal-phase words, exact angle intervals and per-emitted-primitive checks; the sequential update and common menu are proved separately'}]
+    registry = check.strict_load(ROOT/'claims/claim_registry.yaml')
+    claim = next(item for item in registry['claims'] if item['claim_id'] == name)
+    assert claim['premise_dependencies']['classification'] == 'explicit_non_consumer'
+    assert claim['premise_dependencies']['consumed'] == []
+    assert claim['gates'] == []
+    graph = check.strict_load(ROOT/'claims/dependency_graph.json')
+    graph['edges'] = [edge for edge in graph['edges'] if edge['to'] != name]
+    with pytest.raises(ValueError, match='coverage'):
+        audit.downstream_audit(registry=registry, graph=graph)
 
 
 def test_dark_source_context_does_not_transfer_dense_m1_or_physical_admission():

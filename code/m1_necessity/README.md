@@ -120,7 +120,7 @@ The proved limit is sqrt(2); these finite values illustrate it rather than
 establish it. The slow approach also warns against inferring isotropy from
 only the smallest graphs.
 
-The eight direct consumer rows and all 150 claims in their registered
+The eight direct consumer rows and all 151 claims in their registered
 dependency closure are bound by full-row hashes; the receipt also retains
 their exact assumptions and edge roles. A new consumer,
 an omitted intervention, altered source, substituted stencil, forged count,
