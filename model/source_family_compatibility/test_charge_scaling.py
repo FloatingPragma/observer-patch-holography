@@ -169,3 +169,35 @@ def test_charge_clock_shift_preserves_at_least_one_escaping_branch(mu):
                   if F(0)<=energy<=4),F())
     assert original>0
     assert retained<=original
+
+
+@pytest.mark.parametrize('n',[3,4,8])
+def test_homogeneous_full_ground_and_original_measure_pushforward(n):
+    row=s.homogeneous_dimer(n)
+    assert row['positive_clock_factor']==3
+    assert row['lambda']==F(n*n-4,2*n)
+    assert row['same_complete_ground_projector'] and row['same_original_charge_weights']
+    assert row['charge_energy_pushforward_checked'] and row['residual_Gram_scales_quadratically']
+    assert not row['graph_or_ground_subsequence_changed']
+    assert not row['fixed_ratio_volume_uniform_gap_inferred']
+    first=s.dimer(n,F(1,2));second=s.dimer(n,F(3,2))
+    a=first['complete_local_charge_records']['addition']
+    b=second['complete_local_charge_records']['addition']
+    endpoint=(a['energy_atoms'][0]+a['energy_atoms'][1])/2
+    probability=lambda branch,cutoff:sum((weight for energy,weight in
+       zip(branch['energy_atoms'],branch['original_probabilities'],strict=True)if energy<=cutoff),F())
+    assert 0<probability(a,endpoint)<F(1,2)
+    assert probability(a,endpoint)==probability(b,3*endpoint)
+
+
+def test_changing_dimensionless_ratio_does_not_preserve_ground_weights():
+    first=s.dimer(3);second=s.dimer(4)
+    assert first['U']/first['c']!=second['U']/second['c']
+    assert first['complete_local_charge_records']['addition']['original_probabilities']!=second['complete_local_charge_records']['addition']['original_probabilities']
+
+
+def test_homogeneous_comparison_uses_unbounded_exact_cross_products():
+    row=s.homogeneous_dimer(3,F(1,10**20),F(3,2))
+    assert row['positive_clock_factor']==3*10**20//2
+    assert row['same_complete_ground_projector']
+    assert row['charge_energy_pushforward_checked']

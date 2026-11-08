@@ -153,6 +153,36 @@ def dimer(n,scale=F(1,2)):
             'hard_gap_inferred_from_bound':False,'physical_particle_assignment':None}
 
 
+
+def homogeneous_dimer(n,first_scale=F(1,2),second_scale=F(3,2)):
+    """Exact fixed-ratio source scaling, including its full ground projector."""
+    first=dimer(n,F(first_scale));second=dimer(n,F(second_scale))
+    factor=F(second_scale)/F(first_scale)
+    sources=[composite.source((2,1,1),row['c'],row['U'])for row in(first,second)]
+    one,two=sources
+    if np.any(factor.denominator*two['H'].astype(object)*one['scale']
+              -factor.numerator*one['H'].astype(object)*two['scale']):
+        raise ArithmeticError('full centered source fails homogeneous scaling')
+    grounds=[composite.ground(data,row['ground_energy'])for data,row in zip(sources,(first,second),strict=True)]
+    g1,g2=grounds
+    if np.any(g1[0].astype(object)*g2[1]-g2[0].astype(object)*g1[1])or g1[2]!=g2[2]:
+        raise ArithmeticError('homogeneous source scaling changed the full ground projector')
+    for charge in ('addition','removal'):
+        a=first['complete_local_charge_records'][charge];b=second['complete_local_charge_records'][charge]
+        if b['original_probabilities']!=a['original_probabilities']:
+            raise ArithmeticError('homogeneous source scaling changed original response weights')
+        if b['energy_atoms']!=tuple(factor*energy for energy in a['energy_atoms']):
+            raise ArithmeticError('original charge energies fail the exact pushforward')
+    if second['exact_residual_Gram_norm_upper']!=factor**2*first['exact_residual_Gram_norm_upper']:
+        raise ArithmeticError('source response residual has the wrong homogeneous degree')
+    return {'n':n,'lambda':first['U']/first['c'],'positive_clock_factor':factor,
+            'first_c':first['c'],'second_c':second['c'],
+            'same_complete_ground_projector':True,'same_original_charge_weights':True,
+            'charge_energy_pushforward_checked':True,'residual_Gram_scales_quadratically':True,
+            'graph_or_ground_subsequence_changed':False,
+            'fixed_ratio_volume_uniform_gap_inferred':False}
+
+
 def certificate():
     ballistic=[dimer(n)for n in (3,4,8)]
     atomic=[dimer(n,F(1,n*n-4))for n in (3,4,8)]
@@ -168,6 +198,7 @@ def certificate():
         raise ArithmeticError('ballistic strong-contact fixed-window bound fails to decrease')
     return {'source':'same centered full invariant ground and original CAR probes',
             'volume_uniform':True,'requires_total_edge_norm_projection':False,
+            'homogeneous_source_controls':[homogeneous_dimer(n)for n in(3,4,8)],
             'ballistic_strong_contact_controls':ballistic,'atomic_controls':atomic,
             'degree_six_uniform_bounds':family,
             'fixed_cell_contact_bounds':[cell_contact_budget(F(1,n),1,1,6,1)for n in (32,64,128)],

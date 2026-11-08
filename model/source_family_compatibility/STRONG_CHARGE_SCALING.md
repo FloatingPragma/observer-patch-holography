@@ -187,6 +187,47 @@ selected centered ground and physical clock. This excludes that specific
 trajectory; it does not exclude a critical finite U/c trajectory, a
 renormalized different observable, or a source-even collective sector.
 
+## Exact dependence on the dimensionless source ratio
+
+At any fixed graph and link convention the full centered action is
+homogeneous:
+
+    K_Lambda(c,U)=c K_Lambda(1,lambda), lambda=U/c>0.   (11)
+
+Multiplication by positive c preserves the complete ground eigenspace
+and its normalized projector. It multiplies the ground energy, positive
+excitation clock, and every source response energy by c. The original
+CAR probes and all their preparation weights are unchanged. In particular,
+for either original charge response and every Borel energy set I,
+
+    mu_(c,U),Lambda,f(I)=mu_(1,lambda),Lambda,f(I/c).   (12)
+
+This is the exact source spectral pushforward, without a perturbative
+approximation. At fixed lambda the tracial exterior, translation averages
+and a common thermodynamic subsequence preserve the same state. Different
+subsequence selections cannot be equated using (11) alone. If lambda
+varies, (11) compares each ground to its own unit-hopping source.
+
+For ballistic c=v/a, a retained original probability in a fixed physical
+energy window [0,E] is precisely the unit-hopping source probability in
+[0,aE/v], using the same graph and smearing. A finite nonzero-energy
+branch therefore requires dimensionless response energies of order a
+with nonvanishing original weight under the chosen volume/state family.
+A fixed finite graph with a positive charged gap does not have that
+limit. On the particular default cube, the inherited charged gap exceeds
+1/8 at c=1/8,U=1; hence the unit-hopping lambda=8 charged gap exceeds1.
+Homogeneous scaling of this fixed cube sends those energies above c.
+
+A growing source can have a different infrared response. Equations
+(11)-(12) supply no volume-uniform gap at fixed lambda, and permit gapless
+collective sectors. They identify the quantity that a growing-capacity
+calculation must control: its original dimensionless spectral measure
+on the shrinking interval [0,aE/v], together with operational spatial
+momentum for a dispersion claim. Merely multiplying the action, or
+retaining the finite default-cube response, does not construct that limit.
+The exact dimer two-scale check verifies (11)-(12), including its complete
+ground projector and unchanged original charge weights.
+
 ## Complete finite-source checks
 
 For integers n>=3 and any rational scale r>0, take the actual full dimer
