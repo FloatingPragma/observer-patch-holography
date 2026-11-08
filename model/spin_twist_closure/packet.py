@@ -8,7 +8,7 @@ from fractions import Fraction as F
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra, bounds, readout
+from . import algebra, bounds, polarization, readout
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -25,6 +25,7 @@ PARENTS = ('model/protected_spin_limit/README.md',
            'model/spin_canonical_energy/results.json',
            'model/spin_shell_diagnostic/README.md',
            'model/spin_current_spectrum/README.md',
+           'model/spin_energy_polarization/PROOF.md',
            'model/native_spin_observer/README.md',
            'model/spin_operational_position/PROOF.md',
            'model/spin_operational_position/generic.py',
@@ -81,6 +82,10 @@ def build():
         'actual_source_force':algebra.source_force_certificate(),
         'actual_source_reset_identity':algebra.reset_energy_certificate(),
         'scalar_total_energy_controls':[bounds.ground_energy_cube(n) for n in (4,16,64,256)],
+        'vanishing_scalar_polarization_residual':polarization.exact_checks(),
+        'actual_product_state_residual_countercontrol':polarization.product_source_control(),
+        'scalar_residual_history_bounds':[polarization.compact_bounds(F(1,n),1,1,1)
+                                          for n in (16,256,4096)],
         'hidden_force_control':algebra.hidden_force_control(),
         'compact_test_controls':[bounds.compact_twist(F(1,n),1,1,axis)
                                  for n in (4,16,64) for axis in ('P','Q')],
@@ -95,6 +100,8 @@ def build():
             'coefficient_phase_transport_through_finite_time_histories':True,
             'coefficient_phases_can_be_adjoined_as_central_source_variables':True,
             'aggregate_bond_energy_limit_is_scalar_without_ergodicity':True,
+            'Q_energy_polarization_residual_vanishes_on_actual_finite_histories':True,
+            'separate_unbounded_boost_generator_or_commutator_limits_proved':False,
             'selected_state_all_bond_limits_proved_scalar':False,
             'original_minimal_field_space_proved_to_reduce_added_coefficients':False,
             'original_equal_time_canonical_algebra_proved_dynamically_closed':False,

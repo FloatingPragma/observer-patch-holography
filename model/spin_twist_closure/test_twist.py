@@ -9,7 +9,7 @@ import pytest
 import sympy as s
 from scipy.linalg import expm
 
-from . import algebra, bounds, packet, readout
+from . import algebra, bounds, packet, polarization, readout
 
 
 def test_exact_spin_algebra_and_actual_source_frame():
@@ -146,6 +146,26 @@ def test_zero_coefficient_has_complete_identity_readout():
         assert row['complete_fine_records'] == [{'record':'identity','score':'0'}]
         assert row['independent_repetitions_for_Chebyshev_bound'] == 0
         assert not row['native_coherent_control_and_local_Pauli_pointer_services_required']
+
+
+def test_actual_scalar_polarization_remainder_has_zero_ergodic_weight():
+    row = polarization.exact_checks()
+    assert row['gamma_axis2_pi_reverses_transverse_axis3_current']
+    assert row['compact_test_derivative_integral'] == 0
+    assert all(item['exact_weighted_difference_quotient_sum'] == '0'
+               for item in row['exact_mesh_zero_sum_controls'])
+    bound = polarization.compact_bounds(F(1,4096),1,1,1)
+    assert bound['current_coefficient_maximum'] == F(1,2*4096**3)
+    assert bound['difference_quotient_to_derivative_operator_error'] == F(27,4*4096)
+    assert not bound['effective_ground_vector_convergence_modulus']
+
+
+def test_actual_product_input_excludes_operator_norm_residual_limit():
+    row = polarization.product_source_control()
+    assert F(row['residual_expectation_limit']) == F(16384,99225)
+    assert all(F(item['exact_actual_source_product_expectation']) > F(1,10)
+               for item in row['exact_mesh_controls'])
+    assert not row['source_residual_converges_in_operator_norm']
 
 
 @pytest.mark.parametrize('args',[(0,1,1,'P'),(F(1,2),0,1,'P'),(F(1,2),1,-1,'Q'),(1,1,1,'X')])

@@ -16,6 +16,13 @@ explicit surface-to-volume fluctuation bound and finite-box energy bracket.
 Exact source force checks and a positive two-oscillator control distinguish
 quadratic control response from a single-frequency dynamical law.
 
+The [scalar polarization limit](POLARIZATION_LIMIT.md) removes the actual
+extra directional current in the Q-field commutator. Its weighted test
+is a discrete derivative with zero integral, which kills the entire
+mean-ergodic current component. The source energy bound transports this
+vanishing through every fixed finite time history. Separate boost and
+unbounded-generator limits are not inferred.
+
 The source action, state and clock are unchanged. No measured masses,
 dispersion fit or independent Gaussian vacuum is supplied.
 

@@ -1,4 +1,29 @@
 {
+  "actual_product_state_residual_countercontrol": {
+    "exact_mesh_controls": [
+      {
+        "divisions": 4,
+        "exact_actual_source_product_expectation": "329567368896225/2251799813685248"
+      },
+      {
+        "divisions": 8,
+        "exact_actual_source_product_expectation": "6047641971444285176353/37778931862957161709568"
+      },
+      {
+        "divisions": 16,
+        "exact_actual_source_product_expectation": "103844178325593720841489915681/633825300114114700748351602688"
+      },
+      {
+        "divisions": 32,
+        "exact_actual_source_product_expectation": "1752429203666888084828387915424510753/10633823966279326983230456482242756608"
+      }
+    ],
+    "input": "product spin directions (epsilon_x,sign(x_i),0)/sqrt(2)",
+    "input_is_the_selected_ground_or_bounded_low_energy_history": false,
+    "residual_expectation_limit": "16384/99225",
+    "same_spin_source_and_same_current_operator": true,
+    "source_residual_converges_in_operator_norm": false
+  },
   "actual_source_force": {
     "actual_three_site_path": [
       [
@@ -361,6 +386,53 @@
     "scaled_third_order_remainder": "sum_edges |delta|^3/(12p)",
     "source_bond": "S_x dot S_y - 1/4"
   },
+  "scalar_residual_history_bounds": [
+    {
+      "current_coefficient_l1_upper": "27",
+      "current_coefficient_maximum": "1/8192",
+      "difference_quotient_to_derivative_operator_error": "27/64",
+      "effective_ground_vector_convergence_modulus": false,
+      "residual_operator_norm_upper": "27/2",
+      "source_history_phase_transport": {
+        "initial_energy_over_Jp_upper": "1",
+        "phase_transport_squared_norm_upper": "4",
+        "scaled_time": "1",
+        "square_root_majorant": "74",
+        "uncapped_squared_norm_upper": "15733/256"
+      },
+      "strong_zero_mean_ergodic_limit_proved": true
+    },
+    {
+      "current_coefficient_l1_upper": "27",
+      "current_coefficient_maximum": "1/33554432",
+      "difference_quotient_to_derivative_operator_error": "27/1024",
+      "effective_ground_vector_convergence_modulus": false,
+      "residual_operator_norm_upper": "27/2",
+      "source_history_phase_transport": {
+        "initial_energy_over_Jp_upper": "1",
+        "phase_transport_squared_norm_upper": "51253/65536",
+        "scaled_time": "1",
+        "square_root_majorant": "74",
+        "uncapped_squared_norm_upper": "51253/65536"
+      },
+      "strong_zero_mean_ergodic_limit_proved": true
+    },
+    {
+      "current_coefficient_l1_upper": "27",
+      "current_coefficient_maximum": "1/137438953472",
+      "difference_quotient_to_derivative_operator_error": "27/16384",
+      "effective_ground_vector_convergence_modulus": false,
+      "residual_operator_norm_upper": "27/2",
+      "source_history_phase_transport": {
+        "initial_energy_over_Jp_upper": "1",
+        "phase_transport_squared_norm_upper": "619573/16777216",
+        "scaled_time": "1",
+        "square_root_majorant": "74",
+        "uncapped_squared_norm_upper": "619573/16777216"
+      },
+      "strong_zero_mean_ergodic_limit_proved": true
+    }
+  ],
   "scalar_total_energy_controls": [
     {
       "crossing_edges": 96,
@@ -414,6 +486,7 @@
   "schema": "oph.spin_twist_closure.v1",
   "scope": {
     "Q_and_P_single_direction_BCH_remainder_vanishes_in_operator_norm": true,
+    "Q_energy_polarization_residual_vanishes_on_actual_finite_histories": true,
     "actual_bond_coefficients_have_complete_finite_score_instruments": true,
     "actual_filtered_force_proved_to_vanish": false,
     "aggregate_bond_energy_limit_is_scalar_without_ergodicity": true,
@@ -425,6 +498,7 @@
     "physical_particle_assignment": null,
     "same_ordered_spin_source_state_and_clock": true,
     "selected_state_all_bond_limits_proved_scalar": false,
+    "separate_unbounded_boost_generator_or_commutator_limits_proved": false,
     "sharp_dispersion_or_Lorentz_covariance_proved": false
   },
   "source_bindings": {
@@ -692,28 +766,99 @@
     "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
     "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
+    "model/spin_canonical_energy/__init__.py": "8570d911006ff29d1febaab74e1aa1ff3400ab2859f318f6f381ff4f5d980e3c",
+    "model/spin_canonical_energy/algebra.py": "8d2dd09cdb54665a85d230a4f792fea7a7ce13389bc2f770c424ee6ba890dd11",
     "model/spin_canonical_energy/results.json": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
     "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
     "model/spin_canonical_field/results.json": "842a0516bfce2f06faef4cddd88aa3d3cf15094b8f637af58a07445d2e2e86e3",
     "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_energy_polarization/PROOF.md": "dad66bd860a2f1f4321c49f5e2baa708bcee4f7f67c3fa04a2fb2208a1f53d32",
+    "model/spin_energy_polarization/__init__.py": "ea304431d444ab898c8799a000c391fdc7db7507cd6df67325463b576a9c33bb",
+    "model/spin_energy_polarization/algebra.py": "124027dccf8c1c972aefbdbaa517713e63cf3ea1f87bee7838e8da4a94e6f138",
+    "model/spin_energy_polarization/samples.py": "d6b3945f787e9106302834896a7e38cad40a5a31ebb952130d1a8d9192ee8b84",
     "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
     "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
     "model/spin_operational_position/__init__.py": "6ade1e4638d5a010428b0e7ab7dcca167ac930503005f645f74a9ba32cb8bf7f",
     "model/spin_operational_position/generic.py": "14564c31509eb1abcda9fe7dc06cab90ab2bdcc7aa92b994602f36812dbe3e80",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
+    "model/spin_twist_closure/POLARIZATION_LIMIT.md": "dbed2375156228dc0f3f9d52ed28da53e04df7c90cc2255c68fe99bb0203a823",
     "model/spin_twist_closure/PROOF.md": "a7ab3fbea7ba7e3634bd04b545398cb7615943f1a06cc65c9468c5ec1afebca4",
-    "model/spin_twist_closure/README.md": "12fb97fe0a907134d367e0a72a85deba1436fd3a5fe5a26b6018e65f84ef6fa8",
+    "model/spin_twist_closure/README.md": "89eb676f18a836bfc2081055d832ded65ef4dd57f085ebd3a727260c2f7de3ca",
     "model/spin_twist_closure/__init__.py": "daf275031a3a936bb68c3dfe120622cb986bd741fa7822931b46da2467102074",
     "model/spin_twist_closure/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_twist_closure/algebra.py": "2011e0f06296992dd697afe43a8a56fc3ca3ea9ead7c0f653388809a5c032230",
     "model/spin_twist_closure/bounds.py": "c0a68c2a543a0a6f74f15d3968576c0024222411c78dc8290d4516af6eeb84f3",
-    "model/spin_twist_closure/packet.py": "1187fb2ead4cea9a0b5f814161df5b519ccf91dfe072912265eb7f4d14909844",
+    "model/spin_twist_closure/packet.py": "0bde59bd14316933eadfffc5a4865528955dda83528eab830b30e00eb0e82029",
+    "model/spin_twist_closure/polarization.py": "5087ed5279950027eac40c801e8df8f1ec92a94767deba192dad582ba1a3f278",
     "model/spin_twist_closure/readout.py": "c62919ff5ad87c1e95e4ef821be0bd08f1e80ad2a89b2aa9cdcf73f6c2fd45d6",
-    "model/spin_twist_closure/test_twist.py": "a42cd9143abad7ca878d8dda6a55b3e398b05e3d8345e65e2a20b95e262c633b",
+    "model/spin_twist_closure/test_twist.py": "3ae1ebf818f4afe6946bdf1bd80e936b25cb8ed4393db61465c5fe6a1b60aee3",
     "model/strong_coupling_refinement/__init__.py": "c4445add1d4bbd5fa806c9aecb362a09b594579ed724206374eb80a4d5250a2d",
     "model/strong_coupling_refinement/algebra.py": "9b98d6aead64e3a0a4f32a5d8842e4195e687696e7e7b29a5337e6f2bb121fb1",
     "model/strong_coupling_refinement/bounds.py": "ed9f3c0641e9c86308c6482106401e2f0231e5f9180084fe5b881e9cc3637dbd",
     "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "vanishing_scalar_polarization_residual": {
+    "actual_residual": "-p^3 sum_x D_i^pF(px) beta_x(C_0i^3)/2",
+    "beta_current_identity": "beta_x(C_0i^3)=epsilon_x C_xi^3",
+    "compact_test_derivative_integral": 0,
+    "exact_mesh_zero_sum_controls": [
+      {
+        "all_three_coordinate_directions": true,
+        "divisions": 2,
+        "exact_weighted_difference_quotient_sum": "0"
+      },
+      {
+        "all_three_coordinate_directions": true,
+        "divisions": 4,
+        "exact_weighted_difference_quotient_sum": "0"
+      },
+      {
+        "all_three_coordinate_directions": true,
+        "divisions": 8,
+        "exact_weighted_difference_quotient_sum": "0"
+      },
+      {
+        "all_three_coordinate_directions": true,
+        "divisions": 16,
+        "exact_weighted_difference_quotient_sum": "0"
+      }
+    ],
+    "gamma_axis2_pi_reverses_transverse_axis3_current": true,
+    "inherited_exact_weighted_source_commutator": {
+      "bounded_creator_function_global_Lipschitz_one": true,
+      "complete_creator_isometry_error_coefficient": 4,
+      "inherited_source_twist_algebra": {
+        "all_three_double_commutators": true,
+        "both_transverse_quadratic_coefficients": true,
+        "canonical_sign": true,
+        "exact_single_axis_rotation_energy": true,
+        "mixed_quadratic_rotation_term_zero": true,
+        "transverse_bond_eigenvalues": {
+          "-1/2": 1,
+          "0": 2,
+          "1/2": 1
+        },
+        "transverse_bond_norm_one_half": true
+      },
+      "scalar_cutoff_edge_identity": true,
+      "weighted_current_identities": [
+        {
+          "axis": 0,
+          "current_norm": "1/2",
+          "exact_weighted_current_commutator": true
+        },
+        {
+          "axis": 1,
+          "current_norm": "1/2",
+          "exact_weighted_current_commutator": true
+        },
+        {
+          "axis": 2,
+          "current_norm": "1/2",
+          "exact_weighted_current_commutator": true
+        }
+      ]
+    }
   }
 }
