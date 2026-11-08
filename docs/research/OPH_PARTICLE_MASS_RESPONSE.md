@@ -76,6 +76,55 @@ energy and momentum, physical quantum numbers and a proved relativistic
 lower boundary. The exact finite-source edge `9/8` and the analytic
 non-atomic example are explicitly not measured particle masses.
 
+## Explicit source energies and their references
+
+The [aligned-hole theorem](../../model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md)
+and the [centered-ground charged theorem](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
+give distinct calculable energy readouts. The table uses the readable
+source defaults `c=1/8`, `U=1`, with no conversion to laboratory units.
+
+| Source and reference | Derived energy statement | Original weight or readout | Physical interpretation supplied |
+|---|---|---|---|
+| Filled hidden-spin-aligned reference, centered Hubbard clock | Infinite-volume one-hole threshold `(4-sqrt(3))/8` | Complete vacancy-configuration detector; every q-hole sector is an exact exterior power | Reference gap of a free invariant sector |
+| Actual full centered dimer ground, each local mode and each charge direction | Lower line `sqrt(17)/8-1/16`, upper line `sqrt(17)/8+1/16` | Weights `1/4+1/(4sqrt(17))` and `1/4-1/(4sqrt(17))`, summing to `1/2` | Finite interacting charged response |
+| Full centered cubic ground at fixed c,U | Original weight in `35/256<=E^2<=2744/5` | At least `25/100352` for each local addition/removal response | Positive finite-energy charged band, without a pole or mass-gap assertion |
+
+None of these entries is exported as a measured particle mass. The aligned
+sector has dispersion `U/2-c sqrt(sum_j cos^2 k_j)` at its lower edge.
+Its controlled low-band limit is the free nonrelativistic generator
+`c P^2/(2sqrt(3))`, after a specified wavepacket dilation and model-time
+rescaling. The curvature parameter `sqrt(3)/c` and threshold
+`U/2-sqrt(3)c` are distinct quantities. The same operational vacancy
+position and magnetic-translation momentum converge to the canonical
+pair, so this limit has a derived position--momentum uncertainty relation.
+It does not identify the aligned reference with the full Hubbard ground.
+
+The full-ground route retains interaction: its source-generated dimer
+composite response is exactly `[[h,(U/2)I],[(U/2)I,-3h]]`.
+Replacing the lower diagonal by `-h` fails the exact third source moment.
+An interaction coefficient in a two-component response is therefore
+insufficient to identify a relativistic mass. A volume-uniform momentum
+branch, controlled resonance or infrared threshold must be established
+on this actual full-ground response before any such assignment.
+
+The [local-record theorem](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
+permits the full-ground fixed-c,U experiments under uniformly diluted
+repair, retaining every accessible local outcome. Its comparison discards
+distant raw values from the observer algebra, while leaving their physical
+archive intact and forbidding feedback from them. This differs from the
+aligned sector's complete global-archive estimate. In both constructions
+the signed Hubbard action and repair use one specified occupation chart;
+the original Weyl chart requires conjugating the complete instruments.
+
+The [joint spin uniform mode](../../model/spin_joint_field_limit/UNIFORM_MODE.md)
+has squared-energy centre bounded by `120/n+n^-6` and weighted variance
+bounded by `(120/n+n^-6)^2/4` on sufficiently large source boxes.
+These estimates concern a volume-wide mode and concentrate at zero.
+Their original preparation floor `1/(160N)` supplies no positive limiting
+residue. They neither measure a rest mass nor determine dispersion at
+nonzero translation momentum. The fixed eight-site spectral table has a
+different order of limits and is retained as a finite control.
+
 ## Spatial readout and momentum
 
 The full finite source gap at positive selection field obeys `gap>=B/8`.

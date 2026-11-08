@@ -1,6 +1,6 @@
-# Finite particle response and field-action selection
+# Particle response and field-action selection
 
-The finite constructions below determine response operators and complete
+The source constructions below determine response operators and complete
 observation laws on stated source domains. Their joint mathematical content
 does not identify a physical particle spectrum or an early-Universe population.
 Each construction retains its own action, preparation, instrument and clock
@@ -103,6 +103,54 @@ under its complete-alphabet, full-simplex and counting-reference premises;
 that conditional selection gives an exact discrete-attempt dephasing law.
 It does not select the coherent Hamiltonian or its ground preparation.
 
+## Aligned holes and the interacting ground
+
+The [aligned-hole construction](../../model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md)
+uses the actual signed Hubbard links
+`eta=((−1)^(y+z),(−1)^z,1)`. Every hole number in the completely
+hidden-spin-aligned sector is an exact invariant exterior-power space.
+Its centered generator relative to the filled aligned reference is
+`dGamma(U/2-h^T)`. On open boxes the lowest one-hole energy tends to
+`Delta=U/2-sqrt(3)c`; at the readable defaults it is `(4-sqrt(3))/8`.
+This is a sector/reference gap, not the full interacting ground gap or a
+measured mass. The exact E-tree detector reads every initial vacancy
+configuration with all fine records and arbitrary references retained.
+For q holes, the complete global-attempt comparison on the counted cubes
+is bounded by `min(2,4sqrt(q)/n)` relative to the same propagation with
+identity repair.
+
+The source magnetic translations preserve the signed action and shift
+that same vacancy position. Their commuting two-step translations fix
+quasimomentum. For prescribed lower-band wavepackets `k=a xi` and model
+time `T/a^2`, the controlled continuum generator after removing the fixed-q
+scalar gap phase is `c P^2/(2sqrt(3))`. Actual scaled vacancy position and
+translation momentum converge to the Fourier canonical pair, proving its
+uncertainty relation. This is a free nonrelativistic continuum with a
+specified preparation and clock scaling. Its cell multiplicities do not
+count measured species.
+
+The full centered interacting ground has a separate
+[local observer comparison](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
+at fixed c,U. Uniform global repair attempts approximate every specified
+complete local experiment, with explicit boundary and schedule errors,
+without the protected-spin projection or its diverging charged-energy
+scale. Distant raw records remain in the physical archive but are
+inaccessible to this local protocol; controls cannot use them. The same
+ground has odd addition/removal weights `1/2` and a non-Gaussian local
+time response proportional to `U^2/4`. Its
+[charged spectral bound](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
+puts positive original probability in a volume-independent finite-energy
+band. This supplies interacting local matter and charged responses on
+one state and clock, without identifying a continuum particle shell.
+
+Both protocols explicitly compose the signed Hubbard action and repair
+in the same occupation chart. The exact onsite map to the original Weyl
+links must conjugate the repair instruments and probes as well. A bare
+original-flavour repair can leave the hidden-aligned sector; a two-site
+source counterexample verifies this distinction. Reading the simulator
+fixes its chosen chart and controls, while deriving which complete
+programme and scaling realizes the physical source is a separate task.
+
 ## A common positive-field preparation and clock
 
 The [joint-family construction](../../model/spin_joint_field_limit/PROOF.md)
@@ -121,6 +169,17 @@ is expressed in actual source currents and complete Pauli records. Its
 natural filtered O(p^2) bound leaves the stronger o(p^2) source-norm
 cancellation open. This is a sufficient route to the projected linear force. Full CCR and internal U1 do not determine a relativistic
 dispersion, physical spin or the interaction of a particle sector.
+
+The [uniform-mode estimate](../../model/spin_joint_field_limit/UNIFORM_MODE.md)
+does prove a quantitative concentration result on this same H_B clock.
+For the volume-wide uniform staggered response, an effective finite-box
+order floor gives inverse-energy-weighted squared-energy centre at most
+`120/n+n^-6` and variance at most `(120/n+n^-6)^2/4`.
+Both approach zero. The original low-energy preparation probability has
+the finite floor `1/(160N)`, which is not a nonvanishing continuum residue.
+Uniform response, nonzero translation momentum and a local particle
+shell are different source questions; the uniform theorem does not
+supply their identification.
 
 ## Strong coupling from the configured color source
 

@@ -80,6 +80,27 @@ the full-ground protected spin trajectory. These results sharpen the
 physical identification conditions below without supplying a common
 interacting chiral continuum or measured masses.
 
+The [full centered-ground local construction](../source_family_compatibility/LOCAL_MATTER_READOUT.md)
+avoids that protected-spin projection. At fixed c,U it combines odd CAR
+responses, internal spin and a non-Gaussian local time law on one ground
+and clock. Its explicit repair comparison concerns complete accessible
+local records; distant raw values stay in the physical archive and cannot
+control the experiment. The [charged spectral theorem](../source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
+gives positive original weight in a volume-independent finite energy band.
+Its exact dimer composite response has lower block `-3h`, so replacing
+that source response by a Dirac block `-h` fails its third moment.
+
+The [aligned-hole construction](../source_family_compatibility/ALIGNED_HOLE_DISPERSION.md)
+is a separate exact source sector. The pi-flux hopping fixes its
+all-volume dispersion and exterior-power exchange, while complete E
+records read the vacancy configurations. Magnetic translations act on
+those positions. A controlled wavepacket and time scaling gives a free
+nonrelativistic continuum with the same canonical position/momentum
+readout. Its threshold relative to the filled aligned reference is
+`U/2-sqrt(3)c`; this reference is not the full interacting ground. Both
+constructions use the specified matched signed-Hubbard/repair chart;
+transport to the Weyl chart conjugates the instruments as well as H.
+
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
 used in a derivation. A laboratory identification, a selected initial state,
@@ -110,12 +131,19 @@ the required dynamical and physical attachments are:
    distinguishes a globally normalized attempt clock, whose complete
    disturbance of one-hole coherences can vanish on growing sources, from
    a fixed per-seam rate, which dephases them. This supplies a scheduler
-   route around that disturbance, not a common interacting matter ground.
+   route around that disturbance. The local-record theorem additionally
+   controls fixed-c,U interacting ground experiments without requiring an
+   invariant no-doublon sector. Its outer-box size is effective for a
+   fixed experiment, while selecting the limiting full-ground subsequence
+   and physical capacity/clock trajectory requires separate control.
 2. **Observable excitation sectors.** Carry each candidate's creation,
    conserved label and complete readout into that field representation.
    The spin U1 and conjugate configuration fields supply this symmetry
    connection; topological textures also need autonomous preparation and
-   protection under the same chosen dynamics.
+   protection under the same chosen dynamics. Full-ground odd addition
+   and removal have weight `1/2` and a positive finite-energy band;
+   the aligned holes have an exact complete vacancy detector and CAR
+   exchange. Neither construction assigns Standard Model labels.
 3. **Dispersion and relativistic covariance.** Determine the actual joint
    energy--momentum measures and prove a stable spectral branch, controlled
    resonance, or controlled infrared threshold with appropriate inclusive
@@ -135,15 +163,24 @@ the required dynamical and physical attachments are:
    The [constructive response hierarchy](../spin_dynamical_memory/SPECTRAL_BRANCH.md)
    supplies original bounded-score errors without interpreting finite Ritz
    nodes as source energy levels. The [Ward readout](../spin_joint_field_limit/WARD_DYNAMICS.md)
-   reduces two-force closure to source susceptibilities; their saturation
-   still needs proof. The [threshold theorem](../spin_shell_readout/THRESHOLD_READOUT.md)
+   reduces two-force closure to source susceptibilities. The
+   [uniform-mode theorem](../spin_joint_field_limit/UNIFORM_MODE.md)
+   bounds the weighted squared-energy centre by `120/n+n^-6` and its
+   variance by `(120/n+n^-6)^2/4` on an effectively chosen finite box.
+   This volume-wide mode concentrates at zero; its original probability
+   floor `1/(160N)` supplies no nonvanishing local-field residue. Extending
+   concentration to nonzero translation momentum with a positive
+   original-weight branch is a specific source estimate. The
+   [threshold theorem](../spin_shell_readout/THRESHOLD_READOUT.md)
    needs a source tail modulus rather than an atom and keeps that premise explicit.
-   For the uniform Ward pair the remaining defect is exactly
-   `M_-3 Var_pi(E^2)`, `dpi=E^-3 dnu/M_-3`; the known unfiltered
-   susceptibility fixes only its own M_-1. Filtered moments need their
-   corresponding readout. A sharp-branch argument must control this variance on the
-   scaled clock and retain original preparation weight. A higher-rank
-   conserved-charge block does not make the variance vanish.
+   For the Ward pair the force defect is exactly
+   `M_-3 Var_pi(E^2)`, `dpi=E^-3 dnu/M_-3`. The uniform variance estimate
+   alone does not control its susceptibility prefactor or a nonuniform
+   filtered residual. Filtered moments require their corresponding
+   complete readout. On the full centered Hubbard ground the next
+   calculation is the momentum-resolved source composite response and
+   its higher residual, preserving the original local charged weights.
+   Its finite dimer closure cannot be imposed on larger volumes.
    Attach one operational boost to the same field histories and clock, using the
    existing finite-rotation and celestial results for its geometric
    consequences. A finite propagation bound does not fix its light speed.
@@ -152,6 +189,9 @@ the required dynamical and physical attachments are:
    transition laws.
    Control the long-time and large-volume limits. Finite connected response
    and return loss alone do not give a scattering matrix or decay width.
+   The aligned-hole continuum has exactly free exterior-power propagation;
+   its scattering cannot supply interactions of the distinct full-ground
+   matter response.
 5. **Physical quantum numbers and spectrum.** Derive rotation/spin,
    asymptotic exchange statistics, gauge transformations, chirality and
    families of the actual excitations. Determine the common mass-generating
