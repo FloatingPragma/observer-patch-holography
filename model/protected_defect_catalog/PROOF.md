@@ -145,6 +145,86 @@ Lorentz spin, stable mass shell and Standard Model identity require the
 same-source field and detector attachment. Two charge channels are not
 asserted to be two physical particles.
 
+## The same parity acts on the reconstructed field
+
+Use the actual ordered source, state prescription and clock of
+`model/spin_canonical_field/README.md`, with the positive-energy statements
+in `model/spin_canonical_energy/README.md`. The native pi rotation about
+internal axis1 preserves the zero-field source dynamics and the selected
+state. It sends both existing scaled transverse quadratures Q_p(F),P_p(G)
+to their negatives. It acts exactly on every finite bounded history and
+preserves its expectation. Thus on the common subsequential history GNS
+space, the rule R[A]Omega=[alpha_pi(A)]Omega is a well-defined unitary:
+state invariance preserves all inner products. It obeys R²=I, R Omega=Omega,
+and commutes with the actual time and spatial translations. The continuum
+Weyl operators transform as R W(F,G) R=W(-F,-G).
+
+Strong regularity gives R Q(F)Omega=-Q(F)Omega and the same identity for
+P(G)Omega. The inherited source energy theorem proves these Stone vectors
+nonzero with positive energy spectrum and explicit positive spectral weight
+in admitted annuli. Thus the conserved native parity has an actual odd
+field sector on the same state and clock. It is not merely an internal
+label assigned to a separately supplied free field. A sharp particle pole,
+Lorentz spin and a physical species do not follow from an invariant sector.
+This argument attaches Z2 only: the full U1 rotation mixes in the second
+transverse field pair, whose joint canonical limit has additional unresolved
+longitudinal-fluctuation estimates. That pair is not appended here.
+
+There is a complete bounded preparation of an odd field vector with a
+uniformly positive original probability. Let F=G be a real unit-L2 annular
+test, 0<m0<=m<=1/2, s=2/m0 and t=m0/4. Put
+U=exp(i*2s*Q(F)), V=exp(i*t*P(F)), and u=<U>. The Weyl relation gives
+||[U,V]Omega||=2 sin(m/2). Also
+
+```text
+[U,V]=(U-uI)(V-I)-(V-I)(U-uI),
+||U-uI||<=2,  ||(V-I)Omega||<=t ||P(F)Omega||<=m0/8.
+```
+
+Since sin(m/2)>=m/3, the unitary variance satisfies
+||(U-u)Omega||>=5m0/24. Moreover
+1-|u|²<=2(1-Re u)=4||sin(sQ(F))Omega||². Consequently
+
+```text
+n0 = 25m0²/2304 <= ||sin(sQ(F))Omega||².
+```
+
+The complete instrument consists of sin(sQ) and cos(sQ), with effects
+summing to identity. They create odd and even outputs respectively from
+the invariant reference. No unknown vacuum expectation is needed in this
+instrument. Each source finite version is a difference or sum of the
+existing source Weyl controls; all outcomes and arbitrary references are
+retained. The source energy-kick bound and the triangle inequality in the
+energy form give limsup <sin(sQ_p) L_p sin(sQ_p)> <= h0=3s²=12/m0²,
+where L_p=K_source/(Jp).
+
+For a fixed positive scaled resolvent parameter lambda, the filter
+lambda/(L_p+lambda) preserves parity. A measure of mass n and first moment h
+obeys the Jensen bound
+
+```text
+integral (E+lambda)^(-2) dmu(E) >= n³/(h+lambda*n)².
+```
+
+The complete original probability of odd creation and filter success
+therefore has liminf at least lambda²*n0³/(h0+lambda*n0)²>0. Replacing
+n0 by n0/2 and h0 by2h0 gives a uniform lower bound for sufficiently small
+p, without an effective threshold. Retain the even preparation outcome,
+odd filter failure and odd filter success as three distinct complete
+records. The filter's microscopic parameter is Jp*lambda, so its clock is
+the existing source clock. No normalized successful state is substituted
+for these original probabilities.
+
+Orthogonality to the chosen even vacuum does not prove that every other
+zero-energy vector is absent. All zero-energy detector outputs are retained
+at the fixed sine amplitude above. A separate positive-energy existence
+statement follows without that assumption: sin(rQ)Omega/r converges strongly
+to Q Omega as rational r tends to zero. Applying any positive-energy
+spectral projection with nonzero inherited Q weight proves that some
+rational-amplitude odd sine preparation has nonzero weight in that same
+positive-energy window. This supplies a source field excitation and a
+complete readout criterion, not its numerical mass or a single energy shell.
+
 ## Catalogue semantics and the particle join
 
 The table separates exhaustive exclusions, memory charges, joint noiseless

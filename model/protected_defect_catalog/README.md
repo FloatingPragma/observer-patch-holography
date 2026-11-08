@@ -10,6 +10,12 @@ creation has two nonzero charge-resolved outcomes with certified weights.
 The ideal complete charge instrument retains all 256 records. No Standard
 Model particle or physical mass is identified.
 
+The same native parity acts on the reconstructed canonical field. Its odd
+Stone-field excitations have the inherited positive-energy spectrum. A
+complete odd/even bounded preparation has a uniformly nonzero probability
+in the source scaling, including its filter cost. A sharp particle shell
+and the full continuous charge action require further source estimates.
+
 The [proof](PROOF.md) gives the graph classification and the remaining
 source-to-particle requirements. A complete catalogue over unspecified source
 architectures is not claimed.

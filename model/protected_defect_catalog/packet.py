@@ -7,13 +7,14 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
-from . import pauli, charge
+from . import pauli, charge, field
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 PARENTS = tuple('model/'+name+'/results.json' for name in (
     'defect_protection', 'local_exchange_charge', 'common_spin_protection',
-    'cube_eta_protection', 'compact_defect_pair', 'defect_localization_readout'))
+    'cube_eta_protection', 'compact_defect_pair', 'defect_localization_readout',
+    'spin_canonical_field', 'spin_canonical_energy'))
 
 
 def canonical(value):
@@ -129,6 +130,7 @@ def build():
             'ordered_cover_complete_branch_classification':cover_counts,
             'selected_spin_complete_Pauli_classification':pauli.census(),
             'same_source_charge_resolved_creation':charge.report(),
+            'same_source_continuum_parity_attachment':field.preparation_bounds(),
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,
