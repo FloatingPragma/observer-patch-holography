@@ -618,14 +618,1385 @@
       "variance_upper": "81/8"
     }
   ],
+  "same_clock_filtered_current_and_complete_force_readout": {
+    "complete_score_error_example": {
+      "absolute_score_bound": "4",
+      "complete_output_half_trace_error": "1/1000",
+      "normalization": "1/32",
+      "original_squared_norm_error_upper": "1/128000",
+      "p_minus_four_squared_norm_error_upper": "1/500",
+      "success_conditioning_used": false
+    },
+    "current_bounds": [
+      {
+        "J_p_cubed_over_field": "1/2",
+        "P_vacuum_norm_upper": "1",
+        "Q_vacuum_norm_upper": "1",
+        "coupling": "1",
+        "field": "1/32",
+        "field_over_J_p_squared": "1/2",
+        "filtered_current_norm_upper": "11/32",
+        "filtered_current_squared_norm_upper": "121/1024",
+        "full_history_force_closure_claimed": false,
+        "gap": "1/256",
+        "linear_force_residual_vanishes": false,
+        "n": 2,
+        "p": "1/4",
+        "p_minus_two_filtered_current_norm_upper": "11/2",
+        "physical_clock_per_scaled_unit": "4",
+        "same_H_B_ground_and_filter_required": true,
+        "selection_torque_norm_upper": "1/2",
+        "spectral_multiplier_norm_upper": "1",
+        "spectral_multiplier_support_upper": "5"
+      },
+      {
+        "J_p_cubed_over_field": "1/4",
+        "P_vacuum_norm_upper": "1",
+        "Q_vacuum_norm_upper": "1",
+        "coupling": "1",
+        "field": "1/1024",
+        "field_over_J_p_squared": "1/4",
+        "filtered_current_norm_upper": "21/1024",
+        "filtered_current_squared_norm_upper": "441/1048576",
+        "full_history_force_closure_claimed": false,
+        "gap": "1/8192",
+        "linear_force_residual_vanishes": false,
+        "n": 4,
+        "p": "1/16",
+        "p_minus_two_filtered_current_norm_upper": "21/4",
+        "physical_clock_per_scaled_unit": "16",
+        "same_H_B_ground_and_filter_required": true,
+        "selection_torque_norm_upper": "1/4",
+        "spectral_multiplier_norm_upper": "1",
+        "spectral_multiplier_support_upper": "5"
+      },
+      {
+        "J_p_cubed_over_field": "1/8",
+        "P_vacuum_norm_upper": "1",
+        "Q_vacuum_norm_upper": "1",
+        "coupling": "1",
+        "field": "1/32768",
+        "field_over_J_p_squared": "1/8",
+        "filtered_current_norm_upper": "41/32768",
+        "filtered_current_squared_norm_upper": "1681/1073741824",
+        "full_history_force_closure_claimed": false,
+        "gap": "1/262144",
+        "linear_force_residual_vanishes": false,
+        "n": 8,
+        "p": "1/64",
+        "p_minus_two_filtered_current_norm_upper": "41/8",
+        "physical_clock_per_scaled_unit": "64",
+        "same_H_B_ground_and_filter_required": true,
+        "selection_torque_norm_upper": "1/8",
+        "spectral_multiplier_norm_upper": "1",
+        "spectral_multiplier_support_upper": "5"
+      },
+      {
+        "J_p_cubed_over_field": "1/16",
+        "P_vacuum_norm_upper": "1",
+        "Q_vacuum_norm_upper": "1",
+        "coupling": "1",
+        "field": "1/1048576",
+        "field_over_J_p_squared": "1/16",
+        "filtered_current_norm_upper": "81/1048576",
+        "filtered_current_squared_norm_upper": "6561/1099511627776",
+        "full_history_force_closure_claimed": false,
+        "gap": "1/8388608",
+        "linear_force_residual_vanishes": false,
+        "n": 16,
+        "p": "1/256",
+        "p_minus_two_filtered_current_norm_upper": "81/16",
+        "physical_clock_per_scaled_unit": "256",
+        "same_H_B_ground_and_filter_required": true,
+        "selection_torque_norm_upper": "1/16",
+        "spectral_multiplier_norm_upper": "1",
+        "spectral_multiplier_support_upper": "5"
+      }
+    ],
+    "current_scale_on_fixed_filtered_vacuum_vectors": "O(p^2)",
+    "finite_source": {
+      "actual_source_frame_identity_exact": true,
+      "all_source_rows": 4,
+      "complete_current_and_comparison_records": [
+        {
+          "candidate_coefficient": "0",
+          "complete_Pauli_score_readout": {
+            "Pauli_coefficients": {
+              "II": "1/4",
+              "IX": "0",
+              "IY": "0",
+              "IZ": "0",
+              "XI": "0",
+              "XX": "-1/4",
+              "XY": "0",
+              "XZ": "0",
+              "YI": "0",
+              "YX": "0",
+              "YY": "-1/4",
+              "YZ": "0",
+              "ZI": "0",
+              "ZX": "0",
+              "ZY": "0",
+              "ZZ": "-1/4"
+            },
+            "complete_record_probability_sum": "1",
+            "conditional_success_distribution_used": false,
+            "full_detector_pulse_tape_executed_here": false,
+            "labelled_pointer_records": 64,
+            "mean_score_equals_original_effect_probability": true,
+            "native_probe_templates_are_inherited": true,
+            "original_effect_probability": "8*sqrt(257)/257 + 1/2",
+            "records": [
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "4",
+                "setting": "II"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "4",
+                "setting": "II"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "4",
+                "setting": "II"
+              },
+              {
+                "original_probability": "1/16",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "4",
+                "setting": "II"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "sqrt(257)/8224 + 1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "1/32 - sqrt(257)/8224",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "1/32 - sqrt(257)/8224",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "sqrt(257)/8224 + 1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-4",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "1/32 - sqrt(257)/8224",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "4",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "sqrt(257)/8224 + 1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "4",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-4",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-4",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "4",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "4",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-4",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-4",
+                "setting": "ZZ"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "4",
+                "setting": "ZZ"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "4",
+                "setting": "ZZ"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-4",
+                "setting": "ZZ"
+              }
+            ],
+            "score_absolute_bound": "4",
+            "settings": 16,
+            "zero_probability_records_retained": true
+          },
+          "complete_effect_probabilities": [
+            "8*sqrt(257)/257 + 1/2",
+            "1/2 - 8*sqrt(257)/257"
+          ],
+          "full_effect_spectrum": [
+            "0",
+            "1"
+          ],
+          "linear_force_equation_claimed": false,
+          "original_squared_response_norm": "sqrt(257)/32896 + 1/2048",
+          "source_norm_normalization": "1/32"
+        },
+        {
+          "candidate_coefficient": "1",
+          "complete_Pauli_score_readout": {
+            "Pauli_coefficients": {
+              "II": "65/324",
+              "IX": "4/81",
+              "IY": "0",
+              "IZ": "0",
+              "XI": "-4/81",
+              "XX": "-65/324",
+              "XY": "0",
+              "XZ": "0",
+              "YI": "0",
+              "YX": "0",
+              "YY": "-7/36",
+              "YZ": "0",
+              "ZI": "0",
+              "ZX": "0",
+              "ZY": "0",
+              "ZZ": "-7/36"
+            },
+            "complete_record_probability_sum": "1",
+            "conditional_success_distribution_used": false,
+            "full_detector_pulse_tape_executed_here": false,
+            "labelled_pointer_records": 64,
+            "mean_score_equals_original_effect_probability": true,
+            "native_probe_templates_are_inherited": true,
+            "original_effect_probability": "496*sqrt(257)/20817 + 65/162",
+            "records": [
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "260/81",
+                "setting": "II"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "260/81",
+                "setting": "II"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "260/81",
+                "setting": "II"
+              },
+              {
+                "original_probability": "1/16",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "260/81",
+                "setting": "II"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-64/81",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "64/81",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "sqrt(257)/8224 + 1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "-64/81",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "1/32 - sqrt(257)/8224",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "64/81",
+                "setting": "IX"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IY"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "IZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "64/81",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "1/32 - sqrt(257)/8224",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "64/81",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "-64/81",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "sqrt(257)/8224 + 1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-64/81",
+                "setting": "XI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-260/81",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "1/32 - sqrt(257)/8224",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "260/81",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "sqrt(257)/8224 + 1/32",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "260/81",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-260/81",
+                "setting": "XX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "XZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YI"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-28/9",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "28/9",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "28/9",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-28/9",
+                "setting": "YY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "YZ"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "0",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "1/32",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZI"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "sqrt(257)/16448 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/16448",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZX"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "0",
+                "setting": "ZY"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  -1,
+                  -1
+                ],
+                "score": "-28/9",
+                "setting": "ZZ"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  -1,
+                  1
+                ],
+                "score": "28/9",
+                "setting": "ZZ"
+              },
+              {
+                "original_probability": "sqrt(257)/1028 + 1/64",
+                "pointer_signs": [
+                  1,
+                  -1
+                ],
+                "score": "28/9",
+                "setting": "ZZ"
+              },
+              {
+                "original_probability": "1/64 - sqrt(257)/1028",
+                "pointer_signs": [
+                  1,
+                  1
+                ],
+                "score": "-28/9",
+                "setting": "ZZ"
+              }
+            ],
+            "score_absolute_bound": "260/81",
+            "settings": 16,
+            "zero_probability_records_retained": true
+          },
+          "complete_effect_probabilities": [
+            "496*sqrt(257)/20817 + 65/162",
+            "97/162 - 496*sqrt(257)/20817"
+          ],
+          "full_effect_spectrum": [
+            "0",
+            "65/81"
+          ],
+          "linear_force_equation_claimed": false,
+          "original_squared_response_norm": "31*sqrt(257)/1052672 + 65/131072",
+          "source_norm_normalization": "9/256"
+        }
+      ],
+      "complete_source_spectrum": {
+        "-1/2 + sqrt(257)/32": 1,
+        "-sqrt(257)/32 - 1/2": 1,
+        "0": 2
+      },
+      "coupling": "1",
+      "current_drift_identity_exact": true,
+      "family_index": 2,
+      "filter_excitation_energy": "2 + sqrt(257)/8",
+      "filter_rank": 2,
+      "filter_spectral_cutoff": "5",
+      "filtered_ground_current_identity_exact": true,
+      "finite_level_identified_as_continuum_mass_shell": false,
+      "original_filtered_current_squared_norm": "sqrt(257)/32896 + 1/2048",
+      "scale": "1/4",
+      "selected_ground_energy": "-sqrt(257)/32 - 1/2",
+      "selection_field": "1/32",
+      "selection_torque_nonzero": true,
+      "sites": 2
+    },
+    "full_history_force_closure_proved": false,
+    "linear_force_cancellation_proved": false,
+    "sharp_spectral_branch_or_interaction_inferred": false
+  },
   "schema": "oph.spin_joint_field_limit.v1",
   "scope": {
     "Lorentz_covariance_proved": false,
     "clock": "K_B/(Jp) at each n",
     "closed_linear_field_equation_proved": false,
+    "complete_finite_original_weight_force_defect_readout_constructed": true,
     "complete_native_failure_records_retained": true,
     "direct_single_pair_regular_positive_energy_history_subsequence": true,
     "equality_to_ordered_zero_field_state_clock_limit_proved": false,
+    "filtered_linear_force_residual_proved_o_p_squared": false,
     "finite_positive_field_preparation_and_local_accuracy_computable": true,
     "fixed_scale_complete_prepared_H_B_probe_history_constructed": true,
     "full_internal_U1_on_both_canonical_pairs": true,
@@ -634,6 +2005,7 @@
     "mean_magnetization_or_bond_convergence_rate_proved": false,
     "physical_particle_assignment": null,
     "positive_field_order_and_bond_variance_bounds_quantitative": true,
+    "same_clock_ground_vector_filtered_current_O_p_squared_bound": true,
     "second_canonical_pair_on_same_joint_history_subsequence": true,
     "sequence_forced_by_unread_repair": false,
     "sequence_is_a_chosen_source_preparation_prescription": true,
@@ -1246,6 +2618,7 @@
     "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
     "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
     "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
     "model/spin_canonical_field/__init__.py": "3441c9f7e3cc711c3f7ab7a2fbfe240e7673ab8ebc3a3fea2248cd9de60caab9",
     "model/spin_canonical_field/bounds.py": "0f5709a6eafcf17b2c1661f828152f90d1676a6428d201a162ad1e5fb401f599",
@@ -1264,6 +2637,7 @@
     "model/spin_goldstone_sector/algebra.py": "db981083ea50d41914fd228e84dc7155afe85ab4c18c1f74d275454c62646173",
     "model/spin_goldstone_sector/infrared.py": "19089d96ca3d233e1949b7df3c59c37aca23c4d2e1ca84dd1b1b651c6bbc8ca9",
     "model/spin_joint_field_limit/CLOCK_COMPARISON.md": "27b72c38cff297dffce4c9c2c70b31c755dfc70777b4d142bf8cb508c34c714f",
+    "model/spin_joint_field_limit/FORCE_READOUT.md": "876ed6ba21da5534c0428bd540698de94db9fb84ef1df8f28aa975aec3c2235b",
     "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
     "model/spin_joint_field_limit/README.md": "90859153ee1f38e251e468a66412b9c112e66a94766c9590422f701e311d088e",
     "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
@@ -1273,12 +2647,15 @@
     "model/spin_joint_field_limit/bounds.py": "86143035b1507381b101e100b78b8461fd5ba880f8864446cf409f404f149b63",
     "model/spin_joint_field_limit/clock_comparison.py": "c9669235f2c5b9d8fa0d21150508a278adbcb6874c06a49d8e3f86d2cb4243ee",
     "model/spin_joint_field_limit/construction.py": "3181c73283abe007b4cb89d6be75225643d1a7d97bfa94e5f0b727c86b88e3b9",
+    "model/spin_joint_field_limit/force.py": "a833d96800bb543e2b3e8fb5d4c36d10a303c40bca737f60015a7840680d3bf1",
     "model/spin_joint_field_limit/joint_symmetry.py": "a989dc9e675f1f15c6603d3fa7da95b175a11408e1fe61544c5bf5ba1f120eb6",
-    "model/spin_joint_field_limit/packet.py": "4589e9c42722c668540269aa44a2d705dcee28ef89bec899b210b2757edb1eb7",
+    "model/spin_joint_field_limit/packet.py": "cf112bae329f9f971c3c3a1034dc1d784eb9277f2203473a6ee6e8704e976aaa",
     "model/spin_joint_field_limit/test_clock_comparison.py": "48222ad1b5474cda3e57e73e6b906b176b3cd62cfd04f5904dfa3648787439b2",
     "model/spin_joint_field_limit/test_construction.py": "d6f640daf0cd6f9ae6bcb7d248787b7db9afba6e4d41662aecf61e3f022f4d1b",
+    "model/spin_joint_field_limit/test_force.py": "84b1cb61b67304932143a2d6576b57b9ea18bc527d34e055225af4da7d2ba5eb",
     "model/spin_joint_field_limit/test_joint_family.py": "19498b31a6e2d83c470b2e3a158b7dd0b522e648a7b1bb26f16eb395030e1c2e",
     "model/spin_joint_field_limit/test_joint_symmetry.py": "1db3ee11b445e2faa4b0b02839a805c84dee7c6071cac424d073cc01b82b8199",
+    "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
     "model/spin_twist_closure/FINITE_FIELD_GAP.md": "e65f87ee6fec35c1f3a07b61bb3022739491206c5b8bf867e882e176d2d75b35",
     "model/spin_twist_closure/PROOF.md": "a7ab3fbea7ba7e3634bd04b545398cb7615943f1a06cc65c9468c5ec1afebca4",
     "model/spin_twist_closure/__init__.py": "daf275031a3a936bb68c3dfe120622cb986bd741fa7822931b46da2467102074",
