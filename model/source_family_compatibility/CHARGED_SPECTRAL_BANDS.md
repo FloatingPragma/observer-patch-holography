@@ -7,8 +7,11 @@ ground-relative centered source generator
     K=T+U sum_x n_(x,up)n_(x,down)-(U/2)N,   L=K-E0>=0.
 
 Every edge has hopping amplitude of modulus c/2 per hidden-spin flavour.
-The site-dependent spin frame, probes and repair maps must all be transported
-together when using the Weyl representation. These results use fixed c>0 and
+Unitary comparison with the Weyl representation transports the probes and
+repair maps together. Independently, the original Weyl links and bare repair
+satisfy the local-history hypotheses directly. Each original Weyl hopping
+row also has squared coefficient sum d c^2/4, so the charged moment bounds
+below hold in that original frame. These results use fixed c>0 and
 U>=0. No strong-coupling projection, fit, chemical shift after preparation or
 physical unit conversion is applied.
 

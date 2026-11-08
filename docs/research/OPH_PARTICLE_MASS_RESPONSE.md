@@ -106,15 +106,22 @@ An interaction coefficient in a two-component response is therefore
 insufficient to identify a relativistic mass. A volume-uniform momentum
 branch, controlled resonance or infrared threshold must be established
 on this actual full-ground response before any such assignment.
+The [all-volume composite construction](../../model/source_family_compatibility/COMPOSITE_CAR.md)
+derives its second block from spin/eta bond correlations and retains the
+next source force R. An exact three-site full ground has
+`tr(R*R)=542232/13225>0`; the dimer closure does not extend by assertion.
+Its controlled retarded resolvent error scales as `||R||^2/|Im z|^3`,
+so a fixed-broadening approximation does not certify sharp mass poles.
 
 The [local-record theorem](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
 permits the full-ground fixed-c,U experiments under uniformly diluted
 repair, retaining every accessible local outcome. Its comparison discards
 distant raw values from the observer algebra, while leaving their physical
 archive intact and forbidding feedback from them. This differs from the
-aligned sector's complete global-archive estimate. In both constructions
-the signed Hubbard action and repair use one specified occupation chart;
-the original Weyl chart requires conjugating the complete instruments.
+aligned sector's complete global-archive estimate. The local bound also
+applies directly to original Weyl action with bare original repair.
+Unitary equivalence with the signed-Hubbard protocol requires conjugating
+the complete instruments; the aligned-sector proof retains that premise.
 
 The [joint spin uniform mode](../../model/spin_joint_field_limit/UNIFORM_MODE.md)
 has squared-energy centre bounded by `120/n+n^-6` and weighted variance

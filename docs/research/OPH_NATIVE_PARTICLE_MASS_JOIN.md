@@ -256,6 +256,10 @@ observer history. The accessible output traces remote raw records and
 does not permit feedback from those discarded values. Full global archive
 equality is a separate assertion. The source, state prescription and
 attempt durations are specified; this is a fixed-spacing result.
+The same local theorem applies directly to the original Weyl action and
+bare original repair. Transporting repair with a change of spin frame is
+required for an equivalence assertion, and for the aligned-sector argument;
+it is not required for this direct even-seam locality estimate.
 
 The [charged spectral calculation](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
 uses the actual commutator sum rule, rather than a fitted energy formula.
@@ -283,6 +287,25 @@ fails the exact third-moment test. These dimer lines need a controlled
 volume and momentum attachment before they can be used as particle masses.
 The separate aligned-hole energies refer to a fully aligned reference and
 have a free Schrödinger continuum; they are not substituted into this table.
+
+The [composite-CAR construction](../../model/source_family_compatibility/COMPOSITE_CAR.md)
+extends the response calculation to every volume on the same full ground.
+The actual operator `b=2(n_opposite-1/2)a` is an onsite unitary transform
+of a and has the same internal quantum numbers. The two descriptions are
+not independent extra fermion families. Their cyclic response spaces are
+orthogonal in this invariant state, with exact compressed generator
+`A=[[h,U/2],[U/2,C]]`. Each bond coefficient is
+`C_xy=4h_xy <S_x.S_y+eta_x.eta_y>`; the remaining source coupling R is
+retained through `R*(z-L_perp)^-1 R`. Its omission has retarded resolvent
+error at most `||R||^2/|Im z|^3`. This controls smeared response, without
+bounding sharp poles as the spectral broadening tends to zero.
+
+An exact full three-site ground at the declared control c=2,U=3/7 gives
+`C=-(179/115)h` and `tr(R*R)=542232/13225>0`. Thus the dimer's zero
+remainder is not an all-volume identity. The required next estimate is
+the momentum-dependent memory and its original spectral weight on a
+selected growing ground family. Retarded-vector estimates alone are not
+complete physical-channel error bounds for arbitrary reference systems.
 
 ## Position and the source sector
 

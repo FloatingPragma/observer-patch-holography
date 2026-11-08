@@ -142,10 +142,18 @@ time response proportional to `U^2/4`. Its
 puts positive original probability in a volume-independent finite-energy
 band. This supplies interacting local matter and charged responses on
 one state and clock, without identifying a continuum particle shell.
+The [composite source operators](../../model/source_family_compatibility/COMPOSITE_CAR.md)
+give an exact all-volume continuation of this response. Their second
+kinetic block is a source bond correlation, and their retained force
+has a strictly positive Gram matrix on an exact three-site ground.
+These are two descriptions of the same fermion algebra, not additional
+independent species or a selected Dirac action.
 
-Both protocols explicitly compose the signed Hubbard action and repair
-in the same occupation chart. The exact onsite map to the original Weyl
-links must conjugate the repair instruments and probes as well. A bare
+The signed-Hubbard protocols compose action and repair in one occupation
+chart. The local-record theorem also applies directly to original Weyl
+action and bare original repair, using their even seam support and bond
+norm. Unitary equivalence of protocols under the exact onsite frame map
+requires conjugating the repair instruments and probes as well. A bare
 original-flavour repair can leave the hidden-aligned sector; a two-site
 source counterexample verifies this distinction. Reading the simulator
 fixes its chosen chart and controls, while deriving which complete

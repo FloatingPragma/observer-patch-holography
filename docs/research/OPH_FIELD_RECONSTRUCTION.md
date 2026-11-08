@@ -61,9 +61,23 @@ This retains interacting odd matter without the spin projection that sends
 its charged energies to infinity. It supplies no interacting spatial
 continuum or effective ground-subsequence selection modulus.
 
+The [actual composite fermion](../../model/source_family_compatibility/COMPOSITE_CAR.md)
+`b=2(n_opposite-1/2)a` extends this source response without adding degrees
+of freedom. Its exact two-block compression has the bond-correlation coefficient
+`C_xy=4h_xy <S_x.S_y+eta_x.eta_y>` and a source-derived residual R.
+The omitted memory changes the retarded resolvent by at most
+`||R||^2/|Im z|^3`, a volume-independent bound at fixed broadening.
+The complete three-site ground has strictly positive R*R; the finite
+dimer's closed block cannot be imposed throughout the source. Momentum-
+and scale-dependent control of that memory is a concrete requirement for
+a relativistic spectral identification, beyond the charged band bound.
+
 The signed Hubbard action and its repair use one declared occupation frame.
 Changing to the site-dependent Weyl frame must conjugate every probe and
 repair operator. Bare repair in the other frame is a different protocol.
+The local-history estimate also applies directly to the original Weyl action
+with bare original repair: it uses only even seam support and the source
+bond norm c. No equivalence of the two repair protocols is assumed there.
 The [aligned-hole construction](../../model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md)
 derives an exact pi-flux dispersion and an operational position/momentum
 limit in a separate fully aligned reference sector. Its Schrödinger limit

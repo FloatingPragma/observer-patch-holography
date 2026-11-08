@@ -97,9 +97,11 @@ records read the vacancy configurations. Magnetic translations act on
 those positions. A controlled wavepacket and time scaling gives a free
 nonrelativistic continuum with the same canonical position/momentum
 readout. Its threshold relative to the filled aligned reference is
-`U/2-sqrt(3)c`; this reference is not the full interacting ground. Both
-constructions use the specified matched signed-Hubbard/repair chart;
-transport to the Weyl chart conjugates the instruments as well as H.
+`U/2-sqrt(3)c`; this reference is not the full interacting ground.
+The aligned construction uses the matched signed-Hubbard/repair chart;
+unitary transport to the Weyl chart conjugates the instruments as well
+as H. The local full-ground theorem also applies directly to original
+Weyl action with bare original repair, without assuming that equivalence.
 
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
@@ -177,10 +179,16 @@ the required dynamical and physical attachments are:
    `M_-3 Var_pi(E^2)`, `dpi=E^-3 dnu/M_-3`. The uniform variance estimate
    alone does not control its susceptibility prefactor or a nonuniform
    filtered residual. Filtered moments require their corresponding
-   complete readout. On the full centered Hubbard ground the next
-   calculation is the momentum-resolved source composite response and
-   its higher residual, preserving the original local charged weights.
-   Its finite dimer closure cannot be imposed on larger volumes.
+   complete readout. On the full centered Hubbard ground, the
+   [exact composite response](../source_family_compatibility/COMPOSITE_CAR.md)
+   supplies the all-volume block `[[h,U/2],[U/2,C]]`, with C given by
+   source spin/eta bond correlations and an explicitly retained residual R.
+   Its certified three-site R*R is positive. The required estimate is the
+   momentum-resolved memory `R*(z-L_perp)^-1 R` on the selected growing
+   ground family, including original charge weight and its behaviour as
+   spectral broadening tends to zero. The finite dimer's zero remainder
+   cannot be imposed on larger volumes. Fixed-broadening resolvent bounds
+   do not supply a pole, a physical CP apparatus or a Lorentz limit.
    Attach one operational boost to the same field histories and clock, using the
    existing finite-rotation and celestial results for its geometric
    consequences. A finite propagation bound does not fix its light speed.
