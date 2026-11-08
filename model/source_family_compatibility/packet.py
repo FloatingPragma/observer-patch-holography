@@ -11,6 +11,7 @@ from tools import strict_json
 from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion,composite,charge_scaling,boost_current,cube_response,cube_spectrum
 from . import momentum_response, charge_escape, uv_tail, local_spectral
 from . import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
+from . import nodal_channels, spectral_residue, spectral_window_access
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -65,6 +66,7 @@ def bindings():
         'paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex',
         'model/native_program/README.md','model/observer/CAPACITY.md',
         'model/full_fock_field/README.md','model/centered_source_ground/README.md',
+        'model/thermodynamic_ground/README.md',
         'model/retarded_spatial_locality/README.md','model/field_symmetry/README.md',
         'Lean/ObserverPatchHolography/RepairWordSchedule.lean',
         'Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean',
@@ -81,7 +83,8 @@ def bindings():
                   HERE/'UV_TAIL.md',HERE/'LOCAL_SPECTRAL_READOUT.md',HERE/'KINETIC_NODE_MAP.md',
                   ROOT/'model/weyl_geometric_modular/README.md',
                   ROOT/'model/native_mass_channels/README.md',ROOT/'model/source_mass_shell/README.md',
-                  HERE/'NODAL_MEMORY.md',HERE/'GROUND_MARGINALS.md',HERE/'CUBE_MEMORY.md'))
+                  HERE/'NODAL_MEMORY.md',HERE/'GROUND_MARGINALS.md',HERE/'CUBE_MEMORY.md',
+                  HERE/'NODAL_CHANNELS.md',HERE/'SPECTRAL_RESIDUE.md',HERE/'SPECTRAL_WINDOW_ACCESS.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -179,6 +182,9 @@ def build():
         'actual_nodal_response_memory':serialize(nodal_memory.certificate()),
         'ground_marginal_preparation_and_native_records':ground_marginals.certificate(),
         'full_cube_frequency_dependent_memory':serialize(cube_memory.certificate()),
+        'actual_nodal_scalar_channels':serialize(nodal_channels.certificate()),
+        'actual_spectral_residue_and_subcontact_band':serialize(spectral_residue.certificate()),
+        'complete_Lorentzian_window_access':serialize(spectral_window_access.certificate()),
         'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,

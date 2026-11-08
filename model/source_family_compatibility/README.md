@@ -107,3 +107,24 @@ windings with supplied coefficients. On the default interacting ground,
 the [nodal memory bound](NODAL_MEMORY.md) instead proves a nonzero omitted
 response throughout a neighbourhood of every kinetic node. Its imaginary
 frequency response cannot be replaced by the two-block compression.
+
+The [exact nodal symmetry reduction](NODAL_CHANNELS.md) transports all eight
+original Weyl probes into two proper-cubic channels on that interacting
+ground. The actual finite-box preparation also preserves inversion, which
+equates these channels; particle--hole symmetry makes their common measure
+even. Thus all 16 nodal components share one scalar measure, whose values
+remain to be calculated. This supplies no physical spin or species assignment.
+[Locality and moment determinacy](SPECTRAL_RESIDUE.md) extend the measure to
+every momentum, including the node. The nodal zero-energy residue is exactly
+controlled by the unresolved memory kernel. A positive subcontact-band bound
+is derived on the actual source; its fixed source-energy window does not
+become a bounded physical-energy window under ballistic scaling.
+
+The [complete Lorentzian instrument](SPECTRAL_WINDOW_ACCESS.md) reads a
+bounded spectral score with explicit time, boundary, marginal and service
+errors. A single local pressure perturbation certifies the score uniformly
+over invariant ground states when a strict margin holds. The fixed-scale
+instance has a proved terminating search; its large program was not run.
+The executed full dimer retains all 66 records. Neither this access theorem
+nor fixed-frequency momentum continuity supplies a shrinking-energy window
+or a preparation modulus for the selected infinite ground.

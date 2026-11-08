@@ -108,6 +108,9 @@ _CENTERED_PRODUCERS = {
     'nodal_memory': 'actual_nodal_response_memory',
     'ground_marginals': 'ground_marginal_preparation_and_native_records',
     'cube_memory': 'full_cube_frequency_dependent_memory',
+    'nodal_channels': 'actual_nodal_scalar_channels',
+    'spectral_residue': 'actual_spectral_residue_and_subcontact_band',
+    'spectral_window_access': 'complete_Lorentzian_window_access',
 }
 
 
@@ -143,6 +146,17 @@ def test_centered_consumer_accepts_original_records_without_thermodynamic_promot
     ('full_cube_frequency_dependent_memory', ('physical_mass_assigned',), 'electron', 'cube memory exceeds'),
     ('full_cube_frequency_dependent_memory', ('thermodynamic_charge_gap_proved',), True, 'cube memory exceeds'),
     ('full_cube_frequency_dependent_memory', ('native_large_filter_tape_executed',), True, 'cube memory exceeds'),
+    ('actual_nodal_scalar_channels', ('uniform_growing_packet_scaling_supplied',), True, 'nodal channels exceed'),
+    ('actual_nodal_scalar_channels', ('physical_spin_or_species_identification',), True, 'nodal channels exceed'),
+    ('actual_nodal_scalar_channels', ('physical_mass_prediction',), True, 'nodal channels exceed'),
+    ('actual_spectral_residue_and_subcontact_band', ('physical_mass_prediction',), '1', 'spectral residue exceeds'),
+    ('actual_spectral_residue_and_subcontact_band', ('physical_species',), ['electron'], 'spectral residue exceeds'),
+    ('actual_spectral_residue_and_subcontact_band', ('default_shrinking_window_weight_proved',), True, 'spectral residue exceeds'),
+    ('actual_spectral_residue_and_subcontact_band', ('uniform_many_body_charge_gap_proved',), True, 'spectral residue exceeds'),
+    ('complete_Lorentzian_window_access', ('physical_species_assigned',), True, 'spectral access exceeds'),
+    ('complete_Lorentzian_window_access', ('physical_mass_assigned',), '1', 'spectral access exceeds'),
+    ('complete_Lorentzian_window_access', ('uniform_shrinking_window_weight_proved',), True, 'spectral access exceeds'),
+    ('complete_Lorentzian_window_access', ('effective_growing_ground_marginal_modulus_proved',), True, 'spectral access exceeds'),
 ])
 def test_centered_memory_and_state_scope_forgery_rejected(centered_payload, monkeypatch, key, path, value, error):
     changed = copy.deepcopy(centered_payload)
@@ -150,3 +164,23 @@ def test_centered_memory_and_state_scope_forgery_rejected(centered_payload, monk
     _stub_centered_producers(monkeypatch, changed)
     with pytest.raises(ValueError, match=error):
         packet.centered_matter_attachment()
+
+
+@pytest.mark.parametrize('path,value', [
+    (('directed_joint_source_band', 'each_charge_and_direction_original_probability_lower'), '1'),
+    (('directed_joint_source_band', 'source_even_collective_internal_charge'), False),
+    (('directed_joint_source_band', 'original_odd_CAR_identification'), True),
+    (('directed_joint_source_band', 'energy_shell_or_plane_wave_atom_inferred'), True),
+    (('directed_joint_source_band', 'effective_finite_source_to_continuum_error_claimed'), True),
+    (('finite_periodic_source_control', 'complete_native_pulse_tape_executed'), True),
+    (('finite_periodic_source_control', 'finite_control_proves_continuum_floor'), True),
+    (('finite_periodic_source_control', 'finite_translation_labels_identified_with_continuum_momentum'), True),
+    (('finite_periodic_source_control', 'physical_particle_or_mass_assignment'), True),
+])
+def test_directed_scope_forgery_rejected_despite_matching_owner(joint_payload, monkeypatch, path, value):
+    changed = copy.deepcopy(joint_payload)
+    _set(changed['directed_joint_charged_bands'], path, value)
+    monkeypatch.setattr(packet.joint_field, 'build', lambda: changed)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: changed)
+    with pytest.raises(ValueError, match='directed bands exceed'):
+        packet.joint_field_attachment()

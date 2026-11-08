@@ -31,6 +31,14 @@ commutator error and every complementary record. The complete dimer
 control retains nine preparation/energy labels. These broad response bands
 supply no sharp dispersion or physical mass.
 
+The [directed preparation](DIRECTED_CHARGED_BANDS.md) resolves each charge
+into arbitrarily narrow opposite momentum caps, retaining original probability
+at least `1/774400` in each charge and direction. Its spatial translation
+phase has a controlled error; its energy interval remains broad. A literal
+six-site periodic source verifies the charge/direction readout with all
+13 outcomes and certified positive energy variance. This finite control is
+not a continuum dispersion law or an identification with the odd CAR probes.
+
 ```sh
 python -W error -m pytest -q model/spin_joint_field_limit
 python -W error -m model.spin_joint_field_limit --write

@@ -9,7 +9,7 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward, uniform_mode, uniform_spectral
-from . import arctan_bands
+from . import arctan_bands, directed_bands
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -99,6 +99,7 @@ def build():
         'uniform_mode_original_weight_and_concentration':uniform_mode.certificate(),
         'complete_finite_uniform_spectral_readout':uniform_spectral.certificate(),
         'bounded_joint_charged_energy_momentum_bands':arctan_bands.certificate(),
+        'directed_joint_charged_bands':directed_bands.certificate(),
         'scope':{'source_field_sequence':'p=n^-2, B=J*n^-5, n>=2',
             'sequence_is_a_chosen_source_preparation_prescription':True,
             'sequence_forced_by_unread_repair':False,

@@ -12,6 +12,7 @@ from model.spin_joint_field_limit import packet as joint_field
 from model.source_family_compatibility import hole_records, hole_dispersion, local_matter, charge_bands, composite, cube_response, charge_scaling, boost_current, cube_spectrum
 from model.source_family_compatibility import momentum_response, charge_escape, uv_tail, local_spectral
 from model.source_family_compatibility import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
+from model.source_family_compatibility import nodal_channels, spectral_residue, spectral_window_access
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -102,7 +103,8 @@ def rows():
          'same_object_realizations':['model/spin_joint_field_limit/SECOND_PAIR.md',
                                      'model/spin_joint_field_limit/CLOCK_COMPARISON.md',
                                      'model/spin_joint_field_limit/UNIFORM_MODE.md',
-                                     'model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md']},
+                                     'model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md',
+                                     'model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md']},
         {'id':'common_hidden_spin_factor', 'kind':'joint_noiseless_subsystem',
          'source':'same six-site Weyl/contact field and complete charged-block repair',
          'protected_object':'at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315',
@@ -144,8 +146,8 @@ def rows():
          'source':'fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance',
          'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair',
          'completeness':'complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive',
-         'preparation_readout':'local addition and removal each have original weight 1/2; a complete local time instrument recovers their original energy measures with explicit boundary, marginal and alias errors; odd transfer and coherent clock services are declared',
-         'propagation_energy':'same positive centered ground clock, interacting local histories and positive original charged bands; the default cube has positive composite memory on every original mode; on the explicitly cubic-averaged ground, three local correlations determine the magnetic-momentum second block and residual Gram; complete source energy windows retain both charges and all clock records, with ultraviolet alias bounds; the energy-dipole current and spectral-weight constraints govern the physical continuation',
+         'preparation_readout':'local addition and removal each have original weight 1/2; complete local phase and Lorentzian instruments retain all charge, time and complement records with boundary, marginal and service errors; one pressure diagnostic certifies a local score when all invariant grounds have a strict margin',
+         'propagation_energy':'same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; no shrinking physical-energy window is supplied',
          'topology':'source U1 charge grading, without an assigned winding invariant or Standard Model charge',
          'boundary':'the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established',
          'evidence':'model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md',
@@ -161,7 +163,10 @@ def rows():
                                      'model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md',
                                      'model/source_family_compatibility/NODAL_MEMORY.md',
                                      'model/source_family_compatibility/GROUND_MARGINALS.md',
-                                     'model/source_family_compatibility/CUBE_MEMORY.md']},
+                                     'model/source_family_compatibility/CUBE_MEMORY.md',
+                                     'model/source_family_compatibility/NODAL_CHANNELS.md',
+                                     'model/source_family_compatibility/SPECTRAL_RESIDUE.md',
+                                     'model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md']},
         {'id':'kinetic_Weyl_nodes_and_free_fields', 'kind':'kinetic_topology_and_conditional_field_map',
          'source':'original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))',
          'protected_object':'eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields',
@@ -198,6 +203,18 @@ def joint_field_attachment():
     uniform=value['uniform_mode_original_weight_and_concentration']
     spectral=value['complete_finite_uniform_spectral_readout']
     charged=value['bounded_joint_charged_energy_momentum_bands']
+    directed=value['directed_joint_charged_bands']
+    cap=directed['directed_joint_source_band']
+    if (cap['each_charge_and_direction_original_probability_lower']!='1/774400'
+            or cap['source_even_collective_internal_charge']is not True
+            or cap['original_odd_CAR_identification']is not False
+            or cap['energy_shell_or_plane_wave_atom_inferred']is not False
+            or cap['effective_finite_source_to_continuum_error_claimed']is not False
+            or any(directed['finite_periodic_source_control'][name]is not False for name in (
+                'complete_native_pulse_tape_executed','finite_control_proves_continuum_floor',
+                'finite_translation_labels_identified_with_continuum_momentum',
+                'physical_particle_or_mass_assignment'))):
+        raise ValueError('joint-field directed bands exceed their source scope')
     if (charged['continuum_band']['each_original_charge_probability_lower']!='1/387200'
             or charged['continuum_band']['joint_positive_field_clock_used']is not True
             or charged['continuum_band']['sharp_shell_or_physical_mass_inferred']is not False
@@ -236,6 +253,7 @@ def joint_field_attachment():
                 'large_history_executed':history['large_history_executed']},
             'ordered_zero_field_history_identity_proved':False,
             'bounded_charged_joint_bands':charged,
+            'directed_joint_charged_bands':directed,
             'uniform_mode_response':{'weighted_centre_and_variance_tend_to_zero':True,
                 'original_window_probability_lower':'m/(8N); finite order floor m>1/20',
                 'uniform_original_continuum_residue_lower_proved':False,
@@ -333,7 +351,10 @@ def centered_matter_attachment():
         'complete_local_source_energy_readout':serialize(local_spectral.certificate()),
         'actual_nodal_response_memory':serialize(nodal_memory.certificate()),
         'ground_marginal_preparation_and_native_records':ground_marginals.certificate(),
-        'full_cube_frequency_dependent_memory':serialize(cube_memory.certificate())}
+        'full_cube_frequency_dependent_memory':serialize(cube_memory.certificate()),
+        'actual_nodal_scalar_channels':serialize(nodal_channels.certificate()),
+        'actual_spectral_residue_and_subcontact_band':serialize(spectral_residue.certificate()),
+        'complete_Lorentzian_window_access':serialize(spectral_window_access.certificate())}
     if any(canonical(value)!=canonical(parent[key]) for key,value in local_energy.items()):
         raise ValueError('centered-matter local energy or momentum receipt differs from the replay')
     if (local_energy['actual_cubic_momentum_response']['continuum_poles_or_physical_species_derived']is not False
@@ -354,6 +375,21 @@ def centered_matter_attachment():
             or memory['thermodynamic_charge_gap_proved']is not False
             or memory['native_large_filter_tape_executed']is not False):
         raise ValueError('centered-matter cube memory exceeds its finite-source scope')
+    channels=local_energy['actual_nodal_scalar_channels']
+    if any(channels[name]is not False for name in (
+            'uniform_growing_packet_scaling_supplied',
+            'physical_spin_or_species_identification','physical_mass_prediction')):
+        raise ValueError('centered-matter nodal channels exceed their spectral scope')
+    residue=local_energy['actual_spectral_residue_and_subcontact_band']
+    if (residue['physical_mass_prediction']is not None or residue['physical_species']!=[]
+            or residue['default_shrinking_window_weight_proved']is not False
+            or residue['uniform_many_body_charge_gap_proved']is not False):
+        raise ValueError('centered-matter spectral residue exceeds its proved source scope')
+    access=local_energy['complete_Lorentzian_window_access']
+    if (access['physical_species_assigned']is not False or access['physical_mass_assigned']is not None
+            or access['uniform_shrinking_window_weight_proved']is not False
+            or access['effective_growing_ground_marginal_modulus_proved']is not False):
+        raise ValueError('centered-matter spectral access exceeds its preparation scope')
     if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
             or canonical(bands)!=canonical(parent['centered_original_charged_bands'])
             or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])

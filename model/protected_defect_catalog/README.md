@@ -40,6 +40,17 @@ retain a uniform positive probability in explicit energy--momentum bands.
 The same-state dispersion and scattering determine whether those records
 contain a particle branch.
 
+On the interacting centered source, [actual nodal symmetries](../source_family_compatibility/NODAL_CHANNELS.md)
+map all eight original valley probes to one even scalar nodal measure,
+using the actual preparation's inversion symmetry. The spectral measure
+is defined at every momentum, but its
+low-energy scaling remains unresolved. The [complete spectral instrument](../source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
+provides a measurable score with explicit errors and a ground-pressure
+certificate. On the separate prepared collective family, [directed caps](../spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
+retain positive original weight in each charge and momentum direction.
+These entries explain specific source-to-observer responses; none supplies
+a measured mass or completes the Standard Model identification.
+
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.protected_defect_catalog --check
 python -m pytest -q -W error model/protected_defect_catalog
