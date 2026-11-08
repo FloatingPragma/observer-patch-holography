@@ -21,6 +21,14 @@ a local two-speed field control satisfies these inputs with a hidden force.
 The criterion does not certify a vanishing continuum defect or implement an
 arbitrary Gram projection as a detector.
 
+A [source spectral hierarchy](SPECTRAL_BRANCH.md) approximates bounded
+energy scores using actual resolvent moments, with finite-resolution and
+boundary-weight errors. Time-translated local creators realize those moments
+with explicit cutoff and control costs; Gram-certified coherent combinations
+retain their original preparation probability. Exact dimer energy and
+site-symmetry labels illustrate the construction. Finite Ritz nodes do not
+certify a continuum pole, and no uniform growing Gram floor is inferred.
+
 ```sh
 python -W error -m pytest -q model/spin_dynamical_memory
 python -W error -m model.spin_dynamical_memory --write

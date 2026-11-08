@@ -355,3 +355,18 @@ def test_response_closure_retains_original_scores_and_physical_boundaries(result
     changed['bounded_response_closure']['native_dimer']['complete_record_probabilities'].pop()
     with pytest.raises(ValueError):
         packet.validate(changed)
+
+
+def test_spectral_hierarchy_does_not_promote_Ritz_values_or_discard_original_failures(result,monkeypatch):
+    expected=copy.deepcopy(result)
+    monkeypatch.setattr(packet,'build',lambda:expected)
+    row=result['source_spectral_window_hierarchy']['actual_source_joint_response']
+    assert row['joint_block_rank']==3
+    assert row['one_step_Ritz_is_an_exact_source_level'] is False
+    for flag in ('uniform_growing_Gram_floor_proved','source_continuum_atom_inferred_from_finite_Ritz_values'):
+        altered=copy.deepcopy(result)
+        altered['scope'][flag]=True
+        with pytest.raises(ValueError):packet.validate(altered)
+    altered=copy.deepcopy(result)
+    altered['source_spectral_window_hierarchy']['actual_source_joint_response']['filter_failure_probability']='0'
+    with pytest.raises(ValueError):packet.validate(altered)
