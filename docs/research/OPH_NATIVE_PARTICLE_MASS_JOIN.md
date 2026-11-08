@@ -148,6 +148,46 @@ comparison to every stated symmetric thermodynamic ground is below `13/50`.
 This coarse one-site bound is insufficient for small spectral windows;
 multisite marginal convergence with the required accuracy is unproved.
 
+## Next calculation on the centered full ground
+
+Fix the same selected c=1,U=8 reference. The [scalar nodal reduction](../../model/source_family_compatibility/NODAL_CHANNELS.md)
+makes the first target `m_eta I=R* eta^2(L_perp^2+eta^2)^-1 R` and
+`q_eta=(eta^2+m_eta)/(16+eta^2+m_eta)`. Prove either an actual upper
+bound `m_eta<=epsilon(eta)->0`, which excludes the fixed-reference
+ballistic packet route, or a uniform positive floor down to eta=0.
+A positive floor proves a necessary residue, not a dispersive particle;
+one finite eta or a positive total Gram decides neither alternative.
+Further source moments and a controlled tail of the actual scalar Jacobi
+response can supply this calculation; a truncated response without its
+omitted tail cannot.
+
+The next target keeps momentum and frequency together. For c=v/a, set
+`eta_a=a tau/v` and
+`Q_a(tau,p)=-eta_a Im G_unit(i eta_a,k_*+a p)`.
+Test the chosen normalized coefficient or packet direction, retaining
+all original outcomes. A uniform bound `Q_a>=q_*>t`,
+`t=1/(1+N^2)`, gives physical-energy weight at least
+`(q_*-t)/(1-t)` in `[0,N tau]`. The bound and its total error must hold
+on the requested momentum region as a decreases; fixed-eta continuity
+is insufficient. This event can include zero energy.
+
+To exclude zero, use two [complete Lorentzian scores](../../model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md):
+`D_a=Q_a(tau,p)-Q_a(epsilon tau,p)`, `0<epsilon<1`.
+Its kernel is `F(x)=(1-epsilon^2)x^2/[(1+x^2)(epsilon^2+x^2)]`,
+with maximum `M=(1-epsilon)/(1+epsilon)` at `x=sqrt(epsilon)`.
+For `0<l<sqrt(epsilon)<u`, put `t=max(F(l),F(u))`.
+A certified `D_a>t` gives original weight at least `(D_a-t)/(M-t)`
+in the positive physical-energy annulus `[l tau,u tau]`.
+
+Every bound must include packet, time-tail, collar, state and service errors
+on this same clock. A direct pressure certificate can replace full marginal
+tomography for a bounded score when its common-ground margin is proved;
+its fixed-source margin does not establish a scaling-uniform one.
+A sharp dispersion needs persistent original weight in narrowing energy
+and momentum tubes. A threshold or resonance instead needs its controlled
+spectral response. None follows merely from a positive window probability,
+and the separate source-even collective bands do not fill this odd-CAR premise.
+
 ## A prepared field on one state and clock
 
 The [joint positive-field family](../../model/spin_joint_field_limit/PROOF.md)
