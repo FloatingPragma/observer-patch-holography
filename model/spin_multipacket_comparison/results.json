@@ -142,6 +142,257 @@
     "source_twist_kappa_strict_lower": "1/200",
     "trial_vector_claimed_exact_selected_ground": false
   },
+  "actual_source_scalar_dispersion_diagnostic": {
+    "actual_H_charge_translation_commutation_exact": true,
+    "all_original_records_retained": true,
+    "all_source_basis_rows_retained": 256,
+    "any_scalar_energy_function_on_these_four_characters_excluded_for_this_full_preparation": true,
+    "centered_H_definition": "H_B+6I",
+    "centered_H_operator_norm_upper": "7",
+    "channels": [
+      {
+        "characters": [
+          {
+            "conditional_energy_variance_interval": [
+              "0.144597360688",
+              "0.144597360825"
+            ],
+            "conditional_excitation_mean_interval": [
+              "1.147324618171",
+              "1.147324618189"
+            ],
+            "even_translation_character": 0,
+            "original_probability_interval": [
+              "0.280434976599",
+              "0.280434976601"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.040550157461",
+              "0.040550157500"
+            ]
+          },
+          {
+            "conditional_energy_variance_interval": [
+              "0.066305919123",
+              "0.066305919281"
+            ],
+            "conditional_excitation_mean_interval": [
+              "2.196946245728",
+              "2.196946245751"
+            ],
+            "even_translation_character": 1,
+            "original_probability_interval": [
+              "0.185013364776",
+              "0.185013364778"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.012267481201",
+              "0.012267481231"
+            ]
+          },
+          {
+            "conditional_energy_variance_interval": [
+              "0.066305919123",
+              "0.066305919281"
+            ],
+            "conditional_excitation_mean_interval": [
+              "2.196946245728",
+              "2.196946245751"
+            ],
+            "even_translation_character": 2,
+            "original_probability_interval": [
+              "0.185013364776",
+              "0.185013364778"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.012267481201",
+              "0.012267481231"
+            ]
+          },
+          {
+            "conditional_energy_variance_interval": [
+              "0.066305919123",
+              "0.066305919281"
+            ],
+            "conditional_excitation_mean_interval": [
+              "2.196946245728",
+              "2.196946245751"
+            ],
+            "even_translation_character": 3,
+            "original_probability_interval": [
+              "0.185013364776",
+              "0.185013364778"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.012267481201",
+              "0.012267481231"
+            ]
+          }
+        ],
+        "internal_charge": -1,
+        "optimal_conditional_squared_dispersion_defect_interval": [
+          "0.092585169512",
+          "0.092585169663"
+        ],
+        "optimal_unnormalized_squared_dispersion_defect_interval": [
+          "0.077352601066",
+          "0.077352601192"
+        ],
+        "original_total_probability_interval": [
+          "0.835475070929",
+          "0.835475070932"
+        ],
+        "strict_simple_original_weight_defect_lower": "77/1000"
+      },
+      {
+        "characters": [
+          {
+            "conditional_energy_variance_interval": [
+              "0.274343544867",
+              "0.274343545204"
+            ],
+            "conditional_excitation_mean_interval": [
+              "1.195371828803",
+              "1.195371828846"
+            ],
+            "even_translation_character": 0,
+            "original_probability_interval": [
+              "0.112697441134",
+              "0.112697441136"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.030917815498",
+              "0.030917815537"
+            ]
+          },
+          {
+            "conditional_energy_variance_interval": [
+              "0.351858491398",
+              "0.351858493392"
+            ],
+            "conditional_excitation_mean_interval": [
+              "2.894268095799",
+              "2.894268096059"
+            ],
+            "even_translation_character": 1,
+            "original_probability_interval": [
+              "0.017275829311",
+              "0.017275829312"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.006078647239",
+              "0.006078647274"
+            ]
+          },
+          {
+            "conditional_energy_variance_interval": [
+              "0.351858491398",
+              "0.351858493392"
+            ],
+            "conditional_excitation_mean_interval": [
+              "2.894268095799",
+              "2.894268096059"
+            ],
+            "even_translation_character": 2,
+            "original_probability_interval": [
+              "0.017275829311",
+              "0.017275829312"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.006078647239",
+              "0.006078647274"
+            ]
+          },
+          {
+            "conditional_energy_variance_interval": [
+              "0.351858491398",
+              "0.351858493392"
+            ],
+            "conditional_excitation_mean_interval": [
+              "2.894268095799",
+              "2.894268096059"
+            ],
+            "even_translation_character": 3,
+            "original_probability_interval": [
+              "0.017275829311",
+              "0.017275829312"
+            ],
+            "unnormalized_optimal_squared_defect_interval": [
+              "0.006078647239",
+              "0.006078647274"
+            ]
+          }
+        ],
+        "internal_charge": 1,
+        "optimal_conditional_squared_dispersion_defect_interval": [
+          "0.298761759048",
+          "0.298761759907"
+        ],
+        "optimal_unnormalized_squared_dispersion_defect_interval": [
+          "0.049153757216",
+          "0.049153757357"
+        ],
+        "original_total_probability_interval": [
+          "0.164524929068",
+          "0.164524929071"
+        ],
+        "strict_simple_original_weight_defect_lower": "49/1000"
+      }
+    ],
+    "character_projector_numerators_and_completeness_checked": true,
+    "finite_selection_field_replaced_by_zero_field_continuum": false,
+    "four_characters_after_each_of_two_coherent_charge_preparations": 8,
+    "full_native_joint_energy_character_tape_executed": false,
+    "physical_dispersion_or_mass_fit_supplied": false,
+    "source_even_translation_group": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0
+      ]
+    ],
+    "source_ground_certificate": {
+      "Gram_defect": "13795792366268829/39614081257132168796771975168",
+      "all_256_eigenvalues_certified": true,
+      "complete_polar_Weyl_radius": "815554196752972263/79228162514264337593543950336",
+      "dimension": 256,
+      "finite_field_gap_interval": [
+        "1.092284677676",
+        "1.092284677698"
+      ],
+      "first_excited_interval": [
+        "-7.147627722206",
+        "-7.147627722184"
+      ],
+      "ground_energy_interval": [
+        "-8.2399123998819",
+        "-8.2399123998817"
+      ],
+      "normalized_ground_vector_error": "50533118606623435/346158831819164069213706328164",
+      "staggered_magnetization_per_site_interval": [
+        "0.335475070930",
+        "0.335475070931"
+      ],
+      "untrusted_eigensolver_is_not_the_proof": true,
+      "vector_bits": 48
+    },
+    "source_spectral_subbranch_or_distinct_interpolator_excluded": false
+  },
   "all_pass": true,
   "analytic_profile_cutoff_examples": [
     {
@@ -623,6 +874,7 @@
     "model/spin_energy_polarization/bounds.py": "1660db31816f42aa9aee9ed63f4a525bd4722eef6444c53557c34b6f79f58d1f",
     "model/spin_goldstone_sector/__init__.py": "d497a6791e48b90de7d1d2548906880cbf8cf1de17d6be4159a08f5c1c80d4de",
     "model/spin_goldstone_sector/infrared.py": "19089d96ca3d233e1949b7df3c59c37aca23c4d2e1ca84dd1b1b651c6bbc8ca9",
+    "model/spin_multipacket_comparison/COMPARISON_DEFECT.md": "22f250ebd9d8134fa434d4331a07922149632a14a5d1bb260f723a515dbdfcce",
     "model/spin_multipacket_comparison/LOCAL_CREATORS.md": "89c72e0fccbc833f41ea792c81c688baf9eabbb51abb1c5e66c2a2922e161567",
     "model/spin_multipacket_comparison/POSITIVE_MULTIPACKETS.md": "4ab18f807554bac5efb83cab4d773d8c03c4947fdbe8257eabcb17cc4d259c16",
     "model/spin_multipacket_comparison/PROOF.md": "cb5f8c4ea4815283be9733c275b5069475374ceaa9cbc79720d33eae4c042870",
@@ -630,8 +882,10 @@
     "model/spin_multipacket_comparison/__init__.py": "7fd2a2e35f1fa0287fc6c5f17a7710df4d2d82d20bf5f87fe2a495324dd4520b",
     "model/spin_multipacket_comparison/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_multipacket_comparison/bounds.py": "82fa926350928c77342cef59d593248efb674415f16a53e56625f35d3b0d541e",
+    "model/spin_multipacket_comparison/dispersion.py": "80929afdb5a141419613d97bf9a8a2a3fcdea6c6d0e76ed1e06a53a0588540ec",
     "model/spin_multipacket_comparison/finite.py": "5fe58125c5a2048158a5efae7eb3db04756b8ae9a020c03fe913dda5718f0b02",
-    "model/spin_multipacket_comparison/packet.py": "b8b91f3c6c11363a98f3fe93a0a3a58379b9fec8051a295c6f0049955fb3552b",
+    "model/spin_multipacket_comparison/packet.py": "913ca709ab60a275add0790563d023356e6cec7b9d3077cc3341413e7a9b6459",
+    "model/spin_multipacket_comparison/test_dispersion.py": "74e99ccd30c73fdd83576c6acef38fe93625067794801e40d454b4e0d41d42bf",
     "model/spin_multipacket_comparison/test_source.py": "1771a3092dfb9aa34974afe6133b630be34f1e5fe06d8f9dbca16aa40e467a65",
     "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
     "model/spin_operational_position/__init__.py": "6ade1e4638d5a010428b0e7ab7dcca167ac930503005f645f74a9ba32cb8bf7f",

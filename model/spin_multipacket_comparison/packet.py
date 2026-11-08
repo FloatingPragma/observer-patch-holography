@@ -9,7 +9,7 @@ from pathlib import Path
 
 from tools import strict_json
 from model.spin_charge_dispersion import order
-from . import bounds, finite
+from . import bounds, finite, dispersion
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -74,6 +74,7 @@ def build():
     result={'schema':'oph.spin_multipacket_comparison.v1','all_pass':True,'source_bindings':before,
         'actual_source_order_bound':order.certificate(),
         'actual_finite_local_source_control':finite.build(),
+        'actual_source_scalar_dispersion_diagnostic':dispersion.build(),
         'strict_local_creator_band':serialize(band),
         'analytic_profile_cutoff_examples':serialize([bounds.cutoff(F(c))for c in (1,2,10)]),
         'certified_frequency_filter':serialize(filter_data),
