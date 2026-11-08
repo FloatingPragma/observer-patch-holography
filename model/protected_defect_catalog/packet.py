@@ -7,7 +7,7 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
-from . import pauli, charge, field
+from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -132,6 +132,7 @@ def build():
             'same_source_charge_resolved_creation':charge.report(),
             'same_source_continuum_parity_attachment':field.preparation_bounds(),
             'same_source_continuum_configuration_charge':field.configuration_charge(),
+            'observer_charge_and_creation_mechanism':mechanism.report(),
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,

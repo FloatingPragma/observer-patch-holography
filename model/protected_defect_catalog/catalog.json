@@ -138,6 +138,22 @@
     }
   ],
   "full_parent_scientific_replays_performed": false,
+  "observer_charge_and_creation_mechanism": {
+    "bare_repair_records_distinguish_protected_spin_states": false,
+    "charge_conservation_proves_one_particle_stability": false,
+    "charge_readout_requires_an_admitted_effect_sensitive_to_charge": true,
+    "composite_charge_rule": "[Q,A_a A_b]=(a+b) A_a A_b",
+    "disjoint_site_creators_commute": true,
+    "internal_spin_half_implies_Lorentz_spin_half": false,
+    "neutral_dynamics_selection_rule": "P_qprime U(t) P_q=0 for qprime != q",
+    "nonzero_charge_can_turn_into_only_neutral_products": false,
+    "single_site_repeated_creation_is_zero": true,
+    "two_site_created_charges": [
+      -2,
+      0,
+      2
+    ]
+  },
   "ordered_cover_complete_branch_classification": {
     "C": {
       "commutant_complex_dimension": 2,
@@ -718,16 +734,18 @@
     "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
-    "model/protected_defect_catalog/PROOF.md": "77cd40b36071ba7786c4ade7f5ff7430a660e134fe4870f4b3b2d5f4a78ba552",
+    "model/protected_defect_catalog/PROOF.md": "703778904e4a9d837349bc06fd565bb8867a053395b81499995101cf89949051",
     "model/protected_defect_catalog/README.md": "161ec2dd83c393c8397945422eba10b9460f9d575894d3856767e16742884571",
     "model/protected_defect_catalog/__init__.py": "53f25646e289f3cd86b18d4fe4e625794015f9cc3460ddd352de7649218d184b",
     "model/protected_defect_catalog/__main__.py": "383d8c2214442ee3d02e745065abe93d9ee4b3fa6ea9084b5ed2564958dbdf6c",
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
-    "model/protected_defect_catalog/packet.py": "c1a785715a65ccf566e1ded1c4f38a683f304418cd2b0fef8e20628d8f0fe46c",
+    "model/protected_defect_catalog/mechanism.py": "cdfff939f72ebe3ffc5fcd7a4e3cca58374e790a9412bf58061e9dd6b2b40478",
+    "model/protected_defect_catalog/packet.py": "764a383e7772b0d57ae194bd162f63973bc9ba6a4cf1d0646a794ac4ddcbb777",
     "model/protected_defect_catalog/pauli.py": "20b0c6af00fc4e214e75e08845094da8513cbe0bf35db89c744bfe46a29b6a53",
     "model/protected_defect_catalog/test_charge.py": "8a3b7ba6f51f6025aca2eb273b8bae08dfa3d780dc57412e1eab4a29c400ec2e",
     "model/protected_defect_catalog/test_field.py": "abf03cfdec765d17a1ee7471173f18867cfcf78eaa78cac5a90ed1be5c8aa602",
+    "model/protected_defect_catalog/test_mechanism.py": "7d5db4331edaced485bdf10524f3d77ef21436ebd52a4b8abc15004af7a9759b",
     "model/protected_defect_catalog/test_packet.py": "fed3a959ea593b65d76a4c14898cd94f71651772da5f9412bd3401b8c2460359",
     "model/protected_defect_catalog/test_pauli.py": "fb1ce88125e8022a0bdd5f28e11f26428cf2b3006b58710bbf42125ba9b516a4",
     "model/protected_particle_readout/__init__.py": "ab534209428d3f76755fe46750df47fdcdfbcc88542acb03602059438a95adce",

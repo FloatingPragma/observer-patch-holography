@@ -336,6 +336,51 @@ spin, a scattering pole or a physical particle-antiparticle identification.
 The source's broken internal symmetry supplies these collective charged
 excitations; no winding number is assigned to them.
 
+## What the observer can distinguish
+
+Observation needs a record-sensitive process, not a preassigned spatial
+coordinate. For an admitted complete instrument with branch K_r, the record
+probability is `Tr(rho K_r^dagger K_r)`. For an adaptive finite history the
+same formula uses its ordered branch product; dependence of a later control
+on an earlier record is included in that product. Two preparations are
+observationally equivalent for an admitted family of experiments exactly
+when their difference annihilates the linear span of all those effects.
+Subsequent classical processing of identical record distributions cannot
+distinguish them. This is a finite operational definition, independent of
+an assumed geometry or a particle name.
+
+On the single-occupancy code, every bare C/E branch is a scalar multiple of
+identity. Hence every history of those repairs has a scalar effect and all
+normalized protected spin states have the same bare record distribution.
+Protection alone does not make a distinction observable. The native coherent
+controls and local pointers enlarge the admitted effect space. In particular
+the complete local creation/readout experiment and the charge-sensitive
+instruments above make the spin distinction measurable. A particle catalogue
+requires such a coupling from every protected candidate to observer records.
+
+## Additive charge, local statistics and persistence
+
+For any homogeneous creator with `[Q,A_a]=a A_a`, the product rule gives
+`[Q,A_a A_b]=(a+b)A_a A_b`. If source evolution U commutes with Q, its sharp
+sector matrix elements satisfy `Pi_qprime U Pi_q=0` for qprime different
+from q. A charge q excitation can redistribute into several configurations
+whose total charge is q; conservation does not keep its original local
+profile or imply a stable one-particle eigenstate. If asymptotic product
+sectors are constructed, the same rule requires the sum of their charges
+to equal the incoming charge. In particular a nonzero charge cannot evolve
+into only neutral products under the charge-preserving dynamics. The
+existence of those asymptotic sectors is not inferred from this rule.
+
+The local source creators have `A_(x,+)^2=A_(x,-)^2=0` at each site, but
+creators at distinct sites commute. They are even bilinears of the native
+fermionic operators; two local creations on different sites are not removed
+by their on-site occupancy restriction. `mechanism.py` checks the exact
+two-site identities in the Marshall frame, including charges -2,0,+2 of
+the products. Thus the source internal spin1/2 does not assign a physical
+Lorentz spin1/2 to its collective charge excitations. Spatial rotation
+representations and scattering exchange statistics require their own
+attachment to the field observables.
+
 ## Catalogue semantics and the particle join
 
 The table separates exhaustive exclusions, memory charges, joint noiseless
