@@ -157,9 +157,14 @@ bound `m_eta<=epsilon(eta)->0`, which excludes the fixed-reference
 ballistic packet route, or a uniform positive floor down to eta=0.
 A positive floor proves a necessary residue, not a dispersive particle;
 one finite eta or a positive total Gram decides neither alternative.
-Further source moments and a controlled tail of the actual scalar Jacobi
-response can supply this calculation; a truncated response without its
-omitted tail cannot.
+A concrete local-moment target is the Christoffel upper bound
+`lambda_n=inf integral |p(E)|^2 dmu`, over even polynomials of degree at
+most 2n with `p(0)=1`; it bounds `mu({0})` from above.
+The first is `lambda_1=r2/(16+r2)`, where `R*R(k_*)=r2 I`;
+the next even degree requires the actual eighth moment M8.
+Use rigorous moment enclosures or an explicit trial-polynomial pressure
+bound. All-ground pressure bounds need not isolate a selected state's
+moments, and a positive finite upper bound does not prove a positive atom.
 
 The next target keeps momentum and frequency together. For c=v/a, set
 `eta_a=a tau/v` and
