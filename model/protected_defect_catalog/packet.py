@@ -139,7 +139,7 @@ def rows():
          'same_object_realizations':['model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md']},
         {'id':'centered_full_CAR_charge_response', 'kind':'scoped_interacting_response_family',
          'source':'fixed-coupling signed Hubbard action with full-domain repair in the same chart; invariant centered full-ground subsequence',
-         'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved between creation and detection',
+         'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair',
          'completeness':'complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive',
          'preparation_readout':'local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors',
          'propagation_energy':'same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories',

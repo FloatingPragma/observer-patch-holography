@@ -14,6 +14,7 @@ Completeness applies only to the explicit domains in the table; there is no exha
 | cube_eta_range | rank1820 image of eta+ from N4 to N6; eta>=2 sector | prepared eta reference and complete local spectral response | Unidentified |
 | compact_opposite_texture_cores | opposite shell degrees +1 and -1, constant exterior, four localized band modes | declared transported four-mode band and current readout | Unidentified |
 | one_hole_spin_readout | hole-position projectors and internal spin information carried by the recorded signed transport; conditional block dimension 2^(V-1) | complete initial-hole position detector preserves internal spin/reference blocks; uniform global attempts give a 4/n archive bound relative to identical propagation with identity repair | Unidentified |
+| centered_full_CAR_charge_response | odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair | complete local interacting records and positive original charged energy-band weight on one centered full-ground clock | Unidentified |
 
 ## The source-to-observation chain
 
@@ -104,7 +105,7 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Preparation and readout:** finite positive-field ground preparation, local marginal modulus, source spin-rotation observables and complete native local Pauli histories with all pointer and failure records.
 
-**Propagation and energy:** continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; no sharp dispersion or rest mass.
+**Propagation and energy:** continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; the volume-wide uniform mode has inverse-weighted centre and energy-square variance tending to zero, with a volume-dependent original probability bound; no nonzero-momentum shell or rest mass.
 
 **Topology:** internal source spin rotation, no spatial winding or identified electromagnetic charge.
 
@@ -172,9 +173,25 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Topology:** one-unit occupation deficit, without a topological invariant or physical particle assignment.
 
-**Boundary:** general Hubbard hopping leaves H_h through doublons; the fully aligned invariant restriction is free; preparation, global-attempt budget and propagation clock are supplied; no interacting ground band or relativistic mass is proved.
+**Boundary:** general Hubbard hopping leaves H_h through doublons; the fully aligned invariant restriction is free and has a separate vacancy-position, magnetic-translation and nonrelativistic continuum map; its reference gap is not a full-ground gap or physical mass; the matched repair chart, preparation and schedule are supplied.
 
 [Owning proof or construction](../../model/source_family_compatibility/REPAIR_TRAJECTORY.md).
+
+## centered full CAR charge response
+
+**Source:** fixed-coupling signed Hubbard action with full-domain repair in the same chart; invariant centered full-ground subsequence.
+
+**Classification domain:** complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive.
+
+**Preparation and readout:** local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors.
+
+**Propagation and energy:** same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories.
+
+**Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
+
+**Boundary:** the invariant ground subsequence has no effective preparation modulus; inaccessible remote raw values cannot drive feedback; a global sharp energy PVM is not supplied by the local bound; no selected relativistic scaling, particle pole or physical spin is established.
+
+[Owning proof or construction](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md).
 
 Source family, state, clock, physical spin/statistics, dispersion or resonance,
 detector coupling and experimental units must be joined before a catalogue
