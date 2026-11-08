@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra,bounds,rotations
+from . import algebra,bounds,rotations,hole_records,program_selection
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -23,10 +23,15 @@ def serialize(value):
 
 def bindings():
     paths=set(HERE.glob('*.py'));queue=list(paths)
+    roots=(ROOT/'evidence/observer_dynamics_20260925/oph-physics-sim',
+           ROOT/'code/capacity_readback',ROOT)
     def include(path):
         if path.is_file()and path not in paths:paths.add(path);queue.append(path)
+    # These source modules are loaded by the capacity adapter using its explicit path.
+    for name in program_selection.record_capacity.PUBLIC_SOURCES:include(ROOT/name)
     while queue:
-        path=queue.pop();package='.'.join(path.relative_to(ROOT).with_suffix('').parts[:-1])
+        path=queue.pop();base_root=next(root for root in roots if path.is_relative_to(root))
+        package='.'.join(path.relative_to(base_root).with_suffix('').parts[:-1])
         for node in ast.walk(ast.parse(path.read_text())):
             names=[]
             if isinstance(node,ast.Import):names=[a.name for a in node.names]
@@ -35,8 +40,10 @@ def bindings():
                 base=importlib.util.resolve_name(name,package)if node.level else name
                 names=[base]+[base+'.'+a.name for a in node.names]
             for name in names:
-                parts=name.split('.');include(ROOT.joinpath(*parts).with_suffix('.py'))
-                for j in range(1,len(parts)+1):include(ROOT.joinpath(*parts[:j])/'__init__.py')
+                parts=name.split('.')
+                for source_root in roots:
+                    include(source_root.joinpath(*parts).with_suffix('.py'))
+                    for j in range(1,len(parts)+1):include(source_root.joinpath(*parts[:j])/'__init__.py')
     paths.update(ROOT/p for p in (
         'model/strong_coupling_refinement/README.md','model/protected_spin_limit/README.md',
         'model/bipartite_spin_limit/README.md','model/bipartite_spin_limit/LOCAL_LIMIT.md',
@@ -49,11 +56,15 @@ def bindings():
         'Lean/Screen/QuantumMatterIntegration.lean','Lean/Screen/FermionSectorAssembly.lean',
         'Lean/Screen/MatterGrammarIndexBridge.lean','Lean/Screen/ExteriorComponentBridge.lean',
         'Lean/Screen/SL2F5PortCover.lean','Lean/QFT/SectorInheritance.lean',
-        'paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex'))
+        'paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex',
+        'model/native_program/README.md','model/observer/CAPACITY.md',
+        'Lean/ObserverPatchHolography/RepairWordSchedule.lean',
+        'Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean',
+        'model/spin_joint_field_limit/PROOF.md'))
     # The literal representation additionally reads its source geometry fixtures.
     from model.common_source import native_matter_attachment as matter
     paths.update(ROOT/name for name in matter.source_bindings())
-    paths.update((HERE/'README.md',HERE/'PROOF.md'))
+    paths.update((HERE/'README.md',HERE/'PROOF.md',HERE/'REPAIR_TRAJECTORY.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -66,6 +77,16 @@ def claims():
         'actual_internal_currents_and_Gauss_countercontrol_replayed':True,
         'selected_spin_source_proper_cubic_scalar_pullback':True,
         'local_even_source_creators_disjointly_commute':True,
+        'actual_full_domain_one_hole_spin_instrument':True,
+        'complete_C_E_coherence_and_declared_Poisson_generator':True,
+        'conditional_counting_schedule_exact_native_attempt_decay':True,
+        'global_attempt_complete_record_disturbance_bound':True,
+        'actual_aligned_Hubbard_hole_sector_and_generic_leakage_checked':True,
+        'actual_program_equal_capacity_different_coherent_response':True,
+        'classical_record_dephasing_is_global_dilation_information_loss':False,
+        'capacity_and_service_counts_select_program':False,
+        'repair_only_program_selects_spin_ground_and_clock':False,
+        'one_hole_sector_is_interacting_Hubbard_ground_band':False,
         'excluded_all_OPH_fermionic_sectors':False,
         'local_dressed_theorem_assumed_full_ground_gap':False,
         'neutral_spin_fields_identified_with_original_odd_CAR':False,
@@ -93,6 +114,8 @@ def build():
         'actual_full_CAR_dimer':algebra.dimer(),
         'actual_internal_current_and_complete_gauge_control':algebra.internal_and_transport(),
         'actual_source_spatial_rotation_and_exchange_control':rotations.certificate(),
+        'actual_complete_one_hole_repair':hole_records.certificate(),
+        'actual_capacity_and_native_program_control':program_selection.certificate(),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,
             'actual_full_sixteen_state_source_reconstructed':True,

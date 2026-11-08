@@ -14,6 +14,14 @@ It also replays an existing gauge-invariant experiment whose two admitted
 operation parameters give different complete records. No new Hamiltonian
 or fitted mass is introduced.
 
+The [repair-clock construction](REPAIR_TRAJECTORY.md) supplies an exact
+hole-position detector on the full source while preserving its internal
+spin information. Its complete repair records give calculable dephasing
+and diffusion; a growing global-attempt schedule bounds their disturbance
+by `4/n` while retaining the entire archive. Two executed native programs also have equal record capacity
+and resource counts but different coherent responses. A specified program
+has a definite response; these capacity data alone do not select it.
+
 ```sh
 python -W error -m pytest -q model/source_family_compatibility
 python -W error -m model.source_family_compatibility --check model/source_family_compatibility/results.json
