@@ -1,5 +1,6 @@
 from copy import deepcopy
 from fractions import Fraction as F
+import json
 
 import numpy as np
 import pytest
@@ -144,3 +145,22 @@ def test_forged_records_and_source_bindings_rejected():
             bad['all_pass'] = 1
         with pytest.raises(ValueError):
             packet.validate(bad)
+
+
+def test_explicit_receipt_cli_path(tmp_path, monkeypatch):
+    path = tmp_path/'exact.json'
+    monkeypatch.setattr('sys.argv', ['clock', '--write', str(path)])
+    packet.main()
+    monkeypatch.setattr('sys.argv', ['clock', '--check', str(path)])
+    packet.main()
+    assert json.loads(path.read_text())['schema'] == 'oph.native_spin_clock_join.v1'
+
+
+def test_explicit_receipt_cli_rejects_forged_claim(tmp_path, monkeypatch):
+    path = tmp_path/'forged.json'
+    value = packet.produce()
+    value['claims']['finite_field_ground_is_zero_field_vacuum'] = True
+    path.write_text(json.dumps(value))
+    monkeypatch.setattr('sys.argv', ['clock', '--check', str(path)])
+    with pytest.raises(ValueError):
+        packet.main()

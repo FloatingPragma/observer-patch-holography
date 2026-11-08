@@ -79,10 +79,10 @@ def validate(value):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('--check', action='store_true')
-    group.add_argument('--write', action='store_true')
+    group.add_argument('--check', type=Path, nargs='?', const=HERE/'results.json')
+    group.add_argument('--write', type=Path, nargs='?', const=HERE/'results.json')
     args = parser.parse_args()
-    path = HERE/'results.json'
+    path = args.write or args.check
     if args.write:
         path.write_text(json.dumps(produce(), indent=2, sort_keys=True, allow_nan=False)+'\n')
     else:

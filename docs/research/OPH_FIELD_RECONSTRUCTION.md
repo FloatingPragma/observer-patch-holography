@@ -13,6 +13,170 @@ numerical constructions and hierarchy exclusions; the
 [construction contract](../../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
 sets the larger observational target.
 
+## The three field constructions and their source boundaries
+
+The sphere occupation field, the relativistic free field and the ordered-spin
+field use different observable dictionaries and scaling trajectories. Their
+spatial dimensions do not replace one another.
+
+| Construction | Established field result | Identification boundary |
+| --- | --- | --- |
+| [Native occupation records](../../model/physical_space_time/OCCUPATION_FIELD.md) | A two-dimensional spatial Dirichlet-form limit on the carrier sphere, with its stated observation clock. | The local rank-three carrier frame is not an extra spatial dimension of this particular field. |
+| [Centered Weyl/contact source](../../model/continuum_free_limit/README.md) | A free relativistic field in three spatial dimensions and time, retaining all eight valleys, on the proved weak-contact scaling. | The cubic field action, encoding and state are specified; this branch does not supply a surviving interaction or measured massive species. |
+| [Ordered protected-spin source](../../model/spin_canonical_field/README.md) | A regular canonical field net in three continuous spatial dimensions and time, positive energy, continuous translations, finite propagation and nonzero gapless spectral weight. | Its microscopic dynamics interacts. Lorentz covariance, a sharp particle branch and nonzero connected continuum scattering are unproved. |
+
+The ordered-spin chain uses one declared two-flavor field extension throughout.
+[Protected spin dynamics](../../model/protected_spin_limit/README.md) gives
+`H_J=J sum_<xy>(S_x.S_y-1/4)` from the centered source along
+`c_E=J E^4, U_E=J E^8`, with complete repair records. This is distinct from the
+bare one-bit occupation source. [Finite ordered preparation](../../model/native_ordered_ground/README.md)
+constructs the ground of `H_B=H_J-B sum_x epsilon_x S_x^1`; the selected infinite
+state takes volume to infinity and then `B` to zero. The canonical field uses
+`X=p*x`, `T=J*p*t` and the positive ground generator `K/(J*p)`.
+The finite native construction has an explicit precision budget. The selected
+infinite state has no proved effective finite-box preparation modulus.
+
+[Clock comparison and energy continuity](../../model/native_spin_clock_join/README.md)
+control complete histories of `H_B` and `H_J` on the same prepared input and
+construct finite local energy currents. They do not identify that finite input
+with the infinite ordered vacuum. [Relaxed response](../../model/spin_relaxed_response/README.md)
+constructs the inverse-energy variational response in that vacuum without
+identifying bare twist energy with its full continuum energy.
+[Complete shell readout](../../model/spin_shell_readout/README.md) bounds the
+original spectral weight near a specified energy-momentum relation, with
+clock leakage, aliases, failed preparations and sampling errors retained.
+A finite energy band is not a proof of a continuum particle pole.
+
+For this chain the precise additional requirements are:
+
+1. Control finite prepared marginals against the selected infinite state at
+   the growing times and spatial supports required by spectroscopy.
+2. Prove the ground-specific inverse-current tail bound, or another estimate
+   that controls the continuum energy and current responses. Finite positive
+   relaxed susceptibility does not establish that tail bound.
+3. Prove a common dispersion relation with a nonvanishing spectral component.
+   The shell readout supplies finite certificates; a uniform shrinking-tube
+   lower bound is the extra asymptotic premise.
+4. Establish Lorentz covariance for the same multitime field hierarchy and
+   determine whether its connected interactions survive the scaling.
+5. Construct the corresponding momentum flux and symmetric conserved stress,
+   then attach the responsive metric, entropy and area data in the finite
+   Einstein composition theorem.
+6. Identify massive sectors, charges and detector couplings on this theory;
+   fix one unit convention and compare complete predictions with measurements.
+
+The [current sum rule](../../model/spin_current_spectrum/README.md) and
+[shell diagnostic](../../model/spin_shell_diagnostic/README.md) give the exact
+missing correlation estimates. Neither an additional finite theorem with
+those estimates as hypotheses nor a fitted dispersion discharges them.
+
+### Position, translations and uncertainty
+
+Uniform native repair has mean load transition `I-L/60`. Its smallest
+nonzero Laplacian band, `5-sqrt(5)`, has rank three. The
+[record-recovered Gram](../../model/relative_observer_geometry/README.md)
+`G=4 P_slow` supplies unit frame directions `u_a` up to orthogonal isometry.
+For a fixed-total load `n`, define the dimensionless carrier readout
+
+```
+x(n)=sum_a n_a u_a,
+x(n_after)-x(n_before)=j (u_b-u_a).
+```
+
+The second identity is an actual record readout: the seam and committed current
+supply each displacement without hidden source loads. Absolute position needs
+an initial reference. This three-component readout is a local load-weighted coordinate,
+not an injective position label for every many-body state. The calibrated
+structural Gram survives the stated exposure correction; an arbitrary biased
+scheduler need not retain it as the dynamical slow band. The
+[real frame quotient](../../Lean/Screen/PrimitivePortFrameQuotient.lean)
+completes its signed control module to Euclidean three-space. It does not
+identify a bounded fixed-total trajectory with that full completion or supply
+inter-carrier frame gluing.
+
+The [same-readout operator proof](../../model/carrier_position_translation/PROOF.md)
+strengthens the recorded displacement identity. For every complete fine branch
+`K_h`, including arbitrary source/reference inputs,
+
+```
+[X_i,K_h]=d_i(h) K_h,
+exp(i q.X) K_h exp(-i q.X)=exp(i q.d(h)) K_h.
+```
+
+The exact certificate uses the unnormalized algebraic frame; dividing every
+coordinate and displacement by its common circumradius gives the unit frame
+above. Dividing the load coordinate by the fixed total gives the centroid.
+
+Each branch is a filtered partial shift. Its acceptance depends on the load;
+it is not a unitary translation. For a finite-dimensional position observable,
+any unitary obeys `||U*X_iU-X_i-a_i I||>=|a_i|`. The uniform repair average
+contracts the slow position by `1-(5-sqrt(5))/60`, rather than translating it.
+These exact statements do not prevent a controlled limit on expanding states,
+but exclude the literal full-register translation identity.
+
+The protected spin source has a stronger restriction. Its subspace `P` has
+one fermion per site, so `N_x P=P`. Every total-load coordinate
+`X_f=sum_x f_x N_x` restricts to `c_f P`, where `c_f=sum_x f_x`.
+For the source low-band isometry `W` with `||W-P||<=2 tau/U`,
+
+```
+||W*X_f W-c_f I|| <= 4 (sum_x |f_x|) (tau/U)^2.
+```
+
+This follows by expanding the centered observable, which annihilates `P`
+on both sides. Fixed local load coordinates become scalar on the declared
+strong-coupling trajectory. They cannot locate an internal spin excitation.
+The source's carrier frame and an excitation's spatial detector have distinct
+roles; recovering a rank-three frame does not identify their observables.
+
+In the ordered-spin continuum, translations of test functions define the
+actual commuting momentum generators. The
+[field-generated position proof](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
+constructs a conjugate coordinate on the closed subspace
+`H_Q=closure{Q(F)Omega}` of this same representation. The field uncertainty
+relation and the existing upper fluctuation bounds give
+
+```
+m^2 integral |Fhat(k)|^2/|k| <= ||Q(F)Omega||^2
+                            <= 3 integral |Fhat(k)|^2/|k|.
+```
+
+With Fourier measure `d^3k/(2pi)^3`, set `T(Fhat/sqrt(|k|))=Q(F)Omega`.
+The source Gram operator satisfies `m^2 I<=T*T<=3I` and commutes with
+spatial translations. Its polar factor `V=T(T*T)^(-1/2)` is a unitary onto
+`H_Q` intertwining those same translations with multiplication by
+`exp(-i k.a)`. Therefore
+
+```
+X_i=V i partial_i V*,  P_j=V hbar k_j V*,
+U(a)*X_iU(a)=X_i+a_i I,
+[X_i,P_j]=i hbar delta_ij I  on V Schwartz(R^3),
+Delta X_i Delta P_i>=hbar/2.
+```
+
+Here `hbar` fixes an action convention. The proof calculates no laboratory
+value for it. A complete extension to the entire field space retains the
+no-position outcome `I-Pi_Q`; the invariant vacuum gives that outcome with
+certainty. A normalized covariant position measure on the full space without
+this outcome is impossible, since the vacuum would induce a translation-
+invariant probability measure on all of Euclidean space.
+
+This proves a source-defined position/momentum pair, with explicit operator
+domains. Its Gram whitening is not proved to be an admitted observer
+instrument or a local field observable. The position is not the total-load
+centroid. The subspace is not proved invariant under the time generator;
+source-relative detector convergence, moment-tail control and a stable
+particle branch are additional physical requirements. The finite cube
+construction supplies complete coordinate effects with a dark complement
+and certifies leakage of its probe subspace under the actual Hamiltonian.
+Its finite symmetry labels are reflections, not continuous momenta.
+
+The [finite Robertson theorem](../../Lean/EventAlgebra/Robertson.lean)
+also applies directly to the actual finite observables. Finite carrier
+uncertainty uses its state-dependent commutator, not a nonzero canonical
+matrix commutator. Knowledge of the simulator specification does not make
+incompatible instruments jointly sharp.
+
 ## Observable charge, energy and gravitational response
 
 [Complete local charge histories](../../model/native_local_charge_history/PROOF.md)
@@ -70,9 +234,10 @@ properties cannot be combined as properties of one common state.
 For a physical continuation, fix one observer-visible regional algebra,
 translation and refinement dictionary, and prove its complete experimental
 law comparison with a vanishing error. Its clock must be the clock in the
-propagator. The native two-dimensional occupation continuum cannot become
-a three-dimensional spatial generator by an invertible same-generator
-renaming. The spherical null-direction theorem constrains the Lorentz form
+propagator. Within the occupation dictionary, its two-dimensional continuum cannot
+become a three-dimensional spatial generator by an invertible same-generator
+renaming. The separate three-dimensional field constructions above retain
+their own stated source and state attachments. The spherical null-direction theorem constrains the Lorentz form
 once the spatial readout and clock are supplied; it does not supply those
 maps or the action. A different field dictionary must be constructed and
 tested, with source interventions and controller dependencies retained.
@@ -187,8 +352,8 @@ derived by the constructions below.
 | **3. Derive space and a common clock.** | **Native graph, shared attempt clock and state-specific local Hamiltonian comparisons established; physical spatial limit unproved.** The [local energy theorem](../../model/native_local_energy_clock/PROOF.md) gives a fixed-history comparison for the faithful transfer reference, and [regional collars](../../model/native_regional_modular_clock/COLLAR.md) control boundary-flow errors. [Clock composition](../../model/native_fair_local_clock/PROOF.md) counts fixed local operations and uniform repairs in one program, and bounds the reservation cost in its separate binned comparison. [Spatial scaling](../../model/native_spatial_scaling/PROOF.md) attaches the source routing and affine-coordinate bounds to the actual counts, with distinct global-attempt and incident-clock estimates. The [exchange clock](../../model/native_exchange_clock/PROOF.md) controls the endpoint comparison to the native local action at counted time `T/(2M)`. The complete local-history comparison uses per-seam attempt time `T/M`, aligned time bins and a stated record trace. [Authenticated dataflow](../../model/native_causal_dataflow/README.md) retains the full single-FIFO chain. [Independent repairs](../../model/native_record_causality/PROOF.md) have equal complete channels after a specified reversible record permutation, for fixed completed schedules. [Lorentz transition tests](../../model/native_lorentz_transition/README.md) constrain supplied transitions. | Derive spatial readouts, translations, causal cones and clock normalization on one refinement family. The reconstructed transfer generator and working modular generator are inequivalent. Their proposed same-reference identification has a [complete-output separation bound](../../model/native_clock_comparison/PROOF.md). A physical quotient must preserve observable controller signals; adaptive selectors and timeouts are outside the independent-repair equivalence. The sphere/Lorentz correspondence alone supplies neither a three-dimensional field net nor this limit. |
 | **4. Produce the reference state.** | **All-sector local mixed preparation and finite fair and weighted transfer-ground experiments established; common interacting vacuum unproved.** The [fair ground construction](../../model/native_fair_ground_readout/PROOF.md) certifies its preparation, local energy contrast and complete readout; growing ground preparation and a physical vacuum algebra are separate premises. [Fair local preparation](../../model/native_fair_local_preparation/PROOF.md) gives half-diamond error `2^-b` after `11+60b` attempts, with actual sector weights, arbitrary references and a stated archive marginal. It does not select the global canonical input or a pure ground. [Observable warmup](../../model/native_correlation_preparation/PROOF.md) controls fixed-`q` reflected scores from arbitrary quantum input, without claiming full-state convergence. The [repair-only reset bound](../../model/native_sector_readout/PROOF.md#a-bounded-repair-only-reset-obstruction) excludes exact finite deterministic reset of all inputs on a nontrivial sector to one basis target; approximate or separately controlled preparation needs its own theorem. [Transfer-ground reconstruction](../../model/native_vacuum_response/PROOF.md) recovers positive-energy correlations as finite combinations of complete lag experiments; its phase-intervention witness excludes a direct identification with the working tracial state. The [controlled transfer experiment](../../model/native_transfer_control/PROOF.md) prepares and evolves the weighted finite transfer ground using declared coherent services, with complete failures and a certified response. It does not provide the growing fair-source vacuum. The [protected native reference](../../model/protected_reference/PROOF.md) classifies stationary states, bounds sharp-charge preparation and joins actual repair to its modular reference. Its [gauge-singlet corner](../../model/protected_reference/GAUGE_JOIN.md) has exact replacement preparation and a Lean finite-thermodynamic adapter. | Prepare the state used by all field sectors on the same source and clock, with positive-energy and refinement control. A native stationary density, a chosen Higgs ground and a physical vacuum cannot be identified without a state-preserving map. |
 | **5. Calculate source responses.** | **Complete native spatial matrices, contact response, finite excitation-energy detection and local-history error bounds established; common relativistic response unproved.** The [local energy currents](../../model/native_local_energy_clock/PROOF.md) conserve the exchange generator and distinguish controlled evolution from native repair heating. The [same-occupation pair matrix](../../model/native_pair_response/PROOF.md) joins complete reflected cross probes, local-window errors and a collision-retaining exclusion comparison. The [native contact response](../../model/native_contact_response/PROOF.md) derives a visible primitive pole below its centered independent-pair comparison, together with a nonvanishing connected-cell leakage bound. [Connected contact dressing](../../model/native_connected_contact/PROOF.md) bounds its negative-parameter local resolvent and proves collapse of the global comparison threshold. The [reflected four-E probe](../../model/native_correlation_sectors/PROOF.md) isolates a degree-two correlation block of the fair connected transfer, with normalized response independent of occupation on the same graph. The [native record resolvent](../../model/native_record_response/PROOF.md) has 65 observable population-relaxation poles with actual back-action. [Correct record reflection](../../model/native_record_response/TRANSFER.md) derives a positive transfer Hamiltonian distinct from the native modular clock. [Local response](../../model/native_local_response/PROOF.md) reduces selected complete histories to their backward dependency cone and controls finite-window errors in global and internal repair counts. | Derive the common spatial response `G_N(z,p)` with controlled state, clock, record and numerical errors. The local comparison uses a stated observation map and fixed selectors; it does not remove observable controller signals. Attempt relaxation, internal repair counts and bounded Abel response require separate connections to relativistic energy and momentum. |
-| **6. Prove the field limit and action.** | **Conditional local-instrument and diffusive field limits, a separate free relativistic branch and finite gauge operations established; interacting chiral theory unproved.** The [native density construction](../../model/physical_space_time/README.md) has spectral dimension two in its stated dictionary; it does not become a three-dimensional relativistic field by interpreting the transfer logarithm as a Hamiltonian. Bounded quadratic profiles have a conditional Wick limit within that diffusive Gaussian field, with moment control; this does not establish an additional interacting continuum. The [controlled continuum](../../model/continuum_free_limit/README.md) is a free eight-valley Weyl vacuum net on its stated scaling. [Literal gauge transport](../../model/gauge_defect_transport/PROOF.md) is complete on its declared extension. | Prove positive energy, locality, relativistic covariance and joint-record convergence for the same source. Derive its action and demonstrate that the required interactions survive. Gauge dynamics, chiral matter, anomaly conditions and cutoff control must hold on that construction; Lie-algebra classification does not select them. |
-| **7. Identify particle sectors and mass ratios.** | **Model sectors identified; measured massive spectrum unproved.** The finite native contact pole has a nonzero complete-record residue, but its unchanged isolated-cell vector fails the connected-capacity persistence test. The global comparison threshold is at most `550/V`; controlled off-spectrum dressing supplies no positive-energy persistence theorem. The controlled free branch has massless particle/hole sectors. [Massive Dirac shells](../../model/source_mass_shell/README.md) use supplied onsite mass coefficients. Protected memory charges and finite response lines are distinct objects. | Identify stable poles, resonances, thresholds or bound sectors using creation, propagation, quantum numbers and complete detectors. Derive their energies from the selected action/state. Ratios cancel a common unit choice; they do not remove unspecified couplings, preparations or sector assignments. |
+| **6. Prove the field limit and action.** | **A free relativistic branch and a separate three-dimensional ordered-spin canonical continuum are established on their stated sources; an interacting chiral relativistic theory is unproved.** The [ordered-spin field](../../model/spin_canonical_field/README.md) has continuous translations, positive energy and a finite cone; the [same-source requirements](#the-three-field-constructions-and-their-source-boundaries) identify its additional correlation and state estimates. The [native density construction](../../model/physical_space_time/README.md) has spectral dimension two in its stated dictionary; it does not become a three-dimensional relativistic field by interpreting the transfer logarithm as a Hamiltonian. Bounded quadratic profiles have a conditional Wick limit within that diffusive Gaussian field, with moment control; this does not establish an additional interacting continuum. The [controlled continuum](../../model/continuum_free_limit/README.md) is a free eight-valley Weyl vacuum net on its stated scaling. [Literal gauge transport](../../model/gauge_defect_transport/PROOF.md) is complete on its declared extension. | Prove positive energy, locality, relativistic covariance and joint-record convergence for the same source. Derive its action and demonstrate that the required interactions survive. Gauge dynamics, chiral matter, anomaly conditions and cutoff control must hold on that construction; Lie-algebra classification does not select them. |
+| **7. Identify particle sectors and mass ratios.** | **Model sectors identified; measured massive spectrum unproved.** The finite native contact pole has a nonzero complete-record residue, but its unchanged isolated-cell vector fails the connected-capacity persistence test. The global comparison threshold is at most `550/V`; controlled off-spectrum dressing supplies no positive-energy persistence theorem. The controlled free branch has massless particle/hole sectors. The [ordered-spin shell readout](../../model/spin_shell_readout/README.md) certifies finite spectral weight with full detector errors; its nonvanishing shrinking-tube condition is an unproved asymptotic premise. [Massive Dirac shells](../../model/source_mass_shell/README.md) use supplied onsite mass coefficients. Protected memory charges and finite response lines are distinct objects. | Identify stable poles, resonances, thresholds or bound sectors using creation, propagation, quantum numbers and complete detectors. Derive their energies from the selected action/state. Ratios cancel a common unit choice; they do not remove unspecified couplings, preparations or sector assignments. |
 | **8. Compare complete predictions with measurements.** | **Not established for the source-derived particle spectrum.** Conditional calibrations and numerical mass comparisons have separate provenance. | Freeze the observable dictionary, calibration inputs and error model, then compare predicted joint records, masses, mixing, widths and scattering where applicable. No target-informed choice may be reported as an independent prediction of that target. |
 
 The detailed [construction route](../../model/particle_identification/ROADMAP.md)

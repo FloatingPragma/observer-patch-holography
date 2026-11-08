@@ -12,6 +12,54 @@ give the eight-step common derivation. This page supplies its state, clock
 and mass-operator details. None of its conditional matrix or transition
 ratios is identified with the final measured particle-mass ratios.
 
+## Position and the source sector
+
+The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
+uses the actual ordered-spin field correlations to obtain a covariant
+coordinate and the existing spatial momentum on its field-vector subspace.
+Their canonical commutator holds on an explicit dense domain. The complete
+field-space detector includes a no-position outcome. Its operational native
+implementation and invariance under the time generator are unproved.
+The [carrier operator identities](../../model/carrier_position_translation/PROOF.md)
+give exact recorded partial shifts, while total-load coordinates become
+scalar on the protected spin sector. Thus the native load centroid cannot
+be substituted for this field position. The construction supplies no mass
+shell, mass ratio or experimental particle assignment.
+
+## One ordered-spin source, reference and clock
+
+The [three field constructions](OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries)
+separate the two-dimensional occupation field from the free relativistic
+three-dimensional field and the ordered-spin canonical continuum. The latter
+has three continuous spatial coordinates and time. A particle interpretation requires a
+proved dispersion component. The claimed interacting continuum additionally
+requires interactions that survive scaling on that same state.
+
+[Finite clock comparison](../../model/native_spin_clock_join/README.md) gives
+complete-history error at most `min(1,B*N*T/2)` in half trace norm between
+`H_B` and `H_J` on the same input, with a separate volume-independent local
+comparison. This controls a change of dynamics, not the error in preparing
+the infinite ordered ground. Finite positive-field excitation energies are
+centered on their own ground. Omitting the staggered torque or using that
+energy origin for the zero-field vacuum changes the experiment.
+
+[Relaxed susceptibility](../../model/spin_relaxed_response/README.md) gives
+`inf q(v)=b^2/(4 chi_A)` for a prescribed tangent response, where
+`chi_A=||L^(-1/2) A Omega||^2` for the continuum positive generator `L`.
+A regularized resolvent constructs feasible
+approximations with certified complete filter weights. These response costs
+are neither normalized excitation energies nor particle masses.
+The [shell detector](../../model/spin_shell_readout/README.md) bounds the
+unnormalized weight near one declared energy-momentum relation. Its clock
+must resolve the shrinking energy width while the complete experiment error
+is small relative to the original packet weight. A finite positive-field
+cube certificate cannot supply that uniform limit.
+
+The [position and momentum interface](OPH_FIELD_RECONSTRUCTION.md#position-translations-and-uncertainty)
+keeps recorded carrier displacement, field translations and canonical field
+quadratures distinct. A physical mass uses the momentum generator of the
+same translations as its position detector, with one common clock and scale.
+
 ## One source, two controlled reference choices
 
 The [fair ground readout](../../model/native_fair_ground_readout/PROOF.md)

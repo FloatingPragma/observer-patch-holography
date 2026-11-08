@@ -2244,6 +2244,134 @@ process.
 
 \input{tex_fragments/SAME_ACTION_FINITE_INTERFACES.tex}
 
+\subsection{One ordered spin state, continuum clock and spectral readout}
+
+A separate source trajectory gives a canonical field in three continuous
+spatial dimensions and time. Its starting point is the declared two-flavor
+field extension on the cubic lattice, with the complete colored repair
+instrument. On the single-occupancy subspace every repair acts as identity
+on spin and retains its fair coin record. For a box with $E$ bonds, the
+centered source with $c_E=JE^4$ and $U_E=JE^8$ converges, including its
+complete finite histories, to
+\[
+ H_J=J\sum_{\langle xy\rangle}(\mathbf S_x\cdot\mathbf S_y-1/4),
+ \qquad J>0.
+\]
+This is an interacting fixed-spacing spin dynamics. Its cubic lattice and
+coherent field encoding are specified source inputs, distinct from the
+one-bit occupation process on the spherical federation.
+
+To select the ordered reference, prepare the unique finite ground of
+$H_B=H_J-B\sum_x\epsilon_xS_x^1$, where $B>0$ and
+$\epsilon_x=(-1)^{x_1+x_2+x_3}$. The finite ground has a terminating
+source-control preparation algorithm. Taking volume to infinity before
+$B\downarrow0$ gives the ordered state used throughout this construction.
+The matched infrared inequalities give staggered order $m>1/1000$ and
+filtered excitation energies between positive multiples of momentum
+\cite{komaDispersion}. They do not assert a sharp spectral pole.
+
+Let $K$ implement zero-field evolution in this ground representation.
+With $X=px$, $T=Jpt$, the fields
+\[
+ Q_p(F)=p^2\sum_x\epsilon_xF(px)S_x^3,\qquad
+ P_p(G)=-p\sum_xG(px)S_x^2
+\]
+have a common bounded-history subsequential limit. The resulting regular
+Weyl field obeys the canonical relation with coefficient
+$m\int FG$, admits continuous spatial translations and positive time
+translations, and has a finite propagation cone. Both Stone fields create
+nonzero positive-energy weight at arbitrarily small momentum. These
+statements concern the same ordered state and clock $K/(Jp)$; they do not
+identify its limiting dynamics with the separate free Weyl branch.
+
+\paragraph{Selection-field and zero-field clocks.}
+For the same finite input on $N$ sites and $m$ interventions, let
+$T_{\rm abs}$ bound the sum of absolute controlled evolution durations on
+every branch. Replacing $H_B$ by $H_J$ changes the complete
+output state by at most
+\[
+ D_{\rm output}\leq\min\{1,BN T_{\rm abs}/2\},
+\]
+where $D$ is half trace norm and all records and untouched references are
+retained. This follows from $\|H_B-H_J\|\leq BN/2$, Duhamel's formula and
+complete-channel contraction. A local version combines this estimate on a
+finite buffer with the spin locality bound, so its error does not grow with
+an unrelated exterior volume. It controls dynamics on the same input;
+it does not supply the missing effective preparation modulus for the
+chosen infinite ordered state. Centering either clock at its own ground
+also requires its own energy-origin certificate.
+
+For $\varepsilon_x=\frac12\sum_{y\sim x}h_{xy}-B\epsilon_xS_x^1$ and
+$j_{xy}=i[\varepsilon_x,\varepsilon_y]$, exact finite evolution gives
+\[
+ \dot\varepsilon_x+\sum_yj_{xy}=0,\qquad
+ \frac{d}{dt}\sum_xf_x\varepsilon_x
+   =\sum_{x<y}(f_y-f_x)j_{xy}.
+\]
+The Hermitian currents are antisymmetric and vanish beyond graph distance
+two. Adjacent bond currents contain
+$i[h_{xy},h_{yz}]=J^2\mathbf S_x\cdot(\mathbf S_y\times\mathbf S_z)$.
+For the bipartite staggered field the site-pair currents agree with their
+zero-field values, although the energy densities and evolution differ.
+An intervention has a separately counted source-energy jump. These
+identities supply energy continuity, not a symmetric Lorentz stress tensor
+or a responsive geometry.
+
+\paragraph{Relaxed response in the same continuum.}
+Let $L$ denote the continuum positive generator obtained from $K/(Jp)$.
+For either actual continuum field vector $a=A\Omega$, its inverse-energy
+susceptibility $\chi_A=\|L^{-1/2}a\|^2$ is positive and finite on the
+specified momentum annulus. The exact variational identity is
+\[
+ \inf_{2\operatorname{Re}\langle a,v\rangle=b}
+       \|L^{1/2}v\|^2=\frac{b^2}{4\chi_A}.
+\]
+The vectors are perpendicular to $\ker L$. For $\eta>0$, writing
+$\chi_\eta=\langle a,(L+\eta)^{-1}a\rangle$,
+$v_\eta=b(L+\eta)^{-1}a/(2\chi_\eta)$ gives a feasible sequence whose
+energy tends to this infimum. Attainment at $\eta=0$ requires
+$L^{-1}a$ to belong to the Hilbert space. Positive Fourier averages of the
+same Heisenberg evolution implement the regularized filter, retaining
+complementary outcomes. Finite spectral certificates bound its response
+without treating bare twist energy as the relaxed stiffness. The bounded source probes $\sin(sA_p)/s$ give its regularized
+susceptibility through the same bounded-history limit at fixed $s$ and
+$\eta$. Taking $s\to0$ and then $\eta\downarrow0$ recovers the actual
+continuum coefficient, without a finite-state convergence rate. The quantity
+above is the cost of an infinitesimal response, not an excitation mass.
+
+\paragraph{Testing a particle branch.}
+On an even periodic box, set $K_B=H_B-E_0(H_B)$. The commuting projectors
+$Q_k$ for the combined translation and internal rotation, and the complete
+energy-clock operators
+\[
+ B_j(K_B)=\frac1M\sum_{r=0}^{M-1}
+   e^{2\pi i jr/M}e^{-ir\tau K_B}
+\]
+give joint effects $Q_kB_j^*B_j$ summing to the identity. Every unsuccessful
+preparation and source-control export retains its own outcome. For a phase
+margin $\delta$ measured in turns, the summed clock leakage is bounded by
+$\min\{1,[2(M\delta)^2]^{-1}+(2M\delta)^{-1}\}$. Inner and outer bin sets
+therefore bound the original, unnormalized spectral weight in a prescribed
+energy--momentum tube, with source, input and sampling errors added.
+The clock step must also resolve aliases across the full finite spectrum.
+
+The unchanged positive-field eight-site cube supplies a finite control:
+its complete 256-vector certificate and 128-bin clock bound the weight in
+one reflection character and excitation interval $[4/5,7/5]$ below by
+$1/5$. This interval contains the first excitation cluster near
+$1.0922846777$ in the specified source units. The cube's characters are
+reflections, not small translation momenta; the larger native 128-bin tape
+is specified rather than reported executed.
+A positive continuum particle component additionally needs a uniform
+nonzero fraction of the original response in shrinking tubes about one
+common dispersion, with readout error small relative to that response.
+For width $Jp\delta_p$, the clock requires
+$M\tau Jp\delta_p\to\infty$. Fixed-history convergence alone supplies no
+such growing-time estimate. Lorentz covariance, surviving connected
+interactions, massive species and the corresponding gravitational stress
+are separate conclusions requiring proof. The complete constructions and
+finite certificates are in the executable model \cite{mREADME}.
+
 \subsection{Compiled instruments on interacting sources}
 \label{sec:interacting-instruments}
 
@@ -2373,6 +2501,75 @@ backwards and adding both endpoints of every seam that touches the
 dependency set proves the dependency claim by induction
 \cite{csSLOW,csCAUS,csFIELDS}.
 \end{proof}
+
+The rank-three readout is a local load-weighted coordinate. An absolute value needs
+an initial reference, while every current fixes its displacement. On the
+native quantum carrier, each complete fine branch $K_h$ is a scaled partial
+injection. Applying the classical increment identity to each supported
+basis column proves, for $d(h)$ the recorded net displacement,
+\[
+ [X_i,K_h]=d_i(h)K_h,\qquad
+ e^{iq\cdot X}K_he^{-iq\cdot X}=e^{iq\cdot d(h)}K_h.
+\]
+These are operator identities and retain arbitrary untouched references.
+The branch acceptance depends on the initial load. A unitary on the whole
+finite carrier cannot instead satisfy $U^*X_iU=X_i+a_iI$ for nonzero
+$a_i$: taking the trace gives a contradiction and the operator-norm
+residual is at least $|a_i|$.
+
+The protected spin source makes the distinction concrete. Its inclusion
+$P$ has one fermion at each site, so $N_xP=P$. For any finite real profile
+$f$, set $X_f=\sum_xf_xN_x$ and $c_f=\sum_xf_x$. Then
+$(X_f-c_f)P=0$. The low-band isometry $W$ with
+$\|W-P\|\leq2\tau/U$ consequently obeys
+\[
+ \|W^*X_fW-c_fI\|\leq
+    4\Bigl(\sum_x|f_x|\Bigr)(\tau/U)^2.
+\]
+Indeed only $(W-P)^*(X_f-c_f)(W-P)$ survives after expansion.
+Thus fixed local total-load coordinates become scalar on the stated
+strong-coupling trajectory. A spatial detector of a moving spin excitation
+must read its internal field response.
+
+There is a conjugate coordinate constructed from that same continuum
+field. Write $q(F)=Q(F)\Omega$ and use Fourier measure
+$d\nu=d^3k/(2\pi)^3$. The Weyl relation and the second-moment bounds imply
+$2\operatorname{Im}\langle q(F),P(G)\Omega\rangle=m\int FG$.
+Cauchy--Schwarz, optimized with $\widehat G=\widehat F/|k|$ on Fourier
+supports away from zero, gives
+\[
+ m^2\int\frac{|\widehat F|^2}{|k|}\,d\nu
+ \leq\|q(F)\|^2\leq
+ 3\int\frac{|\widehat F|^2}{|k|}\,d\nu.
+\]
+Strong commutativity of the equal-time $Q$ fields makes their Gram form
+real on real tests, so these bounds extend complex linearly. The map
+$T(\widehat F/\sqrt{|k|})=q(F)$ is bounded below onto the closed subspace
+$\mathcal H_Q$ of the original field representation. It intertwines the
+actual spatial translations with multiplication by $e^{-ik\cdot a}$.
+Its positive Gram operator commutes with these multipliers, and the polar
+factor $V=T(T^*T)^{-1/2}$ is a unitary onto $\mathcal H_Q$. Define
+\[
+ X_i=V i\partial_{k_i}V^*,\qquad
+ P_j^{\rm space}=V\hbar k_jV^*.
+\]
+The second operator is the same field translation generator in the chosen
+action units. On the common invariant core $V\mathcal S(\mathbb R^3)$,
+\[
+ U(a)^*X_iU(a)=X_i+a_iI,\qquad
+ [X_i,P_j^{\rm space}]=i\hbar\delta_{ij}I,
+ \qquad\Delta X_i\Delta P_i^{\rm space}\geq\hbar/2.
+\]
+The coordinate spectral measure extends to the full field space with the
+no-position effect $I-\Pi_Q$. A normalized, translation-covariant measure
+on all of space without this outcome would give the invariant vacuum a
+translation-invariant probability measure on $\mathbb R^3$, which is
+impossible. This source-defined coordinate is generally nonlocal; its
+native detector implementation and preservation of $\mathcal H_Q$ by
+the time evolution are unproved. It is distinct from the carrier load
+coordinate and from the field quadrature $Q(F)$. The proofs and complete
+finite controls are in \path{model/carrier_position_translation} and
+\path{model/spin_covariant_localization} \cite{ophrepo}.
 
 The recovered frame also supplies an unbounded three-component \emph{axial
 circulation}. With oriented incidence matrix $B$, seam current $J_n$ and
@@ -3943,6 +4140,11 @@ Common Currents, Defect Modes and a Pixel-Dependent Mass Operator}.
 \bibitem{pwvisser1998acoustic}Visser, M. (1998). ``Acoustic black holes: horizons, ergospheres, and Hawking radiation.'' \emph{Classical and Quantum Gravity} \textbf{15}, 1767--1791. \url{https://doi.org/10.1088/0264-9381/15/6/024}
 
 \bibitem{pwwelch2014efficient}Welch, J., Greenbaum, D., Mostame, S., and Aspuru-Guzik, A. (2014). ``Efficient quantum circuits for diagonal unitaries without ancillas.'' \emph{New Journal of Physics} \textbf{16}, 033040. \url{https://doi.org/10.1088/1367-2630/16/3/033040}
+
+\bibitem{komaDispersion}
+T.~Koma, ``Dispersion Relations of Nambu--Goldstone Modes,''
+arXiv:2105.04970v2 (2021), Theorem~2.1 and equations~(2.11)--(2.16).
+\url{https://arxiv.org/abs/2105.04970}.
 
 \end{thebibliography}}
 

@@ -11,6 +11,42 @@ separate the eight required connections. This page records response and
 mass-operator results within their specified models; none supplies the
 final measured particle-mass ratios.
 
+## Spatial readout and momentum
+
+The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
+uses the actual ordered-spin field correlations to obtain a covariant
+coordinate and the existing spatial momentum on its field-vector subspace.
+Their canonical commutator holds on an explicit dense domain. The complete
+field-space detector includes a no-position outcome. Its operational native
+implementation and invariance under the time generator are unproved.
+The [carrier operator identities](../../model/carrier_position_translation/PROOF.md)
+give exact recorded partial shifts, while total-load coordinates become
+scalar on the protected spin sector. Thus the native load centroid cannot
+be substituted for this field position. The construction supplies no mass
+shell, mass ratio or experimental particle assignment.
+
+## Ordered-spin spectral readout and its mass boundary
+
+The [ordered-spin field](../../model/spin_canonical_field/README.md) is a
+three-spatial-dimensional canonical continuum with nonzero low-energy response.
+The [complete spectral tube readout](../../model/spin_shell_readout/README.md)
+turns the proposed particle-shell condition into a finite measurement bound.
+It retains every clock bin, preparation failure, Fourier leakage and alias
+allowance. The open eight-site positive-field control uses graph-reflection
+characters, not small translation momenta, and supplies a finite excitation
+band rather than a relativistic rest mass.
+
+The [same-input clock bound](../../model/native_spin_clock_join/README.md)
+controls the difference between selection-field and zero-field histories.
+The [relaxed response certificate](../../model/spin_relaxed_response/README.md)
+uses the same source ground to bound inverse susceptibility and the energy
+cost of a prescribed infinitesimal response. A tangent-response cost cannot
+be inserted into a particle-mass table. The missing asymptotic statement is
+nonvanishing original spectral weight on one common dispersion component,
+with state, growing-time readout and cutoff errors tending to zero at the
+required rate. Lorentz covariance and massive-sector identification are
+additional requirements.
+
 ## A created excitation with a complete energy detector
 
 The [fair native ground experiment](../../model/native_fair_ground_readout/PROOF.md)

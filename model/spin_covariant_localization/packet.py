@@ -1,7 +1,9 @@
 """Replay the finite source coordinate certificate and exact Gram constants."""
 import argparse
+import ast
 from fractions import Fraction as F
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 
@@ -45,6 +47,42 @@ def bindings():
     paths = set(INPUTS)
     paths.update(p.relative_to(ROOT).as_posix() for p in HERE.iterdir()
                  if p.suffix in ('.py', '.md'))
+    # Importing a certificate executes its module imports, even when this
+    # owner uses only one arithmetic helper. Bind that complete local closure,
+    # including package initializers, without importing another owner to find it.
+    pending = list(paths)
+    visited = set()
+
+    def add(module):
+        if not module.startswith(('model.', 'tools.')):
+            return
+        parts = module.split('.')
+        stem = '/'.join(parts)
+        candidates = [stem+'.py', stem+'/__init__.py']
+        candidates += ['/'.join(parts[:i])+'/__init__.py' for i in range(1, len(parts))]
+        for name in candidates:
+            if (ROOT/name).is_file() and name not in paths:
+                paths.add(name)
+                pending.append(name)
+
+    while pending:
+        name = pending.pop()
+        if name in visited or not name.endswith('.py'):
+            continue
+        visited.add(name)
+        module = name[:-3].replace('/', '.')
+        package = module.removesuffix('.__init__') if module.endswith('.__init__') else module.rpartition('.')[0]
+        add(module)
+        for node in ast.walk(ast.parse((ROOT/name).read_text())):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    add(alias.name)
+            elif isinstance(node, ast.ImportFrom):
+                target = '.'*node.level+(node.module or '')
+                target = importlib.util.resolve_name(target, package) if node.level else target
+                add(target)
+                for alias in node.names:
+                    add(target+'.'+alias.name)
     return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
 
 

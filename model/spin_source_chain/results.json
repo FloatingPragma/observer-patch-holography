@@ -1,0 +1,204 @@
+{
+  "providers": {
+    "spin_canonical_energy": {
+      "inherited_custody": {
+        "finite_checks_alone_prove_infinite_volume_result": false,
+        "kind": "Current narrow mathematical source bindings; analytic proof in README",
+        "prior_full_producers_rerun_here": false
+      },
+      "provider_status_flags": {},
+      "receipt": "model/spin_canonical_energy/results.json",
+      "retained_equals_complete_replay": true,
+      "schema": "oph.spin_canonical_energy.v1",
+      "theorem": {
+        "Lorentz_covariance_proved": false,
+        "actual_Stone_field_vectors_identified": true,
+        "actual_continuum_dynamics_nonstatic_and_gapless": true,
+        "canonical_fields_have_no_zero_energy_component": true,
+        "continuum_twist_energy_equality_proved": false,
+        "exact_microscopic_twist_energy_limit": "kappa/2 integral|grad G|^2+6 kappa integral F^2",
+        "kappa": "-omega(S0^1 Se^1+S0^3 Se^3), m^2/2<=kappa<=1/2",
+        "nonzero_positive_band_at_arbitrarily_small_momentum": true,
+        "physical_species_or_particle_masses_identified": false,
+        "reference": "same infinitesimal-axis-1-staggered-field-selected zero-field ground",
+        "scaled_clock": "L_p=K/(Jp); X=px and T=Jpt",
+        "sharp_mass_shell_proved": false,
+        "source": "same cubic spin-1/2 antiferromagnet H_J with each bond counted once",
+        "state_assumed_Gaussian": false,
+        "strong_unbounded_field_convergence_assumed": false,
+        "surviving_connected_interaction_proved": false
+      }
+    },
+    "spin_canonical_field": {
+      "inherited_custody": {
+        "finite_arithmetic_proves_infinite_limit_by_itself": false,
+        "kind": "Explicit mathematical inputs with current source-byte bindings",
+        "prior_full_producers_rerun_here": false
+      },
+      "provider_status_flags": {},
+      "receipt": "model/spin_canonical_field/results.json",
+      "retained_equals_complete_replay": true,
+      "schema": "oph.spin_canonical_field.v1",
+      "theorem": {
+        "Lorentz_covariance_proved": false,
+        "canonical_pair": "Q=p^2 sum eps_x F(px) Sx^3; P=-p sum G(px) Sx^2",
+        "common_Wightman_field_domain_proved": false,
+        "effective_ordered_state_preparation_rate_proved": false,
+        "physical_species_identified": false,
+        "reference": "same maximal staggered-field-selected zero-field ground",
+        "regular_local_positive_energy_Weyl_net": true,
+        "scaled_coordinates": "X=p*x, T=J*p*t, p->0",
+        "sharp_mass_shell_proved": false,
+        "source": "same cubic antiferromagnetic spin-1/2 H_J",
+        "state_is_assumed_ergodic_or_Gaussian": false,
+        "surviving_connected_interaction_proved": false,
+        "symplectic_form": "m_s integral(F G_prime-G F_prime)",
+        "two_independent_canonical_pairs_proved": false
+      }
+    },
+    "spin_current_spectrum": {
+      "inherited_custody": {
+        "all_prior_producers_rerun_here": false,
+        "finite_controls_prove_infinite_ordered_state": false,
+        "kind": "current narrow mathematical source bindings; complete derivation in README"
+      },
+      "provider_status_flags": {},
+      "receipt": "model/spin_current_spectrum/results.json",
+      "retained_equals_complete_replay": true,
+      "schema": "oph.spin_current_spectrum.v1",
+      "theorem": {
+        "actual_ground_hard_current_tail_vanishes_proved": false,
+        "bare_twist_is_relaxed_stiffness": false,
+        "clock": "L_p=K/(Jp)",
+        "entire_response_concentration_necessary_for_any_sharp_subbranch": false,
+        "exact_current_continuity_and_field_torque": true,
+        "exact_current_inverse_moment": "J*kappa/2",
+        "first_energy_uniform_integrability_proved": false,
+        "fractional_energy_uniform_integrability_for_0_s_1": true,
+        "nonzero_soft_current_fraction": true,
+        "physical_species_or_particle_masses_identified": false,
+        "reference": "same infinitesimal-axis-1-staggered-field-selected zero-field ground",
+        "sharp_mass_shell_proved": false,
+        "source": "unchanged cubic spin-1/2 antiferromagnet; each bond counted once"
+      }
+    },
+    "spin_particle_scaling": {
+      "inherited_custody": {
+        "model/protected_spin_limit/results.json": {
+          "checkpoint": "ba312dbf0",
+          "expensive_parent_experiments_reexecuted": false,
+          "historical_all_pass": false,
+          "historical_new_checks_pass": true,
+          "parent_full_source_closure_replayed": false,
+          "sha256": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+          "snapshot": "model/spin_particle_scaling/historical/FA90.json"
+        },
+        "model/spin_goldstone_sector/results.json": {
+          "checkpoint": "ba312dbf0",
+          "expensive_parent_experiments_reexecuted": false,
+          "historical_all_pass": false,
+          "historical_new_checks_pass": true,
+          "parent_full_source_closure_replayed": false,
+          "sha256": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+          "snapshot": "model/spin_particle_scaling/historical/FA92.json"
+        }
+      },
+      "provider_status_flags": {
+        "all_pass": false,
+        "dependency_custody_pass": false,
+        "new_checks_pass": true
+      },
+      "receipt": "model/spin_particle_scaling/results.json",
+      "retained_equals_complete_replay": true,
+      "schema": "oph.spin_particle_scaling.v1",
+      "theorem": {
+        "all_source_repair_records_retained": true,
+        "effective_thermodynamic_ground_preparation_cost_proved": false,
+        "finite_source_correlators_assumed_stationary": false,
+        "full_continuum_field_algebra_constructed": false,
+        "ground": "FA92 selected ordered zero-field state, internal n=e1",
+        "measured_particle_species_or_rest_mass_identified": false,
+        "native_pulses_executed_here": false,
+        "natural_p_inverse_spectral_measures_have_positive_finite_mass_limits": true,
+        "nonzero_normalized_energy_momentum_scaling_measures": true,
+        "scaling_limit_unique": false,
+        "sharp_particle_pole_or_Lorentz_helicity_proved": false,
+        "source": "FA90 c=J E^4,U=J E^8, fixed-spacing cubic AF spin limit",
+        "source_dynamical_diagonal_preserves_normalized_readouts": true,
+        "source_spatial_quantum_numbers_resolved": true,
+        "surviving_scattering_or_nonGaussianity_proved": false,
+        "two_orthogonal_equal_weight_transverse_channels": true
+      }
+    }
+  },
+  "schema": "oph.spin_source_chain.v1",
+  "scope": {
+    "all_ancestral_producers_replayed": false,
+    "complete_replays": [
+      "spin_particle_scaling",
+      "spin_canonical_field",
+      "spin_canonical_energy",
+      "spin_current_spectrum"
+    ],
+    "finite_arithmetic_alone_proves_continuum_theorems": false,
+    "kind": "Retained-receipt replay adapter; no additional physical theorem",
+    "physical_particle_species_or_masses_identified": false,
+    "source_geometry_or_selected_state_removed_as_inputs": false
+  },
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/cubic_particle_channels/README.md": "379443f5d7d5fc4f2b907a68cd9a537d11e31c504b105cfe43e591b71d13dfc2",
+    "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
+    "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
+    "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
+    "model/spin_canonical_energy/__init__.py": "8570d911006ff29d1febaab74e1aa1ff3400ab2859f318f6f381ff4f5d980e3c",
+    "model/spin_canonical_energy/__main__.py": "ff708e8788656de2cddcfc4b66d9c81f7781d03955cf267e76ae1e572fbc669a",
+    "model/spin_canonical_energy/algebra.py": "8d2dd09cdb54665a85d230a4f792fea7a7ce13389bc2f770c424ee6ba890dd11",
+    "model/spin_canonical_energy/bounds.py": "97328d4f4675a61f01b2845a9e514ceefe479dfafae94f2ef544d2000f8b2ca5",
+    "model/spin_canonical_energy/packet.py": "e448241a75bef641b57129727408787487f51aa5eb7a61cf53985ec9bf743286",
+    "model/spin_canonical_energy/results.json": "44f2c535042b6feaeb53e042806ca8ab5edbf62c6f651bf7ac3e20f4766c4ad1",
+    "model/spin_canonical_energy/test_energy.py": "5ddb730b9c09e46c057cd83818b0122438bb60bb57208becd2808f8c7535908b",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_canonical_field/__init__.py": "3441c9f7e3cc711c3f7ab7a2fbfe240e7673ab8ebc3a3fea2248cd9de60caab9",
+    "model/spin_canonical_field/__main__.py": "579eccf3a604e6959aba7f671ecfd0df76fae8ef60977d5eaba17a25e4d6e39d",
+    "model/spin_canonical_field/algebra.py": "789a5cda2a01a5fe5509fcd3784e577963b7cf155f156f9d0c7854640a766120",
+    "model/spin_canonical_field/bounds.py": "0f5709a6eafcf17b2c1661f828152f90d1676a6428d201a162ad1e5fb401f599",
+    "model/spin_canonical_field/packet.py": "7c5951cf0dea36b1e6cb7d847ce172c9d9185685600d815bd793c2c199e8b0a5",
+    "model/spin_canonical_field/results.json": "842a0516bfce2f06faef4cddd88aa3d3cf15094b8f637af58a07445d2e2e86e3",
+    "model/spin_canonical_field/test_canonical.py": "5ca52aaa0181717665fdcb1ba108adeca7e6393c429f733e05513c0cc3218f73",
+    "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_current_spectrum/__init__.py": "508f3ccf6ce92ca66c553e1c4bc80040fc1d214ea4f6aa54baacd7816a2d6993",
+    "model/spin_current_spectrum/__main__.py": "d9cd2f26aa0a3cf2cd2c7cd6bf705880236172022ee010501b6b024dcccdb912",
+    "model/spin_current_spectrum/algebra.py": "c29c0dcac869c6cefd72b593d354298954cc890b2bd175acf8c05e4fd428ac1f",
+    "model/spin_current_spectrum/bounds.py": "76de38fc46bb0249f62f65e37f3e68a22b2a132fd7ec4ab7eaacf8c5046b8838",
+    "model/spin_current_spectrum/packet.py": "bc1c18b2a9fcb311ef507ecabc13c4ad475f2c2a44c6a9f46bd71096f6701c19",
+    "model/spin_current_spectrum/results.json": "3387a80df00a1d65fb5d79d7be72dbff1ae435507671ef6b0e480bc6354959c3",
+    "model/spin_current_spectrum/test_current.py": "5810a4dbbf5b6d40e4cdb8bef6cb360f83b8209308875a1a799adfb45e15c731",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "model/spin_goldstone_sector/__init__.py": "d497a6791e48b90de7d1d2548906880cbf8cf1de17d6be4159a08f5c1c80d4de",
+    "model/spin_goldstone_sector/experiment.py": "4805ad6709a1b0ef4f904a7bb5283dc18dfac61061867d6bdee4c903b3413b2c",
+    "model/spin_particle_scaling/README.md": "0878f0d1c13e9000a1cd7b26c16da92b1464671b77becfa351b4cf14e79ce336",
+    "model/spin_particle_scaling/__init__.py": "c38c7517e7a806b74bf982804fcafefd43959b7f1c30427a4383b136aa2e0699",
+    "model/spin_particle_scaling/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/spin_particle_scaling/algebra.py": "3f28935cb38794d6d16ca87c66e5f60d5adae3d5b68c243b3ea3569df74aa7fd",
+    "model/spin_particle_scaling/bounds.py": "a2383870db6b944c3f124899fac9e546e3b21eea1d1eee23636ccdb4fe2fd89f",
+    "model/spin_particle_scaling/experiment.py": "b670f807f2166de583f6a43e649be667013c53e901e6ccefe33894e77ccb520d",
+    "model/spin_particle_scaling/historical/FA90.json": "0d8a144cab3c774166ddacf421c663e2908e155159395446b76bbcfe2552dbe6",
+    "model/spin_particle_scaling/historical/FA92.json": "509181dfd80bec6863c2f8fcfa637677a8b3f73ebc3fb5afb869be6c1ba3b575",
+    "model/spin_particle_scaling/packet.py": "6ee32003ba18e9535d435dd658c56b997763245c28f67a4b4601072ffda385d3",
+    "model/spin_particle_scaling/results.json": "d8983d6b54975cbf40958b59b197915e2b512f0ba31c8a05dfbd04c254a3cc27",
+    "model/spin_particle_scaling/test_scaling.py": "4e2254dc7ec815f203085b96bb9b227ea72a3f8e0a9353d3d7d7b22beb02cf50",
+    "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
+    "model/spin_source_chain/README.md": "b27f3357b859990f2167f35c42a82782518e4199fa4aa8ad24eabc034a10265f",
+    "model/spin_source_chain/__init__.py": "62086016406d2790a93171255e2a3f928ffadb899827b14568f6d779ea811d93",
+    "model/spin_source_chain/__main__.py": "54e27441d4d9c7925e059c242919e613966835f1de05222c4ab1d816c5b44cf3",
+    "model/spin_source_chain/packet.py": "36adffcc76f47e8979da309cf29a20b12c65fb79e7220fc2846cb0e26592e640",
+    "model/spin_source_chain/test_packet.py": "043d7aa50ca1f6bbc48ee4d5eb31e10fb9ce1a543cbb8517adaf442e9b1bc158",
+    "paper/tex_fragments/SPIN_CANONICAL_ENERGY.tex": "755af9e4a485b8630d1a474fe17d00dbdf3a160c324b4850044ea3780f64f674",
+    "paper/tex_fragments/SPIN_CANONICAL_FIELD.tex": "6f7553682886399f9ace1b301372bc7c5170d260eb0fc711c413a2de687930e2",
+    "paper/tex_fragments/SPIN_CURRENT_SPECTRUM.tex": "9bbf19c0cb4f4fb96d8b044fb25a5abda38d628de85c4dab4ae43e91392cfd5f",
+    "paper/tex_fragments/SPIN_PARTICLE_SCALING.tex": "a463d099f7812aa71619d420797e97fe35b15898c4872decdc851f6ae66dd351",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "verification_checks_pass": true
+}

@@ -12,6 +12,47 @@ separate the eight required connections and their proof boundaries. This
 page details action selection and operational measurement premises; its
 finite constructions do not discharge the physical particle identification.
 
+## Position selection from the same field
+
+The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
+uses the actual ordered-spin field correlations to obtain a covariant
+coordinate and the existing spatial momentum on its field-vector subspace.
+Their canonical commutator holds on an explicit dense domain. The complete
+field-space detector includes a no-position outcome. Its operational native
+implementation and invariance under the time generator are unproved.
+The [carrier operator identities](../../model/carrier_position_translation/PROOF.md)
+give exact recorded partial shifts, while total-load coordinates become
+scalar on the protected spin sector. Thus the native load centroid cannot
+be substituted for this field position. The construction supplies no mass
+shell, mass ratio or experimental particle assignment.
+
+## Field selection on the ordered-spin chain
+
+The [ordered-spin continuum](../../model/spin_canonical_field/README.md) supplies
+three continuous spatial directions, time, a regular canonical field algebra
+and positive gapless energy. Its source is the declared two-flavor field
+extension and its strong-coupling trajectory, not the native one-bit
+occupation field. The [comparison of constructions](OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries)
+retains this distinction; a two-dimensional occupation limit does not change
+the dimension of the separate spin field.
+
+[Clock comparison](../../model/native_spin_clock_join/README.md),
+[relaxed response](../../model/spin_relaxed_response/README.md) and
+[complete shell readout](../../model/spin_shell_readout/README.md) use this
+spin action and its stated preparations. Finite selection fields, zero-field
+dynamics and their energy origins have explicit comparison errors. The
+relaxed tangent response avoids an unjustified equality between microscopic
+twist energy and continuum stiffness. The shell detector retains the complete
+joint spectrum, failures and finite resolution. These constructions supply
+no nonzero connected continuum scattering or Lorentz covariance theorem.
+
+Position in this field is the argument translated by its spatial automorphisms;
+momentum is their generator. Attaching these translations to the rank-three
+carrier displacement records is a separate source-interface requirement,
+spelled out in the [position and uncertainty construction](OPH_FIELD_RECONSTRUCTION.md#position-translations-and-uncertainty).
+Field canonical commutators do not by themselves identify a particle's
+localization instrument.
+
 ## Exact coherent controls and state-dependent field limits
 
 The [versioned occupation service](../../model/native_coherent_occupation_control/PROOF.md)

@@ -83,13 +83,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument('--write', action='store_true')
-    mode.add_argument('--check', action='store_true')
+    mode.add_argument('--check', nargs='?', const=str(OUTPUT), metavar='RECEIPT')
     args = parser.parse_args()
     result = produce()
     if args.write:
         OUTPUT.write_text(canonical(result), encoding='utf-8')
     else:
-        validate(strict_json.load(OUTPUT), result)
+        validate(strict_json.load(Path(args.check)), result)
     print('Complete spectral-tube source certificate verified.')
 
 

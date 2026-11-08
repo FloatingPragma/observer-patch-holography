@@ -97,12 +97,15 @@ proof shows that the whole class of laws cannot work.
   action and identification of physical species and masses require further proofs.
   The tested mass branch uses a target-informed lepton law.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
-- **Free fields and the matter side of gravity.** One original action on the
-  cube has an infinite-lattice ground with positive excitation energy and a
-  continuum spin field with finite propagation. Its charged continuum is provably free for `U=o(c^(2/7))`, with
-  massless Weyl energies in all eight valleys, and at zero coupling regional
-  entropy changes converge to the stress response the Einstein derivation uses.
-  [Continuum construction](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
+- **Continuum fields and their measurements.** The ordered-spin construction has
+  three continuous spatial dimensions, time, positive energy and finite propagation.
+  Complete experiments compare its preparation and evolution clocks, measure relaxed
+  response and bound spectral weight near a proposed particle dispersion.
+  Proving Lorentz symmetry and surviving interactions on that same state is the
+  central field requirement. A separate scaling gives free massless Weyl fields
+  and the matter stress response used by the conditional gravity derivation.
+  [Field constructions](docs/research/OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries),
+  [spectral readout](model/spin_shell_readout/README.md).
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12800 public theorems and lemmas with no admitted proofs, and every retained
   computational receipt is replayed under continuous integration.
