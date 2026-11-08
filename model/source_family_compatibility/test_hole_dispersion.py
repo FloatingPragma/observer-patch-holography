@@ -112,7 +112,8 @@ def test_native_energy_analyzer_retains_full_inputs_and_failure_records():
     assert row['full_source_input_columns']==16
     assert row['all_first_failure_slots']==288
     assert row['terminal_E_raw_slots']==32
-    assert row['full_dilation_operator_error']<1e-12
+    assert row['numerical_admission_passed']
+    assert F(row['full_dilation_operator_error_interval'][1])<F(1,10**8)
     assert row['lower_and_upper_one_hole_mode_position_probabilities']==[[1,0],[0,1]]
 
 

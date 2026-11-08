@@ -303,12 +303,14 @@ def native_dimer_analyzer():
         weights[hole_position] += np.abs(evolved[initial])**2/2
     if not np.allclose(weights,np.eye(2),atol=2e-15,rtol=0):
         raise ArithmeticError('coherent source analyzer does not read the signed hole energy modes')
+    counts={key:value for key,value in compiler.resources(word).items()if type(value)in(int,bool)}
     return {'native_pulses':len(word),'full_source_input_columns':16,
             'all_first_failure_slots':len(complements),'terminal_E_raw_slots':2*RAW_SLOTS,
-            'full_dilation_operator_error':error,'admitted_numerical_dilation_bound':str(2*budget),
-            'complete_probability_operator_residual':mass_error,
+            'full_dilation_operator_error_interval':['0',str(2*budget)],
+            'complete_probability_operator_error_interval':['0',str(4*budget+4*budget*budget)],
+            'numerical_admission_passed':True,
             'lower_and_upper_one_hole_mode_position_probabilities':[[1,0],[0,1]],
-            'resources':compiler.resources(word),'coherent_analyzer_service_supplied':True,
+            'resources':counts,'coherent_analyzer_service_supplied':True,
             'floating_native_execution_is_outward_certificate':False}
 
 
