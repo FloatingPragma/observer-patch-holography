@@ -2404,24 +2404,20 @@ output half-trace error is at most
 $\min\{1,m[6(2R+1)^3/|\mathcal E|+\epsilon_R]\}$.
 All local fine records and arbitrary references remain; distant raw
 records are retained in the source archive but unavailable to feedback.
-Supplied coherent services give the centered ground interacting local
-CAR histories. For a unit packet $A_+=a^*(f)$, $A_-=a(f)$, its complete
-energy instrument is
+For $\|f\|=1$, $A_+=a^*(f)$ and $A_-=a(f)$, supplied coherent services
+implement the complete centered-source energy instrument
 \[
  K_{qj}=\frac1n\sum_{l=0}^{n-1}e^{2\pi ijl/n}
  \tau_{-l\Delta}(A_q),\qquad \sum_{q,j}K_{qj}^*K_{qj}=I.
 \]
-A spatial cut costs output half-trace distance at most
-$\sqrt2 B_R+\delta_R+\epsilon_{\rm service}$, independently of $n$. Here
-$B_R$ bounds clock locality and $\delta_R$ the actual ground marginal;
-the cut ground is not substituted. Ultraviolet tails control phase aliases.
-At $c=1/8,U=1$, a $4096$-phase event has original probability greater
-than $25/200704$ per charge. The tape and ground preparation are not
-executed. Complete cube records certify windows, while
-$3I/80<R^*R<61I/1000$ excludes two-block closure. The first three cyclic levels
-span $48$ dimensions of the existing CAR response
-(\path{model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md},
-\path{model/source_family_compatibility/CUBE_RESPONSE.md}, \cite{ophrepo}).
+A spatial cut costs half-trace distance at most
+$\sqrt2 B_R+\delta_R+\epsilon_{\rm service}$, independently of $n$;
+$B_R$ bounds clock locality and $\delta_R$ the actual input marginal.
+Ultraviolet tails control phase aliases. At $c=1/8,U=1$, a $4096$-phase
+event has original probability greater than $25/200704$ per charge on
+the same ground. The tape and ground preparation are not executed.
+Complete cube records certify windows; $3I/80<R^*R<61I/1000$ excludes
+two-block closure (\path{model/source_family_compatibility}, \cite{ophrepo}).
 
 On its aligned-hole subspace the same signed source is exactly free, with
 bands $U/2\pm c\sqrt{\sum_j\cos^2k_j}$. The complete native vacancy
