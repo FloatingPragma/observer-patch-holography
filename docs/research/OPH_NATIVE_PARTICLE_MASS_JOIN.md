@@ -67,6 +67,13 @@ An actual fixed-source bound gives combined original weight at least
 `2592/14340842734375` on `|E|<=sqrt(16-delta0)` for packets at source
 normalization c=1,U=8 with `S<=delta0=1296/843578984375`. This includes zero and supplies no
 joint frequency/momentum scaling modulus or shrinking-window weight.
+For one fixed selected c=1,U=8 ground under c=v/a, any normalized packet
+concentrating within `aK` of the magnetic node has limsup original weight
+in a bounded physical-energy window at most `m0/(16+m0)`. Thus m0=0
+excludes that original-CAR branch, while m0>0 alone supplies neither
+finite-energy dispersion nor a particle. This necessity theorem uses the
+same c-normalized reference at every a; arbitrary a-dependent state choices
+require their own uniform control.
 
 The [kinetic winding dictionary](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
 separately maps `k_b=pi b` to chirality `-(-1)^|b|` in the proved centered

@@ -120,6 +120,17 @@ Zero energy is included. Restoring c multiplies this energy window by c;
 the bound does not supply weight in the shrinking unit-hopping window
 required by ballistic scaling.
 
+For one fixed selected c=1,U=8 ground, weak momentum continuity also gives
+an [original-weight necessity test](../../model/source_family_compatibility/SPECTRAL_RESIDUE.md).
+Under c=v/a, normalized packets supported within `aK` of the actual magnetic
+node have limsup weight in any bounded physical-energy window at most
+`mu({0})=m0/(16+m0)`. Vanishing packet weight outside that cap is allowed.
+If m0=0, their finite-energy original CAR response vanishes. Positive m0 is
+necessary, not sufficient, for a surviving branch: dispersion and uniform
+momentum/frequency control remain required. This statement fixes the
+c-normalized reference; it does not transfer to arbitrary a-dependent
+ground choices without an additional uniform estimate.
+
 The [default-cube certificate](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 has `3/80 I<R*R<61/1000 I` on all sixteen original mode directions of the
 full 65,536-state source. Its three response levels span 48 dimensions,
