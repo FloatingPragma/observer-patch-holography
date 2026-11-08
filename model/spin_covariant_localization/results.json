@@ -1,0 +1,256 @@
+{
+  "continuum_source_gram_constants": {
+    "cyclic_translation_spectral_multiplicity": 1,
+    "gram_condition_number_upper": "3000000",
+    "inverse_square_root_norm_upper": "1000",
+    "source_gram_whitening_implemented_as_native_measurement": false,
+    "translation_spectral_support": "all R3 up to Lebesgue null sets",
+    "weighted_field_gram_lower": "1/1000000",
+    "weighted_field_gram_upper": "3"
+  },
+  "finite_compression_error_example": {
+    "estimated_gram_condition_number_upper": "6000001",
+    "estimated_gram_lower": "1/2000000",
+    "estimated_gram_upper": "6000001/2000000"
+  },
+  "finite_source_readout": {
+    "actual_cyclic_probe_dark_probability": "0",
+    "all8_positions_and_dark_complement_retained": true,
+    "all_true_character_weights_strictly_above": "1/100",
+    "character111_squared_leakage_strict_lower": "1/100",
+    "character_weight_intervals": [
+      [
+        "0.01906320545",
+        "0.01906320546"
+      ],
+      [
+        "0.06986177731",
+        "0.06986177732"
+      ],
+      [
+        "0.06986177731",
+        "0.06986177732"
+      ],
+      [
+        "0.13242741677",
+        "0.13242741678"
+      ],
+      [
+        "0.06986177731",
+        "0.06986177732"
+      ],
+      [
+        "0.13242741677",
+        "0.13242741678"
+      ],
+      [
+        "0.13242741677",
+        "0.13242741678"
+      ],
+      [
+        "0.37406921227",
+        "0.37406921228"
+      ]
+    ],
+    "complete_detector_frame_halfdiamond_error_upper": "948231978943766584739397876173899869467959980/6879190506852690425273077563286064532688825176245161379",
+    "coordinate_character_uncertainty": [
+      {
+        "axis": 0,
+        "commutator_squared": "-I/4",
+        "commutator_trace": "0",
+        "constant_Heisenberg_lower_bound_inferred": false,
+        "half_commutator_modulus_norm": "1/4"
+      },
+      {
+        "axis": 1,
+        "commutator_squared": "-I/4",
+        "commutator_trace": "0",
+        "constant_Heisenberg_lower_bound_inferred": false,
+        "half_commutator_modulus_norm": "1/4"
+      },
+      {
+        "axis": 2,
+        "commutator_squared": "-I/4",
+        "commutator_trace": "0",
+        "constant_Heisenberg_lower_bound_inferred": false,
+        "half_commutator_modulus_norm": "1/4"
+      }
+    ],
+    "covariance_under_all8_native_group_elements_exact": true,
+    "cyclic_probe_rank": 8,
+    "cyclic_probe_space_invariant_under_source_H": false,
+    "dark_complement_rank": 248,
+    "detector_locality_proved": false,
+    "full_effects_identity_resolution_exact": true,
+    "full_source_dimension": 256,
+    "graph_reflection_labels_are_continuous_momentum": false,
+    "implemented_proposal_dark_probability_upper": "2553596076111071612832651891199225/119825936846408314863469115759863084313413473329339259610896",
+    "native_detector_tape_executed": false,
+    "nonconstant_structure_factor_requires_whitening": true,
+    "particle_position_mass_or_lorentz_covariance_identified": false,
+    "position_probabilities": [
+      {
+        "original_probability_interval": [
+          "0.86746856457",
+          "0.86746856485"
+        ],
+        "position_bits": "000"
+      },
+      {
+        "original_probability_interval": [
+          "0.04106038069",
+          "0.04106038098"
+        ],
+        "position_bits": "001"
+      },
+      {
+        "original_probability_interval": [
+          "0.04106038069",
+          "0.04106038098"
+        ],
+        "position_bits": "010"
+      },
+      {
+        "original_probability_interval": [
+          "0.00184412644",
+          "0.00184412672"
+        ],
+        "position_bits": "011"
+      },
+      {
+        "original_probability_interval": [
+          "0.04106038069",
+          "0.04106038098"
+        ],
+        "position_bits": "100"
+      },
+      {
+        "original_probability_interval": [
+          "0.00184412644",
+          "0.00184412672"
+        ],
+        "position_bits": "101"
+      },
+      {
+        "original_probability_interval": [
+          "0.00184412644",
+          "0.00184412672"
+        ],
+        "position_bits": "110"
+      },
+      {
+        "original_probability_interval": [
+          "0.00381791290",
+          "0.00381791319"
+        ],
+        "position_bits": "111"
+      }
+    ],
+    "source": "selected open eight-site spin cube, J=1, B=1/4; local encoded Z probe",
+    "source_dynamics_leakage": [
+      {
+        "character_bits": "000",
+        "squared_source_leakage_interval": [
+          "0.01668037882",
+          "0.01668041485"
+        ]
+      },
+      {
+        "character_bits": "001",
+        "squared_source_leakage_interval": [
+          "0.13920217412",
+          "0.13920221015"
+        ]
+      },
+      {
+        "character_bits": "010",
+        "squared_source_leakage_interval": [
+          "0.13920217412",
+          "0.13920221015"
+        ]
+      },
+      {
+        "character_bits": "011",
+        "squared_source_leakage_interval": [
+          "0.12274671147",
+          "0.12274674750"
+        ]
+      },
+      {
+        "character_bits": "100",
+        "squared_source_leakage_interval": [
+          "0.13920217412",
+          "0.13920221015"
+        ]
+      },
+      {
+        "character_bits": "101",
+        "squared_source_leakage_interval": [
+          "0.12274671147",
+          "0.12274674750"
+        ]
+      },
+      {
+        "character_bits": "110",
+        "squared_source_leakage_interval": [
+          "0.12274671147",
+          "0.12274674750"
+        ]
+      },
+      {
+        "character_bits": "111",
+        "squared_source_leakage_interval": [
+          "0.19050079063",
+          "0.19050082666"
+        ]
+      }
+    ],
+    "source_group": {
+      "complete_spin_states": 256,
+      "dimension": 3,
+      "exact_group_and_source_checks": true,
+      "group_order": 8,
+      "open_cube_labels": "characters of combined coordinate reflections; not low-momentum periodic dispersion",
+      "sites": 8
+    }
+  },
+  "schema": "oph.spin_covariant_localization.v1",
+  "scope": {
+    "actual_finite_ground_and_complete_witness_rechecked": true,
+    "carrier_rank3_record_equals_continuum_position": false,
+    "continuum_whitening_local_or_operationally_implemented": false,
+    "finite_arithmetic_alone_proves_continuum_theorem": false,
+    "finite_cyclic_code_energy_leakage_certified_positive": true,
+    "finite_reflection_coordinate_detector_complete": true,
+    "inherited_owner_producers_replayed": false,
+    "native_detector_tape_executed": false,
+    "same_continuum_spatial_generator_covariant_position_on_field_cyclic_subspace": true,
+    "schwartz_core_position_momentum_commutator_proved_in_text": true,
+    "sharp_particle_shell_or_measured_mass_identified": false,
+    "source_continuum_field_vector_spectral_density_bounded_above_and_below": true,
+    "time_generator_preserves_field_cyclic_subspace": false,
+    "vacuum_requires_dark_outcome_or_sector_restriction": true
+  },
+  "source_bindings": {
+    "model/centered_particle_spectrum/certificate.py": "e9684391067c1a3d855fc56572c3929ed3235118fdd7fb59ea1e8e8eb500ee04",
+    "model/native_joint_spin_spectroscopy/algebra.py": "2fd9a9266ff9818932c7be0f254f834a04c493cabf84ac2ff85101dd0087adac",
+    "model/native_ordered_ground/certificate.py": "307fd37c11b4312495700b5c8cd411d2b20001cd1b7765576be21abf2aa8db38",
+    "model/native_ordered_ground/source.py": "e0ca9a40181637bc9263b55ff41dc9b6aa895f723a6d497d182a011b80097dc2",
+    "model/native_ordered_ground/witness.npz": "5df39bfaf63d5af40f80425f74011b367f9d9c5fd8951eb0419ced77da5396b4",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_canonical_field/algebra.py": "789a5cda2a01a5fe5509fcd3784e577963b7cf155f156f9d0c7854640a766120",
+    "model/spin_canonical_field/bounds.py": "0f5709a6eafcf17b2c1661f828152f90d1676a6428d201a162ad1e5fb401f599",
+    "model/spin_covariant_localization/CONTINUUM_POSITION.md": "1abd23c98bcdfc5f7d70c8f461e253332189390724ededfc51f6893c4389eae5",
+    "model/spin_covariant_localization/PROOF.md": "8cf2e5f73780d3e578104c80072e9c96937b6f1731edc74f1d1ed99c7149d790",
+    "model/spin_covariant_localization/README.md": "a22216cb02c7a331c47ac275c35571edb1c42b3f52312674384d4d8304734c1e",
+    "model/spin_covariant_localization/__init__.py": "7f05122af9ef8912cf27ac21fc28d2959be380a59a04d4efdca77d2bb9f82888",
+    "model/spin_covariant_localization/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/spin_covariant_localization/bounds.py": "00091341abf84a8eb48cf8b6f183573429fda370fa988285289cb68575043bfe",
+    "model/spin_covariant_localization/localization.py": "3c4c0d8ca34819820213f485d9ef6c26960fb8533ffa00091515bb14051ea0a3",
+    "model/spin_covariant_localization/packet.py": "7028c8926a64b623e670ed7077800693e4d44fb2f45958c0cb24995ebdd2c37c",
+    "model/spin_covariant_localization/test_localization.py": "cc3d80f3e49a067e964c4eb7b3256c17c46c7e0fe87fe7628f14cfa2e07dfe2f",
+    "model/spin_goldstone_sector/README.md": "ed681a5209c16fabd754aa594dba9e8b7c79eb1dd9f9d477a6ad469583504dd2",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}
