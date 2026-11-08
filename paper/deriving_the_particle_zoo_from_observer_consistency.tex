@@ -2522,51 +2522,38 @@ Its actual conserved charge projectors resolve the latter into two
 zero-defect branches, each with original Q/P preparation weight greater
 than $1/25$. Their filtered cross moments have opposite signs. This is a
 complete finite-source resolution, without a continuum species assignment.
-For the unscaled uniform pair, put $K_0=H_B-E_B$, $q_0=M_3\Omega$ and
-$a_0=A_0\Omega$. Then $a_0=iBK_0^{-1}q_0$ gives $\delta_P=0$ but
-$\delta_Q=M_1-M_{-1}^2/M_{-3}=M_{-3}\operatorname{Var}_{\pi}(E^2)$,
-where $M_j=\int E^j\,d\nu_{q_0}^{K_0}$ and
-$d\pi=E^{-3}d\nu_{q_0}^{K_0}/M_{-3}$.
-The source double commutator gives
-$h_{K_0}\leq J|\mathcal E|+(B/2)Nm$, where
-$m=N^{-1}\langle\sum_x\epsilon_xS_x^1\rangle$. On the joint clock,
-\[
- R=\frac{h_L}{\chi_L}\leq\frac{6}{mn}+n^{-6},\qquad
- \mathbb E_{\pi}(E^2)\leq R,\qquad
- \operatorname{Var}_{\pi}(E^2)\leq R^2/4.
-\]
-The positive-field locality bound constructs finite boxes with $m>1/20$.
-Thus this volume-wide uniform mode concentrates at zero in the weighted
-measures. Its complete $M_3/(N/2)$ preparation has original weight at least
-$m/(8N)$ below $\sqrt{2R}$; this bound supplies no uniform residue or nonzero-momentum
-shell. The actual eight-site cube instead has positive weighted variance
-in each opposite-charge sector. Its fixed-box scaled gap is at least
-$n^2g_0-8/n^3$, with certified zero-field gap $g_0>4/5$.
-Its spectral lines cannot substitute for the growing field limit
+For the uniform pair on $K_0=H_B-E_B$, the source identity gives $\delta_P=0$ and
+$\delta_Q=M_{-3}\operatorname{Var}_{\pi}(E^2)$, with
+$M_j=\int E^j\,d\nu$ for its configuration energy measure and
+$d\pi=E^{-3}d\nu/M_{-3}$. With N sites and
+$m=N^{-1}\langle\sum_x\epsilon_xS_x^1\rangle$, the joint clock obeys
+$h_L/\chi_L\leq R=6/(mn)+n^{-6}$ and
+$\operatorname{Var}_{\pi}(E^2)\leq R^2/4$, with energy rescaled to L.
+Finite boxes with $m>1/20$ are constructible. The normalized uniform
+preparation has original weight at least $m/(8N)$ below $\sqrt{2R}$;
+this supplies no uniform residue or nonzero-momentum shell. Fixed cube
+spectral lines have positive variance and do not identify the growing limit
 (\path{model/spin_joint_field_limit/UNIFORM_MODE.md}, \cite{ophrepo}).
 
-For the ordered-zero-field prescription, the same infrared integral,
-evaluated with exact rational upper bounds,
-and the biased trial $(I+tM)G$ with $t=10$ certify the selected order
-$m>1/10$. For a unit test in $r/2\leq|k|\leq r$, write
-$x=\sqrt r\,Q_3(F)$ and $y=\sqrt r\,Q_2(F)$. Define
-\[
- B_+=\frac1{2\pi}\int_0^{2\pi}e^{-i\theta}
- \frac{x\cos\theta+y\sin\theta}
- {1+(x\cos\theta+y\sin\theta)^2}\,d\theta,
- \qquad B_-=B_+^*.
-\]
-Each norm is at most $1/2$, so these operators and
-$(I-B_+^*B_+-B_-^*B_-)^{1/2}$ form a complete instrument.
-The canonical commutator, configuration variance, and first/inverse energy
-moments give original joint probability at least $p_*=1/1757600$ for each
-charge and the band
-\[
- r/2\leq|P|\leq r,\qquad 3p_*r\leq L\leq r/p_*.
-\]
-All complementary events are retained. This uniform lower bound concerns
-a broad band and gives no spectral pole. Bounded source quadratures
-converge on the same ordered history subsequence
+Circle projection of $\arctan(X_\theta)/\pi$ gives bounded charges on this
+joint family. Real even tests in $\delta|k_0|$ caps about $\pm k_0$,
+$0<\delta\leq1/4$, give each charge and direction original probability
+$1/774400$ in energy $[9|k_0|/774400,580800|k_0|]$. Inversion pairs the caps
+using the linear test's support; seven records retain nonlinear complements.
+A six-site periodic control has thirteen translation/energy records and
+positive directed variance. Narrow spatial phases give no sharp time phase
+(\path{model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md}, \cite{ophrepo}).
+
+The ordered-zero-field prescription has a separate bound. The rational
+infrared integral and biased trial $(I+10M)G$ certify $m>1/10$.
+For a unit annular test, $x=\sqrt r Q_3(F)$, $y=\sqrt r Q_2(F)$, take
+$B_+$ as the first circle coefficient of
+$(x\cos\theta+y\sin\theta)/[1+(x\cos\theta+y\sin\theta)^2]$ and
+$B_-=B_+^*$. Their norms are at most $1/2$; the positive square-root
+complement completes the instrument. Canonical and energy moments give
+each charge original probability $p_*=1/1757600$ in
+$r/2\leq|P|\leq r$, $3p_*r\leq L\leq r/p_*$. Source quadratures converge
+on the same ordered history subsequence; no spectral pole follows
 (\path{model/spin_charge_dispersion}, \cite{ophrepo}).
 
 Since translated configuration fields commute, finite spatial averaging of
@@ -2578,8 +2565,7 @@ of $A$ gives separated preparations of every charge-sign pattern, with
 original weight at least $p_*^n/4$ and all $3^n$ records retained.
 An explicit cube contains suitable profile centres; selecting them
 effectively also requires the source-state readout bounds.
-The corresponding charge-$-2$ statement follows by conjugation.
-All nine joint preparation outcomes remain. The source energy-form bound
+Charge conjugation gives the negative-charge pair. The source energy-form bound
 gives $\langle L\rangle_{\rm unnormalized}\leq27r/4$ for each pair;
 an upper cutoff $54r/p_*^2$ retains at least $p_*^2/8$ original probability,
 possibly including zero energy. On the finite cube the pair columns span
@@ -2645,39 +2631,45 @@ The local spin creators are even full-source fermion bilinears and commute
 on disjoint sites. A physical spin-statistics assignment requires their
 continuous spacetime representation and spectral-sector attachment.
 
-The centered Hubbard ground has interacting local CAR histories and
-complete energy readouts. Finite full-ground projectors admit algebraic
-preparation; pressure secants enclose infinite-ground local expectations
-without assuming their convergence to a unique state. At $U/c=8$ its
+The centered Hubbard ground has interacting local CAR histories. Finite
+projectors admit algebraic preparation; pressure secants certify infinite-ground
+scores. At $U/c=8$ its
 symmetric one-site density is $\operatorname{diag}(d,1/2-d,1/2-d,d)$,
-with $1/90000<d<233/1600$.
-Its proper-cubic average has the actual magnetic Bloch reduction. Put
-$Q_{xy}=S_x\cdot S_y+\eta_x\cdot\eta_y$, and let
-$r_s=6^{-1/2}\sum_{|y|_1=1}a_{ys}$ be its normalized neighbour orbital, with opposite-sublattice eta sign.
-The exact composite fields $b=2(n_{\rm opposite}-1/2)a$ obey
-$L_{\rm ret}V_0=V_0h+(U/2)V_1$. Their second block and force Gram are
+$1/90000<d<233/1600$. Use its proper-cubic average and actual magnetic
+translations. The composite fields $b=2(n_{\rm opposite}-1/2)a$ give
+$L_{\rm ret}V_0=V_0h+(U/2)V_1$. Three local ground correlations determine
 \[
  C(k)=\kappa h(k),\quad
  G(k)=\bigl[g_0+2g_2\sum_j\cos(2k_j)\bigr]I,\quad
  R^*R(k)=G(k)-\kappa^2h(k)^2,
 \]
-where $\kappa=4\langle Q_{0,e_1}\rangle$,
-$g_0/c^2=9/2-12\langle Q_{0r}\rangle$ and
-$g_2/c^2=\langle Q_{0,2e_1}\rangle$. Source anticommutators and cubic gauge phases remove mixed-axis terms.
-Positivity at every momentum is equivalent to
-$g_0-6g_2\geq0$ and $g_0+6g_2-3\kappa^2c^2\geq0$; the source bound is
-$0\leq G(k)\leq18c^2I$. The exact star inequality
-$|T_\star|\leq4r(1/4-Q_{0r})$, $r=c\sqrt6/2$, and the dimer variational
-gain imply $R^*R\geq18c^2/125$ where $\sum_j\cos^2k_j\leq3/250$
-at $U/c=8$. Source derivative bounds then give strictly positive dissipative
-memory at every positive imaginary frequency. A mass pole does not follow.
+Here $h=c\sum_j\cos k_j\Gamma_j$ and
+$\{\Gamma_i,\Gamma_j\}=2\delta_{ij}I$.
+Exact local algebra gives $0\leq G\leq18c^2I$ and
+$R^*R\geq18c^2/125$ on $S=\sum_j\cos^2k_j\leq3/250$.
+Finite-range moments and their uniform exponential bounds define a unique
+spectral measure at every momentum, weakly continuous in local Bloch charts.
+At $k_*=(\pi/2)^3$, magnetic and proper-cubic symmetries give
+\[
+ \nu_{k_*}=(\nu_+P_++\nu_-P_-)\otimes I_2,\qquad
+ P_\pm=\tfrac12(I\pm i\Gamma_1\Gamma_2\Gamma_3),\quad
+ \nu_-(F)=\nu_+(-F).
+\]
+The symmetric-box ground prescription also preserves inversion, which
+exchanges the projectors at the same energy. Hence $\nu_+=\nu_-$ is one
+even probability measure. Original valley b transports to channel
+$-(-1)^{|b|}$; all eight share that measure. With $D=L_\perp$, its zero residue is
+$m_0/(\alpha^2+m_0)$, where $m_0I=R^*1_{\{0\}}(D)R$, $\alpha=U/2$.
+Positive $R^*R$ does not determine $m_0$.
 
-At $U/c=8$, $c=v/a$, ground-response orthogonality gives every unit packet
-$\limsup_{a\to0}[\mu_+([0,E])+\mu_-([0,E])]\leq9/17$
-for fixed E. This permits low-energy weight. For $U/c\to\infty$ the same original fixed-energy weight
-vanishes. The cell coefficient $a^3U\to g>0$ gives an $O(a^4)$ bound.
-Homogeneity $K(c,U)=cK(1,U/c)$ fixes the shrinking unit-hopping windows;
-no volume-uniform charged gap follows
+The source sixth moment gives positive subcontact response. Put
+$\delta_*=1296/843578984375$. Every unit packet in $S\leq\delta_*$ has
+original combined weight at least $2\delta_*/17$ in
+$|E|\leq c\sqrt{16-\delta_*}$, allowing zero energy.
+Under $c=v/a$ this window diverges; fixed physical energies have limsup
+original weight at most $9/17$. At $U/c\to\infty$ that weight vanishes.
+Homogeneity fixes the shrinking unit-hopping window, without proving a
+uniform charge gap or a positive limiting residue
 (\path{model/source_family_compatibility}, \cite{ophrepo}).
 
 The cube at $c=1/8,U=1$ has $3I_{16}/80<R^*R<61I_{16}/1000$;
@@ -2690,15 +2682,15 @@ source masses pair opposite windings with supplied coefficients.
 Neither construction identifies measured particles
 (\path{model/source_family_compatibility/KINETIC_NODE_MAP.md}, \cite{ophrepo}).
 
-Complete clock records also resolve the same full-ground response to
+Complete interference records give controlled Lorentzian scores; pressure
+certificates require a uniform strict margin, without supplying its scaling
+uniformity or a preparation modulus \cite{ophmodel}. Cube records resolve
 $a(f_{k,s})$, where $f_{k,s}(x)=(-1)^{k\cdot x}/\sqrt8$ and
 $k\in\{0,1\}^3$. Table~\ref{tab:cube-complete-windows} gives original
 addition weights and certified excitation windows for either spin.
-At fixed $k$, addition and removal probabilities sum to one; particle-hole
-conjugation maps removal to addition at $k\mathbin{\oplus}(1,1,1)$.
-The $256$ clock records and all
-complements are retained. These probe labels are not momentum eigenvalues,
-and conditional mean energies are not rest masses
+Particle-hole conjugation maps removal to addition at
+$k\mathbin{\oplus}(1,1,1)$. All $256$ clock records and complements remain.
+Probe labels are not momentum eigenvalues; conditional means are not rest masses
 (\path{model/source_family_compatibility/CUBE_SPECTRUM.md}, \cite{ophrepo}).
 \begin{table}[ht]
 \centering\small
