@@ -4,6 +4,7 @@ from fractions import Fraction as F
 from pathlib import Path
 import subprocess
 import sys
+import types
 
 import numpy as np
 import pytest
@@ -180,17 +181,36 @@ def test_explicit_check_path_and_duplicate_keys_fail_before_replay(tmp_path):
     assert str(path) in missing.stderr
 
 
-def test_source_bindings_cover_actual_local_imports():
-    pins = packet.bindings()
-    for module in tuple(sys.modules.values()):
-        path = getattr(module, '__file__', None)
-        if not path:
-            continue
-        path = Path(path).resolve()
-        if path.is_relative_to(packet.ROOT.resolve()) and path.suffix == '.py':
-            relative = path.relative_to(packet.ROOT.resolve()).as_posix()
-            if relative.startswith(('model/spin_dynamical_localization/', 'model/native_ordered_ground/',
-                                    'model/native_joint_spin_spectroscopy/', 'model/centered_particle_spectrum/')):
-                assert relative in pins
-    assert 'model/centered_particle_spectrum/source.py' in pins
-    assert not any(name.startswith(('docs/', 'paper/', 'flagship/')) for name in pins)
+def test_source_bindings_cover_actual_local_imports(monkeypatch):
+    # Other owners in a combined pytest invocation may load unrelated modules
+    # from a shared package. Their imports are not this producer's inputs.
+    unrelated = types.ModuleType('oph_test_unrelated_spectrum_comparison')
+    unrelated.__file__ = str(packet.ROOT/'model/centered_particle_spectrum/comparison.py')
+    monkeypatch.setitem(sys.modules, unrelated.__name__, unrelated)
+    code = '''
+import sys
+from pathlib import Path
+from model.spin_dynamical_localization import packet
+
+# Execute the complete owner before inspecting runtime imports: lazy imports
+# used by the scientific computation must be included, not just packet imports.
+pins = packet.produce()['source_bindings']
+root = packet.ROOT.resolve()
+runtime = set()
+for module in tuple(sys.modules.values()):
+    filename = getattr(module, '__file__', None)
+    if filename:
+        path = Path(filename).resolve()
+        if path.is_relative_to(root) and path.suffix == '.py':
+            runtime.add(path.relative_to(root).as_posix())
+assert not runtime.difference(pins), sorted(runtime.difference(pins))
+dependency = 'model/centered_particle_spectrum/source.py'
+assert dependency in runtime
+missing_dependency = dict(pins)
+del missing_dependency[dependency]
+assert runtime.difference(missing_dependency) == {dependency}
+assert not any(name.startswith(('docs/', 'paper/', 'flagship/')) for name in pins)
+'''
+    completed = subprocess.run([sys.executable, '-c', code], cwd=packet.ROOT,
+                               capture_output=True, text=True)
+    assert completed.returncode == 0, completed.stdout+completed.stderr
