@@ -1,0 +1,158 @@
+{
+  "all_pass": true,
+  "claims": {
+    "all_failure_and_zero_records_retained": true,
+    "arbitrary_spectator_reference_allowed": true,
+    "effective_infinite_ground_selection_modulus": false,
+    "finite_controlled_phase_compensation_required_if_recentered": true,
+    "finite_field_ground_is_zero_field_vacuum": false,
+    "finite_local_energy_continuity_and_weighted_identity": true,
+    "interacting_relativistic_continuum": false,
+    "local_bound_applies_to_global_energy_spectrometer": false,
+    "native_pulse_tape_executed_here": false,
+    "same_prepared_state_complete_clock_comparison": true,
+    "sharp_mass_shell_or_relativistic_rest_mass": false
+  },
+  "complete_finite_history_example": {
+    "absolute_duration": "1",
+    "clock_halftrace_upper": "1/25000",
+    "complete_halftrace_upper": "9007199311381617/225179981368524800000",
+    "evolution_slots": 2,
+    "field": "1/100000",
+    "input_halftrace_upper": "0",
+    "native_halftrace_upper": "18125/72057594037927936",
+    "product_halftrace_upper": "0",
+    "sites": 8,
+    "unclipped_halftrace_upper": "9007199311381617/225179981368524800000"
+  },
+  "exact_energy_continuity": {
+    "apparatus_energy_or_Einstein_geometry_constructed": false,
+    "continuum_stress_or_momentum_tensor_constructed": false,
+    "finite_graphs": [
+      {
+        "bonds": 2,
+        "continuity_exact": true,
+        "graph_range_at_most_two": true,
+        "nonzero_site_current_pairs": 3,
+        "sites": 3,
+        "weighted_identity_exact": true
+      },
+      {
+        "bonds": 3,
+        "continuity_exact": true,
+        "graph_range_at_most_two": true,
+        "nonzero_site_current_pairs": 3,
+        "sites": 3,
+        "weighted_identity_exact": true
+      },
+      {
+        "bonds": 4,
+        "continuity_exact": true,
+        "graph_range_at_most_two": true,
+        "nonzero_site_current_pairs": 6,
+        "sites": 4,
+        "weighted_identity_exact": true
+      },
+      {
+        "bonds": 2,
+        "continuity_exact": true,
+        "graph_range_at_most_two": true,
+        "nonzero_site_current_pairs": 3,
+        "sites": 3,
+        "weighted_identity_exact": true
+      }
+    ],
+    "oriented_bond_chirality_exact": true
+  },
+  "exact_two_spin_control": {
+    "HB_first_gap": "9/8",
+    "HB_ground_energy": "-9/8",
+    "HB_ground_is_HJ_stationary": false,
+    "HB_return_probabilities": [
+      "1",
+      "0"
+    ],
+    "HJ_energy_variance": "9/100",
+    "HJ_excitation_energies": [
+      "0",
+      "1"
+    ],
+    "HJ_excitation_mean": "1/10",
+    "HJ_first_gap": "1",
+    "HJ_ground_energy": "-1",
+    "HJ_return_probabilities": [
+      "16/25",
+      "9/25"
+    ],
+    "bonds": 1,
+    "complete_HJ_energy_probabilities": [
+      "9/10",
+      "1/10"
+    ],
+    "complete_return_record_TV": "9/25",
+    "field": "3/8",
+    "full_state_halftrace_at_pi": "3/5",
+    "return_time": "pi",
+    "selection_torque_exact": true,
+    "sites": 2,
+    "source_pulse_tape_executed_here": false
+  },
+  "finite_ground_energy_bounds": {
+    "HJ_vacuum_selected": false,
+    "HJ_variance_for_exact_HB_ground_upper": "9/64",
+    "exact_HB_ground_HJ_energy_excess_upper": "3/4",
+    "prepared_HJ_energy_excess_lower": "0",
+    "prepared_HJ_energy_excess_upper": "3/4"
+  },
+  "growing_time_clock_plan": {
+    "duration": "1000000000000000000000000000000",
+    "field_upper": "1/707788800002211840000002304013038797600027164160000014148080066361600083402460000000000163885833900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "finite_clock_halftrace_upper": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "global_controlled_spectrometer_covered": false,
+    "infinite_ground_marginal_error_supplied": false,
+    "integer_exponent_upper": 96000000000000000000000000000000,
+    "interventions": 2,
+    "log_prefactor_upper": 372,
+    "operator_cutoff_upper": "1/1000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "radius": 96000000000100000000000000000589,
+    "sites": 7077888000022118400000023040130387976000271641600000141480800663616000834024600000000001638858339,
+    "total_halftrace_upper": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "two_cutoffs_halftrace_upper": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "local_common_state_clock_plan": {
+    "duration": "1/4",
+    "field_upper": "1/4212897500",
+    "finite_clock_halftrace_upper": "1/20000",
+    "global_controlled_spectrometer_covered": false,
+    "infinite_ground_marginal_error_supplied": false,
+    "integer_exponent_upper": 24,
+    "interventions": 3,
+    "log_prefactor_upper": 19,
+    "operator_cutoff_upper": "1/140000",
+    "radius": 59,
+    "sites": 1685159,
+    "total_halftrace_upper": "1/10000",
+    "two_cutoffs_halftrace_upper": "1/20000"
+  },
+  "schema": "oph.native_spin_clock_join.v1",
+  "source_bindings": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/native_ordered_ground/README.md": "4703ac848280b9a4aa1fd2ea28f4507d515cae184935997dffe728940785e691",
+    "model/native_ordered_ground/source.py": "e0ca9a40181637bc9263b55ff41dc9b6aa895f723a6d497d182a011b80097dc2",
+    "model/native_spin_clock_join/README.md": "ca76582f9084e7ecd00052bd178c4a22ffd13286c7bfc3b5faf02f70e4918fc2",
+    "model/native_spin_clock_join/__init__.py": "e59f6bbaca380c86afbe2660648dd29ef8dce90921290d0e5a86650e828e67bf",
+    "model/native_spin_clock_join/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/native_spin_clock_join/algebra.py": "ea7dc3c3a8281ad95a9f1236e922196426b3f50433be95374fcdc41262aade0e",
+    "model/native_spin_clock_join/bounds.py": "bae9c864ea2e97e52ab0ee24f36c0076e5645104f7fc549cb78a45581b3f42c0",
+    "model/native_spin_clock_join/energy.py": "67ad6f8014cc69d1f7a96dc5a374ee620c42a76d7b648bcef83bc23e86ff8595",
+    "model/native_spin_clock_join/packet.py": "0e23ad7d5e24c6f11a636196426cee5f60d1c8fd9c424385d589f1918d7e1b79",
+    "model/native_spin_clock_join/test_clock_join.py": "c806c02fe69c18cd5398ca273b49baad6eb7cbd627a51babf5e288455e5774d8",
+    "model/native_spin_clock_join/test_energy.py": "968e069da0d5b392003545ef04019aeba8f71ab89dab2823c1aaec674f83063f",
+    "model/native_spin_observer/README.md": "6d7ce7c5bb1aa8843cc5d605e3ea06c07100d0f5c91dccac5a00bae89e73e181",
+    "model/native_spin_observer/bounds.py": "5f9359ea91d671d82a00432072fb8b6cdaa86b3869aba3d63c741a36f9d7001b",
+    "model/native_spin_observer/precision.py": "a58567b65ae57a4ba902121e64b849bc0944d8661f1feb57c2a0a0d60843bd6c",
+    "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_current_spectrum/algebra.py": "c29c0dcac869c6cefd72b593d354298954cc890b2bd175acf8c05e4fd428ac1f",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}
