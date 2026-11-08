@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1210,
+  "surface_count": 1219,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2046,6 +2046,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/color_loop_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/color_loop_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/common_source/CALIBRATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2567,6 +2577,16 @@
     },
     {
       "path": "model/defect_identity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_localization_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_localization_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4621,12 +4641,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_stress_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_stress_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_texture_energy/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/spin_texture_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/standard_model_source_map/PARTICLE_MAP.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/standard_model_source_map/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/standard_model_source_map/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
