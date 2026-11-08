@@ -8,7 +8,7 @@ from fractions import Fraction as F
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward
+from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward, uniform_mode, uniform_spectral
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -47,6 +47,7 @@ def canonical(value):
 def bindings():
     legacy='evidence/observer_dynamics_20260925/oph-physics-sim/'
     names=set(PARENTS)|{legacy+'oph_exact/carrier.py',legacy+'oph_exact/__init__.py'}
+    names.update((uniform_spectral.WITNESS,uniform_spectral.zero_field.WITNESS))
     names.update(path.relative_to(ROOT).as_posix() for path in HERE.iterdir()
                  if path.suffix in ('.py','.md'))
     pending=list(names);visited=set()
@@ -94,6 +95,8 @@ def build():
         'second_canonical_pair_and_full_internal_circle':joint_symmetry.certificate(),
         'same_clock_filtered_current_and_complete_force_readout':force.certificate(),
         'source_Ward_susceptibilities_and_force_equations':ward.certificate(),
+        'uniform_mode_original_weight_and_concentration':uniform_mode.certificate(),
+        'complete_finite_uniform_spectral_readout':uniform_spectral.certificate(),
         'scope':{'source_field_sequence':'p=n^-2, B=J*n^-5, n>=2',
             'sequence_is_a_chosen_source_preparation_prescription':True,
             'sequence_forced_by_unread_repair':False,
@@ -111,6 +114,11 @@ def build():
             'complete_finite_original_weight_force_defect_readout_constructed':True,
             'source_Ward_reduction_of_two_force_form_defects':True,
             'original_weight_energy_tube_bound_from_filtered_Ward_data':True,
+            'uniform_mode_weighted_centre_and_variance_concentrate_at_zero':True,
+            'finite_source_uniform_order_floor_computable':True,
+            'finite_spectral_table_all_original_records_certified':True,
+            'uniform_mode_nonvanishing_original_continuum_residue_proved':False,
+            'fixed_cube_spectrum_identified_with_growing_volume_field':False,
             'positive_full_pair_slack_excludes_sharp_subbranches':False,
             'filtered_linear_force_residual_proved_o_p_squared':False,
             'mean_magnetization_or_bond_convergence_rate_proved':False,

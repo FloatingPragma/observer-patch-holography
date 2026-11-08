@@ -31,13 +31,27 @@ global strong-coupling projection premise. Energy-changing controls require
 their own work budget. The action, initial state and physical clock remain
 separate selection premises.
 
+At fixed couplings, the [local full-source construction](LOCAL_MATTER_READOUT.md)
+retains odd fermion probes and interacting spin observables on one centered
+ground and clock. Complete local records have an explicit repair and boundary
+error; distant raw repair values are inaccessible to that protocol.
+[Original charged energy bands](CHARGED_SPECTRAL_BANDS.md) have positive
+volume-independent weight for both addition and removal. The exact dimer
+also generates its own composite response clock. These are source energies
+and interacting local responses, without a relativistic particle assignment.
+
+The separate [aligned-hole sector](ALIGNED_HOLE_DISPERSION.md) supplies an
+exact vacancy-position detector, magnetic translation momentum and a
+controlled free nonrelativistic continuum. Its reference gap and kinetic
+curvature follow from the signed source action. This aligned reference is
+not the interacting full ground; its gap is not a physical rest mass.
+
 ```sh
 python -W error -m pytest -q model/source_family_compatibility
 python -W error -m model.source_family_compatibility --check model/source_family_compatibility/results.json
 ```
 
-The viable next construction must retain the required field sectors on
-one source, state and clock. It can leave the certified spin-projection
-domain while keeping the full CAR source, or construct different emergent
-sectors with their own justified grading. Neither option is supplied by
-renaming the spin fields or an internal representation.
+An interacting relativistic limit requires a source-selected scaling and
+controlled spatial spectral branches on this common field. The fixed-spacing
+construction does not identify its centered state with the ordered spin
+limit or derive the Standard Model's chiral gauge representations.

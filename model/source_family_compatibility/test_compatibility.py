@@ -95,6 +95,26 @@ def test_retained_receipt_is_current(result):
     assert result==json.loads((packet.HERE/'results.json').read_text())
 
 
+def test_full_ground_local_records_and_aligned_reference_are_separate(result,monkeypatch):
+    local=result['local_interacting_matter_history']
+    charged=result['centered_original_charged_bands']
+    aligned=result['aligned_hole_position_dispersion_and_continuum']
+    assert local['same_centered_thermodynamic_ground_subsequence']
+    assert not local['global_raw_archive_equality']
+    assert charged['cubic_readable_parameter_band']['each_original_preparation_weight']=='1/2'
+    assert charged['actual_dimer']['actual_composite_clock']=='B=-3h'
+    assert not aligned['full_interacting_ground_reference_selected']
+    assert not aligned['physical_particle_labels'] and not aligned['physical_masses']
+    for proof in ('LOCAL_MATTER_READOUT.md','CHARGED_SPECTRAL_BANDS.md','ALIGNED_HOLE_DISPERSION.md'):
+        assert 'model/source_family_compatibility/'+proof in result['source_bindings']
+    monkeypatch.setattr(packet,'build',lambda:result)
+    for name,key in (('local_interacting_matter_history','global_raw_archive_equality'),
+                     ('centered_original_charged_bands','charged_pole_mass_or_Lorentz_covariance_derived'),
+                     ('aligned_hole_position_dispersion_and_continuum','full_interacting_ground_reference_selected')):
+        changed=copy.deepcopy(result);changed[name][key]=True
+        with pytest.raises(ValueError):packet.validate(changed)
+
+
 def test_full_interacting_budget_retains_leakage_and_no_physical_assignment(result,monkeypatch):
     row=result['full_interacting_defect_budget']
     assert row['finite_source']['actual_interacting_time_control']['defect_expectation']=='9/25'

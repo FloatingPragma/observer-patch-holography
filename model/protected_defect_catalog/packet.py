@@ -1,5 +1,6 @@
 """Catalogue protected objects with their exact completeness domains."""
 from pathlib import Path
+from fractions import Fraction as F
 import hashlib
 import json
 
@@ -8,7 +9,7 @@ from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
 from model.spin_joint_field_limit import packet as joint_field
-from model.source_family_compatibility import hole_records
+from model.source_family_compatibility import hole_records, hole_dispersion, local_matter, charge_bands
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -22,6 +23,13 @@ PARENTS = tuple('model/'+name+'/results.json' for name in (
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, indent=2, allow_nan=False)+'\n'
+
+
+def serialize(value):
+    if isinstance(value,F):return str(value)
+    if isinstance(value,dict):return {key:serialize(item)for key,item in value.items()}
+    if isinstance(value,(list,tuple)):return [serialize(item)for item in value]
+    return value
 
 
 def bindings():
@@ -85,12 +93,13 @@ def rows():
          'protected_object':'two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories',
          'completeness':'specified field subnet along a common history subsequence; neither all continuum observables nor all protected defects are classified',
          'preparation_readout':'finite positive-field ground preparation, local marginal modulus, source spin-rotation observables and complete native local Pauli histories with all pointer and failure records',
-         'propagation_energy':'continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; no sharp dispersion or rest mass',
+         'propagation_energy':'continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; the volume-wide uniform mode has inverse-weighted centre and energy-square variance tending to zero, with a volume-dependent original probability bound; no nonzero-momentum shell or rest mass',
          'topology':'internal source spin rotation, no spatial winding or identified electromagnetic charge',
          'boundary':'B(n) is a supplied preparation prescription; unread repair does not select it; equality to the ordered zero-field history limit, physical Lorentz spin, sharp poles and scattering are unproved',
          'evidence':'model/spin_joint_field_limit/PROOF.md',
          'same_object_realizations':['model/spin_joint_field_limit/SECOND_PAIR.md',
-                                     'model/spin_joint_field_limit/CLOCK_COMPARISON.md']},
+                                     'model/spin_joint_field_limit/CLOCK_COMPARISON.md',
+                                     'model/spin_joint_field_limit/UNIFORM_MODE.md']},
         {'id':'common_hidden_spin_factor', 'kind':'joint_noiseless_subsystem',
          'source':'same six-site Weyl/contact field and complete charged-block repair',
          'protected_object':'at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315',
@@ -125,8 +134,19 @@ def rows():
          'preparation_readout':'supplied H_h input; complete E seam-cover records identify the initial hole; inverse signed transport gives sum_x P_x rho P_x and preserves each spin/reference block',
          'propagation_energy':'uniform global repair attempts have complete source/archive disturbance relative to the same propagation with identity repair at most 4/n on cubes of side n^2+1 with at most n^2 attempts and common H_h-preserving propagation',
          'topology':'one-unit occupation deficit, without a topological invariant or physical particle assignment',
-         'boundary':'general Hubbard hopping leaves H_h through doublons; the fully aligned invariant restriction is free; preparation, global-attempt budget and propagation clock are supplied; no interacting ground band or relativistic mass is proved',
-         'evidence':'model/source_family_compatibility/REPAIR_TRAJECTORY.md'},
+         'boundary':'general Hubbard hopping leaves H_h through doublons; the fully aligned invariant restriction is free and has a separate vacancy-position, magnetic-translation and nonrelativistic continuum map; its reference gap is not a full-ground gap or physical mass; the matched repair chart, preparation and schedule are supplied',
+         'evidence':'model/source_family_compatibility/REPAIR_TRAJECTORY.md',
+         'same_object_realizations':['model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md']},
+        {'id':'centered_full_CAR_charge_response', 'kind':'scoped_interacting_response_family',
+         'source':'fixed-coupling signed Hubbard action with full-domain repair in the same chart; invariant centered full-ground subsequence',
+         'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved between creation and detection',
+         'completeness':'complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive',
+         'preparation_readout':'local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors',
+         'propagation_energy':'same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories',
+         'topology':'source U1 charge grading, without an assigned winding invariant or Standard Model charge',
+         'boundary':'the invariant ground subsequence has no effective preparation modulus; inaccessible remote raw values cannot drive feedback; a global sharp energy PVM is not supplied by the local bound; no selected relativistic scaling, particle pole or physical spin is established',
+         'evidence':'model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md',
+         'same_object_realizations':['model/source_family_compatibility/LOCAL_MATTER_READOUT.md']},
     ]
 
 
@@ -151,6 +171,14 @@ def joint_field_attachment():
     if any(scope[name] is not False for name in exclusions) or scope['physical_particle_assignment'] is not None:
         raise ValueError('joint-field attachment exceeds the owning physical scope')
     history = value['complete_prepared_local_history']
+    uniform=value['uniform_mode_original_weight_and_concentration']
+    spectral=value['complete_finite_uniform_spectral_readout']
+    if (uniform['uniform_mode_centre_and_weighted_variance_vanish_on_joint_clock']is not True
+            or uniform['uniform_original_probability_floor_proved']is not False
+            or uniform['nonzero_momentum_or_physical_mass_shell_proved']is not False
+            or spectral['fixed_box_table_substituted_for_growing_volume_field']is not False
+            or spectral['physical_mass_prediction_count']!=0):
+        raise ValueError('joint-field uniform spectral response exceeds its owning scope')
     return {'catalogue_entry':'joint_positive_field_canonical_sector',
             'owner_receipt':'model/spin_joint_field_limit/results.json',
             'owning_scientific_producer_replayed':True,
@@ -173,6 +201,12 @@ def joint_field_attachment():
                 'all_native_failure_and_pointer_records_retained':history['all_native_failure_and_pointer_records_retained'],
                 'large_history_executed':history['large_history_executed']},
             'ordered_zero_field_history_identity_proved':False,
+            'uniform_mode_response':{'weighted_centre_and_variance_tend_to_zero':True,
+                'original_window_probability_lower':'m/(8N); finite order floor m>1/20',
+                'uniform_original_continuum_residue_lower_proved':False,
+                'nonzero_momentum_shell_proved':False,
+                'finite_source_scale_indices':[row['n']for row in spectral['finite_cases']],
+                'fixed_cube_spectrum_substituted_for_growing_field':False},
             'physical_species':[],'physical_masses':[],
             'full_source_field_classification_proved':False}
 
@@ -224,6 +258,71 @@ def hole_source_attachment():
             'all_source_states_classified':False}
 
 
+def aligned_hole_attachment():
+    parent=strict_json.load(ROOT/'model/source_family_compatibility/results.json')
+    value=serialize(hole_dispersion.certificate())
+    if canonical(value)!=canonical(parent['aligned_hole_position_dispersion_and_continuum']):
+        raise ValueError('aligned-hole owning source receipt differs from the replay')
+    if (value['full_interacting_ground_reference_selected']is not False
+            or value['source_capacity_or_time_trajectory_selected']is not False
+            or value['physical_particle_labels']or value['physical_masses']):
+        raise ValueError('aligned-hole attachment exceeds its reference or physical scope')
+    return {'catalogue_entry':'one_hole_spin_readout',
+            'owner_receipt':'model/source_family_compatibility/results.json',
+            'owning_scientific_producer_replayed':True,
+            'source_chart':value['source_chart'],
+            'reference':'filled hidden-up vector in the aligned Fock sector; not the full interacting ground',
+            'clock':'centered signed Hubbard clock relative to that reference',
+            'all_hole_numbers_have_exact_exterior_power_dynamics':True,
+            'complete_vacancy_configuration_detector':value['complete_position_scans'],
+            'position_translation':value['operational_position_translation'],
+            'native_analyzer':value['native_complete_energy_analyzer'],
+            'chosen_reference_gap':value['chosen_reference_gap'],
+            'nonrelativistic_continuum_budget':value['continuum_budget'],
+            'interacting_scattering_or_relativistic_mass_proved':False,
+            'physical_species':[],'physical_masses':[]}
+
+
+def centered_matter_attachment():
+    parent=strict_json.load(ROOT/'model/source_family_compatibility/results.json')
+    local=local_matter.certificate();bands=charge_bands.certificate()
+    if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
+            or canonical(bands)!=canonical(parent['centered_original_charged_bands'])):
+        raise ValueError('centered-matter owning source receipt differs from the replay')
+    if (local['same_centered_thermodynamic_ground_subsequence']is not True
+            or local['odd_matter_and_even_spin_share_full_CAR_action']is not True
+            or bands['finite_and_infinite_ground_same_original_weight_bound']is not True):
+        raise ValueError('centered-matter attachment lacks its common source premise')
+    if any(local[name]is not False for name in(
+            'effective_ground_subsequence_preparation_modulus','global_raw_archive_equality',
+            'source_selected_capacity_or_repair_duration','relativistic_continuum_or_physical_particle_assignment')):
+        raise ValueError('centered-matter attachment promotes its physical or archive scope')
+    if bands['charged_pole_mass_or_Lorentz_covariance_derived']is not False:
+        raise ValueError('centered-matter bands are not physical particle masses')
+    band=bands['cubic_readable_parameter_band']
+    if (band['each_original_preparation_weight']!='1/2'
+            or band['band_is_a_spectral_gap_or_particle_mass']is not False):
+        raise ValueError('centered-matter original probability or band scope changed')
+    return {'catalogue_entry':'centered_full_CAR_charge_response',
+            'owner_receipt':'model/source_family_compatibility/results.json',
+            'owning_local_and_charged_producers_replayed':True,
+            'state':'particle-hole and hidden-spin invariant centered thermodynamic ground subsequence',
+            'clock':'its positive centered GNS generator',
+            'chart':local['chart'],
+            'original_local_addition_and_removal_weights':['1/2','1/2'],
+            'readable_source_charged_band':band,
+            'complete_local_history_examples':local['local_history_plans'],
+            'same_state_interaction_witness':local['interaction_example'],
+            'source_generated_dimer_response':bands['actual_dimer'],
+            'global_raw_archive_equality':False,
+            'global_sharp_energy_PVM_implemented_by_local_bound':False,
+            'odd_transfer_native_service_derived':False,
+            'effective_ground_subsequence_preparation_modulus':False,
+            'topological_invariant_assigned':False,
+            'ordered_spin_state_or_aligned_hole_reference_identity':False,
+            'physical_species':[],'physical_masses':[]}
+
+
 def build():
     pins = bindings()
     bare = defect_algebra.report()
@@ -242,6 +341,8 @@ def build():
         entry['same_source_relativistic_particle_attachment_proved'] = False
     joint_attachment = joint_field_attachment()
     hole_attachment = hole_source_attachment()
+    aligned_attachment = aligned_hole_attachment()
+    centered_attachment = centered_matter_attachment()
     if bindings() != pins:
         raise RuntimeError('catalogue source changed during construction')
     return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':pins,
@@ -254,6 +355,8 @@ def build():
             'observer_charge_and_creation_mechanism':mechanism.report(),
             'joint_positive_field_source_attachment':joint_attachment,
             'one_hole_source_attachment':hole_attachment,
+            'aligned_hole_source_attachment':aligned_attachment,
+            'centered_full_CAR_source_attachment':centered_attachment,
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,
@@ -280,6 +383,7 @@ def render(value):
         'cube_eta_range':'prepared eta reference and complete local spectral response',
         'compact_opposite_texture_cores':'declared transported four-mode band and current readout',
         'one_hole_spin_readout':'complete initial-hole position detector preserves internal spin/reference blocks; uniform global attempts give a 4/n archive bound relative to identical propagation with identity repair',
+        'centered_full_CAR_charge_response':'complete local interacting records and positive original charged energy-band weight on one centered full-ground clock',
     }
     lines = ['# Protected sectors and defect candidates', '',
              'The catalogue records separate source architectures. It is not a list of physical species.',

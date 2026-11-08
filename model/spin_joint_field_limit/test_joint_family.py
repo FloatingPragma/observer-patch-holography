@@ -92,6 +92,15 @@ def test_invalid_or_unselected_inputs_rejected(operation):
 def test_receipt_scope_and_mutation_rejection():
     data=packet.build()
     assert data['scope']['direct_single_pair_regular_positive_energy_history_subsequence']
+    uniform=data['uniform_mode_original_weight_and_concentration']
+    assert uniform['uniform_mode_centre_and_weighted_variance_vanish_on_joint_clock']
+    assert not uniform['uniform_original_probability_floor_proved']
+    spectral=data['complete_finite_uniform_spectral_readout']
+    assert [row['n']for row in spectral['finite_cases']]==[2,3,4]
+    assert not spectral['fixed_box_table_substituted_for_growing_volume_field']
+    assert spectral['physical_mass_prediction_count']==0
+    for name in (packet.uniform_spectral.WITNESS,packet.uniform_spectral.zero_field.WITNESS):
+        assert data['source_bindings'][name]==packet.hashlib.sha256((packet.ROOT/name).read_bytes()).hexdigest()
     changed=copy.deepcopy(data)
     changed['scope']['equality_to_ordered_zero_field_state_clock_limit_proved']=True
     with pytest.raises(ValueError):packet.validate(changed)

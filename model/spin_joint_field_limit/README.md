@@ -15,9 +15,13 @@ filtered values give an explicit original-probability energy-window bound.
 The complete finite source exhibits both exact force closure and a
 polarization mismatch beside a sharp energy line; no vanishing continuum
 force error follows from those controls.
-For the uniform Ward pair the remaining error equals a measured third
-inverse moment times an energy-square variance. The susceptibility identity
-alone does not make that variance vanish on the scaled source clock.
+For the volume-wide [uniform Ward mode](UNIFORM_MODE.md), the source first
+moment and a computable finite-box order floor make its inverse-weighted
+energy centre and energy-square variance converge to zero. Its original
+preparation-window probability has an explicit volume-dependent lower bound.
+Complete finite cube spectra retain all charge, reflection and energy
+records; they cannot replace the growing-volume field or establish a
+nonzero-momentum particle branch.
 
 ```sh
 python -W error -m pytest -q model/spin_joint_field_limit

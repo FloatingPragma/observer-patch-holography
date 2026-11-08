@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget
+from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -58,6 +58,8 @@ def bindings():
         'Lean/Screen/SL2F5PortCover.lean','Lean/QFT/SectorInheritance.lean',
         'paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex',
         'model/native_program/README.md','model/observer/CAPACITY.md',
+        'model/full_fock_field/README.md','model/centered_source_ground/README.md',
+        'model/retarded_spatial_locality/README.md','model/field_symmetry/README.md',
         'Lean/ObserverPatchHolography/RepairWordSchedule.lean',
         'Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean',
         'model/spin_joint_field_limit/PROOF.md'))
@@ -65,7 +67,8 @@ def bindings():
     from model.common_source import native_matter_attachment as matter
     paths.update(ROOT/name for name in matter.source_bindings())
     paths.update((HERE/'README.md',HERE/'PROOF.md',HERE/'REPAIR_TRAJECTORY.md',
-                  HERE/'DEFECT_BUDGET.md'))
+                  HERE/'DEFECT_BUDGET.md',HERE/'LOCAL_MATTER_READOUT.md',
+                  HERE/'CHARGED_SPECTRAL_BANDS.md',HERE/'ALIGNED_HOLE_DISPERSION.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -85,6 +88,14 @@ def claims():
         'actual_aligned_Hubbard_hole_sector_and_generic_leakage_checked':True,
         'actual_program_equal_capacity_different_coherent_response':True,
         'complete_repair_error_from_full_interacting_defect_budget':True,
+        'fixed_coupling_complete_local_interacting_CAR_histories':True,
+        'centered_ground_both_original_charge_weights_one_half':True,
+        'volume_independent_positive_original_charged_band_weight':True,
+        'source_generated_dimer_composite_clock_checked':True,
+        'aligned_hole_source_position_translation_and_nonrelativistic_limit':True,
+        'local_readout_equality_includes_remote_raw_archive':False,
+        'full_infinite_sharp_energy_PVM_implemented_by_local_history_bound':False,
+        'fixed_coupling_centered_state_identified_with_ordered_spin_limit':False,
         'classical_record_dephasing_is_global_dilation_information_loss':False,
         'capacity_and_service_counts_select_program':False,
         'repair_only_program_selects_spin_ground_and_clock':False,
@@ -119,6 +130,9 @@ def build():
         'actual_complete_one_hole_repair':hole_records.certificate(),
         'actual_capacity_and_native_program_control':program_selection.certificate(),
         'full_interacting_defect_budget':defect_budget.certificate(),
+        'local_interacting_matter_history':local_matter.certificate(),
+        'centered_original_charged_bands':charge_bands.certificate(),
+        'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,
             'actual_full_sixteen_state_source_reconstructed':True,

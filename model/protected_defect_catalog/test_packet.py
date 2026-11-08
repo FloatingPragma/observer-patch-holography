@@ -59,7 +59,7 @@ def test_no_double_counting_or_physical_assignments(produced):
     assert all(not row['identified_Standard_Model_species'] and row['physical_mass'] is None for row in entries)
     assert not produced['physical_particle_map']
     assert len(next(row for row in entries if row['id']=='ordered_exchange_charge')['same_object_realizations']) == 2
-    assert len(entries)==9
+    assert len(entries)==10
 
 
 def test_hole_sector_keeps_position_spin_scope_and_complete_archive(produced):
@@ -111,6 +111,57 @@ def test_joint_family_has_literal_observables_and_distinct_state_clock(produced)
     assert attached['owning_scientific_producer_replayed']
     assert attached['complete_finite_history_example']['all_native_failure_and_pointer_records_retained']
     assert not attached['physical_species'] and not attached['physical_masses']
+    uniform=attached['uniform_mode_response']
+    assert uniform['weighted_centre_and_variance_tend_to_zero']
+    assert not uniform['uniform_original_continuum_residue_lower_proved']
+    assert not uniform['nonzero_momentum_shell_proved']
+
+
+def test_centered_charge_response_has_original_weight_and_local_record_scope(produced):
+    attached=produced['centered_full_CAR_source_attachment']
+    assert attached['catalogue_entry']=='centered_full_CAR_charge_response'
+    assert attached['owning_local_and_charged_producers_replayed']
+    assert attached['original_local_addition_and_removal_weights']==['1/2','1/2']
+    assert attached['readable_source_charged_band']['each_original_band_probability_lower']=='25/100352'
+    assert not attached['global_raw_archive_equality']
+    assert not attached['global_sharp_energy_PVM_implemented_by_local_bound']
+    assert not attached['odd_transfer_native_service_derived']
+    assert not attached['ordered_spin_state_or_aligned_hole_reference_identity']
+    assert not attached['physical_species'] and not attached['physical_masses']
+    aligned=produced['aligned_hole_source_attachment']
+    assert aligned['catalogue_entry']=='one_hole_spin_readout'
+    assert aligned['all_hole_numbers_have_exact_exterior_power_dynamics']
+    assert not aligned['interacting_scattering_or_relativistic_mass_proved']
+
+
+@pytest.mark.parametrize('forgery',['global_archive','ground_preparation','physical_mass','original_weight','receipt'])
+def test_centered_owner_scope_mutations_rejected(monkeypatch,forgery):
+    original=packet.strict_json.load(packet.ROOT/'model/source_family_compatibility/results.json')
+    changed=copy.deepcopy(original)
+    local=changed['local_interacting_matter_history'];bands=changed['centered_original_charged_bands']
+    if forgery=='global_archive':local['global_raw_archive_equality']=True
+    elif forgery=='ground_preparation':local['effective_ground_subsequence_preparation_modulus']=True
+    elif forgery=='physical_mass':bands['charged_pole_mass_or_Lorentz_covariance_derived']=True
+    elif forgery=='original_weight':bands['cubic_readable_parameter_band']['each_original_preparation_weight']='1'
+    else:bands['cubic_readable_parameter_band']['source_U']='2'
+    monkeypatch.setattr(packet.local_matter,'certificate',lambda:local)
+    monkeypatch.setattr(packet.charge_bands,'certificate',lambda:bands)
+    monkeypatch.setattr(packet.strict_json,'load',lambda path:original if forgery=='receipt'else changed)
+    with pytest.raises(ValueError,match='centered-matter'):
+        packet.centered_matter_attachment()
+
+
+@pytest.mark.parametrize('forgery',['full_ground','selected_clock','particle'])
+def test_aligned_reference_cannot_be_promoted_to_full_ground(monkeypatch,forgery):
+    parent=copy.deepcopy(packet.strict_json.load(packet.ROOT/'model/source_family_compatibility/results.json'))
+    value=parent['aligned_hole_position_dispersion_and_continuum']
+    if forgery=='full_ground':value['full_interacting_ground_reference_selected']=True
+    elif forgery=='selected_clock':value['source_capacity_or_time_trajectory_selected']=True
+    else:value['physical_particle_labels']=['electron']
+    monkeypatch.setattr(packet.hole_dispersion,'certificate',lambda:value)
+    monkeypatch.setattr(packet.strict_json,'load',lambda path:parent)
+    with pytest.raises(ValueError,match='aligned-hole'):
+        packet.aligned_hole_attachment()
 
 
 @pytest.mark.parametrize('forgery',['missing_second_pair','old_limit_identity','physical_species','unread_selection'])
