@@ -445,6 +445,15 @@ REPLAYS = (
     ("model.defect_localization_readout", None, "model/defect_localization_readout/results.json"),
     ("model.spin_stress_response", None, "model/spin_stress_response/results.json"),
     ("model.color_loop_readout", None, "model/color_loop_readout/results.json"),
+    ("model.protected_defect_catalog", None, "model/protected_defect_catalog/catalog.json"),
+    ("model.spin_dynamical_memory", None, "model/spin_dynamical_memory/results.json"),
+    ("model.charge_channel_lifetime", None, "model/charge_channel_lifetime/results.json"),
+    ("model.color_effective_action", None, "model/color_effective_action/results.json"),
+    ("model.spin_modular_geometry", None, "model/spin_modular_geometry/results.json"),
+    ("model.source_energy_effort", None, "model/source_energy_effort/results.json"),
+    ("model.spin_charge_dispersion", None, "model/spin_charge_dispersion/results.json"),
+    ("model.source_charge_scattering", None, "model/source_charge_scattering/results.json"),
+    ("model.spin_boost_stress", None, "model/spin_boost_stress/results.json"),
 )
 
 

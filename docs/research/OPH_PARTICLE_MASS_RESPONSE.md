@@ -27,6 +27,19 @@ separate the eight required connections. This page records response and
 mass-operator results within their specified models; none supplies the
 final measured particle-mass ratios.
 
+The [charge-resolved source table](OPH_NATIVE_PARTICLE_MASS_JOIN.md#charge-creation-work-and-persistence-on-that-source)
+reports finite creation probabilities, measured mean energies and return
+retention intervals on one selected state and clock. Its energies are
+operational first moments, independently read by Pauli scores and controlled
+clock phase. A conserved local-detector contrast persists while return
+survival decreases and rebounds. Thus neither the mean energy nor a finite
+overlap-retention time is substituted for a mass or decay width.
+The [source memory](../../model/spin_dynamical_memory/PROOF.md) retains every
+spectral component, and the [charge-to-field proof](../../model/protected_defect_catalog/PROOF.md)
+attaches conjugate internal charges to equal nonzero continuum spectral
+measures. Identifying a physical particle requires their dispersion and
+scattering behavior on that same representation.
+
 ## Spatial readout and momentum
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)

@@ -70,6 +70,20 @@ The [current sum rule](../../model/spin_current_spectrum/README.md) and
 missing correlation estimates. Neither an additional finite theorem with
 those estimates as hypotheses nor a fitted dispersion discharges them.
 
+Two quantitative interfaces distinguish the missing estimates from the
+proved representation. Prepared-state control requires a computable bound
+on `half_trace(rho_(box,B)|_R, omega_selected|_R)` for growing region R and
+the observation times used by the experiment. Finite ground preparation
+and qualitative maximal-order convergence give no such joint modulus.
+For the original broad-window response, the existing shell test sets
+`X_p=K/(J s(P))`, where `s(P)^2=2 sum_j(1-cos P_j)`, and
+`d_p=<X_p><X_p^-1>-1`. Proving `d_p->0` and one common limiting mean,
+independent of packet envelope and direction, would concentrate that
+whole response on a cone. Alternatively, a shrinking spectral tube can
+retain a fixed positive fraction of the original weight while a continuum
+survives outside it. The source current sum rule fixes a total inverse
+moment; it does not establish either concentration statement.
+
 The [local spin creation](../../model/defect_localization_readout/PROOF.md)
 supplies a finite excitation on the actual selected cube ground. A local Z
 leaves the exterior marginal unchanged at preparation and flips a global
@@ -99,6 +113,132 @@ finite first-law theorem. The boost/edge split, a symmetric Lorentz stress,
 responsive area and fixed-proper-volume stationarity require additional
 maps. The two-site reference is not substituted for the infinite ordered
 state in the six requirements above.
+
+### Source symmetry, spectral response and regional geometry
+
+The [source-charge construction](../../model/protected_defect_catalog/PROOF.md)
+uses the ordered state and the same `K/(Jp)` clock to attach internal U1
+to the transverse configuration history subnet. Adding the second staggered
+configuration Q2 costs only the source commutator bound
+`||[Q2_p(F),Q3_p(G)]|| <= (p^4/2) sum|F(px)G(px)|=O(p)`.
+No second uniform canonical momentum is appended. The existing variance,
+energy-form transport and full-history regularity arguments construct
+the joint limit. A source symmetry exchanges the opposite-charge fields;
+their joint energy--momentum measures are equal and inherit the nonzero
+positive-energy annulus weights of Q3. This is a field attachment of a
+source charge, with no Lorentz-spin or mass-shell assertion.
+
+The [dynamical-memory construction](../../model/spin_dynamical_memory/PROOF.md)
+retains the complete spectral complement of a source-created vector:
+`G(z)=1/(z+epsilon-Sigma(z))`, with positive memory
+`Sigma(z)=<r,(D+z)^-1 r>`. On both finite coherent charge channels this
+memory is strictly positive. Bounded odd preparation and a resolvent filter
+have a uniform positive original probability in the actual field scaling.
+Their filtered norms, first two energy moments and resolvents converge on
+the common bounded-history subsequence, without assuming energy-moment
+tightness for the unfiltered field. The continuum memory is defined by
+these source limits; a sharp shell or vanishing force residual is not inferred.
+
+The [regional modular construction](../../model/spin_modular_geometry/PROOF.md)
+uses the same selected eight-cube ground rather than the separate dimer.
+Its two-site marginal has spectral floor greater than1/41. The certified
+modular generator and a source-current perturbation give a nonzero entropy
+response, executed with all native failure records. An informationally
+complete 32-record regional detector constructs a positive Fisher metric
+on density-response tangents. This is not a spacetime metric. The actual
+regional modular generator lies outside the weighted isotropic-bond plus
+local-field ansatz. A fixed graph-cut area has zero response while this
+allowed pulse changes entropy, so that fixed area cannot supply stationarity
+for the displayed variations. Responsive geometry and the physical boost
+identification are separate requirements.
+
+### Bounded charged preparations and separated pairs
+
+The [bounded charge construction](../../model/spin_charge_dispersion/PROOF.md)
+uses the existing infrared proof with the trial vector `(I+tM)G`.
+Its exact 256-mesh integral bound and fixed bias `t=10` certify the same
+selected magnetization `m>1/10`. This is a lower bound, with no empirical
+magnetization input. An [entangled-dimer trial](../../model/spin_charge_dispersion/DIMER_BOUND.md)
+strengthens the same order bound to `m>11/100` and the microscopic current
+coefficient to `1/120`; the readout keeps the conservative value `m0=1/10`.
+These are source inequalities, not a dispersion speed or fitted stiffness.
+For an annular unit test, set `x=sqrt(r)Q3(F)` and
+`y=sqrt(r)Q2(F)`. The angular charge projection of `f(x)=x/(1+x^2)` gives
+bounded opposite-charge creators `B_+,B_-` of norm at most1/2. Their
+positive square-root complement makes one complete three-record instrument.
+The actual canonical commutator, source moments and charge conjugation prove
+that each joint creation-and-band event has original probability at least
+`k=1/1757600`, uniformly as `r` tends to zero. Its momentum lies in
+`r/2<=|P|<=r` and energy in `[3kr,r/k]` on the same positive clock.
+This broad band proves positive excitation weight; it is not a sharp
+dispersion law. Complete finite compilations and ordered history limits
+retain all other energies, momenta and preparation records.
+
+The [separated-pair construction](../../model/source_charge_scattering/CONTINUUM_PAIRS.md)
+uses those same bounded configuration fields. For the positive effect
+`A=B_+^dagger B_+`, finite spatial averaging and Jensen's inequality give
+`omega(A_R^n)>=omega(A)^n>=k^n`. Excluding nearby packet centres yields
+pairwise separated rational tuples with original weight at least `k^n/4`
+for every fixed n and every choice of charge signs. A computable cube
+contains a suitable tuple; no effective ground-state evaluation or good-point
+selection algorithm is supplied. All `3^n` preparation records are retained.
+At n=2 this gives charge+2 and charge-2 probability at least `k^2/4`. The energy
+form bounds the unconditioned pair energy by `27r/4`; an upper-energy cutoff
+`54r/k^2` retains at least `k^2/8` original weight. Zero-energy components are
+not excluded by this pair bound. For arbitrary fixed n the energy bound is
+`12r(1-2^-n)^2`. Every integer internal-charge sector is therefore realized
+and has energy infimum zero, allowing a zero-energy kernel. These labels
+do not count species or prove massless particles. Separation concerns the
+centres of Schwartz profiles, not disjoint compact operator supports.
+No clustering, independent-particle factorization or scattering state is assumed.
+
+On the selected finite cube, the same
+[two-charge response](../../model/source_charge_scattering/PROOF.md)
+spans each entire 28-dimensional charge+-2 sector. Complete diagonal
+projectors and a certified nonzero Hamiltonian walk instantiate the finite
+matrix-unit argument. A complete 29-effect detector observes every vector
+in that sector; together with the four preparation records it retains116
+coarse outcomes. Exact connected work and retarded response verify source
+interaction and propagation. Local complete histories have a fixed-spacing
+infinite-volume limit on the selected state, with volume taken to infinity
+before the selection field vanishes. An asymptotic scattering limit needs
+an actual comparison dynamics and an integrable long-time error estimate.
+
+### The energy-flux and boost test
+
+The [source stress construction](../../model/spin_boost_stress/PROOF.md)
+defines `B_i=sum_x r_i(x)e_x` and `P_i=i[H,B_i]` from the actual local
+energy densities. Exact local momentum balances retain their force term,
+and coarse energy blocks retain their internal dipole correction. This
+`P_i` is an energy-flux candidate; equality with the existing spatial
+translation generator is an additional theorem. On the selected finite
+cube the candidate boost fails vacuum invariance and its Lorentz-algebra
+defect `D_i=i[B_i,P_i]+L` has expectation less than `-0.13115434068`.
+A complete native pointer detects the vacuum change. Finite rapidity
+errors are controlled by integrals of that same defect, so taking many
+small steps does not remove it. A relativistic continuum construction
+requires the relevant scaled defect to vanish on actual low-energy field
+histories, together with the momentum and coarse-dipole identifications.
+
+### Existing theorem connections
+
+The following results remove repeated construction work while preserving
+their actual source hypotheses.
+
+| Reused result | What it supplies to this chain | Exact connection required |
+| --- | --- | --- |
+| [Canonical field](../../model/spin_canonical_field/README.md) and [energy](../../model/spin_canonical_energy/README.md) | One selected-state history representation, strong field regularity, positive energy, locality and nonzero annulus weight | Ground-specific spectral/force estimates determine dispersion; the representation need not be rebuilt |
+| [Selected-state colimit](../../Lean/QFT/ColimitSelectedStateGNS.lean) | A representation from an exactly compatible observer-state family | The family and its ground-state attachment are premises; no effective selected-spin marginal convergence rate follows |
+| [Finite source correlations](../../Lean/QFT/SourceCorrelationCapstone.lean) and [net adequacy](../../Lean/QFT/StructuralNetAdequacySurface.lean) | Finite joint-state and structural net implications | Their stated hypotheses do not supply the ordered-spin continuum vacuum, time-slice attachment or sharp spectrum |
+| [Finite operator generation](../../Lean/QFT/SourceOperatorGeneration.lean) and [native compiler](../../model/spin_operational_position/PROOF.md) | Matrix-unit generation from diagonal projectors and a connected transition walk; complete finite observer instruments | Supply the actual sector projectors, nonzero source edges and admitted coherent controls |
+| [Celestial null rays](../../Lean/Geometry/CelestialNullCone.lean) and [native transition test](../../model/native_lorentz_transition/PROOF.md) | Sphere labels for future-null rays; twelve exact port tests determine an invertible conformal Lorentz map | Actual field/clock transitions must realize the map and its normalization |
+| [One-boost cone theorem](../../paper/tex_fragments/OPERATIONAL_CAUSAL_SELECTION.tex) | Finite irreducible rotations plus one operational boost direction determine the invariant causal cone | Boosts must transform admissible histories and readouts; a spherical coordinate action alone does not do this |
+| [Minimal Einstein composition](../../Lean/Geometry/SourceOrderEinsteinComposition.lean) | Nine source-direction balances suffice for the finite Einstein-form tensor conclusion | Supply the same physical stress, responsive geometry, balances and normalization; no second tensor derivation is needed |
+
+The finite source action `PSL(2,F5)`, the conformal group `PSL(2,C)` of the
+celestial sphere, and the internal spin U1 are different groups. Their
+representations are reused only through an explicit map. The sphere is
+equivalent to the null-ray space, not to the Lorentz group itself.
 
 ### Position, translations and uncertainty
 

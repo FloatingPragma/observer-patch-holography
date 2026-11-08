@@ -45,6 +45,96 @@ and autonomous evolution spreads the response. The finite symmetry label
 does not establish winding protection, an infinite-volume superselection
 sector or a rest mass.
 
+## Charge creation, work and persistence on that source
+
+The [protected-object catalogue](../../model/protected_defect_catalog/PROOF.md)
+classifies the full bare and ordered-cover branch commutants, and all 65,536
+Pauli-product charges of the selected cube. It also pulls the continuous
+charge `Q=sum_x epsilon_x X_x/2` from the signed full-Fock source. Its
+selected ground has exactly Q=0. The complete local instrument
+`A_q=Pi_(q epsilon_0 X_0) Z_0`, q=+-1, prepares coherent charged branches.
+Measuring every local X and grouping the total charge gives the same charge
+probabilities but dephases within a sector; it is a separate instrument.
+
+The [complete work/action readout](../../model/source_energy_effort/PROOF.md)
+and [retention certificate](../../model/charge_channel_lifetime/PROOF.md) give:
+
+| Internal source charge | Original preparation weight | Conditional mean excitation energy, J=1 | First return-survival value 0.99, source time |
+| --- | --- | --- | --- |
+| -1 | about 0.83547507093 | about 1.84463098607 | [0.1726210202,0.1726210331] |
+| +1 | about 0.16452492907 | about 1.73054620199 | [0.1044566248,0.1044566376] |
+
+These are finite prepared-channel means and overlap-retention times, not
+particle masses or decay widths. Both exact charge sectors have nonzero
+spectral variance. The negative channel's survival increases from about
+0.302 at time2 to 0.781 at time5. A complete uniformly chosen local-X
+detector nevertheless retains original-weight charge contrast `w_q/8>1/50`
+at every source time. Charge persistence does not require persistence of
+the original wavepacket or a fixed location.
+
+The measured unconditioned work is
+`W_q=<A_q^dagger[H_B,A_q]>`, and the two moments sum to the local-Z work.
+An independent controlled-clock phase measurement recovers that same work.
+The relative generator action on an autonomous interval is `T E_exc`;
+ongoing system power is zero. Bare protected C/E history effects are scalar,
+so repair counts alone cannot recover these different energies. Native
+coherent controls supply the energy-sensitive effects. Memory-reset heat
+and apparatus work require their own energy and reservoir constructions.
+
+On the prescribed ordered-source limit, the same charge acts on the
+transverse configuration history subnet. `Phi_+=Q3-iQ2` and
+`Phi_-=Q3+iQ2` carry opposite unit charge, and source-induced conjugation
+gives `mu_Phi+=mu_Phi-=2mu_Q3` for their joint energy--momentum measures.
+Both are nonzero and have positive gapless spectral weight. This attaches
+the source symmetry to actual fields without supplying a sharp dispersion,
+Lorentz spin or physical antiparticle identification. The finite local
+preparations in the table are not those collective continuum pole states.
+
+The [bounded source preparation](../../model/spin_charge_dispersion/PROOF.md)
+also supplies actual collective charge+-1 field states with original
+positive-energy/momentum band probability at least `1/1757600`, uniformly
+over the momentum scale. It uses the certified order bound `m>1/10` and
+the same canonical field, state and clock. The
+[complete pair construction](../../model/source_charge_scattering/CONTINUUM_PAIRS.md)
+gives nonzero charge+-2 preparation at arbitrarily large separations, with
+an explicit unconditioned energy bound and all nine preparation records.
+The result is a controlled source-to-field charge map. Sharp poles,
+relativistic spin, asymptotic exchange statistics and scattering amplitudes
+are separate physical identification conditions.
+
+## Spin, statistics and the meaning of charge
+
+The source has different conserved labels. The spin creators and their
+bounded collective limits change internal spin charge by +-1 while
+preserving occupation excess `N-|V|`. They are even native CAR operators;
+creators at distinct sites commute despite their on-site occupancy
+restriction. The [exact local algebra](../../model/protected_defect_catalog/PROOF.md#additive-charge-local-statistics-and-persistence)
+therefore supplies neither a physical spin-one-half assignment nor an
+electromagnetic charge. Relativistic spin requires the action of actual
+spacetime rotations/boosts on the spectral sector. Scattering statistics
+requires the exchange law of its asymptotic states. A grading-preserving
+identification cannot turn these even source creators into single odd
+fermion creators; an alternative emergent grading requires its own map.
+
+The [common-clock scale bound](../../model/particle_mass_readout_gate/README.md#a-common-clock-cannot-preserve-both-scales-on-the-protected-trajectory)
+also constrains the massive-sector construction. On the specified protected
+trajectory `c_E=J E^4, U_E=J E^8`, occupation-charged excitations have gap
+at least `J E^8/4`. Any normalized state of mean ground-relative energy at
+most C has occupation-charged weight at most `4C/(J E^8)`. A common clock
+rescaling that keeps such a charged excitation bounded freezes the
+fixed-spacing spin exchange. This excludes combining those two scales on
+that trajectory; it does not exclude another source family, simultaneous
+scaling or a separately constructed emergent sector.
+
+Consequently a common interacting gauge--matter source is a separate
+requirement for a Standard Model catalogue, even after a spin-wave
+dispersion is known. The finite internal representation table and gauge
+reconstruction theorem constrain a proposed map. They do not select the
+source's spacetime spin, chiral propagating fields, family copies or
+physical gauge currents. CERN comparisons require the resulting complete
+production and detector probabilities, with the same physical units and
+controlled volume, time and detector errors.
+
 ## Position and the source sector
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)

@@ -35,11 +35,91 @@ results do not accept the integrated physical gates or alter a frozen campaign.
 | [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143), particle dictionary | Exact internal weights and eighteen unassigned target channels | Physical spin/statistics, families, poles and residues, common units and independent experimental comparisons |
 | [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145), gravity | Source-executed regional entropy/modular equality | Boost-normalized symmetric stress, area/edge identification, Newton normalization and entropy stationarity on one refinement |
 
+The [protected-object catalogue](../protected_defect_catalog/CATALOG.md)
+gives exhaustive classifications only on named source domains. The spin
+charge has coherent local preparation, complete work measurements and a
+permanent charge-sensitive detector contrast. Its initial vector has a
+separate finite return-retention time and nonzero spectral memory. In the
+ordered continuum, the same U1 acts on conjugate configuration fields with
+equal positive energy--momentum measures. This supplies a source-to-field
+symmetry connection for the spin branch, rather than a physical species map.
+The [measured source work](../source_energy_effort/PROOF.md) is generator
+action per unit source time; bare protected repair records are energy-blind.
+
+The strongest reusable inputs and their exact interfaces are collected in
+the [field reconstruction](../../docs/research/OPH_FIELD_RECONSTRUCTION.md#existing-theorem-connections).
+The [bounded charge readout](../spin_charge_dispersion/PROOF.md) uses the
+same infrared theorem to certify `m>1/10` and original positive joint-band
+weight at least `1/1757600`. The
+[separated-pair theorem](../source_charge_scattering/CONTINUUM_PAIRS.md)
+constructs nonzero charge+-2 preparations at arbitrarily large separation
+without assuming clustering. Exact finite two-charge response and the
+[energy-flux/boost test](../spin_boost_stress/PROOF.md) supply additional
+same-source inputs. They do not establish an asymptotic particle spectrum.
+The main dynamical dependencies are a quantitative prepared-state limit,
+the actual dispersion and spectral residue, an operational boost on field
+histories, and asymptotic multiparticle scattering. The finite algebra,
+quantum readout and existing field representation are reused.
+
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
 used in a derivation. A laboratory identification, a selected initial state,
 or a continuum limit must still be proved from them; knowledge of the code
 does not turn a separately chosen effective Hamiltonian into its output.
+
+## Consolidated physical identification dependencies
+
+The canonical field, quantum instruments, uncertainty relation and positive
+energy on the ordered-spin branch are inputs to the following derivation,
+not tasks to reconstruct independently. The three-dimensional field exists;
+the required dynamical and physical attachments are:
+
+1. **Common source and preparation.** Relate every retained candidate to one
+   specified source family, state prescription and clock. Give effective
+   finite preparation/observation bounds for the growing supports and times
+   used below. The spin, color and prescribed-texture constructions do not
+   acquire a common action merely by appearing in the catalogue.
+2. **Observable excitation sectors.** Carry each candidate's creation,
+   conserved label and complete readout into that field representation.
+   The spin U1 and conjugate configuration fields supply this symmetry
+   connection; topological textures also need autonomous preparation and
+   protection under the same chosen dynamics.
+3. **Dispersion and relativistic covariance.** Determine the actual joint
+   energy--momentum measures and prove a stable spectral branch or a
+   controlled resonance with nonvanishing original weight. Attach one
+   operational boost to the same field histories and clock, using the
+   existing finite-rotation and celestial results for its geometric
+   consequences. A finite propagation bound does not fix its light speed.
+4. **Multiparticle dynamics.** Extend the proved separated charged
+   preparations to asymptotic incoming/outgoing observables and their
+   transition laws.
+   Control the long-time and large-volume limits. Finite connected response
+   and return loss alone do not give a scattering matrix or decay width.
+5. **Physical quantum numbers and spectrum.** Derive rotation/spin,
+   asymptotic exchange statistics, gauge transformations, chirality and
+   families of the actual excitations. Determine the common mass-generating
+   dynamics and couplings rather than assigning representation dimensions,
+   finite eigenvalues or winding multiplicities to empirical species.
+6. **Controlled measurements and comparison.** Combine preparation,
+   volume, cutoff, clock, detector and sampling errors; fix one unit and
+   renormalization convention; predict masses, mixing, cross sections and
+   decays before assigning measured particle identities.
+
+The ledger's fine-structure result proves fixed points of declared maps;
+its physical endpoint also requires target-independent map selection and
+a same-quantity/same-scheme bridge (`OPH-ALPHA-PIXEL`). The kinematic
+mass-shell theorem takes its mass parameter as input
+(`OPH-GEOMETRY-KINEMATIC-MASS-SHELL`). Both are reusable implications;
+neither inserts a source-derived physical mass or coupling in this catalogue.
+The conditional gauge reconstruction likewise requires its source sector
+and tensor-realization premises (`OPH-GAUGE-D7-D9`).
+
+For gravity, the finite composition theorem is reused after the same field
+supplies conserved physical stress, responsive geometry, entropy/area
+identification, the nine direction balances and common normalization. The
+regional modular and Fisher constructions supply explicit finite inputs,
+without identifying the Fisher metric with spacetime or a fixed graph cut
+with the required responsive area.
 
 ## Defect-to-particle identification requirements
 
@@ -53,12 +133,12 @@ for the actual source operators and reconstructed observations.
 | Requirement | Established interface | Required identification |
 | --- | --- | --- |
 | **1. One source, state and clock** | Declared native families, finite ground preparations and source-specific clock comparisons. | A capacity/refinement law selects one common action and state for all sectors. |
-| **2. Protected defect labels** | Finite repair invariants, charge algebras and defect candidates on their stated source domains. | A complete relevant defect census, protection under the chosen dynamics, and an operational charge measurement. |
-| **3. Defect creation and field attachment** | Finite source probes and separately constructed effective field operators. | A nonzero state-preserving map from each candidate's creation/detection instrument to the same field, preserving its measured label and complete records. |
+| **2. Protected defect labels** | Complete bare/ordered-cover charge commutants, selected-cube Pauli census, full-Fock internal U1 and coherent charge pointers; scoped textures and noiseless factors. | A complete relevant census on the chosen common refining source, with topology and locality specified for each object. |
+| **3. Defect creation and field attachment** | Same spin U1 acts on opposite-charge continuum configuration fields with equal nonzero spectral measures; complete finite local charge creation. | Quantitative finite-to-continuum preparation for these fields and an attachment for each other candidate, retaining original probabilities. |
 | **4. Position, momentum and uncertainty** | Exact native partial-shift covariance; source-Gram position conjugate to the existing field translations; complete finite native detectors and ordered finite-mode limits; time-invariant response localization. | Effective continuum detector and moment-error bounds, attached to the candidate sector. The total-load centroid is scalar on the protected spin sector. |
 | **5. A common relativistic limit** | A free eight-valley Weyl branch; a separate ordered-spin continuum with positive energy and finite propagation. | Lorentz covariance and one physical light cone for the interacting candidate on the same state and clock. |
-| **6. Particle or resonance sectors** | Complete finite spectral-tube bounds and a time-invariant field-response space. | Nonvanishing isolated branch weight or a controlled resonance. A response space can contain several branches and continua. |
-| **7. Quantum numbers** | Conditional finite gauge and representation theorems; source symmetry actions. | Spin, statistics and charges derived from how the candidate's actual field and detector transform. An internal spin index is not automatically Lorentz spin. |
+| **6. Particle or resonance sectors** | Bounded continuum charge creators with uniform original joint-band weight; separated charge-pair preparations; complete finite spectral-tube, memory and retention certificates. | Nonvanishing isolated branch weight or a controlled resonance. A response space can contain several branches and continua. |
+| **7. Quantum numbers** | Conditional finite gauge/representation theorems; actual field U1, charge conjugation and local creator exchange relations. | Physical gauge attachment, spatial/Lorentz spin, asymptotic statistics and families. Internal spin does not determine Lorentz spin. |
 | **8. Interactions and masses** | Finite interacting sources and conditional field actions. | Surviving continuum interactions, the required chiral matter and anomaly conditions, and source-derived mass-generating coefficients. |
 | **9. Controlled predictions** | Finite error certificates and several source-specific limit bounds. | Common volume, cutoff, preparation, clock and detector error budgets for masses, mixing, scattering and decays, including the required growing-time limits. |
 | **10. Experimental identity** | Model-sector descriptions and separately declared calibrations. | One frozen observable dictionary and predictions compared with measured joint data before assigning empirical species names. |

@@ -149,16 +149,38 @@ def validate(value):
 
 
 def render(value):
+    readouts = {
+        'bare_native_source':'complete native records; no nontrivial source-only charge',
+        'ordered_exchange_charge':'coherent charge pointer and pair-configuration transport',
+        'selected_spin_charge':'coherent local charge creation; conjugate continuum configuration fields',
+        'single_occupancy_spin_memory':'native spin controls and pointers; nontrivial exchange dynamics',
+        'common_hidden_spin_factor':'complete ideal joint histories preserve the global spin factor',
+        'cube_eta_range':'prepared eta reference and complete local spectral response',
+        'compact_opposite_texture_cores':'declared transported four-mode band and current readout',
+    }
     lines = ['# Protected sectors and defect candidates', '',
              'The catalogue records separate source architectures. It is not a list of physical species.',
              'Completeness applies only to the explicit domains in the table; there is no exhaustive census over all OPH realizations.', '',
-             '| Object | Protecting source and object | Completeness | Particle attachment |',
+             '| Object | Protecting source and object | Observer-facing connection | Physical species |',
              '| --- | --- | --- | --- |']
     for row in value['entries']:
-        lines.append('| '+row['id']+' | '+row['protected_object']+' | '+row['completeness']+' | Unproved |')
+        lines.append('| '+row['id']+' | '+row['protected_object']+' | '+readouts[row['id']]+' | Unidentified |')
+    lines += ['', '## The source-to-observation chain', '',
+              'The selected spin branch has the following proved connections:', '',
+              '1. The signed native full-Fock charge pulls through the spin/Marshall inclusion to Q.',
+              '2. Local Z followed by one X pointer prepares coherent Q=+1 or Q=-1 states, retaining both original probabilities.',
+              '3. Complete [energy and clock readouts](../source_energy_effort/ENERGY_READOUT.md) measure their creation work.',
+              '4. A [fixed charge detector](../charge_channel_lifetime/PROOF.md) retains nonzero contrast under charge-preserving evolution even when return survival decreases.',
+              '5. On the prescribed ordered-state limit, the same U1 acts on Phi+=(Q3-iQ2) and Phi-=(Q3+iQ2). Source conjugation gives equal nonzero energy--momentum measures.',
+              '6. [Bounded charged creators](../spin_charge_dispersion/PROOF.md) retain original positive joint-band probability at least1/1757600 at every momentum scale, using the same source state and clock.',
+              '7. [Separated field preparations](../source_charge_scattering/CONTINUUM_PAIRS.md) realize every finite charge-sign pattern with positive original probability and an energy bound; all integer internal-charge sectors occur. These are sector labels, not a species count.', '',
+              'The last connection is to collective field excitations. The finite local states are not identified with continuum poles.',
+              'Dispersion, asymptotic scattering and physical quantum numbers are the required next connections to empirical species.',
+              'The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.md) keeps that empirical assignment separate.', '']
     for row in value['entries']:
         lines += ['', '## '+row['id'].replace('_',' '), '',
                   '**Source:** '+row['source']+'.', '',
+                  '**Classification domain:** '+row['completeness']+'.', '',
                   '**Preparation and readout:** '+row['preparation_readout']+'.', '',
                   '**Propagation and energy:** '+row['propagation_energy']+'.', '',
                   '**Topology:** '+row['topology']+'.', '',

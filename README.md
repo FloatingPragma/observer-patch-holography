@@ -88,15 +88,15 @@ proof shows that the whole class of laws cannot work.
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
 - **Particle candidates and energy readouts.** A specified interacting cube connects
-  a prepared ground state, local charge creation and complete detector records.
-  A local spin pulse has positive excitation energy, exact repair-preserved
-  parity and a certified detector lifetime. Complete color-loop records recover
-  the specified electric-to-magnetic coefficient ratio in the finite gauge--Higgs
-  source. A common relativistic action and physical particle identities require
-  further proofs. The [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
-  lists Standard Model targets beside computed internal representations;
-  physical sources and masses are unassigned.
-  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
+  a prepared ground, opposite internal charges and complete energy measurements.
+  Conserved charge remains detectable while the prepared state spreads. The
+  [defect catalogue](model/protected_defect_catalog/CATALOG.md) separates memory
+  charges, spin sectors and prescribed textures. The same spin symmetry acts
+  on conjugate continuum fields with equal energy--momentum measures. Physical
+  particle identities require dispersion and scattering on that same theory;
+  the [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
+  retains unassigned physical masses.
+  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete

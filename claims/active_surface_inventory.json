@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1219,
+  "surface_count": 1244,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1931,6 +1931,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/charge_channel_lifetime/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/charge_channel_lifetime/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/charged_composite_search/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2042,6 +2052,26 @@
     },
     {
       "path": "model/coherent_screen_observer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/color_effective_action/NONABELIAN_REGULATOR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/color_effective_action/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/color_effective_action/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/color_effective_action/REGULATOR_PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4166,6 +4196,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/protected_defect_catalog/CATALOG.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_defect_catalog/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_defect_catalog/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/protected_particle_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4476,6 +4521,36 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_charge_scattering/CONTINUUM_PAIRS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_charge_scattering/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_charge_scattering/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_energy_effort/ENERGY_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_energy_effort/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_energy_effort/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_mass_shell/CALIBRATION_PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4521,12 +4596,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_boost_stress/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_boost_stress/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_canonical_energy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/spin_canonical_field/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_charge_dispersion/DIMER_BOUND.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_charge_dispersion/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_charge_dispersion/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4566,7 +4666,32 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_dynamical_memory/CHARGE_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_dynamical_memory/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_dynamical_memory/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_goldstone_sector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_modular_geometry/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_modular_geometry/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

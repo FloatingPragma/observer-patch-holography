@@ -108,6 +108,27 @@ their repair-only compilation, a growing chiral colored field and physical
 renormalization are separate requirements. The uniform-electric-projector
 obstruction above does not apply to this different Casimir-weighted action.
 
+The [complete effective-action construction](../../model/color_effective_action/PROOF.md)
+eliminates the actual 432-state scalar complement of the 438-state action
+without dropping its response. With six-dimensional scalar-vacuum block P,
+`A=PHP`, `C=QHP`, `D=QHQ`, its exact positive-resolvent kernel is
+`K(mu)=mu+A-C^dagger(mu+D)^-1 C`. Complete source-energy scores determine
+that resolvent, and rational Neumann bounds control its expansion.
+The expansion contains weak/colorless transitions outside the span of the
+identity, original electric term and original magnetic loop. A single
+effective coupling therefore does not describe that complete coarse action.
+
+The literal native link is a raising operator, not a unitary Wilson
+coordinate. The [regulator analysis](../../model/color_effective_action/NONABELIAN_REGULATOR.md)
+gives fixed-graph coordinate/Casimir cutoff criteria and demonstrates the
+additional conjugate representations required by repeated products.
+The implemented U1 rotor limit uses a separate declared action. Even the
+native and full-coordinate loop/Higgs response ratios differ on their
+same nominal vacuum inputs. These results do not exclude a collective
+emergent gauge coordinate; they prevent silently replacing the native link
+action by a different rotor action. No capacity-selected growing chiral
+color source or physical renormalization map is constructed by this step.
+
 The [conditional QCD producer](../../code/particles/qcd/derive_lambda_qcd_source_transmutation.py)
 uses the high-flavor to low-flavor matching relation, whose quadratic
 coefficient is `+11/72` at the running heavy-quark mass. Its external
