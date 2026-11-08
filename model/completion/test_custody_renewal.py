@@ -22,7 +22,7 @@ def test_integration_authority_binds_every_existing_live_pointer():
     assert renewal.INTEGRATION_BASELINE['commit'] == '85a0cc208f52b385cfa674b288bcb079156abfec'
     assert renewal.INTEGRATION_CLASS_DIGEST == '54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877'
     assert renewal.SOURCE_REFRESH_BASELINE['commit'] == '12047f556a3f4d6bae5b48aa5b85980a0c5eda40'
-    assert renewal.CLASS_DIGEST == 'f5ccc911c423eeddeea7c3c0eefa74800b7834184047eff3842cf15b0bf5f814'
+    assert renewal.CLASS_DIGEST == 'fdf6b05d19eb76e829bb60d454782766c3f7c30f709c80e79b5a2a919140767e'
 
 
 @pytest.mark.parametrize('damage', ('add', 'retarget', 'move'))
