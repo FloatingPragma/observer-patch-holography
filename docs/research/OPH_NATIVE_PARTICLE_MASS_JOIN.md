@@ -74,14 +74,25 @@ chi_Q,chi_P and the cross moment c. The optimal form-norm coefficients are
 On a positive compact energy window these bound the original spectral
 weight outside a tube about `sqrt(ub)`. For filtered probes, c must be
 measured with that same filter; the unfiltered order commutator cannot be
-substituted. Continuum saturation and compatible momentum localization
-remain unproved. A positive defect can reflect polarization mismatch even
+substituted. Momentum-resolved continuum saturation and compatible momentum
+localization are unproved. A positive defect can reflect polarization mismatch even
 on one exact finite energy line, so it is not a no-particle theorem.
 Resolving the actual conserved charge in that dimer gives two branches
 with zero filtered force defects and original Q/P preparation probabilities
 greater than `1/25` each. Their filtered cross moments have opposite signs;
 using the full cross moment would give incorrect coefficients. This finite
 charge resolution has no asserted continuum or physical species limit.
+
+For the volume-wide uniform mode, the
+[source concentration bound](../../model/spin_joint_field_limit/UNIFORM_MODE.md)
+gives `w^2<=R`, `Var_pi(E^2)<=R^2/4`, with
+`R<=6/(mn)+n^-6` on the same scaled clock. Explicit growing boxes have
+m>1/20. The weighted centre tends to zero; the original success floor
+`1/(160N)` is volume-dependent. Neither a nonzero-momentum dispersion nor
+a nonvanishing continuum particle residue follows. Complete eight-site
+tables retain both charges and all reflection/energy records; their
+fixed-box scaled energies diverge as the field tends to zero, so those
+tables are not the growing-volume field limit.
 
 The [threshold theorem](../../model/spin_shell_readout/THRESHOLD_READOUT.md)
 also permits a continuous spectral edge. With a source-proved original tail
@@ -234,6 +245,44 @@ Finite-c source odd excitations do exist, as the exact full-Fock dimer
 control demonstrates. Their survival in a common interacting continuum
 requires a different justified limit, rather than a relabeling of the
 even spin creators.
+
+### Original charged energy readouts without spin projection
+
+The [local interacting matter construction](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
+retains fixed-c,U odd CAR fields and their nonzero connected four-point
+response on one centered ground-state subsequence and clock. Uniform
+global repair attempts have an explicit error for every complete local
+observer history. The accessible output traces remote raw records and
+does not permit feedback from those discarded values. Full global archive
+equality is a separate assertion. The source, state prescription and
+attempt durations are specified; this is a fixed-spacing result.
+
+The [charged spectral calculation](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
+uses the actual commutator sum rule, rather than a fitted energy formula.
+For local degree d and maximum degree D, put
+`S=(U^2+d c^2)/4`, `M=(U+cD)^2`. Each local addition and removal has
+original weight 1/2, second moment S/2, and original probability at least
+`S^2/(32M^2)` in `S/2<=E_source^2<=16M^2/S`. The proof passes to the
+same positive-ground representation. It establishes finite positive
+charged energies at fixed couplings, without assuming a sharp branch.
+
+The complete two-site readout provides an intermediate source-energy table.
+With `Delta=sqrt(U^2+4c^2)`, each local mode and each charge direction has:
+
+| Source energy above its actual centered ground | Original probability | Physical mass assignment |
+| --- | --- | --- |
+| `(Delta-c)/2` | `1/4+c/(2Delta)` | None |
+| `(Delta+c)/2` | `1/4-c/(2Delta)` | None |
+
+At c=1/8,U=1 the energies are `sqrt(17)/8` minus or plus `1/16` in
+source units. The four-setting experiment retains all 48 energy/charge
+records and is complete on every full-Fock input. The source-generated
+composite response closes exactly with block clock
+`[[h,U/2],[U/2,-3h]]`; replacing its lower block by the Dirac value `-h`
+fails the exact third-moment test. These dimer lines need a controlled
+volume and momentum attachment before they can be used as particle masses.
+The separate aligned-hole energies refer to a fully aligned reference and
+have a free Schrödinger continuum; they are not substituted into this table.
 
 ## Position and the source sector
 

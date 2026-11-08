@@ -36,6 +36,42 @@ state takes volume to infinity and then `B` to zero. The canonical field uses
 The finite native construction has an explicit precision budget. The selected
 infinite state has no proved effective finite-box preparation modulus.
 
+### Interacting matter on one fixed-spacing source
+
+The [local full-CAR construction](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
+keeps fixed c,U>0, the centered full ground-state subsequence, odd fermionic
+observables and internal spin on the same positive clock. Complete local
+observer histories approach the coherent source histories under uniform
+global repair attempts. For m attempts, a radius-R collar and k local
+interventions, their half-trace error is at most
+`min(1,m[6(2R+1)^3/E+min(2,(2k+1)B_R(T))])`, with the source locality
+error B_R given in the proof. Remote raw records are traced in this
+accessible output and cannot control its later feedback. This comparison
+does not identify the complete global archives.
+
+The same state has original addition/removal weights 1/2 and a nonzero
+connected four-point response at fixed spacing. The
+[charged sum rules](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
+give each charge an original weight at least `25/100352` in
+`35/256<=E_source^2<=2744/5` at c=1/8,U=1 in the cubic bulk, uniformly
+in volume. The interval is a positive-energy response bound, not a gap
+or particle pole. Local finite-time response scores have the history
+bound above; sharp spectral projectors require additional readout control.
+This retains interacting odd matter without the spin projection that sends
+its charged energies to infinity. It supplies no interacting spatial
+continuum or effective ground-subsequence selection modulus.
+
+The signed Hubbard action and its repair use one declared occupation frame.
+Changing to the site-dependent Weyl frame must conjugate every probe and
+repair operator. Bare repair in the other frame is a different protocol.
+The [aligned-hole construction](../../model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md)
+derives an exact pi-flux dispersion and an operational position/momentum
+limit in a separate fully aligned reference sector. Its Schrödinger limit
+is free and nonrelativistic; its reference energy cannot replace the
+centered interacting ground in the charged construction.
+
+### Ordered spin preparation
+
 At strictly positive selection field the
 [uniform gap and native ramp](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
 give a stronger preparation interface. An exact Hadamard change of basis
@@ -160,12 +196,18 @@ force defect is exactly zero, but the first is
 `delta_Q=M_1-M_-1^2/M_-3=M_-3 Var_pi(E^2)`, with
 `dpi=E^-3 dnu_q/M_-3`. The unfiltered susceptibility fixes only its own
 M_-1; filtered moments require their corresponding readout.
-The exact outstanding estimate for this route is concentration of that
-weighted energy square, with surviving original response weight on the
-same scaled clock. A source-clock rescaling by `1/(Jp)` divides the
-variance by `(Jp)^4`; a vanishing unscaled variance is insufficient.
-Larger fixed-charge blocks need not be one dimensional, so the exact
-dimer's charge resolution does not prove this continuum concentration.
+The [uniform-mode estimate](../../model/spin_joint_field_limit/UNIFORM_MODE.md)
+proves concentration at zero on the scaled clock: for source order m,
+`R<=6/(mn)+n^-6`, `w^2<=R` and `Var_pi(E^2)<=R^2/4`.
+The fixed-positive-field marginal theorem supplies explicit growing boxes
+with m>1/20. This volume-wide mode is distinct from compact field probes
+with nonzero momentum. Its proved original success floor `1/(160N)`
+depends on the box volume N and supplies no positive continuum residue.
+The complete eight-site controls at n=2,3,4 have positive weighted
+variance even after charge resolution. The same fixed box has scaled
+gap at least `n^2 g0-8/n^3`; it cannot substitute for the growing-box
+limit. Momentum-resolved dispersion and original continuum weight are
+the additional estimates needed for particle identification.
 
 The [source spectral hierarchy](../../model/spin_dynamical_memory/SPECTRAL_BRANCH.md)
 uses complete time-filtered preparations to match `2r-1` bounded resolvent
