@@ -7,6 +7,7 @@ from tools import strict_json
 from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
+from model.spin_joint_field_limit import packet as joint_field
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -14,7 +15,7 @@ HERE = Path(__file__).resolve().parent
 PARENTS = tuple('model/'+name+'/results.json' for name in (
     'defect_protection', 'local_exchange_charge', 'common_spin_protection',
     'cube_eta_protection', 'compact_defect_pair', 'defect_localization_readout',
-    'spin_canonical_field', 'spin_canonical_energy'))
+    'spin_canonical_field', 'spin_canonical_energy', 'spin_joint_field_limit'))
 
 
 def canonical(value):
@@ -77,6 +78,17 @@ def rows():
          'topology':'no topological label supplied by identity repair',
          'boundary':'repair protection of every state does not make every state an energy eigenstate or a distinct species',
          'evidence':'model/defect_localization_readout/PROOF.md'},
+        {'id':'joint_positive_field_canonical_sector', 'kind':'constructive_field_family',
+         'source':'protected spin interaction H_B=J sum(S_x.S_y-1/4)-B sum epsilon_x S_x^1; supplied p=n^-2 and B=J n^-5; positive-B ground and retained H_B clock',
+         'protected_object':'two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories',
+         'completeness':'specified field subnet along a common history subsequence; neither all continuum observables nor all protected defects are classified',
+         'preparation_readout':'finite positive-field ground preparation, local marginal modulus, source spin-rotation observables and complete native local Pauli histories with all pointer and failure records',
+         'propagation_energy':'continuous even-envelope translations, positive generator K_B/(Jp), and finite propagation cone; no sharp dispersion or rest mass',
+         'topology':'internal source spin rotation, no spatial winding or identified electromagnetic charge',
+         'boundary':'B(n) is a supplied preparation prescription; unread repair does not select it; equality to the ordered zero-field history limit, physical Lorentz spin, sharp poles and scattering are unproved',
+         'evidence':'model/spin_joint_field_limit/PROOF.md',
+         'same_object_realizations':['model/spin_joint_field_limit/SECOND_PAIR.md',
+                                     'model/spin_joint_field_limit/CLOCK_COMPARISON.md']},
         {'id':'common_hidden_spin_factor', 'kind':'joint_noiseless_subsystem',
          'source':'same six-site Weyl/contact field and complete charged-block repair',
          'protected_object':'at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315',
@@ -107,6 +119,53 @@ def rows():
     ]
 
 
+def joint_field_attachment():
+    """Consume the owning source proof and complete finite record producer."""
+    value = joint_field.build()
+    if joint_field.canonical(value) != joint_field.canonical(strict_json.load(joint_field.OUTPUT)):
+        raise ValueError('retained joint-field source receipt differs')
+    scope = value['scope']
+    required = ('sequence_is_a_chosen_source_preparation_prescription',
+                'finite_positive_field_preparation_and_local_accuracy_computable',
+                'second_canonical_pair_on_same_joint_history_subsequence',
+                'full_internal_U1_on_both_canonical_pairs',
+                'fixed_scale_complete_prepared_H_B_probe_history_constructed',
+                'complete_native_failure_records_retained')
+    if not all(scope[name] is True for name in required):
+        raise ValueError('joint-field source attachment lacks an owning premise')
+    exclusions = ('sequence_forced_by_unread_repair',
+                  'equality_to_ordered_zero_field_state_clock_limit_proved',
+                  'joint_continuum_subsequence_uniqueness_proved',
+                  'sharp_particle_mass_shell_proved', 'Lorentz_covariance_proved')
+    if any(scope[name] is not False for name in exclusions) or scope['physical_particle_assignment'] is not None:
+        raise ValueError('joint-field attachment exceeds the owning physical scope')
+    history = value['complete_prepared_local_history']
+    return {'catalogue_entry':'joint_positive_field_canonical_sector',
+            'owner_receipt':'model/spin_joint_field_limit/results.json',
+            'owning_scientific_producer_replayed':True,
+            'chosen_source_family':scope['source_field_sequence'],
+            'state':scope['state'],'clock':scope['clock'],
+            'source_observables':{'Q3':'p^2 sum epsilon_x F(px) S_x^3',
+                                  'P2':'-p sum G(px) S_x^2',
+                                  'Q2':'p^2 sum epsilon_x F(px) S_x^2',
+                                  'P3':'+p sum G(px) S_x^3'},
+            'canonical_pairs':[['Q3','P2'],['Q2','P3']],
+            'symplectic_coefficient':'the same selected source order m>1/10',
+            'internal_symmetry':'full U1 on both pairs and their same-clock bounded histories',
+            'source_to_observable':'finite source spin rotations implement the field Weyl factors; native Pauli records read the prepared source',
+            'repair_identity_generates_the_H_B_clock':False,
+            'complete_finite_history_example':{
+                'family_index':history['n'],
+                'ideal_pointer_record_count':history['ideal_pointer_record_count'],
+                'complete_output_half_trace_upper':history['complete_output_half_trace_upper'],
+                'requested_accuracy':history['requested_accuracy'],
+                'all_native_failure_and_pointer_records_retained':history['all_native_failure_and_pointer_records_retained'],
+                'large_history_executed':history['large_history_executed']},
+            'ordered_zero_field_history_identity_proved':False,
+            'physical_species':[],'physical_masses':[],
+            'full_source_field_classification_proved':False}
+
+
 def build():
     pins = bindings()
     bare = defect_algebra.report()
@@ -123,6 +182,7 @@ def build():
         entry['identified_Standard_Model_species'] = []
         entry['physical_mass'] = None
         entry['same_source_relativistic_particle_attachment_proved'] = False
+    joint_attachment = joint_field_attachment()
     if bindings() != pins:
         raise RuntimeError('catalogue source changed during construction')
     return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':pins,
@@ -133,6 +193,7 @@ def build():
             'same_source_continuum_parity_attachment':field.preparation_bounds(),
             'same_source_continuum_configuration_charge':field.configuration_charge(),
             'observer_charge_and_creation_mechanism':mechanism.report(),
+            'joint_positive_field_source_attachment':joint_attachment,
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,

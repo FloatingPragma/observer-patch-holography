@@ -61,6 +61,37 @@ def test_no_double_counting_or_physical_assignments(produced):
     assert len(next(row for row in entries if row['id']=='ordered_exchange_charge')['same_object_realizations']) == 2
 
 
+def test_joint_family_has_literal_observables_and_distinct_state_clock(produced):
+    entry=next(row for row in produced['entries'] if row['id']=='joint_positive_field_canonical_sector')
+    attached=produced['joint_positive_field_source_attachment']
+    assert attached['catalogue_entry']==entry['id']
+    assert attached['canonical_pairs']==[['Q3','P2'],['Q2','P3']]
+    assert attached['source_observables']['P2']=='-p sum G(px) S_x^2'
+    assert attached['source_observables']['P3']=='+p sum G(px) S_x^3'
+    assert not attached['ordered_zero_field_history_identity_proved']
+    assert not attached['repair_identity_generates_the_H_B_clock']
+    assert attached['owning_scientific_producer_replayed']
+    assert attached['complete_finite_history_example']['all_native_failure_and_pointer_records_retained']
+    assert not attached['physical_species'] and not attached['physical_masses']
+
+
+@pytest.mark.parametrize('forgery',['missing_second_pair','old_limit_identity','physical_species','unread_selection'])
+def test_joint_owner_premise_or_scope_mutation_rejected(monkeypatch,forgery):
+    original=packet.strict_json.load(packet.joint_field.OUTPUT)
+    changed=copy.deepcopy(original)
+    key={'missing_second_pair':'second_canonical_pair_on_same_joint_history_subsequence',
+         'old_limit_identity':'equality_to_ordered_zero_field_state_clock_limit_proved',
+         'physical_species':'physical_particle_assignment',
+         'unread_selection':'sequence_forced_by_unread_repair'}[forgery]
+    changed['scope'][key]=False if forgery=='missing_second_pair' else ('electron' if forgery=='physical_species' else True)
+    # The owner is a separate scientific admission; neither changed output nor
+    # matching retained bytes can transfer its unproved physical premises.
+    monkeypatch.setattr(packet.joint_field,'build',lambda:changed)
+    monkeypatch.setattr(packet.strict_json,'load',lambda path:changed)
+    with pytest.raises(ValueError,match='joint-field'):
+        packet.joint_field_attachment()
+
+
 def test_fresh_full_producer_binds_runtime_imports():
     script = '''
 from pathlib import Path

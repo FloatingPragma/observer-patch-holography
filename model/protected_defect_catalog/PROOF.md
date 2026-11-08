@@ -381,10 +381,46 @@ Lorentz spin1/2 to its collective charge excitations. Spatial rotation
 representations and scattering exchange statistics require their own
 attachment to the field observables.
 
+## The specified joint positive-field source family
+
+The catalogue entry `joint_positive_field_canonical_sector` consumes the
+owning `spin_joint_field_limit` producer and its exact retained output. Its
+family uses p=n^-2 and B=Jn^-5, the unique positive-B source ground, and the
+same H_B time at each scale. This power law is a supplied preparation and
+scaling prescription. It is not selected by unread repair and is not
+identified with the prescription that removes B before field scaling.
+
+The observables are literal source sums:
+
+    Q3=p^2 sum epsilon F S3, P2=-p sum G S2,
+    Q2=p^2 sum epsilon F S2, P3=+p sum G S3.
+
+Their finite Weyl factors are products of local spin rotations, implemented
+by the admitted native coherent controls. The source's one-occupation spin
+code protects this internal information under complete C/E repair. The
+specified exchange and field controls supply H_B; identity repair on the
+code does not supply that clock. Finite ground preparation, the local
+marginal bound and complete native clocks and Pauli probes give original
+record probabilities with an explicit total error and all failures retained.
+The large certified preparation schedules are resource bounds, not executed
+source runs.
+
+The owning construction proves two regular canonical pairs with coefficient
+m>1/10 and a full internal U1 acting on their same-clock bounded histories.
+It has positive energy, common continuous spatial translations and a finite
+propagation cone along a common subsequence. It does not classify the full
+source continuum algebra, prove uniqueness of this subsequence, identify a
+topological winding, or produce a sharp relativistic particle branch. Thus
+this row has a source-to-observable attachment and has no Standard Model
+species or physical mass assignment. It neither increases the number of
+identified particles nor merges with the ordered-zero-field configuration
+charge entry by assertion.
+
 ## Catalogue semantics and the particle join
 
 The table separates exhaustive exclusions, memory charges, joint noiseless
-subsystems, protected sectors, and prescribed topological backgrounds.
+subsystems, protected sectors, constructed field subnets and prescribed
+topological backgrounds.
 The hidden-spin qutrit and eta range are exhibited sectors, without an
 asserted maximal joint noiseless algebra. The compact texture has genuine
 opposite shell degrees for its declared order-parameter field; the source
