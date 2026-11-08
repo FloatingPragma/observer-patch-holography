@@ -250,6 +250,82 @@ the common state/clock/record map for it. The eight physical requirements
 retain their existing status. The finite exclusion-versus-collision
 difference alone does not discharge particle or scattering identification.
 
+## Complete measurements, local histories and positive response
+
+The [coexistent weak-measurement construction](../native_coexistent_effects/PROOF.md)
+provides one complete noncommuting instrument on the weighted H66 source.
+Up to eight stages use success `L_j=I+(s_j-1)P_j`, abort effect
+`(1-s_j^2)P_j`, the sequential prefix `A_j=L_j...L_1`, and residual
+`A_m^dagger*A_m`. These exact effects telescope to the identity and include
+state disturbance. Every stage has two separately admitted 58392-pulse
+nine-bit words. Inputs have at most 64-bit rational components; every
+emitted primitive must pass its exact stored-array certificate to obtain
+complete half-diamond error below `1/50000`. All first processor failures,
+one padding flag per word and the quantum residual remain. Universal
+effect/coexistence quantifiers, arbitrary precision, and a growing
+coherent-service refinement require separate producers.
+
+The [complete local-history limit](../native_local_history_limit/PROOF.md)
+uses the fair connected law with independent uniform seam selection and
+fixed C/E mixture. Its output keeps ordered chosen local raw values,
+aligned time bins, final local source and an untouched reference. Exact
+global tick addresses and other raw values are traced by this observation;
+the native archive remains available. For `T=M*t`, roots `S`, a radius-`r`
+window with `K` internal seams, and joint initial error `epsilon`, the
+rate-one marked-Poisson comparison has complete observed-output half-trace
+distance at most
+`epsilon+min(1,|S|*binom(T,r+1)*(Delta/M)^(r+1))+min(1,t*K^2/M)`,
+capped at one. Every boundary `t_j` obeys `M*t_j` integer; exchange-action
+time is `t/2`. This includes the complete endpoint disturbance, not only
+population transfer. Poisson timing is a comparison, with overflow and
+native host stops retained. A full limiting process requires compatible
+states and stable rooted windows at every radius. Actual source controls
+establish the cell-zero radius-one match at levels 0,1,2; compactness gives
+a subsequence and does not select unique all-radius geometry. No H66-only
+coherent gate is thereby extended to a local number mixture.
+
+The [native contact response](../native_contact_response/PROOF.md) derives
+`H0=H+2Q*A_adj*Q` as the centered independent-pair comparison of the fair
+local two-load law. Its primitive cubic root near `5.01827276928` has a
+normalized reflected-record residue between `1/100` and `1/50`. The pole
+lies below the finite comparison threshold by more than `2/5`. The native contact
+coefficient is fixed without fitting. A 480-attempt score warmup has
+normalized error at most `33/65536`. The unchanged cell eigenvector has
+connected action leakage greater than `1/10` for every valid three-port
+attachment, including actual levels 0,1,2. A capacity-stable candidate must
+provide dressed vectors, a shrinking residual-to-window ratio, accessible
+residue, and propagation or localization control. Raw variance at fixed
+`q=2` decays as `8/[V*(V-1)]`; normalized visibility does not remove its
+independent-shot cost.
+
+The [transfer-ground response](../native_vacuum_response/PROOF.md) supplies
+positive-type correlations of `H_M=-2M*log(P_q)` and its unique constant
+ground vector. On bounded primitive degree `r`, blocking by
+`b=floor(M/(2*r*Delta))` gives `P^b>=I/2` for `M>=2*r*Delta`.
+A finite rational-complex polynomial recovers the response from native
+four-E experiments at lags `b*j`. Truncation and coefficient bounds are
+capacity independent at fixed `r,t`; required lag and finite-sample costs
+are charged. If the coefficient absolute-sum bound is `A`, preparation
+error contributes `A*eta`, stops contribute `A*p_stop/v_q`, and independent
+sampling has its own allowance. This is a complex combination of complete
+experiments, not a unitary service or one acceptance effect.
+
+The state dictionary has an explicit intervention test: transfer-ground
+phase response is positive for the specified witness, while bare native
+record/reference outputs are invariant under an ideal diagonal phase kick after
+tracing the terminal working source. A physical map must specify state,
+intervention and readout together and reproduce that margin. A different
+encoding or coherent analyzer can be proposed with its own proof. Equal
+spectra or reconstructed positive energy alone do not establish the map.
+An implemented phase with half-diamond error `delta` needs an additional
+bare-score allowance `2*delta`. The order-12, `t=1/64` example has
+truncation `1/4096`, a sufficient level-zero program of 116424316 attempts,
+and level-one/two sufficient budgets beyond `2^32`. Its conservative
+99-percent independent-sampling budget exceeds `10^17` repetitions; none
+of these estimates is an executed experiment or a universal lower bound.
+These results preserve the eight-step physical target and all 21
+undischarged physical-identification entries.
+
 ## How a protected defect becomes an observable particle
 
 A candidate starts as an operation on a specified source state, rather than

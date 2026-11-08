@@ -237,6 +237,52 @@ limit, uniform moments yield the second Gaussian chaos and covariance
 This is a diffusive collective-field result, not a nontrivial scattering
 amplitude or a mass assignment to the finite exclusion correction.
 
+### A visible contact pole and its connected-capacity test
+
+The [native contact calculation](../../model/native_contact_response/PROOF.md)
+uses the actual fair twelve-port law, `q=2`, `tau=I66/66` and
+`P=I-G/60`. Compression of two independent centered walkers gives
+`H0=H+2Q*A_adj*Q` on the primitive pair space. The contact coefficient two
+is fixed by the source. The chosen complete reflected four-E probe sees
+all twelve distinct primitive poles. The lowest root of
+`x^3-30*x^2+280*x-776`, approximately `5.01827276928`, lies more than
+`2/5` below the finite threshold `2*(5-sqrt(5))`. Its normalized residue
+is approximately `0.0194379829330`, with exact bounds `1/100<w<1/50`.
+The raw score variance is `2/33`; 480 unconditioned warmup attempts give
+normalized score error at most `33/65536`. The lag-four probe program
+has 488 attempts, with the expanded host stop distinguished from lazy
+exact evaluation.
+
+This pole is not assigned a physical mass. Every normalized vector in
+the fifteen-dimensional sum of the three cubic eigenspaces has connected-federation
+leakage norm greater than `1/10` outside its cell for every valid three-port
+attachment. Exact integer controls cover all 220 triples and source levels
+0,1,2. A dressed candidate must instead prove
+`||(G_l-E_l)f_l||<=eta_l`, a spectral window `delta_l`, and nonvanishing
+accessible residue. Only then does the spectral theorem bound leakage
+outside that energy window by `eta_l^2/delta_l^2`. At fixed `q=2`, the
+raw variance `8/[V*(V-1)]` also requires its own sample budget; a sufficient
+independent-shot count scales as `V^4` for fixed normalized accuracy.
+
+The [transfer-ground response](../../model/native_vacuum_response/PROOF.md)
+recovers positive-energy correlations of `-2M*log(P_q)` from finite native
+lag experiments. Its blocked polynomial keeps coefficient and truncation
+bounds uniform in capacity at fixed degree and time. Preparation, stop
+and sampling errors are amplified by the explicitly summed coefficients.
+An ideal phase-intervention witness separates this reconstructed ground from the
+working tracial state, so reconstruction does not supply an implemented
+physical vacuum or energy calibration.
+
+The [complete local-history theorem](../../model/native_local_history_limit/PROOF.md)
+adds a distinct full-output bound for local records with aligned time bins:
+`epsilon+a_N+t*K^2/M`, capped at one, where `a_N` is the backward-cone
+escape allowance. It retains quantum disturbance but traces exact global
+ticks and remote raw values. The
+[bounded coexistent menus](../../model/native_coexistent_effects/PROOF.md)
+add actual noncommuting instruments on the weighted H66 coherent carrier.
+Neither result turns the fair contact pole into a connected relativistic
+particle, and neither removes the need to join source, state and clocks.
+
 ## Declared mass operators and comparison inputs
 
 The executable construction has both an empirically calibrated Standard Model

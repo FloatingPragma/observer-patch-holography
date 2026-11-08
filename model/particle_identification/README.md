@@ -9,6 +9,16 @@ J_a=6/a²-H_a, so its model binding energy is gamma²
 and its inertial mass is2 in those coordinates when hbar_model=1. These are derived model
 quantities, not assignments to an observed species.
 
+The [native contact calculation](../native_contact_response/README.md)
+provides a source-derived finite correlation mode: its energy is the lowest
+root of `x^3-30x^2+280x-776`, and complete repair records have positive
+spectral weight there. The unchanged cell embedding leaks into the connected
+source with a capacity-independent lower bound. A dressed propagating sector
+therefore needs a separate construction. The
+[eight-step route](../../docs/research/OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
+keeps this distinction between measurable finite modes and physical particles
+explicit.
+
 The [source-prepared charged defect](../ground_spectral_source/README.md)
 provides a separate constructive chain: prepare the ground of the specified
 full cube action, create a localized odd excitation, preserve its number

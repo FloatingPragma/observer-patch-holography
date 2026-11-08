@@ -33,6 +33,10 @@ from ..native_spatial_scaling import packet as spatial_scaling
 from ..native_correlation_preparation import packet as correlation_preparation
 from ..native_pair_response import packet as pair_response
 from ..native_exchange_clock import packet as exchange_clock
+from ..native_local_history_limit import packet as local_history_limit
+from ..native_coexistent_effects import packet as coexistent_effects
+from ..native_contact_response import packet as contact_response
+from ..native_vacuum_response import packet as vacuum_response
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -64,7 +68,9 @@ def source_bindings():
                      effect_coverage, clock_comparison, weighted_limit,
                      local_response, effect_synthesis, sector_readout,
                      correlation_sectors, spatial_scaling,
-                     correlation_preparation, pair_response, exchange_clock):
+                     correlation_preparation, pair_response, exchange_clock,
+                     local_history_limit, coexistent_effects, contact_response,
+                     vacuum_response):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
@@ -104,6 +110,10 @@ def report():
     prepared_correlations = correlation_preparation.produce()
     spatial_pairs = pair_response.produce()
     exchange_responses = exchange_clock.produce()
+    local_history = local_history_limit.produce()
+    coexistent_menu = coexistent_effects.produce()
+    contact_records = contact_response.produce()
+    vacuum_records = vacuum_response.produce()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
@@ -120,7 +130,11 @@ def report():
                             (spatial_scaling, spatial_records),
                             (correlation_preparation, prepared_correlations),
                             (pair_response, spatial_pairs),
-                            (exchange_clock, exchange_responses)):
+                            (exchange_clock, exchange_responses),
+                            (local_history_limit, local_history),
+                            (coexistent_effects, coexistent_menu),
+                            (contact_response, contact_records),
+                            (vacuum_response, vacuum_records)):
         if not _same_json(value, strict_json.load(producer.OUTPUT)):
             raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
     if not _same_json(frames, strict_json.load(lorentz.OUTPUT)):
@@ -157,6 +171,10 @@ def report():
         "native_correlation_preparation": prepared_correlations,
         "native_spatial_pair_response": spatial_pairs,
         "native_exchange_clock_response": exchange_responses,
+        "native_complete_local_history_limit": local_history,
+        "native_coexistent_effect_instruments": coexistent_menu,
+        "native_contact_spectral_response": contact_records,
+        "native_positive_energy_record_reconstruction": vacuum_records,
         "common_native_field_response": native_field_response.compose(
             prepared_correlations, exchange_responses),
         "passive_source_clock_boundary": passive_clock.certificate(),
@@ -190,6 +208,10 @@ def report():
                                            "same-sector spatial pair responses and quadratic diffusive limit",
                                            "native attempt comparison with the local exchange action",
                                            "common-source preparation and exchange-response error composition",
+                                           "complete local record capacity limit with declared common clock bins",
+                                           "bounded noncommuting coexistent native effect instruments",
+                                           "native contact resolvent and observable finite correlated pole",
+                                           "controlled positive-energy continuation of prepared native records",
                                            "finite null-transition and field-cone criteria"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
@@ -208,6 +230,10 @@ def report():
             "observable_preparation_is_full_state_preparation": False,
             "exchange_endpoint_comparison_is_complete_history_equivalence": False,
             "quadratic_diffusive_limit_is_interacting_relativistic_theory": False,
+            "bounded_coexistent_menu_is_universal_effect_coverage": False,
+            "local_history_limit_selects_physical_capacity_or_geometry": False,
+            "finite_contact_mode_is_a_measured_particle": False,
+            "reconstructed_transfer_vacuum_is_native_operational_vacuum": False,
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,

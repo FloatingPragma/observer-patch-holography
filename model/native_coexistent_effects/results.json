@@ -1,0 +1,1802 @@
+{
+  "construction": {
+    "admission_pulse_ceiling": 65536,
+    "angle_grid_bits": 41,
+    "input_rational_bits_max": 64,
+    "pulses_per_source_word": 58392,
+    "source_dimension": 66,
+    "source_words_per_stage": 2,
+    "stages_max": 8,
+    "trigonometric_enclosure_bits": 120,
+    "work_dimension": 512,
+    "work_qubits": 9
+  },
+  "noncommuting_example": {
+    "actual_word_checks": [
+      {
+        "component": 0,
+        "distinct_emitted_primitives_checked": 16,
+        "generic_evaluator_status": "RESOURCE_STOP",
+        "stage": 0,
+        "word_sha256": "1c6efd9b8e52c777d453cb891c735fe8acd9f55c13c67707f5c2e00a70c3a1de"
+      },
+      {
+        "component": 1,
+        "distinct_emitted_primitives_checked": 12,
+        "generic_evaluator_status": "RESOURCE_STOP",
+        "stage": 0,
+        "word_sha256": "0350cdf199c0d1f87eb12eb6f30aff2da533a673aea299dc29b74592d8e97939"
+      },
+      {
+        "component": 0,
+        "distinct_emitted_primitives_checked": 18,
+        "generic_evaluator_status": "RESOURCE_STOP",
+        "stage": 1,
+        "word_sha256": "e9d5c4700a22ac9fd07b5e7e6ebebf6363b35b17d4a33ac02cb44f22a4f2090b"
+      },
+      {
+        "component": 1,
+        "distinct_emitted_primitives_checked": 14,
+        "generic_evaluator_status": "RESOURCE_STOP",
+        "stage": 1,
+        "word_sha256": "7e79315881cf2e44bee2ccb30cb41fb8f1ac906810868eabfabf30bee60313f1"
+      }
+    ],
+    "coherent_source_and_reference_diagnostic_gate": "1/100000000",
+    "commutator_0_65": [
+      "216/3125",
+      "0"
+    ],
+    "effects": [
+      [
+        [
+          0,
+          0,
+          "16/25",
+          "0"
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          "81/1250",
+          "0"
+        ],
+        [
+          0,
+          65,
+          "27/250",
+          "0"
+        ],
+        [
+          65,
+          0,
+          "27/250",
+          "0"
+        ],
+        [
+          65,
+          65,
+          "9/50",
+          "0"
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          "369/1250",
+          "0"
+        ],
+        [
+          0,
+          65,
+          "-27/250",
+          "0"
+        ],
+        [
+          1,
+          1,
+          "1",
+          "0"
+        ],
+        [
+          2,
+          2,
+          "1",
+          "0"
+        ],
+        [
+          3,
+          3,
+          "1",
+          "0"
+        ],
+        [
+          4,
+          4,
+          "1",
+          "0"
+        ],
+        [
+          5,
+          5,
+          "1",
+          "0"
+        ],
+        [
+          6,
+          6,
+          "1",
+          "0"
+        ],
+        [
+          7,
+          7,
+          "1",
+          "0"
+        ],
+        [
+          8,
+          8,
+          "1",
+          "0"
+        ],
+        [
+          9,
+          9,
+          "1",
+          "0"
+        ],
+        [
+          10,
+          10,
+          "1",
+          "0"
+        ],
+        [
+          11,
+          11,
+          "1",
+          "0"
+        ],
+        [
+          12,
+          12,
+          "1",
+          "0"
+        ],
+        [
+          13,
+          13,
+          "1",
+          "0"
+        ],
+        [
+          14,
+          14,
+          "1",
+          "0"
+        ],
+        [
+          15,
+          15,
+          "1",
+          "0"
+        ],
+        [
+          16,
+          16,
+          "1",
+          "0"
+        ],
+        [
+          17,
+          17,
+          "1",
+          "0"
+        ],
+        [
+          18,
+          18,
+          "1",
+          "0"
+        ],
+        [
+          19,
+          19,
+          "1",
+          "0"
+        ],
+        [
+          20,
+          20,
+          "1",
+          "0"
+        ],
+        [
+          21,
+          21,
+          "1",
+          "0"
+        ],
+        [
+          22,
+          22,
+          "1",
+          "0"
+        ],
+        [
+          23,
+          23,
+          "1",
+          "0"
+        ],
+        [
+          24,
+          24,
+          "1",
+          "0"
+        ],
+        [
+          25,
+          25,
+          "1",
+          "0"
+        ],
+        [
+          26,
+          26,
+          "1",
+          "0"
+        ],
+        [
+          27,
+          27,
+          "1",
+          "0"
+        ],
+        [
+          28,
+          28,
+          "1",
+          "0"
+        ],
+        [
+          29,
+          29,
+          "1",
+          "0"
+        ],
+        [
+          30,
+          30,
+          "1",
+          "0"
+        ],
+        [
+          31,
+          31,
+          "1",
+          "0"
+        ],
+        [
+          32,
+          32,
+          "1",
+          "0"
+        ],
+        [
+          33,
+          33,
+          "1",
+          "0"
+        ],
+        [
+          34,
+          34,
+          "1",
+          "0"
+        ],
+        [
+          35,
+          35,
+          "1",
+          "0"
+        ],
+        [
+          36,
+          36,
+          "1",
+          "0"
+        ],
+        [
+          37,
+          37,
+          "1",
+          "0"
+        ],
+        [
+          38,
+          38,
+          "1",
+          "0"
+        ],
+        [
+          39,
+          39,
+          "1",
+          "0"
+        ],
+        [
+          40,
+          40,
+          "1",
+          "0"
+        ],
+        [
+          41,
+          41,
+          "1",
+          "0"
+        ],
+        [
+          42,
+          42,
+          "1",
+          "0"
+        ],
+        [
+          43,
+          43,
+          "1",
+          "0"
+        ],
+        [
+          44,
+          44,
+          "1",
+          "0"
+        ],
+        [
+          45,
+          45,
+          "1",
+          "0"
+        ],
+        [
+          46,
+          46,
+          "1",
+          "0"
+        ],
+        [
+          47,
+          47,
+          "1",
+          "0"
+        ],
+        [
+          48,
+          48,
+          "1",
+          "0"
+        ],
+        [
+          49,
+          49,
+          "1",
+          "0"
+        ],
+        [
+          50,
+          50,
+          "1",
+          "0"
+        ],
+        [
+          51,
+          51,
+          "1",
+          "0"
+        ],
+        [
+          52,
+          52,
+          "1",
+          "0"
+        ],
+        [
+          53,
+          53,
+          "1",
+          "0"
+        ],
+        [
+          54,
+          54,
+          "1",
+          "0"
+        ],
+        [
+          55,
+          55,
+          "1",
+          "0"
+        ],
+        [
+          56,
+          56,
+          "1",
+          "0"
+        ],
+        [
+          57,
+          57,
+          "1",
+          "0"
+        ],
+        [
+          58,
+          58,
+          "1",
+          "0"
+        ],
+        [
+          59,
+          59,
+          "1",
+          "0"
+        ],
+        [
+          60,
+          60,
+          "1",
+          "0"
+        ],
+        [
+          61,
+          61,
+          "1",
+          "0"
+        ],
+        [
+          62,
+          62,
+          "1",
+          "0"
+        ],
+        [
+          63,
+          63,
+          "1",
+          "0"
+        ],
+        [
+          64,
+          64,
+          "1",
+          "0"
+        ],
+        [
+          65,
+          0,
+          "-27/250",
+          "0"
+        ],
+        [
+          65,
+          65,
+          "41/50",
+          "0"
+        ]
+      ]
+    ],
+    "exact_effect_sum_is_identity": true,
+    "outcomes": {
+      "final_quantum_residual_labels": 1,
+      "native_tree_measurements": 0,
+      "source_success_is_coherent": true,
+      "terminal_failure_stops_menu": true,
+      "words": [
+        {
+          "component": 0,
+          "internal_padding_kraus_rows": 446,
+          "observed_padding_abort_flags": 1,
+          "processor_first_failure_labels": 197708,
+          "resources": {
+            "angle_payload_bits": 5688182,
+            "coherent_work_qubits": 9,
+            "export_complement_outcomes_per_run": 197708,
+            "initial_work_qubits_supplied": 9,
+            "literal_word_nodes": 58392,
+            "native_pulses": 58392,
+            "program_description_bytes": 4055278,
+            "proper_code_export_events": 58392,
+            "proper_code_load_events": 58392,
+            "six_level_blank_preparations": 58392,
+            "source_position_counter_bits": 16,
+            "source_status_bits": 2,
+            "terminal_quantum_readout_services": 1,
+            "word_repetitions": 1,
+            "zero_angle_requests": 1246
+          },
+          "stage": 0
+        },
+        {
+          "component": 1,
+          "internal_padding_kraus_rows": 446,
+          "observed_padding_abort_flags": 1,
+          "processor_first_failure_labels": 197708,
+          "resources": {
+            "angle_payload_bits": 5621398,
+            "coherent_work_qubits": 9,
+            "export_complement_outcomes_per_run": 197708,
+            "initial_work_qubits_supplied": 9,
+            "literal_word_nodes": 58392,
+            "native_pulses": 58392,
+            "program_description_bytes": 4034446,
+            "proper_code_export_events": 58392,
+            "proper_code_load_events": 58392,
+            "six_level_blank_preparations": 58392,
+            "source_position_counter_bits": 16,
+            "source_status_bits": 2,
+            "terminal_quantum_readout_services": 1,
+            "word_repetitions": 1,
+            "zero_angle_requests": 2014
+          },
+          "stage": 0
+        },
+        {
+          "component": 0,
+          "internal_padding_kraus_rows": 446,
+          "observed_padding_abort_flags": 1,
+          "processor_first_failure_labels": 197708,
+          "resources": {
+            "angle_payload_bits": 5699126,
+            "coherent_work_qubits": 9,
+            "export_complement_outcomes_per_run": 197708,
+            "initial_work_qubits_supplied": 9,
+            "literal_word_nodes": 58392,
+            "native_pulses": 58392,
+            "program_description_bytes": 4058702,
+            "proper_code_export_events": 58392,
+            "proper_code_load_events": 58392,
+            "six_level_blank_preparations": 58392,
+            "source_position_counter_bits": 16,
+            "source_status_bits": 2,
+            "terminal_quantum_readout_services": 1,
+            "word_repetitions": 1,
+            "zero_angle_requests": 1118
+          },
+          "stage": 1
+        },
+        {
+          "component": 1,
+          "internal_padding_kraus_rows": 446,
+          "observed_padding_abort_flags": 1,
+          "processor_first_failure_labels": 197708,
+          "resources": {
+            "angle_payload_bits": 5632374,
+            "coherent_work_qubits": 9,
+            "export_complement_outcomes_per_run": 197708,
+            "initial_work_qubits_supplied": 9,
+            "literal_word_nodes": 58392,
+            "native_pulses": 58392,
+            "program_description_bytes": 4037934,
+            "proper_code_export_events": 58392,
+            "proper_code_load_events": 58392,
+            "six_level_blank_preparations": 58392,
+            "source_position_counter_bits": 16,
+            "source_status_bits": 2,
+            "terminal_quantum_readout_services": 1,
+            "word_repetitions": 1,
+            "zero_angle_requests": 1886
+          },
+          "stage": 1
+        }
+      ],
+      "zero_failure_rows_retained": true
+    },
+    "residual_operator": [
+      [
+        0,
+        0,
+        "27/50",
+        "0"
+      ],
+      [
+        0,
+        65,
+        "-1/10",
+        "0"
+      ],
+      [
+        1,
+        1,
+        "1",
+        "0"
+      ],
+      [
+        2,
+        2,
+        "1",
+        "0"
+      ],
+      [
+        3,
+        3,
+        "1",
+        "0"
+      ],
+      [
+        4,
+        4,
+        "1",
+        "0"
+      ],
+      [
+        5,
+        5,
+        "1",
+        "0"
+      ],
+      [
+        6,
+        6,
+        "1",
+        "0"
+      ],
+      [
+        7,
+        7,
+        "1",
+        "0"
+      ],
+      [
+        8,
+        8,
+        "1",
+        "0"
+      ],
+      [
+        9,
+        9,
+        "1",
+        "0"
+      ],
+      [
+        10,
+        10,
+        "1",
+        "0"
+      ],
+      [
+        11,
+        11,
+        "1",
+        "0"
+      ],
+      [
+        12,
+        12,
+        "1",
+        "0"
+      ],
+      [
+        13,
+        13,
+        "1",
+        "0"
+      ],
+      [
+        14,
+        14,
+        "1",
+        "0"
+      ],
+      [
+        15,
+        15,
+        "1",
+        "0"
+      ],
+      [
+        16,
+        16,
+        "1",
+        "0"
+      ],
+      [
+        17,
+        17,
+        "1",
+        "0"
+      ],
+      [
+        18,
+        18,
+        "1",
+        "0"
+      ],
+      [
+        19,
+        19,
+        "1",
+        "0"
+      ],
+      [
+        20,
+        20,
+        "1",
+        "0"
+      ],
+      [
+        21,
+        21,
+        "1",
+        "0"
+      ],
+      [
+        22,
+        22,
+        "1",
+        "0"
+      ],
+      [
+        23,
+        23,
+        "1",
+        "0"
+      ],
+      [
+        24,
+        24,
+        "1",
+        "0"
+      ],
+      [
+        25,
+        25,
+        "1",
+        "0"
+      ],
+      [
+        26,
+        26,
+        "1",
+        "0"
+      ],
+      [
+        27,
+        27,
+        "1",
+        "0"
+      ],
+      [
+        28,
+        28,
+        "1",
+        "0"
+      ],
+      [
+        29,
+        29,
+        "1",
+        "0"
+      ],
+      [
+        30,
+        30,
+        "1",
+        "0"
+      ],
+      [
+        31,
+        31,
+        "1",
+        "0"
+      ],
+      [
+        32,
+        32,
+        "1",
+        "0"
+      ],
+      [
+        33,
+        33,
+        "1",
+        "0"
+      ],
+      [
+        34,
+        34,
+        "1",
+        "0"
+      ],
+      [
+        35,
+        35,
+        "1",
+        "0"
+      ],
+      [
+        36,
+        36,
+        "1",
+        "0"
+      ],
+      [
+        37,
+        37,
+        "1",
+        "0"
+      ],
+      [
+        38,
+        38,
+        "1",
+        "0"
+      ],
+      [
+        39,
+        39,
+        "1",
+        "0"
+      ],
+      [
+        40,
+        40,
+        "1",
+        "0"
+      ],
+      [
+        41,
+        41,
+        "1",
+        "0"
+      ],
+      [
+        42,
+        42,
+        "1",
+        "0"
+      ],
+      [
+        43,
+        43,
+        "1",
+        "0"
+      ],
+      [
+        44,
+        44,
+        "1",
+        "0"
+      ],
+      [
+        45,
+        45,
+        "1",
+        "0"
+      ],
+      [
+        46,
+        46,
+        "1",
+        "0"
+      ],
+      [
+        47,
+        47,
+        "1",
+        "0"
+      ],
+      [
+        48,
+        48,
+        "1",
+        "0"
+      ],
+      [
+        49,
+        49,
+        "1",
+        "0"
+      ],
+      [
+        50,
+        50,
+        "1",
+        "0"
+      ],
+      [
+        51,
+        51,
+        "1",
+        "0"
+      ],
+      [
+        52,
+        52,
+        "1",
+        "0"
+      ],
+      [
+        53,
+        53,
+        "1",
+        "0"
+      ],
+      [
+        54,
+        54,
+        "1",
+        "0"
+      ],
+      [
+        55,
+        55,
+        "1",
+        "0"
+      ],
+      [
+        56,
+        56,
+        "1",
+        "0"
+      ],
+      [
+        57,
+        57,
+        "1",
+        "0"
+      ],
+      [
+        58,
+        58,
+        "1",
+        "0"
+      ],
+      [
+        59,
+        59,
+        "1",
+        "0"
+      ],
+      [
+        60,
+        60,
+        "1",
+        "0"
+      ],
+      [
+        61,
+        61,
+        "1",
+        "0"
+      ],
+      [
+        62,
+        62,
+        "1",
+        "0"
+      ],
+      [
+        63,
+        63,
+        "1",
+        "0"
+      ],
+      [
+        64,
+        64,
+        "1",
+        "0"
+      ],
+      [
+        65,
+        0,
+        "-3/50",
+        "0"
+      ],
+      [
+        65,
+        65,
+        "9/10",
+        "0"
+      ]
+    ],
+    "stages": [
+      {
+        "survival": "3/5",
+        "vector": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "survival": "4/5",
+        "vector": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ]
+      }
+    ]
+  },
+  "schema": "oph.native_coexistent_effects.v1",
+  "scope": {
+    "Born_semantics_derived_from_bare_repair": false,
+    "all_processor_and_padding_failures_retained": true,
+    "arbitrarily_small_error_at_fixed_budget": false,
+    "arbitrary_POVM_or_universal_coexistence_compiler": false,
+    "arbitrary_untouched_reference_in_proof": true,
+    "complete_noncommuting_coexistent_family": true,
+    "final_quantum_residual_retained": true,
+    "floating_propagation_arrays_claimed_certified": false,
+    "free_classical_randomizer_or_additional_register": false,
+    "generic_host_limits_raised": false,
+    "growing_capacity_quantum_refinement": false,
+    "physical_QFT_or_particle_identification": false,
+    "rounded_maps_asserted_exactly_trace_preserving": false,
+    "stored_primitive_acceptance_required": true,
+    "successful_Luders_state_update_derived": true
+  },
+  "source_bindings": {
+    "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
+    "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean": "14c45c9598979d795dad9bcc9b6cfbf35ef0057de8c8ba56af104b8cdc8550a8",
+    "Lean/EventAlgebra/OperationalAdditivityBoundary.lean": "305c1ef0040b47c9e89c082aef953ffd49b4b55dbb0f4eb2e58d909a9b9a948d",
+    "Lean/EventAlgebra/OperationalBornBridge.lean": "34d3f92fff2f7cc78ec0353005f379b6177dd7826f24365980a05d65ae7ffcdf",
+    "Lean/Geometry/SourceRepairInstrument.lean": "72f2083e76f852a413aee346cfaac8dc061a99dbed2d2df807aaf60baa6c32c0",
+    "Lean/QFT/ConjugationGauge.lean": "a0382a1cf3d8fab9fd341438eb74c31b2856f89921540c0bd8ee4c776e49aabc",
+    "Lean/QFT/SourcePhaseLiftBridge.lean": "930375b7d6138be8266bf9245fb9d91be3ed4fcf588de0044d603410b82967c6",
+    "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
+    "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+    "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+    "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+    "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
+    "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
+    "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
+    "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "model/compiled_native_interface/__main__.py": "55d7864ce8a72e2c7278123e1595d13105adc4f492821a551d84f5c5c67bc7d5",
+    "model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/__main__.py": "f8819b5e3b13a38ed3de801a1a0312f0729f70a22a1e6323d7f925598658966a",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "model/local_repair_family/__init__.py": "66020f42442bef5fb6a1af13b74f96d9cc7fee99f0792216b6b0fbfa734450a9",
+    "model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
+    "model/local_repair_family/modular_clock.py": "e66cdb06b13d2e4d66495ce8f4ccfae1bd96828c8265bdbb22c5be071bf71d8a",
+    "model/native_causal_dataflow/__init__.py": "bdea37a1d4b04d93b90ff4d5d67f59250fa1e4dd5a7bebe98df814fd598b91d5",
+    "model/native_causal_dataflow/dataflow.py": "489cba52e04975043b4caedf509175857dc18d788c886276c71b1e108f1089c3",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/__main__.py": "fd617457b5aa34100620a8cdde5bb841cf7cf4bbd95d92716e6d8412095b112a",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_coexistent_effects/PROOF.md": "d3c9b3f3b3f845daca0bec0f6bbfef1614b29870478ba82481b2f78e76532cea",
+    "model/native_coexistent_effects/README.md": "75b31da462c6e5fd1bf21cf9337c608a2bc912ab5cc8f849274f8e7397d5d6fe",
+    "model/native_coexistent_effects/__init__.py": "b265d995308a1d01d8f814ab7bd39c551058e477362eecc57b029e4b5a3da716",
+    "model/native_coexistent_effects/menus.py": "64cd91a143358b4b31026ff5093d7bdb8742ca31836fc9837d850509cf24df99",
+    "model/native_coexistent_effects/packet.py": "a91697d32e2ba9a76b3266acbf5923c8b065d7065c8ac6f76266207d5652aac6",
+    "model/native_coexistent_effects/test_menus.py": "f41b2da7fc34c6828d86f7ea18a131bf608a66a96f85cb5d6be729f247e3a4b2",
+    "model/native_effect_coverage/PROOF.md": "a053c641b2565c883e4b467d2056871b51560fac8887814896750f1acdb64385",
+    "model/native_effect_coverage/README.md": "0aef00bcf37745d349233ec11336c68d17335f1fa6235c1c56a9c4ea62db2171",
+    "model/native_effect_coverage/__init__.py": "6023c57d01fe8cd5ff4956d3b755e3e460d1ae3deb4710ddf86151e24cd444da",
+    "model/native_effect_coverage/coverage.py": "c95dc4629736bf46e5642ad735c0364b8609c06f6b2522eb4027e9da53904fdc",
+    "model/native_effect_coverage/detector.py": "9a55322e03f46658a5311bb53fb57adae7ecba1cb76045282a74bb8d573248e1",
+    "model/native_effect_coverage/packet.py": "2fade25022f3cc539442c23d2037aff8c2ec043adb00ffad3c0702c5293e0d04",
+    "model/native_effect_coverage/test_coverage.py": "4c3cfc5fbbfcc35907eb4b42d341877c9b2e32a83a3ff48ca191d33df4f82283",
+    "model/native_effect_synthesis/PROOF.md": "90bec5051f6b6630004f37abe989c507c227298c23159fe836b737d90c84ba8c",
+    "model/native_effect_synthesis/README.md": "edf44f6d8decd3d825b0161b748985e15f1ae9c5166c65388ac77b4d053cd609",
+    "model/native_effect_synthesis/__init__.py": "628711bb639102225ca6c333b98f5ce60eb34985ff460c781098e996291bf95d",
+    "model/native_effect_synthesis/intervals.py": "9bf23ce452acf22c79db8582cebcedd47c4309646b8a34788d61d90f2fcf1591",
+    "model/native_effect_synthesis/packet.py": "7a37d07d6c351637700ace7d2ead3e3d9420783257e973541bb261646cce1f17",
+    "model/native_effect_synthesis/synthesis.py": "559ea14f06b7d30ab017b2113feeeebc4d90a517bf85257fd3251d098cb4e372",
+    "model/native_effect_synthesis/test_synthesis.py": "e56d9a1bccf1e2dbcf1fbe3e8d514e9e906ef34566213fc6d46e593b0a21ac63",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/__main__.py": "22d1dd37b519734f9c4f7527a0c9598e173a00e658ba4602ceb908877fd3038f",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "model/native_interface/__main__.py": "545d8153b7fa2af349b01b8c1b8f488e957ed2d8ec5d1638bff3f44727d3dcb0",
+    "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_interface/tomography.py": "bbed38234544ebad6f04cdc360fee875a3b01a86e21cc4a37eca638167b473e0",
+    "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "model/native_modular_reference/cap_local_clock.py": "ccc4bf54b67866a59adb7904d1e3c19a4325ce53dc8963ed68848b83065510e8",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/compatibility.py": "0f51fc085cc8dd7dcf6a85904e82a51dbd875d966e45efc92402f85160f35946",
+    "model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "model/native_modular_reference/local_history.py": "2bbaadda64786f29e299782df1a2414f382e82b4d28e1701f6ac06ac65554f1e",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_program/__init__.py": "daedcdc14150d8e259d6a6e9205258c98ba9c947cfc7aa6fef154026f490a454",
+    "model/native_program/interpreter.py": "312dfd30f67e27dbb697bcd5419d9c00ae1be1631c112570954e39091fbc27e8",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/record_recovery.py": "0ad1c23cac53bbcf00c32ada6ce01660466b4e9c71e5e58a0226a0bf5609a193",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "uniform_bounded_menu_certificate": {
+    "complete_gain_strict_upper": "10001/10000",
+    "complete_halfdiamond_strict_upper": "1/50000",
+    "conditional_on_all_emitted_primitive_checks": true,
+    "per_primitive_operator_gate": "1/50000000000",
+    "per_word_target_grid_units": [
+      24,
+      23
+    ],
+    "pulses": 934272,
+    "stages": 8,
+    "words": 16
+  }
+}

@@ -382,7 +382,11 @@
     "OPH-NATIVE-SPATIAL-MOTION-SCALING",
     "OPH-NATIVE-CORRELATION-PREPARATION",
     "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
-    "OPH-NATIVE-EXCHANGE-CLOCK"
+    "OPH-NATIVE-EXCHANGE-CLOCK",
+    "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+    "OPH-NATIVE-COEXISTENT-EFFECTS",
+    "OPH-NATIVE-CONTACT-RESPONSE",
+    "OPH-NATIVE-TRANSFER-GROUND-RESPONSE"
   ],
   "edges": [
     {
@@ -3189,6 +3193,66 @@
       "from": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
       "to": "OPH-NATIVE-EXCHANGE-CLOCK",
       "role": "supplies the actual fair federation transfer floor and local exchange action; its optional Poisson or coherent service clocks are not identified with the deterministic record process"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+      "role": "supplies the complete native endpoint attachment and fixed-selector arbitrary-reference cone identity; the marked local history limit and clock observation are proved separately"
+    },
+    {
+      "from": "OPH-NATIVE-CANONICAL-RESTRICTION",
+      "to": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+      "role": "supplies canonical restriction and the local Bernoulli error under its exact occupation and reference premises; no physical capacity selection is transferred"
+    },
+    {
+      "from": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+      "to": "OPH-NATIVE-COEXISTENT-EFFECTS",
+      "role": "supplies the native amplitude-tree and diagonal-phase words, exact angle intervals and per-emitted-primitive checks; the sequential update and common menu are proved separately"
+    },
+    {
+      "from": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+      "to": "OPH-NATIVE-COEXISTENT-EFFECTS",
+      "role": "supplies the declared source-code and coherent-service semantics; its destructive E-tree readout is not inserted between the weak-filter stages, and universal Born premises are not transferred"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-SECTORS",
+      "to": "OPH-NATIVE-CONTACT-RESPONSE",
+      "role": "supplies the primitive two-body space and complete reflected E score on one fixed occupation; no physical particle interpretation is inherited"
+    },
+    {
+      "from": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "to": "OPH-NATIVE-CONTACT-RESPONSE",
+      "role": "supplies the literal exclusion/contact comparison with collision retained; the finite resolvent and subthreshold residue are evaluated on the actual local source"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-PREPARATION",
+      "to": "OPH-NATIVE-CONTACT-RESPONSE",
+      "role": "supplies the scored arbitrary-reference warmup allowance, with the local gap and480-attempt budget explicitly instantiated"
+    },
+    {
+      "from": "OPH-NATIVE-EXCHANGE-CLOCK",
+      "to": "OPH-NATIVE-CONTACT-RESPONSE",
+      "role": "supplies the native endpoint error3/(5n) at t=n/(2M), without implementing a coherent unitary or identifying a physical time"
+    },
+    {
+      "from": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+      "to": "OPH-NATIVE-CONTACT-RESPONSE",
+      "role": "supplies the federation cell/three-port routing attachment only; its q=1 displacement law is not transferred to the q=2 contact sector"
+    },
+    {
+      "from": "OPH-NATIVE-EXCHANGE-CLOCK",
+      "to": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
+      "role": "supplies the positive source transfer, counted normalization, bounded-degree exchange ceiling and local-generator comparison; no unitary implementation or physical clock is inherited"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-PREPARATION",
+      "to": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
+      "role": "supplies the arbitrary-reference normalized four-E score preparation and its explicit native budget; no full source density or pure ground preparation is inferred"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-SECTORS",
+      "to": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
+      "role": "supplies the same-q primitive intertwiner and complete reflected native E experiment, including its measurement backaction and variance"
     }
   ]
 }

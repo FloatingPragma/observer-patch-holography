@@ -12,6 +12,63 @@ give the eight-step common derivation. This page supplies its state, clock
 and mass-operator details. None of its conditional matrix or transition
 ratios is identified with the final measured particle-mass ratios.
 
+## A positive ground response with an operational state test
+
+The [native transfer-ground construction](../../model/native_vacuum_response/PROOF.md)
+uses the fair connected source, fixed `2<=q<=V-2`, complete reflected E
+probes and `H_M=-2M*log(P_q)`. Its unique ground is the constant transfer
+vector `Omega`. This differs from the working density `tau_q` and a
+return-conditioned loop state. The positive-type response
+`<F_i*Omega,exp(-it*H_M)F_j*Omega>/v_q` is reconstructed from finite
+complex linear combinations of complete native lag statistics.
+
+For bounded primitive degree `r`, `b=floor(M/(2*r*Delta))` and
+`M>=2*r*Delta` give `P^b>=I/2`. A rational-complex polynomial in `P^b`
+provides capacity-independent truncation and coefficient bounds at fixed
+`r,t`, while its largest native lag grows with `M`. Coefficient norm `A`
+amplifies a normalized score-preparation error `eta` to `A*eta` and a
+score-zero host-stop probability to `A*p_stop/v_q`. Finite-sample costs
+and the unchanged native program ceiling are explicit. This is a
+reconstruction of correlations, without an executed real-time unitary.
+
+The stated order-12 example at `t=1/64` has truncation error `1/4096`.
+Its sufficient level-zero program uses at most 116424316 attempts per
+setting, including warmup, lag and four probe reads. The same sufficient
+budgets at levels one and two exceed the unchanged `2^32` attempt ceiling.
+The conservative 99-percent independent-sampling budget exceeds `10^17`
+repetitions. These are resource bounds, not executed experiments or lower
+bounds on every possible reconstruction protocol.
+
+The required state join has an intervention test. The transfer ground has
+a strictly positive response to a specified ideal diagonal phase kick; bare
+native C/E records are invariant under that kick after tracing the terminal
+working source, including an arbitrary reference. Additional coherent
+analyzers are outside this blindness theorem. A proposed dictionary must
+supply its state and intervention maps and reproduce that response within
+the explicit error margin. If a phase implementation has complete
+half-diamond error `delta`, its bare unit-bounded score allowance is
+`2*delta`; this and readout errors must fit inside the separating margin.
+Identifying equal response spectra alone fails this test.
+
+The [coexistent weak instruments](../../model/native_coexistent_effects/PROOF.md)
+provide complete noncommuting finite measurements on the distinct weighted
+H66 coherent-service carrier, with successful updates and all failures.
+They do not supply this growing fair-source state map. Likewise the
+[complete local-history limit](../../model/native_local_history_limit/PROOF.md)
+controls fair binned local records under matched rooted geometry and joint
+states, not the full archive or physical clock. A common construction must
+join these domains explicitly.
+
+For the fair local H66 source, the
+[contact response](../../model/native_contact_response/PROOF.md) has a visible
+primitive pole near `5.01827276928`, below its centered independent-pair
+threshold by more than `2/5`, with normalized residue between `1/100` and
+`1/50`. Its unchanged isolated-cell vector has connected action leakage
+greater than `1/10` at every valid three-port attachment. A physical mass
+candidate therefore needs a dressed connected sector, nonvanishing complete
+readout, a controlled energy-momentum dictionary and the common reference.
+No ratio of these finite transfer quantities bypasses those requirements.
+
 ## A protected charge with a native reference and clock
 
 The [protected reference calculation](../../model/protected_reference/PROOF.md)

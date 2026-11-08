@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1139,
+  "surface_count": 1147,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3111,12 +3111,32 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_coexistent_effects/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_coexistent_effects/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_composite_probe/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/native_composite_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_contact_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_contact_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3237,6 +3257,16 @@
     },
     {
       "path": "model/native_joint_spin_spectroscopy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_history_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_history_limit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3452,6 +3482,16 @@
     },
     {
       "path": "model/native_thermodynamic_bridge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_vacuum_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_vacuum_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

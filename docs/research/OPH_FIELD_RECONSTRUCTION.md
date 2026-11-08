@@ -27,13 +27,13 @@ derived by the constructions below.
 
 | Step | Status and established result | Required result for the common source |
 | --- | --- | --- |
-| **1. Fix the executable source family.** | **Fair-state, independent-product and declared weighted connected restrictions established; physical capacity family unproved.** The native program declares its repair, memory, scheduler and observer services. [Canonical restriction](../../model/native_capacity_restriction/PROOF.md) gives every local number sector, exact nesting and finite-size bounds for the fair federation. The [weighted local limit](../../model/weighted_local_limit/PROOF.md) controls full local number mixtures for two declared densities of the weighted extension. [Dynamic product restriction](../../model/native_capacity_restriction/PRODUCT.md) preserves complete biased repair/hold records under unused-factor extension. | Select one family indexed by physical capacity, including its conserved occupation, preparation, controls and clock. The fair federation is not a proved capacity continuation of the weighted H66 observer; the weighted connected extension is not admitted by that interpreter. Port count, FIFO slots and cosmological capacity are distinct inputs. |
-| **2. Construct accessible local observables.** | **Known-number configuration readout on the connected source, finite preparation, coherent tomography and bounded rank-one synthesis established; universal field-observable access unproved.** The [full-number E-tree detector](../../model/native_sector_readout/PROOF.md) reads any declared global sector with complete back-action and a retained empty/full ambiguity when the local number is unknown. [Complete E records](../../model/native_record_response/PROOF.md) give rank-66 population observability. The [coherent clock protocol](../../model/native_clock_observables/PROOF.md) adds complete Pauli instruments and finite Robertson inputs using existing declared services. The [tree detector](../../model/native_effect_coverage/PROOF.md) supplies configuration readout, basis preparation and the inherited tomographic menu. [Rank-one synthesis](../../model/native_effect_synthesis/PROOF.md) constructs bounded rational targets, with complete error below `10^-6` for words passing the exact primitive gates. Direct compilation and lazy histories retain their distinct host execution limits. | Produce local field preparation and complete readout from the actual observer, including failures and back-action. Establish the operational equivalences and effect coverage required by the quantum theorems. A finite tomographic span or bounded rank-one menu does not implement arbitrary effects or every coexistent pair. |
-| **3. Derive space and a common clock.** | **Native graph, displacement, stopped-clock and counted exchange interfaces established; physical spatial limit unproved.** [Spatial scaling](../../model/native_spatial_scaling/PROOF.md) attaches the source routing and affine-coordinate bounds to the actual counts, with distinct global-attempt and incident-clock estimates. The [exchange clock](../../model/native_exchange_clock/PROOF.md) controls the endpoint comparison to the native local action at counted time `T/(2M)`. [Authenticated dataflow](../../model/native_causal_dataflow/README.md) retains the full single-FIFO chain. [Independent repairs](../../model/native_record_causality/PROOF.md) have equal complete channels after a specified reversible record permutation, for fixed completed schedules. [Lorentz transition tests](../../model/native_lorentz_transition/README.md) constrain supplied transitions. | Derive spatial readouts, translations, causal cones and clock normalization on one refinement family. The reconstructed transfer generator and working modular generator are inequivalent. Their proposed same-reference identification has a [complete-output separation bound](../../model/native_clock_comparison/PROOF.md). A physical quotient must preserve observable controller signals; adaptive selectors and timeouts are outside the independent-repair equivalence. The sphere/Lorentz correspondence alone supplies neither a three-dimensional field net nor this limit. |
-| **4. Produce the reference state.** | **Specified finite preparations, observable warmup and outcome-labelled basis readout established; common interacting vacuum unproved.** [Observable warmup](../../model/native_correlation_preparation/PROOF.md) controls fixed-`q` reflected scores from arbitrary quantum input, without claiming full-state convergence. The [repair-only reset bound](../../model/native_sector_readout/PROOF.md#a-bounded-repair-only-reset-obstruction) excludes exact finite deterministic reset of all inputs on a nontrivial sector to one basis target; approximate or separately controlled preparation needs its own theorem. The [protected native reference](../../model/protected_reference/PROOF.md) classifies stationary states, bounds sharp-charge preparation and joins actual repair to its modular reference. Its [gauge-singlet corner](../../model/protected_reference/GAUGE_JOIN.md) has exact replacement preparation and a Lean finite-thermodynamic adapter. | Prepare the state used by all field sectors on the same source and clock, with positive-energy and refinement control. A native stationary density, a chosen Higgs ground and a physical vacuum cannot be identified without a state-preserving map. |
-| **5. Calculate source responses.** | **Complete native spatial matrices, primitive correlation sectors and local boundary-error bounds established; common relativistic response unproved.** The [same-occupation pair matrix](../../model/native_pair_response/PROOF.md) joins complete reflected cross probes, local-window errors and a collision-retaining exclusion comparison. The [reflected four-E probe](../../model/native_correlation_sectors/PROOF.md) isolates a degree-two correlation block of the fair connected transfer, with normalized response independent of occupation on the same graph. The [native record resolvent](../../model/native_record_response/PROOF.md) has 65 observable population-relaxation poles with actual back-action. [Correct record reflection](../../model/native_record_response/TRANSFER.md) derives a positive transfer Hamiltonian distinct from the native modular clock. [Local response](../../model/native_local_response/PROOF.md) reduces selected complete histories to their backward dependency cone and controls finite-window errors in global and internal repair counts. | Derive the common spatial response `G_N(z,p)` with controlled state, clock, record and numerical errors. The local comparison uses a stated observation map and fixed selectors; it does not remove observable controller signals. Attempt relaxation, internal repair counts and bounded Abel response require separate connections to relativistic energy and momentum. |
-| **6. Prove the field limit and action.** | **Native subsequential density and smooth quadratic limits, a separate free relativistic branch and finite gauge operations established; interacting chiral theory unproved.** The [native density construction](../../model/physical_space_time/README.md) has spectral dimension two in its stated dictionary; it does not become a three-dimensional relativistic field by interpreting the transfer logarithm as a Hamiltonian. Bounded quadratic profiles have a conditional Wick limit within that diffusive Gaussian field, with moment control; this does not establish an additional interacting continuum. The [controlled continuum](../../model/continuum_free_limit/README.md) is a free eight-valley Weyl vacuum net on its stated scaling. [Literal gauge transport](../../model/gauge_defect_transport/PROOF.md) is complete on its declared extension. | Prove positive energy, locality, relativistic covariance and joint-record convergence for the same source. Derive its action and demonstrate that the required interactions survive. Gauge dynamics, chiral matter, anomaly conditions and cutoff control must hold on that construction; Lie-algebra classification does not select them. |
-| **7. Identify particle sectors and mass ratios.** | **Model sectors identified; measured massive spectrum unproved.** The controlled free branch has massless particle/hole sectors. [Massive Dirac shells](../../model/source_mass_shell/README.md) use supplied onsite mass coefficients. Protected memory charges and finite response lines are distinct objects. | Identify stable poles, resonances, thresholds or bound sectors using creation, propagation, quantum numbers and complete detectors. Derive their energies from the selected action/state. Ratios cancel a common unit choice; they do not remove unspecified couplings, preparations or sector assignments. |
+| **1. Fix the executable source family.** | **Static restrictions and conditional complete local-history limits established; physical capacity family unproved.** The native program declares its repair, memory, scheduler and observer services. [Canonical restriction](../../model/native_capacity_restriction/PROOF.md) gives every local number sector, exact nesting and finite-size bounds for the fair federation. The [weighted local limit](../../model/weighted_local_limit/PROOF.md) controls full local number mixtures for two declared densities of the weighted extension. [Dynamic product restriction](../../model/native_capacity_restriction/PRODUCT.md) preserves complete biased repair/hold records under unused-factor extension. The [local-history limit](../../model/native_local_history_limit/PROOF.md) controls complete fair records with time bins under matching rooted-window and state hypotheses. | Select one family indexed by physical capacity, including its conserved occupation, preparation, controls and clock. The fair federation is not a proved capacity continuation of the weighted H66 observer; the weighted connected extension is not admitted by that interpreter. Port count, FIFO slots and cosmological capacity are distinct inputs. |
+| **2. Construct accessible local observables.** | **Known-number readout, finite preparation and bounded noncommuting coexistent instruments established; universal field-observable access unproved.** The [full-number E-tree detector](../../model/native_sector_readout/PROOF.md) reads any declared global sector with complete back-action and a retained empty/full ambiguity when the local number is unknown. [Complete E records](../../model/native_record_response/PROOF.md) give rank-66 population observability. The [coherent clock protocol](../../model/native_clock_observables/PROOF.md) adds complete Pauli instruments and finite Robertson inputs using existing declared services. The [tree detector](../../model/native_effect_coverage/PROOF.md) supplies configuration readout, basis preparation and the inherited tomographic menu. [Rank-one synthesis](../../model/native_effect_synthesis/PROOF.md) constructs bounded rational targets, with complete error below `10^-6` for words passing the exact primitive gates. [Coexistent weak measurements](../../model/native_coexistent_effects/PROOF.md) compose up to eight source filters into one complete noncommuting menu with explicit state changes and retained failures. Direct compilation and lazy histories retain their distinct host execution limits. | Produce local field preparation and complete readout from the actual observer, including failures and back-action. Establish the operational equivalences and effect coverage required by the quantum theorems. The bounded coexistent family does not implement arbitrary effects or every coexistent pair, and has no growing coherent-service refinement. |
+| **3. Derive space and a common clock.** | **Native graph, displacement, stopped-clock and counted exchange interfaces established; physical spatial limit unproved.** [Spatial scaling](../../model/native_spatial_scaling/PROOF.md) attaches the source routing and affine-coordinate bounds to the actual counts, with distinct global-attempt and incident-clock estimates. The [exchange clock](../../model/native_exchange_clock/PROOF.md) controls the endpoint comparison to the native local action at counted time `T/(2M)`. The complete local-history comparison uses per-seam attempt time `T/M`, aligned time bins and a stated record trace. [Authenticated dataflow](../../model/native_causal_dataflow/README.md) retains the full single-FIFO chain. [Independent repairs](../../model/native_record_causality/PROOF.md) have equal complete channels after a specified reversible record permutation, for fixed completed schedules. [Lorentz transition tests](../../model/native_lorentz_transition/README.md) constrain supplied transitions. | Derive spatial readouts, translations, causal cones and clock normalization on one refinement family. The reconstructed transfer generator and working modular generator are inequivalent. Their proposed same-reference identification has a [complete-output separation bound](../../model/native_clock_comparison/PROOF.md). A physical quotient must preserve observable controller signals; adaptive selectors and timeouts are outside the independent-repair equivalence. The sphere/Lorentz correspondence alone supplies neither a three-dimensional field net nor this limit. |
+| **4. Produce the reference state.** | **Finite preparation and transfer-ground response reconstruction established; common interacting vacuum unproved.** [Observable warmup](../../model/native_correlation_preparation/PROOF.md) controls fixed-`q` reflected scores from arbitrary quantum input, without claiming full-state convergence. The [repair-only reset bound](../../model/native_sector_readout/PROOF.md#a-bounded-repair-only-reset-obstruction) excludes exact finite deterministic reset of all inputs on a nontrivial sector to one basis target; approximate or separately controlled preparation needs its own theorem. [Transfer-ground reconstruction](../../model/native_vacuum_response/PROOF.md) recovers positive-energy correlations as finite combinations of complete lag experiments; its phase-intervention witness excludes a direct identification with the working tracial state. The [protected native reference](../../model/protected_reference/PROOF.md) classifies stationary states, bounds sharp-charge preparation and joins actual repair to its modular reference. Its [gauge-singlet corner](../../model/protected_reference/GAUGE_JOIN.md) has exact replacement preparation and a Lean finite-thermodynamic adapter. | Prepare the state used by all field sectors on the same source and clock, with positive-energy and refinement control. A native stationary density, a chosen Higgs ground and a physical vacuum cannot be identified without a state-preserving map. |
+| **5. Calculate source responses.** | **Complete native spatial matrices, contact response and local-history error bounds established; common relativistic response unproved.** The [same-occupation pair matrix](../../model/native_pair_response/PROOF.md) joins complete reflected cross probes, local-window errors and a collision-retaining exclusion comparison. The [native contact response](../../model/native_contact_response/PROOF.md) derives a visible primitive pole below its centered independent-pair comparison, together with a nonvanishing connected-cell leakage bound. The [reflected four-E probe](../../model/native_correlation_sectors/PROOF.md) isolates a degree-two correlation block of the fair connected transfer, with normalized response independent of occupation on the same graph. The [native record resolvent](../../model/native_record_response/PROOF.md) has 65 observable population-relaxation poles with actual back-action. [Correct record reflection](../../model/native_record_response/TRANSFER.md) derives a positive transfer Hamiltonian distinct from the native modular clock. [Local response](../../model/native_local_response/PROOF.md) reduces selected complete histories to their backward dependency cone and controls finite-window errors in global and internal repair counts. | Derive the common spatial response `G_N(z,p)` with controlled state, clock, record and numerical errors. The local comparison uses a stated observation map and fixed selectors; it does not remove observable controller signals. Attempt relaxation, internal repair counts and bounded Abel response require separate connections to relativistic energy and momentum. |
+| **6. Prove the field limit and action.** | **Conditional local-instrument and diffusive field limits, a separate free relativistic branch and finite gauge operations established; interacting chiral theory unproved.** The [native density construction](../../model/physical_space_time/README.md) has spectral dimension two in its stated dictionary; it does not become a three-dimensional relativistic field by interpreting the transfer logarithm as a Hamiltonian. Bounded quadratic profiles have a conditional Wick limit within that diffusive Gaussian field, with moment control; this does not establish an additional interacting continuum. The [controlled continuum](../../model/continuum_free_limit/README.md) is a free eight-valley Weyl vacuum net on its stated scaling. [Literal gauge transport](../../model/gauge_defect_transport/PROOF.md) is complete on its declared extension. | Prove positive energy, locality, relativistic covariance and joint-record convergence for the same source. Derive its action and demonstrate that the required interactions survive. Gauge dynamics, chiral matter, anomaly conditions and cutoff control must hold on that construction; Lie-algebra classification does not select them. |
+| **7. Identify particle sectors and mass ratios.** | **Model sectors identified; measured massive spectrum unproved.** The finite native contact pole has a nonzero complete-record residue, but its unchanged isolated-cell vector fails the connected-capacity persistence test. The controlled free branch has massless particle/hole sectors. [Massive Dirac shells](../../model/source_mass_shell/README.md) use supplied onsite mass coefficients. Protected memory charges and finite response lines are distinct objects. | Identify stable poles, resonances, thresholds or bound sectors using creation, propagation, quantum numbers and complete detectors. Derive their energies from the selected action/state. Ratios cancel a common unit choice; they do not remove unspecified couplings, preparations or sector assignments. |
 | **8. Compare complete predictions with measurements.** | **Not established for the source-derived particle spectrum.** Conditional calibrations and numerical mass comparisons have separate provenance. | Freeze the observable dictionary, calibration inputs and error model, then compare predicted joint records, masses, mixing, widths and scattering where applicable. No target-informed choice may be reported as an independent prediction of that target. |
 
 The detailed [construction route](../../model/particle_identification/ROADMAP.md)
@@ -209,6 +209,122 @@ are generally non-Gaussian; their transfer is the symmetric tensor square
 with generator `A tensor I + I tensor A`. This bounded-smearing limit does
 not establish an interacting relativistic sector or the same limit for
 fixed microscopic seam contrasts. No physical identification row is discharged.
+
+### Complete local histories and bounded quantum menus
+
+The [local-history theorem](../../model/native_local_history_limit/PROOF.md)
+uses the fair binary endpoint law, independent uniform seam choices and a
+fixed C/E mixture. Its observation retains the ordered complete raw records
+on chosen seams, a common time-bin label, the final local source and an
+arbitrary untouched reference. Other raw values and exact global tick
+addresses are traced; the original archive remains readable. With
+`T=M*t`, each bin boundary must satisfy `M*t_j` integer. This is the
+per-seam attempt scale; exchange-action time is `t/2`.
+
+For roots `S`, a radius-`r` window with `v` ports and `K` internal seams,
+maximum degree `Delta`, and initial joint window/reference error `epsilon`,
+the complete local output differs from its rate-one marked-Poisson window
+comparison by at most
+
+```math
+\min\left(1,\epsilon+
+\min\left(1,|S|\binom{T}{r+1}(\Delta/M)^{r+1}\right)
++\min(1,tK^2/M)\right).
+```
+
+All endpoint coins, law tags, impossible slots, currents and disturbance
+are part of the compared instrument. The Poisson law is a comparison,
+not an admitted native scheduler. Exact timestamps or global record lengths
+would distinguish it. For the canonical initial state and an independent
+reference, `epsilon<=v(v-1)/(2V)+v*abs(q/V-p)`, capped at one. Correlated
+references require a joint bound. Stable rooted windows and compatible
+states give a conditional local-process limit; bounded-degree compactness
+provides a subsequence, without selecting a unique rooted refinement.
+The literal cell-zero radius-one checks cover levels 0,1,2. They do not
+prove all-radius convergence of the routed source constructor. Finite
+Poisson enumeration retains an overflow allowance, and native host stops
+are separate outputs.
+
+The [coexistent-measurement construction](../../model/native_coexistent_effects/PROOF.md)
+uses the distinct weighted H66 carrier and its declared coherent services.
+For each Gaussian-rational `v_j` and rational `s_j` in `[0,1]`, two existing
+phase words give success `L_j=I+(s_j-1)P_j` and abort effect
+`(1-s_j^2)P_j`, where `P_j=v_j*v_j^dagger/(v_j^dagger*v_j)`.
+With `A_j=L_j...L_1`, the effects
+`A_(j-1)^dagger*(1-s_j^2)*P_j*A_(j-1)` and residual `A_m^dagger*A_m`
+sum exactly to the identity. The effects can be noncommuting. Earlier
+measurement disturbance is included; a separate rank-one test cannot be
+substituted for a stage of this common instrument.
+
+There are at most eight stages, two individually admitted 58392-pulse
+nine-bit words per stage, and 934272 pulses along the surviving path.
+Inputs have at most 64-bit rational components. Passing every emitted
+primitive's exact stored-array check gives complete half-diamond error
+below `1/50000` and gain below `10001/10000`. Each first processor failure,
+one observed padding flag per word with 446 internal Kraus rows, and the
+final quantum residual are retained. The generic host's six-bit/256-pulse
+stop is unchanged; direct tape and lazy instrument queries have their own
+domains. The construction supplies a bounded coexistent family, without
+universal Born-premise coverage or a growing quantum-service embedding.
+It cannot be applied to the local-history theorem's fluctuating-number
+window merely because both constructions have source records.
+
+### Contact poles and the transfer-ground dictionary
+
+The [contact calculation](../../model/native_contact_response/PROOF.md)
+uses the actual fair twelve-port source at `q=2`, with
+`tau=I66/66` and `P=I-G/60`. On its primitive pair space, the centered
+independent-pair comparison is `H0=H+2Q*A_adj*Q`, with
+`H0>=2*(5-sqrt(5))*I`. The coefficient two follows from source exchange;
+it is not fitted. A complete reflected probe on seams `(0,1),(2,4)` sees
+all twelve distinct primitive poles. The lowest root of
+`x^3-30*x^2+280*x-776` is approximately `5.01827276928`, with normalized
+residue approximately `0.0194379829330`, certified between `1/100` and
+`1/50`. Its separation below that finite comparison threshold exceeds
+`2/5`. The raw four-E variance is `2/33`; 480 unconditioned warmup attempts
+give normalized score error at most `33/65536`.
+
+Every normalized vector in the fifteen-dimensional cubic subspace has
+connected-federation action leakage outside its original cell greater
+than `1/10`, for every valid three-port attachment. The proof covers all
+220 attachment triples and checks the actual levels 0,1,2. Thus that
+unchanged cell vector is not a capacity-stable eigenvector. A dressed
+candidate must supply its residual, spectral window and nonzero accessible
+residue: `||(G_l-E_l)f_l||<=eta_l` implies spectral weight outside
+`[E_l-delta_l,E_l+delta_l]` at most `eta_l^2/delta_l^2`. It does not supply
+those inputs. At growing `V` and fixed `q=2`, raw variance is
+`8/[V*(V-1)]`; a normalized line can have vanishing raw weight and a
+sufficient independent-shot budget growing as `V^4`.
+
+The [transfer-ground response](../../model/native_vacuum_response/PROOF.md)
+constructs `H_M=-2M*log(P_q)>=0` and its unique constant ground vector
+`Omega` on the transfer Hilbert space. Complete four-E lag scores recover
+`W_ij(t)=<F_i*Omega,exp(-it*H_M)F_j*Omega>/v_q`, a positive-type matrix
+correlation. On bounded primitive degree `r`, choose
+`b=floor(M/(2*r*Delta))` for `M>=2*r*Delta`; then `P^b>=I/2` and a
+rational-complex polynomial in `P^b` approximates this response. Its
+truncation and coefficient amplification are capacity independent at
+fixed `r,t`, while the required native lag grows with `M`.
+
+For coefficients `a_j` and `A=sum_j(abs(Re(a_j))+abs(Im(a_j)))`, systematic
+normalized lag error `eta` contributes `A*eta`; score-zero stops add
+`A*p_stop/v_q`. Independent samples have a separate coefficient-amplified
+bound. This is signed postprocessing of several complete experiments,
+not one acceptance probability or executed transfer unitary. An ideal phase-kick
+witness gives a positive response in the transfer ground while bare
+C/E-record laws are invariant under the corresponding ideal diagonal phase
+kick, even with an arbitrary reference. The terminal working quantum
+state is excluded from that blindness statement. A physical dictionary
+must therefore supply a different state/intervention/readout map or a
+prepared implementation that passes this witness. Recovered positive-energy
+correlations alone do not identify the working tracial state with a vacuum.
+An executed phase with complete half-diamond error `delta` adds a bare-score
+allowance `2*delta`. The concrete order-12, `t=1/64` continuation has
+truncation `1/4096`; its sufficient level-zero program has 116424316
+attempts per setting, while levels one and two exceed `2^32`. Its
+conservative 99-percent independent-sampling budget exceeds `10^17`
+repetitions. These bounds do not assert practical execution or a universal
+resource lower bound.
 
 ### Local states across capacity
 

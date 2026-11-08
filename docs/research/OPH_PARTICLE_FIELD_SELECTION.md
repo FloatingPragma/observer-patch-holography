@@ -157,6 +157,49 @@ separation under explicit errors. Reading the simulator is permitted; the
 phase blindness theorem concerns bare repair records with the working carrier
 traced, not source-code or clock-specification readout.
 
+## Complete coexistent instruments and field identification
+
+The [bounded weak-measurement menu](../../model/native_coexistent_effects/PROOF.md)
+uses the same weighted H66 source and declared nine-bit coherent controls.
+For nonzero Gaussian-rational `v` and rational `s` in `[0,1]`, an existing
+padding address and two source phase words implement success
+`L=I+(s-1)P_v` and abort effect `(1-s^2)P_v`. For up to eight stages the
+effects `A_(j-1)^dagger*(1-s_j^2)*P_j*A_(j-1)`, together with
+`A_m^dagger*A_m`, sum to the identity. This is one instrument with the
+actual sequential disturbance. Its effects need not commute; an explicit
+commutator entry is `216/3125`.
+
+Each stage uses two separately admitted 58392-pulse words. Exact checks
+of every emitted stored primitive give complete error below `1/50000`,
+with a gain allowance for rounded maps. Every processor failure and one
+padding flag per word terminate the menu; the successful residual remains
+quantum. The 446 padding Kraus rows are not separate observed labels.
+Inputs and angles have bounded precision, the generic evaluator retains
+its resource stop, and the result does not quantify over every effect or
+coexistent pair. It therefore supplies a finite operational family without
+closing the universal Born bridge or a growing-carrier refinement.
+
+The [complete local-history limit](../../model/native_local_history_limit/PROOF.md)
+belongs to the fair connected source and a different observation. It keeps
+ordered local raw records with aligned time bins and final local quantum
+state, while tracing remote raw values and exact global ticks. State,
+backward-cone and marked-selector errors control the entire observed
+channel at `T=M*t`. Compatible rooted windows give a conditional local
+process limit. This does not extend H66 coherent gates to fluctuating local
+number sectors or erase the observable archive.
+
+The [native contact response](../../model/native_contact_response/PROOF.md)
+derives an unfitted pair contact term and a visible finite pole below its
+centered independent-pair comparison. Connected attachment gives a strict
+leakage bound for the unchanged local eigenvector. The
+[transfer-ground response](../../model/native_vacuum_response/PROOF.md)
+recovers positive-energy correlations from native lag experiments but
+separates its transfer ground from the working mixed state by an ideal phase-kick
+intervention. These results constrain action and state selection: the same
+observable dictionary must preserve the complete instruments, connected
+propagation and interventions. A finite contact pole or reconstructed
+positive ground does not select a chiral relativistic theory.
+
 ## Born weights and the executable model
 
 The [finite effect-valuation theorem](../../Lean/EventAlgebra/FiniteBuschGleason.lean)

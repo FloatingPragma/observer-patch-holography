@@ -18734,6 +18734,150 @@
         "boundary": [],
         "rationale": "All-sector finite endpoint comparison and bounded-degree local-action approximation on each finite source graph; no common continuum, chiral gauge theory or particle masses are inferred."
       }
+    },
+    {
+      "claim_id": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+      "statement": "For a finite fair binary graph with M seams, maximum degree Delta, independent uniform seam selection and T=M*t attempts, the complete local classical-quantum observation on fixed root ports S and observed seam endpoints is within a_N+d_N of the same-instrument finite-window Poisson process in half-diamond norm, where a_N=min(1,|S| binomial(T,r+1)(Delta/M)^(r+1)) and d_N=min(1,t*K^2/M), capped at one. The observation retains native raw records, coins, within-bin order, backaction and an arbitrary reference, and traces remote values and exact tick addresses under a common aligned clock partition. Initial joint-state error adds. Canonical q-sector restrictions give epsilon<=min(1,v(v-1)/(2V)+v*|q/V-p|) for an independent common reference and declared density p. Matching rooted windows give pairwise capacity bounds; consistent growing rooted limits give a complete local process limit by a factorial cone tail. Actual cell-zero radius-one windows at source levels zero through two are verified with orientation-preserving record maps. This selects no physical capacity, density, unique geometry or particle.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_complete_local_history_capacity_limit"
+      ],
+      "imported_results": [
+        "native_complete_endpoint_instrument_attachment",
+        "fixed_selector_backward_dependency_cone",
+        "canonical_hypergeometric_restriction",
+        "marked_categorical_Poisson_maximal_coupling",
+        "complete_channel_trace_distance_contraction",
+        "ordered_path_factorial_moment_bound"
+      ],
+      "oph_specific_delta": "Extends the native capacity comparison from population observables and endpoint operators to complete local visible record laws and quantum disturbance, with an explicit common clock observation and source-verified finite halo identifications.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_local_history_limit/PROOF.md"
+      ],
+      "falsifier": "The local selector cone omits an observed record dependence, the marked one-tick selector distance differs from lambda*(1-exp(-lambda)), an aligned common clock fails to preserve matched bin labels and order, a complete local instrument exceeds the stated reference-uniform allowance, or the actual halo transport changes a native record map.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Finite complete-instrument capacity comparison and conditional local process limit; unique native geometry, physical density and particle identification unproved."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-COEXISTENT-EFFECTS",
+      "statement": "On the existing weighted H66 carrier and its nine-bit coherent-service interface, two individually admitted native phase words implement the ideal successful contraction L=I+(s-1)P_v and a terminal abort with effect (1-s^2)P_v for a Gaussian-rational nonzero vector v and rational survival amplitude 0<=s<=1. Up to eight sequential filters give one complete measurement menu E_j=A_(j-1)^*(1-s_j^2)P_j A_(j-1), with A_j=L_j A_(j-1), plus quantum residual A_m^*A_m. The exact telescoping identity proves completeness and includes measurement disturbance. An explicit pair of coexistent effects has nonzero commutator entry 216/3125. Each phase word contains 58392 existing pulses, below its unchanged 65536-pulse admission ceiling. Conditional on every emitted stored primitive passing its certificate, gain-aware composition bounds the complete menu half-diamond error below 1/50000 for arbitrary untouched references, with every processor failure and padding abort retained. This is a bounded family of instruments rather than a universal positive-effect or arbitrary-precision compiler.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_bounded_coexistent_measurement_menus"
+      ],
+      "imported_results": [
+        "rank_one_unitary_phase_dilation",
+        "native_binary_amplitude_and_Walsh_phase_synthesis",
+        "sequential_quantum_instrument_composition",
+        "Luders_success_filter_identity",
+        "telescoping_complete_POVM_identity",
+        "completely_positive_gain_and_half_diamond_error_composition"
+      ],
+      "oph_specific_delta": "Constructs a common noncommuting finite measurement menu and its state-changing instrument from the actual native pulse and export services, with exact rational effects, individually admitted word budgets and complete failure accounting.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_coexistent_effects/PROOF.md"
+      ],
+      "falsifier": "A compiled phase has the wrong source-success or padding effect, a sequential effect omits prior disturbance, exact effects fail to sum to the identity, an unretained failure changes the complete output, an admitted word exceeds its stated source limits, or a primitive-certified complete instrument exceeds its gain-aware bound.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Complete bounded noncommuting coexistent menus and explicit instruments with half-diamond error below 1/50000 under certified stored primitives; no universal POVM, arbitrary precision, capacity refinement or physical QFT promotion."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-CONTACT-RESPONSE",
+      "statement": "On the actual fair twelve-port binary total-two source, the primitive two-body exchange block has a fivefold mode at the lowest root of x^3-30x^2+280x-776. This root lies in (5,51/10), more than2/5 below the centered compressed independent-pair threshold2(5-sqrt(5)). The source contact term is exactly minus twice the adjacent-pair projector. Its compressed contact resolvent has a finite Birman-Schwinger criterion preserving eigenvalue multiplicity. One actual two-seam contrast has a12-dimensional cyclic response and positive weight at all12 primitive poles; its lowest normalized residue is strictly between1/100 and1/50. Complete reflected four-E records supply raw weight(2/33) times that residue and attempt factor1-E/60. For the entire15-dimensional cubic subspace, connecting a cell through any three distinct native boundary ports produces outside exchange-action norm greater than1/10, certified for all220 port triples and attached to the evaluated native federations. Thus the unchanged cell-mode embedding does not persist as a connected-source eigenvector. Explicit spectral-residual and sampling criteria state what a dressed observable sector requires; no physical particle or mass is identified.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_two_body_contact_response"
+      ],
+      "imported_results": [
+        "native_two_body_exchange_and_collision_compression",
+        "Boolean_slice_primitive_projection",
+        "finite_Birman_Schwinger_and_resolvent_identity",
+        "exact_characteristic_polynomial_and_Krylov_response",
+        "spectral_measure_residue_positivity",
+        "fraction_free_Sylvester_criterion",
+        "native_complete_reflected_E_score",
+        "finite_spectral_residual_bound_and_Hoeffding"
+      ],
+      "oph_specific_delta": "Derives a visible source-fixed finite two-body subthreshold correlation mode with an exact record residue, and proves a capacity-independent failure of its unchanged isolated-cell embedding into the connected source, with explicit criteria for a dressed spatial continuation.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_contact_response/PROOF.md"
+      ],
+      "falsifier": "The literal native generator disagrees with the exact contact compression, the primitive characteristic factor or positive residue fails, complete reflected records disagree with the scalar response, any native boundary triplet violates the proved leakage inequality, or the finite threshold/residual result is used to assert a localized physical particle without the required growing-source construction.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Finite observable correlated mode with proved failure of the unchanged local embedding; dressed persistence, scattering, relativity, physical species and measured masses require separate results."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
+      "statement": "For the connected fair binary source at one specified occupation 2<=q<=V-2, its positive transfer P_q fixes the normalized constant ground vector of H_M=-2M log(P_q). Complete reflected four-E records determine a positive-energy ground response matrix on primitive degree two. Blocking b=floor(M/(2r Delta)) native attempts gives Q=P^b>=I/2 when M>=2r Delta, so exact rational complex binomial polynomials reconstruct exp(-itH_M) responses from finite native lags with explicit truncation, coefficient amplification, preparation and independent-sampling bounds. The truncation and coefficient-amplification bounds are uniform in capacity at fixed correlation degree and time, while the required native lag and preparation resources retain their actual ceilings. A source-derived positive finite phase-kick response in the transfer ground conflicts with the exactly phase-blind bare native record law under an identity state/field/intervention dictionary. This is a statistical reconstruction and a precise operational identification condition; neither a prepared physical vacuum nor native unitary real-time evolution is asserted.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_transfer_ground_response"
+      ],
+      "imported_results": [
+        "positive_transfer_ground_and_spectral_calculus",
+        "Boolean_slice_primitive_intertwining",
+        "binomial_unitary_continuation_series",
+        "complete_reflected_E_record_response",
+        "native_degree_four_score_preparation",
+        "Chebyshev_union_bound",
+        "partial_injection_diagonal_record_effects",
+        "unitary_phase_kick_Taylor_remainder"
+      ],
+      "oph_specific_delta": "Attaches transfer-ground real-time response statistics to the same-q open native record experiment with capacity-uniform blocked continuation, explicit resource and amplification costs, and a quantitative intervention witness that prevents identification with the native working state by correlation reconstruction alone.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_vacuum_response/PROOF.md"
+      ],
+      "falsifier": "The blocked transfer violates its spectral floor, the exact continuation polynomial misses the stated response envelope, native reflected records or preparation/sampling costs disagree with the attached normalization, a nonadmitted sufficient program is treated as executed, or the claimed phase-kick lower bound or complete bare-record blindness fails within its stated observation domain.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Finite positive-energy response reconstruction with explicit statistical and resource bounds; the identity intervention dictionary fails, while other encodings, coherent controls and physical field identifications require their own proofs."
+      }
     }
   ],
   "claim_context": {
@@ -32825,6 +32969,210 @@
         {
           "claim_id": "OPH-MODEL-NATIVE-PROCESS-RECOVERY",
           "role": "supplies the actual fair federation transfer floor and local exchange action; its optional Poisson or coherent service clocks are not identified with the deterministic record process"
+        }
+      ]
+    },
+    "OPH-NATIVE-LOCAL-HISTORY-LIMIT": {
+      "prior_work": {
+        "summary": "Local graphical constructions, Poisson approximation and complete quantum instruments",
+        "overlap": "Locality via time-ordered influence paths, marked Poisson processes, coupling and channel contractivity are established techniques. The source-specific contribution retains native visible coins, complete raw instruments and a declared clock observation, composing them with canonical restriction and verified source halo maps. The elementary coupling and local-limit proof are given in full.",
+        "imported_step": "native_complete_endpoint_instrument_attachment; fixed_selector_backward_dependency_cone; canonical_hypergeometric_restriction; marked_categorical_Poisson_maximal_coupling; complete_channel_trace_distance_contraction; ordered_path_factorial_moment_bound",
+        "citations": [
+          {
+            "work": "Interacting particle graphical constructions",
+            "keys": [
+              "liggett1985interacting"
+            ]
+          },
+          {
+            "work": "Finite probability and coupling",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Owning native local cone and capacity restriction",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Complete local records at growing capacity",
+      "falsifiers": {
+        "mathematical": "The local selector cone omits an observed record dependence, the marked one-tick selector distance differs from lambda*(1-exp(-lambda)), an aligned common clock fails to preserve matched bin labels and order, a complete local instrument exceeds the stated reference-uniform allowance, or the actual halo transport changes a native record map.",
+        "physical_identification": "Use the complete fair native binary C/E instrument, fixed mixture, independent uniform selector, repair probability one and export-oldest memory. Observed endpoints and final ports lie in a fixed S; no global record-adaptive selector is used. The local observation explicitly traces remote raw values and exact global tick addresses, while retaining the source archive and within-bin order. All compared clock partition boundaries align to every native attempt grid. A common window comparison requires a rooted graph isomorphism with transported endpoint orientations and record labels. Arbitrary-reference state comparison requires the actual joint window/reference reduction; the canonical Bernoulli corollary assumes an independent common reference. The local-limit theorem consumes consistent state restrictions and stabilization of all fixed-radius rooted windows, without proving a unique routed source limit. Native admission and expanded-host caps are unchanged, and Poisson truncation retains an overflow allowance. The comparison process is not an added native scheduler, unitary evolution, physical time or relativistic field.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-LOCAL-RECORD-RESPONSE",
+          "role": "supplies the complete native endpoint attachment and fixed-selector arbitrary-reference cone identity; the marked local history limit and clock observation are proved separately"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CANONICAL-RESTRICTION",
+          "role": "supplies canonical restriction and the local Bernoulli error under its exact occupation and reference premises; no physical capacity selection is transferred"
+        }
+      ]
+    },
+    "OPH-NATIVE-COEXISTENT-EFFECTS": {
+      "prior_work": {
+        "summary": "Sequential quantum instruments, weak filters and circuit synthesis",
+        "overlap": "Quantum instruments, rank-one phase dilations, sequential weak measurements and positive-operator-valued measurement completeness are established. The source-specific result implements a bounded noncommuting coexistent family using the existing native nine-bit pulse alphabet and full export semantics, with explicit finite resources and certified stored-map errors.",
+        "imported_step": "rank_one_unitary_phase_dilation; native_binary_amplitude_and_Walsh_phase_synthesis; sequential_quantum_instrument_composition; Luders_success_filter_identity; telescoping_complete_POVM_identity; completely_positive_gain_and_half_diamond_error_composition",
+        "citations": [
+          {
+            "work": "Quantum instruments and state changes",
+            "keys": [
+              "davies1970operational",
+              "kraus1971general"
+            ]
+          },
+          {
+            "work": "Unsharp quantum measurements",
+            "keys": [
+              "busch1998luders"
+            ]
+          },
+          {
+            "work": "Walsh diagonal synthesis without additional registers",
+            "keys": [
+              "welch2014efficient"
+            ]
+          },
+          {
+            "work": "Finite quantum-channel error bounds",
+            "keys": [
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Owning native effect synthesis and OperationalBornBridge.lean",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Complete coexistent weak measurements",
+      "falsifiers": {
+        "mathematical": "A compiled phase has the wrong source-success or padding effect, a sequential effect omits prior disturbance, exact effects fail to sum to the identity, an unretained failure changes the complete output, an admitted word exceeds its stated source limits, or a primitive-certified complete instrument exceeds its gain-aware bound.",
+        "physical_identification": "Use the declared weighted 66-dimensional source code, nine-bit work carrier, original X,Y,Z,I,H,J requests, proper-code load, coherent gluing, processor blanks, complete address export and Kraus trace semantics. The bare repair/hold grammar does not issue the coherent words. Inputs are one through eight nonzero Gaussian-rational 66-vectors and rational survival amplitudes in [0,1], with at most 64 bits in each supplied numerator and denominator. Each stage uses two separately admitted 58392-pulse words and advances only on coherent source success. All first processor failures and the single padding-abort flag per word terminate the menu, with 446 internal padding Kraus rows and a final quantum residual. The complete numerical bound requires exact primitive-array checks for every emitted word; failing gates reject its certificate. The ideal target/resource construction is all-domain, while no all-input SciPy rounding theorem is asserted. Certificates bound exact products of stored primitive maps; floating propagation arrays are diagnostics and hardware error is outside scope. Rounded maps have bounded completely positive gain and are not assumed trace preserving. Generic execute_word retains its six-bit/256-pulse RESOURCE_STOP; the direct nine-bit tape and lazy complete instrument are separate interfaces. No destructive tree detector, free randomizer, extra register, universal coexistence quantifier, growing-capacity quantum refinement or physical-field identification is inferred.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+          "role": "supplies the native amplitude-tree and diagonal-phase words, exact angle intervals and per-emitted-primitive checks; the sequential update and common menu are proved separately"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+          "role": "supplies the declared source-code and coherent-service semantics; its destructive E-tree readout is not inserted between the weak-filter stages, and universal Born premises are not transferred"
+        }
+      ]
+    },
+    "OPH-NATIVE-CONTACT-RESPONSE": {
+      "prior_work": {
+        "summary": "Finite spectral theory, exclusion correlations and observable contact response",
+        "overlap": "Primitive Boolean-slice spaces, finite contact resolvent identities, Krylov response reconstruction, Sylvester positivity and concentration bounds are established mathematics. The source-specific result is the exact native cubic mode and complete-record residue together with the all-boundary connected-source leakage obstruction; a physical bound-particle or scattering theorem is not inferred.",
+        "imported_step": "native_two_body_exchange_and_collision_compression; Boolean_slice_primitive_projection; finite_Birman_Schwinger_and_resolvent_identity; exact_characteristic_polynomial_and_Krylov_response; spectral_measure_residue_positivity; fraction_free_Sylvester_criterion; native_complete_reflected_E_score; finite_spectral_residual_bound_and_Hoeffding",
+        "citations": [
+          {
+            "work": "Finite matrix spectral theory and positivity",
+            "keys": [
+              "horn2012matrix"
+            ]
+          },
+          {
+            "work": "Harmonic analysis on fixed-number Boolean slices",
+            "keys": [
+              "filmus2016orthogonal"
+            ]
+          },
+          {
+            "work": "Finite reversible chains and sampling concentration",
+            "keys": [
+              "levin2017markov",
+              "hoeffding1963probability"
+            ]
+          },
+          {
+            "work": "Owning native exchange, primitive, preparation and geometry contracts",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "An observable native contact mode",
+      "falsifiers": {
+        "mathematical": "The literal native generator disagrees with the exact contact compression, the primitive characteristic factor or positive residue fails, complete reflected records disagree with the scalar response, any native boundary triplet violates the proved leakage inequality, or the finite threshold/residual result is used to assert a localized physical particle without the required growing-source construction.",
+        "physical_identification": "Use the admitted fair local H66 source, independent uniform seams, fresh fair endpoint coins, repair probability one, equal C/E mixture and the reference I66/66 or a separately bounded scored preparation. The primitive coefficient space is ker D and its constant/one-body complement is retained. The independent-pair threshold belongs to the centered tensor comparison with coincidence loss retained, not an infinite-volume scattering continuum. Complete native E outcomes use outgoing past and incoming future contrasts; record backaction, zero addresses, FIFO exports and host stops are retained. Exact scored kernel factorization does not assert completion of the expanded interpreter. The connected-cell leakage requires the owning actual federation routing postconditions: the original local seams and three distinct boundary ports with distinct outside neighbors. Literal checks cover levels0,1,2; an all-level floating constructor return is not assumed. The endpoint lower bound is in the transfer Hilbert space, with t=n/(2M) and the owning native endpoint allowance; it is not a full-record channel-distance bound or implemented coherent time. Spectral-persistence budgets consume separately proved residual/gap/observation inputs. Independent repeated trials are required for the stated sampling bound. No physical length, laboratory clock, chiral charge, prepared transfer vacuum, scattering operator or particle-mass assignment is supplied.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
+          "role": "supplies the primitive two-body space and complete reflected E score on one fixed occupation; no physical particle interpretation is inherited"
+        },
+        {
+          "claim_id": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+          "role": "supplies the literal exclusion/contact comparison with collision retained; the finite resolvent and subthreshold residue are evaluated on the actual local source"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-PREPARATION",
+          "role": "supplies the scored arbitrary-reference warmup allowance, with the local gap and480-attempt budget explicitly instantiated"
+        },
+        {
+          "claim_id": "OPH-NATIVE-EXCHANGE-CLOCK",
+          "role": "supplies the native endpoint error3/(5n) at t=n/(2M), without implementing a coherent unitary or identifying a physical time"
+        },
+        {
+          "claim_id": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+          "role": "supplies the federation cell/three-port routing attachment only; its q=1 displacement law is not transferred to the q=2 contact sector"
+        }
+      ]
+    },
+    "OPH-NATIVE-TRANSFER-GROUND-RESPONSE": {
+      "prior_work": {
+        "summary": "Positive transfer reconstruction, finite analytic continuation and native observation channels",
+        "overlap": "Positive transfer spectral calculus, binomial approximation, finite Markov-chain bounds and elementary sampling estimates are established. The source-specific result joins the actual reflected open-record interface and preparation budgets to the transfer ground, controls capacity dependence through blocking, and quantifies the operation-map distinction from the working state.",
+        "imported_step": "positive_transfer_ground_and_spectral_calculus; Boolean_slice_primitive_intertwining; binomial_unitary_continuation_series; complete_reflected_E_record_response; native_degree_four_score_preparation; Chebyshev_union_bound; partial_injection_diagonal_record_effects; unitary_phase_kick_Taylor_remainder",
+        "citations": [
+          {
+            "work": "Finite reversible chains and spectral bounds",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Boolean-slice primitive decomposition",
+            "keys": [
+              "filmus2016orthogonal"
+            ]
+          },
+          {
+            "work": "Owning native transfer, modular continuation and complete record interfaces",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Positive-energy correlations from open records",
+      "falsifiers": {
+        "mathematical": "The blocked transfer violates its spectral floor, the exact continuation polynomial misses the stated response envelope, native reflected records or preparation/sampling costs disagree with the attached normalization, a nonadmitted sufficient program is treated as executed, or the claimed phase-kick lower bound or complete bare-record blindness fails within its stated observation domain.",
+        "physical_identification": "The source has independent uniform seam choices, fresh fair endpoint coins, repair probability one, a fixed C/E mixture, a connected graph and a declared conserved occupation. Positive transfer and the primitive-degree spectral ceiling are inherited from the owning finite source theorems. Each reflected probe uses two disjoint actual seams with past outgoing and future incoming contrasts; all raw records and backaction are retained. The reference-valued preparation bound ignores the retained warmup archive without adaptive conditioning. Complex polynomial combinations are separate statistical experiments, not one implemented effect. Sampling requires independent repetitions, and any score-zero host stop needs its own proved probability allowance. Exact rational coefficient evaluation is bounded to order96 and majorant integer128 in the executable. Native single-program and expanded host limits are unchanged; the displayed sufficient warmup is nonadmitted at federation levels1 and2. The phase-blindness comparison traces the terminal working carrier and concerns bare C/E records; coherent future analyzers and different state/operation encodings are outside its exclusion. The working tracial density, pure transfer ground and supplied gauge-matter ground are distinct. No physical time, Lorentz cone, continuum vacuum or particle spectrum follows.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-EXCHANGE-CLOCK",
+          "role": "supplies the positive source transfer, counted normalization, bounded-degree exchange ceiling and local-generator comparison; no unitary implementation or physical clock is inherited"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-PREPARATION",
+          "role": "supplies the arbitrary-reference normalized four-E score preparation and its explicit native budget; no full source density or pure ground preparation is inferred"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
+          "role": "supplies the same-q primitive intertwiner and complete reflected native E experiment, including its measurement backaction and variance"
         }
       ]
     }

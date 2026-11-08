@@ -1322,6 +1322,172 @@ implementation. These results fix a finite local exchange response, with
 no chiral matter, Lorentzian action or physical mass assignment
 (\path{model/native_exchange_clock}, \cite{ophrepo}).
 
+\subsection{An observable native contact mode}
+\label{sec:native-contact-mode}
+
+The fair twelve-port action at working reference $I_{66}/66$ has an
+observable correlated mode.
+On unordered distinct pairs write $G_2=\sum_e(I-S_e)$ and let
+$W_2=\ker D$, where $D$ sums pair coefficients at each port. Its dimension
+is $54$. If $Q$ projects onto $W_2$ and $A$ onto adjacent pairs, compression
+of the independent one-body sum gives $G_2+2A$. On $W_2$ this yields
+\[
+ H=G_2|_{W_2},\qquad H_0=H+2QAQ\ge2(5-\sqrt5)I.
+\]
+The coefficient two follows from the literal collision loss; it is not
+fitted. For the adjacent-coordinate insertion $E_A$, put $U=QE_A$ and
+$R_0(z)=(H_0-z)^{-1}$. Direct multiplication proves
+\[
+ (H-z)^{-1}=R_0+2R_0U(I-2U^*R_0U)^{-1}U^*R_0.
+\]
+Below the stated independent-pair threshold, the middle kernel detects
+eigenvalues with multiplicity. This is a finite comparison threshold,
+without an infinite-volume scattering interpretation.
+
+Exact integer characteristic polynomials give a fivefold native eigenvalue
+$E$ at the lowest root of
+\[
+ E^3-30E^2+280E-776=0,\qquad 5<E<51/10.
+\]
+It lies more than $2/5$ below the comparison threshold. The actual seam
+contrast $(n_0-n_1)(n_2-n_4)$ has a twelve-dimensional cyclic primitive
+space. Its exact scalar resolvent has coprime numerator and denominator,
+so all twelve distinct primitive poles have positive weight. At this
+lowest line the normalized weight obeys $1/100<w_E<1/50$; decimals are
+$E\simeq5.01827276928$ and $w_E\simeq0.01943798293$.
+Complete reflected four-E records have raw weight $(2/33)w_E$ and attempt
+transfer factor $1-E/60$. All raw branches and measurement disturbance
+are retained.
+
+The isolated-cell mode does not extend unchanged to the connected source.
+For any normalized vector in the fifteen-dimensional sum of the cubic
+eigenspaces, every three-port boundary attachment satisfies
+\[
+ \|(I-P_{\rm cell})G_{\rm federation}J_{\rm cell}f\|^2>1/100.
+\]
+Exact integer principal minors verify this for all $220$ possible boundary
+triples. Thus its unchanged embedding has residual greater than $1/10$,
+independent of capacity. A dressed candidate needs a separate residual,
+spectral isolation, localization or propagation, and accessible-residue
+bound. At fixed total occupation two the raw probe variance is
+$8/[V(V-1)]$, so normalized spectral weight alone does not ensure feasible
+sampling. These are native correlation poles, with no physical particle
+or mass assignment (\path{model/native_contact_response}, \cite{ophrepo}).
+
+\subsection{Positive-energy correlations from open records}
+\label{sec:native-vacuum-response}
+
+On the finite configuration transfer space, the constant unit vector
+$\Omega$ is the unique ground of $H_M=-2M\log P_q$. It differs from the
+native working density $I/\binom Vq$. For normalized primitive pair fields,
+the complete reflected record statistics determine, using the isometric
+primitive two-occupation representative of $H_M$,
+\[
+ W_{ij}(t)=\langle h_i,e^{-itH_M}h_j\rangle/4.
+\]
+This matrix has a positive spectral measure on nonnegative energies.
+It is a reconstructed ground correlation, without a claimed unitary
+implementation on the working carrier.
+
+The continuation has a controlled capacity dependence. On primitive
+degrees at most $r$, choose $b=\lfloor M/(2r\Delta)\rfloor\ge1$,
+$Q=P^b\ge I/2$ and $u=2Mt/b$. With
+$c_0=1$, $c_{k+1}=c_k(k-iu)/(k+1)$ and $N=\max(1,\lceil|u|\rceil)$,
+\[
+ V_m(Q)=\sum_{k=0}^m c_k(I-Q)^k=\sum_{j=0}^m a_jQ^j,
+ \quad
+ \|V_m(Q)-Q^{iu}\|
+ \le2^N-\sum_{k=0}^m\binom{N+k-1}{k}2^{-k}.
+\]
+Substituting the actual lag-$bj$ four-E statistics gives an explicit signed
+complex reconstruction. Its systematic error adds
+$A_m\eta$, where $A_m=\sum_j(|\Re a_j|+|\Im a_j|)$ and $\eta$ bounds
+each normalized prepared score. For $m+1$ settings, variance-bounded
+independent repetitions give sampling error at most $s$ with failure
+probability $p$ when each setting has at least
+$(m+1)A_m^2/(p v_q^2s^2)$ shots. This bound can be impractical; preparation,
+sampling and host-stop costs are not removed by analytic reconstruction.
+The displayed $t=1/64$, order-$12$ example requires $116424316$ attempts
+at level zero under its sufficient warmup bound. The corresponding levels
+one and two exceed the unchanged $2^{32}$ attempt ceiling, and the
+conservative $99\%$ sampling certificate requires more than $10^{17}$
+total repetitions. These are sufficient budgets, without an optimality claim.
+
+The reference distinction has an operational witness. Bare native record
+effects are diagonal, so an ideal diagonal phase on the working carrier
+changes no complete record
+law, even with arbitrary initial reference correlations. In the transfer
+ground the same field instead has susceptibility
+$-2\Im W_{ii}(t)$, with a strictly positive finite-kick margin certified
+by native moments and a Taylor remainder. Identifying these interventions
+and readouts without an additional map would assign two different responses
+to one experiment. A physical dictionary must preserve the intervention
+statistics as well as the reconstructed correlations
+(\path{model/native_vacuum_response}, \cite{ophrepo}).
+
+\subsection{Complete local records at growing capacity}
+\label{sec:local-history-limit}
+
+The capacity comparison also admits complete local quantum instruments.
+Fix observed seams and final ports with endpoints in a finite set $S$,
+and a radius-$r$ neighbourhood $B$ with $v$ ports and $K$ internal seams.
+Retain every observed native tag, coin, raw value and current, its order,
+and the final quantum state with an untouched reference. Remote records
+and exact global tick addresses are traced by this observation, while
+remaining available in the native archive. Choose a common partition
+$0=t_0<\cdots<t_b=t$ with $Mt_j$ integral and run $T=Mt$ native attempts.
+Each observed event is assigned its partition bin; its order within the
+bin is retained. Here $t$ is per-seam attempt time, twice the exchange
+time above, with no physical calibration.
+
+The complete instrument differs from its restriction to $B$ by at most
+\[
+ a_N=\min\left\{1,|S|\binom{T}{r+1}
+                    (\Delta/M)^{r+1}\right\}
+\]
+in half-diamond norm. Conditional on the input-independent selector word,
+the backward cone seeded at terminal $S$ contains every observed record
+root. Leaving $B$ requires a time-ordered path of $r+1$ seams, which proves
+the bound for arbitrary coherent inputs and references.
+
+Compare the restricted process to independent rate-one Poisson attempt
+clocks on its $K$ seams, applying the same native instrument at each event.
+In one interval of length $1/M$, the native window selector is empty with
+probability $1-\lambda$, or has each seam with probability $1/M$, where
+$\lambda=K/M$. The corresponding Poisson probabilities are
+$e^{-\lambda}$ and $e^{-\lambda}/M$, with every multiple-event word
+retained. Their exact total variation is
+$\lambda(1-e^{-\lambda})\le\lambda^2$. Coupling all $T$ intervals and
+applying the identical conditional quantum maps therefore gives
+\[
+ \tfrac12\|\Phi_B-\Phi_{\mathrm{Pois},B}\|_\diamond
+ \le d_N:=\min\{1,tK^2/M\}.
+\]
+Aligned boundaries give the same bin label on matched events. Exact
+continuous timestamps have a singular comparison with native grid times,
+and the full global record-count laws differ, so neither observation can
+replace the declared local binned one.
+
+If initial joint window/reference states differ by half-trace distance
+$\epsilon$, their complete observed outputs differ by at most
+$\min\{1,\epsilon+a_N+d_N\}$. For a canonical fixed-$q$ source and an
+independent common reference, comparison to a declared Bernoulli density
+$p$ gives
+\[
+ \epsilon\le\min\{1,v(v-1)/(2V)+v|q/V-p|\}.
+\]
+Matching rooted windows thus give an explicit comparison between source
+capacities. If all fixed-radius windows stabilize and their state
+restrictions converge, the additional Poisson cone bound
+$|S|(\Delta t)^{r+1}/(r+1)!$ constructs a limiting local instrument.
+The evaluated source levels zero through two have identical cell-zero
+radius-one windows with $15$ ports and $33$ seams, with a verified
+orientation-preserving record map. This establishes neither a unique
+all-radius routed refinement nor the physical density or spatial dimension.
+The proof and exact rational controls retain every overflow and distinguish
+kernel analysis from bounded native execution
+(\path{model/native_local_history_limit}, \cite{ophrepo}).
+
 \subsection{Native clock observables}
 \label{sec:native-clock-observables}
 
@@ -1444,6 +1610,36 @@ neither arbitrary-accuracy dense effects nor universal coexistent refinement.
 The composition consumes the declared coherent services and Kraus probability
 semantics; it does not derive those premises from repair counting
 (\path{model/native_effect_synthesis}, \cite{ophrepo}).
+
+\paragraph{Complete coexistent weak measurements.}
+The same source services give joint noncommuting effects with their
+disturbance. For a normalized rational-direction vector $u$, projector
+$P=|u\rangle\langle u|$ and rational $0\le s\le1$, couple $u$ to one
+existing padding address by a rank-one phase. Complete source export and
+a second correcting phase give the ideal surviving contraction
+$L=I+(s-1)P$ and abort effect $(1-s^2)P$. The abort retains its reference
+state and terminates; the success remains a quantum input to the next
+stage. For at most eight such stages, put $A_0=I$ and $A_j=L_jA_{j-1}$.
+The complete effects are
+\[
+ E_j=A_{j-1}^*(1-s_j^2)P_jA_{j-1},\qquad
+ E_{m+1}=A_m^*A_m,\qquad \sum_{j=1}^{m+1}E_j=I.
+\]
+The last identity telescopes, including every earlier disturbance. With
+$u_1=|0\rangle$, $s_1=3/5$, $u_2=(|0\rangle+|65\rangle)/\sqrt2$ and
+$s_2=4/5$, the $(0,65)$ entry of $[E_1,E_2]$ is $216/3125$.
+Their coexistence follows from one common complete instrument.
+
+Each stage uses two separately admitted $58392$-pulse words in the existing
+nine-bit work register. Every first processor failure, padding abort and
+residual outcome is retained, with no intermediate destructive tree readout.
+Conditional on all exact primitive checks passing, a gain-aware complete
+half-diamond bound for eight stages is below $1/50000$. The generic
+evaluator retains its resource stop; the direct compiler and lazy complete
+instrument have their own stated domain. This bounded family supplies
+noncommuting coexistent effects but does not implement every effect or
+discharge the universal operational Born premises
+(\path{model/native_coexistent_effects}, \cite{ophrepo}).
 
 \subsection{Protected charge and its native reference}
 \label{sec:protected-native-reference}
