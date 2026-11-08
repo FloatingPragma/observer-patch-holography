@@ -176,9 +176,13 @@ proof on all 65,536 states, independently of the imported Lieb theorem.
 
 The replay certifies `-206203/50000 < E_ground < -82481/20000`, trial
 infidelity below `10^-6`, half trace distance below `1/1000`, and expectation
-error below `||A||/500` for every bounded observable `A`. This is a verified
-finite reference approximation; a native source word preparing this new
-ground is still required. It is not the already prepared old `N=4` ground.
+error below `||A||/500` for every bounded observable `A`.
+The [complete native preparation](../centered_native_preparation/README.md)
+executes a signed amplitude tree and the full local inverse frame for this
+`N=8` ground on all 65,536 field rows. Its complete preparation error is
+less than `10^-7`, with every first-export failure retained. It uses supplied
+blank registers and coherent source controls; autonomous ground selection
+is not established.
 
 For any explicitly declared Hermitian perturbation with norm below `1/256`,
 minmax also preserves uniqueness and gives gap `>1/128-2||V||`. This finite
@@ -478,6 +482,9 @@ particle-hole matrix check, imported Lieb theorem hypotheses, actual
 cube one-site faithfulness and entropy estimates, the complete dimer
 calculation, complete finite gap and trial-state error, full charged selection
 and repair identities, and the centered-state construction. Floating proposals
-are independently checked by exact integer arithmetic. Native preparation of this changed ground,
-surviving continuum interactions, physical particle identities and masses,
-and the same-state geometric/modular/Einstein requirements remain open.
+are independently checked by exact integer arithmetic. The
+[native preparation and charged readout](../centered_native_preparation/README.md)
+retain the full centered carrier and every failure record. An effective
+thermodynamic marginal convergence bound, surviving continuum interactions,
+physical particle identities and masses, and the same-state geometric,
+modular and Einstein requirements are not supplied by this finite result.
