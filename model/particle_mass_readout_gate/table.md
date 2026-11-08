@@ -18,6 +18,8 @@ one-particle subspaces. It is not a rest-frame measurement or a statement about 
 | (1,1,1) | E=v|p| | 0 | Unidentified |
 
 Convention: centered ground, K=H-(U/2)N, hbar=1, declared v>0. No physical unit calibration.
+Source family: `c=v/a with fixed v>0; 0<=U(c)=o(c^(2/7))`.
+This sufficient free class is not a sharp phase boundary; interactions outside it are unproved.
 The ordered-spin branch has no admitted relativistic mass readout and is not combined with these rows.
 Ratios of the zero control parameters are undefined. Finite selection gaps are not entered as masses.
 

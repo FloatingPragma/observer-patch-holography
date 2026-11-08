@@ -3,11 +3,11 @@
 The generated [census](table.md) is a control on one declared source family.
 It is **not a physical particle spectrum**. Its physical particle mass table
 is empty. The eight entries are the kinetic valleys of the centered
-bounded-contact free limit, with both particle-addition and hole branches
+free-continuum class, with both particle-addition and hole branches
 retained. The ordered-spin construction is a separate branch whose
 relativistic mass readout is undetermined.
 
-The producer replays the retained free-limit and canonical-spin-energy
+The producer replays the retained free-limit, ballistic free-class and canonical-spin-energy
 receipts against their complete producers. It binds their actual proof and
 code inputs, reproduces all eight Weyl-symbol identities and checks the
 charged-clock bound below. This verifies the declared model results; it
@@ -16,9 +16,10 @@ attachment.
 
 ## What the zero invariant parameter means
 
-The [free-limit proof](../continuum_free_limit/README.md) uses the centered
-ground of `K=H-(U/2)N`, `c(a)=v/a`, fixed `v>0`, and uniformly bounded
-`0<=U(a)<=Umax`. One common limiting state carries all eight valley fields
+The [free-limit proof](../continuum_free_limit/README.md) and its
+[ballistic extension](../ballistic_free_boundary/README.md) use the centered
+ground of `K=H-(U/2)N`, `c(a)=v/a`, fixed `v>0`, and the sufficient class
+`0<=U(c)=o(c^(2/7))`. One common limiting state carries all eight valley fields
 and their common time and spatial translation groups. Their one-particle
 and hole generators satisfy
 
@@ -86,8 +87,10 @@ replace it. The charge is occupation excess, with no electromagnetic
 identification supplied.
 
 Unbounded contact alone is insufficient to avoid a free limit: the
-[growing-contact theorem](../strong_coupling_refinement/README.md) also
-covers `U(c)=o((log c)^(3/2))` with `c=v/a`. A massive interacting result
+[ballistic propagation theorem](../ballistic_free_boundary/README.md)
+covers `0<=U(c)=o(c^(2/7))` with `c=v/a`, including `U=c^(1/4)`.
+The exponent is sufficient; it is not a sharp phase boundary, and lying
+outside this class does not prove surviving interactions. A massive interacting result
 therefore requires a justified capacity-to-coupling and length/clock map,
 a controlled selected state and a finite nonzero mass-shell component on
 the same clock. The cited source families declare their coupling laws;

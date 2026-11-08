@@ -260,9 +260,11 @@
   "free_branch_convention": {
     "clock": "K=H-(U/2)N in its own centered ground GNS representation",
     "entire_Fock_space_has_zero_invariant_mass": false,
+    "interactions_above_boundary_proved": false,
     "momentum": "common continuous spatial translations of all eight continuum valleys",
     "one_particle_and_hole_scope_only": true,
-    "refinement": "a->0, c(a)=v/a, fixed v>0, 0<=U(a)<=Umax<infinity",
+    "refinement": "c=v/a with fixed v>0; 0<=U(c)=o(c^(2/7))",
+    "sharp_boundary_at_power_2_over_7_claimed": false,
     "state": "new particle-hole invariant centered ground of K=H-(U/2)N",
     "units": "hbar=1 and declared v>0; no physical unit calibration"
   },
@@ -277,9 +279,22 @@
   },
   "parent_complete_producers_replayed": [
     "model/continuum_free_limit/results.json",
-    "model/spin_canonical_energy/results.json"
+    "model/spin_canonical_energy/results.json",
+    "model/ballistic_free_boundary/results.json"
   ],
   "parent_theorems": {
+    "model/ballistic_free_boundary/results.json": {
+      "clock": "same centered K=H-(U/2)N",
+      "excitation_energy": "v*|p|",
+      "full_field_limit": "free eight-valley Weyl vacuum hierarchy",
+      "interactions_above_boundary_proved": false,
+      "physical_species_identified": false,
+      "protected_spin_limit_excluded": false,
+      "rest_masses_in_this_free_class": "zero",
+      "sharp_boundary_at_power_2_over_7_claimed": false,
+      "spacing": "c=v/a with fixed v>0",
+      "sufficient_coupling_class": "0<=U(c)=o(c^(2/7))"
+    },
     "model/continuum_free_limit/results.json": {
       "Einstein_requirements_completed": false,
       "Weyl_chiralities_each_sign": 4,
@@ -420,6 +435,13 @@
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/ballistic_free_boundary/README.md": "c3f8902936ef7d0a83db735994012ce1b4454baf7dea03d9621e5d7f5d1eb786",
+    "model/ballistic_free_boundary/__init__.py": "dc5ba014539aa0b671fa78ad244a3c1270f30ca96aaf1b910ceb11f205ceaf78",
+    "model/ballistic_free_boundary/__main__.py": "71604a9fab2bb8edfba8b8543e0c79215b6edf0a3d6e77cce8f5015cba4264b3",
+    "model/ballistic_free_boundary/bounds.py": "77c96f609faed4162aef459405fdc97c6f5f8c3ee989c1b517bdf10b0bd5cb81",
+    "model/ballistic_free_boundary/packet.py": "df33ac3d91b3de75869962bc523451d350fe6ae0bd98cb3bca537533a73174f7",
+    "model/ballistic_free_boundary/results.json": "9cd82356e169477d05f9c3ce5d85496d9c9ed260bfd0007f6cc71b0e0c106f0e",
+    "model/ballistic_free_boundary/test_bounds.py": "c2b5a546bad0507ab8c7377a86fd3f3645ccffc58da0fbe46986731b5a8ea607",
     "model/centered_source_ground/README.md": "7235c8049bf13239195513e25a8b10923fc398548ff65cf2c660fdf421233059",
     "model/centered_source_ground/__init__.py": "bc6ede7c86f02898041d1cca67876e59a81f2fd024bf085bf752cf499b8147cf",
     "model/centered_source_ground/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
@@ -737,14 +759,14 @@
     "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
     "model/particle_identification/__init__.py": "823a83bed70c4eeefc4a0f25705906c0e678fc17ce2a89753368d23d66d6cd6f",
     "model/particle_identification/vacuum.py": "429c97bb37612bb1ab1ca48091cfd581967ae0516afcb84fcc9b65cee1fe3deb",
-    "model/particle_mass_readout_gate/README.md": "10f69588d82c20e258d81f717f7fcabe154bca75a7fed64ff53d4d17e6e1e13c",
+    "model/particle_mass_readout_gate/README.md": "0d250497d3598beb2ed4f6a9fd78cf2d0bfd7d27e4db18d2a49838857e56956f",
     "model/particle_mass_readout_gate/__init__.py": "d6b1cdaeedfc2f1f98eb5dd3c99ede0c24be88e835e594516262f6cda118ec30",
     "model/particle_mass_readout_gate/__main__.py": "54e27441d4d9c7925e059c242919e613966835f1de05222c4ab1d816c5b44cf3",
     "model/particle_mass_readout_gate/algebra.py": "62fd9f6a786a8b52a1724604ef25da23d9de3c96ab23c52e64baad725809abff",
     "model/particle_mass_readout_gate/bounds.py": "e1fe170db5e07907019b70754290c55b7b8be9dcab57693f310eaae8bdd0c455",
     "model/particle_mass_readout_gate/charge_bridge.py": "ed43611940471cd3422edeba89b011dc01dd9e88a5feea166b72f340ca2d03fb",
-    "model/particle_mass_readout_gate/packet.py": "f2efeecdb20ea0beafdb7bb8c105dd9d0e84304eb93dd0cb61c8dd24aec48d68",
-    "model/particle_mass_readout_gate/test_gate.py": "f9b5326c6edead48686c3acc54be24878acae646b1394e6c03dcfd5a7725fffb",
+    "model/particle_mass_readout_gate/packet.py": "3cdfb686702f6812732522702cac353194de3f13f7041b38fd41fa269c55064b",
+    "model/particle_mass_readout_gate/test_gate.py": "fcf802147d899f74d3c764dd11a48e92415cb3acdcbc0e00592a0880a6537530",
     "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
     "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
     "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",

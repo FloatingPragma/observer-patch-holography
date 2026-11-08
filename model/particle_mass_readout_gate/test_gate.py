@@ -27,6 +27,10 @@ def test_actual_source_census_and_empty_physical_table(report):
     assert report['mass_ratios'] == []
     assert report['ordered_spin_branch']['invariant_rest_energy_squared'] is None
     assert not any(report['physical_admission'].values())
+    assert '0<=U(c)=o(c^(2/7))' in report['free_branch_convention']['refinement']
+    assert report['free_branch_convention']['sharp_boundary_at_power_2_over_7_claimed'] is False
+    assert report['free_branch_convention']['interactions_above_boundary_proved'] is False
+    assert 'model/ballistic_free_boundary/results.json' in report['parent_complete_producers_replayed']
 
 
 @pytest.mark.parametrize('mutation', [
