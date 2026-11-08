@@ -97,8 +97,13 @@ the required dynamical and physical attachments are:
    specified source family, state prescription and clock. Give effective
    finite preparation/observation bounds for the growing supports and times
    used below. For the spin source, positive-field adiabatic preparation
-   and interior marginal bounds supply this interface at fixed B>0;
-   comparison to the selected zero-field state needs its own modulus.
+   and interior marginal bounds supply this interface at fixed B>0.
+   The [joint positive-field family](../spin_joint_field_limit/PROOF.md)
+   constructs two regular canonical pairs and complete fixed-scale native
+   histories using its prepared H_B ground and H_B clock throughout.
+   Its chosen power law and limiting history state require physical
+   selection and effective continuum control; identifying it with the
+   ordered-zero-field route would require an additional comparison.
    The spin, color and prescribed-texture constructions do not
    acquire a common action merely by appearing in the catalogue.
 2. **Observable excitation sectors.** Carry each candidate's creation,
@@ -114,6 +119,13 @@ the required dynamical and physical attachments are:
    its strictly positive limiting weight is an unproved source estimate.
    The existing shell theorem also accepts a commuting subprojection
    with fixed original weight and a vanishing projected force residual.
+   On the direct joint family, the [actual filtered-current bound](../spin_joint_field_limit/FORCE_READOUT.md)
+   is O(p^2); its complete source readout exposes the stronger o(p^2)
+   cancellation sufficient for a linear force without conditioning on success.
+   The [bounded resolvent criterion](../spin_dynamical_memory/RESOLVENT_CLOSURE.md)
+   tests whether an actual response space reduces its clock; a separate
+   joint-momentum identification fixes dispersion. Vanishing of this defect
+   on the continuum source is unproved, and high-energy tails remain explicit.
    Attach one operational boost to the same field histories and clock, using the
    existing finite-rotation and celestial results for its geometric
    consequences. A finite propagation bound does not fix its light speed.

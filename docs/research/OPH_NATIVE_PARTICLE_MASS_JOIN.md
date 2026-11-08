@@ -24,6 +24,36 @@ internal weights match the comparison representations, including conjugate
 right-handed components. It supplies no source-selected family indices, physical
 mass eigenstates or topological assignments; those fields are explicitly empty.
 
+## A prepared field on one state and clock
+
+The [joint positive-field family](../../model/spin_joint_field_limit/PROOF.md)
+uses the specified `p=n^-2`, `B=J n^-5` prescription. Both regular canonical
+pairs and their full internal U1 use its positive-field ground and H_B clock.
+Complete fixed-scale native preparation, clocks and local Pauli records have
+explicit combined error bounds. The catalogue records this as a distinct
+constructed field sector. It assigns no Standard Model species or mass.
+This does not identify its histories with the ordered-zero-field
+prescription or give a computable continuum-history convergence rate.
+
+The [force readout](../../model/spin_joint_field_limit/FORCE_READOUT.md)
+measures the unnormalized energy-filtered current or linear-force residual.
+The actual current has the natural O(p^2) filtered norm. A cancellation
+o(p^2) is a sufficient source-norm route to the proposed linear field
+equation; it is unproved.
+The complementary outcomes and sampling, preparation and detector errors
+remain in the measurement. A small finite residual alone gives no uniform
+continuum error or nonzero particle pole.
+
+The [bounded clock-closure criterion](../../model/spin_dynamical_memory/RESOLVENT_CLOSURE.md)
+tests whether a source-created response space is preserved by the clock:
+`D=V*S^2V-(V*SV)^2`, `S=z(K+z)^-1`, is positive and vanishes exactly
+for a reducing response space. This does not determine its dispersion.
+The actual dimer's complete original success weights are `81/400` and
+`16/121`; its single prepared response has nonzero D, while the two-energy
+span has D=0. Both records are retained; neither energy is a continuum
+mass. Applying the criterion to a growing response needs controlled Gram
+inversion, accessible same-clock filters and original-probability errors.
+
 ## A created local symmetry-sector excitation
 
 The [complete spin experiment](../../model/defect_localization_readout/PROOF.md)

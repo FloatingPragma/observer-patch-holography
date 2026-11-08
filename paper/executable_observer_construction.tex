@@ -2265,7 +2265,7 @@ To select the ordered reference, prepare the unique finite ground of
 $H_B=H_J-B\sum_x\epsilon_xS_x^1$, where $B>0$ and
 $\epsilon_x=(-1)^{x_1+x_2+x_3}$. The finite ground has a terminating
 source-control preparation algorithm. Taking volume to infinity before
-$B\downarrow0$ gives the ordered state used throughout this construction.
+$B\downarrow0$ gives the state used in the ordered-zero-field route.
 The matched infrared inequalities give staggered order $m>1/1000$ and
 filtered excitation energies between positive multiples of momentum
 \cite{komaDispersion}. They do not assert a sharp spectral pole.
@@ -2317,6 +2317,36 @@ This is uniform in exterior volume and tends effectively to zero with
 the box radius at fixed B. It passes to complete local instruments and
 independent references. It supplies no B-to-zero marginal rate
 (\path{model/spin_fixed_field_locality}, \cite{ophrepo}).
+
+A joint prescription instead retains the field in both state and clock:
+$p=n^{-2}$, $B=Jn^{-5}$ and $L_{B,p}=K_B/(Jp)$. The gap and local source
+commutators bound the order variance by $48N_0\|f\|_\infty^2/n$ and the
+normalized bond variance by $(792/n+24/n^6)a^2V_0$. The same clock transports
+their scalar phases through bounded histories. Transverse infrared bounds
+and a staged mixed-commutator argument construct two regular canonical
+pairs $(Q_3,P_2)$ and $(Q_2,P_3)$, with full internal U(1), continuous spatial
+translations and positive time evolution. Fixed-scale native preparation,
+clocks and Pauli histories retain all records with a computable total error.
+This is a chosen joint prescription; continuum uniqueness and its effective
+convergence rate are unproved (\path{model/spin_joint_field_limit}, \cite{ophrepo}).
+
+For its actual source current $Z_p(G)=p^3\sum_{x,i}D_i^pG\,C^2_{x,i}$,
+\[
+ i[L_{B,p},P_2(G)]=-p^{-2}Z_p(G)-n^{-1}Q_3(G).
+\]
+A contraction energy filter $\rho$ supported in $[0,M]$ gives
+\[
+ \|\rho(L_{B,p})Z_p(G)\Omega_B\|
+ \le p^2\bigl(M\|P_2(G)\Omega_B\|+n^{-1}\|Q_3(G)\Omega_B\|\bigr).
+\]
+The stronger source-norm cancellation
+$\|\rho(L_{B,p})[Z_p(G)+p^2aQ_3(\Delta G)]\Omega_B\|=o(p^2)$
+would identify the proposed linear force on these filtered vectors.
+It is not supplied by the $O(p^2)$ bound. Complete Pauli scores measure
+the unnormalized squared residual, with their full error divided by $p^4$
+when testing this limit. The exact finite control includes the actual two-spin
+spectrum and all 64 labelled setting/pointer records; no continuum mass
+or pole is inferred (\path{model/spin_joint_field_limit/FORCE_READOUT.md}, \cite{ophrepo}).
 
 For the same finite input on $N$ sites and $m$ interventions, let
 $T_{\rm abs}$ bound the sum of absolute controlled evolution durations on

@@ -61,6 +61,25 @@ spelled out in the [position and uncertainty construction](OPH_FIELD_RECONSTRUCT
 Field canonical commutators do not by themselves identify a particle's
 localization instrument.
 
+## A common positive-field preparation and clock
+
+The [joint-family construction](../../model/spin_joint_field_limit/PROOF.md)
+keeps the prepared H_B ground and H_B evolution together at
+`p=n^-2`, `B=J n^-5`. It constructs two regular canonical pairs, their full
+internal U1, positive energy and continuous spatial translations along a
+common bounded-history subsequence. Complete fixed-scale local experiments
+have computable source preparation, boundary, clock and readout errors.
+This power law is a supplied source prescription; repair does not select it.
+Neither equality to the ordered-zero-field histories nor a unique effective
+continuum limit is asserted. Field canonical momentum and the generator
+of spatial translations remain distinct observables.
+
+The [same-clock force test](../../model/spin_joint_field_limit/FORCE_READOUT.md)
+is expressed in actual source currents and complete Pauli records. Its
+natural filtered O(p^2) bound leaves the stronger o(p^2) source-norm
+cancellation open. This is a sufficient route to the projected linear force. Full CCR and internal U1 do not determine a relativistic
+dispersion, physical spin or the interaction of a particle sector.
+
 ## Strong coupling from the configured color source
 
 For the selected spin action, the

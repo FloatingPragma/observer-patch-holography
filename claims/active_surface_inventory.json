@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1260,
+  "surface_count": 1266,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4691,6 +4691,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_dynamical_memory/RESOLVENT_CLOSURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_energy_polarization/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4712,6 +4717,31 @@
     },
     {
       "path": "model/spin_goldstone_sector/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/CLOCK_COMPARISON.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/FORCE_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/SECOND_PAIR.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

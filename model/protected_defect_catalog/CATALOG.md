@@ -3,20 +3,39 @@
 The catalogue records separate source architectures. It is not a list of physical species.
 Completeness applies only to the explicit domains in the table; there is no exhaustive census over all OPH realizations.
 
-| Object | Protecting source and object | Completeness | Particle attachment |
+| Object | Protecting source and object | Observer-facing connection | Physical species |
 | --- | --- | --- | --- |
-| bare_native_source | only scalar branch-commuting charges | entire branch commutant, every quantum basis | Unproved |
-| ordered_exchange_charge | Q=I66 tensor X, two sharp eigenvalue sectors | entire all-seam commutant span{I,Q} | Unproved |
-| selected_spin_charge | integer U1 spin charge Q; global X parity is exp(i pi Q); local Z creates two sharp Q=+/-1 channels | all 65536 Pauli-product words plus exact full charge spectral resolution; not all conserved operators | Unproved |
-| single_occupancy_spin_memory | full M256 operator algebra under repair alone | entire operator algebra of this code under the specified repair | Unproved |
-| joint_positive_field_canonical_sector | two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories | specified field subnet along a common history subsequence; neither all continuum observables nor all protected defects are classified | Unproved |
-| common_hidden_spin_factor | at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315 | exhibited common spin factor; maximal joint noiseless algebra not classified | Unproved |
-| cube_eta_range | rank1820 image of eta+ from N4 to N6; eta>=2 sector | entire image of this injective map; all protected sectors not classified | Unproved |
-| compact_opposite_texture_cores | opposite shell degrees +1 and -1, constant exterior, four localized band modes | specified texture family and certified isolated band, not all native defects | Unproved |
+| bare_native_source | only scalar branch-commuting charges | complete native records; no nontrivial source-only charge | Unidentified |
+| ordered_exchange_charge | Q=I66 tensor X, two sharp eigenvalue sectors | coherent charge pointer and pair-configuration transport | Unidentified |
+| selected_spin_charge | integer U1 spin charge Q; global X parity is exp(i pi Q); local Z creates two sharp Q=+/-1 channels | coherent local charge creation; conjugate continuum configuration fields | Unidentified |
+| single_occupancy_spin_memory | full M256 operator algebra under repair alone | native spin controls and pointers; nontrivial exchange dynamics | Unidentified |
+| joint_positive_field_canonical_sector | two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories | two regular canonical pairs and full internal U1; complete fixed-scale prepared H_B histories | Unidentified |
+| common_hidden_spin_factor | at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315 | complete ideal joint histories preserve the global spin factor | Unidentified |
+| cube_eta_range | rank1820 image of eta+ from N4 to N6; eta>=2 sector | prepared eta reference and complete local spectral response | Unidentified |
+| compact_opposite_texture_cores | opposite shell degrees +1 and -1, constant exterior, four localized band modes | declared transported four-mode band and current readout | Unidentified |
+
+## The source-to-observation chain
+
+The selected spin branch has the following proved connections:
+
+1. The signed native full-Fock charge pulls through the spin/Marshall inclusion to Q.
+2. Local Z followed by one X pointer prepares coherent Q=+1 or Q=-1 states, retaining both original probabilities.
+3. Complete [energy and clock readouts](../source_energy_effort/ENERGY_READOUT.md) measure their creation work.
+4. A [fixed charge detector](../charge_channel_lifetime/PROOF.md) retains nonzero contrast under charge-preserving evolution even when return survival decreases.
+5. On the prescribed ordered-state limit, the same U1 acts on Phi+=(Q3-iQ2) and Phi-=(Q3+iQ2). Source conjugation gives equal nonzero energy--momentum measures.
+6. [Bounded charged creators](../spin_charge_dispersion/PROOF.md) retain original positive joint-band probability at least1/1757600 at every momentum scale, using the same source state and clock.
+7. [Separated field preparations](../source_charge_scattering/CONTINUUM_PAIRS.md) realize every finite charge-sign pattern with positive original probability and an energy bound; all integer internal-charge sectors occur. These are sector labels, not a species count.
+
+The last connection is to collective field excitations. The finite local states are not identified with continuum poles.
+Dispersion, asymptotic scattering and physical quantum numbers are the required next connections to empirical species.
+The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.md) keeps that empirical assignment separate.
+
 
 ## bare native source
 
 **Source:** complete all-seam C/E on H66 or H78; source-only charges.
+
+**Classification domain:** entire branch commutant, every quantum basis.
 
 **Preparation and readout:** native complete occupation/current records.
 
@@ -32,6 +51,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 
 **Source:** H66 with a coherent orientation bit; complete ordered-cover repair.
 
+**Classification domain:** entire all-seam commutant span{I,Q}.
+
 **Preparation and readout:** coherent memory preparation; complete charge pointer; local qutrit realization retains the same Q.
 
 **Propagation and energy:** exact pair-configuration transport; no relativistic rest-energy map.
@@ -45,6 +66,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 ## selected spin charge
 
 **Source:** actual eight-site selected spin cube, J=1, B=1/4; inherited two-flavor repair.
+
+**Classification domain:** all 65536 Pauli-product words plus exact full charge spectral resolution; not all conserved operators.
 
 **Preparation and readout:** complete native local-Z followed by one X pointer prepares coherent Q=+/-1 branches; separate ideal 256-outcome X audit resolves charge weights and dephases within sectors.
 
@@ -60,6 +83,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 
 **Source:** eight-site one-particle-per-site spin code with complete C/E repair.
 
+**Classification domain:** entire operator algebra of this code under the specified repair.
+
 **Preparation and readout:** declared spin control and detector services.
 
 **Propagation and energy:** exchange evolution acts nontrivially within the code.
@@ -73,6 +98,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 ## joint positive field canonical sector
 
 **Source:** protected spin interaction H_B=J sum(S_x.S_y-1/4)-B sum epsilon_x S_x^1; supplied p=n^-2 and B=J n^-5; positive-B ground and retained H_B clock.
+
+**Classification domain:** specified field subnet along a common history subsequence; neither all continuum observables nor all protected defects are classified.
 
 **Preparation and readout:** finite positive-field ground preparation, local marginal modulus, source spin-rotation observables and complete native local Pauli histories with all pointer and failure records.
 
@@ -88,6 +115,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 
 **Source:** same six-site Weyl/contact field and complete charged-block repair.
 
+**Classification domain:** exhibited common spin factor; maximal joint noiseless algebra not classified.
+
 **Preparation and readout:** complete ideal joined histories with arbitrary spin/reference correlations.
 
 **Propagation and energy:** multiplicity evolves and localized carrier leaks; repair need not conserve field energy.
@@ -102,6 +131,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 
 **Source:** original eight-site Weyl/contact field with the stated four-dimer repair.
 
+**Classification domain:** entire image of this injective map; all protected sectors not classified.
+
 **Preparation and readout:** source-prepared eta reference and complete local response detector.
 
 **Propagation and energy:** same interacting action intertwines with an energy shift U; one probe has eight inelastic lines plus elastic weight.
@@ -115,6 +146,8 @@ Completeness applies only to the explicit domains in the table; there is no exha
 ## compact opposite texture cores
 
 **Source:** prescribed two-core texture in the declared cubic two-spin field.
+
+**Classification domain:** specified texture family and certified isolated band, not all native defects.
 
 **Preparation and readout:** declared texture and transported band controls; autonomous source formation unproved.
 

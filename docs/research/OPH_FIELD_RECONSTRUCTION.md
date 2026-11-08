@@ -66,6 +66,57 @@ This is a state comparison, not an arbitrary-input channel bound.
 The constants diverge as B tends to zero; comparison with the selected
 zero-field state requires a separate rate.
 
+### A prepared joint source family
+
+The [joint-family construction](../../model/spin_joint_field_limit/PROOF.md)
+uses `p=n^-2`, `B=J n^-5`, the positive-field ground and the same H_B clock
+at every scale. This is a specified preparation prescription, not a power
+law selected by unread repair. It avoids replacing that state or clock
+by the ordered zero-field prescription. At each fixed n, the volume,
+adiabatic, native clock and complete local Pauli-record errors have a
+computable combined bound. Large certified schedules are resource bounds,
+not executed simulations.
+
+On a common bounded-history subsequence it gives two regular canonical
+pairs, `(Q3,P2)` and `(Q2,P3)`, with
+`Q_a(F)=p^2 sum epsilon_x F(px) S_x^a`,
+`P2(G)=-p sum G(px) S_x^2`, and `P3(G)=p sum G(px) S_x^3`.
+Both symplectic coefficients are the same source order `m integral FG`,
+with `m>1/10`; all cross pairs commute. The
+[mixed-momentum proof](../../model/spin_joint_field_limit/SECOND_PAIR.md)
+first controls auxiliary transverse phases, then the longitudinal phase,
+then the mixed Weyl commutator on complete histories. This avoids assuming
+the extra canonical pair from a vacuum commutator alone. Even microscopic
+translations give common continuous spatial translations. The full internal
+U1 acts on both pairs and commutes with the same positive time generator.
+The source locality bound gives a finite propagation cone.
+
+The positive-field gap supplies quantitative order variance O(1/n) and
+bond-coefficient variance at most `(792/n+24/n^6) a^2 V0` for the owning
+coefficient/support normalization. Scalar twist coefficients do not imply
+closure of the dynamical field algebra. The construction supplies no
+unique continuum history state, effective continuum convergence modulus,
+Lorentz transformation or sharp particle branch. Equality with the
+ordered zero-field history limit is unproved. The exact
+[clock comparison](../../model/spin_joint_field_limit/CLOCK_COMPARISON.md)
+controls equal-time selection rotations and states the additional
+mixed-history estimate required for that equality.
+
+The [actual filtered force](../../model/spin_joint_field_limit/FORCE_READOUT.md)
+isolates a quantitative dynamical target. For the positively oriented
+source current `Z_p(G)=p^3 sum D_i^pG C^2_(x,i)`,
+`i[L_B,p,P2(G)]=-p^-2 Z_p(G)-(1/n)Q3(G)`.
+For a contraction energy filter rho supported in [0,M],
+`||rho(L_B,p) Z_p(G) Omega_B|| <= p^2(M||P2(G)Omega_B||
++ ||Q3(G)Omega_B||/n)`.
+A sufficient source-norm route to the proposed linear force coefficient a is
+the stronger cancellation `||rho(L_B,p)[Z_p(G)+p^2 a Q3(Delta G)]Omega_B||=o(p^2)`.
+The O(p^2) current bound does not prove it. Complete finite Pauli scores
+measure the unnormalized squared residual with all outcomes retained;
+the error must also be o(p^4) to resolve this test. This is a proof and
+measurement interface, not a measured mass. Here P2/P3 are canonical
+field momenta, distinct from the generator of spatial translations.
+
 [Clock comparison and energy continuity](../../model/native_spin_clock_join/README.md)
 control complete histories of `H_B` and `H_J` on the same prepared input and
 construct finite local energy currents. They do not identify that finite input
@@ -77,12 +128,29 @@ original spectral weight near a specified energy-momentum relation, with
 clock leakage, aliases, failed preparations and sampling errors retained.
 A finite energy band is not a proof of a continuum particle pole.
 
-For this chain the precise additional requirements are:
+The [bounded response-closure test](../../model/spin_dynamical_memory/RESOLVENT_CLOSURE.md)
+uses the actual positive clock K and source-preparation isometry V.
+With `S=z(K+z)^-1`, `A=V*SV`, the positive defect
+`D=V*S^2V-A^2=R*R`, `R=(I-VV*)SV`, vanishes exactly when that response
+space reduces K. It needs no unbounded energy moment. A dispersion claim
+also requires independent identification of A with `z/(w(P)+z)` on a
+space reducing the actual spatial translations. Finite Gram/resolvent
+records supply a test only within their stated access and error bounds.
+Small D alone gives bounded polynomial comparison, not unqualified time
+evolution: high-energy leakage needs its own cutoff/tail estimate.
+The actual source dimer distinguishes a nonreducing local preparation
+from its reducing two-energy span. This is not an actual continuum
+vanishing-defect theorem. A two-speed field with two CCR pairs and full
+internal U1 shows why those kinematic inputs and scalar twist coefficients
+cannot select one field equation.
 
-1. Extend the proved positive-field preparation and volume bounds to the
-   selected zero-field state at the growing times and spatial supports
-   required by spectroscopy. The B-to-zero state error is distinct from
-   the controlled fixed-B finite-volume error.
+For these spin prescriptions the precise additional requirements are:
+
+1. Select a common preparation/refinement prescription and give an effective
+   continuum history error for the growing spectroscopy supports and times.
+   The ordered-zero-field route needs its B-to-zero marginal modulus.
+   The direct joint H_B route has complete fixed-scale preparation and
+   local histories, but no effective convergence rate to its field limit.
 2. Prove the ground-specific inverse-current tail bound, or another estimate
    that controls the continuum energy and current responses. Finite positive
    relaxed susceptibility does not establish that tail bound.
@@ -102,8 +170,9 @@ The [current sum rule](../../model/spin_current_spectrum/README.md) and
 missing correlation estimates. Neither an additional finite theorem with
 those estimates as hypotheses nor a fitted dispersion discharges them.
 
-Two quantitative interfaces distinguish the missing estimates from the
-proved representation. Prepared-state control requires a computable bound
+For the ordered-zero-field prescription, two quantitative interfaces
+distinguish the missing estimates from the proved representation.
+Prepared-state control requires a computable bound
 on `half_trace(rho_(box,B)|_R, omega_selected|_R)` for growing region R and
 the observation times used by the experiment. Finite ground preparation
 and qualitative maximal-order convergence give no such joint modulus.
@@ -324,7 +393,8 @@ errors and Schwartz-tail bounds. These are microscopic expectation limits;
 energy-moment tightness is required to identify them with continuum boost
 operators. A finite energy first moment need not survive a weak limit.
 
-The [actual quadratic twist](../../model/spin_twist_closure/PROOF.md)
+For the ordered-zero-field prescription, the
+[actual quadratic twist](../../model/spin_twist_closure/PROOF.md)
 has operator-norm remainder O(p^2). Its quadratic bond coefficients become
 central, time-invariant variables in an enlarged source-history
 representation. Their sum is scalar by the ground-energy inequality;
@@ -371,6 +441,19 @@ The finite source action `PSL(2,F5)`, the conformal group `PSL(2,C)` of the
 celestial sphere, and the internal spin U1 are different groups. Their
 representations are reused only through an explicit map. The sphere is
 equivalent to the null-ray space, not to the Lorentz group itself.
+
+The spectral hypotheses remain essential in related analytic results.
+[Koma's Goldstone theorem](https://arxiv.org/html/2105.04970v2)
+bounds filtered packet energies between positive multiples of momentum.
+[Michoel--Verbeure, Theorem 9](https://arxiv.org/html/math-ph/0001033)
+obtains closed oscillator equations under its single-peak assumption (22),
+with additional fluctuation-correlation hypotheses. Neither statement
+supplies the required sharp branch on the joint B(p) family. Unscaled
+concentration at zero is insufficient: `(delta_p+delta_(2p))/2` converges
+to delta_0, while its E/p distribution retains two peaks. The
+[two-speed response control](../../model/spin_dynamical_memory/RESOLVENT_CLOSURE.md)
+also preserves both canonical pairs and internal U1. These are implication
+boundaries, not a proof that the actual source lacks a sharp branch.
 
 ### Position, translations and uncertainty
 

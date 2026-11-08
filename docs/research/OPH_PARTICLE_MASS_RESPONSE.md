@@ -40,6 +40,24 @@ attaches conjugate internal charges to equal nonzero continuum spectral
 measures. Identifying a physical particle requires their dispersion and
 scattering behavior on that same representation.
 
+The [joint positive-field construction](../../model/spin_joint_field_limit/PROOF.md)
+adds a distinct prepared source-to-field route with two regular canonical
+pairs and full internal U1 on one H_B clock. Its fixed-scale experiments
+retain every native failure and pointer record. Its O(p^2) filtered current
+bound and complete [force-residual readout](../../model/spin_joint_field_limit/FORCE_READOUT.md)
+give a source quantity to test; no vanishing linear-force residual, sharp
+dispersion, physical particle mass or mass ratio has been obtained from it.
+The chosen `p=n^-2`, `B=J n^-5` family is not a theorem that the unread
+source selects this continuum prescription.
+
+The [resolvent defect](../../model/spin_dynamical_memory/RESOLVENT_CLOSURE.md)
+provides a bounded closure test for a specified source response. Its
+vanishing and a separate actual-momentum identification would fix that
+response generator. Neither a small defect without energy-tail control
+nor a reducing space containing several energies identifies one particle
+mass. The full two-pair/internal-U1 countercontrol retains two propagation
+speeds despite matching the stated source first moments.
+
 ## Spatial readout and momentum
 
 The full finite source gap at positive selection field obeys `gap>=B/8`.

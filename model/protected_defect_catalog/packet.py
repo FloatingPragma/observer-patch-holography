@@ -215,6 +215,7 @@ def render(value):
         'ordered_exchange_charge':'coherent charge pointer and pair-configuration transport',
         'selected_spin_charge':'coherent local charge creation; conjugate continuum configuration fields',
         'single_occupancy_spin_memory':'native spin controls and pointers; nontrivial exchange dynamics',
+        'joint_positive_field_canonical_sector':'two regular canonical pairs and full internal U1; complete fixed-scale prepared H_B histories',
         'common_hidden_spin_factor':'complete ideal joint histories preserve the global spin factor',
         'cube_eta_range':'prepared eta reference and complete local spectral response',
         'compact_opposite_texture_cores':'declared transported four-mode band and current readout',
