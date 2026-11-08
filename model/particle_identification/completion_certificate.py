@@ -37,6 +37,9 @@ from ..native_local_history_limit import packet as local_history_limit
 from ..native_coexistent_effects import packet as coexistent_effects
 from ..native_contact_response import packet as contact_response
 from ..native_vacuum_response import packet as vacuum_response
+from ..native_transfer_control import packet as transfer_control
+from ..native_connected_contact import packet as connected_contact
+from ..native_rooted_refinement import packet as rooted_refinement
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -70,7 +73,8 @@ def source_bindings():
                      correlation_sectors, spatial_scaling,
                      correlation_preparation, pair_response, exchange_clock,
                      local_history_limit, coexistent_effects, contact_response,
-                     vacuum_response):
+                     vacuum_response, transfer_control, connected_contact,
+                     rooted_refinement):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
@@ -114,6 +118,9 @@ def report():
     coexistent_menu = coexistent_effects.produce()
     contact_records = contact_response.produce()
     vacuum_records = vacuum_response.produce()
+    transfer_experiment = transfer_control.produce()
+    connected_response = connected_contact.produce()
+    rooted_windows = rooted_refinement.produce()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
@@ -134,7 +141,10 @@ def report():
                             (local_history_limit, local_history),
                             (coexistent_effects, coexistent_menu),
                             (contact_response, contact_records),
-                            (vacuum_response, vacuum_records)):
+                            (vacuum_response, vacuum_records),
+                            (transfer_control, transfer_experiment),
+                            (connected_contact, connected_response),
+                            (rooted_refinement, rooted_windows)):
         if not _same_json(value, strict_json.load(producer.OUTPUT)):
             raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
     if not _same_json(frames, strict_json.load(lorentz.OUTPUT)):
@@ -175,6 +185,9 @@ def report():
         "native_coexistent_effect_instruments": coexistent_menu,
         "native_contact_spectral_response": contact_records,
         "native_positive_energy_record_reconstruction": vacuum_records,
+        "native_controlled_transfer_experiment": transfer_experiment,
+        "native_connected_contact_response": connected_response,
+        "native_rooted_refinement_windows": rooted_windows,
         "common_native_field_response": native_field_response.compose(
             prepared_correlations, exchange_responses),
         "passive_source_clock_boundary": passive_clock.certificate(),
@@ -212,6 +225,9 @@ def report():
                                            "bounded noncommuting coexistent native effect instruments",
                                            "native contact resolvent and observable finite correlated pole",
                                            "controlled positive-energy continuation of prepared native records",
+                                           "controlled native transfer-ground preparation, time and phase response",
+                                           "connected native contact dressing and comparison threshold",
+                                           "exact corner topology and certified finite routed record windows",
                                            "finite null-transition and field-cone criteria"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
@@ -234,6 +250,9 @@ def report():
             "local_history_limit_selects_physical_capacity_or_geometry": False,
             "finite_contact_mode_is_a_measured_particle": False,
             "reconstructed_transfer_vacuum_is_native_operational_vacuum": False,
+            "controlled_transfer_time_is_autonomous_repair_time": False,
+            "finite_rooted_windows_prove_all_radius_numeric_routing": False,
+            "negative_parameter_contact_resolvent_identifies_a_positive_energy_particle": False,
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,

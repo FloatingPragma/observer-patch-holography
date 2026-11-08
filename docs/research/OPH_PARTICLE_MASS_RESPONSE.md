@@ -283,6 +283,57 @@ add actual noncommuting instruments on the weighted H66 coherent carrier.
 Neither result turns the fair contact pole into a connected relativistic
 particle, and neither removes the need to join source, state and clocks.
 
+### Connected dressing and the vanishing comparison threshold
+
+The [connected source calculation](../../model/native_connected_contact/PROOF.md)
+retains the fair `q=2` reference and original repair law. It proves that the
+actual compressed independent-pair threshold obeys
+`0<lambda_min(H0)<=550/V`, using a nonzero global W2 affine quadratic
+trial. This is not an argument from the vanishing lower bound `2*gamma_1`.
+The finite isolated pole above five is above the connected comparison
+bottom at every level. A bound band at fixed momentum or a dressed
+resonance is not excluded, but requires a separate construction and test.
+
+For a cell's 66 pair configurations, actual exits give
+`A=G_cell+N_boundary` and `B^*B=N_boundary<=2I`; the exterior compression
+obeys `0<=D<=24I`. The Schur response at `-s`, `s>0`, is
+`F(s)^(-1)`, where `F=A+sI-B^*(D+sI)^(-1)*B`. Expanding the exterior
+resolvent through degree `J` gives a one-sided inverse error at most
+`2*(24/(24+s))^(J+1)/s^3`, without imposing a reflecting boundary or
+projecting intermediate core states back into the cell's W2 space.
+
+At `s=24,J=2`, complete cell-zero controls at levels 0–2 enclose the
+normalized response between `0.660081931825` and `0.660515959604`.
+The exact enclosure width is `1/2304`; the displayed decimals round
+outward. The isolated value is about `0.668932657183`, separated by
+more than `1/120` after the exterior allowance. The native observable is
+`(1-q_s)*sum_n q_s^n*C(n)/v_V`, with `q_s=2M/(2M+s)` and
+`v_V=8/[V*(V-1)]`. A finite cutoff `N` costs at most `q_s^(N+1)`.
+The level-zero `N=512` example uses at most 516 lag/readout attempts
+before warmup and has tail below `1/10000`. Host stops remain separate
+outputs, and normalization retains the growing independent-shot cost.
+This result supplies no inverse of `D-E` near the positive cell pole,
+so it is not a bound-particle persistence or rest-mass calculation.
+
+On the distinct weighted H66 service branch, the
+[controlled transfer experiment](../../model/native_transfer_control/PROOF.md)
+prepares `Omega=sqrt(pi)` and implements bounded `exp(-it*(-log S))`
+using only existing declared coherent words. Exact residual and emitted
+primitive certificates give complete error below `1/11000` and gain below
+`1001/1000`; the phase/readout score increment is greater than `1/2000`
+at `t=1/10`. All failures and the final source/reference remain. This
+is a controlled response of a finite source-derived transfer action,
+not a physical energy calibration or a massive relativistic sector.
+
+The [rooted fair-family windows](../../model/native_rooted_refinement/PROOF.md)
+provide exact corner topology and certified finite routing through level 14.
+The 348-port radius-four window controls only root-internal record values
+and final root state, with other values and exact ticks traced. Its
+canonical/local-history error is below `10^-6` at `p=1/3,t=1/630`, while
+expanded high-level execution stops. Combining these fair responses with the weighted coherent protocol
+requires a selected all-radius arithmetic continuation and a common
+state/control embedding.
+
 ## Declared mass operators and comparison inputs
 
 The executable construction has both an empirically calibrated Standard Model

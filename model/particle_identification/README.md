@@ -12,12 +12,24 @@ quantities, not assignments to an observed species.
 The [native contact calculation](../native_contact_response/README.md)
 provides a source-derived finite correlation mode: its energy is the lowest
 root of `x^3-30x^2+280x-776`, and complete repair records have positive
-spectral weight there. The unchanged cell embedding leaks into the connected
-source with a capacity-independent lower bound. A dressed propagating sector
-therefore needs a separate construction. The
+spectral weight there. The
+[connected calculation](../native_connected_contact/README.md) gives controlled
+exterior corrections and proves that the global independent-pair comparison
+threshold decreases with size. Its complete-record response differs from the
+isolated value by more than 1/120 in the stated finite control.
+A persistent propagating particle requires a separate construction. The
 [eight-step route](../../docs/research/OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
 keeps this distinction between measurable finite modes and physical particles
 explicit.
+
+The [controlled transfer experiment](../native_transfer_control/README.md)
+prepares the weighted source's transfer ground using declared coherent
+services, applies its repair-derived transfer Hamiltonian and reads a
+certified phase response through complete native records.
+[Rooted windows](../native_rooted_refinement/README.md) provide a separate
+finite geometry and capacity comparison on the fair growing source.
+The common source, clock and interacting field connecting these branches
+are not identified by either construction.
 
 The [source-prepared charged defect](../ground_spectral_source/README.md)
 provides a separate constructive chain: prepare the ground of the specified

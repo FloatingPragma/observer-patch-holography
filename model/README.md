@@ -8,16 +8,15 @@ calculations. Source-selected masses and the physical joint observation law
 require further construction. The [record equivalence](particle_record_equivalence/README.md)
 proves a four-address encoding for the specified native family process.
 
-The [native contact response](native_contact_response/README.md) derives an
-observable correlated mode directly from fair repair, with a proved leakage
-bound for its embedding into a larger source. The
-[complete local history limit](native_local_history_limit/README.md) controls
-capacity errors in local raw records and quantum disturbance.
-[Positive-energy reconstruction](native_vacuum_response/README.md) gives
-transfer-ground correlations with explicit preparation and sampling costs;
-its intervention test separates reconstruction from physical vacuum access.
-The selected source geometry, physical clock and persistent particle sector
-require their own identification.
+The [connected contact response](native_connected_contact/README.md) derives
+exterior corrections to the fair source's observable correlation mode and
+shows why its isolated binding threshold cannot be used globally.
+[Controlled transfer experiments](native_transfer_control/README.md) prepare
+the weighted source's transfer ground and detect a certified response using
+its declared coherent controls. [Rooted refinement](native_rooted_refinement/README.md)
+supplies exact corner topology and certified finite observation windows.
+A common growing source, autonomous relativistic dynamics and physical
+particle identification require their own derivation.
 
 The [phase selection bounds](particle_source_selection/README.md) identify what
 classical records and real cyclic averaging leave undetermined.

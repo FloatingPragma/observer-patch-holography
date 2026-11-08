@@ -89,14 +89,13 @@ proof shows that the whole class of laws cannot work.
   balance.
 - **Particles with certified spectra.** A specified interacting cube connects
   a prepared ground state, local charge creation and complete detector records.
-  Its spectral lines have certified energies and positive weights. The native
-  repair action also has a measurable correlated mode below its independent-pair
-  comparison threshold; its leakage into a larger source is bounded explicitly.
-  Complete local records have controlled capacity errors under stated geometry
-  and clock assumptions. These constructions explain how a declared defect reaches a
-  measurement. Selecting their common action from the source and identifying
-  physical particle species and masses require further proofs. The tested
-  mass branch uses a target-informed lepton law.
+  Its spectral lines have certified energies and positive weights. Native repair
+  has an observable isolated-cell mode; exterior dressing changes its response,
+  and the connected comparison threshold decreases with size. Declared coherent
+  services implement a finite transfer-ground experiment with complete readout.
+  Certified local windows control capacity errors. A common relativistic action
+  and identification of physical species and masses require further proofs.
+  The tested mass branch uses a target-informed lepton law.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
 - **Free fields and the matter side of gravity.** One original action on the
   cube has an infinite-lattice ground with positive excitation energy and a

@@ -386,7 +386,10 @@
     "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
     "OPH-NATIVE-COEXISTENT-EFFECTS",
     "OPH-NATIVE-CONTACT-RESPONSE",
-    "OPH-NATIVE-TRANSFER-GROUND-RESPONSE"
+    "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
+    "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
+    "OPH-NATIVE-CONNECTED-CONTACT",
+    "OPH-NATIVE-ROOTED-REFINEMENT"
   ],
   "edges": [
     {
@@ -3253,6 +3256,61 @@
       "from": "OPH-NATIVE-CORRELATION-SECTORS",
       "to": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
       "role": "supplies the same-q primitive intertwiner and complete reflected native E experiment, including its measurement backaction and variance"
+    },
+    {
+      "from": "OPH-NATIVE-RECORD-RESPONSE",
+      "to": "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
+      "role": "supplies the actual weighted population transfer, exact stationary law, positive scalar-history transfer and principal-logarithm bound; it does not itself implement coherent transfer time"
+    },
+    {
+      "from": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+      "to": "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
+      "role": "supplies the complete native E-tree configuration detector, record-controlled source routing and declared coherent-service semantics"
+    },
+    {
+      "from": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+      "to": "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
+      "role": "supplies amplitude-tree preparation, finite angle intervals and per-emitted-primitive certificates"
+    },
+    {
+      "from": "OPH-NATIVE-COEXISTENT-EFFECTS",
+      "to": "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
+      "role": "supplies the actual individually admitted rank-one phase word and complete success/failure export semantics; the66-word evolution bound is proved separately"
+    },
+    {
+      "from": "OPH-NATIVE-CONTACT-RESPONSE",
+      "to": "OPH-NATIVE-CONNECTED-CONTACT",
+      "role": "supplies the actual isolated-cell pole, contact comparison and complete native probe; its isolated threshold is explicitly not reused as the connected threshold"
+    },
+    {
+      "from": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+      "to": "OPH-NATIVE-CONNECTED-CONTACT",
+      "role": "supplies the exact primitive projection and same-q complete reflected four-E correlation interface, without a relativistic particle interpretation"
+    },
+    {
+      "from": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+      "to": "OPH-NATIVE-CONNECTED-CONTACT",
+      "role": "supplies the all-level affine crossing energy and routed three-port cell attachment; its single-unit displacement law is not transferred to total two"
+    },
+    {
+      "from": "OPH-NATIVE-CORRELATION-PREPARATION",
+      "to": "OPH-NATIVE-CONNECTED-CONTACT",
+      "role": "supplies the separately charged arbitrary-reference scored warmup error if the canonical reference is not provided; no universal preparation budget is asserted"
+    },
+    {
+      "from": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+      "to": "OPH-NATIVE-ROOTED-REFINEMENT",
+      "role": "supplies the original oriented midpoint stencil, source graph census and distinct-port routing postconditions; no physical coordinates or all-level floating constructor return is inherited"
+    },
+    {
+      "from": "OPH-NATIVE-CANONICAL-RESTRICTION",
+      "to": "OPH-NATIVE-ROOTED-REFINEMENT",
+      "role": "supplies exact all-number canonical state restrictions and the Bernoulli-window bound for the declared density family; no dynamic refinement identity is inherited"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+      "to": "OPH-NATIVE-ROOTED-REFINEMENT",
+      "role": "supplies the full local classical-quantum output comparison on authenticated finite windows with the stated observed root, aligned attempt clock, independent scheduler and state assumptions; no all-radius geometry premise is silently discharged"
     }
   ]
 }

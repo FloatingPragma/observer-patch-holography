@@ -27,7 +27,7 @@ def test_complete_reference_execution_and_counts(packet):
     assert {k:actual[k] for k in ('routes','route_steps','executed_events','executed_reads','consumer_claims')} == {
         "routes":298,"route_steps":2215,"executed_events":149760,"executed_reads":13479912,"consumer_claims":8}
     assert actual['balanced_routes']==161 and actual['balanced_steps']>0
-    assert actual['downstream_claims']==151
+    assert actual['downstream_claims']==152
 
 
 
@@ -87,6 +87,47 @@ def test_native_coexistent_menu_retains_its_scoped_service_dependencies():
     graph['edges'] = [edge for edge in graph['edges'] if edge['to'] != name]
     with pytest.raises(ValueError, match='coverage'):
         audit.downstream_audit(registry=registry, graph=graph)
+
+
+def test_controlled_transfer_ground_retains_its_declared_service_contract():
+    downstream = audit.downstream_audit()
+    name = 'OPH-NATIVE-CONTROLLED-TRANSFER-GROUND'
+    row = downstream['claims'][name]
+    assert row['assumptions'] == ['declared_controlled_weighted_native_transfer_ground_and_time']
+    assert row['disposition'] == 'existing_contract_retained_without_automatic_transfer'
+    assert not (set(row['assumptions']) & audit.KEYS)
+    assert [edge for edge in downstream['links'] if edge['to'] == name] == [
+        {'from': 'OPH-NATIVE-COEXISTENT-EFFECTS', 'to': name,
+         'role': 'supplies the actual individually admitted rank-one phase word and complete success/failure export semantics; the66-word evolution bound is proved separately'},
+        {'from': 'OPH-NATIVE-FINITE-EFFECT-COVERAGE', 'to': name,
+         'role': 'supplies the complete native E-tree configuration detector, record-controlled source routing and declared coherent-service semantics'},
+        {'from': 'OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS', 'to': name,
+         'role': 'supplies amplitude-tree preparation, finite angle intervals and per-emitted-primitive certificates'}]
+    registry = check.strict_load(ROOT/'claims/claim_registry.yaml')
+    claim = next(item for item in registry['claims'] if item['claim_id'] == name)
+    assert claim['premise_dependencies']['classification'] == 'explicit_non_consumer'
+    assert claim['premise_dependencies']['consumed'] == []
+    assert claim['gates'] == []
+    assert 'OPH-NATIVE-CONNECTED-CONTACT' not in downstream['claims']
+    assert 'OPH-NATIVE-ROOTED-REFINEMENT' not in downstream['claims']
+
+
+@pytest.mark.parametrize('parent', (
+    None, 'OPH-NATIVE-COEXISTENT-EFFECTS', 'OPH-NATIVE-FINITE-EFFECT-COVERAGE',
+    'OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS'))
+def test_controlled_transfer_dependency_removal_is_rejected(packet, monkeypatch, parent):
+    graph_path = ROOT/'claims/dependency_graph.json'
+    original = audit.strict_load
+    graph = original(graph_path)
+    target = 'OPH-NATIVE-CONTROLLED-TRANSFER-GROUND'
+    graph['edges'] = [edge for edge in graph['edges']
+                      if not (edge['to'] == target and
+                              (parent is None or edge['from'] == parent))]
+    def mutated(path):
+        return deepcopy(graph) if Path(path).resolve() == graph_path else original(path)
+    monkeypatch.setattr(audit, 'strict_load', mutated)
+    with pytest.raises(ValueError, match='coverage|downstream'):
+        verify.verify(packet)
 
 
 def test_dark_source_context_does_not_transfer_dense_m1_or_physical_admission():

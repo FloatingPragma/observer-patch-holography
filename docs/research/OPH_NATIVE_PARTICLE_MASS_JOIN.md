@@ -69,6 +69,59 @@ candidate therefore needs a dressed connected sector, nonvanishing complete
 readout, a controlled energy-momentum dictionary and the common reference.
 No ratio of these finite transfer quantities bypasses those requirements.
 
+## A controlled weighted ground and the connected fair-source boundary
+
+The [controlled transfer protocol](../../model/native_transfer_control/PROOF.md)
+provides a finite state-and-intervention map for the weighted H66 observer.
+Its actual stationary `pi` determines `S=Pi^(-1/2)*P*Pi^(1/2)`,
+`H=-log(S)` and `Omega_x=sqrt(pi_x)`. Complete E-tree records determine
+which source basis state to route; the existing nine-bit amplitude word
+then prepares `Omega`. The ideal prepared source factors from arbitrary
+input-reference correlations while the preparation archive remains.
+This uses the declared coherent services and their work registers; it is
+not preparation by unread repair alone.
+
+Exact rational residual and Gram gates bound the transfer basis proposal
+without assuming eigenvalue gaps. Sixty-six source-derived rank-one phase
+words approximate `exp(-it*H)` for bounded rational `|t|<=1`. Preparation,
+phase intervention and two complete E trees use 68 coherent words,
+3,877,451 pulses at most, and 22 E commands. Passing each emitted primitive
+certificate gives complete error below `1/11000` and gain below `1001/1000`.
+All processor and padding failures remain; stored maps are not exactly
+normalized. A phase on configuration `(0,1)` changes the complete detector
+score by more than `1/2000` at `t=1/10`, after all stated errors. This is a
+controlled finite transfer-ground response, not a physical vacuum or
+identification of `H` with the working modular generator `-log(Pi)`.
+
+The [rooted fair-family construction](../../model/native_rooted_refinement/PROOF.md)
+provides a different connection: exact corner cell topology at every radius
+and certified finite port-routing windows through level 14. Its canonical
+reference keeps every local number sector for declared `q=floor(pV)`.
+At the radius-four, 348-port window, the below-`10^-6` local-history bound
+uses `p=1/3`, `t=1/630`, and observes only thirty root-internal seams plus
+the final twelve-port root state. Other window records and exact ticks
+are traced. The high-level program is admitted but the expanded carrier
+execution stops. A correlated reference requires a joint state estimate.
+An all-radius routed arithmetic continuation remains a separate input;
+weighted H66 coherent words have no automatic domain on these local mixtures.
+
+The [connected contact proof](../../model/native_connected_contact/PROOF.md)
+also stays on the fair family, at `q=2`. An actual global primitive trial
+bounds the compressed independent-pair threshold by `550/V`. Thus the
+isolated pole above five lacks its isolated binding comparison on the
+connected source. Exact exterior dressing controls the full within-cell
+resolvent at `-s<0`, with degree-`J` error
+`2*(24/(24+s))^(J+1)/s^3`. Complete reflected E records read its Abel
+transform using native discount `2M/(2M+s)`. At `s=24,J=2`, the connected
+cell-zero response differs from the isolated value by more than `1/120`.
+No positive-energy dressed pole, localization theorem or physical mass
+follows from this negative-parameter calculation.
+
+A common particle construction must join these distinct preparations,
+controls, growing local sectors and clocks. The finite controlled map
+closes that map only for its weighted carrier and admitted services;
+all 21 physical identification obligations retain their status.
+
 ## A protected charge with a native reference and clock
 
 The [protected reference calculation](../../model/protected_reference/PROOF.md)

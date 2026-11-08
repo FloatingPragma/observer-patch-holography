@@ -18878,6 +18878,113 @@
         "boundary": [],
         "rationale": "Finite positive-energy response reconstruction with explicit statistical and resource bounds; the identity intervention dictionary fails, while other encodings, coherent controls and physical field identifications require their own proofs."
       }
+    },
+    {
+      "claim_id": "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
+      "statement": "The actual weighted H66 population instrument determines S=Pi^(-1/2) P Pi^(1/2)>=296/495 and its ground Omega=sqrt(pi). On the existing nine-bit coherent-service interface, an eleven-E record decoder followed by record-controlled routing and the amplitude tree prepares Omega from an arbitrary joint source/reference state, retaining its preparation archive. A fixed rational proposal, accepted by exact Gram and source-residual bounds, supplies 66 rank-one phase words approximating exp(-itH), H=-log S, for 64-bit rational t in [-1,1]. The proof uses a polar comparison and the operator-log resolvent bound, without eigenvalue-gap assumptions or an executed polar gate. Every 58,392-pulse word is individually admitted. Together with a diagonal phase intervention and final complete native eleven-E detector, the protocol has complete half-diamond error below 1/11000 and gain below 1001/1000, conditional on every emitted stored primitive passing its certificate. At t=1/10, assigning i to the configuration(0,1) produces an ideal decoded-configuration probability increment greater than 1/1000 and a certified stored-map unnormalized score increment greater than 1/2000 after charging unequal-trace errors. The protocol uses 68 coherent words, at most 3,877,451 pulses and 22 native E commands; all failures and source disturbance remain in the instrument.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_controlled_weighted_native_transfer_ground_and_time"
+      ],
+      "imported_results": [
+        "finite_reversible_population_transfer",
+        "positive_principal_operator_logarithm",
+        "polar_decomposition_residual_bound",
+        "resolvent_operator_log_Lipschitz_bound",
+        "Duhamel_unitary_perturbation_bound",
+        "native_binary_amplitude_and_rank_one_phase_synthesis",
+        "complete_native_configuration_readout",
+        "completely_positive_gain_and_half_diamond_error_composition"
+      ],
+      "oph_specific_delta": "Constructs a common finite preparation, phase intervention, source-derived transfer evolution and native record readout, with a certified nonzero ground response and complete source-service failure accounting.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_transfer_control/PROOF.md"
+      ],
+      "falsifier": "The spectral proposal fails its exact source residual or Gram bound, a conditional terminal reset route is missing, an admitted native word has a wrong phase or exceeds its resource ceiling, the complete channel error omits processor or padding failure, or the decoded-configuration score fails its rational nonzero margin. Stored-map score mass must not be described as an exactly normalized probability without an additional completion.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Fixed-carrier complete controlled ground-response experiment with explicit error/gain and nonzero ideal probability versus stored-score margins; no physical vacuum, growing coherent family or particle-mass promotion."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-CONNECTED-CONTACT",
+      "statement": "For the actual fair connected total-two federation, an explicitly projected affine quadratic trial in the global primitive degree-two space proves that the compressed independent-pair comparison threshold is at most 550/V=55/(24*4^level). Thus the isolated cell pole above 5 lies above the connected comparison bottom at every level; this is an upper-bound trial, not an inference from a vanishing lower bound. Retaining all 66 cell pair configurations and the full exterior gives the exact Schur resolvent with core action Gcell+Nboundary and coupling B*B=Nboundary<=2I. At spectral parameter -s<0, a degree-J exterior-path expansion has one-sided core-resolvent error at most 2[24/(24+s)]^(J+1)/s^3, uniformly in capacity. Complete reflected four-E records on the same canonical total-two source read the corresponding normalized Abel response. At s=24,J=2, evaluated cell 0 responses at levels 0–2 have interval width 1/2304 and differ from the isolated cell value by more than 1/120. Finite lag cutoff, preparation and sampling errors are explicit. The result does not continue a positive-energy pole or identify a bound physical particle.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_connected_two_body_response"
+      ],
+      "imported_results": [
+        "native_fair_exclusion_and_complete_reflected_records",
+        "Boolean_slice_primitive_projection",
+        "source_affine_centroid_energy_and_symmetry",
+        "finite_Rayleigh_variational_principle",
+        "Schur_complement_and_inverse_ordering",
+        "positive_resolvent_geometric_series",
+        "finite_Abel_tail_and_Hoeffding"
+      ],
+      "oph_specific_delta": "Produces a capacity-uniform controlled exterior dressing for a source-fixed observable response, and an explicit global primitive trial showing why the isolated-cell binding comparison fails on the connected source.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_connected_contact/PROOF.md"
+      ],
+      "falsifier": "The projected affine trial fails lowering or its Rayleigh bound, actual routed exits violate the exact coupling Gram, a complete finite source resolvent lies outside the Schur enclosure, original reflected records disagree with the same-q response, or the negative-parameter result is promoted to a positive-energy particle pole without a persistence proof.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Controlled negative-parameter connected response and a failure of the isolated binding comparison. Positive-energy dressing, localization, scattering, relativistic sectors and measured masses remain separate requirements."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-ROOTED-REFINEMENT",
+      "statement": "The exact oriented midpoint stencil has an explicit full-sequence corner-root cell topology: insertion of a leading child 0 preserves the radius-r dual ball and its incident edges whenever 2^level>r+2. A recursive local evaluator computes the literal finite midpoint, orientation and routing expressions without allocating the sphere; exact binary32 score intervals certify first-argmax decisions and require unique collision assignments. Source coordinates and routed neighbor rows agree with independently evaluated levels 0 through 3. Certified windows of cell radii 1, 2, 4, 8 match at specified levels through 14, with source endpoint order and every fine native C/E record preserved. Declared canonical occupation q_level=floor(p*240*4^level) gives consistent Bernoulli comparison states and the existing complete local-history bound on those finite windows. At radius 4, level 14, p=1/3 and per-seam attempt time 1/630, the bound is below 1e-6 for complete records on the thirty root-internal seams and the final twelve-port root state; other window records are traced. The admitted 268435456-attempt description retains the expanded host resource stop. No unique all-radius port-routed limit or selected arithmetic continuation is asserted.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_rooted_refinement"
+      ],
+      "imported_results": [
+        "oriented_shared_midpoint_subdivision",
+        "exact_binary32_nearest_even_interval_comparison",
+        "finite_unique_assignment_certificate",
+        "canonical_hypergeometric_restriction",
+        "complete_native_local_history_bound"
+      ],
+      "oph_specific_delta": "Provides an explicit all-radius rooted topology and a small-memory finite routed-window producer with exact decision certificates, authenticates it against the literal source, and attaches source states and complete local-record error bounds while isolating the unspecified all-radius arithmetic/routing continuation.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_rooted_refinement/PROOF.md"
+      ],
+      "falsifier": "Child0 insertion fails to preserve a corner signature inside its proved collar; a certified local coordinate or port assignment disagrees with the returning literal source within its numerical hypotheses; a source address transport changes endpoint order or a complete raw slot; the finite local-record bound omits visible record support, initial-state error or a host stop; or finite routing tables are promoted to an all-radius numerical continuation.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "All-radius full-sequence topology only for the exact oriented corner stencil; finite source-routed windows through level 14. An infinite routed process needs a specified arithmetic continuation and every physical identification premise retains its own proof obligation."
+      }
     }
   ],
   "claim_context": {
@@ -33173,6 +33280,149 @@
         {
           "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
           "role": "supplies the same-q primitive intertwiner and complete reflected native E experiment, including its measurement backaction and variance"
+        }
+      ]
+    },
+    "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND": {
+      "prior_work": {
+        "summary": "Finite transfer reconstruction, matrix perturbation and controlled circuit synthesis",
+        "overlap": "Positive reversible transfer reconstruction, polar comparison, operator-log resolvent estimates, unitary perturbation bounds and rank-one phase synthesis are established finite mathematics. The source-specific result joins the actual weighted native transfer, preparation archive, coherent pulse interface and complete E-record detector in one bounded controlled experiment.",
+        "imported_step": "finite_reversible_population_transfer; positive_principal_operator_logarithm; polar_decomposition_residual_bound; resolvent_operator_log_Lipschitz_bound; Duhamel_unitary_perturbation_bound; native_binary_amplitude_and_rank_one_phase_synthesis; complete_native_configuration_readout; completely_positive_gain_and_half_diamond_error_composition",
+        "citations": [
+          {
+            "work": "Finite quantum-channel error bounds and instruments",
+            "keys": [
+              "watrous2018theory",
+              "davies1970operational",
+              "kraus1971general"
+            ]
+          },
+          {
+            "work": "Walsh diagonal synthesis without additional registers",
+            "keys": [
+              "welch2014efficient"
+            ]
+          },
+          {
+            "work": "Owning native record transfer, configuration detector and rank-one phase compiler",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Controlled transfer state and time",
+      "falsifiers": {
+        "mathematical": "The spectral proposal fails its exact source residual or Gram bound, a conditional terminal reset route is missing, an admitted native word has a wrong phase or exceeds its resource ceiling, the complete channel error omits processor or padding failure, or the decoded-configuration score fails its rational nonzero margin. Stored-map score mass must not be described as an exactly normalized probability without an additional completion.",
+        "physical_identification": "Use the exact weighted total-occupation-two source with port weights 25,25,8,...,8, uniform seam selector and original C/E mixture, together with its declared nine-bit address chart, proper-code coherent services, processor blanks, load/export operations and complex-linear Kraus trace semantics. The source configuration basis is the chosen dictionary for the scalar record-transfer coordinates. Coherent pulse control is an admitted service composition, not autonomous unread repair or a supplied physical Hamiltonian. The source-bound 2^-44 rational spectral proposal is accepted only after exact Gram and source-residual checks; its approximate directions need not be exact eigenvectors. Each emitted stored primitive must pass the existing directed interval certificate, and a failed check rejects numerical acceptance. Complete rounded maps have bounded gain and are not asserted trace preserving; floating propagation arrays are diagnostics and hardware error is outside scope. The ideal instrument has exact trace-preserving probability semantics under the declared quantum service model. Preparation records and arbitrary untouched references are retained, with no success conditioning. The direct nine-bit compiler and lazy complete tree instrument are distinct from generic six-bit/256-pulse execution and expanded-tree hosts, which retain RESOURCE_STOP. No growing coherent embedding, autonomous vacuum preparation, physical time, relativistic spectrum or measured mass mapping follows.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-RECORD-RESPONSE",
+          "role": "supplies the actual weighted population transfer, exact stationary law, positive scalar-history transfer and principal-logarithm bound; it does not itself implement coherent transfer time"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FINITE-EFFECT-COVERAGE",
+          "role": "supplies the complete native E-tree configuration detector, record-controlled source routing and declared coherent-service semantics"
+        },
+        {
+          "claim_id": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+          "role": "supplies amplitude-tree preparation, finite angle intervals and per-emitted-primitive certificates"
+        },
+        {
+          "claim_id": "OPH-NATIVE-COEXISTENT-EFFECTS",
+          "role": "supplies the actual individually admitted rank-one phase word and complete success/failure export semantics; the66-word evolution bound is proved separately"
+        }
+      ]
+    },
+    "OPH-NATIVE-CONNECTED-CONTACT": {
+      "prior_work": {
+        "summary": "Finite resolvent methods, exclusion correlations and affine variational control",
+        "overlap": "Primitive Boolean-slice projection, Rayleigh quotients, Schur complements, inverse ordering and Abel transforms are standard mathematics. The source-specific contribution binds them to the actual routed graph, exact crossing geometry, full exterior paths and complete native record readout, including a certified connected/isolated response discrepancy. No bound-state or physical-mass theorem is inherited from these methods.",
+        "imported_step": "native_fair_exclusion_and_complete_reflected_records; Boolean_slice_primitive_projection; source_affine_centroid_energy_and_symmetry; finite_Rayleigh_variational_principle; Schur_complement_and_inverse_ordering; positive_resolvent_geometric_series; finite_Abel_tail_and_Hoeffding",
+        "citations": [
+          {
+            "work": "Finite matrix variational and resolvent theory",
+            "keys": [
+              "horn2012matrix"
+            ]
+          },
+          {
+            "work": "Harmonic analysis on fixed-number Boolean slices",
+            "keys": [
+              "filmus2016orthogonal"
+            ]
+          },
+          {
+            "work": "Finite reversible-chain observations and concentration",
+            "keys": [
+              "levin2017markov",
+              "hoeffding1963probability"
+            ]
+          },
+          {
+            "work": "Owning native contact, spatial geometry and complete pair-response contracts",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Connected contact response",
+      "falsifiers": {
+        "mathematical": "The projected affine trial fails lowering or its Rayleigh bound, actual routed exits violate the exact coupling Gram, a complete finite source resolvent lies outside the Schur enclosure, original reflected records disagree with the same-q response, or the negative-parameter result is promoted to a positive-energy particle pole without a persistence proof.",
+        "physical_identification": "Use the original fair federation, independent uniform native seams, repair probability one, original endpoint coins and complete C/E instrument, with canonical total-two reference I/binom(V,2) or a separately bounded scored preparation. All-level geometry consumes the existing shared-midpoint cell graph, original internal seams and successful routing with three distinct crossing ports and distinct neighbouring cells; it does not assume the floating constructor returns at every level. The affine coordinates are auxiliary comparison functions, not a physical spatial dictionary. The core Schur calculation retains its constant and one-body components during exterior excursions, although the fixed zero-extended contrast probe is globally primitive. Only s>0 is covered; no gap of the exterior operator near the isolated positive pole is assumed. Complete reflected native records retain zero slots, back-action, holds, FIFO exports and host stops. The sparse signed-kernel evaluator is not the expanded interpreter, and formal infinite Abel series do not override finite attempt or level caps. The discount 2M/(2M+s) is an analysis parameter tied to native attempts, not a physical clock or new scheduler. Arbitrary correlated-reference errors require the owning scored-preparation theorem or a joint input bound. Repeated preparation and independent complete trials are required for sampling; no success conditioning is used.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-CONTACT-RESPONSE",
+          "role": "supplies the actual isolated-cell pole, contact comparison and complete native probe; its isolated threshold is explicitly not reused as the connected threshold"
+        },
+        {
+          "claim_id": "OPH-NATIVE-SPATIAL-PAIR-RESPONSE",
+          "role": "supplies the exact primitive projection and same-q complete reflected four-E correlation interface, without a relativistic particle interpretation"
+        },
+        {
+          "claim_id": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+          "role": "supplies the all-level affine crossing energy and routed three-port cell attachment; its single-unit displacement law is not transferred to total two"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CORRELATION-PREPARATION",
+          "role": "supplies the separately charged arbitrary-reference scored warmup error if the canonical reference is not provided; no universal preparation budget is asserted"
+        }
+      ]
+    },
+    "OPH-NATIVE-ROOTED-REFINEMENT": {
+      "prior_work": {
+        "summary": "Native midpoint topology, finite routing certification and complete local records",
+        "overlap": "Shared-midpoint subdivision, exact interval decisions, canonical restriction and the marked local-history comparison are established or separately proved source results. The source-specific contribution is the corner address construction, the local numerical source-expression evaluator with routing acceptance tests, and its authenticated finite complete-record attachment.",
+        "imported_step": "oriented_shared_midpoint_subdivision; exact_binary32_nearest_even_interval_comparison; finite_unique_assignment_certificate; canonical_hypergeometric_restriction; complete_native_local_history_bound",
+        "citations": [
+          {
+            "work": "Owning native subdivision, occupation restriction and complete local-history theorems",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Rooted source refinement",
+      "falsifiers": {
+        "mathematical": "Child0 insertion fails to preserve a corner signature inside its proved collar; a certified local coordinate or port assignment disagrees with the returning literal source within its numerical hypotheses; a source address transport changes endpoint order or a complete raw slot; the finite local-record bound omits visible record support, initial-state error or a host stop; or finite routing tables are promoted to an all-radius numerical continuation.",
+        "physical_identification": "The all-radius cell theorem concerns the exact oriented stencil rooted at original vertex 0 and child 0, not arbitrary root sequences or literal floating orientation at every level. Finite routed windows authenticate the numerical orientation against that stencil. The local-expression domain is levels 0 through 14, with source signed 64-bit edge keys bounded; the standard IEEE finite-operation model bounds the two length-three score contractions by 288*gamma5+144*gamma5^2+2^-900<2^-40. Every direction/frame/template component and rounding decision is checked, and ambiguous routing is rejected. Source-equivalence at unallocated levels is the locality of the literal expressions conditional on the full constructor returning with its source postconditions, not a claim of global graph allocation. Fair independent uniform seam attempts, repair probability one, fixed C/E mixture, aligned common bins, declared global occupation and a common independent reference are required for the canonical finite record comparison. A correlated reference requires its actual joint restriction bound. The visible record support is confined to seams whose two endpoints lie in the twelve-port root; observing crossing seams requires an enlarged root bound. Formal admission does not remove host geometry, branch, attempt or word limits. Small-memory hash-tag and corner-area controls distinguish numerical arithmetic continuation from the native resource-stop path. No physical capacity, density, clock, spatial dimension, relativistic action or particle identification is selected.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-SPATIAL-MOTION-SCALING",
+          "role": "supplies the original oriented midpoint stencil, source graph census and distinct-port routing postconditions; no physical coordinates or all-level floating constructor return is inherited"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CANONICAL-RESTRICTION",
+          "role": "supplies exact all-number canonical state restrictions and the Bernoulli-window bound for the declared density family; no dynamic refinement identity is inherited"
+        },
+        {
+          "claim_id": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+          "role": "supplies the full local classical-quantum output comparison on authenticated finite windows with the stated observed root, aligned attempt clock, independent scheduler and state assumptions; no all-radius geometry premise is silently discharged"
         }
       ]
     }

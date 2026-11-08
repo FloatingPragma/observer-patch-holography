@@ -10,7 +10,7 @@ silently shortened list. The dispositions concern the named results below;
 several registry rows collect much broader mixed-scope conclusions.
 
 The audit also closes the registered dependency graph forward from these
-eight claims: 151 downstream rows, including the eight direct consumers, are
+eight claims: 152 downstream rows, including the eight direct consumers, are
 enumerated in `downstream.json`. The receipt retains each row's exact
 assumptions, original full-row hash and every internal dependency edge with
 its stated role. A missing row or newly reachable claim fails verification.
@@ -105,3 +105,13 @@ on every emitted primitive passing its certificate. This dependency does not
 transfer the dense M1 read law, universal Born premises, a growing coherent
 field family or a physical particle identification. Both dependency roles
 and the menu's own assumption are retained in the receipt.
+
+The controlled weighted transfer-ground experiment is a contextual descendant
+of finite effect coverage, rank-one synthesis and the coexistent phase-word
+service. It retains its fixed H66 source, declared coherent controls, exact
+spectral residual certificate, conditional primitive checks and complete
+preparation, evolution and readout instrument. The prepared transfer ground
+and controlled time are not identified with autonomous repair or its modular
+reference. These dependencies transfer no dense M1 read law, growing coherent
+embedding, physical vacuum or particle interpretation. The receipt preserves
+the experiment's own assumption and all three internal dependency roles.

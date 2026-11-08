@@ -1374,6 +1374,76 @@ $8/[V(V-1)]$, so normalized spectral weight alone does not ensure feasible
 sampling. These are native correlation poles, with no physical particle
 or mass assignment (\path{model/native_contact_response}, \cite{ophrepo}).
 
+\subsection{Connected contact response}
+\label{sec:native-connected-contact}
+
+The connected comparison has a different threshold from the isolated cell.
+Let $V=240\,4^\ell$, $M=21V/8$, and let $Q_2$ project pair coefficients
+onto the primitive degree-two space. The actual comparison is
+$H_0=Q_2(G_2+2A_{\rm adj})Q_2$ on that space, where $A_{\rm adj}$ marks
+adjacent occupied ports. Give every port in a cell the same auxiliary
+affine triangle-centroid coordinate $f$. Exact icosahedral symmetries give
+$\sum_i f_i=0$, $|f_i|\le1$, $V/5<A=\sum_i f_i^2\le V/3$, and
+$\sum_{ij\in E}(f_i-f_j)^2<4$. These are comparison coordinates.
+The primitive trial vector is
+\[
+ w_{ij}=f_if_j-c_i-c_j,\qquad
+ c_i=\frac{-f_i^2+A/[2(V-1)]}{V-2}.
+\]
+Its squared norm is at least $V^2/75$, its exchange energy at most $4V/3$,
+and its contact energy less than $6V$. Rayleigh's principle therefore gives
+\[
+ 0<\lambda_{\min}(H_0)\le \frac{550}{V}
+       =\frac{55}{24\,4^\ell}.
+\]
+The bound uses the exact cell adjacency and the source routing
+postconditions; it does not assert that the floating constructor returns
+at every level. The isolated pole $E>5$ lies above this connected comparison
+bottom. Its isolated threshold is therefore insufficient to certify global
+binding. Bound bands at fixed momentum and resonances require separate tests.
+
+The source also supplies a controlled exterior correction. Retain the
+$66$ pair configurations wholly inside the chosen cell and write
+$G_2=\left(\begin{smallmatrix}A&B^*\\B&D\end{smallmatrix}\right)$.
+The literal boundary gives
+$A=G_{\rm cell}+N_{\partial}$,
+$B^*B=N_{\partial}\le2I$ and $0\le D\le24I$.
+For $s>0$ set
+\[
+ F(s)=A+sI-B^*(D+sI)^{-1}B,\quad
+ F_J(s)=A+sI-\sum_{k=0}^{J}
+                \frac{B^*(24I-D)^kB}{(24+s)^{k+1}} .
+\]
+The core resolvent is $F(s)^{-1}$. Positive inverse ordering and the
+geometric remainder give
+\[
+ 0\le F^{-1}-F_J^{-1},\qquad
+ \|F^{-1}-F_J^{-1}\|
+ \le \frac{2}{s^3}\left(\frac{24}{24+s}\right)^{J+1}.
+\]
+Only finite exterior paths enter each coefficient. No projection back
+to the cell's primitive space is inserted during an excursion.
+For the normalized four-E probe $u=h/2$, $s=24$ and $J=2$, the connected
+response $s\langle u,(G_2+sI)^{-1}u\rangle$ is enclosed between
+$0.660081931825$ and $0.660515959604$ on the evaluated cell-zero
+windows at levels zero through two. The isolated value exceeds the
+connected enclosure by more than $1/120$.
+
+For the canonical total-two reference, this response is accessible through
+complete native lag experiments:
+with $q_s=2M/(2M+s)$,
+\[
+ s\langle u,(G_2+sI)^{-1}u\rangle
+ =(1-q_s)\sum_{n\ge0}q_s^n C(n)/v_V,\qquad
+ v_V=\frac{8}{V(V-1)}.
+\]
+Truncation at $N$ costs at most $q_s^{N+1}$. Preparation errors and independent
+sample costs have explicit allowances; host stops remain distinct outputs.
+The discount is an analysis parameter. It adds no native random scheduler
+or physical clock. The negative-spectral-parameter resolvent bound
+does not continue a pole through the exterior spectrum at positive energy
+(\path{model/native_connected_contact}, \cite{ophrepo}).
+
 \subsection{Positive-energy correlations from open records}
 \label{sec:native-vacuum-response}
 
@@ -1424,6 +1494,70 @@ and readouts without an additional map would assign two different responses
 to one experiment. A physical dictionary must preserve the intervention
 statistics as well as the reconstructed correlations
 (\path{model/native_vacuum_response}, \cite{ophrepo}).
+
+\subsection{Controlled transfer state and time}
+\label{sec:native-transfer-control}
+
+The weighted $66$-state source admits a distinct operational construction
+using its declared coherent services. Its scalar record transfer has
+\[
+ S=\Pi^{-1/2}P\Pi^{1/2},\quad
+ \frac{296}{495}I\le S\le I,\quad
+ \Omega_x=\sqrt{\pi_x},\quad H=-\log S .
+\]
+An eleven-E configuration detector has fine maps
+$\sqrt{w_h}|y_h\rangle\langle x_h|$. Retained-record routing followed by
+the native amplitude-tree word with rational weights $\pi_x$ changes
+these to $\sqrt{w_h}|\Omega\rangle\langle x_h|$.
+Thus the ideal prepared source factors from the retained archive and
+any untouched reference, even for an initially correlated input.
+The archive can remain correlated with that reference.
+
+Transfer evolution has a finite residual certificate. Rational proposed
+columns $V$ and diagonal $(296/495)I\le\Lambda\le I$ satisfy
+$\|V^*V-I\|\le g=10^{-9}$ and
+$\|SV-V\Lambda\|\le r=10^{-9}$, checked by exact rational arithmetic
+and directed square-root intervals. The polar comparison
+$W=V(V^*V)^{-1/2}$ is unitary and obeys $\|W-V\|\le g$.
+Consequently
+\[
+ \|S-W\Lambda W^*\|\le r+2g,\qquad
+ \|\log S-W\log\Lambda W^*\|\le\frac{r+2g}{296/495}.
+\]
+The logarithm bound follows by integrating the resolvent identity.
+The actual compiler uses normalized rational columns of $V$ and
+their existing rank-one phase words; it does not execute the polar map.
+Telescoping the $66$ phases bounds their ideal unitary error by
+$|t|(r+2g)/(296/495)+528g$. Scalar logarithm intervals and each stored
+primitive's certificate supply the additional numerical allowance.
+
+One complete experiment prepares $\Omega$, phases configuration
+$a=(0,1)$ by $i$, applies the controlled transfer evolution at $t=1/10$,
+and decodes the initial configuration of a second eleven-E detector.
+The unphased control has probability $p=\pi_a=625/7505$.
+Writing $u(t)=\langle a|e^{-itH}|a\rangle$, the intervention has
+\[
+ p_a(t)=p\,|1+(i-1)u(t)|^2.
+\]
+Here $H_{aa}\ge32/495$ and $\|H\|<103/200$.
+A spectral Taylor remainder proves $p_a(1/10)-p>1/1000$.
+The complete protocol has $68$ separately admitted coherent words,
+at most $3{,}877{,}451$ pulses and $22$ native E commands.
+Every first processor failure and padding abort is retained and scored
+zero. Passing primitive gates bound complete half-diamond error below
+$1/11000$ per experiment and gain below $1001/1000$.
+Charging the full trace-norm error for both rounded, potentially
+unequal-trace outputs leaves a stored-map score increment above $1/2000$.
+These rounded scores are approximations to the ideal probability law.
+
+This supplies a controlled finite preparation, intervention and readout
+for the source-derived transfer Hamiltonian. The nine-bit direct compiler
+and lazy detector retain the generic evaluator's separate resource stops.
+The parameter $t$ is dimensionless transfer time, not elapsed repair time
+or laboratory seconds. Autonomous unitary repair, a growing coherent
+embedding, a physical vacuum and a relativistic particle spectrum do not
+follow from this controlled experiment
+(\path{model/native_transfer_control}, \cite{ophrepo}).
 
 \subsection{Complete local records at growing capacity}
 \label{sec:local-history-limit}
@@ -1487,6 +1621,54 @@ all-radius routed refinement nor the physical density or spatial dimension.
 The proof and exact rational controls retain every overflow and distinguish
 kernel analysis from bounded native execution
 (\path{model/native_local_history_limit}, \cite{ophrepo}).
+
+\subsection{Rooted source refinement}
+\label{sec:native-rooted-refinement}
+
+The exact oriented midpoint stencil supplies a constructive rooted cell
+topology. Choose the cell that follows child zero at every subdivision
+around one original vertex. Inserting an additional leading child zero
+identifies its radius-$r$ dual ball, including incident edges, whenever
+$2^\ell>r+2$. In each of the five incident original faces, a dual step
+increases the triangular grid's radial coordinate by at most one.
+This proves stabilization of every finite corner ball and consistency
+under restriction. The resulting countable graph retains the five-face
+corner; no assertion about an arbitrary root sequence follows.
+
+A recursive local evaluator also computes the literal midpoint coordinates,
+face orientation and port scores without allocating the sphere. It
+reproduces coordinates bit for bit and routed neighbor rows at the
+independently evaluated levels zero through three. Exact binary32 score
+intervals certify first-maximum decisions, including stable ties.
+Collision repairs require a unique certified assignment. Uncertain decisions
+are rejected. The finite address domain extends through level fourteen,
+where every source edge key fits its signed integer representation.
+These are finite numerical attachments to the oriented topology.
+
+The certified tables give matching windows of cell radii one, two, four
+and eight at specified levels through fourteen. Keeping every port of a
+radius-$r$ cell ball contains the required radius-$r$ port ball.
+Canonical names preserve source endpoint order and therefore intertwine
+the complete native instruments, including signed currents and zero slots.
+For declared density $p$, the canonical totals
+$q_\ell=\lfloor p\,240\,4^\ell\rfloor$ have the local state bound above;
+the Bernoulli comparison states restrict consistently.
+The radius-four, level-fourteen window has $348$ ports. The observation
+retains records on the thirty root-internal seams and the final state on
+the twelve root ports; other window records are traced. At
+$p=1/3$ and $t=1/630$, its complete local-output comparison bound is below
+$10^{-6}$. The corresponding $268435456$-attempt description is admitted.
+The expanded host retains its unevaluated-carrier stop; this is a finite
+kernel bound, without a claimed execution of the global experiment.
+
+An infinite routed process requires a specified arithmetic continuation.
+Finite-width level tags and coordinate collapse in bounded local tests
+prevent treating the literal numerical constructor as a total such
+specification. Exact coordinates, arbitrary precision and combinatorial
+port assignment are different continuations. The construction chooses
+none of them and establishes no unique all-radius routed limit, physical
+density or Lorentzian field
+(\path{model/native_rooted_refinement}, \cite{ophrepo}).
 
 \subsection{Native clock observables}
 \label{sec:native-clock-observables}

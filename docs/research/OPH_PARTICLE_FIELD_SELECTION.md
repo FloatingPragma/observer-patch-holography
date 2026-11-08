@@ -200,6 +200,56 @@ observable dictionary must preserve the complete instruments, connected
 propagation and interventions. A finite contact pole or reconstructed
 positive ground does not select a chiral relativistic theory.
 
+## Which source choices the controlled constructions resolve
+
+The [controlled transfer-ground experiment](../../model/native_transfer_control/PROOF.md)
+selects no extra field Hamiltonian: it compiles `H=-log(S)` from the weighted
+source's actual reflected transfer. It does select an explicit observer
+protocol using the existing nine-bit coherent services. A complete tree
+readout and record-controlled amplitude word prepare `sqrt(pi)`; 66
+rank-one phase words implement its bounded transfer evolution with exact
+source-residual gates. Preparation, intervention and readout have complete
+half-diamond error below `1/11000` and gain below `1001/1000`, conditional
+on every emitted primitive passing its exact gate. All failures remain.
+The certified stored-map phase-response score increment exceeds `1/2000`
+at `t=1/10`.
+The parameter is a controlled dimensionless transfer time. Autonomous
+repair, its modular clock and a physical field clock remain different.
+
+The finite protocol uses 68 coherent words and at most 3,877,451 pulses,
+plus 22 native E commands. Its direct tape/lazy instrument semantics
+retain the generic host's stops. It neither establishes universal Born
+premises nor extends those coherent controls to a growing local algebra.
+Its prepared pure state and the stationary working mixed state are not
+identified by equality of spectra.
+
+The [rooted source refinement](../../model/native_rooted_refinement/PROOF.md)
+fixes the exact corner cell topology by the source child-address rule.
+At `2^ell>r+2`, the addressed radius-`r` corner balls agree. Finite local
+source expressions and binary32 score intervals certify particular routed
+windows through level 14, without allocating the remote graph. These
+finite tables do not select a full-sequence routed arithmetic limit.
+Such a continuation must state coordinate precision, normalization, score
+comparisons, ties and address encoding. Choosing a different continuation
+is an additional model choice unless its matching-record theorem is proved.
+
+For the fair canonical family at a declared density, the resulting
+complete local-history bound keeps all local number sectors. The 348-port
+example observes only the thirty root-internal repair seams and final
+root state, tracing other window records and exact ticks. Its bound is
+below `10^-6`; its high-level expanded execution stops. This source branch
+cannot inherit weighted H66 coherent services by a tensor-space analogy.
+
+Finally, the [connected contact calculation](../../model/native_connected_contact/PROOF.md)
+fixes the actual boundary coupling rather than assigning a fitted mass.
+The compressed independent-pair threshold is at most `550/V`, below the
+isolated cell pole. The full-core Schur response at negative parameter has
+a capacity-uniform exterior-path bound and an actual complete E-record
+readout. This controls a source response, while the positive-energy pole's
+persistence and its particle interpretation remain unproved. The eight
+physical source-to-field requirements and 21 identification entries are
+not promoted by these finite operations.
+
 ## Born weights and the executable model
 
 The [finite effect-valuation theorem](../../Lean/EventAlgebra/FiniteBuschGleason.lean)
