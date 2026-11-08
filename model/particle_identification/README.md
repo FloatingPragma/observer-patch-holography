@@ -31,6 +31,16 @@ finite geometry and capacity comparison on the fair growing source.
 The common source, clock and interacting field connecting these branches
 are not identified by either construction.
 
+The [fair local preparation](../native_fair_local_preparation/README.md),
+[complete readout](../native_fair_local_readout/README.md) and
+[counted clock](../native_fair_local_clock/README.md) give a finite local
+experiment on the growing fair source. Preparation retains every occupation
+sector, readout retains erasures, and the clock charges fixed interventions.
+An explicitly supplied occupation-wire service also gives a controlled
+phase response with complete failures. The local reference weights,
+coherent service coupling and physical time identification have distinct
+premises; this construction assigns no measured particle.
+
 The [source-prepared charged defect](../ground_spectral_source/README.md)
 provides a separate constructive chain: prepare the ground of the specified
 full cube action, create a localized odd excitation, preserve its number

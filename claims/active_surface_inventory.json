@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1154,
+  "surface_count": 1173,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3196,6 +3196,26 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_energy_identification/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_energy_identification/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_energy_measurement/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_energy_measurement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_equilibration/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3207,6 +3227,46 @@
     },
     {
       "path": "model/native_exchange_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_clock/COMPOSITION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_preparation/COUPLING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_preparation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_preparation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_fair_local_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3251,6 +3311,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_gravity_identification/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_gravity_identification/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_gravity_response/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3267,6 +3337,16 @@
     },
     {
       "path": "model/native_joint_spin_spectroscopy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_charge_history/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_charge_history/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3322,6 +3402,16 @@
     },
     {
       "path": "model/native_modular_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_noncentral_reference/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_noncentral_reference/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3772,6 +3862,11 @@
     },
     {
       "path": "model/particle_identification/PASSIVE_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_identification/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

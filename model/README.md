@@ -15,8 +15,11 @@ shows why its isolated binding threshold cannot be used globally.
 the weighted source's transfer ground and detect a certified response using
 its declared coherent controls. [Rooted refinement](native_rooted_refinement/README.md)
 supplies exact corner topology and certified finite observation windows.
-A common growing source, autonomous relativistic dynamics and physical
-particle identification require their own derivation.
+The [local fair construction](native_fair_local_clock/README.md) composes
+all-sector preparation and complete occupation readout on one attempt
+counter, with explicit errors and retained records. Autonomous relativistic
+dynamics, a physical coherent clock and particle identification require
+their own derivation.
 
 The [phase selection bounds](particle_source_selection/README.md) identify what
 classical records and real cyclic averaging leave undetermined.

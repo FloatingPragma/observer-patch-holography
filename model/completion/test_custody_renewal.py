@@ -20,7 +20,9 @@ def test_integration_authority_binds_every_existing_live_pointer():
     assert len(pointers) == 736
     assert len({target for _, target in pointers}) == 267
     assert renewal.INTEGRATION_BASELINE['commit'] == '85a0cc208f52b385cfa674b288bcb079156abfec'
-    assert renewal.CLASS_DIGEST == '54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877'
+    assert renewal.INTEGRATION_CLASS_DIGEST == '54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877'
+    assert renewal.SOURCE_REFRESH_BASELINE['commit'] == '12047f556a3f4d6bae5b48aa5b85980a0c5eda40'
+    assert renewal.CLASS_DIGEST == '679e4f86269cc1b7b8424a6d983293014506ef4241635124da29fe5f0571c247'
 
 
 @pytest.mark.parametrize('damage', ('add', 'retarget', 'move'))
@@ -47,6 +49,8 @@ def test_live_pointer_schema_cannot_expand_or_retarget(damage):
     ('integration_source', 'immutable integration baseline changed'),
     ('pointer_authority', 'immutable program pointer authority changed'),
     ('original_authority', 'immutable original conservation authority changed'),
+    ('refresh_baseline', 'immutable accepted-main refresh authority changed'),
+    ('refresh_source', 'immutable accepted-main refresh authority changed'),
 ])
 def test_new_renewal_cannot_relabel_history_or_scientific_acceptance(damage, message):
     packet = copy.deepcopy(strict_json.load(renewal.ROOT / renewal.RECORD))
@@ -66,6 +70,10 @@ def test_new_renewal_cannot_relabel_history_or_scientific_acceptance(damage, mes
         packet['program_pointer_schema']['locations'] = 69
     elif damage == 'original_authority':
         packet['original_conserved']['review_history'] = '0' * 64
+    elif damage == 'refresh_baseline':
+        packet['source_refresh_baseline']['commit'] = '0' * 40
+    elif damage == 'refresh_source':
+        packet['source_refresh_baseline']['source_sha256'][renewal.CLASS] = '0' * 64
     else:
         first = next(iter(packet['current_bindings']))
         packet['current_bindings'][first] = '0' * 64
@@ -85,7 +93,7 @@ def _write(root, name, value):
 @pytest.fixture
 def isolated_custody_root(tmp_path):
     names = renewal.REQUIRED_BINDINGS | {
-        renewal.RECORD, renewal.REVIEW, renewal.CLASS, renewal.PROGRAM}
+        renewal.RECORD, renewal.REVIEW, renewal.CLASS, renewal.PROGRAM, renewal.NAVIGATION_SOURCE}
     names |= {target for _, target in renewal.program_pointers(
         strict_json.load(renewal.ROOT / renewal.PROGRAM))}
     for name in names:
@@ -174,4 +182,44 @@ def test_live_pointer_hashes_must_match_target_bytes(isolated_custody_root, inde
     renewal.at_path(program, path)['sha256'] = 'f' * 64
     _write(root, renewal.PROGRAM, program)
     with pytest.raises(ValueError, match='program custody target changed'):
+        renewal.validate(root=root)
+
+
+@pytest.mark.parametrize('damage, message', [
+    ('class_clause', 'adopted scientific class clauses changed'),
+    ('class_other_source', 'adopted scientific class clauses changed'),
+    ('class_live_source', 'adopted scientific class clauses changed'),
+    ('navigation_count', 'current finite-map navigation changed'),
+    ('navigation_hash', 'current finite-map navigation changed'),
+    ('navigation_owner', 'immutable current navigation authority changed'),
+    ('review_class', 'current review class digest changed'),
+])
+def test_named_metadata_refresh_cannot_expand_its_scope(isolated_custody_root, damage, message):
+    root = isolated_custody_root
+    if damage.startswith('class_'):
+        klass = _read(root, renewal.CLASS)
+        if damage == 'class_clause':
+            klass['interpreter_binding']['fresh_trillion_pulse_replay_claimed'] = True
+        elif damage == 'class_other_source':
+            klass['interpreter_binding']['source_hashes']['model/native_program/interpreter.py'] = 'f'*64
+        else:
+            klass['interpreter_binding']['source_hashes'][renewal.CLASS_LIVE_RECEIPT] = 'f'*64
+        _write(root, renewal.CLASS, klass)
+    elif damage.startswith('navigation_'):
+        if damage == 'navigation_owner':
+            register = _read(root, renewal.NAVIGATION_SOURCE)
+            register['model_supply']['contract_coverage']['claim_ids'].pop()
+            _write(root, renewal.NAVIGATION_SOURCE, register)
+        else:
+            finite = _read(root, renewal.MAP)
+            navigation = finite['existing_navigation_coverage']
+            if damage == 'navigation_count': navigation['claim_count'] = 389
+            else: navigation['contract_coverage_sha256'] = 'f'*64
+            _write(root, renewal.MAP, finite)
+    else:
+        review = _read(root, renewal.REVIEW)
+        review['reviewed_contract_digest'] = renewal.INTEGRATION_CLASS_DIGEST
+        _write(root, renewal.REVIEW, review)
+    _rebind_outer_hashes(root)
+    with pytest.raises(ValueError, match=message):
         renewal.validate(root=root)

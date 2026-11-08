@@ -1061,13 +1061,14 @@
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
-      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. At a faithful reference sigma, the tangent first law is dS = 2pi d<B> + d<Z>. For finite changes at fixed K_sigma = 2pi B + Z = -log sigma, Delta S = 2pi Delta<B> + Delta<Z> - D(rho||sigma). On the declared Z = sum_alpha log(d_alpha) P_alpha, d<Z> = dS_edge and dS_bulk = 2pi d<B>, including moving sector probabilities. Testing every sector transfer fixes Z only up to a common scalar. Along a supplied nonconstant one-constraint Gibbs family, the analytic multiplier identity is dS/dt = lambda; identifying lambda with 2pi and t with physical energy is a separate branch normalization, not a numerical result. On that coupled tangent class, dS_edge = lambda dt - 2pi d<B>; the generalized-entropy leading term and edge normalization are named branch interfaces. On the separately declared D10 local-extension branch, a_cell=P ell_star^2 and ellbar_shared=P/4 give the exact pixel cancellation G_geom/ell_star^2=1. This is a natural-unit identity, not an SI prediction; the source-emitted operational-clock packet is unresolved. The source-counted length-two reference sigma=C^2/171720 has spectral floor 40/4293. Weighting the midpoint of unchanged native histories constructs sixty-five independent normalized faithful state directions, with all return and filter outcomes retained. On every native two-port seam, the actual regional algebra has intrinsic sector dimensions 1,2,1 and exterior multiplicities 45,10,1. Its canonical tracial completion obeys the stated entropy split with the central Shannon term in the bulk. For a restricted tangent Y and |t|<1, the exact modular balance has 0<=D(R+tY||R)<=t^2||Y||_HS^2/[2(1-|t|)(40/4293)], including a noncommuting exact example. A source pair-occupation filter preserving all twelve mean occupations has strictly positive bulk-entropy slope between 0.011791769169 and 0.011791769170; the fixed native cut count eight has zero derivative and cannot cancel it with a positive constant. The original sigma differs from its regional completion and has nonzero cross-sector coherence, obstructing a sigma-preserving UCP retraction onto this regional algebra. These are postselected-history ensembles and finite modular/entropy premises, not causal quantum preparation, a geometric area, fixed proper volume, physical stress, a Newton normalization or a common small-ball refinement.",
+      "statement": "For rho_C = direct-sum_alpha p_alpha (rho_bulk,alpha tensor I_edge,alpha/d_alpha), the entropy split is S = S_bulk + S_edge with S_bulk = H(p) + sum_alpha p_alpha S(rho_bulk,alpha) and S_edge = sum_alpha p_alpha log d_alpha. At a faithful reference sigma, the tangent first law is dS = 2pi d<B> + d<Z>. For finite changes at fixed K_sigma = 2pi B + Z = -log sigma, Delta S = 2pi Delta<B> + Delta<Z> - D(rho||sigma). On the declared Z = sum_alpha log(d_alpha) P_alpha, d<Z> = dS_edge and dS_bulk = 2pi d<B>, including moving sector probabilities. Testing every sector transfer fixes Z only up to a common scalar. Along a supplied nonconstant one-constraint Gibbs family, the analytic multiplier identity is dS/dt = lambda; identifying lambda with 2pi and t with physical energy is a separate branch normalization, not a numerical result. On that coupled tangent class, dS_edge = lambda dt - 2pi d<B>; the generalized-entropy leading term and edge normalization are named branch interfaces. On the separately declared D10 local-extension branch, a_cell=P ell_star^2 and ellbar_shared=P/4 give the exact pixel cancellation G_geom/ell_star^2=1. This is a natural-unit identity, not an SI prediction; the source-emitted operational-clock packet is unresolved. The source-counted length-two reference sigma=C^2/171720 has spectral floor 40/4293. Weighting the midpoint of unchanged native histories constructs sixty-five independent normalized faithful state directions, with all return and filter outcomes retained. On every native two-port seam, the actual regional algebra has intrinsic sector dimensions 1,2,1 and exterior multiplicities 45,10,1. Its canonical tracial completion obeys the stated entropy split with the central Shannon term in the bulk. For a restricted tangent Y and |t|<1, the exact modular balance has 0<=D(R+tY||R)<=t^2||Y||_HS^2/[2(1-|t|)(40/4293)], including a noncommuting exact example. A source pair-occupation filter preserving all twelve mean occupations has strictly positive bulk-entropy slope between 0.011791769169 and 0.011791769170; the fixed native cut count eight has zero derivative and cannot cancel it with a positive constant. The original sigma differs from its regional completion and has nonzero cross-sector coherence, obstructing a sigma-preserving UCP retraction onto this regional algebra. These are postselected-history ensembles and finite modular/entropy premises, not causal quantum preparation, a geometric area, fixed proper volume, physical stress, a Newton normalization or a common small-ball refinement. For the growing fair fixed-number canonical source, every regional number sector has density w_k I with w_k=binom(V-v,q-k)/binom(V,q). The actual full reference has the sector-product form, so its bulk/edge entropy split holds without replacing that reference. Its full entropy is log binom(V,q), and any normalized same-carrier state has entropy deficit D(rho||tau); sector reweighting gives the corresponding classical relative entropy. Regional modular flow is exactly trivial on all number-preserving observables, whereas one complete native E attempt annihilates an endpoint contrast. Thus this state/algebra dictionary does not identify the native attempt clock with nontrivial geometric modular flow. A same-support prepared marginal at half trace error epsilon has modular-flow error at most 2|s|epsilon/(m-epsilon) per unit observable norm when epsilon<m, where m is the reference spectral floor. The fixed-q dilute family loses that floor with increasing capacity. At V=240,q=80,v=12, a positive sector-transfer tangent has edge slope log(80/149) and opposite bulk slope; a fixed graph cut has zero slope. This supplies finite entropy premises, without a physical area, proper-volume stationarity, stress or Newton constant. A distinct complete 71-attempt local record protocol prepares a faithful noncentral reference with sector eigenvalue floor at least 1/8192 and conditional acceptance at least 1/12 on recognized nonconstant branches. Its natural regional modular actions agree on overlaps and admit state-preserving completely positive expectations, while fixing every occupation observable. These expectations are not asserted multiplicative, and the phase action supplies no geometric boost or stress normalization.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
         "optimizer_pushforward_and_refinement_tail",
         "central_interface_clause",
-        "edge_normalization_log_d"
+        "edge_normalization_log_d",
+        "declared_native_canonical_capacity_restriction"
       ],
       "imported_results": [
         "tangent_first_law_and_finite_relative_entropy_remainder",
@@ -1089,9 +1090,15 @@
         "model/native_gravity_response/certificate.py",
         "model/native_gravity_response/PROOF.md",
         "model/native_gravity_response/results.json",
-        "model/native_gravity_response/test_certificate.py"
+        "model/native_gravity_response/test_certificate.py",
+        "model/native_gravity_identification/entropy.py",
+        "model/native_gravity_identification/certificate.py",
+        "model/native_gravity_identification/PROOF.md",
+        "model/native_gravity_identification/results.json",
+        "model/native_gravity_identification/test_entropy.py",
+        "model/native_noncentral_reference/PROOF.md"
       ],
-      "falsifier": "An explicit direct-sum block state violates the entropy split, the finite relative-entropy balance fails, a non-scalar generator mismatch has zero all-tangent defect, a wrong relative central normalization passes all sector transfers, or the analytic slope fails for a resolved nonconstant Gibbs family. The native regional extension fails if the counted filter family loses normalization or faithfulness, the complete tensor restriction or Shannon/bulk/edge split fails, the noncommuting remainder bound fails, or the exact occupation-fixed filter has zero bulk slope.",
+      "falsifier": "An explicit direct-sum block state violates the entropy split, the finite relative-entropy balance fails, a non-scalar generator mismatch has zero all-tangent defect, a wrong relative central normalization passes all sector transfers, or the analytic slope fails for a resolved nonconstant Gibbs family. The native regional extension fails if the counted filter family loses normalization or faithfulness, the complete tensor restriction or Shannon/bulk/edge split fails, the noncommuting remainder bound fails, or the exact occupation-fixed filter has zero bulk slope. The fair-source attachment fails if its exact all-sector entropy split, central modular action, same-support logarithm bound or complete native E contrast countercontrol fails.",
       "scope_if_false": "The entropy bridge and its generalized-entropy interface support fail.",
       "status": "proved_finite_plus_receipt_branch",
       "claim_class": "conditional_implication",
@@ -18844,7 +18851,7 @@
     },
     {
       "claim_id": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
-      "statement": "For the connected fair binary source at one specified occupation 2<=q<=V-2, its positive transfer P_q fixes the normalized constant ground vector of H_M=-2M log(P_q). Complete reflected four-E records determine a positive-energy ground response matrix on primitive degree two. Blocking b=floor(M/(2r Delta)) native attempts gives Q=P^b>=I/2 when M>=2r Delta, so exact rational complex binomial polynomials reconstruct exp(-itH_M) responses from finite native lags with explicit truncation, coefficient amplification, preparation and independent-sampling bounds. The truncation and coefficient-amplification bounds are uniform in capacity at fixed correlation degree and time, while the required native lag and preparation resources retain their actual ceilings. A source-derived positive finite phase-kick response in the transfer ground conflicts with the exactly phase-blind bare native record law under an identity state/field/intervention dictionary. This is a statistical reconstruction and a precise operational identification condition; neither a prepared physical vacuum nor native unitary real-time evolution is asserted.",
+      "statement": "For the connected fair binary source at one specified occupation 2<=q<=V-2, its positive transfer P_q fixes the normalized constant ground vector of H_M=-2M log(P_q). Complete reflected four-E records determine a positive-energy ground response matrix on primitive degree two. Blocking b=floor(M/(2r Delta)) native attempts gives Q=P^b>=I/2 when M>=2r Delta, so exact rational complex binomial polynomials reconstruct exp(-itH_M) responses from finite native lags with explicit truncation, coefficient amplification, preparation and independent-sampling bounds. The truncation and coefficient-amplification bounds are uniform in capacity at fixed correlation degree and time, while the required native lag and preparation resources retain their actual ceilings. A source-derived positive finite phase-kick response in the transfer ground conflicts with the exactly phase-blind bare native record law under an identity state/field/intervention dictionary. This is a statistical reconstruction and a precise operational identification condition; neither a prepared physical vacuum nor native unitary real-time evolution is asserted. The same blocked transfer gives a complete positive spectral partition B_k(Q)=binomial(n,k)Q^k(I-Q)^(n-k), reconstructed from complete native lag scores. Every bin, including zero-count overflow, is retained; half-l1 estimation error includes the exact amplification (3^n-1)/2. Native local repair prepares the fair H66 total-two reference from arbitrary input and untouched reference, after tracing preparation records only for the statistic. Sixteen admitted prepared lag settings give a seventeen-bin exact transfer-energy histogram, with at most 3871 attempts and 3856 syntax nodes per setting and preparation error below 4e-11. These reconstructed effects are not an implemented coherent energy instrument or physical particle identification. Existing coherent source services also compile a complete destructive energy instrument for the fair H66 source. Exact rational Gram and source-residual gates certify a nearby self-adjoint generator within 27/10^8 in counted energy, without an eigenvalue-gap assumption. Sixty-six survival-zero rank-one phase filters retain every energy flag, first processor failure and final residual. Each word is independently admitted with 58392 pulses; all 3853872 pulses use the existing nine-bit chart. The complete half-diamond error is below 1/12000, with stored-map gain below 1001/1000, conditional on every emitted primitive passing its exact interval check. The separately admitted 71-attempt native retained-record preparation joins the same instrument to the noncentral q2 reference with exact acceptance 7771/65536. The exact full law retains rejection, 66 energy labels and quantum residual, with arbitrary original reference and no successful-outcome renormalization. These are controlled finite source services and counted transfer energies, not autonomous physical fields or particle masses. The existing native phase experiment supplies the same ideal prepared reference rho=P/56; exact basis and transfer checks prove the modular identity K=H/60+log(56)I and equality of the modular and controlled transfer operator families under the explicit factor 60. The existing preparation retains its numerical-density admission scope and finite selector timeout; it is not stationary under unread C/E repair. The tree-weighted diagonal reference and rho are distinct: their norm-one native exchange expectations differ by 1/168, giving half trace distance at least 1/336.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "conditional_finite_source_interface",
       "assumptions": [
@@ -18858,14 +18865,24 @@
         "native_degree_four_score_preparation",
         "Chebyshev_union_bound",
         "partial_injection_diagonal_record_effects",
-        "unitary_phase_kick_Taylor_remainder"
+        "unitary_phase_kick_Taylor_remainder",
+        "Bernstein_positive_partition_and_binomial_moments",
+        "finite_Chebyshev_spectral_window_bound",
+        "native_local_E_word_reference_preparation",
+        "positive_transfer_logarithm_resolvent_Lipschitz",
+        "polar_basis_residual_comparison",
+        "complete_sequential_destructive_rank_one_filters",
+        "Stinespring_half_diamond_bound",
+        "native_record_filtered_noncentral_reference"
       ],
       "oph_specific_delta": "Attaches transfer-ground real-time response statistics to the same-q open native record experiment with capacity-uniform blocked continuation, explicit resource and amplification costs, and a quantitative intervention witness that prevents identification with the native working state by correlation reconstruction alone.",
       "novelty_type": "source_specific_finite_premise_reduction",
       "evidence": [
-        "model/native_vacuum_response/PROOF.md"
+        "model/native_vacuum_response/PROOF.md",
+        "model/native_energy_identification/PROOF.md",
+        "model/native_energy_measurement/PROOF.md"
       ],
-      "falsifier": "The blocked transfer violates its spectral floor, the exact continuation polynomial misses the stated response envelope, native reflected records or preparation/sampling costs disagree with the attached normalization, a nonadmitted sufficient program is treated as executed, or the claimed phase-kick lower bound or complete bare-record blindness fails within its stated observation domain.",
+      "falsifier": "The blocked transfer violates its spectral floor, the exact continuation polynomial misses the stated response envelope, native reflected records or preparation/sampling costs disagree with the attached normalization, a nonadmitted sufficient program is treated as executed, or the claimed phase-kick lower bound or complete bare-record blindness fails within its stated observation domain. A spectral-bin effect is nonpositive or their sum differs from identity, the reconstructed exact native probabilities disagree with the complete lag law, the overflow or coefficient-amplified error is omitted, or a signed finite-sample statistic is promoted to an implemented coherent energy instrument. The fair source chart differs from the compiled chart, a proposed eigenframe fails its exact source/Gram residual gates, the zero-survival first filter fails its claimed residual I-P, an energy/failure/residual outcome is dropped, complete channel or stored gain exceeds the certified envelope, exact accepted-reference output fails normalization with rejection retained, or separate source services are promoted to an admitted monolithic repair program or physical clock.",
       "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
       "status": "proved_in_prose_with_exact_finite_controls",
       "claim_class": "conditional_implication",
@@ -18984,6 +19001,124 @@
         "open": [],
         "boundary": [],
         "rationale": "All-radius full-sequence topology only for the exact oriented corner stencil; finite source-routed windows through level 14. An infinite routed process needs a specified arithmetic continuation and every physical identification premise retains its own proof obligation."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+      "statement": "On any addressed original cell of the declared fair fixed-global-number federation, the native eleven-E tree followed by b double sweeps of all thirty internal seams gives a conditional reference channel on all thirteen local number sectors. Exact integer minorization matrices prove half-diamond error at most 2^-b for 0<=b<=68 after marginalizing only the 60b mixing-record values; the eleven tree records and arbitrary untouched reference are retained, including the unchanged empty/full coherent corner. The literal length is 11+60b, with b=32 using 1931 attempts. A separately supplied addressed-occupation-wire proper-code interface intertwines every local native C/E branch with the same global source, including cross-local-number/exterior coherences. Through that explicit coupling, a fresh tree-conditioned 305-pulse phase experiment plus four complete six-label raw-bit readouts has unconditional ideal score increment a=1-Tr(P_const rho), with inconclusive constant branches retained. Conditional on every emitted stored primitive passing its directed certificate, complete half-diamond error is below 1/(4*10^7) and stored-map score increment is at least a*9999999/10000000, with bounded gain and all first failures. Repair alone does not supply that coherent coupling. For each recognized nonconstant branch of the native eleven-E tree, one following sixty-E double sweep prepares an exact faithful noncentral local-sector reference in 71 attempts. Every source reference eigenvalue is at least 1/8192. A bounded classical acceptance flag ranks the actual sixty fair-coin words by endpoint and selects L_q W(x) of the A_q[x,y] native paths, where W(x) is the product of one plus rooted native-tree depths on occupied ports and L_q=min floor(A_q[x,y]/W(x)). This prepares W/Z_q exactly with conditional acceptance alpha_q>=1/12, retaining all rejection, impossible-word and coherent constant-code outcomes. For q=2, Z_q=409 and alpha_q=7771/65536. The reference observation keeps the tree and flag while marginalizing the sixty mixing-record values; arbitrary untouched references remain correctly attached branchwise. The generator log Z_q-sum_i log(1+depth_i)n_i preserves every natural number-preserving regional algebra, and intrinsic regional modular groups agree on overlaps. This is a declared observer preparation protocol and bounded tape analysis, not an automatically compiled native feedback primitive, a selected physical vacuum, autonomous spatial propagation or a gravity theorem.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_fair_local_preparation_and_declared_occupation_coupling"
+      ],
+      "imported_results": [
+        "native_complete_E_tree_partial_injection",
+        "finite_Markov_minorization_and_stationarity",
+        "local_Kraus_tensor_reference_identity",
+        "trace_distance_contractivity",
+        "occupation_factor_chart_and_number_preserving_intertwining",
+        "proper_code_complete_failure_instruments",
+        "directed_interval_primitive_certification",
+        "complete_CP_gain_and_half_diamond_bounds"
+      ],
+      "oph_specific_delta": "Supplies a fixed-length all-local-number conditional preparation from actual fair repair, then states and verifies the additional addressed quantum-service coupling required for a complete conditional phase experiment on that same local source factor.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_fair_local_preparation/PROOF.md",
+        "model/native_fair_local_preparation/COUPLING.md",
+        "model/native_noncentral_reference/reference.py",
+        "model/native_noncentral_reference/packet.py",
+        "model/native_noncentral_reference/PROOF.md",
+        "model/native_noncentral_reference/results.json",
+        "model/native_noncentral_reference/test_reference.py"
+      ],
+      "falsifier": "Any exact sector minorization falls below 1/2, the tree loses a nonconstant configuration or constant coherence, a native local branch fails the global occupation-chart intertwiner, the archive comparison is falsely factorized, an emitted primitive fails its certificate, or the phase score/error budget omits raw complement, number leakage or first-failure output. A native coin-path count or rank threshold fails, accepted probabilities differ from the exact W/Z law, the certified sector floor or conditional acceptance lower bound fails, or the claimed regional modular ratios depend on exterior context.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Conditional local fair-source preparation and explicitly supplied coherent apparatus. No global canonical preparation, autonomous coherent evolution, physical field reconstruction or particle-mass identification is inferred."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-FAIR-LOCAL-READOUT",
+      "statement": "On a connected finite window B of the actual fair source, complete incident E records recover the initial occupation differences at the first hits of an internal spanning tree, using every boundary and internal current. Every nonconstant initial mask and its terminal mask are decoded after coverage. The complete labelled source/reference instrument differs from an initial-local-census comparator followed by the same native repairs by exactly gamma=pcov+(1-pcov)eta, where eta is the initial empty/full weight; no successful branch is normalized. With public global(V,q), unresolved constant weight becomes indicator[|B|<=q<=V-|B|]*eta; the globally empty/full cases need no coverage. In particular the eleven-E original-cell tree reads every feasible local occupation exactly for global q<12. Under independent uniform seams, pcov has exact inclusion-exclusion and upper bound(|B|-1)2^-floor(T/M). Canonical eta is hypergeometric, with a bound depending only on the source marginal even for correlated references. A certified level-six 348-port window and 165150720 admitted uniform E attempts give complete oracle error below 10^-16. Generic host stops and the actual attempt/retained-record ceilings are preserved. Every decoded local occupation snapshot is recovered by summing authenticated incident currents on the same attempt counter. For any rational regional profile, each fine branch obeys the exact operator continuity identity K_h* A K_h=K_h* K_h A+Delta_h K_h* K_h, including arbitrary untouched references. The complete joint history retains the same erasure distance with no factor for the number of snapshots. For the 3862-attempt preparation/readout join the history comparison covers the final eleven detector attempts; preparation mixing values remain traced. This source occupation current has no assigned physical gauge charge or stress-energy interpretation.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_fair_local_complete_occupation_readout"
+      ],
+      "imported_results": [
+        "native_E_partial_injection_and_complete_instrument",
+        "spanning_tree_gradient_reconstruction",
+        "complete_recorded_boundary_current_reversal",
+        "orthogonal_classical_flag_trace_norm_identity",
+        "independent_coupon_coverage_inclusion_exclusion",
+        "canonical_hypergeometric_restriction",
+        "global_conserved_number_feasibility"
+      ],
+      "oph_specific_delta": "Constructs a source-bound local readout across all number sectors without an initial census, tracks moving boundary occupations, and derives the exact complete-output erasure comparison with a global-specification shortcut and admitted finite coverage certificate.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_fair_local_readout/PROOF.md",
+        "model/native_local_charge_history/PROOF.md",
+        "model/native_local_charge_history/history.py",
+        "model/native_local_charge_history/results.json",
+        "model/native_local_charge_history/test_history.py"
+      ],
+      "falsifier": "A nonzero native word yields an incorrect initial or terminal mask, a missing boundary record is silently accepted as complete, global-number feasibility excludes an allowed input, a fine successful map fails K_h=K_hP_x, quantum/reference erasure distance violates the stated formula, or the retained native alphabet/resource stop is removed. A decoded prefix violates the actual endpoint current update, the fine-branch operator continuity identity fails, or a trajectory is assigned to an unresolved erasure branch.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Exact local occupation readout with unconditional erasure accounting, including perfect fixed-cell readout at global q<12. No all-effect coherent tomography, QFT reconstruction or measured spectrum mapping is inferred."
+      }
+    },
+    {
+      "claim_id": "OPH-NATIVE-FAIR-LOCAL-CLOCK",
+      "statement": "A literal fair-source programme joins fixed local preparation/readout words and independent uniform repair epochs on one native attempt counter: each bin has L_i fixed attempts plus U_i uniform attempts, with total T=M t. For an observation retaining all fixed records, selected uniform records, final root ports and arbitrary untouched reference, the complete half-diamond comparison to the same fixed instruments and a finite rate-one marked Poisson window is at most a+c+d, capped at 1, where a=min(1,|S|binom(U,r+1)(Delta/M)^(r+1)), c=min(1,U K^2/M^2), and d=min(1,K L/M). Here the dynamical window contains the graph-radius-r ball around all observed and intervention endpoints, with K internal seams. Joint initial-state error adds by contractivity. The last term charges the fixed-word time reservation and is not silently omitted. Authenticated finite rooted address transport and an admitted preparation/uniform-E-readout composition preserve complete raw failures, records and resource limits; a declared canonical specialization has its separate local-state error bound. An admitted level-six programme with 3851 preparation attempts and 64M uniform E attempts (165154571 total attempts, 3852 nodes) compares complete local readout to the conditional-reference-preparation oracle within 10^-16 for a canonical source marginal with any correlated reference extension. A separate fixed-global-q=2 programme uses 3862 attempts for preparation and fresh root-tree readout, with error at most 2^-64 for arbitrary source/reference input in that sector; its positive per-seam duration is not fixed as capacity grows.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_finite_source_interface",
+      "assumptions": [
+        "declared_native_fair_local_counted_clock_complete_protocol"
+      ],
+      "imported_results": [
+        "complete_native_endpoint_instrument_attachment",
+        "backward_dependency_cone_for_complete_records",
+        "marked_categorical_Poisson_coupling",
+        "complete_channel_trace_distance_contraction",
+        "finite_rooted_window_transport",
+        "canonical_sampling_restriction_bound",
+        "counted_fixed_word_clock_reservation"
+      ],
+      "oph_specific_delta": "Places actual local preparation and readout reservations on the same source attempt counter, derives their complete-history time correction, and supplies a finite source-bound protocol composition without discarding failures or conflating exact native and comparison-process timestamps.",
+      "novelty_type": "source_specific_finite_premise_reduction",
+      "evidence": [
+        "model/native_fair_local_clock/PROOF.md",
+        "model/native_fair_local_clock/COMPOSITION.md"
+      ],
+      "falsifier": "The compiled attempt/resource counter differs from literal commands, a fixed or observed endpoint lies outside the certified root, the marked full-instrument coupling or reservation error is violated, unequal joint initial targets are compared as the same state, or host/time records are silently discarded beyond the declared observation map.",
+      "scope_if_false": "Reject the stated finite source interface; no physical particle or spacetime conclusion is inferred.",
+      "status": "proved_in_prose_with_exact_finite_controls",
+      "claim_class": "conditional_implication",
+      "proof_medium": "paper_prose",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Complete finite controlled source protocol with explicit local-history and state-error budgets. No all-capacity host execution, unique infinite routed process, physical time or field/particle identification is inferred."
       }
     }
   ],
@@ -19916,16 +20051,24 @@
       "falsifiers": {
         "physical_identification": "No common source family realizes the declared central-interface decomposition, modular charge, and MaxEnt constraints",
         "phenomenological": "A receipt-complete entropy response violates the split first law or coupled multiplier identity",
-        "mathematical": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family"
+        "mathematical": "An explicit direct-sum block state violates S = S_bulk + S_edge, Z carries a sector-probability term, delta S_bulk differs from 2pi delta<B> on the declared central-interface class, or the multiplier identity fails along a MaxEnt family The fair-source attachment fails if its exact all-sector entropy split, central modular action, same-support logarithm bound or complete native E contrast countercontrol fails."
       },
       "depends_on": [
         {
           "claim_id": "OPH-GR-D4C-LOCAL-STRESS",
           "role": "conditionally interprets the changing MaxEnt constraint channel as a local stress channel only after same-source matching and the physical stress supplies; the finite entropy and envelope identities do not consume that upgrade"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CANONICAL-RESTRICTION",
+          "role": "supplies the actual all-number fair canonical regional reference used by the separate entropy and modular-clock attachment; it supplies no global preparation or geometric stress"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+          "role": "supplies the distinct complete record-filtered noncentral regional reference and its rejection mass; local modular charge phases are not geometric boosts or physical stress"
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "The dropped-edge-term and changing-stress-channel defects are repaired exactly, with machine-verified split identities and normalization countermodels",
+        "oph_specific_delta": "The dropped-edge-term and changing-stress-channel defects are repaired exactly, with machine-verified split identities and normalization countermodels The growing fair canonical source supplies an exact all-sector entropy attachment and exposes the failure of a direct modular-clock/static-cut identification.",
         "falsifier": "Exact split violated or multiplier identity fails"
       }
     },
@@ -33264,8 +33407,8 @@
       },
       "owner_section": "Positive-energy correlations from open records",
       "falsifiers": {
-        "mathematical": "The blocked transfer violates its spectral floor, the exact continuation polynomial misses the stated response envelope, native reflected records or preparation/sampling costs disagree with the attached normalization, a nonadmitted sufficient program is treated as executed, or the claimed phase-kick lower bound or complete bare-record blindness fails within its stated observation domain.",
-        "physical_identification": "The source has independent uniform seam choices, fresh fair endpoint coins, repair probability one, a fixed C/E mixture, a connected graph and a declared conserved occupation. Positive transfer and the primitive-degree spectral ceiling are inherited from the owning finite source theorems. Each reflected probe uses two disjoint actual seams with past outgoing and future incoming contrasts; all raw records and backaction are retained. The reference-valued preparation bound ignores the retained warmup archive without adaptive conditioning. Complex polynomial combinations are separate statistical experiments, not one implemented effect. Sampling requires independent repetitions, and any score-zero host stop needs its own proved probability allowance. Exact rational coefficient evaluation is bounded to order96 and majorant integer128 in the executable. Native single-program and expanded host limits are unchanged; the displayed sufficient warmup is nonadmitted at federation levels1 and2. The phase-blindness comparison traces the terminal working carrier and concerns bare C/E records; coherent future analyzers and different state/operation encodings are outside its exclusion. The working tracial density, pure transfer ground and supplied gauge-matter ground are distinct. No physical time, Lorentz cone, continuum vacuum or particle spectrum follows.",
+        "mathematical": "The blocked transfer violates its spectral floor, the exact continuation polynomial misses the stated response envelope, native reflected records or preparation/sampling costs disagree with the attached normalization, a nonadmitted sufficient program is treated as executed, or the claimed phase-kick lower bound or complete bare-record blindness fails within its stated observation domain. A spectral-bin effect is nonpositive or their sum differs from identity, the reconstructed exact native probabilities disagree with the complete lag law, the overflow or coefficient-amplified error is omitted, or a signed finite-sample statistic is promoted to an implemented coherent energy instrument. The fair source chart differs from the compiled chart, a proposed eigenframe fails its exact source/Gram residual gates, the zero-survival first filter fails its claimed residual I-P, an energy/failure/residual outcome is dropped, complete channel or stored gain exceeds the certified envelope, exact accepted-reference output fails normalization with rejection retained, or separate source services are promoted to an admitted monolithic repair program or physical clock.",
+        "physical_identification": "The source has independent uniform seam choices, fresh fair endpoint coins, repair probability one, a fixed C/E mixture, a connected graph and a declared conserved occupation. Positive transfer and the primitive-degree spectral ceiling are inherited from the owning finite source theorems. Each reflected probe uses two disjoint actual seams with past outgoing and future incoming contrasts; all raw records and backaction are retained. The reference-valued preparation bound ignores the retained warmup archive without adaptive conditioning. Complex polynomial combinations are separate statistical experiments, not one implemented effect. Sampling requires independent repetitions, and any score-zero host stop needs its own proved probability allowance. Exact rational coefficient evaluation is bounded to order96 and majorant integer128 in the executable. Native single-program and expanded host limits are unchanged; the displayed sufficient warmup is nonadmitted at federation levels1 and2. The phase-blindness comparison traces the terminal working carrier and concerns bare C/E records; coherent future analyzers and different state/operation encodings are outside its exclusion. The working tracial density, pure transfer ground and supplied gauge-matter ground are distinct. No physical time, Lorentz cone, continuum vacuum or particle spectrum follows. The spectral effect family acts on the reconstructed transfer Hilbert space, while its probabilities are signed combinations of separate complete native experiments. All n+1 bins are retained. The executable order is at most 64; spectral resolution bounds use Q>=I/2 on bounded primitive degree. Exact local preparation covers the fair twelve-port total-two working carrier after marginalizing preparation records for the statistic, not a growing global canonical source or a transfer vacuum. Displayed sufficient sampling costs are not executed. No native instrument realizing the spectral effects, stress tensor, laboratory energy unit, relativistic dispersion or physical mass is supplied. The direct nine-bit compiler evaluates every stored success prefix and the full emitted primitive alphabet; analytic complete-channel bounds cover first failures and padding. The generic six-bit/256-pulse evaluator continues to return RESOURCE_STOP. Every source word is separately admitted, and the whole controller is a bounded composition of declared source services, without a monolithic repair AST or coherent-word admission claim. Detection destroys the source and retains the untouched reference. The ideal instrument is normalized; stored numerical maps have bounded gain and their output scores are not declared exact probabilities. Native repair attempts and coherent pulse ordinals remain separate counters. The 71-attempt preparation comparison marginalizes mixing record values only for its stated observation; all actual records and rejection flags remain. No physical energy conversion, autonomous chiral continuum, conserved stress or laboratory rest mass follows. Reuse of rho=P/56 authenticates the existing twelve-bit and nine-bit source configurations and retains their declared proper-code interfaces. The original 2e-10 Frobenius numerical preparation gate is not an outward-rounded arbitrary-reference channel certificate. Regional modular properties of the diagonal tree reference are not imported into rho=P/56.",
         "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
       },
       "depends_on": [
@@ -33280,6 +33423,10 @@
         {
           "claim_id": "OPH-NATIVE-CORRELATION-SECTORS",
           "role": "supplies the same-q primitive intertwiner and complete reflected native E experiment, including its measurement backaction and variance"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+          "role": "supplies the certified finite fair H66 total-two reference preparation with its stated error bound used by the energy-window score, with complete native records retained and preparation values traced only for that nonadaptive statistic"
         }
       ]
     },
@@ -33423,6 +33570,148 @@
         {
           "claim_id": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
           "role": "supplies the full local classical-quantum output comparison on authenticated finite windows with the stated observed root, aligned attempt clock, independent scheduler and state assumptions; no all-radius geometry premise is silently discharged"
+        }
+      ]
+    },
+    "OPH-NATIVE-FAIR-LOCAL-PREPARATION": {
+      "prior_work": {
+        "summary": "Finite minorization, quantum instruments and addressed local control",
+        "overlap": "Finite Markov minorization, tensor-local Kraus identities and channel perturbation bounds are standard. The source-specific content is the exhaustive thirteen-sector two-sweep certificate, exact native tree and archive attachment, and explicitly supplied occupation-wire service composition with complete phase readout. These ingredients do not derive quantum coupling from classical repair records.",
+        "imported_step": "native_complete_E_tree_partial_injection; finite_Markov_minorization_and_stationarity; local_Kraus_tensor_reference_identity; trace_distance_contractivity; occupation_factor_chart_and_number_preserving_intertwining; proper_code_complete_failure_instruments; directed_interval_primitive_certification; complete_CP_gain_and_half_diamond_bounds",
+        "citations": [
+          {
+            "work": "Finite Markov contraction and coupling",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Complete instruments and quantum channel error bounds",
+            "keys": [
+              "davies1970operational",
+              "kraus1971general",
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Owning native full-number tree and proper-code primitive certificates",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Local preparation and readout on one attempt clock",
+      "falsifiers": {
+        "mathematical": "Any exact sector minorization falls below 1/2, the tree loses a nonconstant configuration or constant coherence, a native local branch fails the global occupation-chart intertwiner, the archive comparison is falsely factorized, an emitted primitive fails its certificate, or the phase score/error budget omits raw complement, number leakage or first-failure output. A native coin-path count or rank threshold fails, accepted probabilities differ from the exact W/Z law, the certified sector floor or conditional acceptance lower bound fails, or the claimed regional modular ratios depend on exterior context.",
+        "physical_identification": "Use the unchanged fair binary federation and its declared complex-linear Kraus trace semantics, a specified original twelve-port cell, fixed internal-seam E repairs, fair placement coins, repair probability one, export-oldest FIFO and its literal node/attempt/storage caps. The reference map preserves input local-number weights and the empty/full corner; it does not select density, erase exterior correlations or prepare a global canonical state. The complete preparation archive exists; the bound retains tree records but marginalizes mixing records, so later control cannot consult those marginalized values without a separate argument. The phase witness uses a fresh tree or a complete intervening-current reconstruction. Its addressed occupation chart, quantum proper-code load/export, processor blanks, sixteen work bits and four terminal readout calls are explicitly supplied under the declared service premise. The ideal macros preserve global number; rounded work success can leak number and is retained in the apparatus rather than passed as an exact native source state. Every actual stored primitive must satisfy its certificate; rounded maps have bounded gain, with no success normalization, universal numerical-library or hardware claim. Native attempts and proper-code pulses have distinct counters and no physical time conversion. Higher-level algebraic attachment does not override expanded host stops. The active input mass a can vanish; no universal nonzero response, selected vacuum, field action or measured mass follows.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-FULL-NUMBER-READOUT",
+          "role": "supplies the original complete E-tree partial injections, all local number sectors and empty/full ambiguity; no fixed local total is inserted"
+        },
+        {
+          "claim_id": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+          "role": "supplies the directed interval primitive gate and complete stored-map product estimates, without transferring its weighted source state to the fair federation"
+        }
+      ]
+    },
+    "OPH-NATIVE-FAIR-LOCAL-READOUT": {
+      "prior_work": {
+        "summary": "Graph signal reconstruction, coupon coverage and complete quantum records",
+        "overlap": "Spanning-tree differences, inclusion-exclusion, hypergeometric restriction and orthogonal-flag trace norms are standard. The source-specific result binds these to literal E contrasts, all incident currents, complete fine Kraus maps and actual resource ceilings, using allowed global source specification without assuming a local number.",
+        "imported_step": "native_E_partial_injection_and_complete_instrument; spanning_tree_gradient_reconstruction; complete_recorded_boundary_current_reversal; orthogonal_classical_flag_trace_norm_identity; independent_coupon_coverage_inclusion_exclusion; canonical_hypergeometric_restriction; global_conserved_number_feasibility",
+        "citations": [
+          {
+            "work": "Finite probability and coupling",
+            "keys": [
+              "levin2017markov"
+            ]
+          },
+          {
+            "work": "Complete quantum instruments and trace norms",
+            "keys": [
+              "kraus1971general",
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Owning native full-number detector, canonical restriction and finite rooted routing",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Local preparation and readout on one attempt clock",
+      "falsifiers": {
+        "mathematical": "A nonzero native word yields an incorrect initial or terminal mask, a missing boundary record is silently accepted as complete, global-number feasibility excludes an allowed input, a fine successful map fails K_h=K_hP_x, quantum/reference erasure distance violates the stated formula, or the retained native alphabet/resource stop is removed. A decoded prefix violates the actual endpoint current update, the fine-branch operator continuity identity fails, or a trajectory is assigned to an unresolved erasure branch.",
+        "physical_identification": "Use the original fair binary federation and its complete Kraus trace instrument, declared global conserved number, independent uniform selectors with fair coins and repair probability one, or the specified fixed internal E tree. The decoder observes every incident seam record in chronological order, including boundary endpoints and current shifts, and retains terminal state and an untouched reference. The graph and all boundary seams must be attached by the literal evaluated source or authenticated finite routed window; arbitrary all-level floating routing is not assumed. Global total is read from the authenticated source specification, not inferred as a local total. The oracle is a comparison channel, not an extra implemented initial measurement. Its erasure equality is state-dependent and can be 1; canonical small error requires the stated source marginal but no independence from the untouched reference. Exact tick labels can be discarded only under the declared observation map. Formal finite-kernel histories, admitted commands, bounded unnormalized raw-word queries and expanded execution have distinct domains. The level-six example is not a completed expanded run. A fixed positive local time eventually exceeds the single-programme ceilings; no host restart, resource enlargement, coherent service lift, physical clock or particle identity is supplied.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-FULL-NUMBER-READOUT",
+          "role": "supplies complete native E-tree records and their unknown-total constant corner; the local uniform-coverage and boundary-current refinement is explicit"
+        },
+        {
+          "claim_id": "OPH-NATIVE-CANONICAL-RESTRICTION",
+          "role": "supplies the exact global canonical local-number mixture, without preparing its marginal or fixing density"
+        },
+        {
+          "claim_id": "OPH-NATIVE-ROOTED-REFINEMENT",
+          "role": "supplies authenticated finite routed windows; no infinite routed continuation is inferred"
+        }
+      ]
+    },
+    "OPH-NATIVE-FAIR-LOCAL-CLOCK": {
+      "prior_work": {
+        "summary": "Local graphical constructions, marked process coupling and quantum channel contractivity",
+        "overlap": "Backward influence paths, categorical-Poisson coupling and trace-distance composition are established techniques. The source-specific delta is an authenticated fixed-intervention schedule, exact native counter and full-record observation with the explicit reservation cost and attached local source protocol.",
+        "imported_step": "complete_native_endpoint_instrument_attachment; backward_dependency_cone_for_complete_records; marked_categorical_Poisson_coupling; complete_channel_trace_distance_contraction; finite_rooted_window_transport; canonical_sampling_restriction_bound; counted_fixed_word_clock_reservation",
+        "citations": [
+          {
+            "work": "Interacting particle graphical constructions",
+            "keys": [
+              "liggett1985interacting"
+            ]
+          },
+          {
+            "work": "Finite coupling and contraction",
+            "keys": [
+              "levin2017markov",
+              "watrous2018theory"
+            ]
+          },
+          {
+            "work": "Owning complete native local-history, preparation and readout contracts",
+            "keys": [],
+            "internal": true
+          }
+        ]
+      },
+      "owner_section": "Local preparation and readout on one attempt clock",
+      "falsifiers": {
+        "mathematical": "The compiled attempt/resource counter differs from literal commands, a fixed or observed endpoint lies outside the certified root, the marked full-instrument coupling or reservation error is violated, unequal joint initial targets are compared as the same state, or host/time records are silently discarded beyond the declared observation map.",
+        "physical_identification": "Use the unchanged fair source, repair probability one, fresh fair endpoint coins and independent uniform selectors in background epochs. Fixed words consist only of native fixed-seam repairs supported in S; every selected state-dependent record endpoint and final quantum port lies in S. The observation retains chronological bin/fixed-word labels and complete raw outcomes but traces exact global tick labels and remote values; full exact native archives are not equated to Poisson archives. Initial arbitrary-reference comparisons require the actual joint window/reference bound and the same declared target. Canonical-to-product bounds require the owning independent-reference hypothesis. All compared windows must transport the same instruments, endpoint orientations, bin partition and observation map. Prep archive marginalization is inherited exactly; no use of discarded control records is allowed. The composed readout mask refers to postpreparation occupations. Canonical marginal invariance follows from complete fair-E unitality and number conservation; it does not factor the source from its reference or prepare that global marginal. Mixing-record values alone are marginalized in the conditional-reference comparison. The long coverage example does not consume the short-time Poisson error bound. The Poisson process is a comparison, not a changed native scheduler. Node, attempt, record-storage, evaluated-level and expanded-branch limits are unchanged, including high-level fixed-intercell rejection and all host stops. Native attempt time and separate proper-code pulse time have no physical identification. No global canonical preparation, all-radius routed continuation, chiral field action or measured particle mapping follows.",
+        "phenomenological": "No measured particle mass, physical spacetime identification or experimental confirmation is added."
+      },
+      "depends_on": [
+        {
+          "claim_id": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+          "role": "supplies the complete native local marked-history coupling and its observation boundary"
+        },
+        {
+          "claim_id": "OPH-NATIVE-ROOTED-REFINEMENT",
+          "role": "supplies finite authenticated source routing and observation support"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+          "role": "supplies the exact fixed repair prefix and its retained-tree/marginalized-mixing reference bound; the separate coherent pulse experiment is not placed on the attempt clock"
+        },
+        {
+          "claim_id": "OPH-NATIVE-FAIR-LOCAL-READOUT",
+          "role": "supplies uniform E incident-record decoding and the state-dependent erasure budget; no input weight is inferred from clock compilation"
         }
       ]
     }

@@ -22,7 +22,8 @@ PROGRAM = 'claims/completion_program.json'
 INTERFACES = 'model/completion/component_interfaces.json'
 BASE = '6b20cfa05ad82582bb1c8a786b32b7556b4008d6'
 PREVIOUS = '3cf3c14810671a16e61b7915f69079a1773a12a2'
-CLASS_DIGEST = '54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877'
+CLASS_DIGEST = '679e4f86269cc1b7b8424a6d983293014506ef4241635124da29fe5f0571c247'
+INTEGRATION_CLASS_DIGEST = '54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877'
 INTEGRATION_BASELINE = {'commit': '85a0cc208f52b385cfa674b288bcb079156abfec',
  'source_sha256': {'claims/completion_program.json': '1847a49457e31b84894fda42dd59c1ec04fc7a5fe800bc52320b6222ea0d7338',
                    'model/completion/component_interfaces.json': '1ddf4f6ff53ea5541828e05f5132594bca4c587bd5b42ca2f61f71ee57924a5d',
@@ -78,6 +79,30 @@ REQUIRED_BINDINGS = {
     'model/completion/custody_renewal.py',
     'model/completion/test_custody_renewal.py',
 }
+
+# Immutable accepted main supplies the authority for this live-source refresh.
+SOURCE_REFRESH_BASELINE = {'commit': '12047f556a3f4d6bae5b48aa5b85980a0c5eda40',
+ 'source_sha256': {'claims/completion_program.json': '6ded0a1096ec34270311e3069fec700e412cc2c0e31d4ab3fad4896b7a1794cb',
+                   'model/completion/component_interfaces.json': '220b389f0b6f956969d0226c2ac121bb6728ec7b979bdf29319c59771279ac72',
+                   'model/completion/custody_renewal.py': '2ef536f614e7ef038447a997903f3048bb936313e0fcfad9dc41f6f3d28e3194',
+                   'model/completion/custody_renewal_20261107.json': 'ac4665183969ad1f414db6fc797f1669b99aba7a0f8f947d454bd28504c6c71c',
+                   'model/completion/finite_attachment_map.json': 'e95ae10bf0b4a486f19f1b0f6af0c38720d8e45af834f21bd871d18000fecfac',
+                   'model/completion/program_class_v2.json': '464e85412867bb7a4cdccf42d7a291f8da72daa875b11c02d051d3ffa557af63',
+                   'model/completion/program_class_v2_review.json': '7c3dc4b3493a3ea430d4805576051e8b115f0ca83290ebac8133c439711767dc',
+                   'model/completion/test_custody_renewal.py': '9554aa1e5a633beb5a600b92822d5da07a0652a7567fe451e77dca53c353aed7'}}
+CLASS_LIVE_RECEIPT = 'model/native_program/results.json'
+CLASS_SEMANTICS_SHA256 = '3a01c7d2b459de4a43807e6e7f1d0da589bfc81e0e0f9d5684940887cb6ba4b5'
+BASELINE_NAVIGATION = {'claim_count': 389,
+ 'contract_coverage_sha256': 'ddcbfdb1a9dbfcbbf708eab51c0225d18b8135153e054b65b5a0efda31d72dfe',
+ 'lean_module_count': 676,
+ 'note': 'Claim and Lean navigation includes native record probability and thermodynamics, '
+         'count-derived modular histories, complete transfer localization and spectrum, '
+         'full-sector nonquadratic interaction, and regional entropy response. Canonical premise '
+         'contracts, physical attachment edges, discharge statuses and finite attachment '
+         'classifications are unchanged.'}
+NAVIGATION_SOURCE = 'tracking/premise_register.json'
+CURRENT_CLAIM_COUNT = 392
+CURRENT_COVERAGE_SHA256 = '99bfa21a39222d236dc5d03226f44bd25a74f2d1f7627fe0f082acd088ef349a'
 
 
 def require(condition, message):
@@ -144,8 +169,40 @@ def program_semantics(program, historical_scope):
 
 
 def review_history(review):
-    return {key: value for key, value in review.items()
-            if key not in ('source_bindings', 'current_source_custody_renewal')}
+    result = {key: copy.deepcopy(value) for key, value in review.items()
+              if key not in ('source_bindings', 'current_source_custody_renewal')}
+    require(result.get('reviewed_contract_digest') == CLASS_DIGEST,
+            'current review class digest changed')
+    result['reviewed_contract_digest'] = INTEGRATION_CLASS_DIGEST
+    return result
+
+
+def class_semantics(klass, root):
+    """Only the named live member receipt is excluded from class clauses."""
+    result = {key: copy.deepcopy(value) for key, value in klass.items() if key != 'adoption'}
+    bindings = result['interpreter_binding']['source_hashes']
+    require(bindings.get(CLASS_LIVE_RECEIPT) == file_digest(Path(root) / CLASS_LIVE_RECEIPT),
+            'class live member receipt differs from its owning bytes')
+    bindings[CLASS_LIVE_RECEIPT] = '<live source SHA256>'
+    return result
+
+
+def finite_semantics(finite, root):
+    """Keep all classifications; renew only two authenticated navigation fields."""
+    result = copy.deepcopy(without_source_bindings(finite))
+    coverage = strict_json.load(Path(root) / NAVIGATION_SOURCE)['model_supply']['contract_coverage']
+    require(len(coverage['claim_ids']) == CURRENT_CLAIM_COUNT
+            and len(coverage['lean_files']) == BASELINE_NAVIGATION['lean_module_count']
+            and digest(coverage) == CURRENT_COVERAGE_SHA256,
+            'immutable current navigation authority changed')
+    navigation = result['existing_navigation_coverage']
+    require(type(navigation.get('claim_count')) is int
+            and navigation['claim_count'] == CURRENT_CLAIM_COUNT
+            and navigation.get('contract_coverage_sha256') == CURRENT_COVERAGE_SHA256,
+            'current finite-map navigation changed')
+    navigation['claim_count'] = BASELINE_NAVIGATION['claim_count']
+    navigation['contract_coverage_sha256'] = BASELINE_NAVIGATION['contract_coverage_sha256']
+    return result
 
 
 def validate(packet=None, root=ROOT):
@@ -156,6 +213,8 @@ def validate(packet=None, root=ROOT):
             and packet.get('date') == '2026-11-07', 'wrong dated custody renewal')
     require(packet.get('integration_baseline') == INTEGRATION_BASELINE,
             'immutable integration baseline changed')
+    require(packet.get('source_refresh_baseline') == SOURCE_REFRESH_BASELINE,
+            'immutable accepted-main refresh authority changed')
     require(packet.get('original_conserved') == ORIGINAL_CONSERVED
             and packet.get('original_reviewed_contract_digest') == ORIGINAL_CLASS_DIGEST,
             'immutable original conservation authority changed')
@@ -186,7 +245,7 @@ def validate(packet=None, root=ROOT):
             'current attachment classification counts differ')
     conserved = packet['conserved']
     require(conserved == EXPECTED_CONSERVED, 'immutable conservation authority changed')
-    require(digest(without_source_bindings(finite)) == EXPECTED_CONSERVED['finite_map'],
+    require(digest(finite_semantics(finite, root)) == EXPECTED_CONSERVED['finite_map'],
             'finite-map scientific body changed')
     interfaces = strict_json.load(root / INTERFACES)
     require(digest(without_source_bindings(interfaces)) == EXPECTED_CONSERVED['component_interfaces'],
@@ -196,8 +255,13 @@ def validate(packet=None, root=ROOT):
     contract = digest({key: value for key, value in klass.items() if key != 'adoption'})
     require(contract == packet['reviewed_contract_digest'] == CLASS_DIGEST,
             'adopted scientific class clauses changed')
+    require(digest(class_semantics(klass, root)) == CLASS_SEMANTICS_SHA256,
+            'immutable accepted class clauses changed outside the named live source pin')
     adoption = copy.deepcopy(klass['adoption'])
     adoption['independent_review'].pop('sha256')
+    require(adoption['independent_review'].get('reviewed_contract_digest') == CLASS_DIGEST,
+            'adoption does not bind the current exact class digest')
+    adoption['independent_review']['reviewed_contract_digest'] = INTEGRATION_CLASS_DIGEST
     require(digest(adoption) == ADOPTION_DIGEST, 'adoption state or meaning changed')
     program = strict_json.load(root / PROGRAM)
     require(digest(program_semantics(program, packet['historical_scope_text']))

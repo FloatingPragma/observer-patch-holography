@@ -10,7 +10,7 @@ silently shortened list. The dispositions concern the named results below;
 several registry rows collect much broader mixed-scope conclusions.
 
 The audit also closes the registered dependency graph forward from these
-eight claims: 152 downstream rows, including the eight direct consumers, are
+eight claims: 155 downstream rows, including the eight direct consumers, are
 enumerated in `downstream.json`. The receipt retains each row's exact
 assumptions, original full-row hash and every internal dependency edge with
 its stated role. A missing row or newly reachable claim fails verification.
@@ -115,3 +115,18 @@ and controlled time are not identified with autonomous repair or its modular
 reference. These dependencies transfer no dense M1 read law, growing coherent
 embedding, physical vacuum or particle interpretation. The receipt preserves
 the experiment's own assumption and all three internal dependency roles.
+
+
+The fair local preparation and counted-clock claims are contextual descendants
+through the primitive certificate and preparation dependency, respectively.
+The preparation retains all local occupation sectors and its exact native
+mixing contract. Its phase witness supplies an addressed occupation-wire
+proper-code coupling, counts pulses separately, and retains first failures,
+inconclusive constant branches and rounded work-register leakage. The shared
+clock concerns complete native attempts and a declared local observation;
+its Poisson comparison and conditional-reference readout use their own state
+and record premises. Neither dependency imports the dense M1 read law,
+selects a physical density or clock, or identifies an interacting field or
+particle. The separate local occupation-readout claim has no path from the
+eight direct M1 consumers. All three retain explicit non-consumer premise
+classifications and their own finite-source assumptions.

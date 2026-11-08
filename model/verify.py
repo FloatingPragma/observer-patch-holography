@@ -416,6 +416,11 @@ REPLAYS = (
     ("model.interacting_extension.chiral_lattice.certificate", None, "model/interacting_extension/chiral_lattice/results.json"),
     ("model.interacting_extension.chiral_electric.certificate", None, "model/interacting_extension/chiral_electric/results.json"),
     ("model.particle_identification.completion_certificate", None, "model/particle_identification/completion_results.json"),
+    ("model.native_local_charge_history.packet", None, "model/native_local_charge_history/results.json"),
+    ("model.native_energy_identification.packet", None, "model/native_energy_identification/results.json"),
+    ("model.native_gravity_identification.certificate", None, "model/native_gravity_identification/results.json"),
+    ("model.native_noncentral_reference.packet", None, "model/native_noncentral_reference/results.json"),
+    ("model.native_energy_measurement.packet", None, "model/native_energy_measurement/results.json"),
 )
 
 

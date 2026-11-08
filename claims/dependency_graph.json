@@ -389,7 +389,10 @@
     "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
     "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
     "OPH-NATIVE-CONNECTED-CONTACT",
-    "OPH-NATIVE-ROOTED-REFINEMENT"
+    "OPH-NATIVE-ROOTED-REFINEMENT",
+    "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+    "OPH-NATIVE-FAIR-LOCAL-READOUT",
+    "OPH-NATIVE-FAIR-LOCAL-CLOCK"
   ],
   "edges": [
     {
@@ -661,6 +664,16 @@
       "from": "OPH-GR-D4C-LOCAL-STRESS",
       "to": "OPH-GR-D4D-ENTROPY-BRIDGE",
       "role": "conditionally interprets the changing MaxEnt constraint channel as a local stress channel only after same-source matching and the physical stress supplies; the finite entropy and envelope identities do not consume that upgrade"
+    },
+    {
+      "from": "OPH-NATIVE-CANONICAL-RESTRICTION",
+      "to": "OPH-GR-D4D-ENTROPY-BRIDGE",
+      "role": "supplies the actual all-number fair canonical regional reference used by the separate entropy and modular-clock attachment; it supplies no global preparation or geometric stress"
+    },
+    {
+      "from": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+      "to": "OPH-GR-D4D-ENTROPY-BRIDGE",
+      "role": "supplies the distinct complete record-filtered noncentral regional reference and its rejection mass; local modular charge phases are not geometric boosts or physical stress"
     },
     {
       "from": "OPH-GR-D2-COLLAR-RECOVERY",
@@ -3258,6 +3271,11 @@
       "role": "supplies the same-q primitive intertwiner and complete reflected native E experiment, including its measurement backaction and variance"
     },
     {
+      "from": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+      "to": "OPH-NATIVE-TRANSFER-GROUND-RESPONSE",
+      "role": "supplies the certified finite fair H66 total-two reference preparation with its stated error bound used by the energy-window score, with complete native records retained and preparation values traced only for that nonadaptive statistic"
+    },
+    {
       "from": "OPH-NATIVE-RECORD-RESPONSE",
       "to": "OPH-NATIVE-CONTROLLED-TRANSFER-GROUND",
       "role": "supplies the actual weighted population transfer, exact stationary law, positive scalar-history transfer and principal-logarithm bound; it does not itself implement coherent transfer time"
@@ -3311,6 +3329,51 @@
       "from": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
       "to": "OPH-NATIVE-ROOTED-REFINEMENT",
       "role": "supplies the full local classical-quantum output comparison on authenticated finite windows with the stated observed root, aligned attempt clock, independent scheduler and state assumptions; no all-radius geometry premise is silently discharged"
+    },
+    {
+      "from": "OPH-NATIVE-FULL-NUMBER-READOUT",
+      "to": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+      "role": "supplies the original complete E-tree partial injections, all local number sectors and empty/full ambiguity; no fixed local total is inserted"
+    },
+    {
+      "from": "OPH-NATIVE-RANK-ONE-EFFECT-SYNTHESIS",
+      "to": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+      "role": "supplies the directed interval primitive gate and complete stored-map product estimates, without transferring its weighted source state to the fair federation"
+    },
+    {
+      "from": "OPH-NATIVE-FULL-NUMBER-READOUT",
+      "to": "OPH-NATIVE-FAIR-LOCAL-READOUT",
+      "role": "supplies complete native E-tree records and their unknown-total constant corner; the local uniform-coverage and boundary-current refinement is explicit"
+    },
+    {
+      "from": "OPH-NATIVE-CANONICAL-RESTRICTION",
+      "to": "OPH-NATIVE-FAIR-LOCAL-READOUT",
+      "role": "supplies the exact global canonical local-number mixture, without preparing its marginal or fixing density"
+    },
+    {
+      "from": "OPH-NATIVE-ROOTED-REFINEMENT",
+      "to": "OPH-NATIVE-FAIR-LOCAL-READOUT",
+      "role": "supplies authenticated finite routed windows; no infinite routed continuation is inferred"
+    },
+    {
+      "from": "OPH-NATIVE-LOCAL-HISTORY-LIMIT",
+      "to": "OPH-NATIVE-FAIR-LOCAL-CLOCK",
+      "role": "supplies the complete native local marked-history coupling and its observation boundary"
+    },
+    {
+      "from": "OPH-NATIVE-ROOTED-REFINEMENT",
+      "to": "OPH-NATIVE-FAIR-LOCAL-CLOCK",
+      "role": "supplies finite authenticated source routing and observation support"
+    },
+    {
+      "from": "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
+      "to": "OPH-NATIVE-FAIR-LOCAL-CLOCK",
+      "role": "supplies the exact fixed repair prefix and its retained-tree/marginalized-mixing reference bound; the separate coherent pulse experiment is not placed on the attempt clock"
+    },
+    {
+      "from": "OPH-NATIVE-FAIR-LOCAL-READOUT",
+      "to": "OPH-NATIVE-FAIR-LOCAL-CLOCK",
+      "role": "supplies uniform E incident-record decoding and the state-dependent erasure budget; no input weight is inferred from clock compilation"
     }
   ]
 }

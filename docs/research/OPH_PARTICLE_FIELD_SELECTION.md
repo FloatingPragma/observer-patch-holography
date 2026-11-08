@@ -12,6 +12,52 @@ separate the eight required connections and their proof boundaries. This
 page details action selection and operational measurement premises; its
 finite constructions do not discharge the physical particle identification.
 
+## State and observable selection tests
+
+Complete [charge histories](../../model/native_local_charge_history/PROOF.md)
+give an exact occupation-current conservation identity and one joint
+detector error. [Energy windows](../../model/native_energy_identification/PROOF.md)
+give positive transfer-space effects reconstructed from native lag statistics.
+Their positivity does not implement a quantum measurement on the working
+source. The distinct [controlled energy instrument](../../model/native_energy_measurement/PROOF.md)
+does provide a complete finite destructive measurement through existing
+source services. It retains every apparatus failure, its reference-valued
+terminal blocks, final quantum residual and counted control resources.
+
+For the [fair canonical reference](../../model/native_gravity_identification/PROOF.md),
+the regional modular generator is scalar within each occupation sector.
+Consequently its modular flow is trivial on number-preserving regional
+observables even though the native repair channel changes them. Local mixed
+preparation alone cannot supply the geometric modular-time premise.
+The [71-attempt record protocol](../../model/native_noncentral_reference/PROOF.md)
+prepares a faithful noncentral alternative and proves compatible natural
+regional modular actions. Its explicit tree-weight choice is an observer
+protocol, not a uniquely selected physical vacuum. The action fixes
+occupations and has no established geometric-boost interpretation.
+State-preserving completely positive expectations are supplied; they are
+generally nonmultiplicative and do not satisfy a homomorphic restriction
+premise merely because their state marginals agree.
+
+## Local fair-source control and readout
+
+The [all-sector preparation](../../model/native_fair_local_preparation/PROOF.md)
+and [complete occupation decoder](../../model/native_fair_local_readout/PROOF.md)
+compose on [one native attempt counter](../../model/native_fair_local_clock/PROOF.md).
+The local mixed-reference error is at most `2^-b` after `11+60b` attempts,
+with actual sector weights retained and arbitrary input-reference correlations allowed.
+Only mixing-record values are traced in that comparison. The declared
+global total resolves a constant cell whenever one alternative is impossible;
+for global `0<q<12`, fresh eleven-E readout is exact on all feasible sectors.
+General-density windows have explicit coverage and constant-erasure bounds.
+
+An addressed occupation-wire attachment supplies a conditional 305-pulse
+phase experiment under the proper-code quantum load/export premise. It
+uses tree-conditioned configurations and retains all failures. The unread
+sector-uniform mixture alone is invariant under number-preserving controls.
+Native attempts and service pulses have separately counted costs without
+a physical duration conversion. This finite local construction does not
+select an interacting field action or universal quantum effect domain.
+
 ## Equal populations and distinct phase response
 
 The [one-port phase experiment](../../model/native_phase_experiment/README.md)

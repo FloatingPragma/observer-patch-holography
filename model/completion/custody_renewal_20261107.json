@@ -24,13 +24,13 @@
     "code/a5_closure/manifests/source_current_order_sensitive_inventory.json": "316bd2e5f305aeebb4a9cff7d672ed6d4368ba2204596987ad1ce5399bb0f765",
     "code/a5_closure/source_current_order_sensitive_inventory.py": "e77c3bd7b4498acc7e6030ba6f1ebdfc0b0a9e4f24069902421114ec9ddd8d54",
     "code/a5_closure/verify_source_current_order_sensitive_inventory.py": "5026fcc68adf1365b54cf9fa7bd3ded95cdbe4a33f87b05139ed79125319854d",
-    "model/completion/component_interfaces.json": "220b389f0b6f956969d0226c2ac121bb6728ec7b979bdf29319c59771279ac72",
-    "model/completion/custody_renewal.py": "2ef536f614e7ef038447a997903f3048bb936313e0fcfad9dc41f6f3d28e3194",
-    "model/completion/finite_attachment_map.json": "e95ae10bf0b4a486f19f1b0f6af0c38720d8e45af834f21bd871d18000fecfac",
+    "model/completion/component_interfaces.json": "74202786d9a16ec5b3bb7deb47d332ea37cff71d0013811dcf1319b9a3250e33",
+    "model/completion/custody_renewal.py": "26aa32e9f34dbb2cd0223da6c4dd5512016ab42124c86d6c8b7d15b459058177",
+    "model/completion/finite_attachment_map.json": "ac1216cd443693d17ced6d5b73296f6cbdef7072e7f60af8a5e2e5481fe3475f",
     "model/completion/spectrum_einstein_campaign.json": "04000e34a40cb6bc2f659807e96bb4ef61a4e3bef04ce83a28b153c51425faa8",
-    "model/completion/test_custody_renewal.py": "9554aa1e5a633beb5a600b92822d5da07a0652a7567fe451e77dca53c353aed7",
+    "model/completion/test_custody_renewal.py": "2238d525b5a1a7cdce1e23d327616ff2a7ef809fd998298b757a638d16648927",
     "model/matched_einstein_limit/results.json": "1fc551892b67f4378890e823a26e6ad1f2092b081506654928275fb76e7c324f",
-    "model/native_program/results.json": "38832e6e65736d72dd6005104370aedfcc310f66b0744200a3e222f2a627d741"
+    "model/native_program/results.json": "1dca6e8f7a53f6f1c4d9afe5cd1cdefc5b83bdc77e43574832504145cddc1169"
   },
   "current_classification_counts": {
     "domains": 156,
@@ -117,7 +117,7 @@
     "sha256": "978680d08bfdf6c35fedacd5c26043436d27a6865d071a8252c422676a80e433",
     "targets": 267
   },
-  "reviewed_contract_digest": "54fe2116bef3a7cb2eab1678ff20281d80f01032d21d5024009424fe5ff8d877",
+  "reviewed_contract_digest": "679e4f86269cc1b7b8424a6d983293014506ef4241635124da29fe5f0571c247",
   "schema": "oph.current_custody_renewal.v1",
   "scope": "Current source custody and conserved classifications, not a new mathematical audit of every component.",
   "validation_commands": [
@@ -129,5 +129,18 @@
     "python code/a5_closure/source_current_order_sensitive_inventory.py verify",
     "python code/a5_closure/verify_source_current_order_sensitive_inventory.py",
     "python -m pytest -q -W error code/a5_closure/tests/test_source_current_order_sensitive_inventory.py"
-  ]
+  ],
+  "source_refresh_baseline": {
+    "commit": "12047f556a3f4d6bae5b48aa5b85980a0c5eda40",
+    "source_sha256": {
+      "claims/completion_program.json": "6ded0a1096ec34270311e3069fec700e412cc2c0e31d4ab3fad4896b7a1794cb",
+      "model/completion/component_interfaces.json": "220b389f0b6f956969d0226c2ac121bb6728ec7b979bdf29319c59771279ac72",
+      "model/completion/custody_renewal.py": "2ef536f614e7ef038447a997903f3048bb936313e0fcfad9dc41f6f3d28e3194",
+      "model/completion/custody_renewal_20261107.json": "ac4665183969ad1f414db6fc797f1669b99aba7a0f8f947d454bd28504c6c71c",
+      "model/completion/finite_attachment_map.json": "e95ae10bf0b4a486f19f1b0f6af0c38720d8e45af834f21bd871d18000fecfac",
+      "model/completion/program_class_v2.json": "464e85412867bb7a4cdccf42d7a291f8da72daa875b11c02d051d3ffa557af63",
+      "model/completion/program_class_v2_review.json": "7c3dc4b3493a3ea430d4805576051e8b115f0ca83290ebac8133c439711767dc",
+      "model/completion/test_custody_renewal.py": "9554aa1e5a633beb5a600b92822d5da07a0652a7567fe451e77dca53c353aed7"
+    }
+  }
 }

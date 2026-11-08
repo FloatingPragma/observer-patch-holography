@@ -40,10 +40,30 @@ from ..native_vacuum_response import packet as vacuum_response
 from ..native_transfer_control import packet as transfer_control
 from ..native_connected_contact import packet as connected_contact
 from ..native_rooted_refinement import packet as rooted_refinement
+from ..native_fair_local_preparation import packet as fair_preparation
+from ..native_fair_local_readout import packet as fair_readout
+from ..native_fair_local_clock import packet as fair_clock
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 OUTPUT = HERE / "completion_results.json"
+
+FAIR_LOCAL_INTERFACES = (
+    ("fair_source_local_preparation", fair_preparation),
+    ("fair_source_local_readout", fair_readout),
+    ("fair_source_local_attempt_clock", fair_clock),
+)
+
+
+def _replay_fair_interfaces():
+    """Recompute each owning certificate before admitting its retained output."""
+    result = {}
+    for name, producer in FAIR_LOCAL_INTERFACES:
+        value = producer.produce()
+        if not _same_json(value, strict_json.load(producer.OUTPUT)):
+            raise ValueError(f"retained {producer.OUTPUT.parent.name} receipt differs")
+        result[name] = value
+    return result
 
 
 def _same_json(left, right):
@@ -74,13 +94,14 @@ def source_bindings():
                      correlation_preparation, pair_response, exchange_clock,
                      local_history_limit, coexistent_effects, contact_response,
                      vacuum_response, transfer_control, connected_contact,
-                     rooted_refinement):
+                     rooted_refinement, fair_preparation, fair_readout, fair_clock):
         paths.update(producer.source_bindings())
         paths.add(str(producer.OUTPUT.relative_to(ROOT)))
     paths.update("model/particle_identification/" + name for name in (
         "DENSE_EFFECTS.md", "UNCERTAINTY.md", "SCATTERING.md", "ROADMAP.md",
         "NATIVE_FIELD_RESPONSE.md", "native_field_response.py",
-        "test_native_field_response.py"))
+        "test_native_field_response.py", "PROOF.md", "README.md",
+        "completion_certificate.py", "test_completion_certificate.py"))
     paths.update(("Lean/EventAlgebra/FiniteBuschGleason.lean",
                   "Lean/EventAlgebra/OperationalBornBridge.lean",
                   "Lean/EventAlgebra/Robertson.lean",
@@ -121,6 +142,7 @@ def report():
     transfer_experiment = transfer_control.produce()
     connected_response = connected_contact.produce()
     rooted_windows = rooted_refinement.produce()
+    fair_interfaces = _replay_fair_interfaces()
     for producer, value in ((capacity_restriction, restrictions),
                             (record_response, responses),
                             (record_causality, causal_records),
@@ -188,6 +210,7 @@ def report():
         "native_controlled_transfer_experiment": transfer_experiment,
         "native_connected_contact_response": connected_response,
         "native_rooted_refinement_windows": rooted_windows,
+        **fair_interfaces,
         "common_native_field_response": native_field_response.compose(
             prepared_correlations, exchange_responses),
         "passive_source_clock_boundary": passive_clock.certificate(),
@@ -228,7 +251,11 @@ def report():
                                            "controlled native transfer-ground preparation, time and phase response",
                                            "connected native contact dressing and comparison threshold",
                                            "exact corner topology and certified finite routed record windows",
-                                           "finite null-transition and field-cone criteria"],
+                                           "finite null-transition and field-cone criteria",
+                                           "fair all-sector local preparation with retained tree records",
+                                           "supplied occupation-wire coupling and complete conditional phase witness",
+                                           "local E-record coverage and complete erasure readout",
+                                           "counted fixed interventions and complete local attempt-clock comparison"],
             "finite_fixtures_are_not_all_domain_proofs": True,
             "native_dense_effect_menu_derived": False,
             "active_record_assisted_encodings_excluded": False,
@@ -256,6 +283,13 @@ def report():
             "common_native_to_gauge_Higgs_intertwiner_derived": False,
             "physical_position_momentum_identified": False,
             "relativistic_interacting_particle_spectrum_identified": False,
+            "fair_local_preparation_selects_occupation_weights": False,
+            "full_preparation_archive_factorized": False,
+            "proper_code_wire_coupling_derived_from_repair_records": False,
+            "rounded_service_work_is_exact_native_number_state": False,
+            "local_occupation_readout_is_universal_quantum_tomography": False,
+            "proper_code_pulses_identified_with_native_attempt_time": False,
+            "fair_local_protocols_remove_host_or_routing_limits": False,
             "physical_collider_predictions_added": 0,
             "canonical_physical_premises_discharged": [],
         },

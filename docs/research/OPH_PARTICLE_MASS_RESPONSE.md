@@ -11,6 +11,30 @@ separate the eight required connections. This page records response and
 mass-operator results within their specified models; none supplies the
 final measured particle-mass ratios.
 
+## Positive energy windows and mass identification
+
+The [native spectral-window proof](../../model/native_energy_identification/PROOF.md)
+uses the actual positive transfer `P`, counted generator `H=-2M log P` and
+blocked transfer `Q=P^b`. Its `n+1` positive effects
+`binom(n,k) Q^k(I-Q)^(n-k)` sum to identity. Complete lag records reconstruct
+their probabilities, including the `k=0` overflow. The finite source example
+retains all seventeen bins and bounds the full histogram's preparation error
+by `4e-11`; no spectral fit or selected mass ratio enters the calculation.
+
+This statistical reconstruction has explicit coefficient amplification and
+large sampling cost. The [controlled energy measurement](../../model/native_energy_measurement/PROOF.md)
+instead uses 66 complete source-service filters, with spectral-generator
+error at most `27e-8` in counted units and complete instrument error below
+`1/12000`. Its exact prepared law includes the native 71-attempt reference's
+rejection, every energy label and final residual. This is a destructive
+finite measurement, without monolithic native-program or physical-duration
+claims. A laboratory mass requires the corresponding observable on
+the same prepared excitation, its charge/spin sector, and a controlled
+energy-momentum relation on one physical clock. Dimensionless transfer-energy
+ratios survive a common units conversion, but that invariance does not identify
+them with measured rest-mass ratios. The [charge-history theorem](../../model/native_local_charge_history/PROOF.md)
+supplies occupation transport, without choosing that physical dictionary.
+
 ## From a created defect to a mass observable
 
 The [defect-to-particle route](../../model/particle_identification/ROADMAP.md#how-a-protected-defect-becomes-an-observable-particle)
@@ -43,6 +67,28 @@ neutralized singlet corner. The actual endpoint coins fix its `25:8`
 mixture and modular transfer gap `log(8/25)`. These are properties of the
 declared stochastic edge law; they do not select a coherent Hamiltonian
 or identify that dimensionless gap with a particle rest energy.
+
+## Preparing and reading the fair local source
+
+The [local fair preparation](../../model/native_fair_local_preparation/PROOF.md)
+reaches its input-weighted uniform sector reference with complete error
+`2^-b` after `11+60b` native attempts, preserving the empty/full coherent
+corner and allowing arbitrary input-reference correlations. The comparison traces mixing
+records only; the source retains the entire archive.
+[Occupation readout](../../model/native_fair_local_readout/PROOF.md) tracks
+all incident currents and uses the declared global total to resolve
+infeasible constant alternatives. For global `0<q<12`, preparation with
+`b=64` followed by a fresh eleven-E detector takes 3862 attempts on
+[one counter](../../model/native_fair_local_clock/PROOF.md), with error
+at most `2^-64`. General-density windows have bounded explicit erasures.
+
+This supplies operational local reference and detector maps on the fair
+family. Its separately supplied occupation-wire coupling also admits a
+complete phase experiment, retaining apparatus failures and leakage.
+Neither construction identifies the mixed reference with a field vacuum,
+sets a physical coherent clock, or turns a relaxation pole into a rest mass.
+An interacting positive-energy action and its complete detector dictionary
+are required for that identification.
 
 ## The actual native record response
 

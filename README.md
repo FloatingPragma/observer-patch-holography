@@ -87,13 +87,14 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Particles with certified spectra.** A specified interacting cube connects
+- **Particle candidates and energy readouts.** A specified interacting cube connects
   a prepared ground state, local charge creation and complete detector records.
   Its spectral lines have certified energies and positive weights. Native repair
   has an observable isolated-cell mode; exterior dressing changes its response,
   and the connected comparison threshold decreases with size. Declared coherent
-  services implement a finite transfer-ground experiment with complete readout.
-  Certified local windows control capacity errors. A common relativistic action
+  services implement a complete finite transfer-energy measurement, joined to
+  a native record-prepared reference with rejection and failures retained.
+  Local records also give exact occupation-current balance. A common relativistic action
   and identification of physical species and masses require further proofs.
   The tested mass branch uses a target-informed lepton law.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).

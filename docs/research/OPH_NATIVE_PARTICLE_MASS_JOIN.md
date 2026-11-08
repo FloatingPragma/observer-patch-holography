@@ -12,6 +12,41 @@ give the eight-step common derivation. This page supplies its state, clock
 and mass-operator details. None of its conditional matrix or transition
 ratios is identified with the final measured particle-mass ratios.
 
+## Complete charge and energy observations
+
+The [local charge-history instrument](../../model/native_local_charge_history/PROOF.md)
+derives cut flux and every decoded occupation snapshot from the same native
+records. Its operator continuity identity includes quantum/reference
+coherences. Absolute histories remain erased where the detector cannot
+resolve them; their currents are retained. The preparation/readout error
+controls the final detector interval, not the marginalized preparation tape.
+
+The [spectral-window construction](../../model/native_energy_identification/PROOF.md)
+derives positive, normalized transfer-energy bins with complete overflow and
+finite resolution bounds. Native local preparation supplies the fair
+66-state example from arbitrary input, with at most 3871 attempts per lag
+setting and whole-histogram preparation error below `4e-11`. Alternating
+moment coefficients amplify statistical error by `3^n-1`; the sufficient
+sampling budget is explicit. A distinct [controlled source instrument](../../model/native_energy_measurement/PROOF.md)
+measures the fair transfer energy through 66 separately admitted destructive
+filters, with complete half-diamond error below `1/12000` and every failure
+retained. The [71-attempt reference preparation](../../model/native_noncentral_reference/PROOF.md)
+feeds that same total-two carrier with exact acceptance `7771/65536`.
+Its complete law retains rejection, all energy labels and the quantum residual.
+This supplies a finite prepared energy observation. A common physical clock,
+the same excitation's momentum/dispersion readout and its species definition
+are separate parts of the physical mass join. Service-pulse counts are not
+silently converted into native repair durations.
+
+The same [energy certificate](../../model/native_energy_measurement/PROOF.md)
+authenticates the existing ideal prepared state `rho=P/56` and the exact
+identity `K=H/60+log(56)I`. This identifies its modular and controlled
+transfer operator families, with the original preparation's numerical
+admission and timeout boundaries. It is not stationary under unread repair.
+Its norm-one exchange expectation separates it from the diagonal
+tree-weighted reference, so the latter's regional modular compatibility is
+not transferred by this identity.
+
 ## Prepared phase contrast and repair
 
 The [one-port phase experiment](../../model/native_phase_experiment/README.md)
@@ -145,6 +180,57 @@ A common particle construction must join these distinct preparations,
 controls, growing local sectors and clocks. The finite controlled map
 closes that map only for its weighted carrier and admitted services;
 all 21 physical identification obligations retain their status.
+
+## Local fair preparation and complete occupation readout
+
+The [local preparation](../../model/native_fair_local_preparation/PROOF.md),
+[readout](../../model/native_fair_local_readout/PROOF.md) and
+[shared attempt construction](../../model/native_fair_local_clock/PROOF.md)
+compose on the growing fair federation. An eleven-E intracell tree followed
+by `b` sixty-attempt mixing blocks has complete error at most `2^-b` against
+the sector-uniform local reference, preserving actual sector weights and
+the entire empty/full coherent corner. The estimate allows arbitrary
+outside correlations. It retains preparation-tree records and traces only
+later mixing-record values in the comparison; the actual source archive
+retains every record. Full archive/source factorization is false.
+
+A fresh eleven-E tree reads every nonconstant local occupation pattern.
+The public global total resolves the constant alternative whenever only
+one is feasible. For global `0<q<12`, a full twelve-port cell is impossible,
+so this is exact readout on every feasible local sector. With `b=64`, the
+composed program has 3862 literal nodes and attempts and complete error
+at most `2^-64` against preparation followed by its occupation oracle.
+The attempt count is independent of the federation size, subject to the
+literal record and admission limits. Its per-seam duration shrinks with
+capacity; it supplies no fixed positive macroscopic time or density.
+
+For general density, the uniform selector supplies a multicell detector.
+All incident currents, including boundary currents, reconstruct initial
+contrasts when each chosen tree seam first occurs. Coverage failures and
+unresolved empty/full patterns are retained as erasures. Their total
+probability is exactly the full-output distance to an initial occupation
+measurement followed by the same native instrument. A canonical `q=V/3`
+source and certified 348-port level-six window give a composed error below
+`10^-16` using 165154571 attempts and 3852 nodes. This is an admitted lazy
+instrument, with the expanded host stop retained. The canonical marginal
+is a premise for this numerical bound, not a consequence of local mixing.
+
+The [occupation-wire coupling](../../model/native_fair_local_preparation/COUPLING.md)
+also binds the supplied proper-code service to all twelve local source
+bits, preserving exterior coherences and every native raw C/E branch.
+A fresh tree-conditioned nonconstant state supports a complete 305-pulse
+phase experiment; its ideal unconditional contrast is the actual active
+branch weight. Numerical processor failures and number leakage stay in
+the apparatus. This quantum load/export coupling is explicit, rather than
+inferred from passive records. Its pulse ordinal and native attempt counter
+have no derived physical time conversion.
+
+These constructions supply a local mixed reference and complete occupation
+measurement on one source. They do not prepare the interacting field
+vacuum, implement every complex effect, select the physical capacity
+family, or identify a response pole with a mass. The next physical join
+must specify a source-preserving interacting action, its prepared state
+and coherent clock, followed by energy-momentum and detector convergence.
 
 ## A protected charge with a native reference and clock
 

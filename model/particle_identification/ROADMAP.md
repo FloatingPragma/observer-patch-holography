@@ -385,6 +385,37 @@ resonance. Joining the finite weighted coherent protocol to fair local
 number mixtures requires a source-preserving control/reference map;
 the shared use of repair terminology does not supply one.
 
+## Local fair preparation and complete readout
+
+The owning packages are [preparation](../native_fair_local_preparation/PROOF.md),
+[readout](../native_fair_local_readout/PROOF.md) and
+[clock composition](../native_fair_local_clock/PROOF.md).
+An eleven-E tree followed by `b` sixty-attempt mixing blocks supplies a
+complete error `2^-b` to the local uniform-sector reference. Input sector
+weights and the constant coherent corner are retained; arbitrary
+input-reference correlations are allowed. The comparison traces only mixing-record values; actual
+records are retained and cannot be fed back under this marginalized bound.
+
+A fresh tree reads nonconstant patterns. Global source occupation resolves
+the constant alternative when one is infeasible. For global `0<q<12`,
+readout on a twelve-port cell is exact on all feasible local sectors.
+With `b=64`, the combined native word takes 3862 attempts and nodes and
+has error at most `2^-64`. The same attempt counter counts both operations.
+General-density connected windows use the original uniform selector and
+include boundary currents, explicit coverage failures and constant
+erasures. The level-six canonical `q=V/3`, 348-port construction has a
+composed bound below `10^-16` at 165154571 attempts. It is admitted within
+the existing limits, with expanded host stops retained.
+
+The separately supplied addressed occupation-wire coupling implements a
+305-pulse phase experiment on freshly tree-conditioned nonconstant states,
+including every apparatus failure and rounded leakage output. It does not
+derive quantum load/export from records or physical pulse duration from
+native attempts. Its finite effect menu and mixed reference do not supply
+an interacting vacuum or universal field-observable access. The next join
+must establish the autonomous coherent action, state and physical clock
+on the same refinement family before assigning mass poles.
+
 ## How a protected defect becomes an observable particle
 
 A candidate starts as an operation on a specified source state, rather than
@@ -470,7 +501,7 @@ but a physical particle claim depends on the entire relevant chain.
 | Interface | Established starting point | Required next result and acceptance condition |
 | --- | --- | --- |
 | 1. Source and capacity family | [Capacity definitions](../observer/CAPACITY.md) distinguish record capacity, global capacity and Hilbert dimension. [Canonical restriction](../native_capacity_restriction/PROOF.md) supplies exact local mixtures for the fair federation; the [weighted local limit](../weighted_local_limit/PROOF.md) controls two declared densities of the weighted extension. | Give the actual family indexed by physical capacity, including its conserved occupation, preparation and clock. The weighted extension needs admission and a source preparation; the fair federation has a different law. A static state limit does not supply their dynamic comparison. |
-| 2. Observer state and complete experiments | [The tree detector](../native_effect_coverage/PROOF.md) supplies full H66 readout and coherent tomography. [Rank-one synthesis](../native_effect_synthesis/PROOF.md) constructs a bounded rational effect menu with complete failures and gated error below `10^-6`. [The Born bridge](../native_born_bridge/PROOF.md) separates such finite consistency from the all-effect theorem. | Extend required controls to the same growing local state, retaining all local number sectors, failures and back-action. Prove equal-effect equivalence and common implementation of the required coexistent effects. Fixed precision and a pulse ceiling do not give arbitrary-accuracy closure. |
+| 2. Observer state and complete experiments | [The tree detector](../native_effect_coverage/PROOF.md) supplies full H66 readout and coherent tomography. [Rank-one synthesis](../native_effect_synthesis/PROOF.md) constructs a bounded rational effect menu with complete failures and gated error below `10^-6`. [The Born bridge](../native_born_bridge/PROOF.md) separates such finite consistency from the all-effect theorem. | The [fair local construction](#local-fair-preparation-and-complete-readout) supplies all-sector mixed preparation and complete occupation readout on one attempt counter, with a separately supplied local quantum coupling. Extend this to the required interacting state and coherent field observables. Prove equal-effect equivalence and common implementation of the required coexistent effects. Fixed precision and a pulse ceiling do not give arbitrary-accuracy closure. |
 | 3. Quantum observables and uncertainty | [Robertson](../../Lean/EventAlgebra/Robertson.lean) proves the finite-state commutator inequality. [Prepared-clock fluctuations](../predictions/README.md#shared-state-fluctuation-field) supply a conditional quantitative canonical limit. | Bind actual source observables to the finite theorem. For physical position and momentum, additionally identify translations, spatial readout, the limiting domain and the common action unit. Merely assigning two matrices those names is insufficient. |
 | 4. Common reference, clock and energy | [Controlled transfer preparation](../native_transfer_control/PROOF.md) implements the weighted finite ground and evolution under declared services, without a growing physical vacuum. [Complete interacting records](../interacting_extension/PROOF.md) include the reference energy and cancel a common gauge offset. [Native records](../interacting_extension/source_selection/PROOF.md) give exact correlated attempt counts. | Derive the reference and clock used by all sectors, including preparation and comparison records. Show how dimensionless rates relate to one another before assigning units. A capacity count alone does not fix seconds or GeV. |
 | 5. Spatial field and relativistic limit | [Rooted refinement](../native_rooted_refinement/PROOF.md) supplies exact corner cell topology and finite certified routed windows; its arithmetic continuation remains explicit. [Native local response](../native_local_response/PROOF.md) gives exact conservative cones and finite-window errors for selected complete local histories. [The continuum CAR net](../continuum_field_net/README.md), [canonical spin field](../spin_canonical_field/README.md), and [free mass shells](../source_mass_shell/README.md) provide different controlled ingredients. | Recover local observables and translations in three spatial dimensions with a common time, positive energy and relativistic covariance. Extend native geometric attachment beyond checked levels and retain observable controller dependencies. A finite graph cone does not identify the free field branches with the native process. |
