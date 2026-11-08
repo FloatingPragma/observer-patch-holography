@@ -59,6 +59,44 @@ def test_no_double_counting_or_physical_assignments(produced):
     assert all(not row['identified_Standard_Model_species'] and row['physical_mass'] is None for row in entries)
     assert not produced['physical_particle_map']
     assert len(next(row for row in entries if row['id']=='ordered_exchange_charge')['same_object_realizations']) == 2
+    assert len(entries)==9
+
+
+def test_hole_sector_keeps_position_spin_scope_and_complete_archive(produced):
+    entry=next(row for row in produced['entries']if row['id']=='one_hole_spin_readout')
+    attachment=produced['one_hole_source_attachment']
+    assert attachment['catalogue_entry']==entry['id']
+    assert attachment['owning_hole_scientific_producer_replayed']
+    assert not attachment['full_owning_program_countercontrol_replayed']
+    assert attachment['complete_corrected_position_instrument']=='sum_x P_x rho P_x'
+    assert attachment['arbitrary_reference_preserved_in_each_internal_spin_block']
+    assert not attachment['unconditional_hole_coherence_preserved_by_complete_scan']
+    assert [r['source_one_hole_dimension']for r in attachment['exact_source_cases']]==[4,12,32]
+    assert attachment['counted_cube_trace_bound']=='min(2,4/n); side n^2+1 and m<=n^2'
+    assert attachment['complete_source_archive_controls'][-1]['complete_source_archive_trace_bound']=='1/16'
+    assert attachment['actual_Hubbard_propagation_scope']['general_one_hole_leakage']['T_over_c_half_matrix_element']!=0
+    assert not attachment['topological_invariant_assigned']
+    assert not attachment['all_source_states_classified']
+    assert not attachment['physical_species'] and not attachment['physical_masses']
+
+
+@pytest.mark.parametrize('forgery',['reference_lost','ground','counting_premises','clock','erased_record','executed_correction','aligned_ground','receipt'])
+def test_hole_owner_premise_or_scope_mutation_rejected(monkeypatch,forgery):
+    original=packet.strict_json.load(packet.ROOT/'model/source_family_compatibility/results.json')
+    changed=copy.deepcopy(original)
+    value=changed['actual_complete_one_hole_repair']
+    if forgery=='reference_lost':value['arbitrary_reference_preserved_in_each_internal_spin_block']=False
+    elif forgery=='ground':value['one_hole_ground_or_relativistic_particle_assigned']=True
+    elif forgery=='counting_premises':value['complete_word_simplex_and_counting_reference_premises_discharged']=True
+    elif forgery=='clock':value['global_fair_attempt_complete_record_workaround'][0]['physical_clock_or_capacity_trajectory_selected']=True
+    elif forgery=='erased_record':value['record_erasure_restores_hole_coherence']=True
+    elif forgery=='executed_correction':value['correction_native_pulse_tape_executed']=True
+    elif forgery=='aligned_ground':value['actual_full_Hubbard_propagation_scope']['aligned_sector_identified_as_interacting_ground']=True
+    else:value['cases'][0]['source_one_hole_dimension']+=1
+    monkeypatch.setattr(packet.hole_records,'certificate',lambda:value)
+    monkeypatch.setattr(packet.strict_json,'load',lambda path:original if forgery=='receipt' else changed)
+    with pytest.raises(ValueError,match='one-hole'):
+        packet.hole_source_attachment()
 
 
 def test_joint_family_has_literal_observables_and_distinct_state_clock(produced):

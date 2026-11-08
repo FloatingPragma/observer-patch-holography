@@ -95,6 +95,18 @@ def test_retained_receipt_is_current(result):
     assert result==json.loads((packet.HERE/'results.json').read_text())
 
 
+def test_full_interacting_budget_retains_leakage_and_no_physical_assignment(result,monkeypatch):
+    row=result['full_interacting_defect_budget']
+    assert row['finite_source']['actual_interacting_time_control']['defect_expectation']=='9/25'
+    assert row['full_Hubbard_propagation_in_same_repair_domain'] is True
+    assert row['interacting_relativistic_particle_limit_proved'] is False
+    assert 'model/source_family_compatibility/DEFECT_BUDGET.md' in result['source_bindings']
+    monkeypatch.setattr(packet,'build',lambda:result)
+    for key in ('capacity_action_or_physical_clock_selected','interacting_relativistic_particle_limit_proved'):
+        value=copy.deepcopy(result);value['full_interacting_defect_budget'][key]=True
+        with pytest.raises(ValueError):packet.validate(value)
+
+
 @pytest.mark.parametrize('key',[k for k,v in packet.claims().items()if not v])
 def test_scope_cannot_be_promoted(result,monkeypatch,key):
     value=copy.deepcopy(result);value['claims'][key]=True

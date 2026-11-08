@@ -1,12 +1,14 @@
 """Replay exact complete-clock tube bounds and the finite spin witness."""
 import argparse
+import ast
+import importlib.util
 from fractions import Fraction as F
 import hashlib
 import json
 from pathlib import Path
 
 from tools import strict_json
-from . import bounds, finite
+from . import bounds, finite, threshold
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -43,10 +45,35 @@ def canonical(value):
 
 
 def bindings():
-    paths = set(INPUTS)
-    paths.update(p.relative_to(ROOT).as_posix() for p in HERE.iterdir()
-                 if p.suffix in ('.py', '.md'))
-    return {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
+    legacy='evidence/observer_dynamics_20260925/oph-physics-sim/'
+    names=set(INPUTS)|{legacy+'oph_exact/carrier.py',legacy+'oph_exact/__init__.py'}
+    names.update(path.relative_to(ROOT).as_posix() for path in HERE.iterdir()
+                 if path.suffix in ('.py','.md'))
+    pending=list(names);visited=set()
+    def add(module):
+        parts=module.split('.')
+        prefix=legacy if parts[0] in ('oph_exact','oph_fpe') else ''
+        candidates=[prefix+'/'.join(parts)+'.py',prefix+'/'.join(parts)+'/__init__.py']
+        candidates += [prefix+'/'.join(parts[:i])+'/__init__.py' for i in range(1,len(parts))]
+        for name in candidates:
+            if (ROOT/name).is_file() and name not in names:
+                names.add(name);pending.append(name)
+    while pending:
+        name=pending.pop()
+        if name in visited or not name.endswith('.py'):continue
+        visited.add(name)
+        module=name.removeprefix(legacy)[:-3].replace('/','.')
+        package=module.removesuffix('.__init__') if module.endswith('.__init__') else module.rpartition('.')[0]
+        add(module)
+        for node in ast.walk(ast.parse((ROOT/name).read_text())):
+            if isinstance(node,ast.Import):
+                for alias in node.names:add(alias.name)
+            elif isinstance(node,ast.ImportFrom):
+                target='.'*node.level+(node.module or '')
+                target=importlib.util.resolve_name(target,package) if node.level else target
+                add(target)
+                for alias in node.names:add(target+'.'+alias.name)
+    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(names)}
 
 
 def produce():
@@ -55,6 +82,7 @@ def produce():
         'schema': 'oph.spin_shell_readout.v1', 'source_bindings': before,
         'complete_clock_example': bounds.clock_plan(F(1, 1000), F(1, 100)),
         'finite_source_readout': finite.certificate_report(),
+        'infrared_threshold_readout': threshold.certificate(),
         'scope': {
             'complete_original_spectral_tube_weight_bounds': True,
             'simultaneous_predeclared_scan_sampling_bound': True,

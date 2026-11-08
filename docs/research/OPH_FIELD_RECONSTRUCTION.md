@@ -144,6 +144,41 @@ vanishing-defect theorem. A two-speed field with two CCR pairs and full
 internal U1 shows why those kinematic inputs and scalar twist coefficients
 cannot select one field equation.
 
+Two exact interfaces reduce the remaining calculations. The
+[source Ward identities](../../model/spin_joint_field_limit/WARD_DYNAMICS.md)
+express the optimal two-force defects as `h_Q-c^2/chi_P` and
+`h_P-c^2/chi_Q`, using source first and inverse energy moments.
+On a fixed positive energy window these give original-weight tube bounds.
+Their saturation is a source estimate still to be proved. The actual
+uniform finite-spin Ward relation fixes one susceptibility exactly, but
+does not by itself imply a sharp energy distribution. Filtered cross
+moments and unfiltered order commutators remain distinct.
+
+For the uniform finite-field Ward pair, write `q=R M3 Omega` and
+`M_j=integral E^j dnu_q(E)` on a positive energy window. Its second
+force defect is exactly zero, but the first is
+`delta_Q=M_1-M_-1^2/M_-3=M_-3 Var_pi(E^2)`, with
+`dpi=E^-3 dnu_q/M_-3`. The unfiltered susceptibility fixes only its own
+M_-1; filtered moments require their corresponding readout.
+The exact outstanding estimate for this route is concentration of that
+weighted energy square, with surviving original response weight on the
+same scaled clock. A source-clock rescaling by `1/(Jp)` divides the
+variance by `(Jp)^4`; a vanishing unscaled variance is insufficient.
+Larger fixed-charge blocks need not be one dimensional, so the exact
+dimer's charge resolution does not prove this continuum concentration.
+
+The [source spectral hierarchy](../../model/spin_dynamical_memory/SPECTRAL_BRANCH.md)
+uses complete time-filtered preparations to match `2r-1` bounded resolvent
+moments on an r-step response space. For a Lipschitz score f its original
+error is at most `w Lip(f)/sqrt(2r-1)`. The hierarchy therefore constructs
+controlled continuous spectral scores without assuming that a response
+projection is executable or its Ritz values are physical energy levels.
+Window boundaries, growing preparation costs and continuum errors remain
+explicit. The [threshold route](../../model/spin_shell_readout/THRESHOLD_READOUT.md)
+allows a continuous infrared edge if a source tail modulus and the
+appropriate physical detector theory are supplied; a pole is not mandatory
+for every charged physical sector.
+
 For these spin prescriptions the precise additional requirements are:
 
 1. Select a common preparation/refinement prescription and give an effective
@@ -151,12 +186,19 @@ For these spin prescriptions the precise additional requirements are:
    The ordered-zero-field route needs its B-to-zero marginal modulus.
    The direct joint H_B route has complete fixed-scale preparation and
    local histories, but no effective convergence rate to its field limit.
+   The [interacting repair budget](../../model/source_family_compatibility/DEFECT_BUDGET.md)
+   controls complete repair disturbance on a specified full Hubbard
+   trajectory from its propagated occupation-defect expectation. It permits
+   doublon--hole creation; the selected state and energy/attempt scaling
+   remain required inputs.
 2. Prove the ground-specific inverse-current tail bound, or another estimate
    that controls the continuum energy and current responses. Finite positive
    relaxed susceptibility does not establish that tail bound.
-3. Prove a common dispersion relation with a nonvanishing spectral component.
-   The shell readout supplies finite certificates; a uniform shrinking-tube
-   lower bound is the extra asymptotic premise.
+3. Prove a common dispersion branch, controlled resonance, or infrared
+   threshold with suitable asymptotic detectors. The shell route needs a
+   uniform shrinking-tube lower bound; the continuous-edge route instead
+   needs controlled original spectral tails. Neither source estimate is
+   established by a finite readout or a fitted spectral centre.
 4. Establish Lorentz covariance for the same multitime field hierarchy and
    determine whether its connected interactions survive the scaling.
 5. Construct the corresponding momentum flux and symmetric conserved stress,

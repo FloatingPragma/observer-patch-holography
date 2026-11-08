@@ -13,6 +13,7 @@ Completeness applies only to the explicit domains in the table; there is no exha
 | common_hidden_spin_factor | at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315 | complete ideal joint histories preserve the global spin factor | Unidentified |
 | cube_eta_range | rank1820 image of eta+ from N4 to N6; eta>=2 sector | prepared eta reference and complete local spectral response | Unidentified |
 | compact_opposite_texture_cores | opposite shell degrees +1 and -1, constant exterior, four localized band modes | declared transported four-mode band and current readout | Unidentified |
+| one_hole_spin_readout | hole-position projectors and internal spin information carried by the recorded signed transport; conditional block dimension 2^(V-1) | complete initial-hole position detector preserves internal spin/reference blocks; uniform global attempts give a 4/n archive bound relative to identical propagation with identity repair | Unidentified |
 
 ## The source-to-observation chain
 
@@ -158,6 +159,22 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 **Boundary:** winding does not force zero modes, four generations or physical rest masses; stability needs the stated dynamics.
 
 [Owning proof or construction](../../model/compact_defect_pair/PROOF.md).
+
+## one hole spin readout
+
+**Source:** full two-flavour CAR repair on H_h: one empty site and one fermion at every other site; dimension V 2^(V-1).
+
+**Classification domain:** all H_h inputs and spin/reference matrix elements under the stated C/E repair; no exhaustive classification of all source states.
+
+**Preparation and readout:** supplied H_h input; complete E seam-cover records identify the initial hole; inverse signed transport gives sum_x P_x rho P_x and preserves each spin/reference block.
+
+**Propagation and energy:** uniform global repair attempts have complete source/archive disturbance relative to the same propagation with identity repair at most 4/n on cubes of side n^2+1 with at most n^2 attempts and common H_h-preserving propagation.
+
+**Topology:** one-unit occupation deficit, without a topological invariant or physical particle assignment.
+
+**Boundary:** general Hubbard hopping leaves H_h through doublons; the fully aligned invariant restriction is free; preparation, global-attempt budget and propagation clock are supplied; no interacting ground band or relativistic mass is proved.
+
+[Owning proof or construction](../../model/source_family_compatibility/REPAIR_TRAJECTORY.md).
 
 Source family, state, clock, physical spin/statistics, dispersion or resonance,
 detector coupling and experimental units must be joined before a catalogue

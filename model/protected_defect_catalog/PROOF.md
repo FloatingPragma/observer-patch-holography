@@ -416,10 +416,55 @@ species or physical mass assignment. It neither increases the number of
 identified particles nor merges with the ordered-zero-field configuration
 charge entry by assertion.
 
+## The one-hole position and spin sector
+
+The entry `one_hole_spin_readout` consumes the source-family compatibility
+receipt and directly replays its `hole_records.certificate` calculation.
+For V sites, H_h consists of one empty site and one fermion on every other
+site, with dimension V 2^(V-1). It is invariant under the specified complete
+two-flavour C/E repair. This domain includes every internal-spin state and
+an arbitrary untouched reference. No initial ground state is selected.
+
+An E seam sequence covering all sites gives disjoint full-record supports
+for different initial hole positions. The first seam touching either of
+two distinct initial holes distinguishes them by its parity or current
+record. Each nonzero fine branch has the exact form
+`2^(-m/2) U_h P_x`, with the literal signed spin transport U_h. All 32^m
+allocated coin/raw histories are retained as a sparse zero-default
+instrument. A supplied inverse signed transport yields the complete
+position instrument `sum_x P_x rho P_x`. It preserves spin/reference
+coherences within each position block and measures coherence between
+different positions. No inverse-transport native pulse tape is claimed
+executed. The global coherent dilation retains the input information;
+dephasing concerns the committed classical-record algebra.
+
+For a uniform global repair attempt with E weight theta, the complete
+native dilation V and identity comparison V0 write the same seam/law/coin
+distribution, with raw zero for V0. Their exact difference is
+
+    (V-V0)*(V-V0)=(1+theta)/|E| sum_x deg(x) P_x.
+
+Interleaving m attempts with common H_h-preserving propagation therefore
+gives full source/archive trace error at most
+`min(2,2m sqrt((1+theta)d_max/|E|))`, independently of the reference.
+Open cubes of side n^2+1 and at most n^2 global attempts give
+`min(2,4/n)`. This count-based family and its coherent propagation are
+supplied. A fixed positive repair rate per seam has different scaling and
+produces the owning proof's dephasing and diffusive hole response. Neither
+clock is identified with measured physical time by this catalogue.
+
+The full Hubbard clock does not preserve arbitrary H_h states: the exact
+source has hopping matrix elements to a doublon configuration. Its fully
+spin-aligned one-hole subspace is invariant, but has no double occupations
+and is a free hole hopping problem. The catalogue consequently assigns no
+interacting ground band, topological invariant, physical spin, species or
+rest mass to H_h. Its scope is the complete specified repair on this one
+occupation sector, rather than a classification of all source states.
+
 ## Catalogue semantics and the particle join
 
 The table separates exhaustive exclusions, memory charges, joint noiseless
-subsystems, protected sectors, constructed field subnets and prescribed
+subsystems, scoped repair sectors, constructed field subnets and prescribed
 topological backgrounds.
 The hidden-spin qutrit and eta range are exhibited sectors, without an
 asserted maximal joint noiseless algebra. The compact texture has genuine

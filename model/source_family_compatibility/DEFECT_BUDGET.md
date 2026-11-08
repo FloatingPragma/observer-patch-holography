@@ -16,7 +16,7 @@ agrees with the raw-zero identity comparison V0_e on 1-Q_e. Thus
     A_e=V_e-V0_e=A_e Q_e,    A_e* A_e <= 4 Q_e.             (1)
 
 The actual branch maps give a stronger identity. Let R_e project onto
-total endpoint occupation one, and C_e onto a doubly occupied endpoint.
+total endpoint occupation one, and C_e onto at least one doubly occupied endpoint.
 They are disjoint. With E-law probability theta in [0,1],
 
     A_e* A_e = (1+theta) R_e + 2 C_e <= 2 Q_e.             (2)

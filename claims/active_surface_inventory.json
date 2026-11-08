@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1266,
+  "surface_count": 1271,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4551,12 +4551,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/DEFECT_BUDGET.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/source_family_compatibility/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/REPAIR_TRAJECTORY.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4696,6 +4706,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/spin_dynamical_memory/SPECTRAL_BRANCH.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/spin_energy_polarization/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4742,6 +4757,11 @@
     },
     {
       "path": "model/spin_joint_field_limit/SECOND_PAIR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/WARD_DYNAMICS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4842,6 +4862,11 @@
     },
     {
       "path": "model/spin_shell_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_shell_readout/THRESHOLD_READOUT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

@@ -19,6 +19,14 @@ charge excitations have equal nonzero energy-momentum measures on the same
 state and clock. A sharp particle shell and physical spin require further
 source estimates.
 
+The one-hole sector has a complete source position detector that retains
+internal spin and reference information within each recorded position
+block. A uniform global-attempt schedule bounds total source/archive
+disturbance relative to identical propagation with identity repair by `4/n`
+under its stated propagation and resource conditions.
+Its preparation and clock are supplied; general Hubbard evolution can leave
+this sector, so the entry identifies no physical particle or mass.
+
 The [proof](PROOF.md) gives the graph classification and the remaining
 source-to-particle requirements. A complete catalogue over unspecified source
 architectures is not claimed.

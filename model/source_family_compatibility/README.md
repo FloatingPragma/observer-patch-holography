@@ -22,6 +22,15 @@ by `4/n` while retaining the entire archive. Two executed native programs also h
 and resource counts but different coherent responses. A specified program
 has a definite response; these capacity data alone do not select it.
 
+The [full interacting defect budget](DEFECT_BUDGET.md) removes the need for
+strict one-hole invariance in the repair comparison. It bounds the complete
+source/reference/archive error by occupation-defect expectations along the
+same ideal Hubbard evolution. The positive interaction energy controls
+those expectations, including actual doublon--hole creation, without a
+global strong-coupling projection premise. Energy-changing controls require
+their own work budget. The action, initial state and physical clock remain
+separate selection premises.
+
 ```sh
 python -W error -m pytest -q model/source_family_compatibility
 python -W error -m model.source_family_compatibility --check model/source_family_compatibility/results.json

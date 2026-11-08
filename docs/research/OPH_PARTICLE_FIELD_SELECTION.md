@@ -61,6 +61,48 @@ spelled out in the [position and uncertainty construction](OPH_FIELD_RECONSTRUCT
 Field canonical commutators do not by themselves identify a particle's
 localization instrument.
 
+The [one-hole repair instrument](../../model/source_family_compatibility/REPAIR_TRAJECTORY.md)
+supplies a different actual position detector on the full two-flavour
+occupation source: an E seam scan covering all sites distinguishes the
+initial empty site while preserving its internal-spin/reference block
+after the specified inverse signed transport. All fine records, including
+zero slots, remain. Without that supplied correction the recorded spin
+transport remains. Complete unread repair dephases cross-position blocks
+and gives classical hole diffusion; it is not coherent relativistic
+propagation. A common matter construction must control this disturbance
+as well as its Hamiltonian energy gap on the same clock.
+
+The scheduler normalization matters. With one uniform global attempt on a
+regular graph, the native repair dilation differs from identity with the
+same seam/law/coin records by squared operator norm
+`(1+theta)d/|E|`, where theta is the E-law weight and d the degree.
+After m attempts interleaved with the same sector-preserving coherent
+controls, complete source/reference/archive trace distance is at most
+`2m sqrt((1+theta)d_max/|E|)`. Thus `|E|` of order `p^-3` and m of order
+`p^-1` give vanishing disturbance. This is a source-supported way to retain
+coherence on that scheduler scale. It does not prove that general Hubbard
+hopping preserves the one-hole/no-doublon space or remove its separate
+full-ground energy exclusion.
+
+The [full interacting budget](../../model/source_family_compatibility/DEFECT_BUDGET.md)
+extends this comparison beyond an invariant one-hole subspace. For
+`D=sum_x 1_(n_x!=1)` and ideal propagated defect expectations b_j, the
+complete source/reference/archive trace error is at most
+`min(2,2 sum_j sqrt(2 d_max b_j/|E|))`. The actual centered Hubbard source
+has `H=T+(U/2)D`. A conserved ideal mean-energy bound, or an explicit bound
+including injected work, controls b_j even when hopping creates
+doublon--hole pairs. This closes that invariance restriction on the repair
+comparison; it does not select the initial state, couplings, clock or a
+relativistic particle spectrum.
+
+Reading the literal native program determines its law weights and
+schedule. The actual interpreter admits equal-capacity programs with
+different coherent responses, so capacity alone does not determine those
+weights. The finite repair-word theorem does select an IID uniform schedule
+under its complete-alphabet, full-simplex and counting-reference premises;
+that conditional selection gives an exact discrete-attempt dephasing law.
+It does not select the coherent Hamiltonian or its ground preparation.
+
 ## A common positive-field preparation and clock
 
 The [joint-family construction](../../model/spin_joint_field_limit/PROOF.md)

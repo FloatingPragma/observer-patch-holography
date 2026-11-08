@@ -8,6 +8,7 @@ from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
 from model.spin_joint_field_limit import packet as joint_field
+from model.source_family_compatibility import hole_records
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -15,7 +16,8 @@ HERE = Path(__file__).resolve().parent
 PARENTS = tuple('model/'+name+'/results.json' for name in (
     'defect_protection', 'local_exchange_charge', 'common_spin_protection',
     'cube_eta_protection', 'compact_defect_pair', 'defect_localization_readout',
-    'spin_canonical_field', 'spin_canonical_energy', 'spin_joint_field_limit'))
+    'spin_canonical_field', 'spin_canonical_energy', 'spin_joint_field_limit',
+    'source_family_compatibility'))
 
 
 def canonical(value):
@@ -116,6 +118,15 @@ def rows():
          'topology':'genuine shell winding of the prescribed order-parameter field',
          'boundary':'winding does not force zero modes, four generations or physical rest masses; stability needs the stated dynamics',
          'evidence':'model/compact_defect_pair/PROOF.md'},
+        {'id':'one_hole_spin_readout', 'kind':'scoped_repair_sector',
+         'source':'full two-flavour CAR repair on H_h: one empty site and one fermion at every other site; dimension V 2^(V-1)',
+         'protected_object':'hole-position projectors and internal spin information carried by the recorded signed transport; conditional block dimension 2^(V-1)',
+         'completeness':'all H_h inputs and spin/reference matrix elements under the stated C/E repair; no exhaustive classification of all source states',
+         'preparation_readout':'supplied H_h input; complete E seam-cover records identify the initial hole; inverse signed transport gives sum_x P_x rho P_x and preserves each spin/reference block',
+         'propagation_energy':'uniform global repair attempts have complete source/archive disturbance relative to the same propagation with identity repair at most 4/n on cubes of side n^2+1 with at most n^2 attempts and common H_h-preserving propagation',
+         'topology':'one-unit occupation deficit, without a topological invariant or physical particle assignment',
+         'boundary':'general Hubbard hopping leaves H_h through doublons; the fully aligned invariant restriction is free; preparation, global-attempt budget and propagation clock are supplied; no interacting ground band or relativistic mass is proved',
+         'evidence':'model/source_family_compatibility/REPAIR_TRAJECTORY.md'},
     ]
 
 
@@ -166,6 +177,53 @@ def joint_field_attachment():
             'full_source_field_classification_proved':False}
 
 
+def hole_source_attachment():
+    """Replay the owning full-record sector calculation, preserving its scope."""
+    parent=strict_json.load(ROOT/'model/source_family_compatibility/results.json')
+    value=hole_records.certificate()
+    if canonical(value)!=canonical(parent['actual_complete_one_hole_repair']):
+        raise ValueError('one-hole owning source receipt differs from the replay')
+    if value['arbitrary_reference_preserved_in_each_internal_spin_block'] is not True:
+        raise ValueError('one-hole attachment lacks complete spin/reference preservation')
+    if (value['source']!='model.defect_field_bridge.full_domain.branch_action'
+            or value['E_scan_corrected_complete_channel']!='sum_x P_x rho P_x'
+            or value['Poisson_rate_supplied_not_selected_by_repair'] is not True):
+        raise ValueError('one-hole source, position instrument or clock scope changed')
+    excluded=('record_erasure_restores_hole_coherence',
+              'one_hole_ground_or_relativistic_particle_assigned',
+              'complete_word_simplex_and_counting_reference_premises_discharged',
+              'correction_native_pulse_tape_executed')
+    if any(value[key] is not False for key in excluded):
+        raise ValueError('one-hole attachment exceeds the owning physical or execution scope')
+    controls=value['global_fair_attempt_complete_record_workaround']
+    if any(row['physical_clock_or_capacity_trajectory_selected'] is not False for row in controls):
+        raise ValueError('one-hole attachment promotes a supplied source trajectory')
+    propagation=value['actual_full_Hubbard_propagation_scope']
+    if propagation['aligned_sector_identified_as_interacting_ground'] is not False:
+        raise ValueError('one-hole aligned source is not an interacting ground attachment')
+    return {'catalogue_entry':'one_hole_spin_readout',
+            'owner_receipt':'model/source_family_compatibility/results.json',
+            'owning_hole_scientific_producer_replayed':True,
+            'full_owning_program_countercontrol_replayed':False,
+            'source_domain':'H_h: one hole, one fermion on each other site; arbitrary internal spin and reference',
+            'state':'supplied normalized input on H_h; no ground or vacuum selected',
+            'clock':'literal global attempt count; any common H_h-preserving coherent propagation clock is supplied',
+            'position_observable':'P_x projects onto the initially empty source site',
+            'complete_corrected_position_instrument':value['E_scan_corrected_complete_channel'],
+            'unconditional_hole_coherence_preserved_by_complete_scan':False,
+            'arbitrary_reference_preserved_in_each_internal_spin_block':True,
+            'signed_transport_correction_pulse_tape_executed':False,
+            'allocated_zero_records':value['zero_history_representation'],
+            'exact_source_cases':value['cases'],
+            'global_attempt_complete_trace_bound':'min(2,2m sqrt((1+theta)d_max/|E|))',
+            'counted_cube_trace_bound':'min(2,4/n); side n^2+1 and m<=n^2',
+            'complete_source_archive_controls':controls,
+            'actual_Hubbard_propagation_scope':propagation,
+            'topological_invariant_assigned':False,
+            'physical_species':[],'physical_masses':[],
+            'all_source_states_classified':False}
+
+
 def build():
     pins = bindings()
     bare = defect_algebra.report()
@@ -183,6 +241,7 @@ def build():
         entry['physical_mass'] = None
         entry['same_source_relativistic_particle_attachment_proved'] = False
     joint_attachment = joint_field_attachment()
+    hole_attachment = hole_source_attachment()
     if bindings() != pins:
         raise RuntimeError('catalogue source changed during construction')
     return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':pins,
@@ -194,6 +253,7 @@ def build():
             'same_source_continuum_configuration_charge':field.configuration_charge(),
             'observer_charge_and_creation_mechanism':mechanism.report(),
             'joint_positive_field_source_attachment':joint_attachment,
+            'one_hole_source_attachment':hole_attachment,
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,
@@ -219,6 +279,7 @@ def render(value):
         'common_hidden_spin_factor':'complete ideal joint histories preserve the global spin factor',
         'cube_eta_range':'prepared eta reference and complete local spectral response',
         'compact_opposite_texture_cores':'declared transported four-mode band and current readout',
+        'one_hole_spin_readout':'complete initial-hole position detector preserves internal spin/reference blocks; uniform global attempts give a 4/n archive bound relative to identical propagation with identity repair',
     }
     lines = ['# Protected sectors and defect candidates', '',
              'The catalogue records separate source architectures. It is not a list of physical species.',

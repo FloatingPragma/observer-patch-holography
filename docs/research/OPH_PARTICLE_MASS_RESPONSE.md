@@ -58,6 +58,24 @@ nor a reducing space containing several energies identifies one particle
 mass. The full two-pair/internal-U1 countercontrol retains two propagation
 speeds despite matching the stated source first moments.
 
+For actual spectral calculations, the
+[bounded response hierarchy](../../model/spin_dynamical_memory/SPECTRAL_BRANCH.md)
+constructs source moments and certified interval bounds with original
+weights. Finite compressed eigenvalues are quadrature nodes; they cannot
+be entered as observed particle masses. The
+[Ward readout](../../model/spin_joint_field_limit/WARD_DYNAMICS.md) gives
+source-determined susceptibility defects whose saturation would constrain
+dispersion on a specified energy window. No saturation estimate on the
+continuum source has been established.
+
+A [controlled infrared threshold](../../model/spin_shell_readout/THRESHOLD_READOUT.md)
+is also an admissible identification route, with the corresponding
+inclusive or dressed detectors. An isolated atom is not required by the
+edge theorem. It does require a source tail modulus, the same operational
+energy and momentum, physical quantum numbers and a proved relativistic
+lower boundary. The exact finite-source edge `9/8` and the analytic
+non-atomic example are explicitly not measured particle masses.
+
 ## Spatial readout and momentum
 
 The full finite source gap at positive selection field obeys `gap>=B/8`.
@@ -77,7 +95,8 @@ the squared dynamical defect is
 `integral |E-w(k)|^2 |fhat(k)|^2 dmu(E,k)`. A fixed broad energy band leaves
 a time-independent defect and cannot by itself justify an asymptotic
 scattering limit. Physical mass entries require a branch or controlled
-resonance of this actual measure, rather than the centre of a chosen filter.
+resonance, or a controlled infrared threshold with its appropriate detector
+theory, of this actual measure rather than the centre of a chosen filter.
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
 uses the actual ordered-spin field correlations to obtain a covariant

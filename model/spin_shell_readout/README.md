@@ -9,6 +9,12 @@ sector. The [proof](PROOF.md) states the uniform growing-volume and growing-time
 conditions needed to turn such readouts into a sharp continuum component;
 the finite observation does not prove those conditions or a measured mass.
 
+The [threshold readout](THRESHOLD_READOUT.md) also bounds spectral edges
+without assuming an atom, conditional on an explicit original-weight tail
+modulus. It replays an actual finite source example and distinguishes the
+ordered spin charge from a hypothetical gapped target charge. Neither a
+continuum infrared threshold nor an electromagnetic identification is inferred.
+
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.spin_shell_readout --check
 python -W error -m pytest -q model/spin_shell_readout

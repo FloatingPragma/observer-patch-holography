@@ -54,6 +54,45 @@ span has D=0. Both records are retained; neither energy is a continuum
 mass. Applying the criterion to a growing response needs controlled Gram
 inversion, accessible same-clock filters and original-probability errors.
 
+The [constructive spectral hierarchy](../../model/spin_dynamical_memory/SPECTRAL_BRANCH.md)
+supplies these finite readouts without presuming an executable projection
+onto a response space. For `S=z(K+z)^-1`, the r-step source Krylov space
+matches moments through degree `2r-1`. Original bounded Lipschitz scores
+have error at most `w Lip(f)/sqrt(2r-1)`, where w is the original prepared
+weight. Positive-weight coherent time filters implement the needed source moments;
+Gram floors and all rejected branches remain explicit. Ritz nodes are
+quadrature nodes, not proved source energy levels. The actual dimer has
+joint energy/reflection weights `81/4000`, `729/4000` and `16/121`, retaining
+preparation and filter failures. Its reflection character is not continuum
+momentum.
+
+The [same-source Ward identities](../../model/spin_joint_field_limit/WARD_DYNAMICS.md)
+reduce two force tests to first energy moments h_Q,h_P, inverse moments
+chi_Q,chi_P and the cross moment c. The optimal form-norm coefficients are
+`u=c/chi_P`, `b=c/chi_Q`; their nonnegative defects are
+`delta_Q=h_Q-c^2/chi_P` and `delta_P=h_P-c^2/chi_Q`.
+On a positive compact energy window these bound the original spectral
+weight outside a tube about `sqrt(ub)`. For filtered probes, c must be
+measured with that same filter; the unfiltered order commutator cannot be
+substituted. Continuum saturation and compatible momentum localization
+remain unproved. A positive defect can reflect polarization mismatch even
+on one exact finite energy line, so it is not a no-particle theorem.
+Resolving the actual conserved charge in that dimer gives two branches
+with zero filtered force defects and original Q/P preparation probabilities
+greater than `1/25` each. Their filtered cross moments have opposite signs;
+using the full cross moment would give incorrect coefficients. This finite
+charge resolution has no asserted continuum or physical species limit.
+
+The [threshold theorem](../../model/spin_shell_readout/THRESHOLD_READOUT.md)
+also permits a continuous spectral edge. With a source-proved original tail
+modulus `nu([theta,theta+epsilon])>=a epsilon^alpha`, complete CDF intervals
+locate theta without an atom. The modulus and the relativistic dictionary
+are still required on the continuum source. A finite source gap or a
+shrinking filter window alone supplies neither. The ordered spin's entire
+gapless global-charge sector cannot be mapped, preserving charge and one
+fixed energy conversion, to a target sector with a strictly positive gap;
+a specific massive subbranch or another source family is not excluded.
+
 ## A created local symmetry-sector excitation
 
 The [complete spin experiment](../../model/defect_localization_readout/PROOF.md)

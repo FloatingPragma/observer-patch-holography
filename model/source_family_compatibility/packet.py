@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra,bounds,rotations,hole_records,program_selection
+from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -64,7 +64,8 @@ def bindings():
     # The literal representation additionally reads its source geometry fixtures.
     from model.common_source import native_matter_attachment as matter
     paths.update(ROOT/name for name in matter.source_bindings())
-    paths.update((HERE/'README.md',HERE/'PROOF.md',HERE/'REPAIR_TRAJECTORY.md'))
+    paths.update((HERE/'README.md',HERE/'PROOF.md',HERE/'REPAIR_TRAJECTORY.md',
+                  HERE/'DEFECT_BUDGET.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -83,6 +84,7 @@ def claims():
         'global_attempt_complete_record_disturbance_bound':True,
         'actual_aligned_Hubbard_hole_sector_and_generic_leakage_checked':True,
         'actual_program_equal_capacity_different_coherent_response':True,
+        'complete_repair_error_from_full_interacting_defect_budget':True,
         'classical_record_dephasing_is_global_dilation_information_loss':False,
         'capacity_and_service_counts_select_program':False,
         'repair_only_program_selects_spin_ground_and_clock':False,
@@ -116,6 +118,7 @@ def build():
         'actual_source_spatial_rotation_and_exchange_control':rotations.certificate(),
         'actual_complete_one_hole_repair':hole_records.certificate(),
         'actual_capacity_and_native_program_control':program_selection.certificate(),
+        'full_interacting_defect_budget':defect_budget.certificate(),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,
             'actual_full_sixteen_state_source_reconstructed':True,

@@ -106,14 +106,20 @@ the required dynamical and physical attachments are:
    ordered-zero-field route would require an additional comparison.
    The spin, color and prescribed-texture constructions do not
    acquire a common action merely by appearing in the catalogue.
+   The [literal repair trajectory](../source_family_compatibility/REPAIR_TRAJECTORY.md)
+   distinguishes a globally normalized attempt clock, whose complete
+   disturbance of one-hole coherences can vanish on growing sources, from
+   a fixed per-seam rate, which dephases them. This supplies a scheduler
+   route around that disturbance, not a common interacting matter ground.
 2. **Observable excitation sectors.** Carry each candidate's creation,
    conserved label and complete readout into that field representation.
    The spin U1 and conjugate configuration fields supply this symmetry
    connection; topological textures also need autonomous preparation and
    protection under the same chosen dynamics.
 3. **Dispersion and relativistic covariance.** Determine the actual joint
-   energy--momentum measures and prove a stable spectral branch or a
-   controlled resonance with nonvanishing original weight. The actual
+   energy--momentum measures and prove a stable spectral branch, controlled
+   resonance, or controlled infrared threshold with appropriate inclusive
+   or dressed detectors. The actual
    [subbranch criterion](../spin_multipacket_comparison/COMPARISON_DEFECT.md)
    extracts conditional energy atoms from complete joint probabilities;
    its strictly positive limiting weight is an unproved source estimate.
@@ -126,6 +132,18 @@ the required dynamical and physical attachments are:
    tests whether an actual response space reduces its clock; a separate
    joint-momentum identification fixes dispersion. Vanishing of this defect
    on the continuum source is unproved, and high-energy tails remain explicit.
+   The [constructive response hierarchy](../spin_dynamical_memory/SPECTRAL_BRANCH.md)
+   supplies original bounded-score errors without interpreting finite Ritz
+   nodes as source energy levels. The [Ward readout](../spin_joint_field_limit/WARD_DYNAMICS.md)
+   reduces two-force closure to source susceptibilities; their saturation
+   still needs proof. The [threshold theorem](../spin_shell_readout/THRESHOLD_READOUT.md)
+   needs a source tail modulus rather than an atom and keeps that premise explicit.
+   For the uniform Ward pair the remaining defect is exactly
+   `M_-3 Var_pi(E^2)`, `dpi=E^-3 dnu/M_-3`; the known unfiltered
+   susceptibility fixes only its own M_-1. Filtered moments need their
+   corresponding readout. A sharp-branch argument must control this variance on the
+   scaled clock and retain original preparation weight. A higher-rank
+   conserved-charge block does not make the variance vanish.
    Attach one operational boost to the same field histories and clock, using the
    existing finite-rotation and celestial results for its geometric
    consequences. A finite propagation bound does not fix its light speed.
@@ -164,7 +182,8 @@ with the required responsive area.
 
 A Hilbert-space representation supplies states and operators. A particle
 identification additionally needs a source-created excitation, its observable
-quantum numbers and a stable dispersion or controlled resonance. A protected
+quantum numbers and a stable dispersion, controlled resonance or controlled
+infrared threshold with its appropriate detector theory. A protected
 defect label is not itself an energy eigenstate, and a particle sector need
 not carry a nontrivial topological label. The claimed relation must be proved
 for the actual source operators and reconstructed observations.
@@ -176,7 +195,7 @@ for the actual source operators and reconstructed observations.
 | **3. Defect creation and field attachment** | Same spin U1 acts on opposite-charge continuum configuration fields with equal nonzero spectral measures; complete finite local charge creation. | Quantitative finite-to-continuum preparation for these fields and an attachment for each other candidate, retaining original probabilities. |
 | **4. Position, momentum and uncertainty** | Exact native partial-shift covariance; source-Gram position conjugate to the existing field translations; complete finite native detectors and ordered finite-mode limits; time-invariant response localization. | Effective continuum detector and moment-error bounds, attached to the candidate sector. The total-load centroid is scalar on the protected spin sector. |
 | **5. A common relativistic limit** | A free eight-valley Weyl branch; a separate ordered-spin continuum with positive energy and finite propagation. | Lorentz covariance and one physical light cone for the interacting candidate on the same state and clock. |
-| **6. Particle or resonance sectors** | Bounded continuum charge creators with uniform original joint-band weight; separated charge-pair preparations; complete finite spectral-tube, memory and retention certificates. | Nonvanishing isolated branch weight or a controlled resonance. A response space can contain several branches and continua. |
+| **6. Particle and infrared sectors** | Bounded continuum charge creators; separated charge preparations; original spectral-score hierarchy, Ward defects, finite tubes and conditional threshold readouts. | Nonvanishing isolated branch weight, a controlled resonance, or an infrared threshold with its spectral tail and asymptotic detector estimates. A response space can contain several branches and continua. |
 | **7. Quantum numbers** | Conditional finite gauge/representation theorems; actual field U1, charge conjugation and local creator exchange relations. | Physical gauge attachment, spatial/Lorentz spin, asymptotic statistics and families. Internal spin does not determine Lorentz spin. |
 | **8. Interactions and masses** | Finite interacting sources and conditional field actions. | Surviving continuum interactions, the required chiral matter and anomaly conditions, and source-derived mass-generating coefficients. |
 | **9. Controlled predictions** | Finite error certificates and several source-specific limit bounds. | Common volume, cutoff, preparation, clock and detector error budgets for masses, mixing, scattering and decays, including the required growing-time limits. |
@@ -201,7 +220,8 @@ free spectrum.
 
 A finite source gap, a relaxation pole, a packet's mean energy and a rest
 mass are different quantities. A physical particle mass row requires the
-common energy-momentum convention, a stable branch or controlled resonance,
+common energy-momentum convention, a stable branch, controlled resonance or
+controlled infrared threshold with its appropriate detector theory,
 nonzero complete detector response, controlled limiting errors and an
 observable species assignment. A ratio requires two admitted nonzero masses
 in the same convention; `0/0` supplies no ratio. No physical particle mass

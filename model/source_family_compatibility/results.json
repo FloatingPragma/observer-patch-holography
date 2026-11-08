@@ -807,6 +807,7 @@
     "classical_record_dephasing_is_global_dilation_information_loss": false,
     "complete_C_E_coherence_and_declared_Poisson_generator": true,
     "complete_charged_weight_and_original_odd_probability_bound": true,
+    "complete_repair_error_from_full_interacting_defect_budget": true,
     "conditional_counting_schedule_exact_native_attempt_decay": true,
     "conditioning_used_to_restore_vanishing_original_weight": false,
     "cubic_scalar_profile_alone_proves_continuum_spin_zero": false,
@@ -825,6 +826,83 @@
     "same_source_nonabelian_chiral_spin_continuum_derived": false,
     "selected_spin_source_proper_cubic_scalar_pullback": true,
     "source_DHR_category_or_physical_chirality_instantiated": false
+  },
+  "full_interacting_defect_budget": {
+    "capacity_action_or_physical_clock_selected": false,
+    "finite_source": {
+      "actual_interacting_time_control": {
+        "complete_dilation_difference_squared": [
+          "9/25",
+          "9/25",
+          "9/25"
+        ],
+        "contact": "4",
+        "coupling": "3/2",
+        "defect_expectation": "9/25",
+        "doublon_hole_probability": "9/50",
+        "duration": "pi",
+        "initial_and_final_H_expectation": "0",
+        "initial_mask": 9,
+        "single_occupation_invariance_assumed": false,
+        "whole_Fock_dimension": 16
+      },
+      "whole_source_controls": [
+        {
+          "all_matrix_units_and_reference_coefficients_covered": true,
+          "complete_record_slots_per_attempt": 64,
+          "signed_local_hopping_compression_zero": true,
+          "sites": 2,
+          "whole_Fock_dimension": 16
+        },
+        {
+          "all_matrix_units_and_reference_coefficients_covered": true,
+          "complete_record_slots_per_attempt": 128,
+          "signed_local_hopping_compression_zero": true,
+          "sites": 3,
+          "whole_Fock_dimension": 64
+        }
+      ]
+    },
+    "full_Hubbard_propagation_in_same_repair_domain": true,
+    "interacting_relativistic_particle_limit_proved": false,
+    "uniform_energy_history_examples": [
+      {
+        "attempts": 4,
+        "bound_controls_entire_source_reference_archive": true,
+        "complete_trace_bound_squared": "4",
+        "defect_expectation_upper": "144/841",
+        "global_hopping_bound": "3/8",
+        "ground_relative_energy_budget_allowed": true,
+        "ground_sector_or_projection_assumed": false,
+        "ideal_energy_preservation_or_work_budget_required": true,
+        "local_coefficient_a": "29",
+        "local_form_bound": "144/841"
+      },
+      {
+        "attempts": 4,
+        "bound_controls_entire_source_reference_archive": true,
+        "complete_trace_bound_squared": "4608/15625",
+        "defect_expectation_upper": "144/15625",
+        "global_hopping_bound": "3/32",
+        "ground_relative_energy_budget_allowed": true,
+        "ground_sector_or_projection_assumed": false,
+        "ideal_energy_preservation_or_work_budget_required": true,
+        "local_coefficient_a": "125",
+        "local_form_bound": "144/15625"
+      },
+      {
+        "attempts": 4,
+        "bound_controls_entire_source_reference_archive": true,
+        "complete_trace_bound_squared": "4608/259081",
+        "defect_expectation_upper": "144/259081",
+        "global_hopping_bound": "3/128",
+        "ground_relative_energy_budget_allowed": true,
+        "ground_sector_or_projection_assumed": false,
+        "ideal_energy_preservation_or_work_budget_required": true,
+        "local_coefficient_a": "509",
+        "local_form_bound": "144/259081"
+      }
+    ]
   },
   "replay_scope": {
     "actual_finite_graph_bound_producer_called": true,
@@ -1326,18 +1404,21 @@
     "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
     "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "model/source_family_compatibility/DEFECT_BUDGET.md": "e250a7ca4fc94b76f8da34b298c92b22e099c27d9f7a77761c12902592520c23",
     "model/source_family_compatibility/PROOF.md": "d90854378288c8dff532da487774bc843f393cba2d501246ab57e6241f8d90d6",
-    "model/source_family_compatibility/README.md": "dbb30831548748f5546b82e968d1700e9501e24158a19d0d061b00a3ae04735f",
+    "model/source_family_compatibility/README.md": "f7ecee7be73a0e5b32517dc8a2f83e81a9c235324c9c4448039785b2257b3a3d",
     "model/source_family_compatibility/REPAIR_TRAJECTORY.md": "fb1f62c74eda428210fadbd042ec144c77b5380ac50442111982a2d56499b3bb",
     "model/source_family_compatibility/__init__.py": "2d2b50e3aa3b28a139cebb1ca2f8dd8aafa41a41c44a0d37b195ae9512679ffb",
     "model/source_family_compatibility/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/source_family_compatibility/algebra.py": "44b75e0431714c308ddea11b8267b4e42fe571cf97a58b49dc7d47fd3b50d553",
     "model/source_family_compatibility/bounds.py": "99c872882dab0b178c30863b45da4221a397b556d81f1c83926a41d90a4d05c6",
+    "model/source_family_compatibility/defect_budget.py": "dbb98199685db7f39b822fe9b251a9f1b36614eec65ada9be160df3fae24b4ff",
     "model/source_family_compatibility/hole_records.py": "e9226e3ba7b04142af808b1745552fd0fdb74d246ec83e86ae9f83ad60120019",
-    "model/source_family_compatibility/packet.py": "fa9e5bd23e0e15cca6055ab54f5cfe1275989716d3a1486c4a966ac87ffc6fd9",
+    "model/source_family_compatibility/packet.py": "2b54c555f950d4e60afd794af5577c3d7746355db989cfc9ba6f0be2ca75805f",
     "model/source_family_compatibility/program_selection.py": "2ccdd7d1ac7b86ad70426102cb35434881fe670910d6234bfd8a70cb24552e2e",
     "model/source_family_compatibility/rotations.py": "a1c77d93b5bb95cc32b8878dfc65308f60c31e9031abb61d9ecb0a8253da854e",
-    "model/source_family_compatibility/test_compatibility.py": "e6fcf0340630a8d65f4f572fee6546153e19937eaa8acf0e3816ff0e0800d4ea",
+    "model/source_family_compatibility/test_compatibility.py": "d0ea23e22246c9ba15f46af733f1676af4e51bc964bce99b54e2509c82752fa9",
+    "model/source_family_compatibility/test_defect_budget.py": "fb07ecd3281f29320612fba48b325ac82ed7a2e65b8892ff2a2b524577e0ba16",
     "model/source_family_compatibility/test_hole_records.py": "c8879aa6085bf1bf51014d132c6108dd27160d79e50d86d679b85062b0477d50",
     "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
     "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
