@@ -55,47 +55,75 @@ connected four-point response at fixed spacing. The
 give each charge an original weight at least `25/100352` in
 `35/256<=E_source^2<=2744/5` at c=1/8,U=1 in the cubic bulk, uniformly
 in volume. The interval is a positive-energy response bound, not a gap
-or particle pole. Local finite-time response scores have the history
-bound above; sharp spectral projectors require additional readout control.
+or particle pole. Complete finite-resolution energy records have the local readout
+construction below; an ideal sharp spectral projector is not a local
+intervention supplied by this comparison.
 This retains interacting odd matter without the spin projection that sends
 its charged energies to infinity. It supplies no interacting spatial
 continuum or effective ground-subsequence selection modulus.
 
 The [actual composite fermion](../../model/source_family_compatibility/COMPOSITE_CAR.md)
-`b=2(n_opposite-1/2)a` extends this source response without adding degrees
-of freedom. Its exact two-block compression has the bond-correlation coefficient
-`C_xy=4h_xy <S_x.S_y+eta_x.eta_y>` and a source-derived residual R.
-The omitted memory changes the retarded resolvent by at most
-`||R||^2/|Im z|^3`, a volume-independent bound at fixed broadening.
-The complete three-site ground has strictly positive R*R; the finite
-dimer's closed block cannot be imposed throughout the source. Momentum-
-and scale-dependent control of that memory is a concrete requirement for
-a relativistic spectral identification, beyond the charged band bound.
+`b=2(n_opposite-1/2)a` extends the response without adding independent
+modes. On the specified proper-cubic average of the invariant full ground,
+the [magnetic-momentum reduction](../../model/source_family_compatibility/MOMENTUM_RESPONSE.md)
+uses the actual commuting two-step magnetic translations. With
+`h(k)=c sum_j cos(k_j) Gamma_j`, `S(k)=sum_j cos(k_j)^2`, its first
+composite block and force Gram are
 
-The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
-uses the full 65,536-state centered source at c=1/8,U=1. Its certified
-composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
-directions. The original fourth-moment defect is consequently between
-`3/320 I` and `61/4000 I`; the first three cyclic response levels span
-48 dimensions. These dimensions count response directions, not particles.
-All twelve second-block bond factors lie between -1.57 and -1.55.
-The residual must be retained when calculating source energies.
+```
+C(k)=kappa h(k),                 kappa=4 q1,
+G(k)=[g0+2g2 sum_j cos(2k_j)] I,
+g0=c^2(9/2-12qstar),            g2=c^2 q2,
+R*R(k)=[g0-6g2+(4g2-kappa^2 c^2)S(k)] I.
+```
 
-The [complete cube spectrum](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
-retains both charges and all 256 clock records for eight spatial profiles.
-Its actual source-energy windows have strictly positive original weights.
-These finite prepared profiles do not supply continuum translation momentum;
-the growing-source joint spectral measure requires a separate limit.
+Here q1, q2 and qstar are explicit two-site and seven-site spin/eta
+correlations of that same ground. Complete local Pauli records measure
+them with stated errors. Exact source symmetries remove the other
+range-two coefficients and give `0<=G(k)<=18c^2 I`. The scalar Gram does
+not fix the frequency-dependent memory or a particle pole. Averaging the
+ground over the proper cubic group is explicit; a symmetry-broken pure
+state is not identified with this reference.
 
+The [default-cube certificate](../../model/source_family_compatibility/CUBE_RESPONSE.md)
+has `3/80 I<R*R<61/1000 I` on all sixteen original mode directions of the
+full 65,536-state source. Its three response levels span 48 dimensions,
+without adding particles. The [complete finite energy table](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
+retains both charges and every clock outcome. These spatial preparations
+have no open-cube translation-eigenvalue interpretation.
 
-The [volume-uniform scaling bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
-gives original charged weight at most `beta^2/(U/2-E)^2` in `[0,E]`,
-where `beta^2=c^2 d^2(101/4+25d^2)` and E<U/2. Thus ballistic c=v/a
-with U/c tending to infinity loses every finite-energy original odd
-response. Keeping the cell coefficient g=a^3 U fixed and positive, or converging
-to a finite positive limit, falls in this class with an explicit O(a^4) bound. At the complementary proved weak
-scalings the canonical limit is free. A source-selected intermediate
-trajectory and its full interacting response require their own proof.
+The [local spectral instrument](../../model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md)
+reconstructs the same ground's original positive addition/removal energy
+measures using time-evolved CAR operators. Fourier orthogonality makes
+all charge/phase outcomes complete on every input. Its radius-R cut has
+complete source/reference half-trace error at most `sqrt(2) B_R(T)`, with no factor
+from the number of phase labels. A supplied local ground-marginal error
+and the declared coherent-service errors are additional. The
+[local commutator bounds](../../model/source_family_compatibility/UV_TAIL.md)
+give volume-independent exponential energy tails for every normalized
+packet, controlling high-energy aliases. At c=1/8,U=1 a tapered clock
+with 16384 retained records certifies each charge's original weight above
+`75/401408` in `[0,(13/2)pi+1/4]`, on the same full ground. This large
+readout is specified analytically; its native tape is not executed.
+Bounded Lipschitz spectral scores converge through the stated ordered
+local limits, without assuming a sharp pole or preparing an unspecified
+ground by declaration.
+
+The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
+excludes every finite-energy original odd response on ballistic c=v/a
+with U/c tending to infinity, including fixed positive cell contact
+`g=a^3 U`. At U/c=8 the
+[complete-response obstruction](../../model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md)
+is stronger than a finite-cube comparison: on the specified cubic
+invariant ground average, every normalized spatial packet has limsup
+original weight at most `9/17` in any fixed physical-energy window.
+The entire unfiltered normalized response therefore has no pointwise
+clock limit continuous at zero. This does not exclude a finite-energy
+filtered component or an alternative collective field. The concrete
+route is the complete filtered readout above, retaining its complement;
+it requires a positive original weight in shrinking unit-hopping windows
+and controlled state, momentum and interaction limits. Neither the
+fixed-source band nor its exponential ultraviolet tail proves that weight.
 
 The [actual energy-dipole identity](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
 separates the quadratic source current from its exact composite interaction
@@ -372,7 +400,7 @@ these source limits; a sharp shell or vanishing force residual is not inferred.
 
 The [regional modular construction](../../model/spin_modular_geometry/PROOF.md)
 uses the same selected eight-cube ground rather than the separate dimer.
-Its two-site marginal has spectral floor greater than1/41. The certified
+Its two-site marginal has spectral floor greater than 1/41. The certified
 modular generator and a source-current perturbation give a nonzero entropy
 response, executed with all native failure records. An informationally
 complete 32-record regional detector constructs a positive Fisher metric

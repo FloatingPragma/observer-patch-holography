@@ -25,22 +25,36 @@ right-handed components. It supplies no source-selected family indices, physical
 mass eigenstates or topological assignments; those fields are explicitly empty.
 
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
-uses the full 65,536-state centered source at c=1/8,U=1. Its certified
-composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
-directions. The original fourth-moment defect is consequently between
-`3/320 I` and `61/4000 I`; the first three cyclic response levels span
-48 dimensions. These dimensions count response directions, not particles.
-All twelve second-block bond factors lie between -1.57 and -1.55.
-The residual must be retained when calculating source energies.
-
-The [complete source-energy table](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
-reports original addition/removal weights, conditional means and positive
-variances on that same ground and clock. It retains all 256 clock outcomes
-per charge and every spatial preparation. Finite resolution and ground error
-are included; coherent preparation and clock services are supplied. The
+uses the full 65,536-state centered source at c=1/8,U=1 and proves
+`3/80 I<R*R<61/1000 I` on all sixteen original mode directions. Its
+48-dimensional three-level response is not a species count. The
+[complete source-energy table](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
+retains both charges, all 256 clock outcomes, unequal original packet
+weights and positive variances. The
 [energy interpretation](OPH_PARTICLE_MASS_RESPONSE.md#explicit-source-energies-and-their-references)
-keeps these source quantities separate from rest masses.
+keeps those finite source quantities separate from rest masses.
 
+On the specified proper-cubic average of the invariant full ground, the
+[actual momentum response](../../model/source_family_compatibility/MOMENTUM_RESPONSE.md)
+reduces the first composite block to `C(k)=kappa h(k)`. Three local
+spin/eta correlations determine kappa, g0 and g2, with force Gram
+`G(k)=[g0+2g2 sum_j cos(2k_j)] I` and residual `R*R=G-C^2`.
+The same source proves `G<=18c^2 I`. The momentum is that of actual
+two-step magnetic translations, while the cube sign patterns are finite
+preparation profiles. Neither the three correlations nor this Gram
+specifies the full frequency-dependent memory.
+
+The [complete local energy clock](../../model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md)
+uses addition and removal operators evolved by the same centered source.
+All phase records form one instrument on every input; no ground energy
+number or conditional renormalization enters its definition. Cutting its
+dynamics at radius R costs at most `sqrt(2)B_R(T)` in complete output
+half-trace distance. Local ground-marginal, service and repair errors retain their
+separate scope. [Source exponential tails](../../model/source_family_compatibility/UV_TAIL.md)
+control aliases and give determinacy from the entire moment sequence,
+not from a finite compressed matrix. The default tapered readout has
+16384 records and each-charge original true-window weight above
+`75/401408` in `[0,(13/2)pi+1/4]`; the certified large tape is not executed.
 
 The [exact full-source energy current](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
 contains a composite term proportional to U as well as the quadratic
@@ -60,6 +74,16 @@ precisely the unit-hopping response on `[0,aE/v]`. A finite nonzero mass
 therefore needs a controlled branch on this shrinking dimensionless
 scale, with nonvanishing weight and appropriate momentum dependence.
 The theorem neither selects U/c nor proves a volume-uniform charged gap.
+At the literal ratio U/c=8, the
+[original-response escape bound](../../model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md)
+bounds the limsup low-energy weight by `9/17` under ballistic scaling
+on the cubic-invariant
+reference, uniformly over normalized spatial packets. The unfiltered
+unit-normalized response cannot have a ballistic clock limit continuous
+at zero. The filtered route must prove its nonzero original low-energy
+weight, preserve all complementary outcomes, and control the same state's
+momentum-resolved spectral limit. A positive band in fixed source units
+does not establish that shrinking-window weight or a measured mass.
 
 ## A prepared field on one state and clock
 

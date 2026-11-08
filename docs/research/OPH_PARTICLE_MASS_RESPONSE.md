@@ -113,6 +113,14 @@ next source force R. An exact three-site full ground has
 Its controlled retarded resolvent error scales as `||R||^2/|Im z|^3`,
 so a fixed-broadening approximation does not certify sharp mass poles.
 
+The [actual magnetic-momentum response](../../model/source_family_compatibility/MOMENTUM_RESPONSE.md)
+uses the specified proper-cubic average of that same invariant full
+ground. Three local source correlations determine
+`C(k)=kappa h(k)` and `G(k)=[g0+2g2 sum_j cos(2k_j)] I`.
+They give `R*R=G-C^2` and `G<=18c^2 I`, while leaving the dynamical
+memory intact. These are full-source translation symbols and source
+observables, rather than parameters fitted to finite cube energies.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 uses the full 65,536-state centered source at c=1/8,U=1. Its certified
 composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
@@ -135,13 +143,35 @@ The source table includes positive variance bounds and finite clock error;
 preparation and coherent control services are supplied.
 
 
+The [complete local spectral instrument](../../model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md)
+reads the original positive energy measures through time-evolved CAR
+operators and a finite phase register. It retains addition, removal and
+every phase outcome; Fourier orthogonality proves completeness on every
+input. Its same-source complete-output half-trace error is `sqrt(2)B_R(T)`, with the supplied
+local ground marginal and coherent-service errors added separately.
+[Local commutator moments](../../model/source_family_compatibility/UV_TAIL.md)
+give exponential ultraviolet tails uniformly over volume and normalized
+packets. The exact default total tail above 20 is at most
+`1647837513/156250000000000`. A tapered 16384-record construction combines
+that alias budget with complete locality errors to certify each charge's
+original true-window weight above `75/401408` in
+`[0,(13/2)pi+1/4]`. This window uses source-clock energy; no large native
+clock tape is claimed executed and no conditional probability replaces
+its original weight.
+
 The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
-controls the original charge probability in a fixed source-energy window,
-including complete preparation complements. Under c=v/a and U/c tending
-to infinity that probability vanishes. Scaling the source energy by 1/U
-keeps response near energy 1/2 but collapses the proved physical locality
-speed at that same spatial scaling. These different clocks cannot be
-combined to infer a relativistic rest mass.
+excludes finite-energy original odd response when c=v/a and U/c tends
+to infinity. At the fixed default ratio U/c=8, the
+[complete-response estimate](../../model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md)
+gives limsup low-energy weight at most `9/17` on the stated cubic
+ground average, uniformly over normalized packets. Consequently its
+entire normalized unfiltered retarded correlation has no ballistic
+clock limit continuous at zero. This is not a many-body gap theorem or
+an exclusion of all interacting fields. The complete filtered readout
+retains a possible low-energy component; its positive original weight
+on shrinking unit-hopping windows and its spectral/momentum convergence
+must be established before supplying a physical mass. Rescaling by U
+or dropping the escaped records does not satisfy that requirement.
 
 The [local-record theorem](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
 permits the full-ground fixed-c,U experiments under uniformly diluted

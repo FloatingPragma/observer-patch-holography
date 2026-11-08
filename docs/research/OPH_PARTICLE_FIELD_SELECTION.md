@@ -143,35 +143,49 @@ puts positive original probability in a volume-independent finite-energy
 band. This supplies interacting local matter and charged responses on
 one state and clock, without identifying a continuum particle shell.
 The [composite source operators](../../model/source_family_compatibility/COMPOSITE_CAR.md)
-give an exact all-volume continuation of this response. Their second
-kinetic block is a source bond correlation, and their retained force
-has a strictly positive Gram matrix on an exact three-site ground.
-These are two descriptions of the same fermion algebra, not additional
-independent species or a selected Dirac action.
+continue this response within the same CAR algebra. On the stated
+proper-cubic average of the invariant full ground, the
+[magnetic-momentum construction](../../model/source_family_compatibility/MOMENTUM_RESPONSE.md)
+gives `C(k)=kappa h(k)`, with
+`G(k)=[g0+2g2 sum_j cos(2k_j)] I` and `R*R=G-C^2`.
+The three coefficients are explicit local spin/eta correlations, measured
+by complete Pauli instruments; `G<=18c^2 I` is an actual source bound.
+The momentum comes from commuting two-step magnetic translations.
+Neither a pure broken-symmetry reference nor a scalar frequency-dependent
+memory is inferred from the average or the scalar Gram.
 
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
-uses the full 65,536-state centered source at c=1/8,U=1. Its certified
-composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
-directions. The original fourth-moment defect is consequently between
-`3/320 I` and `61/4000 I`; the first three cyclic response levels span
-48 dimensions. These dimensions count response directions, not particles.
-All twelve second-block bond factors lie between -1.57 and -1.55.
-The residual must be retained when calculating source energies.
+proves `3/80 I<R*R<61/1000 I` on all sixteen mode directions of the full
+65,536-state source. The [complete finite clock](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
+retains all spatial preparations and both charges with unequal original
+probabilities. Its open-box labels do not acquire the infinite source's
+translation-eigenvalue interpretation.
 
-The [complete cube spectrum](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
-uses the same full ground for both charges and all spatial sign profiles,
-with unequal original probabilities and positive energy variance. The
-complete finite-clock table controls actual spectral windows. Its supplied
-coherent services and open-box profiles do not select a continuum vacuum,
-physical momentum branch or particle species.
+The [local spectral construction](../../model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md)
+provides an operational continuation to growing sources. A Fourier
+instrument built from the same time-evolved addition/removal operators
+is complete on every input; its complete-output half-trace error is `sqrt(2)B_R(T)` independently
+of the number of clock records. The
+[source ultraviolet bounds](../../model/source_family_compatibility/UV_TAIL.md)
+control every packet's original high-energy aliases. A tapered default
+clock proves positive original true-window weight while retaining all
+16384 outcomes. These are supplied coherent local services, with explicit
+marginal and implementation error requirements; the large native tape
+and an effective infinite-ground preparation modulus are not supplied.
 
-
-The [charged scaling theorem](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
-excludes finite-energy original odd matter when c=v/a and U/c tends to
-infinity, uniformly in volume and normalized smearing. Neither the direct
-nonzero cell-contact scaling g=a^3 U nor a chemical reference shift restores
-both conjugate branches on this clock. The theorem leaves intermediate
-coupling trajectories and different collective observables unclassified.
+The [strong-contact theorem](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
+loses all finite-energy original odd response for ballistic c=v/a and
+U/c tending to infinity. At the fixed default ratio U/c=8, the
+[actual force bound](../../model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md)
+also excludes a regular limit of the entire normalized unfiltered
+response: under ballistic scaling its low-energy weight has limsup
+at most `9/17` on the cubic-invariant
+ground average, uniformly in normalized packets. A filtered component
+with positive original success probability is allowed by this estimate.
+The local energy instruments supply that route's readout; positive
+weight in the shrinking unit-hopping window and its common dynamical
+limit require source estimates. No pole or particle mass is assigned
+by the finite readout or by retaining a nonzero interaction coefficient.
 The [energy-dipole formula](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
 identifies the actual composite current that an operational Lorentz
 construction must control; celestial frame symmetry does not remove it.
