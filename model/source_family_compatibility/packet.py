@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion,composite
+from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion,composite,charge_scaling,boost_current,cube_response,cube_spectrum
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -69,7 +69,8 @@ def bindings():
     paths.update((HERE/'README.md',HERE/'PROOF.md',HERE/'REPAIR_TRAJECTORY.md',
                   HERE/'DEFECT_BUDGET.md',HERE/'LOCAL_MATTER_READOUT.md',
                   HERE/'CHARGED_SPECTRAL_BANDS.md',HERE/'ALIGNED_HOLE_DISPERSION.md',
-                  HERE/'COMPOSITE_CAR.md'))
+                  HERE/'COMPOSITE_CAR.md',HERE/'CUBE_RESPONSE.md',
+                  HERE/'STRONG_CHARGE_SCALING.md',HERE/'ENERGY_DIPOLE.md',HERE/'CUBE_SPECTRUM.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -96,6 +97,12 @@ def claims():
         'volume_independent_positive_original_charged_band_weight':True,
         'source_generated_dimer_composite_clock_checked':True,
         'full_ground_source_composite_CAR_and_spectral_residual_constructed':True,
+        'default_cube_composite_residual_strictly_positive_on_all_modes':True,
+        'strong_contact_original_charge_weight_bound_uniform_in_volume':True,
+        'full_centered_source_energy_dipole_identity':True,
+        'complete_cube_wavepacket_energy_record_enclosures':True,
+        'cube_profile_labels_identified_with_momentum_eigenvalues':False,
+        'energy_dipole_establishes_interacting_geometric_boost':False,
         'canonical_composite_family_appends_independent_source_flavours':False,
         'retarded_response_error_is_arbitrary_input_physical_channel_bound':False,
         'aligned_hole_source_position_translation_and_nonrelativistic_limit':True,
@@ -139,6 +146,10 @@ def build():
         'local_interacting_matter_history':local_matter.certificate(),
         'centered_original_charged_bands':charge_bands.certificate(),
         'source_generated_composite_CAR_response':serialize(composite.certificate()),
+        'default_cube_composite_response':serialize(cube_response.certificate()),
+        'volume_uniform_charged_scaling':serialize(charge_scaling.certificate()),
+        'full_source_energy_dipole':serialize(boost_current.certificate()),
+        'complete_cube_wavepacket_spectrum':serialize(cube_spectrum.certificate()),
         'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,

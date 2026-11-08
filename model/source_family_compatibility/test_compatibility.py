@@ -110,7 +110,9 @@ def test_full_ground_local_records_and_aligned_reference_are_separate(result,mon
     assert not composite['all_volume_residual_discarded']
     assert composite['finite_full_ground_controls'][0]['residual_squared_trace']=='0'
     assert F(composite['finite_full_ground_controls'][1]['residual_squared_trace'])>0
-    for proof in ('LOCAL_MATTER_READOUT.md','CHARGED_SPECTRAL_BANDS.md','ALIGNED_HOLE_DISPERSION.md','COMPOSITE_CAR.md'):
+    for proof in ('LOCAL_MATTER_READOUT.md','CHARGED_SPECTRAL_BANDS.md','ALIGNED_HOLE_DISPERSION.md',
+                  'COMPOSITE_CAR.md','CUBE_RESPONSE.md','CUBE_SPECTRUM.md',
+                  'STRONG_CHARGE_SCALING.md','ENERGY_DIPOLE.md'):
         assert 'model/source_family_compatibility/'+proof in result['source_bindings']
     monkeypatch.setattr(packet,'build',lambda:result)
     for name,key in (('local_interacting_matter_history','global_raw_archive_equality'),

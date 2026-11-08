@@ -103,6 +103,35 @@ unitary transport to the Weyl chart conjugates the instruments as well
 as H. The local full-ground theorem also applies directly to original
 Weyl action with bare original repair, without assuming that equivalence.
 
+The [complete cube wavepacket table](../source_family_compatibility/CUBE_SPECTRUM.md)
+provides original charge probabilities, conditional means and variances,
+and true energy-window bounds from all 256 finite-clock outcomes. The
+Walsh sign profiles label preparations rather than continuum momentum.
+Its supplied coherent services and finite ground are explicit; no
+physical particle name or rest mass is assigned.
+
+The default-cube composite response is certified on the full65,536-state
+source, with `3/80 I<R*R<61/1000 I` and a48-dimensional three-level
+response space. It supplies no closed two-block particle Hamiltonian.
+The [strong-contact theorem](../source_family_compatibility/STRONG_CHARGE_SCALING.md)
+excludes fixed-energy original odd response for ballistic c=v/a and
+U/c tending to infinity, independently of volume. The weak-contact
+canonical limit is free; the intermediate source trajectory requires
+controlled dynamics. The [full-source energy dipole](../source_family_compatibility/ENERGY_DIPOLE.md)
+gives the exact interaction-current term to test for a boost on that
+same trajectory. These results constrain requirements1 and3 without
+assigning a physical mass or replacing the subsequent species tests.
+
+For the centered full-CAR route, the exact identity
+`K_Lambda(c,U)=c K_Lambda(1,U/c)` preserves the normalized ground and
+original response weights at each fixed graph and ratio. Under c=v/a,
+a finite physical-energy window `[0,E]` is exactly the unit-hopping
+window `[0,aE/v]`. The required growing-source calculation therefore
+concerns original probability in shrinking dimensionless energy windows,
+with joint spatial momentum and controlled errors. The default finite
+cube cannot substitute for this limit. No volume-uniform gap at fixed
+U/c is assumed, and collective gapless sectors are permitted.
+
 Reading the simulator, observer, scheduler, repair and memory specifications
 is allowed. Those specifications define the mathematical model and can be
 used in a derivation. A laboratory identification, a selected initial state,
@@ -245,7 +274,7 @@ for the actual source operators and reconstructed observations.
 | **5. A common relativistic limit** | A free eight-valley Weyl branch; a separate ordered-spin continuum with positive energy and finite propagation. | Lorentz covariance and one physical light cone for the interacting candidate on the same state and clock. |
 | **6. Particle and infrared sectors** | Bounded continuum charge creators; separated charge preparations; original spectral-score hierarchy, Ward defects, finite tubes and conditional threshold readouts. | Nonvanishing isolated branch weight, a controlled resonance, or an infrared threshold with its spectral tail and asymptotic detector estimates. A response space can contain several branches and continua. |
 | **7. Quantum numbers** | Conditional finite gauge/representation theorems; actual field U1, charge conjugation and local creator exchange relations. | Physical gauge attachment, spatial/Lorentz spin, asymptotic statistics and families. Internal spin does not determine Lorentz spin. |
-| **8. Interactions and masses** | Finite interacting sources and conditional field actions. | Surviving continuum interactions, the required chiral matter and anomaly conditions, and source-derived mass-generating coefficients. |
+| **8. Interactions and masses** | Finite interacting sources, a strictly positive full-cube composite residual, complete wavepacket energy-window records and conditional field actions. | Surviving continuum interactions, the required chiral matter and anomaly conditions, and source-derived mass-generating coefficients. |
 | **9. Controlled predictions** | Finite error certificates and several source-specific limit bounds. | Common volume, cutoff, preparation, clock and detector error budgets for masses, mixing, scattering and decays, including the required growing-time limits. |
 | **10. Experimental identity** | Model-sector descriptions and separately declared calibrations. | One frozen observable dictionary and predictions compared with measured joint data before assigning empirical species names. |
 

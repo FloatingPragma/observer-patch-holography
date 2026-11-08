@@ -185,7 +185,7 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Preparation and readout:** local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors.
 
-**Propagation and energy:** same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder.
+**Propagation and energy:** same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder; the default full cube has a strictly positive remainder on every original mode direction; complete wavepacket energy windows retain both charges and all clock records; strong-contact scaling and the energy-dipole identity constrain the physical continuation.
 
 **Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
 

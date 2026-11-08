@@ -113,6 +113,36 @@ next source force R. An exact three-site full ground has
 Its controlled retarded resolvent error scales as `||R||^2/|Im z|^3`,
 so a fixed-broadening approximation does not certify sharp mass poles.
 
+The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
+uses the full 65,536-state centered source at c=1/8,U=1. Its certified
+composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
+directions. The original fourth-moment defect is consequently between
+`3/320 I` and `61/4000 I`; the first three cyclic response levels span
+48 dimensions. These dimensions count response directions, not particles.
+All twelve second-block bond factors lie between -1.57 and -1.55.
+The residual must be retained when calculating source energies.
+
+The [complete cube spectrum](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
+uses the same full centered ground, with all eight sign profiles, both
+charges and both spin components. Its 256-outcome clock instrument retains
+all records. For addition, k3=0 has original weight [0.58337,0.58444] and
+conditional mean energy [0.47976,0.48282]; k3=1 has weight
+[0.41556,0.41663] and mean [0.52298,0.52738]. Removal exchanges these
+classes. The actual excitation window [0.125,0.93539] has original weight
+at least 0.46633 or 0.33525. These are source-clock units and spatial
+preparation labels, without a continuum momentum or mass assignment.
+The source table includes positive variance bounds and finite clock error;
+preparation and coherent control services are supplied.
+
+
+The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
+controls the original charge probability in a fixed source-energy window,
+including complete preparation complements. Under c=v/a and U/c tending
+to infinity that probability vanishes. Scaling the source energy by 1/U
+keeps response near energy 1/2 but collapses the proved physical locality
+speed at that same spatial scaling. These different clocks cannot be
+combined to infer a relativistic rest mass.
+
 The [local-record theorem](../../model/source_family_compatibility/LOCAL_MATTER_READOUT.md)
 permits the full-ground fixed-c,U experiments under uniformly diluted
 repair, retaining every accessible local outcome. Its comparison discards

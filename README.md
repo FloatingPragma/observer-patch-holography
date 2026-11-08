@@ -87,14 +87,15 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Particle candidates and energy readouts.** A specified interacting cube connects
+- **Particle candidates and energy readouts.** A specified spin cube connects
   a prepared ground, opposite internal charges and complete energy measurements.
-  Conserved charge remains detectable while the prepared state spreads. The
-  [defect catalogue](model/protected_defect_catalog/CATALOG.md) separates memory
-  charges, spin sectors and prescribed textures. The same spin symmetry acts
-  on conjugate continuum fields with equal energy--momentum measures. Physical
-  particle identities require dispersion and scattering on that same theory;
-  the [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
+  A separate full-fermion cube has certified wavepacket energy bands and a
+  nonzero composite response residual. The
+  [defect catalogue](model/protected_defect_catalog/CATALOG.md) distinguishes
+  these source sectors from memory charges and prescribed textures. Physical
+  particle identities require controlled dispersion, spacetime transformations
+  and scattering on one theory; the
+  [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
   retains unassigned physical masses.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **Continuum fields and their measurements.** The ordered-spin construction has

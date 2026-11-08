@@ -81,6 +81,6 @@ must have the correct limiting action on the same observable histories,
 and those histories must retain controlled spatial momentum. A bound on
 its expectation alone would not suffice. Ground-state invariance,
 transformation of the full observable algebra and the common causal cone
-also require proof. The sphere/Lorentz group correspondence and finite
+also require proof. The celestial null-ray parametrization and finite
 null-preservation theorem accept these operational inputs; they do not
 construct them. Equation (1) supplies the actual source remainder to test.

@@ -136,7 +136,7 @@ complete local experiment, with explicit boundary and schedule errors,
 without the protected-spin projection or its diverging charged-energy
 scale. Distant raw records remain in the physical archive but are
 inaccessible to this local protocol; controls cannot use them. The same
-ground has odd addition/removal weights `1/2` and a non-Gaussian local
+ground has local odd addition/removal weights `1/2` and a non-Gaussian local
 time response proportional to `U^2/4`. Its
 [charged spectral bound](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md)
 puts positive original probability in a volume-independent finite-energy
@@ -148,6 +148,33 @@ kinetic block is a source bond correlation, and their retained force
 has a strictly positive Gram matrix on an exact three-site ground.
 These are two descriptions of the same fermion algebra, not additional
 independent species or a selected Dirac action.
+
+The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
+uses the full 65,536-state centered source at c=1/8,U=1. Its certified
+composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
+directions. The original fourth-moment defect is consequently between
+`3/320 I` and `61/4000 I`; the first three cyclic response levels span
+48 dimensions. These dimensions count response directions, not particles.
+All twelve second-block bond factors lie between -1.57 and -1.55.
+The residual must be retained when calculating source energies.
+
+The [complete cube spectrum](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
+uses the same full ground for both charges and all spatial sign profiles,
+with unequal original probabilities and positive energy variance. The
+complete finite-clock table controls actual spectral windows. Its supplied
+coherent services and open-box profiles do not select a continuum vacuum,
+physical momentum branch or particle species.
+
+
+The [charged scaling theorem](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
+excludes finite-energy original odd matter when c=v/a and U/c tends to
+infinity, uniformly in volume and normalized smearing. Neither the direct
+nonzero cell-contact scaling g=a^3 U nor a chemical reference shift restores
+both conjugate branches on this clock. The theorem leaves intermediate
+coupling trajectories and different collective observables unclassified.
+The [energy-dipole formula](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
+identifies the actual composite current that an operational Lorentz
+construction must control; celestial frame symmetry does not remove it.
 
 The signed-Hubbard protocols compose action and repair in one occupation
 chart. The local-record theorem also applies directly to original Weyl

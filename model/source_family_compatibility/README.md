@@ -45,8 +45,19 @@ and interacting local responses, without a relativistic particle assignment.
 [Composite fermion operators](COMPOSITE_CAR.md) are constructed from the same
 occupation fields. Their second response block is a measured bond correlation,
 with a controlled spectral remainder. The dimer closes exactly; a full
-three-site ground has a nonzero remainder. These operators add no independent
-source flavours or physical species.
+three-site ground has a nonzero remainder. On the full default cube,
+[certified bounds](CUBE_RESPONSE.md) force a third response level in every
+original mode direction. These operators add no independent source flavours
+or physical species. The [complete cube energy table](CUBE_SPECTRUM.md)
+retains both charges and every finite-clock outcome for eight spatial
+profiles. It bounds actual source spectral windows; those profiles are
+not momentum eigenstates or identified particles.
+
+The [volume-uniform scaling theorem](STRONG_CHARGE_SCALING.md) bounds charged
+response near U/2 and excludes finite-energy original odd matter when U/c
+diverges on a ballistic spacing law. The [energy-dipole identity](ENERGY_DIPOLE.md)
+gives the exact composite current that a geometric boost must control on
+the same source. Neither result supplies a selected interacting continuum.
 
 The separate [aligned-hole sector](ALIGNED_HOLE_DISPERSION.md) supplies an
 exact vacancy-position detector, magnetic translation momentum and a

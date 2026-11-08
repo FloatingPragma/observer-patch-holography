@@ -24,6 +24,43 @@ internal weights match the comparison representations, including conjugate
 right-handed components. It supplies no source-selected family indices, physical
 mass eigenstates or topological assignments; those fields are explicitly empty.
 
+The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
+uses the full 65,536-state centered source at c=1/8,U=1. Its certified
+composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
+directions. The original fourth-moment defect is consequently between
+`3/320 I` and `61/4000 I`; the first three cyclic response levels span
+48 dimensions. These dimensions count response directions, not particles.
+All twelve second-block bond factors lie between -1.57 and -1.55.
+The residual must be retained when calculating source energies.
+
+The [complete source-energy table](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
+reports original addition/removal weights, conditional means and positive
+variances on that same ground and clock. It retains all 256 clock outcomes
+per charge and every spatial preparation. Finite resolution and ground error
+are included; coherent preparation and clock services are supplied. The
+[energy interpretation](OPH_PARTICLE_MASS_RESPONSE.md#explicit-source-energies-and-their-references)
+keeps these source quantities separate from rest masses.
+
+
+The [exact full-source energy current](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
+contains a composite term proportional to U as well as the quadratic
+translation current. Its all-occupation identity is checked on all three
+Weyl axes. A physical boost requires control of that term and of the same
+spatial histories, rather than substituting an internal frame transformation.
+The [volume-uniform charged scaling theorem](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
+also rules out finite-energy original odd response on ballistic U/c tending
+to infinity, including the direct fixed positive g=a^3 U prescription.
+No source-selected critical trajectory or laboratory energy conversion
+is inferred from these constraints.
+
+At fixed graph and U/c, the exact identity `K(c,U)=c K(1,U/c)` preserves
+the full normalized ground projector and all original response weights.
+For c=v/a, source probability in a finite physical-energy window is
+precisely the unit-hopping response on `[0,aE/v]`. A finite nonzero mass
+therefore needs a controlled branch on this shrinking dimensionless
+scale, with nonvanishing weight and appropriate momentum dependence.
+The theorem neither selects U/c nor proves a volume-uniform charged gap.
+
 ## A prepared field on one state and clock
 
 The [joint positive-field family](../../model/spin_joint_field_limit/PROOF.md)

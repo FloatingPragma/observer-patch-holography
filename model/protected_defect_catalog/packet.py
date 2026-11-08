@@ -9,7 +9,7 @@ from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
 from model.spin_joint_field_limit import packet as joint_field
-from model.source_family_compatibility import hole_records, hole_dispersion, local_matter, charge_bands, composite
+from model.source_family_compatibility import hole_records, hole_dispersion, local_matter, charge_bands, composite, cube_response, charge_scaling, boost_current, cube_spectrum
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -142,12 +142,16 @@ def rows():
          'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair',
          'completeness':'complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive',
          'preparation_readout':'local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors',
-         'propagation_energy':'same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder',
+         'propagation_energy':'same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder; the default full cube has a strictly positive remainder on every original mode direction; complete wavepacket energy windows retain both charges and all clock records; strong-contact scaling and the energy-dipole identity constrain the physical continuation',
          'topology':'source U1 charge grading, without an assigned winding invariant or Standard Model charge',
          'boundary':'the invariant ground subsequence has no effective preparation modulus; inaccessible remote raw values cannot drive feedback; a global sharp energy PVM is not supplied by the local bound; no selected relativistic scaling, particle pole or physical spin is established',
          'evidence':'model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md',
          'same_object_realizations':['model/source_family_compatibility/LOCAL_MATTER_READOUT.md',
-                                     'model/source_family_compatibility/COMPOSITE_CAR.md']},
+                                     'model/source_family_compatibility/COMPOSITE_CAR.md',
+                                     'model/source_family_compatibility/CUBE_RESPONSE.md',
+                                     'model/source_family_compatibility/STRONG_CHARGE_SCALING.md',
+                                     'model/source_family_compatibility/ENERGY_DIPOLE.md',
+                                     'model/source_family_compatibility/CUBE_SPECTRUM.md']},
     ]
 
 
@@ -288,9 +292,17 @@ def centered_matter_attachment():
     parent=strict_json.load(ROOT/'model/source_family_compatibility/results.json')
     local=local_matter.certificate();bands=charge_bands.certificate()
     dressed=serialize(composite.certificate())
+    cube=serialize(cube_response.certificate())
+    scaling=serialize(charge_scaling.certificate())
+    current=serialize(boost_current.certificate())
+    spectrum=serialize(cube_spectrum.certificate())
     if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
             or canonical(bands)!=canonical(parent['centered_original_charged_bands'])
-            or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])):
+            or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])
+            or canonical(cube)!=canonical(parent['default_cube_composite_response'])
+            or canonical(scaling)!=canonical(parent['volume_uniform_charged_scaling'])
+            or canonical(current)!=canonical(parent['full_source_energy_dipole'])
+            or canonical(spectrum)!=canonical(parent['complete_cube_wavepacket_spectrum'])):
         raise ValueError('centered-matter owning source receipt differs from the replay')
     if (local['same_centered_thermodynamic_ground_subsequence']is not True
             or local['odd_matter_and_even_spin_share_full_CAR_action']is not True
@@ -326,6 +338,10 @@ def centered_matter_attachment():
             'same_state_interaction_witness':local['interaction_example'],
             'source_generated_dimer_response':bands['actual_dimer'],
             'same_ground_composite_CAR_response':dressed,
+            'finite_default_cube_composite_response':cube,
+            'volume_uniform_charged_scaling':scaling,
+            'full_source_energy_dipole':current,
+            'finite_complete_cube_wavepacket_spectrum':spectrum,
             'retarded_response_error_is_arbitrary_input_physical_channel_bound':False,
             'global_raw_archive_equality':False,
             'global_sharp_energy_PVM_implemented_by_local_bound':False,
