@@ -2645,66 +2645,89 @@ The local spin creators are even full-source fermion bilinears and commute
 on disjoint sites. A physical spin-statistics assignment requires their
 continuous spacetime representation and spectral-sector attachment.
 
-The full-ground protected projection also constrains a common matter
-limit. With $e$ graph edges, $U\geq4ce$, $R=U/c$ and exchange
-$J_{\rm eff}=c^2/U$, the occupation-charge gap divided by the ballistic
-spin-clock scale is at least
+The source composite identities also constrain a common matter scaling
+without projecting onto single occupancy. For maximum degree $D$, put
+$\beta^2=c^2D^2(101/4+25D^2)$. On the same centered ground and clock,
+every unit original fermion smearing obeys
 \[
- \frac{R(R/2-e)}p\geq\frac{4e^2}p.
+ \mu_+([0,E])+\mu_-([0,E])
+ \leq \min\{1,\beta^2/(U/2-E)^2\},\qquad E<U/2.
 \]
-It diverges under spatial refinement. Original odd fermion creation
-weight in bounded-energy experiments therefore vanishes on this clock.
-A chemical reference shifts conjugate gaps oppositely and cannot retain
-both. The exact finite dimer has both odd excitations; the exclusion
-concerns this projection regime, not every source or emergent sector.
+Thus $c=v/a$, $U/c\to\infty$ removes its original weight from every
+fixed energy window, uniformly in volume. The direct cell quartic
+coefficient is $g=a^3U$; $g\to g_0>0$ gives an $O(a^4)$ bound.
+At fixed graph and ratio, $K(c,U)=cK(1,U/c)$ makes finite physical
+windows probe energies $O(a)$ in the unit-hopping source
+(\path{model/source_family_compatibility/STRONG_CHARGE_SCALING.md}, \cite{ophrepo}).
 A fixed-coupling route retains the full centered Hubbard source instead.
-Its invariant ground and positive clock admit complete local CAR histories
-under supplied coherent probe services;
-uniform global repairs approximate these local records with explicit
-locality and volume errors, directly for the original Weyl action and bare
-repair or separately in the signed chart. Distant raw records remain in the source archive,
-which is not equated with the coherent comparison. For a local annihilator a,
-the connected response obeys
+Supplied coherent services give complete local CAR histories, with explicit
+uniform-repair errors, directly in the original Weyl chart or separately
+in the signed chart. Distant raw records remain archived and inaccessible
+to the local controller. For a local annihilator a,
 $\operatorname{Var}(\{\tau_t(a),a^*\})\geq U^2t^2/16$
-at sufficiently small nonzero time: the fixed-spacing history is interacting.
-For degree d and maximum degree D, put
-$S=(dc^2+U^2)/4$, $M=(U+cD)^2$. Each original addition/removal measure has
-weight at least $S^2/(32M^2)$ in
-$S/2\leq E^2\leq16M^2/S$. These volume-independent bands supply finite
-charged source energies, not a pole or a relativistic mass. At every volume
+at sufficiently small nonzero time certifies finite-spacing interaction.
+Volume-independent original-weight bands give positive charged source
+energies without a pole inference. At every volume
 the composite CAR fields $b=2(n_{\rm opposite}-1/2)a$ give
 $L_{\rm ret}V_0=V_0h+(U/2)V_1$. Their second block
 $C_{xy}=4h_{xy}\langle S_x\cdot S_y+\eta_x\cdot\eta_y\rangle$
-has a certified nonzero three-site memory residual; the dimer closes with
-$C=-3h$. Discarding this residual changes the source response
-(\path{model/source_family_compatibility/COMPOSITE_CAR.md}, \cite{ophrepo}).
+retains the orthogonal residual $R$. On the actual full cube at
+$c=1/8,U=1$, rational ground-fidelity and matrix bounds prove
+\[
+ \frac{3}{80}I_{16}<R^*R<\frac{61}{1000}I_{16}.
+\]
+The first three cyclic response levels span $48$ dimensions; they are
+not independent CAR flavours. The fourth original moment differs from
+the two-block compression by $(U^2/4)R^*R$. The dimer's $C=-3h$, $R=0$
+closure therefore cannot be imposed on this cube
+(\path{model/source_family_compatibility/CUBE_RESPONSE.md}, \cite{ophrepo}).
 
-The same signed action also has an exactly invariant aligned-hole Fock
-sector. Its source bands are
+Complete clock records also resolve the same full-ground response to
+$a(f_{k,s})$, where $f_{k,s}(x)=(-1)^{k\cdot x}/\sqrt8$ and
+$k\in\{0,1\}^3$. Table~\ref{tab:cube-complete-windows} gives original
+addition weights and certified excitation windows for either spin.
+At fixed $k$, addition and removal probabilities sum to one; particle-hole
+conjugation maps removal to addition at $k\mathbin{\oplus}(1,1,1)$.
+The $256$ clock records and all
+complements are retained. These probe labels are not momentum eigenvalues,
+and conditional mean energies are not rest masses
+(\path{model/source_family_compatibility/CUBE_SPECTRUM.md}, \cite{ophrepo}).
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{c c c c}
+\toprule
+$k_3$ & Original addition weight & Conditional mean $E$ & Window weight \\
+\midrule
+$0$ & $[0.583370,0.584440]$ & $[0.479760,0.482820]$ & $\geq0.466330$ \\
+$1$ & $[0.415560,0.416630]$ & $[0.522980,0.527380]$ & $\geq0.335250$ \\
+\bottomrule
+\end{tabular}
+\caption{Cube source energies $E=K-E_0$ at $c=1/8,U=1$.
+The last column bounds original weight in $[0.125,0.935390]$, including
+finite clock resolution. Conditional variances are at least $0.009860$ and
+$0.008300$. Coherent services are supplied; the full tape is not executed.
+Phase records are not sharp energy projectors; no physical masses are assigned.}
+\label{tab:cube-complete-windows}
+\end{table}
+
+The signed action also has an invariant aligned-hole Fock sector with bands
 $\epsilon_\pm(k)=U/2\pm c\sqrt{\sum_j\cos^2 k_j}$, with the actual
-$\pi$-flux magnetic translations. Complete vacancy detectors measure its
-position. Near the lower band minimum a prescribed long-wavelength,
-long-time limit has kinetic generator $cP^2/(2\sqrt3)$ and the same
-position--momentum uncertainty relation. This free nonrelativistic sector,
-including its fermionic exterior powers, is not the full interacting ground
-or a physical species assignment
+$\pi$-flux translations and complete vacancy position detectors. A
+prescribed band-minimum limit gives $cP^2/(2\sqrt3)$ and the operational
+position--momentum uncertainty relation. This free nonrelativistic sector
+does not describe the full interacting ground or identify a physical species
 (\path{model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md}, \cite{ophrepo}).
 
-The complete internal correspondence export matches all fifteen source
-weights, including color conjugation, before attaching Standard Model
-comparison names. Eighteen species or flavor channels retain distinct
-mass, family, defect and physical-identification fields. The three family
-names share one internal block until a source family map is supplied;
-neutrino flavor labels do not identify mass eigenstates. Physical source
-assignments and mass predictions are empty
+The internal export matches fifteen source weights, including color
+conjugation, while eighteen comparison channels retain distinct family,
+defect and mass fields. Shared family blocks and neutrino flavour labels
+do not establish mass eigenstates. Physical assignments and mass predictions are empty
 (\path{model/standard_model_source_map}, \cite{ophrepo}).
 
-For a protected defect to become an identified particle, one preparation
-must create its supported state, the same dynamics must preserve or control
-its charge while propagating it, and complete detectors must recover its
-energy, momentum and interactions. The memory charge above, the compact
-texture band and the gauge--Higgs response below have different carriers
-and actions. Their separate identities do not establish this common map.
+Particle identification requires preparation, controlled charge transport
+and complete energy, momentum and interaction readouts on one dynamics.
+The memory charge, compact texture and gauge--Higgs response have distinct
+carriers and actions; their separate constructions do not establish that map.
 
 \input{tex_fragments/INTERACTING_DEFECT_RESPONSE.tex}
 
