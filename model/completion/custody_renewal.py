@@ -102,7 +102,7 @@ BASELINE_NAVIGATION = {'claim_count': 389,
          'classifications are unchanged.'}
 NAVIGATION_SOURCE = 'tracking/premise_register.json'
 CURRENT_CLAIM_COUNT = 392
-CURRENT_COVERAGE_SHA256 = '99bfa21a39222d236dc5d03226f44bd25a74f2d1f7627fe0f082acd088ef349a'
+CURRENT_COVERAGE_SHA256 = 'b81199c04a965d470b7b7a27a68f06403c1641d7b8316d91c48c353502c33962'
 
 
 def require(condition, message):
