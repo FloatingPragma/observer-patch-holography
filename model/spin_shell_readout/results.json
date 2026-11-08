@@ -1,0 +1,115 @@
+{
+  "complete_clock_example": {
+    "clock_qubits": 17,
+    "clock_size": 131072,
+    "complete_clock_tail_upper": "2063625/536870912",
+    "controlled_binary_duration_sum_over_tau": 131071,
+    "maximum_clock_time_over_tau": 131071,
+    "turn_margin": "1/1000"
+  },
+  "finite_source_readout": {
+    "additional_native_128_bin_tape_executed": false,
+    "all_8_times_128_joint_bins_retained": true,
+    "all_source_energies_in_one_clock_period": true,
+    "band_weight_strict_lower": "1/5",
+    "center_turn_interval": [
+      "5522247677783814178465475662773657553421638040842380586781246165628544986248016357421875/63086009948468822861299261576671901182697500951335462969615802247422116256454838273714048",
+      "78919439225272440686640863884345155642342310803059035606565885245800018310546875/901573565438334775355848777538435605937517818145433565492208203660408222048169056"
+    ],
+    "character_bits": "111",
+    "character_is_translation_momentum": false,
+    "clock_probability_certificate_uses_no_eigenvector_gap": true,
+    "clock_tail_upper": "737763525277862496000166359800379163260510893153341742316084299805785599013433579448072434102140976899479401703747213383035997047955233482361135904172262643456153945790287631/2016212853870329149228141320546594389061873383693570579972038988385739824810917509778572343975965930848089684927506954248038580014730503098263625361141748726367950439453125000",
+    "complete_clock_size": 128,
+    "finite_gap_interval": [
+      "1.092284677676",
+      "1.092284677698"
+    ],
+    "full256_vector_integer_certificate_rechecked": true,
+    "full_excitation_turn_upper": "23554209290924656400266556173836006381423135894981320512587792567776890971164518267537350766360759735107421875/35715008480556560507060838887759035020601763010481674941507193002580322972819873330745312402300193187098001408",
+    "infinite_ordered_state_identified_with_finite_selected_ground": false,
+    "inner_bins_inclusive": [
+      11,
+      12
+    ],
+    "inner_event_probability_interval": [
+      "0.35114607132",
+      "0.35114607222"
+    ],
+    "original_band_weight_interval": [
+      "0.2142683501",
+      "0.3740692123"
+    ],
+    "outer_bins_inclusive": [
+      7,
+      16
+    ],
+    "outer_event_probability_interval": [
+      "0.36037016382",
+      "0.36037016828"
+    ],
+    "rounded_source_apparatus_error_included_in_spectral_table": false,
+    "sharp_scaling_mass_shell_or_physical_mass_proved": false,
+    "source": "selected open eight-site spin cube, J=1, B=1/4",
+    "source_group": {
+      "complete_spin_states": 256,
+      "dimension": 3,
+      "exact_group_and_source_checks": true,
+      "group_order": 8,
+      "open_cube_labels": "characters of combined coordinate reflections; not low-momentum periodic dispersion",
+      "sites": 8
+    },
+    "source_selected_energy_band": [
+      "4/5",
+      "7/5"
+    ],
+    "source_spectral_cluster_indices": [
+      1,
+      2
+    ],
+    "success_probability_interval": [
+      "0.37406921227",
+      "0.37406921228"
+    ],
+    "tau": "1/2",
+    "turn_margin": "502022516162164925315043242070332504856512549167489144252840560511685907840728759765625/31543004974234411430649630788335950591348750475667731484807901123711058128227419136857024",
+    "turn_width": "1506067548486494775945129726210997514569537647502467432758521681535057723522186279296875/63086009948468822861299261576671901182697500951335462969615802247422116256454838273714048"
+  },
+  "schema": "oph.spin_shell_readout.v1",
+  "scope": {
+    "complete_original_spectral_tube_weight_bounds": true,
+    "finite_source_full_integer_witness_rechecked": true,
+    "fixed_history_convergence_controls_growing_spectrometer": false,
+    "full128bin_native_tape_executed": false,
+    "infinite_ordered_state_preparation_modulus_derived": false,
+    "inherited_native_compiler_owner_replayed": false,
+    "same_selected_finite_spin_state_and_clock": true,
+    "sharp_continuum_mass_shell_or_measured_mass_derived": false,
+    "simultaneous_predeclared_scan_sampling_bound": true,
+    "source_selected_common_relativistic_speed_derived": false,
+    "uniform_positive_shrinking_tube_fraction_proved": false
+  },
+  "source_bindings": {
+    "model/centered_particle_spectrum/certificate.py": "e9684391067c1a3d855fc56572c3929ed3235118fdd7fb59ea1e8e8eb500ee04",
+    "model/native_joint_spin_spectroscopy/README.md": "1e4f0bb6223e2e8f2487db7118a45d6441d89ab03280965a812a5546cce7339a",
+    "model/native_joint_spin_spectroscopy/algebra.py": "2fd9a9266ff9818932c7be0f254f834a04c493cabf84ac2ff85101dd0087adac",
+    "model/native_joint_spin_spectroscopy/spectral.py": "f7907c576e643c8ad5bd5b8c907eac742a8c93db5251b0cc4f771d3fa0905761",
+    "model/native_ordered_ground/README.md": "4703ac848280b9a4aa1fd2ea28f4507d515cae184935997dffe728940785e691",
+    "model/native_ordered_ground/certificate.py": "307fd37c11b4312495700b5c8cd411d2b20001cd1b7765576be21abf2aa8db38",
+    "model/native_ordered_ground/source.py": "e0ca9a40181637bc9263b55ff41dc9b6aa895f723a6d497d182a011b80097dc2",
+    "model/native_ordered_ground/witness.npz": "5df39bfaf63d5af40f80425f74011b367f9d9c5fd8951eb0419ced77da5396b4",
+    "model/native_spin_observer/precision.py": "a58567b65ae57a4ba902121e64b849bc0944d8661f1feb57c2a0a0d60843bd6c",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/spin_packet_readout/README.md": "c09f39d83863185373dcaaa974c33a6e10d82eb4fb17a0171f52c1e8393b701f",
+    "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
+    "model/spin_shell_readout/PROOF.md": "4ab001af4cf69f9dd2b05772fe08e7869f4896020d454359d2b6edfcb843a5ba",
+    "model/spin_shell_readout/README.md": "789b0d654c9c4752d6388180ac186bbbd2c9c58895677efae0e0a185ccdd0a71",
+    "model/spin_shell_readout/__init__.py": "11f31533ea72b0d98a1cc755d77cca68874e007d6bcab41d4d68176d9e538450",
+    "model/spin_shell_readout/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/spin_shell_readout/bounds.py": "79862f7a10b85512f9cf22e5f1dce010968f4bc36feb2c4a4201e9bf061e3eb2",
+    "model/spin_shell_readout/finite.py": "ff2b0a1f7920c73a3c123c5545b01f9d9dfca146be5e78b3520808fe0b9bf252",
+    "model/spin_shell_readout/packet.py": "9483b0d6c5548effde856c1f40ae1bc62d135ad5240e6857c309ff7f80577a74",
+    "model/spin_shell_readout/test_readout.py": "1da3b7309f0b71fc85853ec0281ba283934b5e40ade687543b446c2780a127d3",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}
