@@ -37,6 +37,16 @@ def test_centered_same_ground_interaction_derivative_on_whole_fock_space():
     assert not result['finite_dimer_is_infinite_ground_identification']
 
 
+def test_original_Weyl_action_and_bare_repair_are_directly_local():
+    result=m.original_weyl_bare_repair_controls()
+    assert [row['axis']for row in result['source_cases']]==[0,1,2]
+    assert all(row['charged_second_moment_sum_rule']=='41/8'for row in result['source_cases'])
+    assert result['bare_disjoint_physical_seam']==[1,2]
+    assert result['local_CAR_basis_elements']==16
+    assert not result['repair_Kraus_maps_conjugated']
+    assert not result['hidden_alignment_or_chart_covariance_required']
+
+
 @pytest.mark.parametrize('radius,time,coupling', [(20,F(1,8),1), (80,F(1,2),1), (160,1,1)])
 def test_dyadic_boundary_encloses_inherited_rational_lr(radius,time,coupling):
     inherited = local_boundary_bound(radius, 0, 1, time, coupling)
@@ -93,6 +103,8 @@ def test_interaction_interval_and_quantitative_connected_lower_bound():
 def test_domain_controls_do_not_promote_local_construction_to_particle_assignment():
     result = m.certificate()
     assert result['odd_matter_and_even_spin_share_full_CAR_action']
+    assert result['original_Weyl_bare_repair_local_history_instantiated']
+    assert not result['bare_repairs_identified_under_site_dependent_frame']
     assert result['same_centered_thermodynamic_ground_subsequence']
     assert not result['effective_ground_subsequence_preparation_modulus']
     assert not result['source_selected_capacity_or_repair_duration']

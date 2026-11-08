@@ -89,6 +89,8 @@ def claims():
         'actual_program_equal_capacity_different_coherent_response':True,
         'complete_repair_error_from_full_interacting_defect_budget':True,
         'fixed_coupling_complete_local_interacting_CAR_histories':True,
+        'original_Weyl_action_with_bare_repair_locally_instantiated':True,
+        'bare_repair_equated_across_hidden_spin_frames':False,
         'centered_ground_both_original_charge_weights_one_half':True,
         'volume_independent_positive_original_charged_band_weight':True,
         'source_generated_dimer_composite_clock_checked':True,

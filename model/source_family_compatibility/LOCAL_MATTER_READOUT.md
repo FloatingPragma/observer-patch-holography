@@ -1,6 +1,6 @@
 # Local interacting matter with complete observer records
 
-The full signed Hubbard action supports odd CAR operators, internal spin
+The full Weyl/contact action supports odd CAR operators, internal spin
 and a nonzero interacting local response on one centered ground and clock.
 A uniform global repair schedule approximates its local observer histories
 without sending U/c to infinity. The comparison is for a specified local
@@ -10,20 +10,27 @@ a relativistic continuum.
 ## Source and accessible records
 
 Use the two-flavour full-Fock source and its declared collision-hold repair
-extension, exactly as in `DEFECT_BUDGET.md`. The Hamiltonian is
+extension, exactly as in `DEFECT_BUDGET.md`. The centered Hamiltonian is
 
     K=T+U D_double-(U/2)N,      c>0, U>0,
 
-with signed hopping c/2 per flavour and nearest-neighbor seam. This protocol
-uses the declared signed Hubbard chart and `full_domain` repair in that
-same chart. The onsite frame in `model/field_symmetry` transports the action
-to the supplied Weyl/contact action, including its pi-flux signs. Transporting
-the protocol also conjugates every repair Kraus operator and CAR probe; the
-conjugated repair is not identified with the bare original repair. Onsite
-conjugation preserves the even seam support used below, so the bound holds
-for either consistently transported protocol. Neither the chart choice,
-the signs nor U are selected by this comparison. Centering fixes one clock
-for the state and all probes.
+with the original nearest-neighbor Weyl links `i c sigma_j/2` and bare
+`full_domain` repair in that original basis. Each full-Fock bond is even,
+supported on its seam and has norm c. Each bare repair Kraus operator is
+even and supported on its seam. These are all the action/repair hypotheses
+used by the local-history comparison. In particular, no alignment sector
+or covariance of the repair under hidden spin is required.
+
+A second direct instance uses the signed Hubbard links and `full_domain`
+repair in that chart. The onsite frame in `model/field_symmetry` transports
+the two actions, including the pi-flux signs. Unitary equivalence of the
+whole protocol additionally conjugates every repair Kraus map and CAR probe.
+The bare repairs in the two charts are not identified. Both direct instances
+satisfy the local theorem independently, because onsite conjugation preserves
+the Hamiltonian bond norms and both bare instruments have even seam support.
+Neither the signs nor U are selected by this comparison. Centering fixes
+one clock for the state and all probes. The aligned-hole construction has
+its separate same-chart invariance requirement.
 
 The experiment uses at most k local Stinespring interventions, with every
 outcome retained, on s sites in a cube of radius r. Ordinary source time
@@ -176,6 +183,14 @@ The producer verifies complete dual identity on every local CAR basis
 element for a disjoint repair seam. Its crossing-seam control retains the
 actual CAR sign across an intermediate site; omitting that sign destroys
 the odd-field identity. Every padded coin/raw slot remains.
+
+The original-source control reconstructs the actual centered Weyl action
+on three-site chains along all three spatial axes. It checks the bond
+spectrum and the local charged second-moment operator identity on every
+Fock input. A bare repair on the disjoint physical edge fixes all sixteen
+operators in the observed site's CAR algebra. No spin-frame conjugation
+of that instrument occurs in this control. The corresponding centered
+non-Gaussian derivative is checked as a full operator identity as well.
 
 A second exact control entangles the local up/down alternatives with a
 remote ordinary/collision configuration. Discarding the remote raw record

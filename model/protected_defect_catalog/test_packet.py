@@ -134,7 +134,7 @@ def test_centered_charge_response_has_original_weight_and_local_record_scope(pro
     assert not aligned['interacting_scattering_or_relativistic_mass_proved']
 
 
-@pytest.mark.parametrize('forgery',['global_archive','ground_preparation','physical_mass','original_weight','receipt'])
+@pytest.mark.parametrize('forgery',['global_archive','ground_preparation','physical_mass','original_weight','original_weyl','bare_frame','receipt'])
 def test_centered_owner_scope_mutations_rejected(monkeypatch,forgery):
     original=packet.strict_json.load(packet.ROOT/'model/source_family_compatibility/results.json')
     changed=copy.deepcopy(original)
@@ -143,6 +143,8 @@ def test_centered_owner_scope_mutations_rejected(monkeypatch,forgery):
     elif forgery=='ground_preparation':local['effective_ground_subsequence_preparation_modulus']=True
     elif forgery=='physical_mass':bands['charged_pole_mass_or_Lorentz_covariance_derived']=True
     elif forgery=='original_weight':bands['cubic_readable_parameter_band']['each_original_preparation_weight']='1'
+    elif forgery=='original_weyl':local['original_Weyl_bare_repair_local_history_instantiated']=False
+    elif forgery=='bare_frame':local['bare_repairs_identified_under_site_dependent_frame']=True
     else:bands['cubic_readable_parameter_band']['source_U']='2'
     monkeypatch.setattr(packet.local_matter,'certificate',lambda:local)
     monkeypatch.setattr(packet.charge_bands,'certificate',lambda:bands)

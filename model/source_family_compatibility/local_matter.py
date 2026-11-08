@@ -6,6 +6,8 @@ import sympy as s
 
 from model.defect_field_bridge.full_domain import finite_branches, RAW_SLOTS
 from model.source_family_compatibility.defect_budget import exact_source, rational
+from model.field_symmetry import symmetry
+from model.full_fock_field.field import FieldGeometry
 
 
 def _integer(value, minimum=0):
@@ -192,6 +194,52 @@ def centered_interaction_control():
             'finite_dimer_is_infinite_ground_identification': False}
 
 
+def original_weyl_bare_repair_controls():
+    """Use the literal Weyl action and the unconjugated full-domain instrument."""
+    def exact(matrix, scale=1):
+        return (s.Matrix(matrix.real.toarray().tolist())
+                +s.I*s.Matrix(matrix.imag.toarray().tolist()))/scale
+    identity=s.eye(64);c=s.Rational(3,2);u=s.Integer(4)
+    a0,b0=annihilator(3,0),annihilator(3,1)
+    basis=tuple(left*right for left in(identity,a0,a0.H,a0.H*a0)
+                for right in(identity,b0,b0.H,b0.H*b0))
+    for law in('C','E'):
+        if any(repair_dual(observable,sites=3,seam=(1,2),law=law)!=observable
+               for observable in basis):
+            raise ArithmeticError('bare original repair changed the disjoint local CAR algebra')
+    rows=[]
+    for axis in range(3):
+        sides=tuple(3 if j==axis else 1 for j in range(3))
+        source=symmetry.operators(FieldGeometry(sides,1.5,4.0))
+        clock=exact(source.K,source.scale)
+        for bond in source.bonds:
+            spectrum=exact(bond,source.scale).eigenvals()
+            if spectrum!={-c:4,-c/2:16,s.Integer(0):24,c/2:16,c:4}:
+                raise ArithmeticError('literal Weyl bond norm differs from the local theorem')
+        a,b=annihilator(3,2),annihilator(3,3)
+        eta=b.H*b-identity/2
+        derivative=clock*a.H-a.H*clock
+        second=derivative.H*derivative+derivative*derivative.H
+        expected=(u*u+2*c*c)/4
+        if second!=expected*identity:
+            raise ArithmeticError('original centered Weyl charged second moment differs')
+        anti_derivative=s.I*((clock*a-a*clock)*a.H+a.H*(clock*a-a*clock))
+        if anti_derivative!=-s.I*u*eta:
+            raise ArithmeticError('original Weyl same-site interaction derivative differs')
+        rows.append({'axis':axis,'source_geometry':list(sides),
+                     'full_Fock_dimension':64,'coupling':'3/2','contact':'4',
+                     'literal_H_and_K_reconstructed_by_source':True,
+                     'each_bond_norm':'3/2','probe_site_degree':2,
+                     'charged_second_moment_sum_rule':str(expected),
+                     'centered_interaction_derivative_exact':True})
+    return {'source_cases':rows,'bare_disjoint_physical_seam':[1,2],
+            'observed_site':0,'local_CAR_basis_elements':16,
+            'both_laws_all_coin_raw_slots_retained':True,
+            'repair_Kraus_maps_conjugated':False,
+            'hidden_alignment_or_chart_covariance_required':False,
+            'Hamiltonian_clock_and_attempt_schedule_selected_by_repair':False}
+
+
 def certificate():
     def encode(value):
         if isinstance(value, F): return str(value)
@@ -200,10 +248,13 @@ def certificate():
         return value
     return encode({'finite_locality': finite_locality_controls(),
                    'centered_interaction': centered_interaction_control(),
+                   'original_Weyl_bare_repair_local_instance':original_weyl_bare_repair_controls(),
                    'local_history_plans': [plan_local_history(0, 1, F(1, 8), 1, 2, 8, eta)
                                            for eta in (F(1, 10), F(1, 1000))],
                    'interaction_example': interaction_witness(F(3, 2), 4, F(1, 1000)),
-                   'chart': 'declared signed Hubbard and full_domain instrument; transport both together',
+                   'chart': 'original Weyl action with bare repair, or separately signed Hubbard action with same-chart repair; whole-protocol transport conjugates both',
+                   'original_Weyl_bare_repair_local_history_instantiated':True,
+                   'bare_repairs_identified_under_site_dependent_frame':False,
                    'same_centered_thermodynamic_ground_subsequence': True,
                    'effective_ground_subsequence_preparation_modulus': False,
                    'odd_matter_and_even_spin_share_full_CAR_action': True,

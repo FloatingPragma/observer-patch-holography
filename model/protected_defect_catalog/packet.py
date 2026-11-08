@@ -138,7 +138,7 @@ def rows():
          'evidence':'model/source_family_compatibility/REPAIR_TRAJECTORY.md',
          'same_object_realizations':['model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md']},
         {'id':'centered_full_CAR_charge_response', 'kind':'scoped_interacting_response_family',
-         'source':'fixed-coupling signed Hubbard action with full-domain repair in the same chart; invariant centered full-ground subsequence',
+         'source':'fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance',
          'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair',
          'completeness':'complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive',
          'preparation_readout':'local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors',
@@ -291,10 +291,12 @@ def centered_matter_attachment():
         raise ValueError('centered-matter owning source receipt differs from the replay')
     if (local['same_centered_thermodynamic_ground_subsequence']is not True
             or local['odd_matter_and_even_spin_share_full_CAR_action']is not True
+            or local['original_Weyl_bare_repair_local_history_instantiated']is not True
             or bands['finite_and_infinite_ground_same_original_weight_bound']is not True):
         raise ValueError('centered-matter attachment lacks its common source premise')
     if any(local[name]is not False for name in(
             'effective_ground_subsequence_preparation_modulus','global_raw_archive_equality',
+            'bare_repairs_identified_under_site_dependent_frame',
             'source_selected_capacity_or_repair_duration','relativistic_continuum_or_physical_particle_assignment')):
         raise ValueError('centered-matter attachment promotes its physical or archive scope')
     if bands['charged_pole_mass_or_Lorentz_covariance_derived']is not False:
@@ -309,6 +311,7 @@ def centered_matter_attachment():
             'state':'particle-hole and hidden-spin invariant centered thermodynamic ground subsequence',
             'clock':'its positive centered GNS generator',
             'chart':local['chart'],
+            'original_Weyl_bare_repair_instance':local['original_Weyl_bare_repair_local_instance'],
             'original_local_addition_and_removal_weights':['1/2','1/2'],
             'readable_source_charged_band':band,
             'complete_local_history_examples':local['local_history_plans'],

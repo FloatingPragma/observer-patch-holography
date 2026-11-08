@@ -34,7 +34,9 @@ separate selection premises.
 At fixed couplings, the [local full-source construction](LOCAL_MATTER_READOUT.md)
 retains odd fermion probes and interacting spin observables on one centered
 ground and clock. Complete local records have an explicit repair and boundary
-error; distant raw repair values are inaccessible to that protocol.
+error for the original Weyl action with its bare repair; distant raw repair
+values are inaccessible to that protocol. No alignment-sector invariance
+or frame covariance of that repair is assumed.
 [Original charged energy bands](CHARGED_SPECTRAL_BANDS.md) have positive
 volume-independent weight for both addition and removal. The exact dimer
 also generates its own composite response clock. These are source energies
