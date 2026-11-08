@@ -74,6 +74,48 @@ orthogonal and define bounded R; the same selfadjoint-complement argument
 then defines D intrinsically. The construction supplies no joint
 `eta->0, k->k_*` modulus and does not make atom weights continuous.
 
+## A necessary nodal atom for original ballistic packets
+
+Fix one selected invariant ground at source normalization c=1,U=8, with
+the proper-cubic average and inherited inversion of `NODAL_CHANNELS.md`.
+Use this same reference under the homogeneous scaling c=v/a,U=8v/a,
+where v>0 is fixed. The normalized action, its finite ground projectors
+and the chosen thermodynamic subsequence are then unchanged. In particular
+the source measures nu_k do not depend on a through another state choice.
+
+Let f_a be any unit coefficient packet supported in |k-k_*|<=aK, with
+K fixed and Bloch gluing applied to its components. For a fixed physical
+energy E_max, the combined original addition/removal probability is
+
+    w_a=integral f_a(k)* nu_k([-a E_max/v,a E_max/v]) f_a(k) dk.
+
+For each delta>0 choose a continuous function 0<=chi_delta<=1 equal to
+one on [-delta,delta] and zero outside [-2delta,2delta]. For sufficiently
+small a the energy event is bounded by chi_delta. The every-momentum
+weak continuity proved above, finite matrix dimension, and the nodal
+identity nu_(k_*)=mu I imply
+
+    sup_(|k-k_*|<=aK)
+      ||integral chi_delta d nu_k - mu(chi_delta) I|| -> 0.
+
+Consequently limsup w_a<=mu(chi_delta). Letting delta decrease to zero
+and using bounded convergence gives the exact necessary condition
+
+    limsup_(a->0) w_a <= mu({0})=m0/(16+m0)<=9/17.     (2a)
+
+Here m0 I=R*1_{0}(L_perp)R at the normalized node, by the residue theorem
+below; 0<=m0<=||R||^2<=18 gives the last bound. Packets whose norm-squared
+weight outside the stated neighbourhood tends to zero satisfy the same
+result, since every matrix energy effect lies between zero and I.
+
+If m0=0, every such original ballistic packet loses all weight in bounded
+physical-energy windows. Positive m0 is necessary, but not sufficient,
+for a surviving branch: this argument supplies neither a joint shrinking
+window lower bound nor its dispersion. It requires no convergence rate
+or normalizable momentum eigenvector. It does not apply to arbitrary
+a-dependent choices of the normalized infinite ground without additional
+uniform control. No value of m0 is inferred from finite-frequency memory.
+
 ## Exact nodal residue
 
 On the nodal response fiber `h=C=0`, the actual source decomposition is
