@@ -11,6 +11,30 @@ separate the eight required connections. This page records response and
 mass-operator results within their specified models; none supplies the
 final measured particle-mass ratios.
 
+## A created excitation with a complete energy detector
+
+The [fair native ground experiment](../../model/native_fair_ground_readout/PROOF.md)
+prepares the uniform fixed-total-two ground on the actual 66-state source
+with complete half-diamond error below `1/4000000`. A local occupation
+phase creates exact exchange energy `50/33`. The same source's logarithmic
+energy satisfies `H>=G`; the full preparation, phase and energy-readout
+comparison has mean-score contrast greater than `3/50`. Its 68 source
+words and 3,877,451 pulses retain every failure and final residual with
+zero score. No fitted particle label or renormalized accepted histogram
+enters that inequality.
+
+The [local energy proof](../../model/native_local_energy_clock/PROOF.md)
+derives the uniform binary transfer floor `10/21`, a state-weighted
+local-clock error and exact exchange-energy currents. It also gives the
+unread native repair's energy input `37/840` on the faithful local
+reference and an ideal-reference measured-score increase above `0.034`.
+The detector and preparation errors, local clock error, finite volume
+and physical normalization are separate quantities. A dimensionless
+excitation energy is not a rest mass: stability, physical momentum,
+relativistic dispersion and a common vacuum must be proved for the same
+observable sector. Neither clock comparison identifies a measured
+particle-mass ratio.
+
 ## Positive energy windows and mass identification
 
 The [native spectral-window proof](../../model/native_energy_identification/PROOF.md)

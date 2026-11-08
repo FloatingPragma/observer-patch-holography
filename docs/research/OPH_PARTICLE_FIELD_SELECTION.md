@@ -12,6 +12,38 @@ separate the eight required connections and their proof boundaries. This
 page details action selection and operational measurement premises; its
 finite constructions do not discharge the physical particle identification.
 
+## Exact coherent controls and state-dependent field limits
+
+The [versioned occupation service](../../model/native_coherent_occupation_control/PROOF.md)
+uses the exact source combination `B=(D6+D7-D4-D5)/2`, retaining its
+six-level complement rotation. It preserves number for every admitted
+dyadic angle. Literal binary64 angles in the frozen macro compiler have
+a separately certified leakage counterexample; replacing them by symbolic
+pi would change the word. The versioned service uses the existing declared
+coherent-control directions and explicit addressed quantum load/export.
+It does not derive that access from bare classical repair.
+
+Two rotations at `theta=25/32` and a complete native parity instrument
+give a Bell herald with probability above `0.4999`. The
+[complete CHSH witness](../../model/native_source_chsh/PROOF.md) has score
+above `12/5`, including all aborts and zero slots. The abort flag precedes
+the settings; there is no accepted-branch renormalization. This finite
+controlled experiment does not establish spacelike operational locality.
+Local number-preserving controls and recorded native current branches
+also preserve the stated cell-charge block structure. Logical entanglement
+therefore does not prepare the bare cross-cell coherent reference.
+
+The [local clock theorem](../../model/native_local_energy_clock/PROOF.md)
+controls fixed complete histories in the faithful state `rho=P/Tr(P)`;
+the [pure-ground theorem](../../model/native_fair_ground_readout/PROOF.md)
+controls fixed local words on its Dicke ground. The former has a
+negative-frequency commutator spectrum, while the latter has nonseparating
+local exchange observables. These explicit state constraints prevent
+combining a thermal clock, a separate vacuum and a chosen chiral action
+without a state-preserving experimental comparison. A relativistic field
+limit must derive its surviving local algebra and stress on that same
+comparison, including the controller and all detector outcomes.
+
 ## State and observable selection tests
 
 Complete [charge histories](../../model/native_local_charge_history/PROOF.md)

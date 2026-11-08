@@ -18,9 +18,9 @@ OUTPUT = Path(__file__).with_name('results.json')
 SOURCE_FILES = tuple('model/native_local_energy_clock/'+name for name in (
     '__init__.py','energy.py','packet.py','test_energy.py','test_packet.py',
     'PROOF.md','README.md'))
-# Published at 97633a11f after the full 66-word execution and its independently
-# audited test-only source-pin renewal. A live input check remains mandatory.
-AUDITED_MEASUREMENT_SHA256 = '9427c180220a9c143b8318e567d949d6933f3e1924aac20ce67d91eb55073084'
+# Full 66-word replay established at 97633a11f; audited metadata-only renewals
+# preserve its scientific payload. A live input check remains mandatory.
+AUDITED_MEASUREMENT_SHA256 = '583ffbcbc2642941a698f1e0900b40f5cdef7144cba02e6448b692053a765f18'
 
 
 def canonical(value):

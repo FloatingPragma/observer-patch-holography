@@ -1564,6 +1564,72 @@ differ by $1/168$, so their half trace distance is at least $1/336$.
 Their separate regional-modular and energy-clock properties cannot be
 combined as properties of one state.
 
+\paragraph{A fair ground, local energy and complete readout.}
+For the connected fair binary source put $G=\sum_e(I-S_e)$,
+$P=I-G/(2M)$ and $H=-2M\log P$. A triangle-cover argument gives
+$P\geq\alpha I$, $\alpha=10/21$, uniformly on the growing federation.
+The fixed-number uniform vector $\Omega$ is the unique ground on each
+connected occupation sector. On the sixty-six-state source a declared
+coherent preparation, following eleven native tree attempts, has complete
+half-diamond error below $1/4{,}000{,}000$. A local occupation phase creates
+an excitation with $\langle G\rangle=50/33$ and $H\geq G$.
+The matched preparation, control and complete energy detector use
+sixty-eight words and $3{,}877{,}451$ service pulses. Scoring all failures
+as zero gives an unnormalized mean-score contrast greater than $3/50$;
+the excitation is detected without a successful-branch normalization.
+This is a finite excitation-energy observation, with no stable-particle
+or rest-mass assignment (\path{model/native_fair_ground_readout},
+\cite{ophrepo}).
+
+The same source admits an explicit comparison between its logarithmic
+clock and local exchange dynamics. Write $\tau=I/D$,
+$\rho=P/\operatorname{Tr}P$, $c=\operatorname{Tr}(\tau P)$,
+$\mu=\operatorname{Tr}(\rho G)$ and $a=(1-\mu/(2M))^{-1}$.
+For the weighted Hilbert--Schmidt norm,
+\[
+ \|[H,X]-a[G,X]\|_{2,\rho}\leq
+ \frac{\|[G,X]\|\sqrt{\operatorname{Var}_{\tau}(G)/c}
+       +\tfrac12\|[G,[G,X]]\|}{2M\alpha^2}.
+\]
+Exact occupation moments bound the variance by $O(M)$ on the bounded-degree
+graph. Fixed local observables, times and complete classical intervention
+histories therefore have error $O(M^{-1/2})$. All failures and zero slots
+are retained. This is a state-weighted comparison, not an arbitrary-input
+channel-norm claim. On $A\Omega$, positivity instead gives
+$\|(e^{-itH}-e^{-itG})A\Omega\|
+\leq |t|\|[G,[G,A]]\|/(4M\alpha)$, with a corresponding fixed-word
+bound. A growing ground preparation is an additional premise.
+
+Writing $h_e=I-S_e$ gives antisymmetric local currents
+$J_{e\to f}=i[h_e,h_f]$, supported on adjacent seams, and exact
+conservation of $G$. Native unread repair is a different operation:
+on the faithful sixty-six-state reference it increases the mean $G$ by
+$37/840$. For its unital channel the mean increase in $H$ is at least
+as large. The complete energy instrument resolves a score increase
+greater than $0.034$ for the ideal reference, with separately counted
+preparation error. Source-plus-apparatus conservation requires an
+apparatus-energy observable. None of these graph currents supplies a
+symmetric Lorentz stress tensor
+(\path{model/native_local_energy_clock}, \cite{ophrepo}).
+
+The dilute ground imposes a separate constraint on its observable limit.
+For a bounded number-preserving operator $A$ on $s$ ports,
+\[
+ \operatorname{Var}_{\Omega_{V,q}}(A)
+ \leq4\|A\|^2\left(1-\frac{\binom{V-s}{q}}{\binom Vq}\right)
+ \leq4\|A\|^2\frac{sq}{V}.
+\]
+Thus fixed-support bounded connected correlations vanish when $q/V\to0$,
+uniformly in controlled time. For a fixed sequence of complete local
+instruments on supports $s_j$ whose fine Kraus operators each preserve
+local occupation, the terminal source and
+archive have half trace distance at most
+$\min\{1,2\sum_j\sqrt{s_jq/V}\}$ from the scalar empty-sector protocol.
+The comparison retains every branch. A clock rescaling cannot restore a
+vanishing pole residue. Finite density, growing supports, rescaled fields
+or charged operators require separate limits; this bound does not exclude
+them (\path{model/native_dilute_ground_limit}, \cite{ophrepo}).
+
 \subsection{Controlled transfer state and time}
 \label{sec:native-transfer-control}
 

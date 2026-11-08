@@ -89,13 +89,12 @@ proof shows that the whole class of laws cannot work.
   balance.
 - **Particle candidates and energy readouts.** A specified interacting cube connects
   a prepared ground state, local charge creation and complete detector records.
-  Its spectral lines have certified energies and positive weights. Native repair
-  has an observable isolated-cell mode; exterior dressing changes its response,
-  and the connected comparison threshold decreases with size. Declared coherent
-  services implement a complete finite transfer-energy measurement, joined to
-  a native record-prepared reference with rejection and failures retained.
-  Local records also give exact occupation-current balance. A common relativistic action
-  and identification of physical species and masses require further proofs.
+  On the native fair source, declared coherent services prepare a ground state,
+  create a local excitation and detect its energy with every failure retained.
+  The growing source has controlled local clock comparisons and exact exchange-energy
+  currents. A complete finite correlation experiment exceeds the classical Bell
+  bound under its stated preparation and control premises. A common relativistic
+  action and identification of physical species and masses require further proofs.
   The tested mass branch uses a target-informed lepton law.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf), [construction and scope](model/particle_identification/README.md).
 - **Free fields and the matter side of gravity.** One original action on the

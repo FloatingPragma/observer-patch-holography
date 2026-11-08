@@ -421,6 +421,12 @@ REPLAYS = (
     ("model.native_gravity_identification.certificate", None, "model/native_gravity_identification/results.json"),
     ("model.native_noncentral_reference.packet", None, "model/native_noncentral_reference/results.json"),
     ("model.native_energy_measurement.packet", None, "model/native_energy_measurement/results.json"),
+    ("model.native_local_energy_clock.packet", None, "model/native_local_energy_clock/results.json"),
+    ("model.native_regional_modular_clock.packet", None, "model/native_regional_modular_clock/results.json"),
+    ("model.native_fair_ground_readout.packet", None, "model/native_fair_ground_readout/results.json"),
+    ("model.native_coherent_occupation_control.packet", None, "model/native_coherent_occupation_control/results.json"),
+    ("model.native_source_chsh.packet", None, "model/native_source_chsh/results.json"),
+    ("model.native_dilute_ground_limit.packet", None, "model/native_dilute_ground_limit/results.json"),
 )
 
 

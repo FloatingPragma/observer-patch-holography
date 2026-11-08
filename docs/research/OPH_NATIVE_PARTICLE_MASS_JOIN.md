@@ -12,6 +12,44 @@ give the eight-step common derivation. This page supplies its state, clock
 and mass-operator details. None of its conditional matrix or transition
 ratios is identified with the final measured particle-mass ratios.
 
+## One source, two controlled reference choices
+
+The [fair ground readout](../../model/native_fair_ground_readout/PROOF.md)
+joins native eleven-E readout, a certified coherent ground word, local
+excitation and the complete energy detector on the same 66 configurations.
+Preparation has half-diamond error below `1/4000000`. A local phase creates
+exchange energy `50/33`; the matched full-output score contrast exceeds
+`3/50`. The composition counts 68 words, 3,877,451 pulses and eleven native
+attempts, including all rejected and residual outcomes. This establishes
+a measurable finite excitation without identifying a rest mass.
+
+For a growing graph, `G=sum(I-S_e)` and `H=-2M log(I-G/(2M))` share the
+fixed-number Dicke ground. The [ground clock estimate](../../model/native_fair_ground_readout/PROOF.md)
+bounds fixed local intervention words by `O(M^(-1))`. The distinct
+[faithful-reference comparison](../../model/native_local_energy_clock/PROOF.md)
+uses `rho=P/Tr(P)` and gives `O(M^(-1/2))` for fixed complete classical
+histories. Its limiting local clock multiplier is `1/[1-p(1-p)]`.
+The two norm bounds have different preparation hypotheses; neither is
+an arbitrary-input channel bound. Growing coherent ground preparation
+and the physical density choice require their own constructions.
+
+Exact local exchange currents conserve `G`; native unread repair raises
+its mean by `37/840` on the fair 66-state reference. The associated
+complete `H`-measurement score increase exceeds `0.034` for the ideal
+reference. A certified half-trace preparation error `epsilon` contributes
+an additional `120*epsilon` allowance. The ideal reference's existing
+numerical preparation check does not certify that channel allowance.
+This makes the source/apparatus energy distinction testable; it supplies
+no symmetric Lorentz stress or autonomous physical time conversion.
+
+The [same-reference regional theorem](../../model/native_regional_modular_clock/PROOF.md)
+and its collar estimate attach local modular clocks to `rho`, with
+explicit boundary terms and finite-window errors. The faithful state
+cannot be a nonstatic positive-energy vacuum. The pure ground's local
+exchange algebra is nonseparating if retained unchanged in a limit.
+Consequently a physical particle join must specify the state and scaled
+algebra before identifying its energy spectrum with vacuum excitations.
+
 ## Complete charge and energy observations
 
 The [local charge-history instrument](../../model/native_local_charge_history/PROOF.md)

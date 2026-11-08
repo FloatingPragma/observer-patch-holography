@@ -12,8 +12,9 @@ from . import preparation, reference
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = Path(__file__).with_name('results.json')
-# Exact audited full 66-word replay, with its separately audited test-only SHA renewal.
-MEASUREMENT_RECEIPT_SHA256 = '9427c180220a9c143b8318e567d949d6933f3e1924aac20ce67d91eb55073084'
+# Full 66-word replay established at 97633a11f; audited metadata-only renewals
+# preserve its scientific payload. A live input check remains mandatory.
+MEASUREMENT_RECEIPT_SHA256 = '583ffbcbc2642941a698f1e0900b40f5cdef7144cba02e6448b692053a765f18'
 OWNED_FILES = tuple('model/native_fair_ground_readout/' + name for name in (
     '__init__.py', 'preparation.py', 'reference.py', 'packet.py',
     'test_preparation.py', 'test_reference.py', 'test_packet.py', 'PROOF.md', 'README.md'))
