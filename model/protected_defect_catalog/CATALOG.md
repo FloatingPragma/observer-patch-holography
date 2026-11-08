@@ -179,13 +179,13 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 ## centered full CAR charge response
 
-**Source:** fixed-coupling signed Hubbard action with full-domain repair in the same chart; invariant centered full-ground subsequence.
+**Source:** fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance.
 
 **Classification domain:** complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive.
 
 **Preparation and readout:** local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors.
 
-**Propagation and energy:** same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories.
+**Propagation and energy:** same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder.
 
 **Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
 

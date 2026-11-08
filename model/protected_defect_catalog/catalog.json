@@ -147,12 +147,17 @@
     ],
     "interacting_scattering_or_relativistic_mass_proved": false,
     "native_analyzer": {
-      "admitted_numerical_dilation_bound": "78/49999999961",
       "all_first_failure_slots": 288,
       "coherent_analyzer_service_supplied": true,
-      "complete_probability_operator_residual": 8.29508095194944e-15,
+      "complete_probability_operator_error_interval": [
+        "0",
+        "7800000000000/2499999996100000001521"
+      ],
       "floating_native_execution_is_outward_certificate": false,
-      "full_dilation_operator_error": 4.708647631496485e-15,
+      "full_dilation_operator_error_interval": [
+        "0",
+        "78/49999999961"
+      ],
       "full_source_input_columns": 16,
       "lower_and_upper_one_hole_mode_position_probabilities": [
         [
@@ -165,11 +170,10 @@
         ]
       ],
       "native_pulses": 78,
+      "numerical_admission_passed": true,
       "resources": {
         "identity_phase_pulses": 6,
         "initialization_storage_readout_physical_costs_included": false,
-        "integrated_processor_norm_upper": 107.59954838545042,
-        "maximum_numerical_valid_code_leakage": 2.220446049250313e-16,
         "maximum_work_qubits": 3,
         "native_pulses": 78,
         "pair_code_pulses": 12,
@@ -244,7 +248,7 @@
   "catalogue_is_exhaustive_over_all_OPH_sources_or_defects": false,
   "centered_full_CAR_source_attachment": {
     "catalogue_entry": "centered_full_CAR_charge_response",
-    "chart": "declared signed Hubbard and full_domain instrument; transport both together",
+    "chart": "original Weyl action with bare repair, or separately signed Hubbard action with same-chart repair; whole-protocol transport conjugates both",
     "clock": "its positive centered GNS generator",
     "complete_local_history_examples": [
       {
@@ -285,6 +289,68 @@
     "global_sharp_energy_PVM_implemented_by_local_bound": false,
     "odd_transfer_native_service_derived": false,
     "ordered_spin_state_or_aligned_hole_reference_identity": false,
+    "original_Weyl_bare_repair_instance": {
+      "Hamiltonian_clock_and_attempt_schedule_selected_by_repair": false,
+      "bare_disjoint_physical_seam": [
+        1,
+        2
+      ],
+      "both_laws_all_coin_raw_slots_retained": true,
+      "hidden_alignment_or_chart_covariance_required": false,
+      "local_CAR_basis_elements": 16,
+      "observed_site": 0,
+      "repair_Kraus_maps_conjugated": false,
+      "source_cases": [
+        {
+          "axis": 0,
+          "centered_interaction_derivative_exact": true,
+          "charged_second_moment_sum_rule": "41/8",
+          "contact": "4",
+          "coupling": "3/2",
+          "each_bond_norm": "3/2",
+          "full_Fock_dimension": 64,
+          "literal_H_and_K_reconstructed_by_source": true,
+          "probe_site_degree": 2,
+          "source_geometry": [
+            3,
+            1,
+            1
+          ]
+        },
+        {
+          "axis": 1,
+          "centered_interaction_derivative_exact": true,
+          "charged_second_moment_sum_rule": "41/8",
+          "contact": "4",
+          "coupling": "3/2",
+          "each_bond_norm": "3/2",
+          "full_Fock_dimension": 64,
+          "literal_H_and_K_reconstructed_by_source": true,
+          "probe_site_degree": 2,
+          "source_geometry": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "axis": 2,
+          "centered_interaction_derivative_exact": true,
+          "charged_second_moment_sum_rule": "41/8",
+          "contact": "4",
+          "coupling": "3/2",
+          "each_bond_norm": "3/2",
+          "full_Fock_dimension": 64,
+          "literal_H_and_K_reconstructed_by_source": true,
+          "probe_site_degree": 2,
+          "source_geometry": [
+            1,
+            1,
+            3
+          ]
+        }
+      ]
+    },
     "original_local_addition_and_removal_weights": [
       "1/2",
       "1/2"
@@ -308,6 +374,244 @@
       ],
       "source_U": "1",
       "source_c": "1/8"
+    },
+    "retarded_response_error_is_arbitrary_input_physical_channel_bound": false,
+    "same_ground_composite_CAR_response": {
+      "all_volume_first_composite_equation": true,
+      "all_volume_residual_discarded": false,
+      "canonical_operator_families": 2,
+      "dimer_or_aligned_reference_transferred_to_full_continuum": false,
+      "finite_full_ground_controls": [
+        {
+          "C": [
+            [
+              "0",
+              "0",
+              "-9/4",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-9/4"
+            ],
+            [
+              "-9/4",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-9/4",
+              "0",
+              "0"
+            ]
+          ],
+          "U": "4",
+          "c": "3/2",
+          "dressed_CAR_exact": true,
+          "four_spin_eta_bond_expectations": {
+            "0,1": "-3"
+          },
+          "ground_degeneracy": 1,
+          "ground_density_integer_denominator": 20,
+          "ground_energy": "-9/2",
+          "ground_response_embeddings_orthogonal": true,
+          "mixed_CAR_operators_are_independent": false,
+          "physical_mass": null,
+          "positive_shift_exact_rank": 15,
+          "residual_Gram": [
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "residual_squared_norm_upper": "0",
+          "residual_squared_trace": "0",
+          "sites": 2,
+          "source_particle_species_added": 0,
+          "source_spin_eta_symmetries_exact": true,
+          "whole_Fock_dimension": 16
+        },
+        {
+          "C": [
+            [
+              "0",
+              "0",
+              "-179/115",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-179/115",
+              "0",
+              "0"
+            ],
+            [
+              "-179/115",
+              "0",
+              "0",
+              "0",
+              "-179/115",
+              "0"
+            ],
+            [
+              "0",
+              "-179/115",
+              "0",
+              "0",
+              "0",
+              "-179/115"
+            ],
+            [
+              "0",
+              "0",
+              "-179/115",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-179/115",
+              "0",
+              "0"
+            ]
+          ],
+          "U": "3/7",
+          "c": "2",
+          "dressed_CAR_exact": true,
+          "four_spin_eta_bond_expectations": {
+            "0,1": "-179/115",
+            "1,2": "-179/115"
+          },
+          "ground_degeneracy": 2,
+          "ground_density_integer_denominator": 1380,
+          "ground_energy": "-45/14",
+          "ground_response_embeddings_orthogonal": true,
+          "mixed_CAR_operators_are_independent": false,
+          "physical_mass": null,
+          "positive_shift_exact_rank": 62,
+          "residual_Gram": [
+            [
+              "48804/13225",
+              "0",
+              "0",
+              "0",
+              "-30546/13225",
+              "0"
+            ],
+            [
+              "0",
+              "48804/13225",
+              "0",
+              "0",
+              "0",
+              "-30546/13225"
+            ],
+            [
+              "0",
+              "0",
+              "173508/13225",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "173508/13225",
+              "0",
+              "0"
+            ],
+            [
+              "-30546/13225",
+              "0",
+              "0",
+              "0",
+              "48804/13225",
+              "0"
+            ],
+            [
+              "0",
+              "-30546/13225",
+              "0",
+              "0",
+              "0",
+              "48804/13225"
+            ]
+          ],
+          "residual_squared_norm_upper": "173508/13225",
+          "residual_squared_trace": "542232/13225",
+          "sites": 3,
+          "source_particle_species_added": 0,
+          "source_spin_eta_symmetries_exact": true,
+          "whole_Fock_dimension": 64
+        }
+      ],
+      "independent_CAR_flavours_added": 0,
+      "native_onsite_twist": {
+        "complete_dilation_operator_error_interval": [
+          "0",
+          "2/9999999999"
+        ],
+        "failure_slots": 36,
+        "floating_diagnostic_is_outward_certificate": false,
+        "full_input_columns": 4,
+        "native_pulses": 10,
+        "numerical_admission_passed": true,
+        "odd_transfer_or_reservoir_service_derived": false,
+        "resources": {
+          "identity_phase_pulses": 1,
+          "initialization_storage_readout_physical_costs_included": false,
+          "maximum_work_qubits": 2,
+          "native_pulses": 10,
+          "pair_code_pulses": 2,
+          "proper_code_export_events": 10,
+          "proper_code_load_events": 10,
+          "proper_code_service_events": 20,
+          "service_failure_outcomes_retained": true,
+          "single_code_pulses": 8,
+          "valid_code_failure_probability_in_exact_arithmetic": 0,
+          "zero_angle_requests": 0
+        }
+      },
+      "physical_species_added": 0,
+      "three_site_response_error": {
+        "compressed_resolvent_norm_error_upper": "173508/13225",
+        "lorentzian_spectral_density_error_times_pi_upper": "173508/13225",
+        "original_response_vector_error_squared_upper": "390393/10617241600",
+        "source_success_probability_division": false
+      }
     },
     "same_state_interaction_witness": {
       "centered_ground_occupation": "1/2",
@@ -923,13 +1227,14 @@
       "kind": "scoped_interacting_response_family",
       "physical_mass": null,
       "preparation_readout": "local addition and removal each have original weight 1/2; odd transfers require a declared fermionic reference service; local finite-time response scores retain all local outcomes and finite errors",
-      "propagation_energy": "same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories",
+      "propagation_energy": "same positive centered ground clock; both charges have a volume-independent positive original weight in an explicit finite-energy band; a nonzero connected four-point witness proves interacting local histories; source composite operators give a measured response block and a controlled spectral remainder",
       "protected_object": "odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair",
       "same_object_realizations": [
-        "model/source_family_compatibility/LOCAL_MATTER_READOUT.md"
+        "model/source_family_compatibility/LOCAL_MATTER_READOUT.md",
+        "model/source_family_compatibility/COMPOSITE_CAR.md"
       ],
       "same_source_relativistic_particle_attachment_proved": false,
-      "source": "fixed-coupling signed Hubbard action with full-domain repair in the same chart; invariant centered full-ground subsequence",
+      "source": "fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance",
       "topology": "source U1 charge grading, without an assigned winding invariant or Standard Model charge"
     }
   ],
@@ -2037,12 +2342,12 @@
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
     "model/protected_defect_catalog/mechanism.py": "cdfff939f72ebe3ffc5fcd7a4e3cca58374e790a9412bf58061e9dd6b2b40478",
-    "model/protected_defect_catalog/packet.py": "5fd04d76c12c1fe72752f6b8abada8cc1539d593dff1a4e51cf5bc7d4c0bef3b",
+    "model/protected_defect_catalog/packet.py": "5ae3b8c35201e1189221c2b55bea866e648eade537e4873dfb2dfe9fee9171d3",
     "model/protected_defect_catalog/pauli.py": "20b0c6af00fc4e214e75e08845094da8513cbe0bf35db89c744bfe46a29b6a53",
     "model/protected_defect_catalog/test_charge.py": "8a3b7ba6f51f6025aca2eb273b8bae08dfa3d780dc57412e1eab4a29c400ec2e",
     "model/protected_defect_catalog/test_field.py": "abf03cfdec765d17a1ee7471173f18867cfcf78eaa78cac5a90ed1be5c8aa602",
     "model/protected_defect_catalog/test_mechanism.py": "7d5db4331edaced485bdf10524f3d77ef21436ebd52a4b8abc15004af7a9759b",
-    "model/protected_defect_catalog/test_packet.py": "044b7bfd4576d1ae0700610b78906acacba155a0d67cae9f642891f8952a0fd7",
+    "model/protected_defect_catalog/test_packet.py": "a1b278dd345870547b3c812d3ac5658310bbe2fdb72ced63cb7b9e332102e4fa",
     "model/protected_defect_catalog/test_pauli.py": "fb1ce88125e8022a0bdd5f28e11f26428cf2b3006b58710bbf42125ba9b516a4",
     "model/protected_particle_readout/__init__.py": "ab534209428d3f76755fe46750df47fdcdfbcc88542acb03602059438a95adce",
     "model/protected_particle_readout/execute.py": "e5cb9ccf2ed7f19f01d330656ecd633c9e0958945767d75e08b5eda5539a5fc7",
@@ -2097,30 +2402,33 @@
     "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
     "model/source_family_compatibility/ALIGNED_HOLE_DISPERSION.md": "8bba83841d52ad0ecc03d8a6ba9331b2d2d7fef4ace44dedc7cec467dce41da5",
     "model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md": "135bdd9318be4670512190bb356e1e0b176ce10e4d86363ea4b0f6af2dac5477",
+    "model/source_family_compatibility/COMPOSITE_CAR.md": "2c364a570224b0f54d0944903a005facc33d026395a37e20af6542f01bae8ada",
     "model/source_family_compatibility/DEFECT_BUDGET.md": "e250a7ca4fc94b76f8da34b298c92b22e099c27d9f7a77761c12902592520c23",
-    "model/source_family_compatibility/LOCAL_MATTER_READOUT.md": "d5cc9321c1abbe33fae299ecfa15af1d7195decd19e1fec9b10bd3875178c64a",
+    "model/source_family_compatibility/LOCAL_MATTER_READOUT.md": "f75965f77281fd46c4e195dfad6c99356fba6c605dd115efecf72081eadac96e",
     "model/source_family_compatibility/PROOF.md": "d90854378288c8dff532da487774bc843f393cba2d501246ab57e6241f8d90d6",
-    "model/source_family_compatibility/README.md": "7cb91bec54425c6f791a5c7a391d932688a7755e099382d3322ff1228ae41d63",
+    "model/source_family_compatibility/README.md": "1d64b8adc9003bdd9a46508d51e45f77e57ca74cd568616713f1dcf571642aa9",
     "model/source_family_compatibility/REPAIR_TRAJECTORY.md": "fb1f62c74eda428210fadbd042ec144c77b5380ac50442111982a2d56499b3bb",
     "model/source_family_compatibility/__init__.py": "2d2b50e3aa3b28a139cebb1ca2f8dd8aafa41a41c44a0d37b195ae9512679ffb",
     "model/source_family_compatibility/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/source_family_compatibility/algebra.py": "44b75e0431714c308ddea11b8267b4e42fe571cf97a58b49dc7d47fd3b50d553",
     "model/source_family_compatibility/bounds.py": "99c872882dab0b178c30863b45da4221a397b556d81f1c83926a41d90a4d05c6",
     "model/source_family_compatibility/charge_bands.py": "149d68567b336517f1c7b1e3b7b385ad33051bbfcc8f3ef111612034e1c8511b",
+    "model/source_family_compatibility/composite.py": "34ba6c49b18c9fb7d51f02dabdb2d0ccb6421818cb69cb1592c99bc9fd0bf3ee",
     "model/source_family_compatibility/defect_budget.py": "dbb98199685db7f39b822fe9b251a9f1b36614eec65ada9be160df3fae24b4ff",
-    "model/source_family_compatibility/hole_dispersion.py": "326ecba4a0a4efd9128f45cb6660562f90e392981e34447856bfc95269a65a75",
+    "model/source_family_compatibility/hole_dispersion.py": "f2802e96014b8cbbdc78994e141c44d36b06e88f2c5592661a52ad526d1c8ef6",
     "model/source_family_compatibility/hole_records.py": "e9226e3ba7b04142af808b1745552fd0fdb74d246ec83e86ae9f83ad60120019",
-    "model/source_family_compatibility/local_matter.py": "155f5b535f7cedd015a217d6451a16a43a8cb9d7d982de60336da82b5933a2c2",
-    "model/source_family_compatibility/packet.py": "ca51a4e9d3465e8c24b07148d1cfba8a090ada90ab7d761992bffbb8fb733175",
+    "model/source_family_compatibility/local_matter.py": "02afbeb2cb3ecd00a6276188475562e6ca0d2594251986139222c065cfc887e9",
+    "model/source_family_compatibility/packet.py": "c5b580d17449d43299f90c5167cc7953bd35d30ae972750992c92ec080a8c956",
     "model/source_family_compatibility/program_selection.py": "2ccdd7d1ac7b86ad70426102cb35434881fe670910d6234bfd8a70cb24552e2e",
-    "model/source_family_compatibility/results.json": "13abd96075fb488319a3509bce394e6b3a0e5d4690fef7dd763a93e5eb7d1fad",
+    "model/source_family_compatibility/results.json": "e91837d2fae288ebba26fda8fe9313a9a32e44e8f169cbc4e69adc5391436baf",
     "model/source_family_compatibility/rotations.py": "a1c77d93b5bb95cc32b8878dfc65308f60c31e9031abb61d9ecb0a8253da854e",
     "model/source_family_compatibility/test_charge_bands.py": "a77a95cb673124d4e3ad62c403428dcd3c774dc6385df19647a09ff100d6a7ab",
-    "model/source_family_compatibility/test_compatibility.py": "fac1da6834b127b62e0bf5d7cc3772c29666665ebc57e0997580ab1ecd105eeb",
+    "model/source_family_compatibility/test_compatibility.py": "fe478f8bff9944c622c3cf67fc93199410f58a3d3d39166da0593f172c0887ae",
+    "model/source_family_compatibility/test_composite.py": "7ffd128d8ffe5cee602562615690cfa64a8398629ad7ef0d887fdd65d9bdd18b",
     "model/source_family_compatibility/test_defect_budget.py": "fb07ecd3281f29320612fba48b325ac82ed7a2e65b8892ff2a2b524577e0ba16",
-    "model/source_family_compatibility/test_hole_dispersion.py": "4be6a32ee849be3136ddb89720420ddbd39ed788c5d3e7fe9ebb26e869a807e6",
+    "model/source_family_compatibility/test_hole_dispersion.py": "7007eaabb56c48c89e58d4db00cde888e47b068be7da37d8a6fa2c13453c7a66",
     "model/source_family_compatibility/test_hole_records.py": "c8879aa6085bf1bf51014d132c6108dd27160d79e50d86d679b85062b0477d50",
-    "model/source_family_compatibility/test_local_matter.py": "cd01d387d80182103f0998a4c0dd98133c498a681eeaa6e337701c8e4d4f61f7",
+    "model/source_family_compatibility/test_local_matter.py": "230ee9353e5e24663d44049f40aae5162d9d56cf8de3575b5ddfbb54255b18de",
     "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
     "model/spin_canonical_energy/__init__.py": "8570d911006ff29d1febaab74e1aa1ff3400ab2859f318f6f381ff4f5d980e3c",
     "model/spin_canonical_energy/__main__.py": "ff708e8788656de2cddcfc4b66d9c81f7781d03955cf267e76ae1e572fbc669a",

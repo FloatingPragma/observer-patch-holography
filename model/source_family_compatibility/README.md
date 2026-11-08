@@ -42,6 +42,12 @@ volume-independent weight for both addition and removal. The exact dimer
 also generates its own composite response clock. These are source energies
 and interacting local responses, without a relativistic particle assignment.
 
+[Composite fermion operators](COMPOSITE_CAR.md) are constructed from the same
+occupation fields. Their second response block is a measured bond correlation,
+with a controlled spectral remainder. The dimer closes exactly; a full
+three-site ground has a nonzero remainder. These operators add no independent
+source flavours or physical species.
+
 The separate [aligned-hole sector](ALIGNED_HOLE_DISPERSION.md) supplies an
 exact vacancy-position detector, magnetic translation momentum and a
 controlled free nonrelativistic continuum. Its reference gap and kinetic

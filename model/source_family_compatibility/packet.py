@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion
+from . import algebra,bounds,rotations,hole_records,program_selection,defect_budget,local_matter,charge_bands,hole_dispersion,composite
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).parent
@@ -68,7 +68,8 @@ def bindings():
     paths.update(ROOT/name for name in matter.source_bindings())
     paths.update((HERE/'README.md',HERE/'PROOF.md',HERE/'REPAIR_TRAJECTORY.md',
                   HERE/'DEFECT_BUDGET.md',HERE/'LOCAL_MATTER_READOUT.md',
-                  HERE/'CHARGED_SPECTRAL_BANDS.md',HERE/'ALIGNED_HOLE_DISPERSION.md'))
+                  HERE/'CHARGED_SPECTRAL_BANDS.md',HERE/'ALIGNED_HOLE_DISPERSION.md',
+                  HERE/'COMPOSITE_CAR.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -94,6 +95,9 @@ def claims():
         'centered_ground_both_original_charge_weights_one_half':True,
         'volume_independent_positive_original_charged_band_weight':True,
         'source_generated_dimer_composite_clock_checked':True,
+        'full_ground_source_composite_CAR_and_spectral_residual_constructed':True,
+        'canonical_composite_family_appends_independent_source_flavours':False,
+        'retarded_response_error_is_arbitrary_input_physical_channel_bound':False,
         'aligned_hole_source_position_translation_and_nonrelativistic_limit':True,
         'local_readout_equality_includes_remote_raw_archive':False,
         'full_infinite_sharp_energy_PVM_implemented_by_local_history_bound':False,
@@ -134,6 +138,7 @@ def build():
         'full_interacting_defect_budget':defect_budget.certificate(),
         'local_interacting_matter_history':local_matter.certificate(),
         'centered_original_charged_bands':charge_bands.certificate(),
+        'source_generated_composite_CAR_response':serialize(composite.certificate()),
         'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,

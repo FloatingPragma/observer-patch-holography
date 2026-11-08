@@ -132,6 +132,11 @@ def test_centered_charge_response_has_original_weight_and_local_record_scope(pro
     assert aligned['catalogue_entry']=='one_hole_spin_readout'
     assert aligned['all_hole_numbers_have_exact_exterior_power_dynamics']
     assert not aligned['interacting_scattering_or_relativistic_mass_proved']
+    composite=attached['same_ground_composite_CAR_response']
+    assert composite['canonical_operator_families']==2
+    assert composite['independent_CAR_flavours_added']==0
+    assert not composite['all_volume_residual_discarded']
+    assert not attached['retarded_response_error_is_arbitrary_input_physical_channel_bound']
 
 
 @pytest.mark.parametrize('forgery',['global_archive','ground_preparation','physical_mass','original_weight','original_weyl','bare_frame','receipt'])

@@ -105,11 +105,17 @@ def test_full_ground_local_records_and_aligned_reference_are_separate(result,mon
     assert charged['actual_dimer']['actual_composite_clock']=='B=-3h'
     assert not aligned['full_interacting_ground_reference_selected']
     assert not aligned['physical_particle_labels'] and not aligned['physical_masses']
-    for proof in ('LOCAL_MATTER_READOUT.md','CHARGED_SPECTRAL_BANDS.md','ALIGNED_HOLE_DISPERSION.md'):
+    composite=result['source_generated_composite_CAR_response']
+    assert composite['independent_CAR_flavours_added']==0
+    assert not composite['all_volume_residual_discarded']
+    assert composite['finite_full_ground_controls'][0]['residual_squared_trace']=='0'
+    assert F(composite['finite_full_ground_controls'][1]['residual_squared_trace'])>0
+    for proof in ('LOCAL_MATTER_READOUT.md','CHARGED_SPECTRAL_BANDS.md','ALIGNED_HOLE_DISPERSION.md','COMPOSITE_CAR.md'):
         assert 'model/source_family_compatibility/'+proof in result['source_bindings']
     monkeypatch.setattr(packet,'build',lambda:result)
     for name,key in (('local_interacting_matter_history','global_raw_archive_equality'),
                      ('centered_original_charged_bands','charged_pole_mass_or_Lorentz_covariance_derived'),
+                     ('source_generated_composite_CAR_response','all_volume_residual_discarded'),
                      ('aligned_hole_position_dispersion_and_continuum','full_interacting_ground_reference_selected')):
         changed=copy.deepcopy(result);changed[name][key]=True
         with pytest.raises(ValueError):packet.validate(changed)
