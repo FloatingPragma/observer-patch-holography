@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Derive Lambda_QCD from the source strong coupling by dimensional transmutation.
+"""Compute conditional Lambda_QCD from the inherited D10 strong coupling.
 
-The strict source-audit branch emits the strong coupling
-``alpha_3(M_Z_run) = 0.11833586196478191`` through the same slope stack that
-produces the electroweak chart.  Four-loop MS-bar running plus standard
+The declared D10 branch supplies
+``alpha_3(M_Z_run) = 0.11833586196478191`` through its slope stack and
+electroweak chart. Its source-to-QCD action and matching are not certified.
+Four-loop MS-bar running plus standard
 decoupling then determines the QCD scale ``Lambda_MSbar^(nf)`` with no
 hadronic input.  This is the perturbative half of every light-hadron mass:
 ``m_h/E_star = (m_h/Lambda) * (Lambda/E_star)``, where the first factor is
 nonperturbative and lives outside this lane.
 
 Quark threshold locations enter only logarithmically; they are declared
-external scheme inputs and are swept over wide brackets so the output is an
-interval.  The four-loop machinery is validated against the published world
+external scheme inputs. Four corners and the central point give a numerical
+sensitivity range, without a certified enclosure of the threshold rectangle
+or a bound on numerical integration and perturbative truncation errors.
+The four-loop machinery is validated against the published world
 values as a code certification block; that comparison never enters the source
 rows.  No measured hadron mass is read.
 """
@@ -31,7 +34,7 @@ DEFAULT_OUT = (
     ROOT / "particles" / "runs" / "qcd" / "lambda_qcd_source_transmutation.json"
 )
 
-# Source inputs (strict source-audit branch, shared with the D10/D11 lanes).
+# Inherited conditional inputs, shared with the D10/D11 lanes.
 ALPHA_3_MZ = 0.11833586196478191
 MU_Z_OVER_E = 7.501767385088419e-18
 E_STAR_DISPLAY_GEV = 1.2208901289579269e19  # clock candidate; checksum status
@@ -84,8 +87,10 @@ def decouple_down(alpha_nf: float, nl: int) -> float:
     """Match alpha_s^(nf) to alpha_s^(nl=nf-1) at mu = m_q(m_q)."""
 
     a = alpha_nf / math.pi
-    c2 = -11.0 / 72.0
-    c3 = -564731.0 / 124416.0 + 82043.0 * ZETA3 / 27648.0 + 2633.0 * nl / 31104.0
+    # PDG Eq. 9.4 writes the inverse, low -> high flavor relation.  The
+    # high -> low relation at the running heavy mass has positive c2.
+    c2 = 11.0 / 72.0
+    c3 = 564731.0 / 124416.0 - 82043.0 * ZETA3 / 27648.0 - 2633.0 * nl / 31104.0
     return alpha_nf * (1.0 + c2 * a * a + c3 * a**3)
 
 
@@ -102,7 +107,10 @@ def lambda_msbar(alpha_s: float, mu: float, nf: int) -> float:
 
     def integrand(x: float) -> float:
         big_b = b0 + b1 * x + b2 * x * x + b3 * x**3
-        return -1.0 / (x * x * big_b) + 1.0 / (b0 * x * x) - b1 / (b0 * b0 * x)
+        # Exact algebra removes the cancellation of the x^-2 and x^-1
+        # terms and extends the integrand continuously to x=0.
+        numerator = b0*b2-b1*b1 + (b0*b3-b1*b2)*x - b1*b3*x*x
+        return numerator / (b0*b0*big_b)
 
     tail, _ = quad(integrand, 0.0, a, limit=200)
     t = 1.0 / (b0 * a) + (b1 / (b0 * b0)) * math.log(b0 * a) + tail
@@ -191,7 +199,7 @@ def build_artifact() -> dict[str, Any]:
             "alpha_3_mz_run": ALPHA_3_MZ,
             "mz_run_gev_display": MZ_RUN_GEV,
             "provenance": (
-                "strict source-audit branch slope stack; shared basis with "
+                "inherited conditional D10 slope stack; shared basis with "
                 "wzh_residual_elimination_boundary.json"
             ),
         },
@@ -201,14 +209,28 @@ def build_artifact() -> dict[str, Any]:
             "brackets": {"mb": MB_BRACKET, "mc": MC_BRACKET},
             "ancestry_note": (
                 "threshold locations are declared external quark scheme "
-                "masses; sensitivity is logarithmic and covered by the "
-                "bracket sweep"
+                "masses; the reported range covers four sampled corners "
+                "and the central point, without an interior enclosure proof"
             ),
         },
         "loop_order": "four_loop_beta_with_three_loop_decoupling",
+        "threshold_matching_direction": "high_to_low_flavor_at_running_heavy_mass",
+        "threshold_matching_convention": {
+            "alpha_low_over_alpha_high": "1 + (11/72)*(alpha_high/pi)^2 + c3*(alpha_high/pi)^3",
+            "c3": "564731/124416 - 82043*zeta(3)/27648 - 2633*n_light/31104",
+            "reference": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf",
+        },
         "central": central,
         "lambda3_interval_gev": lam3_interval,
         "lambda5_interval_gev": lam5_interval,
+        "range_scope": {
+            "legacy_interval_fields": "sampled_threshold_corner_ranges",
+            "threshold_points_evaluated": "four_corners_plus_central",
+            "full_threshold_rectangle_enclosed": False,
+            "numerical_integration_error_bound": None,
+            "perturbative_truncation_error_bound": None,
+            "source_to_QCD_matching_error_bound": None,
+        },
         "over_E_star": {
             "lambda3": central["lambda3_gev"] / E_STAR_DISPLAY_GEV,
             "lambda5": central["lambda5_gev"] / E_STAR_DISPLAY_GEV,
@@ -221,8 +243,9 @@ def build_artifact() -> dict[str, Any]:
         "checks": checks,
         "checks_pass": all(bool(v) for v in checks.values()),
         "claim_boundary": (
-            "Lambda is the perturbative transmutation scale of the source "
-            "coupling. Hadron masses additionally require the nonperturbative "
+            "Lambda is the conditional perturbative transmutation scale of "
+            "the inherited D10 coupling. Source color-action selection and "
+            "renormalization matching are not certified. Hadron masses additionally require the nonperturbative "
             "ratio m_h/Lambda, which this lane does not supply."
         ),
     }

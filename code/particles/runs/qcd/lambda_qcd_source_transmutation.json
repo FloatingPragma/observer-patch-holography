@@ -2,11 +2,11 @@
   "artifact": "oph_lambda_qcd_source_transmutation",
   "central": {
     "alpha_s_mb_5f": 0.22619773334833324,
-    "alpha_s_mc_3f": 0.38978914219001515,
-    "lambda3_gev": 0.33481516768895897,
-    "lambda3_probe_gev": 0.3348151676887865,
-    "lambda4_gev": 0.2948834062703937,
-    "lambda5_gev": 0.2135192157084192
+    "alpha_s_mc_3f": 0.3943151306666752,
+    "lambda3_gev": 0.3400216627247194,
+    "lambda3_probe_gev": 0.34002166272472084,
+    "lambda4_gev": 0.296674406505422,
+    "lambda5_gev": 0.21351921570840174
   },
   "checks": {
     "extraction_scale_stability": true,
@@ -15,9 +15,9 @@
     "threshold_brackets_swept": true
   },
   "checks_pass": true,
-  "claim_boundary": "Lambda is the perturbative transmutation scale of the source coupling. Hadron masses additionally require the nonperturbative ratio m_h/Lambda, which this lane does not supply.",
+  "claim_boundary": "Lambda is the conditional perturbative transmutation scale of the inherited D10 coupling. Source color-action selection and renormalization matching are not certified. Hadron masses additionally require the nonperturbative ratio m_h/Lambda, which this lane does not supply.",
   "declared_external_inputs": {
-    "ancestry_note": "threshold locations are declared external quark scheme masses; sensitivity is logarithmic and covered by the bracket sweep",
+    "ancestry_note": "threshold locations are declared external quark scheme masses; the reported range covers four sampled corners and the central point, without an interior enclosure proof",
     "brackets": {
       "mb": [
         3.5,
@@ -33,12 +33,12 @@
   },
   "display_note": "GeV values use the unclosed clock candidate; the clock audit classifies that decimal as a calibration checksum.",
   "lambda3_interval_gev": [
-    0.31949328977395597,
-    0.34974968299682957
+    0.325109202884305,
+    0.35465390053474294
   ],
   "lambda5_interval_gev": [
-    0.2135192157084192,
-    0.2135192157084192
+    0.21351921570840174,
+    0.21351921570840174
   ],
   "loop_order": "four_loop_beta_with_three_loop_decoupling",
   "machinery_validation": {
@@ -54,25 +54,39 @@
     "role": "code_certification_only_never_a_source_row",
     "world_chain": {
       "alpha_s_mb_5f": 0.2242363603436645,
-      "alpha_s_mc_3f": 0.38336926440576874,
-      "lambda3_gev": 0.32732445896081835,
-      "lambda3_probe_gev": 0.3273244589608917,
-      "lambda4_gev": 0.28739103244688696,
-      "lambda5_gev": 0.20746408749395537
+      "alpha_s_mc_3f": 0.3876588553748276,
+      "lambda3_gev": 0.33234325297469763,
+      "lambda3_probe_gev": 0.33234325297469897,
+      "lambda4_gev": 0.2891199989995075,
+      "lambda5_gev": 0.20746408749359146
     },
     "world_input_alpha_s_mz": 0.1179
   },
   "over_E_star": {
-    "lambda3": 2.742385737648118e-20,
-    "lambda5": 1.7488814975567495e-20
+    "lambda3": 2.7850308120267957e-20,
+    "lambda5": 1.7488814975566066e-20
   },
   "promotion_allowed": false,
+  "range_scope": {
+    "full_threshold_rectangle_enclosed": false,
+    "legacy_interval_fields": "sampled_threshold_corner_ranges",
+    "numerical_integration_error_bound": null,
+    "perturbative_truncation_error_bound": null,
+    "source_to_QCD_matching_error_bound": null,
+    "threshold_points_evaluated": "four_corners_plus_central"
+  },
   "row_class": "conditional_on_P_and_declared_threshold_inputs",
   "schema_version": 1,
   "source_input": {
     "alpha_3_mz_run": 0.11833586196478191,
     "mz_run_gev_display": 91.58833750192969,
-    "provenance": "strict source-audit branch slope stack; shared basis with wzh_residual_elimination_boundary.json"
+    "provenance": "inherited conditional D10 slope stack; shared basis with wzh_residual_elimination_boundary.json"
   },
-  "status": "perturbative_transmutation_from_source_coupling"
+  "status": "perturbative_transmutation_from_source_coupling",
+  "threshold_matching_convention": {
+    "alpha_low_over_alpha_high": "1 + (11/72)*(alpha_high/pi)^2 + c3*(alpha_high/pi)^3",
+    "c3": "564731/124416 - 82043*zeta(3)/27648 - 2633*n_light/31104",
+    "reference": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf"
+  },
+  "threshold_matching_direction": "high_to_low_flavor_at_running_heavy_mass"
 }
