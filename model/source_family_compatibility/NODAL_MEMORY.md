@@ -4,7 +4,7 @@ The centered cubic full-CAR ground has a strictly positive composite-response
 remainder near every zero of its kinetic symbol. A local operator inequality
 and a source variational state supply the lower bound. At `U/c=8`, the bound
 is uniform in the invariant thermodynamic reference and in a fixed momentum
-neighbourhood. It also gives a positive dissipative memory at every nonzero
+neighbourhood. It also gives a positive dissipative memory at every positive
 imaginary frequency. It supplies neither a zero-frequency atom nor a
 particle mass.
 
@@ -147,3 +147,72 @@ Its bounded scores for the local operators retain all outcomes. A local
 state or native-service half-trace error is an additional measured-score
 error; it is not absorbed by replacing the source ground or dropping
 records.
+
+## A complete source-force preparation with uniform original weight
+
+The local operator `Y_xs=[b_xs,T]` has known source coefficients and needs
+no ground-correlation input. It is odd, carries the same fermion-number
+charge as b, and transforms in the same hidden-spin representation. It
+is not assigned independent CAR generators or an additional particle label.
+For a coefficient packet f containing both spin components define
+`Y(f)=sum_(x,s) conjugate(f_xs)Y_xs`.
+
+Each local column has norm at most `7c`, as used in (6). Disjoint radius-one
+supports anticommute, so its anticommutator Gram has range two. Each row
+has at most `2 V_3(2)=50` entries, including both flavours, and each entry
+has operator norm at most `2(7c)^2`. Applying the scalar row bound in
+every source vector gives the all-input operator inequality
+
+    {Y(f),Y(f)*} <=4900c^2 ||f||_2^2 I.                (8)
+
+This also shows that finite partial sums converge in operator norm for
+every l2 packet. It uses the full occupation algebra, rather than only an
+expectation in the ground.
+
+For `||f||_2=1` use the three-record instrument
+
+    K_-=Y(f)/(100c), K_+=Y(f)*/(100c),
+    K_0=sqrt(I-K_-*K_--K_+*K_+).                      (9)
+
+The complementary effect is at least `51I/100`; all three records are
+retained. On the actual invariant ground the combined original charge
+success is
+
+    p_++p_-=<f,G f>/(10000c^2)
+       >=9/625000  if Fourier support(f) lies in S<=3/250.  (10)
+
+Equation (10) uses `G=C^2+R*R>=R*R` and (5). The probability is uniform
+in c and in the normalized packet. Its two charge components need not
+have equal weights for an arbitrary smearing. The lower bound concerns
+their sum, without conditioning on either charge. The created response
+contains a nonzero component outside the first two cyclic response
+levels; an orthogonal projection onto that response component is not
+asserted to be a native measurement.
+
+There is an explicit finite-support approximation of (9). If g is a
+truncation of f, then `||g||_2<=1` and (8) gives
+`||K_-(f)-K_-(g)||<=7||f-g||_2/10`, with the same bound for K_+.
+Both complement squares are at least `51I/100`. The square-root Sylvester
+bound gives complement norm error at most twice that charged-Kraus error.
+Consequently the complete Stinespring isometry satisfies
+
+    ||V_f-V_g|| <=(7/4)||f-g||_2.                      (11)
+
+This is an all-input, arbitrary-reference bound, unlike a claim about an
+arbitrary coherent input to the retarded response columns. For a
+computable l2 packet with a known tail bound, (11) specifies a terminating
+finite spatial cutoff. The finite operator Y(g) is an explicit odd CAR
+polynomial in the source coordinates. Its three-outcome isometry can be
+compiled by the declared finite coherent and fermion-transfer/reference
+services, with their complete failures retained. The construction does
+not obtain those services from unread repair, and it does not execute a
+large momentum-packet tape. It does not need the unknown coefficient
+kappa as a compilation input.
+
+A prepared-state half-trace error, the bound in (11) and a complete native
+service error add to the probability in (10). The finite-source example
+reconstructs the full dimer action and verifies all three effects and
+both original charge probabilities with exact rational arithmetic. That
+control has no momentum assignment. The uniform source-force success
+does not localize its energy into a shrinking physical window; energy
+filtering must retain and bound its own original success weight.

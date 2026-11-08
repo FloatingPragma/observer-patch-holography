@@ -94,6 +94,44 @@ def default_budget(c=F(1,8),eta=F(1,8)):
             'zero_frequency_residue_inferred':False,'continuum_particle_mass':None}
 
 
+def force_preparation_budget(tail_norm_upper=F(0),state_error=F(0),service_error=F(0)):
+    """Complete odd force preparation and all-input spatial-cutoff allowance."""
+    tail,state,service=(rational(x)for x in(tail_norm_upper,state_error,service_error))
+    cutoff=F(7,4)*tail
+    floor=F(9,625000)
+    return {'two_flavour_full_CAR_anticommutator_bound_over_c_squared':F(4900),
+            'force_Kraus_normalization_over_c':F(100),
+            'complement_effect_lower':F(51,100),'complete_record_count':3,
+            'ideal_original_combined_charge_probability_lower':floor,
+            'spatial_cutoff_complete_isometry_error':cutoff,
+            'original_event_probability_lower_after_all_errors':max(F(0),floor-cutoff-state-service),
+            'arbitrary_source_reference_cutoff_bound':True,
+            'equal_individual_smeared_charge_weights_assumed':False,
+            'ground_correlator_needed_to_compile_force':False,
+            'physical_energy_window_probability_proved':False,
+            'large_native_packet_tape_executed':False}
+
+
+def force_source_control():
+    """Exact complete three-effect force instrument on the full source dimer."""
+    from . import composite
+    source=composite.source((2,1,1),F(3,2),F(4))
+    num,den,_=composite.ground(source,F(-9,2))
+    rho=s.Matrix(num)/den;h=s.Matrix(source['H'])/source['scale']
+    t=h-s.diag(*h.diagonal());b=s.Matrix(source['b'][0]);y=b*t-t*b
+    scale=100*s.Rational(source['c'].numerator,source['c'].denominator)
+    minus=y.H*y/scale**2;plus=y*y.H/scale**2;complement=s.eye(16)-minus-plus
+    if not (complement-s.Rational(51,100)*s.eye(16)).is_positive_semidefinite:
+        raise ArithmeticError('actual source force complement is not retained')
+    if minus+plus+complement!=s.eye(16):raise ArithmeticError('source force instrument is incomplete')
+    probabilities=[s.simplify(s.trace(rho*op))for op in(minus,plus,complement)]
+    if any(x<0 for x in probabilities)or sum(probabilities)!=1 or probabilities[0]!=probabilities[1]:
+        raise ArithmeticError('actual force probabilities or source symmetry differ')
+    return {'c':source['c'],'U':source['u'],'full_Fock_dimension':16,
+            'original_minus_plus_complement_probabilities':tuple(F(int(x.p),int(x.q))for x in probabilities),
+            'all_input_effect_sum_identity':True,'finite_control_has_momentum_assignment':False}
+
+
 def certificate():
     if uv_tail.ball(4)!=129:raise ArithmeticError('source locality ball differs')
     star=star_algebra()
@@ -103,6 +141,8 @@ def certificate():
     return {'same_centered_full_CAR_source':True,'full_star_operator_audit':star,
             'local_qstar_score_plan':momentum.score_plan(observables['qstar']),
             'default_source_result':default_budget(),
+            'complete_source_force_preparation':force_preparation_budget(),
+            'full_dimer_force_instrument':force_source_control(),
             'local_derivative_support_radius':2,'Gram_range_ball_sites':129,
             'exact_positive_memory_for_nonzero_imaginary_frequency':True,
             'ground_marginal_or_native_services_implicitly_supplied':False,

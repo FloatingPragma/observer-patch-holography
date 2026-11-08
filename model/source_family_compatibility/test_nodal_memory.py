@@ -97,3 +97,39 @@ def test_fixed_default_is_scale_covariant_and_complete():
     assert row['physical_species_identified']==[]
     assert not row['source_ground_replaced_by_dimer_trial']
     assert not row['ground_marginal_or_native_services_implicitly_supplied']
+
+
+def test_actual_complete_force_preparation_and_original_weights():
+    row=n.force_source_control();prob=row['original_minus_plus_complement_probabilities']
+    assert len(prob)==3 and sum(prob)==1 and prob[0]==prob[1]>0
+    assert row['all_input_effect_sum_identity']
+    assert not row['finite_control_has_momentum_assignment']
+    budget=n.force_preparation_budget(F(1,10**7),F(1,10**7),F(1,10**7))
+    assert budget['original_event_probability_lower_after_all_errors']>F(7,500000)
+    assert budget['complement_effect_lower']==F(51,100)
+    assert budget['ideal_original_combined_charge_probability_lower']==F(9,625000)
+    assert not budget['equal_individual_smeared_charge_weights_assumed']
+    assert not budget['ground_correlator_needed_to_compile_force']
+
+
+def test_force_preparation_counts_both_source_flavours_and_all_overlapping_sites():
+    from model.source_family_compatibility import uv_tail
+    assert 2*uv_tail.ball(2)==50
+    assert 2*uv_tail.ball(2)*2*7**2==4900
+    assert F(4900,100**2)==F(49,100)
+    assert F(18,125)/100**2==F(9,625000)
+    assert 6*F(7,10)**2<F(7,4)**2
+
+
+def test_force_cutoff_bound_uses_complete_isometries_on_reference_inputs():
+    rng=np.random.default_rng(91)
+    x=rng.normal(size=(4,4))+1j*rng.normal(size=(4,4));x*=.2/np.linalg.norm(x,2)
+    y=x+1e-3*(rng.normal(size=(4,4))+1j*rng.normal(size=(4,4)))
+    def dilate(k):
+        comp=np.eye(4)-k.conj().T@k-k@k.conj().T
+        vals,vecs=np.linalg.eigh(comp);assert min(vals)>.51
+        root=(vecs*np.sqrt(vals))@vecs.conj().T
+        return np.vstack((k,k.conj().T,root))
+    v,w=dilate(x),dilate(y)
+    assert np.linalg.norm(v-w,2)<=np.sqrt(6)*np.linalg.norm(x-y,2)
+    reference=np.eye(3);assert np.allclose(np.kron(v,reference).conj().T@np.kron(v,reference),np.eye(12))
