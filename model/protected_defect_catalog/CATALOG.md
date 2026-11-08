@@ -184,9 +184,9 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Classification domain:** complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive.
 
-**Preparation and readout:** local addition and removal each have original weight 1/2; a complete local time instrument recovers their original energy measures with explicit boundary, marginal and alias errors; odd transfer and coherent clock services are declared.
+**Preparation and readout:** local addition and removal each have original weight 1/2; complete local phase and Lorentzian instruments retain all charge, time and complement records with boundary, marginal and service errors; one pressure diagnostic certifies a local score when all invariant grounds have a strict margin.
 
-**Propagation and energy:** same positive centered ground clock, interacting local histories and positive original charged bands; the default cube has positive composite memory on every original mode; on the explicitly cubic-averaged ground, three local correlations determine the magnetic-momentum second block and residual Gram; complete source energy windows retain both charges and all clock records, with ultraviolet alias bounds; the energy-dipole current and spectral-weight constraints govern the physical continuation.
+**Propagation and energy:** same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; no shrinking physical-energy window is supplied.
 
 **Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
 

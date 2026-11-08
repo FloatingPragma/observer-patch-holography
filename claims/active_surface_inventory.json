@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1289,
+  "surface_count": 1293,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4621,6 +4621,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/NODAL_CHANNELS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/NODAL_MEMORY.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4637,6 +4642,16 @@
     },
     {
       "path": "model/source_family_compatibility/REPAIR_TRAJECTORY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/SPECTRAL_RESIDUE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4822,6 +4837,11 @@
     },
     {
       "path": "model/spin_joint_field_limit/CLOCK_COMPARISON.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
