@@ -921,7 +921,10 @@ multisite marginal convergence with the required accuracy is unproved.
 
 The decisive spectral estimates differ between the two prepared source
 families. For the default centered CAR family, write `K=c K(1,8)` and
-take genuine momentum packets near `k_b+a p`, with `c=v/a`. A positive
+take genuine momentum packets near `k_*+a p`, with `c=v/a`, where `k_*`
+is a zero of the actual magnetic symbol `h(k)=sum_j cos(k_j) Gamma_j`.
+The original Weyl-chart node labels require the corresponding transport
+of the probes and Bloch convention. A positive
 uniform lower bound on the original Lorentzian score
 `q_a=-eta_a Im<f_a,G_00(i eta_a)f_a>`, `eta_a` proportional to a,
 would establish retained finite physical-energy weight: for fixed M,
