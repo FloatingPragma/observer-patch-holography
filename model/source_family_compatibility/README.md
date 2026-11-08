@@ -125,6 +125,6 @@ bounded spectral score with explicit time, boundary, marginal and service
 errors. A single local pressure perturbation certifies the score uniformly
 over invariant ground states when a strict margin holds. The fixed-scale
 instance has a proved terminating search; its large program was not run.
-The executed full dimer retains all 66 records. Neither this access theorem
+The exact full-dimer calculation retains all 66 records. Neither this access theorem
 nor fixed-frequency momentum continuity supplies a shrinking-energy window
 or a preparation modulus for the selected infinite ground.

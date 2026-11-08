@@ -167,7 +167,7 @@ def inversion_source_checks():
 
 
 def lorentzian_score(alpha, eta, memory_real, memory_dissipation):
-    """Exact nodal score from supplied actual scalar memory, not its selection."""
+    """Proper-group comparison score; the selected inversion reference has a=0."""
     alpha, eta, a, b = map(F, (alpha, eta, memory_real, memory_dissipation))
     if alpha <= 0 or eta <= 0 or b < 0:
         raise ValueError('positive alpha/eta and nonnegative dissipation required')
