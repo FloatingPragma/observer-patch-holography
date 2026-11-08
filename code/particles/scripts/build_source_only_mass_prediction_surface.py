@@ -588,7 +588,7 @@ def _hadron_rows(lambda_qcd: dict, nucleon: dict) -> dict[str, Any]:
         "family": "hadrons",
         "rows": [
             {
-                "lane": "Lambda_QCD by dimensional transmutation of the source coupling",
+                "lane": "Lambda_QCD from the inherited conditional coupling",
                 "tier": "T2 (conditional on declared threshold inputs)",
                 "explanation": (
                     "The inherited conditional D10 coupling gives a "

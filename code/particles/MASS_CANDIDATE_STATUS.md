@@ -192,7 +192,7 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
 
 ## hadrons
 
-- Lane: Lambda_QCD by dimensional transmutation of the source coupling
+- Lane: Lambda_QCD from the inherited conditional coupling
   - Tier: T2 (conditional on declared threshold inputs)
   - explanation: The inherited conditional D10 coupling gives a perturbative QCD scale. Source color-action selection and renormalization matching are not certified. The displayed range covers sampled threshold corners, without a full uncertainty enclosure.
   - lambda3_GeV_display: 0.3400216627247194
