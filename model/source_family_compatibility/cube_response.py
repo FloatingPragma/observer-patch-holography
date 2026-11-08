@@ -7,7 +7,6 @@ space; no aligned-spin reference or fitted dispersion is substituted.
 from fractions import Fraction as F
 from functools import lru_cache
 from math import isqrt
-from copy import deepcopy
 
 import numpy as np
 from scipy import sparse
@@ -22,6 +21,16 @@ DIMENSION = 1 << 16
 MODES = 16
 SCALE = 16
 INTMAX = int(np.iinfo(np.int64).max)
+
+
+def _detached(value):
+    """Copy rational slots as well as every mutable source container."""
+    if isinstance(value,F):return F(value.numerator,value.denominator)
+    if isinstance(value,np.ndarray)or sparse.issparse(value):return value.copy()
+    if isinstance(value,dict):return {key:_detached(item)for key,item in value.items()}
+    if isinstance(value,tuple):return tuple(_detached(item)for item in value)
+    if isinstance(value,list):return [_detached(item)for item in value]
+    return value
 
 
 def _norm2(vector):
@@ -126,7 +135,7 @@ def _ground_data():
 def certified_ground():
     """Detached exact reference data for source response and spectral owners."""
     data = _ground_data()
-    return deepcopy(data)
+    return _detached(data)
 
 
 @lru_cache(maxsize=1)
@@ -280,7 +289,7 @@ def certificate():
         C.append(tuple(tuple(sorted(F(int(x),16)*q for q in interval)) if x
                        else (F(),F())for x in row))
     lo,hi=data['residual_spectrum_interval']
-    return {'source':'original-default signed Hubbard chart of the complete Weyl/contact cube',
+    return _detached({'source':'original-default signed Hubbard chart of the complete Weyl/contact cube',
             'sides':[2,2,2],'c':F(1,8),'U':F(1),'centered_clock':'K=H-N/2',
             'full_occupation_dimension':DIMENSION,'balanced_ground_basis_dimension':4900,
             'original_retarded_modes':MODES,'source_sites':8,'source_bonds':12,
@@ -308,4 +317,4 @@ def certificate():
             'retarded_compression_is_arbitrary_reference_physical_channel':False,
             'extra_independent_CAR_flavours':0,'physical_species_added':0,
             'physical_mass':None,'nonzero_momentum_pole_identified':False,
-            'full_ground_continuum_limit_identified':False}
+            'full_ground_continuum_limit_identified':False})

@@ -140,6 +140,24 @@ def test_reference_arrays_are_detached(data):
     assert fresh['full_gap_premise']['full_ground_multiplicity']==1
 
 
+def test_reference_and_receipt_rational_slots_are_detached(data):
+    ground=cube.certified_ground()
+    expected=F(ground['infidelity_upper'].numerator,ground['infidelity_upper'].denominator)
+    energy=F(ground['ground_energy_interval'][0].numerator,
+             ground['ground_energy_interval'][0].denominator)
+    ground['infidelity_upper']._numerator=0
+    ground['ground_energy_interval'][0]._numerator=0
+    fresh=cube.certified_ground()
+    assert fresh['infidelity_upper']==expected>0
+    assert fresh['ground_energy_interval'][0]==energy<0
+    result=cube.certificate()
+    result['residual_squared_operator_interval'][0]._numerator=999
+    result['C_operator_error_upper']._numerator=999
+    again=cube.certificate()
+    assert again['residual_squared_operator_interval'][0]==F(3,80)
+    assert again['C_operator_error_upper']==F(3,5120)
+
+
 def test_exact_sqrt_and_integer_domain_controls():
     assert cube.upper_sqrt(F(9,16),100)==F(3,4)
     assert cube.upper_sqrt(F(2),100)**2>=2
